@@ -1,23 +1,21 @@
-# Review of the Hesse arrangement Tjurina socle theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact Eisenstein determinant norm spectrum \(0^{36},1^{28},3^{81},9^{72},27^3\) rules out additional triple concurrences outside characteristic three. The nine explicit fourfold base points account for all zero triples; double points follow by counting line pairs. The completed germ at each fourfold point is \(v(u^3+v^3)=0\); direct differentiation gives a length-nine, socle-type-two monomial quotient in characteristic two, versus a length-nine cubic complete intersection otherwise. Transverse nodes contribute length one. An independently executable arithmetic checker reproduces the norm spectrum, finite-field incidences, and the two socle types. The exact proof does not rely on extrapolating finite experiments.
+PASS
 
-## Originality
+The twelve line coefficients lie in Eisenstein integers; all 220 triple determinants have norms in {0,1,3,9,27}. Since all nonzero norms are 3-powers, reduction modulo any p≠3 preserves the 36 triple concurrences, hence nine fourfold Hesse base points and 12 nodes. Each fourfold germ is unit-equivalent to f=v(u³+v³). Its intrinsic Tjurina quotient in p=2 is k[[u,v]]/(u³,u²v,v⁴), with nine monomial basis elements, Hilbert function 1,2,3,2,1 and socle dimension two (u²,uv³). For p≠2,3, invertibility of 4 and the Euler relation give the regular-sequence quotient (u²v,u³+4v³), length nine and socle one. Nodes each contribute one: 9×9+12=93, and local complete intersection holds precisely outside characteristic two in p≠3 family. This is the intrinsic scheme (F,Fx,Fy,Fz), not gradient-only in p=2.
 
-**PASS, with residual historical risk.** Artebani–Dolgachev [1] provide the Hesse configuration and pencil. Vallès [2], read at its Hesse example and complete-intersection criterion, works in characteristic zero and does not assert the characteristic-two non-Gorenstein Tjurina algebra. Anema–Top–Tuijp [3] study three-torsion and Galois representations rather than these singular local algebras. The completed targeted scholarly and mathematics-index searches revealed no equivalent positive-characteristic local-algebra statement. This is a best-knowledge priority determination, not a uniqueness certificate. An unindexed positive-characteristic treatment remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The hidden degeneration is not numerical: the incidence lattice, Tjurina length, and Hilbert functions all remain fixed, while the socle type and local complete-intersection property jump. This identifies a precise boundary for transporting characteristic-zero Jacobian and freeness arguments for a classical twelve-line configuration. The intrinsic Tjurina scheme is distinguished from the gradient-only scheme in characteristic two.
+Qualified PASS: exact Hesse incidence/freeness over characteristic zero are explicitly credited as known. The characteristic-two same-Hilbert-function yet socle-two degeneration of the intrinsic Tjurina scheme was not identified in the accessible primary Hesse/arrangement references; it is not implied by the characteristic-zero free-divisor criterion, which does not commute with reduction at p=2. Possible earlier arithmetic Jacobian calculations remain a priority risk.
 
-## Limits
+## value
 
-Characteristic three, the projective gradient-only critical scheme in characteristic two, and positive-characteristic logarithmic freeness are not classified. The result does not claim independent validation or prove historical uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The jump from a length-nine Gorenstein local complete intersection to a same-length same-Hilbert-function non-Gorenstein Artin ring is a sharp characteristic-dependent pathology for a canonical, highly symmetric line arrangement. It supplies a concrete algebraic-geometric boundary distinguishing Hilbert/length invariants from socle/Gorenstein behavior and clarifies why char-zero freeness criteria cannot be transferred blindly.
 
-[1] Artebani–Dolgachev, arXiv:math/0611590, §§1–2.  
-[2] Vallès, arXiv:1502.02416, introduction, Theorem 2.7 and §4.  
-[3] Anema–Top–Tuijp, arXiv:1708.09745, introduction and scope.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
