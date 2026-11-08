@@ -1,0 +1,9 @@
+# Mathematical review
+
+**Correctness — PASS.** For fixed \(a\ge3\) and \(K\ge a\), the Chinese remainder theorem provides a positive witness because \(Kb>aP_a(K)\). Every representation of it forces \(y\equiv-1\pmod a\), so \(2\le y\le K\) and every prime divisor of \(y\) divides the constructed witness but not \(a\). This forces that prime to divide \(x\). The prime number theorem gives \(P_a(\lfloor(1-\varepsilon)\log b\rfloor)=o(b)\) and therefore the stated liminf.
+
+**Originality — PASS, qualified.** Ding–Wang–Zhang (arXiv:2509.08599v1) prove the same object has a lower bound \(ab\) and an upper bound \(O(ab(\log ab)^2)\), without stating a logarithmic lower bound at fixed \(a\). Jaffe (arXiv:2610.17267v1) poses and studies the primitive-multiplier Frobenius problem and proves finiteness; Shimizu (Zenodo 10.5281/zenodo.23480212) gives a fixed factor-four bound, based partly on finite prime-cover CRT arguments. Neither retrieved stated result implies a logarithmically diverging bound for every fixed \(a\ge3\). The original papers' indexed abstracts, Jaffe's introductory mathematical sections, Ding–Wang–Zhang's detailed theorem synopsis, and the follow-up's detailed abstract and construction description were checked; the follow-up full PDF remained unavailable, so an equivalent unindexed argument is a priority risk. Searches of mathematical literature and semantic research records revealed no matching asymptotic result, without proving global uniqueness.
+
+**Mathematical value — PASS.** This is a sharp *qualitative* transition between the established linear cases \(a=1,2\) and the general fixed-parameter regime \(a\ge3\), replacing the published constant lower bounds by a logarithmically unbounded one. It directly addresses the size and growth phenomena motivating the recent Farey/primitive-Frobenius study. The exact order of growth and leading constant remain unknown.
+
+Self-review: passed. Independent audit: not yet performed.
