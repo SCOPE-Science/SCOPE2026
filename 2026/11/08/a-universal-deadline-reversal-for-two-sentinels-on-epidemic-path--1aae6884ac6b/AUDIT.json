@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The exact gamma-tail decomposition follows from independent exponential edge clocks on the two unique paths. For any n>=4, an alternative has greater SI-cut size and strictly better first derivative at t=0. Endpoints yield e^{-2βt} times a polynomial, whereas any other pair leaves an unmonitored endpoint, generating a >=e^{-βt}/n tail; this is uniform over finitely many alternatives and proves unique eventual endpoint optimality. P4 expressions cover all symmetry classes and their difference is e^{-2x}(e^x-1-2x)/4, with one strictly positive zero by convexity. n=3 and n=2 boundaries are checked. Full CTMC vs analytical formula passes 336 comparisons, plus 950 sampled inequalities and symbolic means; numerical evidence is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holme 2017 treats all connected graphs of orders 3 to 7, including P4, but the reported monitored-set objective is expected detection-or-extinction time of SIR configurations, not finite-deadline SI detection probabilities.",
+        "Heavey et al. 2022 formulate MinDelSS as expected detection time, prove approximation hardness and provide a bicriteria algorithm, not a universal exact SI path deadline threshold.",
+        "Holme 2018 explicitly states multi-sentinel placement as future work after investigating one monitored site.",
+        "Bai et al. 2017 temporal network SI surveillance comparison reports early warning lead time; entire article could not be inspected."
+      ],
+      "reasoning": "The fact a prior paper covers the same graph and sensor set under a different objective does not imply domination at every time. In the proved P4 case the two competing placements have equal exact means despite opposite finite-horizon rankings. Thus expectation-based theorems cannot establish the finite-deadline switch, nor does SIR early extinction provide the SI exponential tail. General optimization hardness does not imply an exact minimal graph classification.",
+      "searches": [
+        "Three faces of node importance in network epidemiology exact results for small graphs Holme 2017 full paper DOI 10.1103/PhysRevE.96.062305",
+        "Provable Sensor Sets for Epidemic Detection over Networks with Minimum Delay Heavey Cui Chen Prakash Vullikanti 2022 full PDF DOI 10.1609/aaai.v36i9.21260",
+        "Objective measures for sentinel surveillance in network epidemiology Holme 2018 DOI 10.1103/PhysRevE.98.022313",
+        "Optimizing sentinel surveillance in temporal network epidemiology Bai 2017 DOI 10.1038/s41598-017-03868-6"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1004.4792",
+      "https://doi.org/10.1371/journal.pone.0012948",
+      "https://doi.org/10.1038/s41598-017-03868-6",
+      "https://doi.org/10.1103/PhysRevE.96.062305",
+      "https://doi.org/10.1103/PhysRevE.98.022313",
+      "https://chenannie45.github.io/AAAI22b.pdf",
+      "https://doi.org/10.1609/aaai.v36i9.21260",
+      "Published mathematical-record comparisons of SI path deadline switch and equivalent formulations",
+      "Earlier relevant mathematical findings on path percolation and cycle SI monitoring"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2010 network early-warning study compares friendship nominations and random samples on empirical influenza outbreaks.",
+        "The Holme 2017 and Heavey 2022 target expectations, while our P4 optimum changes by time despite a tied integral.",
+        "Holme 2018 analyzes one sentinel, explicitly discussing multiple-site placement as unsolved in its model.",
+        "A relevant external mathematical-record match a published normalized-path dynamical-sampling result uses a deterministic normalized-path determinant, not any epidemic transmission process."
+      ],
+      "reasoning": "General network monitoring claims, centrality heuristics, and expected-delay optimization do not logically establish the two strict P4 deadline inequalities or the exponential long-horizon dominance for every n. The explicit equal-mean contradiction to inferring per-deadline dominance is a direct implication test. Possible unlocated first-passage/reliability equivalents are explicitly retained as risks.",
+      "searches": [
+        "Christakis Fowler 2010 Social Network Sensors for Early Detection of Contagious Outbreaks full PLOS text",
+        "Holme 2017 full small-graph results",
+        "Holme 2018 full sentinel objective article",
+        "Heavey et al 2022 AAAI MinDelSS full PDF",
+        "On every SI epidemic path with at least four nodes monitoring two sensors, endpoint pair not optimal for early detection deadline but uniquely optimal for late deadline; exact P4 switch e^x=1+2x and two candidate pairs have equal mean time to detection."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The related path sentinel finding compares eventual reachability under bond-percolation with retention probability; it is time-free and may have nonzero eventual failure.",
+        "Related cycle sentinel finding uses first-detection deadlines on cyclic graphs; it does not include paths as a graph family.",
+        "Semantic direct-claim literature search returned unrelated delayed epidemic results and a dynamical-sampling endpoint-optimum record 2026/10/11/a published normalized-path dynamical-sampling result-on-normaliz--d0ca7333cb0f; its deterministic Gramian objective does not compare epidemic first-passage probabilities."
+      ],
+      "reasoning": "An SI epidemic on a path admits an exponential first-passage representation; the same event may be called detection before a deadline, coverage by time, Gamma-path arrival, or a two-terminal survival calculation. Unlike eventual bond-percolation, all seeds eventually reach every observed vertex here, and our claim is the strict change of minimizer with deadline. The cyclic-graph result uses a different topology; neither entails the path classification or the P4 root.",
+      "searches": [
+        "SI epidemic on path with two sentinel monitoring sites optimal by finite detection horizon switch placement endpoints centre",
+        "early epidemic detection finite time two sensor locations on line exact expected incidence exponential transmission",
+        "first passage percolation line path exponential first infection two monitoring vertices threshold e^t = 1+2t",
+        "On every SI epidemic path with at least four nodes monitoring two sensors, endpoint pair not optimal for early detection deadline but uniquely optimal for late deadline; exact P4 switch e^x=1+2x and two candidate pairs have equal mean time to detection.",
+        "related path sentinel percolation findings",
+        "related cycle SI sentinel findings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Holme 2017 exact small-graph computations include P4 topologically but report rational functions of SIR parameters for expected detection-or-extinction time rather than a continuous-time no-recovery finite-horizon survival table.",
+        "Related path result computes eventual percolation sentinel overlap, not deadline-dependent Gamma/Erlang first-passage law."
+      ],
+      "reasoning": "The P4 graph may occur in a published graph census, but none of the inspected tables or displayed theorems contains the survival formulas e^{-x}(1+e^{-x})/4 and e^{-2x}(1+x)/2 or an equivalent change at e^x=1+2x. The small-graph SIR mean data cannot determine our threshold.",
+      "searches": [
+        "Holme 2017 all connected graphs 3 to 7 node sentinel exact tables SIR mean time",
+        "Bai 2017 sentinel placement temporal networks early lead time path graph",
+        "prior path surveillance result under eventual bond-percolation"
+      ]
+    },
+    "rationale": "The inspected primary surveillance articles do not state or imply the claim. Christakis and Fowler (2010) measure empirical early warning, not uniform path two-sensor finite-time optima; Holme (2017) analyzes SIR mean detection/extinction times on small graphs, not an SI deadline distribution; Bai et al. (2017) investigate lead times in temporal empirical networks, with full text access incomplete; Holme (2018) studies single-sensor SIR objectives. Heavey et al. (2022) prove hardness and approximation for minimizing mean detection time, which does not imply the P4 finite-horizon switch when both policies have exactly equal means. No matching claim appears in the inspected research-record search or accessible related mathematical findings. Priority remains provisional because negative searches cannot prove global novelty.",
+    "residual_risks": [
+      "No finite set of literature searches proves priority; classical reliability and continuous-time first-passage optimization literature might contain equivalent results.",
+      "The full original text of Bai et al. 2017 was unavailable during inspection; accessed excerpts do not justify a full-document exclusion.",
+      "Holme 2017 has extensive small-graph coverage under a different objective, increasing the need for independent comparison of any uninspected supplemental derivations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Empirical centrality-oriented early detection, not analytic path P4 or all-path SI finite-deadline location theorem",
+        "evidence": [
+          "Uses monitored friendship network members for early detection and compares lead-time outcomes; no two-point path exact probability analysis."
+        ],
+        "identifier_or_url": "https://doi.org/10.1371/journal.pone.0012948",
+        "material_read": "PLOS full HTML article methods/results and referenced detection comparisons",
+        "method": "Lawful open full HTML article, inspected research content",
+        "title": "Social Network Sensors for Early Detection of Contagious Outbreaks",
+        "trigger": "Earliest public relevant sentinel surveillance reference and anchor"
+      },
+      {
+        "assessment": "Different stochastic SIR objective (mean detection/extinction time), insufficient to imply the finite-horizon SI path crossing",
+        "evidence": [
+          "Contains connected graphs on 3 to 7 nodes but no claim about SI detection before a continuously variable deadline."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.96.062305",
+        "material_read": "Primary PDF abstract, methods and calculation of mean discovery-or-extinction time, small-graph survey results; inspected PDF pages",
+        "method": "Lawful full PDF inspection",
+        "title": "Three faces of node importance in network epidemiology: Exact results for small graphs",
+        "trigger": "Exact calculations on small graphs with multiple sentinels, strongest same-object comparison"
+      },
+      {
+        "assessment": "One-site SIR sentinel comparisons do not cover two monitored path vertices",
+        "evidence": [
+          "Conclusions identify allocation of several sentinels as a separate direction."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.98.022313",
+        "material_read": "Primary PDF model/objective sections and concluding open multi-sentinel question",
+        "method": "Lawful full PDF inspection",
+        "title": "Objective measures for sentinel surveillance in network epidemiology",
+        "trigger": "Precise surveillance objective and sentinel-allocation context"
+      },
+      {
+        "assessment": "Empirical temporal network lead-time evaluations appear distinct, but uninspected parts leave explicit residual risk",
+        "evidence": [
+          "Study emphasizes temporal contact data and lead-time performance; no exact all-P_n classification seen in accessible excerpts."
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/s41598-017-03868-6",
+        "material_read": "Abstract and publisher-indexed excerpts; full PDF/HTML not accessible in inspected session",
+        "method": "Abstract and accessible primary-page excerpts, not full-document inspection",
+        "title": "Optimizing sentinel surveillance in temporal network epidemiology",
+        "trigger": "Uses SI and multiple sentinels; plausible partial overlap"
+      },
+      {
+        "assessment": "Expected detection time and bicriteria optimization on cascades and SIR, rather than finite-deadline SI probability. The equal-mean P4 witness is not determined by its objective.",
+        "evidence": [
+          "Defines MinDelSS as minimization of average detection time Tavg(S), describes approximation hardness and algorithm; no exact path deadline switching theorem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1609/aaai.v36i9.21260",
+        "material_read": "Author-hosted full PDF introduction, formal cascade model, optimization objective and theoretical statements",
+        "method": "Lawful full PDF inspection with visual page checks",
+        "title": "Provable Sensor Sets for Epidemic Detection over Networks with Minimum Delay",
+        "trigger": "Strong all-network optimization and multiple-sentinel coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1aae6884-ac6b-460a-8196-04d6151b96ee",
+  "value": {
+    "rationale": "Early-warning probability by a fixed intervention deadline is directly relevant to time-limited surveillance and can differ fundamentally from mean delay. The result proves a structural impossibility of a uniform two-sensor optimum on every path n>=4, gives a sharp n=4 cutoff and demonstrates equal mean detection times of strategies with reversed finite-deadline ranking. This is a natural complete minimal case plus an all-sizes theorem, not an arbitrary numerical slice. It does not claim clinical efficacy or any general-graph algorithm.",
+    "status": "PASS"
+  }
+}
