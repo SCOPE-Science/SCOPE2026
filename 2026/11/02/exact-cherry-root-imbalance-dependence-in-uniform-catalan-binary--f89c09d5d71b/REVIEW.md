@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Catalan root-split convolution and cherry first-moment generating function give the exact conditional regression. Coefficient extraction of the weighted split moments proves both covariance identities. A bivariate generating function and Catalan asymptotics give the limiting correlation; complete enumeration for \(n\le10\) and rational convolution tests through \(n=100\) independently cross-check finite identities. The asymptotic derivation includes boundary control and does not use finite experiments as an infinite proof.
+## correctness
 
-**Originality — PASS subject to residual historical priority risk.** Fill–Kapur's Catalan additive-functional framework and Chang–Fuchs's Catalan fringe-pattern recurrence are acknowledged as strong neighboring methods. Their inspected results address marginal fringe patterns and broad additive statistics rather than the exact joint root-split/cherry covariance and the \(n^{-3/4}\) decorrelation rate. McKenzie–Steel and Choi et al. study other cherry statistics/models. Search of related published research records identified an exact squared root-imbalance covariance **for random-BST internal path length**, a different law/statistic. Derivability from existing general generating-function machinery is not confused with a previously stated cross-moment; unlocated broader general joint identities remain possible.
+PASS
 
-**Mathematical value — PASS.** Cherry count is a basic local shape statistic; squared root imbalance is a standard global branching-balance measurement. Their dependence is needed to understand whether using both together supplies independent tree-shape information under the Catalan null. The all-size sign and the sharp correlation-decay exponent separate raw covariance strength from standardized dependence, and the conditional split regression diagnoses boundary behavior.
+For n≥2 the uniform rooted ordered full binary tree root split has P(K=i)=C_i C_(n−1−i)/C_n. Cherry enumerator A(z)=z/sqrt(1−4z), Catalan F=1+zF². Extracting coefficients of (zF′)² and 2(zA′)(zF′), including n=2, yields Cov(X,B)=(n−2)4^(n−1)/[4(2n−1)C_n]; Q=(n−1)²−4B gives Cov(X,Q)=−(n−2)4^(n−1)/[(2n−1)C_n]. Bivariate cherry GF G=1+z(G²−1+u) gives Var(X)=n(n−2)(n−1)(n+1)/[2(2n−3)(2n−1)²] and Catalan split bulk asymptotics with endpoint truncation give Var(B)~sqrt(pi)n^(7/2)/32; combining gives Corr(X,Q)~−pi^(1/4)/sqrt(2)n^(−3/4) only for n≥3. Independently exhaustively enumerated plane full binary trees n=2..9, checking X,B,Q moments with exact rational arithmetic; no claim enumeration proves the all-n theorem.
 
-**Limits.** Plane uniform shapes only; no full joint law, no independence claim, and no priority certification. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact mixed root-split/cherry covariance and asymptotic correlation for the uniform plane Catalan law, though the Catalan recurrence and marginal cherry statistics are well known.
+
+## value
+
+PASS
+
+Cherries measure local branching, whereas squared root imbalance measures global top split. An exact sign for all n≥3 together with a decaying normalized correlation quantifies dependence of two standard tree-shape observables and gives the full conditional split regression; this is more than a textbook marginal count or arbitrary tiny case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

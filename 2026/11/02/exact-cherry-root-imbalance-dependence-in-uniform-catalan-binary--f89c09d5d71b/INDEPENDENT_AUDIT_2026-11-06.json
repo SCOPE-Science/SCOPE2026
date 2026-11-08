@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T23:51:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-cherry-root-imbalance-dependence-in-uniform-catalan-binary--f89c09d5d71b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-cherry-root-imbalance-dependence-in-uniform-catalan-binary--f89c09d5d71b/verification/verify.py",
+        "/mnt/data/scope_worker03_20261106T2340Z/independent_checks_output.txt"
+      ],
+      "rationale": "For n≥2 the uniform rooted ordered full binary tree root split has P(K=i)=C_i C_(n−1−i)/C_n. Cherry enumerator A(z)=z/sqrt(1−4z), Catalan F=1+zF². Extracting coefficients of (zF′)² and 2(zA′)(zF′), including n=2, yields Cov(X,B)=(n−2)4^(n−1)/[4(2n−1)C_n]; Q=(n−1)²−4B gives Cov(X,Q)=−(n−2)4^(n−1)/[(2n−1)C_n]. Bivariate cherry GF G=1+z(G²−1+u) gives Var(X)=n(n−2)(n−1)(n+1)/[2(2n−3)(2n−1)²] and Catalan split bulk asymptotics with endpoint truncation give Var(B)~sqrt(pi)n^(7/2)/32; combining gives Corr(X,Q)~−pi^(1/4)/sqrt(2)n^(−3/4) only for n≥3. Independently exhaustively enumerated plane full binary trees n=2..9, checking X,B,Q moments with exact rational arithmetic; no claim enumeration proves the all-n theorem.",
+      "residual_risks": [
+        "n=2 has deterministic X, so the claimed correlation is undefined there; theorem correctly excludes it.",
+        "Bulk split asymptotic needs endpoint control; accepted using uniform C_j=O(4^j/(j+1)^(3/2)) and tail truncation, not finite fitting."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang–Fuchs DOI:10.1007/s00285-009-0275-6 develops pattern means, variances and limit laws for phylogenetic tree models; the specific root-split cross-statistic is not stated in inspected material.",
+          "Fill–Kapur general recursion framework is broad but explicit mixed-root observable must still be computed."
+        ],
+        "reasoning": "General fringe-pattern marginal theorems and the Catalan recursion do not automatically give the exact cross-covariance and its n^(-3/4) normalization. Model conventions (ordered Catalan versus phylogenetic label models) were not conflated.",
+        "searches": [
+          "Chang Fuchs 2009/2010 Limit theorems for patterns in phylogenetic trees",
+          "Fill Kapur 2003 Catalan pattern moments"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-cherry-root-imbalance-dependence-in-uniform-catalan-binary--f89c09d5d71b/RESULT.md",
+        "Resultary semantic search: uniform Catalan binary trees cherries root split imbalance covariance regression squared imbalance",
+        "https://arxiv.org/pdf/math/0306226",
+        "https://web.math.nccu.edu.tw/mfuchs/parameters_pt_rev.pdf",
+        "https://doi.org/10.1016/S0025-5564(99)00060-7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known mean of cherries arises from A=z/t and is used; target mixed moment needs 2(zA′)(zF′).",
+          "Known general recurrences allow deriving new joint statistics but the cited published assertions do not explicitly cover this dependence law."
+        ],
+        "reasoning": "The new proposition is not an immediate logical corollary of merely the published marginal moments; its distinct mixed generating-function coefficient is necessary. Priority risk remains for unlocated joint-moment specialization.",
+        "searches": [
+          "arxiv:math/0306226",
+          "DOI:10.1007/s00285-009-0275-6",
+          "Resultary: random-BST squared-root-imbalance path-length covariance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fill–Kapur 2003 arXiv:math/0306226 studies additive functionals on Catalan trees; no exact cherry/root-split cross-moment identified in its inspected statements.",
+          "Resultary: squared-root imbalance covariance with path length is for a random binary search tree, different model and statistic."
+        ],
+        "reasoning": "A general additive-functional scheme is an ingredient but does not by its stated results assert the conditional cherry regression or covariance with quadratic root imbalance; BST split laws are binomial-like rather than Catalan convolution.",
+        "searches": [
+          "uniform Catalan binary trees cherries root split imbalance covariance regression squared imbalance",
+          "\"cherries\" \"root split\" \"Catalan\" covariance",
+          "Fill Kapur additive functionals Catalan 2003 arXiv math/0306226"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "McKenzie–Steel DOI:10.1016/S0025-5564(99)00060-7 addresses cherry distributions under other phylogenetic models.",
+          "Independent exact enumerations n≤9 confirm but are not claimed new as a prior table."
+        ],
+        "reasoning": "Neither inspected marginal cherry tables nor a BST root-imbalance table tabulate the exact Catalan X×B moment or its asymptotic correlation.",
+        "searches": [
+          "exact Catalan cherries root split joint distribution table",
+          "McKenzie Steel 2000 cherries phylogenetic tree probability"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact mixed root-split/cherry covariance and asymptotic correlation for the uniform plane Catalan law, though the Catalan recurrence and marginal cherry statistics are well known.",
+      "residual_risks": [
+        "Historical general mixed-moment formulas or variant rooting conventions may imply the same statistic under a reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers broad recursive tools, not the same explicitly calculated X/B joint covariance",
+          "evidence": "Catalan additive functional recursion; no identified explicit cherry by root-product moment",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0306226",
+          "material_read": "Definition of Catalan recurrence, additive toll framework, main asymptotic statements and proof machinery",
+          "method": "primary open full-text PDF and rendered first pages",
+          "title": "Limiting Distributions for Additive Functionals on Catalan Trees",
+          "trigger": "same ordered Catalan combinatorial family"
+        },
+        {
+          "assessment": "neighboring general pattern theorems, no identified exact root-split mixed moment",
+          "evidence": "Chang–Fuchs (2010) DOI:10.1007/s00285-009-0275-6",
+          "identifier_or_url": "https://web.math.nccu.edu.tw/mfuchs/parameters_pt_rev.pdf",
+          "material_read": "Model definitions and pattern-count moment/limit results, including source math and relevant examples",
+          "method": "author full manuscript and primary comparison",
+          "title": "Limit theorems for patterns in phylogenetic trees",
+          "trigger": "cherry/pattern statistics"
+        },
+        {
+          "assessment": "marginal model-specific cherry laws, not tested root split product",
+          "evidence": "McKenzie–Steel 2000",
+          "identifier_or_url": "https://doi.org/10.1016/S0025-5564(99)00060-7",
+          "material_read": "Published model description and cherry-law statements in cited abstracts and research comparisons; full original text not read",
+          "method": "bibliographic abstract and model-level comparison, not full-document inspection",
+          "title": "Distributions of cherries for two models of trees",
+          "trigger": "classical cherry-count prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-cherry-root-imbalance-dependence-in-uniform-catalan-binary--f89c09d5d71b/RESULT.md",
+        "https://arxiv.org/pdf/math/0306226",
+        "https://web.math.nccu.edu.tw/mfuchs/parameters_pt_rev.pdf",
+        "https://doi.org/10.1016/S0025-5564(99)00060-7"
+      ],
+      "rationale": "Cherries measure local branching, whereas squared root imbalance measures global top split. An exact sign for all n≥3 together with a decaying normalized correlation quantifies dependence of two standard tree-shape observables and gives the full conditional split regression; this is more than a textbook marginal count or arbitrary tiny case.",
+      "residual_risks": [
+        "No full joint law or independence: vanishing correlation does not imply probabilistic independence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n=2 has deterministic X, so the claimed correlation is undefined there; theorem correctly excludes it.",
+    "Bulk split asymptotic needs endpoint control; accepted using uniform C_j=O(4^j/(j+1)^(3/2)) and tail truncation, not finite fitting.",
+    "Historical general mixed-moment formulas or variant rooting conventions may imply the same statistic under a reduction.",
+    "No full joint law or independence: vanishing correlation does not imply probabilistic independence.",
+    "Scientific best-of-knowledge judgment, not a formal proof certificate or priority attestation; no publication authorization."
+  ],
+  "schema_version": 1
+}
