@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T10:17:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With gamma<=sum mu_i as measures and G<=Fi pointwise, maximum/winner submeasures nu_i satisfy nu_i<=mu_i and sum nu_i=gamma. Thus subset mass p(S)<=int min(g,sum_i in S f_i), a normalized increasing submodular function. The greedy pointwise splitting v_i=min(f_i,[g-sum previous f]_+) gives every Edmonds base vertex, and the full base is their convex hull by the linear support-function argument. For each feasible nu_i, the quantile coupling of residual measures (gamma-nu_i)/(1-p_i) and (mu_i-nu_i)/(1-p_i) ensures all losers <= M; atomless laws and Fi>G in distribution interior force strict <. The uniform example gives rank r_k=k-(d-1)k/d*(k/d)^(1/(d-1)) and d=2 winner range [1/4,3/4]. Independent discrete submodularity, greedy and integer atom allocations confirmed case d=3 on 3 atoms (normalized total 30, r({i})=19); general measure proof is analytic and relies on checked quantile construction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ansari Theorem 1 characterizes existence for G<=Fi and gamma<=sum mu_i.",
+          "Bartl et al analyze general dependence uncertainty/transport bounds but no explicit winner-frequency base polytope was verified."
+        ],
+        "reasoning": "General coupling feasibility or generic duality is insufficient to imply the exact identified rank and all realizations without an extra allocation argument.",
+        "searches": [
+          "https://arxiv.org/html/2610.30642v1",
+          "https://arxiv.org/abs/1709.00641",
+          "couplings with prescribed maximum convex transport duality"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.30642v1",
+        "https://arxiv.org/abs/1709.00641",
+        "Edmonds 1970 submodular functions matroids and certain polyhedra",
+        "Resultary query: couplings prescribed marginals maximum law distribution of attaining argmax winner probabilities polymatroid Hall submeasure"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ansari provides a coupling from a choice of winner-submeasures but does not range over every feasible decomposition to derive sharp subset inequalities on the label frequencies.",
+          "Given explicit r(S), Edmonds yields vertices, but the exact r(S) and all-vertex attainability require the separate quantile construction."
+        ],
+        "reasoning": "The result combines credited tools to obtain a concrete classification not already stated or mathematically automatic from the existing existence statement.",
+        "searches": [
+          "https://arxiv.org/html/2610.30642v1",
+          "Ansari Theorem 1 Section 6",
+          "Edmonds submodular base polyhedron greedy theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent language includes allocation of maximum measure into submeasures nu_i<=mu_i and Hall-type capacity cuts; pointwise cap min(g,sum f_i) is the rank integral."
+        ],
+        "reasoning": "The theorem concerns unconditional winner labels, not only feasibility of the maximum law. Searched measure transport/competing-risk aliases.",
+        "searches": [
+          "couplings prescribed marginals maximum law distribution of attaining argmax winner probabilities polymatroid Hall submeasure",
+          "https://arxiv.org/html/2610.30642v1",
+          "competing risks winner index probability fixed marginals prescribed maximum coupling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearby order-statistics and ordering entries have different constraints (pairwise independence, empirical maxima, exchangeability)."
+        ],
+        "reasoning": "The d=2 values are a special case of the all-dimensional formula; no separate table found covering that fixed-maximum law.",
+        "searches": [
+          "couplings prescribed marginals maximum law distribution of attaining argmax winner probabilities polymatroid Hall submeasure",
+          "uniform marginals fixed independent maximum winner probability 1/4 3/4"
+        ]
+      },
+      "rationale": "Ansari (2026) proves the same necessary/sufficient prescribed-maximum feasibility conditions and quantile construction and is credited. Inspection of complete original arXiv HTML including Theorem 1 and construction Section 6 did not find a characterization of the full attainable winner-label marginal vector or polymatroid rank. Edmonds greedy theorem is general and credited; the new content is identifying and realizing this exact rank for a prescribed maximum coupling. Generic optimal-transport duality remains possible stronger implication but no exact matching theorem established.",
+      "residual_risks": [
+        "An established general allocation-polytope theorem may implicitly yield the same rank, although the specific coupling/winner formulation was not located.",
+        "Strict unique winner requires both atomlessness and strict CDF separation; atomic ties need randomized label."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partially covering feasibility/construction, not the entire winner-index base and strict uniqueness assertion",
+          "evidence": [
+            "Ansari 2026 arxiv:2610.30642v1 Theorem 1, Section 6"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.30642v1",
+          "material_read": "Full accessible arXiv HTML including Theorem 1, hypothesis and Section 6 construction; searched relevant winner and polymatroid terminology",
+          "method": "arXiv full HTML and section-by-section reading",
+          "title": "Couplings with prescribed maxima: A short proof of the quasi-copula characterization",
+          "trigger": "Same marginals/maximum, necessary and sufficient feasibility and quantile couplings"
+        },
+        {
+          "assessment": "Relevant broader transport framework, exact specific label-polytope implication not established",
+          "evidence": [
+            "Bartl, Kupper, Lux, Papapantoleon, SIAM J Control Optim 60 (2022) 410–434"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1709.00641",
+          "material_read": "Abstract and known framework/summary, not fully inspected in this run",
+          "method": "Open preprint abstract/indexed published description",
+          "title": "Marginal and dependence uncertainty: bounds, optimal transport, and sharpness",
+          "trigger": "Potential broader coupling optimization and dependence bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Attaining the maximum is a natural competing-risks/attribution statistic that is not fixed by prescribed marginals and maximum distribution. The exact attainable winner-label polytope, explicit rank function, sharp vertices and unique-winner realization solve a full natural multivariate coupling classification, not merely recompute feasibility.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unique-winner strengthening only for atomless laws and strict interior Fi>G; tie-labeled base valid for atoms.",
+    "Conditions gamma<=sum mu_i are measure domination, not merely CDF inequalities."
+  ],
+  "schema_version": 1
+}

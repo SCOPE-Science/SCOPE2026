@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The hypothesis includes both the CDF stochastic order and the **measure** domination, which is needed to allocate the maximum density pointwise. Necessity follows by summing winner-labeled maximum submeasures; sufficiency follows from the greedy density allocation and the previously established randomized-quantile coupling (Ansari, arXiv:2610.30642v1, Section 6). A direct support-function inequality proves that the greedy allocations exhaust the rank polytope. Under atomlessness and strict interior CDF separation, the residual CDFs are continuous and strictly ordered at the sampled maximum, giving strict separation from every losing coordinate. The uniform rank is evaluated by a one-dimensional integral. Independent code replay checks 894 finite assertions; finite checks alone do not prove the theorem.
+## correctness
 
-## Originality — PASS (qualified)
-Ansari (2026), full text inspected, states feasibility for a prescribed maximum and constructs a coupling from a canonical submeasure allocation; it does not characterize the entire attainable **winner-label vector** or strict-unique-winner probability range. Bartl et al. (2022), preprint inspected, provide generic optimization duality for couplings with a prescribed maximum; their general framework does not state the explicit submodular rank and sharp uniform-winner polytope. The greedy-polymatroid theorem is credited as classical rather than presented as new. Literature screening included fixed-diagonal copula, order-statistic, competing-risks and dependence-constrained transport results. Residual risk: a more general established allocation or transport theorem could imply the exact finite polytope, and a separate published characterization may be unlocated. This self-review is not independent historical-priority validation.
+PASS
 
-## Mathematical value — PASS
-The label attaining an extreme observation is a natural statistic in competing-risks, stress-scenario attribution and dependence modeling. A prescribed maximum distribution does not determine how often each coordinate wins. The theorem gives a complete, constructive classification of all possible winner-label frequencies, with sharp inequalities for every subset and exact extreme allocations. Its nontrivial uniform example shows the same marginals and same maximum law permit a unique coordinate to win anywhere from one quarter to three quarters of the time. This goes beyond a routine recomputation of the feasibility conditions, but it does not provide other conditional or joint statistics.
+With gamma<=sum mu_i as measures and G<=Fi pointwise, maximum/winner submeasures nu_i satisfy nu_i<=mu_i and sum nu_i=gamma. Thus subset mass p(S)<=int min(g,sum_i in S f_i), a normalized increasing submodular function. The greedy pointwise splitting v_i=min(f_i,[g-sum previous f]_+) gives every Edmonds base vertex, and the full base is their convex hull by the linear support-function argument. For each feasible nu_i, the quantile coupling of residual measures (gamma-nu_i)/(1-p_i) and (mu_i-nu_i)/(1-p_i) ensures all losers <= M; atomless laws and Fi>G in distribution interior force strict <. The uniform example gives rank r_k=k-(d-1)k/d*(k/d)^(1/(d-1)) and d=2 winner range [1/4,3/4]. Independent discrete submodularity, greedy and integer atom allocations confirmed case d=3 on 3 atoms (normalized total 30, r({i})=19); general measure proof is analytic and relies on checked quantile construction.
 
-## Closest literature and limits
-Ansari, arXiv:2610.30642v1 (public 2026-10-22); Bartl et al., arXiv:1709.00641v2 (general optimal transport); Edmonds (1970), classical polymatroid greedy theorem. The literal and implied coverage comparisons are detailed in AUDIT.json. With atoms, ties require designating an index; strict unique-winner realization needs the stated extra assumptions. Code verifies finite cases, not general measure-theoretic quantifiers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ansari (2026) proves the same necessary/sufficient prescribed-maximum feasibility conditions and quantile construction and is credited. Inspection of complete original arXiv HTML including Theorem 1 and construction Section 6 did not find a characterization of the full attainable winner-label marginal vector or polymatroid rank. Edmonds greedy theorem is general and credited; the new content is identifying and realizing this exact rank for a prescribed maximum coupling. Generic optimal-transport duality remains possible stronger implication but no exact matching theorem established.
+
+## value
+
+PASS
+
+Attaining the maximum is a natural competing-risks/attribution statistic that is not fixed by prescribed marginals and maximum distribution. The exact attainable winner-label polytope, explicit rank function, sharp vertices and unique-winner realization solve a full natural multivariate coupling classification, not merely recompute feasibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
