@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T14:15:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a one-way n-cycle CTMC with positive r_i, linear budget Σ_{i<n}r_i+q r_n≤B, stationary weights are π_i∝t_i=1/r_i; direct clockwise hitting times give K=e_2(t)/Σt. Fix two ordinary rates a,b with sum s; K as a function of v=1/a+1/b has strictly positive derivative [R²+H+2R/s]/[2(R+v)²], so averaging unequal equally priced rates strictly improves K. This proves unrestricted reduction to k=n−1 identical ordinary rates, not an assumed symmetry. With u=r_n/r_1, K=k(k+q u)((k−1)u+2)/(2B(ku+1)); derivative has sign q[k(k−1)u²+2(k−1)u+2]−k(k+1), increasing on u>0. Below q_c=k(k+1)/2 its unique root is the formula in RESULT.md and the sole global positive minimizer; at or above q_c, strictly increasing K gives unattained inf k²/B as u→0+, r_i→B/k. At q=1 the unique solution is uniform. SymPy differentiation and n=3,4 rational hitting-time checks are independent; 12516 saved tests alone are not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kirkland optimizes discrete-time transition matrices with prescribed graph support; Patel et al. treat reversible discrete chains and weighted targets."
+        ],
+        "reasoning": "Neither framework with its stated constraints directly permits independent continuous-time one-way jump rates with variable invariant distribution under one exceptional price; no covering parameter theorem identified.",
+        "searches": [
+          "Patel–Agharkar–Bullo (2014) weighted Kemeny surveillance",
+          "Kirkland directed stochastic-matrix optimization",
+          "Resultary semantic query: continuous-time Kemeny constant directed cycle rate resource budget one expensive edge"
+        ]
+      },
+      "checked_sources": [
+        "https://www.polyu.edu.hk/ama/profile/sze/PDF/kemeny.pdf",
+        "https://www.hamilton.ie/skirkland/min_kemeny_final.pdf",
+        "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "Resultary semantic query: continuous-time Kemeny constant directed cycle rate resource budget one expensive edge"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard Kemeny identity plus strict rate smoothing and scalar derivative produce q_c and nonattainment, which are not stated in inspected predecessor statements."
+        ],
+        "reasoning": "The known objective and classical spectral representations need a new constrained optimization argument; a broader nonreversible continuous-time design result could still imply the specialization.",
+        "searches": [
+          "Catral et al. 2010",
+          "Kirkland manuscript",
+          "Patel et al. 2014"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stationary-target Kemeny equals e2 of reciprocal holding times divided by their sum; same objective appears in zero-shortcut directed-cycle models."
+        ],
+        "reasoning": "Cyclic rates/holding times, mean stationary target passage, and eigenvalue Kemeny descriptions compared. Objective identity is prior background; price-budget optimum is not a direct equivalence of a published discrete transition-design optimum.",
+        "searches": [
+          "Resultary semantic query: continuous-time Kemeny constant directed cycle rate resource budget one expensive edge",
+          "Catral–Kirkland–Neumann–Sze (2010)",
+          "Kirkland directed fastest expected mixing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The k(k+1)/2 rate-budget price threshold is symbolic for every n, not an indexed finite numerical Kemeny table."
+        ],
+        "reasoning": "No exact optimization table or formula for this resource model was located; a failed search alone is not an originality certificate.",
+        "searches": [
+          "Resultary semantic query: continuous-time Kemeny constant directed cycle rate resource budget one expensive edge",
+          "Catral et al. 2010"
+        ]
+      },
+      "rationale": "PASS, qualified: novelty is the exact unrestricted one-price positive-rate optimizer with sharp existence threshold, not stationary-cycle Kemeny identity or general discrete-time Kemeny optimization.",
+      "residual_risks": [
+        "Specialized nonreversible CTMC Kemeny resource allocation result outside inspected material might subsume threshold.",
+        "Only one exceptional price and strictly positive clockwise rates; no reverse links or fixed stationary law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides Kemeny theory and discrete-time cycle facts, not the one-price continuous-time optimization law.",
+          "evidence": "Catral, Kirkland, Neumann, Sze (2010).",
+          "identifier_or_url": "https://www.polyu.edu.hk/ama/profile/sze/PDF/kemeny.pdf",
+          "material_read": "Primary accessible PDF: opening definitions, directed support and cycle/perturbation statements, selected theorem sections and references; screenshot of title page.",
+          "method": "PDF text and screenshot inspected; compared Markov model and optimization variables.",
+          "title": "The Kemeny Constant for Finite Homogeneous Ergodic Markov Chains",
+          "trigger": "Kemeny hitting-time identity and potential cycle predecessor"
+        },
+        {
+          "assessment": "Optimizes stochastic matrices in discrete time rather than CTMC edge holding rates under price.",
+          "evidence": "S. Kirkland, manuscript.",
+          "identifier_or_url": "https://www.hamilton.ie/skirkland/min_kemeny_final.pdf",
+          "material_read": "Primary manuscript PDF introduction, definitions, directed graph constraint/optimization statements and selected formulas; screenshots pages 1 and 5.",
+          "method": "Read targeted PDF sections and inspected screenshots.",
+          "title": "Fastest Expected Time to Mixing for a Markov Chain on a Directed Graph",
+          "trigger": "Closest graph-constrained optimal Kemeny framework"
+        },
+        {
+          "assessment": "Reversible discrete chain formulations do not directly dominate claimed one-way continuous-time price law.",
+          "evidence": "Patel, Agharkar, Bullo (2014).",
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "Primary PDF abstract/introduction and optimization/constraint formulation, first-page screenshot.",
+          "method": "Read inspected PDF formulation and compare chain symmetry and budget.",
+          "title": "Robotic Surveillance and Markov Chains With Minimal Weighted Kemeny Constant",
+          "trigger": "Potential stronger Kemeny rate design coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stationary-target expected hitting time is a standard stochastic-network quality measure and edge purchase cost a natural resource constraint. A sharp n(n−1)/2 transition distinguishing attained rate allocations from reducible-boundary limiting designs is a useful exact network design result; unrestricted symmetry proof matters.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.polyu.edu.hk/ama/profile/sze/PDF/kemeny.pdf",
+    "https://www.hamilton.ie/skirkland/min_kemeny_final.pdf",
+    "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+    "Resultary semantic query: continuous-time Kemeny constant directed cycle rate resource budget one expensive edge"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Specialized nonreversible CTMC Kemeny resource allocation result outside inspected material might subsume threshold.",
+    "Only one exceptional price and strictly positive clockwise rates; no reverse links or fixed stationary law."
+  ],
+  "residual_risks": [
+    "Specialized nonreversible CTMC Kemeny resource allocation result outside inspected material might subsume threshold.",
+    "Only one exceptional price and strictly positive clockwise rates; no reverse links or fixed stationary law."
+  ],
+  "schema_version": 1
+}
