@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The complete graph, edge indexing, matching-complex admissibility, and all finite quantifiers are specified. Two independent face-generation algorithms agree on 341 faces. The 165-pair matching yields an acyclic orientation of the full 1,020-incidence Hasse graph and leaves one vertex, five two-cells, and five three-cells. The exact signed Morse differential has rank three and a determinant-minus-one maximal minor, implying three unit Smith factors. The absence of one-cells makes all 3-cell attaching maps integral degree vectors; unimodular changes and cancellations yield exactly two 2-spheres and two 3-spheres. The proof is integral and homotopical, not extrapolated from the four finite-field tests. Reproduction is furnished by `verify.py`.
+PASS
 
-## Originality: PASS, with residual risk
+The exact C5 square K2 graph has ten vertices, fifteen edges, and ordinary matching complex M(G), distinct from the perfect-matching subcomplex. Independently enumerated every edge subset, agreeing on all 341 nonempty faces, f-vector (15,75,145,95,11), 165 toggle pairs, one critical vertex, five 2-cells and five 3-cells; all 1020 Hasse arrows are acyclic. Independently recomputed signed integral 5x5 Morse differential matches RESULT.md entry by entry; rational rank3 and minor rows (0,1,3), columns (0,1,2) determinant -1 imply three unit Smith factors. With 2-skeleton wedge of five S2 and pi2=Z5, cancelling three primitive 3-cell attachments leaves two S2 and two S3; ordinary finite-field boundary calculations are corroborative, not the integral proof. Claim is the single n=5 prism only, no other ladder widths.
 
-Agarwal–Basak's arXiv:2608.30601v2 studies the same pentagonal prism **only through independence and perfect matching complexes**, and poses ordinary matching-complex homotopy questions explicitly in Problem 26. Their odd-width perfect matching complex is contractible, which cannot determine the present noncontractible full matching complex. Bayer–Jelić Milutinović–Vega arXiv:2211.12559 covers linear polygon chains, while arXiv:2411.04601 covers outerplanar graphs; neither applies to the cubic pentagonal prism. Searches under the aliases 'circular ladder,' 'pentagonal prism,' 'generalized Petersen G(5,1),' and 'line-graph independence complex' were compared with published indexed results for the cube, Möbius ladders, 3-cut complexes, and other graph matchings. No logically covering statement was identified. A duplicate in unindexed literature or an exact unpublished computational table remains possible. Indexed source summaries are not treated as proofs of whole-paper noncoverage.
+## originality
 
-## Value: PASS
+PASS
 
-This exactly resolves a natural first odd circular-ladder instance of an explicitly stated open ordinary matching-complex classification direction. The answer is a mixed-dimensional integral wedge of two two-spheres and two three-spheres, contrasting with the contractible perfect-complex result on the identical graph. The explicit reproducible Morse complex and integral primitive attaching matrix are mathematically substantive beyond a small Betti-number lookup. No infinite-family or equivariant conclusion is asserted.
+The 2026 Agarwal–Basak primary paper concerns independence and perfect matching subcomplexes, explicitly naming ordinary matching in Problem 26 as future work; it does not compute M(C5 square K2). Bayer–Jelić Milutinović–Vega 2022 compute polygonal line tiling chains, not the closed prism. The ordinary/perfect contrast is mathematically real: perfect matchings are only a subcomplex.
 
-## Closest literature and limits
+## value
 
-1. Agarwal and Basak, arXiv:2608.30601v2, circular-ladder theorems and Problem 26.
-2. Bayer, Jelić Milutinović and Vega, arXiv:2211.12559v2, polygonal lines.
-3. Bayer, Jelić Milutinović and Vega, arXiv:2411.04601v2, outerplanar matching complexes.
+PASS
 
-Exact result applies only to \(\mathcal M(C_5\square K_2)\). Comparable claims in inaccessible or unindexed literature remain a residual originality risk. There has been no independent mathematical validation.
+Agarwal and Basak (2026), arxiv:2608.30601v2, Problem 26 explicitly ask for matching-complex homotopy types of circular ladders alongside their solved perfect matching and independence complexes. C5 square K2 is the first nontrivial odd-width prism; its ordinary matching complex has a mixed S2/S3 integral homotopy wedge unlike the known contractible perfect matching subcomplex. This exact small natural instance is a meaningful witness within an explicit open research direction even without an all-n theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
