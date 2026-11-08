@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T18:14:14.762891Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/sharp-squared-distance-dispersion-ordering-from-square-to-hexago--29eaae941bce",
+        "2026/11/01/sharp-squared-distance-dispersion-ordering-from-square-to-hexago--29eaae941bce/RESULT.md @ Git blob a0a9b70c680d9229e9070f6b6ff9723cbea0a1c7",
+        "2026/11/01/sharp-squared-distance-dispersion-ordering-from-square-to-hexago--29eaae941bce/VERIFICATION.md @ Git blob ee6cbe5e618fc1e6dea4246b4fed704c258410d6",
+        "Git tree 885cecfb9f68162439f90ff5d155afd31b351a5c and all seven blob files read and checked, including RESULT.md, AUDIT.json and verify.py.",
+        "Independent SymPy exact algebra verified variance identity, derivative factorization and endpoint Hessian coefficients; observed 1/90,43/4860,7/180,92/3645.",
+        "Voronoi clipping conditions and covolume scaling verified from the proof; finite package verifier not treated as a proof."
+      ],
+      "rationale": "For unit-area equal-length-basis rhombic tori c=cos(angle) in [0,1/2], Haar translation invariance reduces the distance of two independent uniform points to the Voronoi-cell norm. With Gram coordinates u,v, the cell is [-1/2,1/2]^2 minus two triangles of side c, i.e. |u-v|<=1-c. Direct integration of (u²+v²-2cuv)^k/(1-c²)^k for k=1,2 and area/covolume normalization yields Var(d²)=(3c^4+2c^3-7c²+4c+2)/(180(1-c)(1+c)^3). Independent SymPy rational identities exactly matched the raw moment polynomials, variance and factored derivative -c(2c-1)(c²+2c-7)/(90(1-c)^2(1+c)^4), strictly negative for 0<c<1/2. Endpoint values 1/90 and 43/4860, quadratic deficits 7c²/180 and 92(1/2-c)²/3645 confirmed symbolically. The universal integral and sign analysis, not a finite checker, prove all c.",
+      "residual_risks": [
+        "Independent exact symbolic verification relied on the domain's Voronoi relevance of ±a,±b,±(b−a), justified for equal reduced bases and 0≤c≤1/2; no other lattice shapes asserted.",
+        "Only intrinsic torus distance, not extrinsic embedding distance; all moments use unit-area normalization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allen–Agrell studies optimized mean-squared quantization error in a nine-dimensional lattice family.",
+          "Resultary 2026/9/20 SCOPE-sharp-flat-torus-systolic-profile-by-modular-distance--e69364f1718e bounds normalized systoles, not the fourth-minus-square-second Voronoi dispersion."
+        ],
+        "reasoning": "Neither the nine-dimensional second-moment optimization nor a systolic extremum controls variance of squared random intrinsic distance over the continuous area-one rhombic shape family. All-lattice forward CDFs are general in domains but do not compare this nonlinear variance across parameters.",
+        "searches": [
+          "https://arxiv.org/abs/2104.10107",
+          "https://arxiv.org/abs/2003.08190",
+          "Resultary: sharp flat-torus systolic profile by modular distance"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2003.08190",
+        "https://arxiv.org/abs/2104.10107",
+        "Resultary semantic search results with the actual query strings in the four novelty checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General radial-distance CDF implies single-torus moments by integration.",
+          "Square and hexagonal lattices are classic second-moment quantization candidates; the new functional subtracts the square of that mean from the fourth radial moment."
+        ],
+        "reasoning": "The known radial distribution includes enough data for arithmetic evaluation but does not itself give comparative monotonicity, uniqueness and quadratic stability. Neither the triangle homotopy probability result nor nine-dimensional mean quantization has premises/conclusions dominating the present shape ordering.",
+        "searches": [
+          "https://arxiv.org/abs/2003.08190",
+          "https://arxiv.org/abs/2104.10107",
+          "Resultary: geodesic distance histogram Euclidean flat two-torus squared variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier flat-torus histogram finding gives Voronoi radial CDF for arbitrary flat tori; integrating this known CDF covers each fixed-shape raw moment.",
+          "Glorieux–Yarmola arXiv:2003.08190 studies random triangle homotopy classes on flat tori, not ordering the squared pair-distance variance."
+        ],
+        "reasoning": "Variance of squared geodesic distance is precisely the variance of squared Voronoi quantization error; known forward CDFs subsume evaluation for each fixed shape, which is explicitly credited. A cross-shape strict derivative sign and rigid square/hexagonal extrema are not stated or directly entailed by an individual-shape formula without the new global comparison.",
+        "searches": [
+          "Resultary: variance of squared geodesic distance on rhombic Euclidean flat tori square hexagonal monotone Voronoi quantization moments",
+          "Resultary: Geodesic distance histograms determine every Euclidean flat two-torus Voronoi radial CDF cap formula",
+          "https://arxiv.org/abs/2003.08190"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted ranked published findings returned a flat-torus systolic profile and unrelated quantizer and Voronoi moments, but no directly equivalent sharp variance ordering or quadratic endpoint deficits."
+        ],
+        "reasoning": "No exact database or tabulated claim proving the full derivative sign was identified in these actual searches. Failure of retrieval is not proof that historical moment tables or prior optimizations do not exist.",
+        "searches": [
+          "Resultary: flat torus square hexagonal random squared-distance variance table",
+          "Resultary: variance of squared geodesic distance on rhombic Euclidean flat tori square hexagonal monotone Voronoi quantization moments"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality judgment for the exact scoped final claim, after mathematical prior-work implication comparison. The known forward distribution, moment integrations and quantizer results are credited; novel part is strict rhombic shape ordering and endpoint rigidity.",
+      "residual_risks": [
+        "A prior uninspected higher-order planar lattice quantization inequality might imply the one-parameter variance ordering.",
+        "General flat-torus radial CDF already covers raw moment evaluation for each fixed lattice, so only the shape-ordering/stability part is assessed as novel.",
+        "Search ranking missed some directly relevant published finding aliases; absence is not a novelty certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Random triangle topology on flat tori, not the claimed squared pair-distance dispersion ordering",
+          "evidence": "Statement/abstract concerning random triangle homotopy probability.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.08190",
+          "material_read": "Full-text PDF pages 1–2, including problem statement and introduction",
+          "method": "Opened arXiv PDF and inspected page images",
+          "title": "Random triangles on flat tori",
+          "trigger": "Random intrinsic geometry on flat tori could imply pair-distance distributions"
+        },
+        {
+          "assessment": "Different dimension and second-moment quantization objective, no identified two-dimensional variance-order theorem",
+          "evidence": "Abstract and introduction describe nine-dimensional lattice quantization and normalized second moment.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.10107",
+          "material_read": "Accessible abstract and introduction; nine-dimensional quantizer optimization stated",
+          "method": "Read accessible arXiv material, checked paper scope",
+          "title": "The Optimal Lattice Quantizer in Nine Dimensions",
+          "trigger": "Voronoi moments and square/hexagonal comparison could be covered by higher moment lattice quantization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/sharp-squared-distance-dispersion-ordering-from-square-to-hexago--29eaae941bce",
+        "https://arxiv.org/abs/2003.08190",
+        "https://arxiv.org/abs/2104.10107"
+      ],
+      "rationale": "The square-to-hexagon path is the canonical reduced equal-generator lattice deformation; variance of squared intrinsic distance is a natural higher-order quantization/metric dispersion invariant. The theorem gives the complete sharp shape ordering, both rigid extremizers and optimal quadratic endpoint behavior for a continuous geometric family, unlike a fixed-shape tabulation or textbook second-moment computation.",
+      "residual_risks": [
+        "Only the rhombic one-parameter family is classified; no global all-lattice extremal claim.",
+        "The raw moments follow from established forward distributions, reducing novelty/value to the comparative inequality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent exact symbolic verification relied on the domain's Voronoi relevance of ±a,±b,±(b−a), justified for equal reduced bases and 0≤c≤1/2; no other lattice shapes asserted.",
+    "Only intrinsic torus distance, not extrinsic embedding distance; all moments use unit-area normalization.",
+    "A prior uninspected higher-order planar lattice quantization inequality might imply the one-parameter variance ordering.",
+    "General flat-torus radial CDF already covers raw moment evaluation for each fixed lattice, so only the shape-ordering/stability part is assessed as novel.",
+    "Search ranking missed some directly relevant published finding aliases; absence is not a novelty certificate.",
+    "Only the rhombic one-parameter family is classified; no global all-lattice extremal claim.",
+    "The raw moments follow from established forward distributions, reducing novelty/value to the comparative inequality.",
+    "Publication not_ready solely for public-file sanitization/guard verification, not a scientific verdict."
+  ],
+  "schema_version": 1
+}
