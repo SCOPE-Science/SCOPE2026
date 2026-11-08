@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T13:12:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For xdot=y, ydot=-x+eps*(1-x²)*y^m with m positive odd fixed, E=(x²+y²)/2 satisfies Edot=eps*(1-x²)*y^{m+1}. Harmonic averaging yields Delta E=eps*A_m*r^{m+1}*(1-r²/(m+3))+O(eps²), A_m=2*pi*binom(m+1,(m+1)/2)/2^{m+1}; the simple root r0=sqrt(m+3) and C1 implicit-function expansion give a cycle with multiplier 1-2*eps*A_m*r0^{m-1}+O(eps²)<1. Global at-most-one cycle relies explicitly on Chen–Xiao–Zhang Theorem 1: g(x)=x, f(x)=eps*(x²-1), sign changes at ±1, x*g(x)>0 and potential G(±1)=1/2 satisfy its hypotheses; uniqueness is not a new theorem. At m=1, Edot≤2eps E implies forward global existence by Gronwall for any eps>0. For odd m≥3 and arbitrary eps>0, on the explicit open set |x0|<1/8, y0>Y large with eps Y^m≥1 and 2/((m-2)eps Y^{m-2})<1/8, ydot≥(eps/2)y^m and x remains in (-1/8,1/4); finite-time forward velocity escape follows by comparison. Since w=y^{-(m-1)} has derivative tending -(m-1)eps*(1-x_inf²), the exact terminal velocity law and integrated (m-2)/(m-1) position law follow. No whole-plane basin classification is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Xiao–Zhang arXiv:2610.33114v1 Theorem 1 covers at-most-one hyperbolic attracting limit cycle under the verified damping-sign hypotheses; it does not prove the present existence or escape behavior.",
+          "Villari–Zanolin provides superlinear escape mechanisms for a differently separated generalized Liénard system; Resultary hit SCOPE-universal-two-term-finite-time-escape-in-polynomial-nilpotent-li--3c7dc71da611 concerns a nilpotent family."
+        ],
+        "reasoning": "Broader abstract classes share features but inspected theorems either prove conditional uniqueness or escape in different equations. The conjunction with sharp degree transition and two physical-time laws is not a corollary without further mathematical work.",
+        "searches": [
+          "Rayleigh Lienard oscillator generalized odd power velocity unique limit cycle finite time blowup",
+          "https://arxiv.org/html/2610.33114v1",
+          "https://doi.org/10.1007/s10884-021-09984-2",
+          "https://doi.org/10.3934/dcds.2023014"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, REVIEW.md, VERIFICATION.md and verify.py from Git tree e8b261bf88b378e1d8957dcff1be5466ff87aea2",
+        "Chen–Xiao–Zhang, Some new criteria for uniqueness of limit cycles in Rayleigh–Liénard systems, arXiv:2610.33114v1 Theorem 1",
+        "Villari–Zanolin, On the Qualitative Behavior of a Class of Generalized Liénard Planar Systems, doi:10.1007/s10884-021-09984-2",
+        "Gavrilov–Iliev, The limit cycles in a generalized Rayleigh–Liénard oscillator, doi:10.3934/dcds.2023014",
+        "Resultary query Rayleigh Lienard oscillator generalized odd power velocity unique limit cycle finite time blowup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conditional source uniqueness theorem gives at most one cycle and its hyperbolicity, but a first-order averaged return-map zero is independently required to show existence and amplitude sqrt(m+3).",
+          "The separate Gronwall and large-y invariant-cone estimates establish the m=1 versus m>=3 forward-global threshold and exact blowup power laws not stated by the source uniqueness theorem."
+        ],
+        "reasoning": "These new mathematical steps are not already implied by the prior at-most-one-cycle theorem, despite using it as a key lemma. A closer historical blowup theorem remains a documented priority risk.",
+        "searches": [
+          "Rayleigh Lienard oscillator generalized odd power velocity unique limit cycle finite time blowup",
+          "https://arxiv.org/html/2610.33114v1",
+          "https://doi.org/10.1007/s10884-021-09984-2",
+          "https://doi.org/10.3934/dcds.2023014"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A coordinate rotation (X,Y)=(y,-x) transforms the system to a generalized Liénard formulation, but the cited Villari–Zanolin products and signs are not the same monomial family.",
+          "Chen–Xiao–Zhang Theorem 1 explicitly supplies at-most-one attracting cycle conditional on its existence."
+        ],
+        "reasoning": "Equivalent cyclic coordinate conventions preserve dynamics, but no compared prior theorem provides simultaneously the small-eps existence radius and global m=1 versus m>=3 finite-time escape distinction in this polynomial family.",
+        "searches": [
+          "Rayleigh Lienard oscillator generalized odd power velocity unique limit cycle finite time blowup",
+          "https://arxiv.org/html/2610.33114v1",
+          "https://doi.org/10.1007/s10884-021-09984-2",
+          "https://doi.org/10.3934/dcds.2023014"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned Rayleigh stationary velocity laws, nilpotent escape systems and other polynomial oscillators but not this exact all-odd-degree juxtaposition.",
+          "The claim is a uniform symbolic m-family limit-cycle and escape theorem, not a computed phase portrait in a finite table."
+        ],
+        "reasoning": "A phase-portrait entry would not imply the all-degree averaging, basin and terminal asymptotics. Retrieval failure alone does not certify priority.",
+        "searches": [
+          "Rayleigh Lienard oscillator generalized odd power velocity unique limit cycle finite time blowup",
+          "https://arxiv.org/html/2610.33114v1",
+          "https://doi.org/10.1007/s10884-021-09984-2",
+          "https://doi.org/10.3934/dcds.2023014"
+        ]
+      },
+      "rationale": "Best-of-knowledge conclusion from actual source-tree proof reconstruction, current Resultary published-finding search and material inspected from primary literature: These new mathematical steps are not already implied by the prior at-most-one-cycle theorem, despite using it as a key lemma. A closer historical blowup theorem remains a documented priority risk. Source access and possible historical equivalents remain listed as residual risks.",
+      "residual_risks": [
+        "A published Chen–Xiao–Zhang global uniqueness criterion is essential prior and not a new claim.",
+        "Some broader generalized Liénard asymptotic or finite-time-escape theorem might be reducible to this exact mixed damping family; historical originality remains best-of-knowledge rather than exhaustive.",
+        "The result does not assert uniqueness for arbitrary eps where no perturbative cycle is guaranteed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source provides at-most-one attracting cycle under matched hypotheses, not the specific eps-small cycle existence or finite-time escape theorem",
+          "evidence": "g=x, f=eps(x²-1), c1=-1,c2=1 satisfy conditions, but a conditional uniqueness statement cannot assert existence.",
+          "identifier_or_url": "https://arxiv.org/html/2610.33114v1",
+          "material_read": "Primary full HTML Theorem 1, its sign/potential hypotheses, proof discussion and applications",
+          "method": "Full primary HTML theorem and proof comparison",
+          "title": "Some new criteria for the uniqueness of limit cycles in Rayleigh–Liénard systems",
+          "trigger": "Exactly the required nonstandard global uniqueness criterion, same damping and odd exponent"
+        },
+        {
+          "assessment": "Important adjacent escape result with different coordinate factor structure; does not directly state the exact present family conclusion",
+          "evidence": "Source examples involve a different damping separation, and no identified cited theorem gives the current mixed x² y^m oscillator’s full sharp dichotomy.",
+          "identifier_or_url": "https://doi.org/10.1007/s10884-021-09984-2",
+          "material_read": "Accessible publisher full HTML setting, product form and superlinear escaping regimes",
+          "method": "Full primary publisher HTML",
+          "title": "On the Qualitative Behavior of a Class of Generalized Liénard Planar Systems",
+          "trigger": "Plausible strong prior on finite-time blowup in Liénard equations"
+        },
+        {
+          "assessment": "Different polynomial parameter family, notably lacking the mixed x² y³ term of this model",
+          "evidence": "Cannot assert whole-document noncoverage from the limited material; retain residual risk.",
+          "identifier_or_url": "https://doi.org/10.3934/dcds.2023014",
+          "material_read": "Publication main statement/abstract and parameter-family description, not every appendix",
+          "method": "Primary publisher overview and theorem-statement comparison",
+          "title": "The limit cycles in a generalized Rayleigh–Liénard oscillator",
+          "trigger": "Named generalized Rayleigh–Liénard limit-cycle study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural global/local dynamics counterpoint: a unique hyperbolic attracting limit cycle can coexist with an open set of finite-time blowup trajectories for superlinear odd velocity forcing, whereas linear forcing has global forward solutions. The sharp degree transition plus explicit amplitude, multiplier and blowup exponents make a reusable concrete example, not merely a reparametrized linear oscillator.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md, REVIEW.md, VERIFICATION.md and verify.py from Git tree e8b261bf88b378e1d8957dcff1be5466ff87aea2",
+    "Chen–Xiao–Zhang, Some new criteria for uniqueness of limit cycles in Rayleigh–Liénard systems, arXiv:2610.33114v1 Theorem 1",
+    "Villari–Zanolin, On the Qualitative Behavior of a Class of Generalized Liénard Planar Systems, doi:10.1007/s10884-021-09984-2",
+    "Gavrilov–Iliev, The limit cycles in a generalized Rayleigh–Liénard oscillator, doi:10.3934/dcds.2023014",
+    "Resultary query Rayleigh Lienard oscillator generalized odd power velocity unique limit cycle finite time blowup"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Existence and amplitude/Floquet expansion require sufficiently small eps for each fixed m; eps_m not uniform or explicit.",
+    "Finite-time escape shown for an explicitly nonempty open set, not every initial condition; global basin boundaries remain unclassified.",
+    "Uniqueness depends on a published theorem, verified by hypothesis matching, not independently reproved from source."
+  ],
+  "residual_risks": [
+    "A published Chen–Xiao–Zhang global uniqueness criterion is essential prior and not a new claim.",
+    "Some broader generalized Liénard asymptotic or finite-time-escape theorem might be reducible to this exact mixed damping family; historical originality remains best-of-knowledge rather than exhaustive.",
+    "The result does not assert uniqueness for arbitrary eps where no perturbative cycle is guaranteed."
+  ],
+  "schema_version": 1
+}

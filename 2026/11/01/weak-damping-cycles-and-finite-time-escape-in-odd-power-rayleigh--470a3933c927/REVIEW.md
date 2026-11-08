@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The perturbation calculation is a uniform differentiable return-map expansion about the nonzero harmonic radius. The exact beta-integral identity yields a simple return-map zero and multiplier of the correct sign. The proof checks the complete hypotheses of the cited global uniqueness theorem and verifies its key divergence integral argument. The escape comparison uses a forward-invariant position strip, explicitly gives the large-velocity initial-data conditions, and integrates the transformed velocity to obtain both exponents. The linear-degree global result follows from a Gronwall estimate. The standalone verification program was executed with a passing result; numerical experiments were not used as proofs.
+## correctness
 
-**Originality — PASS under examined evidence.** Theorem 1 of Chen–Xiao–Zhang (arXiv:2610.33114v1) covers *at most one* hyperbolic attracting limit cycle, conditional on existence. The present addition is a small-parameter existence theorem with exact amplitude and multiplier, together with the sharp global-completeness contrast and finite-time escape exponents. Villari–Zanolin's superlinear generalized Liénard mechanism and Gavrilov–Iliev's different six-parameter perturbation are substantial neighboring prior work but do not directly cover this specified mixed velocity/position damping family. Related research records concern nilpotent escape or other oscillator damping laws. Historical-priority uncertainty remains; no negative search is treated as uniqueness certification.
+PASS
 
-**Value — PASS.** The theorem supplies a natural counterpoint to the usual interpretation of an attracting unique oscillation: a polynomial oscillator can have that stable cycle but also an open set of non-global trajectories. The lowest odd power is exactly the complete-flow boundary. The analytic amplitude and escape exponents make this a reusable test family for local-cycle and global-flow theory.
+For xdot=y, ydot=-x+eps*(1-x²)*y^m with m positive odd fixed, E=(x²+y²)/2 satisfies Edot=eps*(1-x²)*y^{m+1}. Harmonic averaging yields Delta E=eps*A_m*r^{m+1}*(1-r²/(m+3))+O(eps²), A_m=2*pi*binom(m+1,(m+1)/2)/2^{m+1}; the simple root r0=sqrt(m+3) and C1 implicit-function expansion give a cycle with multiplier 1-2*eps*A_m*r0^{m-1}+O(eps²)<1. Global at-most-one cycle relies explicitly on Chen–Xiao–Zhang Theorem 1: g(x)=x, f(x)=eps*(x²-1), sign changes at ±1, x*g(x)>0 and potential G(±1)=1/2 satisfy its hypotheses; uniqueness is not a new theorem. At m=1, Edot≤2eps E implies forward global existence by Gronwall for any eps>0. For odd m≥3 and arbitrary eps>0, on the explicit open set |x0|<1/8, y0>Y large with eps Y^m≥1 and 2/((m-2)eps Y^{m-2})<1/8, ydot≥(eps/2)y^m and x remains in (-1/8,1/4); finite-time forward velocity escape follows by comparison. Since w=y^{-(m-1)} has derivative tending -(m-1)eps*(1-x_inf²), the exact terminal velocity law and integrated (m-2)/(m-1) position law follow. No whole-plane basin classification is claimed.
 
-**Limitations.** The cycle existence and amplitude theorem are established only for each fixed degree at sufficiently small positive damping. The escape conclusions hold for a constructed open set, without a complete basin boundary. The newer global-uniqueness criterion is invoked explicitly, not re-proved as an original theorem. Full independent mathematical and literature audits remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge conclusion from actual source-tree proof reconstruction, current Resultary published-finding search and material inspected from primary literature: These new mathematical steps are not already implied by the prior at-most-one-cycle theorem, despite using it as a key lemma. A closer historical blowup theorem remains a documented priority risk. Source access and possible historical equivalents remain listed as residual risks.
+
+## value
+
+PASS
+
+Natural global/local dynamics counterpoint: a unique hyperbolic attracting limit cycle can coexist with an open set of finite-time blowup trajectories for superlinear odd velocity forcing, whereas linear forcing has global forward solutions. The sharp degree transition plus explicit amplitude, multiplier and blowup exponents make a reusable concrete example, not merely a reparametrized linear oscillator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
