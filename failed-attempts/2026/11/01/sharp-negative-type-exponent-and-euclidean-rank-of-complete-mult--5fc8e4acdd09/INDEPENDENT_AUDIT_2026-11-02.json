@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T06:48:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed exact zero-sum decomposition -x^T D_rho x = rho sum within-block y^2 + sum_i(1-rho(1-1/n_i)) S_i^2. Tied maximum gives k-1 null directions; unique maximum gives a one-dimensional zero via the rank-one Schur complement, with a fixed critical vector demonstrating failure for all higher rho. Complete graphs have strict type for every finite p. Independent rational and symbolic test cases agree; general proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Obata treats all complete k-partite graphs for arbitrary k and all positive part sizes, exactly the submitted domain."
+        ],
+        "reasoning": "The earlier theorem supplies the extremal eigenvalue of the fixed compressed adjacency matrix; by affine transformation it determines all rho>=1 and all p>=0 without an additional matrix optimization.",
+        "searches": [
+          "https://arxiv.org/abs/2206.05848",
+          "Obata Theorem 3.12, full text Sections 2-3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2206.05848",
+        "https://www.researchgate.net/publication/361273785_Complete_Multipartite_Graphs_of_Non-QE_Class",
+        "https://arxiv.org/abs/1108.0451",
+        "Resultary semantic search: Complete multipartite graph K_{n1,...,nr} shortest path supremal p negative type critical exponent Euclidean embedding dimension inertia boundary kernel all parts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "D_rho=rho(J-I)-(rho-1)A; on 1^perp, x^TD_rho x=-rho-(rho-1)x^TAx for ||x||=1; Obata computes alpha_min exactly and minimizers."
+        ],
+        "reasoning": "The entire final claim (negative type threshold, strictness, dimension and nullity) is the prior extremal compressed adjacency eigenspace under rho=-alpha/(1+alpha) and the standard Schoenberg distance-matrix rank criterion. This is decisive coverage.",
+        "searches": [
+          "https://arxiv.org/abs/2206.05848",
+          "Obata Proposition 3.5, Proposition 3.11, Theorem 3.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Obata alpha_min = -m1 for tied max, or unique root sum m_i/(alpha+m_i)=0; submitted rho-transform alpha=rho/(1-rho) gives the identical equations and eigenvectors."
+        ],
+        "reasoning": "The zero-sum adjacency compression diagonalizes every two-distance snowflake matrix simultaneously because D_rho is affine in A and J; identical spectral data in different variables is not a new mathematical classification.",
+        "searches": [
+          "Resultary semantic search: Complete multipartite graph K_{n1,...,nr} shortest path supremal p negative type critical exponent Euclidean embedding dimension inertia boundary kernel all parts",
+          "https://arxiv.org/abs/2206.05848",
+          "Obata, Complete Multipartite Graphs of Non-QE Class, Proposition 3.11, equations (3.11)-(3.20)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The theorem is an all-order exact formula rather than a lookup table; Obata Example 3.14 provides tripartite roots and Example 3.15 split graph cases."
+        ],
+        "reasoning": "A known general exact formula implies each proposed algebraic or finite sample; no table lookup is needed.",
+        "searches": [
+          "Resultary semantic search: Complete multipartite graph K_{n1,...,nr} shortest path supremal p negative type critical exponent Euclidean embedding dimension inertia boundary kernel all parts",
+          "Obata Sections 3.3 and 4, multipartite QE constant and special-case tables"
+        ]
+      },
+      "rationale": "Prior-covered by Nobuaki Obata (2022), Complete Multipartite Graphs of Non-QE Class, Proposition 3.11 and Theorem 3.12. On the zero-sum space D_rho=rho(J-I)-(rho-1)A, so the constrained maximal quadratic form is exactly -rho-(rho-1)alpha_min, where alpha_min= min_{x perp 1, ||x||=1} x^T A x is explicitly computed by Obata for arbitrary multipartite parts. Hence rho*=alpha_min/(alpha_min+1) and all boundary null vectors are the alpha_min eigenspace. Obata even gives (m_i+alpha)xi=constant and tied-largest eigenvectors in Lemmas 3.7-3.10. The submitted reciprocal sum is the same equation: with alpha=rho/(1-rho), 1-rho(1-1/m_i)=(1-rho)(m_i+alpha)/m_i. The proposed all-part threshold, nullity, Euclidean rank and polynomial rule are direct algebraic restatements of this earlier complete classification, not just the previously cited bipartite case.",
+      "residual_risks": [
+        "The source self-review did not compare Obata 2022; this changes the verdict.",
+        "Oxford VPN disconnected for Sánchez; not a reason to reject by access itself.",
+        "This is a rejection of originality/value, not correctness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING after simple affine algebra",
+          "evidence": "Constrained adjacency minimum and eigenspace completely compute the p-threshold via D_rho=rho(J-I)-(rho-1)A.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.05848",
+          "material_read": "Public full-text Sections 1-4, particularly Propositions 3.5, 3.11, Theorem 3.12, Lemmas 3.7-3.10, equations (3.11)-(3.20)",
+          "method": "Full text from author public preprint hosted on ResearchGate; mathematical equations directly inspected",
+          "title": "Complete Multipartite Graphs of Non-QE Class (Nobuaki Obata, 2022)",
+          "trigger": "Exact same graph class, fixed-distance quadratic embedding constant with possible implication to all snowflake exponents"
+        },
+        {
+          "assessment": "PARTIAL; not needed to prove prior coverage",
+          "evidence": "Earlier work treats K_{m,n}; Obata 2022 is decisively broader and fully inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.0451",
+          "material_read": "Description and claims as quoted by assigned RESULT.md; full primary inaccessible in this attempt",
+          "method": "Open abstract/author description; Oxford returned VPN disconnected",
+          "title": "On the supremal p-negative type of a finite metric space (Stephen Sánchez, 2011)",
+          "trigger": "Known bipartite case and generic finite metric method"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The parameter p and Euclidean embedding threshold are natural invariants, but after Obata 2022 the entire multipartite result is a one-line affine matrix transform of a known constrained adjacency eigenvalue and standard Schoenberg rank. This mathematical statement adds no independent structural lemma, classification or motivated new invariant beyond that transformation; source novelty and claimed advance are unsupported. This is a scientific prior-coverage rejection, not a failure of the proof.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2206.05848",
+    "https://www.researchgate.net/publication/361273785_Complete_Multipartite_Graphs_of_Non-QE_Class",
+    "https://arxiv.org/abs/1108.0451",
+    "Resultary semantic search: Complete multipartite graph K_{n1,...,nr} shortest path supremal p negative type critical exponent Euclidean embedding dimension inertia boundary kernel all parts"
+  ],
+  "disposition": "failed",
+  "final_claim": "For complete multipartite graph shortest-path distance, the exact maximal p-negative-type exponent, strictness on either side, critical nullity, and Euclidean snowflake dimension are determined by the largest part sizes and a secular root.",
+  "limitations": [
+    "Unweighted connected complete multipartite graphs and their snowflaked graph distance only.",
+    "All detailed eigenvectors and their multiplicities were compared to the earlier constrained adjacency problem."
+  ],
+  "residual_risks": [
+    "The source self-review did not compare Obata 2022; this changes the verdict.",
+    "Oxford VPN disconnected for Sánchez; not a reason to reject by access itself.",
+    "This is a rejection of originality/value, not correctness."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERING after simple affine algebra",
+      "evidence": "Constrained adjacency minimum and eigenspace completely compute the p-threshold via D_rho=rho(J-I)-(rho-1)A.",
+      "identifier_or_url": "https://arxiv.org/abs/2206.05848",
+      "material_read": "Public full-text Sections 1-4, particularly Propositions 3.5, 3.11, Theorem 3.12, Lemmas 3.7-3.10, equations (3.11)-(3.20)",
+      "method": "Full text from author public preprint hosted on ResearchGate; mathematical equations directly inspected",
+      "title": "Complete Multipartite Graphs of Non-QE Class (Nobuaki Obata, 2022)",
+      "trigger": "Exact same graph class, fixed-distance quadratic embedding constant with possible implication to all snowflake exponents"
+    },
+    {
+      "assessment": "PARTIAL; not needed to prove prior coverage",
+      "evidence": "Earlier work treats K_{m,n}; Obata 2022 is decisively broader and fully inspected.",
+      "identifier_or_url": "https://arxiv.org/abs/1108.0451",
+      "material_read": "Description and claims as quoted by assigned RESULT.md; full primary inaccessible in this attempt",
+      "method": "Open abstract/author description; Oxford returned VPN disconnected",
+      "title": "On the supremal p-negative type of a finite metric space (Stephen Sánchez, 2011)",
+      "trigger": "Known bipartite case and generic finite metric method"
+    }
+  ]
+}
