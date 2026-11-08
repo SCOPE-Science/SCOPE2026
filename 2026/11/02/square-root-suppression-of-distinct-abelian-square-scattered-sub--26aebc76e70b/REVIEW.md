@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for every fixed strictly interior Bernoulli parameter and for distinct strings rather than embeddings. A fixed pattern's first greedy completion has an independent geometric waiting-time product. Summing over the binomial-square Parikh classes yields the length-refined algebraic series. The real dominant singularity is uniquely at \(r=(1+\sqrt{p(1-p)})^{-1}\), with its derivative and local square-root coefficient computed explicitly. The unrestricted comparison is checked from a separate geometric series. Strict positivity of both letter probabilities excludes any other singularity on the convergence circle. Three independent exact computational paths reproduce all initial coefficients through host length twelve for four rational biases. The deterministic endpoints are treated outside the claimed asymptotic domain.
+PASS
 
-## Originality — PASS, subject to external literature risk
+For fixed binary pattern v, greedy first occurrence time is a sum of independent geometric waiting times whose PGF is product of g_symbol; counting each distinct pattern once yields occurrence generating weight product(g_i)/(1−z). At Abelian half-length L and j zeros per half there are C(L,j)^2 patterns, contributing g0^(2j)g1^(2(L−j)); the classical Laurent constant-term identity gives exactly the displayed bivariate inverse-square-root PGF (excluding L=0). Factor radical at u=1 as (1−(g0+g1)^2)(1−(g0−g1)^2); unique dominant radius r=1/(1+t), t=√(p(1−p)), with r(g0+g1)'=2(1+t)/(1+2t). Transfer of its square-root singularity gives E[A_n]~[(1+2t)√(1+t)/(4√π t^(3/2))](1+t)^n/√n, and a separate simple pole gives the unrestricted expectation. The final ratio has √((1+t)/(4πtn)); deterministic p endpoints handled separately, not conflated with the fixed-interior limit. Independent exact host enumeration at n≤8, p=1/2,1/3 reproduces initial moments, not the infinite singularity argument.
 
-The classical Abelian-square language enumeration is due to Richmond and Shallit; expectation of all distinct random subsequences was previously studied by Biers-Ariel, Godbole and Kelley. The contiguous-factor results of Fici, Mignosi and Shallit, and Rubinchik and Shur, concern different occurrence models. The assessed claim gives a fixed-bias, distinct **scattered** Abelian-square expectation and its precise square-root suppression. Targeted published literature and mathematical-record searches yielded no equivalent statement. Combining classical pattern enumeration and geometric embedding waiting times is a plausible route to this result, so a more general weighted-language theorem may still subsume the specialization; no priority certificate is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Abelian squares are a natural, extensively studied word class and random distinct-subsequence counts are a standard complexity invariant. It is not immediate from either older total-language enumeration or unrestricted random-subsequence results that the restricted and unrestricted expectations share their exponential rate but differ by exactly an inverse square-root factor. The theorem provides a full length spectrum, all fixed biases, an explicit leading constant and a sharp deterministic-source boundary. The finite numerical evidence is not used as the sole basis of value.
+Richmond–Shallit explicitly count all Abelian-square strings by length, including the C(L,j)^2 identity. Biers-Ariel–Godbole–Kelley derive the unrestricted expected distinct subsequence mean of a random binary host with biased letters; the inspected full text does not impose Abelian-square restriction. The assessed new claim joins these ingredients with greedy pattern waiting times, a new constrained-host algebraic PGF and exact asymptotic suppression ratio. Generic weighted-pattern generating-function theorems remain a stated priority risk.
 
-## Scope and limitations
+## value
 
-All leading asymptotics fix an interior bias before sending the host length to infinity. No ternary, Markov, nonstationary or concentration theorem is asserted. The main remaining literature risk is an unlocated general weighted-language counting theorem which might contain this exact specialization.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Expected diversity of a natural constrained language as distinct scattered patterns in a random word, compared with the unrestricted language, is a motivated probabilistic combinatorics invariant. The n^-1/2 penalty at unchanged exponential base with explicit bias-dependent constant is not an arbitrary finite slice and can benchmark constrained subsequence richness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
