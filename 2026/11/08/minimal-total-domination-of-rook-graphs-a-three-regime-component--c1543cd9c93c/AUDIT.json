@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The exact open-neighborhood criterion gives full-row-or-column coverage plus nonisolation of selected cells. When a row is empty, deletion witnesses force three and only three disjoint incidence component types, with an explicit converse. The all-covered case reduces to selected-rook K2 components, likewise with converse. Labeled exponential constructions yield the displayed coefficient extraction. Eleven exhaustive independent tests cover 51,745,605 subsets and 17,045 minimal sets; the finite checks are not asserted to prove the unrestricted theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mertens 2024 Theorem 4 and Corollary 5 count all ordinary dominating sets for arbitrary rectangular rook graphs.",
+        "Pahlavsay et al. 2018 Theorem 6.1 gives all-parameter minimum 3-tuple total domination cardinality.",
+        "Velammal–Arumugam (2012) Example 2.2(iv) establishes gamma_t-prime(K_{m,n})=min(m,n), the minimum coefficient degree of the proposed polynomial."
+      ],
+      "reasoning": "The cited coverage is all-parameter for the same graphs, but neither result supplies all minimal k=1 open-neighborhood sets. One general ordinary domination polynomial does not provide the incidence-component types or desired enumerator as a stated consequence. A previously known minimum cardinality does not determine the number or spectrum of inclusion-minimal total edge dominating sets.",
+      "searches": [
+        "upper total domination Cartesian product complete graphs K_m square K_n",
+        "rook graph minimal total dominating polynomial vs ordinary domination polynomial 2024 Mertens and 3-tuple total domination Pahlavsay 2018"
+      ]
+    },
+    "checked_sources": [
+      "Mertens (2024), arXiv:2401.00716, HTML Sections 1–4 and numerical tables.",
+      "Pahlavsay–Palezzato–Torielli (2018), arXiv:1807.08104, HTML Sections 1–6.",
+      "Wolfram GraphData documentation, minimal-total-domination property list.",
+      "Velammal–Arumugam (2012), Total edge domination in graphs, five-page PDF, especially Example 2.2(iv) and Remark 2.5."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2401.00716 Theorem 4: counts ordinary dominating placements without inclusion-minimality or open-neighborhood requirement.",
+        "arXiv:1807.08104 Theorem 6.1: only the extremal 3-tuple total dominating number.",
+        "The new three-regime component theorem proves necessity and sufficiency for k=1 minimal total dominating sets and refines sizes beyond minimum.",
+        "Velammal–Arumugam (2012), Example 2.2(iv), gives only the minimum total edge domination number for K_{m,n}, not a structural classification of all minimal sets."
+      ],
+      "reasoning": "No inspected prior statement implies the three-regime decomposition or coefficients. The source invariants have distinct quantifiers: all ordinary dominating subsets versus minimum 3-tuple total dominating sets versus all inclusion-minimal 1-tuple total dominating sets; neither is a direct specialization of a stronger published enumeration. No absolute priority is asserted.",
+      "searches": [
+        "\"minimal total dominating sets\" \"rook graph\"",
+        "minimal total dominating sets of rook graphs R_{m,n} K_m Cartesian K_n: classification into star, paired star and corona components; exponential generating function",
+        "minimal total domination polynomial of line graph of complete bipartite graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mertens, arXiv:2401.00716, Sections 1–3: rook graph identified as line graph of K_{m,n}; ordinary domination counted by row-column coverage.",
+        "Pahlavsay–Palezzato–Torielli, arXiv:1807.08104, Sections 1–6: open-neighborhood k-tuple condition and minimum for k=3.",
+        "Velammal–Arumugam (2012), Definition 2.1, Remark 2.5: total edge domination on a graph is total vertex domination of its line graph; Example 2.2(iv) records the minimum for K_{m,n}."
+      ],
+      "reasoning": "Checked the identical object under row/column placements and the line-graph realization; ordinary domination of all sets lacks the open-neighborhood selected-cell condition and minimality; k=3 minimum only differs from the full k=1 minimal-set distribution. The exact total-edge-domination alias was explicitly examined; the 2012 text has the minimum but not all inclusion-minimal configurations.",
+      "searches": [
+        "\"minimal total dominating sets\" \"rook graph\"",
+        "\"minimal total domination\" \"rook\" polynomial",
+        "\"line graph\" \"complete bipartite\" \"total domination\" \"minimal\" enumeration",
+        "minimal total dominating sets rook graphs line graphs of complete bipartite graphs exact cardinality polynomial",
+        "\"total edge domination\" \"complete bipartite\" enumeration minimal",
+        "\"upper total edge domination\" complete bipartite graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mertens 2024 Table 1 lists exact coefficients for the ordinary domination polynomial; its 5-by-5 coefficients are different from minimal-total-domination counts.",
+        "Wolfram GraphData documentation exposes a minimal-total-domination-polynomial operation on named graphs but no inspected all-parameter rook-graph expression."
+      ],
+      "reasoning": "A finite named-graph query capability and a different ordinary-domination table are not an all-parameter classification. Remaining risk is a separately indexed all-parameter table not located by these searches.",
+      "searches": [
+        "\"minimal total domination\" \"rook\" polynomial",
+        "https://reference.wolfram.com/language/ref/GraphData.html",
+        "arXiv:2401.00716 Table 1",
+        "Velammal–Arumugam (2012), Example 2.2(iv)"
+      ]
+    },
+    "rationale": "Velammal–Arumugam (2012) already established the minimum total edge domination number for complete bipartite graphs, which is not claimed as new. Their paper does not enumerate inclusion-minimal sets. Other inspected complete primary texts count all ordinary dominating rook placements or minimum k=3 total domination, and none establishes the new full minimal k=1 cardinality polynomial. Publication priority remains provisional.",
+    "residual_risks": [
+      "An unindexed source or differently titled theorem could provide the same all-parameter minimal k=1 total-domination cardinality enumerator.",
+      "General database access to individual named-graph polynomials does not prove novelty of any particular finite coefficients.",
+      "Independent publication-priority audit is not performed.",
+      "The total-edge-domination alias has a pre-2016 minimum result; the novelty claim is strictly the new all-minimal structural distribution, not its minimum degree."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: all ordinary dominating placements, not inclusion-minimal open-neighborhood total dominating placements.",
+        "evidence": [
+          "Section 1 defines ordinary domination using membership or adjacency.",
+          "Theorems 1–4 and Corollary 5 count all ordinary dominating configurations; Table 1 lists all ordinary coefficients."
+        ],
+        "identifier_or_url": "arXiv:2401.00716; https://arxiv.org/html/2401.00716v2",
+        "material_read": "Full accessible HTML of introduction, recursion, main formulas and proof through Theorem 4, Corollary 5, numerical tables and concluding part.",
+        "method": "Read rendered HTML and compared graph/object, exact set predicate, quantifiers and coefficient implications.",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Same rook graphs and cardinality-generating polynomial."
+      },
+      {
+        "assessment": "NOT_COVERING: minimum k=3 total domination, not exact k=1 inclusion-minimal cardinality polynomial.",
+        "evidence": [
+          "Definition of k-tuple total domination requires at least k chosen neighbors.",
+          "Theorem 6.1 computes gamma_{x3,t} on K_n square K_m, not coefficients of minimal k=1 sets."
+        ],
+        "identifier_or_url": "arXiv:1807.08104; https://arxiv.org/html/1807.08104v1",
+        "material_read": "Accessible full HTML, including the definitions and matrix method in Sections 1–4, square case in Section 5, and all-parameter Theorem 6.1 in Section 6.",
+        "method": "Read rendered HTML and compared k, minimization versus inclusion-minimal enumeration, and parameters.",
+        "title": "3-tuple total domination number of rook’s graphs",
+        "trigger": "Same rook graphs and open-neighborhood k-tuple total domination."
+      },
+      {
+        "assessment": "NOT_ESTABLISHED: exposed finite-graph computation facility is not a published uniform formula for all rectangular rook graphs.",
+        "evidence": [
+          "The property names are listed; example is a fixed cubical graph, not a two-parameter rook family."
+        ],
+        "identifier_or_url": "https://reference.wolfram.com/language/ref/GraphData.html",
+        "material_read": "Documentation property listings for MinimalTotalDominatingSets and MinimalTotalDominationPolynomial and associated examples.",
+        "method": "Inspected available documentation text.",
+        "title": "GraphData documentation",
+        "trigger": "Potential named-graph tables for minimal total domination."
+      },
+      {
+        "assessment": "PARTIAL_PRIOR: establishes the minimum total edge domination number of K_{m,n}, not the inclusion-minimal family or size polynomial.",
+        "evidence": [
+          "Example 2.2(iv) states gamma_t-prime(K_{m,n})=min(m,n) for m,n>1.",
+          "Remark 2.5 identifies total edge domination with total domination in a line graph.",
+          "Other theorems address bounds, subdivisions, trees, cycles and domatic invariants, not the claimed all-minimal K_{m,n} enumerator."
+        ],
+        "identifier_or_url": "S. Velammal and S. Arumugam, Elixir Dis. Math. 44 (2012), 7213–7217; https://www.elixirpublishers.com/articles/1681456907_201203027.pdf",
+        "material_read": "All five PDF pages inspected, including the opening definition, complete-bipartite minimum Example 2.2(iv), line-graph equivalence Remark 2.5, and remaining theorems.",
+        "method": "Read PDF extracted text and page screenshots, compared the exact all-minimal-set enumerator to stated minima and other variants.",
+        "title": "Total edge domination in graphs",
+        "trigger": "Exact alternative terminology: total edge domination of the complete bipartite graph is total domination of the rook line graph."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c1543cd9-c93c-4aed-ae01-b0681eb2af70",
+  "value": {
+    "rationale": "The result resolves the complete inclusion-minimal open-neighborhood total domination distribution for an arbitrary two-parameter family of classical rook graphs. It is not implied by a minimum cardinality, provides a structural decomposition with three distinct coverage regimes, and proves a naturally occurring gap at seven for the 5-by-5 rook graph. Its minimum cardinality was already established in 2012 and is not asserted to be new.",
+    "status": "PASS"
+  }
+}
