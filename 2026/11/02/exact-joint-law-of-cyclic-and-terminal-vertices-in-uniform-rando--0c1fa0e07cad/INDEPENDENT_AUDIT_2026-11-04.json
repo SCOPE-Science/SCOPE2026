@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T11:10:20.412454Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on k labeled cyclic roots and their permutation. The directed matrix-tree determinant det(nI_m-J_m)=k n^(m-1) counts rooted directed forests, m=n-k. For r marked nonroot terminals, removing them and attaching each to one of n-r remaining vertices gives probability (1-r/n)^(m-1), hence exact factorial moments and binomial-inversion PMF equal to m specified boxes avoided by m-1 uniform draws. The k=n boundary has Z=0. Conditional mean g_m=m(1-1/n)^(m-1) is strictly increasing m; since all k occur with positive mass, any strictly increasing h(C) has strictly negative covariance with Z. Conditioning on a fixed vertex being absent from the image gives C distributed as the cyclic count of a uniform mapping on n-1 other vertices, yielding Cov(C,Z)=n q_n^n(c_(n-1)-c_n). Standard Gaussian Riemann sums and Rayleigh scaling give the covariance and correlation constants. Independent brute force enumerated every function for n=2,3,4,5 (4+27+256+3125) and checked exact joint PMF and cyclic marginals; finite checks are not the unbounded proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A joint generating-function formalism may encode Z and C, but obtaining the exact finite conditional occupancy distribution requires a specialization/extraction not stated in the inspected results."
+        ],
+        "reasoning": "General random-map EGF theorems are tools, and asymptotic conditional-cyclic distributions do not logically determine the exact two-way finite law or all increasing-transform covariance statement.",
+        "searches": [
+          "Arney Bender cyclic points constrained origins asymptotic distribution",
+          "Soria leaf marked mappings EGF",
+          "Hansen Jaworski component sizes conditioned cyclic count"
+        ]
+      },
+      "checked_sources": [
+        "https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-p.pdf",
+        "https://algo.inria.fr/seminars/sem96-97/soria.html",
+        "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+        "Arney Bender 1982 random mappings coalescence number of origins cyclic elements",
+        "Soria Distribution of Image Points random mappings",
+        "Hansen Jaworski given number cyclical points",
+        "Arney Bender cyclic points constrained origins asymptotic distribution",
+        "Soria leaf marked mappings EGF",
+        "Hansen Jaworski component sizes conditioned cyclic count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unconditioned expected # origins n(1-1/n)^n and classical cyclic-point marginal are old.",
+          "The conditional occupancy identity uses the exact rooted-forest deletion count; it implies the strict covariance but is not stated in the inspected prior sections."
+        ],
+        "reasoning": "Classical marginals do not imply any joint distribution. Existing asymptotic conditioning on origins does not imply the explicit finite factorial moments conditional on cyclic count. Residual risk remains that an uninspected EGF coefficient identity is an equivalent formula.",
+        "searches": [
+          "Soria 1996 image points random mappings distribution",
+          "Hansen Jaworski random mappings given cyclic points",
+          "Arney Bender 1982 origin constraints"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arney–Bender calls indegree-zero vertices origins; this is precisely Z, so that closest paper was assessed explicitly.",
+          "Soria uses leaves/image points; Hansen–Jaworski condition on cyclic points, but inspected results are not the finite conditional leaf occupancy formula."
+        ],
+        "reasoning": "Terminological equivalence is recognized. Arney–Bender provides asymptotic analyses under constraints on origins, not the all-n, all-k joint PMF and exact strict regression as displayed; explicit finite co-dependence is not obtained from its tabulated asymptotics alone.",
+        "searches": [
+          "Arney Bender 1982 random mappings coalescence number of origins cyclic elements",
+          "Soria Distribution of Image Points random mappings",
+          "Hansen Jaworski given number cyclical points"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Arney–Bender Table II explicitly lists asymptotic means/densities of cyclic elements and origins under constraints; it is not a table of exact finite bivariate probabilities."
+        ],
+        "reasoning": "This paper is the closest tabulation and the main priority risk, but does not by itself reproduce the assessed binomial-inversion table.",
+        "searches": [
+          "Pacific J Math 103 (1982) Table I II number origins cyclic elements",
+          "random mappings joint number of cyclic and terminal vertices table"
+        ]
+      },
+      "rationale": "Best-of-knowledge original contribution after comparing actual claims and implications with primary literature: Classical marginals do not imply any joint distribution. Existing asymptotic conditioning on origins does not imply the explicit finite factorial moments conditional on cyclic count. Residual risk remains that an uninspected EGF coefficient identity is an equivalent formula.",
+      "residual_risks": [
+        "Highest-priority historical risk: Arney–Bender 1982 treats precisely origins and cyclic points; the relevant generating functions might contain an implicit equivalent joint coefficient identity not recognized in inspected sections.",
+        "Hansen–Jaworski 2010 PDF inspected by selected pages, not exhaustively page-by-page; older mapping combinatorics could cover exact conditional occupancy implicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Very relevant prior analysis of both cyclic points and origins, including asymptotic cyclic-point behavior under origin restrictions. The examined tables and derivations do not exhibit the exact finite conditional occupancy law, strict monotone regression or covariance asymptotic. The paper is retained as a significant residual implicit-coverage risk.",
+          "evidence": [
+            "Arney and Bender, Pacific Journal of Mathematics 103 (1982), 269–292, abstract, Tables I-II and §§5,7"
+          ],
+          "identifier_or_url": "https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-p.pdf",
+          "material_read": "Accessible original Pacific Journal of Mathematics PDF: abstract, §§1-2 including Tables I-II, §§3,5,7 relating origins and cyclic points, plus original first-page image",
+          "method": "Read PDF text and inspect page image; distinguish finite joint PMF conditional on exact cyclic-point count from asymptotic statistics with fixed/fractional origin constraints",
+          "title": "Random mappings with constraints on coalescence and number of origins",
+          "trigger": "Exact same two observables: cyclic points and indegree-zero origins"
+        },
+        {
+          "assessment": "Provides marginal image-point/leaf generating-function method, not the explicit conditional-law and strict regression stated here; general EGF machinery could nevertheless yield an implicit specialization.",
+          "evidence": [
+            "Soria, INRIA seminar November 1996, leaf-marking and image-point sections"
+          ],
+          "identifier_or_url": "https://algo.inria.fr/seminars/sem96-97/soria.html",
+          "material_read": "Full available 1996 INRIA seminar HTML exposition including leaf generating function and limit law material",
+          "method": "Compare indegree-zero marking with the candidate conditioning on cyclic core size and finite inclusion-exclusion inversion",
+          "title": "Distribution of Image Points in Random Mappings",
+          "trigger": "Leaf/origin marking in functional-digraph generating functions"
+        },
+        {
+          "assessment": "Investigates component-size behavior and fixed cyclic counts; inspected material did not state the conditional distribution of indegree-zero vertices. Full page-by-page coverage was not completed, so residual priority risk remains.",
+          "evidence": [
+            "Hansen and Jaworski, Ars Combinatoria 94 (2010), 341–359, conditional-component results"
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+          "material_read": "Original 19-page journal PDF; inspected title, abstract, pages 1, 4, 11 and accessible theorem/formula sections",
+          "method": "Read image-rendered PDF pages and compare fixed-cyclic-point conditioning with leaf-count occupancy observable",
+          "title": "Random Mappings with a Given Number of Cyclical Points",
+          "trigger": "Conditional random-mapping analysis at exactly fixed number of cyclic vertices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cyclic core controls long-term iteration, while terminal vertices measure one-step image depletion. Their exact finite joint null distribution and strict negative regression for every increasing transform link two natural but previously separately studied random-map statistics, supporting structural calibration and dependence analysis.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-p.pdf",
+    "https://algo.inria.fr/seminars/sem96-97/soria.html",
+    "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform independent images [n]->[n] only; no stochastic dominance of full conditional laws claimed, only strictly decreasing conditional means.",
+    "Asymptotic constants require the analytic Gaussian and Rayleigh approximations, not the finite enumeration.",
+    "Highest-priority historical risk: Arney–Bender 1982 treats precisely origins and cyclic points; the relevant generating functions might contain an implicit equivalent joint coefficient identity not recognized in inspected sections.",
+    "Hansen–Jaworski 2010 PDF inspected by selected pages, not exhaustively page-by-page; older mapping combinatorics could cover exact conditional occupancy implicitly."
+  ],
+  "schema_version": 1
+}
