@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The nodal branch pairing is reconstructed from the published normalization map and checked directly using the trace/norm quadratic identity. Picard gluing for a rational nodal curve yields a torus, while conjugate branches give the norm-one \(\mathbb F_q\) form. The automorphism stabilizer has the normalizer structure \(C_{q+1}\rtimes C_2\), so the signed induced character lattice has coinvariants exactly \(\mathbb Z/2\). The diagonalizable anti-equivalence retains the nonreduced \(\mu_2\) in characteristic two. For \(q=5\), the Specht decomposition follows from the group identification and Pieri rule. A finite checker confirms the explicitly sampled group actions; it is not a general proof.
+## correctness
 
-## Originality
-PASS, with historical-priority qualification. Fukasawa–Homma–Kim establish the normalized rational-point and zeta geometry; Hoang–Shimada establish the projective automorphism group; Ballico identifies the seminormal gluing model. These results supply the input data but the inspected relevant sections and other research-record searches do not present the full equivariant integral Picard lattice, its uniform scheme-theoretic fixed subgroup, or the specific \(\mathfrak S_5\) decomposition. The standard abstract gluing and representation-theoretic machinery is acknowledged, and earlier specialized equivariant Picard treatments remain a possible overlap risk.
+PASS
 
-## Value
-PASS. The group-scheme fixed subgroup of a natural Jacobian-type invariant is a complete exact answer in every characteristic, and the characteristic-two infinitesimal case cannot be read off from rational-point counts or an ordinary zeta function. The rank-ten sextic representation distinguishes two irreducible symmetry directions and is relevant to the same curve's established special surface-cover geometry. The claim adds a structural group-action invariant, not another point-count calculation.
+For any prime power q>=2, the normalization t->(1:t+t^q:t^{q+1}) identifies exactly non-Fq conjugate pairs in P1(Fq²), producing δ=q(q-1)/2 ordinary Fq-rational nodes with Frobenius-conjugate branches. Gluing trivial line bundles along the normalization gives geometric Pic^0=(G_m)^δ; descent exchanges gluing ratios and each factor is a nonsplit norm-one torus, with Frobenius -1. PGL2(Fq) is transitive on unordered pairs and its stabilizer is the normalizer of the nonsplit torus, dihedral of order 2(q+1); branch swapping gives signed induced integral character lattice Ind_H^G Z_ε. Exact integral coinvariants are Z/2, not a rational invariant calculation, so group-scheme fixed points are μ_2, including nonreduced μ_2 in char2. For q=5 the subgroup under S5 corresponds to S3×S2 with sign on S3; Pieri multiplication s_111*s_2=s_311+s_2111 gives rank6+rank4. Independently programmed PGL2 signed actions for q=2,3,5 verified pair transitivity, index, stabilizer sign counts and character norm squared 2 at q5. This finite evidence is not the all-q proof.
 
-## Scope and closest literature
-The prior works by Fukasawa–Homma–Kim (2011), Hoang–Shimada (2014), and Ballico (2014) are cited in full in RESULT.md. The assertion does not classify linearizations or the Picard group of a covering surface. Character-module formulas are interpreted integrally; rational characteristic-zero representation theory is used only for the optional sextic decomposition.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for full equivariant integral torus character lattice, uniform scheme-theoretic G-fixed group μ_2 and S5 rational decomposition. Prior full-text geometry determines nodal pairs and automorphism group, and ordinary generalized-Jacobian gluing determines nonsplit torus factors: these components are prior-implied, not newly discovered. Specific equivariant lattice and characteristic-two fixed scheme were not found in inspected sources; specialist equivariant generalized Jacobian literature might still imply them.
+
+## value
+
+PASS
+
+The integral action and infinitesimal fixed subgroup are complete structural symmetry invariants of a natural family of nodal rational curves, not recoverable from point counts or rational character decomposition alone. The ten-node sextic decomposes the symmetry module into two distinct irreducible pieces. This sharp group-scheme classification is independently useful in related arithmetic and curve automorphism studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

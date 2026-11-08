@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone pure-Python verifier `verify_bh_picard.py` was executed for \(q=2,3,5\). It enumerated all \(6,24,120\) projective fractional-linear maps and the respective \(1,3,10\) conjugate node-pairs, finding one orbit in every case. The unordered-pair stabilizers had orders \(6,8,12\), and in each stabilizer exactly half of the elements exchanged branches. The signed characters had zero average; for \(q=5\), their squared character norm was \(2\). The complete signed-character values by element order were respectively \(10,-2,1,0,0,1\) for orders \(1,2,3,4,5,6\), with class-size totals \(1,25,20,30,24,20\); these agree with the stated sum of Specht characters.
+# Independent mathematical audit
 
-These checks corroborate the geometric group-action description and detect a nontrivial sign character. The unrestricted theorem is proved by the general nonsplit-torus normalizer argument and integral coinvariants, not extrapolation from finite field samples. The Specht constituents are established by the abstract \(\mathfrak S_5\) identification and Pieri rule, not inferred solely from the character-norm test. No third-party scientific validation is asserted.
+## correctness
+
+PASS
+
+For any prime power q>=2, the normalization t->(1:t+t^q:t^{q+1}) identifies exactly non-Fq conjugate pairs in P1(Fq²), producing δ=q(q-1)/2 ordinary Fq-rational nodes with Frobenius-conjugate branches. Gluing trivial line bundles along the normalization gives geometric Pic^0=(G_m)^δ; descent exchanges gluing ratios and each factor is a nonsplit norm-one torus, with Frobenius -1. PGL2(Fq) is transitive on unordered pairs and its stabilizer is the normalizer of the nonsplit torus, dihedral of order 2(q+1); branch swapping gives signed induced integral character lattice Ind_H^G Z_ε. Exact integral coinvariants are Z/2, not a rational invariant calculation, so group-scheme fixed points are μ_2, including nonreduced μ_2 in char2. For q=5 the subgroup under S5 corresponds to S3×S2 with sign on S3; Pieri multiplication s_111*s_2=s_311+s_2111 gives rank6+rank4. Independently programmed PGL2 signed actions for q=2,3,5 verified pair transitivity, index, stabilizer sign counts and character norm squared 2 at q5. This finite evidence is not the all-q proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for full equivariant integral torus character lattice, uniform scheme-theoretic G-fixed group μ_2 and S5 rational decomposition. Prior full-text geometry determines nodal pairs and automorphism group, and ordinary generalized-Jacobian gluing determines nonsplit torus factors: these components are prior-implied, not newly discovered. Specific equivariant lattice and characteristic-two fixed scheme were not found in inspected sources; specialist equivariant generalized Jacobian literature might still imply them.
+
+## value
+
+PASS
+
+The integral action and infinitesimal fixed subgroup are complete structural symmetry invariants of a natural family of nodal rational curves, not recoverable from point counts or rational character decomposition alone. The ten-node sextic decomposes the symmetry module into two distinct irreducible pieces. This sharp group-scheme classification is independently useful in related arithmetic and curve automorphism studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
