@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The theorem is a finite exhaustive classification. Removing consecutive duplicates preserves permutation subsequences; first-occurrence normalization uniquely represents each \\(S_5\\) orbit. For any t-prefix pattern its earliest occurrence precedes \\(L-m_{5-t}\\), proved using the complementary suffix. Exact smaller minimum lengths 1,3,7,12 are independently enumerated. Two structurally different enumerators, one using greedy states on 120 permutations and the other explicit distinct-letter-subsequence bitsets, independently give 0 candidates at length 18 and the same 128 canonical length-19 words; Python checks each against all 120 permutations, sorted multiplicities and the reversal partition. The entire claimed finite domain and all pruning steps are accounted for; no nonstandard unproved infinite lemma is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Newey 1973 proves the value 19 and gives 128 constructible classes, but expressly leaves full enumeration unsettled.",
+        "Radomirović, Electronic Journal of Combinatorics 19(4) 2012, Sections 1–4, gives general completeness properties and improved length constructions, not this equality-case census.",
+        "Engen and Vatter, arXiv:1810.08252 (2018), Section 4, surveys known minimal lengths and constructions without asserting that Newey’s 128 classes exhaust the five-letter case."
+      ],
+      "reasoning": "Universal construction and lower-bound theorems are not universal enumeration theorems. Neither the stronger large-alphabet length estimates nor a computational algorithm for *checking one word* imply the total number of shortest complete words or forbid other optimal forms. No inspected broader result subsumes the new exact equality classification.",
+      "searches": [
+        "Newey 1973 shortest strings containing all permutations enumeration optimal strings number 5 symbols 19",
+        "https://arxiv.org/html/1810.08252v4",
+        "five symbol permutation embedding word all 120 permutations as subsequences length nineteen equality classifications"
+      ]
+    },
+    "checked_sources": [
+      "https://ftpmirror.your.org/pub/misc/bitsavers/pdf/stanford/Stanford_CS_TR_Collection_2025-12-12/PDF/1973/CS-TR-73-340.pdf",
+      "https://discovery.dundee.ac.uk/ws/portalfiles/portal/17122850/construction.pdf",
+      "https://arxiv.org/html/1810.08252v4",
+      "https://oeis.org/A062714",
+      "https://oeis.org/A351468",
+      "https://doi.org/10.1016/0012-365X(75)90004-7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Newey 1973 Section 9: “128 classes … which may or may not be all of them”; Section 7 supplies a 128-class constructive algorithm, but no completeness classification for five letters.",
+        "The exact exhaustive search supplies the missing inequality total number of five-symbol relabeling classes at most 128.",
+        "Nearby indexed research records on full-alphabet subsequence universality, permutation codes, and permutation supersequences concern other invariants or different word-containment criteria."
+      ],
+      "reasoning": "Prior lower bound 128 and known shortest length 19 do not imply total exactly 128 or 15,360 labeled solutions. The new upper bound plus prior 128 distinct examples imply the exact total and the former 1973 uncertainty is resolved. A 1975 construction could prove a family of solutions, but an inaccessible full text alone is not treated as a universal noncoverage certificate; priority risk is retained.",
+      "searches": [
+        "count of shortest strings containing all permutations of 5 letters as subsequences 128",
+        "15360 minimum permutation embedding sequences length 19 five alphabet reverse symmetry 72 classes",
+        "https://ftpmirror.your.org/pub/misc/bitsavers/pdf/stanford/Stanford_CS_TR_Collection_2025-12-12/PDF/1973/CS-TR-73-340.pdf",
+        "Koutas Hu 1975 shortest string containing all permutations minimal words enumeration count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Newey 1973, Section 9 (printed page 12): his construction yields 128 equivalence classes for five symbols and explicitly says they may or may not be all; the very same alphabet-relabeling equivalence is defined on printed page 1.",
+        "Radomirović 2012, Section 2 defines complete sequences using scattered permutation subsequences.",
+        "The present independent two-language census proves a total of 128, hence upper bound matching Newey’s lower bound."
+      ],
+      "reasoning": "This claim uses precisely Newey’s complete-word notion and his relabeling equivalence, not a renamed problem. His 128 examples imply a lower bound, not a global upper bound: his own wording says exhaustion was unresolved. The proof here supplies that missing upper bound. The reversal classification is a consequence of the now-complete list, not a claim to have invented reversal symmetry.",
+      "searches": [
+        "\"Newey\" \"128\" \"may or may not\" shortest permutations subsequences",
+        "five symbol permutation embedding word all 120 permutations as subsequences length nineteen equality classifications",
+        "exactly 128 five-letter shortest complete sequences length 19 containing all permutations as subsequences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A062714 records the minimum lengths 1,3,7,12,19,...; this is a minimum length table, not an equality-class frequency table.",
+        "OEIS A351468 records Newey’s canonical construction as example words, not proof that its 128 forms are exhaustive.",
+        "Newey 1973 Section 9 records 128 constructive classes only, qualified as possibly incomplete."
+      ],
+      "reasoning": "No inspected table reports the exact 128 as the *total* number of all five-letter shortest classes with proof. The pre-existing number 128 is explicitly a lower bound from construction. Digit equality alone does not establish prior coverage; logical direction is decisive.",
+      "searches": [
+        "https://oeis.org/A062714",
+        "https://oeis.org/A351468",
+        "\"15360\" \"permutations\" \"subsequence\" \"length 19\"",
+        "\"128\" \"complete sequences\" \"five\" Newey"
+      ]
+    },
+    "rationale": "Newey (1973) constructed 128 distinct five-symbol optimum classes but wrote explicitly that they may or may not be all. The new exhaustive upper bound shows there are no others and so answers the precise historical unresolved equality-case question. The minimum length, construction family and four-symbol classification are credited as prior. Relevant primary texts and database entries were compared by implications rather than terminology; possible later unindexed census remains a priority risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible later census could have established the same global upper bound before this classification.",
+      "Koutas and Hu 1975 could not be reviewed in full; only bibliographic and cross-citation material is available.",
+      "No human or independent expert priority determination has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers minimum length 19 and 128 constructible five-symbol classes but expressly withholds an exhaustive conclusion for five symbols; fully classifies only size four.",
+        "evidence": "Section 9 page 12 states 128 five-letter equivalence classes “which may or may not be all of them”; pages 7 and 9 describe the construction and earlier exact size-four result.",
+        "identifier_or_url": "https://ftpmirror.your.org/pub/misc/bitsavers/pdf/stanford/Stanford_CS_TR_Collection_2025-12-12/PDF/1973/CS-TR-73-340.pdf",
+        "material_read": "22-page report scanned; definition page 1, minimal-length proof Section 4, size-four classification Section 5, construction Section 7, discussion Section 9 and appendices inspected for whether they extend the five-symbol classification",
+        "method": "Full PDF text with inspected page images, notably printed pages 7, 8, 9 and 12",
+        "title": "Notes on a Problem Involving Permutations as Subsequences",
+        "trigger": "Original 1973 equality-case construction and plausible broader claim"
+      },
+      {
+        "assessment": "New general construction and proof tools; no exhaustiveness claim for the 128 five-symbol optimal classes.",
+        "evidence": "Page 1 gives Published Nov 22 2012, MSC 68R15; introductory paragraphs credit Newey for minimum length, Section 4 develops constructions.",
+        "identifier_or_url": "https://discovery.dundee.ac.uk/ws/portalfiles/portal/17122850/construction.pdf",
+        "material_read": "Publisher full PDF, front matter and Sections 1–4 including definitions, structural lemmas and construction theorem; PDF page image inspected",
+        "method": "Publisher-hosted open PDF text and page images",
+        "title": "A Construction of Short Sequences Containing All Permutations of a Set as Subsequences",
+        "trigger": "Same complete-sequence objects and verified primary MSC/date"
+      },
+      {
+        "assessment": "Confirms Newey 1973 shortest lengths but gives no five-letter equality-case class census.",
+        "evidence": "Section 4, paragraphs on the 1973 report and known values 1,3,7,12,19,28,39.",
+        "identifier_or_url": "https://arxiv.org/html/1810.08252v4",
+        "material_read": "Full arXiv HTML paper with Section 4 and reference list, including discussion of subsequences over exactly n letters",
+        "method": "Open-access article HTML read and inspected by section",
+        "title": "Containing All Permutations",
+        "trigger": "Survey potentially subsuming earlier known finite results"
+      },
+      {
+        "assessment": "Records length and construction exemplars, not exhaustion of Newey’s 128 classes.",
+        "evidence": "A062714 values include 19 for n=5; A351468 gives Newey’s 19-letter example.",
+        "identifier_or_url": "https://oeis.org/A062714 ; https://oeis.org/A351468",
+        "material_read": "Both entries’ names, values, comments, formulas, examples and bibliographies",
+        "method": "Public database record text",
+        "title": "OEIS A062714 and A351468",
+        "trigger": "Exact sequence/table overlap check"
+      },
+      {
+        "assessment": "Residual risk: publication known to concern complete words and constructions; no full-text noncoverage claim is made.",
+        "evidence": "Engen–Vatter references identify Koutas–Hu 1975 as a construction paper; the precise equality-case contents have not been directly checked.",
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(75)90004-7",
+        "material_read": "Bibliographic/abstract information and cross-citations only; full text was not available during this review",
+        "method": "Literature indexing and the Newey/Radomirović/Engen–Vatter citations",
+        "title": "Shortest String Containing All Permutations",
+        "trigger": "Plausible early independent construction with near-identical problem title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9e5cfb47-61d0-4ab1-bfe9-e048b24d006b",
+  "value": {
+    "rationale": "Exactly counting all shortest complete words is a natural extremal classification and resolves Newey’s explicit 1973 may-or-may-not-be-exhaustive 128-class question. The result supplies a complete optimal-design list, a rigidity statement (all optimal normalized words begin with a full permutation), and symmetry classification (72 reversal orbits), not an arbitrary size slice or re-enumeration of a settled optimum length. The exact finite fact is useful independently of any general formula for larger alphabets.",
+    "status": "PASS"
+  }
+}
