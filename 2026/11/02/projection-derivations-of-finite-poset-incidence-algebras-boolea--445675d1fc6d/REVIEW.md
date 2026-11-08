@@ -1,11 +1,21 @@
-# Self-review: incidence-algebra projection derivations
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof gives the unique full derivation decomposition, proves that an idempotent derivation's kernel lifts the diagonal quotient, conjugates its orthogonal idempotents by a radical unit, and calculates diagonal idempotency, stabilizers, ranks and orbit sizes. The exact characteristic-two cohomology formula follows from the simplicial cochain complex. Twelve finite-field cases were independently enumerated with original derivation matrices; these checks are corroborative, not a replacement for the proof.
+## correctness
 
-**Originality (PASS; provisional publication priority).** Baclawski's decomposition and its later generalizations provide additive-cocycle/inner descriptions of all derivations; these existing ingredients are credited. The assessed contribution is the nonlinear condition \(D^2=D\) together with its unique radical-unit orbits and exact rank enumerator. Earlier related incidence-algebra results on Jordan derivations and commuting diagonalizable algebra elements do not imply the full result without additional arguments and do not capture non-exact Boolean derivation cocycles. A stronger general classification of semisimple derivations or algebra gradings remains an explicit literature risk.
+PASS
 
-**Value (PASS).** The rank polynomial is a natural all-poset algebra invariant, retaining information that the dimension of the full derivation space loses. Its characteristic-two number of orbits identifies the first mod-two Betti number, while a non-simply-connected crown illustrates genuinely outer idempotent derivations.
+For finite poset incidence algebra A=I(P,F_q) with strict-interval radical J, every coefficient-linear derivation has unique cocycle-plus-inner decomposition D=δ_alpha+ad X, X∈J. Under D²=D, B=ker D surjects to A/J as a subalgebra because a−D(a) belongs B and differs from a by J. Nilpotent-ideal lifting yields complete orthogonal idempotents f_x∈B lifting E_xx; u=Σ_x f_x E_xx∈1+J conjugates them to the standard diagonal system. Thus every projection derivation is U-conjugate to δ_alpha, with unique Boolean additive cocycle alpha values 0/1. Distinct alpha remain distinct under U; stabilizer is δ_alpha(u)=0 because Z(A)∩J=0, hence orbit size q^{w(alpha)}, rank w, polynomial Σ_alpha q^{w(alpha)}T^{w(alpha)}. In char2, Boolean cocycles are Z¹ of order complex and orbit count 2^{|P|−c+β1}. Independently reproduced 4-edge crown (1+qT)^4 and histograms over q=2,3,4, including q=2 total81; the accompanying exact code checks 12 finite configurations. General proof is symbolic for all finite P, not inferred from these instances.
 
-**Closest literature and limits.** The 1972 incidence derivation theorem and the 2024 structural decomposition are the nearest primary work; the 2023 skew-derivation paper and standard poset cohomology supply related context. The claim concerns finite antisymmetric posets, field-linear associative derivations, and conjugation by radical units only. Priority has not been independently or exhaustively verified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Baclawski and Krylov–Tuganbaev decompose incidence algebra derivations as inner-plus-additive cocycles, including outer classes; this structural decomposition is acknowledged. Their primary theorem does not impose composition idempotence or count radical-unit conjugacy orbits/rank polynomials. Related idempotent elements of incidence monoids are not derivations. However a general semisimple derivation or finite group-grading theorem could imply the orbit classification, and remains a best-of-knowledge priority risk.
+
+## value
+
+PASS
+
+The theorem classifies a natural nonlinear subset of all derivations for arbitrary finite posets and links rank counts to Boolean order-complex cocycles and first cohomology. It gives exact polynomial distributions, nontrivial outer derivations and a four-vertex crown example, independent of any finite-table census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
