@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Execute `python3 verify.py` using only Python 3 standard-library modules; the check prints `VERIFY_OK` if all assertions hold. It independently generates the twelve positive roots from \(e_i\pm e_j\), checks all antichains and exact rational boundary ranks, exhaustively constructs all three subgroup-orbit complexes and their faces, finds a free-edge collapse for the involution fixed space, and evaluates the character constraints.
+# Independent mathematical audit
 
-Exact results: full complex face counts \((12,24,12,1)\), augmented boundary ranks \((1,9,10,1)\), involution-fixed face counts \((9,9,1)\), order-three/full-group-fixed face counts \((6,1)\). These exhaust the finite source object and certify the algebraic steps in the proof. There is no claim of an independent audit or automated external certification, and the principal 2026 paper's full text was not available for a complete overlap check.
+## correctness
+
+PASS
+
+Constructed the twelve positive D4 root coefficient quadruples from the simple-root basis, enumerated incomparable subsets, giving faces (12,24,12,1) and reduced Betti ranks (2,5,1). Computed entire subgroup orbit-simplex fixed complexes: transposition has (9 vertices,9 edges,1 triangle) yielding a two-circle component plus two points; threecycle/full S3 each have one edge plus four isolated vertices. Lefschetz traces and S3 irreducible nonnegative multiplicities force H0=2 trivial, H1=trivial+2 standard, H2=sign, including the nontrivial top orientation. The finite enumeration is exhaustive for D4.
+
+## originality
+
+PASS
+
+Mu–Welker shellability and antichain-counting statements do not themselves compute the separate S3 homology characters or geometric subgroup fixed loci; folding can motivate them but does not entail the reported calculations from the accessible material. Compared mathematical implications, not titles. Current result survives on best available primary abstract statements, direct original proof, existing result summaries and explicit residual priority risks; this is not a guaranteed novelty certificate.
+
+## value
+
+PASS
+
+D4 is the canonical triality root system and first nonshellable D-type in the source classification. The graded rational diagram representation and actual fixed-space topology distinguish symmetries invisible to nonequivariant Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
