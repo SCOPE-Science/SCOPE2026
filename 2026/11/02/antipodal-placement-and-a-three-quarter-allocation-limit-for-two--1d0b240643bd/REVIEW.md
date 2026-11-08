@@ -1,19 +1,21 @@
-# Scientific review — two imperfect traps on a cycle
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The object is a continuous-time nearest-neighbor walk on \(C_n\), with jump rate \(D\) **per edge** and local killing rates summing to \(K\). Strict positivity of the killed Laplacian for \(K>0\) gives a unique finite solution of the mean-lifetime Poisson problem. Exact quadratic interpolation on each of the two arcs reduces that problem to a two-by-two system, giving the stated mean-time formula without an approximation. Differentiating the rational expression gives a unique positive minimizing remote rate and a closed form for the optimized mean. The integer function \(d(n-d)\) proves all placement equality cases. The boundary allocations, the tie for equal splitting, and the weak/strong-resource limits were derived from the same expression. The standalone checker independently solved 270 rational matrix equations exactly and performed 6,750 deterministic random-parameter comparisons; those finite tests are supporting diagnostics, not the proof for arbitrary \(n,D,K\).
+PASS
 
-## Originality
+C PASS: On C_n n>=3, D>0 per edge and total local killing K>0 at start 0 and other d, H=D*L+diag(κ0 at 0, κd at d) is positive definite. Quadratic Poisson interpolation on two arcs yields 2x2 system with conductance C=Dn/[d(n-d)], hence T0=n(κd+2C)/(2(κ0κd+CK)). Derivative in y=κd has numerator y²+4Cy-CK with unique minimizer 0<y*=K/(2+sqrt(4+K/C))<K/4. Optimized T=n/K*(1/2+1/sqrt(4+K/C)) increases strictly in C; C least exactly at opposite placement d=floor(n/2) or ceil. Correct boundary y=0/equal split both n/K; weak/strong resource fractions follow exact formula.
 
-**PASS on inspected evidence; historical priority remains provisional.** The full accessible arXiv texts of Aspelmeier et al. (cond-mat/0107434) and Condamin et al. (0806.0453) were compared at the level of objects, observables and hypotheses. The first uses a **single imperfect trap on a decoupled ring** to study asymptotic survival; the second develops occupation-time and competition formulas involving an imperfect center and a target. Neither inspected result fixes a total budget over **two independently imperfect sites** and jointly optimizes separation and site-specific killing to minimize lifetime from a reactive initial site. Searches of published mathematical-result summaries for two imperfect ring traps, fixed-rate allocation and equivalent Laplacian formulations revealed no dominating claim. A relevant equidistant-loop result treats a repulsive Schrödinger ground-state eigenvalue and identical point strengths, not a source-dependent inverse-generator lifetime with asymmetric strengths. Older multi-trap literature and the 2015 competing-center study were compared at the abstract level only; their complete historical coverage remains a real, disclosed risk, not evidence of noncoverage.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Choosing where to locate imperfect absorbers and how to divide a limited trapping capacity is a natural design problem for a localized source on a periodic reaction/transport network. The theorem solves the full infinite family exactly: farthest possible placement, unique asymmetric allocation at every positive budget, a strict one-quarter ceiling on remote allocation, a limiting three-to-one low-budget division, and a strong-budget factor-two lifetime gain over either a single local trap or a symmetric rate split. These are quantitative design laws not obtained merely by restating the killed Markov-chain resolvent formula. Applicability is limited to a homogeneous cycle, time-homogeneous Poisson jumps and killing, and a particle launched at one reactive site.
+Best-of-knowledge new joint optimization of two finite imperfect killing rates and placement on a fixed-source cycle; prior resolvent and trap models credited and older inaccessible work retained as priority risk.
 
-## Closest literature, qualification, and verification
+## value
 
-Aspelmeier et al., arXiv:cond-mat/0107434 (first public 2001-07-20); Condamin et al., arXiv:0806.0453 (2008); Robledo and Woodhouse, doi:10.1007/BF01012507 (1978); Evans and Nord, doi:10.1103/PhysRevA.32.2926 (1985); Abad and Kozak, doi:10.1103/PhysRevE.91.022106 (2015). The Robledo–Woodhouse, Evans–Nord, and Abad–Kozak complete texts could not all be inspected, so a stronger hidden specialization cannot be ruled out; none of the accessible descriptions asserts the exact fixed-budget theorem. The finite checker is reproducible using standard Python but is not an independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+V PASS: Natural resource allocation/design for two imperfect absorbers from a fixed local source; exact global minimizer, separation equality cases, and strong-resource factor-two time gain beyond generic Poisson equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

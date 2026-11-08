@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 CHECK.py` with Python 3. The script uses only the standard library and prints a PASS summary if all checks succeed. It constructs the killed cycle generator as an exact rational matrix and separately computes its inverse action on the all-ones vector using rational Gaussian elimination. The result is compared to the two-arc formula in 270 exact test configurations with \(3\le n\le14\). The seed for 6,750 nonoptimal placement/rate diagnostics is fixed in the script. Further boundary checks verify that either placing all reactivity at the starting trap or splitting the budget equally yields lifetime \(n/K\), independent of trap spacing. Weak/strong-budget diagnostic limits are also included.
+## correctness
 
-These tests do **not** certify the all-parameter optimum: that is proved by exact derivatives and maximizing \(d(n-d)\) over integers in `RESULT.md`. There is no Monte Carlo uncertainty in the rational matrix checks. Numerical global comparisons are sampled, not exhaustive. No independent audit has been performed, and the historical originality assessment is limited to the materials actually accessible.
+PASS
+
+C PASS: On C_n n>=3, D>0 per edge and total local killing K>0 at start 0 and other d, H=D*L+diag(κ0 at 0, κd at d) is positive definite. Quadratic Poisson interpolation on two arcs yields 2x2 system with conductance C=Dn/[d(n-d)], hence T0=n(κd+2C)/(2(κ0κd+CK)). Derivative in y=κd has numerator y²+4Cy-CK with unique minimizer 0<y*=K/(2+sqrt(4+K/C))<K/4. Optimized T=n/K*(1/2+1/sqrt(4+K/C)) increases strictly in C; C least exactly at opposite placement d=floor(n/2) or ceil. Correct boundary y=0/equal split both n/K; weak/strong resource fractions follow exact formula.
+
+## originality
+
+PASS
+
+Best-of-knowledge new joint optimization of two finite imperfect killing rates and placement on a fixed-source cycle; prior resolvent and trap models credited and older inaccessible work retained as priority risk.
+
+## value
+
+PASS
+
+V PASS: Natural resource allocation/design for two imperfect absorbers from a fixed local source; exact global minimizer, separation equality cases, and strong-resource factor-two time gain beyond generic Poisson equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

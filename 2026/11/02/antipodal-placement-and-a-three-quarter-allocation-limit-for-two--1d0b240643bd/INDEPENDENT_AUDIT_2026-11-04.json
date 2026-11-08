@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:59:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "C PASS: On C_n n>=3, D>0 per edge and total local killing K>0 at start 0 and other d, H=D*L+diag(κ0 at 0, κd at d) is positive definite. Quadratic Poisson interpolation on two arcs yields 2x2 system with conductance C=Dn/[d(n-d)], hence T0=n(κd+2C)/(2(κ0κd+CK)). Derivative in y=κd has numerator y²+4Cy-CK with unique minimizer 0<y*=K/(2+sqrt(4+K/C))<K/4. Optimized T=n/K*(1/2+1/sqrt(4+K/C)) increases strictly in C; C least exactly at opposite placement d=floor(n/2) or ceil. Correct boundary y=0/equal split both n/K; weak/strong resource fractions follow exact formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "actual_resultary_query": "random walk on cycle two partially reactive traps optimal placement reactivity split mean absorption time",
+      "broader_coverage": {
+        "evidence": [
+          "Two-site occupation times cover computation of certain finite Markov observables, not the present two-local-kill budget optimum.",
+          "Perfect trap limits and equally spaced geometries do not cover asymmetric rate splits at all K."
+        ],
+        "reasoning": "More general resolvent frameworks may derive the result but no directly dominating published theorem was located; older text access risk named.",
+        "searches": [
+          "arxiv:0806.0453",
+          "doi:10.1007/BF01012507",
+          "doi:10.1103/PhysRevA.32.2926",
+          "random walk on cycle two partially reactive traps optimal placement reactivity split mean absorption time"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:cond-mat/0107434 full PDF",
+        "arxiv:0806.0453 full PDF",
+        "doi:10.1007/BF01012507 abstract",
+        "doi:10.1103/PhysRevA.32.2926 abstract",
+        "doi:10.1103/PhysRevE.91.022106 abstract",
+        "Resultary search: random walk on cycle two partially reactive traps optimal placement reactivity split mean absorption time"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All n>=3 and any D,K>0 yield κremote*=K/(2+sqrt(4+K/C*)) strictly below K/4.",
+          "Known one-trap/equal-trap benchmarks T=n/K do not imply strict asymmetric optimum."
+        ],
+        "reasoning": "The two-arc Poisson reduction and monotone optimized C dependence provide a new exact implication, not merely citing a one-absorber formula.",
+        "searches": [
+          "arxiv:cond-mat/0107434",
+          "arxiv:0806.0453",
+          "random walk on cycle two partially reactive traps optimal placement reactivity split mean absorption time"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Killing times of a finite CTMC solve (D Laplacian + diagonal kill) t=1.",
+          "Related Green functions compute reaction but do not state the constrained placement-and-allocation optimization."
+        ],
+        "reasoning": "Equivalent electric-network/point-interaction resolvent formulation was considered, including fixed-source dependence; closest statements do not give the unique rate split.",
+        "searches": [
+          "random walk on cycle two partially reactive traps optimal placement reactivity split mean absorption time",
+          "arxiv:0806.0453 Green function",
+          "arxiv:cond-mat/0107434"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Available descriptions include tabulated or exactly solvable equidistant traps, not all n, D, K and rate allocations."
+        ],
+        "reasoning": "The theorem is a continuum-in-rates all-cycle exact optimizer; finite lattice tables alone are not equivalent.",
+        "searches": [
+          "random walk on cycle two partially reactive traps optimal placement reactivity split mean absorption time",
+          "doi:10.1007/BF01012507 periodic lattice solutions"
+        ]
+      },
+      "rationale": "Best-of-knowledge new joint optimization of two finite imperfect killing rates and placement on a fixed-source cycle; prior resolvent and trap models credited and older inaccessible work retained as priority risk.",
+      "residual_risks": [
+        "Older multiple trapping papers only accessible as abstracts: potential closed-form two-finite-trap optimizer could be hidden.",
+        "Only mean lifetime from a particular trap on homogeneous CTMC cycle is optimized, not spectral decay, uniform initial distributions or heterogeneous walks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_CONTROL_PROBLEM",
+          "evidence": "One imperfect trap/decoupled ring and survival, rather than two finite traps with fixed total-rate allocation and source-specific mean lifetime.",
+          "identifier_or_url": "arxiv:cond-mat/0107434",
+          "material_read": "Complete arXiv paper with its one-trap equations and survival asymptotics",
+          "method": "arXiv full PDF text and page inspection",
+          "title": "Random walks with imperfect trapping in the decoupled-ring approximation",
+          "trigger": "one-trap ring baseline"
+        },
+        {
+          "assessment": "PARTIAL_METHOD_ONLY",
+          "evidence": "Exact occupation times and imperfect target reaction are relevant tools but not a fixed-budget interior rate-and-distance joint optimizer.",
+          "identifier_or_url": "arxiv:0806.0453",
+          "material_read": "Complete arXiv primary PDF, model and reaction/occupation formulas",
+          "method": "arXiv PDF text and page inspection",
+          "title": "Occupation times of random walks in confined geometries: From random trap model to diffusion limited reactions",
+          "trigger": "two-site reactions and Green functions"
+        },
+        {
+          "assessment": "UNINSPECTED_FULLTEXT_PRIORITY_RISK",
+          "evidence": "Equally spaced trap solutions could contain formulas allowing a specialization; cannot declare full-document noncoverage.",
+          "identifier_or_url": "doi:10.1007/BF01012507",
+          "material_read": "Publisher abstract/metadata only; full paper not obtained",
+          "method": "bibliographic abstract",
+          "title": "Multiple trapping of random walkers on periodic lattices",
+          "trigger": "possible older exact multiple-trap formulas"
+        },
+        {
+          "assessment": "PARTIAL_SCOPE_DIFFERENT",
+          "evidence": "Perfect absorbing traps; no finite rate allocation in accessible material.",
+          "identifier_or_url": "doi:10.1103/PhysRevA.32.2926",
+          "material_read": "Publisher abstract only",
+          "method": "bibliographic abstract",
+          "title": "Random walks on finite lattices with multiple traps: Application to particle-cluster aggregation",
+          "trigger": "multiple-trap classic"
+        },
+        {
+          "assessment": "UNINSPECTED_FULLTEXT_PRIORITY_RISK",
+          "evidence": "One deep trap plus partially reactive others could specialize to 1D, so qualified priority.",
+          "identifier_or_url": "doi:10.1103/PhysRevE.91.022106",
+          "material_read": "Publisher abstract and indexed synopsis, not complete paper",
+          "method": "bibliographic abstract",
+          "title": "Competing reaction processes on a lattice as a paradigm for catalyst deactivation",
+          "trigger": "one deep and many weak traps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "V PASS: Natural resource allocation/design for two imperfect absorbers from a fixed local source; exact global minimizer, separation equality cases, and strong-resource factor-two time gain beyond generic Poisson equation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed source at one reactive vertex, homogeneous cycle, exponential per-edge jump and local kill rates, no other killing.",
+    "Does not address spectral decay, deadlines, nonhomogeneous networks or average initial distribution.",
+    "Older multiple trapping papers only accessible as abstracts: potential closed-form two-finite-trap optimizer could be hidden.",
+    "Only mean lifetime from a particular trap on homogeneous CTMC cycle is optimized, not spectral decay, uniform initial distributions or heterogeneous walks."
+  ],
+  "schema_version": 1
+}
