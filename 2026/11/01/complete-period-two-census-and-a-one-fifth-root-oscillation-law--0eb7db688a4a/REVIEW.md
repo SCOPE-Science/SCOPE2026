@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The domain is the perfect rooted binary tree of height at least one with synchronous majority of neighbors and tie retention. Planted-subtree two-phase counts have a directly verified factorization, with base case \(u_0=1,v_0=0\), giving \(u_{h+1}=u_h(u_h+2v_h),\ v_{h+1}=u_h^2\). At the root, the two mutually exclusive temporal cases contribute \(2u_h^2\) and \(2v_h^2\); stationary states contribute \(2u_h\). Period-two orbit pairing, the explicit ratio recurrence, and an absolutely convergent entropy series finish the unlimited-height argument. Both independent dynamic programs for heights 1–8 and all 32,904 microscopic states through height 3 agree with the formulas; finite checks are corroboration rather than an infinite certificate.
+## correctness
 
-**Originality — PASS, qualified.** The 1980 Goles–Olivos period bound is established prior work. Královič's 2001 analysis already counts binary-tree fixed points, and the corresponding fixed-count recurrence is explicitly credited. Turau's 2022 full-text paper covers all tree two-cycle *structures* and pure two-cycle enumeration, but Section 5.5 and its conclusion do not give exact numerical totals for all mixed cycles on perfect binary trees, a root-oscillation fraction, or periodic orbit entropy; the 2023 full-text paper counts fixed points and pure cycles, not mixed ones. The 2014 Benjamini et al. primary text and 2026 finite-tree paper address different qualitative/stabilization quantities. Actual mathematical research-record and primary-literature searches found no statement implying the entire present quantitative claim. Residual historical risks: the original 2001 Královič full text was unavailable, nonindexed equivalent counts may exist, and novelty is not an independently established fact.
+PASS
 
-**Value — PASS.** Turau's work singles out the gap between characterizing mixed period-two trees and counting them. The present complete census handles **all** temporal two-cycles on a natural infinite family, and the limiting \(1/5\) probability exposes the non-obvious prevalence of mixed cycles with a root that stays fixed while another part oscillates. The exact entropy counts recurrent-state multiplicity, strictly larger than the older fixed-state per-vertex growth rate (the latter has base \(\sqrt{\rho}\)). This is more than checking an arbitrary small case, but does not solve general-tree enumeration or basin statistics.
+The planted-subtree two-temporal-state partition function factorizes as H_k(p,s)=A_k(p0,s1)A_k(p1,s0), where A_k equal/different weights satisfy u_{k+1}=u_k(u_k+2v_k), v_{k+1}=u_k². At root degree two, tie retention gives 2u_h² two-step states with fixed root, 2v_h² with flipping root; stationary state count from same one-time recurrence is 2u_h, so Q=2(u²+v²), N=(Q-F)/2=u²+v²-u. r_h=u_h/v_h follows r_{h+1}=1+2/r_h, tends to2, giving 1/(r²+1)=1/5 root flip in primitive two-cycles. The entropy series comes from u_{h+1}=u_h²r_{h+1}, with bounded logs and 2^-j summability. Independently exhaustive synchronous evolution for all states at h=1,2,3 (32904 states) confirmed exact F,Q,N and root flips; recurrence h=4 checked and rho series approximated. Finite checks do not establish arbitrary height; two-layer induction does.
 
-**Closest literature and limitations.** Direct primary/full-text comparisons used Benjamini et al. (2014), Turau (2022), Turau (2023), and Benjamini–Zakharov–Zhukovskii (2026); Goles–Olivos (1980) and Královič (2001) were compared from bibliographic abstracts and later primary discussions. The strongest overlap is the known fixed-point count and Turau's mixed-orbit block-tree characterization, neither alone being the stated total-count/root-law theorem. Full access to Královič (2001) remains a risk. The theorem concerns only perfect binary trees with tie retention and uniform selection among already-periodic states.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+After direct mathematical implication comparisons, no inspected prior theorem gives the entire final claim; positive classification is best-of-knowledge, not an absolute historical priority certificate. For synchronous binary neighbor-majority on perfect rooted binary trees with root ties retained, exact recursion counts all fixed and mixed/pure period-two configurations, root-flipping fraction tends to 1/5, and the orbit count has growth constant about 1.53717671718234 per vertex.
+
+## value
+
+PASS
+
+A complete transfer-recursion census including mixed two-cycles, new local root-flip 1/5 limit, and exact periodic-orbit entropy on a natural self-similar family addresses a meaningful dynamical invariant beyond known fixed-point or pure-cycle counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
