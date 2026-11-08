@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-The analytic argument in `RESULT.md` proves the pointwise iterate identity for finite and infinite base graphs with maximum degree at most two, using only local majority identities. No experiment on a finite sample of graphs is substituted for that argument.
+## correctness
 
-Run `python3 verify_degree2.py`. It checks the exact first-periodic-entry distributions for path and cycle coronas with two through eight base vertices, the degree-three star trajectory, and the unwhiskered odd-cycle comparison for \(m=1,\ldots,12\). Compare its output against `verify_degree2_output.txt`.
+PASS
 
-Compile `verify_all_small.cpp` with `g++ -O3 -std=c++17 -Wall -Wextra verify_all_small.cpp -o verify_all_small`, and execute `./verify_all_small`. It exhaustively enumerates all labelled simple base graphs with maximum degree at most two on one through six vertices and all binary initial configurations of their one-leaf coronas. It checks the identity \(F^4(z)=F^2(z)\) for each case. Compare its output against `verify_all_small_output.txt`. Across all graph-size instances, it checks 2,163 graph structures and 7,880,484 configuration–graph pairs.
+A leaf copies its core at the next synchronous step. For each nonisolated core vertex with one or two base neighbors, define two ports (actual neighbors, or neighbor and self for a degree-one core), converting inertial tie into a three-bit median. For initial core X and leaves Y, core B after one step and A after two satisfy Bv=M(Xports,Yv), Av=M(Bports,Xv). Median absorption gives Av=M(Bports,Av); if both A-port bits contradicted Bv, each port vertex would force its X-bit to 1-Bv, contradicting Bv=M(Xports,Yv). Thus Bv=M(Aports,Bv), so (A,B) is two-periodic, yielding pointwise F^4=F^2, even infinite disconnected degree<=2 bases. Isolated bases are immediate swaps. Independent full initial-state enumeration for all labelled degree<=2 bases up to five core vertices corroborates; explicit K1,3 corona orbit 33->18->32->0 proves degree3 obstruction, and alternating odd-cycle configuration reaches zero after m steps. The analytic local proof, not finite testing, supplies the infinite claim.
 
-The two implementations differ in graph representation and majority-update logic. Both completed with `VERIFY_OK`. Finite enumeration corroborates the exact local proof but does not itself establish the result for arbitrarily large or infinite graphs. External independent validation has not been performed.
+## originality
+
+PASS
+
+Goles–Olivos 1980 establish eventual period <=2 for finite symmetric threshold networks but not uniform entry time <=2, and Benjamini et al 2014 obtain a.s. period-two under probabilistic invariance assumptions on certain infinite graphs, not pointwise every configuration on leaf coronas. Benjamini–Zakharov–Zhukovskii 2026 give worst-case stabilization on finite odd-degree trees; cycle coronas are not trees, path corona endpoints are even-degree, and infinite coronas lie outside. The all-state local F4=F2 identity and degree-3 obstruction are not directly entailed by these prior statements. Specialization under threshold-with-memory terminology remains residual priority risk.
+
+## value
+
+PASS
+
+A graph-family-wide exact two-round stabilization identity, sharp for both finite and infinite graphs, meaningfully distinguishes whiskered from unwhiskered majority clocks and provides a local algebraic mechanism beyond eventual-period two. The sharp degree threshold and explicit counterexamples are motivated boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

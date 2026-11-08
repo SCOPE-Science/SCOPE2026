@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T12:11:40.872203Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A leaf copies its core at the next synchronous step. For each nonisolated core vertex with one or two base neighbors, define two ports (actual neighbors, or neighbor and self for a degree-one core), converting inertial tie into a three-bit median. For initial core X and leaves Y, core B after one step and A after two satisfy Bv=M(Xports,Yv), Av=M(Bports,Xv). Median absorption gives Av=M(Bports,Av); if both A-port bits contradicted Bv, each port vertex would force its X-bit to 1-Bv, contradicting Bv=M(Xports,Yv). Thus Bv=M(Aports,Bv), so (A,B) is two-periodic, yielding pointwise F^4=F^2, even infinite disconnected degree<=2 bases. Isolated bases are immediate swaps. Independent full initial-state enumeration for all labelled degree<=2 bases up to five core vertices corroborates; explicit K1,3 corona orbit 33->18->32->0 proves degree3 obstruction, and alternating odd-cycle configuration reaches zero after m steps. The analytic local proof, not finite testing, supplies the infinite claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finite generic period <=2 and random-initial-state infinite eventual behavior are weaker. The 2026 tree theorem assumes finite odd-degree trees and so neither covers the degree-two base-cycle coronas nor all initial infinite configurations."
+        ],
+        "reasoning": "Finite generic period <=2 and random-initial-state infinite eventual behavior are weaker. The 2026 tree theorem assumes finite odd-degree trees and so neither covers the degree-two base-cycle coronas nor all initial infinite configurations.",
+        "searches": [
+          "Resultary: synchronous majority dynamics leaf corona degree two whiskered paths cycles uniform transient period two F4 F2",
+          "Goles–Olivos 1980; Benjamini et al arXiv:1405.2486; Benjamini–Zakharov–Zhukovskii 2026"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and verify_degree2.py (blobs 76d48c666be13b5a200462fd3d7928139b56e7df; 4ecbb2fa4ce2286da38c25873bb1aee8ac976bce)",
+        "Independent exhaustive degree<=2 labelled graphs through 5 core vertices and all configurations; star witness",
+        "Goles–Olivos 1980 DOI:10.1016/0012-365X(80)90121-1",
+        "Benjamini et al arXiv:1405.2486",
+        "Benjamini–Zakharov–Zhukovskii DOI:10.1002/rsa.70092 full Wiley HTML",
+        "Resultary majority leaf corona semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither general eventual-2-cycle theorem nor finite-tree formula implies F4=F2 for all infinite component structures and tie rules. The new proof supplies a local identity independent of graph diameter."
+        ],
+        "reasoning": "Neither general eventual-2-cycle theorem nor finite-tree formula implies F4=F2 for all infinite component structures and tie rules. The new proof supplies a local identity independent of graph diameter.",
+        "searches": [
+          "Resultary: synchronous majority dynamics leaf corona degree two whiskered paths cycles uniform transient period two F4 F2",
+          "Goles–Olivos 1980 abstract; Benjamini–Zakharov–Zhukovskii 2026 Theorem 1.1; local median absorption"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Whiskering transforms the majority update to a two-level median recurrence. Prior generic eventual-periodicity does not bound the transient uniformly by two on this family."
+        ],
+        "reasoning": "Whiskering transforms the majority update to a two-level median recurrence. Prior generic eventual-periodicity does not bound the transient uniformly by two on this family.",
+        "searches": [
+          "Resultary: synchronous majority dynamics leaf corona degree two whiskered paths cycles uniform transient period two F4 F2",
+          "Majority automata with inertial ties on whiskered/leaf-corona graphs; threshold networks with one-step leaf memory"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published SCOPE hits on parity automata concern XOR, not majority medians; no exact all-state F4=F2 leaf-corona table found."
+        ],
+        "reasoning": "Published SCOPE hits on parity automata concern XOR, not majority medians; no exact all-state F4=F2 leaf-corona table found.",
+        "searches": [
+          "Resultary: synchronous majority dynamics leaf corona degree two whiskered paths cycles uniform transient period two F4 F2",
+          "Resultary majority dynamics leaf corona uniform transient query; literature searches majority whiskered corona dynamics"
+        ]
+      },
+      "rationale": "Goles–Olivos 1980 establish eventual period <=2 for finite symmetric threshold networks but not uniform entry time <=2, and Benjamini et al 2014 obtain a.s. period-two under probabilistic invariance assumptions on certain infinite graphs, not pointwise every configuration on leaf coronas. Benjamini–Zakharov–Zhukovskii 2026 give worst-case stabilization on finite odd-degree trees; cycle coronas are not trees, path corona endpoints are even-degree, and infinite coronas lie outside. The all-state local F4=F2 identity and degree-3 obstruction are not directly entailed by these prior statements. Specialization under threshold-with-memory terminology remains residual priority risk.",
+      "residual_risks": [
+        "A known stronger short-transient theorem for threshold networks with memory might imply this corona specialization under a less obvious formulation.",
+        "Degree-three star witnesses loss of UNIVERSAL two-step bound, not failure on every degree-three graph; odd-cycle contrast is a family, not census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact worst case for finite odd-degree trees, not path/cycle leaf coronas under general inertial ties, and not infinite pointwise identity",
+          "evidence": [
+            "Theorem 1.1 states odd-degree finite-tree formula; introduction explicitly removes ties."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.70092",
+          "material_read": "Open-access Wiley full HTML: introduction, model conventions, Theorem 1.1 and scope, discussions",
+          "method": "Primary HTML targeted theorem and proof structure",
+          "title": "Majority Dynamics on Finite Trees",
+          "trigger": "Closest recent exact stabilization-time theorem"
+        },
+        {
+          "assessment": "Period one or two eventually on finite symmetric networks; makes no uniform two-step transient assertion in accessible text",
+          "evidence": [
+            "Abstract: iterated symmetric threshold functions lead to fixed point or two-cycle."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "University record abstract and citation; full primary article body not obtained",
+          "method": "Primary bibliographic abstract only",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Original universal eventual period-two theorem"
+        },
+        {
+          "assessment": "Almost sure eventual period two for invariant random configurations on certain infinite graph classes, not arbitrary configurations on infinite leaf-coronas",
+          "evidence": [
+            "Abstract states unimodular transitive and automorphism-invariant distribution hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "ArXiv abstract and stated distribution/graph hypotheses",
+          "method": "Primary abstract reading, not full paper",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Infinite-graph potential stronger theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A graph-family-wide exact two-round stabilization identity, sharp for both finite and infinite graphs, meaningfully distinguishes whiskered from unwhiskered majority clocks and provides a local algebraic mechanism beyond eventual-period two. The sharp degree threshold and explicit counterexamples are motivated boundaries.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md and verify_degree2.py (blobs 76d48c666be13b5a200462fd3d7928139b56e7df; 4ecbb2fa4ce2286da38c25873bb1aee8ac976bce)",
+    "Independent exhaustive degree<=2 labelled graphs through 5 core vertices and all configurations; star witness",
+    "Goles–Olivos 1980 DOI:10.1016/0012-365X(80)90121-1",
+    "Benjamini et al arXiv:1405.2486",
+    "Benjamini–Zakharov–Zhukovskii DOI:10.1002/rsa.70092 full Wiley HTML",
+    "Resultary majority leaf corona semantic query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A known stronger short-transient theorem for threshold networks with memory might imply this corona specialization under a less obvious formulation.",
+    "Degree-three star witnesses loss of UNIVERSAL two-step bound, not failure on every degree-three graph; odd-cycle contrast is a family, not census."
+  ],
+  "schema_version": 1
+}

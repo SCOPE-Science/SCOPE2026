@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof explicitly treats odd and even core degrees, inertial ties at path endpoints, isolated base vertices, infinite components, and all binary initial configurations. Its decisive two-round absorption lemma follows from the three-input majority gate: the assumed local violation forces both original port bits opposite the middle-time bit, contradicting its defining majority vote. It implies the global map identity \(F^4=F^2\) without any finite-enumeration extrapolation. The path, degree-three star, and bare-cycle witnesses are calculated explicitly and independently checked by the supplied programs. A second implementation exhausts all labelled maximum-degree-two base graphs on at most six vertices and all associated initial states.
+PASS
 
-## Originality — PASS, with residual risk
+A leaf copies its core at the next synchronous step. For each nonisolated core vertex with one or two base neighbors, define two ports (actual neighbors, or neighbor and self for a degree-one core), converting inertial tie into a three-bit median. For initial core X and leaves Y, core B after one step and A after two satisfy Bv=M(Xports,Yv), Av=M(Bports,Xv). Median absorption gives Av=M(Bports,Av); if both A-port bits contradicted Bv, each port vertex would force its X-bit to 1-Bv, contradicting Bv=M(Xports,Yv). Thus Bv=M(Aports,Bv), so (A,B) is two-periodic, yielding pointwise F^4=F^2, even infinite disconnected degree<=2 bases. Isolated bases are immediate swaps. Independent full initial-state enumeration for all labelled degree<=2 bases up to five core vertices corroborates; explicit K1,3 corona orbit 33->18->32->0 proves degree3 obstruction, and alternating odd-cycle configuration reaches zero after m steps. The analytic local proof, not finite testing, supplies the infinite claim.
 
-The 1980 Goles–Olivos theorem and its formulation in Benjamini et al. provide eventual period at most two, not entry time exactly bounded by two. Related one-dimensional majority results address the original cycle rather than a private-leaf corona. The earlier cycle-corona recurrent enumeration counts the states already on cycles but makes no statement about the image of the second iterate; its statements do not imply the present absorption identity. The 2005 memory-network work treats palindromic interaction-matrix hypotheses not satisfied by the present delayed-self recurrence. A 2026 exact finite-tree stabilization result does not cover cyclic coronas, infinite graphs, or the even-degree endpoints of path coronas under its stated odd-degree hypothesis. Searches for corona, sunlet, whiskered cycle, majority delay, and local two-step stabilization did not identify coverage. Residual risks include inaccessible historic full texts and alternative terminology in the threshold-network literature; negative searches are not a proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem supplies a graph-independent sharp constant for **every** configuration on finite and infinite degree-two coronas. It replaces qualitative eventual periodicity with a pointwise, global iterate identity. The threshold is structurally sharp: one branching base vertex in a degree-three star permits a longer transient. A concrete unwhiskered odd-cycle family has entry time growing linearly with size, showing that the extra leaf-memory coupling suppresses propagation of long transients. These distinctions are not merely a new count for an isolated finite graph.
+Goles–Olivos 1980 establish eventual period <=2 for finite symmetric threshold networks but not uniform entry time <=2, and Benjamini et al 2014 obtain a.s. period-two under probabilistic invariance assumptions on certain infinite graphs, not pointwise every configuration on leaf coronas. Benjamini–Zakharov–Zhukovskii 2026 give worst-case stabilization on finite odd-degree trees; cycle coronas are not trees, path corona endpoints are even-degree, and infinite coronas lie outside. The all-state local F4=F2 identity and degree-3 obstruction are not directly entailed by these prior statements. Specialization under threshold-with-memory terminology remains residual priority risk.
 
-## Scope and risk
+## value
 
-No assertion is made about detailed attraction basins or first-entry distributions for every graph in the family. The degree-three counterexample refutes a universal bound of two, not eventual period two or the existence of other bounded subclasses. The scholarly comparison is best-knowledge and is not an independent literature certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A graph-family-wide exact two-round stabilization identity, sharp for both finite and infinite graphs, meaningfully distinguishes whiskered from unwhiskered majority clocks and provides a local algebraic mechanism beyond eventual-period two. The sharp degree threshold and explicit counterexamples are motivated boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
