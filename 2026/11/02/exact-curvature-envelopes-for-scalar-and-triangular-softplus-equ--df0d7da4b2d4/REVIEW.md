@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The bias-to-slope map is explicit and surjective onto the two-dimensional open square. The exact implicit derivatives yield a concave quadratic in the second slope, whose vertex is strictly interior, followed by a strictly increasing one-variable rational function. This proves the unattained triangular supremum without relying on a grid. The one-neuron derivative has exactly one interior zero and vanishes at both endpoints; its limiting coefficient is \(4/27\). The independent-coordinate Hessian factorization gives the determinant identity. All nonstandard derivatives were reconstructed symbolically and checked against independent exact-equilibrium finite differences by `verify.py`. The tests are supplementary, not the basis for the infinite quantifiers.
+PASS
 
-## Originality — PASS, with historical residual risk
+For exact softplus fixed-point equilibrium with 0<q<1, slopes t,s∈(0,1) are freely realizable by biases. A one-unit recurrence yields H1=t(1−t)/(1−qt)^3, derivative zero uniquely at t*=1/[(1−q)+sqrt((1−q)^2+q)], giving asymptotic δ²sup H1→4/27. For triangular W=[[q,0],[q,0]], output second unit has H2=s(1−s)/(1−qt)^2 + q s t(1−t)/(1−qt)^3. Maximizing s gives s*=(1−qt²)/[2(1−qt)] and envelope (1−qt²)^2/[4(1−qt)^4]. Ratio (1−qt²)/(1−qt)^2 strictly increases with t, giving exact supremum 1/[4(1−q)^2] as t→1, not at any finite bias. Two independent copies in 2D multiply to det Hessian sup 1/[16(1−q)^4]. The comparison ratio 4 to the source 1/64 coefficient is architecture-specific, not a new global sharp upper bound. Independently checked derivative/algebra and representative finite q values; actual symbolic verifier source was inspected.
 
-The directly motivating primary source, arXiv:2610.31386v1/v2, gives a general bound, an explicit one-unit witness of coefficient \(1/8\), and a two-copy determinant coefficient \(1/64\); it specifically disclaims sharpness of its constant. Its theorem, proof, numerical sections, and appendices on derivative identities and local envelopes were inspected. The older primary arXiv:2110.03310v3 is a finite-depth explicit ICNN method, with Section 6.3 derivative-product bounds, not the triangular fixed-point optimization. A 2024 implicit differentiation paper and a compositional-curvature paper were checked at abstract/metadata level and their general identities were treated as relevant antecedents rather than novel claims. No covering exact bias-envelope or normalized width contrast was identified in the actual indexed-record and literature searches. The possibility of an older equivalent optimization, especially outside PDE applications, remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The contraction-gap exponent alone does not specify the necessary amplitude of a usable curvature or determinant envelope. These complete exact architecture-specific optimizations show a genuine, substantial width effect under fixed normalization: coefficient \(1/4\) versus \(4/27\) and a fourfold determinant comparison. They provide a concrete lower barrier for attempts to sharpen universal PDE evaluation certificates, and prevent a one-neuron extremizer from being mistaken for a sharp width-independent prefactor. The theorem does not claim a globally optimal universal constant or a training/solver guarantee.
+Best-of-knowledge PASS for optimization over all scalar and triangular biases and sharp architecture comparison. Standard implicit differentiation and the motivating paper’s generic upper bounds are prior work, and the source explicitly did not optimize universal prefactors. Full original 2026 article unavailable, so possible hidden matching special case remains risk.
 
-## Scientific limitations
+## value
 
-Suprema for the coupled architecture require bias parameters approaching infinity; they are not achieved by any finite trained model. The four-unit two-dimensional construction is separable. Third derivatives and globally optimal prefactors over arbitrary width are not classified. Historic priority beyond the inspected sources remains subject to independent checking.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The optimization distinguishes a nontrivial recurrent architectural effect: a saturated first unit enhances curvature transmitted to a second, yielding a factor 27/16 over optimized one-unit inverse-square curvature and fourfold 2D determinant improvement versus the published example at equal norm bounds. Exact constants motivate sharpened universal bounds, without overstating global optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:04:01.838281Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exact softplus fixed-point equilibrium with 0<q<1, slopes t,s∈(0,1) are freely realizable by biases. A one-unit recurrence yields H1=t(1−t)/(1−qt)^3, derivative zero uniquely at t*=1/[(1−q)+sqrt((1−q)^2+q)], giving asymptotic δ²sup H1→4/27. For triangular W=[[q,0],[q,0]], output second unit has H2=s(1−s)/(1−qt)^2 + q s t(1−t)/(1−qt)^3. Maximizing s gives s*=(1−qt²)/[2(1−qt)] and envelope (1−qt²)^2/[4(1−qt)^4]. Ratio (1−qt²)/(1−qt)^2 strictly increases with t, giving exact supremum 1/[4(1−q)^2] as t→1, not at any finite bias. Two independent copies in 2D multiply to det Hessian sup 1/[16(1−q)^4]. The comparison ratio 4 to the source 1/64 coefficient is architecture-specific, not a new global sharp upper bound. Independently checked derivative/algebra and representative finite q values; actual symbolic verifier source was inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 motivating theorem controls curvature by a general δ^-2 envelope but does not supply a globally sharp prefactor.",
+          "Ordinary explicit-layer derivative bounds do not fix the exact equilibrium bias extrema for this triangular recurrence."
+        ],
+        "reasoning": "A broad upper bound does not imply that a specific two-unit network attains 1/4 as a sharp supremum or that a two-copy determinant beats the particular one-unit source example.",
+        "searches": [
+          "Vázquez Lu Nowicki arxiv:2610.31386 Theorem 4.2 curvature bound and Theorem 4.4 example",
+          "Compositional Curvature Bounds for Deep Neural Networks ICML 2024",
+          "Deep Equilibrium Layers implicit differentiation curvature"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.31386",
+        "https://arxiv.org/abs/2110.03310",
+        "https://proceedings.mlr.press/v235/entesari24a.html",
+        "Resultary query: softplus equilibrium implicit neural network optimized Hessian curvature constant triangular recurrent network"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The motivating example has asymptotic determinant prefactor 1/64, while the exact independent triangular construction has 1/16 under same norms.",
+          "The main generic upper bound remains compatible with both constructions."
+        ],
+        "reasoning": "The claim refines a construction-specific lower barrier, not a counterexample to the published upper bound. Its exact architecture-specific optimization does not follow from the source’s displayed unoptimized examples.",
+        "searches": [
+          "arxiv:2610.31386 theorem 4.2 4.4 remark 4.5 curvature",
+          "arxiv:2110.03310 explicit input convex network estimates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The H2 expression is the same equilibrium-output second derivative obtained by implicit differentiation of z=softplus(Wz+Ax+b).",
+          "Resultary retrieved unrelated optimizer/curvature topics, not this exact bias-envelope optimization."
+        ],
+        "reasoning": "Equivalent fixed-point sensitivity, input-convex equilibrium and 1D Hessian maximization formulations were compared; the exact constrained architecture constants are the assessed statements.",
+        "searches": [
+          "Resultary semantic: softplus equilibrium implicit neural network optimized Hessian curvature constant triangular recurrent network",
+          "implicit neural network softplus Hessian bound sharp two unit triangular recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent symbolic optimization yields exact rational coefficients 4/27 and 1/4.",
+          "No exact tabulated result matching all admissible q and architectures arose from Resultary."
+        ],
+        "reasoning": "Numerical tables would not establish strict nonattainment for every finite bias or all q; competing exact small-network calculations are possible.",
+        "searches": [
+          "Resultary sharp fixed-point softplus Hessian constants 4/27 1/4",
+          "softplus recurrent net curvature max numerical tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for optimization over all scalar and triangular biases and sharp architecture comparison. Standard implicit differentiation and the motivating paper’s generic upper bounds are prior work, and the source explicitly did not optimize universal prefactors. Full original 2026 article unavailable, so possible hidden matching special case remains risk.",
+      "residual_risks": [
+        "Uninspected full text or appendix of highly relevant October 2026 source could include same exact small-network optimization.",
+        "No assertion of globally optimal width-independent prefactor, numerical solver convergence or training utility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Consistent general upper bound; no verified dominating exact architecture optimization in accessible material",
+          "evidence": "Theorems 4.2/4.4, Remark 4.5 as cited in actual package; absence from uninspected full appendix cannot be asserted.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.31386",
+          "material_read": "Accessible abstract and extracted theorem/remark descriptions and relevant figure/source context; full text unavailable",
+          "method": "Targeted comparison of published theorem numbering and stated bound/example coefficients",
+          "title": "Convex Equilibrium Potentials for Monge–Ampère: Curvature Bounds and A Posteriori Evaluation",
+          "trigger": "Same exact recurrent softplus architecture, parameter q and Hessian scaling"
+        },
+        {
+          "assessment": "Not an evident equivalent bias-envelope theorem",
+          "evidence": "Finite-layer derivative estimates differ from this implicit fixed-point optimization.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.03310",
+          "material_read": "Abstract and cited sections 3.2/6.3 as contextual reference; full primary not read",
+          "method": "Compare explicit-layer vs equilibrium fixed-point model",
+          "title": "Solving the Dirichlet problem for the Monge–Ampère equation using neural networks",
+          "trigger": "Potential earlier sharp convex-network curvature result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The optimization distinguishes a nontrivial recurrent architectural effect: a saturated first unit enhances curvature transmitted to a second, yielding a factor 27/16 over optimized one-unit inverse-square curvature and fourfold 2D determinant improvement versus the published example at equal norm bounds. Exact constants motivate sharpened universal bounds, without overstating global optimality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.31386",
+    "https://arxiv.org/abs/2110.03310",
+    "https://proceedings.mlr.press/v235/entesari24a.html",
+    "Resultary query: softplus equilibrium implicit neural network optimized Hessian curvature constant triangular recurrent network"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uninspected full text or appendix of highly relevant October 2026 source could include same exact small-network optimization.",
+    "No assertion of globally optimal width-independent prefactor, numerical solver convergence or training utility.",
+    "Finite independent verification does not establish unbounded quantifiers; correctness relies on the reconstructed source proof.",
+    "High-priority inaccessible full primary sources remain noted as best-of-knowledge originality risks, not scientific failure.",
+    "Public-bound METADATA.json and AUDIT.json both contain private scope_run_id operational provenance; reviewed exact blobs but complete confidentiality-sanitized public replacement bytes with verified source-tree/blob guards and hashes were not prepared."
+  ],
+  "schema_version": 1
+}
