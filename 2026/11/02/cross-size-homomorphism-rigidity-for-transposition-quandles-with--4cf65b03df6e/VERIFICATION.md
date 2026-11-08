@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` using Python 3.9 or newer; no third-party dependencies. The script computes the source and target transposition-quandle multiplication tables directly from conjugation, traverses every homomorphism by propagating products of assigned elements, and compares full rank histograms to the proposed count. It checks \(26\) complete source-target parameter combinations: \(3\le n\le6\), \(2\le m\le7\), and the two larger cases \((7,7)\), \((7,8)\). No sampling is used for these finite cases. The additional four-vertex endomorphism check computes all \(24\) rank-three maps, identifies the four rank-three idempotents, and verifies the image multiplication law for their \(576\) ordered products.
+# Independent mathematical audit
 
-Actual execution result: `VERIFY_OK 26 independent source-target censuses; 24 exceptional maps; 4 rank-3 idempotents; all 576 products`.
+## correctness
 
-This supplies independent finite corroboration of the stated full classification but not proof for arbitrary source and target sizes. The abstract edge-intersection argument in `RESULT.md` carries the infinite-parameter proof. The stated classification does not include quandles associated with arbitrary conjugacy classes or arbitrary group homomorphisms. Independent mathematical audit has not been performed.
+PASS
+
+For the edge conjugation operation, adjacent distinct edges multiply to their third triangle edge. If their images collapse, equivariance forces the whole source to collapse. Distinct images of an n-1>=4 star for n>=5 form a common target star, and disjoint-source-edge commutation makes their centers distinct, forcing a unique vertex injection. For n=3, all nonconstant images are a triangle. For n=4, injective homomorphisms are vertex injections; any noninjective but nonconstant kernel identifies only opposite edges, and S4 action forces all three opposite-edge pairs to collapse, giving precisely T3. Section restrictions to the four triangles yield 24 rank-three T4 endomorphisms with product S3 times a four-element left-zero semigroup and four idempotents. Independently enumerated ALL maps by multiplication-table identities for (n,m)=(3,3),(3,4),(4,3),(4,4), recovering counts and ranks. The proof, not the finite cases, covers all n,m.
+
+## originality
+
+PASS
+
+Cvrček-Stanovský 2024 proves transposition-source simplicity for n=3,n>=5, so the injective-or-constant part is already known and not novel. It does not classify target embeddings or n=4 quotient image and its semigroup; the complete cross-size counts are the remaining assessed contribution. Older Fischer-space/3-transposition-quandle theory could imply these results under alternate terms.
+
+## value
+
+PASS
+
+The complete Hom-set formula, image ranks, and exceptional 24-element endomorphism ideal give usable structural invariants for a natural conjugation quandle family. The four-vertex exception identifies a genuine, informative rigidity boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The quandle operation on edges is the endpoint swap. The central structural step is that images of adjacent source edges are either equal or distinct and intersecting. If an adjacent pair collapses, the explicit five-edge quandle identities in the proof propagate that collapse to every edge; this forbids partial identifications among adjacent edges for nonconstant maps. With at least five source vertices, each source star has at least four distinct pairwise-intersecting images and therefore a unique common target center. These centers must be distinct, so all edges are forced by a vertex injection. The two exceptional smaller source sizes are classified explicitly. The opposite-edge quotient of the four-vertex quandle is checked on all three classes, and its rank-three maps are parameterized by four triangular sections and the six permutations of three labels. The multiplication law follows from the section equations. The stand-alone exhaustive verifier checks 26 full source-target rank distributions and all 576 products of exceptional endomorphisms. Boundary conventions for small targets and image ranks are explicit.
+## correctness
 
-## Originality — PASS (best knowledge, not certified priority)
-Bonatto (arXiv:1904.13388, full publicly readable text) is a relevant algebraic framework but does not present transposition-quandle Hom sets. Cvrček–Stanovský (arXiv:2401.15642, abstract, §1, §2.2, Theorem 1.1, Lemma 5.2, and conclusion inspected) already establishes primitivity of the source quandles for the nonexceptional sizes; source simplicity and the consequent injective-or-constant dichotomy are **not** new contributions. The missing classification of *which injections into every target transposition quandle are possible*, with their exact counts, and the complete exceptional four-vertex quotient/endomorphism multiplication, are not implied by that statement. Suzuki (arXiv:2603.08085, §§1, 3, and document search) gives criteria for canonical embeddings into conjugation groups and studies different explicit families; it does not state the cross-size edge-quandle classification. Anderson et al. (2006, §2.4) supplies the construction and a small multiplication table, not the Hom-set theorem. No identical or stronger match appeared in the available semantic findings search or the accessible prior-claim ledger. The remaining risk is a differently worded universal-algebra or 3-transposition embedding theorem, or an unindexed result, implying the classification.
+PASS
 
-## Mathematical value — PASS
-The finite transposition quandles are a canonical infinite family of conjugacy-class quandles. The Hom-set structure is a fundamental invariant of how the family sits inside the category of quandles. This statement gives all map ranks and multiplicities for *every ordered pair of sizes*, not just source automorphisms, and exhibits the unique four-vertex obstruction to vertex-injection rigidity. The exceptional rank-three maps form a concrete nontrivial semigroup ideal and determine its idempotents. These are natural complete classification and boundary data of direct use to quandle morphism and embedding questions. The proof is elementary but the all-size mapping classification and exceptional composition law are more specific than the known source-simplicity property.
+For the edge conjugation operation, adjacent distinct edges multiply to their third triangle edge. If their images collapse, equivariance forces the whole source to collapse. Distinct images of an n-1>=4 star for n>=5 form a common target star, and disjoint-source-edge commutation makes their centers distinct, forcing a unique vertex injection. For n=3, all nonconstant images are a triangle. For n=4, injective homomorphisms are vertex injections; any noninjective but nonconstant kernel identifies only opposite edges, and S4 action forces all three opposite-edge pairs to collapse, giving precisely T3. Section restrictions to the four triangles yield 24 rank-three T4 endomorphisms with product S3 times a four-element left-zero semigroup and four idempotents. Independently enumerated ALL maps by multiplication-table identities for (n,m)=(3,3),(3,4),(4,3),(4,4), recovering counts and ranks. The proof, not the finite cases, covers all n,m.
 
-## Scope and residual risks
-The source and target are both transposition quandles. No equivalence is claimed for embeddings into general group quandles. The finite verifier is not a proof of unbounded parameters. General universal-algebra results, unpublished tables, or previously uninspected specialized articles could contain the same classification. The reviewed result has not undergone independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cvrček-Stanovský 2024 proves transposition-source simplicity for n=3,n>=5, so the injective-or-constant part is already known and not novel. It does not classify target embeddings or n=4 quotient image and its semigroup; the complete cross-size counts are the remaining assessed contribution. Older Fischer-space/3-transposition-quandle theory could imply these results under alternate terms.
+
+## value
+
+PASS
+
+The complete Hom-set formula, image ranks, and exceptional 24-element endomorphism ideal give usable structural invariants for a natural conjugation quandle family. The four-vertex exception identifies a genuine, informative rigidity boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
