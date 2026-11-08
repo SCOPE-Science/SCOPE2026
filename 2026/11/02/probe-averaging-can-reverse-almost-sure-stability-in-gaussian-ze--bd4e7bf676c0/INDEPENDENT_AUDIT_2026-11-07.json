@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T19:06:52.392460Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For scalar f(x)=lambda x^2/2, centered two-point Gaussian gradient estimate equals lambda*x*U^2, independently of smoothing, giving iteration product (1-a*Y_n) with Y_n~chi²_n/n. Strong law applies since gamma density has integrable log singularity; strict sign of F_n=E log|1-aY_n| determines almost-sure exponential contraction/divergence. Gamma integrations give F2=-e^{-1/a}Ei(1/a), F4=1-(1+2/a)e^{-2/a}Ei(2/a). At rational a=107/40 independent high-precision checks gave F2=-0.0035466158821146 and F4=+0.0064289610044474, consistent with actual verify.py rational Taylor bound method (Ei series, log expansion, alternating exp tail). Uniqueness of each n=2,4 root follows from signs and positive derivative when F4 zero. Gamma central moments E delta²=2/n, E delta³=8/n², E delta⁴=12/n²+48/n³ give F_n(2+c/n)=(c-4)/n+O(n^-2), with exponentially small gamma tails around the log singularity; local positive derivative yields a_n=2+4/n+O(n^-2). Separate mean-square factor yields exact b_n=2n/(n+2), gap 8/n+O(n^-2). No global n-root uniqueness asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Song Appendix B.3 equations (136)–(141) derive estimator covariance for n Gaussian directions.",
+          "Ziyin et al. 2023 broader random multiplicative optimization stability uses Lyapunov exponents."
+        ],
+        "reasoning": "Prior framework covers input model and general diagnostic, but does not compute Ei formulas and explicit opposite-sign n=2 versus n=4 witness or 8/n gap.",
+        "searches": [
+          "Resultary: Gaussian chi-square multiplicative stochastic gradient averaging probes logarithmic Lyapunov stability n=2 n=4",
+          "arXiv:2604.14669v1 Appendix B.3",
+          "arXiv:2303.13093"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2604.14669v1",
+        "https://arxiv.org/abs/2303.13093",
+        "https://proceedings.mlr.press/v306/song26ac.html",
+        "Resultary: Gaussian chi-square multiplicative stochastic gradient averaging probes logarithmic Lyapunov stability n=2 n=4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "As n increases, Song et al. mean-square variance decreases, pushing b_n upward.",
+          "The new exact logarithmic gain witnesses F2(107/40)<0<F4(107/40), so mean-square monotonicity cannot imply almost-sure monotonicity."
+        ],
+        "reasoning": "The claim contradicts naive transfer of mean-square monotonicity to Lyapunov stability, without contradicting Song because these are different probability metrics; rigorous Ei calculation is independent of the general Lyapunov framework.",
+        "searches": [
+          "Resultary: Gaussian chi-square multiplicative stochastic gradient averaging probes logarithmic Lyapunov stability n=2 n=4",
+          "Song et al. 2026 Appendix B.3",
+          "Ziyin et al. 2023"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The a.s. stability threshold is equivalent to sign of a log-multiplier Lyapunov exponent, a known general criterion.",
+          "Song et al. derive covariance/mean-square condition for averaged Gaussian probes."
+        ],
+        "reasoning": "Mean-square requirement E multiplier²<1 implies a.s. stability via Jensen but not conversely, nor monotonicity of log gain in sample size; no equivalence to a known mean-square bound.",
+        "searches": [
+          "Resultary: Gaussian chi-square multiplicative stochastic gradient averaging probes logarithmic Lyapunov stability n=2 n=4",
+          "arXiv:2604.14669 Appendix B.3",
+          "arXiv:2303.13093"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerical root thresholds 2.68451035082 and 2.66299566871 independently reproduced via mpmath; exact sign is justified separately by rational enclosures in frozen verify.py.",
+          "No prior table for these two n values in inspected sources."
+        ],
+        "reasoning": "A generic scalar Gaussian LMS one-probe threshold is known, but two/four-probe thresholds are different parameters and the sign-reversal comparison is not implied by the one-probe number.",
+        "searches": [
+          "Resultary: Gaussian chi-square multiplicative stochastic gradient averaging probes logarithmic Lyapunov stability n=2 n=4",
+          "\"Gaussian\" \"chi-square\" \"log\" \"probe averaging\" threshold",
+          "Resultary: Gaussian chi-square multiplicative stochastic gradient averaging probes logarithmic Lyapunov stability n=2 n=4"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. Song et al. 2026 explicitly analyze averaged zeroth-order Gaussian probes in mean square, which is a distinct moment criterion. Ziyin et al. 2023 discuss general probabilistic stability via top Lyapunov exponents, so the log sign principle itself is prior. Neither inspected source states the particular two-vs-four finite-probe reversal or the asymptotic 8/n separation of pathwise from mean-square thresholds.",
+      "residual_risks": [
+        "Older Gaussian scalar LMS logarithmic-stability treatments may include n=2 or n=4 formulas or implicit asymptotic expansions.",
+        "The large-n local-root uniqueness requires principal-value derivative control in an exponentially small singular-tail region; the frozen proof sketches rather than tabulates all uniform constants, although its argument and moment expansion are coherent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mean-square probe averaging analyzed; no exact log-gain finite-probe reversal stated in inspected source",
+          "evidence": [
+            "Appendix B.3 gives Gaussian estimator sample averaging and second-moment covariance, not F_n=E log|1-aY_n|."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.14669v1",
+          "material_read": "Full lawful arXiv HTML, Appendix B.3 equations (136)–(141), estimator and covariance calculations, abstract and theorem context; searched for almost-sure/Lyapunov terms.",
+          "method": "arXiv full primary HTML mathematical section inspected",
+          "title": "Zeroth-Order Optimization at the Edge of Stability",
+          "trigger": "Identical averaged Gaussian two-point estimator in Appendix B.3"
+        },
+        {
+          "assessment": "General Lyapunov exponent relevance is prior; no identified explicit 2-vs-4 Gaussian two-point reversal",
+          "evidence": [
+            "The logarithmic sign characterization is classical/general, not claimed new."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.13093",
+          "material_read": "Abstract and mathematical theorem-summary comparison; not fully read this run.",
+          "method": "Public arXiv metadata and theorem context",
+          "title": "Type-II Saddles and Probabilistic Stability of Stochastic Gradient Descent",
+          "trigger": "General Lyapunov criterion could dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Demonstrates a mathematically unexpected stability reversal when increasing estimator averaging despite improved mean-square threshold, with rigorous rational witness and large-n local separation. This clarifies the difference between almost-sure and mean-square stability for a canonical stochastic optimization estimator, not a routine normalizing convention.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2604.14669v1",
+    "https://arxiv.org/abs/2303.13093",
+    "https://proceedings.mlr.press/v306/song26ac.html",
+    "Resultary: Gaussian chi-square multiplicative stochastic gradient averaging probes logarithmic Lyapunov stability n=2 n=4"
+  ],
+  "disposition": "passed",
+  "limitations": "Scalar strongly convex quadratic, independent fresh real Gaussian probes, strictly positive step a; fixed n and iteration asymptotics separated from n->infinity. Local large-n crossing only; no global uniqueness or all-adjacent-n monotonicity claim.",
+  "residual_risks": [
+    "Older Gaussian scalar LMS logarithmic-stability treatments may include n=2 or n=4 formulas or implicit asymptotic expansions.",
+    "The large-n local-root uniqueness requires principal-value derivative control in an exponentially small singular-tail region; the frozen proof sketches rather than tabulates all uniform constants, although its argument and moment expansion are coherent."
+  ],
+  "schema_version": 1
+}
