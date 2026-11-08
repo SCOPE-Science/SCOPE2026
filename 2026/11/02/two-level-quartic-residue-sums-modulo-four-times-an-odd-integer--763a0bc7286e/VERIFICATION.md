@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the quartic residue-sum theorem
+# Independent mathematical audit
 
-Execute `python3 verify.py` in the same directory. The script uses standard Python 3 and exact integers. It independently enumerates every odd \(q\) in the range \(3\le q\le1999\) (999 cases) and constructs all units whose square is \(2q-1\pmod{4q}\). It verifies the distinct subgroup count, exact least-positive residue sums, lack of \(-1\), and the translation involution. Expected output:
+## correctness
 
-```
-VERIFY_OK odd_q=3..1999 cases=999 empty_cases=764 subgroups=638 exact_CRT_count=PASS exact_two_level_sums=PASS pairing=PASS no_minus_one=PASS finite_only=YES
-```
+PASS
 
-The checker is a finite corroboration, not a universal decision procedure or independent audit. The proof of the infinite statement is in `RESULT.md`; its noncomputational inputs are the elementary criterion for roots of \(-1\) modulo odd prime powers and the Chinese remainder theorem. A complete priority review of the older distribution-vector literature remains outstanding.
+By CRT, x^2 congruent 2q-1 mod 4q iff x is odd and x^2=-1 mod each odd prime-power factor of q. Hensel lifting gives two roots per prime power iff every p|q is 1 mod 4. Two generators per subgroup give 2^omega(q) groups. For u=least positive generator, its cube has residue 2q-u or 6q-u according as u<2q or >2q; therefore the subgroup sums equal 4q or 8q. The map x->x+2q is a well-defined, fixed-point-free involution on groups swapping the two sums. Independent integer subgroup enumeration tested every odd q=3..299 (149 moduli). The proof covers unbounded q, repeated prime powers.
+
+## originality
+
+PASS
+
+Existing quartic residue-sum studies (Ma, Merca, Zhang arxiv:2610.29608) restrict attention to odd semiprime moduli, and Pomerance–Ulmer arxiv:1204.6705 concerns stronger all-coset balance, not the subgroup first-moment distribution. The even modulus 4q designated involution 2q-1 and equal multiplicity two-level law for arbitrary prime powers are distinct. Full-text priority comparison with Girstmair 1997 and recent work was limited by access; the resulting originality conclusion is explicitly best-of-knowledge.
+
+## value
+
+PASS
+
+The sum-centered subgroup lacking -1 is a natural counterexample to a naive complement-pairing explanation of residue-sum balance; the two-level law and exact multiplicities for all odd q with all prime divisors 1 mod 4 give a complete motivated arithmetic classification in a specified quartic fiber.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
