@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:57:37.815736Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/consecutive-coefficient-runs-in-stern-0-1-polynomials--78e96aab5984/RESULT.md at exact Git blob a35469df4832e87304eb89714157aeadba74ae7b",
+        "2026/11/02/consecutive-coefficient-runs-in-stern-0-1-polynomials--78e96aab5984/verify.py at exact Git blob 308c2b4701b3c7ab534ab236c91e182eed8911d0",
+        "independent_math_checks.py (fresh stdlib/sympy calculations independent of package verifier); original verification code inspected at frozen blob SHA; finite cases do not replace proof."
+      ],
+      "rationale": "Twice apply defining polynomial recursion. For n=4t+1, residue 3 mod 4 is empty; for n=4t+3 residue 2 mod 4 is empty; even n have only even exponents. Therefore no four-term run is possible, while P_5=1+x+x² realizes three. Define I_t=|E_t intersection E_{t+1}| and J_t=#(j in E_t with j+1 in E_{t+1}); parity decomposition yields I_{2u}=I_u, I_{2u+1}=s(u+1), J_{2u}=s(u), J_{2u+1}=J_u. Stern sums give S_k=(3^k-1)/2, U_k=(3^k-1)/2; aggregate adjacent-pair A_r=(3^(r-1)-1)/2 and triple B_r=(3^(r-2)-1)/2; invert C_r-2A_r+B_r etc to exact R1=2h+1,R2=(h+1)/2,R3=(h-1)/2 for all r>=2. Independently generated 4096 polynomial supports and compared them with Lucas parity; all eleven dyadic-prefix run counts and max-3 condition agreed. Finite checks independently corroborate, do not prove the dyadic recurrence.",
+      "residual_risks": [
+        "Claims are dyadic-prefix totals and maximal consecutive coefficient-one intervals, not all sparse-gap patterns or arbitrary Stern polynomial definitions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dilcher & Ericksen (2015), full OA article sections 2, 6, 7: t-parameter hyperbinary polynomials, generating products, polynomial structure and degree formula.",
+          "Dilcher–Stolarsky (2007), DOI 10.1142/S179304210700081X publisher preview only; complete text unavailable, Oxford attempt VPN disconnected."
+        ],
+        "reasoning": "The generalized polynomial family contains the t=2 model but its published generating functions and degrees do not, by the material inspected, supply within-polynomial consecutive run frequencies. The exact 2007 work is a plausible missing comparison and is explicitly a residual risk.",
+        "searches": [
+          "Stern 0 1 polynomials Dilcher Stolarsky maximal consecutive nonzero coefficients runs length three 3^r distributions",
+          "Dilcher Stolarsky 2007 A polynomial analogue Stern sequence PDF",
+          "Dilcher Ericksen Hyperbinary Expansions Stern Polynomials 2015"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md and verify.py (a35469df..., 308c2b47...)",
+        "Dilcher–Ericksen (2015) DOI 10.37236/4822, §2, §6, §7 OA full text",
+        "Dilcher–Stolarsky (2007) DOI 10.1142/S179304210700081X, preview only",
+        "Beck–Dilcher arXiv:2106.10400 abstract",
+        "Dilcher–Ericksen (2014) DML abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dilcher–Ericksen 2015 §6 computes restricted identities and sum coefficients across polynomials; these aggregate first moments lose within-row joint adjacency information.",
+          "Beck–Dilcher matrix/inverse results address locations of individual coefficients, not maximal intervals in one support."
+        ],
+        "reasoning": "Knowing the sum of polynomials or row coefficient count does not recover how ones cluster within each row; pair/triple overlap recurrences are independently required to deduce R_{r,j}. The previous polynomial family itself is not the new claim.",
+        "searches": [
+          "Stern 0 1 polynomials Dilcher Stolarsky maximal consecutive nonzero coefficients runs length three 3^r distributions",
+          "Dilcher Ericksen 2015 Proposition on sum of Stern polynomials",
+          "Beck Dilcher coefficient matrix Stern Prouhet Thue Morse 2021"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Beck–Dilcher arXiv:2106.10400 treats coefficient matrix and Thue–Morse inverse, i.e. individual coefficient positions.",
+          "Dilcher–Ericksen 2015 equations for hyperbinary coefficient support, degrees and sums do not directly give simultaneous neighboring support within each fixed polynomial."
+        ],
+        "reasoning": "A coefficient matrix includes sufficient raw information to compute finite run counts, but the earlier displayed row/column/antidiagonal identities do not logically imply this exact maximum and all-scale run-length histogram without new overlap counting.",
+        "searches": [
+          "Stern 0 1 polynomials Dilcher Stolarsky maximal consecutive nonzero coefficients runs length three 3^r distributions",
+          "site:arxiv.org Stern polynomials consecutive occupied coefficient run Dilcher Ericksen",
+          "Beck Dilcher arXiv:2106.10400 coefficient matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2014 reducibility paper cites a table of early Stern polynomial examples and deals with cyclotomic factors; DML article abstract/PDF link was inspected but full PDF returned 503.",
+          "Independent enumeration n<=4096 matches h=3^(r-2) counts, but is not an authoritative all-index database theorem."
+        ],
+        "reasoning": "A finite coefficient table could display short maximal runs but cannot certify the uniform upper bound or all-dyadic formulas. No matching published table result was verified; the failed search does not by itself prove novelty.",
+        "searches": [
+          "Stern 0 1 polynomials Dilcher Stolarsky maximal consecutive nonzero coefficients runs length three 3^r distributions",
+          "Stern polynomial 3^r dyadic histogram run length 1 2 3 OEIS",
+          "Dilcher Ericksen 2014 small polynomial table"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for maximal coefficient-support run length and exact dyadic run-length histogram for the specified Dilcher–Stolarsky (0,1)-polynomials. The family/0-1 coefficient property, coefficient matrix and fixed-exponent sums are established antecedents; no identified source states the within-row consecutive run histogram. The foundational 2007 full article was inaccessible, a meaningful explicit risk.",
+      "residual_risks": [
+        "Original Dilcher–Stolarsky (2007) complete text unavailable even after authorized access attempt; possible implicit support-run formula.",
+        "2014 same-family factorization paper full PDF returned 503; its early examples do not establish all-r formula in inspected material.",
+        "Claims are dyadic-prefix totals and maximal consecutive coefficient-one intervals, not all sparse-gap patterns or arbitrary Stern polynomial definitions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides prior family and aggregate coefficients; inspected results not the local run histogram.",
+          "evidence": [
+            "Dilcher and Ericksen, Electron. J. Combin. 22(2) (2015) P2.24, DOI 10.37236/4822; §2 recursion, §6 products, §7 degree."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v22i2p24",
+          "material_read": "Full 18-page lawful OA PDF opened; introduction, definition/coefficients in §2, generating products, §6 fine structure and §7 degree formulas reviewed, with PDF screenshots of representative pages.",
+          "method": "OA publisher PDF parsed text and selected rendered-page inspection",
+          "title": "Hyperbinary Expansions and Stern Polynomials",
+          "trigger": "same Dilcher–Stolarsky family generalized by parameter t"
+        },
+        {
+          "assessment": "Cannot exclude older coverage; no claim made about unseen body.",
+          "evidence": [
+            "Dilcher and Stolarsky, Int. J. Number Theory 3 (2007), 85–103; DOI 10.1142/S179304210700081X."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S179304210700081X",
+          "material_read": "Only published abstract, publisher preview title/introduction and recurrence; lawful OA/preprint search did not yield complete primary full text; authorized Oxford returned vpn_disconnected, job 249ba4613b643cb141fb403cb4319d76.",
+          "method": "journal metadata and publisher preview (ResearchGate HTML), authorized retrieval request",
+          "title": "A polynomial analogue to the Stern sequence",
+          "trigger": "foundational same polynomial recurrence; potentially implicit run result"
+        },
+        {
+          "assessment": "Individual coefficient matrix identities are relevant groundwork, not demonstrated all-row run-length distribution.",
+          "evidence": [
+            "Beck and Dilcher, arXiv:2106.10400, abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.10400",
+          "material_read": "Abstract and available coefficient matrix framing inspected; not complete paper.",
+          "method": "arXiv abstract",
+          "title": "A Matrix Related to Stern Polynomials and the Prouhet–Thue–Morse Sequence",
+          "trigger": "same coefficient matrix, possibly implying block statistics"
+        },
+        {
+          "assessment": "Focus is factors/zeros; full text unread, residual table risk retained.",
+          "evidence": [
+            "Dilcher and Ericksen, Communications in Mathematics 22 (2014), 77–102."
+          ],
+          "identifier_or_url": "https://dml.cz/handle/10338.dmlcz/143908",
+          "material_read": "Journal metadata/abstract/reference list; OA full PDF retrieval returned HTTP 503, so not read in full.",
+          "method": "Czech DML portal and attempted PDF link",
+          "title": "Reducibility and irreducibility of Stern (0,1)-polynomials",
+          "trigger": "same-polynomial full paper with early table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/consecutive-coefficient-runs-in-stern-0-1-polynomials--78e96aab5984/RESULT.md",
+        "Dilcher–Ericksen (2015) DOI 10.37236/4822, §2, §6, §7 OA full text",
+        "Dilcher–Stolarsky (2007) DOI 10.1142/S179304210700081X, preview only",
+        "Beck–Dilcher arXiv:2106.10400 abstract",
+        "Dilcher–Ericksen (2014) DML abstract"
+      ],
+      "rationale": "Consecutive coefficient runs are a canonical local statistic of the support of a naturally defined automatic-polynomial sequence. A sharp uniform maximum, complete exact run-length distribution at every dyadic scale and universal limiting proportions give reusable local-support information not supplied by coefficient totals or factorization. This is a natural complete classification, not an arbitrary finite slice or known-table reprint.",
+      "residual_risks": [
+        "Mathematical significance is specific to the stated objects and parameter domains; broader model relevance is not proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Original Dilcher–Stolarsky (2007) complete text unavailable even after authorized access attempt; possible implicit support-run formula.",
+    "2014 same-family factorization paper full PDF returned 503; its early examples do not establish all-r formula in inspected material.",
+    "Claims are dyadic-prefix totals and maximal consecutive coefficient-one intervals, not all sparse-gap patterns or arbitrary Stern polynomial definitions."
+  ],
+  "schema_version": 1
+}

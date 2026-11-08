@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two residue-class decompositions follow by substituting the defining recurrence twice. Their missing residue classes forbid four consecutive occupied exponents. The four exact overlap recurrences, dyadic Stern summation, and pair/triple-to-run identities prove every quantifier in the claim. The standalone checker reproduces each support from an independent binomial-parity characterization through index 4096, including all dyadic histograms through \(r=12\). An infinite theorem depends on the algebraic proof rather than finite tests.
+## correctness
 
-**Originality — PASS within inspected evidence.** The closest directly relevant literature includes Beck–Dilcher (2021) on coefficient-matrix entries and aggregate sums; Dilcher–Ericksen (2015) on hyperbinary support and summed generating products; and Dilcher–Ericksen (2014) on factorization. The crucial distinction is the within-row maximal *adjacent occupied support-run histogram*, which is not determined by the known summed coefficient product. Targeted scientific-record searches did not locate the same quantified three-run distribution. Residual bibliographic risk: the foundational 2007 article was available only in preview, and an implicit theorem or unpublished observation might cover the result.
+PASS
 
-**Mathematical value — PASS.** The nonzero-coefficient patterns are a natural finer invariant of a family whose individual coefficient and row-sum structure are extensively studied. The new result imposes an all-index forbidden pattern, gives a sharp bound, and computes a complete nontrivial distribution at every dyadic scale, with nondegenerate limiting run proportions. This is not merely the evaluation of the known first-moment generating function: pairwise and triplewise coefficient co-occurrence are essential.
+Twice apply defining polynomial recursion. For n=4t+1, residue 3 mod 4 is empty; for n=4t+3 residue 2 mod 4 is empty; even n have only even exponents. Therefore no four-term run is possible, while P_5=1+x+x² realizes three. Define I_t=|E_t intersection E_{t+1}| and J_t=#(j in E_t with j+1 in E_{t+1}); parity decomposition yields I_{2u}=I_u, I_{2u+1}=s(u+1), J_{2u}=s(u), J_{2u+1}=J_u. Stern sums give S_k=(3^k-1)/2, U_k=(3^k-1)/2; aggregate adjacent-pair A_r=(3^(r-1)-1)/2 and triple B_r=(3^(r-2)-1)/2; invert C_r-2A_r+B_r etc to exact R1=2h+1,R2=(h+1)/2,R3=(h-1)/2 for all r>=2. Independently generated 4096 polynomial supports and compared them with Lucas parity; all eleven dyadic-prefix run counts and max-3 condition agreed. Finite checks independently corroborate, do not prove the dyadic recurrence.
 
-The mathematical claim is restricted to the precise Stern polynomial family and to dyadic prefix statistics. Further joint run-pattern distributions and non-dyadic prefixes are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for maximal coefficient-support run length and exact dyadic run-length histogram for the specified Dilcher–Stolarsky (0,1)-polynomials. The family/0-1 coefficient property, coefficient matrix and fixed-exponent sums are established antecedents; no identified source states the within-row consecutive run histogram. The foundational 2007 full article was inaccessible, a meaningful explicit risk.
+
+## value
+
+PASS
+
+Consecutive coefficient runs are a canonical local statistic of the support of a naturally defined automatic-polynomial sequence. A sharp uniform maximum, complete exact run-length distribution at every dyadic scale and universal limiting proportions give reusable local-support information not supplied by coefficient totals or factorization. This is a natural complete classification, not an arbitrary finite slice or known-table reprint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
