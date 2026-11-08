@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Every equilibrium with at least two agents excludes singleton occupied runs: moving a singleton to the vacancy immediately preceding the next occupied run yields one neighbor. Any longer occupied run supplies an interior zero-utility agent, which could profitably move to the boundary of a vacant run of length at least two, so vacancies are all isolated. Dimer states give every agent utility one, while in the isolated-vacancy family every zero-utility interior agent stays with two occupied neighbors after any jump, because no vacancy lies adjacent to an interior agent. Cyclic positive-composition counts, three-pattern intersection, and boundary cases give the theorem. The standalone checker exhaustively compared 131064 occupancy configurations for cycle lengths 3 through 16 with an independent literal move test and checked 600 larger samples. Finite checks do not constitute the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.23248v1: general-complexity and tree/topology analysis uses distinct quantifiers and instances from every simple cycle at every occupancy level.",
+        "arXiv:2302.12107v1: existence and dynamic statements depend on colored preferences."
+      ],
+      "reasoning": "More general graph families do not automatically cover the result if the utilities, permitted jump moves, and equilibrium predicate differ. The reviewed general results do not supply necessary-and-sufficient cycle occupancy structure or exact equilibrium enumeration under the identical binary preference.",
+      "searches": [
+        "\"network allocation\" \"cycle\" \"jump\" \"identical\" binary utilities stable",
+        "\"unrestricted jump\" \"cycle\" \"binary utilities\" \"neighbor\"",
+        "\"jump stable\" \"identical\" \"cycle\" \"neighbor\"",
+        "unrestricted jump stable placement cycle graph anonymous neighborhood count utilities one neighbor exact threshold two-thirds occupancy forbidden isolated and consecutive empty",
+        "cyclic network assignment identical single peaked utilities unit preferred degree exact classification matching components and isolated vacancy runs counting",
+        "complete characterization Nash equilibrium occupancy cycle utility 1 if exactly one neighboring occupied vertex jump deviations"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2607.23248v1",
+      "https://arxiv.org/html/2302.12107v1",
+      "https://arxiv.org/html/2407.05240v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Deligkas et al. supply the source model and a nonexistence obstruction on a constructed topology, not a classification for all cycles.",
+        "Friedrich et al. rely on colored-agent neighbor-composition payoff, not anonymous occupied degree.",
+        "Aziz et al. permit mutual swaps in fully occupied assignments, not a unilateral move to an empty vertex."
+      ],
+      "reasoning": "The proposed theorem implies a precise conditional existence and numerical count for every \\(n\\) and \\(k\\). Source theorems lack those numerical implications and their different assumptions prevent an automatic corollary. An undetected equivalent result in another terminology remains possible.",
+      "searches": [
+        "arXiv:2607.23248v1 Section 4.1 exactly-one-neighbor utility jump stability",
+        "arXiv:2302.12107v1 cycle jump equilibria",
+        "arXiv:2407.05240v1 cycle swap stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.23248v1: identical agents with binary payoff for exactly one occupied neighbor occur in the authors’ distinct construction.",
+        "arXiv:2302.12107v1: two-type fraction-based preferences.",
+        "arXiv:2407.05240v1: identity-dependent swap equilibria without vacancies."
+      ],
+      "reasoning": "We compared utilities, move sets, and quantifiers. A cyclic run-composition theorem for unrestricted unilateral moves among vacancies is not implied by type-dependent same-color ratios or fully occupied local swaps. No checked statement in the original anonymous model specializes to the exact two-family census.",
+      "searches": [
+        "\"jump stable\" \"cycle\" \"exactly one neighbor\" occupied anonymous network allocation",
+        "\"cycle\" \"jump-stable\" \"exactly one\" \"occupied neighbor\" identical agents",
+        "\"exactly one occupied neighbor\" \"cycle\" \"Nash\" game",
+        "anonymous network allocation game one-jump stable cycle identical binary utility exactly one occupied neighbor characterization alternating 0101 pattern counting stable placements",
+        "Deligkas Eiben Schierreich Voudouris Network Allocation Games Anonymous Preferences cycle identical binary 1 exactly one occupied neighbor unrestricted jump stability runs of length two count n k"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The available literature searches and semantic mathematical research-record matches returned no table enumerating the same \\(n,k\\)-parameter occupancy game.",
+        "Circular compositions and binomial identities themselves are standard and not claimed novel."
+      ],
+      "reasoning": "Neither an exact cycle-placement database nor a dominating counts table was located for this specific payoff/deviation game. The combinatorial count is new only in its equivalence to stable allocations; this is a bounded search and is not a uniqueness certificate.",
+      "searches": [
+        "\"one-neighbor\" \"jump-stable\" \"cycle\" coalition",
+        "\"single-peaked\" \"jump stability\" \"cycle\" exact count",
+        "\"ring\" \"jump-stable\" \"one neighbour\" agents",
+        "local jump stability cyclic graph single peaked one neighbor occupied agents transfer matrix forbidden alternating four word",
+        "network allocation 1-jump stability ring counting allocations number rational generating function"
+      ]
+    },
+    "rationale": "The nearest exact-model source establishes anonymous jump-stability and applies the same binary utility in a different nonexistence construction, but the analyzed statements do not imply the exact simple-cycle equilibrium equivalence, sharp density-and-parity existence phase boundary, or all-population count. The other relevant ring/assignment texts use different utility or deviation primitives. Full relevant source sections and search variants were compared by claim implication, not titles alone. A presently unindexed equivalent remains a substantive residual risk.",
+    "residual_risks": [
+      "An indexed-absent or differently phrased result on occupancy-run equilibrium counting may implicitly imply the census; searching cannot prove uniqueness.",
+      "The scope excludes incentives under different binary utilities or restricted-radius jumps."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source defines the model, proves general and tree-structure findings, and uses exactly-one-neighbor utility in a different graph construction; the reviewed material does not state the unrestricted simple-cycle two-family dichotomy or count.",
+        "evidence": [
+          "Source Section 4.1 employs exactly-one-neighbor utility for a nonexistence instance not restricted to the cycle alone.",
+          "The new statement is for every simple cycle and each population size with a sharp two-family counting identity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.23248v1",
+        "material_read": "Definitions and deviation model in Section 2; jump-stability and complexity results in Section 4; Section 4.1, including the binary preference nonexistence construction; final discussion in Section 6",
+        "method": "Relevant sections of the full lawful open HTML article compared against the claimed cycle-only equilibrium classification and exact census",
+        "title": "Network Allocation Games with Anonymous Preferences",
+        "trigger": "Exact jump-stability model and same binary utility wanting one occupied neighbor"
+      },
+      {
+        "assessment": "This study considers two-colored types and payoff by fraction of same-type neighbors, unlike the identical agents whose binary payoff depends only on the number of occupied neighbors.",
+        "evidence": [
+          "The basic state includes agents of two types; zero-occupied-neighbor and one-occupied-neighbor anonymous utilities of the current game are not equivalent to their type-specific ratios."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.12107v1",
+        "material_read": "Introduction, model, cycle/ring existence discussion and related proofs",
+        "method": "Relevant sections of full lawful open HTML examined and contrasted with the anonymous-neighbor utility and all-vacancy relocation rule",
+        "title": "Single-Peaked Jump Schelling Games",
+        "trigger": "Related jump-equilibrium results for rings and single-peaked preferences"
+      },
+      {
+        "assessment": "Its fully occupied agents have identity-dependent preferences and deviate by swaps; a cycle-swap existence theorem does not determine the vacancy-jump equilibrium census here.",
+        "evidence": [
+          "Their stability concerns swaps of allocated positions; the present game has vacant positions and an agent moves alone, vacating her original site."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.05240v1",
+        "material_read": "Sections 1, 2, and 4: definitions, swap models, and cycle structural results",
+        "method": "Relevant full-text HTML sections compared with vacancies and unrestricted jumps",
+        "title": "Neighborhood Stability in Assignments on Graphs",
+        "trigger": "Possible cycle assignment equilibrium coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "304b66b9-5af5-4f50-81ba-805fa840027b",
+  "value": {
+    "rationale": "The complete all-population stability classification, exact existence threshold including an odd-population exclusion below two-thirds density, and full labeled-placement census resolve a natural tractable family inside a model with general existence difficulties. The binomial count has mathematical purpose as a random-placement reliability benchmark, and the two different occupancy-run mechanisms give a substantive structural explanation, rather than a routine renamed combinatorial identity.",
+    "status": "PASS"
+  }
+}

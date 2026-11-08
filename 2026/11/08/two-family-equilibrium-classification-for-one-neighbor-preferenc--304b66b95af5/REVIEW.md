@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The argument verifies the literal deviation convention, including the vacating of the origin, and proves both directions of a disjoint-run classification up to its explicitly enumerated overlap. Circular-composition counting yields the binomial formula. A separately implemented exhaustive verifier checked all occupancy patterns on cycles of sizes 3 through 16, as well as 600 larger sampled patterns. The exhaustive check is supporting evidence, not an infinite proof.
+
+**Originality — PASS (qualified).** The main paper defines the game and uses the same ideal-one-neighbor utility in a nonexistence example on another topology, but its jump-stability and tree results do not imply the exact unrestricted-jump cycle classification or count. The closest other papers use colored-neighborhood ratios or identity-dependent local swaps, so neither dominates this assertion. The mathematical content not supplied by these sources is the dichotomy between occupied dimers and isolated vacancies, the population parity cutoff, and its exact census. Exact searches for the cyclic special case did not locate prior coverage; an unindexed equivalent remains a residual risk.
+
+**Mathematical value — PASS.** An all-size existence/nonexistence criterion and complete equilibrium census answer a natural tractable special case of a game whose general jump-equilibrium existence problem is computationally difficult. The density \(2/3\) and parity obstruction expose a genuine qualitative transition between two distinct types of stable occupation. The count also provides exact reliability benchmarks for uniformly randomized placements; no generic complexity improvement is claimed.
+
+**Closest literature and limitations.** Deligkas et al., arXiv:2607.23248v1, Sections 2, 4, 4.1, and 6, introduces precisely the corresponding utility example but not this cyclic census. Friedrich et al., arXiv:2302.12107v1, Sections 1 and 3, covers a different two-type Schelling utility. Aziz et al., arXiv:2407.05240v1, Sections 1, 2 and 4, concerns swaps without vacant vertices. The result does not cover heterogeneous utilities, other topologies, or convergence of improvement paths. A possible unindexed equivalent remains the main originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
