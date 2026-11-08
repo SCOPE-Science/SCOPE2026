@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For a nontrivial primitive-four orbit, connectedness forces a common number of fires per four steps; nonclumpiness excludes twice per four because alternating firing forces two-step return. The only one-fire case has opposite left-side firing phases: the right-side threshold transition forces initial chips 0/1, and left-side inequalities give alpha in [b,b+r-1], beta in [r,b-1], 1<=r<=b-1. There are four phases, binom(b,r) labelled right choices, and r(b-r) left initial choices; their exact mass is 2b+i+j. Jiang confinement and complement produce all three-fire states and preserve primitivity. Binomial expansion proves the displayed exact polynomial and its endpoints. Two independent exhaustive dynamical enumerations match every coefficient in their tested ranges, and a separate integer polynomial checker validates identities to b=50. Finite tests do not serve as all-b proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ji–Li–Wang arxiv:2408.10508 excludes periods three and four only for the strict interval 2|E|-|V|<m<2|E|.",
+        "Jung arxiv:2608.01350 establishes eventual period two in the same open interval on K_{a,b}.",
+        "Levine arxiv:0811.2800 concerns complete graphs, not K_{2,b}."
+      ],
+      "reasoning": "The strict inequalities exclude exactly the two boundary masses proved to support period four here. Neither middle-stair theorem determines coefficients at the endpoints or the two full outer support bands. The complete-graph activity result does not dominate a bipartite census.",
+      "searches": [
+        "arxiv:2408.10508 Theorem 1 middle stair",
+        "arxiv:2608.01350 Theorem 1 complete bipartite middle stair",
+        "arxiv:0811.2800 complete graph chip-firing staircase"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1003.0943 §§1–3, Theorem 3.8",
+      "arxiv:1211.6786 §§5–7, Theorem 6.2",
+      "arxiv:2408.10508 main strict-interval theorem",
+      "arxiv:2608.01350 §§1–5, Theorem 1",
+      "arxiv:0811.2800 abstract/setting"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jiang proves period-four possibility but gives one example rather than a mass-refined count for every periodic initial state.",
+        "Non-clumpy periodic words and balanced firing counts constrain possibilities, leaving the nontrivial left-phase inequalities to derive.",
+        "Middle-stair period-two strict interval is logically compatible with period-four states at both excluded endpoints."
+      ],
+      "reasoning": "We use the prior constraints as proof lemmas. The novel formula and sharp endpoint cardinalities are not corollaries merely of the cited theorems: showing existence at an excluded endpoint and enumerating all mass coefficients requires necessary-and-sufficient right-chip and left-threshold analysis.",
+      "searches": [
+        "arxiv:1003.0943 Corollary 3.6 Proposition 3.7 Theorem 3.8",
+        "arxiv:1211.6786 Theorem 6.2",
+        "arxiv:2608.01350 Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jiang arxiv:1003.0943 Theorem 3.8 identifies achievable period lengths but does not provide per-energy cardinalities.",
+        "Jiang–Scully–Zhang arxiv:1211.6786 Theorem 6.2 forbids clumpy firing words; it is a constraint rather than a count."
+      ],
+      "reasoning": "Aliases include period-four state census, 4-periodic chip-firing configurations, and energy generating function. Existing general propositions are inputs to a new full counting result, and neither contains nor implies its sharp coefficients without the separate bipartite phase analysis.",
+      "searches": [
+        "\"K_{2,b}\" \"chip-firing\" \"four\" count",
+        "\"parallel chip firing\" \"K_{2,n}\" \"period\" \"count\"",
+        "arxiv:1003.0943 Theorem 3.8",
+        "arxiv:1211.6786 Theorem 6.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No same-object energy-resolved exact counting table emerged from the searches; this absence does not establish priority.",
+        "Exact integer program outputs for b=2..12 independently match the candidate formula on the specified finite range."
+      ],
+      "reasoning": "The coefficient enumeration is all-parameter, whereas the finite verification tables are an internal check, not an assertion that no other table exists; an unindexed table could contain overlapping values.",
+      "searches": [
+        "\"complete bipartite\" \"period 4\" \"configuration\" count",
+        "\"parallel chip firing period four exact count total chips boundary 2E minus V\"",
+        "\"2^b\" \"period four\" \"chip firing\" \"bipartite\""
+      ]
+    },
+    "rationale": "Unlike period-possibility classifications, the present all-b theorem enumerates every labelled primitive-four periodic state by exact total mass, proves two full contiguous energy bands, and constructs both sharp middle-stair endpoint strata; compared primary source theorem statements do not imply these coefficients. Relevant academic and mathematical-result searches yielded no covering census; residual historical-priority risk explicitly retained.",
+    "residual_risks": [
+      "An earlier, unindexed equivalent energy-census or counting table might exist despite the targeted literature and mathematical-record searches.",
+      "Original full Bitar–Goles 1992 article was not accessible; only its bibliographic role and cited implications are known, so no whole-document noncoverage claim is made.",
+      "General period-existence and nonclumpiness results are prior and are not presented as novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING energy census: establishes period possibilities on K_{a,b}; its explicit witnesses do not calculate all primitive-four labelled configurations by chip mass",
+        "evidence": [
+          "Theorem 3.8 possible periods: 1..min(a,b) and twice those values.",
+          "Proposition 3.7 constructs some examples; Sections 2–3 have no polynomial counting theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1003.0943",
+        "material_read": "Sections 1–3, specifically Lemmas 2.1–2.3, Proposition 2.5, Corollary 3.6, Proposition 3.7 and Theorem 3.8 with proof",
+        "method": "Accessible full HTML rendering including theorem statements and constructions",
+        "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+        "trigger": "Same graph and period-four existence; strongest direct-prior claim"
+      },
+      {
+        "assessment": "NOT_COVERING mass distribution; proves global firing-word obstruction used in the proof",
+        "evidence": [
+          "Theorem 6.2: clumpy periodic firing patterns do not occur.",
+          "The discussion frames characterization of possible firing words, not a K_{2,b} energy census."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.6786",
+        "material_read": "Main introductory discussion, Sections 5–7 including Theorem 6.2 on PDF page 13 and concluding consequences",
+        "method": "Published open full text in PDF with direct page inspection",
+        "title": "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game",
+        "trigger": "Clumpy firing obstruction critical to exclude four-letter balanced patterns"
+      },
+      {
+        "assessment": "NOT_COVERING: excludes 4-periodicity only strictly between the two endpoints; does not count either boundary or outside bands",
+        "evidence": [
+          "Strict interval 2|E|-|V|<m<2|E| excludes endpoints."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.10508",
+        "material_read": "Abstract, introduction, main theorem and statements of the middle-stair restriction, available complete HTML",
+        "method": "Accessible full HTML text and mathematical comparison of inequality endpoints",
+        "title": "Non-Stabilizing Parallel Chip-Firing Games",
+        "trigger": "The sharp universal strict middle interval and possible overlap of period-four exclusion"
+      },
+      {
+        "assessment": "NOT_COVERING: proves eventual period two for a strict open mass interval; no exact count of primitive-four periodic states or endpoint values",
+        "evidence": [
+          "Theorem 1 is restricted to 2ab-a-b<m<2ab.",
+          "Theorem concerns eventual period, not number of periodic states."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.01350",
+        "material_read": "Full accessible manuscript sections 1–5, including Theorem 1 and the proof",
+        "method": "Accessible full HTML rendering, statement-to-claim implication comparison",
+        "title": "The Middle Stair for Complete Bipartite Parallel Chip-Firing",
+        "trigger": "A direct complete-bipartite period-vs-mass theorem"
+      },
+      {
+        "assessment": "OTHER_GRAPH, no whole-document noncoverage claim: complete graphs rather than K_{2,b}; residual risk of generic methods acknowledged",
+        "evidence": [
+          "The stated study is parallel chip-firing on K_n and its rotation number."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0811.2800",
+        "material_read": "Abstract and main setting as rendered; not the whole paper",
+        "method": "ArXiv abstract and setting inspection",
+        "title": "Parallel Chip-Firing on the Complete Graph: Devil’s Staircase and Poincaré Rotation Number",
+        "trigger": "Activity-vs-density staircase and potential stronger asymptotic prior"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab7b6a12-ae45-45be-8d84-123ea9620a7c",
+  "value": {
+    "rationale": "Energy-resolved counts of primitive periodic states describe exact activity layers, not merely possible periods. K_{2,b} is the thinnest complete-bipartite infinite family permitting a primitive four-cycle. The theorem proves the precise support, all coefficients, and the sharp attainability and multiplicities at both strict middle-stair endpoints, which are motivated by prior optimal open-interval stability bounds. It also gives the explicit exponential total 2^(b+1)b(b-1). A family-wide classification and sharp natural boundary facts are substantial independently of any broader downstream theorem.",
+    "status": "PASS"
+  }
+}
