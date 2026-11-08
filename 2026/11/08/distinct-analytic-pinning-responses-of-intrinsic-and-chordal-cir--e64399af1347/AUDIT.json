@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The exact two Lloyd maps are defined on short circular Voronoi arcs. Uniform-density Jacobian is J0=I/2+(S+S^{-1})/4; the reflection-odd restriction removes its only unit multiplier. The analytic implicit-function theorem gives the unique local pinned branches, and continuity yields attraction on that invariant subspace. Differentiating the integrals gives both displayed all-n first-order coefficients. f(L)=L^2+L sin L cos L-2sin^2 L has f(0)=f'(0)=0 and f''(L)=4sin L(sin L-L cos L)>0 on (0,π/3], proving the strict coefficient inequality. Exact difference of the von Mises weights about a cell center yields the negative sine-angle drift for all positive κ. The standalone numerical checker reproduces representative finite cases; no infinite statement relies on it. Important limits: no full-space attraction or global optimality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2602.11926v1 proves general nonuniform centroid necessary conditions and large-n quantizer density proportional to weight^(1/3); Figure 2 and Table 1 compare numerical intrinsic/chordal 7-means at concentration 3.",
+        "arXiv:2605.29451v1 Prop. 3.4 presents regular n-gon fixed under von Mises weighting, then studies its linearization, but it contains no analytic small-concentration correction of the fixed codebook in the inspected sections."
+      ],
+      "reasoning": "The 2026a general centroid conditions imply equations the new branches must satisfy, but do not furnish their near-uniform local existence, coefficient values, or strict ordering at every n. The high-resolution n→∞ density formula does not imply the exact finite-n response. The 2026b regular-n-gon fixed assertion cannot dominate this statement under fixed positive concentration; exact one-cell sign gives opposite conclusion.",
+      "searches": [
+        "For the von Mises probability density on a circle, the geometric (Fréchet) Lloyd centroid and the extrinsic circular-moment Lloyd centroid have two distinct analytic reflection-symmetric fixed quantizer branches near equally spaced n-gons at small nonzero concentration; first-order sine Fourier shape with exact coefficients (sin L/L-cos L)/sin^2 L and (L-sin L cos L)/(2 sin^3 L).",
+        "Exact first-order small-concentration expansion of analytic fixed points of intrinsic and extrinsic centroid (circular mean) Lloyd iterations with von Mises density exp(kappa cos theta) on n ordered circular Voronoi cells. Distinct coefficients [sin(pi/n)/(pi/n)-cos(pi/n)] / sin^2(pi/n) versus [(pi/n)-sin(pi/n)cos(pi/n)] / [2sin^3(pi/n)], symmetric pinned branches near regular n-gon",
+        "arXiv:2602.11926 sections 3,4,5 geodesic centroid chordal von Mises fixed quantization",
+        "arXiv:2605.29451 sections 2,3,4,5 circular Lloyd von Mises symmetric fixed point"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.11926v1 (full PDF: centroid, high-resolution, von Mises, chordal algorithm, table, appendices)",
+      "arXiv:2605.29451v1 (full PDF: definition, regular-polygon proposition, Fourier stability, appendices)",
+      "doi:10.3390/math14010063 (open-access publisher HTML relevant sections)",
+      "published-finding corpus research records via four scientific semantic searches (closest IDs and comparisons in named checks)",
+      "Targeted web searches of exact von Mises Lloyd small-κ analytic response and metric comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier intrinsic and chordal centroid equations are independent necessary conditions for different distortions.",
+        "The present fixed weight exp(kappa cos theta) is not invariant under codebook-only rotation; covariance of simultaneous mean-direction rotation does not yield codebook-only fixedness.",
+        "Exact forcing coefficients differ for every n>=3, while the preceding numerical metric comparison does not state derivatives or analytic uniqueness."
+      ],
+      "reasoning": "This theorem does not claim to invent Lloyd dynamics, the underlying centroids, or deformed quantizers. It compares actual conclusions: pinned fixed-point branch existence plus exact linear-response constants and a uniform-von-Mises nonfixed boundary. The earlier general conditions are inputs, not a stronger statement containing these finite-n conclusions; the 2026b claimed uniform fixed state is not a valid coverage of the corrected state.",
+      "searches": [
+        "arXiv:2602.11926v1 full text, sections 2–5 and numerical comparison",
+        "arXiv:2605.29451v1 full text, Definition 2.8, Prop 3.4, stability analysis and appendices",
+        "For the von Mises probability density on a circle, the geometric (Fréchet) Lloyd centroid and the extrinsic circular-moment Lloyd centroid have two distinct analytic reflection-symmetric fixed quantizer branches near equally spaced n-gons at small nonzero concentration; first-order sine Fourier shape with exact coefficients (sin L/L-cos L)/sin^2 L and (L-sin L cos L)/(2 sin^3 L)."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.29451v1 Definition 2.8 describes the circular moment arg and weighted arithmetic centroid as equivalent; they are in fact distinct for nonuniform weights, as seen by separate exact derivatives in this theorem.",
+        "published-finding corpus search nearest titles include SCOPE-singular-half-grid-selection-and-exponentially-weak-attraction-i--b03eb35b1a55, a distinct rational circle rotation map, not an intrinsic/chordal Lloyd fixed-codebook theorem."
+      ],
+      "reasoning": "The same object is the fixed-weight circular Voronoi Lloyd map. Equivalence of geodesic and chordal centroid updates would force matching first-order derivatives, contradicted by the proved strict coefficient inequality. Search hits on circle rotations or geometric centroids do not imply these dynamical formulas.",
+      "searches": [
+        "von Mises circular Lloyd map equally spaced configuration not fixed because rotated cells lack density symmetry; exact sign drift sin alpha and first-order drift for circular centroid",
+        "quantization von Mises nonuniform density lack rotational equivariance, no neutral Fourier eigenmode, forced Lloyd drift across codepoints",
+        "\"von Mises\" \"Lloyd\" \"perturbation\" \"small\" \"kappa\" quantizer circle",
+        "\"von Mises\" \"centroid\" \"sine\" \"first order\" \"quantizer\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026a Table 1 has decimal codepoints for one case n=7 and κ=3, without derivatives at κ=0 or exact all-n formulas.",
+        "Targeted published-finding corpus searches returned no entry asserting the displayed intrinsic and chordal finite-n coefficients; closest geometric published-finding corpus IDs include 2026/10/11/SCOPE-regular-polygon-moduli-of-circular-spiral-equicoverings--12132b2367fe."
+      ],
+      "reasoning": "Neither a numerical table at finite κ nor another circle-polygon invariant supplies the all-n analytic response and strict inequality. The search result is evidence of searches, not an exhaustive registry.",
+      "searches": [
+        "Exact first-order small-concentration expansion of analytic fixed points of intrinsic and extrinsic centroid (circular mean) Lloyd iterations with von Mises density exp(kappa cos theta) on n ordered circular Voronoi cells. Distinct coefficients [sin(pi/n)/(pi/n)-cos(pi/n)] / sin^2(pi/n) versus [(pi/n)-sin(pi/n)cos(pi/n)] / [2sin^3(pi/n)], symmetric pinned branches near regular n-gon",
+        "arXiv:2602.11926v1 Table 1 n=7 von Mises geodesic vs chordal κ=3"
+      ]
+    },
+    "rationale": "Inspected 2026 primary work supplies centroid equations, numerical metric differences and a claimed regular-polygon fixed state, but not an exact corrected finite-n analytic branch at small concentration or the strict all-n response-coefficient comparison. The new theorem cleanly separates known qualitative effects from the novel finite-parameter local structure; matching-alias and stronger-coverage queries of published-finding corpus and primary literature did not find a dominating result. Priority remains provisional.",
+    "residual_risks": [
+      "Unindexed or inaccessible pre-2026 numerical-analysis/quantization literature may contain equivalent small-κ finite-n response; complete historical priority is not certified.",
+      "2026a already establishes metric-dependent deformation numerically, so value and novelty rest on analytic all-n coefficients and strict comparison, not deformation itself.",
+      "The 2026b paper presents a stronger-looking equal-spacing assertion, but its fixed-weight premise fails away from the reference cell; the present comparison is based on the precise map definitions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS centroid definitions and numerical metric-dependent deformation but NOT_COVERING exact analytic finite-n near-uniform fixed branches or strict first-order coefficient ordering.",
+        "evidence": [
+          "Section 3: intrinsic centroid condition and high-resolution density proportional to the cube root of the weight.",
+          "Figure 2 and Table 1: numerical geodesic/chordal seven-codepoint comparison at κ=3, no formula for derivatives in κ."
+        ],
+        "identifier_or_url": "arXiv:2602.11926v1; https://arxiv.org/pdf/2602.11926",
+        "material_read": "Entire accessible 20-page PDF, emphasis on intrinsic necessary conditions, large-n density theorem, von Mises section, chordal algorithm, Figure 2, Table 1 and appendices.",
+        "method": "Read primary PDF text and examined page images of numerical comparison and high-resolution theorem.",
+        "title": "Optimal Quantization for Nonuniform Densities on Spherical Curves",
+        "trigger": "Same von Mises density, both geodesic and chordal centroid schemes, and comparison of codebooks."
+      },
+      {
+        "assessment": "COVERS Fourier linearization of an assumed regularly spaced state and general dynamical context, but does not provide the actual fixed-weight small-κ analytic branches.",
+        "evidence": [
+          "Definition 2.8 gives arithmetic intrinsic centroid and argument of circular moment side by side.",
+          "Proposition 3.4 extrapolates central-cell density symmetry to all rotated cells; the fixed von Mises density lacks that cell-centered symmetry except at mean/antipode.",
+          "Theorem 4.5 reports Fourier stability at the presumed symmetric fixed point."
+        ],
+        "identifier_or_url": "arXiv:2605.29451v1; https://arxiv.org/pdf/2605.29451",
+        "material_read": "Entire accessible 20-page PDF, emphasis on Definition 2.8, Remarks 3.2–3.3, Proposition 3.4, Sections 4–5 and end sections.",
+        "method": "Read primary PDF text and examined page images of definition, Proposition 3.4 and Fourier stability theorem.",
+        "title": "Linear stability analysis of the Lloyd algorithm on a circle",
+        "trigger": "Exact circle Lloyd dynamical system, same von Mises weight, and an asserted equally spaced fixed configuration."
+      },
+      {
+        "assessment": "Background on curvature, centroids and uniform quantization; no matching all-finite-n weak von Mises branch theorem in inspected material.",
+        "evidence": [
+          "The treatment explicitly notes the distinction between nonuniform density cells and uniform equal-length partitions."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math14010063",
+        "material_read": "Accessible article abstract, introduction and conclusions on spherical quantization, centroidal Voronoi partitions and distinctions between metrics.",
+        "method": "Read publisher open-access HTML sections.",
+        "title": "Optimal Quantization on Spherical Surfaces: Continuous and Discrete Models—A Beginner-Friendly Expository Study",
+        "trigger": "Related spherical quantization and possible broader coverage of intrinsic versus chordal metrics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e64399af-1347-4048-830f-702af18b9b1e",
+  "value": {
+    "rationale": "The problem is forced by a current stability analysis at a regular von Mises codebook and an earlier comparison of geodesic versus chordal Lloyd quantizers. The result replaces a nonfixed symmetric configuration by rigorous reflection-pinned branches; it gives explicit finite-n first-order behavior for both objectives and a strict model-dependent separation, together with an all-positive-concentration obstruction to uniform polygons. This is a structural stability-and-quantization gap, not a sampled numerical improvement. Scope is limited to local reflection-symmetric attraction; further global dynamics are not asserted.",
+    "status": "PASS"
+  }
+}
