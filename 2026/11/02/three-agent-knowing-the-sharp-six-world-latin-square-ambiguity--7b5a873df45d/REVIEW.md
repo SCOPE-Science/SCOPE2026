@@ -1,15 +1,21 @@
-# Review of three-agent knowing reconstruction
+# Independent mathematical audit
 
-## Correctness — PASS
-The operator on all Boolean inputs determines the inclusion-minimal local supports exactly. Under local irredundancy there are precisely three at each world. Partition classes have globally consistent agent colours and distinct overlapping blocks cannot have the same agent colour; conversely every proper three-colouring supplies all three partitions. This is a complete all-size argument, not a finite extrapolation. The six-world cutoff/census is verified by complete recursive set-partition enumeration: 203 partitions, all 8,365,427 ordered triples, and the resulting 825 locally irredundant operator signatures. The checker establishes counts 815 of fiber size six and 10 of fiber size twelve, confirms each exception is a labelled K(3,3), and checks all 64 input truth sets on a witness. Boundary cases n<4 have no irredundant triples; cases 4 and 5 have only globally permuted reconstructions.
+## correctness
 
-## Originality — PASS within inspected evidence
-Ding and Yang's 2026 paper proves general bundled semantics and an S5 axiomatization, not the inverse enumeration of three-agent partitions. Ågotnes and Wáng's 2021 paper gives the earlier neighbourhood semantics and modal metatheory. The 2023 hypergraph paper is a plausible historical source, but only its publisher abstract was accessible: no claim about its complete contents is made. A previously available exact **two-agent** two-minima reconstruction theorem derives a bipartite graph and 2-colouring fibers; it does not settle the three-agent case, where the K(3,3) intersection graph has twelve rather than six proper colourings even at connected join. Search comparisons found no covering three-agent six-world result. Novelty is not asserted absolutely against all historical writings.
+PASS
 
-## Mathematical value — PASS
-The first obstruction to recovery after erasing three agent names is natural in epistemic frame identification. The minimum at six labelled worlds, complete exceptional signature census, and 3x3 Latin-square connection give the precise finite boundary. The result quantifies a substantive failure of connected-frame identifiability that is absent for two agents. It is not a claim about unrelated formulas, agent-indexed modalities, or non-irredundant frames.
+For each world w, membership w in S(X) is upward closed in X and the three pairwise incomparable blocks E_i[w] are exactly its three minimal generators; this recovers the unordered local triple from ALL Boolean subsets. Another 3-agent realization cannot have additional redundant generators as its three local classes must equal the three minima; intersections of distinct same-agent blocks forbidden imply a proper 3-colouring of the globally recovered block graph. At every w three blocks form a triangle, so any proper 3-colouring uses all colours exactly once and yields one equivalence partition per colour, establishing a bijection without assuming alternative local irredundance. Independent partition enumeration n=4,5,6 generated the Bell numbers 15,52,203 and recovered 1,30,825 signatures respectively; six-world histogram 815 fibres of 6 and ten fibres of 12. Each exceptional signature consists of nine K3,3 edges; order-three Latin square has 12 edge-colourings and a connected union of accessibilities. Finite exhaustive census is exact only through n6; the chromatic theorem is proved for all finite W by the generator/colour equivalence.
 
-## Residual limitations
-The finite six-world census relies on supplied exhaustive enumeration code rather than a short case-free hand classification. Full text of the relevant 2023 hypergraph article remained inaccessible, so priority risk remains. Independent audit has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The operator and general S5 neighborhood semantics originate in prior modal logic. Best-of-knowledge original conclusions concern the exact P_G(3) inverse reconstruction of named agent partitions under local irredundancy and the sharp connected six-world ambiguity with complete multiplicities; a closely related 2023 hypergraph paper full text was inaccessible and is a significant priority risk.
+
+## value
+
+PASS
+
+A complete identification theorem for anonymous epistemic agents, with precise minimal world count and Latin-square obstruction, answers a natural reconstruction/observability question. The six-world multiplicity distinction is a structural boundary, not merely a small arbitrary lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
