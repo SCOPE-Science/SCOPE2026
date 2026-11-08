@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every convex polygon with noncollinear positive-length sides, all ordered edge choices are partitioned into same-edge, adjacent-edge, and nonadjacent-edge pairs. Same-edge parameter areas give \\(2Pr-mr^2\\). The adjacent-edge difference map has Jacobian \\(\\sin\\alpha\\) and an image sector of aperture \\(\\theta=\\pi-\\alpha\\), giving \\(\\theta r^2/(2\\sin\\theta)\\) per ordered pair; finite sides do not truncate for suitably small radius. Nonadjacent edges are uniformly separated. The exact equality follows, not just asymptotics. Euler sine-product positivity proves \\(f(t)-t^2/6\\) strictly convex for \\(0<t<\\pi\\), Jensen gives the variance remainder, and an actual convex centrally symmetric even-sided polygon family gives limiting ratio \\(1/6\\). The code performs distinct finite checks without replacing analytic arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The inspected published area-sampling result gives an exact quartic small-radius polynomial \\(D_P(\\rho)=\\rho^2-c_3\\rho^3+C_4\\rho^4\\) with a sharp uniform fourth-angle coefficient \\(1/(24\\pi^2)\\); the sampling measure is area, not perimeter arclength.",
+        "Baltzis 2013 title and abstract discuss random distances in convex polygons; its complete methods and hypotheses could not be checked."
+      ],
+      "reasoning": "The high-ranking full polygon result has a stronger range of polygon shapes, but a different sampling law; it does not subsume the perimeter-endpoint claim. The abstract-only Baltzis article is a residual risk, not categorized as not covering by a whole-document claim. General polygon distance algorithms might integrate a singular boundary model after separate developments, but none inspected states the sharp angular variance coefficient for this distribution.",
+      "searches": [
+        "pairwise distances boundary uniform random points convex polygons short chord distribution corner angles",
+        "sharp angular Jensen inequality sum theta csc theta regular polygon angular stability",
+        "published-finding corpus:2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+        "doi:10.1007/s11277-012-0887-9"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1204.2707v1",
+      "https://www.mathematica-journal.com/2015/06/28/computing-exact-closed-form-distance-distributions-in-arbitrarily-shaped-polygons-with-arbitrary-reference-point/",
+      "arxiv:1602.03407",
+      "https://doi.org/10.1007/s11277-012-0887-9",
+      "published-finding corpus:2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In the published fourth-coefficient proof, the area-covariogram method integrates two interior-area points, with \\(C_4(Q)=(8\\pi^2)^{-1}\\sum_i[1+(\\pi-\\alpha_i)\\cot(\\alpha_i)]\\).",
+        "Here ordered arclength pairs on adjacent edges map by determinant \\(\\sin\\alpha\\), yielding \\(B(Q)=\\sum_i[(\\pi-\\alpha_i)/\\sin\\alpha_i-1]\\) and a second-order corner contribution."
+      ],
+      "reasoning": "A consequence of the prior interior law would need a theorem transferring 2D area sampling to the 1D normalized perimeter product distribution, and no such statement appears in the inspected result; the polynomial order, measures, coefficient functions, and best stability constants differ. The prior regular polygon chord law cannot imply the arbitrary-polygon equiangular equality classification or the globally optimal 1/6 variance coefficient. The claim is not labeled first-ever independently.",
+      "searches": [
+        "published-finding corpus:2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b",
+        "arxiv:1204.2707v1",
+        "Mathematica Journal Pure Durrani exact polygon distance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bäsel arXiv:1204.2707 abstract and full-text definitions use motion-invariant line chords and area-uniform pairs in the interior of regular polygons.",
+        "Pure–Durrani (Mathematica Journal 17, 2015) uses interior-area-uniform points relative to a reference point.",
+        "Tong–Pan arXiv:1602.03407 abstract uses interior uniformly sampled polygon points."
+      ],
+      "reasoning": "Neither invariant-line sampling nor interior-area sampling induces the same random chord as two independent normalized arclength draws on polygon edges. The event for the latter has a linear leading short-radius term plus an exact quadratic local correction; interior-area pair distances have a quadratic leading term. Thus those earlier distribution functions cannot be identified with the new one under ordinary relabeling.",
+      "searches": [
+        "short chord distance probability independent uniform boundary points convex polygon small r angle coefficient sum exterior angle over sine",
+        "small distance arclength uniform polygon boundary pair chord probability exact quadratic polygon corners",
+        "small distance distribution between two random points on convex polygon boundary angle short chords polynomial",
+        "arxiv:1204.2707v1",
+        "arxiv:1602.03407"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus ranked records include the interior-area polygon fourth-coefficient result but not the boundary-endpoint exact local formula.",
+        "Bäsel provides regular-polygon chord-length distributions for invariant-line measure, which are a different sampling model."
+      ],
+      "reasoning": "The proposed identity is uniform over all convex polygons and the best universal remainder constant over arbitrary side count. No inspected table or database supplies those statements. The absence of an indexed row is not proof of historical uniqueness.",
+      "searches": [
+        "short chord distance probability independent uniform boundary points convex polygon small r angle coefficient sum exterior angle over sine",
+        "small distance arclength uniform polygon boundary pair chord probability exact quadratic polygon corners",
+        "published-finding corpus exact short-chord law convex polygon boundary",
+        "arxiv:1204.2707"
+      ]
+    },
+    "rationale": "Compared exact probability events, distributions, and hypotheses against full mathematical text for the closest published geometric-probability record and available primary mathematical literature; no inspected theorem applies to the arclength-boundary two-endpoint local quadratic law or its global sharp angular-variance remainder. The interior-area fourth-order law is distinct rather than evidence of novelty merely from differing titles. Historical priority remains provisional given abstract-only earlier source and possible alternative formulations.",
+    "residual_risks": [
+      "An equivalent formula could exist in work indexed as polygon-perimeter distance statistics, geometric tomography, or geometric networks under other wording.",
+      "Baltzis (2013) complete text was unavailable, so its coverage was not categorically ruled out.",
+      "Tong–Pan (2016) full text was not directly inspected; abstract indicates interior-area sampling.",
+      "This is a best-knowledge same-model originality assessment, not independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different random pair measure: area-uniform interior vs arclength-uniform boundary. Fourth vs second-order local probability. Does not imply proposed statement.",
+        "evidence": "Theorem gives \\(D_P(\\rho)=\\rho^2-c_3\\rho^3+C_4\\rho^4\\), with \\(C_4=(8\\pi^2)^{-1}\\sum_i[1+(\\pi-\\alpha_i)\\cot\\alpha_i]\\), for interior-area point pairs.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b/RESULT.md",
+        "material_read": "Complete RESULT.md, theorem, hypotheses, proof and references",
+        "method": "Read full primary record via published repository text",
+        "title": "Sharp uniform angular stability for the short-pair distance coefficient of convex polygons",
+        "trigger": "Top semantic match: polygon, short random pair distances, angular variance and sharp global coefficient"
+      },
+      {
+        "assessment": "Motion-invariant line chords and interior-area random point pairs of regular polygons, not independent perimeter-endpoint pairs over arbitrary convex polygons.",
+        "evidence": "First arXiv posting 12 April 2012; cited endpoint model in present work is explicitly distinct.",
+        "identifier_or_url": "https://arxiv.org/abs/1204.2707",
+        "material_read": "Abstract, model definitions, chord-sampling and pairwise distance derivations in accessible author-uploaded full text",
+        "method": "Inspected primary arXiv abstract and primary full-text sections on sampling measure and results",
+        "title": "Random chords and point distances in regular polygons",
+        "trigger": "Random chord distribution on polygons is a plausible historical equivalent"
+      },
+      {
+        "assessment": "It samples a node uniformly inside a polygon and measures to a reference point; not two arclength-boundary points.",
+        "evidence": "Publisher text explicitly states point uniformly distributed inside the polygon and polygon-disk intersection-area computation.",
+        "identifier_or_url": "https://www.mathematica-journal.com/2015/06/28/computing-exact-closed-form-distance-distributions-in-arbitrarily-shaped-polygons-with-arbitrary-reference-point/",
+        "material_read": "Introduction, model definition, geometric overlap algorithm, worked calculations and stated results in full HTML article",
+        "method": "Read primary publisher HTML mathematical article",
+        "title": "Computing Exact Closed-Form Distance Distributions in Arbitrarily Shaped Polygons with Arbitrary Reference Point",
+        "trigger": "Complete algorithm for arbitrary polygonal point-distance distribution might dominate geometry-specific claim"
+      },
+      {
+        "assessment": "Interior-area distance sampling, not equivalent by the given abstract; a full-text comparison would further improve priority confidence.",
+        "evidence": "Paper describes two independent random points inside arbitrary polygons.",
+        "identifier_or_url": "https://arxiv.org/abs/1602.03407",
+        "material_read": "Primary arXiv abstract and metadata; full text not inspected",
+        "method": "Read source abstract and checked stated point sampling model",
+        "title": "Random Distances Associated with Arbitrary Polygons: An Algorithmic Approach between Two Random Points",
+        "trigger": "Exact arbitrary-polygon two-point distance distributions"
+      },
+      {
+        "assessment": "Not claimed NOT_COVERING on abstract alone. Possible unidentified related formula is retained as residual risk.",
+        "evidence": "Wireless-networking context and convex polygon distance-distribution topic; full measure/formulas not verified.",
+        "identifier_or_url": "https://doi.org/10.1007/s11277-012-0887-9",
+        "material_read": "Title, abstract, and bibliographic scope only; full text unavailable",
+        "method": "Inspected publisher/indexed abstract and search records",
+        "title": "Distance Distribution in Convex n-Gons: Mathematical Framework and Wireless Networking Applications",
+        "trigger": "Potential historical distance distribution for arbitrary convex polygons"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6aa43036-918b-4190-8b4c-f4f623a18e2e",
+  "value": {
+    "rationale": "This is a natural geometric-probability measurement: the distribution of exceptionally short chords joining independent boundary locations. It yields an exact polygon-dependent law whose correction is a pure corner-angle invariant, a sharp bound among all equal-side-count angle patterns, a full equality classification for equiangular shapes, and a universal best quantitative angular-rigidity constant. The degree and coefficient differ fundamentally from interior-point sampling, offering a direct angular diagnostic from a perimeter probability law. It does not claim polygon reconstruction or a general-distance algorithm.",
+    "status": "PASS"
+  }
+}
