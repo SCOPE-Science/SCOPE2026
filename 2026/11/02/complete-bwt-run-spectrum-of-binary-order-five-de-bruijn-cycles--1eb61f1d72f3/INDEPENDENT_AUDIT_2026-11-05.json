@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T00:15:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For binary order-five de Bruijn necklaces of length 32, every cyclic BWT column has 16 complementary adjacent two-bit blocks (01/10), from the unique 5-factor dictionary. The LF inversion permutation on 32 rows must be one cycle for a single necklace (Higgins, Thm 3.4 and Lemmas 3.6–3.7); with 16 orientation bits the linear run number is 17+sum_{i=0}^{14}[a_i=a_{i+1}]. My independent LF implementation exhaustively enumerated 65,536 orientations, verified 2048 single 32-cycles and exact histogram {20:38,22:426,24:840,26:608,28:130,30:6}. The source checker also contains an independent rooted Euler-tour exhaustive construction; its algorithm was inspected and is consistent with the LF/dictionary correspondence. This is a finite complete classification at n=5 only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higgins parameterizes all de Bruijn-set transforms, Fici gives all-order bounds, other work special constructions."
+        ],
+        "reasoning": "These broader frameworks make enumeration possible but do not supply exact six-bin frequencies; Fici allows r=18 at order 5, whereas exhaustive classification excludes it.",
+        "searches": [
+          "Fici et al Proposition 32 BWT de Bruijn words 2025",
+          "Higgins Theorem 3.4 and Lemma 3.7",
+          "Date Zatesko LFSR minimal run BWT"
+        ]
+      },
+      "checked_sources": [
+        "Higgins, Burrows-Wheeler transformations and de Bruijn words, arXiv:1901.08392 (2012 original)",
+        "Fici et al., BWT and Combinatorics on Words (2025), Prop 32",
+        "Date and Zatesko arXiv:2512.20598 LFSR special BWT construction",
+        "Lipták and Parmigiani 2024 BWT-based de Bruijn construction",
+        "Resultary semantic published-record queries: BWT run spectrum binary de Bruijn cycles order five",
+        "Resultary semantic published-record queries: de Bruijn binary order five BWT runs 20 22 24 26 28 30 frequency",
+        "Resultary semantic published-record queries: Burrows Wheeler Higgins de Bruijn set inverse BWT Theorem 3.4",
+        "Resultary semantic published-record queries: Fici 2025 Proposition 32 de Bruijn BWT r bounds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bounds 18..30 and inverse transforms are weaker statements than exact per-run counts; special LFSR families do not enumerate 2048 necklaces."
+        ],
+        "reasoning": "The six multiplicities do not follow from global bounds, total 2048 alone, or a family constructor; the proof requires complete one-cycle orientation census.",
+        "searches": [
+          "Higgins de Bruijn BW transforms Section 3",
+          "Fici et al 2025 Prop 32",
+          "Liptak Parmigiani 2024 BWT-based de Bruijn"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A single 32-cycle of LF corresponds to one de Bruijn necklace; orientation mask classifies all candidates."
+        ],
+        "reasoning": "Different descriptions (LF cycles, Euler tours, binary de Bruijn necklaces, BWT columns) are mathematically equivalent; their *run histogram* is the additional exact finite fact.",
+        "searches": [
+          "circular sentinel free BWT de Bruijn runs LF permutation",
+          "Higgins 2012 inverse BWT de Bruijn set one necklace",
+          "Resultary BWT de Bruijn spectrum order 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source and independent exact computation give six-bin table; scholarly record search did not return matching database."
+        ],
+        "reasoning": "No exact previously published table located in checked references, but old computational catalogs may exist; non-match is not conclusive.",
+        "searches": [
+          "38 426 840 608 130 6 de Bruijn run histogram",
+          "BWT order five 2048 necklaces run counts",
+          "Resultary binary BWT run spectrum 5"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is qualified: equivalent formulations, stronger published implications and exact tables were searched and compared at the statement level. The record expressly excludes cited prior components; no located material supplies the claimed precise new remainder. Inaccessible/unindexed specialized literature remains a residual risk, not an automatic scientific rejection.",
+      "residual_risks": [
+        "Uninspected older order-five exact run tables or cyclic BWT datasets could already give this histogram.",
+        "This is a complete finite invariant only at order five, with no claimed general formula; general bounds and special constructions are prior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides complementary blocks and inverse permutation biconditional, but not the linear-run frequency histogram.",
+          "evidence": "Theorem 3.4: de Bruijn-set transforms all concatenations of complementary blocks; LF-cycle test picks one necklace.",
+          "identifier_or_url": "https://arxiv.org/pdf/1901.08392",
+          "material_read": "Full accessible 21-page original-paper arXiv upload; inspected §3, Theorem 3.4, Lemmas 3.6–3.7 and proof, including Example 3.9 for order five.",
+          "method": "Read original full PDF relevant theorem section and inspected page images and statements.",
+          "title": "Burrows-Wheeler transformations and de Bruijn words (P. M. Higgins)",
+          "trigger": "Exact matching BWT inverse representation of de Bruijn sets"
+        },
+        {
+          "assessment": "Bounds allow 18 and do not determine attained 20 or any multiplicities.",
+          "evidence": "Proposition 32: 2^(d-1)+2 <= r <= 2^d-2 for de Bruijn case.",
+          "identifier_or_url": "https://doi.org/10.4230/OASIcs.Manzini.1",
+          "material_read": "Full accessible 23-page PDF, especially Proposition 32 and surrounding run-bound discussion, visual page inspection.",
+          "method": "Read primary PDF proposition and derive order-five 18<=r<=30.",
+          "title": "BWT and Combinatorics on Words (Fici et al., 2025)",
+          "trigger": "Potential stronger all-order BWT run results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sentinel-free BWT run count is a compression/indexing invariant and de Bruijn cycles are canonical strings. The complete 2048-necklace order-five census gives the natural attainable range, sharp min 20 rather than generic lower bound 18, and exact counts for six classes, a useful independently reproducible benchmark despite no all-order theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Higgins, Burrows-Wheeler transformations and de Bruijn words, arXiv:1901.08392 (2012 original)",
+    "Fici et al., BWT and Combinatorics on Words (2025), Prop 32",
+    "Date and Zatesko arXiv:2512.20598 LFSR special BWT construction",
+    "Lipták and Parmigiani 2024 BWT-based de Bruijn construction"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The claim is limited precisely to the parameters, invariants, equivalence action and finite/infinite boundaries written in RESULT.md; see scientific correctness and priority risks.",
+    "Finite calculations were used as exact certificates only for exhausted finite sets, and not as proofs of unbounded statements."
+  ],
+  "residual_risks": [
+    "Uninspected older order-five exact run tables or cyclic BWT datasets could already give this histogram.",
+    "This is a complete finite invariant only at order five, with no claimed general formula; general bounds and special constructions are prior."
+  ],
+  "schema_version": 1
+}

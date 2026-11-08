@@ -1,15 +1,21 @@
-# Scientific review — Complete BWT-run spectrum of binary order-five de Bruijn cycles
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact claim is finite and fully quantified: all 2048 binary order-five necklaces, standard lexicographic circular BWT, linear non-wrapping runs. Lemma 1 derives 16 complementary pairs; Lemma 2 gives the LF single-cycle biconditional, grounded in the inspected inversion proof. Formula r=17+#agreements follows by counting within-pair and boundary transitions. Complete integer-only iteration over all 65536 orientations gives the exact counts. A separate exhaustive Euler-tour algorithm independently creates each necklace, directly sorts its rotations, verifies its five-bit windows, and gives exactly the same BWT set and six-bin histogram. Checker run on the actual embedded code passed; no infinite inference, timeout, or unproved nonstandard computational step.
+## correctness
 
-## Originality — PASS (best-known comparison)
-The Higgins article covers the complementary-block reduction and de Bruijn SET inversion, while the complete one-LF-cycle run histogram remains an additional assertion. Fici et al. 2025 gives only an interval for every order, which at order five is 18..30, strictly weaker than the attained 20..30 and does not imply six multiplicities. The 2025 LFSR preprint constructs special run-minimal patterns, not all order-five sequences. Lipták–Parmigiani counts/constructs de Bruijn sequences, not exact BWT-run class frequencies. Published scholarly-record searches with parameters, phrasing, aliases and numerical array returned no matching or stronger entry. No accessible older own claim includes the exact invariant. Novelty remains a best-knowledge statement subject to historical-table risk.
+PASS
 
-## Value — PASS
-BWT run number is an established compression and indexing invariant, while de Bruijn cycles are natural maximally diverse test strings. The exact small order-five classification is the first complete nontrivial 2048-necklace regime with six distinct BWT-run outcomes before the order-six family jumps to 67,108,864 necklaces. It refines the existing generic bound by showing that 18 is impossible at this natural order and exactly 38 words attain the true minimum 20; it also determines exact frequencies throughout the range, including only six maximum cases. This natural whole-family exact cutoff is independently useful as a test benchmark for BWT generators and structural conjectures, not an arbitrary slice or a few isolated checks. No all-order theorem is claimed.
+For binary order-five de Bruijn necklaces of length 32, every cyclic BWT column has 16 complementary adjacent two-bit blocks (01/10), from the unique 5-factor dictionary. The LF inversion permutation on 32 rows must be one cycle for a single necklace (Higgins, Thm 3.4 and Lemmas 3.6–3.7); with 16 orientation bits the linear run number is 17+sum_{i=0}^{14}[a_i=a_{i+1}]. My independent LF implementation exhaustively enumerated 65,536 orientations, verified 2048 single 32-cycles and exact histogram {20:38,22:426,24:840,26:608,28:130,30:6}. The source checker also contains an independent rooted Euler-tour exhaustive construction; its algorithm was inspected and is consistent with the LF/dictionary correspondence. This is a finite complete classification at n=5 only.
 
-## Closest literature, access and scientific limitations
-The closest primary works are Higgins (2012) Section 3 (complementary BWT blocks and LF-cycle inversion), Fici and collaborators (2025) Proposition 32 (generic run bounds), and Date–Zatesko (2025) Section 4 (special minimal-run LFSR families). None of the inspected material gives the six-bin count. Only order five, sentinel-free cyclic rotations and ordinary linear BWT runs are asserted. The full texts of some less immediate sources were not available, so absolute historical priority is not asserted. The complete finite checker and an independent Euler-tour procedure were executed successfully, but this is not external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is qualified: equivalent formulations, stronger published implications and exact tables were searched and compared at the statement level. The record expressly excludes cited prior components; no located material supplies the claimed precise new remainder. Inaccessible/unindexed specialized literature remains a residual risk, not an automatic scientific rejection.
+
+## value
+
+PASS
+
+The sentinel-free BWT run count is a compression/indexing invariant and de Bruijn cycles are canonical strings. The complete 2048-necklace order-five census gives the natural attainable range, sharp min 20 rather than generic lower bound 18, and exact counts for six classes, a useful independently reproducible benchmark despite no all-order theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
