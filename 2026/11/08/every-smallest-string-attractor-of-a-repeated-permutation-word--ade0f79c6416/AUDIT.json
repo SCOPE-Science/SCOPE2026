@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Singleton factors force one selected position for each of q distinct letters. The factor c_{q-1}c_0 proves the necessity of avoiding the simultaneous endpoint selection. Each short nonwrapping factor is met by its chosen start letter; each short wrapping factor is met at an internal junction; for length >=q, all occurrences form a contiguous interval, and any one-per-letter selection outside that interval must use both endpoints. This proves the theorem for every q>=3,k>=2. The exact count is k^q-k^(q-2). Direct independent-of-proof factor-mask tests pass for 31 bounded (q,k) instances and 204695 selected position sets; those tests do not constitute an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mantaci et al. 2019, Proposition 4: gamma*(u) <= gamma*(u^k) <= gamma*(u)+1. This does not distinguish the two allowed sizes or enumerate all optimizers for this family.",
+        "Restivo et al. 2022, Proposition 1: boundedness of attractor profiles for eventually periodic infinite words, not a finite-word all-minimizer census.",
+        "Cassaigne et al. 2024, Proposition 19: a bounded profile for eventually periodic words, and general span/leftmost definitions and inequalities rather than full permutation-power solution sets."
+      ],
+      "reasoning": "These results address general upper bounds and dispersion statistics, which are less precise in the present concrete family. They do not logically imply that all q-letter transversals except the endpoint pair are attractors.",
+      "searches": [
+        "\"all smallest string attractors powers of permutation words periodic repeated distinct letters\"",
+        "\"string attractor size and all minimizers of a repeated permutation, each symbol once per period\"",
+        "\"string attractors periodic words all optimal attractors permutations distinct symbols\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1907.04660v1; Mantaci et al., 2019; original proposition on powers and Corollary 2.",
+      "arxiv:2206.00376v1; Restivo et al., 2022; periodic-word profile.",
+      "doi:10.1016/j.jcta.2024.105936; open author manuscript; general position-complexity results.",
+      "doi:10.4230/LIPIcs.CPM.2026.33; official abstract; all minima of different morphic word families.",
+      "Published binary alternating boundary result: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-all-smallest-attractors-in-two-exceptional-antipalindromic-pseud--fe2566e0098c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For u=c_0...c_{q-1}, Mantaci et al. imply gamma*(u)=q and q<=gamma*(u^k)<=q+1, whereas the new proof establishes gamma*(u^k)=q and the exact family of k^q-k^(q-2) minimizers.",
+        "The 2024 paper treats span and leftmost complexity generally and specific Sturmian/morphic families; it gives no equivalent repeated-permutation optimizer classification in the inspected material.",
+        "The CPM 2026 paper explicitly classifies different Fibonacci and period-doubling word families, not repeated alphabet permutations."
+      ],
+      "reasoning": "Neither general bounds on optimum size, nor existence of a particular q-set, nor all-minimizer counts for a binary or morphic family logically imply the all-permutation-position classification. The assertion is not a renamed binary case: it has q independent selected positions and a q-ary exact enumerator.",
+      "searches": [
+        "\"arxiv:1907.04660 Proposition 4 and Corollary 2\"",
+        "\"arxiv:2206.00376 periodic attractor profile\"",
+        "\"doi:10.1016/j.jcta.2024.105936 string attractor position distribution\"",
+        "\"doi:10.4230/LIPIcs.CPM.2026.33 all smallest attractors\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The accessible binary alternating classification counts k^2-1 smallest attractors for (01)^k; this equals the q=2 specialization but does not cover q>=3.",
+        "The 2019 finite-word attractor paper defines the same factor-crossing object, but its Proposition 4 is a size inequality rather than the classification of all optimizing position sets."
+      ],
+      "reasoning": "Relabeling a permutation does not change the problem, so the representative period 012... is examined. The q=2 specialization is explicitly excluded as already covered. For q>=3, neither the q=2 result nor the cited original bounds supply the full q-coordinate set or its count.",
+      "searches": [
+        "\"Exact number of smallest string attractors of (012...q-1)^k; one per residue; iff not both outer positions chosen\"",
+        "\"q-ary periodic words string attractors enumerate all minimum positional attractors repeated distinct symbols\"",
+        "\"All smallest attractors in two exceptional antipalindromic pseudostandard families\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published exact binary alternating count k^2-1 is structurally adjacent and is treated as a boundary case, not new work.",
+        "No searched table/result supplied the q>=3 general count. The standalone checker independently finds 6 for (012)^2, 24 for (012)^3, and 240 for (0123)^4, matching the proposed general formula."
+      ],
+      "reasoning": "An exact q>=3 full-position census would cover the claim even without matching notation, but the inspected available comparisons did not present such a census. Search nonappearance alone is not treated as proof of priority.",
+      "searches": [
+        "\"k^q-k^(q-2) smallest string attractors permutation\"",
+        "\"permutation word repeated k times minimum string attractor all attractors (abc)^k\"",
+        "\"All smallest attractors in two exceptional antipalindromic pseudostandard families\""
+      ]
+    },
+    "rationale": "The relevant original literature supplies power bounds and example attractors, but not the all-minimizer enumeration for repeated permutations of at least three distinct letters. A known binary alternating case is excluded from the new domain. The q-ary statement and endpoint necessity/sufficiency are checked against indexed published claims and accessible author manuscripts, subject to the residual risk of an unindexed equivalent theorem.",
+    "residual_risks": [
+      "An unindexed earlier q-ary formula or different terminology for full minimum string-attractor families could exist; nonappearance in searches is not a novelty certificate.",
+      "The full text of the 2026 Fibonacci/period-doubling comparison was not inspected; its explicitly described word families are different from the new q-ary periodic permutation family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The object and the power inequality are directly relevant, but its result does not classify all q-position sets for powers of a permutation.",
+        "evidence": [
+          "Proposition 4 gives gamma*(u)<=gamma*(u^n)<=gamma*(u)+1, pp. 3-4.",
+          "Corollary 2 constructs a minimum attractor for a word with consecutive distinct-letter runs, p. 5.",
+          "Theorem 7 handles circularly balanced epistandard words, p. 7."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1907.04660",
+        "material_read": "Abstract, definitions and Section 3, Proposition 4 and Section 4, Corollary 2 and the results in Section 5; original 14-page version.",
+        "method": "Read accessible arXiv full-text extraction and viewed original page images, including pages 0 and 6.",
+        "title": "String Attractors and Combinatorics on Words",
+        "trigger": "Foundational paper with direct bounds for powers and exact minimum size for a distinct-run base word."
+      },
+      {
+        "assessment": "Periodic-profile boundedness and general inequalities are not equivalent to a precise all-minimum-position count for finite repeated permutations.",
+        "evidence": [
+          "Proposition 1 establishes the bounded attractor profile for eventually periodic infinite words, p. 5.",
+          "The later paper introduces span/leftmost measures rather than enumerating this family."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.00376",
+        "material_read": "Abstract, preliminaries, periodic-profile results in Section 3, and position-complexity definitions in later sections of the 20-page manuscript.",
+        "method": "Read accessible arXiv PDF text and original page images, including pages 0 and 11.",
+        "title": "String Attractors and Infinite Words",
+        "trigger": "Treats periodic words and position-based attractor-complexity questions."
+      },
+      {
+        "assessment": "The paper has the right mathematical notion and wider complexity framework but no full permutation-power optimizers in its inspected statements.",
+        "evidence": [
+          "2024 abstract and introduction identify focus on Sturmian, quasi-Sturmian and k-bonacci families.",
+          "Proposition 19 concerns bounded profiles of periodic infinite words; Propositions 31-33 give general positional bounds."
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/309672/1/String_attractors__journal_version_%20%282%29.pdf",
+        "material_read": "Full abstract and introduction, periodic-word propositions and definitions/inequalities for span and leftmost positions in Section 4, conclusion; 28-page author manuscript.",
+        "method": "Read institutional open author-manuscript PDF text and viewed original first-page image.",
+        "title": "New string attractor-based complexities for infinite words",
+        "trigger": "Expanded relevant primary work on positions and span of attractors, with potentially dominating general results."
+      },
+      {
+        "assessment": "Distinct named Fibonacci and period-doubling word families; no implication to a finite repeated permutation on q>=3 distinct letters. Full paper not needed for a decisive comparison of different stated objects.",
+        "evidence": [
+          "CPM 2026 abstract explicitly states the Fibonacci and period-doubling family counts."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2026.33",
+        "material_read": "Official openly accessible publication abstract and bibliographic summary; not full paper.",
+        "method": "Inspected publisher landing-page abstract and description of the theorem.",
+        "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+        "trigger": "Recent full-optimum enumeration might dominate the proposed exact count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ade0f79c-6416-4d57-8985-f80eb02db832",
+  "value": {
+    "rationale": "The result classifies ALL exact minimum covers of all factors for an unbounded family of finite words with independently variable alphabet size and repeat count, not just the minimum size. Its collapse of an exponentially large family of constraints to one special two-letter junction is a meaningful local-to-global rigidity, and k^(q-2)(k^2-1) gives the exact multiplicity relevant to position-based attractor studies. Unlike a binary special case or trivial bound, the proof controls q independent letter-position choices for arbitrary q>=3.",
+    "status": "PASS"
+  }
+}
