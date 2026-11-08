@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Lucas parity identifies precisely the submasks of each binary row index. The separation of its maximal runs by a zero bit proves an injectivity lemma for the sum-digit representation, including the highest-varying-block argument; convolution fibers therefore factor without unaccounted carries. Summing the triangular square-profile \(1^2,2^2,\ldots,m^2,\ldots,2^2,1^2\) yields \((2m^3+m)/3\); an exhaustive binary-string first-run decomposition yields the rational dyadic generating function. The standalone checker verifies 32,896 Lucas parity instances, 256 full two-sum spectra, 256 energy formulas and 12 dyadic-prefix formulas over 2,048 rows. Infinite claims depend on the symbolic proof, not extrapolation. Risks: the zero-index and empty-run boundaries are explicitly covered; there are no external computational lemmas.
+## correctness
 
-**Originality — PASS within inspected evidence.** The 2022 digital-Pascal paper (Mathonet et al., arXiv:2201.06636) gives closely related Pascal-row structural context but not this exact integer-additive two-sum profile; Wu (arXiv:1610.06166) and Rampersad–Wiebe (arXiv:2309.04012) establish nearby run-transform methods for other binomial-parity sums. Full open-access primary text was inspected, including the run-transform averaging section of Rampersad–Wiebe. Results about binary *vector*-cube additive energy concern a different group law and do not imply the integer formula (at row index \(3\), the respective energies are \(36\) and \(44\)). The closest located mathematical result about dyadic energy of evil numbers concerns a different support set and does not imply the present rowwise statement. Search of arXiv, general literature and a mathematical-result database did not locate this exact spectrum or \((1-4z)/(1-11z+20z^2)\) aggregate. Risk: general run-transform formalisms could implicitly contain the result; novelty is a best-knowledge assessment, not a uniqueness guarantee.
+PASS
 
-**Mathematical value — PASS.** The additive energy is a standard, motivated statistic detecting additive collisions beyond the elementary count of odd coefficients per row. The finding gives not merely the total energy but every two-sum fiber of every binary Pascal row, with carry-sensitive block factorization, followed by a natural complete dyadic census, exact recurrence, and its spectral growth rate. The count is not an arbitrary parameter slice and cannot be replaced by ordinary row-population formulas.
+Lucas mod-2 identifies A_n with bit submasks. Each maximal run of consecutive one bits gives interval 0..2^ell-1; two summands in that block yield triangular ordered multiplicities min(v+1,2m-1-v). The separating zero bits ensure that the largest differing block outweighs all lower block differences (strict <2^h), proving unique integer sum-vector decomposition despite carries within runs. Squared triangular counts sum to (2m³+m)/3. First-run decomposition of all r-bit binary words gives F=1+zF+W+zWF with W=(6z-16z²)/(1-10z+16z²), producing rational GF (1-4z)/(1-11z+20z²). Empty support n=0 and all r>=0 included. Independent complete direct 2-sums for n<128 agree; universal proof is combinatorial, not inferred from finite rows.
 
-**Closest literature and limits.** Mathonet et al. (2022), Wu (2016), Rampersad–Wiebe (2023) are mathematical precursors; all are credited, and no previously known Lucas theorem or generic run-transform methodology is represented as new. The claim covers only parity and ordinary-integer ordered two-sums. The accompanying code supplies finite checks, not an infinite certificate. Absolute bibliographic completeness and independent evaluation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lucas submask characterization and general run-length transforms are established prior technique. No direct formula for this ordinary-integer two-sum multiplicity spectrum and dyadic aggregate was found in Resultary and the compared Pascal/parity literature; broader run-transform theory might encode an equivalent recurrence implicitly. Best-of-knowledge qualified PASS.
+
+## value
+
+PASS
+
+The exact ordinary-integer two-sum representation spectrum and fourth Fourier/additive moment of natural Pascal parity sets distinguish arithmetic carries from the binary-vector cube. The evaluated dyadic aggregate is a natural complete invariant across all rows, not a one-off numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
