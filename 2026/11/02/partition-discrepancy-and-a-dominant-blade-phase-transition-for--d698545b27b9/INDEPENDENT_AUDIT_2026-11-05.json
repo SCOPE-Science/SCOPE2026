@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:56:43.777586Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For r>=2 vertex-glued cliques, translate hub to zero. The centered squared norm is strictly convex on the anchored feasible product of P_a={z in [-1,1]^a: max(z)-min(z)<=1}; its extreme points have all coordinates in {0,1} or {0,-1}, with at least one nonzero. This gives exactly N K - S^2, K=sum_i k_i and S=sum_i eps_i k_i, with 1<=k_i<=a_i. If S>=0, a partly occupied negative blade improves by filling; a partly occupied positive blade forces S>0 and S>=(N-1)/2. A positive blade with k_j<S improves by sign reversal; two positive blades would force K>=3S>N-1, impossible. Thus any partial maximizer has exactly one positive, dominant blade, all others full negative, and largest A>=3Q+2. If A<=3Q+1 full-sign optimizers minimize partition discrepancy delta. In the dominant regime F(k)=2NQ+N^2/4-(k-Q-N/2)^2, so nearest integers yield 2NQ+floor(N^2/4), equality at boundary A=3Q+2, and exact squared gain floor((A-3Q-1)^2/4). Checked all quantifiers including a_i=1, N=T+1, r=2 and the tie. Independent literal labelled assignments for ten nontrivial size tuples, including (5,1),(6,1),(7,1), matched the numerator; these finite checks do not prove the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Addario-Berry–Janson–McDiarmid treat spread on random graph models and large graph regimes.",
+          "Resultary 2026/10/4 windmill dissociation hit classifies induced-degree<=1 subsets, not real Lipschitz variance."
+        ],
+        "reasoning": "Neither random graph asymptotics nor exact dissociation polynomials yield the deterministically optimized variance for arbitrary block sizes; the universal extremizer theorem leaves a nonlinear finite optimization.",
+        "searches": [
+          "https://arxiv.org/abs/0902.1156",
+          "exact graph spread variance of 1-Lipschitz functions on windmill clique bouquet block graphs joined at hub partition discrepancy",
+          "SCOPE windmill dissociation polynomial"
+        ]
+      },
+      "checked_sources": [
+        "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+        "https://arxiv.org/abs/0902.1156",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.1 establishes an integral optimizer and signed-distance structure for all graphs, not explicit NK-S^2 maximization by blade sizes.",
+          "The exact integer squared phase gain requires proving the unique positive partial blade and optimizing k."
+        ],
+        "reasoning": "The claim is a specific exact solution of an existing general extremal problem; neither a tautological corollary of integrality nor a renamed graph invariant.",
+        "searches": [
+          "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+          "https://arxiv.org/abs/0902.1156",
+          "exact graph spread variance of 1-Lipschitz functions on windmill clique bouquet block graphs joined at hub partition discrepancy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alon–Boppana–Spencer, Theorem 2.1: existence of integral extremizer for any finite graph, no formula for clique bouquets.",
+          "The claimed objective is maximum centered squared Lipschitz norm, not ordinary metric diameter, clique partition or dissociation."
+        ],
+        "reasoning": "Checked equivalence between spread, optimal Lipschitz variance and graph-metric centering. The prior invariant is the same, but determining all heterogeneous clique-bouquet values and maximizing patterns is additional work.",
+        "searches": [
+          "exact graph spread variance of 1-Lipschitz functions on windmill clique bouquet block graphs joined at hub partition discrepancy",
+          "Alon Boppana Spencer An Asymptotic Isoperimetric Inequality graph spread",
+          "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest summaries concern windmill dissociation and clique partitions, not the function variance formula.",
+          "No directly comparable exact blade-size table was returned by the actual bounded semantic search."
+        ],
+        "reasoning": "Failed table/record search is not novelty proof. A previously published exact family under block-graph terminology remains possible.",
+        "searches": [
+          "exact graph spread variance of 1-Lipschitz functions on windmill clique bouquet block graphs joined at hub partition discrepancy",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+          "graph spread clique bouquet exact variance table"
+        ]
+      },
+      "rationale": "The optimized invariant and integral-extremizer principle are already established by Alon, Boppana and Spencer (1998), but their Theorem 2.1 does not supply this exact heterogeneous bouquet formula, dominant-blade transition or equality stratification. Random-graph spread, windmill dissociation and clique partitions are different statements; no inspected comparison implies the formula. Priority remains qualified.",
+      "residual_risks": [
+        "Search did not exhaust block-graph spread literature; a differently titled explicit bouquet optimization could predate this theorem.",
+        "No claims for weighted vertices, general block overlaps, subgaussian constants, or metrics other than the unit-edge path metric."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME invariant, STRONG framework, but does not determine bouquet-size arithmetic or strict phase thresholds",
+          "evidence": "Definition and Theorem 2.1; graph Lipschitz edge constraints and integral extremizer",
+          "identifier_or_url": "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+          "material_read": "Section 1.1 spread definition, Section 2.1 Theorem 2.1 and its integral/signed-distance optimizer proof, PDF pages 3–5",
+          "method": "Full author-hosted PDF text and page screenshot",
+          "title": "An Asymptotic Isoperimetric Inequality",
+          "trigger": "Original definition of graph spread and strongest general finite graph optimizer theorem"
+        },
+        {
+          "assessment": "Random model asymptotics, not this deterministic complete family",
+          "evidence": "Abstract lists random regular, supercritical random, and small-world graph models",
+          "identifier_or_url": "https://arxiv.org/abs/0902.1156",
+          "material_read": "Public abstract and scope read; full paper not claimed read",
+          "method": "arXiv abstract",
+          "title": "On the Spread of Random Graphs",
+          "trigger": "Spread in other graph classes"
+        },
+        {
+          "assessment": "Same graph family, distinct invariant and no implication to sharp Lipschitz variance",
+          "evidence": "Polynomial (1+m z+C(m,2)z^2)^n+z+nmz^2 for bounded induced degree subgraphs",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+          "material_read": "Title and full semantic summary only; paper body not claimed read",
+          "method": "Resultary semantic search",
+          "title": "Dissociation polynomial and all maximal dissociation sets of generalized windmills",
+          "trigger": "Same one-hub clique family but alternate graph invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Graph spread is the sharp uniform-vertex variance of all real 1-Lipschitz graph functions, meaningful in product-space concentration. A complete arbitrary-size bouquet formula, full extremizer classification and strict transition between signed-partition and partially occupied clique configurations answer a natural optimization problem. The exact arithmetic squared improvement is not a routine type check or an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unit-weight connected one-hub bouquets of at least two cliques with strictly positive blade sizes; no weighted-vertex theorem or statement for larger clique intersections.",
+    "Numerical enumerations verify only finite instances; analytic classification supplies unrestricted proof.",
+    "An earlier differently indexed block-graph spread formula remains possible."
+  ],
+  "schema_version": 1
+}
