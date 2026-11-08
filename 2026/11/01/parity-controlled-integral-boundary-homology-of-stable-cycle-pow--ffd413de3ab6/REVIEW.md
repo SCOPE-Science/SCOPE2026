@@ -1,15 +1,21 @@
-# Review: integral homology of stable cycle-power clique-complex boundaries
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is conditional on two explicitly cited previously proved facts: (i) in the stable range the cyclic-window clique complex is a PL manifold with nonempty boundary; (ii) the ambient complex has the homotopy type of a circle. The novel orientation computation follows from the complete facet adjacency cycle: the common codimension-one face has signs \(+1\) and \((-1)^m\), so the accumulated monodromy is \((-1)^{n(m+1)}\). Poincaré–Lefschetz duality with the correct orientation local system gives precisely the integral relative groups, and the long exact pair sequence gives the displayed boundary groups, including the \(m=3\) extension and connectedness. The torus classification uses the classical closed-surface theorem. The five signed-chain calculations pass, including a nonunit Smith factor two for the nonorientable example.
+## correctness
 
-## Originality — PASS, with residual risk
-The closely related primary work of Wani, *Edge ideals of complements of a class of circular interval graphs*, arXiv:2609.31105, proves the PL-manifold boundary property, the ambient circle-type statement and the \(m=2\) annulus/Möbius dichotomy. It does not state the all-power orientation character or the integral higher-dimensional boundary homology. Adamaszek, *Clique complexes and graph powers*, arXiv:1104.0433, proves the ambient circle equivalence without classifying its manifold boundary. A published result on third-power cycle **open-neighborhood complexes** has parity-dependent homology but involves a different complex; its theorem does not identify the relevant boundary spaces. Search comparisons include aliases as independence complexes of complements and graph-metric Rips complexes. The general tools of duality are classical; the specific cyclic orientation calculation and resulting complete family formula are the added statements. A previously catalogued identification of these boundaries with known manifolds remains a possible source of implicit coverage.
+PASS
 
-## Value — PASS
-The classification answers a naturally arising, uncomputed question about the boundary of the stable cycle-power manifolds. It covers all powers and all stable lengths rather than arbitrary isolated examples. It exhibits a genuine parity-controlled two-torsion class in the integral homology of closed boundaries of arbitrarily high dimensions while the interiors retract onto circles. It also identifies every third-power boundary as a torus. These properties are not recoverable from ambient Betti numbers alone, and provide natural obstructions and test cases for proposed PL-homeomorphism classifications.
+The n maximal (m+1)-vertex cyclic windows of the clique complex have adjacent codimension-one intersection exactly for indices differing by one, under n>=3m+1. The incidence signs on the shared m-face in F_j and F_{j+1} are +1 and (-1)^m, so consistent orientation transport is c_{j+1}=(-1)^(m+1)c_j and monodromy (-1)^{n(m+1)}. The source Wani theorem establishes an m-dimensional triangulated manifold with boundary; Adamaszek Proposition 2.2 gives collapse to C_n and hence M~S1. Poincare–Lefschetz duality with orientation local coefficients gives relative groups Z in degrees m and m-1 for trivial orientation, or Z/2 in degree m-1 for sign monodromy; the pair LES then gives connectivity and exactly the displayed integral groups for m>=4. At m=3 the LES gives connected orientable surface with H1=Z^2 and H2=Z, so PL torus by classification. Independent finite window-incidence checks at (10,3),(11,3),(13,4),(14,4),(16,5),(17,4) confirmed n(m-1) boundary facets, an n-cycle facet dual graph and parity orientation. The proof is universal through cited theorems, not the finite tests alone.
 
-## Scientific limits
-No all-dimensional PL classification of the boundaries is asserted beyond the torus case, and no new theorem is claimed for the ambient homotopy type or manifold property. Relevant sources may still contain implicit equivalent reductions; the finite program is supplementary and not an infinite proof. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wani 2026 gives the boundary-manifold structure (and m=2 annulus/Mobius), Adamaszek 2012 the circle homotopy type of the ambient clique complex; neither accessible statement publishes the full higher-dimensional boundary orientation character or integer torsion groups. These are substantive consequences via a cyclic facet sign computation and duality. Wani full text was inaccessible after OA attempts; its abstract was read, so full-text overlap remains a named originality risk rather than automatic rejection.
+
+## value
+
+PASS
+
+The boundary of this natural stable cycle-power graph complex produces a uniform parity-dependent family of closed PL manifolds, including connected nonorientable examples with precisely one 2-torsion group. This determines a structural invariant absent from ambient circle homotopy; the explicit orientation transport makes the integral information useful for further manifold/symmetry work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
