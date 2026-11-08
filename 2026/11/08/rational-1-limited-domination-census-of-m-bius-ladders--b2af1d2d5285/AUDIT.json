@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2 the graph is exactly the cubic 2n-cycle plus antipodal matching. Counting cut edges gives |S|>=n; n+1 consecutive cycle vertices supply universal upper bounds. The 16-state twisted local-transfer bijection is exact, with 26 permitted transitions. Exact Newton identities produce the 16 characteristic coefficients, and the 16 adjugate numerator coefficients are reconstructed by trace convolution, so the rational generating function is proved for all n. Its constant/linear diagonals yield the precise minimum and labelled multiplicity; standard-library verifier was replayed successfully, including full independent brute enumeration for n=2..9. Boundary n=2 (K4) is covered. Computation is a finite algebraic certificate embedded in the proof, not extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.01796, Sections 2-3: complexity and the Goldberg snark family.",
+        "arXiv:2610.26259, Sections 2-3: generic small-excess structural lemmas and flower/Blanuša snark cases.",
+        "arXiv:2606.22422, Sections 3-5: general inequalities, regular-graph equivalence, packing.",
+        "Own prior finding cea34f70-9092-47f5-84d4-c6178bb37789: threshold-graph k-limited polynomial, not the noncomplete Möbius ladder family."
+      ],
+      "reasoning": "The recent general cubic bounds/structural characterization give |S|>=n and restrictions on cut defects, but do not imply the exact four-residue values or counts without resolving the Möbius-ladder configurations. A prior threshold-graph enumeration covers the trivial K4 boundary M2 only, not M_n for n>=3. Previously studied prism and ladder invariants involve different predicates and do not imply this twisted family result.",
+      "searches": [
+        "published-finding corpus: 1-limited domination Möbius ladder generalized Petersen graphs (1,2) dominating sets",
+        "published-finding corpus: 1 limited domination Wagner graph Möbius ladders exact value",
+        "Web: (1,2)-domination Möbius ladder graph",
+        "Web: 2026 1-limited domination Cartesian products cube Möbius ladder"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.22422 Sections 1-5",
+      "arxiv:2610.01796 Sections 1-3",
+      "arxiv:2610.26259 Sections 1-3 and Proposition 3",
+      "Fakharan et al. 2021 public abstract and secondary precise theorem quotation",
+      "Chen et al. 2018 public abstract",
+      "published-finding corpus actual search output including Wagner homology and chain graph domination entries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fakharan et al., Discrete Mathematics 344 (2021) 112546, abstract, general half-order characterization quoted in arXiv:2610.26259 Proposition 3.",
+        "arXiv:2610.26259 Theorem 1 counts cut-isolated vertices and star components for an arbitrary limited dominating set; no Möbius-ladder family calculation.",
+        "arXiv:2610.01796 Theorem 2 and Section 3 cover planar-cubic hardness and Goldberg snarks, not the candidate graphs.",
+        "Explicit 16-state trace computation produces D and N coefficients not present in any of these papers."
+      ],
+      "reasoning": "Prior general equality results allow deciding equality once a perfect matching cut is characterized, but do not characterize such cuts for Möbius ladders nor enumerate any solution of size n+1; hence they do not imply the claimed complete polynomial or the minimum-set census. The 2018 [1,2] generalized-Petersen study defines another problem. A full copy of the Fakharan 2021 article was not obtained; its possible further examples remain a specific residual risk.",
+      "searches": [
+        "published-finding corpus: (1,2)-domination cubics Möbius ladder Wagner graph two induced 2-factors perfect matching cut",
+        "Web: On (1,2)-domination in cubic graphs 2021 Fakharan full text",
+        "Web: Structural aspects of 1-limited domination cubic graphs arxiv:2610.26259",
+        "Web: 1-limited domination Möbius ladder generalized Petersen"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Božović et al. arXiv:2606.22422 Section 4 equates 1-limited and (1,2)-domination on cubic graphs.",
+        "Radić et al. arXiv:2610.26259 Sections 1-2 and its Proposition 3 cite the general half-order equality characterization.",
+        "Beggas et al. arXiv:1906.11966 defines [1,2]-domination by conditions on unselected vertices, which is a different predicate."
+      ],
+      "reasoning": "Searches included the exact equivalent (1,2)-dominating-set terminology, not only 1-limited. The prior half-order characterization identifies when a cut is a perfect matching but gives neither the n-mod-4 Möbius-ladder classification nor the full polynomial or minimum multiplicities. Bracketed [1,2] domination is not equivalent.",
+      "searches": [
+        "published-finding corpus: 1 limited domination Möbius ladder polynomial minimum dominating sets n+1 3n",
+        "published-finding corpus: (1,2)-domination cubics Möbius ladder Wagner graph two induced 2-factors perfect matching cut",
+        "Web: (1,2)-domination Möbius ladder graph",
+        "Web: [1,2]-Domination in Generalized Petersen Graphs arxiv:1906.11966"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest Wagner graph records describe matching-complex homology or total 3-cut complexes, not limited domination.",
+        "OEIS A302404 explicitly tabulates total domination of Möbius ladders, not 1-limited domination.",
+        "No inspected source supplied the 16-state rational generating function or the 4/2n/3n minimum census."
+      ],
+      "reasoning": "The searches covered exact family/parameter names, Möbius/Moebius variants, and possible tables. Total domination and matching-complex polynomials count different objects and cannot certify the present polynomial. Nonappearance is a residual-priority risk, not proof of global novelty.",
+      "searches": [
+        "published-finding corpus: gamma 1 limited domination number of Mobius ladders M_{2n} exact n mod 4 minimum sets",
+        "published-finding corpus: 1 limited domination Möbius ladder polynomial minimum dominating sets n+1 3n",
+        "Web: Möbius ladder 1 limited domination minimum",
+        "Web: Möbius ladder (1,2)-domination",
+        "Web: Möbius ladder total domination OEIS A302404"
+      ]
+    },
+    "rationale": "New family-specific rational domination polynomial and exact modular minimum census are not implied by the known generic cubic lower bound, perfect-matching-cut equality characterization, or Goldberg/flower/Blanuša snark results. Inspected exact primary statements and searched published mathematical records, aliases and potential tables; none covers the nontrivial n>=3 Möbius-ladder family. The trivial n=2 case is acknowledged as covered by known complete-graph/threshold-graph results. Full historical priority is provisional because the Fakharan et al. 2021 full paper was not available.",
+    "residual_risks": [
+      "Full text of Fakharan et al. 2021 was not obtained; a cited general equality characterization is acknowledged but uninspected examples might overlap the scalar residue claim.",
+      "Semantic search and web indexing do not certify global uniqueness.",
+      "The n=2 K4 boundary is individually known; novelty concerns the unrestricted family n>=3 and complete polynomial."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General framework and regular-graph equivalence only, no Möbius-ladder polynomial or minimum-set count",
+        "evidence": [
+          "arXiv:2606.22422 Sections 1,2,4,5",
+          "No occurrences for Möbius or ladder in accessible full HTML"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.22422",
+        "material_read": "Accessible arXiv full HTML text, Sections 1-2 and discussion of Sections 3-5; searched full HTML for Möbius and ladder",
+        "method": "Read statement, definitions, scope, generic bounds and family list; find terms",
+        "title": "On k-limited domination in graphs",
+        "trigger": "Original definition and possible general domination enumeration"
+      },
+      {
+        "assessment": "No covering Möbius-ladder statement; studies hardness and Goldberg snarks",
+        "evidence": [
+          "arXiv:2610.01796 Section 1 and Section 3",
+          "No Möbius or ladder term"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01796v1",
+        "material_read": "Accessible complete HTML including introduction, Theorem 2, Section 3 Goldberg block results; searched full HTML for Möbius and ladder",
+        "method": "Full-text scope and statement comparison",
+        "title": "On 1-limited and (1,2)-domination in cubic graphs",
+        "trigger": "Same parameter and cubic graph setting, primary plausible exact-family source"
+      },
+      {
+        "assessment": "Provides the general lower bound and perfect-cut criterion, but not the Möbius-ladder generating function or its exact case split",
+        "evidence": [
+          "arXiv:2610.26259 Theorem 1 and Proposition 3",
+          "No Möbius or ladder term"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.26259",
+        "material_read": "Accessible full arXiv HTML Sections 1-3, especially Theorem 1, Proposition 3 and applications; searched for Möbius and ladder",
+        "method": "Compared general cut defect equations and equality condition to the actual four-residue family classification and polynomial",
+        "title": "Structural aspects of 1-limited domination in cubic graphs",
+        "trigger": "Closest general structural classification of exact half-order and one-excess sets"
+      },
+      {
+        "assessment": "General half-order characterization is acknowledged, while any uninspected family examples remain residual priority risk",
+        "evidence": [
+          "Fakharan et al. 2021 public abstract",
+          "arXiv:2610.26259 Proposition 3 cites its equality theorem"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2021.112546",
+        "material_read": "Public abstract and precise theorem citation in arXiv:2610.26259 Proposition 3; full article could not be retrieved through arXiv/OA search; not inspected in full",
+        "method": "Scope and theorem-implication comparison from available material; not a full-text exclusion",
+        "title": "On (1,2)-domination in cubic graphs",
+        "trigger": "Older general characterization of half-order equality; potentially stronger than recent summaries"
+      },
+      {
+        "assessment": "[1,2]-domination constrains outside vertices to have between one and two selected neighbors; it is not 1-limited domination and does not cover the claimed invariant",
+        "evidence": [
+          "Chen et al. 2018 abstract and formal definition"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.amc.2018.01.013",
+        "material_read": "Public abstract, definition, and summary of exact values; not complete original paper",
+        "method": "Compared predicates before assessing implication",
+        "title": "On the [1,2]-domination number of generalized Petersen graphs",
+        "trigger": "Superficially similar named parameter on a structured cubic graph family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b2af1d2d-5285-4928-8936-c36223e4f692",
+  "value": {
+    "rationale": "A complete cardinality polynomial for all limited dominating sets on a natural infinite family of nonplanar vertex-transitive cubic graphs, together with a sharp mod-four change in optimum and the exact 4/2n/3n labelled optimizer census, supplies substantive family-specific information beyond a scalar general bound or a routine named substitution. The transfer formulation also gives a finite recurrence for every coefficient and a concrete test family for cubic domination structural conjectures. The family and invariant are mathematically motivated by recent cubic limited-domination papers.",
+    "status": "PASS"
+  }
+}
