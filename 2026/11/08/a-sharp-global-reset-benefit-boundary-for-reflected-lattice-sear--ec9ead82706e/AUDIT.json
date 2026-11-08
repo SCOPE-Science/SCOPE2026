@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The first-passage generating function solves a finite second-order recurrence with deterministic reflection; the renewal formula yields the exact mean. The polynomial D(y) has zero coefficients in degrees 0,1 and an explicit degree-2 coefficient. When that coefficient is nonnegative, an induction via Chebyshev Taylor coefficient ratios proves all other coefficients nonnegative; otherwise D(y)<0 for small positive y. This reconstructs the all-size iff, including n=1, k=n and equality. An independent exact-rational transition-matrix checker replayed and passed 1881 bounded assertions; tests are corroborating, not a substitute for the lemma.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Riascos et al. 2021, Secs. 3–4, analyze arbitrary networks generally, but case studies are rings and Cayley trees.",
+        "Das and Giuggioli 2022, Sec. 3.2, define a holding reflecting boundary, with jump probability q/2 rather than forced motion; Sec. 3.2 and Fig. 6 plot example first-passage means.",
+        "Bonomo and Pal 2021, Sec. III, specialize to two absorbing interval endpoints.",
+        "Chen et al. 2021, Sec. IV, explicitly distinguish local reset-slope tests from finite-rate behavior; Sec. V studies two absorbing endpoints, not forced-inward reflection."
+      ],
+      "reasoning": "General renewal identities cover the equation for reset means and are acknowledged as prior. They do not directly supply the discrete forced-inward-path global threshold or the proof that no hidden beneficial rates exist. The closest one-dimensional case studies employ other boundary conventions.",
+      "searches": [
+        "discrete time random walks Levy flights arbitrary networks when resetting becomes advantageous Riascos Boyer Mateos 2021",
+        "Discrete space-time resetting model Das Giuggioli 2022 reflecting boundaries first passage",
+        "discrete-time symmetric random walk reflecting absorbing interval memoryless reset optimum globally no reset",
+        "2021 arxiv 2111.01330 Chen Li Huang resetting geometric finite lattice absorbing target general beneficial rate"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2102.00895",
+      "https://arxiv.org/pdf/2110.15437",
+      "https://arxiv.org/pdf/2209.08330",
+      "Published mathematical finding bbc2b636e783: sharp variance envelope at fixed success probability under memoryless catastrophe",
+      "Earlier claim 22c9e358-1823-40f4-978e-c374650a3272",
+      "Earlier claim 4becc946-1a2b-4414-9a6c-496833a30f54",
+      "Earlier claim 502236d9-4b27-4af3-a9fb-bf43b352265e",
+      "https://arxiv.org/pdf/2111.01330"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Riascos 2021 Eq. (36) identifies when introducing a small reset probability helps, not that this is necessary for benefit at arbitrary resetting rates.",
+        "The Chebyshev coefficient proof establishes a new positive-coefficient implication from the second coefficient to all higher coefficients.",
+        "Das and Giuggioli Sec. 3.2 specifies boundary holding and shows numerical curves; its transition probabilities differ from a forced inward step.",
+        "Chen et al. (2021) Sec. IV highlight that initial-slope tests alone do not settle the entire parameter interval, motivating the stronger global coefficient lemma."
+      ],
+      "reasoning": "Applying the prior sufficient first-derivative criterion gives one implication of the new theorem. The converse is not automatic and depends on a new uniform polynomial sign argument. Published formulas for other endpoint rules are not mathematically identical. Thus no inspected result subsumes the final all-rate if-and-only-if claim.",
+      "searches": [
+        "Riascos 2021 arxiv 2110.15437 small reset criterion equation 36",
+        "Bonomo Pal 2021 arxiv 2102.00895 two absorbing endpoints",
+        "Das Giuggioli 2022 arxiv 2209.08330 reflecting boundary rule Section 3.2",
+        "published-finding corpus: geometric restart random walk reflecting path absorbing endpoint necessary and sufficient condition for restart to reduce mean hitting time"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Riascos et al. (2021), Sec. 3, establish a local small-reset derivative criterion in terms of first-passage moments.",
+        "The present reset mean admits an exact Chebyshev representation, but the new claim is an all-rate iff statement, not the representation alone."
+      ],
+      "reasoning": "The known variance test gives a negative initial derivative as a sufficient condition only. It does not exclude a beneficial medium reset probability when that derivative is nonnegative; excluding it here requires the all-degree coefficient argument. Search results showed no exact equivalent phase boundary for forced-inward reflection.",
+      "searches": [
+        "geometric restart random walk reflecting path absorbing endpoint necessary and sufficient condition for restart to reduce mean hitting time",
+        "cosh Chebyshev finite reflecting gambler ruin beneficial resetting threshold start position",
+        "\"reflecting boundary\" resetting \"critical position\" random walk",
+        "published-finding corpus: resetting finite reflected path absorbing target exact threshold beneficial reset position 5(n-k)^2 n^2+5 Chebyshev global phase diagram"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned a restart variance envelope (published record bbc2b636e783) but no table of forced-inward-path thresholds.",
+        "The compared earlier mathematical claims involve reset cover times, stars, multiple-walker searches, or entropy rates, not the quantified inequality \\(5(n-k)^2>n^2+5\\)."
+      ],
+      "reasoning": "These are genuine negative searches and domain comparisons, not a proof of originality. No directly corresponding database or listed exact threshold was found.",
+      "searches": [
+        "published-finding corpus: geometric restart random walk reflecting path absorbing endpoint necessary and sufficient condition for restart to reduce mean hitting time",
+        "published-finding corpus: resetting finite reflected path absorbing target exact threshold beneficial reset position 5(n-k)^2 n^2+5 Chebyshev global phase diagram",
+        "published-finding corpus: cosh Chebyshev finite reflecting gambler ruin beneficial resetting threshold start position",
+        "\"5\" \"reflecting\" \"resetting\" \"critical\" mean first passage",
+        "\"resetting\" \"cosh\" \"reflecting\" \"beneficial\" finite interval"
+      ]
+    },
+    "rationale": "General renewal equations and first-order sufficient restart criteria appear in the named papers. The new proof establishes the converse as a global all-rate statement for forced-inward finite paths, and the exact spatial threshold n^2+5 vs 5(n-k)^2. Primary literature on two absorbing endpoints or holding-reflected endpoints does not state this exact theorem; accessible research records do not overlap. Priority outside inspected works remains an explicit residual risk.",
+    "residual_risks": [
+      "An older or unindexed paper may contain the same global forced-inward lattice threshold.",
+      "General spectral renewal formulas mathematically encode the reset mean but do not by themselves demonstrate the sharp all-rate classification.",
+      "Only the identified sections and relevant results were materially compared, not every cited paper in their bibliographies.",
+      "The precise forced-inward boundary may appear in an unindexed paper despite material review of four close primary sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General renewal and local restart criteria are prior; case study uses two absorbing endpoints and a lazy walk, not the claimed deterministic-reflection global boundary.",
+        "evidence": [
+          "Sec. III A describes absorbing boundaries at sites 1 and N, Eq. (33), with q/2 left/right movement.",
+          "Eqs. (20), (25) present the prior renewal and beneficial-restart framework."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2102.00895",
+        "material_read": "Full-text introductory model and Sec. III including the 1D symmetric-walk boundary equations on pages 1–5; boundary rule and first-passage generating function",
+        "method": "arXiv full-text PDF open, page-level screenshot and section search",
+        "title": "First passage under restart for discrete space and time: application to one dimensional confined lattice random walks",
+        "trigger": "Two absorbing boundary discrete-time renewal and optimization study"
+      },
+      {
+        "assessment": "Covers universal first-derivative criterion and renewal setup; studied rings and Cayley trees, not exact forced-inward path global iff threshold.",
+        "evidence": [
+          "Sec. 3 Eq. (36) is a sufficient condition for small-rate improvement; Sec. 4 names rings, Cayley trees and Lévy flights.",
+          "Sec. 3 explains that each reset consumes a time step, consistent with the current time convention."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2110.15437",
+        "material_read": "Abstract, introduction, Sec. 3 derivative and first-passage moment criteria (including Eq. 36), and Sec. 4 example types",
+        "method": "arXiv full-text PDF open, page screenshot and matching text inspection",
+        "title": "Discrete-time random walks and Lévy flights on arbitrary networks: when resetting becomes advantageous?",
+        "trigger": "General optimal-resetting theory and small-rate criterion for graph walks"
+      },
+      {
+        "assessment": "Highly relevant but the reflecting endpoint is holding, not a forced inward step. Gives general propagators and numerical examples, not the exact global threshold.",
+        "evidence": [
+          "Sec. 3.2: at reflecting boundary, the walker stays with complementary probability 1-q(1±g)/2.",
+          "Fig. 6 plots mean first-passage against reset rate for selected biases and says there is a single minimum in those examples."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2209.08330",
+        "material_read": "Full-text model, Sec. 3.2 boundary rule and first-passage formulas, Fig. 6 comparison and concluding discussion",
+        "method": "arXiv full-text PDF open, page screenshots for pages 14 and 17, section-specific examination",
+        "title": "Discrete space-time resetting model: Application to first-passage and transmission statistics",
+        "trigger": "Potentially dominating one-dimensional reflecting interval with resets"
+      },
+      {
+        "assessment": "Explicitly acknowledges that positive initial derivative alone cannot exclude medium-rate benefit; considers two absorbing endpoints, not the all-rate forced-inward path threshold.",
+        "evidence": [
+          "Sec. IV discussion distinguishes the local slope from the global mean-hitting behavior.",
+          "Sec. V considers 1D interval with two absorbing boundaries."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2111.01330",
+        "material_read": "Abstract, Sec. IV discussion of local beneficial restart condition and its global limits, Sec. V examples with absorbing endpoints",
+        "method": "arXiv primary PDF inspection including page screenshots and section text examination",
+        "title": "First passage in discrete-time absorbing Markov chains under stochastic resetting (Chen, Li and Huang, 2021)",
+        "trigger": "General discrete-time resetting and possible non-monotonicity beyond infinitesimal derivative"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ec9ead82-706e-4fa3-9c25-4dce0efdbbae",
+  "value": {
+    "rationale": "This is a complete, sharp, structurally motivated phase diagram for whether reset can ever accelerate mean first-passage on a finite reflected path. The proof rules out benefits at all moderate or large reset rates, not just infinitesimal rates, and exposes an exact lattice correction to a nontrivial asymptotic spatial boundary. The claim is narrower than a general-network theorem but resolves a natural complete family, rather than computing one arbitrary example.",
+    "status": "PASS"
+  }
+}

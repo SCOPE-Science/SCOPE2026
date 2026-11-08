@@ -1,0 +1,19 @@
+# Scientific review: a global reset-benefit boundary for reflected lattice searches
+
+## Correctness — PASS
+
+For every positive finite path length and every admissible starting point, the ordinary first-passage probability generating function follows from the interior second-order recurrence and the forced-inward reflecting endpoint equation. Independent geometric restarting yields the stated Chebyshev quotient for the mean. The global comparison reduces to one explicitly defined polynomial in a positive variable. Its second nonzero coefficient is a constant multiple of \(n^2+5-5(n-k)^2\). The proof's coefficient-ratio induction shows that a nonnegative initial coefficient forces every higher coefficient to be nonnegative, establishing the *global* necessity of the threshold. A negative initial coefficient gives a genuine beneficial open interval. Edge cases \(n=1\), start at the far endpoint, and equality in the threshold are covered. The standalone checker passed 1,881 exact assertions, including independent rational linear-system comparisons on 171 starting-point/length choices and three positive resetting probabilities. Finite tests are corroboration, not a replacement for the proof.
+
+## Originality — PASS (with residual priority risk)
+
+Riascos, Boyer and Mateos (arXiv:2110.15437, Secs. 3–4) give general first-order restart criteria and study rings and Cayley trees. The generic small-rate criterion is not a global iff theorem, and the target's discrete reflecting-path boundary does not follow without a separate positivity argument. Chen, Li and Huang (arXiv:2111.01330, Secs. IV–V) explicitly discuss why a local restart derivative is not a global classification, and study two absorbing endpoints. Bonomo and Pal (arXiv:2102.00895, Sec. III) study *two absorbing* endpoints, rather than a forced-inward reflecting endpoint. Das and Giuggioli (arXiv:2209.08330, Sec. 3.2 and Fig. 6) investigate resetting with a reflecting *holding* boundary and illustrative mean-hitting curves. Their boundary transition rule differs, and the inspected material does not assert the sharp integer threshold here. The known renewal transform, Chebyshev generating functions, and universal local variance criterion are not claimed as original. published-finding corpus searches, published research comparisons, and accessible earlier mathematical records did not reveal an equivalent global phase diagram. Completeness of historical coverage cannot be guaranteed.
+
+## Value — PASS
+
+The question is motivated by restart optimization: whether resetting to an initial position *ever* accelerates first-passage on a confined symmetric search space. General moment criteria only provide a small-rate sufficient test; they do not, on their own, rule out improvement at a different resetting probability. The theorem supplies a sharp global dichotomy for every finite path and every starting site, including the exact lattice correction and an asymptotically nontrivial critical spatial ratio. Its all-rate coefficient-positivity argument is structurally stronger than substituting moments into a known small-rate test. No general network theorem or explicit optimal rate is claimed.
+
+## Closest literature and limitations
+
+The four primary papers are listed and distinguished in `RESULT.md`. Related local claims in accessible research records concern complete-bipartite restarting, resetting cover times, multiple-walker first-hit times, and resetting variance envelopes; none imply the present one-walker global path boundary. Residual risk is a prior source on the exact forced-inward endpoint geometry that is not retrieved by these searches. The finding pertains to one very specific reflection and timing convention; using a holding boundary or instantaneous zero-duration restart changes the formula. A mathematical audit independent of this review has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
