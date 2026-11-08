@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T13:48:27.156231Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive K,a,F0 and step h, three time differences obey tau_i=lambda*h-S*log((x+i+1)/(x+i)) with S=lambda*a>0 and x=(F0+a)/h. The two discrete second differences satisfy delta0=S*D(x), delta1=S*D(x+1). D(x)=integral_0^infinity exp(-xt)(1-exp(-t))^2/t dt: normalized-Laplace variance makes log D strictly convex, so D(x)/D(x+1) strictly decreases from infinity to 1 and has a unique inverse. Reconstructed lambda=(tau0+S log(1+1/x))/h, a=S/lambda, c=z0+a-hx and t* fixed by t0. The extra strict tau0>S(1/x-log(1+1/x)) is exactly F0>0; this also ensures tau0>0 and positive lambda. Varying x continuously with only two differences proves an open continuum for every admissible three-time data set. Independent 100 seeded synthetic four-level reconstructions and monotonic ratio checks corroborate formulas; not a noise-stability result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mohammadzadeh-Habili & Heidarpour 2011 abstract on hydraulic conductivity and suction estimation from wet-front readings",
+          "Triadis–Broadbridge 2012 analytic Green–Ampt limit treats validity of forward behavior, not a four-point global inverse"
+        ],
+        "reasoning": "A general nonlinear inverse problem or ordinary two-parameter curve fit is not automatically a theorem with this exact dual-origin feasibility and minimality. The most plausible broad source could not be inspected in full; risk explicitly retained.",
+        "searches": [
+          "Green Ampt infiltration parameter estimation inverse model dual offset",
+          "Mohammadzadeh Habili Heidarpour 2011 method hydraulic parameters"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1061/(ASCE)HE.1943-5584.0000373",
+        "https://doi.org/10.1029/2011WR011747",
+        "https://doi.org/10.1029/2005WR004468",
+        "Resultary semantic: Green Ampt infiltration four equally spaced depth time observations unknown depth offset time offset identifiability log convex discrete differences",
+        "SCOPE repository filename/content keyword search (no indexed matches): Green Ampt infiltration four levels"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2011 public abstract: empirical estimation based on wetting fronts/infiltration and varying hydraulic properties; no four-reading two-offset uniqueness claim in abstract",
+          "The all-x strict log-convexity of D gives the missing global injectivity; the F0>0 inequality is not a local estimation consequence"
+        ],
+        "reasoning": "Ordinary hydrologic parameter fitting and forward model derivation do not logically supply the sharp four-level physical-feasibility theorem. However inaccessible full 2011 paper might contain related proof, which prevents claiming exhaustive novelty.",
+        "searches": [
+          "2011 Green Ampt hydraulic parameter estimation Mohammadzadeh Habili Heidarpour",
+          "Chen Young 2006 Green Ampt slope study"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model is algebraically equivalent to the classical F-a log(1+F/a) time law, but with both observed origins unknown",
+          "2011 Mohammadzadeh-Habili & Heidarpour studies estimation from advancing fronts and infiltration data, abstract only"
+        ],
+        "reasoning": "The claim is not invention of the Green–Ampt law or of fitting its parameters. It is global structural uniqueness and physical compatibility for exactly four equally spaced depth crossings with two independent nuisance offsets; no equivalence from accessible source statement is established.",
+        "searches": [
+          "Green-Ampt inverse infiltration equation shift clock depth calibration",
+          "Green Ampt infiltration four equally spaced depth time observations unknown depth offset time offset identifiability log convex discrete differences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact 4-reading dual-shift calibration theorem in Resultary top semantic matches, which were mostly unrelated flows/observations",
+          "Exact logarithmic reference test x=1 and 100 synthetic reconstructed parameter tuples"
+        ],
+        "reasoning": "This is a continuous-parameter identifiability theorem, not the type of result settled by a numerical table. The negative search result is insufficient for novelty by itself.",
+        "searches": [
+          "four-level Green Ampt unknown origins exactly one solution",
+          "Resultary semantic Green Ampt infiltration four equally spaced depth time observations unknown depth offset time offset identifiability log convex discrete differences"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after primary-text and implication comparison: dual unknown-origin four-level global inverse not directly established by the accessed Green–Ampt sources. Inaccessible relevant sources are recorded as residual priority risks rather than converted to false assertions.",
+      "residual_risks": [
+        "Authorized Oxford retrieval of directly relevant 2011 Mohammadzadeh-Habili paper returned vpn_disconnected; full primary technical results unread. This is a priority risk, not evidence of overlap or automatic scientific failure.",
+        "Inverse ill-conditioning as x grows; no noisy/heterogeneous infiltration guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INACCESSIBLE_HIGH_PRIORITY_RISK",
+          "evidence": "Abstract estimates conductivity and capillary head from advancing wet-front / infiltration experiments, does not state exact four-level two-offset theorem; whole document NOT evaluated.",
+          "identifier_or_url": "https://doi.org/10.1061/(ASCE)HE.1943-5584.0000373",
+          "material_read": "Complete public abstract, bibliographic data and method summary only; full text not obtained",
+          "method": "ASCE journal abstract; arXiv/OA full-text attempt then authorized Oxford returned vpn_disconnected",
+          "title": "Estimating Soil Hydraulic Parameters By Using Green and Ampt Infiltration Equation",
+          "trigger": "Closest direct inverse-calibration paper, 2011"
+        },
+        {
+          "assessment": "CONTEXT_ONLY",
+          "evidence": "Addresses analytic model behavior and infiltration coefficients, not direct exact four readings with two calibration offsets in accessible material.",
+          "identifier_or_url": "https://doi.org/10.1029/2011WR011747",
+          "material_read": "Abstract/overview and bibliographic comparison; not complete source",
+          "method": "Open web metadata/abstract",
+          "title": "The Green-Ampt limit with reference to infiltration coefficients",
+          "trigger": "Broader Green–Ampt forward theory"
+        },
+        {
+          "assessment": "CONTEXT_ONLY",
+          "evidence": "Sloping-surfaces forward model, not directly the flat positive Green–Ampt dual-origin inverse theorem.",
+          "identifier_or_url": "https://doi.org/10.1029/2005WR004468",
+          "material_read": "Abstract and bibliographic descriptions only",
+          "method": "Public DOI metadata and abstract",
+          "title": "Green-Ampt infiltration model for sloping surfaces",
+          "trigger": "Forward-model alternative"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The forward Green–Ampt law is established, but simultaneously unknown clock and volume origins make inverse calibration genuinely ambiguous. This gives the sharp four-reading minimum, an explicit globally invertible physical inverse, and a necessary/sufficient feasibility inequality, rather than only local Jacobian rank or a numerical fit. Exact noisy conditioning is outside its scope, but this structural identifiability limit is natural for field-level sensor calibration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1061/(ASCE)HE.1943-5584.0000373",
+    "https://doi.org/10.1029/2011WR011747",
+    "https://doi.org/10.1029/2005WR004468"
+  ],
+  "disposition": "passed",
+  "final_claim": "Four noiseless equally spaced Green–Ampt level-crossing times identify K,a,depth offset c and clock origin t* uniquely if and only if the explicit curvature-ratio and F0>0 inequalities hold; three times never suffice.",
+  "limitations": [
+    "K,a>0, F0>0, h>0, noiseless equal-depth crossings; two origins c,t* unknown.",
+    "a is only combined capillary-drive parameter, not separate suction and moisture deficit."
+  ],
+  "residual_risks": [
+    "Authorized Oxford retrieval of directly relevant 2011 Mohammadzadeh-Habili paper returned vpn_disconnected; full primary technical results unread. This is a priority risk, not evidence of overlap or automatic scientific failure.",
+    "Inverse ill-conditioning as x grows; no noisy/heterogeneous infiltration guarantee."
+  ],
+  "schema_version": 1
+}
