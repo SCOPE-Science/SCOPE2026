@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Explicit halving-digit cut bijection is reconstructed; F(t) is strictly decreasing; all hyperbinary expansions have weight W>=h-3, and each of W=h-3, W=h-2, W>=h-1 is handled without gaps. W=h-2 corresponds bijectively to legal one-carry reversals, counted by one-runs of u-1. Three exact independent computations corroborate finite cases; the general conclusion is proved symbolically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alekseyev arXiv:2611.01243 Theorem 12 and Appendix A provide general effective coefficient formulas for deficits, but Corollary 18 explicitly stops at two zero digits.",
+        "Dilcher–Ericksen DOI 10.37236/4822 pp. 1-4 characterize all hyperbinary expansions and Stern polynomials without the halving cut restriction.",
+        "McConville–Propp–Sagan arXiv:2508.20026 treats hyperbinary posets and q-deformed rationals."
+      ],
+      "reasoning": "A general algorithm can evaluate each n but does not already assert the fixed three-zero run-count identity. Stronger general descriptions were checked for direct implication of this simple closed form, which needs the new split/admissibility argument.",
+      "searches": [
+        "\"Halving Partitions and Hyperbinary Expansions\" \"deficit\"",
+        "\"hyperbinary expansions\" \"Stern polynomials\" \"halving partitions\"",
+        "arxiv:2508.20026 hyperbinary partitions q-deformed rationals"
+      ]
+    },
+    "checked_sources": [
+      "Alekseyev arXiv:2611.01243, first posted 2026-10-31",
+      "Dilcher and Ericksen, EJC 22(2) (2015) #P2.24 DOI 10.37236/4822",
+      "OEIS A349552 and A002487",
+      "McConville–Propp–Sagan arXiv:2508.20026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alekseyev: zero or one zero digit yields deficit zero; exactly two zeros yields deficit one; Section 6 asks for a direct formula for more.",
+        "This finding classifies all exactly-three-zero odd parts and shows deficit equals the number of one-runs of u-1, achieving 1,2,3,4."
+      ],
+      "reasoning": "The earlier statements do not assert the new case or its run law. The proof isolates all inadmissible expansions at weight one above the binary minimum; this step is absent from the prior conclusion. The general coefficient identity is algorithmically broader but not an explicit occurrence classification.",
+      "searches": [
+        "arxiv:2611.01243 Lemma 11 Theorem 12 Corollary 13 Corollary 18 Section 6",
+        "\"halving partitions\" \"three zeros\" \"runs\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alekseyev arXiv:2611.01243 pp. 9-11: admissible cuts characterize the injection; §6 p. 18 explicitly asks for a digit formula beyond two zero bits.",
+        "The three-zero law is equivalently the number of one-step binary splits of N=u-1."
+      ],
+      "reasoning": "No published exact equivalence to the one-run law was found; the proof derives it from a unique-carry classification. The generic admissible-cut test does not itself supply the direct closed form.",
+      "searches": [
+        "\"halving partitions\" \"three zeros\" \"runs\" \"deficit\"",
+        "\"A349552\" \"three zeros\" \"run\"",
+        "\"hyperbinary\" \"three zeros\" Stern difference"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A349552 provides definition, finite table through n=32768, and basic formulas; not the infinite three-zero run-count theorem.",
+        "OEIS A002487 is the Stern sequence used in the deficit."
+      ],
+      "reasoning": "The database permits checking many individual values, but its recorded formulas do not imply the unrestricted binary-pattern classification without further reasoning.",
+      "searches": [
+        "OEIS A349552 halving partitions table",
+        "OEIS A002487 Stern diatomic sequence",
+        "\"A349552\" \"three zeros\" \"run\""
+      ]
+    },
+    "rationale": "The infinite three-zero digit formula is not stated by the closest full-text source, which poses a direct formula for more-than-two zeros as a question. General coefficient evaluations, existing hyperbinary combinatorics, and finite tables do not give this exact structural run law. A residual risk is undiscovered equivalent work.",
+    "residual_risks": [
+      "An unindexed earlier formula involving one-runs could exist.",
+      "A stronger effective coefficient description can compute each case but is not a direct binary-run classification.",
+      "Prior priority assessment was bounded to accessible sources; historical review is not exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct antecedent; no stated three-zero run formula; its injection and existing general formulas are used with attribution",
+        "evidence": [
+          "Lemma 11 states the eligible/admissible-cut criterion",
+          "Corollary 18 covers two zeros",
+          "Section 6 explicitly poses larger-zero direct formula question"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.01243",
+        "material_read": "Full-text definitions and proofs, especially pp. 1–4, 9–11, 14–15 and 18; Theorem 12, Corollaries 13/18, Section 6",
+        "method": "Lawful open arXiv PDF, page-image and text inspection",
+        "title": "Halving Partitions and Hyperbinary Expansions",
+        "trigger": "Identical halving counts, Stern deficit, and explicit more-than-two-zero question"
+      },
+      {
+        "assessment": "Hyperbinary and Stern methods but no halving-partition admissible-cut deficit",
+        "evidence": [
+          "Theorem 1.1 counts hyperbinary expansions via Stern",
+          "Theorem 3.1 refines repeated powers"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i2p24/pdf/",
+        "material_read": "Open PDF pp. 1–4, definitions, Theorems 1.1 and 3.1, structural polynomial claims",
+        "method": "Publisher open PDF text inspection",
+        "title": "Hyperbinary Expansions and Stern Polynomials",
+        "trigger": "Broader possibility that hyperbinary expansion classifications already imply digit formula"
+      },
+      {
+        "assessment": "Finite values and basic evaluations; no uniform three-zero digit-run theorem",
+        "evidence": [
+          "Entry defines halving partitions",
+          "Finite table is listed to n=32768"
+        ],
+        "identifier_or_url": "https://oeis.org/A349552",
+        "material_read": "Definition, table, formula/program links and references",
+        "method": "Direct public database entry",
+        "title": "OEIS A349552",
+        "trigger": "Exact known table or formula for halving partitions"
+      },
+      {
+        "assessment": "Hyperbinary posets/q-rationals; no halving sum-constraint deficit",
+        "evidence": [
+          "Applications concern q-deformed rationals, fence posets, and matrices"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2508.20026",
+        "material_read": "Abstract and paper description of three applications",
+        "method": "Author-preprint abstract and related literature review",
+        "title": "Hyperbinary partitions and q-deformed rationals",
+        "trigger": "Possible structural hyperbinary supertheorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "166704f5-e81c-4d26-91be-79758436f4f4",
+  "value": {
+    "rationale": "Alekseyev §6 expressly asks for direct binary formulas beyond two zero bits; this theorem completely resolves the next natural and previously untreated three-zero family, giving a short explicit structural statistic and sharp four-valued range. It does not rely on numerical novelty alone and does not claim arbitrary zero-count results.",
+    "status": "PASS"
+  }
+}

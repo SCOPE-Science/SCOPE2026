@@ -1,0 +1,9 @@
+# Review of the three-zero halving-partition deficit formula
+
+**Correctness — PASS.** The main theorem follows from an explicit admissible-cut bijection and a complete classification of possible hyperbinary lengths. The ordinary binary expansion is admissible; all expansions at least two summands longer are admissible; exactly-one-split expansions are precisely the excluded ones. Strict decrease of the cut function prevents an overlooked second cut. Direct enumeration, generalized recurrence, and exhaustive hyperbinary-digit checks give mutually consistent exact finite evidence, but the unrestricted theorem is established by the symbolic proof, not those tests.
+
+**Originality — PASS, qualified.** The closest paper, Alekseyev (arXiv:2611.01243, Section 6), expressly asks for a formula in the case of more than two zero digits; its Corollaries 13 and 18 address at most two, and its general coefficient formula does not state the binary one-run identity for three. Dilcher–Ericksen (2015) concerns Stern polynomials; OEIS A349552 supplies a finite table of halving counts; none of the inspected sources states the full three-zero law. A previous or unindexed implicit equivalent is a residual historical-priority risk; the formula is a structural simplification of a more general computational mechanism, not the invention of the underlying counts.
+
+**Value — PASS.** The theorem gives the first exact digit-only answer to the next case of a specific open-ended question in recent literature. It establishes a complete infinite subfamily and a sharp four-valued range, with a mechanism isolating all missing hyperbinary expansions by a unique split. The result does not claim to solve cases with more zeros or to settle general sequence regularity.
+
+Self-review: passed. Independent audit: not yet performed.
