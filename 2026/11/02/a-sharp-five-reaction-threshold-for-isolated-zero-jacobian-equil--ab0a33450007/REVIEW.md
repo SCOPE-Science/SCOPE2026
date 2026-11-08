@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces every zero-first-jet quadratic vector field with four monomial supports to a common scalar quadratic by an affine-rank argument. A complete list of the fifteen pairs of absent monomials shows that the scalar quadratic always has a real linear factor, hence the purported singularity lies on a full equilibrium line. The positive-coordinate rescaling and source-to-reaction count are valid for arbitrary positive reaction rates and unrestricted product complexes. An exact five-channel witness demonstrates sharpness. The standalone symbolic checker independently confirms all fifteen rank and factorization cases and each witness identity. The theorem concerns the full zero Jacobian, not a nilpotent nonzero Jacobian.
+## correctness
 
-## Originality — PASS under inspected evidence
-Yeung and Erban (arXiv:2610.06130v1, Sections 3–4) classify local quadratic chemical phase portraits and exhibit a five-reaction positive strongly non-hyperbolic example without establishing that fewer reaction channels are impossible in all such systems. Banaji–Boros–Hofbauer (2024, Theorems 12 and 36) bound positive nondegenerate equilibria for sparse source networks and forbid parameter-unfoldable cusp bifurcations with four channels; neither implies this full-Jacobian, isolated-equilibrium four-source line obstruction. The 2026 geometry-and-bounds paper's Theorem 4.24 has restricted source-count/partition hypotheses and does not imply the four-source general conclusion. Directly matching literature and mathematical-record queries found no identical theorem. The residual risk is broader sparse-polynomial/fewnomial literature or unpublished classifications.
+PASS
 
-## Mathematical value — PASS
-Minimal network complexity is a central explicit objective in the motivating chemical-network classification. The result supplies a sharp, network-independent answer for one natural and maximally degenerate equilibrium type, elevating the motivating five-reaction example from a construction to a provably minimal witness. The source-support obstruction is valid even without chemistry and can screen large families before parameter searches. The conclusion is not merely a recomputation of the example or a phase-portrait relabeling.
+PASS: The full zero-matrix Jacobian and equilibrium conditions at any point with nonzero coordinates reduce, by diagonal scaling and translation, each degree-two scalar field to a quadratic in u=x-1,v=y-1. Any 4 of the 6 source exponent columns (1,i,j) have rank 3, so both components share a one-dimensional kernel and are scalar multiples of one quadratic. Enumerating all 15 absent-monomial pairs, each generator has nonnegative discriminant and a real linear factor; therefore an entire real equilibrium line passes through the point, prohibiting isolation. At least five distinct active reactant monomials and hence >=5 channels are necessary. Direct channel summation in the cited five-channel witness gives dx=(x-y)^2,dy=(y-1)^2, with unique equilibrium (1,1) and zero Jacobian. Independently derived exact SymPy 15-case rank and discriminant checks passed; exhaustive structural cases, not all rates or networks. Hypotheses include degree <=2 reactants and full zero Jacobian; products unrestricted.
 
-## Scope and residual risk
-No assertion is made for higher-order reactants, nonzero nilpotent Jacobians, per-class minimum numbers, or stability of the witness. Completeness of historical priority has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The five-channel witness already appears in Yeung and Erban; the surviving candidate contribution is the universal four-support no-isolated-double-zero obstruction. Unlike generic bifurcation and few-source partition theorems, this covers all quadratic vector fields supported on four of six monomials. Search gaps are not evidence of guaranteed priority.
+
+## value
+
+PASS
+
+PASS: The minimal reaction-channel complexity of an isolated positive zero-matrix degeneracy is a motivated, exactly attained extremal invariant in quadratic reaction kinetics. Four-source line obstruction gives a structural nonisolatedness result valid for any coefficient signs and any finite products; it is not a restatement of an example or mere routine linearization. The five-channel construction itself is prior and credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

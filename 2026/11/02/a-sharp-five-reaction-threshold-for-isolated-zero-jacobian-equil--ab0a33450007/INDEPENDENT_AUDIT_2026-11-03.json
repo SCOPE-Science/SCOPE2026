@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T23:08:58.132468Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The full zero-matrix Jacobian and equilibrium conditions at any point with nonzero coordinates reduce, by diagonal scaling and translation, each degree-two scalar field to a quadratic in u=x-1,v=y-1. Any 4 of the 6 source exponent columns (1,i,j) have rank 3, so both components share a one-dimensional kernel and are scalar multiples of one quadratic. Enumerating all 15 absent-monomial pairs, each generator has nonnegative discriminant and a real linear factor; therefore an entire real equilibrium line passes through the point, prohibiting isolation. At least five distinct active reactant monomials and hence >=5 channels are necessary. Direct channel summation in the cited five-channel witness gives dx=(x-y)^2,dy=(y-1)^2, with unique equilibrium (1,1) and zero Jacobian. Independently derived exact SymPy 15-case rank and discriminant checks passed; exhaustive structural cases, not all rates or networks. Hypotheses include degree <=2 reactants and full zero Jacobian; products unrestricted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banaji–Feliu 2026 Thm 4.24 assumes <=n+p distinct sources with partition constraints, reducing in the 2-species trivial partition to <=3 sources.",
+          "Banaji–Boros–Hofbauer 2024 Thm 36 forbids rate-unfoldable cusp bifurcations for (n,n+2,n), not arbitrary isolated equilibria with full zero-matrix Jacobian."
+        ],
+        "reasoning": "Neither theorem with its actual hypotheses implies the all-four-support zero-Jacobian line-factor obstruction.",
+        "searches": [
+          "DOI 10.1007/s00285-026-02429-8 Theorem 4.24",
+          "DOI 10.1007/s11071-024-10068-1 Theorem 36"
+        ]
+      },
+      "checked_sources": [
+        "Independent frozen RESULT.md 15-case proof and reaction list",
+        "15-case exact first-jet kernel verifier",
+        "doi:10.1007/s11071-024-10068-1",
+        "doi:10.1007/s00285-026-02429-8",
+        "arxiv:2610.06130 abstract",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known five reaction ODE is (x-y)^2,(y-1)^2; existence of a five-channel witness does not establish no four-channel witness.",
+          "The prior generic cusp theorem requires simple zero eigenvalue for cusp; zero matrix has two zero eigenvalues."
+        ],
+        "reasoning": "Universal minimality and real linear-factor obstruction are distinct from known constructions and generic bifurcation exclusions, subject to broader fewnomial priority risk.",
+        "searches": [
+          "arxiv:2610.06130v1 abstract plus attributed Section 4 witness",
+          "DOI 10.1007/s11071-024-10068-1 Thm 36",
+          "DOI 10.1007/s00285-026-02429-8 Thm 4.24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim is an affine-circuit/first-jet kernel theorem: every four-column subset of six quadratic exponent columns has 1D kernel with reducible real quadratic generator.",
+          "Independent exact 15-case kernel/discriminant calculation."
+        ],
+        "reasoning": "Algebraic reformulation is stronger than chemical phrasing, and is plausibly known under sparse-polynomial/real-circuit language; no directly covering specific result was observed in the consulted corpus.",
+        "searches": [
+          "Resultary: planar quadratic mass action systems isolated positive equilibrium zero Jacobian minimum reactant complexes 4 monomials five reactions",
+          "web: sparse quadratic polynomial double zero four monomial supports common factor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest mass-action fold and degeneracy records had different system/claim.",
+          "Yeung–Erban 2026 explicitly describes classes of strongly non-hyperbolic chemical equilibria and supplies positive examples; the witness is not a new numerical record."
+        ],
+        "reasoning": "No exact minimum lower-bound table was retrieved. Failure to retrieve is not proof of absence; primary source full text of Yeung–Erban was not obtained in this run.",
+        "searches": [
+          "Resultary: planar quadratic mass action systems isolated positive equilibrium zero Jacobian minimum reactant complexes 4 monomials five reactions",
+          "arxiv:2610.06130v1 phase-portrait examples"
+        ]
+      },
+      "rationale": "The five-channel witness already appears in Yeung and Erban; the surviving candidate contribution is the universal four-support no-isolated-double-zero obstruction. Unlike generic bifurcation and few-source partition theorems, this covers all quadratic vector fields supported on four of six monomials. Search gaps are not evidence of guaranteed priority.",
+      "residual_risks": [
+        "Unretrieved full text of Yeung–Erban could conceivably contain a universal four-source lower bound; inspected abstract does not settle it.",
+        "Older real fewnomial/affine-circuit literature may imply the sparse quadratic line-factor theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING claimed full zero-matrix four-support obstruction; treats parameter-unfoldable cusp",
+          "evidence": "Theorem 36: (n,n+2,n) cusp cannot be unfolded by rates; cusp has a simple zero eigenvalue.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11071-024-10068-1",
+          "material_read": "Open HTML full article abstract, sections on network families and Section 6 Theorem 36 with proof opening and Lemma 37",
+          "method": "Direct primary open-access HTML sections, theorem hypotheses compared",
+          "title": "Bifurcations in planar, quadratic mass-action networks with few reactions and low molecularity",
+          "trigger": "Closest small-reaction cusp/bifurcation classification"
+        },
+        {
+          "assessment": "NOT_COVERING for four distinct source monomials in 2 species absent partition constraints",
+          "evidence": "Theorem 4.24 requires <=n+p distinct sources and partition conditions; Corollary 4.25 <=n+1.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-026-02429-8",
+          "material_read": "Open HTML full article introduction, Theorem 4.24 and Corollary 4.25 including partition/source assumptions",
+          "method": "Direct primary journal HTML theorem inspection",
+          "title": "Positive equilibria in mass action networks: geometry and bounds",
+          "trigger": "Plausibly dominating sparse-source equilibrium geometry"
+        },
+        {
+          "assessment": "PLAUSIBLE_PRIORITY_RISK; witness attributed by source package, no whole-document noncoverage asserted",
+          "evidence": "Abstract classifies nine geometric classes for positive 2-species second-order networks; cannot settle universal minimality from abstract alone.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06130",
+          "material_read": "Accessible arXiv abstract and posting metadata only; repeated HTML/PDF full-text retrieval did not yield the paper; authorized Oxford institutional attempt returned vpn_disconnected",
+          "method": "arXiv abstract page, lawful open-source searches, then authorized Oxford oxford_paper attempt (VPN disconnected); full text NOT read",
+          "title": "Classification of strongly non-hyperbolic critical points of planar second-order chemical reaction systems",
+          "trigger": "Same strongly nonhyperbolic zero-matrix equilibria and 5-reaction witness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The minimal reaction-channel complexity of an isolated positive zero-matrix degeneracy is a motivated, exactly attained extremal invariant in quadratic reaction kinetics. Four-source line obstruction gives a structural nonisolatedness result valid for any coefficient signs and any finite products; it is not a restatement of an example or mere routine linearization. The five-channel construction itself is prior and credited.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full matrix zero required, not merely two zero eigenvalues/nonzero nilpotent.",
+    "Reactant total degree <=2; no product molecularity ceiling; no claim for higher source degree, stability or each phase class.",
+    "Yeung–Erban complete PDF inaccessible; priority remains best knowledge rather than certification."
+  ],
+  "schema_version": 1
+}
