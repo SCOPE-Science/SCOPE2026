@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Exact greedy-cycle inequalities handle every nonempty word and all q>=2,k>=1. Equality replacement preserves both budgets; the missing single-ascent/descent insertion obstruction is ruled out by telescoping from first to last letter. Thus the only maximal words are balanced Smirnov words of length 2k-1; the length cap follows by summing capacities. End-letter recurrences prove the rational coefficient formula; palindromic half-words give q(q-1)^(k-1). The standalone actual file verify.py passed 17 direct subsequence/MCS exhaustions and 816 coefficient identities; finite checking is corroborative, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2307.10552 Theorems 1-3 are preprocessing/space/delay guarantees for MCS enumeration.",
+        "arXiv:2307.13695 Theorem 13 gives polynomial-size DAG operations for arbitrary pairs of strings.",
+        "arXiv:1901.01591 equation (1.7) gives the general Smirnov-word descent GF; the enumerator is explicitly credited as pre-existing.",
+        "arXiv:1912.03510 concerns deterministic periodic versus random inputs rather than two reverse-order periodic permutations."
+      ],
+      "reasoning": "The literature contains a general method to compute arbitrary MCSs and an already-known Smirnov enumerator. Those two items do not logically imply that all common words of the specific opposite-permutation pair extend to length 2k-1, nor that no shorter maximal word exists. The new proof supplies the completion lemma and identifies the exact MCS basis. The LCS length alone can follow from prior palindrome work and is not the claimed novelty.",
+      "searches": [
+        "Efficient algorithms for enumerating maximal common subsequences of two strings arXiv:2307.10552 full HTML",
+        "A Compact DAG for Storing and Searching Maximal Common Subsequences arXiv:2307.13695 / ISAAC 2023 PDF sections 1-4, theorem 13",
+        "Periodic words, common subsequences and frogs arXiv:1912.03510 abstract and paper description",
+        "Smirnov words descents generating functions arXiv:1901.01591 equations (1.6) and (1.7)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2307.10552",
+      "https://arxiv.org/abs/2307.13695",
+      "https://arxiv.org/abs/1901.01591",
+      "https://arxiv.org/abs/1912.03510",
+      "https://oeis.org/A396530"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier ternary result for (012)^r versus (021)^s (claim ddc10730-a686-4e5d-b97c-07539e5eb725) uses a single adjacent-order disagreement and does not include reversed order (210) for three symbols or any alphabet size.",
+        "Earlier longest-palindrome result (claim 36e6413e-c4b9-4ea7-a6aa-c65473284e15) implies the LCS length 2k-1 for this reverse-pair family by the classical LCS/reversal identity, but not the MCS saturation property.",
+        "Earlier palindromic-subsequence spectrum (claim cb121c2d-893d-48af-9fb7-185aeaca2514) may imply the palindrome subcount, but not classify nonpalindromic MCS words.",
+        "Semantic record queries surfaced no direct theorem on opposite permutation powers; closest returned studies concerned general automata, code constraints and other string problems."
+      ],
+      "reasoning": "The final novel proposition is the global equality MCS=LCS together with the full balanced-rise language of distinct MCS words. The known optimal length, palindromic count, and Smirnov descent generating function are credited as already implied by broader results or as mathematical tools. Neither those premises nor the ternary differently ordered MCS example establishes the new maximality-completion statement.",
+      "searches": [
+        "Accessible previous claims containing maximal common subsequence, longest palindromic subsequence, palindrome spectrum, reversed permutation powers",
+        "All maximal common subsequences of equal powers of a permutation and its reverse are longest; balanced ascent descent Smirnov words counting",
+        "Smirnov word ascent descent balanced Eulerian coefficient generating function LCS reverse periodic words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hirota--Sakai arXiv:2307.10552 describes maximality by one-letter insertion and general enumeration, while no reverse-power classification appears in its inspected full HTML text.",
+        "Conte et al. arXiv:2307.13695 proves general MCS DAG construction, not the completion lemma for opposite permutation powers.",
+        "Bukh--Cox arXiv:1912.03510 treats a periodic deterministic word paired with a random word."
+      ],
+      "reasoning": "Compared both the formulation as maximal-to-longest rigidity and the equivalent downward-closure of the common subsequence language by balanced Smirnov words. No inspected general MCS theorem asserts these facts for the deterministic reverse-power family; a general enumeration algorithm can compute individual instances but is not the symbolic classification.",
+      "searches": [
+        "Maximal common subsequences of a word and its reversal are all longest for repeated permutations or cyclic words",
+        "Every maximal common subsequence of P^k and reverse(P^k) has length 2k-1",
+        "Reverse permutation powers common subsequence language weak ascents weak descents; q(q-1) palindrome optimizers",
+        "reversal maximal common subsequences permutation powers repeated reverse",
+        "longest common subsequence reverse permutation power repeated words formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A396530 has an initially matching row segment but its next term is 26334, whereas N_3(8)=26312 by the separate descent transfer and verified recurrence.",
+        "Ellzey--Wachs arXiv:1901.01591 already contains the general Smirnov descent-enumerator; that count is not claimed independently new."
+      ],
+      "reasoning": "No exact database/table of MCS counts for opposite permutation powers was located. A partial numerical match with an OEIS triangular row is not an identity, and the established Smirnov enumerator is explicitly treated as supporting prior knowledge, not a novel count in isolation.",
+      "searches": [
+        "OEIS 3, 10, 36, 132, 490, 1836, 6930 Smirnov",
+        "OEIS 4, 28, 220, 1780, 14668 descents",
+        "OEIS A396530 sequence displayed 10,36,132,490,1836,6930,26334"
+      ]
+    },
+    "rationale": "The new claim is global maximality rigidity and an exact complete MCS language for opposite-order permutation powers; known LCS length, palindrome counts and the Smirnov descent GF alone do not imply it. Actual semantic record, accessible prior-claim, primary-full-text and database comparisons found no directly covering or dominating theorem. Residual unindexed equivalence risk remains.",
+    "residual_risks": [
+      "The Smirnov word descent GF is already published; it is used only as a component of the new MCS identification.",
+      "A general theorem not indexed by the searches might imply the maximality-completion property.",
+      "The 2019 periodic LCS reference was compared using public abstract and scope description rather than every proof section; it is not the decisive directly matching source.",
+      "This is a same-model review, not an independent scientific certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General algorithmic coverage but no directly covering opposite-order power classification",
+        "evidence": [
+          "Theorem 1 describes a cubic-space all-MCS enumeration method; Theorems 2-3 describe quadratic or linear space variants.",
+          "The paper explains that MCSs need not be longest, whereas the new statement is a special family with rigidity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.10552",
+        "material_read": "Full accessible HTML body, introduction, MCS-prefix methods, Theorems 1-3, conclusion, and search for permutation/periodic/reversal",
+        "method": "Read HTML mathematical text and inspect claims and formulation against completion/saturation theorem",
+        "title": "Efficient algorithms for enumerating maximal common subsequences of two strings",
+        "trigger": "Direct MCS algorithmic predecessor, same mathematical object"
+      },
+      {
+        "assessment": "No explicit reversal-power saturation theorem in inspected results",
+        "evidence": [
+          "Theorem 13 describes an O(n^3 sigma)-size DAG and operations on arbitrary MCS languages.",
+          "The text does not give an exact reversed-permutation-power language or no-shorter-MCS theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.13695",
+        "material_read": "Full 15-page accessible ISAAC 2023 PDF, focus on introduction, related work, Sections 2-4, Theorem 13 and conclusion; checked for permutation and periodic specializations",
+        "method": "PDF text and rendered first-page inspection; compared theorem hypotheses, algorithms and applications",
+        "title": "A Compact DAG for Storing and Searching Maximal Common Subsequences",
+        "trigger": "Direct MCS-language representation and enumeration predecessor"
+      },
+      {
+        "assessment": "The counting generating function is covered as an enumerator of Smirnov words, but no MCS identification is made",
+        "evidence": [
+          "Their equation (1.7) is the general e-symmetric-function Smirnov descent generating function.",
+          "Specializing to q one-valued alphabet variables produces the rational GF used here."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1901.01591",
+        "material_read": "Accessible full-text HTML, Sections 1.1-1.2 and equations (1.6),(1.7), including references to earlier Carlitz--Scoville--Vaughan identity",
+        "method": "Compared specialized GF with published t-analog equation (1.7), acknowledging its prior identity",
+        "title": "On enumerators of Smirnov words by descents and cyclic descents",
+        "trigger": "Exactly matching descent-enumeration object"
+      },
+      {
+        "assessment": "Plausibly related but does not cover two deterministic reverse permutation powers in examined material",
+        "evidence": [
+          "LCS is studied between a fixed periodic word and a random word, with expectation and frog-dynamics emphasis."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1912.03510",
+        "material_read": "Full abstract and paper-scope description, including deterministic periodic versus random pair setup",
+        "method": "Compared deterministic input hypotheses and conclusions from public abstract/description",
+        "title": "Periodic words, common subsequences and frogs",
+        "trigger": "Plausible broad periodic-LCS coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9030e6a4-55f4-4391-8fb1-21136361b7f2",
+  "value": {
+    "rationale": "Determines an infinite-parameter family for which the distinction between maximal and longest common subsequences collapses and gives its entire downward-closed common-subsequence language. The explicit nontrivial completion lemma and coefficient description yield exact counts of nonpalindromic solutions without instance-by-instance MCS enumeration; this is a natural structural question motivated by general MCS algorithms, not an arbitrary finite parameter slice.",
+    "status": "PASS"
+  }
+}
