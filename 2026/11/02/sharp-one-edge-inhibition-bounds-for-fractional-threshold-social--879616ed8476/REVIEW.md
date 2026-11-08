@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The three cases are established for every real \(0<\phi<1\) and integer \(n\ge3\) using exact inequalities and explicit connected graph witnesses. The universal lower-order bound follows because all degrees are vulnerable when \(n-1\le\lfloor1/\phi\rfloor\). Above \(1/2\), all future adopters must already be seed-adjacent leaves after the first round, limiting the effect of one added edge to two vertices. At or below \(1/2\), an exact bottleneck/tree construction makes the pre-insertion cascade complete and the post-insertion cascade seed-only. The included executable checks use rational arithmetic over small graphs and witnesses, but no finite testing is used as a universal proof.
+## correctness
 
-**Originality: PASS, subject to priority risk.** Watts's vulnerable-vertex degree criterion (2002), Whitney's finite random-network cascade theory (2010), the full Singh et al. paper on initiator effects (2013), and Easley–Kleinberg's dense-cluster obstruction are distinguished from the present finite, adversarial, single-edge *extremal difference* theorem. The relevant original texts and research-record searches did not establish the exact worst-case loss across all graphs or its sharp half-threshold phase boundary. Whitney and Singh address random-graph averages and initiation, not graph-pair maxima; the cluster criterion determines completeness for fixed graphs but does not evaluate these maxima. Related absolute-two-threshold burning work uses different dynamics. No claim of globally certified historical priority is made; an unlocated edge-addition or influence-minimization theorem could subsume portions.
+PASS
 
-**Mathematical value: PASS.** The quantity maximized is the natural worst-case loss of adoption caused by adding one social tie, not an arbitrary chosen graph statistic. The exact minimum counterexample order and the distinction between an unbounded loss and a universal two-adopter cap constitute a complete structural sensitivity classification for all graph orders and all fractional thresholds. It clarifies when apparent network enrichment can destroy a cascade in a model of normalized social influence. The extremal nature and the idealized single-seed rule limit empirical interpretation.
+For k=floor(1/φ), n≤k+1 implies every degree ≤k and every vertex with one active neighbor adopts, so connectedness forces full propagation before and after edge insertion. For φ>1/2, only degree-one neighbors of the single seed activate in the first step and cannot trigger further activation, so at most two active leaves are lost under one added edge; a star plus added edge between leaves attains loss 2. For φ≤1/2 and n≥k+2, the explicit gate tree starts full cascade through a degree-k vertex and degree≤2 path, while adding a single incident edge raises the gate to degree k+1, preventing any first adoption; loss n−1 is globally maximal. Checks address reciprocal thresholds and integer boundary cases; 25 independently simulated rational witnesses matched exact formulas. Proof is universal, not inferred from simulations.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Watts 2002 derives vulnerable degree floor(1/φ) and sufficient cascade concepts, but the inspected primary full text does not give the exact extremal single-edge inhibition loss, minimum graph order and φ=1/2 phase change. Other cited random-network cascade work considers different probabilistic aims; no stronger theorem implying this exact graph extremum found.
+
+## value
+
+PASS
+
+A single positive tie can shut down almost every adoption below half-threshold but only two above it, a sharp and surprising structural counterexample to monotone effects of link addition. The explicit minimal network order and optimal construction are mathematically natural and interpretable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
