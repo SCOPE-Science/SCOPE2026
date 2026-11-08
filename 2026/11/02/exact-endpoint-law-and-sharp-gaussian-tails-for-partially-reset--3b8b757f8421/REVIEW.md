@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The conditional Gaussian stochastic integral has variance bounded by \(v_\star\) and is the unique stationary solution by synchronous contraction. Splitting at the latest Poisson epoch yields a beta-power times bounded-deficit factor and hence an exact endpoint law. A short Laplace argument yields the density/tail constants; a Gaussian-mixture moment identity proves the reset-rate boundary \(\rho>\kappa\). The exact-arithmetic checker reproduces 130 parameterized moment and bound assertions. Finite numerical results are supporting evidence only.
+## correctness
 
-**Originality — PASS, qualified.** The closest newly published work (Galla, 2026, arXiv:2602.21635v1) derives an approximate *algebraic-tail* law but no fixed-jump OU variance-endpoint tail. Kolb–Wübker (2026) treats driftless partial resetting and mentions OU only through positivity conditioning. Driftless papers from 2022 and 2024 exhibit exponential stationary position tails. Targeted published-record searches did not reveal an equivalent sharp OU fixed-reset theorem. A broader Gaussian-mixture endpoint theorem or an incompletely inspected older partial-reset appendix remains a priority risk; search absence does not prove novelty.
+PASS
 
-**Mathematical value — PASS.** The constant, polynomial correction and finite-square-exponential-moment phase distinguish exact rare-event behavior from the formal weak-reset approximation on an analytically important model. These quantities are motivated by stochastic-resetting tail behavior rather than an arbitrary slice.
+Two-sided stochastic convolution conditionally Gaussian with V=2D∫_0^∞e^-2κt c^(2N_t)dt, 0<V<v*=D/κ, and synchronous contraction ensures unique invariant law. At latest Poisson age E, W=v*-V satisfies W=U(v*-c²V'), U=e^-2κE~Beta(θ,1), θ=rate/(2κ). Since v*(1-c²)≤v*-c²V'≤v*, exact P(W≤w)=Cw^θ for 0<w≤v*(1-c²). Stationary generator gives moments m_k=∏_{j≤k}2κj/[2κj+rate(1-c^(2j))], so C has convergent binomial series. Boundary Laplace integration of the Gaussian mixture gives density x^-2θ exp(-x²/2v*) with the specified Γ constant and right survival an additional v*/x. Critical E exp[X²/(2v*)] finite iff θ>1/2, i.e., rate>κ.
 
-**Limitations.** Only linear one-dimensional mean reversion, additive Brownian driving and independent Poisson proportional jumps; all asymptotics fix parameters. Independent external audit and independent priority review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for *exact fixed-reset* OU invariant variance endpoint distribution, sharp Gaussian polynomial correction and critical square-exponential moment. Recent weak-reset approximation deliberately modifies tails; driftless partial-reset conditioned results do not supply unconditional OU stationary law.
+
+## value
+
+PASS
+
+Sharp rare-event tails and moment integrability are natural quantities in reset diffusions, and the explicit disparity from the power-tailed weak-reset SDE is mathematically meaningful and relevant to approximation validity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

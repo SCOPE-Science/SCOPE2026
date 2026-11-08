@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T05:10:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two-sided stochastic convolution conditionally Gaussian with V=2D∫_0^∞e^-2κt c^(2N_t)dt, 0<V<v*=D/κ, and synchronous contraction ensures unique invariant law. At latest Poisson age E, W=v*-V satisfies W=U(v*-c²V'), U=e^-2κE~Beta(θ,1), θ=rate/(2κ). Since v*(1-c²)≤v*-c²V'≤v*, exact P(W≤w)=Cw^θ for 0<w≤v*(1-c²). Stationary generator gives moments m_k=∏_{j≤k}2κj/[2κj+rate(1-c^(2j))], so C has convergent binomial series. Boundary Laplace integration of the Gaussian mixture gives density x^-2θ exp(-x²/2v*) with the specified Γ constant and right survival an additional v*/x. Critical E exp[X²/(2v*)] finite iff θ>1/2, i.e., rate>κ.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Galla 2026 derives a small-jump SDE with algebraic invariant tails, not an upper bound or exact stationary law for fixed c; Kolb–Wübker studies driftless Brownian positivity conditioning.",
+          "Main Eq. (4) gives effective Itô SDE; Eq. (5) gives power-law stationary density of approximation, not true fixed-amplitude resetting tails."
+        ],
+        "reasoning": "Strength/parameter implication: Galla 2026 derives a small-jump SDE with algebraic invariant tails, not an upper bound or exact stationary law for fixed c; Kolb–Wübker studies driftless Brownian positivity conditioning.",
+        "searches": [
+          "Ornstein Uhlenbeck diffusion partial resetting multiplicative Poisson stationary Gaussian tail variance endpoint",
+          "https://arxiv.org/html/2602.21635v1"
+        ]
+      },
+      "checked_sources": [
+        "A diffusion approximation for systems with frequent weak resetting (https://arxiv.org/html/2602.21635v1)",
+        "Brownian Motion With Partial Resetting Conditioned to Stay Positive (https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/blms.70314)",
+        "Resultary semantic search: Ornstein Uhlenbeck diffusion partial resetting multiplicative Poisson stationary Gaussian tail variance endpoint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weak-reset approximation has fixed s→0 scaling and power-law tails; it does not imply the exact rare-event Gaussian tails or exponential-square integrability of the original jump process.",
+          "Main Eq. (4) gives effective Itô SDE; Eq. (5) gives power-law stationary density of approximation, not true fixed-amplitude resetting tails."
+        ],
+        "reasoning": "Mathematical entailment test: The weak-reset approximation has fixed s→0 scaling and power-law tails; it does not imply the exact rare-event Gaussian tails or exponential-square integrability of the original jump process.",
+        "searches": [
+          "https://arxiv.org/html/2602.21635v1",
+          "Galla 2602.21635 OU resetting diffusion approximation algebraic tails supplement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Variance-mixture boundary Tauberian/Laplace principles are standard; exact U·B bounded-support perpetuity at fixed reset factor supplies the specific exponent and coefficient for this OU model.",
+          "Main Eq. (4) gives effective Itô SDE; Eq. (5) gives power-law stationary density of approximation, not true fixed-amplitude resetting tails."
+        ],
+        "reasoning": "Alias and quantifier comparison: Variance-mixture boundary Tauberian/Laplace principles are standard; exact U·B bounded-support perpetuity at fixed reset factor supplies the specific exponent and coefficient for this OU model.",
+        "searches": [
+          "Ornstein Uhlenbeck diffusion partial resetting multiplicative Poisson stationary Gaussian tail variance endpoint",
+          "partial resetting Ornstein Uhlenbeck stationary distribution Gaussian mixture endpoints power tails exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact OU fixed-reset endpoint/critical-exponential moment table surfaced in Resultary or prior source searches. Existing general mixture tables remain a risk.",
+          "Resultary retrieved related but nonidentical published findings; compare the requested exact invariant not only graph family title."
+        ],
+        "reasoning": "Database/table comparison: No exact OU fixed-reset endpoint/critical-exponential moment table surfaced in Resultary or prior source searches. Existing general mixture tables remain a risk.",
+        "searches": [
+          "Resultary semantic query: Ornstein Uhlenbeck diffusion partial resetting multiplicative Poisson stationary Gaussian tail variance endpoint",
+          "Galla 2602.21635 OU resetting diffusion approximation algebraic tails supplement"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for *exact fixed-reset* OU invariant variance endpoint distribution, sharp Gaussian polynomial correction and critical square-exponential moment. Recent weak-reset approximation deliberately modifies tails; driftless partial-reset conditioned results do not supply unconditional OU stationary law.",
+      "residual_risks": [
+        "Stated Gaussian-tail constants hold only for fixed positive κ,D,rate and fixed 0<c<1; not uniform as c→1.",
+        "A general Gaussian-variance-mixture endpoint theorem could imply the Laplace asymptotic given the exact deficit law.",
+        "Kolb–Wübker OU positivity-conditioned remark is a different problem; specialized exact OU resetting papers may be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies diffusion SDE approximation in frequent weak resets s→0 and its algebraic stationary law; does not provide exact fixed-c OU variance endpoint law or Gaussian moment threshold",
+          "evidence": [
+            "Main Eq. (4) gives effective Itô SDE; Eq. (5) gives power-law stationary density of approximation, not true fixed-amplitude resetting tails."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.21635v1",
+          "material_read": "Full main article HTML and Supplemental Material contents; explicitly read linear-model Eqs. (3)-(5), related discussion and reset-rate limits",
+          "method": "Read arXiv original HTML manuscript",
+          "title": "A diffusion approximation for systems with frequent weak resetting",
+          "trigger": "Closest fixed-model comparison: multiplicative Poisson resetting with linear drift and additive Brownian forcing"
+        },
+        {
+          "assessment": "Main result is driftless Brownian conditioned to survive; OU remark concerns Doob transform, not unconditional OU invariant variance endpoint/tail law",
+          "evidence": [
+            "Theorem 19 studies positivity-conditioned Brownian process; Remark 20 gives harmonic transform of OU process under resetting, no stationary Gaussian endpoint coefficient."
+          ],
+          "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/blms.70314",
+          "material_read": "Original open-access Introduction and final Remark 20 including 1-D OU example, abstract and conditional positivity theorem",
+          "method": "Read publisher open-access primary HTML",
+          "title": "Brownian Motion With Partial Resetting Conditioned to Stay Positive",
+          "trigger": "Same proportional Poisson resets; OU discussed in closing remark"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp rare-event tails and moment integrability are natural quantities in reset diffusions, and the explicit disparity from the power-tailed weak-reset SDE is mathematically meaningful and relevant to approximation validity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "A diffusion approximation for systems with frequent weak resetting (https://arxiv.org/html/2602.21635v1)",
+    "Brownian Motion With Partial Resetting Conditioned to Stay Positive (https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/blms.70314)",
+    "Resultary semantic search: Ornstein Uhlenbeck diffusion partial resetting multiplicative Poisson stationary Gaussian tail variance endpoint"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Stated Gaussian-tail constants hold only for fixed positive κ,D,rate and fixed 0<c<1; not uniform as c→1.",
+    "A general Gaussian-variance-mixture endpoint theorem could imply the Laplace asymptotic given the exact deficit law.",
+    "Kolb–Wübker OU positivity-conditioned remark is a different problem; specialized exact OU resetting papers may be unindexed."
+  ],
+  "residual_risks": [
+    "Stated Gaussian-tail constants hold only for fixed positive κ,D,rate and fixed 0<c<1; not uniform as c→1.",
+    "A general Gaussian-variance-mixture endpoint theorem could imply the Laplace asymptotic given the exact deficit law.",
+    "Kolb–Wübker OU positivity-conditioned remark is a different problem; specialized exact OU resetting papers may be unindexed."
+  ],
+  "schema_version": 1
+}
