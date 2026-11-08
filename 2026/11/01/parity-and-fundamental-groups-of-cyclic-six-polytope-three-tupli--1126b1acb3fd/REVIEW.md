@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The object is the ordinary three-tupling of a five-dimensional simplicial sphere and therefore is one-dimensional. Gale evenness converts all facets into six-vertex three-edge matchings of the cycle. The exhaustive base computations establish the exact path \(H_8\) components and the connected cyclic \(C_7\) case; a path-matching extension lemma supplies the infinite induction, while one explicit wrap-edge facet joins the parity classes in every odd case. Unique facet unions and complete complementary partition counts yield exact integral graph Betti ranks. The standalone verifier executed successfully. Residual limitation: finite checks alone would not prove the unbounded statement; the written induction is essential.
+PASS
 
-## Originality: PASS
+The three-tupling is a graph because all source faces have at most six vertices and every triple is a face by 3-neighborliness. Applying Gale evenness to every proper six-subset identifies each facet with the unique three-edge matching of C_n; no facet or induced graph edge is double counted. H_8 has exactly two parity-class connected components on 8 and 48 triple vertices. For H_q→H_(q+1), a new triple containing q is incident to a matching with terminal edge (q−1,q) and two disjoint covering path edges; the complementary triple is old and remains in its parity component. For even cycle length, every matching balances parity and cannot join these components; for odd n≥9, the wrap matching {(n−1,0),(1,2),(3,4)} explicitly joins them. The n=7 base is connected. Every facet supplies ten complementary-triple graph edges, so E=10F with F=n(n−4)(n−5)/6; each connected graph has wedge rank E−V+1, giving the exact claimed formulas. Independently enumerated Gale facets, matching facets, component edge/vertex counts for n=7..12; this is corroboration, not the proof for all n. The path covering lemma and induction establish the infinite range.
 
-The primary r-tupling paper (Lesh–Schreiner–Wahl, arXiv:2506.10436, Definition 2.1, Theorem A and Section 3) provides general wCM bounds, not an exact component classification or first-homology ranks. Earlier cyclic-polytope results address double constructions at block size two and four-tupling at block size four, including different polytope dimensions; neither covers the triple-vertex graph and its complementary three-set partitions. Searches for three-tupling, triple-complement matching graphs, parity components, and exact circle counts in accessible indexed literature identified no dominating statement. Residual risk: uncatalogued or newer uninspected equivalent work could exist; the newest revision of arXiv:2506.10436 was not fully inspected.
+## originality
 
-## Value: PASS
+PASS
 
-The claim classifies the complete integral homotopy type for all sizes of a canonical family of three-tupled neighborly simplicial spheres. Its sharp odd/even transition and two different, growing component circle ranks show exactly what information is lost in dimension-only connectivity estimates. The three-block case also distinguishes the parity mechanism from its two-block and four-block analogues; neither those cases nor bare face counts determine its connectedness.
+Complete integral graph homotopy types of D^3(∂C(n,6)), n>=7, with one odd component and exactly two even parity components and explicit circle multiplicities. Originality judgment is best-of-knowledge, with direct comparison to inspected same-object and stronger sources; published ingredients are acknowledged and absent search hits are not proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The three-tupling of the boundary of a cyclic 6-polytope is a natural new instance of a generalized simplicial-complex construction. The parity-disconnected phenomenon and explicit integral fundamental-group ranks resolve an exact structural classification for infinitely many vertices, beyond a mechanical Betti-number table; the disconnectedness obstruction is invisible to coarser general connectivity estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
