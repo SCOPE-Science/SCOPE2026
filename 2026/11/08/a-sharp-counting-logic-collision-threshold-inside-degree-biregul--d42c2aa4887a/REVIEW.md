@@ -1,0 +1,15 @@
+# Scientific review — degree-biregular block graphs
+
+## Correctness — PASS
+The asserted class is characterized without using a computer: one degree-three center and three degree-two stubs are associated to each vertex of a unique tree of degrees one or three. A matched pair of stubs at the same center gives a triangle; matched stubs at distinct centers give a subdivided tree edge. The block-graph condition eliminates multiedges and cycles in the quotient. Conversely, all such trees give admissible block graphs, and the original tree is recoverable from adjacency and degree. The tree handshake lemma gives exactly \(8i+8\) vertices. The color partition by degree is equitable with common neighbor-count matrix \(\bigl(\begin{smallmatrix}0&3\\1&1\end{smallmatrix}\bigr)\), proving the \(\mathrm C^2\)-equivalence claim. The first two internal-tree shapes occur at four vertices and yield the sharp order-40 collision *within the defined class*. Standalone checks independently reproduce all finite test instances and explicit witnesses.
+
+## Originality — PASS (historical priority provisional)
+The paper by Arvind, Köbler, Rattan and Verbitsky (arXiv:1502.01255) develops color refinement and the general graph-amenability framework. Kiefer, Schweitzer and Selman (arXiv:1503.08792) classify absolute \(\mathrm C^2\)-identification and provide matching constructions, which are conceptually related but do not give the present degree-constrained block-graph class, its tree-bijection, or its relative first collision at forty vertices. Gavrilyuk, Nedela and Ponomarenko (arXiv:2005.11766) prove a *two-dimensional* WL upper bound on the broader distance-hereditary class; this does not distinguish the proposed \(1\)-WL-equivalent examples. The source and claim searches recorded in the structured review found no explicit stronger or equivalent theorem. The prior eight-vertex triangle-barbell example and general non-identifiability are explicitly not claimed as new. Residual risk: an unpublished or differently named gadget construction may subsume the present statement.
+
+## Mathematical value — PASS
+This identifies a natural, exactly specified subclass of connected subcubic block graphs by its smallest stable degree-based equitable quotient. It reveals a sharp transition from one to multiple nonisomorphic realizations of the same counting-logic type, starting at forty vertices. The class has a complete enumerative description by unrooted subcubic trees; the number of distinct realizations of each logical type is unbounded, although every tree alone is identified by \(\mathrm C^2\). This supplies a structural obstruction to the apparent tree-like rigidity of block graphs, rather than a single isolated counterexample.
+
+## Limitations
+The sharp order is relative to the specified degree-incidence class, not all block graphs. Nothing is asserted for higher-dimensional WL, and external historical priority and independent validation remain open. Finite enumeration corroborates the general proof but does not replace it.
+
+Self-review: passed. Independent audit: not yet performed.
