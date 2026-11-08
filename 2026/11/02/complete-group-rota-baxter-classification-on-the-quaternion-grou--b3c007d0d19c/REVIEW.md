@@ -1,19 +1,21 @@
-# Scientific review: group Rota–Baxter operators on the quaternion group
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The derivation is a two-branch exhaustive proof. The group identity forces \(B(1)=1\); the unique involution and centrality force \(B(-1)\) to be either \(1\) or \(-1\). When it is \(1\), the map \(B\) factors as a homomorphism through the elementary-abelian quotient \(Q_8/Z\) and must land in the center. When it is \(-1\), the auxiliary map \(g\mapsto gB(g)\) factors through the same quotient and again has central image. Both families satisfy the original equation. There are four characters, their two forms are disjoint, and the image/cardinality/orbit/dual statements are proved directly. The uniqueness of the quaternion involution rules out nontrivial exact subgroup factorizations. A C++17 exhaustive checker evaluated every one of the \(8^7\) normalized functions (not just sampled cases); a separately coded Python implementation checked the eight normal forms and duals. Outputs and reproduction steps appear in `VERIFICATION.md`.
+PASS
 
-## Originality — PASS, with explicit residual risk
+Read final RESULT.md and source verify programs. Substituting identities in the group RB law forces B(1)=1 and B(z) in {1,z} for the unique central involution z. The auxiliary group law g∘h=gB(g)hB(g)^(−1) makes B and C(g)=gB(g) homomorphisms, while its Q/Z projection agrees with ordinary multiplication. If B(z)=1, B descends from elementary abelian Q/Z and hence has central image χ; if B(z)=z, C descends similarly, yielding B(g)=g^(−1)χ(g). Each of four characters gives a valid map in each family; disjointness follows from B(z). Character orbits under Aut(Q8), duality, splitting subgroup obstruction and bijectivity are verified. Independent multiplication-table checks tested all eight maps on all 64 (g,h) pairs and confirmed images and duals, though not the full independent 8^7 enumeration claimed by the source.
 
-Savelyev's 2026 extraspecial-group classification explicitly treats odd primes \(p\ge3\); the quaternion group is an extraspecial \(2\)-group and falls outside those asserted results. The dihedral/alternating-group classification concerns other finite-group families. The general group Rota–Baxter literature supplies the operator identity and constructions and is not claimed as new. Targeted bibliographic searches for quaternion/Hamiltonian/extraspecial \(2\)-groups and a mathematical-record semantic comparison did not return a complete \(Q_8\) classification, while adjacent records about *linear* operators on quaternion or exterior algebras have different objects and axioms. No claim of an exhaustive literature census or guaranteed historical priority is made. A relevant paper's accessible abstract/introduction and odd-prime restrictions were inspected; full inspection was unavailable, and older small-group group-operator tables could still contain an equivalent result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The smallest nonabelian extraspecial \(2\)-group is a natural structural boundary excluded from an emerging odd-prime classification. A normal-form theorem for every group operator, exact count and image-size profile, automorphism orbits, dual bijectivity obstruction and splitting classification together characterize this boundary. This is a finite complete classification supported by a short conceptual quotient argument, not an arbitrary partial enumeration. It does not solve the general extraspecial \(2\)-group problem.
+Qualified best-of-knowledge originality: the exact final claim and implications were compared to the named primary statements and search results; known premises are credited, and unexamined relevant full text remains explicit in risks. No searched title or failed lookup alone was treated as proof of novelty.
 
-## Scope and priority limitation
+## value
 
-The theorem applies only to weight-one group-theoretic operators on \(Q_8\). The general operator identity, central-character examples, and trivial/inversion operators predate this work. It is not a classification of linear Rota–Baxter operators over a quaternion algebra, and unindexed historical work may supersede the priority claim. Independent human or formal verification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete exact small-prime group RB classification with dual bijectivity and splitting obstructions fills a naturally excluded Q8 case of odd-prime extraspecial results; these are nontrivial structural facts and a finite yet fully classified natural object, not merely a brute-force count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

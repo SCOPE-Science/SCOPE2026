@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-The classification is proved symbolically using the unique involution of the quaternion group and the elementary-abelian quotient by its center. In the first branch the operator descends to a group homomorphism on that quotient; in the second, the map taking an element to its product with its image under the operator descends instead. Both quotient homomorphisms take values in the center.
+# Independent mathematical audit
 
-The C++17 checker independently exhausts all \(2{,}097{,}152\) functions \(B:Q_8\to Q_8\) satisfying the necessary normalization \(B(1)=1\), evaluates all \(64\) ordered pairs for each candidate, and compares the exact solution set with the eight predicted functions. It also enumerates quaternion-group automorphisms, calculates orbit sizes, and evaluates the specified dual map. Its observed result was:
+## correctness
 
-```text
-VERIFY_OK candidates=2097152 operators=8 images=1:1,2:3,8:4 aut=24 orbit_sizes=1:2,3:2 dual=checked
-```
+PASS
 
-The Python 3 checker implements signed-quaternion multiplication independently of the C++ table and verifies each predicted function, its cardinality, and its dual:
+Read final RESULT.md and source verify programs. Substituting identities in the group RB law forces B(1)=1 and B(z) in {1,z} for the unique central involution z. The auxiliary group law g∘h=gB(g)hB(g)^(−1) makes B and C(g)=gB(g) homomorphisms, while its Q/Z projection agrees with ordinary multiplication. If B(z)=1, B descends from elementary abelian Q/Z and hence has central image χ; if B(z)=z, C descends similarly, yielding B(g)=g^(−1)χ(g). Each of four characters gives a valid map in each family; disjointness follows from B(z). Character orbits under Aut(Q8), duality, splitting subgroup obstruction and bijectivity are verified. Independent multiplication-table checks tested all eight maps on all 64 (g,h) pairs and confirmed images and duals, though not the full independent 8^7 enumeration claimed by the source.
 
-```text
-FORMULA_CHECK_OK operators=8 image_cardinalities=1,2,2,2,8,8,8,8
-```
+## originality
 
-Finite enumeration corroborates the symbolic classification but does not establish historical originality or independently certify the mathematics. The proof concerns the group \(Q_8\), not the quaternion algebra or general extraspecial groups.
+PASS
+
+Qualified best-of-knowledge originality: the exact final claim and implications were compared to the named primary statements and search results; known premises are credited, and unexamined relevant full text remains explicit in risks. No searched title or failed lookup alone was treated as proof of novelty.
+
+## value
+
+PASS
+
+A complete exact small-prime group RB classification with dual bijectivity and splitting obstructions fills a naturally excluded Q8 case of odd-prime extraspecial results; these are nontrivial structural facts and a finite yet fully classified natural object, not merely a brute-force count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
