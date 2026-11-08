@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result is a finite cellular computation with explicit generators, signs, and full integer matrices. The package verifier reconstructs the 105 square cells and 105 edge–vertex cells, verifies the 70 torus cycles and 35 four-term relations, establishes rank 70 for the square differential over the exact field of three elements, and checks integral Smith data of the torus lattice and both relation lattices. The rank-plus-primitivity arguments derive the asserted complete presentation; no inference from only a finite sample of an infinite problem is involved.
+## correctness
 
-**Originality — PASS, with residual risk.** The earlier intersection-theory and complete-graph literature establishes broad homology frameworks. Ramos and Yun's 2026 Theorem 3.10 explicitly covers the rational module and is not presented as a new result here. The new integral index-2 failure of the 35 local four-term relations and correction by a ten-term relation are not given by that rational theorem. Searches for this exact lattice index, aliases involving torus-product relations, and stronger complete-graph coverage yielded no implication that fixes the integral relation lattice. Unindexed integral presentations remain a risk.
+PASS
 
-**Value — PASS.** This supplies an explicit first nontrivial obstruction to presenting second homology solely by natural local tetrahedral relations, even though those relations are rationally complete. The index-two effect is invisible to rational ranks, while the single correcting ten-term identity gives a reproducible complete integral presentation for a canonical graph configuration space. It is an intrinsic integrality phenomenon, not a chosen arbitrary subcase.
+The two-particle Abrams cubical model for 7 vertices has C2=105 unordered disjoint edge pairs and C1=105 edge-vertex cells, with no 3-cells. Independently constructed integer cubical differential D, 105x70 signed triangular product-torus matrix T, 70x35 local four-term relation matrix R, and a ten-support alternating six-vertex column. Verified D*T=0 and T*R=0 exactly. D has rank70 over F3; T has rank35 with primitive column Hermite basis and all 35 Smith entries one, so its image equals the entire integral kernel D. Local R Smith has 34 ones and one two; the augmented R|r_U has 35 ones, hence equals saturated ker(T). These integers prove quotient Z35⊕Z2 for local relations, and full H2=Z35 with correction. Finite integral matrices are exhaustively enumerated, not sampled, and unordered orientation signs are treated consistently.
 
-**Limitations.** The result concerns one natural seven-vertex graph and does not classify larger cases. Its mathematical proof uses exact computer-assisted Smith forms and has not received an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ramos–Yun 2026 Theorem3.10 already identifies the complete-graph unordered two-point rational H2 representation and Betti rank, which is explicitly excluded as new; rationalization cannot detect an index-two integer relation lattice. Barnett 2010 thesis Chapter5 §5.3 studies complete-graph ordered two-particle intersection theory and rational Betti formulas, and the 2009 Barnett–Farber work provides foundational graph configurations, not the same oriented unordered 70-tori local relation Smith form. Nearby published vertex-SINK configuration results allow different particle collisions. This is a best-of-knowledge exact integral correction for K7, not a new Betti rank or toric-span claim.
+
+## value
+
+PASS
+
+An exact index-two obstruction in a natural local-presentation attempt is mathematically useful: it prevents false integral torsion conclusions despite correct rational rank and gives an explicit ten-term parity correction on a canonical K7 configuration space. The 70 triangle tori and four-term relations arise from natural subgraphs, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
