@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the join polynomial
+# Independent mathematical audit
 
-Use Python 3 and run `python verify.py` in the extracted package directory; no external modules are required. The program constructs labeled graphs and complete joins, directly enumerates assignments from \(\{0,1,2\}\), checks that each zero has a neighboring two, and tests whether reducing any single positive coordinate yields another valid Roman function. It does not use the theorem's structural classification when computing the direct polynomial.
+## correctness
 
-The program compares complete coefficient dictionaries indexed by the number of two-labels and total weight, including equal-degree collisions and boundary cases with one-vertex factors. The deterministic test covers all pairs of graphs with each shore size from one to three, together with 160 larger pseudo-random pairs with shore sizes up to four. A successful direct execution gave:
+PASS
 
-`VERIFY_OK join_pairs=281 direct_join_assignments=331245`
+For fixed support S of two-label defenders, pointwise-minimal Roman f is uniquely canonical: two on S, zero on outside neighbors of S, ones on undominated vertices. Each two needs a private zero neighbor dominated by no other two; otherwise a one-step downward change remains feasible. In G∨H, partition S as empty (one all-ones term), one shore only (old minimal RDFs plus singleton isolated defenders in that shore), or both shores (exactly one nonuniversal defender in each shore, every remaining vertex zero). The cases are disjoint, giving R_join=R_G+R_H-z^n-z^m+z^(n+m)+i(G)s z^(n+1)+i(H)s z^(m+1)+p(G)p(H)s² z^4, with K1 convention p(K1)=0 and i(K1)=1. Independent exhaustive enumeration of every graph on each shore for sizes one to three (121 graph pairs) and every 3-labeling directly tested feasibility and all coordinate decreases, matching every bivariate coefficient. Infinite graph identity is from support proof, not finite checks; union multiplication and join recurrence give coefficient computation on cotrees.
 
-A finite exhaustive check over a specified range cannot prove an all-order identity. The mathematical proof in `RESULT.md` supplies the infinite argument. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Abu-Khzam–Fernau–Mann 2022/2024 full text proves a general private-neighbor minimal RDF characterization and enumeration methods, but no arbitrary-join bivariate closed formula; Roman Census paper treats specific graph classes. Published SCOPE complete-multipartite polynomial counts all feasible Roman RDFs or different Roman-{2} variant, not pointwise-minimal assignments on arbitrary joins. The new unrestricted join composition identity is a stronger explicit classification but close to the earlier general characterization; plausible unindexed prior formula is the main priority risk.
+
+## value
+
+PASS
+
+Complete two-variable composition law for arbitrary nonempty graph joins converts pointwise-minimal Roman enumeration into factor polynomials and simple isolate/nonuniversal counts, including exact mixed-defender correction. With disjoint-union multiplication it supplies an exact polynomial cotree recurrence for cographs, a naturally motivated counting gain beyond Roman domination numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
