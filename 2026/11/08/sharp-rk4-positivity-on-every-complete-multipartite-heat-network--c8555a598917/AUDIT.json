@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Projector spectral decomposition holds for every partition and dimension. Exact cross-part entry provides necessity, strictly positive within-part quadratic (discriminant negative) plus strictly positive diagonal via Taylor remainder provides sufficiency, and an increasing cubic gives unique sharp cutoff. An exact-rational verifier independently replayed 96054 finite assertions. All quantifiers and boundary cases including singleton parts are handled analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blanes–Iserles–Macnamara 2021 produces alternative positive integrators and uses RK4 only for numerical comparison.",
+        "Horváth 2005 §4 uses positivity-invariant cones for restricted initial vectors, not entrywise positivity for all data and all complete multipartite graphs."
+      ],
+      "reasoning": "Neither the full general-graph positivity results nor the known exact path and cycle frontiers contain an applicable theorem forcing f(hL) to be nonnegative for the whole complete multipartite class. General spectral stability does not imply positivity, so Klee–Stamps alone is not stronger coverage.",
+      "searches": [
+        "RK4 positivity complete graphs complete multipartite Laplacians spectral exact interval independent of partition",
+        "Turán graph heat equation explicit fourth order Runge Kutta nonnegative stencil spectral radius sharp timestep",
+        "partition independent positivity classical RK4 on complete multipartite and complete bipartite graph Laplacian",
+        "arXiv:2102.08242",
+        "doi:10.1016/j.apnum.2004.08.026"
+      ]
+    },
+    "checked_sources": [
+      "Blanes–Iserles–Macnamara 2021 arXiv:2102.08242 §1 §3 §5 and references",
+      "Klee–Stamps 2020 arXiv:2008.01669 §3.2 Proposition 6",
+      "Horváth 1998 doi:10.1016/S0168-9274(98)00050-6 full 18-page article",
+      "Horváth 2005 doi:10.1016/j.apnum.2004.08.026 full 16-page article",
+      "Known RK4 results on small Markov chains and different graph geometries (scope comparison only)",
+      "published-finding corpus semantic results for stated RK4 and graph-Laplacian queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Complete multipartite spectrum from Klee–Stamps §3.2 gives absolute stability only; entrywise positivity requires an additional within-part sign-discriminant identity.",
+        "Horváth 1998 universal RK4 order barrier is compatible with restricted-family positivity.",
+        "Earlier directed-cycle and reflecting-path claims do not quantify all complete multipartite part profiles."
+      ],
+      "reasoning": "The new implication positivity iff h<=beta/N for all N and all partitions is strictly stronger than previously published spectral information and is not implied by the general universal non-positivity results. It does specialize to the known K2 two-state situation, which is not claimed new.",
+      "searches": [
+        "classical fourth-order Runge Kutta entrywise nonnegative heat propagator complete bipartite multipartite graph positivity threshold 2.785 over total vertices equals stability bound",
+        "RK4 positivity complete graphs complete multipartite Laplacians spectral exact interval independent of partition",
+        "sharp Markov graph Laplacian Runge Kutta positivity threshold complete multipartite partition",
+        "Turán graph heat equation explicit fourth order Runge Kutta nonnegative stencil spectral radius sharp timestep",
+        "arXiv:2008.01669",
+        "arXiv:2102.08242",
+        "doi:10.1016/S0168-9274(98)00050-6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "All complete multipartite cross-part transition probabilities reduce to (1-f(Nh))/N; related literature gives either method-wide positivity or different graph families.",
+        "Horváth (1998) confirms a zero universal RK4 positivity radius, not an all-multipartite special-family bound."
+      ],
+      "reasoning": "Equivalent candidate statements include entrywise monotonicity, positivity of all end-step transition probabilities, nonnegative fourth-degree graph-Laplacian polynomial, and coincidence with negative-real spectral stability. Prior general positivity-radius results concern a universally quantified class of generators and cannot imply this restricted-family sharp positive threshold; the two-state overlap is acknowledged and excluded from new scope.",
+      "searches": [
+        "classical fourth-order Runge Kutta entrywise nonnegative heat propagator complete bipartite multipartite graph positivity threshold 2.785 over total vertices equals stability bound",
+        "RK4 positivity complete graphs complete multipartite Laplacians spectral exact interval independent of partition",
+        "sharp Markov graph Laplacian Runge Kutta positivity threshold complete multipartite partition",
+        "arXiv:2102.08242",
+        "doi:10.1016/S0168-9274(98)00050-6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Klee–Stamps 2020 Proposition 6 tabulates/factorizes exactly the complete multipartite Laplacian spectrum but not the RK4 positivity horizon.",
+        "published-finding corpus closest related examples are on directed cycles, reflecting paths, Padé, CN and SDIRK rather than this class."
+      ],
+      "reasoning": "Known spectral formulas and known small-graph frontiers do not supply an exact all-partitions RK4 positivity table. The two-state case and a separate Cholesky-fill classification were identified as known overlap, not independent novelty.",
+      "searches": [
+        "classical fourth-order Runge Kutta entrywise nonnegative heat propagator complete bipartite multipartite graph positivity threshold 2.785 over total vertices equals stability bound",
+        "partition independent positivity classical RK4 on complete multipartite and complete bipartite graph Laplacian",
+        "complete graph Markov chain RK4 stochastic exact stability radius 2.785",
+        "arXiv:2008.01669 §3.2",
+        "published-finding corpus semantic numerical RK4 graph positivity family queries"
+      ]
+    },
+    "rationale": "Compared direct mathematical implications of the verified complete multipartite spectrum, full primary RK positivity papers, and the scope of related heat and numerical-integrator analyses. None provides the exact all-partition RK4 positivity iff spectral-stability interval; K2 specialization and known spectral structure are explicitly not original. Unindexed specialist priority remains a risk.",
+    "residual_risks": [
+      "Publication priority relative to obscure specialized graph Markov heat RK4 literature is not independently certified.",
+      "Published work might prove a more general entrywise polynomial theorem covering this graph family under another name; exact equivalent search did not surface such a theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RK4 appears as an experimental comparator; the central results construct alternative positivity-preserving exponential methods. No full complete multipartite fourth-order RK4 sharp matrix-entry interval or spectral coincidence is proved.",
+        "evidence": [
+          "arXiv:2102.08242 §§1,3,5; §5 explicitly lists RK4 as a comparator rather than presenting multipartite threshold"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2102.08242",
+        "material_read": "30-page PDF: abstract, introduction and positivity order barrier (pp.1–6), §3 numerical-method construction, §5 numerical experiments (pp.20–25), RK4 comparison passages, references",
+        "method": "Primary full-text sections and term-specific inspection, including RK4 references",
+        "title": "Positivity-preserving methods for ordinary differential equations",
+        "trigger": "Closest source-origin motivation: graph-Laplacian ODE positivity and explicit RK4 comparator"
+      },
+      {
+        "assessment": "Exact characteristic polynomial is known and was adopted as context, but no graph heat integrator or entrywise positivity theorem occurs; spectral stability alone does not imply positivity in general.",
+        "evidence": [
+          "arXiv:2008.01669 §3.2 Proposition 6 gives eigenvalues 0, N, N-n_i with multiplicities"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2008.01669",
+        "material_read": "8-page PDF including complete §3.2 and Proposition 6 on page 5, introduction and proofs",
+        "method": "Primary full-text proof and spectral formula comparison",
+        "title": "Eigenvalues of graph Laplacians via rank-one perturbations",
+        "trigger": "Potentially dominating existing exact complete multipartite Laplacian spectrum"
+      },
+      {
+        "assessment": "Proves RK positivity radii across broad problem classes and explicitly finds the universal positivity radius zero for classical RK4, which is logically weaker than and compatible with special-family finite-step positivity. No multipartite graph equality.",
+        "evidence": [
+          "Horváth (1998) §5.1 Example 1: classical fourth-order RK has R(A,b)=0; §5.3 class-wide threshold"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6",
+        "material_read": "Full 18 pages, especially §5.1 Example 1 pp.321–322 and Theorem 6 pp.324–325",
+        "method": "Full text through authorized institutional PDF; checked methods and hypotheses",
+        "title": "Positivity of Runge–Kutta and diagonally split Runge–Kutta methods",
+        "trigger": "Classical antecedent with potentially stronger generic RK positivity coverage"
+      },
+      {
+        "assessment": "The general positivity classes and invariant cones do not give the complete multipartite RK4 end-step cutoff; 2005 results do not overcome the zero universal RK4 radius without additional concrete generator structure.",
+        "evidence": [
+          "Horváth (2005) §2 pp.344–346 and §4 pp.351–355, especially Theorem 17 and Remarks 18–20"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "material_read": "Full 16 pages including §2 positivity radius, §3 strict thresholds and §4 invariant cones",
+        "method": "Full primary PDF text via authorized institutional access; compared all named theorems and related examples",
+        "title": "On the positivity step size threshold of Runge–Kutta methods",
+        "trigger": "Potential exact strict RK positivity threshold and linear problems"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c8555a59-8917-4811-ac8a-f30231ef6a7a",
+  "value": {
+    "rationale": "A natural all-dimensional full graph family has an exact sharp positive numerical timestep despite RK4 universal positivity radius zero. The cutoff coincides precisely with spectral stability independent of graph partition, with a sharp cancellation of all interpart probabilities. This supplies a structurally motivated, useful benchmark for heat diffusion on complete multipartite and irregular hub networks; it is not implied by the available graph eigenvalue formula or a small finite experiment.",
+    "status": "PASS"
+  }
+}
