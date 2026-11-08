@@ -1,19 +1,21 @@
-# Scientific review: sharp quadratic Hankel kernel-testing constant
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite Hankel matrix is \(\left(\begin{smallmatrix}\overline a&\overline b\\\overline b&0\end{smallmatrix}\right)\). Its largest singular value and kernel-testing profile follow by direct matrix multiplication. After normalization \(A=1-B^2\), the complete global inequality reduces to \(\max_r F(B,r)\ge25/27\). The proof checks two explicit radii rather than assuming a numerical maximizer: \(r=B\) for \(B\le1/2\), and \(r=1/\sqrt6\) for \(B\ge1/2\). The second bound has a unique equality at \(B=\sqrt{2/3}\). A separate exact quartic factorization proves that at this parameter no untested radius is better, establishing both sharpness and all equality cases. The phase adjustment is valid for arbitrary complex coefficients. At pure monomials the ratio is one. The reproducible finite checker passes, but its grid is not used as proof.
+PASS
 
-## Originality — PASS, best knowledge
+PASS. Hankel H_overline(az+bz²) acts through complex symmetric 2×2 block [[a-bar,b-bar],[b-bar,0]], operator norm (A+sqrt(A²+4B²))/2. For normalized Szego kernel w, squared output is (1-|w|²)(|a+bw|²+B²); phase optimization yields F(B,r) after norm-one parameterization A=1−B². For B<=1/2, tested r=B gives 1−B^4>=15/16>25/27. For B>=1/2, fixed r0=1/sqrt6 derivative factor 2(1-r0²)(B-r0)(2B²−Br0−1) yields unique minimum B0=sqrt(2/3) and lower 25/27. At B0 the exact factorization 25/27−F(B0,r)=(sqrt6*r−1)^2*((sqrt6*r)^2+4sqrt6*r+8)/54 gives global upper 25/27, with unique maximizing radius r0. All identities and derivative verified independently by SymPy; pure coefficient endpoints satisfy N=G, and equality iff A/B=1/sqrt6. Supplemental verify.py sampled phases and grids cannot prove the universal inequality; displayed global certificates do.
 
-The first-public motivating source (Dyakonov, arXiv:2609.33242v1, 2026-09-27; inspected in the later full version) gives a qualitative quadratic counterexample and a later equality classification, not an optimal degree-two quantitative constant. Two closely relevant published mathematical records classify zero-gap polynomial and finite-rank cases. A recoverable two-monomial historical result supplies local asymptotic strictness, not the global optimum across all coefficient ratios. A logarithmic-Hankel record computes a different, infinite-rank single-symbol gap. Searches for quantitative Garsia/Nehari comparisons, two-by-two Hankel testing, the exact coefficient ratio and the constant did not locate a dominating statement. The distinct normalized parameters and implications were compared, not merely paper titles. A possible older rephrasing as a finite-matrix testing problem remains a real priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Dyakonov explicitly singles out two-term quadratic symbols as elementary failures of the strong reproducing kernel thesis. The precise worst-case defect on **all** such symbols is a natural sharp uniform invariant of the first nontrivial polynomial class. The optimal constant and unique projective modulus ratio quantify how far a kernel-only test can understate an operator norm. This is a complete exact extremal calculation, not an arbitrarily selected coefficient or a deduction of the already-known equality classification. The result does not claim high-degree or nonpolynomial extensions.
+PASS best of knowledge. Dyakonov arXiv:2609.33242 formulates Hankel strong reproducing kernel thesis and identifies the kernel/Garsia testing norm, noting strictness for some az+z² but the accessible abstract does not supply sharp all-quadratic multiplicative constant or equality classification. Published Resultary logarithmic Hilbert-Hankel exact gap is for a particular infinite-rank symbol and does not imply optimal bound on all quadratic symbols; published monomial/Blaschke classifications address zero-gap rather than positive maximum gap. Dyakonov full manuscript inaccessible through arXiv/OA and authorized Oxford VPN disconnected, so this major primary comparison remains residual risk rather than automatic failure.
 
-## Closest sources and remaining limits
+## value
 
-The full 2026 motivating paper was inspected at its Hankel definition, kernel/Garsia identity, the explicit quadratic counterexample, and the later addendum. Full published-finding corpus documents for the polynomial and finite-rank classifications were inspected. Earlier Treil, Bonsall, and Brevig results were checked through accessible mathematical records and abstracts; their entire original full texts were not independently inspected during this review. This access limit remains an originality risk, although the available statements concern general boundedness or distinct minimal/maximal norm questions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The full two-coefficient polynomial subspace is the first nontrivial rank-two Hankel family: its sharp quantitative kernel test-vs-operator gap and precise phase-invariant equality classification are a naturally motivated exact norm constant, not mere renaming of an SRKT counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

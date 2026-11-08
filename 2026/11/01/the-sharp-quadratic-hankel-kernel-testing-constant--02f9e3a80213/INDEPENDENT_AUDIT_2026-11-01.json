@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T22:11:45.879825Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Hankel H_overline(az+bz²) acts through complex symmetric 2×2 block [[a-bar,b-bar],[b-bar,0]], operator norm (A+sqrt(A²+4B²))/2. For normalized Szego kernel w, squared output is (1-|w|²)(|a+bw|²+B²); phase optimization yields F(B,r) after norm-one parameterization A=1−B². For B<=1/2, tested r=B gives 1−B^4>=15/16>25/27. For B>=1/2, fixed r0=1/sqrt6 derivative factor 2(1-r0²)(B-r0)(2B²−Br0−1) yields unique minimum B0=sqrt(2/3) and lower 25/27. At B0 the exact factorization 25/27−F(B0,r)=(sqrt6*r−1)^2*((sqrt6*r)^2+4sqrt6*r+8)/54 gives global upper 25/27, with unique maximizing radius r0. All identities and derivative verified independently by SymPy; pure coefficient endpoints satisfy N=G, and equality iff A/B=1/sqrt6. Supplemental verify.py sampled phases and grids cannot prove the universal inequality; displayed global certificates do.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dyakonov primary abstract poses which Hankel operators satisfy equality.",
+          "Treil gives broader boundedness/testing controls without documented sharp coefficient for exactly this quadratic subspace."
+        ],
+        "reasoning": "A general nonsharp bound does not imply optimal 3sqrt3/5 on first nontrivial finite-rank subclass; check literature aliases and limit scope.",
+        "searches": [
+          "Dyakonov arXiv:2609.33242 Hardy Hankel SRKT",
+          "Treil arXiv:1201.0063 reproducing kernel thesis for Hankel",
+          "Smith 2005 Schatten Hankel reproducing kernel"
+        ]
+      },
+      "checked_sources": [
+        "Dyakonov arXiv:2609.33242 primary abstract, inaccessible full PDF",
+        "Treil arXiv:1201.0063",
+        "Bonsall 1984 Hankel matrices",
+        "Resultary logarithmic Hilbert Hankel full source",
+        "Resultary monomial rigidity and finite-rank Blaschke records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence of a quadratic with N/G>1 does not determine maximum over A,B and equality family.",
+          "A fixed infinite-rank example with ratio sqrt2 cannot set best quadratic ratio 3sqrt3/5."
+        ],
+        "reasoning": "The global two-variable extremal problem and factorization are additional mathematical work not forced by any prior mere strictness or norm-equivalence result.",
+        "searches": [
+          "Dyakonov quadratic az+z² strictness example",
+          "Resultary logarithmic Hilbert Hankel gap full proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dyakonov arXiv:2609.33242 defines SRKT as operator norm equals testing supremum; source proof states Garsia/quotient-norm identification."
+        ],
+        "reasoning": "The ratio can be expressed in Hankel operator, Nehari quotient or Garsia norms. Identification of norms is known; optimization of their ratio on all quadratics is the asserted contribution.",
+        "searches": [
+          "sharp Hankel operator norm normalized reproducing kernel testing constant quadratic polynomial az+bz squared 3sqrt3/5",
+          "Dyakonov strong reproducing kernel thesis Garsia norm Nehari quotient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary/2026 2026/10/11/SCOPE-an-exact-square-root-two-srkt-gap-for-the-logarithmic-hilbert-ha--80a74524cde0/RESULT.md (Git blob f30630ffcedbaa307c0301d1c8f540732562b5b0)",
+          "Logarithmic symbol -log(1-z) Hilbert matrix has norm pi and kernel norm pi/sqrt2; different fixed infinite-rank operator."
+        ],
+        "reasoning": "No exact all-two-coefficient family sharp constant found in checked results; finite-rank equality classifications give only zero-gap cases.",
+        "searches": [
+          "sharp Hankel operator norm normalized reproducing kernel testing constant quadratic polynomial az+bz squared 3sqrt3/5",
+          "Resultary logarithmic Hankel 80a74524cde0",
+          "Resultary monomial rigidity bc8369ca1a24",
+          "Resultary shifted Blaschke c64bd5a5783f"
+        ]
+      },
+      "rationale": "PASS best of knowledge. Dyakonov arXiv:2609.33242 formulates Hankel strong reproducing kernel thesis and identifies the kernel/Garsia testing norm, noting strictness for some az+z² but the accessible abstract does not supply sharp all-quadratic multiplicative constant or equality classification. Published Resultary logarithmic Hilbert-Hankel exact gap is for a particular infinite-rank symbol and does not imply optimal bound on all quadratic symbols; published monomial/Blaschke classifications address zero-gap rather than positive maximum gap. Dyakonov full manuscript inaccessible through arXiv/OA and authorized Oxford VPN disconnected, so this major primary comparison remains residual risk rather than automatic failure.",
+      "residual_risks": [
+        "Most directly relevant Dyakonov arXiv:2609.33242 full text inaccessible; Oxford authorized VPN disconnected, so a hidden quantitative optimization in addendum cannot be excluded.",
+        "Older finite-dimensional Hankel/kernel norm comparison could encode same constant under matrix terminology.",
+        "Only the two-coefficient degree<=2 analytic polynomial family is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different nonpolynomial infinite-rank symbol; supplies distinct comparison constant but no quadratic optimum",
+          "evidence": "H_-log(1-z) norm pi, Garsia norm pi/sqrt2; no all-quadratic extremal theorem",
+          "identifier_or_url": "Resultary/2026 2026/10/11/SCOPE-an-exact-square-root-two-srkt-gap-for-the-logarithmic-hilbert-ha--80a74524cde0/RESULT.md (Git blob f30630ffcedbaa307c0301d1c8f540732562b5b0)",
+          "material_read": "full RESULT.md proof of Garsia formula and infinite-rank Hilbert matrix norm",
+          "method": "GitHub connector, Resultary full published record",
+          "title": "An exact square-root-two SRKT gap for the logarithmic Hilbert Hankel symbol",
+          "trigger": "same Hardy Hankel norms and kernel testing"
+        },
+        {
+          "assessment": "Directly relevant full document not read; not assumed globally NOT_COVERING; originality remains risk-qualified",
+          "evidence": "Public abstract poses SRKT classification and Garsia norm problem; paper-claimed quadratic strictness credited but full equivalence not excluded",
+          "identifier_or_url": "arXiv:2609.33242 https://arxiv.org/abs/2609.33242",
+          "material_read": "arxiv abstract, version history and bibliographic information only; full PDF unavailable; Oxford VPN disconnected",
+          "method": "arXiv abstract and OA searches then Oxford attempt",
+          "title": "The Strong Reproducing Kernel Thesis for Hankel Operators and the Garsia Norm",
+          "trigger": "directly motivating family, paper explicitly notes quadratic strictness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The full two-coefficient polynomial subspace is the first nontrivial rank-two Hankel family: its sharp quantitative kernel test-vs-operator gap and precise phase-invariant equality classification are a naturally motivated exact norm constant, not mere renaming of an SRKT counterexample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dyakonov arXiv:2609.33242 primary abstract, inaccessible full PDF",
+    "Treil arXiv:1201.0063",
+    "Bonsall 1984 Hankel matrices",
+    "Resultary logarithmic Hilbert Hankel full source",
+    "Resultary monomial rigidity and finite-rank Blaschke records"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Most directly relevant Dyakonov arXiv:2609.33242 full text inaccessible; Oxford authorized VPN disconnected, so a hidden quantitative optimization in addendum cannot be excluded.",
+    "Older finite-dimensional Hankel/kernel norm comparison could encode same constant under matrix terminology.",
+    "Only the two-coefficient degree<=2 analytic polynomial family is proved.",
+    "Read-only assessment only: no repository or dispatcher write; status-file publication not ready until confidentiality-safe metadata correction."
+  ],
+  "schema_version": 1
+}
