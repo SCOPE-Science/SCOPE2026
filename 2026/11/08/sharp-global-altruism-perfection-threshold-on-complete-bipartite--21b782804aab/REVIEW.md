@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proposition specifies global sum-based equal-treatment utility including friends outside one's own coalition and a nonnegative real friend reward with penalty \(-1\). The proof expands each utility gap into pairwise separated contributions, reduces all partitions to weighted two-block cuts, derives exact expressions for all cuts, and optimizes their ratios using a fractional-linear endpoint argument and an explicit nonnegative factorization. Every candidate extremum is realized by a proper cut, including the two-vertex exception. A separate exact-rational standard-library verifier checks both cut ratios and full partition preferences at and around thresholds; enumeration is corroboration, not an infinite proof.
+
+**Originality — PASS, subject to stated risks.** Kerkmann and Rothe (IJCAI 2020) and Kerkmann, Cramer and Rothe (arXiv:2301.05674, 2023) introduce the global model and show that a perfect sum-based equal-treatment partition must have diameter-at-most-two components, but give an example demonstrating that the converse fails. The same-source material inspected does not classify complete bipartite perfectness or its sharp weight ratio. Targeted mathematical-record searches for equal treatment, global friends, biclique stars, exact cut ratios and weighted enemy penalties returned no covering exact statement. A separate dissertation received targeted, not comprehensive, inspection. The known necessary diameter condition does not imply the new formula, and the selfish-first clique criterion uses different preferences. Unindexed prior work and exact dating of the older preliminary version remain risks.
+
+**Value — PASS.** The exact threshold decides a natural infinite two-community network family, provides an explicit two-block obstruction below threshold, and distinguishes balanced networks from highly unequal stars. The distinction is mathematically meaningful because all these connected graphs satisfy the same previously known diameter criterion.
+
+**Scope and limitations.** The weighted model is explicitly a cardinal extension of the original fixed friend reward. No theorem is claimed for arbitrary graphs, hedonic-only altruism, or general Nash/core behavior. The external audit below is not performed.
+
+Self-review: passed. Independent audit: not yet performed.
