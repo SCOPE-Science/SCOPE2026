@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. With two stationary pebbles, every possible third vector has one of the explicitly listed extension types. The general finite-field counts depend only on the signs of \(q-2\), \(q-3\), \(q^d-q\), and \(q^d-q^2\). In dimension at least three, this gives an infinite three-pebble strategy. The low-rank equality cases and all five separating formulas are covered. Two directly executed programs corroborate the support and count tables. No finite experiment is used as a proof of the infinite statement.
+## correctness
 
-## Originality
-PASS, qualified by inaccessible primary material. The accessible Pierce (2009) abstract concerns model companions in richer dependence languages, not an explicit exact three-variable finite-field classification. Grohe–Otto (2012) provides general pebble-game formalism. The full Kardoš–Král'–Liebenau–Mach (2015) online paper treats matroid convergence and limit modelings. Related classifications of subspace inclusion and affine collinearity do not imply this theorem because they use different structures, signatures, and quantifier resources. A published broader pebble-game theorem for full linear matroids or an uninspected section of Pierce's article remains a priority risk.
+PASS
 
-## Mathematical value
-PASS. Full vector matroids with a named triple-dependence predicate are a natural basic family in model theory of representable matroids. An exact classification at unrestricted depth distinguishes weak expressive power from full algebraic definability, shows simultaneous collapse of all dimensions from three upward and all finite fields of size at least four, and determines a sharp smallest representative of size 64. The classification is not an arbitrary numerical slice or a mere reparameterization of earlier lattice/affine results.
+For d<=2 the ternary dependence relation is universal, leaving pure equality, which FO^3 divides into two sizes 2 and >=3. For d>=3 a three-pebble invariant preserves zero flags, six pair-states and triple dependence. After moving one pebble only two anchors remain; the exact support extension table for independent anchors is 1,1,1,q-2,q-2,(q-1)^2,q^d-q^2, and parallel-anchor cases similarly have possible q-2 and q-3 terms. Positivity depends only on q=2, q=3, q>=4 and d>=3, yielding an unbounded-depth Duplicator back-and-forth. Three-variable formulas define zero and parallelism using universal D and separate the three q-classes. Fresh direct finite-field anchor enumeration verified all supports at q,d=(2,3),(2,4),(3,3),(3,4),(5,3), including q=2,3,>=4 boundary cases; the actual all-d proof comes from symbolic extension availability.
 
-## Closest literature and limits
-Pierce (2009), *Model-theory of vector-spaces over unspecified fields* (repository abstract only); Grohe–Otto (2012), *Pebble Games and Linear Equations* (introductory and logical-method sections inspected); Kardoš et al. (2015), *First order convergence of matroids* (online article read). The result does not cover richer languages, counting logic, higher variable widths, or arbitrary matroids. Lack of the complete Pierce text limits definitive historical-priority assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pierce 2009 is close in object and uses vector-space dependence languages, so full text is material priority risk; an authorized institutional full-text request returned VPN disconnected and was not bypassed. Grohe–Otto pebble methodology and Kardoš et al. first-order matroid limits do not in inspected text state the five classes of the exact finite, all-vectors, pure ternary signature. A separately published vector-space EF result studies algebraic closures and full two-sorted arithmetic, so its theorem is not an implication here. Best-of-knowledge original with explicit non-certification.
+
+## value
+
+PASS
+
+A complete all-depth FO^3 classification of natural finite geometric dependence structures is a structural finite-model-theory result; collapsing all dimensions and fields to exactly five equivalence classes and sharp 64-element representative is a usable exact logical invariant, not a parameter renaming or a routine finite check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
