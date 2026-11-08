@@ -1,0 +1,19 @@
+# Scientific review: singleton–missing-mass covariance
+
+## Correctness (PASS)
+
+The exact multinomial expectation identities follow by counting the mutually exclusive events that a species is unseen and another is observed once. At two observations, the sign is controlled by \(2[(1+Q)R-2Q^2]\), with \(Q=\sum_i p_i^2\) and \(R=\sum_i p_i^3\). Padding to four variables yields a homogeneous sum-of-squares-plus-nonnegative-monomials identity proving a strict negative covariance at support sizes two through four. The five-species rational example has exact covariance \(1/800\); continuous perturbation extends it to every larger support. For each fixed sample size \(n\ge2\), a two-class rare-species limit has exact positive limiting covariance \(na^2(1-a)^n[1-(1-a)^{n-1}]\); the fair two-species model has negative covariance. These analytic steps do not depend on finite sampling tests. The `checker.py` reproduction passed 984 exact/finite/limit consistency checks.
+
+## Originality (PASS, with residual historical-priority risk)
+
+Relevant full-text sources were compared at the level of observables and implications. Good (1953) sets out the singleton estimate and probability mass of unobserved species, not a sign classification of the same-sample covariance. Chao and Jost (2012) analyze expected sample coverage and its ecological use, not covariance against a realized unseen-mass target. Ben-Hamou, Boucheron and Ohannessian (2014 arXiv version) analyze the occupancy process, missing-mass concentration and joint Poissonized variance; their general framework permits deriving joint moments but does not in the inspected material assert the sharp five-species fixed-draw sign cutoff or the universal finite-species sign construction at every sample depth. Hwang, Lin and Shen (2014) address finite-population sampling, not the same iid replacement model; only the full abstract was accessible. The closest indexed results concern consecutive discovery-event covariance, richness–frequency-count covariance in uniform occupancy, and sample-richness relations with diversity estimators; none of their accessible statements implies this exact joint observable and support cutoff. Their full texts were not all accessible; possible equivalent historical treatments remain a real limitation.
+
+## Value (PASS)
+
+Singleton frequencies are a standard input for estimating the probability that the next sampled individual belongs to an unseen species. The result shows that the *same-sample empirical indicator of that quantity can be negatively correlated with its actual target* in every community with two through four species at two draws, while rare-tail communities can reverse the sign. The sharp cutoff is a natural complete support-size classification, not a chosen numerical slice. The all-sample-size existence theorem and Poissonized contrast demonstrate that the issue concerns the sampling mechanism and abundance concentration, not a single ad hoc example. It motivates care in finite biodiversity sample-coverage calculations, without claiming any empirical estimator-performance advantage or sample-size recommendation.
+
+## Limitations and closest literature
+
+The exact minimal-support claim holds for precisely two draws. For larger sample sizes only both-sign existence is proved, not the minimal number of species. Independence, fixed abundance and replacement are essential assumptions. The related 2026 rare-singleton fragility paper discusses estimator sensitivity, not the specific support-size covariance theorem in the accessible sections. Poissonized negative covariance is elementary and is not a claimed new theorem. Historical priority remains provisional, especially because some related papers were accessible only as abstracts or indexed scientific summaries.
+
+Self-review: passed. Independent audit: not yet performed.
