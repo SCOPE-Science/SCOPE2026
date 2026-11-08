@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS.** The full rank statement is proved for every prime power and nontrivial additive character. Multiplicative Fourier decomposition yields complete two-by-two character blocks and a separately analyzed three-dimensional constant block. Explicit determinants determine exactly which characters contribute a kernel direction. A projective-line parameterization counts all rank failures, with distinct odd-characteristic and characteristic-two cases. Eleven complete finite-field line-pair enumerations corroborate the algebraic proof, including extension fields. The proof does not rely on finite extrapolation.
+
+**Originality — PASS under bounded literature comparison.** The close 2015 work of Biswas–Dasgupta–Jacob–Mudumbai analyzes full-spark questions for one-line and rectangular-grid row patterns with unrestricted column frequencies, and explicitly discusses several-line extensions, but does not assert this exact same-set two-line Fourier rank or nullity incidence theorem. Mockenhaupt–Tao and Iosevich–Koh study restriction theory rather than the present complete principal-matrix classification. Searchable nearby research results address different line sets or isolated small-order minors. The historical priority of an equivalent general Fourier-submatrix theorem remains a residual risk.
+
+**Mathematical value — PASS.** A union of two projective directions is the first nontrivial enlargement of a single radial Fourier sampling line. The theorem simultaneously answers the complete reconstruction question, gives an explicit arithmetic basis for every nullspace, and counts the loss-of-recovery patterns across all projective pairs and all finite fields. The cross-ratio order dependence produces genuinely different ranks, so neither a blanket nonsingularity result nor a single example captures it. It does not estimate stability or extend to arbitrary multi-line patterns.
+
+The original methods of finite-field Fourier restriction and two-dimensional sampling provide motivation, not independent certification of this specific result. A broader prior spectral theorem might imply the claim without identical language; exhaustive historical priority and outside mathematical validation remain unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
