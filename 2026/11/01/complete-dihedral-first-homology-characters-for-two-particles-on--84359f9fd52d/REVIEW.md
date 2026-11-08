@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is a single complete rational first-homology character for the ordinary collision-free two-particle space on every wheel with at least four rim vertices, with the equivalent rational module identity and quotient rational homology consequences. The proof constructs its two-dimensional unordered cubical model, verifies the cell counts and connectivity, proves absence of two-cycles by eliminating coefficients along complement paths, and computes signed Lefschetz traces for every rotation and both parity types of reflection. Character orthogonality gives the complex irreducible splitting. A standalone exact checker independently verifies all differential ranks and 1,628 dihedral element traces for rim lengths four through forty. Finite checks are corroborating, not an extrapolation substituting for the general combinatorial proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Harrison, Keating, Robbins, and Sawicki determine abstract first homology for planar three-connected graphs and use wheels in their exchange-phase argument; Ko and Park also determine abstract first-homology groups. Maciążek and Sawicki establish wheel configuration homology. Those references cover the rank and top-homology vanishing, neither of which is claimed as new. The new statement identifies the signed group action, particularly traces minus one versus minus three for the two reflection classes in even wheels. The publicly indexed wheel dihedral Morse-complex calculation concerns a different complex; the indexed two-point Borel–Moore calculation uses a different homology theory. Searches and full-text comparisons found no covering wheel-configuration character, but naturality extensions of known anyonic decompositions and unindexed work remain plausible publication-priority risks.
+PASS
 
-## Value — PASS
-A wheel is a canonical planar three-connected graph whose complete dihedral symmetry is mathematically natural. The result provides a complete, parity-sensitive, infinite-family representation classification rather than isolated numerics. It distinguishes graph-cycle transport from a reflection-odd exchange line and proves that rational first homology surviving rotations is annihilated by the full symmetry quotient, information that the known nonequivariant Betti numbers cannot determine.
+The standard sufficiently subdivided unordered two-particle wheel cubical model has c0=choose(n+1,2), c1=2n(n-1), c2=n(3n-7)/2. A 2-cycle has zero coefficients on spoke-containing squares by path link deletion, then zero on rim-only squares by another path deletion, so H2=0 and H1 has rank n+1. For each dihedral element the signed fixed-cell Lefschetz trace gives χ=1-t0+t1-t2; orientation reversals and exchanged square factors yield the stated rotation/reflection cases. Character orthogonality gives 2 sign lines plus nontrivial two-dimensional representations (and rotation-sign when n even), and finite-group rational transfer gives quotient statements. Independently enumerated all oriented fixed 0/1/2-cells for every dihedral element at n=4..14, exactly reproducing the claimed character; a finite check is not the all-n proof.
 
-## Scientific limits
-The complex irreducible formula does not classify integral representation lattices. The quotient claim concerns rational homology of ordinary orbit spaces, not contractibility or fundamental groups. An equivalent or more general priority claim could exist outside inspected sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing actual theorem statements, relevant Resultary records and available primary material. Key inapplicable/covering distinctions and residual full-text risks are recorded; lack of accessible full text is not treated as proof of novelty.
+
+## value
+
+PASS
+
+The full family-level D_n module and ordinary quotient rational homology distinguish reflection axes and improve the known nonequivariant rank, providing a concrete equivariant graph braid invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
