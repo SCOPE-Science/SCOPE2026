@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For all integers \\(a,b\\ge1\\), \\(k\\ge2\\), and nonnegative integer lifespans, the exact side-count lemma and side-symmetric choice provide enough independent uniform labeled draws for an alternating stationary single walk. The single walk is marginally correct because the chosen side is fair and independent of label arrays. Collaborative walkers use disjoint independent coordinates, so their independence is preserved. Every single-walk label is drawn from the union pool. The actual packaged checker passed 20729 finite exact tests; the proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 primary source explicitly leaves stochastic domination open for the full graph class.",
+        "The 2025 journal abstract repeats the expectation-only result and references open questions."
+      ],
+      "reasoning": "No inspected general theorem with stronger range-set containment was found. A hypothetical general result would subsume the claim and is therefore a residual priority risk, not ruled out by a search.",
+      "searches": [
+        "\"union of ranges\" \"stochastic domination\" \"single\" \"random walks\"",
+        "\"stochastic domination\" \"collaboration of random walks\" after:2023",
+        "published-finding corpus: multiple independent walks complete bipartite graphs range stochastically dominates single walk path by deterministic coupon draws"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.14241v1, full HTML",
+      "Dey--Kim--Terlov 2025 journal abstract, DOI:10.1090/proc/17332",
+      "published-finding corpus semantic search: three distinct queries on bipartite range coupling and Question 3.6",
+      "Relevant prior scientific claim comparisons: complete-graph seed augmentation, biclique fixed-start cover-time comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.1 is an expectation comparison and for nonlazy walks assumes an even total number of transitions.",
+        "Question 3.6 asks the corresponding cardinality stochastic inequality; the present labeled-set inclusion strictly implies both mean and cardinality bounds for bicliques at odd as well as even totals.",
+        "The complete-graph seed-augmentation identity addresses a non-bipartite family except the two-vertex edge."
+      ],
+      "reasoning": "Neither the 2023 source expectation theorem nor the prior complete-graph representation logically implies pathwise inclusion for nontrivial K_{a,b}. The full 2025 journal version could not be inspected, which limits priority confidence.",
+      "searches": [
+        "arXiv:2302.14241v1 Theorem 1.1 Conjecture 3.1 Question 3.6",
+        "Dey Kim Terlov collaboration random walks 2025 journal stochastic dominance complete bipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dey--Kim--Terlov 2023 Theorem 1.1 concerns expectation; their Question 3.6 asks for range-size stochastic order.",
+        "Complete-graph independent-uniform range representations do not impose alternating side quotas."
+      ],
+      "reasoning": "A direct equivalent must supply simultaneous inclusion of labeled visited sets on every biclique for all allocations; an expectation inequality or cover-time CDF bound is strictly weaker. No such equivalent was identified in inspected full primary preprint or targeted records.",
+      "searches": [
+        "\"Collaboration of Random Walks on Graphs\" \"bipartite\" \"stochastic\"",
+        "\"multiple random walks\" \"stochastic dominance\" \"range\" graph independent stationary",
+        "published-finding corpus: collaboration of random walks complete bipartite graphs strong stochastic domination range set inclusion coupling stationary starts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published finding titled “Exact discounted hitting domination of complete bipartite graphs” concerns discounted hitting, not collaborative random-walk ranges.",
+        "Known biclique fixed-start cover-CDF comparison treats different conditional starts and does not imply the current pathwise order."
+      ],
+      "reasoning": "This theorem is an all-parameter coupling rather than an isolated tabulated invariant. The inspected closest database records do not state it; index incompleteness remains a risk.",
+      "searches": [
+        "published-finding corpus: Dey Kim Terlov question 3.6 random walk ranges complete bipartite arbitrary walkers stochastic domination",
+        "\"stochastic domination\" \"range\" \"complete bipartite\" \"walks\""
+      ]
+    },
+    "rationale": "The primary 2023 Dey--Kim--Terlov theorem establishes only expected-range domination and poses stochastic domination as an explicit open question; inclusion is stronger than its statements, and applies to odd transition totals. Closest indexed records and separately checked own claims do not imply the biclique theorem. Priority remains qualified owing to inaccessible 2025 publisher full text and incomplete global indexing.",
+    "residual_risks": [
+      "The full text of the September 2025 publisher journal edition was inaccessible; it could contain a relevant additional result.",
+      "Unindexed or later stochastic-domination coupling results may exist; semantic search does not certify priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicitly poses distributional stochastic dominance; no complete-bipartite set-inclusion theorem in examined full text.",
+        "evidence": [
+          "arXiv:2302.14241v1, Theorem 1.1",
+          "arXiv:2302.14241v1, Conjecture 3.1",
+          "arXiv:2302.14241v1, Question 3.6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.14241v1",
+        "material_read": "Full accessible preprint HTML, Introduction, Theorem 1.1, Section 2 proof and Section 3 Questions 3.1 and 3.6",
+        "method": "Direct full-text reading and statement/implication comparison",
+        "title": "Collaboration of Random Walks on Graphs",
+        "trigger": "Direct stated stochastic-domination question for independent stationary walks"
+      },
+      {
+        "assessment": "Abstract still describes expectation comparison and open questions; full-document absence prevents a definitive negative coverage statement.",
+        "evidence": [
+          "Proceedings of the American Mathematical Society 153 (2025), 4961--4974, published 2025-09-23"
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/proc/17332",
+        "material_read": "Accessible publisher abstract, bibliographic and reference information; full journal text not accessible",
+        "method": "Publisher result and attempted full-text access",
+        "title": "Collaboration of Random Walks on Graphs (2025 journal edition)",
+        "trigger": "Final-version coverage might supersede the 2023 preprint"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dd50d898-45c9-46ac-842d-856e439680ea",
+  "value": {
+    "rationale": "The result solves the explicit stochastic-domination challenge on every complete bipartite graph with arbitrarily many independent stationary walkers and budgets. It establishes labeled-set inclusion, not just an expectation inequality, and shows unrestricted-parity behavior in the natural periodic family. The structural coupon-pool construction explains the effect.",
+    "status": "PASS"
+  }
+}

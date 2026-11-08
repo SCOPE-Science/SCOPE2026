@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness: PASS.** At stationarity a walk chooses a fair side initially and then alternates, with independent uniform vertex labels within each part. The count identities \(N_A=(T+o)/2+e_A\) and \(N_B=(T+o)/2+e_B\) are valid for every nonnegative lifespan; for odd \(T\) they both exceed the single walk's requirements, and for even \(T\) the larger pool contains the extra initial-side draw. The starting-side selection is fair by exchanging the sides of all independent starting coins, and independent of the vertex-label arrays, so all marginal trajectory laws are preserved. A genuine labeled-set coupling follows. The packaged standard-library checker passed 20,729 exact finite diagnostics. The all-size conclusion is proved analytically, not inferred from enumeration.
+
+**Originality: PASS, qualified.** Dey--Kim--Terlov (2023), arXiv:2302.14241v1, §1.3 and §3, proves expected-range domination and poses stochastic range domination as Question 3.6. Its full preprint does not contain a bipartite range-set inclusion coupling. The 2025 journal edition was accessible only at abstract level, and later or unindexed results remain historical-priority risks. Existing complete-graph seed augmentation concerns a different graph law, and fixed-start biclique cover-CDF comparisons concern a different pair of processes; neither implies the stated coupling.
+
+**Value: PASS.** An explicit open distributional-comparison question is answered for every complete bipartite graph, every number of walkers and every allocation of transition budgets, at the stronger inclusion-coupling level. In this periodic setting, the argument also removes the parity restriction from the original expectation comparison. The side-allocation coupling is a structural statement, not merely a recomputation of one expected range size.
+
+Self-review: passed. Independent audit: not yet performed.
