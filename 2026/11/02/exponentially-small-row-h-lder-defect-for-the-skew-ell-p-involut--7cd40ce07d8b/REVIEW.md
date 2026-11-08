@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For fixed real \(0<\tau<1\), the proof controls every projective vector by a sign comparison and a quarter-turn symmetry, then analyzes the derivative on the full nonnegative interval. The explicit eventual inequalities imply a unique strict maximizer. A mean-value argument supplies the optimizing-slope displacement; Taylor's theorem bounds the loss from the exact one-row Hölder maximizer and yields the exponentially small correction, including its strictly positive coefficient. The \(L_p\) statement relies on the pre-existing geometric-to-matrix identity. The supplementary high-precision checker passes 12,120 assertions, but finite checks cannot prove infinite-parameter results.
+## correctness
 
-## Originality — PASS (best knowledge)
-Xu and Liu, *Skew Schäffer Type Constants*, arXiv:2610.03050v1, establish the exact \(L_p\) reduction and upper/lower estimates but not the claimed sharp high-exponent equivalent or its maximizers. The complete 2026 note *Two-coordinate operator-norm formula for a generalized James constant* likewise reduces a geometric quantity to a related matrix norm but does not evaluate its high-exponent defect. The inspected Banaś–Frączek and hexagonal skew-constant results concern different spaces or limits. Explicit query and implication checks appear in `AUDIT.json`. An older asymptotic for the signed matrix norm under different terminology remains a publication-priority risk; a negative search alone would not settle it.
+PASS
 
-## Mathematical value — PASS
-The new geometric invariant motivates measuring the difference between the full norm and its exact first-row Hölder benchmark as the real exponent grows. That difference is invisible at every algebraic order in \(1/p\), yet is positive and has an exact parameter-dependent exponential coefficient. A uniqueness theorem for the extremizing projective directions is supplied at the same time. This is a motivated sharp singular-asymptotic question, not an isolated finite computation. The conclusion does not extend uniformly to the skew-parameter endpoints, to complex scalars, or to all finite exponents.
+For fixed real 0<tau<1, p sufficiently large, projective reduction plus anticommutation with quarter-turn and power-sum majorization reduce the global operator norm to a nonnegative slope s in [0,1]. On [tau,1] the derivative sign is governed by H_p(s)=s^(p-1)-tau-(1+tau s^(p-1))*((s-tau)/(1+tau s))^(p-1). The three stated eventual inequalities give H_p monotonicity, one zero s_p>s0=tau^(1/(p-1)), and exactly two maximizing real projective lines. Mean-value expansion yields displacement s_p-s0~s0(1+tau^2)*rho_p^(p-1)/(tau*(p-1)); since the single-row quotient U_p has a stationary maximum at s0, its logarithmic loss is lower order than rho_p^p/p. Thus nu_p/R_p-1~rho_p^p/p and lim p*(nu_p-R_p)/rho^p=(1+tau)*tau^((1+tau^2)/(1-tau^2)). The Xu–Liu Lp conclusion is conditional on their published exact identity. Independent numerical optimizer checks for several tau and finite p corroborate the root and strict lower-bound gap; double precision ceases to resolve exponentially tiny gaps, and is not relied on for the limit.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Xu–Liu arXiv:2610.03050 proves the underlying geometric-to-matrix norm identity but gives no inspected sharp high-p exponentially-small coefficient or eventual maximizing-ray classification. Other skew James/Banaś–Frączek/hexagonal results concern other spaces or skew-parameter regimes. Resultary operator-norm search returned adjacent large-p Hilbert and James topics, not this fixed-tau matrix problem. Historic two-by-two induced p-norm asymptotics remain plausible.
+
+## value
+
+PASS
+
+The row-Hölder bound is a canonical exact benchmark for an induced matrix p-norm. Quantifying its beyond-all-algebraic-orders strict defect and the exponentially displaced optimizer, with a closed tau-dependent coefficient, is a motivated sharp singular asymptotic for skew Schäffer constants, not merely a benchmark recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
