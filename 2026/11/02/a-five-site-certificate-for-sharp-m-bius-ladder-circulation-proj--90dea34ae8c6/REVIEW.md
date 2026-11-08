@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is stated for every integer \(n\ge10\), the ordinary real edge \(\ell_1\)-norm, and projections onto the incidence kernel. Dihedral averaging does not increase norm and preserves the projection property. The proof parametrizes every invariant projection by one reflection-fixed flow and derives both edge-orbit column norms. The signed certificate uses only allowed coefficients of absolute values, cancels all variables exactly, and yields the universal lower bound. Explicit reflection-antisymmetric chord coefficients attain equality in the two complementary dimension regimes. A separate exact-rational checker reconstructs incidence matrices, idempotent operators, and all column norms for a finite range; the algebraic proof is necessary for the unbounded range.
+## correctness
 
-## Originality — PASS, qualified
-The closest source, Dilworth–Kutzarova–Ostrovskii (arXiv:2305.12582, 2023), supplies general cycle-space projection machinery and computations for tori and Hamming graphs, not this Möbius family or its five-site certificate. Their earlier papers (arXiv:1807.03814 and arXiv:2007.07949) concern finite metric free spaces and diamond/Laakso graphs. Heinig (arXiv:1112.5101) studies Möbius ladders but \(\mathbb F_2\)-cycle generation rather than real norm-minimal projections. A known exact circular-ladder value coincides numerically but applies to different, nonisomorphic graphs; no implication reducing the current problem to the planar calculation was identified. Relevant database and terminology searches did not identify direct coverage, but this does not prove historical priority. See the structured comparison and residual risks in AUDIT.json.
+PASS
 
-## Mathematical value — PASS
-A natural infinite nonplanar cubic graph family acquires an exact real cycle-space projection constant, with an extremizing operator and a uniform, five-site supporting-hyperplane certificate. Agreement with the known planar prism constant is a structural twist-insensitivity phenomenon that is not forced by cycle-space isometry. This is more than a numerical finite instance or a routine perturbation: it establishes a new all-dimensional extremal equality for a second distinct family. Smaller widths, other norms and weights, and uniqueness remain unaddressed.
+For Möbius ladder M_{2n}, n>=10, dihedral averaging of any l1 projection P onto ker B preserves range and norm convexity, so an invariant minimizer exists. If I-P=KB, then BK=I-J; the reflection-invariant flow h=K1_0, with chord g satisfying g_{n-i}=-g_i, parameterizes all invariant projections. The two edge-orbit column norms H and V are displayed sums of |a±g_i|, chord gradients and partial sums, so ||P||=max(H,V). A five-site signed coefficient certificate applied to 4H+V cancels every independent g variable after imposing antisymmetry, leaving 12-16/n, giving norm>=12/5-16/(5n). Two explicitly constructed rational g supports for 10<=n<=16 and n>=17 have H=V=12/5-16/(5n) and satisfy required inequalities, giving attainment. I independently expanded the dual signed functional symbolically with the correct reflection constraint and checked cancellation, then evaluated both exact-rational H,V constructions at n=10,11,12,16,17,31. A preliminary independent unconstrained-g check was intentionally corrected because these variables are not independent in the flow parameterization; no proof gap resulted. Infinite n conclusion relies on the exact symbolic coefficient pattern and regime inequalities, not a finite sample. Real field and ordinary edgewise l1 are essential.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS with residual implicit-coverage risk: Dilworth–Kutzarova–Ostrovskii give the general symmetry-averaged l1 cycle-space projection framework and values for several graph families, including related circular ladders. This result uses their framework, not an independent invention of averaging. The Möbius ladder graph is nonplanar and a different cycle space from the planar prism, so equality of final numeric constants alone does not imply coverage; inspected primary theorem cases do not identify this n>=10 Möbius ladder minimax. Heinig addresses mod-two cycle generation, not real l1 projection constants.
+
+## value
+
+PASS
+
+Determines the exact unrestricted minimum projection norm for an infinite nonplanar graph family with a dimension-uniform five-site dual certificate and explicit attaining operators, showing a surprising agreement with a planar ladder constant. This is a natural functional-analytic graph invariant with more than a finite computational observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
