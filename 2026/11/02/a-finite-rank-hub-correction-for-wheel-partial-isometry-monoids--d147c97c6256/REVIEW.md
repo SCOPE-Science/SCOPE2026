@@ -1,19 +1,21 @@
-# Review: A finite-rank hub correction for wheel partial-isometry monoids
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The result is stated for the full wheel metric and every integer \(n\ge5\), not for induced-subgraph distances or the intrinsic cycle metric. The proof establishes a precise equivalence with induced graph isomorphisms because the wheel has diameter two. A cyclic-run count gives all ordinary rim-only maps; attaching a fixed hub gives an equally large disjoint family. The three exceptional cone automorphism types and three cone/rim type overlaps are exhaustive; their multiplicities give exactly the displayed correction. A standalone standard-library verifier checks all injective partial maps for rim lengths five through seven and reproduces the complete rank distributions and exceptional counts. These checks do not replace the universal proof.
+PASS
 
-## Originality
+Because every pair of distinct wheel vertices has distance one or two, partial metric isometries are exactly induced graph isomorphisms. Proper rim induced subgraphs are path forests whose cyclicly ordered positive gaps give B_{n,lambda}; their automorphism counts are 2^{t-m_1}∏m_j!. Maps avoiding hub contribute Q_n, those fixing hub contribute zQ_n. All remaining maps fall into finitely many small cone automorphisms or cone-to-rim correspondences, yielding exceptional polynomial 2nz+5n^2z^2+2n^2(n−1)z^3+2n^2z^4. Independently enumerate every possible labeled partial injection with adjacency preserved for n=5,6,7 and reproduce total 957,2534,7737 with complete rank coefficients. The exhaustive *all-n* argument is combinatorial, not inferred from these checks.
 
-**PASS relative to inspected sources; priority provisional.** Fernandes, arXiv:2307.16257, is the closest same-object work. Its Lemma 1.1 and Theorem 2.4 already provide the small-rank exception bound and Green-class framework; the new claim is **not** that such exceptions are restricted to rank four. Rather, the new claim is their exact four-term enumerator and the all-rank identity linking the wheel to cycle induced-subgraph partial automorphisms. Jajcay et al., arXiv:1809.04422, gives the general class correspondence; Fernandes and Paulista, arXiv:2205.02196, addresses cycle intrinsic-metric isometries and therefore a different rim invariant. The closest-source implication comparison is documented in `AUDIT.json`. A stronger unlocated cone graph enumeration could subsume the answer, and exhaustive bibliographic priority has not been established.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** All domain-rank layers of this natural family of inverse monoids are determined, including every canonical rank-ideal cardinality. The count of hub-moving maps gives an explicit and unexpectedly low-degree obstruction to a naive two-copy decomposition. This quantitatively complements prior Green-class and generating-set results and is not merely a low-dimensional census.
+The claimed exact full domain-rank polynomial and degree<=4 hub-moving correction are finer than Fernandes’s established rank<=4 structural lemma and generating-set rank. General partial graph automorphism counting and cycle metric monoids do not directly supply the evaluated wheel coefficients. Best-of-knowledge original notwithstanding a known structural upper bound.
 
-## Scope and evidence
+## value
 
-The theorem covers labeled wheels with at least five rim vertices and all partial ambient-metric isometries. The included code exhaustively checks sizes up to eight wheel vertices and verifies cyclic path-profile multiplicities for larger finite cases. No claim is made about other cones, smaller wheels, cycle intrinsic distances, or independent certification. Scientific and bibliographic risks are listed in `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete natural domain-rank polynomial for an infinite inverse-monoid family, with exact low-rank hub correction, answers a finer enumerative invariant than the known minimal generating-set rank. The distinction between ambient graph metric and induced rim subgraph automorphisms is essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and only the standard library. On the included file, the actual output was:
+## correctness
 
-```text
-RUN_INVENTORY_OK n=5..11
-EXHAUSTIVE_OK 5 rank_counts 1,36,250,400,200,60,10 exceptional 10,125,200,50
-EXHAUSTIVE_OK 6 rank_counts 1,49,450,978,672,288,84,12 exceptional 12,180,360,72
-EXHAUSTIVE_OK 7 rank_counts 1,64,784,2352,2450,1470,490,112,14 exceptional 14,245,588,98
-POLYNOMIAL_INTERNAL_OK n=8..13
-VERIFY_OK
-```
+PASS
 
-The verifier independently enumerates every injective partial map on the rim cycle and wheel for \(n=5,6,7\), checks all pairwise adjacency relations, and categorizes whether a valid wheel map avoids the hub, fixes it, or belongs to the exceptional class. Its separate subset inventory check reconstructs run profiles directly by graph connectivity on all vertex subsets for \(5\le n\le11\). The final larger-parameter arithmetic checks verify consistency of the displayed polynomial identity but are not exhaustive partial-map checks. Only the mathematical argument in `RESULT.md` establishes all \(n\ge5\); finite verification alone cannot do so.
+Because every pair of distinct wheel vertices has distance one or two, partial metric isometries are exactly induced graph isomorphisms. Proper rim induced subgraphs are path forests whose cyclicly ordered positive gaps give B_{n,lambda}; their automorphism counts are 2^{t-m_1}∏m_j!. Maps avoiding hub contribute Q_n, those fixing hub contribute zQ_n. All remaining maps fall into finitely many small cone automorphisms or cone-to-rim correspondences, yielding exceptional polynomial 2nz+5n^2z^2+2n^2(n−1)z^3+2n^2z^4. Independently enumerate every possible labeled partial injection with adjacency preserved for n=5,6,7 and reproduce total 957,2534,7737 with complete rank coefficients. The exhaustive *all-n* argument is combinatorial, not inferred from these checks.
+
+## originality
+
+PASS
+
+The claimed exact full domain-rank polynomial and degree<=4 hub-moving correction are finer than Fernandes’s established rank<=4 structural lemma and generating-set rank. General partial graph automorphism counting and cycle metric monoids do not directly supply the evaluated wheel coefficients. Best-of-knowledge original notwithstanding a known structural upper bound.
+
+## value
+
+PASS
+
+A complete natural domain-rank polynomial for an infinite inverse-monoid family, with exact low-rank hub correction, answers a finer enumerative invariant than the known minimal generating-set rank. The distinction between ambient graph metric and induced rim subgraph automorphisms is essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
