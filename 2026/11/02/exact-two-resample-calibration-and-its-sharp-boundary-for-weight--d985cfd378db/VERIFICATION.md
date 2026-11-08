@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run the self-contained script using `python3 check.py`; only the Python standard library is required. Its enumerator computes the generalized rank statistic by testing all independent transformation tuples and averaging over the four equally likely group states, using exact integers and `fractions.Fraction` throughout.
+## correctness
 
-The observed successful execution reported 5163 exact rational assertions. These include 3960 full-law checks spanning 165 compositions of total transformation weight eight and all 24 four-state score orders; two distinct three-draw distributions checked against separately stated rational fractions; and strict/weak CDF monotonicity checks under elementary probability smoothing.
+PASS
 
-This checker is not an exhaustive proof over infinitely many group sizes, all real probability vectors, or all possible exchangeable nulls. Those claims are supported instead by the collision-partition proof, involutive pair symmetry and exact balancing derivatives in RESULT.md. In the four-state witness, uniform random data permutations are represented by a uniformly random within-orbit group element; repeating the score pattern over every orbit yields a fully exchangeable null. The no-ties condition applies to distinct transformations, not repeated sampled transformations.
+For any finite elementary abelian 2-group of size 2^d, q arbitrary, and an exchangeable full data null with a.s. distinct orbit scores, partition three iid transformation draws by equality pattern. Conditional on all-distinct draw labels, observed score rank is uniform; two-equal pair comparisons are fair by involution symmetry; all-equal produces p=1. This yields masses in s2 and s3. Pairwise Robin-Hood transfers increase both nontrivial CDF thresholds strictly, showing unique uniform extremality. Independent exact rational orbit enumeration for all 24 strict score orders on the four-element group agreed with the moment law; the two specified three-resample orders give different exact histograms.
 
-Independent mathematical review, independent audit and historical-priority certification have not been performed.
+## originality
+
+PASS
+
+Ramdas et al. Theorem 2.3 proves exchangeable-rank validity; collision patterns together with involutive pair symmetry imply a short derivation of the M=2 mass formulas, so those ranks and validity are expressly credited to prior work. Sharp stochastic extremality for arbitrary weights and a concrete same-q/same-null two-statistic nonuniversality witness for M=3 are additional statements not asserted by its full inspected text. Originality rests on that combined strict extremality and sharp boundary, not on rebranding the general validity theorem.
+
+## value
+
+PASS
+
+Distribution-free finite-sample calibration for weighted resampling directly affects level conservativeness; unique uniform extremality and the first M=3 failure are informative sharp boundaries of a general testing principle, not merely a redundant restatement of validity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
