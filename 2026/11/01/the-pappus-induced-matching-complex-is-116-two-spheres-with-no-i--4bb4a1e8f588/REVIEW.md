@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is fixed unambiguously by its LCF description. Exhaustive recursive enumeration of independent sets in the squared line graph yields the exact face-cardinality vector \((1,27,189,387,135,27)\); a structurally independent endpoint-induced-subgraph test agrees on the entire face set and rules out every six-edge candidate. The stated 324-pair Morse matching is explicitly defined, leaves one vertex and 116 two-simplices, and the directed Hasse graph has 2,214 verified incidences with a complete 765-vertex topological sorting. The discrete Morse theorem therefore gives the integral sphere-wedge homotopy equivalence without assumptions about mod-field torsion. All 216 automorphisms are explicitly enumerated, and the signed, reduced fixed-face chain trace gives the complete rational character. The average character is zero. The standard-library verifier and expected output are embedded in this package.
+## correctness
 
-## Originality — PASS, subject to residual literature risk
-The key equivalence is between graph-edge-induced matchings and independent sets in the **square** of the graph's line graph. Searches explicitly included both presentations and graph aliases; no indexed covering Pappus result was identified. A closely matching published result for the *ordinary* Pappus matching complex was read in full: that simplicial complex is \(\operatorname{Ind}(L(P))\), not \(\operatorname{Ind}(L(P)^2)\), so its forty five-spheres do not imply this theorem. The graph-theoretic 2013 induced-matching paper was inspected for its definitions and principal theorems; its cubic-graph lower bounds concern only matching cardinalities. The older simple-homotopy theory and Pappus vertex-independence result do not supply the exact complex or automorphism character. Literature searches cannot rule out unindexed equivalent work.
+PASS
 
-## Value — PASS
-Induced matchings are a standard packing invariant with strong-edge-coloring applications, not an artificial face condition. Passing from the largest induced matching to the simplicial complex of **all** such matchings is a natural topological refinement. The Pappus graph is a canonical 18-vertex cubic symmetric incidence graph, so its automorphism action is mathematically meaningful. The surprising difference between the dimension-four nonpure complex and a wedge of 116 two-spheres, together with the full 216-element symmetry character and vanished invariant space, supplies motivated structural information not determined by extremal matching counts, ordinary matching homology, or non-equivariant Betti numbers. No invented general theorem or downstream application is claimed.
+Constructed the Pappus graph from the 18-cycle and [5,7,-7,7,-7,-5]^3 chords and the exact strong-matching conflict relation on 27 graph-edge vertices; independently enumerated all valid induced matchings with f by cardinality (1,27,189,387,135,27). Rebuilt the 324 deterministic greedy edge-toggle pairs; the entire 765-node, 2214-cover reversed Hasse graph topologically sorts, with one critical vertex and 116 critical 2-cells and no other critical cells. Forman Morse theory therefore directly gives an integral wedge116 S2, not only mod-p Betti numbers. Independently enumerated all 216 graph automorphisms (networkx GraphMatcher exhaustive on 18 labeled vertices), induced oriented action on each simplex, and reproduced all trace multiplicities {116:1,8:2,5:12,2:12,-10:18,-1:36,0:135}; the exact average 0 shows no invariant rational H2. Full graph size and edge condition were independently checked.
 
-## Sources and residual risks
-Primary background: Kozlov, arXiv:math/0503613 (2005-03-28); Joos–Rautenbach–Sasse, arXiv:1312.1110 (2013-12-04); Forman (1998). Closest distinct calculation: *Integral homotopy type of the Pappus graph matching complex* (published 2026). The new conclusion is specific to the edge-based strong-matching complex. A potentially unindexed source containing an equivalent Pappus calculation remains an originality risk. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published ordinary Pappus edge matching homotopy wedge40 S5 and its mod-two ranks concern Ind(L(Pappus)), not strong matchings Ind(L(Pappus)^2). Combinatorial results bounding induced matching size do not classify the complex of all induced matchings or Aut(Pappus) character. Exact canonical finite-graph topology not found as covered, with explicit unindexed-literature risk.
+
+## value
+
+PASS
+
+Strong matchings are natural edge configurations encoding induced disjointness; the highly symmetric cubic Pappus incidence graph is a canonical test case. An integral homotopy sphere-wedge and full automorphism character, especially absence of invariant cycles, are new structural invariants not deducible from maximum induced matching size or ordinary matching homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

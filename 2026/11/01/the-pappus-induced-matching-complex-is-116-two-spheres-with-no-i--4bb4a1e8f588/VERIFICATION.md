@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Execute `python3 verify_pappus_strong_matching.py` using Python 3.10 or later. The executable reconstructs the fixed cubic graph, forms the squared-line conflict relation on all 27 graph-edge labels, and exhaustively enumerates all simplicial faces in two independent ways. It also rules out six-edge induced matchings, constructs every Morse pair exactly as specified in the proof, and verifies acyclicity across all 2,214 nonempty face-poset incidences. This supplies the finite witness needed for the integral Forman sphere-wedge argument.
+## correctness
 
-The program separately enumerates all 216 graph automorphisms by adjacency-compatible bijection backtracking, counts signed fixed oriented simplices, and derives the complete second-homology character. Its deterministic output is stored verbatim as `verification_output.txt`; successful execution ends with `VERIFY_OK` and verifies zero full-group invariant dimension. The exact calculation enumerates the entire finite domain, not a sample. The check does not establish a classification for a graph family, rule out unseen literature, or constitute an independent audit.
+PASS
+
+Constructed the Pappus graph from the 18-cycle and [5,7,-7,7,-7,-5]^3 chords and the exact strong-matching conflict relation on 27 graph-edge vertices; independently enumerated all valid induced matchings with f by cardinality (1,27,189,387,135,27). Rebuilt the 324 deterministic greedy edge-toggle pairs; the entire 765-node, 2214-cover reversed Hasse graph topologically sorts, with one critical vertex and 116 critical 2-cells and no other critical cells. Forman Morse theory therefore directly gives an integral wedge116 S2, not only mod-p Betti numbers. Independently enumerated all 216 graph automorphisms (networkx GraphMatcher exhaustive on 18 labeled vertices), induced oriented action on each simplex, and reproduced all trace multiplicities {116:1,8:2,5:12,2:12,-10:18,-1:36,0:135}; the exact average 0 shows no invariant rational H2. Full graph size and edge condition were independently checked.
+
+## originality
+
+PASS
+
+Published ordinary Pappus edge matching homotopy wedge40 S5 and its mod-two ranks concern Ind(L(Pappus)), not strong matchings Ind(L(Pappus)^2). Combinatorial results bounding induced matching size do not classify the complex of all induced matchings or Aut(Pappus) character. Exact canonical finite-graph topology not found as covered, with explicit unindexed-literature risk.
+
+## value
+
+PASS
+
+Strong matchings are natural edge configurations encoding induced disjointness; the highly symmetric cubic Pappus incidence graph is a canonical test case. An integral homotopy sphere-wedge and full automorphism character, especially absence of invariant cycles, are new structural invariants not deducible from maximum induced matching size or ordinary matching homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
