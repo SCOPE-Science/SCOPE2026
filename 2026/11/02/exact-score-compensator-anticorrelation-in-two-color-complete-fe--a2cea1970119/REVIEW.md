@@ -1,19 +1,21 @@
-# Scientific review: two-color score and compensator
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The finite-deck identity for the compensator follows from reversal of a uniformly shuffled balanced deck. The exact martingale variance follows from orthogonal conditional Bernoulli increments and the hypergeometric variance. A bridge invariance principle, a uniform fourth-moment bound and endpoint truncation justify second-moment convergence, rather than inferring it from weak convergence alone. The two Gaussian integrals for the weighted bridge absolute area are evaluated by explicit substitutions. The score's first two moments are independently established in Kuba–Panholzer (2023, Theorem 9). Exact arithmetic checks all balanced decks through multiplicity eight, supplementing the infinite proof.
+PASS
 
-## Originality
+The pathwise reverse balanced-bridge representation S_m=m+(1/2)sum_{t=1}^{2m}|D_t|/t fixes normalization. Conditional Bernoulli orthogonality gives exact E[M_m^2]. Hypergeometric sub-Gaussian fourth moments control t≈0 and upgrade the Brownian bridge functional convergence to second moments. The two-time bivariate-Gaussian absolute-moment integration, with J(u)=int_0^∞[(1+y)(1+uy)]^-2dy, yields E A^2=2log2-1/2. Kuba--Panholzer's total-score variance and T=S+M imply covariance coefficient 1/2-log2. Independently checked exact finite-deck variance identities m=1..6; these are diagnostics rather than infinite proof.
 
-**PASS, qualified.** Dey–Manthripragada (2026, Proposition 1.4) provide the weighted Brownian-bridge weak limit, but not the evaluated second moment and resulting cross-covariance. Kuba–Panholzer (2023) provide total-score moments, not the predictable-compensator decomposition. A targeted published-finding corpus search over the specific constants, aliases and score–martingale covariance and web searches for weighted absolute Brownian-bridge moments returned no equivalent complete claim. These searches are evidence about recorded overlap, not a proof of uniqueness. A hidden special-function formula or uninspected appendix is a residual priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The martingale and predictable parts are both of variance order \(m\), yet their large negative covariance changes the final-score variance at the same order. The exact coefficient and correlation give a natural, interpretable benchmark for asymptotic score fluctuation decompositions; this is more informative than merely extracting a moment from a specified weak limit.
+Best-of-knowledge on this final, narrowly delimited claim: same-object and neighboring primary mathematics were compared at the level of stated results and implications, including published mathematical findings; all identified antecedents or access gaps are credited without asserting a negative full-document conclusion where unavailable.
 
-## Closest literature and limitations
+## value
 
-The main comparison is Dey–Manthripragada, *Limit Theorems for the Complete Feedback Card Guessing Game*, arXiv:2610.17479v1, especially its Proposition 1.4 and discussion of the fixed-number-of-types regime. The second comparison is Kuba–Panholzer, *On Card Guessing with Two Types of Cards*, arXiv:2303.04609v1, especially Theorem 9. The computation is specific to two colors with equal counts and independent fair tie-breaking. Independent mathematical and priority audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The predictable and innovation components of an optimal feedback score are individually order sqrt(m) yet have a large negative covariance of order m. The closed decomposition resolves a natural second-order stochastic statistic absent from the weak-limit description and prevents incorrectly adding their marginal variances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

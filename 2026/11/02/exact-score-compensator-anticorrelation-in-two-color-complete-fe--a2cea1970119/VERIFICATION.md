@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The theorem is supported analytically by the reverse-path compensator identity, the hypergeometric martingale-variance formula, moment-uniform bridge invariance, and an exact double-integral evaluation. The total-score moment limits are taken from the cited 2023 theorem.
+## correctness
 
-`verify_moments.py` checks every balanced sequence for eight finite multiplicities in exact rational arithmetic; it averages ties analytically and compares the squared martingale residual with the derived harmonic-number formula. Independent numerical quadrature checks the two evaluated bridge integrals and their sum. The corresponding deterministic output is `verification_output.txt`.
+PASS
 
-Finite numerical checks do not establish an infinite asymptotic claim. The prior-art comparison is limited to cited relevant sections and searches; historical priority remains open to independent assessment.
+The pathwise reverse balanced-bridge representation S_m=m+(1/2)sum_{t=1}^{2m}|D_t|/t fixes normalization. Conditional Bernoulli orthogonality gives exact E[M_m^2]. Hypergeometric sub-Gaussian fourth moments control t≈0 and upgrade the Brownian bridge functional convergence to second moments. The two-time bivariate-Gaussian absolute-moment integration, with J(u)=int_0^∞[(1+y)(1+uy)]^-2dy, yields E A^2=2log2-1/2. Kuba--Panholzer's total-score variance and T=S+M imply covariance coefficient 1/2-log2. Independently checked exact finite-deck variance identities m=1..6; these are diagnostics rather than infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge on this final, narrowly delimited claim: same-object and neighboring primary mathematics were compared at the level of stated results and implications, including published mathematical findings; all identified antecedents or access gaps are credited without asserting a negative full-document conclusion where unavailable.
+
+## value
+
+PASS
+
+The predictable and innovation components of an optimal feedback score are individually order sqrt(m) yet have a large negative covariance of order m. The closed decomposition resolves a natural second-order stochastic statistic absent from the weak-limit description and prevents incorrectly adding their marginal variances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

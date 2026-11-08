@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T13:54:55.304266Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pathwise reverse balanced-bridge representation S_m=m+(1/2)sum_{t=1}^{2m}|D_t|/t fixes normalization. Conditional Bernoulli orthogonality gives exact E[M_m^2]. Hypergeometric sub-Gaussian fourth moments control t≈0 and upgrade the Brownian bridge functional convergence to second moments. The two-time bivariate-Gaussian absolute-moment integration, with J(u)=int_0^∞[(1+y)(1+uy)]^-2dy, yields E A^2=2log2-1/2. Kuba--Panholzer's total-score variance and T=S+M imply covariance coefficient 1/2-log2. Independently checked exact finite-deck variance identities m=1..6; these are diagnostics rather than infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dey–Manthripragada 2026 Proposition 1.4 provides limiting Brownian bridge functional; Kuba–Panholzer 2023 Theorem 9 handles total-score raw moments."
+        ],
+        "reasoning": "General fixed-type convergence and all fixed-order total-score moments do not directly supply an evaluated predictable-compensator variance or its martingale covariance; remaining methods/appendix of 2026 paper was not fully readable.",
+        "searches": [
+          "Resultary: full feedback card guessing two colors optimal guessing predictable compensator Brownian bridge score martingale covariance variance Dey Manthripragada Kuba Panholzer",
+          "complete feedback optimal guessing variance fixed two-type Brownian bridge moment"
+        ]
+      },
+      "checked_sources": [
+        "Dey–Manthripragada, arXiv:2610.17479v1, fixed-type compensator limit (Proposition 1.4)",
+        "Kuba–Panholzer, arXiv:2303.04609v1, Theorem 9 (two-colour score moments)",
+        "Exact source RESULT.md and verify_moments.py at commit cee6a8611931dc24cf27d27764642f895841c83e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The total-score variance limit 1-pi/4 and weak predictable bridge limit are antecedents; the new argument proves E[M^2] exactly and E[A^2]=2log2-1/2."
+        ],
+        "reasoning": "The antecedents do not logically imply second-moment convergence without uniform integrability or provide its explicit two-time Gaussian integral. Combining the new evaluated integral and exact martingale variance is necessary for the claimed 1/2-log2 cross covariance.",
+        "searches": [
+          "Resultary: full feedback card guessing two colors optimal guessing predictable compensator Brownian bridge score martingale covariance variance Dey Manthripragada Kuba Panholzer",
+          "arxiv:2303.04609 Theorem 9 score variance",
+          "arxiv:2610.17479 Proposition 1.4 Brownian bridge compensator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2610.17479v1 gives the fixed-type bridge functional; arXiv:2303.04609v1 gives total-score moments, rather than the evaluated S--M cross covariance.",
+          "Independent source proof evaluates E[(1/sqrt(2) integral |B(u)|/u du)^2] = 2 log 2 - 1/2."
+        ],
+        "reasoning": "The evaluated bridge functional and the predictable martingale covariance are equivalent presentation routes only after proving uniform integrability and the two-time integral; a bare weak limit and separate total score moments do not state this closed dependence law.",
+        "searches": [
+          "Resultary: full feedback card guessing two colors optimal guessing predictable compensator Brownian bridge score martingale covariance variance Dey Manthripragada Kuba Panholzer",
+          "weighted inverse-time absolute Brownian bridge integral second moment score martingale covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search's nearest inspected titles concerned unrelated martingale calibration; no exact corresponding record was identified.",
+          "The target is a continuum weighted Brownian functional combined with finite-deck variance, not a precomputed table lookup."
+        ],
+        "reasoning": "Negative catalog search is not a proof of historical novelty; older weighted bridge-area identities may already encode the number.",
+        "searches": [
+          "Resultary: full feedback card guessing two colors optimal guessing predictable compensator Brownian bridge score martingale covariance variance Dey Manthripragada Kuba Panholzer",
+          "Brownian bridge weighted absolute integral variance log two"
+        ]
+      },
+      "rationale": "Best-of-knowledge on this final, narrowly delimited claim: same-object and neighboring primary mathematics were compared at the level of stated results and implications, including published mathematical findings; all identified antecedents or access gaps are credited without asserting a negative full-document conclusion where unavailable.",
+      "residual_risks": [
+        "The complete main/methods text of arXiv:2610.17479 was not read in this execution; direct prior evaluation in its appendix cannot be excluded.",
+        "Earlier stochastic-process literature may evaluate this weighted Brownian-bridge absolute integral under a different name; search absence is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS total-score moments but not evaluated predictable score and martingale residual covariance",
+          "evidence": [
+            "Theorem 9 asymptotics of two-colour optimal score; different score-category decomposition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.04609",
+          "material_read": "Accessible complete 21-page arXiv article; theorem 9 and derivation of total-score asymptotic moments",
+          "method": "arXiv PDF text and page-image inspection",
+          "title": "On Card Guessing with Two Types of Cards",
+          "trigger": "Direct total-score moments used in covariance decomposition"
+        },
+        {
+          "assessment": "Covers motivating weak limit; cannot rule out formula in unread methods/appendices",
+          "evidence": [
+            "Proposition 1.4 identifies a Brownian bridge functional for fixed number of colours; full text inaccessible in current run."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.17479",
+          "material_read": "Public accessible description, Proposition 1.4 referenced in inspected package; complete article unavailable in this execution",
+          "method": "public arXiv access attempt and bibliographic comparison",
+          "title": "Limit Theorems for the Complete Feedback Card Guessing Game",
+          "trigger": "Same card game and fixed-type Brownian bridge compensator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The predictable and innovation components of an optimal feedback score are individually order sqrt(m) yet have a large negative covariance of order m. The closed decomposition resolves a natural second-order stochastic statistic absent from the weak-limit description and prevents incorrectly adding their marginal variances.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dey–Manthripragada, arXiv:2610.17479v1, fixed-type compensator limit (Proposition 1.4)",
+    "Kuba–Panholzer, arXiv:2303.04609v1, Theorem 9 (two-colour score moments)",
+    "Exact source RESULT.md and verify_moments.py at commit cee6a8611931dc24cf27d27764642f895841c83e"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every balanced uniformly shuffled deck, E[M_m^2]=m/2-m(H_{2m}-1)/(2(2m-1)); as m→∞ Var(S_m)/m=2log2-1/2-pi/4 and Cov(S_m,M_m)/m=1/2-log2; correlation tends to -0.85993568...",
+  "limitations": [
+    "Equal two-color multiplicities and independent fair ties only; no unequal or multicolor extension.",
+    "Full same-object 2026 preprint unavailable; best-of-knowledge priority only; no new formal or expert certificate."
+  ],
+  "residual_risks": [
+    "The complete main/methods text of arXiv:2610.17479 was not read in this execution; direct prior evaluation in its appendix cannot be excluded.",
+    "Earlier stochastic-process literature may evaluate this weighted Brownian-bridge absolute integral under a different name; search absence is not novelty proof."
+  ],
+  "schema_version": 1
+}
