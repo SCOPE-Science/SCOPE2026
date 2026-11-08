@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Under the unique-even-degree condition, every rooted node has even child count, so the rootward-childward composition \(DU\) vanishes in characteristic two. The proof checks that all other mixed words vanish and evaluates the only remaining terms in the two largest powers; it handles \(h=0\), deepest-layer nonemptiness, and the dependence of each impulse on its starting depth. The last two power ranks are exactly one and two (when \(h\ge1\)); elementary rank-nullity yields the finite-field distribution. A direct unrooted graph checker and an independent rooted-operator checker passed; the infinite claim rests on the proof.
+
+**Originality — PASS, qualified.** Martin, Odlyzko, and Wolfram's 1984 full manuscript gives foundational algebraic additive cellular automata, but the inspected regular-lattice results do not imply the special irregular-tree cancellation, sharp extinction clocks or count. Wolfram (1983) and Salo (2019) were accessible only through record/abstract, and unindexed equivalent statements remain a risk. published-finding corpus searches of graph parity, tree nilpotency, and impulse lifetimes, together with an accessible-claim comparison to the prior fan graph result, did not identify a dominating statement. The result does not claim invention of additive cellular-automata algebra or generic tree adjacency decompositions.
+
+**Value — PASS.** An intrinsic graph degree-parity condition forces exact global extinction with a sharp \(2h+1\) clock and sharp depth-dependent impulses; the top-two time layers have universal \(q\)-counts for arbitrary irregular branching. A degree-three comb exhibits an unbounded gap between extinction time and graph diameter, giving a concrete propagation-versus-cancellation distinction. The final layers, rather than the mere existence of nilpotent examples, are the motivated quantitative output.
+
+**Scope and limitations.** Arbitrary finite characteristic-two field; unique even-degree vertex is sufficient, not necessary. Earlier layers, arbitrary trees, and other characteristics are not classified. Independent external audit and exhaustive historical-priority confirmation are absent.
+
+Self-review: passed. Independent audit: not yet performed.
