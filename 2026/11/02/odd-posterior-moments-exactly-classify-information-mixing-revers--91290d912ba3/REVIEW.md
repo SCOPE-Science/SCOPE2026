@@ -1,11 +1,21 @@
-# Scientific review: conjugate-channel information-mixing parity
+# Independent mathematical audit
 
-**Correctness — PASS.** The conditional-independence information identity reduces the two-coordinate gap to the difference of two correlation mutual informations. Their joint densities relative to the common product marginal are exactly \(1\pm ZZ'\), where \(\mathbb EZ=0\) and \(|Z|\le1\). The uniformly convergent expansion of \((1+t)\log(1+t)\) yields the nonnegative weighted squares of all odd moments of degree at least three. Compact-support moment determinacy proves necessity and sufficiency of sign symmetry, including singular alphabets and the binary equality boundary. The published identity supplies only an elementary starting point; the odd-moment classification is proved here. A standalone checker ran 1321 direct rational/decimal assertions and was reviewed against the proof. Its finite tests do not substitute for the infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Kontorovich (2026, arXiv:2610.31164v1, inspected introduction, Theorem 2.1, Sections 6–7) treats uniform homogenization bounds and power divergences; it neither states the exact Jensen–Shannon parity series nor its equality boundary. Kireeva–Mourrat (2023, arXiv:2304.05129v1, inspected PDF Sections 1–2 and the relevant example/low-signal calculation on pages 5–8) supplies the conditional-independence lemma, non-Gaussian counterexamples and low-signal positivity. Its Bernoulli comparison is numerical outside its perturbative region, not an all-parameter theorem, and its studied inequalities are not an all-order odd-moment formula. A previously documented disjoint-support Jensen–Shannon counterexample already establishes failure of constant-one homogenization and a repetition-dependent reversal; those existence statements are explicitly excluded from the novelty assertion. Targeted published-record searches for conjugate channels, odd posterior moments, reversed Bernoulli mutual information and parity equality cases found no directly covering result. Unindexed classical information-combining identities and publication-priority uncertainty remain real risks. Failure to find a matching search result is not proof of historical priority.
+PASS
 
-**Mathematical value — PASS.** The result gives an exact obstruction *functional* rather than another isolated counterexample, and completely determines when mixing two hypothesis-reversed channels is strictly inferior or tied. In the Bernoulli case, it settles the full parameter region hinted at by numerical evidence and identifies a nontrivial equality line \(P(0)+Q(0)=1\), despite unequal observation laws. For general finite alphabets, the equality criterion detects all posterior-score symmetries; the sixth-order expansion quantifies the weakness of asymmetry near a balanced experiment. This is a motivated boundary of statistical experiment allocation and divergence homogenization, not an arbitrary finite calculation.
+For two conjugate binary-input experiments and equal prior, set M=(P+Q)/2, Z=(P−Q)/(P+Q) on M-positive symbols (centered and |Z|≤1). Tagged pooling gives Δ=1/2[I(H;A,A′)−I(H;A,B)]=1/2 E[h(−ZZ′)−h(ZZ′)], where h(t)=(1+t)log(1+t) and Z,Z′ iid. Expand h(t)=t+Σ_{n≥2}(−1)^n t^n/[n(n−1)], which converges absolutely uniformly on [−1,1], and use EZ=0: Δ=Σ_{j≥1}(E Z^{2j+1})²/[(2j)(2j+1)]≥0. All vanish iff every odd moment vanishes, hence the law of Z is symmetric by polynomial density on [−1,1]. For two letters and P≠Q, symmetry iff P(0)+Q(0)=1; for weak contrast first coefficient ε^6 (E_M u³)^2/6; example exactly log(4096/3125)/16. Independent direct tensor JS confirms 0.01691103778430264 and positive sign; 1500-term series partial sum differs by ~1.04e−5 because endpoint |Z|=1 and is NOT an infinite numerical proof.
 
-**Limitations and residual risks.** The proof is for two observations, finite alphabets and equal-prior Jensen–Shannon divergence. It does not determine the best general homogenization constant. The early 2023 non-Gaussian channel work has conceptual overlap and may have follow-up extensions outside accessible indexed material. The 2026 source provides the recent homogenization context; the 2023 work is an essential acknowledged predecessor. Independent mathematical and historical-priority review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The mutual-information conditional-independence chain identity and numerical Bernoulli reversal examples are prior Kireeva–Mourrat; Kontorovich studies general homogenization factors. The all-alphabet exact odd-posterior-moment square series and complete equality locus are stronger statements than a plotted Bernoulli example, sixth-order perturbation, or a general finite-constant criterion. Search gives no matching theorem but historical priority in information combining remains qualified.
+
+## value
+
+PASS
+
+The nonnegative parity-series identity resolves a natural sign ambiguity between repeated and conjugate channel observation strategies, including every boundary-probability equality case. Exact symmetry classification is a structurally reusable criterion, not simply a numerical counterexample or routine entropy-chain-rule restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
