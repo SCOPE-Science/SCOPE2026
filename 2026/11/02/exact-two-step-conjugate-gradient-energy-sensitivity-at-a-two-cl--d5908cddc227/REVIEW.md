@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** For fixed real \(\beta>\gamma>0\), both active spectral components make the two-step CG coefficient Gram matrix positive definite. This yields an analytic optimal residual polynomial. Its Fréchet derivative cancels the cross-cluster blocks exactly; orthogonal projection within each cluster gives both terms and every zero case in the announced coefficient. The packaged verifier passed 560 distinct exact-rational configurations across seven multiplicity patterns, along with direct exact-rational two-step tests for a nonzero coefficient and a vanishing one. Finite tests corroborate but do not establish the arbitrary-dimensional theorem; that conclusion is proved algebraically in `RESULT.md`.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The closest motivating result, Diouane et al., arXiv:2610.28808, Theorem 3.14, gives an upper energy-error comparison with an \(O(t^2)\) remainder and explicitly restricts the spectral parameter away from untouched eigenvalues (Definition 3.7). It therefore excludes the resonant collision treated here and does not give the sharp leading coefficient. The 2026 and 2024 precursors characterize scaled spectral preconditioners without matrix-perturbation derivatives. The older first-order eigenpair and deflated-CG studies address spectra or effective condition numbers, not the exact two-iteration energy residual. A previously published general sensitivity theorem might still imply this specialization; no independent historical-priority certification is claimed.
+PASS
 
-**Value — PASS.** The sharp formula classifies precisely which perturbations matter for a naturally accelerated two-level Krylov solve, and it distinguishes \(\Theta(t^2)\) from \(O(t^4)\) squared-error responses even with arbitrary cross-cluster coupling. This gives a sharp Frobenius-worst-case sensitivity constant and addresses an excluded resonant parameter of the motivating perturbation theorem and gives a criterion for designing or testing recycled spectral preconditioners. It is limited to two unperturbed spectral levels, two iterations, exact arithmetic and small perturbations; it says nothing about full iterative complexity or floating-point stability.
+At t=0 the CG polynomial p0(z)=(1-z/beta)(1-z/gamma) annihilates the two active spectral components. Since the 2x2 Gram matrix of z and z² under positive spectral weights is invertible, the optimum residual polynomial coefficients are analytic in t. The Fréchet derivative of p0(C0) multiplies a cross-cluster F block by p0[beta,gamma]=0, cancelling it exactly. Independent linear adjustments q(beta),q(gamma) remove components along u and v; the first residual derivative is the orthogonal within-cluster perturbation vector scaled by (beta-gamma)/(beta gamma). Squaring in the C0-inverse norm yields the two denominators beta³ gamma² and beta² gamma³, with O(|t|³) error and O(t⁴) when the leading vector vanishes. For symmetric blocks the norm budget for the off-diagonal component z costs 2||z||², giving the exact Frobenius supremum and attaining rank-two block. This proof covers arbitrary finite positive eigenspace dimensions, fixed right hand side with both components nonzero and sufficiently small symmetric perturbations; finite checks are only corroboration.
 
-**Closest sources and limitations.** Diouane et al. (2026, arXiv:2610.28808), Diouane et al. (2026, arXiv:2603.28969), Giraud and Gratton (2006, DOI:10.1137/040617546), and Kahl and Rittich (2012, arXiv:1209.1963). See `RESULT.md` for definitions, proof, source-specific implication comparisons, and all limiting assumptions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the directional exact leading constant and Frobenius optimum at a spectral collision. The nearest 2026 Diouane et al bound concerns separated spectral placements and leaves an uncomputed second-order remainder. The classical CG residual-polynomial characterization is background, not claimed new. A more general matrix-polynomial perturbation source may imply the formula; version-dependent numbering in the cited Diouane theorem is a citation check risk.
+
+## value
+
+PASS
+
+The formula resolves a natural sensitivity problem of exactly terminating two-step CG near a two-eigenvalue collision, identifies the directional zero set and sharp matrix-perturbation robustness, and explains why between-cluster mixing does not dominate first-order loss. These depend on actual Krylov energy sensitivity, not a routine spectral-condition-number substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

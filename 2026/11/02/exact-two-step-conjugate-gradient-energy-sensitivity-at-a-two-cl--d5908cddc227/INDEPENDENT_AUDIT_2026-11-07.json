@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T13:04:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At t=0 the CG polynomial p0(z)=(1-z/beta)(1-z/gamma) annihilates the two active spectral components. Since the 2x2 Gram matrix of z and z² under positive spectral weights is invertible, the optimum residual polynomial coefficients are analytic in t. The Fréchet derivative of p0(C0) multiplies a cross-cluster F block by p0[beta,gamma]=0, cancelling it exactly. Independent linear adjustments q(beta),q(gamma) remove components along u and v; the first residual derivative is the orthogonal within-cluster perturbation vector scaled by (beta-gamma)/(beta gamma). Squaring in the C0-inverse norm yields the two denominators beta³ gamma² and beta² gamma³, with O(|t|³) error and O(t⁴) when the leading vector vanishes. For symmetric blocks the norm budget for the off-diagonal component z costs 2||z||², giving the exact Frobenius supremum and attaining rank-two block. This proof covers arbitrary finite positive eigenspace dimensions, fixed right hand side with both components nonzero and sufficiently small symmetric perturbations; finite checks are only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diouane v2 separated placement excludes collision and leaves remainder order only.",
+          "Kahl–Rittich addresses deflation-space perturbations and conditioning, not the starting-vector projected residual derivative."
+        ],
+        "reasoning": "A more general source in matrix-polynomial differentiation might subsume this identity, but the inspected stronger-seeming bounds do not determine the within-cluster squared constant.",
+        "searches": [
+          "exact two-step conjugate gradient energy error sensitivity spectral eigenvalue collision perturbation within eigenspaces Frobenius worst case",
+          "Giraud Gratton On the Sensitivity of Some Spectral Preconditioners",
+          "Kahl Rittich Deflated Conjugate Gradient perturbation"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.28808v2, Definition 3.4 and Theorem 3.8 in currently accessed revision; older referenced version uses different numbering",
+        "arxiv:2603.28969",
+        "arxiv:1209.1963",
+        "doi:10.1137/040617546",
+        "Resultary published-record search: exact two-step conjugate gradient energy error sensitivity spectral eigenvalue collision perturbation within eigenspaces Frobenius worst case"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known two-eigenvalue CG termination at t=0 contains zero-order statement only.",
+          "The nearest bound O(t²) supplies neither exact constant nor vanishing criterion."
+        ],
+        "reasoning": "The proposed all-dimensional derivative calculation implies exact second-order sensitivity, a stronger conclusion at the excluded collision; the inspected prior statements do not entail it without additional analysis.",
+        "searches": [
+          "arxiv:2610.28808 v2 theorem 3.8",
+          "arxiv:2603.28969 CG spectral scaling",
+          "exact two-step conjugate gradient energy error sensitivity spectral eigenvalue collision perturbation within eigenspaces Frobenius worst case"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Standard CG polynomial minimization implies p0 has beta and gamma roots but does not supply its perturbative derivative.",
+          "Diouane et al v2 theorem bounds rather than evaluates the quadratic energy coefficient."
+        ],
+        "reasoning": "The closest rephrasing is the derivative of a two-step Krylov residual polynomial at a repeated two-cluster spectrum; this is not identical to finite termination or to an eigenvalue perturbation bound.",
+        "searches": [
+          "exact two-step conjugate gradient energy error sensitivity spectral eigenvalue collision perturbation within eigenspaces Frobenius worst case",
+          "arxiv:2610.28808",
+          "arxiv:1209.1963"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related two-mode optimization and CG amplification results, not the exact coefficient."
+        ],
+        "reasoning": "This continuous matrix-parameter exact formula is not a finite table entry; no found exact stored identity implies it. Negative indexed search is not priority proof.",
+        "searches": [
+          "exact two-step conjugate gradient energy error sensitivity spectral eigenvalue collision perturbation within eigenspaces Frobenius worst case",
+          "two step CG coalesced eigenvalues exact energy error derivative coefficient"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the directional exact leading constant and Frobenius optimum at a spectral collision. The nearest 2026 Diouane et al bound concerns separated spectral placements and leaves an uncomputed second-order remainder. The classical CG residual-polynomial characterization is background, not claimed new. A more general matrix-polynomial perturbation source may imply the formula; version-dependent numbering in the cited Diouane theorem is a citation check risk.",
+      "residual_risks": [
+        "Full historical coverage of general Krylov polynomial derivatives and matrix-perturbation literature is not certified.",
+        "The pinned RESULT.md references older Theorem 3.14/Definition 3.7 while the accessed latest v2 numbers these Theorem 3.8/Definition 3.4; validate version before public editing.",
+        "Floating-point regression checks cannot certify the all-dimensional asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known energy upper comparison does not identify directional second-order coefficient and placement separation excludes exact collision; citation numbering differs across revisions",
+          "evidence": [
+            "v2 Definition 3.4 imposes noncollision separation; v2 Theorem 3.8 controls energy error with an O(t²) remainder, not a computed limit constant"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.28808",
+          "material_read": "Accessible full manuscript (v2 HTML/PDF), definition of admissible separated placements and finite-iteration energy comparison, especially Definition 3.4 and Theorem 3.8 in v2; PDF theorem page inspected visually",
+          "method": "Read complete supplied result and inspect hypothesis and remainder against exact collision coefficient",
+          "title": "Deflation-Based Spectral Preconditioning for the Conjugate Gradient Method on Perturbed Systems",
+          "trigger": "Direct closest collision/perturbation comparison"
+        },
+        {
+          "assessment": "Convergence and conditioning bounds do not directly state the exact two-step residual derivative",
+          "evidence": [
+            "Abstract focuses on deflated CG convergence, perturbation and accuracy rather than fixed-two-iteration collision coefficient"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1209.1963",
+          "material_read": "Accessible abstract, stated convergence and deflation-subspace perturbation scope; not a comprehensive full text review",
+          "method": "Compare theorem subject and limiting parameters",
+          "title": "The Deflated Conjugate Gradient Method: Convergence, Perturbation and Accuracy",
+          "trigger": "Potential broader deflation-perturbation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formula resolves a natural sensitivity problem of exactly terminating two-step CG near a two-eigenvalue collision, identifies the directional zero set and sharp matrix-perturbation robustness, and explains why between-cluster mixing does not dominate first-order loss. These depend on actual Krylov energy sensitivity, not a routine spectral-condition-number substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2610.28808v2, Definition 3.4 and Theorem 3.8 in currently accessed revision; older referenced version uses different numbering",
+    "arxiv:2603.28969",
+    "arxiv:1209.1963",
+    "doi:10.1137/040617546",
+    "Resultary published-record search: exact two-step conjugate gradient energy error sensitivity spectral eigenvalue collision perturbation within eigenspaces Frobenius worst case"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full historical coverage of general Krylov polynomial derivatives and matrix-perturbation literature is not certified.",
+    "The pinned RESULT.md references older Theorem 3.14/Definition 3.7 while the accessed latest v2 numbers these Theorem 3.8/Definition 3.4; validate version before public editing.",
+    "Floating-point regression checks cannot certify the all-dimensional asymptotic."
+  ],
+  "residual_risks": [
+    "Full historical coverage of general Krylov polynomial derivatives and matrix-perturbation literature is not certified.",
+    "The pinned RESULT.md references older Theorem 3.14/Definition 3.7 while the accessed latest v2 numbers these Theorem 3.8/Definition 3.4; validate version before public editing.",
+    "Floating-point regression checks cannot certify the all-dimensional asymptotic."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Known energy upper comparison does not identify directional second-order coefficient and placement separation excludes exact collision; citation numbering differs across revisions",
+      "evidence": [
+        "v2 Definition 3.4 imposes noncollision separation; v2 Theorem 3.8 controls energy error with an O(t²) remainder, not a computed limit constant"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2610.28808",
+      "material_read": "Accessible full manuscript (v2 HTML/PDF), definition of admissible separated placements and finite-iteration energy comparison, especially Definition 3.4 and Theorem 3.8 in v2; PDF theorem page inspected visually",
+      "method": "Read complete supplied result and inspect hypothesis and remainder against exact collision coefficient",
+      "title": "Deflation-Based Spectral Preconditioning for the Conjugate Gradient Method on Perturbed Systems",
+      "trigger": "Direct closest collision/perturbation comparison"
+    },
+    {
+      "assessment": "Convergence and conditioning bounds do not directly state the exact two-step residual derivative",
+      "evidence": [
+        "Abstract focuses on deflated CG convergence, perturbation and accuracy rather than fixed-two-iteration collision coefficient"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1209.1963",
+      "material_read": "Accessible abstract, stated convergence and deflation-subspace perturbation scope; not a comprehensive full text review",
+      "method": "Compare theorem subject and limiting parameters",
+      "title": "The Deflated Conjugate Gradient Method: Convergence, Perturbation and Accuracy",
+      "trigger": "Potential broader deflation-perturbation theorem"
+    }
+  ]
+}
