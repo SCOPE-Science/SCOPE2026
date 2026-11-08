@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The quantitative Bang-box obstruction is proved for arbitrary finite closed-plank families through a strict-slack enlargement and Bang's sign lemma. The two-variable estimate is reconstructed, including the equality cases at zero normal components. The monotone crossing/noncrossing dichotomy supplies a strictly feasible Bang box whenever a directional budget is below a side deficit, or equal to that deficit while an oblique plank is present. This proves the lower bound, orientation rigidity, and the full interval-partition characterization. The exact-rational verifier corroborates algebra but is not treated as an infinite proof.
+
+**Originality: PASS (provisional).** The published sharp plank theorem (arXiv:2611.00379v1, Theorem 2 and Lemmas 3--6) supplies the threshold and core inequalities, which are expressly credited rather than claimed. Its fully inspected HTML proof does not state the exhaustive equality-orientation classification above the threshold. The other inspected accessible descriptions concern a weaker homothetic-hole lower bound and volume stability. Targeted mathematical-record searches for equality cases, annulus optimizer rigidity, and canonical strip partitions found no equivalent claim; closest published results address annulus fractional coverings, cube weak-barrier orientation mass, and pyramid partial-plank bounds. A possible unindexed equality characterization and inaccessible relevant full texts remain risks.
+
+**Value: PASS.** When the total canonical strip cost is below one, the optimizer is not merely numerically sharp: every minimizer is forced into one rigid orientation class and is completely described as an interval partition, for all rectangular shapes and offsets. This identifies a sharp optimizer phase transition at \(h_1+h_2=1\). Equality structure is important for stability and constructive covering questions and is not determined merely by the earlier lower-bound statement.
+
+**Limitations.** Only finite covers, square outer body, strict interior axis-parallel rectangular holes and the optimizer classification in the strict large-hole phase. No assertion about near-optimal stability or all equality cases at the transition. Historical priority is not independent certification.
+
+Self-review: passed. Independent audit: not yet performed.
