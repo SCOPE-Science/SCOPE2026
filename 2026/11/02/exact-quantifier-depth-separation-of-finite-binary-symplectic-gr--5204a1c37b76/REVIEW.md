@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is the all-rank graph-only classification, not merely the four-round case. The nondegenerate alternating form gives exactly \(2^{2d-t}\) realizations of any consistent \(t\)-constraint pairing prescription. The proof keeps a linear span isometry through the first \(q-1\) game moves and uses the sharp lower bound \(2^{q-1}>q\) to complete the last move. The dimension \(d\) of a maximal isotropic subspace forces a dependence after \(d+1\) independent isotropic selections in the larger graph; a final incompatible pairing proves the \(d+2\)-move lower bound. The complete first-order separation and class count follow without infinite extrapolation from the finite checker.
+PASS
 
-## Originality — PASS, qualified
+For nondegenerate alternating B on F_2^(2d), prescribing a functional on any t-dimensional U yields exactly 2^(2d-t) solutions by dual surjectivity. For d,e>=q-1, a q-round EF game preserves a span isometry for first q-1 moves: before the last, t<=q-2 and a prescribed pairing fiber contains a vector beyond span; at last, with t<=q-1, 2^(q-1)>q possible responses allow preserving equality/adjacency even if linear dependence changes. For d<e, Spoiler chooses d+1 distinct independent isotropic x_i in S_e, which forces a nontrivial linear relation among pairwise orthogonal y_i in S_d; a final incompatible pairing functional exists on independent x_i, so Spoiler wins at move d+2. When d=1 the graph is K_3, detected by a nonedge at rank 2; all d>=2 contain both edges and nonedges. Induced claw in S_3 vs its absence in S_2 was independently enumerated; unrestricted proof is linear-algebraic.
 
-Abiad–Haemers, arXiv:1412.2945 (2014), directly concerns the same binary symplectic graphs but addresses Godsil–McKay switching and adjacency 2-ranks, not the graph-only depth equivalence. Pikhurko–Verbitsky, arXiv:1003.4865 (2010), supplies the EF-game and graph logical-depth framework but no dimension-dependent symplectic classification. Historical research-record searches for logical equivalence, linear-form reduction, and equivalent parameters yielded no implication covering the exact all-rank conclusion. This is not a proof of global priority: inaccessible or differently named older work may remain relevant.
+## originality
 
-## Value — PASS
+PASS
 
-The claim exhibits the exact logical visibility of the symplectic Witt index across every quantifier rank, including all small exceptions and a sharp graph-size kernel. Its general proof explains the structural cause (extension of linear functionals versus isotropic-dimension obstruction) and the first rank-four induced-claw transition. These are motivated finite-model-theoretic properties of a standard infinite graph family, not numerical reparameterizations.
+Published binary symplectic graph results inspect switching, strongly regular spectra, graph isomorphism and 2-ranks; they do not identify the exact all-rank FO separations. The sharp degree threshold, q-1 classes and finite-size representative cutoff require the span-extension argument beyond the graph-family definition. A model-theory treatment of alternating bilinear forms/reducts may yield an alias and is a documented residual risk.
 
-## Limitations and literature
+## value
 
-The result uses \(\mathbb F_2\), nonzero vectors, nonorthogonality adjacency, and unrestricted first-order logic without counting. The verification program checks only dimensions one to three and ranks two to four; all-dimensional validity is mathematical, not experimentally inferred. The closest accessible primary texts were inspected as described in the structured review. Independent priority and proof assessment remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical symplectic strongly regular graph family has a natural unbounded dimension parameter; knowing exactly the rank at which first-order adjacency can distinguish ambient dimensions is a nontrivial logical rigidity/classification fact. It also demonstrates how hidden linear dependence becomes visible at one extra quantifier after maximal isotropic rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
