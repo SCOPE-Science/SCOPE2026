@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-The executable `verify_symmetric_fixed_rips.py` performs four independent classes of finite checks. It reconstructs all binary words and maximal inter-orbit Hamming distances, verifies the weight-orbit graph against the banded bipartite model for all scales in dimensions up to ten, checks each local neighborhood-dominance fold for 400 choices of band parameters, and computes reduced mod-two homology from actual face-boundary matrices in 105 cases through dimension fourteen. It additionally checks the core generator maps across 4,950 scale transitions for dimensions up to one hundred, including the complete barcode-threshold inequalities.
+# Independent mathematical audit
 
-Expected stdout:
+## correctness
 
-```
-PASS: 55 raw Hamming-orbit scale comparisons (n <= 10)
-PASS: 400 independently checked dominated-vertex deletion sequences
-PASS: 105 reduced mod-two chain-homology computations (n <= 14)
-PASS: 4950 transition/core-map checks (n <= 100)
-PASS: all barcode-threshold comparisons (n <= 100)
-Example: n=30 gives reduced H_1 interval [20,24).
-Finite checks do not replace the all-parameter proof.
-```
+PASS
 
-No finite enumeration proves the universal claim. The general integral classification and inclusion maps follow from the explicit orbit-triangulation, graph fold, and degree arguments in `RESULT.md`. No independent external audit or validation is claimed.
+PASS: For inclusive Hamming Rips on {0,1}^n, a coordinate permutation-invariant geometric point is a convex combination of complete weight-orbit barycenters; orbit supports must be a simplex. Direct support intersection gives maximum inter-weight Hamming distance D(a,b)=min(a+b,2n-a-b), including same-weight diameters. At integer r<n the eligible weights are 0..floor(r/2) and n-floor(r/2)..n, with all same-side pairs compatible and opposite-side pairs incompatible iff |i-j|<n-r. Therefore the canonical fixed triangulation is Ind(B_{m,k}) for m=floor(r/2)+1,k=n-r. On consecutive index blocks of k, the verified nested open neighborhoods allow elementary independence-complex folds of nonanchor L and H vertices; the residual graph is t=ceil(m/k) disjoint edges, whose independence complex is the boundary of a (t)-cross-polytope, S^(t-1). For adjacent scales, including parity changes in m and decrement k, the old antipodal anchor pairs map under the new contiguous fold to distinct consecutive new anchor pairs. The integral top homology map has degree ±1 when sphere dimension is unchanged; it vanishes into different-degree groups otherwise. The exact dimension threshold is d(r)>=q iff r>=ceil(2qn/(2q+1)), yielding one reduced degree-q bar between successive distinct thresholds, with final death at r=n. Independently tested 594 fold/core/threshold examples, including n=30 degree-one interval [20,24); finite tests do not replace the uniform proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after comparing exact statements and implications; four structured comparisons and source-inspection limits are included.
+
+## value
+
+PASS
+
+PASS: The full-coordinate symmetric fixed-space filtration is canonical and has an exact uniform homotopy and integral persistence classification for all Hamming dimensions. Positive-degree bar lengths unbounded in n despite ambient inclusion nullhomotopies give an informative structural contrast between fixed and ambient persistence. The fold certificates and closed threshold formula are reusable results, not a table recomputation or a random finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

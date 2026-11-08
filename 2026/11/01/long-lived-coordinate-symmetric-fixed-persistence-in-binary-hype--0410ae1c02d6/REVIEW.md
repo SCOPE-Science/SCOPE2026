@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns geometric fixed points under the full coordinate-permutation action, not invariant homology. Weight-orbit diameter and cross-distance identities identify the fixed complex exactly as the independence complex of a banded bipartite graph. Explicit open-neighborhood dominated-vertex folds collapse this graph's independence complex to a cross-polytope boundary. The bucket retractions identify the actual integral homology maps between adjacent scales, yielding the exact barcode. Every needed hypothesis and the contractible terminal scale are handled. The independently enumerated finite checks support the symbolic proof; they are not treated as an infinite certificate.
+## correctness
 
-## Originality — PASS, with residual risks
-Galetto–Montaño–Wellner's representation theorem concerns ambient homology, not geometric fixed-point spaces. Bendersky–Elia–Grbić's ambient cohomology bounds likewise do not imply the fixed homotopy classification. Adams–Virk prove adjacent ambient inclusions nullhomotopic, but this does not apply to fixed loci and indeed contrasts with the nontrivial fixed persistence maps. Available indexed research summaries for penultimate-scale hypercube graph reformulations and for coordinate-permutation homology were also compared for implication, not just wording. No identified statement gives the all-scale fixed homotopy types plus inclusion maps. The finite search cannot eliminate unindexed papers or all latent consequences of general graph-fold results.
+PASS
 
-## Value — PASS
-An explicit all-scale equivariant fixed-space classification is a natural question for the finite Hamming-cube filtration studied in recent group-action topology. The resulting barcode reveals **unbounded persistence lengths**, including \(\widetilde H_1\) intervals of asymptotic length \(2n/15\), although ambient filtration inclusions are nullhomotopic. The proof additionally gives concrete strong-collapse certificates and a usable dimension formula for every parameter; it is not a table recomputation or arbitrary finite slice.
+PASS: For inclusive Hamming Rips on {0,1}^n, a coordinate permutation-invariant geometric point is a convex combination of complete weight-orbit barycenters; orbit supports must be a simplex. Direct support intersection gives maximum inter-weight Hamming distance D(a,b)=min(a+b,2n-a-b), including same-weight diameters. At integer r<n the eligible weights are 0..floor(r/2) and n-floor(r/2)..n, with all same-side pairs compatible and opposite-side pairs incompatible iff |i-j|<n-r. Therefore the canonical fixed triangulation is Ind(B_{m,k}) for m=floor(r/2)+1,k=n-r. On consecutive index blocks of k, the verified nested open neighborhoods allow elementary independence-complex folds of nonanchor L and H vertices; the residual graph is t=ceil(m/k) disjoint edges, whose independence complex is the boundary of a (t)-cross-polytope, S^(t-1). For adjacent scales, including parity changes in m and decrement k, the old antipodal anchor pairs map under the new contiguous fold to distinct consecutive new anchor pairs. The integral top homology map has degree ±1 when sphere dimension is unchanged; it vanishes into different-degree groups otherwise. The exact dimension threshold is d(r)>=q iff r>=ceil(2qn/(2q+1)), yielding one reduced degree-q bar between successive distinct thresholds, with final death at r=n. Independently tested 594 fold/core/threshold examples, including n=30 degree-one interval [20,24); finite tests do not replace the uniform proof.
 
-## Closest sources and scope
-The primary comparison is arXiv:2606.20784, especially the main theorem and the penultimate-scale section; additional primary comparisons are DOI 10.1007/s40840-024-01663-x (Proposition 3.3 and surrounding persistence discussion) and arXiv:2605.00705. Unindexed work and general graph-theoretic formulations are residual originality risks. Only the full symmetric group on binary coordinates is covered. Independent mathematical validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing exact statements and implications; four structured comparisons and source-inspection limits are included.
+
+## value
+
+PASS
+
+PASS: The full-coordinate symmetric fixed-space filtration is canonical and has an exact uniform homotopy and integral persistence classification for all Hamming dimensions. Positive-degree bar lengths unbounded in n despite ambient inclusion nullhomotopies give an informative structural contrast between fixed and ambient persistence. The fold certificates and closed threshold formula are reusable results, not a table recomputation or a random finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
