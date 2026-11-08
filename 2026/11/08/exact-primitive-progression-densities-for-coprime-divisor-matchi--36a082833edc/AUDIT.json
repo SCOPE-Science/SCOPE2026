@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Full derivation independently proves the local count of admissible primitive residue pairs (p^2-1 denominator), CRT factorization, and Möbius-inversion count with O_n(X log X). The limiting density, positive factors, prime-power regimes, and divisibility monotonicity have correct quantifiers including n=1. Python stdlib verifier executed at its embedded source path and checked 2703 independent bipartite perfect-matching instances plus 29 residue cases, 112 prime powers, 900 divisibility chains. Explicit use of Alekseyev's already proved matching criterion is disclosed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alekseyev general criterion covers every integer n and every progression (a,b) on existence but supplies no evaluated asymptotic parameter count",
+        "Earlier paper establishes an Euler product for density of matchable integers instead"
+      ],
+      "reasoning": "Broader pointwise existence coverage logically underlies the new theorem but does not supply its exact frequency evaluation, the fixed n local phase structure, or divisibility monotonicity. The new contribution is quantitative, not an improved matching criterion.",
+      "searches": [
+        "exact asymptotic proportion of primitive arithmetic progressions admitting a coprime matching to the divisors of a fixed integer n, Euler product and saturation",
+        "Alekseyev coprime matchings arithmetic progressions density of pairs (a,b) for fixed n",
+        "Alekseyev arxiv:2610.37512v1 Theorem 1.1 Corollary 5.1",
+        "McNew Pomerance arxiv:2604.05304v2 Section 6"
+      ]
+    },
+    "checked_sources": [
+      "Alekseyev arxiv:2610.37512v1 full HTML Sections 1-6",
+      "McNew and Pomerance arxiv:2604.05304v2 HTML Introduction, Section 2, Section 6",
+      "Published result set queried for fixed-n primitive progression density and related CRT local factors"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alekseyev Corollary 5.1 guarantees all starts for certain fixed steps; it does not quantify the mixed step distribution",
+        "McNew–Pomerance Section 6 studies strongly matchable integers, a different sample space from primitive progression pairs"
+      ],
+      "reasoning": "Prior statements involve pointwise existence or the population of matchable integers. The present density follows by combining the pointwise criterion with an additional residue count and primitive-pair equidistribution; this dependency is documented rather than claiming independence of the source.",
+      "searches": [
+        "coprime divisor matching density among primitive progressions, local factors p+1 and exponent valuations, divisibility monotonicity",
+        "Alekseyev coprime matchings arithmetic progressions density of pairs (a,b) for fixed n",
+        "arxiv:2610.37512v1, §§5-6",
+        "arxiv:2604.05304v2 Section 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alekseyev Theorem 1.1 counts divisibility per p for an individual progression, not density in (a,b)",
+        "McNew-Pomerance §6 treats universal matchings and densities of n, not conditional densities of (a,b)"
+      ],
+      "reasoning": "An exact density over primitive pairs is not equivalent to a yes/no decision for a fixed (a,b), although it relies on that decision criterion. No identical density statistic located.",
+      "searches": [
+        "exact asymptotic proportion of primitive arithmetic progressions admitting a coprime matching to the divisors of a fixed integer n, Euler product and saturation",
+        "coprime divisor matching density among primitive progressions, local factors p+1 and exponent valuations, divisibility monotonicity",
+        "\"coprime matchings\" \"density\" \"progressions\" divisors",
+        "arxiv:2610.37512v1, §§1-6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published table of exact fractions for n=4,8,27,81,108 or a general delta(n) found",
+        "Exact fractions independently reproduced from CRT residues and brute matching in verify.py"
+      ],
+      "reasoning": "Results are derived as an unrestricted exact product, not inferred from or already stated by a database of values. Negative search is not proof of novelty.",
+      "searches": [
+        "exact asymptotic proportion of primitive arithmetic progressions admitting a coprime matching to the divisors of a fixed integer n, Euler product and saturation",
+        "coprime divisor matching density among primitive progressions, local factors p+1 and exponent valuations, divisibility monotonicity",
+        "Alekseyev coprime matchings arithmetic progressions density of pairs (a,b) for fixed n"
+      ]
+    },
+    "rationale": "Exact fixed-n frequency over all primitive progression parameters is different from Alekseyev's pointwise matchability and universal progression theorems, and from McNew-Pomerance's density over integers n. Full matching primary texts were inspected, with no exact formula, local saturation phase, or monotonicity located; independent arithmetic counting is needed to evaluate the parameter density. Quantitative conclusion follows from published existence criterion by an additional local counting/equidistribution argument. Residual risk: an unlocated equivalent counting corollary may exist; search absence is not proof of uniqueness.",
+    "residual_risks": [
+      "An earlier exact local-probability calculation not discovered in the targeted searches may cover the same density",
+      "The result is an elementary quantitative consequence of Alekseyev's strong existence theorem, and its perceived standalone significance may vary",
+      "No independent historical-priority audit has been performed"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides pointwise matchability and universal fixed-difference criterion but no explicit conditional pair-density product or its monotonicity; the new result depends on its main theorem.",
+        "evidence": [
+          "Theorem 1.1: at most tau(n)/(e_p+1) terms divisible by each p",
+          "Corollary 5.1: every primitive start for a fixed step when that step contains all bad primes",
+          "Section 6 discusses density of matchable integers, not progression pairs"
+        ],
+        "identifier_or_url": "arxiv:2610.37512v1; https://arxiv.org/html/2610.37512v1",
+        "material_read": "Full HTML, Sections 1-6, including Theorem 1.1 and Corollary 5.1",
+        "method": "Read full primary text, traced implication from criterion to proposed local measure",
+        "title": "Coprime matchings of divisor sets",
+        "trigger": "Same divisor-set objects, primitive progression pairs, and necessary/sufficient matching criterion"
+      },
+      {
+        "assessment": "Computes density across integers n and tests universal matching; does not evaluate local frequencies over primitive progression pairs for fixed n.",
+        "evidence": [
+          "Corollary 4 states the density of matchable integers",
+          "Section 6 studies strongly matchable n and bounds their density"
+        ],
+        "identifier_or_url": "arxiv:2604.05304v2; https://arxiv.org/html/2604.05304",
+        "material_read": "HTML abstract, Introduction, Section 2, and Section 6 including Proposition 4 and density comparison",
+        "method": "Compared sample spaces and implications",
+        "title": "Matchable numbers",
+        "trigger": "Earlier density and strong matchability results for divisor sets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "36a08283-3edc-43bc-8e75-5055cf600cf2",
+  "value": {
+    "rationale": "For the natural fixed-n robustness question left after characterizing existence and universality, the exact probability among all primitive start/step pairs is a previously unstated complete invariant. It resolves the local saturation thresholds for every prime-power exponent, orders robustness under divisibility, distinguishes n=4 from n=8 and 27 from 243, and explains why even nonmatchable n have a positive proportion of matchable progressions while the global infimum is zero. This is a motivated exact natural invariant, not an arbitrary finite computation.",
+    "status": "PASS"
+  }
+}
