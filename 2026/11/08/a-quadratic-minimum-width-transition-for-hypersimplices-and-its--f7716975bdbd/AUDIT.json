@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The exact support function is the sum of the q largest coordinates minus the sum of the q smallest. Sorting partitions the weighted-mean-zero hyperplane into simplicial step-ray cones, where width is linear. Positive definiteness and strict triangle inequality prove that only single step rays can achieve minimum width. Each ray has explicit squared weighted norm A_SB_S/T and top-minus-bottom range min(|S|,n-|S|,q), producing the complete weighted theorem and normalized normals. For unit scales, monotonicity leaves only singleton and balanced splits, and the factored sign test gives the threshold n=4q²-1. Rational finite checks reproduced 566297 tested profiles and transition equalities. No finite experiment is used as a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Martínez-Sandoval–Padrol 2019, Theorem 3.6, is about preserving the i-skeleton under a linear projection; its obstruction is a neighborliness criterion rather than a width bound.",
+        "Ferroni 2024 discusses matroid base-polytope subdivisions and valuative invariants including Ehrhart/volume, not directional Euclidean width.",
+        "The published width result arXiv:2301.02616 applies to one simplex only, which is a lower-rank subcase and does not imply the strict q≥2 transition."
+      ],
+      "reasoning": "A general support-function identity or cube-slice description alone does not imply minimization of top-minus-bottom sums over unit normals; the strict two-level lemma plus discrete comparison is the new assertion. Inradius of a cube slice and minimal width are distinct invariants.",
+      "searches": [
+        "\"width\" \"uniform matroid base polytope\" euclidean",
+        "\"hypersimplex\" \"thickness\" geometric n k",
+        "\"hypersimplex\" \"minimum directional width\"",
+        "\"matroid base\" \"minimum width\" Euclidean",
+        "arxiv:1909.01189, sections 2, 3, 7",
+        "doi:10.1112/jlms.12984, matroid polytope and valuation sections"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1909.01189",
+      "arxiv:2301.02616",
+      "doi:10.1112/jlms.12984",
+      "arxiv:2402.17665 (abstract only, regular hypersimplex subdivision topic)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Har-Peled–Robson proves width of conv(e_1,...,e_n): it is exactly the rank-one instance under edge-length normalization.",
+        "Martínez-Sandoval–Padrol Theorem 3.6 classifies skeleton-preserving projections and their dimensions, with no normalization of Euclidean normals.",
+        "The rank-two transition n=15 separates the two minima: at dimension fourteen coordinate normals win, at dimension sixteen balanced bipartition normals win, and both tie at dimension fifteen."
+      ],
+      "reasoning": "Known rank-one balanced bipartitions do not imply a dichotomy at rank q≥2, where the top-q minus bottom-q support includes a cardinality-dependent saturation. Projective skeleta, graph distances, Ehrhart/volume and inspheres are logically insufficient for the stated directional width minimum. The proof explicitly uses strictness to rule out arbitrary mixtures of minimizing rays.",
+      "searches": [
+        "arxiv:2301.02616 full HTML Lemmas 1.2, 1.3, Corollary 1.4",
+        "arxiv:1909.01189 full text, Sections 2–3 and 7",
+        "Ferroni 2024 matroid base polytope section",
+        "\"minimum width\" \"hypersimplex\"",
+        "\"hypersimplex\" \"width\" \"balanced partition\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2301.02616 establishes the q=1 regular simplex width; its full HTML sections and Lemmas 1.2–1.3 were read.",
+        "arXiv:1909.01189 defines the same hypersimplex via k-subset indicator vertices, but its main results classify projections that preserve faces, not intrinsic Euclidean thickness."
+      ],
+      "reasoning": "Hypersimplex is also the uniform-matroid base polytope, a cube rank-slice, and the order-statistic support body. None of the retrieved same-object primary works contains an all-rank width minimum or exact quadratic rank/dimension switch. The simplex case is fully acknowledged as older coverage.",
+      "searches": [
+        "\"hypersimplex\" \"minimum width\"",
+        "\"hypersimplex\" \"thickness\" \"Euclidean\" polytope",
+        "\"uniform matroid\" \"width\" \"Euclidean\" \"base polytope\"",
+        "\"width of the hypersimplex\" min",
+        "\"hypersimplex\" \"width\" \"balanced partition\" \"coordinate\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The polymake hypersimplex construction documentation specifies vertices and affine dimension but supplies no exact all-rank Euclidean width table.",
+        "The consulted hypersimplex-projection primary work tabulates minimum projection *dimensions*, not metric widths.",
+        "No retrieved table contains values organized by n and k with a transition at n=4q²-1."
+      ],
+      "reasoning": "Numerical or combinatorial databases describing the same polytope cannot be conflated with a published all-dimensional exact metric theorem. The small-instance comparisons are consistency checks, not prior-work exclusions.",
+      "searches": [
+        "\"hypersimplex\" \"minimum width\"",
+        "\"hypersimplex\" \"width\" \"two levels\" \"Euclidean\"",
+        "\"hypersimplex\" \"thickness\" \"width\" minimum",
+        "polymake hypersimplex(k,d) width min documentation"
+      ]
+    },
+    "rationale": "The exact arbitrary-rank minimum Euclidean width, all minimizing directions, and the sharp integer transition at dimension equal to four times the squared smaller rank minus one were not found in the checked hypersimplex or regular-simplex primary material. The 2023 regular-simplex result is a covered q=1 case and is not claimed. Projection-skeleton classifications and matroid valuations cannot imply the metric width and its minimizing unit normals without new Euclidean optimization. The weighted subset theorem includes every positive diagonal scaling. Priority is provisional, especially against older sources indexed as thickness or order-statistic norm.",
+    "residual_risks": [
+      "An older or unindexed theorem on Euclidean thickness of uniform-matroid base polytopes may state an equivalent minimum under different language.",
+      "The rank-one case is classical (also acknowledged by Har-Peled and Robson); only the all-rank and positively scaled statements are asserted as newly derived.",
+      "The 2024 hypersimplex-subdivision paper was checked at abstract level only; its main topic is secondary fans, and no full-text noncoverage claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS rank-one simplex case; does not address hypersimplices of rank q≥2, diagonal scale, or the quadratic phase threshold",
+        "evidence": [
+          "Full text states D_n=conv(e_1,...,e_{n+1}) and proves the regular-simplex width, realized by balanced two-level vectors.",
+          "No rank-k uniform-matroid base polytope is treated."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2301.02616",
+        "material_read": "All substantive text, introduction, energy lemma, Lemmas 1.2–1.3, and Corollary 1.4",
+        "method": "Full readable HTML text with explicit proof lines",
+        "title": "On the Width of the Regular n-Simplex",
+        "trigger": "Same width invariant; potential direct prior coverage"
+      },
+      {
+        "assessment": "Same objects, but claims concern projection preservation, convex dimension, neighborliness and hypergraph embeddings; no all-rank metric width formula",
+        "evidence": [
+          "Lemma 2.3 supplies the hypersimplex coordinates and facets.",
+          "Theorem 3.6 classifies i-preserving projections, not normalized support-width extrema."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1909.01189",
+        "material_read": "Full readable primary text, with close study of Introduction, Lemma 2.3, Proposition 3.1, Theorem 3.6, Sections 6–7 and projection framework",
+        "method": "Primary full-text HTML as rendered with arXiv abstract identifier",
+        "title": "The convex dimension of hypergraphs and the hypersimplicial Van Kampen-Flores Theorem",
+        "trigger": "Full hypersimplex and rank-k geometry"
+      },
+      {
+        "assessment": "Matroid valuations and hypersimplex subdivisions do not determine the intrinsic Euclidean directional-width minimum",
+        "evidence": [
+          "The paper gives hypersimplex as the base polytope of the uniform matroid U_{k,n}.",
+          "Its stated applications concern valuation, volume, Ehrhart, Tutte and other polynomial invariants, not minimum directional Euclidean width."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/jlms.12984",
+        "material_read": "Main results, matroid base-polytope definitions, relevant sections on subdivisions and volume/Ehrhart applications",
+        "method": "Publisher full-text HTML",
+        "title": "Valuative invariants for large classes of matroids",
+        "trigger": "Possible broader mathematical coverage via the uniform-matroid base polytope"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f7716975-bdbd-40f0-9652-1dd786d67116",
+  "value": {
+    "rationale": "The canonical hypersimplex (uniform-matroid base polytope) is a natural infinite family of rank-selected cube slices. Its least Euclidean thickness is a structural invariant and its minimizing normal supports encode geometry of its extreme projections. A sharp quadratic change from only coordinate directions to exponentially many balanced directions is a mathematically motivated complete classification; the positive-diagonal formula supplies a robust structural generalization useful for anisotropic realizations. The finding is not a small numerical improvement or a renamed simplex result.",
+    "status": "PASS"
+  }
+}
