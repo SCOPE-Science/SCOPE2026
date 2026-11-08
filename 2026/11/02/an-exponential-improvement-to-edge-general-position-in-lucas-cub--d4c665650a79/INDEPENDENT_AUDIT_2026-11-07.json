@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T22:13:14.161934Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=5, identify Lucas cube vertices with independent sets of cyclic positions; delete u\\v then insert v\\u to get an admissible path of Hamming length, hence every geodesic flips each coordinate at most once. The selected edges are all theta_0, theta_1 with coordinate n-1=0, and theta_(n-1) with coordinate 1=0. Their three-coordinate projections are distinct spokes 000-100, 000-010 and 000-001; a shortest path cannot revisit projected states since each coordinate is changed at most once, so cannot use all three spokes. Selected edges are edge-general-position. Independent-set counts on paths give F_(n-1)+2F_(n-2)=L_(n-1)=2F_(n-1)+F_(n-4). Exact pairwise shortest-path dynamic programming checked all vertex pairs for n=5..8, selected sizes 7,11,18,29. This proves a lower bound only, not gp_e equality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manuel–Prabha–Klavžar gives broad graph-theoretic inequalities, partial cubes and other networks; taking two Θ-classes yields the old Lucas bound.",
+          "Klavžar–Tan exact n=5 value 7 is narrower than the all-n new lower bound."
+        ],
+        "reasoning": "General geodesic class rules do not forbid using three appropriately restricted classes; no broader theorem inspected dominates L_(n−1) on Lucas cubes.",
+        "searches": [
+          "arxiv:2207.07357 generalization edge general position",
+          "doi:10.26493/2590-9770.1745.5f4",
+          "arxiv:2304.10114"
+        ]
+      },
+      "checked_sources": [
+        "2026-11-02 frozen RESULT.md and verify.py",
+        "arxiv:2304.10114",
+        "doi:10.1007/s40840-023-01517-y",
+        "arxiv:2207.07357",
+        "doi:10.26493/2590-9770.1745.5f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Old uniform lower bound: 2F_(n−1). New: 2F_(n−1)+F_(n−4), which is strictly stronger for n>=6.",
+          "A union of two whole coordinate classes does not imply the three restricted-class construction."
+        ],
+        "reasoning": "The positive F_(n−4) difference proves strict improvement for every n>=6 without asserting optimality; n=5 remains previously settled.",
+        "searches": [
+          "Klavzar Tan 2023 Theorem 4.6 Proposition 4.7",
+          "Manuel Prabha Klavzar 2025 Sections 2 4 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Klavžar–Tan (2023), Theorem 4.6 employs union of two complete Θ-classes and derives 2F_(n−1).",
+          "The present witness uses one full and two restricted Θ-classes, with 3 spokes sharing a projected central vertex."
+        ],
+        "reasoning": "A theta-class formulation is an alias, but the known theorem neither builds the same edge set nor yields its larger Lucas-number size.",
+        "searches": [
+          "Lucas cube edge general position number exponential construction graph 3 consecutive 1 free",
+          "Klavzar Tan edge general position Fibonacci Lucas cubes theta classes",
+          "doi:10.1007/s40840-023-01517-y"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The n=5 exact value 7 is already published in Proposition 4.7; the new claim explicitly credits it.",
+          "Finite computed selected sizes are 7,11,18,29 (and bundled n=9 checks 47), but the result states an all-n closed-form witness."
+        ],
+        "reasoning": "Matching finite table rows do not cover an unrestricted construction. No pre-existing exact Lucas sequence implying L_(n−1) universally was found in the inspected sources.",
+        "searches": [
+          "Lucas cube edge general position sequence 7 11 18 29 47",
+          "Lucas cube edge general position number exponential construction graph 3 consecutive 1 free"
+        ]
+      },
+      "rationale": "Klavžar–Tan 2023 gives two whole coordinate classes and bound 2F_(n-1) for all Lucas n, plus equality 7 at n=5. The restricted three-class star witness beats their formula by F_(n-4) in n>5. General theta-class and network bounds do not directly imply this restricted construction; possible equivalent later construction remains a priority risk.",
+      "residual_risks": [
+        "An unindexed equivalent theorem or indirect consequence could alter the qualified historical priority assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_STRONGLY; its lower bound is strictly dominated for n>=6, n=5 exact equality previously known.",
+          "evidence": [
+            "Theorem 4.6: gp_e(Lambda_n)>=2F_(n−1); Proposition 4.7: gp_e(Lambda_5)=7."
+          ],
+          "identifier_or_url": "arxiv:2304.10114;doi:10.1007/s40840-023-01517-y",
+          "material_read": "Full published open HTML / primary preprint: definitions, Section 4, Theorem 4.6, Proposition 4.7 and proof strategy.",
+          "method": "publisher lawful open text and preprint",
+          "title": "Edge General Position Sets in Fibonacci and Lucas Cubes",
+          "trigger": "Exact same graph invariant and family"
+        },
+        {
+          "assessment": "RELATED_GENERAL; no covering bound for restricted three-class Lucas set in inspected sections.",
+          "evidence": [
+            "General theta-class lower bound and examples apply to wider graphs but give no Lucas L_(n−1) construction."
+          ],
+          "identifier_or_url": "arxiv:2207.07357;doi:10.26493/2590-9770.1745.5f4",
+          "material_read": "Primary preprint/generalized article definitions and relevant network sections.",
+          "method": "lawful open-access preprint and journal text",
+          "title": "Generalization of edge general position problem",
+          "trigger": "Potential broader theta-geodesic results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The original Lucas-cube paper identifies a nonsaturating two-class lower bound and an n=5 exception. The new all-dimension three-spoke construction closes a motivated gap with exponentially growing additive improvement F_(n-4), a structural geodesic proof and a natural standard graph invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only an all-dimension constructive lower bound; no upper bound/equality for general n.",
+    "n=5 exact 7 is credited to Klavžar–Tan, not new.",
+    "Finite geodesic tests through n=8 do not establish n>=9; the star argument does."
+  ]
+}

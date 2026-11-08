@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` alongside this file. It reconstructs the stated Lucas-cube graphs, their edge sets and distances, and exhaustively enumerates all shortest paths between all unordered pairs for \(5\le n\le9\). For each graph it verifies the constructed cardinality and the requirement that no geodesic contains three chosen edges.
+## correctness
 
-Replayed observations:
+PASS
 
-- \(n=5\): 11 vertices, 15 edges, 7 chosen edges, 110 geodesics.
-- \(n=6\): 18 vertices, 30 edges, 11 chosen edges, 558 geodesics.
-- \(n=7\): 29 vertices, 56 edges, 18 chosen edges, 2534 geodesics.
-- \(n=8\): 47 vertices, 104 edges, 29 chosen edges, 15224 geodesics.
-- \(n=9\): 76 vertices, 189 edges, 47 chosen edges, 86742 geodesics.
+For n>=5, identify Lucas cube vertices with independent sets of cyclic positions; delete u\v then insert v\u to get an admissible path of Hamming length, hence every geodesic flips each coordinate at most once. The selected edges are all theta_0, theta_1 with coordinate n-1=0, and theta_(n-1) with coordinate 1=0. Their three-coordinate projections are distinct spokes 000-100, 000-010 and 000-001; a shortest path cannot revisit projected states since each coordinate is changed at most once, so cannot use all three spokes. Selected edges are edge-general-position. Independent-set counts on paths give F_(n-1)+2F_(n-2)=L_(n-1)=2F_(n-1)+F_(n-4). Exact pairwise shortest-path dynamic programming checked all vertex pairs for n=5..8, selected sizes 7,11,18,29. This proves a lower bound only, not gp_e equality.
 
-The observed maximum of selected edges on any enumerated geodesic is two. The run ends `ALL_CHECKS_PASSED`.
+## originality
 
-The proof for every \(n\ge5\) uses the isometric bitflip property and the projection of selected edges onto the three spokes at state \(000\); the finite checks are supplementary. No claim of global optimality or independent mathematical audit is made.
+PASS
+
+Klavžar–Tan 2023 gives two whole coordinate classes and bound 2F_(n-1) for all Lucas n, plus equality 7 at n=5. The restricted three-class star witness beats their formula by F_(n-4) in n>5. General theta-class and network bounds do not directly imply this restricted construction; possible equivalent later construction remains a priority risk.
+
+## value
+
+PASS
+
+The original Lucas-cube paper identifies a nonsaturating two-class lower bound and an n=5 exception. The new all-dimension three-spoke construction closes a motivated gap with exponentially growing additive improvement F_(n-4), a structural geodesic proof and a natural standard graph invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
