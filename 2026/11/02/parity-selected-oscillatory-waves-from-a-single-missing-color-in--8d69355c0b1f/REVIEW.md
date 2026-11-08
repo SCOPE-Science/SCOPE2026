@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact bipartite support recurrence is derived from the local contact rule. The stated even/odd support formulas can be checked by residue induction for all \(q\ge3\), and decreasing support cardinalities prohibit an earlier periodic entrance. Alternating palettes implement injective cyclic class permutations of exact orders \(q\) or \(q+1\); on-the-nose surjection counting gives the orbit population. Inclusion–exclusion supplies the exact finite-probability lower bound and exponential conditional limit. The embedded verifier tests 2,046 support-time cases, 4,692 vertex-level defect trajectories, and 145,231 labelled configurations. Experiments corroborate; they do not replace the universal symbolic argument.
+## correctness
 
-## Originality — PASS, qualified
-The nearest specific statements are earlier three- and four-color cyclic bipartite censuses, a general-alphabet Greenberg–Hastings bipartite census under a different update rule, and historical finite-graph cyclic automata bounds. They do not imply the complete all-alphabet defect time/period law together with the conditional occupancy theorem. The 2016 arXiv primary source analyzes three-color excitation, not this every-alphabet exact family. The 1995 and 1997 Matamala–Goles sources were not available in full text; stronger historical coverage and unindexed equivalence remain material risks. Search failure alone was not used as novelty evidence.
+PASS
 
-## Mathematical value — PASS
-A unique missing color on one shore is the leading exponentially rare failure of full-palette occupancy under independent random coloring. Its deterministic relaxation has a sharp parity-dependent duration and a surprisingly larger-than-alphabet primitive period for every odd \(q\). Exact family orbit counts and the all-\(q\) conditional law resolve natural recurrence statistics not supplied by previous low-color tables. The result does not assert a classification of all attractors.
+Because each shore is complete to the opposite, occupied color supports evolve exactly by f_B(A),f_A(B), with each vertex of a class changing identically. Residue-by-residue induction of the explicit even/odd support formulas shows the terminal alternating palettes at q-1 (even) or q-2 (odd), strict preterminal support shrink preventing prior recurrence, and injective class cycling of least labelled period q or q+1. There are two even-q support pairs or 2q distinct odd-q ordered pairs, each with U_ceil(q/2)(a)U_ceil(q/2)(b) labelled onto colorings; dividing by orbit length counts exactly this family, not other cycles. Inclusion-exclusion gives P(E_n)=1-U_q(n)^2/q^(2n), exact single-defect event and lower bound, with beta=(q-2)/q<[(q-1)/q]^2 ensuring exponential conditional convergence. Independent microscopic trials and support recurrences corroborated 108 bounded checks; all-q proof is structural.
 
-## Scientific limits and closest literature
-The result assumes complete bipartite connectivity, labelled synchronous successor-contact updating, fixed color count in the asymptotic, and the prescribed one-defect initial condition for the sharp deterministic statement. It leaves multiple missing colors, other graph families, joint alphabet/size limits and independently audited novelty open. See RESULT.md references and AUDIT.json for source-specific implication comparisons.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The three-color CCA/GHM general-graph literature and older Matamala-Goles finite-graph cyclic automata precede this work. We found no inspected general q complete-bipartite one-defect exact first-entry/cycle/rare-event statement; however the 1995/1997 primary works remain accessible only as summaries, an important priority risk. Qualified best-of-knowledge PASS not full uniqueness certification.
+
+## value
+
+PASS
+
+A single missing color changes long-term period from q to q+1 in odd alphabet size. The exact entry time, alternating-state orbit count, and fixed-q rare-event conditioning law form a motivated dynamical classification rather than a routine finite-state enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
