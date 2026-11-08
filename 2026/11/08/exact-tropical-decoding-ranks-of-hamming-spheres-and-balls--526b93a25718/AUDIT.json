@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For all q>=2, all cut sizes including zero, and 0<=r<=m, direct Hamming weight operations give distance |wt-r| to the sphere and positive-part (wt-r) to the ball. Each weighted row is one of k=1+min(l,t,r,m-r) explicit min-plus row templates, with nonselected terms set above m. The k-by-k submatrix indexed by complementary weights has canonical entries |i-j| or max(0,i-j) with unique minimum permutation; a crossing argument shows tropical rank <= factor rank. Hence both ranks equal k for all parameters. Standalone checker confirms explicit factorizations, witnesses and independent finite brute force (counts in VERIFICATION.md). Boundary cases include empty cut parts and radii 0,m. Finite checks are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full-text Develin–Santos–Sturmfels Theorem 1.4 gives tropical rank at most Barvinok rank, but its sections and examples do not calculate conditional Hamming decoder profiles.",
+        "Full-text Gaubert–Niv Monge/staircase representation gives a structural decomposition but no matching Barvinok-rank classification."
+      ],
+      "reasoning": "A hypothetical general theorem of tropical ranks of every discretely convex truncated Hankel matrix could imply the result; relevant broader theory was considered, but no such specific implication was established from inspected primary material. This remains a residual-priority risk.",
+      "searches": [
+        "\"Barvinok rank\" \"Monge matrix\" \"max(0\"",
+        "tropical rank of hinge matrix max(0,a+b)",
+        "\"tropical rank\" \"Monge\" \"Hankel\" \"staircase\" matrix",
+        "arxiv:math/0312114"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.23471 (full accessible HTML text relevant sections)",
+      "arxiv:math/0312114 (full experimental HTML read, §§1–8)",
+      "arxiv:1606.00238 (full accessible HTML and structural comparison)",
+      "MSC2020 94B35 classification (AMS)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sheshadri (2026), Theorem 1: binary linear code gives power-of-two ranks \\(2^s\\); its Section II explicitly assumes linearity.",
+        "The binary sphere/ball at m=4, l=t=r=2 has exact rank 3 under the present proof.",
+        "Neither the primary full-text theorem nor its cited explicit examples state the two radial rank profiles."
+      ],
+      "reasoning": "The 2026 linear-code theorem does not imply the rank-three example via a binary linear code, whose ranks are powers of two. The new theorem covers nonlinear radial sets and any q>=2; it needs a separate rank factorization and nonsingular minor. General pre-existing tropical matrix theory may implicitly allow a short alternative derivation, and historical priority is not certified.",
+      "searches": [
+        "arxiv:2607.23471",
+        "\"conditional decoding matrix\" \"Hamming sphere\"",
+        "tropical rank of constant weight code decoding",
+        "min-plus factorization of Hamming sphere distance matrix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rank minors reduce to the universal matrices |i-j| and max(0,i-j).",
+        "No inspected source gave their ranks as the decoding rank formula for Hamming spheres and balls."
+      ],
+      "reasoning": "The sphere/ball distance is respectively absolute and positive-part of total weight minus radius. The formula is also a precise claim about finite truncated Hankel/hinge matrices; searches for those aliases returned no direct coverage. Search failure is not proof of novelty.",
+      "searches": [
+        "Barvinok tropical rank of conditional decoding matrix W(x,y)=max(0,weight(x)+weight(y)-r) for binary Hamming balls at cut exact min(l,t,r,l+t-r)+1",
+        "tropical rank of truncated addition hinge matrix max(0,i+j-r) min-plus factorization rank",
+        "\"max(0,i+j-r)\" tropical rank Barvinok rank",
+        "\"tropical rank\" \"Hankel matrix\" \"max\" \"positive part\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record searches returned near-topic Hamming-ball extremal problems and code-support enumerators, but not an exact conditional tropical decoder-rank table.",
+        "Accessible same-domain research titles from the current historical ledger contained no tropical matrix-rank sphere/ball claim."
+      ],
+      "reasoning": "No exact database/table with the claimed all-parameter formula was located. Neighboring Hamming-ball results concern Fourier/Turan mass or code enumerators rather than min-plus matrix factorization; semantic proximity does not imply coverage. This is bounded evidence only.",
+      "searches": [
+        "tropical rank of Hamming distance conditional decoding matrix for nonlinear binary code, cut trellis state complexity, min-plus factorization, code distance",
+        "min-plus rank of distance-to-Hamming-ball function decoder at bipartition nonlinear code",
+        "\"tropical rank\" \"Hamming ball\" decoding matrix",
+        "\"Barvinok rank\" \"Hamming ball\" \"distance matrix\""
+      ]
+    },
+    "rationale": "Full accessible 2026 source is a theorem solely for binary linear codes and has rank \\(2^s\\); the claimed rank 3 for a 4-coordinate nonlinear sphere/ball cannot follow as an instance of that statement. Targeted searches for Hamming spheres, balls, clipped Hankel matrices, Monge ranks and published finding records did not uncover exact profile coverage. The direct rank computations and comparison of hypotheses justify bounded-best-knowledge originality, with explicit risk of implicit earlier tropical/Monge derivation.",
+    "residual_risks": [
+      "Possible prior statement or corollary via other uninspected Monge/Hankel tropical-rank literature; search absence is not uniqueness proof.",
+      "Although the key foundational tropical-rank and tropical-positive-matrix full texts were inspected, broader unpublished or differently phrased results may still imply this special case.",
+      "Historical publication coverage is not comprehensive and independent priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its rank formula assumes a binary linear subspace and yields powers of two. It does not state the sphere/ball rank profile; neither family is a binary linear subspace in the rank-three example.",
+        "evidence": [
+          "Theorem 1: every binary linear code has Barvinok and tropical ranks exactly \\(2^s\\).",
+          "Section II-A explicitly assumes C is a binary linear code.",
+          "Concluding Remark 7 asks about extensions beyond the linearity-dependent fiber argument."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.23471",
+        "material_read": "Full available arXiv text: Introduction, definitions, factorization proof, main theorem, and concluding remarks/questions (sections I-IV and VII).",
+        "method": "Direct reading of the accessible arXiv full-text rendering and comparison of hypotheses and consequences.",
+        "title": "Trellis State Complexity as an Exact Tropical Factorization Rank",
+        "trigger": "Same conditional decoding matrix and exact tropical/Barvinok ranks for binary linear codes"
+      },
+      {
+        "assessment": "The inspected full primary text establishes general comparisons and algorithms for rank notions, but no claim about Hamming radial decoder matrices, clipped Hankel ranks or their factor widths.",
+        "evidence": [
+          "Definitions 1.1 and 1.3 specify Barvinok and tropical ranks; Theorem 1.4 gives the general comparison inequality.",
+          "Sections 2-8 treat examples, tropical convexity, matroids and rank algorithms; document searches found no Hamming, Hankel or staircase claims."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0312114",
+        "material_read": "Full available experimental arXiv HTML, Introduction and all eight sections including definitions, Barvinok ranks, tropical ranks, examples and final related-work discussion.",
+        "method": "Read full accessible primary HTML and queried document text for Hamming, Hankel, Monge, staircase and distance matrices.",
+        "title": "On the rank of a tropical matrix",
+        "trigger": "Foundational comparison and definition of three tropical rank notions."
+      },
+      {
+        "assessment": "The full inspected work concerns tropical total positivity, Monge decompositions and staircase structure; no explicit Barvinok/tropical rank formula for Hamming sphere/ball decoder matrices or their hinge weight reductions appears.",
+        "evidence": [
+          "Theorem 4.5 provides a Monge/staircase structural decomposition; searches for Barvinok, Hankel and factor rank found no match."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1606.00238",
+        "material_read": "Full available arXiv HTML paper (Gaubert and Niv, arXiv:1606.00238), including tropical total positivity and staircase decomposition discussion.",
+        "method": "Read the accessible full arXiv primary rendering and searched its text for Barvinok, Hankel and factor rank while comparing the theorem statements.",
+        "title": "Tropical totally positive matrices",
+        "trigger": "Possible dominating general Monge/staircase matrix theorem for the hinge matrix."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "526b93a2-5718-458b-8e6e-725ea4b3eda2",
+  "value": {
+    "rationale": "The exact rank of a conditional distance table measures minimum min-plus message width in decoding. The theorem completely determines this natural invariant for every radius, cut, and alphabet of two canonical nonlinear feasible sets, shows the ball and the sphere have identical profiles despite distinct distance functions, and exhibits integer rank 3 where the linear binary theorem permits only powers of two. These concrete numerical benchmarks are relevant for testing which aspects of trellis-rank results survive beyond linear codes. It neither claims generic decoder complexity nor uses isolated arbitrary parameters.",
+    "status": "PASS"
+  }
+}
