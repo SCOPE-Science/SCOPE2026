@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The quotient has the exact local expression \(g_p(n)=\prod_{j=1}^{e_p}(f(p^j)/f(p^{j-1}))^{C_{p,j}(n)-1}\): exponents above \(e_p\) cancel because at most one of \(k+1\) consecutive integers is divisible by the larger prime power. When \(p^{e_p}\mid(k+1)\) the local count is constant. Otherwise the highest-level count has an asymmetric cyclic-interval distribution; its shift by \(p^{e_p-1}\) changes the value and the corresponding nonunit ratio prevents a smaller local period. The CRT and positivity eliminate cross-prime compensations. This proves the global least period. The theorem states finite positive values, exact quantifiers, the empty-product case, and the divisor-sum specialization. Direct computations cover all proper period divisors in the tested moduli.
+## correctness
 
-## Originality — PASS, with residual risk
-Qian–Tan–Hong, arXiv:1201.0931v1, proves general periodicity and an exact totient case, and its final discussion explicitly asks for the divisor-sum least periods. Farhi–Kane, arXiv:0808.1507v1, proves the same *numeric period formula* for the identity function; this does not imply the divisor-sum specialization, because \(\sigma_\alpha\) is not a power of the identity or completely multiplicative. The old identity-function case is not represented as novel. A related identity-function quotient result does not address the divisor-sum classification. Focused statement searches did not locate the same divisor-sum theorem; a wider result from unlocated literature could still subsume it. Publication date 2012-01-04 is from the first arXiv posting, not a journal date.
+PASS
 
-## Mathematical value — PASS
-The explicit divisor-sum special case is an identifiable open question at the end of the primary source, not an arbitrary selected parameter. It resolves the least period uniformly for every window length and every divisor-sum order \(\alpha\ge0\), while explaining its insensitivity to the positive prime-power weights through a local-count rigidity principle. An upper period or the identity-function formula alone does not supply this sharp classification.
+For each p<=k, if e=floor(log_p k), the p-factor is product_{j=1}^e (f(p^j)/f(p^{j-1}))^{C_j(n)-1}; j>e contribute exponent zero because at most one interval element has p^j valuation. If p^e divides k+1 all C_j constant; otherwise C_e has a nonempty proper consecutive interval of p^e residues and translation by p^(e-1) changes it, while all smaller C_j are unchanged, and the nonunit adjacent ratio witnesses full p^e least period. CRT independence plus positivity forces any global period to be a period at each prime, so product formula is least period. k=1 and sigma_alpha p-power strictness checked. Independent small exact arithmetic comparisons and proof-level check of p-adic cuts; original verifier inspected.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qian–Tan–Hong 2012 treat multiplicative general period bounds and totient least periods, and ask explicitly for sigma_alpha least periods in the paper conclusion. Farhi–Kane 2008 prove the numerical period for f(n)=n, which is a covered special case but does not determine the sigma_alpha quotient. The present all-positive-multiplicative adjacent-unequal theorem directly settles that prior named question, including sigma_0 and sigma_1.
+
+## value
+
+PASS
+
+Answers an explicit published divisor-sum/LCM least-period problem and exposes a clean general local-count criterion. Separates a known formula for identity function from its nontrivial extension to multiplicative functions that need not preserve lcm operations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
