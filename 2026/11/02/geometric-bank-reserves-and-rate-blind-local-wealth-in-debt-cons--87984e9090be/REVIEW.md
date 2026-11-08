@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed invariant weight is obtained directly from the exact product stationary measure of Sakagawa (2026), Proposition 1.1. For positive account balances it contributes \(p^{-k}\), and for negative balances it contributes \(q^{-k}\). On the fixed-net-wealth, fixed-debt slice the full weight is exactly \(p^{-K}(q/p)^d\); this orientation is crucial. The composition count agrees with exhaustive small-state enumeration. The explicit radical parameters solve the two positive-part moment equations, with a nondegenerate full-span two-dimensional lattice law. The usual Fourier proof gives a uniform triangular local limit and point-mass bound, yielding both the geometric normalization and independence from fixed tagged accounts. The standalone verification script reports 1,761 passing finite assertions, including exact-rational detailed balance and convergence profiles. Finite calculations are supplementary, not the basis of the infinite proof. No unproved premise is used beyond standard lattice local-limit theory; its applicable full-span and moment hypotheses are checked in the proof.
+## correctness
 
-## Originality — PASS, subject to historical priority uncertainty
-The 2018/2019 Lanchier–Reed model has a uniform stationary distribution and exact debt-level combinatorial counts only in the equal-transfer-rate case; the present rate-sensitive expression requires the 2026 transfer-dependent model. Lanchier–Reed (2022) prove asymptotic money distributions with multiple banks, without a joint microscopic reserve law. Sakagawa (2026) gives the exact product stationary measure and a distinct diverging-money-temperature limit, but no fixed-density \(O(1)\) reserve limit or rate-blind/local-versus-rate-sensitive independence contrast. The new work adds a conditional two-dimensional local-limit calculation with a geometric boundary normalization and an explicit radical evaluation of its parameter. That additional nontrivial analysis is not a stated theorem or an immediate special case of these sources. Targeted published-record comparisons showed no direct match; these searches cannot exclude an older general boundary-ensemble theorem.
+PASS
 
-## Mathematical value — PASS
-The number of coins still available to the central bank is a natural capacity-utilization statistic: macroscopic debt saturation does not determine the bank's probability of being exactly empty. The proved distribution supplies this exact limiting probability and every fixed reserve moment, and distinguishes changes in positive/negative transfer rates which disappear from the first-order local account law. The simultaneous independence theorem identifies which stationary observables do and do not retain the microscopic rate information. The exact \(\kappa=\delta=1\) example changes the empty-bank probability from \(1/2\) to \(3/4\) solely by changing \(p/q\) from one to one half. This is more than a restatement of equilibrium stationarity or a finite enumeration.
+Reversible stationary weights G(k)=p^(−k) for nonnegative k and q^(−k) for negative k lead, on total net wealth K and aggregate debt d, to p^(−K)(q/p)^d. Conditioning on debt yields the exact finite composition count Z_N(K,d). For positive limiting wealth/credit densities the explicitly defined a,b satisfy E[Y+]=kappa+delta and E[Y−]=delta, while (Y,Y−) has full Z² lattice span (support includes (0,0),(1,0),(-1,1)) and nondegenerate covariance, so a uniform two-dimensional local CLT applies to compact interior parameters. The coefficient identity transforms debt L_N−s weights into u_N^s times lattice-probability ratios, converging for each s to u^s. Uniform Fourier point-mass O(1/N) and a lower CLT O(1/N) give geometric domination, establishing full reserve normalization and all fixed moments. Deleting finitely many coordinates yields the same local ratio and independent tagged accounts in total variation. Independently checked kappa=delta=1 gives a=3/4,b=2/3,u=(p/q)/2, e.g. p/q=.5 bank-empty probability 3/4. Proof needs p<=q to ensure u<1.
 
-## Closest literature and remaining limitations
-The strongest antecedents are Lanchier–Reed (2018/2019), Theorem 2 and Lemma 10; Lanchier–Reed (2022), Theorems 1–2; and Sakagawa (2026), Proposition 1.1, Theorem 1.4, and the local limit arguments of Section 3. The first two concern equal-rate or multi-bank models, while the last concerns a diverging rather than fixed money temperature. The proof is limited to \(0<p\le q\le1\), fixed positive money/debt densities, reversible connected graphs, and stationary laws. It does not settle the \(p>q\) regime or general state-dependent rates. Related abstract equivalence-of-ensembles results may give another derivation; historical priority remains qualified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified pass for joint finite-reserve/finite-account law at positive finite densities; the stationary product law and finite debt-level enumeration are explicitly prior. Sakagawa 2026 large-money-temperature limit has diverging parameter, not this fixed-density reserve boundary.
+
+## value
+
+PASS
+
+Identifies a natural O(1) bank-reserve boundary observable and its explicit geometric distribution, while all finite tagged wealth marginals become asymptotically independent of the microscopic rate ratio. The contrasting sensitivities of aggregate credit and individual holdings are substantive for stationary wealth-exchange models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the geometric reserve theorem
+# Independent mathematical audit
 
-Run `python3 verify_reserve.py` with Python 3 (standard library only). A reproduced execution is stored in `verification_output.txt` and reports `CHECKS_OK 1761`.
+## correctness
 
-The script checks the exact finite count \(Z_N(K,d)\) against independent exhaustive integer-state enumeration; checks inverse directed-edge detailed balance for the two-level positive/nonpositive transfer rule using exact rational arithmetic; checks the closed radical normalization and positive/negative mean constraints for five parameter pairs; and compares exact finite stationary reserve distributions for \(N=50,100,300\) and rate ratios \(p/q\in\{1,1/2,1/4\}\) with the geometric limits. A separate edge-reversibility check covers equal-rate transitions.
+PASS
 
-The theoretical proof uses a full-span bivariate lattice local central limit theorem for the tilted variable \((Y,(-Y)_+)\). Its support contains \((0,0),(1,0),(-1,1)\), so the lattice period is one and the covariance is nondegenerate. The parameters stay in a compact part of \((0,1)^2\), providing uniform exponential moments and a uniform characteristic-function gap away from the origin. This yields the local asymptotic and the needed global \(O(N^{-1})\) point-mass bound. No numerical experiment is asserted to prove the infinite convergence; no second-order asymptotic or mixing-time claim is made.
+Reversible stationary weights G(k)=p^(−k) for nonnegative k and q^(−k) for negative k lead, on total net wealth K and aggregate debt d, to p^(−K)(q/p)^d. Conditioning on debt yields the exact finite composition count Z_N(K,d). For positive limiting wealth/credit densities the explicitly defined a,b satisfy E[Y+]=kappa+delta and E[Y−]=delta, while (Y,Y−) has full Z² lattice span (support includes (0,0),(1,0),(-1,1)) and nondegenerate covariance, so a uniform two-dimensional local CLT applies to compact interior parameters. The coefficient identity transforms debt L_N−s weights into u_N^s times lattice-probability ratios, converging for each s to u^s. Uniform Fourier point-mass O(1/N) and a lower CLT O(1/N) give geometric domination, establishing full reserve normalization and all fixed moments. Deleting finitely many coordinates yields the same local ratio and independent tagged accounts in total variation. Independently checked kappa=delta=1 gives a=3/4,b=2/3,u=(p/q)/2, e.g. p/q=.5 bank-empty probability 3/4. Proof needs p<=q to ensure u<1.
 
-Independent audit has not been performed.
+## originality
+
+PASS
+
+Qualified pass for joint finite-reserve/finite-account law at positive finite densities; the stationary product law and finite debt-level enumeration are explicitly prior. Sakagawa 2026 large-money-temperature limit has diverging parameter, not this fixed-density reserve boundary.
+
+## value
+
+PASS
+
+Identifies a natural O(1) bank-reserve boundary observable and its explicit geometric distribution, while all finite tagged wealth marginals become asymptotically independent of the microscopic rate ratio. The contrasting sensitivities of aggregate credit and individual holdings are substantive for stationary wealth-exchange models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
