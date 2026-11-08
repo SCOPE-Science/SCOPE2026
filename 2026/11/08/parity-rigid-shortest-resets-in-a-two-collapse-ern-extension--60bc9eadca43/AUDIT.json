@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Each reverse preimage from a singleton that occurs in a shortest reset word must genuinely expand under b/c or translate under inverse a; otherwise that letter can be removed using monotonicity. The sets remain circular arcs. Every step decrements their left endpoint by one and only sites 0,n-1 support expansion, with precisely one forced label per site. Exactly n-1 expansions must occupy the shortest span of a periodic alternating-gap pattern, giving (n-2) floor(n/2)+1 and respectively one or two minimum spans. Reversing the forced paths gives the displayed words. Boundary n=2 and all parities are covered. A standalone exhaustive subset BFS checked n=2..15; complete optimal-word reconstruction n=2..12; independent event arithmetic n=2..50. Finite tests are checks only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Y. Zhu, arXiv:2407.08135v1, Theorems 1.4 and 2.7: general upper bound 2n^2-7n+7, not sharp for the specified family.",
+        "M. de Bondt, H. Don, H. Zantema, arXiv:1609.06853, Sections 3 and 5: excludes retaining original (n-1)^2 threshold under nontrivial extensions, but does not give the new exact threshold or uniqueness."
+      ],
+      "reasoning": "Although the new automaton is within Zhu’s broad class, the bound is asymptotically four times larger than the precise threshold and does not yield optimal-word parity. De Bondt–Don–Zantema give qualitative or construction-specific extension results, not a stronger exact theorem covering the labeled transition table.",
+      "searches": [
+        "state complexity and synchronization threshold with transitive permutation group and defect-one letters",
+        "Zhu transitive permutation group rank n-1 letters quadratic synchronizing upper bound",
+        "Černý automata extensions by additional letters shortest reset threshold"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2407.08135v1",
+      "arXiv:1609.06853",
+      "arXiv:1704.04047v2",
+      "Published research-record semantic index: two-letter Černý early deficiency and k-avoiding thresholds; cyclic defect-one reachability; other 3-letter slow automata",
+      "Accessible own claim ledger through preceding generation, used solely for comparison of recoverable claim statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Y. Zhu, arXiv:2407.08135v1, Theorems 1.4 and 2.7: a universal quadratic upper bound cannot fix the exact count of optimal reset words or this lower bound.",
+        "M. de Bondt, H. Don, H. Zantema, arXiv:1609.06853, Sections 3 and 5: reduced threshold in nontrivial extensions does not quantify the size or shortest-word multiplicity.",
+        "F. Gonze et al., arXiv:1704.04047v2, Section 2.1: the extra letter is a permutation and leads to a different semigroup."
+      ],
+      "reasoning": "Neither specializing a loose general bound nor exchanging the added permutation for a nonbijective letter logically implies the exact equation or the one/two shortest-word classification. The proof uses two adjacent inverse-expansion sites and their alternating gap profile; that mechanism is absent from the stated prior results.",
+      "searches": [
+        "Černý automaton additional adjacent collapsing letter exact reset threshold shortest words parity",
+        "two consecutive rank n-1 idempotent maps and cyclic permutation synchronizing automaton exact shortest reset length",
+        "three-letter extension of Černý automata adjacent defect-one letter shortest reset words",
+        "state complexity and synchronization threshold with transitive permutation group and defect-one letters",
+        "arXiv:1609.06853 extensions section 5",
+        "arXiv:1704.04047 transposition section 2.1",
+        "arXiv:2407.08135 Theorem 2.7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "M. de Bondt, H. Don, H. Zantema, arXiv:1609.06853, Sections 3 and 5: studies extensions of slowly synchronizing automata but does not formulate the exact two-adjacent-collapse family.",
+        "F. Gonze et al., arXiv:1704.04047v2, Section 2.1: adds an adjacent transposition, which is bijective, rather than this nonbijective rank-(n-1) second collapse."
+      ],
+      "reasoning": "Searched alternative descriptions using inverse-preimage intervals, neighboring simple idempotents, two defect-one maps and the closed reset-length formula. Comparison requires agreement of all three transition maps and exact multiplicity of shortest reset words, not just a bound of order n squared. The inspected nearest objects are not equivalent.",
+      "searches": [
+        "Černý automaton additional adjacent collapsing letter exact reset threshold shortest words parity",
+        "two consecutive rank n-1 idempotent maps and cyclic permutation synchronizing automaton exact shortest reset length",
+        "adjacent simple idempotent Cerny automaton inverse preimage interval reset words",
+        "published result search: three-letter extension of Cerny automaton two collapsing maps adjacent, exact (n-2) floor(n/2)+1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published indexed research records closest to the query concern the two-letter Černý deficiency profile and a single rank-(n-1) letter with a cycle; neither tabulates the new three-letter family.",
+        "The included verify.py computes the threshold and complete shortest-word sets independently through n=12 but is newly performed computational evidence, not an existing table."
+      ],
+      "reasoning": "No matching exact parameter table or exhaustive statement was found in the queried corpus. This is limited negative search evidence; the claim relies on the direct mathematical distinctions from inspected full texts, not on lack of a search hit.",
+      "searches": [
+        "Černý automaton additional adjacent collapsing letter exact reset threshold shortest words parity",
+        "Černý three-letter two idempotents exact threshold sequence parity shortest word counts",
+        "research-record semantic search: augmented Cerny cycle plus adjacent simple collapses, threshold and multiplicity"
+      ]
+    },
+    "rationale": "The exact all-state-size threshold and one-versus-two shortest-word classification are not provided by the inspected closest primary texts: general quadratic reset upper bounds (Zhu), constraints on extending the two-letter extremal family (de Bondt–Don–Zantema), and an adjacent-transposition rather than second-collapse extension (Gonze et al.). Targeted semantic searches of published results and comparison of recoverable local claim records identified distinct objects and weaker or non-implying conclusions. This is a best-knowledge originality assessment, not a proof of absence from all literature.",
+    "residual_risks": [
+      "An unindexed paper or differently named cyclic-automaton result may contain an equivalent exact reset threshold.",
+      "A complete external expert literature review or independent mathematical audit was not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Upper-bound framework does not establish exact family threshold or optimal-word multiplicities",
+        "evidence": [
+          "Theorem 1.4 states a 2n^2-7n+7 upper bound under rank and group hypotheses",
+          "Theorem 2.7 gives a class-wide bound rather than a construction-specific exact answer"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.08135v1",
+        "material_read": "Introduction, Theorems 1.4 and 2.7, relevant proof sections on transitive permutation actions and quadratic bounds",
+        "method": "Read full open-access HTML text with surrounding statements and hypotheses",
+        "title": "A quadratic upper bound on the reset thresholds of synchronizing automata containing a transitive permutation group",
+        "trigger": "Same broad class: cycle plus rank-n-1 letters"
+      },
+      {
+        "assessment": "No exact two-adjacent-collapse formula or parity multiplicity found in the inspected portions",
+        "evidence": [
+          "New-letter extension results compare with the Černý extremal threshold, not the specific half-quadratic closed formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1609.06853",
+        "material_read": "Introduction, Sections 3 and 5 including extension constructions and claims on retaining the original threshold",
+        "method": "Read accessible open full text and compare the transition maps in relevant constructions",
+        "title": "Slowly synchronizing automata with fixed alphabet size",
+        "trigger": "Classical constructions of slowly synchronizing three-letter extensions"
+      },
+      {
+        "assessment": "Third letter in this extension is a transposition, whereas the claimed c has rank n-1",
+        "evidence": [
+          "The added generator is bijective in the compared construction"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1704.04047v2",
+        "material_read": "Introduction and Section 2.1 transition definitions and reset-length argument",
+        "method": "Read open HTML primary text and directly compare the rank of its third letter",
+        "title": "On the interplay between Babai and Černý's conjectures",
+        "trigger": "Three-letter Černý-type automaton with a nearby new letter"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "60bc9ead-ca43-464e-a6cd-b42ac93c8fd0",
+  "value": {
+    "rationale": "For a natural, explicitly specified 3-letter extension of the extremal Černý family, adding a second neighboring rank-(n-1) collapse lowers the reset threshold from (n-1)^2 to an exact half-quadratic law. Determining the unique/two optimal reset words is a structural classification and exposes a parity-dependent rigidity not implied by general upper bounds or early-rank profile results; it supplies benchmark instances for studying alphabet extensions and synchronization complexity.",
+    "status": "PASS"
+  }
+}
