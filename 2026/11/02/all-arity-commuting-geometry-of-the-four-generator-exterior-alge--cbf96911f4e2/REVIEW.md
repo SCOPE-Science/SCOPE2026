@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is a complete argument over arbitrary fields of odd characteristic for every integer \(m\ge2\), supplemented by a separate characteristic-two case. The odd commutator decomposes into the independent degrees two and four, giving rank-one degree-one columns and an exact alternating pairing condition. Nonzero rank-one matrices form a smooth irreducible base of dimension \(m+3\); the linear degree-three fibers have dimension \(3m+1\), and arbitrary central even elements contribute \(8m\). At the zero-column locus the explicit deformation \(v_i(\epsilon)=\epsilon\langle v,w_i\rangle v\) proves density. For the singular locus, genuine curves in the reduced variety supply at least \(4m+\tau(r,m)\) odd tangent directions with \(\tau(r,m)=r(r+1)/2+m(4-r)>4\). This strictly exceeds the local dimension \(4m+4\), giving all and only singular points. The zero and rank-one fibers are counted disjointly, including the correct finite-field scaling quotient. No finite test is used as a proof of an infinite family. The supplied standalone checker directly builds the sixteen-dimensional multiplication table and tests rank profiles, original commutators and tangent spans.
+PASS
 
-## Originality — PASS, subject to publication-priority uncertainty
+Exterior multiplication yields independent conditions v_i wedge v_j=0 and <v_i,w_j>-<v_j,w_i>=0 over odd characteristic. The first is rank<=1 determinantal locus in 4×m columns; nonzero rank-one base dimension m+3 and each cubic-coordinate fiber dimension 3m+1, plus 8m central even parameters, give 12m+4 and irreducibility. Every zero-v point arises in an actual rank-one degeneration by choosing v with nonzero (<v,w_i>) vector (or arbitrary nonzero t if all zero). Smoothness on nonzero rank stratum follows from locally trivial linear fibers. At zero-v points, actual deformations and polarization show reduced tangent directions of dimension 4m+tau(r,m), tau=r(r+1)/2+m(4-r)>4 for all admissible m,r; adding free even gives tangent dimension above local 12m+4. Finite-field zero rank and nonzero rank-one counts give the polynomial. In char2 graded signs disappear so algebra is commutative. Independent exact finite-field matrix rank checks verified tau for 34 combinations, not unrestricted proof. Source verifier code builds original wedge products and finite-field counts; its historical log alone was not treated as scientific proof.
 
-Domokos and Zubor, *Commutative subalgebras of the Grassmann algebra* (2014, arXiv:1403.2916), study maximal dimensions of commutative subalgebras and associated odd square-zero spaces; those constructions and facts are acknowledged as prior art. Márki, Meyer, Szigeti and van Wyk (2013, arXiv:1307.0292) study representations and polynomial identities, not the all-arity commuting scheme. Earlier work also establishes irreducibility for commuting **pairs** of exterior algebras with at most five generators; the isolated pair statement is not claimed here. A distinct previous result determines the components for commuting tuples of the **six-generator** exterior algebra, but neither the four-generator all-arity finite-field census nor the *precise reduced singular locus* of fixed codimension four follows from that result. Semantic database queries included aliases, stronger results and the same-object literature; no previously published matching combination was located. An unlocated general theorem may exist, so this is not an assertion of globally certified novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Higher commuting-tuple varieties encode simultaneous centralizers rather than merely maximal commutative subalgebra dimension. The four-generator case is the first where both nontrivial degree-one wedge constraints and degree-one/degree-three commutator coupling occur. The complete all-arity point count gives a computable polynomial family for every odd finite field while characteristic two exhibits a sharp commutativity jump. The exact reduced singular locus is a geometric invariant not implied by irreducibility, and its constant codimension four for every tuple length is a substantive uniform structural fact. The classification concerns a natural algebra at all tuple lengths, not an arbitrary parameter slice.
+Domokos–Zubor (2014) classifies commutative subalgebra/square-zero aspects of Grassmann algebras, not the reduced all-arity E4 commuting variety or its singular locus. Márki et al cover representations and polynomial identities, not m-tuple geometry; earlier pair irreducibility is acknowledged. A six-generator tuple result is not logically a specialization in a natural way to the four-generator singular classification. No exact dominating same-object theorem located, with remaining archival priority risk.
 
-## Closest literature and limits
+## value
 
-The 2014 Grassmann-algebra paper is the closest inspected primary source; its principal dimension and square-zero results do not state the geometric and arithmetic classification claimed. The 2013 representation paper treats different invariants. Commuting-pair irreducibility in low generator count is already known and explicitly excluded. Historical publication priority remains provisional. The original commuting equation ideal is not asserted to be radical; geometry throughout concerns the reduced variety. Larger generator counts and conjugacy orbits are outside this theorem. Finite tests corroborate but do not independently validate the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural E4 algebra is the first small exterior case with degree-one wedge constraints and degree-one/three scalar commutator coupling. A complete all-arity geometry, uniform codimension-four reduced singular locus and finite-field polynomial census are useful structural invariants beyond generic pair irreducibility or a code check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
