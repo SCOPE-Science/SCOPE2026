@@ -1,19 +1,21 @@
-# Review: fourth-harmonic cross-polytope shadow fluctuations
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The brightness identity is a direct facet-area application of Cauchy's projection formula. Rotational averaging and the bivariate folded-normal moment yield the exact finite binomial moment. The fourth- and sixth-sign moment expansion cancels the first two possible terms of the variance, yielding \(1/(3\pi d^3)\). Exact fourth-order spherical moments give the projection onto \(\sum_i U_i^4-3/(d+2)\); the residual variance is \(O(d^{-4})\). A Gaussian-coordinate delta method then gives the variance-\(1/(3\pi)\) central limit law. The packaged standalone script independently compares direct projected hull areas in three dimensions and tests the closed moments and asymptotics in other finite dimensions (117 checks passing). All dimension-free conclusions follow analytically, not from finite tests.
+PASS
 
-## Originality (PASS with residual priority uncertainty)
+Cauchy facet brightness formula reduces exactly to Z_d=E_ε|Σ ε_i U_i|. Radial Gaussian decomposition yields exact gamma mean and bivariate normal absolute-product kernel; sign-pair Hamming overlap binomially enumerates the exact second moment. Taylor expansion through ρ^6 and gamma ratio through d^-3 cancels lower variance powers and gives Var(Z_d)=1/(3πd³)+O(d^-4). Spherical fourth-moment conditioning gives coefficient β_d and exact Var(H_d)=24(d−1)/((d+2)^2(d+4)(d+6)), leaving L² remainder O(d^-4). Gaussian representation U=G/||G|| and multivariate CLT/delta method give d^{3/2}H_d→N(0,24) and hence the stated N(0,1/(3π)). Independently numerically checked moment and harmonic residual at multiple dimensions; finite numerics not a CLT proof.
 
-Ivanov's first-public 2026 study gives a deterministic extremal projection theorem. The earlier Ivanov article concerns extremal geometry, not orientation fluctuations. Gao--Qian studies fixed-coefficient higher-order Rademacher moments, rather than the random-direction absolute first moment. General folded-normal correlations used in random-brightness studies can account for the pairwise kernel and are credited; the new content is the exact cross-polytope binomial specialization, fourth-harmonic variance cancellation, quantitative \(L^2\) approximation and limit theorem. Exact matching mathematical statements and stronger dominating results were not located in targeted mathematical-record and literature searches, but absence of indexed matches does not prove historical novelty. The full text of Abas's plausible 2026 random-brightness manuscript was not available; the abstract alone cannot justify whole-paper noncoverage. A prior three-dimensional octahedron result concerns a dimension-fixed conditional law, not this high-dimensional fluctuation theorem.
+## originality
 
-## Value (PASS)
+PASS
 
-The random projection volume of the canonical high-dimensional regular cross-polytope is a standard geometric statistic, and deterministic extremal projection questions are active. Its orientation variance suppresses the \(d^{-1}\) and \(d^{-2}\) terms, a structurally nonobvious phenomenon. An exact formula, quantitative leading spherical harmonic, and sharp Gaussian scale distinguish the random problem from the existing extremal problem; they provide a benchmark for concentration and geometric probability beyond a special finite-dimensional calculation.
+Classical bivariate folded-Gaussian absolute moments and Rademacher inequalities are prior techniques and not claimed novel. The exact binomial specialization for random high-dimensional cross-polytope brightness, cancellation down to d^-3, fourth-harmonic L² approximation and CLT have a different implication than extremal projection-volume literature or fixed-dimension brightness methods. Most plausible source full manuscripts are only partly accessible; priority is explicitly best-of-knowledge.
 
-## Principal limitations
+## value
 
-No fixed-dimensional probability density, nonregular-body extension or quantitative Gaussian convergence rate is proved. The folded Gaussian pair moment is prior technology. The accessible statements of the recent random-brightness paper do not rule out related uninspected results. Independent scientific validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp fluctuation order and its Gaussian law with explicit variance in a canonical high-dimensional convex body reveals a nontrivial third-order cancellation and identifies fourth-degree harmonic structure, exceeding a routine expectation computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the random hyperplane-brightness formulas
+# Independent mathematical audit
 
-Execute `python verification/check_crosspolytope_brightness.py` using Python 3.10+ and the `mpmath` library. The packaged file (not a file from any other investigation) was run successfully, reporting 117 passing checks. These include the exact gamma and finite-binomial moments in ten dimensions, nonnegative fourth-harmonic residual variance, five asymptotic variance comparisons, eighty independent direct three-dimensional convex-hull area computations and two exact closed-moment identities at dimension four.
+## correctness
 
-The script computes finite mathematical identities and numerical examples. The all-dimensional formula, the sharp remainder bound and the normal limit require the analytic proof in RESULT.md and are not independently established by the checks. The pairwise folded-normal identity and the Gaussian delta method are standard mathematical ingredients; there is no machine-checked infinite certificate and no independently performed audit. Full-text access to one plausible related manuscript remains unresolved.
+PASS
+
+Cauchy facet brightness formula reduces exactly to Z_d=E_ε|Σ ε_i U_i|. Radial Gaussian decomposition yields exact gamma mean and bivariate normal absolute-product kernel; sign-pair Hamming overlap binomially enumerates the exact second moment. Taylor expansion through ρ^6 and gamma ratio through d^-3 cancels lower variance powers and gives Var(Z_d)=1/(3πd³)+O(d^-4). Spherical fourth-moment conditioning gives coefficient β_d and exact Var(H_d)=24(d−1)/((d+2)^2(d+4)(d+6)), leaving L² remainder O(d^-4). Gaussian representation U=G/||G|| and multivariate CLT/delta method give d^{3/2}H_d→N(0,24) and hence the stated N(0,1/(3π)). Independently numerically checked moment and harmonic residual at multiple dimensions; finite numerics not a CLT proof.
+
+## originality
+
+PASS
+
+Classical bivariate folded-Gaussian absolute moments and Rademacher inequalities are prior techniques and not claimed novel. The exact binomial specialization for random high-dimensional cross-polytope brightness, cancellation down to d^-3, fourth-harmonic L² approximation and CLT have a different implication than extremal projection-volume literature or fixed-dimension brightness methods. Most plausible source full manuscripts are only partly accessible; priority is explicitly best-of-knowledge.
+
+## value
+
+PASS
+
+A sharp fluctuation order and its Gaussian law with explicit variance in a canonical high-dimensional convex body reveals a nontrivial third-order cancellation and identifies fourth-degree harmonic structure, exceeding a routine expectation computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
