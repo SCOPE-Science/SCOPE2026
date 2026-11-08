@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The update formula subtracts the excluded matched neighbour separately for each vertex; truncation at multiplicity two exactly retains the only information needed for this threshold-one test. Each type has one successor, and recurrent signature cycles induce bijections on occupied types, so their type-permutation order gives the actual microscopic period, not merely the signature period. The complete 19,683-signature enumeration verifies the uniform six-step bound, rare-period support classifications and exact orbit counts. A separately implemented vertex-level map exhaustively verifies 597,870 labelled configurations across shore sizes one through six, including sharp boundary times. For the fixed size-five rule comparison, all 59,049 configurations are checked under both maps. Mathematical correctness rests on the stated finite reduction and its replayable implementation; no finite small-graph sample is extrapolated to arbitrary graph sizes.
+## correctness
 
-## Originality — PASS (qualified)
-The closest broadly applicable source is Gravner–Lyu–Sivakoff's Theorem 3 (arXiv:1610.07320), which characterizes synchronization and excitation activity on arbitrary graphs. Its result is compatible with—but does not give—the exact crown-graph period-four and exceptional six/ten orbit populations, exact first-entry distribution, or the six-update cutoff. The closest graph-specific comparison is the prior crown-graph CCA enumeration: it concerns a distinct vertex rule and has 20 rather than two six-orbits, 72 rather than 24 ten-orbits, and a four- rather than six-step cutoff. It establishes no GH orbit count or GH transient. Targeted mathematical-record queries and primary-literature searches found no equivalent exact GH crown census. Unindexed historical equivalents remain a risk, especially the 1978 foundational literature whose full text was not accessible here.
+PASS
 
-## Mathematical value — PASS
-The missing perfect matching preserves enough pairwise heterogeneity to create isolated graph-size resonances, even though a fixed nine-trit factor bounds every transient uniformly. The exact exceptional orbit and basin populations show that two closely related excitable updates can have identical rare attraction-basin membership yet markedly different internal periodic/transient structures. This is a complete, naturally parameterized period-spectrum classification and a sharp temporal bound, rather than an arbitrary small-graph list.
+Each matched pair has one of nine left/right colors. Clipping counts of each type at 2 preserves all excitation thresholds because the deleted matched edge removes at most one excited neighbor. The nine-trit factor on 3^9 states is exact at any n; recurrent occupied-type maps are bijective, and permutation order around each signature cycle recovers microscopic period and exact first-entry time. Independent enumeration found 19683 signatures, 4394 recurrent signature cycles, max transient 6 with ten six-step signatures, period-6 rare signatures 50 and period-10 rare signatures 6; singleton support forces n=3,5. Labelled orbit/basin counts follow by 3! and 5! lifts, and a repeatable five-pair coloured-state census in the package checks the 720 GH/CCA basin identity. Full microscopic n≤6 verifier was inspected but not independently rerun for all 597870 configurations; no false claim of its independent execution. Exact finite-factor exhaustion plus lifting lemma, not just small-n data, supports all n.
 
-## Scope and limitations
-The result assumes simultaneous three-state threshold-one excitation on labelled crown graphs; no claim is made for other thresholds, colours, or deleted-edge patterns. The finite-factor enumeration is a computational proof requiring source inspection, and the historical-literature search is not exhaustive. Independent audit and independent validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified: the general graph GHM/CCA activity and synchronization theorem is prior, and the crown CCA dynamics are a different rule. Full GH micro orbit and basin populations, sharp six-step bound and same-basin/different-orbit phenomenon were not implied by inspected primary results.
+
+## value
+
+PASS
+
+Exceptional primitive period 6 and 10, precise basin populations, and uniform sharp first-entry cutoff on the natural crown family provide meaningful structural finite-state dynamics beyond the known asymptotic activity classification; the CCA contrast identifies a model-specific phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

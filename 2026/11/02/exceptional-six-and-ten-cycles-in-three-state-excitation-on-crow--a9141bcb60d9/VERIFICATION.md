@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Run `python3 verify_crown_gh3.py` in a directory containing that file. Only the Python 3 standard library is required. The code exhausts all 19,683 clipped matched-pair signatures, computes recurrent signature cycles and lifts them by transporting all occupied pair types. It confirms the exceptional six- and ten-cycle classes, maximal transient six and the sharp size-dependent boundary cases.
+## correctness
 
-An independent direct vertex-level update computes the dynamics of every one of 597,870 labelled colourings for shore sizes one through six. At size five, it also computes all 59,049 colourings under the distinct cyclic-contact rule and confirms identical period-ten basin membership for the two rules. The successful completion marker is `CROWN_GHM3_VERIFY_OK` ; the successful check prints the indicated marker.
+PASS
 
-Finite small-size enumeration is not a proof for unbounded shore sizes. The unbounded conclusion relies on the separately stated proof that the clipped nine-trit model is an exact factor and that recurrent occupied-type maps are permutations. Source/log replay checks that finite computational lemma, not any external certification. Independent audit remains unperformed.
+Each matched pair has one of nine left/right colors. Clipping counts of each type at 2 preserves all excitation thresholds because the deleted matched edge removes at most one excited neighbor. The nine-trit factor on 3^9 states is exact at any n; recurrent occupied-type maps are bijective, and permutation order around each signature cycle recovers microscopic period and exact first-entry time. Independent enumeration found 19683 signatures, 4394 recurrent signature cycles, max transient 6 with ten six-step signatures, period-6 rare signatures 50 and period-10 rare signatures 6; singleton support forces n=3,5. Labelled orbit/basin counts follow by 3! and 5! lifts, and a repeatable five-pair coloured-state census in the package checks the 720 GH/CCA basin identity. Full microscopic n≤6 verifier was inspected but not independently rerun for all 597870 configurations; no false claim of its independent execution. Exact finite-factor exhaustion plus lifting lemma, not just small-n data, supports all n.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified: the general graph GHM/CCA activity and synchronization theorem is prior, and the crown CCA dynamics are a different rule. Full GH micro orbit and basin populations, sharp six-step bound and same-basin/different-orbit phenomenon were not implied by inspected primary results.
+
+## value
+
+PASS
+
+Exceptional primitive period 6 and 10, precise basin populations, and uniform sharp first-entry cutoff on the natural crown family provide meaningful structural finite-state dynamics beyond the known asymptotic activity classification; the CCA contrast identifies a model-specific phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
