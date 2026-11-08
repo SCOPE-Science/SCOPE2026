@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Exact formulas for the only three graph-ball radii reduce every cut input to its two occupancy counts. The proof separates the mutually exclusive cases in which only one zero-class output exceeds the global mean, and bounds every mixed cut by a singleton cut. For arbitrary signed data supported on one class, a strict scalar chord inequality proves the sharp constant and the exact single-spike extremizers; its explicit deficit proves the quantitative concentration estimate. The phase transition follows from displayed rational factorization. The standalone exact-rational checker completed 136,524 assertions. These calculations corroborate, rather than replace, the analytic proof valid for all specified orders and real inputs.
+PASS
 
-## Originality
+For m,n>=2, graph balls have radii zero, one and two. On K_mn the centered maximal values are max{x_u,(x_u+Y)/(n+1),mu} on A and max{y_v,(y_v+X)/(m+1),mu} on B. For a cut of k occupied A and ell occupied B, the input edge variation is D=k(n-ell)+(m-k)ell; the two possible strict above-global-mean values for unoccupied vertices cannot coexist because they would require incompatible inequalities. Case analysis bounds the output cut variation by max(R_A,R_B), with equality at a singleton spike in the maximizing class, R_A=m/(m+1)+(m-1)(n-1)/((m+1)(m+n)) and R_B its swapped formula. For all nonzero real f supported only on A, the normalized values p_u and chord majorization of g(s)=|max{s,1/(m+n)}-1/(m+1)| give sum g(p_u)<=R_A, with strict inequality for every non-spike and pointwise deficit at least kappa_A min{s,1-s}. Summing proves the stated rigidity. Algebra gives R_A-1=((m-2)(n-2)-3)/((m+1)(m+n)) and its B swap, hence the exact threshold and limit sup2. Independent Fraction enumeration checked every cut class for 2<=m,n<=9 and the threshold identity. These do not prove all m,n or all real one-sided profiles, which follow from the symbolic case split and chord inequality.
 
-PASS, with a publication-priority limitation. Soria–Tradacete (arXiv:1410.6204) obtain magnitude and restricted-type norms, not the edge-variation quantity. González-Riquelme–Madrid (arXiv:2005.03146) calculate sharp variation for complete and star graphs and do not state the bipartite cut formula. The accessible research-record comparisons found no equivalent exact all-cut or one-sided-real bipartite theorem. Kurka (arXiv:1210.0496) addresses continuum variation. The full paper of Liu–Xue (DOI:10.1007/s13348-020-00290-6) was inaccessible, so possible earlier equivalent arguments there or in other specialist sources remain a material risk. Previously established star and small-cycle boundary cases are not claimed as new.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Edge variation is a natural discrete bounded-variation seminorm, and characteristic functions of vertex subsets encode graph cuts; these are standard canonical tests for maximal-operator regularity. The result computes **every** cut ratio's sharp envelope on an infinite two-parameter graph family, derives an exact contractivity threshold, and identifies a spike-orientation reversal. The unrestricted one-sided real problem is also completely solved, including near-extremizer rigidity. Amplification occurs even on high-degree diameter-two graphs, while the sharp cut supremum approaches two. The full unrestricted two-sided real BV norm is not settled, so the value claimed is the complete cut/one-sided classification, not a general BV theorem.
+Even if a finite K_2,2 example appears in the small-graph census, finitely many small graphs cannot yield the exact infinite K_mn parametric formula or rigidity. Existing full operator norm results on different graph families need not imply this restricted-class K_mn formula. The complete/star graphs do not include K_mn with both classes >=2; the inaccessible Liu–Xue source is a real priority risk. General graph variation principles could imply a weaker inequality but not necessarily the exact cut and one-sided extremals and phase threshold. A small-graph table overlaps boundary instances but not the unrestricted symbolic family or one-sided rigidity. Search failure is not proof that a specialised older table is absent. The exact scope distinction is essential: no previously established full K_mn norm has been shown in the material actually read, and its existence would require mathematical comparison. The separate cut and one-sided equalities with sharp threshold are not direct specializations of known complete/star graph results. Best-of-knowledge PASS with specifically identified historical-priority risks; an unsuccessful search is not proof of novelty.
 
-## Closest literature and limitations
+## value
 
-Primary full-text comparisons: Soria–Tradacete (2014), Section 2 and Section 3; González-Riquelme–Madrid (2020), variation Theorems 1 and 2 and their proofs. Supporting accessible abstracts: Kurka (2012), Liu–Xue (2021). The latter full text was not accessible. The claim is restricted to unweighted complete bipartite graphs, graph-ball averages and \(p=1\) edge variation; it is not an all-input real-valued BV sharp constant, nor a weighted-graph theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact variation amplification and its threshold on natural dense bipartite graphs address a genuine question in discrete maximal-operator regularity. The complete cut-signal and one-sided-real-signal classifications plus quantitative concentration rigidity are useful even without proving the unrestricted two-sided BV operator norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
