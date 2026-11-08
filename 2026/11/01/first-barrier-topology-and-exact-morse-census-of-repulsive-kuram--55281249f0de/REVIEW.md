@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is proved on the precise class of finite connected triangular cacti with uniform negative unit couplings, homogeneous intrinsic frequencies, and quotient by common phase. The map from vertex phases modulo rotation to the two relative phases of each triangle is a global torus diffeomorphism: this is the essential reason the energy, stationary equations, and Hessian inertias factor without wrongly asserting flow decoupling. The one-triangle stationary equations have exactly six nondegenerate solutions (two minima, three index-one saddles, one maximum), with energies \(-3/2\), \(-1\), and \(3\); independent block choice gives the energy/index polynomial. A chirality sign crossing supplies a rigorous minimax lower bound, attained by an explicit one-block-at-a-time path. Morse handle counts, absence of higher-index critical points below the next threshold, and path connectivity imply the claimed wedge-of-circles homotopy type. Graph automorphisms provide the equal-basin statement only for windmills. The embedded test independently reconstructs original-coordinate Hessians and paths through \(r=4\). No finite test is substituted for the general proof.
+PASS
 
-## Originality — PASS, with residual risk
+A triangular cactus assembled by attaching two new vertices per triangular block has global torus coordinates (phi_i,psi_i) after quotienting the common phase. Its energy is exactly a sum of e=cos phi+cos psi+cos(phi-psi). Solving sine stationarity gives exactly two minima at -3/2 with Hessian index0, three saddles at -1 index1, and one maximum at 3 index2, all nondegenerate; block-diagonal Hessian inertia yields (2+3zt+z9t2)^r. Chirality change crosses sin(phi-psi)=0 and forces e>=-1 on some block; holding others at ground energy proves barrier >=E*+1/2. Explicit path (s,-s), s from 2pi/3 to 4pi/3, reaches max -1 and proves equality for all pairs via sequential flips. Standard Morse handles yield 2^r contractible components below first saddle, then connected wedge of 3r2^(r-1)-2^r+1 circles before +1; only 0 and 1 handles appear. Friendship block swaps force equal Haar basin masses 2^-r, and Hessian L(G)/2 gives spectral gap 1/2 (r>=2) or 3/2 (r=1). Full vertex flow need not decouple.
 
-The closest inspected studies are Mehta et al. (arXiv:1412.0666; general equilibria and stability), Bronski et al. (arXiv:1508.01507; general Laplacian index reduction and one-/two-cycle examples), Delabays et al. (arXiv:1609.02359; predominantly attractive planar multistability), and Zhao–Zhou (arXiv:2407.11314; the full six-point triangle classification with repulsive possibilities). In particular, the local six-point classification and a general cycle-space index theorem are **not** claimed as original. None of the inspected results implies the explicit arbitrary-triangular-cactus energy/index polynomial together with the exact minimax barrier and first-saddle sublevel homotopy. The known general methods make parts of the construction accessible, but do not provide the specific all-size joint energy-topology classification. An unindexed equivalent treatment of frustrated XY triangular cactus networks remains possible; no uniqueness of discovery is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The underlying question is motivated by competing chiral attractors in frustrated oscillator networks: equilibrium counts do not tell whether distinct ground states are energetically separated or how attraction regions first connect. The structural block-coordinate theorem supplies exact critical energies and instability dimensions on every nonisomorphic triangular cactus with a given block count; the sharp constant switching barrier controls the minimal deterministic energy needed to change any chirality pattern; and the first-saddle homotopy calculation distinguishes a mere merger of components from creation of independent loops. The \(2^{-r}\) exact basin partition for symmetric windmills and the size-independent sink spectral gap give additional dynamical interpretations. The result is an infinite-family classification, not a numerical extrapolation or an arbitrary table lookup.
+The local six-state triangle equilibrium analysis is earlier Zhao–Zhou work, and general graph Laplacian inertia via cycle-space (Bronski–DeVille–Ferguson) is established. The mathematically combined all-size triangular-cactus Morse/energy census plus sharp universal pairwise chirality-switching minimax barrier and first-sublevel homotopy does not follow directly from inspected existing statements. Best-of-knowledge original; frustrated XY cactus literature may contain an equivalent via partition functions/barriers.
 
-## Limits and closest evidence
+## value
 
-The analysis does not address general cactus cycle lengths, nonuniform couplings, forced frequencies, full higher-energy Morse filtrations, or exact convergence-time distributions. All formal index statements use the quotient phase space. The literature comparison uses the full-text portions of the named primary studies relevant to these assertions; historical mathematical literature is not exhaustively indexed. The recorded numerical verifier uses floating point and does not verify Morse homology computationally.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For frustrated repulsive oscillator networks, counts of stable chirality patterns alone do not reveal the energy needed to switch, the first landscape topology change or basin symmetry. The arrangement-independent exact all-r polynomial, universal sharp barrier and nontrivial first Betti number are motivated structural results in an infinite family of graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
