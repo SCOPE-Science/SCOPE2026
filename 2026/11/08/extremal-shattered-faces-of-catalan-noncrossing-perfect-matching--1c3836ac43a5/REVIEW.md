@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The upper bound is forced by the unique completion of a perfect matching after fixing all but one edge. The positive direction uses an induction on forbidden disjoint boundary edges after prescribed positive edges are fixed. The converse is a genuinely geometric obstruction: an interior chord separates a support edge from the sole unused matching edge, making a single-negative trace impossible. The \(m^2\) count is the exact bijection with opposite-parity uncovered vertex pairs. The standalone finite cross-check verifies the top stratum and independent Catalan generation through six matched pairs.
+
+**Originality — PASS within inspected sources and available search.** The centered-flip and degree theorems in Milich–Mütze–Pergel (arXiv:2002.02290) do not imply the trace realization classification. The arbitrary-edge removal theorem in Sheyn–Tessler (arXiv:1107.2314) covers the avoidance lemma, which is explicitly credited, but does not distinguish interior from perimeter edges at maximum shattering or enumerate shattered top supports. Keller–Perles (arXiv:0911.3350) classify size-\(m\) *blocking* sets, a different universal quantification from shattering. A related complete class of noncrossing partitions with pair-equivalence queries does not determine traces of the restricted perfect-matching family. Searches for equivalent descriptions, broader implications and a matching table found no decisive covering statement; priority risk remains.
+
+**Value — PASS.** Among Catalan many noncrossing perfect matchings, the largest possible edge-membership shattered support is linear in the number of pairs, but its admissible geometries are dramatically rigid: only near-perfect perimeter matchings survive. The exact \(m^2\) top-face classification is a natural structural learning-theoretic invariant, not a parameter slice or a restatement of the elementary edge-removal theorem. It suggests refined questions about lower faces and nonpurity without asserting those as proved.
+
+Independent verification remains outstanding. The small-size computer exercise is supplemental to, not a substitute for, the infinite proof. The inspected literature does not establish complete historical priority.
+
+Self-review: passed. Independent audit: not yet performed.
