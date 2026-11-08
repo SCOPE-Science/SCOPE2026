@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T14:48:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Multiplicativity and β(p^a)=(p^{a+1}+(-1)^a)/(p+1) give β≥φ. For odd prime powers a≥2 and for two odd prime supports, 1<(n−1)/β(n)<2; for powers of 2 only n=4 is an exception. For n=2^a p^b, parity of β(p^b) forces b even; a=1 forces quotient 2 and absurd 2p^b=p+3, while a≥2 and p≥5 or p=3 with a even yield quotient below 2. Final p=3, odd a≥3 forces integer quotient 2 and 3^{b+1}−2^{a+1}=5, contradicted mod 8 since b even. The prime case β(p)=p−1 holds. Independently recomputed Liouville-convolution β(n) for n≤5000 and checked every ω(n)≤2 divisibility hit is prime or four. Finite checks do not prove all exponents.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "β(n)=φ(n) for squarefree n, β(n)>φ(n) generally for nonsquarefree composite; φ-Lehmer constraints are not a coverage theorem for all β-divisibility cases."
+        ],
+        "reasoning": "Tóth poses unrestricted composite question but does not prove a stronger exclusion; its scope as a question is not stronger established theorem. φ-Lehmer exclusion does not logically imply the two-prime β result.",
+        "searches": [
+          "https://arxiv.org/abs/1111.4842",
+          "Lehmer totient φ n divides n−1",
+          "Sivaramakrishnan square totient function"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1111.4842",
+        "https://oeis.org/A206369"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tóth asks whether any composite β divisor exists, gives definition and explicit finite computation; prime-power formula does not by itself state the even two-prime parity and mod8 obstruction."
+        ],
+        "reasoning": "The new proof eliminates unbounded families 2^a p^b via a nontrivial parity/quotient argument. Established φ constraints cover only squarefree coincidence and do not settle nonsquarefree β.",
+        "searches": [
+          "https://arxiv.org/abs/1111.4842",
+          "Tóth §7 Problem 4 and §1 prime-power formula",
+          "φ-Lehmer necessary conditions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tóth §1 describes β as alternating sigma and square totient; §7 Problem 4 asks composite β(n)|(n−1)."
+        ],
+        "reasoning": "Aliases were searched for exact β divisibility rather than confusing a different alternating divisor ordering; no established identical ω≤2 theorem found.",
+        "searches": [
+          "Resultary: alternating divisor beta n divides n minus one exactly two prime factors Lehmer support",
+          "https://arxiv.org/abs/1111.4842",
+          "alternating sigma square totient beta(n) divides n minus one two prime support"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tóth reports computational absence through 10^6 (except 4, which the survey wording overlooks as special); finite data have no unbounded prime/exponent force.",
+          "Resultary hit for alternating-divisor totient-gap fibers concerns χ−φ, not β|n−1."
+        ],
+        "reasoning": "A finite database listing cannot establish this theorem for all primes/exponents; no exact all-support-two table or broader theorem was located.",
+        "searches": [
+          "Resultary: alternating divisor beta n divides n minus one exactly two prime factors Lehmer support",
+          "OEIS A206369 beta alternating sum of divisors",
+          "Tóth 2011 §7 Problem 4"
+        ]
+      },
+      "rationale": "PASS (qualified): Tóth 2011/2013 survey explicitly poses Problem 4 asking about composite β(n)|(n−1), reporting only finite search, and neither states nor derives this entire two-prime-support obstruction. Classical φ-Lehmer results cannot be imported because β≥φ but β|n−1 need not imply φ|n−1. Resultary β−φ fiber analysis concerns a different invariant. No exact or stronger implication identified under alias searches, with residual specialist priority risk.",
+      "residual_risks": [
+        "An earlier specialist strengthening of Tóth Problem 4 may settle two-prime support without matching terminology.",
+        "The theorem makes no claim concerning ω(n)≥3."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact function and global divisibility question are known, support-two theorem not stated",
+          "evidence": [
+            "Tóth §7 Problem 4 asks composite n with β(n)|(n−1) and reports numerical search to 10^6."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1111.4842",
+          "material_read": "Primary arXiv text §1 definition, convolution identity and aliases; §7 Problem 4 lines 226–235, relevant arguments",
+          "method": "Read entire available arXiv text around definition and problems",
+          "title": "A survey of the alternating sum-of-divisors function",
+          "trigger": "Original beta-Lehmer open problem and square-totient aliases"
+        },
+        {
+          "assessment": "Defines β; no unbounded two-support proof inferred",
+          "evidence": [
+            "Cited by Tóth survey and record as function index."
+          ],
+          "identifier_or_url": "https://oeis.org/A206369",
+          "material_read": "Function index metadata only",
+          "method": "Database-level lookup",
+          "title": "On-Line Encyclopedia of Integer Sequences A206369",
+          "trigger": "Potential finite divisor function table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Settles an infinite arithmetically natural prime-support slice of an explicitly posed problem and proves any further counterexample must have at least three distinct prime factors. This is a reusable structural restriction, not merely a finite table or trivial renaming.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An earlier specialist strengthening of Tóth Problem 4 may settle two-prime support without matching terminology.",
+    "The theorem makes no claim concerning ω(n)≥3."
+  ],
+  "schema_version": 1
+}
