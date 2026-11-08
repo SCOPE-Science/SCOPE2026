@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The proof is entirely analytic in `RESULT.md`. The available `verify.py` uses Python 3 standard library arithmetic (`fractions.Fraction`, `math`, `random`) with a fixed pseudorandom seed, making finite consistency tests repeatable. Execute `python3 verify.py` in the directory containing the extracted file.
+## correctness
 
-Recorded checks on the packaged source: 2,600 strictly positive rational curvatures; 4,180 random SPD spectra checked against the endpoint formula with equality-attaining endpoint cases; 207 unimodality/integer-localization cases. Total: 6,987 passed. It also outputs four explicitly calculated dimension/contrast benchmarks. These samples cannot verify all real matrices, all dimensions or all contrasts. The universal quantifiers follow from the displayed separate-convexity proof and exact endpoint reductions.
+PASS
 
-The claimed sharpness is for arbitrary SPD spectral data and the specified ordered KL, not for a finite Lanczos discretization, numerical conditioning or Monte Carlo reliability. Earlier equivalent mean-inequality expressions cannot be ruled out by search alone. No independent mathematical audit or independent validation has been performed.
+For eigenvalues t_i, F=2D_KL/k=mh−1−log h−mean log t with m=mean t, h=mean 1/t. At fixed others S,R, strict coordinate convexity follows F_tt=2S/(k²t³)+R²/(Rt+1)²−(k−1)/(kt²)>0 using SR≥(k−1)² and AM–GM 2a²/y+y²≥3a^{4/3}>2a²+a. Thus maximizers on compact [1,κ]^k have only {1,κ} eigenvalues, and nonconstant spectra give positive KL. Substitution yields explicit Hκ(j/k); derivative has one root by convexity and endpoint signs. Uniform fixed-k asymptotics follow expansions. Independent rational curvature and 280 random bound/attainment tests agree, but proof is analytic.
+
+## originality
+
+PASS
+
+The cited Fifen–Karambal–Hennig trace-matched Lanczos bound is (κ−1)²/2 per dimension; supplied synopsis of Theorem 13 does not state sharp two-level maximizers or k-dependent envelope. The source full text could not be inspected; this is explicit residual priority uncertainty rather than a claimed whole-paper noncoverage. General Gaussian KL extremals use different constraints.
+
+## value
+
+PASS
+
+Sharpens a crude quadratic condition-number bound to exact k-dependent constants with discrete multiplicities and linear high-contrast growth; relevant for quantifying isotropic inverse-covariance compression.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
