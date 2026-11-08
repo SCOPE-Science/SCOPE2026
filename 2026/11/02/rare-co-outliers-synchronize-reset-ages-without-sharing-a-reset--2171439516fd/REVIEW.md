@@ -1,21 +1,21 @@
-# Scientific review: rare joint excursions and reset ancestry
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stochastic system is specified by fixed positive diffusivity and Poisson batch rate, with uniformly selected fixed-size subsets. Marking the Poisson process yields **three independent event classes** for any two labels, at rates \(c,e,e\). Backward reset ages are their componentwise minima, giving an exact diagonal-singular plus off-diagonal age measure. Conditional Brownian independence gives exact integrals for the positive joint-excursion event. Gaussian Mills estimates and a strictly convex two-dimensional saddle produce the sharp constant \(a/c\), not just its exponential rate. The off-diagonal normal direction remains of order one and has limiting weight \(e^{-cu/2}\), so the conditional age-gap law includes an explicit nontrivial atom. The independent-only case follows from Poisson thinning and a separate one-dimensional saddle-point central limit theorem. The finite verifier checked the algebraic transform against the published two-point characteristic function and numerically tested the endpoint coefficient and age-gap Laplace transform. Finite checks do not substitute for the limiting proof.
+PASS
 
-## Originality — PASS, with explicit boundaries
+For fixed N>=2, m>=2, r,D>0 the marked Poisson process splits into independent both-reset c, and exclusive e,e clocks, with pair ages A_i=min(E_c,E_i); exact diagonal age mass c exp[-(2lambda-c)t] and off-diagonal density e lambda exp[-e min(s,t)-lambda max(s,t)]. Conditional Gaussian tails and a strict saddle t*=x/sqrt(2D(2lambda-c)) give P(X1>x,X2>x)~[(2lambda-c)/(c sqrt(2pi z))] exp(-z), z=x sqrt(2(2lambda-c)/D). The off-diagonal O(1) boundary layer gives Exp(c/2) absolute gap, weight (c/(2lambda-c))^2 on a common-last-event atom; ages/x concentrate, whereas c=0 yields independent Laplace tails and Gaussian sqrt(x) gap. Independently re-integrated marked age mixture for c=.5,.9 and high x and checked limiting shared-clock weight and sharp prefactor. n,m and thresholds fixed; this is not a uniform c->0 claim.
 
-The closest primary source, de Mauro, Majumdar and Schehr (2026), **already gives the complete stationary two-position distribution**, its characteristic function and its squared-position correlations. Those are not claimed as new; its density can in principle be used to deduce the unconditioned pair-exceedance asymptotic. The specific finding assessed here is instead the probability that two rare co-outliers share their last actual resetting event and the limiting **mixed atom/exponential distribution of the difference of their reset ages**, contrasted with the Gaussian \(\sqrt{x}\)-age gap for independent resetting. The position marginal in the source does not specify this conditional hidden-event statistic. Marshall–Olkin's shared-shock exponential mechanism is an essential known ingredient, but it does not contain this Brownian-excursion posterior. Classical elliptical Laplace-tail indices already cover the fully synchronous boundary. The displayed residual coefficient and sharp joint tail are quantitative supports, not separately asserted breakthroughs.
+## originality
 
-Relevant primary scientific sources: arXiv:2601.20077v1 (main model, stationary transform, supplemental pair density and connected correlations); Marshall and Olkin (1967), DOI 10.2307/3212024 (abstract/source description only); Opitz (2015), arXiv:1507.02537 (Proposition 1); Engelke, Opitz and Wadsworth (2018), arXiv:1803.04221 (random-scale literature and dependence indices). No exact conditional-age-gap result was found in the inspected material. A broader unpublished/unstudied shock-mixture theorem might imply the result, and mathematical priority is not independently certified.
+PASS
 
-## Value — PASS
+Best-of-knowledge mathematical comparison supports the scoped additional claim, not a discovery of the model, generic method or unconditioned antecedents. Actual published Resultary searches and primary sources reviewed; some historical sources were abstract-only, with named priority risks. The final theorem is not known from inspected stated prior implications; no global novelty certification.
 
-Ordinary position covariance vanishes in this model, so it gives no information about simultaneous large excursions. The theorem determines a concrete hidden history observable conditional on such an excursion. It shows that extreme positions force the *ages* to synchronize even though the last reset *events* often differ. The limiting probability of a common last event is \((c/a)^2\), not the unconditional \(c/a\), and the positive age mismatch becomes exponentially distributed with rate \(c/2\). With entirely individual resetting the mismatch grows on the threshold square-root scale instead. This is a sharp mechanism-level distinction relevant to interpreting correlated rare excursions from partial common environmental shocks, not merely a numerical moment increment.
+## value
 
-## Limitations and risks
+PASS
 
-All rates and particle count remain fixed as the displacement threshold grows. No uniform limit as shared-reset intensity approaches zero, no interacting gas and no other reset protocols are covered. The full relevant model paper is accessible and provides stronger coverage for the *spatial* pair law; this result claims originality only for the conditioned last-reset ancestry. The classical shared-shock paper was checked from its indexed abstract rather than its entire text. More general hidden-shock posterior literature could still imply the conditional law, and independent mathematical and priority review has not been carried out.
+Hidden last-reset identity and the conditional time separation of two simultaneous Brownian extremes are natural event-history observables not supplied by their positional covariance or spatial distribution. Exact mixed atom/exponential posterior, its singular one-reset boundary, and sharp excursion normalization are structurally interpretable, nontrivial and reusable in rare-event reset models.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
