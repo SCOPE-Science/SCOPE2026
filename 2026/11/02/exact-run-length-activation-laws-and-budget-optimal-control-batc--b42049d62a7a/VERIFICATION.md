@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analysis is a finite-word exact counting proof for all finite control patterns. The two inverse branches of the tent map have slopes of absolute value two, so their itinerary is a sequence of fair independent sign symbols under normalized Lebesgue measure. The active plateau is the occurrence of \(RL\) in the two symbols following a controlled instant; consecutive requested occurrences cannot overlap, and blocks separated by a free instant use disjoint symbol coordinates. Exact run counts and the strictly positive block-merger identity establish all universal statements and equality cases.
+## correctness
 
-Run `python verify_tent.py` with Python 3. The code uses `fractions.Fraction` and compares direct exact branch-cylinder orbit tests against the product formula for every deterministic control schedule through eight steps, and checks the fixed-budget sharp min/max for all budgets at those horizons. Its assertions are supplementary consistency checks and do not enumerate all possible horizons. No numerical approximation, external data, or infinite-machine certification is used.
+PASS
 
-An independent audit has not been performed. The scientific limits and incomplete source access are set out in `RESULT.md`, `REVIEW.md` and `AUDIT.json`.
+First intervention coincides with RL among fair independent tent itinerary bits (B_{n+1},B_{n+2}); one block of length ell forbids adjacent RL in ell+1 symbols, leaving exactly ell+2 sequences, probability (ell+2)/2^(ell+1). Disjoint control blocks use disjoint symbol coordinates, so survival is the product. Splitting inequality p_c p_d-p_(c+d)=cd/2^(c+d+2)>0 yields unique minimum at one block and maximum using r=min(k,N-k+1) nearly equal lengths; infinite controls give a decay bound (3/4)^k. An independent rational cylinder enumeration verified all 510 schedules through N=8, including endpoints up to null sets. Actual verify_tent.py inspected; unrestricted theorem comes from symbolic proof.
+
+## originality
+
+PASS
+
+Exact schedule-dependent first-activation law and sharp fixed-budget extrema are different quantities from attractor and period-increment classifications for binary flat-top patterns. Classical non-self-overlap word avoidance supplies an ingredient, but the dynamical first-intervention optimization in this model was not found as a published statement; residual reduction risk is explicit.
+
+## value
+
+PASS
+
+Provides exact risk under every predetermined timing pattern and a sharp resource-constrained control design rule for a studied dynamical limiter; contrasts one batch with maximally dispersed control without claiming eventual attraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
