@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Complete modular valuation proof: for d=2^k u with u odd≥3 a length-d comparison interval necessarily includes a mismatch (q≡2 or3 mod4), so repetition periods are dyadic; all dyadic repetitions start at a≥2d and have length≤4d−1, hence endpoint <3a. The explicit dyadic blocks are squares by valuation parity at the unique exceptional boundary. These imply the all-r lower and upper bounds without finite inference. Independent exact checker verified 5518 bounded square occurrences, all 13 proposed dyadic squares, and DP shortest widths for r=1,…,10; finite limits are documented.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1207.5450 Theorem 3: every positive integer is a least period of some period-doubling factor.",
+        "arXiv:2303.14539 studies good words, avoidance of fourth powers and pattern factors; no shortest repetition-factorization bounds are stated."
+      ],
+      "reasoning": "Having least period d does not mean having exponent at least two, because the witnessing finite factor may be shorter than 2d. The new dyadic-only restriction applies to repetition periods, not all factor least periods. None of the examined stronger-seeming pattern statements supplies logarithmic minimum-width growth.",
+      "searches": [
+        "period doubling word squares periods only powers of two repetition period square factors",
+        "arXiv:1207.5450 Theorem 3 least periods",
+        "arXiv:2303.14539 period-doubling avoidable pattern classification",
+        "arXiv:2511.20881 kernel word factorizations",
+        "Ziv-Lempel and Crochemore factorizations generalized period-doubling word 2020 DOI:10.17654/DM025020143"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2311.14961",
+      "https://arxiv.org/abs/1207.5450",
+      "https://arxiv.org/abs/2303.14539",
+      "https://arxiv.org/abs/2511.20881",
+      "https://www.researchgate.net/publication/347199014_ZIV-LEMPEL_AND_CROCHEMORE_FACTORIZATIONS_OF_THE_GENERALIZED_PERIOD-DOUBLING_WORD",
+      "https://oeis.org/A096268"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2311.14961 Theorem 1 gives finite-bound decision automata, Theorem 7 proves Thue–Morse short-width ≤7, Theorem 15 shows Rudin–Shapiro unbounded longest width, and §7 leaves general decidability unresolved.",
+        "arXiv:1207.5450 Theorem 3 does not require repetitions (exponent at least two)."
+      ],
+      "reasoning": "The existence of finite bounded-width decision algorithms does not decide unboundedness for a named word. The cited bounded shortest and unbounded longest results have different word/invariant. Least-period occurrence does not imply the existence or nonexistence of the logarithmically many forced repetition factors constructed here.",
+      "searches": [
+        "arXiv:2311.14961 Theorem 1 and Theorem 7 and Theorem 15 and open problem",
+        "arXiv:1207.5450 Theorem 3",
+        "arXiv:2303.14539 good words period doubling",
+        "\"period-doubling\" \"shortest repetition\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2311.14961 §7 poses general decidability of unbounded shortest widths, without period-doubling application.",
+        "arXiv:2511.20881 §1 defines kernel-word and gap-word factorizations, not factorization into exponent-at-least-two repetitions.",
+        "Bognini–Kaboré–Kientéga (2020) §1 defines Ziv–Lempel/Crochemore decompositions by earlier occurrences rather than repetition periods."
+      ],
+      "reasoning": "Repetition factorization and shortest width match the Shallit–Xu definitions. Kernel/gap decompositions and palindromic/grammar factorizations are not equivalent to a minimum count of repetition pieces.",
+      "searches": [
+        "\"period-doubling\" \"repetition factorization\"",
+        "\"period-doubling\" \"shortest repetition\" \"factorization\"",
+        "\"period doubling\" \"minimum repetition factorization width\"",
+        "arXiv:2311.14961 §§1–7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2311.14961 exhibits width tables/automata for other named automatic words but no period-doubling width table.",
+        "The finite diagnostic here is a consistency check; no external exact table of these witness widths was identified."
+      ],
+      "reasoning": "A finite table for other sequences or for period-doubling subword complexity does not subsume an infinite all-r growth theorem; no directly covering external table was located.",
+      "searches": [
+        "period doubling minimum repetition factorization shortest width table",
+        "period doubling word squares factorization dyadic run",
+        "repetition factorization automatic sequences length-limited enumerators"
+      ]
+    },
+    "rationale": "The inspected primary repetition-factorization paper (arXiv:2311.14961) provides the invariant and proves bounded shortest widths for other automatic words, but has no period-doubling shortest-width theorem. The same-object least-period study (arXiv:1207.5450) concerns a weaker property (periods of factors with no exponent restriction). Same-object pattern-avoidance and kernel/gap-factorization papers do not imply the explicit unbounded minimum-width family. Exact statement, aliases, and stronger-covering results were searched; unindexed or implicit prior work is a residual risk.",
+    "residual_risks": [
+      "An equivalent period-doubling shortest-width result may exist in unindexed literature or as an unextracted consequence of a complete square-structure classification.",
+      "Mathematical symbols in the publicly accessible 2020 Ziv–Lempel/Crochemore article extraction are degraded; readable definitions establish a different invariant, but every technical implication has not been verified.",
+      "Search absence is not a uniqueness or originality proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same invariant, other named words; no period-doubling shortest-width bound in inspected complete article",
+        "evidence": [
+          "Theorem 7: bounded Thue–Morse shortest width; Theorem 15: Rudin–Shapiro unbounded longest width; §7: general decidability open."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.14961",
+        "material_read": "Full HTML sections 1–7, including Theorems 1, 7, 15 and section 7 open problem",
+        "method": "Read arXiv full-text HTML and compared quantified claims",
+        "title": "Repetition factorization of automatic sequences",
+        "trigger": "Direct definition, closest invariant and general open problem"
+      },
+      {
+        "assessment": "Not covering because no length≥2d requirement for least-period witnesses",
+        "evidence": [
+          "Theorem 3 states every positive integer is a least period of some finite factor; this does not guarantee exponent ≥2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1207.5450",
+        "material_read": "Entire arXiv HTML note, specifically Theorems 1–3 and computations",
+        "method": "Read full text and compared least-period and repetition-period quantifiers",
+        "title": "Least periods of k-automatic sequences",
+        "trigger": "Same word and apparently conflicting period spectrum"
+      },
+      {
+        "assessment": "Relevant occurrence/avoidance results, but no minimum repetition-factorization growth comparison",
+        "evidence": [
+          "Main classification addresses good words and avoided patterns, including fourth-power avoidance, not shortest widths."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.14539",
+        "material_read": "Introduction, good-word definitions, forbidden-pattern and proof sections",
+        "method": "Read open HTML primary text and searched repetition/square/factorization terms",
+        "title": "The analogue of overlap-freeness for the period-doubling sequence",
+        "trigger": "Same infinite word and structural restrictions on powers"
+      },
+      {
+        "assessment": "Different notion of factorization; no minimum number of exponent≥2 pieces",
+        "evidence": [
+          "Theorems concern kernel words, gap sequences and other sequence decompositions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2511.20881",
+        "material_read": "Introduction and kernel/gap factorization statements and proof sections",
+        "method": "Read full HTML and compared factor types and optimization objectives",
+        "title": "A new factorization of the generalized period-doubling sequences through kernel words and gaps sequences",
+        "trigger": "Same word and potentially dominating factorization theory"
+      },
+      {
+        "assessment": "Definitions use shortest-new/longest-previously-seen factors, not ordinary exponent-at-least-two repetitions or their minimum number; the paper does not assert the new shortest-width theorem in material read",
+        "evidence": [
+          "2020 article introduction §1 and preliminary definitions §2 distinguish Ziv–Lempel and Crochemore factors by prior factor occurrences."
+        ],
+        "identifier_or_url": "https://doi.org/10.17654/DM025020143",
+        "material_read": "Accessible text of introduction, definitions of the two named factorizations, section organization and relevant claims; mathematical formulas in HTML extraction are partly garbled",
+        "method": "Read accessible full-text article text from an author-uploaded 2020 paper, without relying on degraded formulas",
+        "title": "Ziv-Lempel and Crochemore factorizations of the generalized period-doubling word",
+        "trigger": "Earlier factorization study of exactly the same classical word"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0aceb678-d2b6-449d-86cb-4dcb80502bde",
+  "value": {
+    "rationale": "The minimum number of repetition factors is directly motivated by the source paper and its unbounded-shortest-width question. The result provides a new classical automatic-word instance with log-scale lower/upper bounds along explicit factors, plus a global structural lemma on all repetition factors. Bounded monochromatic runs ensure the effect is not merely a trivial result of long constant runs. An exact value for every witness or an arbitrary-word decidability theorem is neither necessary nor claimed.",
+    "status": "PASS"
+  }
+}
