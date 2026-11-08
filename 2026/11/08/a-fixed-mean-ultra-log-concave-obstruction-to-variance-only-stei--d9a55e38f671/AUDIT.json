@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every epsilon in (0,1/2] and w>0, independent Bernoulli/Poisson convolution yields the explicit full-support pmf; factorial-weighted strict log-concavity follows from an exact positive b^2 determinant; mean is identically one and variance 2epsilon-epsilon^2. Detailed balance telescopes the centered constant-birth Stein equation and shows the indicator solution envelope F(j-1)G(j)/(w p(j-1)). For j>=2, ratio monotonicity and r2<epsilon, r3<=epsilon/2 give envelope<=2/(3w); at j=1 it equals (1-epsilon exp(-epsilon))/w>2/(3w), attained by A={0}. Therefore the entire infinite-state supremum and sharp variance-normalized divergence follow. Test program check.py passed 1170 finite assertions; finite checks are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eichelsbacher--Reinert, arXiv:0808.2877, Lemma 2.4 and equation (2.13): nonuniform bounds in the unit-per-capita normalization, inspected in the original paper.",
+        "Brown--Xia, DOI:10.1214/aop/1015345606, is a relevant foundational source but full text access failed (institutional route was disconnected).",
+        "DeSalvo explicitly states the all-log-concave Gamma<=C sigma/w conjecture as unresolved on 2026-10-30."
+      ],
+      "reasoning": "Classical density-form Stein solution formula and Gibbs bounds are credited, and their existence could subsume the elementary ratio identity. The claimed contribution is the contradiction of an explicitly stated later universal variance-only inequality, with a stronger-than-logconcave fixed-mean family and exact factor. No inspected broader theorem directly states this obstruction; incomplete Brown--Xia inspection remains an originality risk rather than a negative finding.",
+      "searches": [
+        "Brown Xia Stein method birth-death processes 2001 sup norm g full text",
+        "Stein's method for discrete Gibbs measures Eichelsbacher Reinert arxiv 0808.2877 Lemma 2.4",
+        "Poisson binomial sum with Poisson mean one ultra log concave Stein inverse bound Gamma variance small"
+      ]
+    },
+    "checked_sources": [
+      "DeSalvo, arXiv:2611.00263v1, sections 2/8/9/10.1",
+      "Eichelsbacher and Reinert, arXiv:0808.2877, original PDF, introduction and section 2",
+      "Brown and Xia, DOI:10.1214/aop/1015345606, metadata only",
+      "Xia and Zhang, arXiv:0812.4847, abstract only",
+      "Relevant semantic records on log-concave half-mass bounds and Poisson-binomial cumulants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Open Problem 8.2 asserts a universal upper bound Gamma<=C sigma/w for every log-concave full-support target.",
+        "The new fixed mean-one ultra-log-concave family has Gamma*w=1-epsilon exp(-epsilon) ->1 and sigma ->0, hence explicitly violates every choice of fixed C.",
+        "Theorem 2.5(b) and the general telescoping solution motivate the envelope but do not contain this contradiction."
+      ],
+      "reasoning": "Logical comparison is direct: the new family satisfies all stated premises of the conjectured second inequality, yet makes its left/right ratio unbounded. It neither contradicts nor re-proves the independent first-difference assertion. The result is not a renaming of an existing Stein factor, because its defining consequence is failure of the parameter-uniform sigma scaling despite fixed mean and strict ultra-log-concavity.",
+      "searches": [
+        "arxiv:2611.00263v1 Open Problem 8.2 Gamma <= C sigma/w",
+        "arxiv:0808.2877 Lemma 2.4 exact nonuniform Stein factor",
+        "doi:10.1214/aop/1015345606 Brown Xia 2001"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DeSalvo Theorem 2.5(b): for Bessel, Gamma=sup_m F(m)G(m+1)/(nu p_m); Open Problem 8.2 extends variance-only scaling to all log-concave targets.",
+        "The exact centered density-form solution for an arbitrary full-support target yields the same ratio expression but this is a known method, not the asserted new contribution.",
+        "Direct algebra on Bernoulli(1-epsilon)+Poisson(epsilon) gives Gamma=(1-epsilon exp(-epsilon))/w while sigma=sqrt(2epsilon-epsilon^2)."
+      ],
+      "reasoning": "Equivalent forms include bounded indicators, the inverse of the centered constant-birth difference operator, and a one-dimensional Mills-ratio envelope. The historic general envelope alone does not assert the present explicit fixed-mean ultra-log-concave obstruction or contradict the recent conjecture without supplying a sequence where the envelope-to-sigma quotient diverges. Exact formula and divergence are independently proved.",
+      "searches": [
+        "constant birth Stein sup norm variance-only logconcave distribution counterexample",
+        "DeSalvo 2026 Open Problem 8.2 Gamma <= C sigma/w full support log concave target counterexample near deterministic integer Poisson plus Bernoulli",
+        "https://arxiv.org/html/2611.00263v1 Theorem 2.5(b) and Open Problem 8.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "DeSalvo Table 1 reports a scan of log-concave death rates, including powers, but does not list this fixed-mean near-degenerate Bernoulli-plus-Poisson family.",
+        "Semantic database queries returned nearby, non-equivalent items on discrete log-concavity at integer means and Poisson-binomial cumulants, rather than a published exact factor for this family."
+      ],
+      "reasoning": "This is an infinite parameter theorem, not a finite table entry. The nearest numerical log-concave scans do not imply the analytic asymptotic divergence. Failure of search is not proof of uniqueness; source and formula comparisons control the claim.",
+      "searches": [
+        "Log concave full-support birth-death stationary target fixed mean ultra log-concave Bernoulli Poisson convolution variance tends zero Stein sup norm factor does not scale as sigma/w counterexample",
+        "Bounded Stein solution sup norm for variance-small lattice log-concave distribution Poisson Bernoulli convolution explicit exact sharp factor",
+        "https://arxiv.org/html/2611.00263v1 Table 1 log-concave scan and Open Problem 8.2"
+      ]
+    },
+    "rationale": "The directly motivating arXiv:2611.00263v1 explicitly conjectures Gamma<=C sigma/w for every full-support log-concave constant-birth target. The exact fixed mean-one strictly ultra-log-concave family has Gamma*w ->1 and sigma ->0, refuting that universal implication and establishing the precise factor on its whole parameter interval. Generic Stein solution formulas and earlier Gibbs estimates are acknowledged and not represented as novel. Historical full-text access gaps remain specified.",
+    "residual_risks": [
+      "Brown--Xia (2001) original full text could not be checked; it may contain general identities, although no directly covering fixed-mean counterexample is evidenced.",
+      "Earlier specialized Stein bounds under alternative normalizations might already give a related small-variance obstruction; priority requires external historical review.",
+      "Database result ranking is not exhaustive and absence of an exact hit is not novelty certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source conjectures the universal Gamma<=C sigma/w estimate and establishes its own exact Bessel special-case ratio. Does not supply the present counterexample.",
+        "evidence": [
+          "arXiv:2611.00263v1 section 8, Open Problem 8.2; Theorem 2.5(b), Remark 2.6, sections 9.2 and 10.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.00263v1",
+        "material_read": "Full original HTML sections 2, 8, 9, 10.1; statements of Theorems 2.3/2.5, Open Problem 8.2 and relevant proofs, as well as source date and classification",
+        "method": "Primary arXiv HTML text; inspected statements, equations, applications and limitations",
+        "title": "Two moments suffice for Bessel approximation: conditioned differences, contingency tables, and probabilistic divide-and-conquer",
+        "trigger": "Direct source of the universal variance-only Stein sup-norm conjecture"
+      },
+      {
+        "assessment": "Provides known nonuniform Stein factor and solution estimates in a different birth/death normalization; no explicit fixed-mean ULC counterexample or universal variance-only statement identified in inspected material.",
+        "evidence": [
+          "arXiv:0808.2877, pages 1-8, Lemma 2.1, Lemma 2.4, equations (2.10)--(2.13)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0808.2877",
+        "material_read": "Original full-text PDF introduction, general setup and section 2 with Lemma 2.1 and Lemma 2.4, including page images 7 and 8",
+        "method": "Original arXiv PDF parsed text and page-image inspection",
+        "title": "Stein's method for discrete Gibbs measures",
+        "trigger": "Broad Gibbs/birth-death framework and potentially dominating nonuniform Stein bounds"
+      },
+      {
+        "assessment": "Known foundational overlap risk for general solution identities; no whole-document NOT_COVERING finding made.",
+        "evidence": [
+          "Brown and Xia, Annals of Probability 29 (2001), 1373--1403; DOI:10.1214/aop/1015345606."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aop/1015345606",
+        "material_read": "Bibliographic record and citation information only; original full text not obtained",
+        "method": "Publisher/open-access and institutional-access attempts; full text unavailable",
+        "title": "Stein's method and birth--death processes",
+        "trigger": "Foundational generic factor bounds that might subsume part of the derivation"
+      },
+      {
+        "assessment": "Different Wasserstein problem and specified polynomial rates; no full-document noncoverage asserted.",
+        "evidence": [
+          "Xia and Zhang, 2008, arXiv:0812.4847."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0812.4847",
+        "material_read": "Primary abstract and published summary only",
+        "method": "arXiv abstract and journal-index metadata",
+        "title": "Polynomial Birth-Death Distribution Approximation in the Wasserstein Distance",
+        "trigger": "Follow-up work on polynomial death rates and factors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d9a55e38-f671-4221-94b5-bbc553b15324",
+  "value": {
+    "rationale": "The candidate explicitly negates the second half of a recent substantive open Stein-factor conjecture in its stated unrestricted domain, and does so in a familiar sum of independent Bernoulli and Poisson variables, with fixed mean, full support and strictly ultra-log-concave masses. The theorem gives an exact factor (not just a numerical objection), a mathematically forced inverse-square-root obstruction and a precise natural parameter range. Any correct future positive theorem must exclude near-deterministic lattice concentrations or change its scale. The distinct first-difference conjecture and positive replacement remain open.",
+    "status": "PASS"
+  }
+}
