@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T17:16:12.509975Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md complete cardinal-function and symmetrizer proof at Git blob 70ce88a2b0866544d7e70b274d0fe9cc5bfbf0b1",
+        "verify_fsbp.py Git blob e7251c0cfe2aa15c3a8ddf8998362408d98ce0d3 symbolic P D + D^T P and high-precision collocation checks"
+      ],
+      "rationale": "Nodal sampling determinant is 2sinκ(cosκa−cosκ), so singular samples cannot reproduce nonzero endpoint derivative of g(x)=cosκx−cosκ. Invert unisolvent sample matrix; interior cardinal derivative D_11=κsinκa/(cosκ−cosκa). Positive P_11 and SBP central diagonal force sinκa=0, hence a=0 or ±π/κ exclusively. Endpoint SBP equations uniquely fix q0=sinκ/[κ(1+2cosκ)], P0 middle 2(1+cosκ)q0; off-centre q1=sinκ/[κ(2cosκ−1)], P1 middle 2(1−cosκ)q1. Entrywise cross-identity yields complete SBP. As sinκ<0, central positive only κ<4π/3, off only κ<5π/3. For mass=2, mass residual functions H0,H1 decrease strictly (derivatives 2sinκ(κ∓sinκ)) and have opposite endpoint signs, giving unique κ0≈4.028701 and κ1≈5.066777. Hand-checked positivity, derivatives, 3/2π boundary and alias equality; full parametric proof not inferred from 149 sampled frequencies.",
+      "residual_risks": [
+        "At π,2π excluded; positivity thresholds 4π/3 and 5π/3 themselves excluded for their respective branches.",
+        "No claim of PDE stability or exact constant quadrature except at the three calibrated grids."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hale–Harley–Nchupang–Nordström 2026 optimal nodes theorem relies on appropriate Tchebyshev-space conditions, which sin(2κx) violates in this range.",
+          "2025 optimization-construction paper treats constant-exact quadrature as additional constraint; does not solve the particular two scalar mass-root equations."
+        ],
+        "reasoning": "General sufficient frameworks do not dominate the explicit 3/2/0 branch classification or three isolated mass-exact grids outside their Tchebyshev setting.",
+        "searches": [
+          "https://arxiv.org/html/2604.23306v1 Theorem 6 optimal nodes",
+          "https://doi.org/10.1007/s10915-025-03062-1 exact integration constants FSBP"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2604.23306v1",
+        "https://arxiv.org/abs/2203.05479",
+        "https://doi.org/10.1007/s10915-025-03062-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026 optimal nodes text Sections 2, 3.5 and 4.1 gives general Tchebyshev existence and other trigonometric examples.",
+          "Product-derivative space here contains sin(2κx), which has five interior zeros, violating 4D Tchebyshev hypothesis."
+        ],
+        "reasoning": "Because the theorem sufficient conditions do not apply, the exact high-frequency positive branches require separate cardinal derivative and SBP sign classification; physical-mass zeros are extra information.",
+        "searches": [
+          "https://arxiv.org/html/2604.23306v1",
+          "https://arxiv.org/abs/2203.05479",
+          "https://doi.org/10.1007/s10915-025-03062-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Glaubitz–Nordström–Öffner 2022/23 derive positive-quadrature equivalence and general trigonometric SBP constructions.",
+          "The three-node differentiation matrix is forced by exact nodal inversion, while the present result classifies every feasible interior a analytically."
+        ],
+        "reasoning": "Quadrature/SBP equivalence is standard but does not itself enumerate exact positive nodes above first resonance or unique mass-normalizing frequencies.",
+        "searches": [
+          "trigonometric FSBP three-node positive norm aliased off-center grid pi<frequency<2pi",
+          "arxiv:2203.05479 trigonometric general-function SBP"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned Resultary records emphasize finite-cyclic Fourier projection/Turán constants and harmonic frames, not SBP differential matrices or positive quadrature on [-1,1].",
+          "No exact tabulation of κ0, κ1 and aliased a=±π/κ was returned."
+        ],
+        "reasoning": "No database coverage located by targeted semantic search; not proof of priority.",
+        "searches": [
+          "Resultary: trigonometric summation by parts general function spaces three nodes frequency pi to two pi off center positive diagonal norm mass exact",
+          "trigonometric SBP second band 4pi/3 5pi/3"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for explicit minimal-node high-frequency phase diagram and exact mass root count, not generic positive FSBP or generalized quadrature existence. The Tchebyshev sufficient hypothesis used by optimal-node theorems fails for the product derivative space because sin(2κx) has five zeros; general results do not imply exact second-band geometry.",
+      "residual_risks": [
+        "A specialized trigonometric quadrature or aliasing identity may have previously tabulated the two physical-mass roots."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING explicit alias diagram; sufficient theorem inapplicable",
+          "evidence": "Hale et al 2026 uses Tchebyshev-function condition for a general optimal-node construction, not applicable to five-zero sin(2κx).",
+          "identifier_or_url": "https://arxiv.org/html/2604.23306v1",
+          "material_read": "Full HTML definitions, positive-quadrature/optimal-node theorems and sections 3.5 and 4.1 plus relevant examples",
+          "method": "Compared fixed three-node second-band geometry to Tchebyshev and generalized Gauss-Lobatto assumptions",
+          "title": "Summation-by-parts operators for general function spaces: Optimal nodes",
+          "trigger": "Same FSBP optimization problem and authors"
+        },
+        {
+          "assessment": "BACKGROUND not exact second-band classification",
+          "evidence": "Glaubitz et al 2022/23 give SBP-quadrature correspondence, not exhaustive a=0,±π/κ or mass roots.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.05479",
+          "material_read": "Primary article definitions, quadrature equivalence and trigonometric construction sections available via OA",
+          "method": "Compared rank/positivity and fixed minimal node count",
+          "title": "Summation-by-parts operators for general function spaces",
+          "trigger": "Original diagonal norm FSBP definition and trigonometric construction"
+        },
+        {
+          "assessment": "NOT_COVERING second-band κ0,κ1 roots",
+          "evidence": "Glaubitz et al 2025 motivate constant mass but do not solve reviewed special geometry.",
+          "identifier_or_url": "https://doi.org/10.1007/s10915-025-03062-1",
+          "material_read": "Accessible article sections 2.1–2.3 discussing optional constant exact quadrature",
+          "method": "Distinguished basic SBP requirement from added M=2 calibration and checked whether roots stated",
+          "title": "An Optimization-Based Construction Procedure for Function Space-Based Summation-by-Parts Operators on Arbitrary Grids",
+          "trigger": "Physical mass normalization mentioned"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md and relevant prior literature for Reentrant high-frequency trigonometric SBP geometry and exactly three mass-calibrated grids"
+      ],
+      "rationale": "The minimal three-node trigonometric FSBP element has a sharp and counterintuitive reentrant nodal geometry beyond first resonance: two aliased off-center positive diagonal norms exist after midpoint failure; exactly three norm-mass-calibrated choices survive across whole band. This supplies exact feasibility boundaries and physically meaningful mass consistency for numerical discretizations; not arbitrary frequency sampling.",
+      "residual_risks": [
+        "Additional nodes, nondigonal P, general frequency, and PDE convergence remain unclassified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "At π,2π excluded; positivity thresholds 4π/3 and 5π/3 themselves excluded for their respective branches.",
+    "No claim of PDE stability or exact constant quadrature except at the three calibrated grids.",
+    "Additional nodes, nondigonal P, general frequency, and PDE convergence remain unclassified.",
+    "A specialized trigonometric quadrature or aliasing identity may have previously tabulated the two physical-mass roots."
+  ],
+  "schema_version": 1
+}
