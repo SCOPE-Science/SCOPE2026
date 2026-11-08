@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10+ (standard library only). Expected success prefix: `VERIFY_OK checks= 199`.
+## correctness
 
-The code computes the displayed rational law by exact `fractions.Fraction` arithmetic for eight parameter pairs, tests normalization, nonnegative support and sign/rotation symmetries, verifies selected exact reference probabilities, and compares the measure against factors of morphism-generated prefixes at multiple substitution powers. Additional explicit residue-block checks test the joint carry-length/letter uniformity lemma.
+PASS
 
-Empirical comparisons use a finite tolerance only to accommodate boundary and carry tails in finite samples. They do **not** prove equality at infinitely many powers, nor certify an arbitrary excluded base. The infinite natural-density proof is given in `RESULT.md`, which derives a pointwise boundary identity and a tail-controlled geometric limiting law. The test suite and mathematical argument were checked in the same review; no independent scientific audit has been performed.
+The substitution t(Bj+s)=t(j)+s mod m and m|B make each complete B-block exactly balanced. Sliding a B^{e+1} window from Bj to Bj+s removes/adds only two cyclic letter prefixes and gives V_e(Bj+s)=P_{s mod m}(t(j+B^e))-P_{s mod m}(t(j)). Adding B^e produces digit-sum jump 1+C_e(j) mod m, where C_e is the number of consecutive (B-1) digits from position e. For each fixed carry c, its density is (B-1)/B^{c+1}, and a higher unconstrained digit makes the initial t(j) uniform mod m. Summable carry tails B^{-K} justify natural densities along all cutoffs, yielding q_{B,m}(c) and a law independent of e. Proper cyclic intervals have distinct shifts, giving exact zero mass. Independent exact formula and finite sliding-window calculations support but do not replace the all-exponent argument.
+
+## originality
+
+PASS
+
+Qualified PASS: established generalized Thue-Morse literature counts possible Parikh/additive classes and lists frequencies of *individual full factors*, from which frequencies can in principle be aggregated case-by-case. The claim instead gives a closed complete distribution of Parikh-class masses and exact invariance across every substitution exponent for m|B. None of the inspected primary results asserted this scale-stationary finite carry law. A latent aggregation corollary remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Parikh frequencies rather than mere support are natural statistical invariants of automatic words; exact scale invariance and weighted additive-observable laws describe an infinite family of substitution-scale factors with a nontrivial explicit carry mechanism. The m|B restriction is structurally necessary, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T18:39:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The substitution t(Bj+s)=t(j)+s mod m and m|B make each complete B-block exactly balanced. Sliding a B^{e+1} window from Bj to Bj+s removes/adds only two cyclic letter prefixes and gives V_e(Bj+s)=P_{s mod m}(t(j+B^e))-P_{s mod m}(t(j)). Adding B^e produces digit-sum jump 1+C_e(j) mod m, where C_e is the number of consecutive (B-1) digits from position e. For each fixed carry c, its density is (B-1)/B^{c+1}, and a higher unconstrained digit makes the initial t(j) uniform mod m. Summable carry tails B^{-K} justify natural densities along all cutoffs, yielding q_{B,m}(c) and a law independent of e. Proper cyclic intervals have distinct shifts, giving exact zero mass. Independent exact formula and finite sliding-window calculations support but do not replace the all-exponent argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General factor-frequency and abelian-equivalence machinery applies to more length choices than B^{e+1}, but the inspected explicit theorems compute frequency sets or complexity values rather than a closed mass vector uniform across e."
+        ],
+        "reasoning": "Broader algorithms can theoretically be specialized and combined, but no verified implication without additional carry-class aggregation, so a nontrivial theorem remains.",
+        "searches": [
+          "Balková, Factor frequencies in generalized Thue-Morse words, arXiv:1107.5033 Theorem 4.5",
+          "Popoli–Shallit–Stipulanti, Additive word complexity and Walnut, arXiv:2410.02409 Theorems 22–23",
+          "Golafshan–Rigo–Whiteland arXiv:2412.18425"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob 05e2ddfe9898d4a3fd6956e057e25a66371c7e56",
+        "Balková arXiv:1107.5033 Theorem 4.5",
+        "Popoli–Shallit–Stipulanti arXiv:2410.02409 Theorems 22–23",
+        "Chen–Wen arXiv:1809.06554",
+        "Resultary semantic query: generalized Thue Morse divisible base Parikh vector frequency distribution factors length power balance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Explicit individual-factor frequencies could be added over all words in each Parikh class, but the scale-invariant identity would still require a uniform computation in e.",
+          "Knowing which Parikh vectors occur (support) is strictly weaker than knowing their probabilities."
+        ],
+        "reasoning": "No checked source states a dominating closed formula from which exact scale-stationarity follows immediately. The existing machinery forms the background and possible alternate derivation.",
+        "searches": [
+          "Balková arXiv:1107.5033 Theorem 4.5",
+          "Popoli–Shallit–Stipulanti arXiv:2410.02409 Theorems 22–23"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abelian complexity counts the number of possible Parikh vectors, while this law specifies the probability mass of each one.",
+          "Balková studies individual factor frequencies; summing those across equal Parikh vectors is related but no stated scale-invariant law was identified."
+        ],
+        "reasoning": "Parikh measure is a pushforward of factor frequencies, but a factor-frequency set or abelian complexity alone does not give the exact masses and equality for all e.",
+        "searches": [
+          "Resultary semantic search: generalized Thue Morse divisible base Parikh vector frequency distribution factors length power balance",
+          "Balková arXiv:1107.5033",
+          "Chen–Wen arXiv:1809.06554"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known complexity tables describe counts of attainable Abelian classes, not their limiting masses.",
+          "At B=m=3, claimed six nonzero vectors each have 4/39 and balanced mass 5/13; this joint measure is not recorded in the compared complexity tables."
+        ],
+        "reasoning": "No exact database/table enumerating the finite rational measure at every e was found; this does not establish exhaustive novelty.",
+        "searches": [
+          "Chen–Wen On the abelian complexity of generalized Thue-Morse sequences arXiv:1809.06554",
+          "Resultary semantic search: generalized Thue Morse divisible base Parikh vector frequency distribution factors length power balance",
+          "Popoli–Shallit–Stipulanti arXiv:2410.02409"
+        ]
+      },
+      "rationale": "Qualified PASS: established generalized Thue-Morse literature counts possible Parikh/additive classes and lists frequencies of *individual full factors*, from which frequencies can in principle be aggregated case-by-case. The claim instead gives a closed complete distribution of Parikh-class masses and exact invariance across every substitution exponent for m|B. None of the inspected primary results asserted this scale-stationary finite carry law. A latent aggregation corollary remains a priority risk.",
+      "residual_risks": [
+        "Factor-frequency algorithms could be specialized to obtain this Parikh distribution; a prior formula in another notation or unpublished dataset is possible.",
+        "Natural-density equality holds with e fixed before sample size tends to infinity, not uniform in e.",
+        "Finite prefix comparisons corroborate only bounded parameters, not all exponents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives factor frequency classes; not identified as the claimed pushforward Parikh law invariant under all exponent shifts",
+          "evidence": "Factor frequency distribution is finer, but class aggregation at lengths B^{e+1} is not explicitly given as a rational law independent of e.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.5033",
+          "material_read": "Accessible complete published primary text including Theorem 4.5 and the classification of frequencies of individual factors",
+          "method": "Full primary-text theorem comparison",
+          "title": "Factor frequencies in generalized Thue-Morse words",
+          "trigger": "Same substitution word and exact frequency problem"
+        },
+        {
+          "assessment": "Counts attainable sums / classes rather than masses of weighted sums for uniform random start",
+          "evidence": "An exact count of distinct weights does not imply each class probability.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.02409",
+          "material_read": "Full text including Theorems 22–23 and related ternary additive complexity",
+          "method": "Primary manuscript theorem reading",
+          "title": "Additive word complexity and Walnut",
+          "trigger": "Same generalized automatic words and additive observables"
+        },
+        {
+          "assessment": "Support/complexity concern is weaker than full probability measure",
+          "evidence": "Number of distinct Abelian classes does not determine their mass distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.06554",
+          "material_read": "Abstract and published mathematical description; full text not re-read in this execution",
+          "method": "Bibliographic / theorem-description comparison",
+          "title": "On the abelian complexity of generalized Thue-Morse sequences",
+          "trigger": "Same Parikh-vector support"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Parikh frequencies rather than mere support are natural statistical invariants of automatic words; exact scale invariance and weighted additive-observable laws describe an infinite family of substitution-scale factors with a nontrivial explicit carry mechanism. The m|B restriction is structurally necessary, not an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob 05e2ddfe9898d4a3fd6956e057e25a66371c7e56",
+    "Balková arXiv:1107.5033 Theorem 4.5",
+    "Popoli–Shallit–Stipulanti arXiv:2410.02409 Theorems 22–23",
+    "Chen–Wen arXiv:1809.06554",
+    "Resultary semantic query: generalized Thue Morse divisible base Parikh vector frequency distribution factors length power balance"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all B>=2,m>=2 with m|B and every fixed e>=0, the natural-density distribution of centered Parikh vectors of windows length B^{e+1} for t(j)=s_B(j) mod m has one explicit rational law independent of e. Balanced mass equals 1/m+(m-1)(B-1)/(m(B^m-1)); all coordinates are -1,0,1 and the law is cyclically/sign symmetric.",
+  "limitations": [
+    "Factor-frequency algorithms could be specialized to obtain this Parikh distribution; a prior formula in another notation or unpublished dataset is possible.",
+    "Natural-density equality holds with e fixed before sample size tends to infinity, not uniform in e.",
+    "Finite prefix comparisons corroborate only bounded parameters, not all exponents.",
+    "Original public source package not modified; publication is not authorized.",
+    "Independent bounded experiments are not proofs of infinite statements.",
+    "Raw assignment object cannot be directly mounted across tools; literal values were separately Git-verified."
+  ],
+  "residual_risks": [
+    "Factor-frequency algorithms could be specialized to obtain this Parikh distribution; a prior formula in another notation or unpublished dataset is possible.",
+    "Natural-density equality holds with e fixed before sample size tends to infinity, not uniform in e.",
+    "Finite prefix comparisons corroborate only bounded parameters, not all exponents."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Gives factor frequency classes; not identified as the claimed pushforward Parikh law invariant under all exponent shifts",
+      "evidence": "Factor frequency distribution is finer, but class aggregation at lengths B^{e+1} is not explicitly given as a rational law independent of e.",
+      "identifier_or_url": "https://arxiv.org/abs/1107.5033",
+      "material_read": "Accessible complete published primary text including Theorem 4.5 and the classification of frequencies of individual factors",
+      "method": "Full primary-text theorem comparison",
+      "title": "Factor frequencies in generalized Thue-Morse words",
+      "trigger": "Same substitution word and exact frequency problem"
+    },
+    {
+      "assessment": "Counts attainable sums / classes rather than masses of weighted sums for uniform random start",
+      "evidence": "An exact count of distinct weights does not imply each class probability.",
+      "identifier_or_url": "https://arxiv.org/abs/2410.02409",
+      "material_read": "Full text including Theorems 22–23 and related ternary additive complexity",
+      "method": "Primary manuscript theorem reading",
+      "title": "Additive word complexity and Walnut",
+      "trigger": "Same generalized automatic words and additive observables"
+    },
+    {
+      "assessment": "Support/complexity concern is weaker than full probability measure",
+      "evidence": "Number of distinct Abelian classes does not determine their mass distribution.",
+      "identifier_or_url": "https://arxiv.org/abs/1809.06554",
+      "material_read": "Abstract and published mathematical description; full text not re-read in this execution",
+      "method": "Bibliographic / theorem-description comparison",
+      "title": "On the abelian complexity of generalized Thue-Morse sequences",
+      "trigger": "Same Parikh-vector support"
+    }
+  ]
+}
