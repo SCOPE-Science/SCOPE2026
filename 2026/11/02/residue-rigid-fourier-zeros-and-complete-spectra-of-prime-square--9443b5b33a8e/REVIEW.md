@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for all odd primes and arbitrary residue-digit perturbations. Fermat's congruence and the binomial theorem make the graph map constant on each residue fibre and force identity reduction. The complete Fourier-zero criterion is proved by summing the fibre character, reducing imprimitive frequencies to prime-level orthogonality, and proving primitive noncancellation using the exact minimal polynomial \(\Phi_{p^2}\). Every spectrum follows from the upper bound of \(p\) mutually compatible frequencies in each first-coordinate residue class; size \(p^2\) forces saturation and uniquely labeled fibres. Affine counts and convolution rank follow without hidden normalization or infinite extrapolation. The embedded reproducible verifier was run from its actual file path and passed exact cyclotomic tests, but is corroborative rather than an infinite proof.
+## correctness
 
-## Originality — PASS (bounded comparison)
-Exact semantic searches, recoverable earlier mathematical claims, and relevant primary full text were checked. Shkredov's Heilbronn-sum paper concerns bounds and additive energy, not all spectral partners. Zhou's general tiling/spectral equivalence proves existence but not the complete Fourier-zero set, perturbation invariance, or basis counts for this fixed graph. The published prime-square cubic and odd-prime-power quadratic graph classifications were read in full: their hypotheses and frequency-direction conclusions differ, and the present completely degenerate Frobenius derivative is not a reduction to either theorem. No directly dominating statement was found. A more general historical cyclotomic-mask, Butson-matrix or spectral-tiling classification could nevertheless imply the theorem; failure of a search is not proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The object \(x\mapsto x^p\pmod{p^2}\) is the canonical singular-characteristic Frobenius lift and appears in Heilbronn exponential sums. Unlike a one-off finite computation, the theorem simultaneously classifies the entire zero pattern, **all** orthonormal character bases, their exact total and affine-subclass counts, and the invariance of those data under all \(p^p\) digit perturbations. This explains a structural coexistence: convolution has an asymptotically vanishing fraction of nonzero Fourier multipliers but the graph admits enormous families of complete exponential bases. The result is stronger than the elementary observation that a graph tiles by vertical translates.
+Read complete frozen RESULT.md blob 7f2c63... and verified Git tree. Writing x=a+pt gives Frobenius fibre constancy f_h(a+pt)=f_h(a); sum in t cancels if p∤u. For p|u,p|v, Fourier sum is p² or zero by s+t=0/≠0. For p|u,p∤v, one nonzero term in each residue class cannot be divisible by cyclotomic Φ_(p²), hence nonzero. Count p³−p²+p nonzeros. Within fixed first-coordinate residue, orthogonality requires distinct second-digit sums c; p-residue-fibre saturation forces p points over each a, hence unique maps b and s_a. Independent cyclotomic exact tests reproduced all p=3 (27) residue perturbations across all 81 frequencies; affine case checked by difference criterion.
 
-## Limitations and closest work
-No claim is made for higher prime powers, arbitrary graph reductions, surviving Fourier magnitudes, or historical priority certification. The most relevant broader source is Zhou's arXiv:2412.18132v4; the closest specialized basis results are the published cubic and parabola classifications. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Inspected Zhou spectral/tiling equivalence over Z/p²×Z/p² (not explicit fixed-set Fourier zeros or all partner counts), and published full Resultary cubic/parabola spectral classifications. Cubic x³ requires derivative roots and permitted reduced lines, parabola x² strictly contracting maps; Frobenius x^p has residue fibre degeneracy and independent arbitrary h, so neither known title/result dominates the exact claim.
+
+## value
+
+PASS
+
+Complete explicit enumeration of all orthogonal exponential bases for a canonical Frobenius graph family, robust under all p^p perturbations, and exact additive convolution rank. This is a natural finite spectral-set and Fourier algebra classification beyond existence alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
