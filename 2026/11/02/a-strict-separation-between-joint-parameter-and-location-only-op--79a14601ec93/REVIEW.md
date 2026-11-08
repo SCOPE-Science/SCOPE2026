@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Poisson score information factorization and exact determinant are derived from independent mean-gradient rows, not inferred from simulation. At fixed total exposure the exposure product has its unique maximum at equal allocations. The D- and c-objective logarithmic derivatives are strictly decreasing over every positive spacing and have opposite endpoint signs, establishing unique global maxima and the strict separator \(t_C<1<t_D\). Implicit background monotonicity and the positive Lambert \(W\) asymptotic are reconstructed with all boundary assumptions. The standard-library verification checks 16,105 independent numerical or exact-arithmetic assertions. These finite checks are not substituted for the continuum proof.
+PASS
 
-## Originality — PASS, qualified by priority risk
+At nominal plume center x=0, three Poisson mean gradients factor information as J^T diag(w_s/mean_s) J. detJ=2Aqd(1−q)/σ², leading to detI=[8w−w0w+/(σ²A(1+β))]t(1−e^−t)²/(1+βe^t)²; AM–GM fixes exposures at E/3. Odd location score is Fisher-orthogonal to even amplitude/background scores with symmetric wings. Its c-objective is t e^−t/(1+βe^t). H_D and H_C are strictly decreasing log-derivatives with opposite signs at endpoints; H_D(1)>0, H_C(.5)>0>H_C(1), yielding unique 1<t_D and .5<t_C<1. Implicit β-monotonicity and asymptotic W(1/(2β)) follow. Independent bisection at β=1 gives t_D=1.273380149669955 and t_C=0.607064681536402. No global optimum over unsymmetric sensor geometry is claimed.
 
-Guestrin–Krause–Singh (2005, https://doi.org/10.1145/1102351.1102385) concern covariance-based Gaussian-process mutual-information placement, not nuisance-parameter Poisson determinants. Jones–Goldstein–Jonathan–Randell (2015, https://www.lancaster.ac.uk/~jonathan/JGJR15_OptDsg.pdf) explicitly describe Gaussian atmospheric plumes and optimal environmental sensing, but in a Gaussian-data Bayesian design setting. Gallatin–Berglund (2012, https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=910609) analytically optimize Poisson localization for a known Gaussian intensity profile, without the two positive unknown nuisances; their one-parameter result cannot by itself imply the full determinant optimum. Battistelli et al. (2015, university open-access PDF cited in RESULT.md) concern PDE/Kalman source reconstruction, not this symmetric static three-count optimization. Direct published-finding corpus and open-literature searches using Gaussian source, Poisson Fisher, background, D-optimality and three-site variants found no equivalent analytic classification. The closest topical plume information source, Ristic–Gunatilaka–Gailis (2015, https://doi.org/10.1016/j.inffus.2014.10.007), uses binary sensors; its full manuscript was inaccessible and remains an explicit historical-priority risk. The claim of originality is best-knowledge, not independently verified.
+## originality
 
-## Value — PASS
+PASS
 
-The result is an exact and natural design tradeoff rather than a bare finite calculation: optimizing joint source localization, strength and ambient counts always requires a wider transect than center localization after equal exposure allocation, and the full-parameter spacing diverges as background vanishes while center-only spacing remains bounded. The all-positive-background classification and asymptotics identify when changing the scientific objective radically changes hardware placement. No unrestricted optimality, field validation or non-Gaussian transport prediction is claimed.
+Qualified PASS for exact all-background separation of full three-parameter Poisson D-design from center c-design with unknown amplitude AND constant background. It is NOT new to use Fisher information, Gaussian localization or the single-parameter Poisson optical scan; the complete 3×3 nuisance determinant is a materially different claim. Specialist plume designs may remain incompletely covered.
 
-## Verification and limitations
+## value
 
-The six-file statement is accompanied by a runnable deterministic standard-library checker. It verifies the stated finite examples and matrix algebra while the analytic inequalities carry the uncountable domain. The expected successful output is `VERIFY_OK assertions=16105`. The comparison with the unavailable binary-sensor manuscript and possibly uncatalogued equivalent formulations is an unresolved historical limitation; independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural and consequential design-choice theorem: two standard optimization objectives provably need strictly different sensor widths under a realistic common-nuisance Poisson model, with singular low-background D-width asymptotics; not a mere renaming of the ordinary Gaussian half-width rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

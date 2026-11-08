@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The accompanying standard-library `verify.py` replays the independent three-by-three Poisson Fisher matrix construction for 220 sets of exact rational parameters; this checks the determinant identity without using the simplified determinant expression to build the matrix. It tests the Fisher nuisance orthogonality for symmetric wing exposures, the location efficient-information formula, 1,000 independent central-difference derivative comparisons, 400 random positive-background root and objective comparisons, background monotonicity, the beta-one illustrative figures, and exposure arithmetic–geometric mean inequalities. The expected successful output is `VERIFY_OK assertions=16105`.
+# Independent mathematical audit
 
-These are finite consistency checks, not a substitute for the proof of uniqueness, optimality, or limiting regimes. The proof is in `RESULT.md`, where the logarithmic derivatives are shown to be strictly decreasing for every positive parameter. The comparison with earlier literature is provisional, and external independent audit has not been performed.
+## correctness
+
+PASS
+
+At nominal plume center x=0, three Poisson mean gradients factor information as J^T diag(w_s/mean_s) J. detJ=2Aqd(1−q)/σ², leading to detI=[8w−w0w+/(σ²A(1+β))]t(1−e^−t)²/(1+βe^t)²; AM–GM fixes exposures at E/3. Odd location score is Fisher-orthogonal to even amplitude/background scores with symmetric wings. Its c-objective is t e^−t/(1+βe^t). H_D and H_C are strictly decreasing log-derivatives with opposite signs at endpoints; H_D(1)>0, H_C(.5)>0>H_C(1), yielding unique 1<t_D and .5<t_C<1. Implicit β-monotonicity and asymptotic W(1/(2β)) follow. Independent bisection at β=1 gives t_D=1.273380149669955 and t_C=0.607064681536402. No global optimum over unsymmetric sensor geometry is claimed.
+
+## originality
+
+PASS
+
+Qualified PASS for exact all-background separation of full three-parameter Poisson D-design from center c-design with unknown amplitude AND constant background. It is NOT new to use Fisher information, Gaussian localization or the single-parameter Poisson optical scan; the complete 3×3 nuisance determinant is a materially different claim. Specialist plume designs may remain incompletely covered.
+
+## value
+
+PASS
+
+Natural and consequential design-choice theorem: two standard optimization objectives provably need strictly different sensor widths under a realistic common-nuisance Poisson model, with singular low-background D-width asymptotics; not a mere renaming of the ordinary Gaussian half-width rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T19:16:28.873961Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At nominal plume center x=0, three Poisson mean gradients factor information as J^T diag(w_s/mean_s) J. detJ=2Aqd(1−q)/σ², leading to detI=[8w−w0w+/(σ²A(1+β))]t(1−e^−t)²/(1+βe^t)²; AM–GM fixes exposures at E/3. Odd location score is Fisher-orthogonal to even amplitude/background scores with symmetric wings. Its c-objective is t e^−t/(1+βe^t). H_D and H_C are strictly decreasing log-derivatives with opposite signs at endpoints; H_D(1)>0, H_C(.5)>0>H_C(1), yielding unique 1<t_D and .5<t_C<1. Implicit β-monotonicity and asymptotic W(1/(2β)) follow. Independent bisection at β=1 gives t_D=1.273380149669955 and t_C=0.607064681536402. No global optimum over unsymmetric sensor geometry is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guestrin–Krause–Singh models Gaussian-process mutual-information utility rather than independent Poisson nuisance Fisher determinants.",
+          "Gallatin–Berglund has a general Poisson scan path criterion but its parameter is position of a fluorophore and known profile.",
+          "Ristic–Gunatilaka–Gailis 2015 uses binary observations; full text not read."
+        ],
+        "reasoning": "General design methods motivate but do not exhibit the coupled Poisson D/c-root separation for every positive β.",
+        "searches": [
+          "Guestrin Krause Singh 2005 Gaussian process mutual information sensor placement",
+          "Jones Goldstein Jonathan Randell 2015 Bayes linear optimal design Gaussian plume",
+          "Ristic Gunatilaka Gailis 2015 Gaussian plume binary sensors accuracy"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py at immutable Git tree",
+        "Gallatin–Berglund 2012 original NIST PDF, original Poisson Fisher model",
+        "Guestrin–Krause–Singh 2005 ICML publisher description",
+        "Ristic–Gunatilaka–Gailis 2015 abstract only",
+        "Resultary semantic query: Gaussian plume Poisson counts three sensors unknown amplitude background D-optimal c-optimal spacing Fisher information"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier source gives optimal scan geometry to locate a particle using its photon counts; the unknown amplitude/background score directions are absent.",
+          "Taking the determinant of the 3×3 information for the stated model introduces a new factor, yields diverging D-width as β→0 unlike bounded c-width."
+        ],
+        "reasoning": "General Fisher-information principles do not imply the stated strict separation without analyzing the actual nuisance model.",
+        "searches": [
+          "Gallatin Berglund 2012 NIST full-text Fisher scan path",
+          "Gaussian plume Poisson counts three sensors unknown amplitude background D-optimal c-optimal spacing Fisher information"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gallatin–Berglund 2012 optimizes photon-rate localization with a known intensity profile, not independent counts jointly estimating x,A,b.",
+          "Our objective has 3×3 determinant with factor (1−e^−t)² absent from single-location efficiency."
+        ],
+        "reasoning": "Single-parameter optical localization cannot directly entail the D-root H_D for the three nuisance-involved parameters.",
+        "searches": [
+          "Gaussian plume Poisson counts three sensors unknown amplitude background D-optimal c-optimal spacing Fisher information",
+          "Gallatin Berglund optimal Gaussian laser scan Fisher information photon background nuisance",
+          "Poisson Gaussian plume D c optimal sensor spacing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact 3-count Poisson design table or root-curve matching both equations appeared among the Resultary hits.",
+          "A reported numerical β=1 pair alone would not dominate the all-β theorem; prior formula comparison is required."
+        ],
+        "reasoning": "No directly covering evaluated D/c table located, with search limitation recorded.",
+        "searches": [
+          "Gaussian plume Poisson counts three sensors unknown amplitude background D-optimal c-optimal spacing Fisher information",
+          "Resultary semantic Gaussian Poisson plume Fisher design D-optimal c-optimal"
+        ]
+      },
+      "rationale": "Qualified PASS for exact all-background separation of full three-parameter Poisson D-design from center c-design with unknown amplitude AND constant background. It is NOT new to use Fisher information, Gaussian localization or the single-parameter Poisson optical scan; the complete 3×3 nuisance determinant is a materially different claim. Specialist plume designs may remain incompletely covered.",
+      "residual_risks": [
+        "Ristic et al. binary-plume primary full text unavailable; equivalent observations or reductions cannot be excluded conclusively.",
+        "Only local nominal center x=0, known σ, symmetric center/wing array, and fixed equal exposures for c comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS known-profile particle localization, not x,A,b jointly with positive constant background",
+          "evidence": [
+            "2012 paper defines photon intensity Γ(r−r_L) with tracked position r; no three-parameter plume nuisance block."
+          ],
+          "identifier_or_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=910609",
+          "material_read": "Abstract, Sections 1–2, original measurement model and location information, full 18-page PDF available",
+          "method": "Read public NIST primary PDF; visual inspection of physical likelihood and theory page 7",
+          "title": "Optimal Laser Scan Path for Localizing a Fluorescent Particle in Two or Three Dimensions",
+          "trigger": "Same Gaussian shape and Poisson Fisher-information design"
+        },
+        {
+          "assessment": "GP covariance mutual-information model not Poisson independent 3-site likelihood",
+          "evidence": [
+            "ICML 2005 abstract expressly optimizes Gaussian-process mutual information."
+          ],
+          "identifier_or_url": "https://doi.org/10.1145/1102351.1102385",
+          "material_read": "Original ICML 2005 abstract and model description on publisher page",
+          "method": "Read public publisher abstract/method description; not full text",
+          "title": "Near-optimal sensor placements in Gaussian processes",
+          "trigger": "Broader sensor placement possibility"
+        },
+        {
+          "assessment": "REMAINS priority risk; cannot infer whole-paper absence of analogous equations",
+          "evidence": [
+            "Uses binary sensors rather than Poisson counts."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.inffus.2014.10.007",
+          "material_read": "Bibliographic abstract/source-model distinction, full text unavailable",
+          "method": "Reviewed indexed abstract and citations; not whole-document clearance",
+          "title": "Achievable accuracy in Gaussian plume parameter estimation using a network of binary sensors",
+          "trigger": "Same plume parameters, different observation law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural and consequential design-choice theorem: two standard optimization objectives provably need strictly different sensor widths under a realistic common-nuisance Poisson model, with singular low-background D-width asymptotics; not a mere renaming of the ordinary Gaussian half-width rule.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Not globally optimal over all asymmetric sensor sets, unknown σ, alternative likelihoods, or boundary b=0.",
+    "Ristic et al. binary-plume primary full text unavailable; equivalent observations or reductions cannot be excluded conclusively.",
+    "Only local nominal center x=0, known σ, symmetric center/wing array, and fixed equal exposures for c comparison."
+  ],
+  "schema_version": 1
+}
