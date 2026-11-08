@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For any packet of radius r, each nonempty subset sum of the frame vectors joins vertices in a permutation simplex, hence has length ≤2r. In BCC, nonzero vectors of squared length <2 are exactly six axes and eight half diagonals; shell-compatible independent triples must be three same-parity half diagonals, exactly eight triples. Their six tetrahedra each have all four vertices at squared distance 5/16 from their centroid, and the mean-square identity proves this is the minimum fitting radius. Thus κ=√5/4 and these are the only frames below 1/√2. One explicit nonoptimal frame has a subset sum of length √2 and has six displayed fitting balls of squared radius at most 1/2. Exact rational checker.py confirms all 14 shell vectors, 232 independent shell triples, eight compatible triples, all 48 optimal packet simplices and the six witness balls.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.39034v1: Proposition 2.4 gives classical covering radius ≤κ, Proposition 2.5 equality κ2=μ2, Theorem 1.2 high-dimensional order-√n gap; none specifies BCC minimizing frames.",
+        "arxiv:1804.05836 pp.19–20 gives BCC Voronoi/Delone geometry but does not quantify other independent common-frame choices."
+      ],
+      "reasoning": "General upper/lower inequalities for κ do not classify optimizing or next-best frames for BCC. The geometric description of the BCC Delone simplex predicts candidates, but the full-frame exclusion and discrete gap require additional shell analysis.",
+      "searches": [
+        "arxiv:2610.39034v1 text search for BCC, A3, body-centered; first five pages reviewed",
+        "published-finding corpus: body centred cubic Euclidean ball fitting permuted tetrahedra Kuhn packet optimal eight lattice bases",
+        "web: Fei Xue \"κ-covering minima\" body centered cubic exact"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.39034v1 (source defining κ)",
+      "arxiv:1804.05836 (classical BCC Delaunay geometry)",
+      "Relevant published published-finding corpus records: BCC octahedron covering profile, BCC/FCC Voronoi boundary clearance, higher-order Delaunay max-radius comparison; mathematically different objects/invariants."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.39034v1 Proposition 2.5 proves κ=μ for planar lattices; this is three-dimensional and needs not follow from planar equality.",
+        "arxiv:1804.05836 Section 5 provides classical BCC Delaunay simplices but not the all-frames strict separation.",
+        "Accessible prior Euclidean packet calculations addressed Z^d, D3 (FCC), D4, and A4; those do not imply the BCC statement.",
+        "arxiv:2610.39034v1 Section 5 expressly states the general subset-sum diameter bound used as the first step; the BCC shell classification and sharp next-level gap are additional conclusions."
+      ],
+      "reasoning": "The main improvement is not the familiar Euclidean BCC covering radius itself, but the κ-objective over all independent frames, its eight-frame rigidity and exact second-best level. Different lattices, balls in other dimensions, octahedral bodies, Delaunay descriptions and covering densities do not imply the asserted exclusion of every other BCC frame. The subset-sum diameter inequality is already used in Xue Section 5; the claimed new content starts with its sharp specialization to the complete BCC short-vector shell, all surviving frames, and the isolated attained next level.",
+      "searches": [
+        "published-finding corpus: kappa-covering minima planar Euclidean lattices exact ratio kappa to classical covering radius hexagonal 3/2",
+        "published-finding corpus: A3 star lattice optimal Euclidean Delaunay tetrahedron frames kappa covering minima gap nearest nonoptimal frame",
+        "web: body centered cubic lattice Delaunay triangulation six tetrahedron primitive cell"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.39034v1, pp.1–5: κ is the maximum of the fitting radii of permutation simplices of one frame and is not the covering radius by definition.",
+        "arxiv:1804.05836, Section 5: BCC is the weight lattice A3*; Delaunay fundamental tetrahedra are described."
+      ],
+      "reasoning": "Compared the finite packet radius to the classical BCC Euclidean covering radius and the A3* Delaunay description: the first numerical radius can coincide, but neither equality alone nor a Delaunay simplex account implies that precisely eight independent triples attain κ or that every other triple has κ≥1/√2. Searches for Kuhn packet, permutation simplices and BCC/A3* variants yielded no equivalent exact frame spectrum.",
+      "searches": [
+        "published-finding corpus: A3 star lattice optimal Euclidean Delaunay tetrahedron frames kappa covering minima gap nearest nonoptimal frame",
+        "published-finding corpus: exact kappa covering minimum body-centered cubic lattice BCC A3 star √5/4 3D optimal Kuhn frames",
+        "web: \"κ\" \"body-centered cubic\" \"covering\" \"Kuhn\" sphere",
+        "web: \"permutation simplices\" \"body centered cubic\" minimum enclosing ball"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published mathematical record titled Exact subcritical coverage profile of the optimal octahedral lattice concerns the regular octahedron in BCC, rather than Euclidean-ball κ.",
+        "The published mathematical record titled A unique boundary-clearance crossover between cubic-lattice Voronoi cells concerns distances to BCC/FCC Voronoi boundaries.",
+        "arxiv:1804.05836 lists BCC Voronoi vertices but not a table of Kuhn packet frame radii."
+      ],
+      "reasoning": "No discovered exact record/table with the ordered pair of attainable first two values and all optimal frames. Related BCC tables concern Voronoi cells or octahedral covering, so their numbers do not determine this κ-frame spectrum.",
+      "searches": [
+        "published-finding corpus: body centered cubic 3d lattice Kuhn packet radius next best √2/2 rigidity optimizer classification",
+        "web: \"BCC lattice\" \"Kuhn\" \"tetrahedra\" covering ball",
+        "web: body centered cubic lattice covering radius sqrt 5 / 4"
+      ]
+    },
+    "rationale": "Compared the newly defined packet-fitting invariant and its primary source with BCC Voronoi/Delaunay geometry, public mathematical-record searches for equivalent names, and accessible earlier claims. No covering statement of the exact eight-frame classification plus sharp second level was identified. The familiar BCC covering radius and Delaunay geometry are not claimed as new.",
+    "residual_risks": [
+      "Classical Delone tetrahedralization could have an alternative geometric formulation implying part of the first-level equality; exhaustive priority is not certified.",
+      "Searches did not establish absence of all earlier frame-stability or tetrahedron-packet computations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Section 5 provides the general subset-sum diameter principle used by the proof, but the work does not determine the BCC frame classification or the precise attained next-level gap.",
+        "evidence": [
+          "Definition (1.1), Section 1; Propositions 2.4 and 2.5; arXiv 2610.39034v1 first submitted 2026-10-28."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.39034",
+        "material_read": "Abstract, definition (1.1), main results and Propositions 2.1–2.5; relevant sections 3–6 and their theorems, especially Section 5 subset-sum argument, plus searches of the full paper for BCC/A3/body-centered.",
+        "method": "Primary PDF text and page 5 visual inspection; corroborated with complete primary HTML text by section and search.",
+        "title": "On κ-covering minima",
+        "trigger": "Introduces precisely the optimization functional under study; possible source overlap."
+      },
+      {
+        "assessment": "Supports established BCC Delone setting but does not compare all independent three-vector Kuhn packets or prove sharp strict second level.",
+        "evidence": [
+          "Section 5, Figure 11 and discussion of A3* Delone fundamental simplices."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1804.05836",
+        "material_read": "Abstract and introduction; Section 5 BCC passage around pp.19–20 on A3* truncated-octahedral Voronoi cell and Delone fundamental simplex.",
+        "method": "Primary PDF text search, specific page visual inspection.",
+        "title": "Explicit Construction of the Voronoi and Delaunay Cells of W(An) and W(Dn) Lattices and Their Facets",
+        "trigger": "Older geometric source that might imply optimal BCC tetrahedra."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8e6d7843-a500-469d-8353-3f5ef62251e9",
+  "value": {
+    "rationale": "The BCC lattice is a natural extremal Euclidean lattice-covering benchmark, and the new common-frame fitting invariant κ has only recently been introduced. An exact minimizing radius is useful, but the stronger result classifies every optimal independent frame (including potential nonbasis competitors) and proves an attained sharp positive next-level gap. This is a rigid discrete optimization statement not implied by knowing the classical BCC covering radius or one Delaunay tetrahedron.",
+    "status": "PASS"
+  }
+}
