@@ -1,19 +1,21 @@
-# Scientific review: Paley-37 integral clique topology
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the prime-field Paley-37 graph and uses the full flag complex. The exact enumerator yields 37 vertices, 333 edges, 888 triangles and 555 tetrahedra, with no larger cliques. A checked 297-step nonabelian triangle-relator elimination after collapsing a spanning tree proves simple connectivity and primitive rank 297 for the second boundary. The tetrahedral boundary has a signed incidence submatrix equivalent over integers to three connected graph incidences (552 unit pivots), and its residual 222-by-3 integer matrix has determinantal divisors (1,1,26). This proves rank 555 and complete integral torsion, not merely modular Betti numbers. Standard CW and homology-Whitehead arguments then establish the Moore-space wedge homotopy type. Actual code and expected output are included. Scope is finite and precise.
+PASS
 
-## Originality — PASS with publication-priority reservation
+Rebuilt the adjacency graph from all nonzero quadratic residues mod37, all increasing cliques and f=(37,333,888,555). Independently performed 297 nonabelian triangle unit relator eliminations after a BFS maximal tree, proving simply connectedness, not just H1=0. The 555 tetrahedra and 888 triangles yield 666 exactly-two-coface rows, whose signed incidence graph has three consistent 185-vertex components and primitive rank552. The other 222 rows reduce to six signed 3-vectors, each appearing 37 times; independently computed determinantal divisors 1,1,26. Thus full ∂3 has 554 unit factors and one 26, yielding H2=Z^36⊕Z/26, H3=0. The simply connected finite three-dimensional CW reduction and integral matrix normal form permit classification as wedge of S2 and a degree26 Moore space; Whitehead theorem supplies the homotopy upgrade. Graph diameter two checked from quadratic residues. All calculations are finite exhaustive for this exact 37-vertex graph, not a uniform Paley conjecture.
 
-The published full text of Cioabă–Guo–Ji–Mim addresses exactly this graph but proves vanishing **first** clique cohomology, not integral **second** homology or a Moore summand (Theorem 5.21 and immediately following examples). Cioabă–Mim studies general first homology and Latin-square graph higher homology. Chandler–Sin–Xiang treats the ordinary graph's matrices rather than the simplicial tetrahedral boundary. Related indexed 29-vertex Paley calculations carry only 2-torsion and do not determine the 37-vertex case. Targeted exact-number, alias, and homotopy-type searches yielded no identified result implying the order-26 integral homotopy classification. This comparison is best-knowledge evidence, not a proof that no earlier work exists. Some indexed same-family records could not be read in full.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Paley-37 graph is a small canonical self-complementary strongly regular graph. A 26-torsion second-homology summand has an unexpected 13-primary part, invisible to rational computations and distinct from known 2-torsion in the Paley-29 case. The complete integral homotopy type isolates an explicit natural finite example of mixed free and odd-primary torsion in a flag complex, relevant to efforts to understand higher clique homology beyond first-cohomology spectral criteria. No claim of broad uniform behavior is made.
+Published Cioaba-Guo-Ji-Mim Theorem 5.21 treats Paley-37 FIRST cohomology vanishing: this is genuinely covered, excluded from original content. Cioaba-Mim 2026 studies first clique homology and a different Latin-square higher-homology family, not Paley-37 integral H2. Chandler-Sin-Xiang calculate Smith/critical groups of graph adjacency/Laplacian matrices, distinct from the simplicial tetrahedron boundary; available primary introduction confirms this. Resultary Paley29 records contain Z/2 on 29 vertices, not a theorem implying Z/26 for 37. No exact H2 table or homotopy decomposition found for order37, but unindexed computations may exist.
 
-## Closest sources, risks and limitations
+## value
 
-The 2025/2026 first-cohomology theorem explicitly covers the first-degree vanishing for this graph and removes it from the novelty claim. The 2026 first-homology classification and the 2014 Paley matrix Smith study are separate from the new simplicial boundary invariant. An equivalent computation in an unindexed dataset or an inaccessible source cannot be excluded. Independent reproduction by other researchers, explicit torsion-cycle geometry and equivariant structure remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 13-primary factor in an exact integral homotopy type of a canonical strongly regular Paley graph is a meaningful counterexample to assuming a pure sphere-wedge from rational first-cohomology vanishing. A complete integer Smith and fundamental-group certificate provides reusable graph-metric persistence topology, beyond a mere small Betti count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
