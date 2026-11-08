@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run the standalone Python 3 standard-library program `verify.py` with `python3 verify.py`. Its expected terminal output is:
+## correctness
 
-`VERIFY_OK 84 independent graph-field cases: group-square, conjugacy, F2-subspace census`
+PASS
 
-The verifier builds each finite graph from its edge bitmask rather than by a graph-library lookup. For every graph it enumerates vertex coordinates, evaluates the defining group cocycle over the base field, tests the square-zero condition, constructs all commutator images for square-zero elements, and independently checks the predicted conjugacy-class counts. It then constructs every binary linear subspace in reduced row-echelon form and checks the rank-by-rank formula for the full preimage subgroups containing the edge center.
+For the specific graphical group cocycle B(x,y)_{ij}=x_i y_j over F_(2^e), squares give Q(x)_{ij}=x_i x_j; order<=2 iff the support is independent, hence q^m I_Gamma(q-1). On an independent support S, commutator map C_x(y)_{ij}=x_i y_j+x_j y_i has image rank |N(S)| since different outside-neighbor variables have disjoint occupied edge-coordinate sets; therefore class sizes q^|N(S)| and K_j=q^(m-j) sum_{S indep,|N(S)|=j}(q-1)^|S|. For H containing central W, H/W is an F2-space U with Q identically zero. If two coordinate forms are nonzero on U then their proper kernels cannot cover U, so an edge cannot lie in union of supports; conversely all subspaces on independent supports work. Coordinate inclusion-exclusion gives A_r=sum_t a_t sum_{j<=t} (-1)^(t-j) binom(t,j) [ej r]_2. An inclusion-maximal elementary abelian subgroup must contain W; it is full coordinate subspace on a maximal independent set, giving maximum order q^(m+alpha) and well-covered criterion. Independent P3 F2 case: 32 group elements, 20 square-to-identity, conjugacy-class-size exponents j=0:4,j=1:6,j=2:1, maximal orders 8 and16. Read finite verifier enumerating 84 graph-field configurations; finite computations are only corroboration.
 
-The exact ranges are all labeled simple graphs on 2, 3, or 4 vertices over \(\mathbb F_2\), plus all labeled simple graphs on 2 or 3 vertices over \(\mathbb F_4\). There are \(2+8+64+2+8=84\) cases. The implementation represents \(\mathbb F_4\) using the irreducible polynomial \(t^2+t+1\). No external packages or downloaded data are needed. The program includes assertions testing the characteristic-two involution count, order-restricted conjugacy-class-size spectrum, full \(\mathbb F_2\)-subspace support census, and the multiplicity of the maximal possible subgroup order.
+## originality
 
-The general statements are proved by the square and commutator formulas and an exact support-inclusion-exclusion argument in `RESULT.md`. A finite exhaustive verifier does **not** prove the formulas for arbitrarily many vertices or extension fields. The existence or absence of earlier equivalent literature likewise is not certified by this computation. Independent mathematical audit remains unperformed.
+PASS
+
+Rossmann 2022 enumerates all conjugacy classes in graphical groups over finite fields; the all-class polynomial does not determine the order-two-filtered joint statistic. Qiao 2024 treats totally isotropic subspaces/abelian subgroups in odd prime exponent-p class-two groups, while char2 graphical groups typically have exponent four and elementary abelianity depends on quadratic square map, a stronger condition than alternating isotropy. Independent set formula and q-binomial coefficients are classical. Qualified best-of-knowledge PASS for their group-theoretic characteristic-two joint distribution and complete maximal elementary abelian/rank-above-W classification.
+
+## value
+
+PASS
+
+The support-independent-set relationship yields an exact natural bridge from graph combinatorics to exponent-four 2-group structure: all involution class sizes, all central-containing elementary abelian subgroup ranks, maximal subgroup orders and well-covered equivalence for every graph. This is a substantial complete classification, not merely a single small-group calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
