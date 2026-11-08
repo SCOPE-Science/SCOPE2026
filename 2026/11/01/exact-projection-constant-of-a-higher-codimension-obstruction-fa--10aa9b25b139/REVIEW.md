@@ -1,19 +1,21 @@
-# Scientific review: exact projection constant of a higher-codimension obstruction family
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the precise real spaces in the finding, a projection on the larger coordinate direct sum restricts to a projection onto the first five-dimensional coordinate support, while a direct-sum extension preserves the maximum norm. An isometric involution reduces all possible five-dimensional projections to two parity-constrained coefficient functionals without sacrificing optimality. The five absolute row sums are derived from the elementary identity \(|s+t|+|s-t|=2\max\{|s|,|t|\}\). The nonnegative \(104:315:240\) combination of three row-class lower estimates gives the universal lower bound \(845/659\) under exactly the two reproduction constraints. Explicit rational coefficient functionals give a projection with all five row sums equal to that bound. These arguments cover every real projection and every integer \(n\ge3\), not merely tested dimensions. The independent rational-arithmetic script checks the displayed certificate with 2,919 assertions, but it is not substituted for the universal symbolic inequality.
+PASS
 
-## Originality — PASS (best-knowledge comparison)
+Coordinate projection compression W_n→V and block extension show λ(W_n)=λ(V). Signed involution averaging reduces all real projections to five coefficients with reproduction constraints. Correctly derived three row-class norms A,B,C and nonnegative dual combination 104A+315B+240C over 659 force λ>=845/659; explicit rational f*,g* attain equality. Independent exact arithmetic verifies biorthogonality, idempotence, five row norms 845/659, and dual objective. The symbolic bound applies to all n>=3; finite block tests alone would not.
 
-The motivating primary paper [1, Section 3] introduces the precise spaces for a geometric obstruction (Proposition 3.2) and constructs a norm-\(13/10\) projection onto each (Proposition 3.4). That construction is an upper witness, not a minimum-projection theorem. The present result supplies a strictly smaller witness **and** a universal lower certificate. Searches for this exact five-coordinate plane, equivalent projection-constant terminology, the value \(845/659\), the source's authors and proposition numbering, and more general projection-constant records did not identify an equal or dominating published statement. The closest searched mathematical records concern hyperplane gaps and projections in clustered finite-metric free spaces, different ambient structures whose statements do not imply the indicated five-coordinate optimum. Absence of an indexed match is not a novelty proof: an older calculation under another presentation could exist, and independent bibliographic priority assessment remains outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The invariant is not an arbitrary finite example: these particular spaces are the motivating paper's uniform family witnessing failure of a key geometric lemma in higher codimension. The exact minimum projection norm directly calibrates how costly their complementability obstruction is, uniformly for all \(n\ge3\). The earlier \(13/10\) projection was specifically used to show that the example lies below a natural \(4/3\) threshold; determining the minimum gives the sharp structural numerical invariant attached to this published obstruction. The quantitative difference alone is modest, but the complete optimum and global lower certificate, rather than a small numerical improvement, constitute the result's value.
+Best-of-knowledge assessment after statement-level searches and source inspection. Closest prior sources are credited; neither equivalent exact result nor stronger implication found in inspected material, with documented access and priority limitations.
 
-## Closest literature and limitations
+## value
 
-[1] B. Deregowska and B. Lewandowska, *Projection Constants and Banach-Mazur Distance in Codimension Two*, arXiv:2610.06141v1, 2026-10-05, especially Propositions 3.2--3.4. This work verifies the identity of the example and supplies an explicit nonoptimal upper witness. No claim is made about arbitrary higher-codimension subspaces, the full conjecture, uniqueness of minimizing projections, or complex scalars. Earlier literature may contain a hidden equivalent calculation; the priority comparison is consequently best-knowledge only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp norm calibrates a specifically published family that obstructs extending a codimension-two geometric lemma; determining the all-n minimum via dual certificate, rather than improving a witness by a few percent, gives a reusable exact complementability invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

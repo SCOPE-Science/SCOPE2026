@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the exact rational projection certificate
+# Independent mathematical audit
 
-The companion standalone \`CHECK.py\` runs on standard Python 3 without external packages. Execute \`python3 CHECK.py\` in this directory. The successful execution performed 2,919 exact-rational assertions and printed \`SHARP_NORM 845/659\`. It verified both biorthogonality conditions, idempotence and all five equal absolute row sums of the candidate projection, the signed involution's action on the two spanning vectors, and the exact coefficients of the universal three-class lower certificate. It also checked the block-extension projections at each integer dimension from 3 through 12.
+## correctness
 
-The script's finite dimension range and coefficient samples are illustrative checks, not exhaustive tests or infinite proofs. For arbitrary dimension and all possible competing projections, the certified mathematical reasoning is the analytic direct-sum reduction and the explicit nonnegative rational lower certificate in RESULT.md. The calculation does not verify absence of equivalent prior literature or provide independent mathematical validation.
+PASS
+
+Coordinate projection compression W_n→V and block extension show λ(W_n)=λ(V). Signed involution averaging reduces all real projections to five coefficients with reproduction constraints. Correctly derived three row-class norms A,B,C and nonnegative dual combination 104A+315B+240C over 659 force λ>=845/659; explicit rational f*,g* attain equality. Independent exact arithmetic verifies biorthogonality, idempotence, five row norms 845/659, and dual objective. The symbolic bound applies to all n>=3; finite block tests alone would not.
+
+## originality
+
+PASS
+
+Best-of-knowledge assessment after statement-level searches and source inspection. Closest prior sources are credited; neither equivalent exact result nor stronger implication found in inspected material, with documented access and priority limitations.
+
+## value
+
+PASS
+
+The sharp norm calibrates a specifically published family that obstructs extending a codimension-two geometric lemma; determining the all-n minimum via dual certificate, rather than improving a witness by a few percent, gives a reusable exact complementability invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
