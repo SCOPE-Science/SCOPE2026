@@ -1,19 +1,21 @@
-# Review of the three-attractor group-size theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim follows from a directly reconstructed pivotal-event payoff difference: a focal cooperator changes the public-good outcome only when exactly one coplayer already cooperates. This gives the cubic \(H_p\) and the replicator equation. Its derivative has exactly two internal critical points if and only if \(0<p<1/2\); the strict horizontal-level criterion is equivalent to three interior roots. Alternating vector-field signs yield exactly three attractors, and a degree/derivative argument excludes smaller maximum group sizes or any deterministic group size. The rational witness is independently factored and its stability is checked. The embedded checker has 4,795 successful assertions, including 500 admissible parameter checks. Its numerical root brackets are not substituted for the global analytical proof.
+PASS
 
-## Originality — PASS within inspected literature, provisional
+Changing the focal action changes shared benefit iff exactly one of n-1 coplayers cooperates; gain is B(n-1)x(1-x)^(n-2)-C. Under experienced mixture p of n2 and 1-p of n4 this yields H_p(x)=px+3(1-p)x(1-x)^2 and flow B*x(1-x)*(H_p(x)-kappa). H_p derivative is quadratic 9(1-p)x^2-12(1-p)x+(3-2p), with two simple interior turning points iff 0<p<1/2; levels strictly between the local minimum and min(local max,H_p(1)=p) have exactly three interior roots, alternating unstable-stable-unstable, and 0/1 stable. Else cannot have three distinct attracting states under stated nondegenerate assumptions. Fixed n gain is unimodal; any mixture sizes <=3 is quadratic and has at most two interior roots, so max size4 sharp. Independent exact symbolic factorization p=11/23,kappa=10/23 gives (2x-1)(3x-2)(6x-5)/23, stable 0,2/3,1, repelling 1/2,5/6; experienced p differs from group-count probabilities (11/17,6/17). Strict inequalities exclude degenerate/nonhyperbolic boundaries.
 
-Bach, Helvik and Christiansen (2005 online) analyze fixed-size threshold games; the full paper was not accessible, so only its abstract supports that comparison. Peña (2011 online) covers heterogeneous group sizes but explicitly limits the analyzed volunteer game to threshold one, identifying intermediate thresholds for future study. Peña and Nöldeke (2015 preprint) give general group-size formulas and curvature-based results, but their monotone/convex/concave hypotheses do not imply the cubic with two turns. Broom, Pattni and Rychtář (2018 online), inspected in full, present general threshold volunteer incentive expressions and negative-binomial examples with one or two attractors, not the exact two-atom three-attractor result. Archetti and Scheuring treat fixed group sizes. The novelty claim is intentionally confined to the explicit sharp criterion, size-four minimum, and three-attractor witness; general payoff formulas are prior art. Publication-priority uncertainty remains, especially from inaccessible fixed-size source text and potentially unindexed mixed-group-size studies.
+## originality
 
-## Value — PASS
+PASS
 
-Cooperation models with threshold provision commonly display extinction versus coexistence or full cooperation versus extinction. Here a minimal heterogeneous grouping mechanism supports all three as simultaneously distinct stable long-run outcomes, including a positive interior equilibrium, without punishment, reward, assortment, or additional strategies. The result sharpens the interpretation of existing variable-group-size analyses and supplies an exact test case for evolutionary dynamics. The size-four minimality and open nondegenerate parameter window make the phenomenon structural rather than a fine-tuned isolated numerical example.
+Best-of-knowledge originality after primary-text and implication comparison: sharp two-atom size-four three-attractor window beyond known general variable-size payoff theory. Inaccessible relevant sources are recorded as residual priority risks rather than converted to false assertions.
 
-## Boundaries and remaining evidence risk
+## value
 
-The theorem is about deterministic population frequencies and does not quantify finite-population stochastic fixation or experimental frequencies. The full technical text of Bach–Helvik–Christiansen was inaccessible; the closest inspected open full-text studies supply the general model rather than the complete sharp classification. A separate independent mathematical and publication-priority audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Group-size heterogeneity can create a mixed-cooperation attracting state simultaneously with stable total defection and stable total cooperation. The sharp minimal maximum group size 4, full open parameter window, and exact rational witness define a substantive bifurcation boundary in a canonical two-helper public-goods model without adding strategies or punishment. The gain identity alone is classical; the complete three-attractor classification is the value contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
