@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Two separate Gaussian-block factorizations, a standard Wishart Schur-complement identity with an explicit proof, and direct Gamma-integral calculations establish all cases of the two distribution laws. The full-span \(\ell=d\) exception is stated separately. The standalone verifier reproduced 7,214 numerical or algebraic consistency checks; finite checks do not prove the tail statements.
+## correctness
 
-**Originality — PASS (qualified).** The numerical literature motivates sketched reduced Gauss–Newton models, physical minimum-norm completion and Gaussian pseudoinverses; it does not in the inspected texts state the exact pair of finite-dimensional excess-error laws for the two different pseudoinverse choices. The strongest nearby published result studies asymptotic sketched-pseudoinverse behavior rather than this finite-sample tie-breaking dichotomy. The Gaussian inverse-Wishart ratio identity is classical, and a previously unnoticed finite-dimensional specialization of it or of the randomized inverse-problem literature remains a priority risk. This assessment does not claim independently established novelty.
+PASS
 
-**Value — PASS.** The result isolates an operationally consequential ambiguity in rank-deficient reduced solves: minimizing the stored coefficient norm is not the same as minimizing the physical step norm. The exact oversampling threshold predicts when their population squared errors are finite, and the full-space example demonstrates that adding subspace dimensions need not remove the coefficient metric artifact. This is a self-contained sharp model, not a general convergence theorem for safeguarded Gauss–Newton.
+By orthogonal invariance take J=[I_r 0] and S=[G;B]. Coefficient minimum gives B G†c; conditional variance ||G†c||² with reciprocal chi-square_{ell-r+1} by Gaussian Schur complement, independent chi-square_{d-r} numerator. Haar random ell-plane=ker H; physical minimum solves H2y=-H1c, giving independent chi-square_{d-ell}/chi-square_{ell-r+1} marginal, or exactly zero at ell=d. Beta-prime/Gamma integration gives each moment for 0<q<ell-r+1, divergence at/above cutoff and sharp t^{-nu} tails. Checks included Gaussian feasibility and minimum-norm inequality; (d,r,ell)=(2,1,2) deterministic S example confirms coefficient can inflate despite full span. The two marginal laws are NOT a joint law.
 
-Closest literature: Pes–Rodriguez (arXiv:2101.07560), Cartis–Fowkes–Shao (arXiv:2211.05727), and LeJeune et al. (DOI:10.1137/22M1530264). The analytical components use classical chi-squared and Wishart identities. The result excludes finite-precision effects and nonlinear/safeguarded iteration; a comprehensive independent priority audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inverse-Wishart chi-squared identity is standard; the contribution is the exact finite-dimensional joint comparison of two explicitly different tie-breaking conventions, sharp moment/tail thresholds and full-span pathology. LeJeune et al. inspect asymptotics of sketched pseudoinverses, while Cartis et al. concern globalized safeguarded random-subspace Gauss–Newton; neither reviewed result states this precise two-selector finite marginal pairing. Residual broad classical literature priority risk remains.
+
+## value
+
+PASS
+
+The exact identification of coefficient-norm versus physical-norm selection is a useful numerical linear algebra distinction: even when a random subspace equals the full ambient space the coefficient solution can have infinite mean-square excess while the geometric solution is exact. Sharp finite-n thresholds quantify it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

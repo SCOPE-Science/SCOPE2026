@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T16:59:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-nullspace-inflation-for-gaussian-reduced-least-squares-pse--94943c586d73/RESULT.md",
+        "2026/11/02/exact-nullspace-inflation-for-gaussian-reduced-least-squares-pse--94943c586d73/verify.py"
+      ],
+      "rationale": "By orthogonal invariance take J=[I_r 0] and S=[G;B]. Coefficient minimum gives B G†c; conditional variance ||G†c||² with reciprocal chi-square_{ell-r+1} by Gaussian Schur complement, independent chi-square_{d-r} numerator. Haar random ell-plane=ker H; physical minimum solves H2y=-H1c, giving independent chi-square_{d-ell}/chi-square_{ell-r+1} marginal, or exactly zero at ell=d. Beta-prime/Gamma integration gives each moment for 0<q<ell-r+1, divergence at/above cutoff and sharp t^{-nu} tails. Checks included Gaussian feasibility and minimum-norm inequality; (d,r,ell)=(2,1,2) deterministic S example confirms coefficient can inflate despite full span. The two marginal laws are NOT a joint law.",
+      "residual_risks": [
+        "Classical inverse-Wishart/Student and sketching literature may imply parts via a shorter specialization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asymptotics of the Sketched Pseudoinverse examines high-dimensional regimes, not the two exact finite-n selectors in the inspected paper."
+        ],
+        "reasoning": "Asymptotic spectral equivalences do not imply the exact marginal chi-square ratios and divergence threshold at every fixed r,d,ell.",
+        "searches": [
+          "Gaussian sketched pseudoinverse coefficient norm physical norm nullspace excess chi-square exact distribution",
+          "LeJeune et al. DOI:10.1137/22M1530264"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md blob 7f9775c341586b3bc6a3d7fbc79ab41c9ff062df",
+        "Git verify.py blob 5a51730b5fd0e396cee8b8c8f4606d4d20a002d0",
+        "Resultary semantic query Gaussian sketched pseudoinverse coefficient norm physical norm nullspace excess chi-square exact distribution",
+        "LeJeune et al. DOI:10.1137/22M1530264",
+        "arXiv:2211.05727",
+        "arXiv:2101.07560"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cartis–Fowkes–Shao use safeguarded nonlinear Gauss–Newton; Pes–Rodriguez prioritize physical minimum norm without this Gaussian random-subspace tail law."
+        ],
+        "reasoning": "Those established algorithms motivate distinct selection strategies but do not alone prove both finite-sample error distributions or pathological full-span contrast.",
+        "searches": [
+          "Gaussian sketched pseudoinverse coefficient norm physical norm nullspace excess chi-square exact distribution",
+          "arXiv:2211.05727; arXiv:2101.07560"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inverse quadratic form is 1/chi-square_{ell-r+1}, a classical exact identity."
+        ],
+        "reasoning": "This known ingredient is credited; using it to compare the two different pseudoinverses and boundary cases is the remaining statement.",
+        "searches": [
+          "Gaussian sketched pseudoinverse coefficient norm physical norm nullspace excess chi-square exact distribution",
+          "Gaussian inverse-Wishart Schur complement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned Gaussian regression/size law records with different quantities, no exact two-selector table."
+        ],
+        "reasoning": "No matching tabular result retrieved; the ordinary inverse-Wishart law itself is preexisting.",
+        "searches": [
+          "Gaussian sketched pseudoinverse coefficient norm physical norm nullspace excess chi-square exact distribution",
+          "Resultary semantic query 2026-11-07"
+        ]
+      },
+      "rationale": "The inverse-Wishart chi-squared identity is standard; the contribution is the exact finite-dimensional joint comparison of two explicitly different tie-breaking conventions, sharp moment/tail thresholds and full-span pathology. LeJeune et al. inspect asymptotics of sketched pseudoinverses, while Cartis et al. concern globalized safeguarded random-subspace Gauss–Newton; neither reviewed result states this precise two-selector finite marginal pairing. Residual broad classical literature priority risk remains.",
+      "residual_risks": [
+        "Classical inverse-Wishart/Student and sketching literature may imply parts via a shorter specialization.",
+        "Joint dependence between two errors is not specified or claimed.",
+        "No rank-deficient nonlinear iteration convergence or numerical-stability claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_AS_INSPECTED",
+          "evidence": "Finite-dimensional exact physical- versus coefficient-selector chi-square laws absent from inspected asymptotic framework.",
+          "identifier_or_url": "https://doi.org/10.1137/22M1530264",
+          "material_read": "Full accessible primary article on asymptotic pseudoinverse behavior",
+          "method": "full text web read, sections on asymptotic equivalents",
+          "title": "Asymptotics of the Sketched Pseudoinverse",
+          "trigger": "Most plausible broad covering random-sketch theorem"
+        },
+        {
+          "assessment": "DIFFERENT_SCOPE_PARTIAL_READ",
+          "evidence": "Globalized safeguarded nonlinear method, not exact unsafeguarded Gaussian single step.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.05727",
+          "material_read": "Abstract and paper metadata only",
+          "method": "arXiv index",
+          "title": "A Randomised Subspace Gauss–Newton Method for Nonlinear Least-Squares",
+          "trigger": "Original solver motivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git RESULT.md blob 7f9775c341586b3bc6a3d7fbc79ab41c9ff062df",
+        "Git verify.py blob 5a51730b5fd0e396cee8b8c8f4606d4d20a002d0",
+        "Resultary semantic query Gaussian sketched pseudoinverse coefficient norm physical norm nullspace excess chi-square exact distribution",
+        "LeJeune et al. DOI:10.1137/22M1530264",
+        "arXiv:2211.05727",
+        "arXiv:2101.07560"
+      ],
+      "rationale": "The exact identification of coefficient-norm versus physical-norm selection is a useful numerical linear algebra distinction: even when a random subspace equals the full ambient space the coefficient solution can have infinite mean-square excess while the geometric solution is exact. Sharp finite-n thresholds quantify it.",
+      "residual_risks": [
+        "No rank-deficient nonlinear iteration convergence or numerical-stability claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical inverse-Wishart/Student and sketching literature may imply parts via a shorter specialization.",
+    "Joint dependence between two errors is not specified or claimed.",
+    "No rank-deficient nonlinear iteration convergence or numerical-stability claim."
+  ],
+  "schema_version": 1
+}

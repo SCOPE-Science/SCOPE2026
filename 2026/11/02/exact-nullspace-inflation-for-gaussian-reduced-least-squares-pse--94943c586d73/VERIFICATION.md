@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Execute \(\texttt{python verify.py}\) with NumPy available. The reported run returned `VERIFY_OK 7214 finite-dimensional identities; analytic ratio moment checks`.
+## correctness
 
-The script covers dimensions \((d,r,\ell)=(3,1,1),(3,1,2),(3,1,3),(5,2,2),(5,2,3),(5,2,4),(5,2,5),(7,2,4)\), with 180 seeded random matrix instances in each case. It computes the coefficient-pseudoinverse solution and independently constructs an orthonormal basis for the same random subspace before solving for the physical-minimum solution. It checks residual feasibility, minimum-norm ordering, full-span collapse and a deterministic two-dimensional witness. For the chi-squared ratio, it tests the exact Gamma moment expression and its second-moment simplification.
+PASS
 
-The computations are **not** proof of a distribution identity, exact tail limit or infinite moment. Those are proved in `RESULT.md` using orthogonal invariance, the Gaussian Schur complement and Gamma integrations. Results assume exact arithmetic; floating-point calculations are only numerical sanity checks. The literature comparison is not an independent audit.
+By orthogonal invariance take J=[I_r 0] and S=[G;B]. Coefficient minimum gives B G†c; conditional variance ||G†c||² with reciprocal chi-square_{ell-r+1} by Gaussian Schur complement, independent chi-square_{d-r} numerator. Haar random ell-plane=ker H; physical minimum solves H2y=-H1c, giving independent chi-square_{d-ell}/chi-square_{ell-r+1} marginal, or exactly zero at ell=d. Beta-prime/Gamma integration gives each moment for 0<q<ell-r+1, divergence at/above cutoff and sharp t^{-nu} tails. Checks included Gaussian feasibility and minimum-norm inequality; (d,r,ell)=(2,1,2) deterministic S example confirms coefficient can inflate despite full span. The two marginal laws are NOT a joint law.
+
+## originality
+
+PASS
+
+The inverse-Wishart chi-squared identity is standard; the contribution is the exact finite-dimensional joint comparison of two explicitly different tie-breaking conventions, sharp moment/tail thresholds and full-span pathology. LeJeune et al. inspect asymptotics of sketched pseudoinverses, while Cartis et al. concern globalized safeguarded random-subspace Gauss–Newton; neither reviewed result states this precise two-selector finite marginal pairing. Residual broad classical literature priority risk remains.
+
+## value
+
+PASS
+
+The exact identification of coefficient-norm versus physical-norm selection is a useful numerical linear algebra distinction: even when a random subspace equals the full ambient space the coefficient solution can have infinite mean-square excess while the geometric solution is exact. Sharp finite-n thresholds quantify it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
