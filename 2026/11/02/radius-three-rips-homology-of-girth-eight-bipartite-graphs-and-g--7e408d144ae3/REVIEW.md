@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For all finite connected simple bipartite graphs with girth at least eight and diameter at most four, every color-crossing pair is at distance at most three. A clique inside one bipartition class has a unique common neighbor because distinct pairwise witnesses would produce a four- or six-cycle. The resulting two threshold-three clique factors admit explicit cone attachments and collapses onto the original graph. Their join gives exactly the integral three-sphere wedge of squared graph cycle rank. The integral join Künneth sign for exchanging two one-cycles is positive. A graph-invariant positive-definite cycle-space tensor yields a nonzero full-group invariant and hence a nonzero quotient homology class. Finite standard-library checks independently verify the eight-cycle and order-(2,2) incidence example, including exact mod-two ranks and all 720 natural label symmetries. The infinite assertion is proved structurally, not inferred from those checks.
+## correctness
 
-## Originality — PASS, subject to bibliographic risk
-The closest published 30-vertex Tutte–Coxeter theorem and its separate natural-S6 character calculation were read in full and are acknowledged as special cases, not independently new results. The general join/collapse argument and the full graph-automorphism quotient invariant are not stated there. The published projective-plane incidence theorem is at radius two and in girth six; the inspected gluing, Platonic, and hypercube Rips articles do not cover the present hypotheses. Search alone is not uniqueness proof. McCabe's 2026 generalized-polygon approximation paper was only accessible in relevant excerpts and is an explicit residual risk, alongside unindexed independent results.
+PASS
 
-## Value — PASS
-The exact integral homotopy type for a natural infinite graph class, and in particular every existing thick generalized quadrangle, is structurally informative. The canonical tensor-square cycle-lattice representation and a rational class surviving quotient by the entire automorphism group provide invariant information absent from a nonequivariant homotopy type or an S6-only calculation. The formula applies without symmetry or Desarguesian assumptions; the full quotient rank is only bounded below and no complete persistence claim is made.
+Bipartiteness and diameter<=4 make every cross-color pair distance 1 or 3, and within-color pairs distance 2 or 4, so VR_<=3=A*B literally. With no 4- or 6-cycles, every same-color distance-two clique has a unique common opposite-color neighbor. Each factor A is the union of entire neighbor simplices intersecting pairwise in at most one vertex. Attaching a cone over each neighborhood simplex (contractible attachment) preserves homotopy and elementary collapses on the unique larger faces leave exactly the original incidence graph G. Therefore A and B each have reduced H1 rank b; join Kunneth gives H3=H1(G) tensor H1(G) free rank b² and the join-suspension equivalence gives wedge b² S³. Join interchange sign is (-1)^((1+1)(1+1))=+1. The canonical positive quadratic tensor C=sum_e pi(e)⊗pi(e), pi orthogonal projection of rational edge chains onto cycles, is nonzero when b>0 and invariant under signed edge permutations and tensor flips. Finite simplicial group rational averaging identifies quotient rational homology with invariants. Standard GQ point/line/incidence counts yield b=s²t² exactly. Independent C8 radius-three join calculation gives b=1 and rank-one third homology, a finite spot check rather than the proof for all graphs.
 
-## Limitations
-The claim is restricted to unweighted connected bipartite graphs of diameter at most four and girth at least eight. Its symmetry statement is integral for the covering Rips complex and rational for the orbit quotient. The verifier covers only C8 and the order-(2,2) quadrangle. Independent external audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Two published primary mathematical records already give the order-(2,2) Tutte–Coxeter 256-sphere case and its natural S6 tensor-square representation; both are explicitly acknowledged as special cases. Those single-graph claims do not cover all finite diameter-four/girth-eight bipartite graphs, all (s,t) generalized quadrangles or full color-exchanging graph automorphism invariants. Earlier Adamaszek metric-gluing and incidence homotopy work concerns different constructions/thresholds. The novelty is the uniform graph-family structural theorem and full group invariant, not the 256-sphere example.
+
+## value
+
+PASS
+
+The diameter and girth hypotheses are natural structural graph constraints. A uniform Rips homotopy classification, integral tensor module, and full-symmetry nonvanishing theorem gives a qualitative explanation for and extension of isolated generalized-quadrangle calculations. It applies to arbitrary finite generalized quadrangles, including nonclassical ones if they exist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
