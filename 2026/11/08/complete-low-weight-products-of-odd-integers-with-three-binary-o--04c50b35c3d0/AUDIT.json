@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Published Kaneko–Stoll Theorems 2.1–2.2 bound the entire infinite search to two finite product families, with exactly 13 and 231 candidate products. Independent exhaustive product-first and factor-first exact integer code was executed; the former tests 5523 divisors, the latter 3672 unordered admissible pairs, and both return the same seven pairs. The exclusion of weight one is proved by parity and minimum factor size. The algorithms and outputs are embedded as standalone files.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaneko–Stoll Theorem 2.1 gives product bound 2^14 for two product bits at (3,3), Theorem 2.2 gives bound 2^23 for three bits, but not enumerations.",
+        "Aloui et al. arXiv:2203.05451v1 Section 2 covers squares: its E_3 contains 7 but not mixed unequal factors."
+      ],
+      "reasoning": "The source bounds make an exhaustive proof possible but do not imply the final numerical list without carrying out distinct exact factor analyses. The square theorem is limited to diagonal products and cannot cover the six off-diagonal pairs.",
+      "searches": [
+        "published-finding corpus: Kaneko Stoll binary weight 3 factors both weight three product weight three six pairs 7 19 37",
+        "Web: Products of integers with few nonzero digits 2021 Theorems 2.1 and 2.2",
+        "Web: On the binary digits of n and n^2 sparse squares classification"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2112.03077v1, Kaneko–Stoll; primary full manuscript, Theorems 2.1 and 2.2 and proofs",
+      "arXiv:2203.05451v1, Aloui et al., relevant full HTML",
+      "2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9/RESULT.md",
+      "published-finding corpus semantic searches on sparse-product weight triples and explicit products",
+      "Targeted web/OEIS searches for aliases and exact tables"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9 classifies weights (2,3) with product weight 3, specifically (3,7) and (5,7), not equal factor weights 3.",
+        "Kaneko–Stoll does not give exact pairs, only finite bounds.",
+        "Aloui et al. give square cases, which cover (7,7) but not six off-diagonal pairs."
+      ],
+      "reasoning": "The earlier (2,3) classification has different factor-weight hypotheses and neither implies nor subsumes any (3,3) case. The square theorem covers only one member, and the principal publication gives only generic computable ceilings. The new complete classification is genuinely beyond these precise implications.",
+      "searches": [
+        "published-finding corpus: Kaneko Stoll binary weight 3 factors both weight three product weight three six pairs 7 19 37",
+        "GitHub: published-finding corpus/2026 2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9/RESULT.md",
+        "Web: On the binary digits of n and n^2 arXiv:2203.05451"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kaneko–Stoll arXiv:2112.03077v1, (1), Theorems 2.1–2.2: general sparse-product system and bounds, no explicit (3,3) list in inspected text.",
+        "The full seven triples obtained by the two independent exhaustive algorithms."
+      ],
+      "reasoning": "Equivalent formulations as sparse factor products, triple-bit products, or binary Hamming-weight factorizations reduce to the same finite list. None of the retrieved relevant records states that list; undetected equivalent work remains possible.",
+      "searches": [
+        "published-finding corpus: s_2(a)=s_2(b)=3 and s_2(ab) at most 3 complete seven pairs",
+        "published-finding corpus: sparse product binary 3 3 factors exact 1029 7 49 11 35 25 41",
+        "Web: s(a)=s(b)=3 s(ab)=3",
+        "Web: binary Hamming weight 3 factorization 1029 385 273 133"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved matching OEIS or article table enumerates precisely this seven-case factor class.",
+        "OEIS A345254 is a generic digital enumeration and does not imply the claimed factor classification."
+      ],
+      "reasoning": "Queries inspected exact products and factor descriptions to test table-level coverage. Non-detection alone does not prove novelty; a nonindexed exact table is the principal residual risk.",
+      "searches": [
+        "Web OEIS: \"49, 133, 259, 273, 385, 1029\"",
+        "Web OEIS: \"numbers with three 1s\" product of two numbers with three 1s",
+        "Web: 7 19 37 11 35 13 21 21 49 binary digit products sparse"
+      ]
+    },
+    "rationale": "The proved complete equal-weight-three classification is not a logical corollary of the earlier general bounds without a new exhaustive exact determination; other closest identified work concerns squares or the unequal (2,3) factors. Both direct and equivalent-formulation searches were made. The original theorem supplies a bound, not the seven pairs; residual unindexed-table risk is acknowledged.",
+    "residual_risks": [
+      "A missing or unindexed exact (3,3) table could predate this enumeration.",
+      "The general published carry bounds are imported rather than reproved; they were directly verified against the manuscript."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_BOUND_NOT_CLASSIFICATION",
+        "evidence": [
+          "Primary MSC2020 11A63 printed on p.1. Theorem 2.1: ab<2^(-4+2lm); Theorem 2.2: ab<2^(-13+4lm). No exact symmetric 3-by-3 table in inspected paper."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2112.03077",
+        "material_read": "Full 17-page paper searched; Introduction, Theorems 2.1–2.2 on p.3, carry proofs in Sections 3–4 pp.4–8, closing references and scope",
+        "method": "Opened arXiv manuscript PDF, visually inspected p.3 and read relevant extracted lines of carry argument",
+        "title": "Products of integers with few nonzero digits",
+        "trigger": "Same Diophantine system and global bounds"
+      },
+      {
+        "assessment": "COVERS_DIAGONAL_ONLY",
+        "evidence": [
+          "E_3 includes 7 as a square root with 3 nonzero bits of the square; no classification of unequal factors is stated in the inspected sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.05451",
+        "material_read": "Accessible full-text introduction and Section 2 (definitions E_3, Theorem 2, cited prior square results), plus abstract",
+        "method": "Full HTML text read on arXiv",
+        "title": "On the binary digits of n and n squared",
+        "trigger": "Square-case theorem could subsume diagonal member"
+      },
+      {
+        "assessment": "NEIGHBORING_WEIGHTS_NOT_COVERING",
+        "evidence": [
+          "Only (a,b)=(3,7),(5,7) with factor weights (2,3); explicitly notes it does not classify (3,3,3)."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9",
+        "material_read": "Complete RESULT.md, including statement, bounds and limitations",
+        "method": "Public GitHub file read using authorized read-only access",
+        "title": "Exact (3,2,3) binary-weight product classification",
+        "trigger": "Nearest published record found by multiple targeted similarity searches"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "04c50b35-c3d0-4be7-b90e-720262cda7cb",
+  "value": {
+    "rationale": "Complete sharp classification of a natural symmetric lowest-complexity sparse-product Diophantine regime, determining all weight<=3 products of odd three-bit factors and exact maximum 1029. Motivated directly by the 2021 paper’s explicitly posed existence question for weight triples; the modest finite classification is not arbitrary or a reformulated general bound. It supplies an exact benchmark for the multiplicative carry phenomenon.",
+    "status": "PASS"
+  }
+}
