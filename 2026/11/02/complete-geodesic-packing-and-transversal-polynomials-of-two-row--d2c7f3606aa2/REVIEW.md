@@ -1,19 +1,21 @@
-# Review of complete geodesic-packing and transversal polynomials
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The decisive structural observation is that every maximal geodesic in \(K_2\square K_n\) has a unique complete two-vertex column and one further cell from another column. Vertex-disjoint packing is therefore equivalent, in both directions, to choosing \(k\) complete columns, \(k\) distinct cells outside them and a bijection. This proves every packing coefficient, the exact maximum and its residue-class multiplicity. The strict log-concavity proof compares positive successive coefficient ratios and has no experimental premise. A geodesic-free vertex subset is either a partial transversal of the columns or a single full column; complementing these sets proves the complete transversal polynomial and minimum and inclusion-minimal statements. Separate graph-distance and exhaustive vertex-subset checks confirmed the formulas for \(2\le n\le8\); additional exact arithmetic checks covered \(2\le n\le150\). The proof, not the finite search, establishes all \(n\ge2\).
+PASS
 
-## Originality — PASS, with publication-priority risk
+Read final RESULT.md: diameter-two maximal geodesics are exactly the 3-vertex paths consisting of one full 2-cell column and one cell of a distinct column. Vertex-disjoint k-packings correspond bijectively to choosing k different full columns, k singleton cells from 2(n−k) remaining cells, and a bijection between the two selected sets. This gives n!/(n−k)! binom(2(n−k),k), k≤floor(2n/3); substitution at the support endpoint yields the three residue counts. The exact consecutive ratio separates into positive strictly decreasing factors on the interior, proving strict log-concavity. A geodesic-free vertex subset contains either at most one vertex per column or is exactly one full column. The complement transform yields z^n(z+2)^n+n z^(2n−2), n=2 exception 6, and inclusion-minimal transversal classification. Independent graph-distance/backtracking enumeration checked n=2..6, including the n=2 boundary.
 
-The most relevant primary text is Manuel–Brešar–Klavžar, arXiv:2210.15325, particularly its introduction, §2 and conclusion. It defines the packing problem, gives generic bounds, and treats geodesic transversals of *square* rook graphs. Its separate exact value for the *complete bipartite graph* does not concern the Cartesian product studied here. These results supply the upper bound and definitions, not the enumerators, constructive sharpness, log-concavity or minimum-transversal census. Wild, arXiv:2409.16955, enumerates single geodesics algorithmically, not packings of disjoint maximal geodesics. Searches included the equivalent induced-three-vertex-path packing and two-clique-plus-perfect-matching descriptions. None of the accessed results directly supplied the joint polynomial theorem. Residual risk: an earlier combinatorial counting formula might exist under one of these equivalent descriptions; unindexed research has not been excluded.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original geodesic-packing work explicitly motivates studying graph products and the packing–transversal relationship. The two-row rook graph is the smallest noncomplete Cartesian product of cliques and is structurally different from the complete bipartite graph sometimes confused with it. Rather than merely deriving an isolated scalar from the generic packing bound, the theorem determines both entire size distributions, establishes strict log-concavity of the packing distribution, counts every maximum configuration, and identifies every inclusion-minimal dual transversal. The unique-full-column matching model also gives a reproducible baseline for the genuinely more complex multirow problem. Nothing is asserted for that unsolved extension.
+Qualified best-of-knowledge originality: the exact final claim and implications were compared to the named primary statements and search results; known premises are credited, and unexamined relevant full text remains explicit in risks. No searched title or failed lookup alone was treated as proof of novelty.
 
-## Limits and closest literature
+## value
 
-The closest full primary work is *Geodesic packing in graphs* (Manuel, Brešar, Klavžar, 2022 preprint/2023 publication); an additional related full-text HTML source is Wild's *Enumerating all geodesics* (2024). The former's general vertex-count bound is known, and the latter's individual-path enumeration does not imply a closed collection enumerator. Equivalence to disjoint induced-path packings creates residual priority uncertainty. Verification is self-contained but not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Computes two all-set enumeration polynomials rather than only extremal cardinalities for a canonical Cartesian product graph; gives matching construction, coefficient shape and complete inclusion-minimal hitting sets, information needed for enumerative geodesic problems. The n=2 exception is mathematically required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

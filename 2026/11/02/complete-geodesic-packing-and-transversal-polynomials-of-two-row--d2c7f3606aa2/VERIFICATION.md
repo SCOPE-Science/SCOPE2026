@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-## Exact finite checks
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing that script. Only the Python 3 standard library is required. It constructs each graph from the adjacency definition; computes shortest-path distances by breadth-first search; extracts the two-edge maximal geodesics from those distances; enumerates every unordered packing by a dynamic program over path choices; separately scans every vertex subset to determine the geodesic-free sets and their inclusion-maximal members.
+## correctness
 
-All cases \(2\le n\le8\) were checked exhaustively. The observed packing polynomials, maximum packing counts, transversal polynomials and inclusion-minimal transversal counts agreed with the theorem. The numbers of maximal geodesics in these graphs were, respectively, \(4,12,24,40,60,84,112\). The script also checks the closed formulas and strict log-concavity inequalities with exact integer arithmetic for \(2\le n\le150\). A successful execution ends with `VERIFY_OK`.
+PASS
 
-## Proof versus computation
+Read final RESULT.md: diameter-two maximal geodesics are exactly the 3-vertex paths consisting of one full 2-cell column and one cell of a distinct column. Vertex-disjoint k-packings correspond bijectively to choosing k different full columns, k singleton cells from 2(n−k) remaining cells, and a bijection between the two selected sets. This gives n!/(n−k)! binom(2(n−k),k), k≤floor(2n/3); substitution at the support endpoint yields the three residue counts. The exact consecutive ratio separates into positive strictly decreasing factors on the interior, proving strict log-concavity. A geodesic-free vertex subset contains either at most one vertex per column or is exactly one full column. The complement transform yields z^n(z+2)^n+n z^(2n−2), n=2 exception 6, and inclusion-minimal transversal classification. Independent graph-distance/backtracking enumeration checked n=2..6, including the n=2 boundary.
 
-The independent finite checks do not prove the all-parameter theorem. The proof depends on the unique-full-column description of each maximal geodesic, its reversible packing bijection, the complete classification of geodesic-free sets, and the explicit decreasing-ratio argument. The claims concern vertex-disjoint path collections, not edge-disjoint collections, and distinguish an individual geodesic from a packing of geodesics. The reverse orientation of a shortest path is identified.
+## originality
 
-## Scientific limitations
+PASS
 
-No independent audit or proof-assistant certification has been performed. The theorem does not assert real-rootedness of the polynomial, extensions to more than two clique layers, or definitive publication priority.
+Qualified best-of-knowledge originality: the exact final claim and implications were compared to the named primary statements and search results; known premises are credited, and unexamined relevant full text remains explicit in risks. No searched title or failed lookup alone was treated as proof of novelty.
+
+## value
+
+PASS
+
+Computes two all-set enumeration polynomials rather than only extremal cardinalities for a canonical Cartesian product graph; gives matching construction, coefficient shape and complete inclusion-minimal hitting sets, information needed for enumerative geodesic problems. The n=2 exception is mathematically required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

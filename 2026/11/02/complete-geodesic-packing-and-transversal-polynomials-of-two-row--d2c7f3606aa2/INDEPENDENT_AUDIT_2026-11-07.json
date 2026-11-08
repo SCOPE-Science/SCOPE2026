@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T03:45:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read final RESULT.md: diameter-two maximal geodesics are exactly the 3-vertex paths consisting of one full 2-cell column and one cell of a distinct column. Vertex-disjoint k-packings correspond bijectively to choosing k different full columns, k singleton cells from 2(n−k) remaining cells, and a bijection between the two selected sets. This gives n!/(n−k)! binom(2(n−k),k), k≤floor(2n/3); substitution at the support endpoint yields the three residue counts. The exact consecutive ratio separates into positive strictly decreasing factors on the interior, proving strict log-concavity. A geodesic-free vertex subset contains either at most one vertex per column or is exactly one full column. The complement transform yields z^n(z+2)^n+n z^(2n−2), n=2 exception 6, and inclusion-minimal transversal classification. Independent graph-distance/backtracking enumeration checked n=2..6, including the n=2 boundary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general bound floor(|V|/3) gives k≤floor(2n/3), which is explicitly credited; it does not give equality constructions or polynomial coefficients.",
+          "The full primary paper treats square rook graphs K_n□K_n in a transversal proposition and separate K_{n,n} packing statements; those families are not the requested K2□Kn for all n."
+        ],
+        "reasoning": "Broad graph-packing and square-rook theorems are either upper bounds or different graphs/invariants. They do not dominate the complete all-set formulas or strict log-concavity.",
+        "searches": [
+          "Manuel Brešar Klavžar Geodesic packing in graphs Lemma 2.3 Proposition 2.6 Corollary 2.8",
+          "Web: geodesic transversal of rook graphs K2 Cartesian Kn"
+        ]
+      },
+      "checked_sources": [
+        "Frozen full assigned source package, RESULT.md and verify.py; original source tree 2fc0979f80458f33ffb81f4a208d27fcffe25d18",
+        "Manuel–Brešar–Klavžar 2023 complete primary PDF, specific bounds and propositions",
+        "Wild arXiv:2409.16955 abstract/index",
+        "Resultary two-row rook graph geodesic enumeration search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary packing bound proves only one inequality of floor(2n/3).",
+          "The primary rook-graph transversal proposition concerns K_n□K_n, not the n versus 2n−2 competing minimal sets in K2□Kn."
+        ],
+        "reasoning": "To derive the exact theorem requires unique-column path description, matching enumeration and no-geodesic complement classification; none follows from the prior scalar upper bound alone.",
+        "searches": [
+          "Manuel–Brešar–Klavžar 2210.15325 full PDF Lemma 2.3 Prop 2.6",
+          "Wild 2409.16955"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The known geodesic packing definition is vertex-disjoint maximal paths; an equivalent formulation here is a matching of 3-uniform path hyperedges, each full-column plus singleton cell.",
+          "Manuel–Brešar–Klavžar analyze the same general invariant, not the same two-row all-packings polynomial."
+        ],
+        "reasoning": "The path-hypergraph matching viewpoint might have an earlier exact enumeration under induced-P3 packing, but none was found in bounded searches; unlike title matching, the precise unordered packing coefficients were compared.",
+        "searches": [
+          "Resultary: two row rook graph geodesic packing polynomial transversal counts",
+          "Web: vertex disjoint induced P3 packing two cliques perfect matching",
+          "arXiv:2210.15325"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The coefficients enumerate collections of maximal geodesics, not individual paths or all induced P3s.",
+          "Wild arXiv:2409.16955 enumerates geodesics; this is not a table of vertex-disjoint geodesic collections."
+        ],
+        "reasoning": "No known indexed coefficient table directly matches the all-n polynomial; absence of a search result does not establish novelty.",
+        "searches": [
+          "Resultary: rook graph enumerative geodesic",
+          "Web: geodesic packing polynomial 2 by n rook graph OEIS"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality: the exact final claim and implications were compared to the named primary statements and search results; known premises are credited, and unexamined relevant full text remains explicit in risks. No searched title or failed lookup alone was treated as proof of novelty.",
+      "residual_risks": [
+        "An unindexed induced-P3 path-hypergraph matching polynomial for two cliques with perfect matching could be equivalent.",
+        "The 2024 geodesic-enumeration full paper was not inspected page by page; abstract is insufficient for blanket noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_ONLY: general upper bound and other rook families",
+          "evidence": [
+            "General floor(vertices/3) bound is known.",
+            "Square rook graph transversal and complete bipartite graph packing statements have different graph parameter structures from this two-row formula."
+          ],
+          "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/2210.15325.pdf",
+          "material_read": "Accessible full PDF; read relevant introduction, Lemma 2.3, Proposition 2.6, Proposition 2.7 and Corollary 2.8; page screenshots checked",
+          "method": "Primary author-hosted PDF text plus visual PDF pages",
+          "title": "Geodesic packing in graphs",
+          "trigger": "Direct original definition, square-rook geodesics, and upper bound"
+        },
+        {
+          "assessment": "INSUFFICIENT for whole-document noncoverage; no match in material read",
+          "evidence": [
+            "Individual geodesics are not vertex-disjoint collections of geodesics; the present packing and transversal polynomials need distinct combinatorial arguments."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.16955",
+          "material_read": "Abstract and indexed description of geodesic enumeration algorithm, not all mathematical pages",
+          "method": "Public arXiv abstract/indexed search",
+          "title": "Enumerating all geodesics",
+          "trigger": "Potential path enumeration implying all packing coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Computes two all-set enumeration polynomials rather than only extremal cardinalities for a canonical Cartesian product graph; gives matching construction, coefficient shape and complete inclusion-minimal hitting sets, information needed for enumerative geodesic problems. The n=2 exception is mathematically required.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "K2□Kn, n≥2, only; unordered vertex-disjoint maximal geodesics counted up to reversal.",
+    "No claim of real-rootedness or all rectangular rook graphs.",
+    "An unindexed induced-P3 path-hypergraph matching polynomial for two cliques with perfect matching could be equivalent.",
+    "The 2024 geodesic-enumeration full paper was not inspected page by page; abstract is insufficient for blanket noncoverage."
+  ],
+  "schema_version": 1
+}
