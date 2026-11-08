@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T14:53:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Block diagonal grounded path inverse has tail Green kernel min(i,j) and interior Green kernel min(i,j)(m+1-max(i,j))/(m+1). Squared Frobenius traces give P(m),Q(m) and strictly increasing p_r,q_r, so optimal gap allocations are exactly the cheapest available increments, with ties handled by exchange. Since q1=1/4,q2=31/36,p1=1,q3=77/36, both endpoints appear in every optimum exactly when n<=3k-2; strict convex uniform n^-4 scaling yields ratio 15^(1/3) of interior to tails and cost 1/(6D_k^3). Independent exact rational inverse and exhaustive minimizer checks covered 968 path-leader subsets for n<=9, including n=k. General result follows from Green and exchange proofs, not tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General higher-order coherence with finite diagonal leader gains and submodularity could dominate the objective definition, but not the exact integral optimum placements.",
+          "https://arxiv.org/pdf/1412.6595",
+          "https://arxiv.org/pdf/1905.09156",
+          "https://ieeexplore.ieee.org/document/7389354/"
+        ],
+        "reasoning": "Taking infinite leader anchoring in Q_S=L+D_kappa D_S gives a limiting follower inverse square, but general greedy approximation does not imply exact all-minimizer rules.",
+        "searches": [
+          "second order coherence k leader placement path trace inverse square grounded optimal leader",
+          "optimal leader placement second order coherence trace grounded Laplacian inverse square path multiple leaders",
+          "second order coherence path leader exact placement trace Q^-2 optimal \"root\"",
+          "https://arxiv.org/pdf/1412.6595",
+          "https://arxiv.org/pdf/1905.09156",
+          "https://ieeexplore.ieee.org/document/7389354/"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1412.6595",
+        "https://arxiv.org/pdf/1905.09156",
+        "https://ieeexplore.ieee.org/document/7389354/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known path dynamic-programming algorithms optimize a different trace inverse functional; replacing edge weights does not produce the inverse-square polynomial Q(m).",
+          "https://arxiv.org/pdf/1412.6595",
+          "https://arxiv.org/pdf/1905.09156",
+          "https://ieeexplore.ieee.org/document/7389354/"
+        ],
+        "reasoning": "The source Green-square calculation yields Q(m), steep convex discrete marginals, sharp endpoint cutoff and limiting allocation, none follow from a generic shortest-path formulation alone.",
+        "searches": [
+          "second order coherence k leader placement path trace inverse square grounded optimal leader",
+          "optimal leader placement second order coherence trace grounded Laplacian inverse square path multiple leaders",
+          "second order coherence path leader exact placement trace Q^-2 optimal \"root\"",
+          "https://arxiv.org/pdf/1412.6595",
+          "https://arxiv.org/pdf/1905.09156",
+          "https://ieeexplore.ieee.org/document/7389354/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objective is trace of squared inverse of a grounded path Laplacian, i.e., second-order position variance under proportional Laplacian damping.",
+          "https://arxiv.org/pdf/1412.6595",
+          "https://arxiv.org/pdf/1905.09156",
+          "https://ieeexplore.ieee.org/document/7389354/"
+        ],
+        "reasoning": "Patterson et al. optimize trace inverse for first-order coherence; Mackin–Patterson consider inverse-square for finite absolute-information leader gains, not exact path gap minimizers.",
+        "searches": [
+          "second order coherence k leader placement path trace inverse square grounded optimal leader",
+          "optimal leader placement second order coherence trace grounded Laplacian inverse square path multiple leaders",
+          "second order coherence path leader exact placement trace Q^-2 optimal \"root\"",
+          "https://arxiv.org/pdf/1412.6595",
+          "https://arxiv.org/pdf/1905.09156",
+          "https://ieeexplore.ieee.org/document/7389354/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Searches for cube-root 15 leader spacing, endpoint cutoff n<=3k-2 and exact inverse-square path gap marginal tables found no dominating source.",
+          "https://arxiv.org/pdf/1412.6595",
+          "https://arxiv.org/pdf/1905.09156",
+          "https://ieeexplore.ieee.org/document/7389354/"
+        ],
+        "reasoning": "The q_r and p_r sequences are distinct from first-order leader marginal costs.",
+        "searches": [
+          "second order coherence k leader placement path trace inverse square grounded optimal leader",
+          "optimal leader placement second order coherence trace grounded Laplacian inverse square path multiple leaders",
+          "second order coherence path leader exact placement trace Q^-2 optimal \"root\"",
+          "https://arxiv.org/pdf/1412.6595",
+          "https://arxiv.org/pdf/1905.09156",
+          "https://ieeexplore.ieee.org/document/7389354/"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the precise complete statement, after distinguishing prior objects, scope and implications. Relevant primary mathematical results were inspected, and none of the materially read theorems supplies the same whole claim. Earlier components are explicitly credited; unsuccessful indexing alone is not proof of priority. See four structured checks, primary reading and residual risks.",
+      "residual_risks": [
+        "A specialized earlier path inverse-square leader placement paper could have the exact marginal-cost classification under a different control-theory name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIRST_ORDER_TRACE_ONLY",
+          "evidence": [
+            "The objective is one half trace L_FF^-1, not trace L_FF^-2; its dynamic programming does not yield the inverse-square gap price."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1412.6595",
+          "material_read": "7-page PDF: formulation, objective equation (5) on page 3 and path shortest-path algorithm; page screenshot",
+          "method": "Read primary lawful open full-text PDF/HTML and inspected cited theorem pages.",
+          "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+          "trigger": "same path multi-leader model with apparent stronger optimization"
+        },
+        {
+          "assessment": "SECOND_ORDER_OBJECTIVE_PRIOR_EXACT_OPTIMUM_NOT_STATED",
+          "evidence": [
+            "Equation for rho2 H2(S)=tr Q_S^-2 and Theorem 9 submodularity are prior, while fixed k exact path minimizers and cube-root-15 spacing are not provided."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.09156",
+          "material_read": "13-page PDF: introduction, finite-gain Laplacian Q_S model, coherence formula, Section III and Theorem 9; page 6 screenshot",
+          "method": "Read primary lawful open full-text PDF/HTML and inspected cited theorem pages.",
+          "title": "Submodularity in Systems with Higher Order Consensus with Absolute Information",
+          "trigger": "direct second-order coherence source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The second-order position variance tr(L_FF^-2) for noise-driven grounded path networks is an established natural performance functional. An exact all-minimizer discrete allocation rule, endpoint threshold, and universal cube-root-15 spacing are useful optimization results, not a generic restatement of first-order leader placement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1412.6595",
+    "https://arxiv.org/pdf/1905.09156",
+    "https://ieeexplore.ieee.org/document/7389354/"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A specialized earlier path inverse-square leader placement paper could have the exact marginal-cost classification under a different control-theory name."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Unweighted paths with perfectly grounded leaders, exactly k>=2, independent unit acceleration noise and damping gamma L_FF; finite anchoring or alternative damping excluded."
+  ]
+}
