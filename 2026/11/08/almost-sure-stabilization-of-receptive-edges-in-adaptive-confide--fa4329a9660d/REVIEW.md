@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The claim concerns the Li–Luo–Porter asynchronous model with independently uniform edge selections and strict pre-draw receptive testing. Its published zero–one dyadic-confidence limit theorem and opinion convergence are used openly as premises. The independent proof contributes a predictable-opportunity sampling lemma: if a status is true infinitely often, a uniformly selected edge is selected in that status infinitely often almost surely, irrespective of adaptive state dependence. The bound for missing \(k\) such opportunities is at most \((1-1/m)^k\). This rules out infinitely many receptive times on any edge with confidence converging to \(0\), since one such late receptive selection would raise its confidence by at least \(\gamma\). For confidence limit \(1\), the published different-opinion-limit exclusion forces equal endpoint opinion limits, making receptiveness permanent. A maximum over finitely many edges gives the full statement. Boundary values \(\gamma=1\), \(\delta=0\), \(m=1\), and \(\mu=1/2\) have been checked directly in the argument. The proof does not imply any finite deterministic stabilization-time bound.
+
+## Originality — PASS, with residual risk
+
+The original complete arXiv v3 Sections 2.4, 3.2, 6.2, and Appendix A.2, and the later 2025 full journal manuscript's corresponding theorem/appendix, were inspected. The authors explicitly state that they cannot establish almost-sure eventual constancy of the adaptive-confidence DW effective graph: their theorems prove only confidence-limit convergence and exclusion of edges joining different limit clusters. The present result adds a conditioned sampling argument to bridge that stated gap. The original paper proves effective-graph constancy in the synchronous HK and fixed-confidence DW settings, but not this setting. The 2026 adaptive-interaction-probability variant has a fixed confidence bound, and a 2023 report instead has opinion-dependent individual confidence functions. A prior mathematical-research search and accessible record comparisons did not identify a dominating result. Its short proof uses a classical conditional Borel–Cantelli idea; an uncatalogued equivalent observation remains possible. This is not claimed to be a new general stochastic sampling lemma.
+
+## Value — PASS
+
+An explicitly noted unanswered dynamical question is resolved for the full finite-graph parameter family, not a selected graph or a finite computation. The result guarantees a genuine limiting receptive graph and characterizes its edges in terms of the dyadic confidence limits, strengthening a merely cluster-separation statement. It validates treating the long-time receptive network as a fixed random graph in subsequent mathematical analysis, while allowing equal-opinion vertices to remain disconnected. The insight is the distinction between a pair being receptive at infinitely many times and its being selected while receptive, which the stochastic argument controls. No estimate of the random stabilization time is supplied.
+
+## Source comparison and limitations
+
+Primary reference: G. J. Li, J. Luo, and M. A. Porter, arXiv:2303.07563v3, https://arxiv.org/html/2303.07563v3, and the complete 2025 paper https://www.math.ucla.edu/~mason/papers/BCM-dynamic-April2025.pdf . Comparators: arXiv:2605.20418 (adaptive interaction probabilities) and the 2023 report https://ww3.math.ucla.edu/wp-content/uploads/2023/10/CAMREU2023-FinalReport-1.pdf (opinion-dependent individual bounds). The theorem relies on the previously proved convergence premises; no independently verified limit-time distribution or infinite-graph generalization is asserted. Mathematical novelty remains subject to broader external priority checks.
+
+Self-review: passed. Independent audit: not yet performed.
