@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-**Exact mathematical check.** The weighted cofactor determinant for product conductances is \(\prod_i x_i\prod_j y_j(\sum_i x_i)^{b-1}(\sum_j y_j)^{a-1}\). Coefficient extraction at a prescribed full labeled degree vector produces factorial-moment factors \(u_i,U_{ik},v_j,V_{jl}\). The transfer-current identity for pairs gives the exact displayed three-case law; this symbolic derivation is the all-size proof. For incident edges, the one-sided two-sample deficit and the opposite-side nonnegative product prove nonpositive covariance. For disjoint edges, the two without-replacement corrections give the exact sign expression and positive examples.
+## correctness
 
-**Independent finite computational cross-check.** Execute `python3 conditional_bipartite_edge_verifier.py` with Python 3 and only its standard library. It directly enumerates acyclic edge subsets rather than invoking the determinant or transfer-current identities. It checks class sizes, exact rational one-edge probabilities and all pair probabilities, nonpositive incident covariances, and both positive examples across \(K_{2,2}\), \(K_{2,3}\), \(K_{2,4}\), \(K_{2,5}\), \(K_{3,3}\), \(K_{3,4}\), \(K_{4,4}\). Observed output: `PASSED 231113 exact assertions`. Exhaustive verification of finite host sizes is not an infinite proof.
+PASS
 
-**Limitations.** This analysis is confined to simple complete bipartite graphs, feasible labeled full degree vectors and pairwise edge events. General association, arbitrary hosts and degree-multiset conditioning remain unproved. Historical priority of the conditional law remains subject to external review.
+For every a,b>=2 and every feasible full labeled degree vector, the product-weight complete-bipartite tree polynomial factors as (prod x)(prod y)(sum x)^(b-1)(sum y)^(a-1). Effective-resistance transfer-current determinants and multinomial coefficient extraction produce the displayed exact edge marginal P=u_i+v_j-u_i*v_j and all three joint-pair cases using U,V without-replacement factors; their incident covariance is <=0, while disjoint covariance has either sign. The K(2,3) degree-conditioned witness has maximal Bernoulli covariance 1/4 and the K(t,t),t>=4, degree-two-endpoint family is positive. Reconstructed finite edge-subset spanning trees, degree strata and every edge pair for K(2,2), K(2,3), K(3,3), K(3,4), K(4,4); finite checks are not the universal proof. One-position m=1 or p=1 boundaries use explicitly zero second factorial moments. Independently reconstructed exact seven-file Git tree SHA.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct combined claim survives comparison with actual relevant sources; precisely prior components are credited, and inaccessible or possibly dominating material is named as a priority risk, not treated as proof of noncoverage. The conditioned pair laws and positive-correlation reversal require a nontrivial combination of known ingredients, not direct substitution in an existing cited conditional theorem.
+
+## value
+
+PASS
+
+Full-degree conditioning is a natural structural event in spanning tree models; the exact sign classification and sharp positive witness show that negative association for unconditioned trees can fail after conditioning. This is a useful counterexample and conditional correlation law, not merely a reparameterized counting table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
