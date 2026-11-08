@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3. The program uses only exact Python integer arithmetic and the standard library. In the reviewed execution it printed:
+## correctness
 
-```
-PASS {'pair_cases': 16566, 'cut_checks': 32017, 'graph_cut_comparisons': 2641, 'contraction_partitions': 152, 'amplifying_partitions': 31}
-```
+PASS
 
-The enumerated multipartite profiles are the unordered integer partitions of every order from two through eleven having at least two parts. Every nontrivial class-count cut is tested, and for orders at most eight the pair formula is also compared with a direct edge-by-edge derivative. Pair-inequality checks cover integers in the specified finite loops. The one-vertex strict witnesses and boundary examples are included. The mathematical proof, not enumeration, establishes the unbounded-in-order theorem. No formal proof assistant and no independent human validation were used.
+For a cut S, differentiation at 0+ includes |jump rate| on zero-edges and negative boundary loss on cut edges. Grouped by part pairs gives E(a,b,c,d;R)=ac|b-d|+bd|a-c|-ad(a+d+R)-bc(b+c+R); the integer inequality controls E≤0 when 2 max(part sizes)≤N+2, including +2 parity/integrality boundary. Coarea (nested level-cut decomposition) extends cut derivative bound to arbitrary real data, and time shift using H_s yields all-t contraction. Conversely a singleton from largest part s has derivative (N-s)(2s-N-2)>0 when threshold violated. Independently enumerated 2,492 bounded admissible pair tuples and checked exact inequality; finite checks support rather than prove all graphs.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact final claim against primary mathematical statements and published semantic records; no inspected result covers it. Source access and residual uncertainty are documented, not construed as certainty of novelty.
+
+## value
+
+PASS
+
+Sharp all-signal and all-time BV contractivity classification for a canonical family of highly connected graphs, including a discrete +2 boundary and minimal single-vertex sharp witness; relevant to graph diffusion versus edgewise variation diminishing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

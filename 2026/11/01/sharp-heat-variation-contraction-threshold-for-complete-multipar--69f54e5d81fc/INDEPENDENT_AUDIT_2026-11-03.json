@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T03:19:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a cut S, differentiation at 0+ includes |jump rate| on zero-edges and negative boundary loss on cut edges. Grouped by part pairs gives E(a,b,c,d;R)=ac|b-d|+bd|a-c|-ad(a+d+R)-bc(b+c+R); the integer inequality controls E≤0 when 2 max(part sizes)≤N+2, including +2 parity/integrality boundary. Coarea (nested level-cut decomposition) extends cut derivative bound to arbitrary real data, and time shift using H_s yields all-t contraction. Conversely a singleton from largest part s has derivative (N-s)(2s-N-2)>0 when threshold violated. Independently enumerated 2,492 bounded admissible pair tuples and checked exact inequality; finite checks support rather than prove all graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ollivier works with transport curvature; Bauer et al positive heat gradients; Kirisits et al nonlinear TV flow."
+        ],
+        "reasoning": "Their broad finite graph hypotheses do not furnish the exact edgewise ℓ1 all-data linear semigroup inequality for multipartite graphs.",
+        "searches": [
+          "Ollivier arXiv:math/0701886",
+          "Bauer et al arXiv:1306.2561",
+          "Kirisits et al arXiv:1807.10514",
+          "Resultary graph heat total variation queries"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1807.10514",
+        "Resultary semantic searches recorded in four comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Their conclusions control Wasserstein/heat gradients or separate nonlinear TV flow, not sum over graph edges of |H_t f(u)-H_t f(v)| for all real f."
+        ],
+        "reasoning": "Explicit cut derivative and integer pair inequality are essential new model-specific steps not direct consequences of the cited theorems.",
+        "searches": [
+          "Ollivier 2007 transport contraction",
+          "Bauer et al 2013 Li–Yau inequality",
+          "Kirisits et al 2018 nonlinear graph TV denoising"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Graph total variation denoising is the nonlinear TV gradient flow, whereas here the generator is the linear counting Laplacian; Wasserstein contraction is a different seminorm."
+        ],
+        "reasoning": "Metric/Wasserstein, BV gradient flow and linear heat variation contraction have different properties, so prior general graph statements cannot be transferred solely from norm names.",
+        "searches": [
+          "Resultary semantic edge total variation linear heat semigroup complete multipartite graphs sharp contraction threshold",
+          "Kirisits–Scherzer–Setterqvist arXiv:1807.10514"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite checker includes small example K_(1,3) equality, K_(1,4) amplification, but those computations are not a published complete threshold table."
+        ],
+        "reasoning": "No checked exact graph table yielded 2 max_i n_i≤N+2 as linear-heat BV criterion.",
+        "searches": [
+          "Resultary complete multipartite graphs heat variation",
+          "Kirisits et al arXiv:1807.10514 graphs"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of exact final claim against primary mathematical statements and published semantic records; no inspected result covers it. Source access and residual uncertainty are documented, not construed as certainty of novelty.",
+      "residual_risks": [
+        "Older discrete total-variation diminution/semigroup theory may imply this family-specific threshold from a graph curvature condition not found in the bounded literature search.",
+        "The proof uses graph-specific integer pair inequality; arbitrary graph and weighted variants not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING linear combinatorial heat semigroup",
+          "evidence": [
+            "The considered dynamics are subgradient/TV-flow denoising; present operator is exp(-tL)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.10514",
+          "material_read": "Full accessible PDF including total-variation variational flow and ROF sections",
+          "method": "Primary full text read as available through source PDF/HTML or inspected result blob; compared theorem hypotheses, exact objects and implications",
+          "title": "Invariant φ-minimal sets and total variation denoising on graphs",
+          "trigger": "Same graph total variation terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp all-signal and all-time BV contractivity classification for a canonical family of highly connected graphs, including a discrete +2 boundary and minimal single-vertex sharp witness; relevant to graph diffusion versus edgewise variation diminishing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older discrete total-variation diminution/semigroup theory may imply this family-specific threshold from a graph curvature condition not found in the bounded literature search.",
+    "The proof uses graph-specific integer pair inequality; arbitrary graph and weighted variants not covered.",
+    "Only signed Git source snapshots reviewed; no public source edits or external proof certification.",
+    "Finite checks are not substitutes for the all-quantifier analytic proofs."
+  ],
+  "schema_version": 1
+}
