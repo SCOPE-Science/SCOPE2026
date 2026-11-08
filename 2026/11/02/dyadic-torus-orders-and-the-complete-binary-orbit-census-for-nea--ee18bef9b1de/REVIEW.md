@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The binary ring identification \(C=z^{-1}(z+1)^2\), exact nilpotency at \(n/2\), and kernel-rank formula prove the base order and orbit census. A separate modulo-four calculation identifies the first nonzero lift \(E\), with \(E^2=0\) but \(E\ne0\), so subsequent squaring doubles the exact order for every dyadic resolution. The all-resolution fixed-point count follows from \(x_{i+2}=-x_i\). Verified the smallest allowed size \(n=4\) and all quantifier boundaries. A standalone script completed 64 finite checks, including exhaustive orbit enumerations for \(n=4,8\); finite checks do not establish the infinite theorem.
+## correctness
 
-## Originality: PASS (provisional historical priority)
-Manolas and Floratos [1] establish the model, recurrence and numerical period spectra, including a resolution-scaling observation, but do not state the exact power-of-two ring base periods, complete binary primitive cycle enumeration or zeta. Axenides, Floratos and Nicolis [2] present foundational generic recurrence methods without the exact classification. The closest indexed mathematical result concerns all-to-all cat-map couplings and thus does not imply the cycle-specific arithmetic. General modular linear dynamics are prior; no broad first-discovery claim is made. A specialized unindexed source might contain equivalent facts, and priority should be checked independently before publication.
+PASS
 
-## Mathematical value: PASS
-The result resolves exact natural period invariants for an infinite family of graphs and grid resolutions, identifies the overwhelming fraction of binary states on maximal cycles, and supplies the complete exact zeta in that natural binary family. It sharpens a previously numerical period-spectrum subject by a structural 2-adic proof, rather than recomputing a finite table.
+For n=2^k >=4 and s>=1, the actual symplectic two-block lattice matrix M=L^2 with C=P+P^-1 is invertible modulo 2^s. In F2[z]/(z^n-1), z^n-1=(z+1)^n and C=z^-1(z+1)^2 is nilpotent of exact index t=n/2. Writing M-I=CL and using invertibility of L gives M^(2^j)-I=C^(2^j)L^(2^j) mod2, proving exact binary matrix order t and kernel nullity 2min(2^(j+1),n). The crucial integral lift, checked algebraically for arbitrary k, has C^t congruent 2(I+P^t) mod4; E=(M^t-I)/2 mod2 equals J I + C^(t/2)L^(t/2), with E^2=0 and nonzero upper-right block C^(t-1). Therefore M^t has exact valuation one, M^(2t) exact valuation two, and subsequent squaring increases valuation by precisely one, yielding ord_(2^s)(M)=t*2^(s-1). Solving Cx=0 through x_(i+2)=-x_i gives precisely 2^(4s) fixed phases. Exact binary fixed counts f_j yield primitive cycle counts (f_j-f_(j-1))/2^j and maximal fraction 1-2^-n. Independently checked full modular matrix orders at n=4,8,16 and s=1..5 (15 cases), including strict half-order failure; the proof supplies arbitrary n and s rather than extrapolating finite runs.
 
-## Scientific and verification limitations
-The graph sizes must be powers of two and graph edges unweighted. Full orbit counts are binary-only; resolutions above binary have proved permutation order and fixed-point count. External independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. Manolas–Floratos and Axenides–Floratos–Nicolis already developed the same coupled cat-map matrix family, Fibonacci-polynomial recurrences and sampled torus periods, including dyadic scaling. Their inspected relevant primary text did not give the exact power-of-two nearest-neighbor base order or binary full orbit census. Resultary all-to-all cat-map arithmetic uses a different coupling matrix and does not imply the cycle case. General finite-ring dynamical theory remains a possible antecedent.
+
+## value
+
+PASS
+
+This gives a complete closed torus permutation-order law for all dyadic resolutions and an exact primitive binary orbit/zeta census for a canonical nearest-neighbor lattice cat-map family. It identifies the microscopic 2-adic order-lift mechanism behind a previously studied qualitative scaling and quantifies maximal-orbit prevalence; these natural invariants are not merely a numerical example or reparameterization of all-to-all coupling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

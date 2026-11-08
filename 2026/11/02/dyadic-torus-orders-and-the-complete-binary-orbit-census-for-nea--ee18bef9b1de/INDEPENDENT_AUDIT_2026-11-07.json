@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:42:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=2^k >=4 and s>=1, the actual symplectic two-block lattice matrix M=L^2 with C=P+P^-1 is invertible modulo 2^s. In F2[z]/(z^n-1), z^n-1=(z+1)^n and C=z^-1(z+1)^2 is nilpotent of exact index t=n/2. Writing M-I=CL and using invertibility of L gives M^(2^j)-I=C^(2^j)L^(2^j) mod2, proving exact binary matrix order t and kernel nullity 2min(2^(j+1),n). The crucial integral lift, checked algebraically for arbitrary k, has C^t congruent 2(I+P^t) mod4; E=(M^t-I)/2 mod2 equals J I + C^(t/2)L^(t/2), with E^2=0 and nonzero upper-right block C^(t-1). Therefore M^t has exact valuation one, M^(2t) exact valuation two, and subsequent squaring increases valuation by precisely one, yielding ord_(2^s)(M)=t*2^(s-1). Solving Cx=0 through x_(i+2)=-x_i gives precisely 2^(4s) fixed phases. Exact binary fixed counts f_j yield primitive cycle counts (f_j-f_(j-1))/2^j and maximal fraction 1-2^-n. Independently checked full modular matrix orders at n=4,8,16 and s=1..5 (15 cases), including strict half-order failure; the proof supplies arbitrary n and s rather than extrapolating finite runs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manolas–Floratos analyze same broad symmetric circulant class with Fibonacci-polynomial recurrences and numerical period plots.",
+          "The available primary passages discuss resolutions and scaling but no closed n=2^k nearest-neighbor primitive binary census."
+        ],
+        "reasoning": "The cited work is broader in coupling graphs but weaker in explicit arithmetic values. General Jordan-form machinery can recover binary counts if the special nilpotent factor is computed, while the integral 2-adic exact lifting is an additional nontrivial step.",
+        "searches": [
+          "Manolas Floratos Coupled Arnol’d cat maps on circulant graphs arXiv:2605.00965v2 §§3–4.1",
+          "Axenides Floratos Nicolis Arnol’d cat map lattices arXiv:2208.03267v3",
+          "General toral automorphism finite field Jordan fixed-point formula"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 9cd12cea6786d919a601e1e84268133cba68108e; artifacts/verify_cat_cycle.py 6aab79e599e37fc71e4941dc38e6716d2760530a",
+        "arXiv:2605.00965v2 relevant full primary §§3–4.1, arXiv:2208.03267v3 relevant primary sections",
+        "Resultary exact all-to-all coupled cat maps ID 6ce73c0ff68d; semantic cycle-lattice query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior recurrence and observed scaling do not fix the initial exact matrix order t or the mod4 nonzero square-zero lift E required for all s.",
+          "The binary primitive-cycle distribution requires all fixed-space ranks, not just the order of M."
+        ],
+        "reasoning": "A generic scaling law alone leaves the family-specific base period undetermined, while a known all-to-all exact period theorem uses nonisomorphic coupling. The new arithmetic specialization is not logically a restatement of either.",
+        "searches": [
+          "arXiv:2605.00965v2 Fibonacci polynomial modular periodicity eqs.47–57",
+          "arXiv:2208.03267v3 cat-map lattice period recurrences",
+          "Resultary all-to-all torus order finding ID 6ce73c0ff68d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A cat map on n-cycle graph is represented by circulant coupling C=P+P^-1 with exact nilpotency t=n/2 in F2; all-to-all coupling is C=J or J-I with different Jordan behavior.",
+          "Existing Fibonacci recurrence expresses M^t but not its dyadic valuations or all orbit counts."
+        ],
+        "reasoning": "The proposed group-ring nilpotency and lifting result specializes known symplectic circulant dynamics to a genuine exact arithmetic classification. The closest Resultary all-to-all orbit record cannot be conjugated to the nearest-neighbor case by parameter relabeling.",
+        "searches": [
+          "Resultary: coupled Arnol'd cat maps circulant nearest neighbor 2-power lattice finite torus binary cycles exact period",
+          "arXiv:2605.00965v2 nearest-neighbor coupled cat-map modular period Section 4.1",
+          "arXiv:2208.03267v3 symplectic cat map lattice finite torus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact n=4 and 8 primitive cycle distributions are respectively {1:16,2:120} and {1:16,2:120,4:16320}; these follow by fixed-kernel ranks.",
+          "The published all-to-all family gives distinct modular periods and does not tabulate cycle-graph counts."
+        ],
+        "reasoning": "Finite samples do not establish all n=2^k; the analytic group-ring proof supplies the recurrence for all parameters. No matching published orbit table was seen, subject to bibliographic incompleteness.",
+        "searches": [
+          "arXiv:2605.00965v2 period tables/figures Section 4.1",
+          "Resultary cat-map all-to-all exact powers of two ID 6ce73c0ff68d",
+          "Git artifact verify_cat_cycle.py 6aab79e599e37fc71e4941dc38e6716d2760530a"
+        ]
+      },
+      "rationale": "PASS, qualified. Manolas–Floratos and Axenides–Floratos–Nicolis already developed the same coupled cat-map matrix family, Fibonacci-polynomial recurrences and sampled torus periods, including dyadic scaling. Their inspected relevant primary text did not give the exact power-of-two nearest-neighbor base order or binary full orbit census. Resultary all-to-all cat-map arithmetic uses a different coupling matrix and does not imply the cycle case. General finite-ring dynamical theory remains a possible antecedent.",
+      "residual_risks": [
+        "Classical 2-adic dynamical/algebraic results could indirectly imply the modular lift without naming cat-map lattice.",
+        "No higher-resolution primitive cycle census beyond binary is claimed.",
+        "All q=s powers of two, n=2^k unweighted nearest-neighbor cycle, k>=2; other cycles/weighted graphs not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_FAMILY_SCALING_NOT_EXACT_CENSUS",
+          "evidence": [
+            "Fibonacci recurrence and observed dyadic period behavior are credited; no n=2^k closed nearest-neighbor binary orbit census in inspected results."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2605.00965v2",
+          "material_read": "Full relevant primary §§3–4.1, equations around 47–57, end of §5 and appendices",
+          "method": "Read publisher-equivalent arXiv HTML primary exposition including recurrence and period examples",
+          "title": "Coupled Arnol’d cat maps on circulant graphs",
+          "trigger": "Exactly the same symplectic two-block lattice family and closest prior modular period theory"
+        },
+        {
+          "assessment": "PRIOR_MODEL_AND_PERIOD_MACHINERY",
+          "evidence": [
+            "Original family and qualitative torus arithmetic precede the exact power-of-two cycle order and zeta formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2208.03267v3",
+          "material_read": "Full relevant §§3 and 6 and associated finite-torus discussion",
+          "method": "Read arXiv HTML section texts and compared matrix conventions",
+          "title": "Arnol’d cat map lattices",
+          "trigger": "Original lattice-coupled cat-map construction"
+        },
+        {
+          "assessment": "DIFFERENT_COUPLING",
+          "evidence": [
+            "All-to-all C=J or J-I differs from P+P^-1, so the period formula cannot be transferred by a scalar substitution."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-powers-of-two-torus-orders-for-all-to-all-coupled-cat-maps--6ce73c0ff68d",
+          "material_read": "Published Resultary title, summary and exact all-to-all order formulas",
+          "method": "Actual semantic Resultary result and mathematical comparison of C matrices",
+          "title": "Exact powers-of-two torus orders for all-to-all coupled cat maps",
+          "trigger": "Closest published research record, possible parameter dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a complete closed torus permutation-order law for all dyadic resolutions and an exact primitive binary orbit/zeta census for a canonical nearest-neighbor lattice cat-map family. It identifies the microscopic 2-adic order-lift mechanism behind a previously studied qualitative scaling and quantifies maximal-orbit prevalence; these natural invariants are not merely a numerical example or reparameterization of all-to-all coupling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only binary torus gets complete primitive-orbit census and zeta; dyadic resolution gets order and fixed count.",
+    "Not asserted for non-power-of-two n, weighted couplings, odd moduli or continuum torus.",
+    "Generic published family does have some period-scaling information; exact family specialization is the claimed novelty."
+  ],
+  "schema_version": 1
+}
