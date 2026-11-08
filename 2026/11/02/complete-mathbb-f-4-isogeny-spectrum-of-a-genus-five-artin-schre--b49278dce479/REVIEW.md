@@ -1,15 +1,21 @@
-# Scientific review: complete \(\mathbb F_4\) isogeny spectrum of a genus-five family
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument identifies the smooth genus-five complete intersection independently: two Artin–Schreier equations, the unique odd pole of order seven, smooth affine charts, and a smooth unique rational point at infinity. For each of all 192 coefficient quadruples, point counts over exactly the five finite extensions needed for genus five follow from an exhaustive absolute-trace criterion. Exact Newton identities and the Weil functional equation determine the whole degree-ten polynomial. The embedded `verify.py` checks all fourteen frequency rows, two Newton-polygon types, and an independent direct-triple count over degrees 1–3 for selected parameters. Finite arithmetic is an exhaustive proof for the stated finite coefficient domain; it does not prove a global four-dimensional statement.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Dragutinović's *An unusual family of supersingular curves of genus five in characteristic two* (arXiv:2507.03519, especially the defining equations, Theorem 1.1, and Corollary 4.4) establishes the family, its supersingular divisor, and geometric Newton questions. It does not give the complete fourteen-polynomial, 192-parameter \(\mathbb F_4\) distribution. The earlier *Computing binary curves of genus five* (arXiv:2202.07809, §5 and Tables 1–2) enumerates genus-five curves **over \(\mathbb F_2\)** and their isogeny types, not this \(\mathbb F_4\) table. Targeted record and literature searches found no equivalent table or broader result implying its coefficient-frequency distribution. The known implication \(c=b^2\Rightarrow\) supersingular is explicitly not represented as new. A pre-existing unindexed computation or alternative presentation could overlap; this risk remains unresolved without independent historical-priority review.
+PASS
 
-## Mathematical value — PASS
-The four-parameter family is a recent geometric example whose characteristic-two Newton behavior is a motivating issue. \(\mathbb F_4\) is the first proper finite extension of the prime field, making it the smallest complete extension-field arithmetic classification beyond the published binary census. The result determines all fourteen Jacobian \(\mathbb F_4\)-isogeny classes and complete L-polynomials **with exact parameter frequencies**, not just a sample of curves or a single small point count. This provides reproducible arithmetic benchmarks for the family and a precise finite-field boundary: among all 192 parameter choices, the possible \(1/4\)-slope Newton polygon never occurs, without claiming that it is globally impossible. Multiplicities count presentations and must not be used as moduli stack counts.
+The function ax+bxy+cx²y+dy has a unique pole of order seven on supersingular elliptic E:y²+y=x³ because x,y have pole orders two and three and c!=0; Artin–Schreier degree-two cover is smooth and Riemann–Hurwitz gives genus five. For q=4^m, N_m=1+2# elliptic (x,y) with Tr(ax+bxy+cx²y+dy)=0; this is a complete finite calculation for m=1..5. Independent Python code independently reconstructed field models and enumerated all 192 tuples for all 5 extensions, obtaining precisely the fourteen given (multiplicity,c1..c5) rows. Newton identities recover first five Weil coefficients and the genus-five q-functional equation supplies the other five; all 14 2-adic Newton hulls match the two given profiles, and finite-field Tate isogeny theorem equates equal polynomials with F4-isogeny. No finite-field search extrapolated beyond F4-valued coefficients.
 
-## Sources and residual limitations
-Primary: D. Dragutinović, arXiv:2507.03519 (2025-07-04), subsequently *Finite Fields and Their Applications* 110 (2026), 102736. Comparison: D. Dragutinović, arXiv:2202.07809, *Journal of Pure and Applied Algebra* 228 (2024), 107522. Mathematical foundations: Artin–Schreier ramification and the genus formula, Hasse–Weil functional equation, and Tate's finite-field isogeny theorem. No claim is made about infinitely many parameters outside \(\mathbb F_4\), geometric nonisomorphism counts, or explicit isogeny maps. Independent validation and definitive priority review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dragutinović 2025 preprint (and 2026 published version) introduces exactly the genus-five family and explicitly identifies supersingular c=b² locus (under its alternative coefficient naming); this part is prior. Its inspected Theorem/Corollary 4.4 cover geometric supersingularity/generic Newton polygons and an F2 example, not a complete frequency table of fourteen Frobenius polynomials for all F4 tuples. An earlier paper enumerates genus-five curves over F2, not this F4 quadruple census. General LMFDB isogeny classes catalogue may contain individual polynomials, but listing classes alone does not give parameter-to-class multiplicities; no exact table in inspected indexed sources.
+
+## value
+
+PASS
+
+A finite yet naturally complete arithmetic census for the first quadratic coefficient extension quantifies all fourteen represented F4 isogeny classes and their frequencies, and shows a sharp two-stratum Newton polygon dichotomy within this specified 192-tuple family. These concrete isogeny frequencies and restricted absence of 1/4 slopes are useful refinements of the motivating geometric classification, not an arbitrary low-value spot check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:53:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The function ax+bxy+cx²y+dy has a unique pole of order seven on supersingular elliptic E:y²+y=x³ because x,y have pole orders two and three and c!=0; Artin–Schreier degree-two cover is smooth and Riemann–Hurwitz gives genus five. For q=4^m, N_m=1+2# elliptic (x,y) with Tr(ax+bxy+cx²y+dy)=0; this is a complete finite calculation for m=1..5. Independent Python code independently reconstructed field models and enumerated all 192 tuples for all 5 extensions, obtaining precisely the fourteen given (multiplicity,c1..c5) rows. Newton identities recover first five Weil coefficients and the genus-five q-functional equation supplies the other five; all 14 2-adic Newton hulls match the two given profiles, and finite-field Tate isogeny theorem equates equal polynomials with F4-isogeny. No finite-field search extrapolated beyond F4-valued coefficients.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tate identifies isogeny from characteristic polynomials but does not calculate these polynomials; geometry does not directly give fourteen counts."
+        ],
+        "reasoning": "A broader general family NP classification might imply slope types but not necessarily the F4 polynomial-and-multiplicity table; no inspected source contains both.",
+        "searches": [
+          "Dragutinović 2025/2026 family Newton polygon statements",
+          "Tate isogeny theorem",
+          "finite field genus-five LMFDB catalogue"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md e9a821afe810b12ade03da6bdfda093da8e9cd7e, verify.py 8c5ac356563db03eac98b274df13a71846fdf8c2, zeta_table.csv",
+        "Independent Python full 192-tuples x F4^m point-count census m=1..5",
+        "arxiv:2507.03519 primary full text",
+        "arxiv:2202.07809 metadata and abstract",
+        "Resultary algebraic curves/isogeny semantic results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published supersingularity direction c=b² is reused with attribution, and F2 genus-five table has a different coefficient base; neither determines all 14 F4 rows."
+        ],
+        "reasoning": "The census adds complete Frobenius and isogeny classification on a small but natural field, retaining the known geometric results as background.",
+        "searches": [
+          "Dragutinović Corollary 4.4",
+          "Dragutinović Computing binary curves of genus five 2024",
+          "Tate finite-field isogeny theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dragutinović family is same after parameter renaming; supersingular locus known, but no fourteen-row F4 frequency table in inspected full-text sections."
+        ],
+        "reasoning": "The new claim only counts F4 parameter tuples and their specific Weil polynomials; it cannot be collapsed to the known geometric supersingular-locus condition.",
+        "searches": [
+          "arxiv:2507.03519 Theorem 1.1 Corollary 4.4 (b_6=b_3² correspondence)",
+          "arxiv:2202.07809 genus five binary curves over F2",
+          "Resultary: finite field four genus five Artin Schreier double elliptic covers exact zeta numerator tables"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The accessible LMFDB completeness information is bounded for small abelian variety dimensions, not a verified F4 genus-five parameter-census database; indexed Resultary hits concerned different fields/curves."
+        ],
+        "reasoning": "No exact 192-parameter four-coefficient assignment table identified. Other unpublished datasets could nevertheless contain overlapping counts.",
+        "searches": [
+          "LMFDB genus 5 F4 Jacobian isogeny classes complete coverage",
+          "arxiv:2507.03519 all F4 Weil polynomial counts",
+          "Resultary Artin Schreier F4 isogeny spectrum"
+        ]
+      },
+      "rationale": "Dragutinović 2025 preprint (and 2026 published version) introduces exactly the genus-five family and explicitly identifies supersingular c=b² locus (under its alternative coefficient naming); this part is prior. Its inspected Theorem/Corollary 4.4 cover geometric supersingularity/generic Newton polygons and an F2 example, not a complete frequency table of fourteen Frobenius polynomials for all F4 tuples. An earlier paper enumerates genus-five curves over F2, not this F4 quadruple census. General LMFDB isogeny classes catalogue may contain individual polynomials, but listing classes alone does not give parameter-to-class multiplicities; no exact table in inspected indexed sources.",
+      "residual_risks": [
+        "Previously unpublished F4 zeta-count datasets or isomorphism-class tables might encode these fourteen classes without displayed parameter counts.",
+        "The condition c=b² and the original four-parameter family were known and are explicitly not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_FAMILY_GEOMETRIC_BACKGROUND_NOT_F4_CENSUS",
+          "evidence": "Supersingular condition b6=b3² matches c=b²; no complete fourteen Weil numerator rows with 192 F4 tuple frequencies in sections inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.03519",
+          "material_read": "Accessible full preprint text mirrored on ResearchGate, especially defining quadrics, Theorem 1.1, Corollary 4.4, discussion of generic NP and single F2 example",
+          "method": "Web full-text theorem/parameter reading and cross-normalization",
+          "title": "An unusual family of supersingular curves of genus five",
+          "trigger": "Exact same Artin–Schreier four-parameter family and supersingularity test"
+        },
+        {
+          "assessment": "FIELD_MISMATCH",
+          "evidence": "Finite-field curve enumeration over F2 need not supply all extension-base coefficients over F4.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.07809",
+          "material_read": "ArXiv title/abstract and reported F2 enumeration scope, not entire PDF inspected",
+          "method": "Published abstract and primary citation scope",
+          "title": "Computing binary curves of genus five",
+          "trigger": "Potential prior genus-five zeta tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A finite yet naturally complete arithmetic census for the first quadratic coefficient extension quantifies all fourteen represented F4 isogeny classes and their frequencies, and shows a sharp two-stratum Newton polygon dichotomy within this specified 192-tuple family. These concrete isogeny frequencies and restricted absence of 1/4 slopes are useful refinements of the motivating geometric classification, not an arbitrary low-value spot check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md e9a821afe810b12ade03da6bdfda093da8e9cd7e, verify.py 8c5ac356563db03eac98b274df13a71846fdf8c2, zeta_table.csv",
+    "Independent Python full 192-tuples x F4^m point-count census m=1..5",
+    "arxiv:2507.03519 primary full text",
+    "arxiv:2202.07809 metadata and abstract",
+    "Resultary algebraic curves/isogeny semantic results"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all 192 tuples (a,b,c,d) in F4^4 with c!=0, the smooth genus-five curves y²+y=x³, u²+u=ax+bxy+cx²y+dy realize exactly fourteen distinct F4 Hasse–Weil numerator polynomials with the given exhaustive multiplicity table and hence fourteen F4 Jacobian isogeny classes. Exactly 48 have supersingular Newton polygon (1/2)^10 with c=b²; remaining 144 have slopes (1/3)^3,(1/2)^4,(2/3)^3.",
+  "limitations": [
+    "All 192 F4 coefficient tuples with c≠0, not modded out by isomorphism; no NP statement for algebraic-closure parameters or F4^m coefficients.",
+    "No classification of isomorphism classes, principal polarizations, or actual isogeny maps; exhaustive point counts limited to five required extensions and enough by Weil functional equation."
+  ],
+  "residual_risks": [
+    "Previously unpublished F4 zeta-count datasets or isomorphism-class tables might encode these fourteen classes without displayed parameter counts.",
+    "The condition c=b² and the original four-parameter family were known and are explicitly not claimed as new."
+  ],
+  "schema_version": 1
+}

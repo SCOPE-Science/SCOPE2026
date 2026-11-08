@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 standard library. The script enumerates all 192 coefficient quadruples over \(\mathbb F_4\); builds \(\mathbb F_{4^m}\) for \(1\le m\le5\) from explicitly checked irreducible binary polynomials; counts every elliptic affine pair via the Artin–Schreier absolute-trace criterion; reconstructs every genus-five Weil polynomial with Newton identities and the functional equation; computes exact slope multisets; and checks fourteen polynomial rows against `zeta_table.csv`'s contents. It also independently counts all triples \((x,y,u)\) for three representative parameters in extensions \(\mathbb F_4\), \(\mathbb F_{16}\), and \(\mathbb F_{64}\).
+## correctness
 
-Expected terminal output starts with `VERIFY_OK`. A verified run produced the following summary: `192 parameter quadruples, 14 Weil polynomials, 48 supersingular and 144 (1/3,1/2,2/3)-Newton cases`. Finite point-count enumeration is exhaustive over its stated coefficient domain, not a statistical experiment or evidence about all algebraic-closure parameters. The genus and unique point at infinity have independent mathematical proofs in `RESULT.md`. The script does not independently prove the Artin–Schreier and Weil theorems used in reconstruction. Independent mathematical audit has not been performed.
+PASS
+
+The function ax+bxy+cx²y+dy has a unique pole of order seven on supersingular elliptic E:y²+y=x³ because x,y have pole orders two and three and c!=0; Artin–Schreier degree-two cover is smooth and Riemann–Hurwitz gives genus five. For q=4^m, N_m=1+2# elliptic (x,y) with Tr(ax+bxy+cx²y+dy)=0; this is a complete finite calculation for m=1..5. Independent Python code independently reconstructed field models and enumerated all 192 tuples for all 5 extensions, obtaining precisely the fourteen given (multiplicity,c1..c5) rows. Newton identities recover first five Weil coefficients and the genus-five q-functional equation supplies the other five; all 14 2-adic Newton hulls match the two given profiles, and finite-field Tate isogeny theorem equates equal polynomials with F4-isogeny. No finite-field search extrapolated beyond F4-valued coefficients.
+
+## originality
+
+PASS
+
+Dragutinović 2025 preprint (and 2026 published version) introduces exactly the genus-five family and explicitly identifies supersingular c=b² locus (under its alternative coefficient naming); this part is prior. Its inspected Theorem/Corollary 4.4 cover geometric supersingularity/generic Newton polygons and an F2 example, not a complete frequency table of fourteen Frobenius polynomials for all F4 tuples. An earlier paper enumerates genus-five curves over F2, not this F4 quadruple census. General LMFDB isogeny classes catalogue may contain individual polynomials, but listing classes alone does not give parameter-to-class multiplicities; no exact table in inspected indexed sources.
+
+## value
+
+PASS
+
+A finite yet naturally complete arithmetic census for the first quadratic coefficient extension quantifies all fourteen represented F4 isogeny classes and their frequencies, and shows a sharp two-stratum Newton polygon dichotomy within this specified 192-tuple family. These concrete isogeny frequencies and restricted absence of 1/4 slopes are useful refinements of the motivating geometric classification, not an arbitrary low-value spot check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
