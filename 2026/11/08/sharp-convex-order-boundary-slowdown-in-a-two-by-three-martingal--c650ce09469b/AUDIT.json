@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Exact positive tilt row constraints imply s(t) and q(t); exact column mass correction gives F. The explicit t* satisfies q0=1-b; F>0 and sup Fprime=L<1 for b>a. The local derivative rho and positive KL quadratic form give exact ratio rho^2. At b=a, F(t)-t~2(1-a)/(a^2t) proves square-root t growth and reciprocal KL constant. All quantifiers and zero-cell conventions are explicit. SymPy algebraic identities, 350 seeded one-step checks, and three long boundary checks were executed from the standalone file.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kazeykina–Ren–Wang 2026 assume convex support of the terminal marginal and strict convex order; a three-atomic support is not convex and b=a is not strict order.",
+        "Bifronte–Ley–Sylvestre 2026 analyze a martingale gradient step, not this exact row KL projection.",
+        "Tang et al. 2025 use sparse Newton/approximate satisfaction; no explicit global Lipschitz or reciprocal-time boundary constant for this map appears in the inspected methods."
+      ],
+      "reasoning": "Qualitative exponential convergence in broader settings does not entail a sharp local ratio or boundary reciprocal-time coefficient. The main recent general theorem does not directly include this atomic support. A stronger exact global bound covering this instance was not located, but generic KL-projection theory is acknowledged.",
+      "searches": [
+        "Exponential convergence of Sinkhorn algorithm for entropy martingale optimal transport Kazeykina Ren Wang 2026",
+        "entropic martingale optimal transport 2x3 Sinkhorn scalar iteration geometric convergence b a",
+        "arxiv:2609.18850 general relative-entropy convergence theorem",
+        "arxiv:2610.26504 SISTA linear convergence",
+        "arxiv:2508.17641 discrete martingale algorithm"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.18850",
+      "arxiv:2407.14186",
+      "arxiv:2610.26504",
+      "arxiv:2508.17641",
+      "published-finding corpus published mathematical findings via four actual semantic queries",
+      "public related mathematical results identified by semantic search"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen et al. 2024 report general exponential convergence and parameter-sensitive numerical behavior, not an exact scalar equation on this finite atomic model.",
+        "Kazeykina et al. 2026 are not applicable with finite nonconvex terminal support; at boundary strict convex order fails.",
+        "Other closest 2025/2026 algorithms alter the martingale projection or use approximate satisfaction."
+      ],
+      "reasoning": "The exact ratio rho^2 and boundary kH limit require deriving the row-tilt equation and asymptotic expansion. They cannot be inferred numerically or by directly specializing a general rate theorem under unmet support hypotheses.",
+      "searches": [
+        "arxiv:2407.14186 Section 3.1 numerical convergence dependence on nu",
+        "arxiv:2609.18850 convergence theorem and hypotheses",
+        "arxiv:2610.26504 SISTA abstract/method",
+        "arxiv:2508.17641 Section 4 methods"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target function can equivalently be viewed as the center-to-endpoint column scaling in iterative KL projections. Chen et al. 2024 give Sinkhorn updates and numerical rate dependence without this exact state reduction.",
+        "The exact recurrence and boundary constant remain additional quantitative assertions beyond generic KL-projection convergence."
+      ],
+      "reasoning": "A dual-potential gauge transformation gives the same scalar t map; its sharp rate and boundary law were sought under aliases column scaling, IPFP, entropic martingale transport, Sinkhorn and iterative KL/Bregman projection. No published exact two-by-three equivalent statement was identified. Nonidentification is not proof of priority.",
+      "searches": [
+        "discrete two-point to three-point martingale Sinkhorn exact rate symmetric marginals conditional exponential tilting",
+        "martingale iterative proportional fitting two-point initial three-point terminal exact contraction factor entropy",
+        "published-finding corpus published result collection, semantic queries for discrete martingale iterative proportional fitting, exact three-point rate",
+        "arxiv:2407.14186 Section 3.1 and iteration definitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact 2x3 scalar map or rate table appeared among closest published-finding corpus matches; the closest published records concern commuting-Gaussian entropic-plan stability and quadratically regularized OT, not the two-by-three martingale algorithm.",
+        "The indexed published results inspected did not state an equivalent martingale Sinkhorn scalar recurrence."
+      ],
+      "reasoning": "The claimed exact parameter-dependent rate and boundary coefficient were not observed in the indexed tables or accessible ledger. The index is not exhaustive and this search alone is not novelty evidence.",
+      "searches": [
+        "discrete two-point to three-point martingale Sinkhorn exact rate symmetric marginals conditional exponential tilting",
+        "entropic martingale optimal transport 2x3 Sinkhorn scalar iteration geometric convergence b a",
+        "published-finding corpus semantic search for two-by-three martingale Sinkhorn exact map and boundary rate",
+        "published-finding corpus semantic queries for entropic transport, martingale IPFP, and two-by-three exact-rate equivalences"
+      ]
+    },
+    "rationale": "Primary sources and semantic mathematical finding records were compared by assumptions and implication: general exponential convergence for convex terminal support is inapplicable to this atomic target; SISTA uses gradient martingale updates; discrete Newton/approximate-constraint solvers do not imply the exact scalar map. The old Chen et al. numerical dependence on terminal marginal motivates this explicit sharp boundary law but does not give it. The accessible published mathematics reviewed contains no covering two-by-three entropic martingale Sinkhorn formula. Unindexed calculations are a residual priority risk.",
+    "residual_risks": [
+      "An unindexed older low-dimensional martingale IPFP calculation may imply the same parameterized sharp rate.",
+      "The published papers are general and do not exclude equivalent formulas expressed in alternative dual gauges.",
+      "The current theorem is a discrete analogue outside the motivating 2026 convex-terminal-support hypotheses; it is not a direct corollary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General exponential rate with strict convex order and convex terminal support, not a sharp 2x3 boundary phase law",
+        "evidence": "The theorem requires convex terminal-marginal support; the present target support is {-1,0,1}, and the boundary b=a lacks strict convex order.",
+        "identifier_or_url": "arxiv:2609.18850; https://arxiv.org/abs/2609.18850",
+        "material_read": "Abstract, assumptions, update definitions, convergence theorem and relevant extracted sections",
+        "method": "Read accessible mathematical HTML/text and compare assumptions and theorem statements",
+        "title": "Exponential convergence of Sinkhorn algorithm for entropy martingale optimal transport",
+        "trigger": "Most recent motivating exact-martingale Sinkhorn theorem"
+      },
+      {
+        "assessment": "Does not state exact two-source-three-target nonlinear map or boundary KL constant",
+        "evidence": "Section 3.1 explicitly explores dependence on target marginal numerically; general convergence proof does not quantify this 2x3 scalar law.",
+        "identifier_or_url": "arxiv:2407.14186; https://arxiv.org/html/2407.14186v3",
+        "material_read": "Finite-dimensional interpretation and algorithm, main results, Section 3.1 numerical tests on terminal marginal, related references",
+        "method": "Inspected full accessible HTML text of the relevant algorithmic and numerical sections",
+        "title": "Convergence of Sinkhorn’s Algorithm for Entropic Martingale Optimal Transport Problem",
+        "trigger": "Earlier exact martingale Sinkhorn and numerical observations of rate dependence"
+      },
+      {
+        "assessment": "SISTA uses an explicit martingale-potential gradient step and is not the exact martingale KL row projection analyzed here",
+        "evidence": "SISTA alternates exact marginal Sinkhorn updates with a gradient step for the martingale potential; its linear rate does not imply the scalar F for the different algorithm.",
+        "identifier_or_url": "arxiv:2610.26504; https://arxiv.org/abs/2610.26504",
+        "material_read": "Abstract, algorithm description and convergence analysis in accessible HTML/text",
+        "method": "Compared block updates, martingale constraint treatment, and convergence statement",
+        "title": "On the Linear Convergence of SISTA for Entropic Martingale Optimal Transport",
+        "trigger": "Highly relevant recent Sinkhorn-type convergence analysis"
+      },
+      {
+        "assessment": "Different approximate constraint/Sinkhorn–Newton algorithms, without 2x3 exact boundary rate classification",
+        "evidence": "The paper explicitly employs approximate constraint satisfaction and sparse Newton schemes; the present update enforces each martingale row exactly.",
+        "identifier_or_url": "arxiv:2508.17641; https://arxiv.org/html/2508.17641v1",
+        "material_read": "Introduction, Sections 3 and 4 including martingale constraint and Sinkhorn/Newton updates",
+        "method": "Inspected full accessible HTML relevant methods and their stated guarantees",
+        "title": "An efficient algorithm for entropic optimal transport under martingale-type constraints",
+        "trigger": "Closest discrete martingale OT algorithm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c650ce09-469b-43b0-922b-054f8bd6f1d2",
+  "value": {
+    "rationale": "The minimal reflection-symmetric 2x3 finite martingale bridge is the first nonlinear atomic case with a nontrivial martingale row constraint and convex-order slack. The exactly solvable rate/iteration sensitivity exposes the transition from geometric convergence to sharp reciprocal-time behavior at a natural feasibility boundary, a motivated benchmark for convergence theory. This is not a generic derivative of the general exponential convergence theorem, and no arbitrary numerical slice is chosen.",
+    "status": "PASS"
+  }
+}
