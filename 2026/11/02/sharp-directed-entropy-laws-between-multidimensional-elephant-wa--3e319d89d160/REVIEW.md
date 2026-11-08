@@ -1,24 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full-history likelihood factors using the exact conditional law \(q_{\theta,k}(j)=1/D+\theta\Delta_k(j)/k\). The KL chain rule, uniform third-order Taylor bound on the frequency simplex, exact second-moment recurrence and its gamma/harmonic solutions, and Azuma--Hoeffding third-moment control together prove all three sharp rates with the stated constants and errors. The directional ratio follows by division and strict parameter ordering. The exact-rational finite checker independently compares path enumeration with chain KL and checks the second-moment recursion; 8,482 deterministic assertions passed. The finite tests supplement, but are not relied upon for, the infinite conclusions.
+PASS
 
-## Originality — PASS (provisional)
+For conditional counts Delta_k, q_theta,k(j)=1/D+theta Delta_k(j)/k. The exact KL chain rule and uniform-positive-simplex Taylor expansion reduce KL to D(alpha-beta)^2/2 sum S_k/k^2 plus a cubic remainder. The exact recurrence S_{k+1}=(1+2alpha/k)S_k+(D-1)/D has the stated gamma/harmonic solution; martingale Azuma tail integration bounds the third moments, making the remainder O(1) for alpha<=1/2 and lower-order above. Check boundary alpha<1/2, =1/2 and >1/2, fixed interior domain, and reversal of parameters. Independent D=4 rational moment checks passed 28 cases, not an infinite proof.
 
-The most relevant recent primary text is Qin (2026), arXiv:2609.17264v1, Section 4.1: it uses full-history relative entropy with the independent uniform walk and bounds growth orders, but its inspected result does not supply exact pairwise fixed-memory constants or the complete directional ratio. Bercu and Laulin (2021), arXiv:2112.10405, Sections 2--3, derive one-dimensional path likelihood and local Fisher-information/LAN/LAMN results; those fixed-dimensional *local parameter* statements do not assert the global, fixed-separated multidirectional two-parameter theorem. The elementary conditional law, moments and likelihood calculus are explicitly credited. Search comparisons with published mathematical records did not uncover direct coverage. A general likelihood/urn entropy theorem could conceivably imply the result, and global historical uniqueness is not established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Qin's entropy comparison leaves the sharp size of full-history information loss unspecified. This theorem supplies exact constants across all memory regimes for any pair of distinct parameters, and proves a complete, source-memory-dependent directional asymmetry classification. In particular, finite asymmetry becomes unbounded precisely when the higher reinforcement crosses criticality. The result connects the three stochastic fluctuation regimes to a directly interpretable information geometry of fully observed histories, without introducing an artificial restricted statistic.
+Best-of-knowledge distinct mathematical claim after direct model/parameter and implication comparisons; known overlapping prerequisites and specializations credited. The known q_theta formula plus exact moment recurrence are shared lemmas, but a mere O-bound on D(P_alpha||P_0) cannot imply constants for D(P_alpha||P_beta), nor the directional ratio. Local LAN/LAMN does not cover fixed-separated alpha,beta without uniformity and integration. The paper reconstructs a self-contained second-moment/Taylor derivation.
 
-## Sources and limitations
+## value
 
-- S. Qin, *Cover times and ranges of elephant random walks*, arXiv:2609.17264v1 (2026), especially the conditional entropy comparison in Section 4.1.
-- B. Bercu and L. Laulin, *How to estimate the memory of the Elephant Random Walk*, arXiv:2112.10405 (2021), Sections 2--3 and their likelihood/fisher-information statements.
-- G. M. Schütz and S. Trimper, *Elephants can always remember*, Physical Review E 70, 045101 (2004).
-- Y. Peres and S. Qin, *Transition probabilities of step-reinforced random walks*, arXiv:2604.07227 (2026), related distributional background.
+PASS
 
-The theorem treats fixed \(d\ge2\), strictly interior parameters and complete ordered increment histories. There is no claim about parameter sequences approaching each other, higher-order corrections, endpoint probabilities, or independent priority certification.
+The full-history KL is a natural information-geometric invariant of the original elephant walk; Qin previously bounded its order against an independent comparator. Exact constants for two arbitrary fixed memories and a sharp finite-to-unbounded directional-asymmetry transition identify a nontrivial mechanism needed for likelihood comparison and distinguish full trajectories from endpoint marginals.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

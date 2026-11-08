@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:46:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For conditional counts Delta_k, q_theta,k(j)=1/D+theta Delta_k(j)/k. The exact KL chain rule and uniform-positive-simplex Taylor expansion reduce KL to D(alpha-beta)^2/2 sum S_k/k^2 plus a cubic remainder. The exact recurrence S_{k+1}=(1+2alpha/k)S_k+(D-1)/D has the stated gamma/harmonic solution; martingale Azuma tail integration bounds the third moments, making the remainder O(1) for alpha<=1/2 and lower-order above. Check boundary alpha<1/2, =1/2 and >1/2, fixed interior domain, and reversal of parameters. Independent D=4 rational moment checks passed 28 cases, not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qin Lemma 4.1 (pp.17-18) gives D(P_0,n || iid uniform)=O(log n), O(log^2 n), O(n^(2alpha-1)) only; source-to-uniform, without exact constants or ordered pair comparison",
+          "Bercu-Laulin treats 1D parameter estimation local asymptotics, different fixed-separated multidirectional domain"
+        ],
+        "reasoning": "Broad theorem statements were inspected for parameters and whether their conclusions logically imply the final claim; overlap identified rather than dismissed on title differences.",
+        "searches": [
+          "multidimensional elephant random walk relative entropy Kullback Leibler memory parameter history exact asymptotic",
+          "https://arxiv.org/pdf/2609.17264",
+          "https://arxiv.org/abs/2112.10405"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2609.17264",
+        "https://arxiv.org/abs/2112.10405"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Qin Lemma 4.1 (pp.17-18) gives D(P_0,n || iid uniform)=O(log n), O(log^2 n), O(n^(2alpha-1)) only; source-to-uniform, without exact constants or ordered pair comparison",
+          "Bercu-Laulin treats 1D parameter estimation local asymptotics, different fixed-separated multidirectional domain"
+        ],
+        "reasoning": "The known q_theta formula plus exact moment recurrence are shared lemmas, but a mere O-bound on D(P_alpha||P_0) cannot imply constants for D(P_alpha||P_beta), nor the directional ratio. Local LAN/LAMN does not cover fixed-separated alpha,beta without uniformity and integration. The paper reconstructs a self-contained second-moment/Taylor derivation.",
+        "searches": [
+          "multidimensional elephant random walk relative entropy Kullback Leibler memory parameter history exact asymptotic",
+          "https://arxiv.org/pdf/2609.17264",
+          "https://arxiv.org/abs/2112.10405"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Qin 2026 arxiv:2609.17264, conditional-memory formula and Section 4.1",
+          "Bercu-Laulin arxiv:2112.10405, memory likelihood and Fisher information"
+        ],
+        "reasoning": "Aliases and same-model formulations were compared by theorem content; equivalences at the stated boundaries are credited.",
+        "searches": [
+          "multidimensional elephant random walk relative entropy Kullback Leibler memory parameter history exact asymptotic",
+          "https://arxiv.org/pdf/2609.17264",
+          "https://arxiv.org/abs/2112.10405"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Qin §4.1 equations (54)-(59) do not tabulate pairwise constants",
+          "Resultary semantic search returned critical elephant cover-time profile but no same-claim KL table"
+        ],
+        "reasoning": "The named sources and mathematical tables were compared; data cannot be interpreted as infinite proof, and absence of hits is not absolute proof of novelty.",
+        "searches": [
+          "multidimensional elephant random walk relative entropy Kullback Leibler memory parameter history exact asymptotic",
+          "https://arxiv.org/pdf/2609.17264",
+          "https://arxiv.org/abs/2112.10405"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct mathematical claim after direct model/parameter and implication comparisons; known overlapping prerequisites and specializations credited. The known q_theta formula plus exact moment recurrence are shared lemmas, but a mere O-bound on D(P_alpha||P_0) cannot imply constants for D(P_alpha||P_beta), nor the directional ratio. Local LAN/LAMN does not cover fixed-separated alpha,beta without uniformity and integration. The paper reconstructs a self-contained second-moment/Taylor derivation.",
+      "residual_risks": [
+        "Uninspected general Pólya-urn / step-reinforced likelihood asymptotics could imply fixed-separated pairwise constants.",
+        "Not uniform near parameter boundaries, growing dimension, or n-dependent alternatives."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS conditional law, moment recurrence and growth-order upper bounds, not the asserted exact pairwise constants",
+          "evidence": "Lemma 4.1(i): relative-entropy upper bounds against iid uniform; proof equations (58)-(59) uses the same exact S_k drift.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.17264",
+          "material_read": "Primary full PDF pages 1-2 and 13-24, especially §4.1 pp.17-18 Lemma 4.1 and equations (54)-(59), obtained through authorized text reading",
+          "method": "Primary text extraction of pages and equation-by-equation comparison",
+          "title": "Cover times and ranges of elephant random walks",
+          "trigger": "Same multidimensional walk and full-history entropy comparison"
+        },
+        {
+          "assessment": "PARTIAL; local likelihood estimates may relate but whole-document noncoverage not asserted",
+          "evidence": "One-dimensional likelihood/Fisher-information problem; fixed-separated multi-direction constants remain priority risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.10405",
+          "material_read": "Abstract and cited descriptions of one-dimensional local parameter estimation; full primary body not read this execution",
+          "method": "arXiv abstract search and cited result cross-comparison",
+          "title": "How to estimate the memory of the Elephant Random Walk",
+          "trigger": "Alternative local-likelihood and information geometry formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full-history KL is a natural information-geometric invariant of the original elephant walk; Qin previously bounded its order against an independent comparator. Exact constants for two arbitrary fixed memories and a sharp finite-to-unbounded directional-asymmetry transition identify a nontrivial mechanism needed for likelihood comparison and distinguish full trajectories from endpoint marginals.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2609.17264",
+    "https://arxiv.org/abs/2112.10405"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every fixed d>=2 and distinct interior memory alpha,beta, full ordered increment-history KL grows with exact log, squared-log, or power leading constant according as source alpha is below, at, or above 1/2; its directional ratio is classified exactly.",
+  "limitations": [
+    "Finite computations support but do not prove unbounded analytic statements.",
+    "Uninspected general Pólya-urn / step-reinforced likelihood asymptotics could imply fixed-separated pairwise constants.",
+    "Not uniform near parameter boundaries, growing dimension, or n-dependent alternatives.",
+    "No automated research publication or external certification. Repository Lean/expert channels preserved."
+  ],
+  "residual_risks": [
+    "Uninspected general Pólya-urn / step-reinforced likelihood asymptotics could imply fixed-separated pairwise constants.",
+    "Not uniform near parameter boundaries, growing dimension, or n-dependent alternatives."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS conditional law, moment recurrence and growth-order upper bounds, not the asserted exact pairwise constants",
+      "evidence": "Lemma 4.1(i): relative-entropy upper bounds against iid uniform; proof equations (58)-(59) uses the same exact S_k drift.",
+      "identifier_or_url": "https://arxiv.org/pdf/2609.17264",
+      "material_read": "Primary full PDF pages 1-2 and 13-24, especially §4.1 pp.17-18 Lemma 4.1 and equations (54)-(59), obtained through authorized text reading",
+      "method": "Primary text extraction of pages and equation-by-equation comparison",
+      "title": "Cover times and ranges of elephant random walks",
+      "trigger": "Same multidimensional walk and full-history entropy comparison"
+    },
+    {
+      "assessment": "PARTIAL; local likelihood estimates may relate but whole-document noncoverage not asserted",
+      "evidence": "One-dimensional likelihood/Fisher-information problem; fixed-separated multi-direction constants remain priority risk.",
+      "identifier_or_url": "https://arxiv.org/abs/2112.10405",
+      "material_read": "Abstract and cited descriptions of one-dimensional local parameter estimation; full primary body not read this execution",
+      "method": "arXiv abstract search and cited result cross-comparison",
+      "title": "How to estimate the memory of the Elephant Random Walk",
+      "trigger": "Alternative local-likelihood and information geometry formulation"
+    }
+  ]
+}
