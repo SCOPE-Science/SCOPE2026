@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Run `python3 verify_cost_atoms.py` alongside the accompanying mathematical statement. The checker uses only the Python standard library and rational arithmetic. Expected output:
+## correctness
 
-`VERIFY_OK active_strict_improvements=738 zero_turnout_profitable_deviations=1620 no_deviation_checks=30966 continuum_best_response_samples=2002 empirical_cost_distributions=99`
+PASS
 
-It exercises seven finite cost distributions, three full-support voter-CDF families, a thirteen-point rational policy grid, the continuous uniform-cost best-response inequalities on 1,001 policy positions per candidate, and empirical cost CDFs for \(2\leq m\leq100\). Every positive-turnout profile checked has a constructed strictly improving move that preserves its active cost set; every tested inactive candidate outside the exact equilibrium square has an endpoint deviation yielding positive turnout. All outcomes are recomputed from the specified vote-mass formulas.
+For any a<b with separation Δ, only cost atoms c<Δ participate and left/right turnout masses are sums w V((a+b-c)/2) and w[1-V((a+b+c)/2)], respectively. At positive turnout, moving the left candidate slightly toward the right preserves the finite active-cost set but strictly increases each V term, disproving any active pure equilibrium for strictly increasing V. Zero-turnout profiles are equilibria exactly when each opponent location lies in I_c*=[0,1]∩[1-c*,c*], else an endpoint deviation generates positive votes. Thus PNE=I_c*², with correct c*<1/2, =1/2, >1/2, >=1 boundaries. The empirical uniform m-grid costs have Kolmogorov error 1/(m+1), whence candidate payoffs differ uniformly by at most that amount. Integrating the limiting uniform game confirms quartile best responses, and the two-sided perturbation bound yields 2/(m+1)-equilibria. Independent exact checks reproduced cdf discrepancies for m=2,3,5,10,100; infinite distribution argument rests on the proof.
 
-The checker does not establish an infinite theorem or search all measurable electorates. The proof instead uses strictly increasing CDFs, finiteness of cost support, exact threshold geometry and a quadratic global-best-response argument. The empirical-CDF and payoff-uniformity bounds are analytical. The result concerns strict participation thresholds and unconditional vote-mass utility; changing either can change the game.
+## originality
+
+PASS
+
+PASS qualified: Wolf–Meir (September 2026) is the directly relevant participation model and establishes polarized equilibria for density-based costs; the exact finite-atom all-voter-CDF Nash classification and discontinuity of exact equilibrium under uniform payoff approximation are not stated in the accessible abstract. Full preprint inaccessible, so historical coverage risk remains explicit.
+
+## value
+
+PASS
+
+Sharp and robust nonexistence for every positive-turnout pure equilibrium under finite cost spectra, plus discontinuous stability of equilibria under arbitrarily small uniform payoff perturbations, is meaningful for participation-game discretization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

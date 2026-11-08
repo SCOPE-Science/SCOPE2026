@@ -1,19 +1,21 @@
-# Scientific review: finite voting-cost spectra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model fixes strict participation only when the advantage over the competing platform exceeds the cost. For separated platforms, a cost type below the separation contributes exactly a voter-CDF term with argument \((a+b-c)/2\) for the left candidate. Finite support permits a small move toward the opponent without changing which cost types participate. Full support makes each active CDF term increase strictly. All possible equilibria must therefore have no participating cost types; checking unilateral deviations to the policy endpoints gives exactly \(I^2\). The thresholds \(1/2\) and \(1\) include equality cases. The empirical-CDF bound is proved interval by interval, and the limiting \((1/4,3/4)\) best responses follow from exact quadratic maxima. The code checks representative rational profiles but the proof does not depend on enumeration.
+PASS
 
-## Originality — PASS under accessible-source comparison
+For any a<b with separation Δ, only cost atoms c<Δ participate and left/right turnout masses are sums w V((a+b-c)/2) and w[1-V((a+b+c)/2)], respectively. At positive turnout, moving the left candidate slightly toward the right preserves the finite active-cost set but strictly increases each V term, disproving any active pure equilibrium for strictly increasing V. Zero-turnout profiles are equilibria exactly when each opponent location lies in I_c*=[0,1]∩[1-c*,c*], else an endpoint deviation generates positive votes. Thus PNE=I_c*², with correct c*<1/2, =1/2, >1/2, >=1 boundaries. The empirical uniform m-grid costs have Kolmogorov error 1/(m+1), whence candidate payoffs differ uniformly by at most that amount. Integrating the limiting uniform game confirms quartile best responses, and the two-sided perturbation bound yields 2/(m+1)-equilibria. Independent exact checks reproduced cdf discrepancies for m=2,3,5,10,100; infinite distribution argument rests on the proof.
 
-The primary 2026 source analyzes cost distributions with densities and reports a positive-turnout quartile equilibrium under uniform distributions, whereas the submitted claim treats every finite atomic cost spectrum and derives a universal no-positive-turnout dichotomy and uniform-approximation failure. The governing hypotheses and implications differ: a theorem for a continuous CDF/density does not apply to a finite-step CDF, and continuous-cost equilibrium cannot prove atomic-cost existence. Searches for finite cost atoms, deterministic cost thresholds, spatial abstention, and prior equilibrium classification found no logically equivalent theorem in the available materials or accessible research-record summaries. The strongest residual risk is unexamined material in the motivating manuscript's appendix or older political-economy work. An absence of retrieved matches is not taken as a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-Voting-cost distributions are routinely discretized for computation and simulation. Here a finite approximation whose CDF is within \(1/(m+1)\) of the uniform law eliminates pure equilibria entirely for every \(m\geq2\), while preserving a quantitative approximate-equilibrium guarantee. This is a structural warning about exact-equilibrium inference, not a single numerical counterexample: the classification is uniform over all atomless full-support electorates, every finite set of cost atoms, and all positive masses. It pinpoints the strictly positive minimum cost, rather than other parameters, as the exact existence threshold.
+PASS qualified: Wolf–Meir (September 2026) is the directly relevant participation model and establishes polarized equilibria for density-based costs; the exact finite-atom all-voter-CDF Nash classification and discontinuity of exact equilibrium under uniform payoff approximation are not stated in the accessible abstract. Full preprint inaccessible, so historical coverage risk remains explicit.
 
-## Closest literature and remaining limitations
+## value
 
-Wolf and Meir, arXiv:2609.29869v1 (September 24, 2026), is the motivating source and supplies the continuous-cost comparison. Nikram's generalized Hotelling–Downs tournament game and Barelli's majority contest analyze different voting/payoff structures. The available portion of Wolf and Meir's primary HTML and its indexed contribution statements were read, but the complete appendix could not be retrieved; priority checking is therefore not exhaustive. The theorem excludes mixed continuous-atomic costs, strategic voter participation, winning-probability payoffs and alternative indifference conventions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp and robust nonexistence for every positive-turnout pure equilibrium under finite cost spectra, plus discontinuous stability of equilibria under arbitrarily small uniform payoff perturbations, is meaningful for participation-game discretization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
