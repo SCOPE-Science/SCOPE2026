@@ -1,19 +1,21 @@
-# Integral Steiner reconstruction lattice: scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The domain is every smooth nonhyperelliptic genus-three curve in characteristic different from \(2\). The classical theta-characteristic correspondence identifies its \(28\) bitangents and \(63\) Steiner complexes with the explicit odd-refinement incidence formula. The row and column counts are \(27\) and \(12\), respectively, and the Gram identity \(MM^{\mathsf T}=16I+11J\) checks the combinatorial normalization and full rank. A standalone elementary-unimodular reduction computes all \(28\) Smith invariant factors, with a checked integral matrix equality and successive divisibility. Independent Hermite and Smith calculations corroborate the index, all elementary divisors, and the exact order \(12\) of all \(28\) bitangent classes. Geometric transitivity supplies an additional proof that these basis-vector orders are all the group exponent. The scripts require no numerical approximation.
+PASS
 
-## Originality
+For a smooth nonhyperelliptic genus-three plane quartic in characteristic unequal to two, odd quadratic refinements q_(a,b) with a·b=1 label the 28 bitangents and nonzero 2-torsion vectors the 63 Steiner complexes. The incidence condition q(v)=0 yields a 28×63 integer matrix. Independently reconstructed it: MM^T=16I+11J; exact SymPy Smith form has 1^7,2^14,4^6,12, Hermite index 805306368, and every HNF inverse basis-column denominator lcm is 12. These independent calculations check the actual critical integer certificate beyond simply trusting verify_smith.py/verify_hnf.py; the script source was inspected. Sp(6,2)-transitivity and generation of the cokernel force every basis class to have the same order equal to group exponent 12. The geometric label is a standard result and applies over algebraic closure; no k-rational bitangent claim.
 
-**PASS, with a specific residual priority risk.** The classic \(28\)-bitangent/\(63\)-Steiner incidence and its \(2\)-\((28,12,11)\) design parameters are prior art (Plaumann–Sturmfels–Vinzant; Bergvall; Crnković–Mikulić Crnković, and the 2016 symplectic-design study). Their inspected statements describe geometry, design parameters, and linear codes, not the integral Smith decomposition or the sharp individual bitangent reconstruction multiplier. Their assertions therefore do not imply the theorem without a further integral computation. A 1992 paper by Blokhuis–Calderbank studies general Smith-form restrictions for quasi-symmetric designs, but only its abstract was accessible for comparison: exact coverage there cannot be ruled out. The finding is not represented as independently priority-certified.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Integral generation by classical Steiner sums is a natural arithmetic-lattice question in the geometry of odd theta characteristics. Rational rank, finite-field code dimensions, and the design's Gram spectrum cannot specify the full integer cokernel. The exact torsion structure and the sharp multiplier \(12\) are intrinsic geometric invariants and provide a concrete obstruction to integral reconstruction of individual bitangents. The result is a complete classification for all smooth plane quartics over fields of characteristic different from \(2\), rather than an arbitrary sample of individual curves.
+Best-of-knowledge the full integral Smith factors and every-row order 12 for the specific 28×63 theta/Steiner lattice are not implied by the previously inspected mod-two code dimension, design parameters or moduli invariants. A historical quasi-symmetric design Smith calculation could coincide and is an explicit residual risk, not automatically a failure.
 
-## Closest literature and limitations
+## value
 
-The closest directly covering premise is the symplectic \(2\)-\((28,12,11)\) design, explicitly discussed in the 2011 combinatorial structures paper and in the 2016 symplectic-design/codes paper. Bergvall's Section 3.4 supplies the precise quadratic-refinement criterion used to construct the matrix. The 1992 quasi-symmetric Smith literature is a residual historical-priority risk, with its full text not examined. The result describes the geometric abstract incidence group and not the finer Galois action on that group; no separate classification of all arithmetic twists is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The image lattice, its finite cokernel and the minimum integral multiplier required to reconstruct an individual geometric bitangent from Steiner sums are intrinsic natural arithmetic invariants of a classical 28-point/63-block configuration. Determining every invariant factor and a uniform sharp denominator goes beyond the elementary real rank or 2-design Gram parameters; it can be used in integral incidence and Galois-lattice investigations without claiming them completed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
