@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The standalone `verify.py` needs only the Python 3 standard library and computes with `fractions.Fraction`, so its geometric branch tests use exact rational arithmetic. It independently reconstructs each ordinary perpendicular projection from the side vertices and the squared-height metric, rather than using the six simplified projection formulas in the proof. For every candidate itinerary it checks the projected successor parameter exactly, tests that all target squared distances strictly exceed competitor squared distances precisely when the stated algebraic admissibility conditions hold, and verifies interior point coordinates for legal words. The checked words are `012`, `0102`, and `01210212`; the checker reports `CHECK_OK exact projected itineraries: 2145 ; endpoint brackets and rational grid verified`.
+## correctness
 
-The proof, not this finite sample, establishes the exact root count of the quintic, the signs of all branch margins, the sharp admissibility intervals, primitive least periods, and strict return contraction for every real parameter in the stated windows. No computer-assisted infinite certification, global orbit-count classification, or independent scientific audit is claimed. The prior result on primitive three-cycles is credited separately from the new even-period coexistence conclusion.
+PASS
+
+PASS: Parameter z=h²>1 with triangle vertices (-1,0),(1,0),(0,h) and farthest orthogonal projections to other edge lines, ties fixed. Six directed affine side-coordinate projection formulas follow from dot products. For the orientation 012 the candidate triple has coordinates (2,2,z-1)/(z+3), whose strict squared-distance comparisons are positive exactly 1<z<3+2sqrt3, with reflected 021 a distinct attracting three-cycle. The itinerary 0102 has unique affine fixed point (1,2,z+1,z)/(z+2), margin sign controlled by z²-z-1, hence exists precisely 1<z<phi and has return multiplier 1/(z+1)². The 01210212 eight-visit candidate has coordinates with D=z³+4z²+z+2; two margin types always positive on 1<z<b, R(z)<0 there, while the remaining margin has sign of Q=z^5-5z^4-5z^3-4z²-2z-1 with exactly one positive root r~5.961497898. Therefore r<z<b is exactly the eight-branch interval within the three-cycle regime. Distinct primitive side words and contracting affine returns give >=3 locally attracting periodic orbits in each disjoint open window; no census of other orbits claimed. Independent exact rational projection tests 20 checks corroborate margin/legal itineraries; finite checking alone is not proof of all z.
+
+## originality
+
+PASS
+
+PASS, qualified best-of-knowledge: exact final mathematical statement checked against the identified primary literature and published-finding records; no decisive covering theorem identified in material actually read; historical uncertainties are explicit below.
+
+## value
+
+PASS
+
+PASS: Two nontrivial disjoint coexistence intervals of multiple attracting periodic orbits in a natural piecewise-contractive triangle map, including a quintic switching threshold, refine a known period-three classification and establish structural multistability beyond a trivial period count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

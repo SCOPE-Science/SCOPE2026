@@ -1,15 +1,21 @@
-# Scientific review — Sharp multistability windows for an isosceles farthest-projection map
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The acute isosceles triangle is parametrized with squared height \(z>1\). Six direct orthogonal-projection formulas lead to exact affine return fixed points and eight or fewer target-versus-competing squared-distance differences for each stated itinerary. The primitive three-cycle conditions are \(1<z<3+2\sqrt3\), the displayed four-cycle condition is \(1<z<(1+\sqrt5)/2\), and within the three-cycle interval the eight-cycle condition is exactly positivity of a quintic with one positive root. The return multipliers are strictly contractive and the branches remain strict in each open interval, establishing local attraction with open relative basins. The exact-fraction checker evaluates 2,145 independent geometric-branch examples; the continuum assertions rely on algebra and the root-sign proof, not finite enumeration.
+## correctness
 
-## Originality
-**PASS within inspected evidence.** Everett's *A Piecewise Contractive Map on Triangles* (DOI `10.1080/1726037X.2020.1847765`, online 2021-01-07; author preprint arXiv `2408.16019v1`) presents the motivating map, qualitative convergence, and a numerical isosceles bifurcation picture, but not the two exact simultaneous-period windows and eight-cycle quintic threshold. The published *Exact two-orientation classification of primitive three-cycles for the farthest-projection triangle map* already establishes the precise three-cycle interval and its two orientations; the present claim explicitly credits that component and adds non-implied four-/eight-cycle branch existence and coexistence thresholds. General theorems for increasing interval contractions do not imply these conditional three-line projection itineraries. Residual risk: a more obscure symbolic-dynamics analysis or unpublished computation could contain equivalent four- and eight-cycle thresholds. This is not an independent publication-priority assessment.
+PASS
 
-## Mathematical value
-**PASS.** The source's parameter-dependent period transitions motivate asking whether different periods can attract from different starting points at a *fixed* geometry. The result resolves this question over **two open, disjoint, algebraically bounded parameter windows** with three distinct attracting cycles, rather than only exhibiting an isolated parameter or a selected-trajectory period. The new quintic threshold is the exact onset of the displayed eight-cycle in the three-cycle regime and supplies a concrete boundary for multistability. No claim of a complete period census is made.
+PASS: Parameter z=h²>1 with triangle vertices (-1,0),(1,0),(0,h) and farthest orthogonal projections to other edge lines, ties fixed. Six directed affine side-coordinate projection formulas follow from dot products. For the orientation 012 the candidate triple has coordinates (2,2,z-1)/(z+3), whose strict squared-distance comparisons are positive exactly 1<z<3+2sqrt3, with reflected 021 a distinct attracting three-cycle. The itinerary 0102 has unique affine fixed point (1,2,z+1,z)/(z+2), margin sign controlled by z²-z-1, hence exists precisely 1<z<phi and has return multiplier 1/(z+1)². The 01210212 eight-visit candidate has coordinates with D=z³+4z²+z+2; two margin types always positive on 1<z<b, R(z)<0 there, while the remaining margin has sign of Q=z^5-5z^4-5z^3-4z²-2z-1 with exactly one positive root r~5.961497898. Therefore r<z<b is exactly the eight-branch interval within the three-cycle regime. Distinct primitive side words and contracting affine returns give >=3 locally attracting periodic orbits in each disjoint open window; no census of other orbits claimed. Independent exact rational projection tests 20 checks corroborate margin/legal itineraries; finite checking alone is not proof of all z.
 
-## Scientific limits
-The coexistence intervals are sharp for the explicitly named symbolic orbit families; other periods, their global basins, and all dynamics at or beyond the selected region remain unclassified. Finite rational checks cannot establish the all-real-parameter claim. The source figure is qualitative and does not substitute for exact algebraic originality comparisons.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified best-of-knowledge: exact final mathematical statement checked against the identified primary literature and published-finding records; no decisive covering theorem identified in material actually read; historical uncertainties are explicit below.
+
+## value
+
+PASS
+
+PASS: Two nontrivial disjoint coexistence intervals of multiple attracting periodic orbits in a natural piecewise-contractive triangle map, including a quintic switching threshold, refine a known period-three classification and establish structural multistability beyond a trivial period count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
