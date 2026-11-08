@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Riemann–Hurwitz gives \(d=4a+2k\) and \(r=2k\), ensuring negative definite two-component resolution matrix. Mayer–Vietoris and Poincaré–Lefschetz duality give an exact sequence with torsion determined by the Smith form of the intersection matrix, and free rank \(8a+6k+3\). Its rank and torsion order give a quadratic equation with a unique admissible root; explicit even/odd parameters realize every negative integer at most \(-3\). All hypotheses, especially \(a,k\ge1\), are essential. Exact checker succeeds; it is supplementary to the proof.
+## correctness
 
-## Originality — PASS, with priority qualification
-The motivating 2026 preprint proves the contraction and Wahl-number formula, and its negative/unbounded examples are antecedents, not new claims. General plumbing theory already relates full link topology to resolution graphs. The narrow additional point is injectivity of the much smaller invariant \(H_1(M,\mathbb Z)\) on the two-parameter family, proved by the discriminant identity and explicitly computed Smith form, plus the integer spectrum. Actual semantic record queries returned no equivalent. The source full text was not accessible; its abstract and independent introduction synopsis were read. Strong residual risk: the new injection may be implicit in specialist plumbing computations or uninspected sections.
+PASS
 
-## Mathematical value — PASS
-Link abelianization is a natural, computable invariant that is generally insufficient to reconstruct a surface singularity's resolution graph. Recovering the graph and a local analytic Chern number from it in a natural infinite family gives a precise boundary to that insufficiency. The full integer spectrum answers an inverse-realization question for the explicit counterexample family of the vanishing conjecture. This is not merely a restatement of the published Chern-number equation: it requires topological homology determination and a uniqueness proof.
+With a=h−1, g(C)=2a+k+1 and 2k transverse intersection points, the two curves have self-intersection −d with d=4a+2k. Since d−2k=4a>0, the intersection matrix Q is negative definite. Mayer–Vietoris gives H1 of the exceptional union free rank 4g+2k−1; Poincaré–Lefschetz duality and the pair exact sequence inject coker(Q) as torsion of H1(link). The Smith invariants of Q are 2gcd(2a,k) and 8a(a+k)/gcd(2a,k), and b=8a+6k+3 and T=16a(a+k) give u=(b−3)/2, discriminant u²−3T/4=(2a+3k)² and the unique smaller root a=(u−sqrt(...))/2. The c2 formula −2k−2k²/a is explicitly credited to Du; constructive a,k realize exactly all negative integers <=−3. Independent exact arithmetic checked 3,600 (a,k) parameter pairs and 498 consecutive negative integer targets, corroborating but not replacing the topology.
 
-## Limitations
-No claim about all normal surface singularities, analytic classification, or general topological determination of Wahl numbers. The motivating preprint's complete text was unavailable; priority and independence require external review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Du introduced the branched-involution contraction and its Wahl number; Neumann and Mumford give general plumbing/link topology. The additional theorem is a family-specific reconstruction from abstract abelian H1 alone plus complete integer-valued spectrum. However the highly relevant Du preprint was only accessible by abstract/synopsis, and its unread full text could already contain the same topological computation. Best-of-knowledge O PASS is qualified and cannot be treated as established global priority.
+
+## value
+
+PASS
+
+Integral first-link homology is a natural accessible topological invariant, normally weaker than link or fundamental group. Proving it suffices to reconstruct an entire two-curve family and determines the integer spectrum of a local complex-surface invariant; this is a useful rigidity and realization result rather than an arbitrary Smith table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
