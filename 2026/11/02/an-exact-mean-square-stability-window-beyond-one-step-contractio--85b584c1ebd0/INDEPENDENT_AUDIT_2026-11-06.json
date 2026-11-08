@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T00:20:57.354581Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<rho<1, a=(1+rho)/2, d=(1-rho)/2, eta>=1 and fixed alpha>0, independent signed binomial imbalance T has ET=0 and ET^2=1/eta. Squaring the exact coordinate update yields B=[[ (1-alpha*a)^2, alpha^2*a*d/eta ],[alpha^2*a*d/eta,(1-alpha*d)^2]]. Its strictly positive off-diagonals make the Perron eigenvalue the asymptotic kth-root mean square for every nonzero deterministic error, rather than merely a worst-case bound. Direct diagonalization gives the stated radical r_eta. det(I-B)=alpha^2*a*d[4-2alpha+alpha^2*a*d(1-eta^-2)] and strict spectral convexity give the exact stable interval alpha<4/(1+sqrt(rho^2+(1-rho^2)/eta^2)), with equality nondecay and larger alpha divergence. The conditional norm matrix E(I-alpha G)^2 gives a smaller alpha_step=4/(1+rho+(1-rho)/eta), strictly smaller when eta>1. Derivatives at alpha=1 and 2 plus strict convexity give unique alpha_opt in (1,2). An independent batch-count calculation matched the exact moment recursion and radical eigenvalue on 192 finite comparisons; this verifies representative cases, not the universal domain.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Agaskar et al. derive exact lifted MSE for ordinary single-row sampling, a methodological antecedent.",
+          "Published two-row cyclic Kaczmarz study treats a deterministic ordered product rather than simultaneous independent averaged samples.",
+          "Tondji–Lorenz study guaranteed averaged-block convergence bounds, not this exact two-row stability classification."
+        ],
+        "reasoning": "A general covariance lifting algorithm can calculate B but the specific sharp boundary and transient gap are not supplied as a stated corollary by the inspected papers. The deterministic cyclic comparison has different dynamics.",
+        "searches": [
+          "Agaskar Wang Lu 2014 randomized Kaczmarz exact MSE analysis optimal sampling probabilities",
+          "Resultary 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+          "arxiv:2203.10838 averaged block sparse Kaczmarz"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2002.04126 Theorem 1, Corollary 1",
+        "arxiv:2203.10838 averaged randomized block sparse Kaczmarz",
+        "Agaskar–Wang–Lu 2014 exact MSE lifting",
+        "Resultary SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior one-step sufficient contraction does not logically preclude convergence when that one-step test fails.",
+          "For eta>1 and rho in (0,1), alpha_step<alpha_ms by explicit squared threshold difference 2rho(1-rho)(eta-1)/eta^2."
+        ],
+        "reasoning": "The inspected sufficient one-step theorem cannot imply the strict enlarged interval, whereas an unknown stronger exact lift theorem remains a residual priority risk.",
+        "searches": [
+          "Moorman Tu Molitor Needell Randomized Kaczmarz with Averaging arxiv 2002.04126",
+          "Agaskar Wang Lu exact MSE Randomized Kaczmarz"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Averaging acts through a binomial signed batch imbalance with second moment 1/eta, and the annealed lifted 2x2 squared-error operator B is the exact invariant.",
+          "Moorman et al. give one-step conditional expected norm bounds, whereas the inspected rate is a Perron eigenvalue of repeated annealed moments."
+        ],
+        "reasoning": "General mean-square lifting is an equivalent computational framework, not an already identified closed two-row stability threshold in the inspected prior statement. The difference is between the one-step norm and long-time spectral radius.",
+        "searches": [
+          "Resultary: randomized averaged Kaczmarz exact mean square convergence two-row relaxation threshold spectral radius versus one-step expected squared contraction",
+          "arxiv:2002.04126 randomized Kaczmarz with averaging, Theorem 1/Corollary 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Resultary hits concern cyclic Kaczmarz, residual spikes and delay Gauss–Seidel, with different sampling operators.",
+          "The packaged exact finite comparisons reproduce a newly computed formula, not a pre-existing external stability table."
+        ],
+        "reasoning": "No directly matching closed-rate table was found in inspected searches; this is not an exhaustive novelty certificate.",
+        "searches": [
+          "Resultary search two-row averaged randomized Kaczmarz annealed stability thresholds",
+          "two-row minibatch Kaczmarz exact stability rho eta relaxation threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after direct statement/implication comparisons against indexed findings and relevant primary sources. Known antecedents and any covered symmetric/special cases are acknowledged; no comprehensive priority certificate is claimed.",
+      "residual_risks": [
+        "The general exact-MSE lifted-operator literature might contain the same two-row batch result as a corollary not identified in accessed material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant predecessor; the displayed result bounds a one-step expectation and is not the inspected all-iterate Perron threshold.",
+          "evidence": "Theorem 1 and Corollary 1 condition expected squared norm.",
+          "identifier_or_url": "https://arxiv.org/abs/2002.04126",
+          "material_read": "Primary HTML exposition: convergence estimates and Theorem 1/Corollary 1 one-step inequalities",
+          "method": "Read arXiv HTML relevant theorem and proof sections",
+          "title": "Randomized Kaczmarz with Averaging",
+          "trigger": "Same batch-average algorithm and step-size regime"
+        },
+        {
+          "assessment": "General exact second-moment method is prior; specific averaged batch specialization remains a priority risk.",
+          "evidence": "Exact MSE linear-lifting approach is relevant.",
+          "identifier_or_url": "Agaskar, Wang, Lu (2014)",
+          "material_read": "Main methodological description and accessible abstract/context; not all theorem details independently retrieved",
+          "method": "Abstract-level and known lifting formulation; no whole-document noncoverage assertion",
+          "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+          "trigger": "Potential dominating exact-MSE lifting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp disparity between first-step transient expected amplification and eventual geometric mean-square stability is a mathematically motivated spectral phenomenon. The unique optimal relaxation and exact window can guide overrelaxation even in this minimal nonorthogonal model; it is not simply a rephrased textbook one-step estimate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2002.04126 Theorem 1, Corollary 1",
+    "arxiv:2203.10838 averaged randomized block sparse Kaczmarz",
+    "Agaskar–Wang–Lu 2014 exact MSE lifting",
+    "Resultary SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exact annealed squared-error rate, sharp asymptotic stability and distinct one-step uniform contraction boundaries for equal-sampled parallel-batch two-row Kaczmarz (two real unit, nonorthogonal rows).",
+  "limitations": [
+    "Real 2x2 consistent full-rank unit-row systems, independent equal sampling with replacement, simultaneous within-batch corrections and deterministic nonzero initial error only.",
+    "One-step results and asymptotic Perron rates are distinct; finite checks alone do not prove the infinite theorem."
+  ],
+  "schema_version": 1
+}
