@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The all-dimensional mathematical argument is entirely explicit in `RESULT.md`: the independent-pair expansion (3), normalized polar moment identity (4)--(5), and centered covariance trace identity (7) imply the exact nonnegative decomposition (2). The equality case is a consequence of constant radial function. Finite tests provide diagnostics, not a proof in every dimension.
+## correctness
 
-# Reproducible finite checks
+PASS
 
-Run `python3 verify.py` under Python 3, using only the standard library. In the actual scientific review, the program produced:
+For independent centroided volume-uniform points X,Y, expand D²=|X|²+|Y|²−2X·Y to obtain ED²=2m2 and ED⁴=2m4+2m2²+4tr(Σ²). Polar integration over the centroid-star-shaped body gives m2=d Eν(ρ²)/(d+2), m4=d Eν(ρ⁴)/(d+4); splitting radial second moment into square plus variance and trΣ² into m2²/d plus Frobenius anisotropy yields the displayed exact nonnegative defect coefficient (d+2)²/[2d(d+4)] for all d≥2. Constancy of radial function forces a ball for convex K; a cube has isotropic covariance and nonconstant radius, proving coefficient sharp. Planar annulus explicitly violates the convex/star-shaped bound. Independent exact rational box calculations d=2..7 verified the identity but do not prove all d.
 
-```
-EXACT_BALL_CONSTANTS_D2_TO_D40_PASSED
-RECTANGULAR_BOX_INDEPENDENT_MOMENTS_PASSED
-RECTANGULAR_POLAR_INTEGRAL_PASSED
-ANNULUS_CONVEXITY_BOUNDARY_PASSED
-SEEDED_PAIR_SAMPLING_SANITY_PASSED
-ALL_CHECKS_PASSED
-```
+## originality
 
-`Fraction` arithmetic independently matches coordinate-wise fourth moments of independent differences on boxes with the moment-expansion formula. The distinct polar integral for a non-square rectangle tests the weighted radial integrations. The annulus is an exact counterexample once star-shapedness is removed. The random-pair simulation is seeded and is not an infinite certificate.
+PASS
 
-# Limits
+The general two-point moment expansion and radial Cauchy–Schwarz are classical; claim is the precise all-dimensional sharp Euclidean distance kurtosis inequality with exact two-term radial/covariance decomposition and ball rigidity. Closest inspected references concern other norms or regular polygons. Voss 1982 remains an explicit uninspected priority risk.
 
-Exact distributional reconstruction, noisy estimation, shape stability in Hausdorff or Banach--Mazur distance, and historical priority beyond inspected sources are not proved. Independent audit has not been performed.
+## value
+
+PASS
+
+A sharp exact classification for a canonical Euclidean interpoint statistic, valid in every dimension; isolates radial irregularity from covariance anisotropy and characterizes balls with explicit optimal defect coefficient. Nonconvex annulus boundary identifies a genuine structural hypothesis; more than a generic high moment inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
