@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The thirteen projective points and their thirteen four-point lines are constructed directly over the finite field of three elements. All \(234\) eligible triangles and \(234\) eligible tetrahedra are exhaustively enumerated, and absence of larger caps is checked. The 1-skeleton is complete; every missing triangular boundary cones to a point outside its collinearity line, proving simple connectivity. Exact Smith forms of all integer simplicial boundaries are \((1^{12},0)\), \((1^{66},0^{12})\), and \((1^{165},3^3,0^{66})\), and the boundary compositions vanish. The 2-skeleton is therefore a wedge of \(168\) two-spheres, and diagonalization of the attaching-degree matrix gives three mod-three Moore spaces and \(66\) three-spheres. The embedded verifier was executed on its final source path and produced the recorded output.
+## correctness
 
-**Originality — PASS under checked evidence.** The closest same-theme 2022 question studies *ordered* noncollinear tuples, whose chain groups differ integrally from alternating simplicial chains. Das–O'Connor's continuous complex-projective configuration spaces and Lew's affine-plane representability results address other invariants or objects. Ball's classical arc classification supplies geometric background, not a claimed topological Smith or Moore classification. Earlier computations on affine nine-point and Fano seven-point cap complexes concern different incidence geometries and do not imply this thirteen-point torsion. Exact-object and alias searches found no covering published computation. The 1996 article was accessible only at abstract level, and unindexed equivalent work remains possible; neither is treated as a proof of novelty.
+PASS
 
-**Value — PASS.** The object is the canonical full complex of caps of the smallest odd-order projective plane. The finding determines its complete integral homotopy type, and the three order-three summands are a qualitative distinction that would be lost in rational homology and in mere arc enumeration. It provides a concrete topological boundary case for questions about finite-field noncollinear configurations, without claiming to resolve a different ordered-chain question or a general conjecture.
+For the actual 13-vertex PG(2,3) no-collinear-triple complex, reconstructed 13 points, 13 four-point lines, 52 excluded triangles, face vector (13,78,234,234) and absence of 5-caps. Independently computed top boundary ranks mod 2,3,5,101 = 168,165,168,168; inspected the attached exact SymPy Smith program establishing (1^165,3^3,0^66). Every missing triangle cones outside its line, so K is simply connected; Hurewicz and Smith basis changes of three-cell degrees yield 3 Moore M(Z/3,2) plus 66 S^3. Exact integral SNF was inspected in source, not independently rerun; modular checks alone would not exclude higher 3-power torsion.
 
-**Limitations.** The Smith calculation is exhaustive and reproducible but not replaced by a closed conceptual torsion formula. Equivariant homotopy, other plane orders, and the topology of the ordered-tuple complex are not determined. Publication priority and mathematical validity have not received independent assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison. Known 13-point design facts determine f-vector but neither torsion diagonal nor 3-Moore attachments; ordered-injective word complex differs integrally from simplicial chains.
+
+## value
+
+PASS
+
+The full integral homotopy type of a canonical 13-point projective cap complex, including three independent mod-three Moore summands, supplies a natural finite-geometric torsion benchmark not determined by elementary cap counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

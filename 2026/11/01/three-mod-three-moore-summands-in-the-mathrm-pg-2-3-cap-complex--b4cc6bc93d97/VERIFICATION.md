@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact script `verify_cap.py` constructs the thirteen projective points and all lines over the three-element field, cross-checks a separate thirteen-line table, and enumerates every possible arc of size one through five. It verifies the complete line-incidence design, all \(52\) missing triangular boundaries, the complete face vector, the two consecutive chain identities, and the integral Smith forms of all three nontrivial simplicial boundaries. It additionally determines the rank of the top boundary modulo three using separate finite-field Gaussian elimination.
+# Independent mathematical audit
 
-Run `python3 verify_cap.py` with the package dependency specified in `requirements.txt`. The executed stdout is `verification.out`; the final line `VERIFY_OK` appears only after every asserted condition succeeds. This is an exhaustive calculation for the specified finite complex, not an experiment on a growing sequence of examples.
+## correctness
 
-The homotopy equivalence uses a separate mathematical argument: simple connectivity of the second skeleton, the Hurewicz and homological Whitehead theorems for its two-dimensional CW structure, and Smith reduction of the attaching-degree map. No assertion of independence or third-party certification is made. The original ordered noncollinear-tuples chain complex is excluded from the computational scope.
+PASS
+
+For the actual 13-vertex PG(2,3) no-collinear-triple complex, reconstructed 13 points, 13 four-point lines, 52 excluded triangles, face vector (13,78,234,234) and absence of 5-caps. Independently computed top boundary ranks mod 2,3,5,101 = 168,165,168,168; inspected the attached exact SymPy Smith program establishing (1^165,3^3,0^66). Every missing triangle cones outside its line, so K is simply connected; Hurewicz and Smith basis changes of three-cell degrees yield 3 Moore M(Z/3,2) plus 66 S^3. Exact integral SNF was inspected in source, not independently rerun; modular checks alone would not exclude higher 3-power torsion.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison. Known 13-point design facts determine f-vector but neither torsion diagonal nor 3-Moore attachments; ordered-injective word complex differs integrally from simplicial chains.
+
+## value
+
+PASS
+
+The full integral homotopy type of a canonical 13-point projective cap complex, including three independent mod-three Moore summands, supplies a natural finite-geometric torsion benchmark not determined by elementary cap counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
