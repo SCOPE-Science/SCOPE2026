@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Given a new stationary complete-window entrance, the shared middle block is a uniform onto word on n-1 coupon types. The count of its initial singleton positions has exact factorial moments (k)_r S(M-1-r,n-1-r)/S(M-1,n-1). With M=floor(alpha n log n), alpha fixed in (0,1), a zero-truncated-Poisson occupancy representation and a lattice local CLT give the ratio n^(-alpha r)(1+o(1)); its first floor(t n^alpha) positions therefore have Poisson(t) singleton count. A missing initial singleton causes an actual loss except when replenished, and a loss without a singleton requires a whole initial multiple-occurrence color to expire. Their total error is at most rho*k^2/n + rho*k^2*exp(k/(n-2))/(2(n-2)) = O(n^(alpha-1)) for n>=3. Thus conditional spell survival converges to exp(-t). The exact stationary mass/entry flux gives E[L|entry]=n*S(M,n)/((n-1)*S(M-1,n-1)), asymptotic to n^alpha. Definitions and positivity n>=2, M>=n are explicit. The standalone exact checker passed 29 finite configurations including independently enumerated futures. Finite tests do not prove the limit; the shifted local-CLT step is justified by the known characteristic-function argument for zero-truncated Poisson arrays and the source Appendix A.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Christopher D. Long, The Expiring Coupon Collector: Sliding-Window Surjection Flux and Rare-Entry Laws, arXiv:2604.26298v1 (2026-04-29), Sections 2–7 and Appendix A",
+        "Auer and Zweimüller, Local limit theorems for hitting times and return times of small sets, arXiv:2312.14581 (abstract checked; full paper not inspected)",
+        "Related general stationary rare-set hitting-time theorems can yield exponential *inter-arrival* times; neither their inspected abstracts nor the primary paper provide the model-specific time-in-clump conditional law."
+      ],
+      "reasoning": "Coverage by a stronger theorem would require a specialization calculating the forward complete-window exit distribution under the entry Palm law. The general rare-event theory is a plausible overlap risk but no inspected statement established the required implication; full text of the Auer–Zweimüller item was not read.",
+      "searches": [
+        "expiring coupon collector sliding window onto cluster excursion lengths at stationary entrance Exp(1) n^alpha",
+        "uniform onto words coupon collector unique singletons first position critical cluster exponential duration",
+        "random scan coordinate refresh product measure separation distance exact coupon collector tail",
+        "expiring coupon collector conditioning on entrance onset run length rare singleton renewal limit e^{-t}"
+      ]
+    },
+    "checked_sources": [
+      "Christopher D. Long, The Expiring Coupon Collector: Sliding-Window Surjection Flux and Rare-Entry Laws, arXiv:2604.26298v1 (2026-04-29), Sections 2–7 and Appendix A",
+      "Expiring coupon collector's problem, Mathematics Stack Exchange (2012): https://math.stackexchange.com/questions/188889/expiring-coupon-collectors-problem",
+      "Auer and Zweimüller, Local limit theorems for hitting times and return times of small sets, arXiv:2312.14581 (abstract checked; full paper not inspected)",
+      "https://arxiv.org/abs/2605.14511",
+      "Accessible public mathematical research search summaries on renewal clumping and occupancy",
+      "Relevant previously recorded claims about stationary reset coupon rates and sliding-count bounds (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Christopher D. Long, The Expiring Coupon Collector: Sliding-Window Surjection Flux and Rare-Entry Laws, arXiv:2604.26298v1 (2026-04-29), Sections 2–7 and Appendix A",
+        "Expiring coupon collector's problem, Mathematics Stack Exchange (2012): https://math.stackexchange.com/questions/188889/expiring-coupon-collectors-problem",
+        "Auer and Zweimüller, Local limit theorems for hitting times and return times of small sets, arXiv:2312.14581 (abstract checked; full paper not inspected)"
+      ],
+      "reasoning": "Known: entry flux mu and rare-entry waiting times mu*T => Exp(1); also stationarity yields E[spell]=pi/mu. New: law of spell length divided by n^alpha given entry => Exp(1), with a direct initial-singleton Poisson argument. Exponential waiting *between* rare entrances has a different time normalization and is not equivalent to within-spell exponential duration. The exact mean does follow from known flux and is not asserted novel. The 2012 waiting-time heuristic is not a spell law. Broad hitting-time abstractions are not asserted to be inapplicable without full comparison.",
+      "searches": [
+        "For an expiring coupon collector with sliding window alpha n log n, the length of a consecutive successful onto-window run, conditional on newly entering the success set, divided by n^alpha converges to an exponential distribution",
+        "Long Expiring Coupon Collector 2604.26298 distribution of lengths of onto-window clusters",
+        "arxiv 2604.26298 Expiring Coupon Collector Sliding-Window Surjection Flux and Rare-Entry Laws"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Christopher D. Long, The Expiring Coupon Collector: Sliding-Window Surjection Flux and Rare-Entry Laws, arXiv:2604.26298v1 (2026-04-29), Sections 2–7 and Appendix A",
+        "The entry-conditioned cluster is a maximal run of overlapping length-M surjections; equivalently its duration is the first prefix singleton not reinserted."
+      ],
+      "reasoning": "Search terms include maximal onto-run duration, completion spell, cluster length, and Poisson first singleton, all naming the same conditional distribution. The 2026 paper gives inter-entrance waiting and mass/flux information, not a finite-dimensional or limit distribution of spell duration.",
+      "searches": [
+        "For an expiring coupon collector with sliding window alpha n log n, the length of a consecutive successful onto-window run, conditional on newly entering the success set, divided by n^alpha converges to an exponential distribution",
+        "run length consecutive complete coupon windows Poisson singleton first positions exponential clump duration",
+        "Long Expiring Coupon Collector 2604.26298 distribution of lengths of onto-window clusters"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact finite formula checked directly by counting Stirling-surjection words and exhaustive small futures; no public table of the conditional exponential asymptotic was located.",
+        "Expiring coupon collector's problem, Mathematics Stack Exchange (2012): https://math.stackexchange.com/questions/188889/expiring-coupon-collectors-problem"
+      ],
+      "reasoning": "Exact stationary occupation and flux are known and credited, whereas a table of finite occupancy numbers or Stirling values does not entail the new conditional distributional limit. No matching exact claim surfaced in searched mathematical records.",
+      "searches": [
+        "sliding window full coupon collection consecutive completion run length Poisson singleton rare state",
+        "Stirling numbers surjective words singleton first position consecutive coverage run length",
+        "2026 stochastic geometry probability coupon collector random trees central limit theorem"
+      ]
+    },
+    "rationale": "The primary paper treats rare entry times and flux rather than the length distribution of successive complete windows *after an entry*. Its exact flux plus mass imply the mean, which is explicitly credited, but do not by themselves imply an exponential within-clump law. The earliest linked 2012 heuristic concerns global time-to-completion. The compared published records do not exhibit the conditional Exp(1) spell limit with n^alpha normalization. General rare-set local limits remain a named historical-priority risk and are not claimed absent from uninspected full texts.",
+    "residual_risks": [
+      "Historical priority may be affected by an unindexed specialized theorem on clusters of surjective sliding words or scan-statistics run lengths.",
+      "Full body of arXiv:2312.14581 was not inspected; no claim of negative coverage is made.",
+      "The limit proof uses a triangular-array lattice local CLT; its needed shifted target case is proved by the same Fourier estimates as the inspected source appendix and explicitly argued."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Entrances, stationary flux and inter-entry wait law are covered. The present new exponential within-spell survival law is not stated in inspected material; Appendix A provides local CLT technology.",
+        "evidence": [
+          "Exact flux mu=(n-1)(n-1)!S(M-1,n-1)/n^M and subcritical mu*T=>Exp(1)",
+          "Conditional entry middle word uniform onto n-1 types",
+          "Appendix A develops uniform local limits for zero-truncated Poisson sums"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.26298",
+        "material_read": "Full open arXiv HTML scientific content: Sections 2–7 and Appendix A, including source entrance-word condition, fixed-alpha rare-entry limit, and triangular-array local CLT",
+        "method": "Read open article sections and checked for spell duration, successive onto windows and singleton terminology; compared quantified statements and time normalizations",
+        "title": "The Expiring Coupon Collector: Sliding-Window Surjection Flux and Rare-Entry Laws",
+        "trigger": "Same sliding-window coupon dynamics and entrance flux, most likely to subsume the claim"
+      },
+      {
+        "assessment": "Global first-completion heuristic does not identify the conditional law of a single complete spell",
+        "evidence": [
+          "Discusses time until all coupons active under expiration and overlap between nearby windows"
+        ],
+        "identifier_or_url": "https://math.stackexchange.com/questions/188889/expiring-coupon-collectors-problem",
+        "material_read": "Question and principal answer explaining the overlapping sliding-window effect and projected waiting scale",
+        "method": "Compared the event (first completed window) against a conditional maximal run of complete windows",
+        "title": "Expiring coupon collector's problem",
+        "trigger": "Earliest motivated formulation and possible already-known duration asymptotic"
+      },
+      {
+        "assessment": "Relevant methodological risk; cannot conclude full document does not cover the specialized spell law",
+        "evidence": [
+          "Abstract concerns hitting and return times of small sets"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.14581",
+        "material_read": "Accessible title and abstract, not primary full text",
+        "method": "Compared abstract scope on hitting/return times to the Palm-conditioned length of a contiguous target-set stay",
+        "title": "Local limit theorems for hitting times and return times of small sets",
+        "trigger": "Possible general rare-event theorem subsuming exponential-cluster durations"
+      },
+      {
+        "assessment": "Different models and inter-entry times; abstract offers no directly dominating complete-window spell theorem",
+        "evidence": [
+          "Abstract reports exponential hitting times for clumsy and careless models, not deterministic-window cluster durations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.14511",
+        "material_read": "Public abstract on entry rates, hitting laws and different expiration mechanisms",
+        "method": "Compared the listed reset/careless/clumsy models to deterministic sliding-window expiration",
+        "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+        "trigger": "Neighboring model by the same author potentially addressing rare-set clumping"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c46b2729-9996-4e43-959f-a3bcb42f2ed9",
+  "value": {
+    "rationale": "For expiring coupons with nonmonotone coverage, the waiting time between rare successful entrances and the persistence of a successful window are distinct naturally motivated reliability quantities. The primary paper computes entry flux and rare-event waiting; its formulas yield only the first moment of a spell. The all-parameter (0<alpha<1) exponential law identifies a nontrivial *distribution* of contiguous complete-window duration and a transparent microscopic mechanism: the first initial singleton to leave. This is a structural stochastic limit with a natural n^alpha scale, not a numerical curiosity, parameter renaming, or generic consequence of the mean identity.",
+    "status": "PASS"
+  }
+}
