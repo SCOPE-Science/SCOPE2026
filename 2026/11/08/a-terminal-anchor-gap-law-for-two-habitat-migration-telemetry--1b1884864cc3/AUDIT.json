@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The Bernoulli flip likelihood of the exact two-state CTMC gives independent per-gap Fisher terms. f has a unique positive maximum and derivative f'(0)=1 strictly larger than every positive-gap derivative, guaranteeing interior maximizers. Strict concavity near zero gives the short-horizon equal-spacing law. For a fixed number of gaps and unbounded horizon, comparison with m-1 individually optimal gaps forces exactly one diverging component, all others tending to a; local injectivity of f' then establishes equality of all short gaps and a unique high-horizon scalar root. Taylor expansion at a and the exponential long-gap tail give the exact asymptotic short-gap correction and exponential information ratio. An exact rational-polynomial factorization plus e^2>7 validates the finite counterexample. Standalone code reproduces the Fisher identity, rational factorization, finite path enumeration and asymptotic numerical instances, but infinite claims depend on written proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pagendam and Ross (2011), §§2–4 and numerical applications: multi-parameter network migration under transmitter battery constraints.",
+        "Cook, Gibson and Gilligan (2007 first public), abstract and source description: Bayesian information design for death and susceptible-infected epidemic processes."
+      ],
+      "reasoning": "Broader experimental-design formulations permit irregular observation times, but the inspected statements neither imply the forced fixed-terminal sum constraint nor provide the asymptotic classification of every maximizing allocation in the symmetric two-habitat case. Mere inclusion in a broader optimization model does not imply the exact theorem unless the theorem was established there.",
+      "searches": [
+        "Pagendam Ross optimal GPS tracking species movements 2011 irregular sampling Fisher information",
+        "Cook Gibson Gilligan 2007 optimal observation times experimental epidemic processes",
+        "optimal Markov experimental design fixed horizon finite observations endpoint GPS deployment"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1111/j.1541-0420.2007.00931.x",
+      "https://mssanz.org.au/modsim2011/E11/pagendam.pdf",
+      "https://doi.org/10.1198/TECH.2011.10052",
+      "https://bpb-us-w2.wpmucdn.com/u.osu.edu/dist/6/56774/files/2017/12/optimal_sampling_design_ctmc9-1nt190d.pdf",
+      "https://doi.org/10.1016/j.ecolmodel.2012.07.007"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Michel (2018) gives the equation identifying the one-gap maximizer a; it does not fix the span between first and last observation.",
+        "Parker et al. (2011) gives exact Fisher additivity and permutation symmetry; its discussed long-short numerical schedules use different Markov dynamics.",
+        "The proof explicitly invokes compactness, the strict one-gap maximum, unique stationary short branch and a sharp Taylor/exponential comparison to establish the new conclusion."
+      ],
+      "reasoning": "Known additivity plus the unconstrained single-gap maximum supplies only an upper bound. To conclude exactly one diverging gap for every global optimizer, all other gaps converge to the same optimum, the unique high-horizon branch, and the correction/ratio, one must solve the global constrained resource-allocation problem; those implications are not asserted in the inspected primary texts.",
+      "searches": [
+        "Michel optimal adaptive sampling two state continuous time Markov chain theorem 2.2 fixed tau",
+        "information sampling time differences permutation invariance Markov exact Fisher Parker 2011",
+        "Fisher optimal GPS fixed deadline long horizon sacrificing one gap exponential efficiency"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Michel (2018), sections 2 and Theorem 2.2, publicly available PDF: the symmetric-chain best constant repeated gap is already known.",
+        "Parker, Gilmour and Schormans (2011), Theorem 1 and Corollary 1: information additivity and interval-permutation invariance are already known."
+      ],
+      "reasoning": "These equivalences reduce the constrained design to a separable resource-allocation problem, but do not themselves resolve how the compulsory terminal horizon is allocated as it diverges with a fixed sample budget. The claimed all-budget one-long-gap structure and its sharp displacement therefore require the separate global analysis in the proof.",
+      "searches": [
+        "symmetric two-state continuous time Markov chain Fisher optimal irregular sampling fixed terminal horizon",
+        "optimal Markov chain observation time design fixed endpoint long horizon one macroscopic gap",
+        "stationary Markov chain Fisher information sum transition intervals optimal asymptotic spacing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Parker et al. (2011), Table 8: numerical mixed-length schedules such as (1,1,1,1,10) arise for a ten-state discrete-time random-walk model.",
+        "Michel (2018), Theorem 2.2: the optimum for equidistant observation periods, not a forced-endpoint design.",
+        "Pagendam and Ross (2013), bibliographic abstract only; full text not retrieved."
+      ],
+      "reasoning": "The published discrete-time numerical table is not an exact table of the proposed continuous-time symmetric two-habitat constrained design, and a single repeated-interval optimum is different from the global asymptotic optimum with a mandatory terminal time. The inaccessible 2013 text is a residual risk, not evidence of noncoverage.",
+      "searches": [
+        "two state Markov Fisher optimal design endpoint fixed T n observations exact table",
+        "Parker Gilmour Schormans 2011 table 8 one long and several short intervals",
+        "optimal use GPS transmitters estimating species migration rates 2013 equations full article"
+      ]
+    },
+    "rationale": "The published symmetric-CTMC optimal periodic interval, general Markov Fisher additivity, and qualitative nonuniform schedules are credited as prior art. The candidate statement is instead the all-fixed-observation-count global optimality classification under compulsory end-of-deployment observation, including the uniquely displaced short gaps, sharp exponential correction, and exponentially large information ratio. A substantive search did not establish that this all-budget, long-forced-horizon theorem follows from inspected published claims; historical-priority risk remains.",
+    "residual_risks": [
+      "A 2013 follow-up by Pagendam and Ross is potentially relevant but its complete text could not be read through available authorized access.",
+      "Another historical optimal-design source may contain an equivalent large-fixed-terminal-horizon specialization under a different vocabulary.",
+      "The proposed theorem is a locally optimal two-state model with perfect observation; it does not cover richer migration telemetry or unknown-rate robust designs.",
+      "Same-model review is not independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General multi-parameter habitat-migration GPS timing with battery constraints; does not present the fixed-terminal two-state all-budget asymptotic gap theorem",
+        "evidence": [
+          "pp. 2261–2263 model, movement generator and power constraint",
+          "abstract and later design application descriptions"
+        ],
+        "identifier_or_url": "https://mssanz.org.au/modsim2011/E11/pagendam.pdf",
+        "material_read": "Full accessible seven-page paper, model and problem statement §§1–2, Fisher criterion and numerical schedules in later sections",
+        "method": "Full-text PDF text examination and page-image inspection",
+        "title": "Optimal GPS tracking for estimating species movements",
+        "trigger": "Closest ecological telemetry formulation and one of the earliest directly motivating sources"
+      },
+      {
+        "assessment": "Already establishes the unconstrained best constant interval; does not analyze fixed first and last observations while the deployment horizon diverges at a fixed count",
+        "evidence": [
+          "§2 likelihood and Lemma 2.1",
+          "Theorem 2.2 gives optimal tau proportional to inverse rate"
+        ],
+        "identifier_or_url": "https://bpb-us-w2.wpmucdn.com/u.osu.edu/dist/6/56774/files/2017/12/optimal_sampling_design_ctmc9-1nt190d.pdf",
+        "material_read": "Abstract, sections 1–2, transition likelihood and Theorem 2.2 including optimal periodic interval and proof context",
+        "method": "Open-access PDF text and page-image examination",
+        "title": "Optimal adaptive sampling for a symmetric two-state continuous time Markov chain",
+        "trigger": "Identical stochastic process and local information objective; highest-priority possible equivalent"
+      },
+      {
+        "assessment": "Provides general Markov information additivity and irregular numeric designs, particularly for a different discrete-time transition model, but not the claimed continuous-time terminal-anchor theorem",
+        "evidence": [
+          "Theorem 1 Fisher-information additive formula and Corollary 1 permutation invariance",
+          "Table 8 includes mixed short/long designs for a 10-state random walk"
+        ],
+        "identifier_or_url": "https://doi.org/10.1198/TECH.2011.10052",
+        "material_read": "Full-text sections 1–3 and pertinent sections 4–6, including Theorem 1, Corollary 1, Tables 7–9 and discussion; not every appendix derivation",
+        "method": "Published full-text PDF text inspection; image rendering unavailable for this particular host",
+        "title": "Design of Experiments for Categorical Repeated Measurements in Packet Communication Networks",
+        "trigger": "Markov experiment-design additivity, permutation invariance, and nonuniform optimal designs"
+      },
+      {
+        "assessment": "Bayesian design for stochastic death and epidemic models; not a proof of two-state fixed-endpoint Fisher information asymptotics",
+        "evidence": [
+          "Publisher lists first published 28 November 2007",
+          "abstract addresses optimal sampling for death and SI epidemic processes"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1541-0420.2007.00931.x",
+        "material_read": "Publisher full bibliographic record and abstract; full body not accessed",
+        "method": "Publisher abstract and first-publication metadata examination",
+        "title": "Optimal Observation Times in Experimental Epidemic Processes",
+        "trigger": "Verified 2007-11-28 first public source for the archive observation-design direction"
+      },
+      {
+        "assessment": "Cannot assert its complete results do not cover a specialization; scope and detailed implications remain a residual priority risk",
+        "evidence": [
+          "The accessible title and description concern GPS-based migration estimation",
+          "Full article body was not available for comparison"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ecolmodel.2012.07.007",
+        "material_read": "Public bibliographic title and abstract only; complete text inaccessible after open/preprint attempts",
+        "method": "Bibliographic abstract examination and unsuccessful authorized full-text access attempt",
+        "title": "Optimal use of GPS transmitters for estimating species migration rates",
+        "trigger": "Potentially strongly relevant follow-up by the ecological-telemetry researchers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1b188486-4cc3-441e-88b8-b3b8af8b46b8",
+  "value": {
+    "rationale": "Compulsory starting and terminal GPS fixes under fixed battery observation budget make the sum-of-gaps constraint natural, and increasing deployment horizon creates a fundamentally different information-design regime. The precise all-budget optimal structure and the quantified exponential loss of equally spaced fixes identify a nontrivial, actionable mathematical boundary, beyond the known best unconstrained single period and known qualitative nonuniformity. The result is a rigorous benchmark for ecological telemetry, not an empirical scheduling recommendation.",
+    "status": "PASS"
+  }
+}
