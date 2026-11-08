@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python verify.py` (standard Python only). The checker reconstructs each section vertex from opposite-signed endpoint heights and evaluates its Euclidean squared norm; it never treats experimental frequencies as proof. The exact checks cover the planar endpoint and mid-cdf and the analytic cutoff parameter, while seeded Gaussian orientation samples test the full planar distribution at four interior points and the three-dimensional first-order asymptotic at two small thresholds. Tolerances are specified in the code and reflect finite sample sizes. The all-dimensional claim rests on the self-contained argument in RESULT.md, including the \(O_d(arepsilon^2)\) overlap estimate. Independent validation has not been performed.
+## correctness
+
+PASS
+
+Reconstructed section vertices as crossed edges and exact deficit 2(d+1)t(1-t)/d. Near-unit radii correspond to belts |<U,v_i>|<=k times an opposite-signed height; first-order spherical belt density and Gaussian range yield C_d=sqrt(d(d+1))/(sqrt(2pi))*E max_{j<=d} Z_j. Distinct vertex-belt overlaps are O(k^2) for d>=3 (disjoint in planar small-k regime). Exact planar belt angle yields F_2(0)=0,F_2(1/2)=1/2,F_2(2/3)=1, and the stated small-epsilon coefficient; independent high-precision planar evaluations checked. Standard iid minimum order statistic proves exponential limit and expected deficit asymptotic. No uniformity in growing d asserted.
+
+## originality
+
+PASS
+
+Best-of-knowledge: statement-level comparison with identifiable published results does not show the exact asserted new contribution to be covered; non-access and unindexed-priority uncertainties are explicitly retained.
+
+## value
+
+PASS
+
+An exact near-extreme radial probability and dimension-dependent constant for a natural random simplex section is distinct from known sign-only face-count distributions and general diameter inequalities. Planar complete law and extreme-value corollary give explicit probabilistic utility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
