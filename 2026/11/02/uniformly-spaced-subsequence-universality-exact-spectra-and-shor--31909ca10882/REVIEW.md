@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The greedy embedding lemma is proved in both directions, with the last new symbol of each full-alphabet arch forcing a canonical adversarial witness when the next arch fails. The separators and terminal fragments form a disjoint exhaustive decomposition. Inclusion–exclusion and coupon-collector stage products derive the generating function, while the minimum follows from exact length bookkeeping and forced permutation arches. A separate literal-target verifier checked 127,594 host words across eight parameter ranges, agreeing with all predicted index counts. The finite check supplements, but does not establish, the infinite theorem.
+PASS
 
-## Originality — PASS, with risk
+The spacing-aware greedy arch argument is bidirectional: every k-arch word embeds any k-target greedily (the next start is ≥e_j+s); choosing each arch terminal symbol forces any greedy pattern prefix to end at e_j and the incomplete suffix misses some letter, so k+1 cannot embed. Unique arch/spacer/terminal decomposition yields I_q(z) for missing-letter tails, F_q(z)=q!z^q/∏_{1≤j<q}(1−jz) for minimal full-letter arches, and T_{q,s}(z)=Σ_{0≤r<s−1}(qz)^r+(qz)^(s−1)I_q(z). Hence I_q+uF_qT/(1−u(qz)^(s−1)F_q), binary rational reduction, and minimal length qk+(s−1)(k−1) with exactly (q!)^k q^((s−1)(k−1)) hosts. Independent literal small-host enumeration checked q=2..3 and spacings including s≥2.
 
-The 2020 ordinary-arch theorem and unrestricted binary spectrum address spacing one. The 2022 general gap-constraint paper develops complexity bounds for a wider constraint class but does not state the uniform-minimum-spacing factorization and complete rational distribution. The 2023 regular-language counting theorem is also for ordinary subsequences. Comparison by implications distinguishes the lower-spacing requirement from previously treated upper-jump locality. An equivalent weighted-automaton specialization or less-visible combinatorial enumeration could subsume the result; that is the remaining priority for independent checking.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding identifies a tractable and fully enumerable subfamily within gap-constrained universality, which is motivated by constrained subsequence matching in string algorithms. The joint distribution for every alphabet size, spacing, host length, and universality index is substantially more informative than only a short extremal witness, while the shortest-host classification supplies exact benchmark instances for all parameters. The result is not an arbitrary finite slice or a direct restatement of the known ungapped theorem.
+PASS for s≥2 complete indexed-word universality spectra and shortest-host classification; s=1 expressly prior.
 
-## Closest literature and limitations
+## value
 
-Day et al., arXiv:2206.13896 (2022); Fleischmann et al., arXiv:2007.09192 (2020); Adamson et al., arXiv:2311.10658 (2023). The proof addresses uniformly imposed lower spacing only; it does not address independent upper bounds or heterogeneous gap languages. Possible unindexed equivalents remain a scientific risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Positive minimum spacing is a natural constrained subsequence model; deriving its complete bivariate index spectrum and exact shortest hosts for all alphabet sizes and spacings supplies usable enumerative and algorithmic benchmarks beyond a yes/no matching test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

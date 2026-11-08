@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T19:41:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The spacing-aware greedy arch argument is bidirectional: every k-arch word embeds any k-target greedily (the next start is ≥e_j+s); choosing each arch terminal symbol forces any greedy pattern prefix to end at e_j and the incomplete suffix misses some letter, so k+1 cannot embed. Unique arch/spacer/terminal decomposition yields I_q(z) for missing-letter tails, F_q(z)=q!z^q/∏_{1≤j<q}(1−jz) for minimal full-letter arches, and T_{q,s}(z)=Σ_{0≤r<s−1}(qz)^r+(qz)^(s−1)I_q(z). Hence I_q+uF_qT/(1−u(qz)^(s−1)F_q), binary rational reduction, and minimal length qk+(s−1)(k−1) with exactly (q!)^k q^((s−1)(k−1)) hosts. Independent literal small-host enumeration checked q=2..3 and spacings including s≥2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Day et al. full text concerns flexible interval/regular gap conditions and complexity.",
+          "Adamson et al. regular-language universality counts ordinary subsequences."
+        ],
+        "reasoning": "A broader automata enumeration framework could in principle specialize, but no inspected general theorem directly gives the claimed particular OGF and minimal-host characterization.",
+        "searches": [
+          "gap-constrained subsequence universality generating functions lower bound jumps",
+          "Subsequence universality with minimum distance between picked positions spaced scattered subsequence exact spectrum shortest universal word"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2206.13896",
+        "https://arxiv.org/abs/2007.09192",
+        "https://arxiv.org/abs/2311.10658",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum host is qk for ordinary s=1; new minimum qk+(s−1)(k−1) for s≥2.",
+          "The formula counts all attainable indices, not just whether one pattern is contained."
+        ],
+        "reasoning": "Ordinary arch theorem is not the asserted positive-spacing result; inserting s−1 unrestricted spacers changes index distribution and minimum length. The new greedy obstruction shows correctness of this extension but is not a mere parameter rename.",
+        "searches": [
+          "Fleischmann et al 2020 edit distance subsequence universality arch",
+          "Day et al 2022 gap-constrained matching"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fleischmann et al. ordinary greedy-arch factorization is s=1 only.",
+          "Day et al. formal gap constraints admit lower distances as a special case."
+        ],
+        "reasoning": "General gap-constraint terminology can encode the setting, but matching feasibility/complexity theorems do not by themselves yield index distribution or equality-case host census.",
+        "searches": [
+          "Subsequence universality with minimum distance between picked positions spaced scattered subsequence exact spectrum shortest universal word",
+          "minimum gaps spaced subsequence arch factorization",
+          "Day Kosche Manea Schmid 2022 gap-constrained subsequences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary public record gives (1+z)/(1−z−2uz²) for binary s=1.",
+          "For s=2 the evaluated formula has denominator 1−z−4uz³ and a distinct numerator."
+        ],
+        "reasoning": "The found exact database formula is the previously known s=1 specialization, not s≥2. Other databases were not exhaustively enumerated.",
+        "searches": [
+          "Resultary binary subsequence universality exact full length distribution",
+          "SCOPE closed-form law binary universality q=2 s=1"
+        ]
+      },
+      "rationale": "PASS for s≥2 complete indexed-word universality spectra and shortest-host classification; s=1 expressly prior.",
+      "residual_risks": [
+        "Equivalent weighted-automaton enumeration in unlocated formal-language literature might directly yield the formula.",
+        "s=1 binary and general ordinary arch identities are prior art."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader language of gap constraints but no exact all-index bivariate spectrum or shortest-host count found in inspected statements",
+          "evidence": "The source addresses computational complexity of general constrained subsequence matching.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.13896",
+          "material_read": "Full accessible preprint text, especially gap-constrained matching/universality problem setup and statements in sections 3–4",
+          "method": "Read parsed arXiv primary full-text sections and compare quantifiers (uniform lower spacing versus general lower/upper gap specifications)",
+          "title": "Subsequences With Gap Constraints: Complexity Bounds for Matching and Analysis Problems",
+          "trigger": "Same minimum-gap embedding relation among general gap constraints"
+        },
+        {
+          "assessment": "Supplies ordinary arch decomposition, no fixed positive minimum-gap skipping between selected positions",
+          "evidence": "Arch factorization is established for s=1.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.09192",
+          "material_read": "Full accessible primary definitions/arch-factorization theorem and proofs concerning unrestricted subsequence universality",
+          "method": "Read primary HTML text around definitions and arch lemma; compared s=1 to all s≥2",
+          "title": "The Edit Distance to k-Subsequence Universality",
+          "trigger": "Classical arch factorization for s=1 universality"
+        },
+        {
+          "assessment": "Exact binary s=1 special case; does not include minimum selected-index spacing s≥2",
+          "evidence": "Resultary public summary explicitly identifies ordinary subsequence universality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "Published mathematical-record title and semantic synopsis: OGF (1+z)/(1−z−2uz²)",
+          "method": "Read Resultary record abstract/synopsis only, not whole source tree",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Potential exact prior table/formula for binary universality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positive minimum spacing is a natural constrained subsequence model; deriving its complete bivariate index spectrum and exact shortest hosts for all alphabet sizes and spacings supplies usable enumerative and algorithmic benchmarks beyond a yes/no matching test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Linear indexed words only; fixed lower gap s≥1, not variable or upper constraints.",
+    "Ordinary s=1 statements excluded from novelty.",
+    "Equivalent weighted-automaton enumeration in unlocated formal-language literature might directly yield the formula.",
+    "s=1 binary and general ordinary arch identities are prior art."
+  ],
+  "schema_version": 1
+}
