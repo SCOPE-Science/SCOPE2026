@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The two Python 3 programs under `scripts/` use only the standard library. Each reconstructs the 28-vertex Coxeter graph from a different exact combinatorial presentation and independently reconstructs the 84 seven-edge induced matchings. One uses Bron–Kerbosch maximal-clique enumeration; the other exhaustively searches fixed-size cliques to confirm the absence of an eight-edge induced matching. Both enumerate all 3,486 unordered optimum pairs and compute all distances in exact-one- and exact-four-replacement graphs.
+## correctness
 
-`python3 scripts/verify_fano.py` confirms the distance-three sphere description, 28 one-replacement triangles, the unique lateral-edge correspondence over distance-three Coxeter pairs, and 56 triangles in the exact-four exchange graph.
+PASS
 
-`python3 scripts/verify_stars.py` independently verifies optimum cardinality and count, uniform distance shells and an explicit 56-vertex graph-isomorphism bijection against the published SageMath `Klein3RegularGraph` adjacency encoding. The data source is https://github.com/sagemath/sage/blob/develop/src/sage/graphs/generators/smallgraphs.py .
+Using the Fano nonline-triple Coxeter presentation, the 42-edge compatibility graph has 84 seven-cliques and no eight-clique; independently re-enumerated both exhaustive sets in a separate Python checker. The sources provide two distinct checkers (Fano maximal-clique and seven-cycle/star direct k-clique enumeration) and explicit 28 distance-three sphere cores F_v, each six matching edges. Exact complete optimal set equals 84 F_v+vw. Independent computation verified pairwise exact-exchange histogram: k1=84,k4=168,k5=672,k6=1470,k7=1092 and no k2/k3. Source verifiers reconstruct 56 triangles in J4, a 56-vertex cubic triangle intersection graph, a complete fixed bijection with Sage Klein3RegularGraph adjacency, and BFS shells (1,4,8,16,22,26,7), and at-most-four connectivity diameter4. The independent computation covered optimality and histogram, not separately the full named isomorphism certificate.
 
-The resulting finite checks are exhaustive and deterministic, but they are not an infinite-parameter proof, a complete literature-priority guarantee, or an independent scholarly audit.
+## originality
+
+PASS
+
+Dejter had constructed the same Coxeter-to-Klein graph through oriented seven-cycle zipping; the connection itself is prior. Here the claimed realization is via exact-four replacements among the classified maximum induced matchings; Dejter article does not state maximum induced matching or matching exchange. Joos–Rautenbach–Sasse give general lower bounds for subcubic induced matchings, not the 84 optima or associated exact reconfiguration graph.
+
+## value
+
+PASS
+
+A complete extremal induced-matching census and sharp exchange connectivity threshold on the canonical Coxeter graph, with an unexpected exact line-graph model of the cubic Klein graph, constitutes a natural finite structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
