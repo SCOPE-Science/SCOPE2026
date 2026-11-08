@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Proof gives exact cycle maximal geodesics of length floor(n/2), necessary and sufficient two-sided cyclic gap conditions for a minimal transversal, universal cardinality bound at most 3 via 2n>=k(L+2), and full two- and three-point counts. Boundary n=3,4,9,10,11,12 handled by inequalities. Independent brute-force original-shortest-path verifier succeeds for 3<=n<=18, 524280 subsets.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Elbassioni–Rauf, Discrete Mathematics 310 (2010), Theorem 1, Proposition 3 and Corollary 1 yield incremental enumeration and 2-exactness for arbitrary circular-arc hypergraphs.",
+        "A prior ladder-graph minimal-transversal theorem for P_h square K_2 includes C_4 at h=2 but does not imply a theorem for C_n with n>4."
+      ],
+      "reasoning": "The general algorithm applies to these input hypergraphs but does not specify the closed form, re-entrant purity or cubic asymptotic. The isolated overlapping C4 special case is explicitly not claimed as novel. No decisive domination of the all-n statement was located.",
+      "searches": [
+        "\"minimal transversals\" \"circular-arc hypergraphs\" uniform",
+        "\"circular-arc hypergraph\" \"minimum\" \"maximal\" \"uniform\" transversals enumeration",
+        "exact inclusion-minimal geodesic transversals of cycle C_n, spectrum and counting two and three vertex covers of all diameter arcs; n/3 binomial formula"
+      ]
+    },
+    "checked_sources": [
+      "Manuel–Brešar–Klavžar, arXiv:2101.08042v1, original geodesic-transversal preprint.",
+      "Peterin–Semanišin, Mathematics 9 (2021), 1592, original maximal-shortest-path-cover cycle proposition.",
+      "Elbassioni–Rauf, Discrete Mathematics 310 (2010), Section 3.1, circular-arc minimal transversal algorithm.",
+      "Exact geodesic-transversal, maximal-shortest-path-cover, and cyclic-interval-hitting literature searches."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Peterin–Semanišin 2021, Proposition 2.2(ii), gives xi(C_n)=2 but supplies only one witness pair.",
+        "Manuel–Brešar–Klavžar, arXiv:2101.08042v1, develops minimum geodesic transversals and spread cactus algorithms, not the labelled minimal antichain in examined material.",
+        "Elbassioni–Rauf generic dualization yields output algorithms and per-arc bound, not the exact cyclic-gap count."
+      ],
+      "reasoning": "Knowing the minimum two and one witness cannot imply that some cycles also have minimal triples or determine their frequency; deriving that requires the new deletion-gap inequalities. The generic per-hyperedge 2-exact property has no direct global three-vertex conclusion for this specialized half-cycle arc hypergraph.",
+      "searches": [
+        "The geodesic-transversal problem arxiv 2101.08042",
+        "On the Maximal Shortest Paths Cover Number Peterin Semanišin 2021",
+        "\"irredundant\" \"geodesic transversal\" cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Peterin–Semanišin, Proposition 2.2(ii), identifies the equivalent maximal-shortest-path-cover invariant and proves only its cycle minimum (author preprint pp. 4–5).",
+        "Elbassioni–Rauf 2010, Section 3.1, identifies minimum hitting sets for arbitrary circular-arc hypergraphs and the 2-exact property."
+      ],
+      "reasoning": "The cyclic maximal-geodesic vertex sets form the uniform circular-arc hypergraph of n consecutive blocks of size floor(n/2)+1. Generic minimal-transversal dualization is a method, not the same closed antichain or labelled multiplicities. The scalar hitting minimum 2 does not bound the largest minimal sets or count triples.",
+      "searches": [
+        "\"geodesic transversal\" \"cycle\" graph exact sets",
+        "\"maximal shortest path cover\" cycle geodesic transversal number",
+        "\"minimal k-path vertex covers\" \"cycles\" counting",
+        "minimal maximal shortest paths covers of cycles, all solutions, counting polynomial C_n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-claim searches under both geodesic-transversal and maximal-shortest-path-cover terminology found no exact cycle antichain polynomial.",
+        "The closely related known graph-specific results concern other graph families or the isolated C4 special case, not the complete cycle sequence."
+      ],
+      "reasoning": "No directly comparable exact table or result was observed in the actual targeted database and local-claim searches. Search absence alone is not a proof of originality.",
+      "searches": [
+        "all inclusion-minimal maximal geodesic transversal sets of cycles C_n and exact cardinality polynomial; cyclic binary necklaces, hitting antipodal maximal shortest paths",
+        "minimal maximal shortest paths covers of cycles, all solutions, counting polynomial C_n",
+        "\"geodesic transversal polynomial\" cycle"
+      ]
+    },
+    "rationale": "The actual 2021 foundational full-text sections establish the scalar cycle minimum gt(C_n)=2, not the complete minimal-transversal antichain. General circular-arc 2-exact dualization does not state the parity-sensitive labelled counts or re-entrant purity. Targeted database and synonym searches did not find a covering statement; hidden/indexed coverage remains a residual risk.",
+    "residual_risks": [
+      "An otherwise inaccessible or differently indexed paper may explicitly enumerate the same uniform circular-arc hypergraph.",
+      "The first 2021 author paper was inspected at relevant material, not reviewed line by line from start to finish.",
+      "The old C4 specialization is covered by a distinct ladder computation and does not constitute independently original sub-result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Inspected relevant sections concern finding a minimum set and algorithms, not explicit labelled enumeration of all inclusion-minimal sets. The full manuscript was not read line-by-line.",
+        "evidence": "arXiv v1 dated 20 January 2021; section 5 discusses C_n(I) with attached leaves and computation of smallest geodesic transversal; conclusion emphasizes algorithms.",
+        "identifier_or_url": "https://arxiv.org/abs/2101.08042",
+        "material_read": "Author full-preprint PDF, abstract/introduction, relevant sections on spread cactus cycles, definitions and conclusions; indexed-text search for minimal and polynomial",
+        "method": "Read original lawful full-text preprint through indexed PDF and page images, comparing the cycle object and complete statement",
+        "title": "The geodesic-transversal problem",
+        "trigger": "Original geodesic-transversal concept; plausible cycle and cactus coverage"
+      },
+      {
+        "assessment": "Directly covers the minimum xi(C_n)=2 and the length-floor(n/2) maximal-geodesic characterization but not exact inclusion-minimal polynomials in the material inspected.",
+        "evidence": "Proposition 2.2(ii), PDF page 5, proves xi(C_k)=2 using a witness and lower-bound argument.",
+        "identifier_or_url": "https://mp.feri.um.si/osebne/peterin/clanki/MSCP1.pdf",
+        "material_read": "Original author PDF pp. 1–6 with definitions and Proposition 2.2; indexed rest searched for enumerators",
+        "method": "Inspected original full-text PDF and screenshot of proof page 5",
+        "title": "On the Maximal Shortest Paths Cover Number",
+        "trigger": "Equivalent invariant and explicit cycle result"
+      },
+      {
+        "assessment": "Gives output-polynomial minimal-transversal enumeration for circular arcs and 2-exactness, not this concrete count or purity classification.",
+        "evidence": "Section 3.1 defines circular-arc hypergraphs; Proposition 3 states each minimal transversal hits each arc at most twice.",
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2010.05.017",
+        "material_read": "Accessible article HTML abstract, introduction, Section 3.1, Theorem 1, Proposition 3 and Corollary 1",
+        "method": "Read author-result text in accessible article HTML, compared definitions, algorithm, and local vs global bounds",
+        "title": "Polynomial-time dualization of r-exact hypergraphs with applications in geometry",
+        "trigger": "Stronger generic coverage of minimal hitting sets for cyclic-arc hypergraphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "285f8956-400d-4876-ba7f-3536b7d2c42e",
+  "value": {
+    "rationale": "This is the complete natural labelled minimal-transversal antichain of cycles, not a scalar minimum. Exact cubic-many three-vertex irredundant covers coexist with linearly-many optimum size-2 sets, and purity fails at n=9, returns at n=10, then fails for all n>=11. The phenomenon answers a motivated upper/lower minimal-hitting-size and redundancy question, without assuming a downstream theorem.",
+    "status": "PASS"
+  }
+}
