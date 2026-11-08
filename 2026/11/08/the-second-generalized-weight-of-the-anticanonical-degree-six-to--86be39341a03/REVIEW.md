@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** Laurent character independence gives dimension seven. The lower bound is attained by the two independent sections with common factor \((x-1)(y-1)\). The upper bound separates coprime sections (toric intersection bound six) from common factors. A complete 127-subset Newton classification reduces nonunit factors to six primitive segments, eight unimodular triangles, and three unit parallelograms. Direct torus point counts and residual mixed-area bounds finish the proof. The actual packaged checker verifies every finite classification input, the shape counts, and the exact \(q=5\) exhaustive eight-point rank threshold.
+
+**Originality — PASS, qualified.** The motivating original Little–Schenck source treats **one-section minimum distance**. Soprunov–Soprunova also treat first distance. Boguslavskii determines second and higher generalized weights on the **complete del Pezzo surface point set**; its degree-six code has length \(q^2+4q+1\), so its formula for whole-surface evaluation does not imply an exact value for the dense torus puncturing of length \((q-1)^2\). The closest dimension-classification paper treats codes with at most six generating lattice points, whereas this code has seven. Dedicated record and literature searches did not locate a covering exact dense-hexagon formula. Residual risk: a specialist toric-code paper could contain an equivalent higher-weight statement not indexed by these descriptions.
+
+**Mathematical value — PASS.** Determining the second generalized weight measures the largest rational base locus of a pencil in the anticanonical system of a natural smooth toric del Pezzo surface. It is a genuinely higher-order evaluation-code invariant, not a reformulation of minimum distance. The result is exact for an unbounded family of all prime powers and exposes how common factors, Newton shapes, and residual intersections determine extremality.
+
+The theorem applies to the dense torus only, not the full compact surface; historical priority is not independently certified. Finite computations are independently reproducible but are not presented as a proof of the infinite-field quantifier.
+
+Self-review: passed. Independent audit: not yet performed.
