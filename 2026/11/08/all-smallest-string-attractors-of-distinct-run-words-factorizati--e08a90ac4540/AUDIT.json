@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The required q-run lower bound follows from the q distinct unique letter factors, and q last-in-run positions suffice. For any q-position selection, every consecutive two-letter factor has precisely one occurrence, forcing the last-left or first-right condition, and all other factors are covered if these conditions hold. Singleton separators factor choices; each non-singleton block has t+1 endpoint configurations or one strictly internal selection at a run, yielding 1+sum(a_i-1). Explicit block generating functions simplify to the rational census, and coefficient extraction is binomial. Definition-level checks passed on 339 vectors/6786 selections and 54 composition coefficient pairs. Formal algebra checked; finite experiments are not a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mantaci et al. Proposition 12: gamma(uv) <= gamma(u)+gamma(v)+1, without equality or classification of every minimizer.",
+        "Banbara et al., CPM 2026, abstract and main results: exact all-minimum-attractor sets and counts for Fibonacci and period-doubling families.",
+        "Dvořáková and Hendrychová arXiv:2308.00850v5: minimum size two or three for certain binary pseudostandard prefixes."
+      ],
+      "reasoning": "The general concatenation inequality cannot force an exact q lower bound together with unique adjacent-boundary constraints and complete counts. Binary morphic families neither contain the growing-alphabet unique-run words for q>2 nor imply a run-composition census. Their conclusions therefore do not subsume the present theorem.",
+      "searches": [
+        "A Combinatorial View on String Attractors Proposition 12 concatenation minimum attractor bound",
+        "The Smallest String Attractors of Fibonacci and Period-Doubling Words CPM 2026 all minimum attractors",
+        "\"string attractors\" \"binomial\" \"runs\""
+      ]
+    },
+    "checked_sources": [
+      "Dvořáková–Hendrychová 2023/2024 arXiv:2308.00850v1/v5",
+      "Mantaci–Restivo–Romana–Rosone–Sciortino Theoretical Computer Science 2021, DOI:10.1016/j.tcs.2020.11.006",
+      "Banbara et al. CPM 2026, DOI:10.4230/LIPIcs.CPM.2026.33",
+      "Restivo et al. arXiv:2206.00376 (abstract/overview only)",
+      "Indexed attractor literature records on Thue–Morse, antipalindromic pseudostandard words, and paperfolding (title/claim comparisons only)",
+      "Own ledger research claim IDs: ade0f79c-6416-4d57-8985-f80eb02db832 and 37ab0f39-8b20-4e21-a227-9617ae10287b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2308.00850v5 introduction and main theorems: two-/three-element attractors for binary Rote/pseudostandard sequences, not unique-letter-run multiplicities.",
+        "Mantaci et al., full legal public PDF, Proposition 12 only supplies general gamma(uv) <= gamma(u)+gamma(v)+1.",
+        "CPM 2026 paper, main results provide Fibonacci and period-doubling exact sets/counts and state this fine-grained count is an interesting direction.",
+        "Earlier own claim ade0f79c-6416-4d57-8985-f80eb02db832 addresses P^k with repeated occurrences of each letter; 37ab0f39-8b20-4e21-a227-9617ae10287b addresses binary repeated two-run words."
+      ],
+      "reasoning": "Neither an upper bound for concatenation nor a case-specific exact count implies the necessary and sufficient last-left/first-right boundary constraints across q once-only distinct-symbol runs. Multi-period own families violate the defining single occurrence-run per letter hypothesis and have different factor occurrences; no direct specialization or forced corollary yields the product and census.",
+      "searches": [
+        "arxiv:2308.00850v1 earliest version and v5 full text string attractors Rote sequences",
+        "Mantaci Restivo Romana Rosone Sciortino concatenation bounds string attractor Proposition 12",
+        "Banbara Bannai Guo Köppl Mieno Okamoto 2026 all smallest attractors Fibonacci period doubling",
+        "Finite words with unique occurrences of each letter's run; all smallest string attractors classification; generating function xy / ((1-x)(1-x-xy-x^2 y))"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus hits on smallest-attractor multiplicities concerned Thue–Morse, paperfolding, Rudin–Shapiro or two antipalindromic pseudostandard families; no hit states the finite distinct-run product law.",
+        "arXiv:2308.00850v5, sections 2 and 5–7, defines attractors and treats binary generalized pseudostandard and Rote words.",
+        "Mantaci et al., A Combinatorial View on String Attractors (2021), sections 3–4, treats transformations and concatenation inequalities."
+      ],
+      "reasoning": "Equivalent statements might be phrased as hitting sets of distinct factors, run boundary covering, or minimum-attractor multiplicities, so those aliases were searched. They were not found in checked material. A negative search is only bounded evidence; no claim of exhaustive uniqueness.",
+      "searches": [
+        "Minimum string attractors of run-length words where each distinct symbol occupies a single contiguous run; product over singleton-separated non-singleton blocks counts all optimal attractor sets, bivariate generating function",
+        "Attractors for injective run sequences, one position per letter, boundary condition last of left or first of right, q minimum attractor size and exact count",
+        "Finite words with unique occurrences of each letter's run; all smallest string attractors classification; generating function xy / ((1-x)(1-x-xy-x^2 y))",
+        "\"string attractor\" \"distinct symbols\" \"runs\" minimal",
+        "\"string attractors\" \"run lengths\" \"different letters\"",
+        "\"string attractor\" \"each letter\" \"one run\" positions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus top hits with exact smallest-attractor counts concern finite Thue–Morse/Fibonacci-like instances or alternating binary words, not a table T_{n,q} across all distinct symbol run compositions.",
+        "The new coefficients are independently generated by a closed binomial expression and brute composition sums for 54 pairs."
+      ],
+      "reasoning": "No same-domain table or sequence with the statement that these coefficients are all smallest-attractor counts for injective run sequences was located. Purely matching numerical coefficients under an unrelated interpretation would not itself prove this combinatorial characterization previously known.",
+      "searches": [
+        "Minimum string attractors of run-length words where each distinct symbol occupies a single contiguous run; product over singleton-separated non-singleton blocks counts all optimal attractor sets, bivariate generating function",
+        "Attractors for injective run sequences, one position per letter, boundary condition last of left or first of right, q minimum attractor size and exact count",
+        "site:oeis.org \"string attractors\" \"runs\"",
+        "\"string attractors\" \"binomial\" \"runs\""
+      ]
+    },
+    "rationale": "Originality is assessed for the exact full minimum-attractor classification, product count and bivariate composition census over an arbitrary number of distinct once-only symbol runs. The closest inspected full texts study binary morphic families, generic concatenation inequalities, and general infinite-word behavior rather than this same domain. Published-research-record searches found no equivalent statement, subject to residual unindexed-equivalence risk. A previous own repeated-permutation attractor result does not cover single-occurrence-per-symbol runs.",
+    "residual_risks": [
+      "An unindexed or differently named hitting-set/run-boundary theorem might already contain the classification.",
+      "A preexisting purely algebraic coefficient identity may coincide with the rational generating function without providing the attractor interpretation.",
+      "Full text of Restivo et al. was not used for a same-object noncoverage determination, only for contextual comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different binary morphic families, no run-length composition census or all smallest attractors of once-only symbol blocks.",
+        "evidence": [
+          "arXiv:2308.00850v1 dated 2023-08-01 at https://arxiv.org/abs/2308.00850",
+          "Full-text sections 1–2, 5–7 at https://arxiv.org/html/2308.00850v5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2308.00850v5",
+        "material_read": "Abstract; introduction; definitions and Sections 5–7 results on binary pseudostandard and Rote sequences",
+        "method": "Read publicly available full HTML paper and inspected research hypotheses/claims",
+        "title": "String attractors of Rote sequences",
+        "trigger": "Earliest guiding 2023 paper in primary MSC2020 68R15 studying minimum string attractors"
+      },
+      {
+        "assessment": "Generic concatenation upper bound, not exact minima, boundary characterization, multiplicities or composition-generating functions for distinct runs.",
+        "evidence": [
+          "Proposition 12 states gamma(uv)<=gamma(u)+gamma(v)+1",
+          "DOI:10.1016/j.tcs.2020.11.006"
+        ],
+        "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRRS_TCS2021.pdf",
+        "material_read": "Full-text introduction, preliminaries and Sections 3–4 including Proposition 12 and powers; PDF first-page visual inspection",
+        "method": "Public author-posted full PDF text and visual first page",
+        "title": "A Combinatorial View on String Attractors",
+        "trigger": "Strong broader possible coverage by general word concatenation and run operations"
+      },
+      {
+        "assessment": "Exact counts for specific binary morphic word families; no general distinct once-only runs or two-variable census. Explicitly motivates finer-grained multiplicity studies.",
+        "evidence": [
+          "DOI:10.4230/LIPIcs.CPM.2026.33",
+          "Introduction says multiplicity of smallest attractors is a useful finer-grained repetitiveness question"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.33/LIPIcs.CPM.2026.33.html",
+        "material_read": "Abstract, introduction and stated main characterizations of Fibonacci and period-doubling attractor sets, plus discussion",
+        "method": "Read the publisher openly available full-text HTML",
+        "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+        "trigger": "Direct primary all-minimum-attractor counting work potentially subsuming general counting claims"
+      },
+      {
+        "assessment": "Potential background only; finite once-only-symbol attractor census not established from the material read, not used to claim full-text noncoverage.",
+        "evidence": [
+          "https://arxiv.org/abs/2206.00376"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.00376",
+        "material_read": "ArXiv abstract and introductory scope available from article page",
+        "method": "Read arXiv overview rather than a full paper",
+        "title": "String Attractors and Infinite Words",
+        "trigger": "Related general attractor theory might imply finite-word formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e08a90ac-4540-4a7c-89d3-61c35e012b25",
+  "value": {
+    "rationale": "The fine-grained multiplicity of smallest attractors is a natural combinatorial invariant emphasized as an open avenue in Banbara et al. CPM 2026. This theorem supplies a complete all-parameter classification for a canonical run-length class (pairwise distinct symbols, arbitrary positive run lengths), a meaningful structural singleton-separator factorization and exact length/alphabet-size census. Unlike a single easy q lower bound, it determines all optimal hitting sets and multiplicities; applications beyond this class are not asserted.",
+    "status": "PASS"
+  }
+}
