@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The proof is the basis for the all-graph claim. `verify.py` is a standalone Python 3.10+ script requiring only the standard library.
+## correctness
 
-It exhaustively enumerated connected labeled graphs of orders two to six and checked exact equivalence between a mixed sign coloring with a same-sign neighbor everywhere and a matching of size at least two. The resulting counts were (1,0), (4,0), (38,34), (728,723) and (26704,26698), where each pair is total connected graphs followed by qualifying graphs. It additionally iterated the four-path fixed-point map with \(K=2\), \(\delta=1/250\), \(\beta=4\), measured residual below \(10^{-12}\), and checked the analytic Lipschitz-bound expression gives a value below 1/4 on a radius-\(10^{-4}\) sup-norm neighborhood. All executable assertions passed.
+PASS
 
-The computed numbers use ordinary floating point and do not substitute for interval proofs. Unbounded graph size, the strict finite-parameter local stability guarantee, and the matching characterization follow analytically from the complete argument in RESULT.md. The independent audit remains unperformed.
+For K<=1 maximum-modulus fixed-point inequality M<=K tanh M rules out all nonzero equilibria. For K>1 the unique positive root r=K tanh r satisfies K sech²r<1. Necessity: if all neighbors have the opposite sign at a nonzero equilibrium, weighted tanh neighbors cannot equal the vertex value at any beta. For a supported binary sign vector, at x=r sigma same-sign weights dominate opposite-sign weights by q0^beta with q0=delta/(2r+delta)<1. On a shrinking q^beta supnorm ball, the full normalized-weight map has Lip bound tending to K sech²r<1 despite equal-opinion absolute-value kinks; its center defect is O(q0^beta). Contraction gives a unique nearby exponentially attracting equilibrium with O(q0^beta) supnorm error for sufficiently large beta. A mixed supported coloring exists exactly if both monochromatic sign classes contain an edge; equivalently graph has two vertex-disjoint edges. Conversely color outward from endpoints of such edges along a rooted spanning forest; the four-vertex path is minimal. Independently enumerated all connected labeled graphs through five vertices and compared supported mixed colorings against matching >=2, obtaining n=2:(1,0),3:(4,0),4:(38,34),5:(728,723).
+
+## originality
+
+PASS
+
+Pérez-Martínez et al. (2023) introduce the exact saturated-tanh, homophily-normalized opinion model and study polarization in special network regimes. The inspected paper does not prove supported-sign-pattern iff stable strong-homophily equilibrium on an arbitrary finite graph or a matching-number-two obstruction. Brooks–Chodrow–Porter analyze a different sigmoidal bounded-confidence vector field and cannot supply a same-model theorem without reduction. The matching proof is graph elementary but the uniform finite-beta fixed-point contraction is the substantive new result. Qualified priority risk remains.
+
+## value
+
+PASS
+
+For an established nonlinear social-influence model this proves a sharp, topology-only threshold for the existence of genuine stable polarization: two disjoint edges, witnessed minimally by P4. It also classifies each admissible binary sign pattern and quantifies exponential approach to saturated magnitudes, turning qualitative simulations into a verifiable arbitrary-finite-network theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
