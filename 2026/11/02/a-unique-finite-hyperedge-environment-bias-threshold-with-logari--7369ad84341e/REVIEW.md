@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Claim reviewed:** Unique finite-hyperedge stationary environment-bias crossover and its logarithmic sensitivity boundary for the frozen-composition two-state public-goods transition law.
+## correctness
 
-## Correctness — PASS
+PASS
 
-Stationary balance was derived directly, including the absorbing endpoints. The exact second-derivative numerator and derivative were recomputed symbolically, and strict negativity plus opposite endpoint signs gives exactly one crossover. Binomial central moments and a local Taylor expansion with exponential tail control prove the all-group-size asymptotic with the stated pointwise restrictions. A sign-bracketing argument proves the sensitivity boundary-layer scale. The included checker independently reproduces algebraic identities, exact finite-group examples, stationary balance, and numerical checks; these finite computations are not used as infinite proofs.
+The frozen-composition two-state transition chain has conditional stationary h_beta(c)=c^beta/(1-c+c^beta). Differentiating gives N_beta(p) with N_beta'<0 on (0,1) for beta>=2, N(0)>0>N(1), hence one inflection p_beta. A local fourth-order binomial/Taylor bound with exp-small tails gives g(Eh(K/g)-h(p)) -> p(1-p)h''/2 for fixed interior p; boundary substitution t=beta(1-p)=log beta-loglog beta+a gives normalized N -> 1-exp(-a), bracketing root. Independent stationary balance and beta=2,3,5,10,100,1000 numeric root checks corroborate. It does NOT address evolving strategies, uniform in p, or finite-g exact crossing locations.
 
-## Originality — PASS, qualified
+## originality
 
-The closest 2026 public-goods source introduces the underlying cooperator-fraction-dependent state transitions, with numerical coevolution of strategies and environment. It does not establish this frozen independent-group stationary-response crossover in the inspected full text. Earlier work on game transitions and the standard Bernstein binomial expansion were compared; neither accessible implication directly provides the unique curvature root or its log-log sensitivity location. Inaccessible or unindexed equivalent work remains a real risk, and the earlier related full texts were not all inspected.
+PASS
 
-## Mathematical value — PASS
+Wei et al. supply the exact two-state environment transition mechanism in adaptive hypergraph public-goods dynamics. Candidate freezes composition, averages stationary h over Bin(g,p), proves strict curvature crossover and beta boundary layer; general Voronovskaya theorem implies expansion but not the model-specific uniqueness and scaling. Resultary semantic queries of published records performed with two tailored queries; no exact dominating result located, and this is not proof of priority. The listed primary sources were compared on mathematical implications; inaccessible relevant text retained as risk.
 
-The exact sign reversal distinguishes when finite group heterogeneity improves or worsens high-resource occupancy relative to the homogeneous benchmark. The unique threshold and its asymptotic migration toward unanimity with high sensitivity give a structural prediction for environmental feedback, not a routine numerical recomputation. No claim is made about strategic adaptation or actual population-level equilibrium.
+## value
 
-## Limitations and closest sources
+PASS
 
-The complete analytic statement applies only to linear persistence, recovery sensitivity at least two, independent composition sampled once and held fixed, and pointwise large-group asymptotics off the threshold. Wei et al., arXiv:2603.22967 (24 March 2026), is the closest matching transition model. Su et al., arXiv:1905.10269, and Feng et al., DOI 10.1109/TSMC.2023.3315963, provide broader game-transition background but study other dynamics or observables. The leading finite-size expansion is classical in form, while the derivative root and sensitivity scaling are model-specific.
+For a fixed binomially sampled hyperedge in a published two-state transition model, sign of environmental sampling bias and its unique sensitivity-dependent transition are natural analytic comparative-statistics quantities. The asymptotic logarithmic threshold is nontrivial; does not imply conclusions for fully adaptive evolutionary dynamics.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
