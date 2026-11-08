@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:50:24.636837Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a binary order-n universal partial word with one joker at position k=1 or k=2, the k windows using it delete 2k distinct labeled edges from the binary de Bruijn graph B_{n−1}; the rest must form an Euler trail. Degree balance forces a constant postjoker block when k=1 and a two-periodic alternating block when k=2 (with n=2,3 exceptional). The random bit transition has P^{n−1}=uniform, giving each root arborescence T_n=2^{2^{n−1}−n}. For k=1 deletion of loop and root-exit edge preserves T_n per complementary prefix, so U_{n,1}=2T_n. For k=2, the remaining 3-edge Laplacian perturbation has Green-function overlap determinant α/2 with α=(1−(−1/2)^{n−2})/3, giving U_{n,2}=T_n α for n≥4 and ratio→1/6; proof handles both small endpoints separately. Independently exhaustively enumerated all partial strings for n=2,3,4 obtaining (U_{n,1},U_{n,2})=(2,0),(4,2),(32,4), consistent with theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2017 construction covers arbitrary early wildcard placement existence",
+          "Nonbinary and cyclic results address other alphabets/constraints, do not enumerate indexed linear cases"
+        ],
+        "reasoning": "Existence for wider wildcard positions does not dominate a precise count at k=2. Cyclic wraparound changes equality of windows and cannot imply the linear count.",
+        "searches": [
+          "arxiv:1601.06456v4 Theorems 9 10",
+          "arxiv:1611.03928 universal partial words nonbinary",
+          "doi:10.1007/s10623-026-01841-x universal partial cycles"
+        ]
+      },
+      "checked_sources": [
+        "https://dmtcs.episciences.org/en/articles/2205/download",
+        "https://arxiv.org/abs/1611.03928",
+        "https://doi.org/10.1007/s10623-026-01841-x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2017 primary construction supplies at least one witness but not all T_n·α completions",
+          "Directed matrix-tree and BEST formulas are standard tools, yet exact 3×3 determinant arises from the particular forced four-edge removal"
+        ],
+        "reasoning": "Current enumeration implies earlier existence for n>=3, not the reverse; first-position arborescence baseline uses standard de Bruijn count and is not itself the principal novelty.",
+        "searches": [
+          "Chen Kitaev Mütze Sun DMTCS 19(1) article Theorems 9–10",
+          "Goeckner et al arxiv:1611.03928",
+          "2026 Fillmore universal partial cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary upword definition exactly one matching window per binary n-word, not cyclic wraparound",
+          "Theorems 9 and 10 establish existence, not number of labeled linear words"
+        ],
+        "reasoning": "Compared indexed linear upwords, cyclic partial cycles, and de Bruijn tours with removed wildcard edges. The second-position count is not equivalent to ordinary de Bruijn cycle count because four forced edges are deleted.",
+        "searches": [
+          "Resultary: universal partial words one wildcard in second position exact count de Bruijn cycles",
+          "Chen Kitaev Mütze Sun 2016 universal partial words first second diamond positions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published table gives explicit example words, not a complete count at all n",
+          "No indexed all-n second-position numerical count or generating table found"
+        ],
+        "reasoning": "Finite examples cannot give the T_n·α parity formula. Independently counted n≤4 to corroborate beginning only.",
+        "searches": [
+          "On universal partial words 2017 Table 1 examples order 2..5",
+          "Resultary: universal partial words one wildcard in second position exact count de Bruijn cycles"
+        ]
+      },
+      "rationale": "Chen–Kitaev–Mütze–Sun, On universal partial words (2016/2017) Theorems 9 and 10 show existence with joker first and second, and examples, but their inspected full primary paper does not tabulate all indexed boundary-joker words. The all-order second-position closed formula requires a rank-three tree update and parity correction; de Bruijn arborescence counts for first position are simpler and prior routine ingredients. Goeckner et al. nonbinary and Fillmore et al. cyclic results address different enumerative models. No identified prior theorem covers exact U_{n,2}; residual unindexed literature risk.",
+      "residual_risks": [
+        "Unindexed older enumerations or an appendix in wider universal partial-word literature could already include the exact boundary-joker count.",
+        "Full 2018 nonbinary and 2026 cyclic papers were not independently inspected beyond abstracts/metadata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS existence and constructions, not the exact all-n count shown in assessed theorem",
+          "evidence": [
+            "Theorems 9 and 10 construct boundary joker placements, no exhaustive continuation count"
+          ],
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2205/download",
+          "material_read": "Full 19-page open DMTCS primary PDF inspected, including Section 3.2, Theorems 9–10 and small example table; page screenshots examined",
+          "method": "Open publisher PDF extracted text and page-image inspection",
+          "title": "On universal partial words",
+          "trigger": "Exact same binary one-wildcard linear word model"
+        },
+        {
+          "assessment": "Nonbinary alphabet emphasis, no identified binary boundary count from material read",
+          "evidence": [
+            "Existing enumeration issue discussed; priority risk limited by reading scope"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.03928",
+          "material_read": "Abstract and research-package indexed discussion only; full primary text not independently read",
+          "method": "ArXiv indexed abstract comparison",
+          "title": "Universal Partial Words over Non-Binary Alphabets",
+          "trigger": "Related broader alphabet and enumeration question"
+        },
+        {
+          "assessment": "Cyclic cycle constraints differ from linear fixed-index counts",
+          "evidence": [
+            "Cyclic windows versus indexed linear words"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-026-01841-x",
+          "material_read": "Publisher abstract and work-package comparison; full primary text not independently read",
+          "method": "Indexed abstract comparison",
+          "title": "The existence and structure of universal partial cycles",
+          "trigger": "Contemporary cyclic wildcard result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Enumeration by joker placement is a natural and explicitly motivated strengthening of universal partial-word existence. The all-order second-position formula detects a parity-dependent 1/6 asymptotic penalty from shifting a single wildcard by one position. This natural infinite enumerative family is substantive despite leaving interior placements open.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly one wildcard at first/second position and their reversals; not interior positions beyond these, not multiple jokers, cyclic or q-ary universal partial words.",
+    "Finite complete enumeration n≤4 corroborates only boundary cases and is not all-n proof.",
+    "Unindexed older enumerations or an appendix in wider universal partial-word literature could already include the exact boundary-joker count.",
+    "Full 2018 nonbinary and 2026 cyclic papers were not independently inspected beyond abstracts/metadata."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: boundary-joker enumeration
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement counts indexed binary linear partial words with exactly one wildcard, and specifies the accepted orders and positions. The initial wildcard-window expansions form forced walks in the directed de Bruijn graph. Euler-trail imbalance proves that the wildcard at the first position forces a constant following block, and that at the second position forces a two-periodic alternating block. The first-position count follows by root arborescence preservation and the directed last-exit count. For the second position the three relevant deleted edges give a rank-three update; the Green-function overlap identity follows from the \(m\)-step mixing of the binary shift-register walk, and the displayed six entries reduce the determinant to \(\alpha/2\). The \(n=2\) and \(n=3\) boundary cases are handled separately. Exact standalone checks enumerate all small candidate words, independently count Euler trails by edge-subset recursion, compute integer Laplacian cofactors, and validate the rational overlap identities. These finite checks are corroboration, not a substitute for the symbolic proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Chen–Kitaev–Mütze–Sun, arXiv:1601.06456 (first public 2016-01-25), is the closest primary source. Its Theorems 9–10 construct single-joker partial words with the relevant early joker placements; they do not enumerate all such words. Their displayed finite examples are not a count. The first-position count here is a transparent application of standard de Bruijn arborescence enumeration and is included chiefly as a comparison baseline. The claimed new content is the all-order, parity-sensitive second-position formula and its rank-three overlap evaluation, including the exact ratio to the first-position count. The non-binary partial-word paper (arXiv:1611.03928) discusses enumeration as an outstanding direction and chiefly treats other alphabets. Fillmore et al. (2026) chiefly analyze cyclic partial words, a different boundary model. Index and ledger comparisons did not yield a result logically covering the exact second-position count. Unindexed enumerative literature and historical priority remain unverified.
+PASS
 
-## Value — PASS
-An exact count over an infinite natural boundary-position family answers an enumerative question raised by the foundational universal-partial-word literature. The second-position formula establishes a non-obvious parity oscillation and the asymptotic \(1/6\) penalty for displacing one wildcard a single place from the boundary. It distinguishes existence from multiplicity and gives a structural forced-prefix result, rather than an arbitrary small numerical census. The determinant computation is substantive enough to explain the enumerative behavior.
+For a binary order-n universal partial word with one joker at position k=1 or k=2, the k windows using it delete 2k distinct labeled edges from the binary de Bruijn graph B_{n−1}; the rest must form an Euler trail. Degree balance forces a constant postjoker block when k=1 and a two-periodic alternating block when k=2 (with n=2,3 exceptional). The random bit transition has P^{n−1}=uniform, giving each root arborescence T_n=2^{2^{n−1}−n}. For k=1 deletion of loop and root-exit edge preserves T_n per complementary prefix, so U_{n,1}=2T_n. For k=2, the remaining 3-edge Laplacian perturbation has Green-function overlap determinant α/2 with α=(1−(−1/2)^{n−2})/3, giving U_{n,2}=T_n α for n≥4 and ratio→1/6; proof handles both small endpoints separately. Independently exhaustively enumerated all partial strings for n=2,3,4 obtaining (U_{n,1},U_{n,2})=(2,0),(4,2),(32,4), consistent with theorem.
 
-## Closest literature and limitations
-Primary comparison: *On universal partial words*, https://arxiv.org/html/1601.06456v4 (especially Section 3.2, Table 1 and the graph construction). Context: *Universal Partial Words over Non-Binary Alphabets*, https://doi.org/10.1016/j.tcs.2017.12.022 (introduction and enumerative outlook); *The existence and structure of universal partial cycles*, https://doi.org/10.1007/s10623-026-01841-x (cyclic setting and constructions). Neither exact counts for interior joker placements nor counts for multiple jokers or nonbinary alphabets are claimed. No independent scientific or historical-priority audit has yet been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chen–Kitaev–Mütze–Sun, On universal partial words (2016/2017) Theorems 9 and 10 show existence with joker first and second, and examples, but their inspected full primary paper does not tabulate all indexed boundary-joker words. The all-order second-position closed formula requires a rank-three tree update and parity correction; de Bruijn arborescence counts for first position are simpler and prior routine ingredients. Goeckner et al. nonbinary and Fillmore et al. cyclic results address different enumerative models. No identified prior theorem covers exact U_{n,2}; residual unindexed literature risk.
+
+## value
+
+PASS
+
+Enumeration by joker placement is a natural and explicitly motivated strengthening of universal partial-word existence. The all-order second-position formula detects a parity-dependent 1/6 asymptotic penalty from shifting a single wildcard by one position. This natural infinite enumerative family is substantive despite leaving interior placements open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
