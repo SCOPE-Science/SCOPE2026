@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof works in the polynomial group ring over \(\mathbb F_2\) for all integer rim lengths \(n\ge3\) and all times \(t\ge1\). Reversibility follows from unit determinant. At each primary factor other than \(x+1\), the independent eigenvectors \((x,1)\) and \((x^{-1},1)\) diagonalize the update. The exceptional \(x+1\) factor is treated without dividing by the nonunit \(x+x^{-1}\): a Smith reduction of \(A+I\) proves the odd-time kernel dimension, and \((A+I)^2=(x+x^{-1})A\) proves the even-time kernel dimension. The gcd identity and Möbius inversion then establish all claimed counts. Standalone verification passed 1,200 exact matrix-rank cases, 21,824 directly enumerated configurations and 19 orbit-census cases. Limits: finite experiments do not prove untested cases, but the algebraic argument covers them.
+## correctness
 
-## Originality — PASS, qualified
-The reversible construction itself is established earlier (Macfarlane 2004 and classical second-order Rule 90); it is not claimed as new. Boulet's 2009 open-access sun-graph paper concerns real spectra. Aledo et al. 2015 survey general graph dynamical systems; Kari and Taati 2013 treat surjective cellular automata. The material inspected does not give an all-length fixed-point formula for this finite cyclic second-order system or its odd/odd single-dimension defect. Related periodic-point results for sunlets with nonlinear majority updates and the power-of-two sunlet case under leaf-corona Jordan doubling are already known and specifically excluded from novelty. Direct source inspection of the 2004 Macfarlane paper was blocked, so potentially equivalent material there or in unindexed works remains a concrete risk. The originality conclusion is best-knowledge, not a certificate of global uniqueness.
+PASS
 
-## Mathematical value — PASS
-The cyclic sunlet is a natural family simultaneously representable as a graph automaton and as a second-order wave cellular automaton. Exact fixed-point and primitive-orbit counts resolve the full temporal census for every cycle length, identify an odd/odd defect not visible from generic reversibility, and prove a sharp n-versus-2n global clock transition. Such complete closed formulas are useful benchmarks for reversible graph cellular automata and extend beyond the power-of-two cases understood via nilpotent adjacency. The claim is not merely a known graph isomorphism or a restatement of invertibility.
+PASS. Eliminating leaf variables gives the reversible second-order Rule-90 state matrix A=[[x+x^-1,1],[1,0]] over F2[x,x^-1]/(x^n-1). det A=1. Decompose x^n-1=(x^m-1)^(2^a) with odd m, so CRT applies. Away from x+1, eigenvectors (x,1) and (x^-1,1) diagonalize with eigenvalues x and x^-1, giving twice the degree of gcd(x^n-1,x^t-1). At x+1 the local parameter y=x+1 yields s=y^2/x; for B=A+I, ker B has dimension min(2^a,2), and B^2=sA gives 2min(2^a,2^v2(t)) at even t. For odd t the factor 1+A+...+A^(t-1) is a local unit, so the exceptional contribution is 1 at odd n and 2 at even n. Summation gives exactly the parity/gcd exponent, including the n=3 edge boundary. A^L=I and no earlier full fixed space establish exact order, and the largest invariant factor realizes that primitive period; Möbius inversion is correct. Independent GF(2) adjacency-power/rank checks used 280 (n,t) cases for n=3..16 and 1<=t<=2n+1; code inspected from verify.py, but its saved reported 1,200 cases were not substituted for this audit. Nothing about asynchronous updates or spatial symmetry quotients is proved.
 
-## Sources and limitations
-Relevant primary literature: Macfarlane (2004), DOI 10.1088/0305-4470/37/45/006 (abstract and limited indexed text available, full text inaccessible); Boulet (2009), DOI 10.46298/dmtcs.456 (full OA PDF read); Kari and Taati (2013), arXiv:1311.2319 (full arXiv HTML read); Aledo, Martínez and Valverde (2015), DOI 10.1155/2015/594294 (full HTML read). The conclusion should not be read as independent verification or as an exhaustive literature proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge with materially improved primary-source inspection. The reversible second-order Rule-90 recurrence is **not** new: Macfarlane (2004) RCA3, eq.(3), matches it. The materially read 2004 OA primary PDF, particularly eqs.(1)-(5), sections 5 and 6 and appendix, instead computes single-seed weights on one-dimensional arrays using matrix cellular automata, and §6 explicitly considers more complicated initial conditions future work. In the examined material no finite cyclic n-by-n all-initial-state fixed-kernel gcd census or Möbius primitive counts is supplied. The present natural finite-period quotient and one-bit odd/odd defect are not implied by those single-seed weights. Other CA orbit-census equivalences may remain in unindexed literature.
+
+## value
+
+PASS
+
+PASS. A complete periodic orbit census for a natural reversible binary dynamics on the sunlet graph answers a genuinely dynamical question not reducible to the standard statement of reversibility. The exact gcd/parity formula, sharp matrix order and Möbius primitive counts distinguish odd and even graph length for all return times; a researcher studying finite reversible CA, network parity updates, or their zeta functions could use this exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

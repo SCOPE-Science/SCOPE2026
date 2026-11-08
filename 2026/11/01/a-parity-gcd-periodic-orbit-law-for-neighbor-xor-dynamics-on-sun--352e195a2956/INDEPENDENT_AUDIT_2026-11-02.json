@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T12:53:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Eliminating leaf variables gives the reversible second-order Rule-90 state matrix A=[[x+x^-1,1],[1,0]] over F2[x,x^-1]/(x^n-1). det A=1. Decompose x^n-1=(x^m-1)^(2^a) with odd m, so CRT applies. Away from x+1, eigenvectors (x,1) and (x^-1,1) diagonalize with eigenvalues x and x^-1, giving twice the degree of gcd(x^n-1,x^t-1). At x+1 the local parameter y=x+1 yields s=y^2/x; for B=A+I, ker B has dimension min(2^a,2), and B^2=sA gives 2min(2^a,2^v2(t)) at even t. For odd t the factor 1+A+...+A^(t-1) is a local unit, so the exceptional contribution is 1 at odd n and 2 at even n. Summation gives exactly the parity/gcd exponent, including the n=3 edge boundary. A^L=I and no earlier full fixed space establish exact order, and the largest invariant factor realizes that primitive period; Möbius inversion is correct. Independent GF(2) adjacency-power/rank checks used 280 (n,t) cases for n=3..16 and 1<=t<=2n+1; code inspected from verify.py, but its saved reported 1,200 cases were not substituted for this audit. Nothing about asynchronous updates or spatial symmetry quotients is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Macfarlane §6 discusses higher-block methods and extensions to more complicated initial states; does not state periodic-boundary kernel dimensions in read sections. Kari/Taati address general reversible/surjective CA, not sunlet cycle census."
+        ],
+        "reasoning": "General reversibility/surjectivity does not fix a transformation order or fixed-space dimensions. The published complete multipartite binary parity orbit census concerns a different graph and permits only short periods, unlike the n/2n sunlet order.",
+        "searches": [
+          "Macfarlane (2004), §§1,5,6/appendix; DOI:10.1088/0305-4470/37/45/006",
+          "Kari and Taati, arXiv:1311.2319",
+          "Resultary:Sharp period-four census for complete multipartite parity automata"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, verify.py and actual eight-blob Git tree",
+        "Macfarlane 2004 DOI 10.1088/0305-4470/37/45/006 (lawful OA primary text, relevant sections)",
+        "Boulet 2009 DOI 10.46298/dmtcs.456 (bibliographic context)",
+        "Kari and Taati arXiv:1311.2319 (general CA context)",
+        "Resultary parity-automaton related results and public GitHub exact phrase search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A finite periodic quotient of RCA3 has the same local recurrence, but computing its all-initial-state fixed kernel at each t requires a separate cyclic ring CRT calculation absent from the single-seed result inspected."
+        ],
+        "reasoning": "Earlier RCA3 formulation supplies the update and is properly credited, while the exact gcd/parity return count and primitive period multiset are further invariant information not entailed by previously inspected claims.",
+        "searches": [
+          "Macfarlane 2004 RCA3 eqs.(3),(5), §§5-6",
+          "Kari/Taati arXiv:1311.2319",
+          "Resultary parity automata searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Macfarlane (2004), RCA3 update eq.(3), is exactly the leaf-eliminated Rule-90 second-order recurrence. The paper computes evolution from a single infinite-line seed in eq.(5) and weight sequences N(t), not all-state finite cyclic returns."
+        ],
+        "reasoning": "The underlying recurrence is already known; the quantifiers and invariant here range over every cyclic length n, every binary initial state, and every return time t, so it does not follow from a single-seed Hamming-weight formula.",
+        "searches": [
+          "Resultary:neighbor-XOR dynamics on sunlet graph cycle corona leaves periodic orbit count F2 parity gcd",
+          "Macfarlane DOI 10.1088/0305-4470/37/45/006",
+          "web:Linear reversible second-order cellular automata first-order matrix equivalents 2004"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned finite parity-dynamics records for complete multipartite and distance-two cube graphs, not a table of sunlet return counts. Boulet studies real graph spectra, not GF2 time-evolution fixed spaces."
+        ],
+        "reasoning": "No inspected exact table or listed formula encodes this all-n all-t GF2 temporal count. Missing a search hit is not a novelty proof; the mathematical objects and field/observable are specifically distinct.",
+        "searches": [
+          "Resultary:neighbor-XOR dynamics on sunlet graph cycle corona leaves periodic orbit count F2 parity gcd",
+          "GitHub public math search:sunlet XOR fixed states",
+          "Boulet 2009 sun graph spectral characterization DOI:10.46298/dmtcs.456"
+        ]
+      },
+      "rationale": "PASS, best of knowledge with materially improved primary-source inspection. The reversible second-order Rule-90 recurrence is **not** new: Macfarlane (2004) RCA3, eq.(3), matches it. The materially read 2004 OA primary PDF, particularly eqs.(1)-(5), sections 5 and 6 and appendix, instead computes single-seed weights on one-dimensional arrays using matrix cellular automata, and §6 explicitly considers more complicated initial conditions future work. In the examined material no finite cyclic n-by-n all-initial-state fixed-kernel gcd census or Möbius primitive counts is supplied. The present natural finite-period quotient and one-bit odd/odd defect are not implied by those single-seed weights. Other CA orbit-census equivalences may remain in unindexed literature.",
+      "residual_risks": [
+        "A full visual PDF rendering of the Macfarlane source was unavailable (403), although primary textual sections including the exact same recurrence and conclusions were read.",
+        "A differently formulated earlier finite cyclic reversible CA period census could dominate the new formula without using the word sunlet.",
+        "The finite verification covers only n<=16; the unbounded assertion rests on the CRT proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Formulation covered, finite cyclic all-state exact orbit census not established by examined weight formulas; no whole-document noncoverage assertion.",
+          "evidence": [
+            "Eq.(3) identical second-order rule; eq.(5) specifies single-seed on infinite line; §6 says more complicated initial states left for future study."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/37/45/006",
+          "material_read": "OA full-text PDF reached through CiteSeerX; parsed introduction eqs.(1)-(5), summary pp.10796-97, RCA3 section 5, section 6 and appendix, with specific examination of aims, all-state versus single-seed quantifiers. A PDF screenshot attempt was rejected (403); unexamined pages may contain additional detail.",
+          "method": "Lawful OA primary PDF text via https://citeseerx.ist.psu.edu/document?doi=f3921158b9871d8db8d16cde33822fabde049a6b&repid=rep1&type=pdf ; compared literal recurrences and statistics",
+          "title": "Linear reversible second-order cellular automata and their first-order matrix equivalents",
+          "trigger": "Exact equivalent Rule-90 two-step recurrence, potential complete prior coverage"
+        },
+        {
+          "assessment": "Real adjacency spectral characterization is not a binary dynamical temporal fixed-state count; priority limitations remain.",
+          "evidence": [
+            "The published topic is spectral characterizations of sun graphs, distinct from mod-2 return matrices."
+          ],
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.456",
+          "material_read": "Title/abstract and research-package cited context; this audit did not independently read every PDF page.",
+          "method": "Bibliographic and scientific-object comparison",
+          "title": "Spectral characterizations of sun graphs and broken sun graphs",
+          "trigger": "Same underlying sunlet graph, possible spectral equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A complete periodic orbit census for a natural reversible binary dynamics on the sunlet graph answers a genuinely dynamical question not reducible to the standard statement of reversibility. The exact gcd/parity formula, sharp matrix order and Möbius primitive counts distinguish odd and even graph length for all return times; a researcher studying finite reversible CA, network parity updates, or their zeta functions could use this exact invariant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md, verify.py and actual eight-blob Git tree",
+    "Macfarlane 2004 DOI 10.1088/0305-4470/37/45/006 (lawful OA primary text, relevant sections)",
+    "Boulet 2009 DOI 10.46298/dmtcs.456 (bibliographic context)",
+    "Kari and Taati arXiv:1311.2319 (general CA context)",
+    "Resultary parity-automaton related results and public GitHub exact phrase search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all labelled sunlets C_n corona K_1, n>=3, synchronous GF(2) neighbor-XOR fixed-state count at each t>=1 is 2^(2 gcd(n,t) - 1 if both n,t odd); matrix has order n for even n and 2n for odd n; Möbius inversion gives all primitive labelled temporal cycles.",
+  "limitations": [
+    "No GitHub write, external publisher update, attestation, or replacement to published files was performed.",
+    "Scientific verdicts are based on the written unbounded proofs and bounded independent checks, not solely the repository verification logs.",
+    "A full visual PDF rendering of the Macfarlane source was unavailable (403), although primary textual sections including the exact same recurrence and conclusions were read.",
+    "A differently formulated earlier finite cyclic reversible CA period census could dominate the new formula without using the word sunlet.",
+    "The finite verification covers only n<=16; the unbounded assertion rests on the CRT proof."
+  ],
+  "residual_risks": [
+    "A full visual PDF rendering of the Macfarlane source was unavailable (403), although primary textual sections including the exact same recurrence and conclusions were read.",
+    "A differently formulated earlier finite cyclic reversible CA period census could dominate the new formula without using the word sunlet.",
+    "The finite verification covers only n<=16; the unbounded assertion rests on the CRT proof."
+  ],
+  "schema_version": 1
+}
