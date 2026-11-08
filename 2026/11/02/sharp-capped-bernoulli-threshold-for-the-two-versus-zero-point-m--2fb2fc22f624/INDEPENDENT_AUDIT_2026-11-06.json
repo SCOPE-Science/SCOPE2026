@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:16:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent Bernoulli p_i in [0,p], 0<p<=1/2, derive P(S=2)/P(S=0)=e_2(p_i/(1−p_i)). At fixed pair sum s=x+y and product v=xy, e_2=H+[Us+(1−2U)v]/(1−s+v); its derivative in v is [1−s−(2−s)U]/(1−s+v)^2. If e_2>=1, the contrary nonnegative derivative would force e_2<1 using H<=U²/2 and s<1, a contradiction. Thus reducing v at fixed s strictly increases e_2 and saturates one interior probability per step, reaching m full-cap parameters and one residual q. The saturated e_2 crosses 1 at minimal m with binom(m+1,2)(p/(1−p))²>=1; q=(1−binom(m,2)t²)/(mt+1−binom(m,2)t²), threshold T=mp+q. Strict compression establishes boundary uniqueness, perturbation gives sharp strict-event infimum; p=1/2 and p→0 limits verified. Independent exact-rational grid tested 6552 instances over six caps and lengths ≤6, including threshold and equality families. Testing is finite only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kleiner 2026 establishes unrestricted two-versus-zero reversal at mean 1 and more general index-gap bounds, but not individual capped strict-saturation formula in inspected original",
+          "The new restriction p<1/2 changes the extremal feasible domain and exact threshold"
+        ],
+        "reasoning": "A general unconstrained theorem does not imply the sharper constrained optimal T(p); a constrained majorization theorem might and remains a limited priority risk.",
+        "searches": [
+          "Igor Kleiner arxiv:2610.10664 full theorem and proposition extremal Poisson binomial point probabilities",
+          "Poisson-binomial majorization fixed mean bounded Bernoulli two-count odds"
+        ]
+      },
+      "checked_sources": [
+        "Full source RESULT.md and checker source, CHECKS logic, REVIEW and AUDIT",
+        "Full accessible arxiv:2610.10664v1 HTML primary source",
+        "Tang and Tang 2023 bibliographic/overview",
+        "Resultary Poisson-binomial cap-related search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kleiner unrestricted critical mean 1 and multiple equality families; cap p<1/2 gives T(p)>1 and unique saturated minimizer",
+          "Tang–Tang surveys general distribution identities and modes, not a cited cap-specific sharp event inequality"
+        ],
+        "reasoning": "The uncapped theorem is a lower bound, not a matching upper and uniqueness result for every p. The cap-compression sign lemma is an additional nontrivial mathematical step.",
+        "searches": [
+          "arxiv:2610.10664v1 full text sections for k=0,r=2 and extremizer",
+          "Tang and Tang 2023 The Poisson Binomial Distribution—Old & New"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The event ratio is exactly the elementary symmetric odds polynomial e2; cap bound becomes odds≤t",
+          "Resultary returned exchangeable Bernoulli envelopes and Chaundy–Bullard tail inequalities for different objects"
+        ],
+        "reasoning": "Equivalent formulation is sharp fixed-total-mass upper envelope of e2 under coordinate cap. No directly equivalent capped least-mean formula identified by genuine searches, though this is not proof of absence.",
+        "searches": [
+          "Bernoulli independent cap p_i ≤ p P(S=2)≥P(S=0) least mean saturated odds e2 threshold",
+          "Resultary search Poisson binomial Bernoulli capped probabilities P(S=2) larger P(S=0) minimal mean saturated"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned sharp exchangeable envelopes, not this independent capped two-vs-zero exact phase diagram",
+          "Source RESULTS supplies T(p) continuously for p∈(0,1/2], not recomputation of a known fixed-n list"
+        ],
+        "reasoning": "No known tabulation with the cap-dependent boundary distribution located. A differently worded convex majorization table remains possible.",
+        "searches": [
+          "Resultary P(S=2) P(S=0) individual cap exact threshold p Bernoulli",
+          "SCOPE pair-balancing Bernoulli transport 2026/9/ SCOPE-exact-two-crossing-transport-law-for-bernoulli-pair-balancing--952d735cb8e8"
+        ]
+      },
+      "rationale": "PASS qualified for the capped sharp staircase and equality rigidity, explicitly excluding the known unrestricted reversal threshold and classical elementary symmetric sum identity. Full Kleiner 2026 text was inspected: general fixed-mean multi-affine reductions and unrestricted k=0,r=2 do not state this cap-saturated extremizer; a more general older cap-constrained theorem remains a residual possibility.",
+      "residual_risks": [
+        "No absolute exhaustive priority proof among capped Bernoulli majorization theorems.",
+        "Cap p≤1/2 is essential for strict sign obstruction; no arbitrary cap or other point-mass gap result proved.",
+        "Grid enumeration limited to 6552 exact instances and six chosen caps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "prior unrestricted threshold, not capped distribution in the passages checked",
+          "evidence": [
+            "Kleiner (2026), unrestricted threshold 1; multi-affine extremal methods already known"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.10664v1",
+          "material_read": "Full accessible primary HTML main theorem, extremal reduction and equality sections inspected, including k=0,r=2 special case",
+          "method": "web full HTML primary text",
+          "title": "Why Distance Two Is Exceptional for Poisson–Binomial Point Probabilities",
+          "trigger": "same pair point masses and extremal fixed mean"
+        },
+        {
+          "assessment": "background, not decisive priority comparison",
+          "evidence": [
+            "Tang–Tang (2023), survey of Poisson-binomial theory"
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/22-STS852",
+          "material_read": "Bibliographic and survey overview only; full text not reviewed",
+          "method": "source metadata and search",
+          "title": "The Poisson Binomial Distribution—Old & New",
+          "trigger": "general Poisson binomial point probabilities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural sharp cap-dependent refinement of an established Poisson-binomial point-mass reversal question: operational constraints on individual success probabilities shift the minimum mean from 1 to a nontrivial arithmetic staircase with a rigid extremal law. The threshold and distribution shape may be needed in bounded-risk Bernoulli comparisons, rather than a random isolated table value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Full source RESULT.md and checker source, CHECKS logic, REVIEW and AUDIT",
+    "Full accessible arxiv:2610.10664v1 HTML primary source",
+    "Tang and Tang 2023 bibliographic/overview",
+    "Resultary Poisson-binomial cap-related search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No absolute exhaustive priority proof among capped Bernoulli majorization theorems.",
+    "Cap p≤1/2 is essential for strict sign obstruction; no arbitrary cap or other point-mass gap result proved.",
+    "Grid enumeration limited to 6552 exact instances and six chosen caps."
+  ],
+  "residual_risks": [
+    "No absolute exhaustive priority proof among capped Bernoulli majorization theorems.",
+    "Cap p≤1/2 is essential for strict sign obstruction; no arbitrary cap or other point-mass gap result proved.",
+    "Grid enumeration limited to 6552 exact instances and six chosen caps."
+  ],
+  "schema_version": 1
+}
