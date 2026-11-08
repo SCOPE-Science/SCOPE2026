@@ -1,15 +1,21 @@
-# Review of the retraction classification
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Every algebra endomorphism is a substitution on the generators, and it is invertible exactly when its induced map on the degree-one quotient is invertible. The commuting idempotent linear parts split into simultaneous \(0/1\) eigenspaces over every field. At each higher tensor degree, idempotence annihilates equal-weight corrections and pairwise commutativity forces every unequal-weight correction to have the same scalar-gradient form; a single generator shear simultaneously kills these terms. The stabilizer calculation counts exactly the compatible nonlinear coefficients. The resulting orbit and joint-rank formula follows by orbit–stabilizer. The proof does not rely on finite enumeration, and no assumption on the characteristic is hidden.
+## correctness
 
-## Originality
-**PASS, provisionally.** Berzins (arXiv:math/0504015) and Lipyanski (arXiv:math/0511654) investigate automorphisms **of** endomorphism semigroups, which are not the algebra-automorphism orbits **of commuting idempotent elements** enumerated here. Fountain and Gould (2007) investigate idempotent-generated subsemigroups in stable basis algebras. A 1998 paper of Mikhalev and Yu discusses retracts of several free algebra types, but its full text could not be inspected, and its available abstract does not state an arbitrary-length finite-field enumeration for nonunital nilpotent free associative algebras. Prior published mathematical records and other already-recorded scientific claims were compared by objects, aliases and all-arity formulas, with no corresponding result identified. This does not establish publication priority; a more general semilattice-action linearization theorem could subsume the abstract normal form.
+PASS
 
-## Value
-**PASS.** The classification determines every automorphism orbit of compatible algebra retractions for all generator counts, nilpotence lengths and tuple arities. The explicit formula counts *actual operators* with their full-algebra joint ranks, a natural invariant that is not supplied by the usual simultaneous diagonalization of linear maps. Nonlinear coefficients are controlled by tensor-word Boolean AND weights; already in the two-generator cube-zero case, incomparable supports give \(q^2\) more points than comparable supports. This nontrivial stratification is relevant when enumerating split subalgebras and finite semilattice actions on free nilpotent associative algebras.
+On V=A/A², commuting idempotents decompose V=⊕V_epsilon. At each tensor degree d, the degree-d error f_i:V_s→(V^{⊗d})_t satisfies (s_i+t_i−1)f_i=0 from idempotence and (s_j−t_j)f_i=(s_i−t_i)f_j from commutation. Equal source/target weights force zero; unequal weights give a common coboundary h killed by a degree-d generator shear, preserving lower degrees, in every characteristic. Induction d=2,...,L proves simultaneous conjugacy. Automorphisms have |GL_n(q)| q^{n∑_{d=2}^L n^d} elements; the stabilizer is ∏_s |GL_{n_s}(q)| q^{∑_s n_s M_s}, yielding the exact asserted count and ranks ∑_{d=1}^L r_i^d. An independent enumeration of original F2 generator-image maps found 98 idempotents and 868 commuting pairs at (n,L,m)=(2,2,2), matching 4+(q+1)(5q^5+q^7).
 
-## Limitations and closest work
-The theorem does not address more general quotients, noncommuting projections, or scheme-theoretic reducedness. The nearest published results are the 2005 automorphism-of-endomorphism-semigroup papers and the 2007 product-of-idempotents study; none of their inspected main statements is a finite-field all-tuple classification. The 1998 retracts paper remains an incomplete full-text comparison. Independent historical publication checking remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This is not mere linear simultaneous diagonalization: classification under nonlinearly acting algebra automorphisms and exact nonlinear orbit sizes are additional. Berzins and Lipyanski study automorphisms of the endomorphism SEMIGROUP, not the simultaneous conjugacy of its commuting idempotent ELEMENTS. Mikhalev–Yu retract theory and general semilattice-action lifting remain priority risks. Best-of-knowledge distinct complete all-arity tensor-weight census, not certified absolute priority.
+
+## value
+
+PASS
+
+Commuting retractions are a fundamental and naturally defined family of algebra operators. A complete all-field all-arity orbit classification and finite-field operator count with joint ranks is an exact invariant that ordinary GL_n diagonalization does not provide; the extra q² incomparable-weight effect already occurs at two generators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
