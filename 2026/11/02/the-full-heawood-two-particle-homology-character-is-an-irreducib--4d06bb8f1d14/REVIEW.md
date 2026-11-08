@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The actual package's standard-library checker reconstructs the unordered cubical chain complex with \(91\) zero-cells, \(252\) one-cells, and \(168\) two-cells, then performs an integer Smith reduction with \(153\) unit pivots and a residual rank-one order-two factor. Its exact rank and equivariance checks cover all \(336\) graph automorphisms. The graph-cycle projection is rank eight, and the six-dimensional complementary character has self-inner-product one. Correctness is established for the explicitly stated ordinary unordered two-point case; no infinite-family assertion is made.
+## correctness
 
-## Originality — PASS against inspected evidence
-The strongest relevant neighboring general sources are Ko–Park's first-homology description (arXiv:1101.2648), An–Knudsen's planar second-homology theorem (arXiv:2008.10371), and the finite configuration model (arXiv:2407.07854). Their statements do not specify this nonplanar Heawood full-group character. Published indexed full-text reports for ordered mod-two Heawood configurations and signed Borel–Moore two-point configurations concern different homology theories; their relevant results and limitations were inspected. The full \(336\)-element irreducible decomposition was not found. An equivalent unindexed calculation remains the main residual bibliographic risk.
+PASS
 
-## Value — PASS
-A complete rational symmetry module for this canonical Fano-incidence graph separates the actions on two genuine collision-free configuration homology groups. The six-dimensional absolutely irreducible summand and distinct full/cyclic/polarity quotient Betti vectors carry content not determined by the nonequivariant homology groups. This is a complete natural finite classification, not a routine normalization check.
+Unordered deleted-product cells (91,252,168) have rank(d1)=90; independently reconstructed signed boundaries and rank(d2 mod 3)=154, with rank 153 mod2. Inspected original integral Smith algorithm performs 153 unit unimodular reductions and residual rank-one gcd2, giving H1=Z^8⊕Z/2 and H2=Z^14; no longer dimension. The graph-cycle projection is G-equivariant and of full rank 8. Independently enumerated 336 Fano collineations and dualities and the signed cell Lefschetz traces; obtained degree-2 character and E=H2-W with character inner product 1 and orthogonality to W. The exact integral certificate plus rational character argument supports a distinct irreducible rational six and cycle eight.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The rank/torsion and general deleted-product method are known in graph braid literature, but the material inspected does not give the exact full PGL2(7) rational H2 decomposition. Its irreducible six is not to be confused with the six-dimensional independence-complex module.
+
+## value
+
+PASS
+
+Full 336-element automorphism action on ordinary two-point graph configuration homology, refining known ranks and torsion into a complete rational character with a nonisomorphic six-dimensional constituent and exact symmetry-quotient Betti numbers. A natural nonplanar highly symmetric graph merits this finite complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
