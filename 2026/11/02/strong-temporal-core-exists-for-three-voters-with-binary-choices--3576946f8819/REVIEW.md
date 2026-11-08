@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof reduces arbitrary nonempty binary ballots to singleton approvals without reducing attained utilities, balances the three possible minority types using an explicit two-case switch formula, and Pareto-completes the result. It checks all three possible coalition sizes against their exact floor quotas. Exact-integer direct coalition enumeration and independent utility-vector dynamic programming confirmed 31,464 unordered full-ballot round profiles through four rounds, 1,715 additional seven-type profiles through six rounds, and 900 seeded additional cases. Infinite-horizon validity is analytical; finite checks are not substituted for proof.
+PASS
 
-## Originality
+PASS. Reconstructed the singleton-approval reduction with three minority-round frequencies c1>=c2>=c3 and the two explicit switch cases, proving each voter >=floor(d/3) and two voters >=floor(2d/3) on contested rounds. All unanimous rounds add common utility; replacing double approvals with a singleton can only lower a fixed outcome utility. A Pareto completion using O(ell^4) satisfaction-vector DP preserves quota guarantees. Each singleton coalition is blocked by floor(ell/3), each pair by one of the two high-utility voters at floor(2ell/3), and the grand coalition by Pareto efficiency under the exact Section 6 strong-core definition. An independent complete finite full-ballot profile calculation for all 20,439 ordered elections of 1,2,3 rounds verified existence of a Pareto quota-satisfying outcome; universal correctness is the analytic argument.
 
-**PASS under self-review, with stated priority risk.** Phillips et al. (2025), Section 6 and its appendix, introduce the same strong-core criterion and establish its general failure, but do not state the three-voter binary positive result. Their existence results for EJR+/FJR and their sFPJR serial dictatorship do not imply existence of the stronger sCore. Masařík et al. (2023) study broader feasibility constraints and distinct proportionality guarantees, not this strong temporal-core claim. Existing JR/PJR analyses are logically weaker. Actual targeted mathematical-record and literature searches found no equivalent all-horizon result; their failure to find a match is not proof of universal priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** Strong temporal core stability is a motivated, usually unsatisfiable demand, and the result gives an exact positive structural domain with arbitrary time variation and a polynomial constructive algorithm. The substantive ingredient is simultaneous coverage of both single-voter and two-voter proportional quotas followed by Pareto completion, not a finite enumeration or a renaming of a known weaker axiom.
+PASS, qualified. Phillips–Elkind–Teh–Wąs introduce Definition 6.1 strong temporal core and exhibit general nonexistence; their Proposition 6.2 states an implication from strong core to weaker axioms, not a guarantee that it exists for three voters and two choices. The fresh constructive all-horizon binary-three-voter theorem is not covered by weaker proportionality/JR results. Specialized unindexed three-voter existence results remain possible.
 
-## Closest literature and limitations
+## value
 
-- Phillips et al., *Strengthening Proportionality in Temporal Voting*, arXiv:2505.22513v1, Section 6, Definition 6.1, Proposition 6.2, and relevant appendix examples.
-- Masařík et al., *A Generalised Theory of Proportionality in Collective Decision Making*, arXiv:2307.06077, introduction and public-decision model.
-- Chandak et al., *Proportional Aggregation of Preferences for Sequential Decision Making*, arXiv:2306.14858, abstract and stated JR/PJR results.
+PASS
 
-The statement does not cover more than three voters, more than two alternatives, or empty approval ballots. Unindexed equivalent formulations are a residual priority risk; no independent audit has been carried out.
+PASS. A constructive universal existence theorem within the first nontrivial restricted strong-temporal-core setting separates an impossible-in-general fairness axiom from a tractable binary three-voter domain. The explicit polynomial algorithm and coalition quotas support downstream temporal voting design.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

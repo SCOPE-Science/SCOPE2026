@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:13:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Reconstructed the singleton-approval reduction with three minority-round frequencies c1>=c2>=c3 and the two explicit switch cases, proving each voter >=floor(d/3) and two voters >=floor(2d/3) on contested rounds. All unanimous rounds add common utility; replacing double approvals with a singleton can only lower a fixed outcome utility. A Pareto completion using O(ell^4) satisfaction-vector DP preserves quota guarantees. Each singleton coalition is blocked by floor(ell/3), each pair by one of the two high-utility voters at floor(2ell/3), and the grand coalition by Pareto efficiency under the exact Section 6 strong-core definition. An independent complete finite full-ballot profile calculation for all 20,439 ordered elections of 1,2,3 rounds verified existence of a Pareto quota-satisfying outcome; universal correctness is the analytic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing general strong-core impossibility allows positive special cases; it cannot imply them.",
+          "EJR/PJR and standard core variants generally have weaker coalition deviations than Definition 6.1 sCore."
+        ],
+        "reasoning": "The broader proportionality existence results do not dominate this restrictive three-voter all-horizon strong-core guarantee.",
+        "searches": [
+          "Strengthening Proportionality in Temporal Voting arXiv:2505.22513 2025",
+          "Masařík Pierczyński Skowron 2023 generalized public decision proportionality",
+          "Chandak Goel Peters 2023 sequential JR/PJR"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2505.22513 Section 6 and Proposition 6.2",
+        "arXiv:2307.06077",
+        "arXiv:2306.14858",
+        "Resultary semantic query: three voter two alternative strong temporal core guaranteed existence finite horizon"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proves sCore=>sFJR/Core, not sFJR=>sCore, and provides general nonexistence counterexamples.",
+          "The proposed proof explicitly checks all coalition sizes 1,2,3 under exact floor quota, which weaker proportionality theorems do not."
+        ],
+        "reasoning": "Neither known implication nor a general counterexample logically covers this positive binary three-agent subdomain.",
+        "searches": [
+          "Phillips et al arXiv:2505.22513 Definition 6.1, Proposition 6.2, nonexistence examples",
+          "Masařík et al arXiv:2307.06077",
+          "Chandak et al arXiv:2306.14858"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claimed property is exactly absence of a coalition S and quota-sized R whose outcomes strictly improve all S.",
+          "The proof constructs a Pareto-efficient outcome and two high-quota utilities, an explicit sufficient property stronger than merely weak JR."
+        ],
+        "reasoning": "No equivalent binary restriction was found in the inspected original strong-core paper; distinct fairness acronyms are not semantic equivalents.",
+        "searches": [
+          "Resultary: three voter two alternative strong temporal core guaranteed existence finite horizon",
+          "Phillips Elkind Teh Was Definition 6.1 strong temporal core existence binary choices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching published Resultary mathematical record was returned among semantic results; many indexed items concerned voting paradoxes in other rules.",
+          "Independent exhaustive ordered-ballot search through three rounds verified 20,439 profiles only; cannot prove all horizons."
+        ],
+        "reasoning": "The new statement is an infinite-horizon constructive existence theorem rather than a finite profile table; a specialized small-electorate classification might nevertheless cover it.",
+        "searches": [
+          "Resultary semantic: three voter two alternative strong temporal core guaranteed existence finite horizon",
+          "three voter two choices strong core exhaustive computation"
+        ]
+      },
+      "rationale": "PASS, qualified. Phillips–Elkind–Teh–Wąs introduce Definition 6.1 strong temporal core and exhibit general nonexistence; their Proposition 6.2 states an implication from strong core to weaker axioms, not a guarantee that it exists for three voters and two choices. The fresh constructive all-horizon binary-three-voter theorem is not covered by weaker proportionality/JR results. Specialized unindexed three-voter existence results remain possible.",
+      "residual_risks": [
+        "An unindexed strong-core small-electorate theorem could imply the result.",
+        "The proof requires nonempty per-round approvals; allowing empty approvals breaks the guaranteed singleton utility quota."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Found correct matching definition; no exact three-voter binary all-horizon existence theorem in inspected sections",
+          "evidence": [
+            "Phillips–Elkind–Teh–Wąs, Section 6, Definition 6.1, Proposition 6.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.22513",
+          "material_read": "Accessible conference full PDF: Section 6 strong-core definition, Proposition 6.2, general existence/nonexistence statements and relevant appendix material",
+          "method": "Read source PDF defining theorem and compared exact strict-deviation quantifiers",
+          "title": "Strengthening Proportionality in Temporal Voting",
+          "trigger": "Original strong temporal core Definition 6.1, exact same fairness concept"
+        },
+        {
+          "assessment": "Alternative proportionality conditions not shown to imply Definition 6.1 strong core",
+          "evidence": [
+            "Masařík–Pierczyński–Skowron 2023"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.06077",
+          "material_read": "Accessible primary abstract and statements of proportionality conditions; full technical proofs not read",
+          "method": "Bounded relevant-statement comparison",
+          "title": "A Generalised Theory of Proportionality in Collective Decision Making",
+          "trigger": "Potential broader binary public decision guarantee"
+        },
+        {
+          "assessment": "JR/PJR-style axioms differ from coalition strict improvements on controlled rounds",
+          "evidence": [
+            "Chandak–Goel–Peters 2023"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.14858",
+          "material_read": "Accessible primary abstract/model comparison; full document not read",
+          "method": "Statement-level comparison",
+          "title": "Proportional Aggregation of Preferences for Sequential Decision Making",
+          "trigger": "Sequential approval fairness may cover binary rounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A constructive universal existence theorem within the first nontrivial restricted strong-temporal-core setting separates an impossible-in-general fairness axiom from a tractable binary three-voter domain. The explicit polynomial algorithm and coalition quotas support downstream temporal voting design.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly three voters and two alternatives, nonempty approvals and additive utilities; all-horizon property proved by construction, finite checks supplemental.",
+    "An unindexed strong-core small-electorate theorem could imply the result.",
+    "The proof requires nonempty per-round approvals; allowing empty approvals breaks the guaranteed singleton utility quota."
+  ],
+  "schema_version": 1
+}
