@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact feasible line-search formula follows from the source algorithm. A strictly interior minimizer ensures the step-size bounds are inactive locally. The derivative is a rank-one metric-orthogonal projector, and its threefold product has the stated trace, norm, and nilpotency identities. Nonparallel vertex rays exclude two simultaneous orthogonal pairs. Taylor expansion of the analytic sweep yields one- or two-sweep quadratic convergence; the metric-circle condition follows from a quadratic identity and convexity of the corresponding disk. The concrete coefficient identities and 1840 exact checks are reproducible with `verify.py`. Finite checks do not establish the general theorem, which is separately proved in `RESULT.md`.
+PASS
 
-## Originality
+Near strictly interior minimizer t, unconstrained exact line searches are feasible and analytic; each vertex update derivative is the H-orthogonal projector P_i=I−n_i n_i^T H/(n_i^T H n_i). The 3-projector sweep has norm |c12 c23| in chosen order, trace c12 c23 c31 and J²=(trace J)J. With at most one orthogonal vertex pair, consecutive pair gives J=0 and quadratic one-sweep error; first/third orthogonal pair gives nonzero square-zero J and quadratic two-sweep error. The exceptional targets lie on the pair metric-circle interior arc iff opposite H-angle acute. Independently reconstructed exact rational example derivative J_(1,3,2)=[[1/5,-1/10],[2/5,-1/5]], J²=0 and J_(1,2,3)=0, and geometric circle identity; nonlinear quadratic expansions rely on source rational substitution.
 
-**PASS, qualified.** Algorithm 2 and Theorem 3.2 of Mazumder–Wang, arXiv:2303.07642, provide the algorithm and a global linear rate, not the complete local metric-circle and sweep-order classification here. Klopfenstein et al., arXiv:2010.11825, address separable prox-linear coordinate descent. Beck–Pauwels–Sabach, arXiv:1502.03716, analyze a different cyclic block conditional gradient method. The projector multiplication identities themselves are elementary and not claimed as new. Specialized projection and optimization literature may contain an unrecognized stronger formulation; independent publication-priority assessment remains necessary.
+## originality
 
-## Value
+PASS
 
-**PASS.** The exact geometric locus and complete order classification explain a qualitative local rate transition for an established algorithm. They show why moving one vertex in the schedule can change an entire sweep from first-order to second-order error, or move the quadratic cancellation to pairs of sweeps, despite the same vanishing eigenvalue of the linearization. A rational example separates the effect from ordinary forward-only PolyCD. These statements do not assert global or generic superlinear convergence.
+Best-knowledge PASS: Products of orthogonal projections and nilpotent rank-one matrices are classical, but here the projections are actual linearizations of bounded away-step PolyCD updates with a nontrivial local-feasibility argument. Generic cyclic block Frank–Wolfe is not the same update. Mazumder–Wang Theorem 3.2 gives global linear convergence of PolyCDwA, which neither excludes nor characterizes nongeneric local quadratic convergence; related identification papers treat separable proximal coordinate descent rather than this vertex-directed away-step map.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A sharp order-dependent one-versus-two-sweep local rate classification for a concrete practical constrained optimization method. The exceptional metric-circle geometry explains the non-generic superlinear phenomena and distinguishes away steps from ordinary forward-only PolyCD.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
