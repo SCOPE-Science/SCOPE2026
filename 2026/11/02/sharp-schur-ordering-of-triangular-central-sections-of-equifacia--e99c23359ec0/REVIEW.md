@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(a,b,c>0\), the tetrahedron's centroid is interior. Each edge crosses a generic central plane with probability equal to the angle between its endpoint rays divided by \(\pi\), from an exact two-lune area calculation. There are six edges, with three pairwise angles appearing twice. This proves the arcsine formula, and the section must have either three or four vertices. Pair balancing increases the sum of arcsines because, for two proportions \(x>y\) and the third \(z>0\), \(x(1-x)-y(1-y)=(x-y)z>0\); this controls the derivatives even across the inflection at \(1/2\). The unique regular maximizer, full range, local Taylor coefficient, and uniform boundary cusp follow rigorously. The Gaussian triangle-inequality equivalent is checked pointwise by sign patterns. The executable checker corroborates independently derived formulas and four independent normal-sampling cases; simulation is not used as an infinite proof.
+PASS
 
-## Originality — PASS, with historical limitation
+The centered disphenoid vertices have pairwise angles with cosine 2p_i-1, each twice. Haar central-plane crossings yield E N=2/pi sum_i arccos(2p_i-1), where N in {3,4}; hence P(triangle)=4/pi sum_i asin(sqrt(p_i))-2. For x>y with third simplex coordinate z>0, x(1-x)-y(1-y)=(x-y)z>0 implies f′(x)<f′(y) for f(t)=asin sqrt(t), establishing strict pairwise-balancing Schur concavity even for x>1/2. Taylor f″(1/3)=-9sqrt(2)/16 gives quadratic gap 9sqrt(2)/(8pi)*sum eps_i², and f(eps)~sqrt(eps) gives uniform nonvertex cusp 4sqrt(eps)/pi. Normal sign decomposition matches independent half-normal triangle inequalities. Independent angular and perturbative checks corroborate but are not used as general proof.
 
-The spherical-lune crossing probability itself is classical. Feldman--Klain (2008) concerns triangular *orthogonal projections* and arbitrary tetrahedral angle sums, not the Haar **central-sectional** probability as a function of equifacial shape. Kabluchko (2019, arXiv:1905.01533) studies expected angle sums of random simplices, not fixed equifacial centroid sections. Godland--Kabluchko--Zaporozhets (2020, arXiv:2007.02590) derives Gaussian-projection and Grassmann-angle identities, not the strict shape ordering here. A publicly indexed regular-simplex centroid-section vertex-count law covers the equal-axis benchmark but does not, on its stated claim, give the heterogeneous-axis Schur ordering and edge cusp. Closest other indexed equifacial-tetrahedron results concern radius ratios and other invariants. Exact synonym/half-normal, stronger-coverage, and equation-level searches found no directly covering result. A not fully accessible indexed record and any older unindexed specialized inequality leave bibliographic priority provisional; no claim of verified uniqueness in all literature is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The probability of a triangular centroid section is a canonical combinatorial statistic of a random plane. Equifacial tetrahedra form a natural three-parameter family that includes the regular tetrahedron but has meaningful anisotropy. The result gives its *complete* normalized shape law, a strict majorization order, a unique sharp regular optimizer, the entire attainable probability interval, and a geometry-independent square-root degeneration exponent. The Schur order is not a direct application of ordinary concavity, since \(\arcsin\sqrt t\) ceases to be concave beyond \(1/2\); the three-part constraint is decisive. The same theorem is a sharp formation-probability comparison for three independent scaled half-normal lengths. This is more than a routine special-case recomputation of the known regular value.
+Best-of-knowledge: critical exact claim compared by mathematical implication with prior work, with recognized prior components and explicit access/unlocated-priority risks; no novelty is inferred solely from failed search.
 
-## Limits
+## value
 
-Only the stated geometry, zero offset, and Haar orientation are covered. The global best stability constant is not determined. The literature comparison is substantive but not an independent historical-priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete sharp shape ordering for a natural central-section event, with unique regular tetrahedron optimizer, local stability and uniform boundary degeneration, is a meaningful finite-dimensional geometry/probability classification; it also characterizes a heteroscedastic half-normal triangle probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

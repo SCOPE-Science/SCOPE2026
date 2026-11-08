@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T20:47:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md proof via spherical lunes, majorization derivative, Taylor expansions; check_sections.py source inspected",
+        "Independent S2 analytic equal-angle and Hessian checks"
+      ],
+      "rationale": "The centered disphenoid vertices have pairwise angles with cosine 2p_i-1, each twice. Haar central-plane crossings yield E N=2/pi sum_i arccos(2p_i-1), where N in {3,4}; hence P(triangle)=4/pi sum_i asin(sqrt(p_i))-2. For x>y with third simplex coordinate z>0, x(1-x)-y(1-y)=(x-y)z>0 implies f′(x)<f′(y) for f(t)=asin sqrt(t), establishing strict pairwise-balancing Schur concavity even for x>1/2. Taylor f″(1/3)=-9sqrt(2)/16 gives quadratic gap 9sqrt(2)/(8pi)*sum eps_i², and f(eps)~sqrt(eps) gives uniform nonvertex cusp 4sqrt(eps)/pi. Normal sign decomposition matches independent half-normal triangle inequalities. Independent angular and perturbative checks corroborate but are not used as general proof.",
+      "residual_risks": [
+        "Only nondegenerate equifacial tetrahedra with centroid-zero Haar planes, not arbitrary affine planes or orthogonal shadows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kabluchko studies expectations of random simplex angles rather than varying fixed disphenoid shape.",
+          "Godland–Kabluchko–Zaporozhets treats angle sums under random linear images, not the monotone law for Haar centroid-section triangle probability across p in the simplex."
+        ],
+        "reasoning": "These general angle formulas could supply building blocks but do not directly imply Schur-concavity and the sharp unique optimizer; the random-object/orthogonal-shadow sample spaces differ.",
+        "searches": [
+          "equifacial tetrahedron disphenoid central planar sections triangle probability angle Schur concavity half-normal triangle inequalities",
+          "arxiv:2007.02590 angle sums random polytopes Gaussian projections",
+          "arxiv:1905.01533 angle sums random simplices"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/0809.3459",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66",
+        "https://arxiv.org/html/1905.01533v1",
+        "https://arxiv.org/html/2007.02590v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Feldman–Klain paper treats projection vertex statistics, while central plane sections are a separate geometric operation.",
+          "Resultary arbitrary-tetrahedron silhouette work discusses shadows, regular value and area weighting, not off-axis central section Schur-concavity."
+        ],
+        "reasoning": "Existing formulas for a regular simplex and projections cannot prove the shape optimizer for a variable disphenoid merely through substitution; a derivative comparison of the actual centroid section formula is needed.",
+        "searches": [
+          "arxiv:0809.3459 Feldman Klain Angles as probabilities",
+          "Resultary area-weighted silhouette probabilities of arbitrary tetrahedra"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same event is equivalent to a|G1|, b|G2|, c|G3| satisfying triangle inequalities for independent standard Gaussians.",
+          "Feldman–Klain gives an angle/projection identity for orthogonal shadows; central sections through a fixed centroid differ as events."
+        ],
+        "reasoning": "The Gaussian triangle-inequality formulation is a genuine equivalent presentation of this result, not a different theorem; checked prior projection results do not supply anisotropic strict Schur ordering.",
+        "searches": [
+          "equifacial tetrahedron disphenoid central planar sections triangle probability angle Schur concavity half-normal triangle inequalities",
+          "half-normal heteroscedastic three lengths probability triangle inequalities",
+          "Feldman Klain Angles as probabilities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Regular tetrahedron numerical benchmark is known from geometry/silhouette literature, but a single value is not the full three-axis formula.",
+          "The related Resultary area-weighted silhouette record includes the regular value but is explicitly about orthogonal projections and conditional area moments."
+        ],
+        "reasoning": "No checked table tabulates the strict entire anisotropic central-section probability ordering and Hessian/cusp data; prior regular benchmark is credited.",
+        "searches": [
+          "equifacial tetrahedron disphenoid central planar sections triangle probability angle Schur concavity half-normal triangle inequalities",
+          "regular tetrahedron random central plane triangle probability 0.350959312",
+          "disphenoid shape probability equifacial tetrahedron triangular sections"
+        ]
+      },
+      "rationale": "Best-of-knowledge: critical exact claim compared by mathematical implication with prior work, with recognized prior components and explicit access/unlocated-priority risks; no novelty is inferred solely from failed search.",
+      "residual_risks": [
+        "An equivalent three-half-normal triangle-formation extremum may be known in probability literature under a different title.",
+        "General geometric probability papers not fully read could contain a dominating anisotropic section inequality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROJECTION_NOT_CENTRAL_SECTION",
+          "evidence": "The triangular projection event in the theorem is not the random plane slice through a fixed centroid used here.",
+          "identifier_or_url": "https://arxiv.org/pdf/0809.3459",
+          "material_read": "Primary PDF theorem and definitions, including the distinction between projection silhouettes and fixed central sections",
+          "method": "arXiv PDF textual reading and page screenshot",
+          "title": "Angles as probabilities",
+          "trigger": "Closely matching simplex random-angle/projection probabilities"
+        },
+        {
+          "assessment": "DIFFERENT_SHADOW_MODEL",
+          "evidence": "It studies polygon type and area for orthogonal shadows of arbitrary tetrahedra, not Schur ordering of centroid sections of all disphenoids.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66",
+          "material_read": "Full RESULT.md for probability and conditional area-moment formulas, geometry and limitations",
+          "method": "GitHub public RESULT.md",
+          "title": "Area-weighted silhouette probabilities of arbitrary tetrahedra",
+          "trigger": "Potential stronger arbitrary-tetrahedron result"
+        },
+        {
+          "assessment": "PARTIAL_BACKGROUND_ONLY",
+          "evidence": "Random-simplices angle sums do not directly present this optimized deterministic disphenoid section law; no whole-text noncoverage verdict.",
+          "identifier_or_url": "https://arxiv.org/html/1905.01533v1",
+          "material_read": "Title, abstract, stated high-level subject and relevant scope, not a verified whole-document theorem exclusion",
+          "method": "arXiv textual search/targeted reading",
+          "title": "Angle sums of random simplices in dimensions 3 and 4",
+          "trigger": "Related simplex angular identities"
+        },
+        {
+          "assessment": "PARTIAL_BACKGROUND_ONLY",
+          "evidence": "Broad angle-sum framework, without a confirmed implication of strict anisotropic central-section ordering.",
+          "identifier_or_url": "https://arxiv.org/html/2007.02590v2",
+          "material_read": "Relevant description of Gaussian images and angle sums; not exhaustive page-by-page reading",
+          "method": "arXiv targeted section and search",
+          "title": "Angle sums of random polytopes",
+          "trigger": "Related Gaussian projections and angular sums"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Reviewed final mathematical claim and bounded verification program",
+        "RESULT.md proof via spherical lunes, majorization derivative, Taylor expansions; check_sections.py source inspected",
+        "Independent S2 analytic equal-angle and Hessian checks"
+      ],
+      "rationale": "A complete sharp shape ordering for a natural central-section event, with unique regular tetrahedron optimizer, local stability and uniform boundary degeneration, is a meaningful finite-dimensional geometry/probability classification; it also characterizes a heteroscedastic half-normal triangle probability.",
+      "residual_risks": [
+        "Only nondegenerate equifacial tetrahedra with centroid-zero Haar planes, not arbitrary affine planes or orthogonal shadows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only nondegenerate equifacial tetrahedra with centroid-zero Haar planes, not arbitrary affine planes or orthogonal shadows.",
+    "An equivalent three-half-normal triangle-formation extremum may be known in probability literature under a different title.",
+    "General geometric probability papers not fully read could contain a dominating anisotropic section inequality."
+  ],
+  "schema_version": 1
+}
