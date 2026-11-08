@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The theorem is proved analytically by strict alternating-branch trapping, the uniform two-step contraction estimate \(G'_a\le cd^2/b<1\), convergence of parity subsequences, and the invariant-measure contradiction obtained from universal empirical limits. The quantitative exponents follow from the fixed-point equation and derivative chain rule. All initial points, including the discontinuity and endpoint, are explicitly handled.
+## correctness
 
-The provided standalone `verify.py` checks exact rational identities for the affine case and finite sample inequalities for nonlinear exponents. Finite checks do not certify the quantified conclusions: these are justified by the proof, not by enumeration. Specifically, the empirical limit \(\nu=(\delta_0+\delta_b)/2\) is **not** invariant, and it would be incorrect to invoke compactness to infer an invariant probability for a discontinuous map. The strong contraction condition is sufficient only, and stronger results outside it remain unproved. Independently conducted verification has not been performed.
+PASS
+
+Set P_a on [0,b] and Q on (b,1], with d>=1, 0<c<b/d^2, b<=a<1. For a>b the branches alternate, and the 2-step return G_a=Q o P_a is a contraction with uniform derivative <=cd²/b<1. Its unique left fixed point xi_a and right partner eta_a attract every orbit by parity, and Cesaro convergence plus invariance characterizes the unique Borel invariant measure. At the endpoint a=b, the continuous extension G_b fixes zero but the actual convention maps 0→b→1→c; every positive left coordinate contracts towards zero, every orbit has omega={0,b}, and the universal empirical limit nu=(delta0+delta_b)/2 is noninvariant because F_b(b)=1. Dominated convergence rules out any invariant Borel probability. Uniform F_a→F_b, weak mu_a→nu, and for d>1 xi_a~c((a-b)/(1-b))^d and multiplier~(cd²/b)((a-b)/(1-b))^(d-1) follow from the fixed-point identity and derivative product. Independently exact rational test at b=3/4,c=1/16,d=2 confirmed 0→b→1→c and positive return contraction; representative supercritical cycles independently converged. Finite orbits do not prove measure claims.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the full stated claim, not individual standard subclaims; strongest accessible primary comparison, specific logical distinctions, and residual risks below. Search absence is not novelty certification.
+
+## value
+
+PASS
+
+A natural previously studied equilibrium-free interval family exhibits a quantified bifurcation in existence of invariant probabilities under uniform convergence, despite universal empirical convergence and bounded dynamics. The weak-limit failure and sharp exponent-dependent collapse constitute a mathematically motivated boundary beyond generic no-invariant counterexamples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

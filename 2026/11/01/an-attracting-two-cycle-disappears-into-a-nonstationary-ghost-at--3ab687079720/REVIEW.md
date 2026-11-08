@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof handles all real \(d\ge1\), the entire compact phase space including \(x=0\) and the discontinuity \(x=b\), and all Borel invariant probabilities. The branch images alternate, the return maps have Lipschitz constant strictly below one, and at the boundary their continuous extension fixes zero while the actual map sends zero to the discontinuity. Direct Cesàro/dominated-convergence reasoning excludes *every* invariant probability. The weak limit and the nonlinear critical exponents follow from a strict contraction inequality and the explicit derivative product. There is no extrapolation from finite computations.
+## correctness
 
-## Originality — PASS within inspected evidence
-The defining Lawnik–Moysis–Volos article proves fixed-point absence, not invariant-measure disappearance or sharp period-two scaling. Kryzhevich (2018, Example 0.1) already proves nonexistence of invariant probability for a different discontinuous map, and Catsigeras and collaborators already develop ghost-orbit theory; neither general idea is claimed as new. Calderón–Catsigeras–Guiraud (2019) has a decisive forward-discontinuity avoidance hypothesis that fails for this family at the boundary. Comparisons of named source, algebraic equivalents, ghost/invariant-measure aliases, and recorded mathematical statements did not identify the specific three-parameter quantitative boundary theorem. Full published and preprint sources were inspected where accessible. A publication-priority risk remains from unindexed calculations and broader ghost-map theory.
+PASS
 
-## Mathematical value — PASS
-The map was introduced specifically to study dynamics without equilibria. This theorem determines, on a natural open region, the exact failure of all stationary probabilities at an explicit parameter boundary, while all trajectories still have one empirical distribution and the approximating maps converge uniformly. The sharp noninteger critical exponent and vanishing multiplier for \(d>1\) give quantitative dynamical information beyond a generic pathological example. The statement also distinguishes weak limits of stationary measures from invariant measures of the limiting discontinuous map. The sufficient contraction region is not asserted sharp.
+Set P_a on [0,b] and Q on (b,1], with d>=1, 0<c<b/d^2, b<=a<1. For a>b the branches alternate, and the 2-step return G_a=Q o P_a is a contraction with uniform derivative <=cd²/b<1. Its unique left fixed point xi_a and right partner eta_a attract every orbit by parity, and Cesaro convergence plus invariance characterizes the unique Borel invariant measure. At the endpoint a=b, the continuous extension G_b fixes zero but the actual convention maps 0→b→1→c; every positive left coordinate contracts towards zero, every orbit has omega={0,b}, and the universal empirical limit nu=(delta0+delta_b)/2 is noninvariant because F_b(b)=1. Dominated convergence rules out any invariant Borel probability. Uniform F_a→F_b, weak mu_a→nu, and for d>1 xi_a~c((a-b)/(1-b))^d and multiplier~(cd²/b)((a-b)/(1-b))^(d-1) follow from the fixed-point identity and derivative product. Independently exact rational test at b=3/4,c=1/16,d=2 confirmed 0→b→1→c and positive return contraction; representative supercritical cycles independently converged. Finite orbits do not prove measure claims.
 
-## Limitations and closest literature
-The complete quantitative statement holds only for \(b\le a<1\), \(d\ge1\), \(cd^2<b\). General no-invariant-measure counterexamples and ghost orbits precede it. Neither a classification outside this region nor independent audit is supplied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the full stated claim, not individual standard subclaims; strongest accessible primary comparison, specific logical distinctions, and residual risks below. Search absence is not novelty certification.
+
+## value
+
+PASS
+
+A natural previously studied equilibrium-free interval family exhibits a quantified bifurcation in existence of invariant probabilities under uniform convergence, despite universal empirical convergence and bounded dynamics. The weak-limit failure and sharp exponent-dependent collapse constitute a mathematically motivated boundary beyond generic no-invariant counterexamples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

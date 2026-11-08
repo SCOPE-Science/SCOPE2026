@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T22:10:32.108376Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Steps 1–4 blob 3c6f5b8de108f6df5155714e6aa1e66f81221cd9",
+        "verify.py source blob 33e6160e7a60a84530b5790d3ac24b2b05e99bac",
+        "Independent_check_script_sha256=beb97032be09ee553ab8695378778f4d6be0ed7c28eda0279db40d8fcd4a2663"
+      ],
+      "rationale": "Set P_a on [0,b] and Q on (b,1], with d>=1, 0<c<b/d^2, b<=a<1. For a>b the branches alternate, and the 2-step return G_a=Q o P_a is a contraction with uniform derivative <=cd²/b<1. Its unique left fixed point xi_a and right partner eta_a attract every orbit by parity, and Cesaro convergence plus invariance characterizes the unique Borel invariant measure. At the endpoint a=b, the continuous extension G_b fixes zero but the actual convention maps 0→b→1→c; every positive left coordinate contracts towards zero, every orbit has omega={0,b}, and the universal empirical limit nu=(delta0+delta_b)/2 is noninvariant because F_b(b)=1. Dominated convergence rules out any invariant Borel probability. Uniform F_a→F_b, weak mu_a→nu, and for d>1 xi_a~c((a-b)/(1-b))^d and multiplier~(cd²/b)((a-b)/(1-b))^(d-1) follow from the fixed-point identity and derivative product. Independently exact rational test at b=3/4,c=1/16,d=2 confirmed 0→b→1→c and positive return contraction; representative supercritical cycles independently converged. Finite orbits do not prove measure claims.",
+      "residual_risks": [
+        "Boundary choice x=b in left branch essential to noninvariant measure conclusion.",
+        "Contraction bound cd²<b sufficient, not necessary; no claim on larger c or 0<d<1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Calderón–Catsigeras–Guiraud 2019 Theorem 1.3 requires forward discontinuity-avoidance for endpoint images.",
+          "Here P_b(0)=b lies in the discontinuity set, so the theorem is inapplicable at the critical case."
+        ],
+        "reasoning": "General ghost and spectral-decomposition theorems give concepts and conditional structure, not this boundary mechanism. Explicit failure of Calderón endpoint-image hypothesis prevents deriving contradiction/coverage.",
+        "searches": [
+          "Discontinuous power interval maps Lawnik Moysis Volos invariant measures vanish a=b ghost periodic orbit scaling",
+          "arXiv:1903.08591",
+          "arXiv:1108.1501"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1812.04534",
+        "arXiv:1903.08591",
+        "doi:10.3390/sym15071311",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-fractional-power-fixed-point-phase-diagram-for-a-discon--e0bdfaa72c7e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No-fixed-point lemma alone does not preclude prime-two cycles or invariant probabilities.",
+          "General counterexample to invariant measures does not tell when a named map loses them; endpoint-avoidance theorem assumption fails at a=b."
+        ],
+        "reasoning": "The combined theorem is not logically implied by either the source fixed-point theorem or general ghost-orbit/counterexample results; the novelty is specifically the quantified source family and exact rate.",
+        "searches": [
+          "doi:10.3390/sym15071311",
+          "arXiv:1812.04534",
+          "arXiv:1903.08591"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kryzhevich 2018 Example 0.1 already gives a discontinuous map with no invariant probability; this abstract phenomenon is not original.",
+          "Catsigeras et al. develop ghost orbits for piecewise contractions."
+        ],
+        "reasoning": "Discontinuous-map nonstationarity is a known generic possibility, but neither standalone example supplies the exact source-family parameter boundary, weak limits and sharp exponents. A general theorem without parameters cannot be treated as matching numerical formulas.",
+        "searches": [
+          "Discontinuous power interval maps Lawnik Moysis Volos invariant measures vanish a=b ghost periodic orbit scaling",
+          "arXiv:1812.04534",
+          "arXiv:1108.1501"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lawnik et al. 2023 defining paper equation (15) and Lemma 1 treat fixed-point absence for d>=1 and Lyapunov diagrams.",
+          "Closest Resultary same-map result treats 0<d<1 and fixed-point phase counts, disjoint exponent regime."
+        ],
+        "reasoning": "No inspected source supplies the d>=1 full invariant-probability transition or the disappearing-cycle coefficient; this bounded negative search is not proof of unique priority.",
+        "searches": [
+          "Discontinuous power interval maps Lawnik Moysis Volos invariant measures vanish a=b ghost periodic orbit scaling",
+          "doi:10.3390/sym15071311",
+          "Resultary: 2026/10/11/SCOPE-complete-fractional-power-fixed-point-phase-diagram-for-a-discon--e0bdfaa72c7e"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the full stated claim, not individual standard subclaims; strongest accessible primary comparison, specific logical distinctions, and residual risks below. Search absence is not novelty certification.",
+      "residual_risks": [
+        "Unindexed source-specific invariant-measure calculations may predate this theorem.",
+        "Only a sufficient two-step contraction region is classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves absence of fixed points but no observed full invariant-probability boundary and d-dependent two-cycle scale.",
+          "evidence": "Equation (15) gives the identical two-branch power map; Lemma 1 rules out fixed points for d>=1.",
+          "identifier_or_url": "doi:10.3390/sym15071311",
+          "material_read": "Full accessible text including equation (15), Lemma 1 and associated map discussion",
+          "method": "Primary full text from lawful openly indexed copy",
+          "title": "A Family of 1D Chaotic Maps without Equilibria",
+          "trigger": "Defining primary map, same parameters, strongest direct priority trigger"
+        },
+        {
+          "assessment": "General compact discontinuous no-invariant-measure phenomenon is known and explicitly conceded.",
+          "evidence": "Example 0.1 T(x)=x/2 for x>0, T(0)=1.",
+          "identifier_or_url": "arXiv:1812.04534",
+          "material_read": "Full relevant introduction and Example 0.1 inspected including PDF page image",
+          "method": "Open preprint PDF and screenshot",
+          "title": "Invariant measures for interval translations and some other piecewise continuous maps",
+          "trigger": "Possible broad theorem pre-empting no-measure result"
+        },
+        {
+          "assessment": "The required endpoint-image avoidance fails for P_b(0)=b.",
+          "evidence": "Theorem 1.3 hypothesis on discontinuity forward orbit; violated at stated boundary.",
+          "identifier_or_url": "arXiv:1903.08591",
+          "material_read": "PDF theorem statement and key assumptions inspected visually",
+          "method": "Open preprint PDF and screenshot",
+          "title": "A spectral decomposition of the attractor of piecewise contracting maps of the interval",
+          "trigger": "Relevant broader contracting interval theorem"
+        },
+        {
+          "assessment": "Different parameter d in (0,1); no implication to all d>=1 stationary-measure loss.",
+          "evidence": "Summary: fractional powers with saddle-node fixed-point counts, not current contraction/ghost boundary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-fractional-power-fixed-point-phase-diagram-for-a-discon--e0bdfaa72c7e",
+          "material_read": "Indexed complete claim summary",
+          "method": "Resultary semantic search",
+          "title": "Complete fractional-power fixed-point phase diagram for a discontinuous interval family",
+          "trigger": "Exact same map family, highest-risk published nearby result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Current-run Resultary query Discontinuous power interval maps Lawnik Moysis Volos invariant measures vanish a=b ghost periodic orbit scaling",
+        "Named primary sources in originality/source_inspections"
+      ],
+      "rationale": "A natural previously studied equilibrium-free interval family exhibits a quantified bifurcation in existence of invariant probabilities under uniform convergence, despite universal empirical convergence and bounded dynamics. The weak-limit failure and sharp exponent-dependent collapse constitute a mathematically motivated boundary beyond generic no-invariant counterexamples.",
+      "residual_risks": [
+        "Unindexed source-specific invariant-measure calculations may predate this theorem.",
+        "Only a sufficient two-step contraction region is classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Boundary choice x=b in left branch essential to noninvariant measure conclusion.",
+    "Contraction bound cd²<b sufficient, not necessary; no claim on larger c or 0<d<1.",
+    "Unindexed source-specific invariant-measure calculations may predate this theorem.",
+    "Only a sufficient two-step contraction region is classified.",
+    "Literature comparison is best-of-knowledge and does not establish absolute historical priority."
+  ],
+  "schema_version": 1
+}
