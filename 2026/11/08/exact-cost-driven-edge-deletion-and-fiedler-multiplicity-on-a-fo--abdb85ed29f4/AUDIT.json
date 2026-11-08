@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md sections Finding and Proof, including explicit equality conditions and spectrum",
+      "verify.py exact symbolic construction and rational tests",
+      "VERIFICATION.md replay scope and limitations"
+    ],
+    "rationale": "The full proof gives two exact universal Rayleigh certificates: a convex blend of orthogonal mean-zero modes when 0<d<=3, and a single path-mode witness when d>=3. Explicit allocations attain each bound. Equalities in the witnesses force all optimizers, including potentially nonsymmetric allocations, and spectral block analysis proves Fiedler multiplicities. The critical d=3 segment and both endpoint cases are addressed. The standalone proof checker passed 12 symbolic identities, 27 exact-rational four-by-four spectra, four critical configurations and 1440 exact rational competitor-certificate checks. The computation does not replace the all-real-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. (2006) Result 5 gives all priced paths, but their cycle discussion does not supply all unequal-price cycles in closed form.",
+        "Boyd et al. (2009), section 3.1.1, studies homogeneous cycles for discrete-time SLEM.",
+        "Gerencsér et al. (2015) study homogeneous reversible cycle chains and perturbation-based global/local optimality for the discrete-time objective."
+      ],
+      "reasoning": "The priced-path theorem covers the post-deletion regime but not the lower-price double-eigenvalue regime or singular family. The discrete-time homogeneous-cycle theorems use a different objective and price model, so their theorems do not dominate the present characterization.",
+      "searches": [
+        "fastest mixing continuous time Markov process cycle 4 edge conductance optimum rates heterogeneous",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf#page=16",
+        "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf#page=8",
+        "https://real.mtak.hu/173919/1/cycle_spectral_gap.pdf#page=4"
+      ]
+    },
+    "checked_sources": [
+      "Sun, Boyd, Xiao and Diaconis 2006, DOI 10.1137/S0036144504443821",
+      "Boyd, Diaconis, Parrilo and Xiao 2009, DOI 10.1137/070689413",
+      "Gerencsér, Hendrickx and Van Dooren 2015, DOI 10.1109/ECC.2015.7330635"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The path result implies and certifies the optimal d>=3 path values when the added edge price makes its dual constraint slack, but it does not certify the optimal d<3 values.",
+        "The general continuous-time formulation guarantees existence and SDP optimality, not the displayed explicit piecewise formula or uniqueness/nonuniqueness.",
+        "The discrete-time theorems do not cover a single exceptional edge with priced conductance budget."
+      ],
+      "reasoning": "The structural new portion is the sharp d<3 allocation, its doubled Fiedler root, and the exact global equality classification at d=3. Those are not logical consequences of the general SDP model, the already-solved path or the published uniform-cycle solutions without nontrivial new work.",
+      "searches": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf#page=16",
+        "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf#page=8",
+        "https://real.mtak.hu/173919/1/cycle_spectral_gap.pdf#page=4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. formulate the equivalent inverse-budget minimum-cost spectral-gap design and its maximum-variance-unfolding dual. Section 5.3 states a two-dimensional conclusion for priced cycles; the explicit one-defect C4 phase diagram is not stated there.",
+        "The candidate explicitly optimizes the continuous-time Laplacian second eigenvalue under one nonuniform price, not discrete-time SLEM."
+      ],
+      "reasoning": "Scaling a budget into the inverse minimum-cost formulation is mathematically equivalent, so that equivalent was checked. The general SDP and dual formulation alone do not state or algebraically imply the piecewise closed-form value and complete equality characterization without the new special-case solution.",
+      "searches": [
+        "weighted square cycle spectral gap edge allocation cost optimization analytic solutions four node",
+        "algebraic connectivity optimal edge weights four cycle heterogeneous costs exact solution Markov process",
+        "maximum variance unfolding quadrilateral three unit edges one long d fastest mixing Markov process",
+        "Sun et al. (2006), section 5.3, DOI 10.1137/S0036144504443821"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact value table for this price-dependent C4 optimization appeared in the inspected scholarly sources or targeted scientific search results.",
+        "Sun et al. 2006 section 5.3 supplies only a uniform-cycle rate and a dimension bound, not this one-parameter table or critical optimizer family."
+      ],
+      "reasoning": "The object is not a finite numerical census: it is a continuous one-parameter family of global optima with a complete optimizer set. A table of small uniform-cycle spectra would not supply the heterogeneous-price phase diagram.",
+      "searches": [
+        "weighted cycle optimal algebraic connectivity edge costs one edge exceptional spectral gap exact C4",
+        "fastest mixing continuous time Markov process cycle 4 edge conductance optimum rates heterogeneous",
+        "optimal algebraic connectivity quadrilateral graph edge weights budget cycle cost",
+        "four-cycle C4 one exceptional edge price sharp algebraic connectivity optimal conductances phase d=3 nonunique"
+      ]
+    },
+    "rationale": "The central FMMP paper includes arbitrary edge-price SDP duality and solves weighted paths; its section 5.3 treats equal-cost cycles and a general embedding-dimensional restriction, not the complete one-defect four-cycle formula, all optimizers or the price-nine singular segment. A later symmetry treatment and a cycle perturbation analysis optimize discrete-time second-largest-eigenvalue modulus under different constraints. Targeted literature searches did not expose an equivalent special-case formula. These comparisons establish plausible noncoverage by inspected results, not absolute priority.",
+    "residual_risks": [
+      "An uninspected specialist source may state an equivalent one-defect cycle result; a search absence is not a proof of absolute novelty.",
+      "Some parts of the d>=3 path regime follow from an existing priced-path solution and are not independently claimed as novel.",
+      "Priority for the simple C4 explicit phase and equality characterization requires eventual independent literature review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General objective and priced paths covered, but special-case C4 formula and all optimal placements not stated.",
+        "evidence": [
+          "2006 DOI 10.1137/S0036144504443821, pages 695-697, Results 5 and 6."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Full-text sections 1 and 4, especially 5.2 priced paths and 5.3 priced cycles, including Result 5, Result 6 and surrounding proofs.",
+        "method": "Author-hosted open PDF, mathematical statement comparison and direct examination of formulas.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Nearly identical primal objective and arbitrary edge prices; most plausible covering source."
+      },
+      {
+        "assessment": "The explicit cycles there are homogeneous discrete-time chain problems; not this continuous-time unequal-price allocation.",
+        "evidence": [
+          "2009 DOI 10.1137/070689413, section 3.1.1."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Full-text formulation, introduction and section 3.1.1 cycle-graph solution.",
+        "method": "Author-hosted open PDF, objective and constraints compared.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Exact cycle optimization and symmetry could imply the formula."
+      },
+      {
+        "assessment": "Studies discrete-time SLEM and inhomogeneity/nonreversibility perturbations, not unequal edge-price continuous-time C4 spectral-gap design.",
+        "evidence": [
+          "2015 DOI 10.1109/ECC.2015.7330635, Theorem 4 and introduction."
+        ],
+        "identifier_or_url": "https://real.mtak.hu/173919/1/cycle_spectral_gap.pdf",
+        "material_read": "Full-text problem formulation, section IV theorem statements and conclusions/numerical section.",
+        "method": "Open repository PDF; comparison of objective, price model and conclusions.",
+        "title": "Spectral Gap of Markov Chains on a Cycle",
+        "trigger": "A cycle-focused optimal-mixing theorem could dominate a four-cycle case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "abdb85ed-29f4-4742-9411-9dff79e8c301",
+  "value": {
+    "evidence": [
+      "Explicit all-parameter optimizer formulas and threshold in RESULT.md",
+      "Analytic derivation of the critical optimum segment and mode multiplicities",
+      "Prior work treats arbitrary-priced cycles as more difficult than paths and does not display this first heterogeneous case"
+    ],
+    "rationale": "The four-cycle is the smallest nontriangular network admitting competing routes; a single exceptional physical edge price is the smallest heterogeneous-cost perturbation of its symmetric design. The complete exact phase law shows when the costly edge is useful, locates the ninefold deletion threshold, and classifies a surprising nonunique critical face and a Fiedler multiplicity change. These are structural design and SDP-benchmark facts, not a selected arbitrary numerical slice or a uniform-cost recomputation. The result is intentionally limited to this first nontrivial cycle and does not claim a larger general-cycle theorem.",
+    "status": "PASS"
+  }
+}
