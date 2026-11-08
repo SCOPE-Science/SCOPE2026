@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The smooth quadratic-shell counting identity gives \(p^2\) lifts per finite-field solution. Completing the square establishes the finite-field transform, and the required Salié identity is proved by comparing its Fourier transforms as a function of the discriminant. For primitive frequencies, the stationary hyperplane condition is necessary and sufficient; each simple square root determines exactly one contributing residue fibre, of weight \(p^2\). Two odd-order roots cannot cancel. Counting the dual discriminant classes then proves the exact formula for the convolution rank. The embedded exact cyclotomic checker exhaustively compares all coefficients at \(p=3,5\) for both square classes and checks deterministic frequencies at \(p=7\). The analytic argument handles every odd prime independently of finite verification.
+PASS
 
-## Originality — PASS (bounded review)
+For odd prime p, invertible t and unnormalized positive-sign Fourier transform on R^3=(Z/p^2)^3, the shell a²+bc=t is mod-p smooth with p² lifts per reduced point. Completing squares gives the finite-field Gauss/Salié formula; a direct D-Fourier-transform derivation checks the nonstandard Salié identity. On p-divisible frequency the lift phase is constant, giving p² times finite-field transform; for primitive frequency, tangent-plane cancellation leaves precisely the Hensel lifts r²=t(u²+4vw), with amplitude p² sum e_{p²}(r). Odd-order roots of unity rule out two-root cancellation. Count of quadratic values of the split ternary form gives B_eps=(p-1)(p²+eps p)/2 and exact rank p²+(p³+1)B_eps. Reconstructed the proof including u=v=w=0 and isotropic nonzero reduced frequency, not merely its program's exit code. Independent exact cyclotomic coefficient sums over ALL 3^6 frequencies p=3 at t=1,2 give ranks 345,177; 197 sampled p=5 frequencies for each t=1,2 match amplitude formula, explicitly not a p=5 exhaustive rank proof.
 
-The closest primary comparison is Iosevich–Koh, arXiv:0804.4505v1, whose Section 2 derives field-level quadratic-surface transforms and whose main estimates concern restriction/extension, not rank and nullspace for a prime-square ring. Hickman–Wright, arXiv:1801.03176v1, work over arbitrary residue moduli but on paraboloid restriction estimates; those do not imply the unit-shell zero criterion. Watanabe, arXiv:2607.21913v1, diagonalizes Smith-type matrix relations; unit-level shells are not invariant under general row/column operations and are not such relations. The accessible historical claim for the zero-level singular cone treats \(a^2+bc=0\) and does not determine unit-level transforms or the residue/nonresidue rank gap. Search terms included unit quadratic shell, idempotent trace-one, Salié transform, square-class Fourier zeros, and quadratic local-ring convolution. A specialized older local Bessel or association-scheme formula remains a priority risk, so priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The unit shells are canonical smooth nonzero levels of the split ternary form, and the level-one member identifies rank-one idempotents of trace one through an affine change of variables. Their exact convolution rank and Fourier nullspace are intrinsic harmonic-analytic invariants, and the determined difference between square and nonsquare levels is an arithmetic structural effect that does not follow from generic point counts or decay bounds. It provides a complete infinite-family classification rather than an arbitrary finite example.
+Iosevich–Koh's quadratic-shell character sums are over finite fields; Hickman–Wright treat restriction/decay over finite rings, principally parabolic graphs. Neither inspected primary text yields this complete mod-p² smooth unit ternary shell's primitive/imprimitive support and exact additive-convolution nullity. The classical Salié identity and shell cardinality are antecedents. Best-of-knowledge qualified PASS: local finite-ring Bessel or association-scheme work might contain an equivalent stronger theorem.
 
-## Limitations
+## value
 
-The claims do not cover dyadic rings, nonunit levels, or higher nilpotency length. Published work on local Salié/Bessel and finite-ring schemes could contain an equivalent specialized statement; independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact nullspace and rank of convolution by the natural smooth split quadratic shell over the first non-field finite local ring, with a sharp square-class gap, are useful spectral invariants. The two conductor scales and different rank at square versus nonsquare levels provide genuine structure beyond routine finite-field Fourier estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
