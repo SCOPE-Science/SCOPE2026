@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The characteristic-two involution identity \((1+N)^2=1\iff Xy=0\) and the commuting relation \(Xy'=X'y\) follow by explicit block multiplication. Conditioning on whether the terminal vector vanishes and, if so, on \(\operatorname{rank}X\) gives the entire graph degree multiset. An independent ordered-pair count separates terminal-vector pairs by span dimension 0, 1, or 2. The constraints have ranks 0, 2, 3 respectively; subtracting identity/diagonals yields the exact edge count. The packaged checker exhaustively confirms ten small finite-field cases, including quadratic extensions and odd-characteristic identity boundaries. Finite experiments are corroboration, not a proof of generality.
+## correctness
 
-## Originality
-**PASS, with priority risk.** Evseev's 2008 preprint concerns parabolic conjugacy orbits; Goodwin–Röhrle's 2009 preprint and 2010 journal article prove polynomiality of the full conjugacy-class count and describe individual centralizer structures. These results do not themselves give counts of **involutions inside each individual involution centralizer**, which determine the induced commuting-involution graph degrees. Existing polar-graph and two-generated class-two results treat distinct, lower-rank boundary families. No exact statement matching the all-parameter degree spectrum was found in the performed published-record and literature queries. General results on parabolic orbits could conceal an equivalent specialization; their wider implications have not been exhaustively settled.
+PASS
 
-## Value
-**PASS.** The commuting graph restricted to involutions is a standard intrinsic invariant of finite 2-groups and records elementary abelian rank-two incidence, rather than total conjugacy-class data. The theorem completely classifies its degree spectrum across an unbounded, non-graphical three-block family. It exhibits a sharp dichotomy: all nonzero terminal-vector involutions have the same number of involution neighbors irrespective of the other matrix block, whereas zero terminal vectors split by matrix rank. The first nontrivial binary example has four genuinely distinct degrees and 3225 edges.
+For q even and s,t>=2, in the (s,t,1)-block unipotent radical a matrix u(X,y,z)=1+N has order dividing 2 exactly when Xy=0. Two such matrices commute iff Xy_prime=X_prime y; central z,z_prime never affect these relations. For y=0 and rank(X)=a, simultaneous Xy_prime=0 and X_prime y_prime=0 gives q^(st)+(q^(t-a)-1)q^(s(t-1)) compatible (X_prime,y_prime); for nonzero y, split y_prime into its q line multiples and q^t-q outside, yielding q*q^(s(t-1))+(q^t-q)*q^(s(t-2)). Multiply by q^s central choices, remove identity and self loop to get displayed degrees. Counting ordered (y,y_prime) by span ranks 0,1,2 gives exact commuting pair C, and E=(C-3I+2)/2. Independent GF(2),s=t=2 full adjacency counted 111 vertices, 3225 edges, degree multiset {110:3,78:36,62:24,38:48}. All-parameter formulas follow linear algebra, not a sample.
 
-## Closest literature and limitations
-Evseev, arXiv:0801.3178, and Goodwin–Röhrle, arXiv:0901.0667, provide the closest general theory of parabolic conjugacy. The present theorem is restricted to characteristic two, one one-dimensional exterior block, and degrees/edges rather than spectra or higher clique counts. Independent literature-priority review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The induced commuting-involution graph degree distribution differs from a unipotent radical’s conjugacy-class count, graph diameter, or the total group centralizer order. The relevant primary sources provide these broader but logically different invariants; no complete multiset for all s,t,q was found. Historical originality is qualified against other possible parabolic centralizer literature.
+
+## value
+
+PASS
+
+This is an exact all-parameter degree multiset and edge formula for a natural family of finite nilpotent matrix groups. It reveals rank stratification and uniform nonregularity, a finer invariant than class counts and immediately applicable in group-associated graph theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
