@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T15:53:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Map each n-bit word to concatenation of the increasing lists of values tagged 1 then 0. Every nonidentity at-most-one-descent permutation has a unique word; only n+1 prefix-tag words collapse to identity, making total variation error O(n/2^n) and cardinality 2^n-n. The unique descent is FO definable using position adjacency and value decrease, yielding interpretation of tag word in value order; conversely position order is FO from the tag predicate. FO binary word languages have aperiodic deterministic automata; under uniform fair bits each recurrent class of the random-letter transition matrix must be aperiodic (else every letter transition cyclically advances its period classes and contradicts eventual stabilization of word transitions), giving rational finite Markov limits. For any a/b choose b equal-length inner binary words and cross-bifix-free patterns 0^K 1 s_i 1^K, K=d+1; the first occurrence of any pattern is equiprobable among b types via terminal replacement, misses vanish exponentially, and earliest-hit event is FO, giving a/b. Independent checks of 11950 small binary-word and pattern cases passed; proof covers arbitrary denominators and n→∞.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Markström–Räty proves FO convergence for all small permutation classes. Falgas-Ravry et al. Theorem 1.4 proves density of limits for all exponential small permutation classes; Theorem 1.2 exact finite spectra requires polynomial growth."
+        ],
+        "reasoning": "This class grows as 2^n-n and falls under the broad dense theorem, but density does not imply exact Q∩[0,1] or rule out irrational values. Thus broader coverage of the existence/density parts does not subsume full claimed exact spectrum.",
+        "searches": [
+          "https://arxiv.org/abs/2610.22218",
+          "https://arxiv.org/abs/2610.34328",
+          "https://hub.valency.io/works/W_6dzabad9"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.22218",
+        "https://arxiv.org/abs/2610.34328",
+        "https://hub.valency.io/works/W_6dzabad9",
+        "Braunfeld and Kukla, Logical limit laws for layered permutations (2022)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Oct 25 Theorem 1.4 directly covers density but no stronger exact range, while Oct 15 convergence covers existence. Layered-permutation results provide a parallel word technique."
+        ],
+        "reasoning": "Prior density is a strict consequence of realizing Q∩[0,1], not an equivalent implication. Class-specific word coding plus aperiodic rationality is needed to conclude all-and-only rationals.",
+        "searches": [
+          "https://hub.valency.io/works/W_6dzabad9",
+          "https://arxiv.org/abs/2610.22218",
+          "Braunfeld Kukla logical limit laws layered permutations 2022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unique descent makes the two-order permutation FO interdefinable with a binary word modulo exponentially rare identities."
+        ],
+        "reasoning": "Compared TOTO and regular binary word logical probabilistic formulations. Cross-bifix first-hit characterization gives all rationals; no prior theorem found identifying this exact class-specific rational-only spectrum.",
+        "searches": [
+          "one descent permutations first order probability spectrum binary word coding rational limits",
+          "regular-language TOTO one descent permutation class exact FO limit value set"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary logical type and automata records concerned other classes, no tabulation of the exact set of TOTO limit probabilities for at-most-one-descent permutations."
+        ],
+        "reasoning": "The claimed object is an infinite set of real limits, not a finite enumeration; a finite probability table cannot establish rational-only universal bounds.",
+        "searches": [
+          "first order limits one descent permutation class spectrum rational table",
+          "Resultary one descent permutation limiting probabilities first order"
+        ]
+      },
+      "rationale": "Markström–Räty (Oct 15, 2026) prove convergence for every small permutation class, so existence part is PRIOR COVERED. A crucial later primary work (Falgas-Ravry, Markström, Räty, Skerman, arxiv:2610.34328, Oct 25, 2026), fully inspected, proves Theorem 1.4: density in [0,1] for exponential-growth small classes. The one-descent class has |G_n|=2^n-n (exponential), but density does NOT imply exact rationality of every limit or realization of every rational; Theorem 1.2 full spectra is only for polynomial-growth classes and does not apply. Current result exact Q spectrum survives this recent stronger comparison. Earlier layered permutation cross-bifix constructions are methodological precedents. Dedicated one-descent proof in unindexed source remains risk.",
+      "residual_risks": [
+        "Full original arxiv:2610.22218 primary text not read in this execution, so example-specific exact-spectrum claims remain an uncertainty.",
+        "Strong October 25, 2026 density result is prior coverage of density; only exact rational-only and all-rational classification is proposed as new.",
+        "Finite checker cannot establish FO limits; no claims about MSO or more-than-one-descent classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_PARTIAL: density for exponential classes but not exact spectrum",
+          "evidence": "Theorem 1.4: Lim(P) dense in [0,1] for exponential small P; Theorem 1.2 exact fractions applies only to polynomial-growth P.",
+          "identifier_or_url": "https://hub.valency.io/works/W_6dzabad9",
+          "material_read": "Full rendered primary 2026-10-25 article; introduction, Theorems 1.1–1.4, exponential regime claims and proof discussion examined.",
+          "method": "full HTML scientific text reading",
+          "title": "On first-order limiting probabilities for small permutation classes",
+          "trigger": "very recent general theorem potentially dominates the exact spectrum"
+        },
+        {
+          "assessment": "EXISTENCE_COVERED; exact spectrum not certified absent from unread full text",
+          "evidence": "The general first-order convergence theorem does not logically determine set of limits; possible dedicated example or corollary in original full text remains a risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.22218",
+          "material_read": "ArXiv bibliographic/abstract, theorem summary in Oct25 primary paper Theorem1.1, and manuscript source references; own full text not accessible in this run.",
+          "method": "abstract and complete later theorem comparison",
+          "title": "Logical isomorphism and logical limit laws for small permutation classes and regular languages",
+          "trigger": "earlier more-general convergence result explicitly applicable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The set of all first-order limit probabilities is a canonical logical invariant of a natural permutation class. New broader 2026 results show convergence and density only; determining all values, excluding irrational limits and exhibiting explicit sentences with every rational limit is a complete meaningful classification, not a mere limit-existence repetition.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.22218",
+    "https://arxiv.org/abs/2610.34328",
+    "https://hub.valency.io/works/W_6dzabad9",
+    "Braunfeld and Kukla, Logical limit laws for layered permutations (2022)"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Full original arxiv:2610.22218 primary text not read in this execution, so example-specific exact-spectrum claims remain an uncertainty.",
+    "Strong October 25, 2026 density result is prior coverage of density; only exact rational-only and all-rational classification is proposed as new.",
+    "Finite checker cannot establish FO limits; no claims about MSO or more-than-one-descent classes."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Full original arxiv:2610.22218 primary text not read in this execution, so example-specific exact-spectrum claims remain an uncertainty.",
+    "Strong October 25, 2026 density result is prior coverage of density; only exact rational-only and all-rational classification is proposed as new.",
+    "Finite checker cannot establish FO limits; no claims about MSO or more-than-one-descent classes."
+  ]
+}
