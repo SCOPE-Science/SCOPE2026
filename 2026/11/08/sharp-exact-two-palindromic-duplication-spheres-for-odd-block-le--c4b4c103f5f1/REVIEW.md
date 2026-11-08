@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The universal bound removes one history from each disjoint pair of commuting operation orders. With pairwise distinct source symbols, the first occurrence of each symbol is invariant under duplications, making the occupied original gaps readable from a final word. Two occupied gaps distinguish overlapping orders by a specific differing source letter; a single occupied gap determines the second insertion point from the first internal adjacent equality. This proves exactly the claimed collision fibers and yields the formula for every permitted parameter. A standard-library enumerator provides finite cross-checks, not a substitute for the proof.
+
+**Originality — PASS (best-knowledge, subject to priority review).** The closest direct source, Zabokritskiy (2026), Theorem 5.1, proves the formula for even block lengths across all alphabets, not odd block lengths. Its forced commutation upper bound alone does not prove the odd-\(k\) attainability result. Lenz–Wachter-Zeh–Yaakobi (2017) derives single-error sphere information and one-step collision criteria; Sun–Ge (2026) gives code constructions without the present exact-two sphere classification. Searches for odd-length, high-alphabet and distinct-source equivalents found no prior statement that implies this exact odd-block theorem. Residual risk: an older large-alphabet rewriting or duplication-history result might imply the collision lemma under different terminology.
+
+**Value — PASS.** Exact maximal descendant-sphere size is a natural packing and ambiguity benchmark in duplication channels. The recent general theorem covered even lengths and explicitly left the odd-length case outside its result. The current proof identifies a nontrivial uniform high-alphabet regime for every odd block length and every source length, including a precise account of all history collisions; the result is not a single numerical table entry. It distinguishes the large-alphabet regime from the smaller-alphabet odd cases, which may have extra collisions.
+
+**Limits and remaining checks.** The theorem does not settle arbitrary alphabet sizes for odd blocks, any code capacity, or more than two duplications. Historical priority and mathematical validity remain open to independent verification.
+
+Self-review: passed. Independent audit: not yet performed.
