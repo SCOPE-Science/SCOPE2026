@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The signature \(L\) is invariant under every non-wrapping adjacent swap, whereas the wrapping swap replaces one internal early value by one internal late value. The constructive two-block sorting proof establishes connectivity of every fixed-signature sector; the monotone largest-complement/minimum-signature replacement connects all sectors of fixed cardinality, and different excedance counts cannot mix. A separate inclusion-exclusion argument gives component sizes and endpoint constraints yield the two isolated states. Complete, independently implemented finite reconstructions for orders \(3\)–\(8\) (Python) and \(3\)–\(9\) (C++17) support the proof; no infinite claim follows from tests alone.
+
+**Originality — PASS, qualified.** The mathematically closest path-only adjacency problem has \(2^{n-2}\) components (also derived here), but this does not contain or imply the boundary-swap component identifications without an additional proof. Steingrímsson–Williams concerns excedance statistics, Clark graph derangements, Albasini–Zagaglia Salvi the separate concept of adjacent *cycles*, Assaf wreath-product cyclic derangements, and Ganesan unrestricted Cayley graph symmetries. Retrieved published-index results did not give this fixed-point-free cyclic-position reconfiguration classification. A broader unindexed affine-permutation result remains a priority risk; these searches do not certify unique historical priority.
+
+**Value — PASS.** This natural change in a local permutation generator provably collapses exponentially many connectivity classes to a linear number while retaining a simple, classical level statistic as a complete invariant. It explains the mechanism constructively and gives every component size and all isolated configurations. It is a global structural reconfiguration theorem, not merely a restatement of Eulerian enumeration or a tiny numerical gain.
+
+**Limitations.** Only ordinary labelled derangements and swaps at adjacent cyclic *positions* are treated. No all-pairs shortest path, sharp diameter, or mixing-time assertion. The cited historical comparisons include abstracts and portions of primary texts; independent assessment remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
