@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For k=2, r in {1,2,3,4} odds gives exactly each t mod4 with both parities and independent s adjustment by +2. For each k>=2, adding 2^k to one entry toggles only the first top bit; moving 2^(k-1) between one even and one odd entry toggles only the quadratic top bit, preserving all lower bits and mixed parity. Thus all four lifts exist inductively. For k>=3, sum-of-four-squares zero mod8 implies all four entries even with total sum divisible by four, so (2,0) is inaccessible. k=1,2 boundaries established explicitly. Exact finite sumset and lift checks pass through k=7 and k=4 respectively. Infinite proof does not rely on them.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hickman–Wright (arXiv:1801.03176), restriction/Kakeya estimates, does not give sharp fivefold dyadic sumset equality. The published dyadic parabola fourth-moment result computes sharp Fourier extension norms and energy, not higher-fold target-by-target existence."
+      ],
+      "reasoning": "Bounds on fourth moments or additive energy do not force every parity-compatible target to have a five-term representation, nor do they establish the four-term obstruction. Odd-prime Fourier results cannot be specialized to dyadic characteristic under their stated hypotheses.",
+      "searches": [
+        "five-fold dyadic parabola sumset prescribed first second moments mod 2^k exact additive basis",
+        "additive basis order 5 of (x,x^2) over rings powers of two",
+        "complete ordered two-sum representation spectrum (x,x squared) modulo powers two",
+        "parabola graph x squared additive quadruples odd prime powers valuation",
+        "arxiv:1801.03176",
+        "2026/10/11/SCOPE-parity-sharp-fourth-moments-of-the-dyadic-quadratic-graph--417e488b0292",
+        "2026/10/11/SCOPE-exact-fourth-moment-extension-and-all-extremizers-for-parabolas--730a12e98b61"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1404.4214v1; Journal of Integer Sequences 2014, Article 14.11.6",
+      "arXiv:1801.03176v1",
+      "Published dyadic quadratic graph fourth-moment result, October 2026",
+      "H. Haanpää, Journal of Integer Sequences 2004, Article 04.2.6",
+      "OEIS A240547, sum-of-four-squares counting record"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tóth 2014 studies one quadratic congruence, with specific 2-power formulas; the full published dyadic fourth-moment theorem studies a related graph but states no fivefold coverage; Haanpää 2004 concerns group sum/difference covers, not this polynomial graph.",
+        "A direct proof here constructs four independently controllable top-bit lifts of mixed-parity five-tuples and supplies a specific mod-eight four-term obstruction."
+      ],
+      "reasoning": "None of the strongest inspected relevant statements implies the precise minimum h=5 for the specific dyadic parabola graph. The statements involve different fibers, moments, or unrestricted cover sets. The first and second prescribed moment conditions are essential.",
+      "searches": [
+        "five-fold dyadic parabola sumset prescribed first second moments mod 2^k exact additive basis",
+        "surjectivity five squares with prescribed sum over Z/2^kZ",
+        "Counting solutions of quadratic congruences in several variables revisited 1404.4214",
+        "2026/10/11/SCOPE-parity-sharp-fourth-moments-of-the-dyadic-quadratic-graph--417e488b0292",
+        "2026/10/11/SCOPE-exact-five-point-finite-parabola-uncertainty-over-the-field-of-s--c8e97af8983f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem is equivalent to full solvability of two prescribed moment congruences for five variables over every 2-power ring. Tóth (arXiv:1404.4214), introduction and Sections 3, 8, treats only one quadratic congruence at a time. No matching result appeared in the actual semantic index queries."
+      ],
+      "reasoning": "The source counts unrestricted solutions of a single quadratic equation; an additional prescribed linear sum is not a corollary. A full two-moment image theorem over powers of two would cover this result, but none was established by the inspected sources.",
+      "searches": [
+        "five-fold dyadic parabola sumset prescribed first second moments mod 2^k exact additive basis",
+        "surjectivity five squares with prescribed sum over Z/2^kZ",
+        "additive basis order 5 of (x,x^2) over rings powers of two",
+        "five variables sum of squares and sum of variables modulo 2^k surjectivity parity 5",
+        "parabola additive basis cyclic ring 2-adic sumset five copies"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A240547 counts quadruples of squares with square sum zero, without prescribing their linear sum. The two-sum spectrum indexed for fifth-power graphs concerns finite fields and a different power curve. The exact small-ring enumeration in checker.py is computed independently and is not a known published full table."
+      ],
+      "reasoning": "A table of the number of squares-only solutions or a different graph cannot give the exact fivefold dyadic two-moment covering order. Numeric coincidence at a finite level would not prove the all-exponent lifting statement.",
+      "searches": [
+        "OEIS A240547",
+        "exact dyadic parabola twofold sumset cardinality 2^k",
+        "pairs of sums x+y and x^2+y^2 modulo powers of two",
+        "2026/10/11/SCOPE-complete-two-sum-spectrum-of-the-finite-field-fifth-power-graph--f9410cde2e91"
+      ]
+    },
+    "rationale": "Targeted source/index/alias searches and primary full-text checks distinguish a sharp fivefold two-moment image theorem from known single quadratic-congruence counts, additive-energy bounds, and unrelated sum-cover tables. No decisive covering theorem was found, subject to listed residual historical-priority risks.",
+    "residual_risks": [
+      "No exhaustive search of pre-digital literature on 2-adic local Waring systems with prescribed first and second power sums.",
+      "Haanpää (2004) was inspected at abstract/landing-page level, not in its entirety; its problem differs substantially.",
+      "Priority can be affected by a stronger theorem in a source not indexed or accessible, although targeted claim-level searches and relevant primary-source comparisons found none.",
+      "The same-model review is not independent mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the document imposes a quadratic sum only, not simultaneously the independent first moment; its arithmetic formulas cannot establish sharp fivefold graph covering.",
+        "evidence": [
+          "The paper explicitly studies N_k(n,r) counting x_1^2+...+x_k^2 congruent to n; Sections 7–8 give single-equation counts for dyadic rings."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL17/Toth/toth12.pdf",
+        "material_read": "Introduction and theorems on quadratic solution counts, including the 2-power cases of Sections 7 and 8",
+        "method": "Original openly accessible full PDF text and page-image inspection, including the defining formula and stated scope",
+        "title": "Counting solutions of quadratic congruences in several variables revisited",
+        "trigger": "Same prime-power quadratic-sum congruence family; possible general covering theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: analytic restriction estimates and odd-prime curve hypotheses do not supply exact fivefold dyadic graph sumset coverage.",
+        "evidence": [
+          "Theorems concern harmonic restriction and polynomial curves with specified characteristic conditions, not target-by-target 2-adic surjectivity of the first two moment map."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.03176",
+        "material_read": "Original article sections on parabola Fourier restriction and polynomial solution-counting hypotheses, especially Sections 2, 6 and 7",
+        "method": "Open research article mathematical text",
+        "title": "The Fourier restriction and Kakeya problems over rings of integers modulo N",
+        "trigger": "Related polynomial-curve Fourier and additive-congruence work"
+      },
+      {
+        "assessment": "NOT_COVERING: computes sharp fourth-moment Fourier extension constants and collision counts; says nothing about minimal fivefold additive cover or all targets.",
+        "evidence": [
+          "Its main statement concerns ℓ4 Fourier norm, including the uniform-input energy ratio m+1; no claim of hG=P for h≥5."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-parity-sharp-fourth-moments-of-the-dyadic-quadratic-graph--417e488b0292",
+        "material_read": "Entire publicly available RESULT.md, including theorem, proof, verification, and references",
+        "method": "Direct reading of published primary research file",
+        "title": "Parity-sharp fourth moments of the dyadic quadratic graph",
+        "trigger": "Exact same dyadic parabola graph and its additive energy"
+      },
+      {
+        "assessment": "Plausible generic sum-cover comparison but no identified covering implication: studies size-optimal two-sum/difference covers of small groups, not the fifth sum of a fixed polynomial graph.",
+        "evidence": [
+          "The source asks for minimum-size A with A+A covering a finite group, not the required number of copies of a fixed graph."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL7/Haanpaa/haanpaa.html",
+        "material_read": "Original abstract and statement of research scope",
+        "method": "Journal primary landing-page abstract",
+        "title": "Minimum Sum and Difference Covers of Abelian Groups",
+        "trigger": "Potential general theorem subsuming additive covering of subgroup P_k"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5d3e2391-dafa-4c1c-9ce3-8559f774d5d4",
+  "value": {
+    "rationale": "A natural exact local additive-basis invariant of the dyadic parabola is determined for every prime-power exponent, including the nonlinear five-variable existence threshold and a sharp mod-eight obstruction. The two-coordinate moment problem is arithmetically richer than the separately counted square-sum congruence, and the parity-preserving lifting construction is reusable for related local power-sum maps. No unproved downstream applications are asserted.",
+    "status": "PASS"
+  }
+}
