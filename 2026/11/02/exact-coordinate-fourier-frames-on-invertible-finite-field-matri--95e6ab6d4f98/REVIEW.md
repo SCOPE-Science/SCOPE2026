@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The scope fixes uniform probability measure, one nontrivial additive character, all matrix coordinate functions, and the Gram normalization. A direct first-two-column count establishes the exact rank-one and rank-two Fourier sums, including characteristic two. The row/column-contrast decomposition gives all \(d^2+1\) eigenvalues and dimensions; elementary positivity bounds show the lower eigenvalue is strictly positive for all prime powers, including the small exceptional case. A characteristic-polynomial comparison, with explicit sign factor, proves the dimension-four change in the upper Riesz endpoint. The standalone enumerator replayed independently across six finite prime-field instances. This is an analytic all-parameter proof; checks do not certify unenumerated cases.
+## correctness
 
-## Originality — PASS under bounded comparison
-Delsarte (1978), fully inspected through Sections 1–6 and the Appendix, determines general rank-metric Fourier character sums but does not present the constant-plus-all-coordinate frame spectrum, its smallest-eigenvalue extremizer, or the dimension-four crossover. Related indexed results for determinant-one \(2\)-by-\(2\), rank-one, and binary symplectic matrix varieties were compared by the objects, implications, and domains: none subsumes the all-dimensional invertible-matrix result. The determinant-one example covers the isolated \(\(q=d=2\)\) case and is not claimed as novel separately. Residual risk: a general older treatment might have combined Delsarte's input sums with the rook-scheme diagonalization to state the same spectrum.
+PASS
 
-## Mathematical value — PASS
-Invertible matrices are the canonical full-rank stratum of the rank-metric association scheme. The exact sampling stability of the first Fourier band is a natural quantitative invariant for harmonic recovery on this large non-linear subset. The theorem determines the *whole* spectrum, both optimal Riesz constants and their equality spaces, and reveals a sharp dimension threshold uniform in field size, not just an isolated computed case. It also shows exponential approach to tightness at fixed field size.
+The uniform nonzero first column gives rank-one character mean a=-1/(q^d-1). Averaging an independent ordered first-two-column pair yields rank-two mean b=1/((q^d-1)(q^(d-1)-1)), valid for any nontrivial additive character and all prime powers. Coordinate Gram entries form a rook-scheme block: all-ones mode lambda0=1+2(d-1)a+(d-1)^2*b, row/column contrasts lambda1=1+(d-2)a-(d-1)b (multiplicity 2(d-1)), zero-row/column contrasts lambda2=1-2a+b (multiplicity (d-1)^2). The constant couples to all ones via d*a giving two roots mu±=(1+lambda0 ±sqrt((1-lambda0)^2+4d^2*a^2))/2. Multiplicities sum to d²+1. Direct elementary inequalities, including q=d=2, show mu_->0, and determinant comparison with lambda2 has sign controlled by (4-d)+(6-2d)t-(d-2)t² for t=1/(q^(d-1)-1); hence upper lambda2 for d=2,3 and mu+ for d>=4. Independent direct uniform GL matrix enumeration verified rank1 and rank2 Fourier averages for (q,d)=(2,2),(3,2),(5,2),(2,3); full package NumPy spectrum checker was inspected. Finite checks do not prove arbitrary fields.
 
-## Closest literature and limits
-P. Delsarte, *Bilinear Forms over a Finite Field, with Applications to Coding Theory*, JCTA 25 (1978), DOI `10.1016/0097-3165(78)90015-8`. A paper on symmetric bilinear forms (`arXiv:1410.7184`) supplies related but not identical matrix-rank harmonic analysis; only its abstract and bibliographic material were used. The complete research statements for the determinant-one \(2\)-by-\(2\) and rank-one matrix Fourier frames were inspected: neither covers the general invertible-matrix frame. Independent mathematical audit is still necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Delsarte 1978 determines general matrix rank-metric character sums and is credited for the rank-one and rank-two input. The present natural band (constant plus each coordinate Fourier character) has a particular rook decomposition, sharp upper-mode dimension-four switch and Riesz bounds; related Resultary SL2, rank-one and symplectic sampling families have different domains, with an overlap q=2,d=2 already known. Originality is qualified because Delsarte full text and possible broader matrix association scheme spectral treatment were not fully inspected. An authorized institutional attempt for the same primary DOI was blocked by safety checks and was not retried/bypassed.
+
+## value
+
+PASS
+
+The complete sharp frame Gram eigenvalue spectrum for invertible matrices is a natural Fourier restriction invariant and answers both independence and optimal conditioning. An unexpected dimension-four universal switch and fixed-q asymptotic tightness are nontrivial structural properties beyond merely plugging rank-character sums into a formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
