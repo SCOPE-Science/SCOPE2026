@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every m>=1, the right-preconditioned affine companion has Krylov space span(e_1,...,e_m). Its (m+1)-by-m least-squares matrix has a one-dimensional nullspace of its transpose. Direct orthogonal projection produces the stated R_m squared identity; its first two residual coordinates then give the exact recovered scalar residual. The m=1 boundary is handled by v_2=0. Geometric sums prove all three asymptotic cases and the exceptional nonzero outside-disk lifted floor. A separate exact-rational companion least-squares verifier passed 175 parameter/dimension comparisons plus a symbolic limiting identity. No finite enumeration substitutes for the all-m proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gao–Jiang Theorem 5.3 gives a lower bound on lifted residual for |s|>1.",
+        "Correnty–Jarlebring–Soodhalter discuss inexact preconditioning residuals of the enlarged companion; their physical recovery does not carry the claimed exact identity."
+      ],
+      "reasoning": "A general upper/lower bound for the enlarged residual cannot force a nonzero residual of its recovered scalar first coordinate; the new example saturates the distinction. General conjugacy or polynomial residual statements do not explicitly contain the parameter-matched exceptional locus or the R_m asymptotic.",
+      "searches": [
+        "Toeplitz infinite GMRES parameterized linear systems scalar linear pencils physical residual vs linearization residual out of disk exact recovery",
+        "Infinite GMRES for parameterized linear systems companion physical residual parameterized affine model",
+        "parameterized linear system Krylov companion true residual vs linearization residual estimate finite GMRES",
+        "https://arxiv.org/abs/2610.01740",
+        "https://arxiv.org/pdf/2102.04082",
+        "https://arxiv.org/pdf/2206.05153"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.01740",
+      "https://arxiv.org/pdf/2102.04082",
+      "https://arxiv.org/pdf/2206.05153",
+      "https://doi.org/10.1137/21M1410324",
+      "https://doi.org/10.1137/22M1502380"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5.3 of Gao–Jiang concerns the quantity R_m minimized in the companion space.",
+        "The 2021 and 2022 articles prove linearization equivalence at exact solutions and discuss GMRES residuals, but exact-solution equivalence does not imply equal residuals for approximate solutions."
+      ],
+      "reasoning": "Original-system exactness follows at c=s for the GMRES approximate recovered scalar, despite the strictly positive lifted residual. This invalidates any attempt to infer physical inaccuracy from the source lower bound; the source does not assert such a mistaken inference. The all-m identity is a separate calculation from the explicitly specified companion columns.",
+      "searches": [
+        "https://arxiv.org/abs/2610.01740",
+        "https://arxiv.org/pdf/2102.04082",
+        "https://arxiv.org/pdf/2206.05153",
+        "infinite GMRES linearization residual physical residual original small while linearized stagnates",
+        "Gao Jiang Toeplitz infinite GMRES 2610.01740 lower bound lifted residual scalar affine physical recovered solution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gao–Jiang Section 2 defines the first-coordinate recovered solution; Section 5 studies an enlarged Euclidean norm, not the physical residual.",
+        "Jarlebring–Correnty Section 3.1 has the generic GMRES least-squares formulation but no matching all-m affine residual comparison."
+      ],
+      "reasoning": "A physical residual identity is equivalent to a relation between two different projections of the companion least-squares error, rather than to a bound on the companion residual alone. The exact c=s cancellation persists for every m; none of the inspected identified statements says this or implies it by a named specialization.",
+      "searches": [
+        "Gao Jiang Toeplitz infinite GMRES 2610.01740 lower bound lifted residual scalar affine physical recovered solution",
+        "scalar affine parameterized infinite GMRES companion 1+c*s exact residual cancellation and unit disk stagnation",
+        "original system residual zero while linearized GMRES residual positive infinite companion parameterized systems",
+        "infinite GMRES scalar affine companion recovered physical residual vs lifted residual",
+        "https://arxiv.org/abs/2610.01740",
+        "https://arxiv.org/pdf/2102.04082",
+        "https://arxiv.org/pdf/2206.05153"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published mathematical-record nearest matches concern ordinary symmetric GMRES(1) solution-error growth and a MINRES second-iterate positivity threshold, not analytic companion GMRES.",
+        "The source papers contain no identified table of scalar lifted-versus-recovered residuals."
+      ],
+      "reasoning": "The claim is an exact continuous-parameter and all-iteration algebraic law, not a numerical table lookup; neither a relevant finite tabulation nor a matching published record was found. Negative search evidence alone is not a novelty proof.",
+      "searches": [
+        "Gao Jiang Toeplitz infinite GMRES 2610.01740 lower bound lifted residual scalar affine physical recovered solution",
+        "scalar affine parameterized infinite GMRES companion 1+c*s exact residual cancellation and unit disk stagnation",
+        "original system residual zero while linearized GMRES residual positive infinite companion parameterized systems",
+        "scalar affine parameterized infinite GMRES companion 1+c*s exact residual cancellation and unit disk stagnation"
+      ]
+    },
+    "rationale": "The motivating source proves a lower bound on the lifted Euclidean companion residual, not on the recovered original-equation residual. Exact scalar parameter matching can make the latter zero while the former has a persistent positive floor. The two 2021/2022 foundational works establish the framework but the inspected statements do not imply the full scalar all-m identity and three parameter regimes without new calculation. The bibliographic searches and closely related published records produced no dominating statement. Source-specific, historical-priority uncertainty remains.",
+    "residual_risks": [
+      "A previously unindexed scalar companion-GMRES calculation could derive the identity in equivalent notation.",
+      "The relation is confined to an affine scalar problem; its methodological significance concerns residual interpretation and not general matrix convergence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and bounds the lifted residual but does not give the all-m affine physical-residual identity, the cancellation locus c=s, or the sharp three-regime squared residual. Its lower bound and the new identity are compatible.",
+        "evidence": [
+          "https://arxiv.org/abs/2610.01740, Sections 2, 3, 5; equations (2), (4), (6), (27), conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.01740",
+        "material_read": "Relevant material in the freely accessible full text, including Section 2 (preconditioned companion and solution recovery), Section 3 (Toeplitz Krylov representation), Section 5 (Lemma 5.1, Theorem 5.3 and scaling), and conclusion. The PDF version has the corresponding lower bound numbered Theorem 5.2.",
+        "method": "Read the mathematical statements and hypotheses, distinguished the Euclidean companion residual from the original scalar-equation residual, and compared exact implications.",
+        "title": "Toeplitz Infinite GMRES for Parameterized Linear Systems",
+        "trigger": "Original companion equations, recovery formula, and the outside-unit-disk residual lower bound could dominate or imply the claim."
+      },
+      {
+        "assessment": "Establishes the method and general convergence framework, but the inspected statements do not contain the present exact scalar affiliate-residual identity or cancellation locus. The companion normalization differs in its original presentation.",
+        "evidence": [
+          "https://arxiv.org/pdf/2102.04082, Theorem 2.1 and Section 3.1; section 7 conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2102.04082",
+        "material_read": "Original companion equivalence, GMRES least-squares construction in Sections 2–3, convergence-factor discussions and conclusion in the full open-access PDF.",
+        "method": "Compared the recovered physical equation to the minimized shifted enlarged residual and the normalization of its companion.",
+        "title": "Infinite GMRES for Parameterized Linear Systems",
+        "trigger": "Foundational infinite-GMRES linearization may already establish equivalent statements under another companion form."
+      },
+      {
+        "assessment": "Analyzes inexact versus exact preconditioning and lifted residuals; the inspected results do not assert the exact scalar relationship or its outside-unit-disk cancellation.",
+        "evidence": [
+          "https://arxiv.org/pdf/2206.05153, Theorem 2.1, equations (3.26)–(3.27), Theorem 4.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.05153",
+        "material_read": "Linearization equivalence and the right-preconditioned matrix in Sections 2–3; exact/inexact enlarged-residual comparison in Section 4; convergence discussion.",
+        "method": "Compared statements about enlarged-system residuals with recovered original-equation residual and the parameter-specific affine formula.",
+        "title": "Preconditioned Infinite GMRES for Parameterized Linear Systems",
+        "trigger": "Earlier right-preconditioned formulation could cover the same residual distinction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b1bcedae-321f-4f36-b01b-8202fe39c60a",
+  "value": {
+    "rationale": "The published nonvanishing companion-residual bound raises a natural concrete question: does it force failure to solve the original problem? The theorem gives an exact all-m answer and a sharp parameter-specific failure of that inference, with a physical residual identically zero even though the companion residual can stagnate near 1/sqrt(2). The three s regimes and exact cancellation locus give a usable diagnostic for evaluating stopping criteria and expansion-coordinate scaling. It is a motivated structural boundary of a recently analyzed algorithm, not an arbitrary numerical slice; it does not claim general matrix implications.",
+    "status": "PASS"
+  }
+}
