@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T06:03:47.409083Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read pinned RESULT.md and direct-matrix verify.py. For Hermitian rank-one X=r uu*, Y=s vv*, Frobenius commutator square divided by positive weighted norms reduces exactly to 2t²(1-t²)/[(u*Au)(v*Av)], t=|u*v|. The fixed-overlap Rayleigh minimum, explicitly reconstructed and cited from Pang Lemma 3.1, is ab(1-t²) for t<=delta=(b-a)/(a+b), and ((a+b)-(b-a)t)²/4 for t>delta. On first branch quotient rises; on second derivative is controlled by h(t)=(a+b)(1-2t²)+(b-a)t³, strictly decreasing and crossing from positive to negative exactly once. Positive rank-one projections from eigenvectors at eigenvalues a,b attain the unique maximum; endpoints t=0,1 and a=b handled. The identity ab*C/2=3t_*²-t_*⁴-1 yields monotonicity in b/a. Independent direct projector matrix calculations and 800-point overlap scans for 5 spectra corroborated constants, not an exhaustive proof. Strong restriction: Hermitian rank one, n>=2, A>0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pang full primary text includes fixed-overlap denominator Lemma 3.1 and unrestricted rank-one Theorem 1.1.",
+          "Mayumi–Kimura–Ohno–Chruściński arXiv:2403.04199 develops weighted Frobenius commutator inequalities for general inputs."
+        ],
+        "reasoning": "A broader-domain inequality with a larger coefficient does not give a sharp bound for the Hermitian subset; the exact constants are demonstrably unequal even when a=b.",
+        "searches": [
+          "Resultary: sharp weighted Frobenius commutator Hermitian rank one positive semidefinite optimal constants",
+          "Pang 2610.29240 sharp weighted commutator rank one theorem Mayumi 2403.04199"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.29240v1 full HTML, Lemma 3.1 and Theorem 1.1",
+        "arXiv:2403.04199 scope/abstract",
+        "Fang–Cheng DOI:10.1016/j.laa.2025.03.015 publisher abstract",
+        "Resultary search Resultary: sharp weighted Frobenius commutator Hermitian rank one positive semidefinite optimal constants",
+        "Pinned RESULT.md blob 896d86590e056e43deddf3e60b856010d665b8c0 and verify.py blob 659f7dd82c2b5dc357c484a559fe92e6f6549a66"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pang Lemma 3.1 establishes D(t) for fixed inner-product t, which is used verbatim as a prior lemma.",
+          "The new numerator 2t²(1-t²) yields the cubic optimal-overlap equation and different asymptotics."
+        ],
+        "reasoning": "Fixed-overlap denominator is prior, but it does not alone imply the newly optimized coefficient without the Hermitian numerator and global one-variable analysis. The paper-specific unrestricted coefficient cannot imply sharpness of the stricter subclass.",
+        "searches": [
+          "Resultary: sharp weighted Frobenius commutator Hermitian rank one positive semidefinite optimal constants",
+          "Pang Lemma 3.1 positive rank one Hermitian weighted commutator 2610.29240"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For projectors P_u,P_v, ||[P_u,P_v]||_F²=2t²(1-t²).",
+          "Pang arXiv:2610.29240 theorem optimizes all rank-one matrices, not necessarily Hermitian; its numerator allows independent left/right overlaps."
+        ],
+        "reasoning": "The natural alias is commutator of two pure-state projectors with energy-weighted Hilbert–Schmidt norms. The numerator constraint makes a distinct sharp extremum, not just the unrestricted theorem restated.",
+        "searches": [
+          "Resultary: sharp weighted Frobenius commutator Hermitian rank one positive semidefinite optimal constants",
+          "rank one pure state projector commutator overlap weighted Böttcher Wenzel norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned rank-one crossed-Heinz spectral support Schatten crossover, id 2026/10/11/SCOPE-rank-one-crossed-heinz-operators-have-a-spectral-support-schatte--e20efd37906d: different operator objective.",
+          "No exact Hermitian restricted sharp constant was identified in the Resultary returned records."
+        ],
+        "reasoning": "No finite database or known table directly determines the continuous weight/eigenratio sharp constant; an undiscovered earlier positive-operator formula remains possible.",
+        "searches": [
+          "Resultary: sharp weighted Frobenius commutator Hermitian rank one positive semidefinite optimal constants",
+          "weighted Frobenius pure-state rank one Hermitian commutator sharp constant table spectral ratio"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the restricted Hermitian/PSD rank-one sharp coefficient; Pang arXiv:2610.29240 Lemma 3.1 and his unrestricted rank-one sharp theorem are acknowledged established results. Pang permits independently varying left and right generators of nonsymmetric rank-one matrices, so its sharp numerator and constants differ. For a=b, Hermitian C=1/(2a²) versus Pang unrestricted C=2/a², while as b/a grows the former is ~2/(ab) and unrestricted stays ~1/a² for fixed a. Prior Mayumi et al weighted Frobenius commutators and Fang–Cheng bounds concern broader matrix classes without an identified exact Hermitian specialization. Full Fang–Cheng publisher text not inspected; residual overlap risk.",
+      "residual_risks": [
+        "A positive-operator / quantum pure-state specialization may already be in inaccessible Fang–Cheng 2025 publisher text.",
+        "Oxford institutional-access action was blocked by a safety check; no retry/bypass. Full Pang text was read via freely available arXiv HTML."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact D(t) and unrestricted case, not the Hermitian numerator-constrained sharp optimum",
+          "evidence": [
+            "Lemma 3.1 two-branch Rayleigh-product D(t); unrestricted theorem optimizes independent left/right rank-one generators."
+          ],
+          "identifier_or_url": "arXiv:2610.29240v1",
+          "material_read": "Full accessible arXiv HTML, especially Lemma 3.1 and Theorem 1.1; rank-one optimization sections",
+          "method": "Read and compared explicit statements/equations and extremizers",
+          "title": "A sharp weighted commutator inequality for rank-one matrices",
+          "trigger": "Same A-weighted Frobenius rank-one commutator; exact fixed-overlap lemma"
+        },
+        {
+          "assessment": "Broad general bounds are foundations; cannot rule out a hidden special-case optimal coefficient from limited reading",
+          "evidence": [
+            "Broad general weighted commutator inequalities and quantum motivation."
+          ],
+          "identifier_or_url": "arXiv:2403.04199",
+          "material_read": "Public abstract, theorem summary; full text not established",
+          "method": "Compared publicly available topic and matrix quantifiers",
+          "title": "Böttcher–Wenzel inequality for weighted Frobenius norms and its application to quantum physics",
+          "trigger": "General quantum-motivated weighted commutator inequality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positive rank-one Hermitian matrices are pure-state projections and an intrinsic subclass in quantum commutator estimates. Determining an exact, attained, dimension-independent sharp weighted commutator constant, its optimizing overlap and contrasting spectral anisotropy is a motivated nontrivial refinement, not a relabeling of the unrestricted bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.29240v1 full HTML, Lemma 3.1 and Theorem 1.1",
+    "arXiv:2403.04199 scope/abstract",
+    "Fang–Cheng DOI:10.1016/j.laa.2025.03.015 publisher abstract",
+    "Resultary search Resultary: sharp weighted Frobenius commutator Hermitian rank one positive semidefinite optimal constants",
+    "Pinned RESULT.md blob 896d86590e056e43deddf3e60b856010d665b8c0 and verify.py blob 659f7dd82c2b5dc357c484a559fe92e6f6549a66"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only complex Hermitian rank-one (also PSD rank-one) X,Y, positive-definite A and n>=2.",
+    "Numerical tests are bounded checks; fixed-overlap minimization and cubic monotonicity give infinite-dimensional-family proof.",
+    "Publication transport issue is not a scientific rejection; no private provenance was written into public source files."
+  ],
+  "schema_version": 1
+}

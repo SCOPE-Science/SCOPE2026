@@ -1,15 +1,21 @@
-# Scientific review — sharp Hermitian rank-one weighted commutators
+# Independent mathematical audit
 
-## Correctness: PASS
-For rank-one Hermitian inputs the numerator has the exact form \(2t^2(1-t^2)\), verified by multiplying projectors, and their weighted squared norms are Rayleigh quotients. Pang's cited Lemma 3.1 establishes the sharp minimum \(D(t)\); the present proof reconstructs its compression and scalar minimization and checks the overlap endpoints, eigenvalue multiplicity, and the equality geometry. The new one-variable quotient is increasing through the first branch, and its derivative on the second is controlled by a strictly decreasing cubic \(h(t)\) with opposite endpoint signs. Its unique root gives a global maximum, attained by explicitly exhibited positive rank-one projections. The normalized formula and anisotropy limit follow algebraically. The accompanying direct-matrix checker returned `VERIFY_OK` over eight spectra; these finite numeric checks are not substituted for proof.
+## correctness
 
-## Originality: PASS with stated historical risk
-Pang (arXiv:2610.29240v1, Lemma 3.1) already supplies the exact denominator, and his Theorem 1.1 gives the larger unrestricted rank-one commutator optimum, neither of which is claimed anew. His Sections 4 and 5 optimize a different numerator over independent left and right rank-one factors, whereas self-adjointness identifies them and forces a distinct numerator; the two constants have different asymptotics. The earlier weighted Frobenius paper by Mayumi and collaborators treats broader matrix inequalities and applications, not this computed pure-state restricted constant. The available description of Fang–Cheng supports bounds for the unrestricted problem; complete publisher text was unavailable, and a hidden equivalent normal/positive specialization is the principal remaining novelty risk. Relevant mathematical-index searches returned different numerical-radius, rank-one operator and commutator problems, not the present sharp coefficient. Failed searches are not evidence of absolute priority.
+PASS
 
-## Mathematical value: PASS
-The bounded-uncertainty/quantum-state specialization to positive rank-one projections is intrinsic, not an arbitrary parameter slice. It produces the exact sharp constant and all extremizers for every dimension and every positive weight, quantifies the change from isotropic to highly anisotropic weights, and yields an unbounded asymptotic separation from the unrestricted optimal constant. This is a new natural restricted sharp inequality rather than a small finite-instance number, while openly using its crucial existing Rayleigh lemma.
+Read pinned RESULT.md and direct-matrix verify.py. For Hermitian rank-one X=r uu*, Y=s vv*, Frobenius commutator square divided by positive weighted norms reduces exactly to 2t²(1-t²)/[(u*Au)(v*Av)], t=|u*v|. The fixed-overlap Rayleigh minimum, explicitly reconstructed and cited from Pang Lemma 3.1, is ab(1-t²) for t<=delta=(b-a)/(a+b), and ((a+b)-(b-a)t)²/4 for t>delta. On first branch quotient rises; on second derivative is controlled by h(t)=(a+b)(1-2t²)+(b-a)t³, strictly decreasing and crossing from positive to negative exactly once. Positive rank-one projections from eigenvectors at eigenvalues a,b attain the unique maximum; endpoints t=0,1 and a=b handled. The identity ab*C/2=3t_*²-t_*⁴-1 yields monotonicity in b/a. Independent direct projector matrix calculations and 800-point overlap scans for 5 spectra corroborated constants, not an exhaustive proof. Strong restriction: Hermitian rank one, n>=2, A>0.
 
-## Closest literature and limitations
-Pang, arXiv:2610.29240v1, Theorem 1.1, Lemma 3.1, Sections 4–5; Mayumi–Kimura–Ohno–Chruściński, arXiv:2403.04199; Fang–Cheng, DOI 10.1016/j.laa.2025.03.015 (abstract and detailed citation available, full text not established). No assertion is made about arbitrary-rank positive operators or complete historical priority. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the restricted Hermitian/PSD rank-one sharp coefficient; Pang arXiv:2610.29240 Lemma 3.1 and his unrestricted rank-one sharp theorem are acknowledged established results. Pang permits independently varying left and right generators of nonsymmetric rank-one matrices, so its sharp numerator and constants differ. For a=b, Hermitian C=1/(2a²) versus Pang unrestricted C=2/a², while as b/a grows the former is ~2/(ab) and unrestricted stays ~1/a² for fixed a. Prior Mayumi et al weighted Frobenius commutators and Fang–Cheng bounds concern broader matrix classes without an identified exact Hermitian specialization. Full Fang–Cheng publisher text not inspected; residual overlap risk.
+
+## value
+
+PASS
+
+Positive rank-one Hermitian matrices are pure-state projections and an intrinsic subclass in quantum commutator estimates. Determining an exact, attained, dimension-independent sharp weighted commutator constant, its optimizing overlap and contrasting spectral anisotropy is a motivated nontrivial refinement, not a relabeling of the unrestricted bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
