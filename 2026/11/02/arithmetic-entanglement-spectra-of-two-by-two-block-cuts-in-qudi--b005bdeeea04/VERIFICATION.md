@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify_rook.py` with Python 3.9 or newer in the directory containing the standalone script. The script uses no third-party package and independently constructs each cut-adjacency matrix from pairs of rook-board coordinates, not from the analytic margin factorization.
+## correctness
 
-The replay produces `GF_P_CUT_RANK_OK 1168`, covering every positive block-size quadruple up to four for primes 2, 3, 5, plus 400 seeded cases through prime 7. It produces `DIRECT_QUANTUM_PURITY_OK 4` after constructing graph-state amplitudes, tracing out the complementary subsystem and comparing purity against the asserted Schmidt rank. It also prints four exact modulus-sensitive example checks and `VERIFICATION_OK`. The actual record is in `CHECK_OUTPUT.txt`.
+PASS
 
-The mathematical proof of the infinite family is the surjectivity of the row/column margin map, the two-scalar characterization of the cut kernel, and the exact finite-field character sum giving the flat reduced-state spectrum (RESULT.md). Those analytical arguments—not the finite program—justify the universal quantifiers. No claim is made about untested gate weights, arbitrary partitions, or prior-literature completeness.
+The pure prime-qudit graph-state phase across a cut is omega^(x^T Gamma y); tracing B produces kernel coset blocks and exactly p^R equal eigenvalues p^-R where R=rank_Fp Gamma. For diagonal rectangle blocks A, all crossing adjacency outputs depend solely on row/column margins, whose only two compatibility constraints leave m+n-2 dimensions. Kernel of the margin-to-output map has constants alpha,beta obeying [[a,c],[d,b]](alpha,beta)=0, dimension 2-r_p. Therefore rank Gamma=m+n-4+r_p and all Rényi spectra follow. Direct independent finite-field Gaussian elimination of the literal rook cross-cut matrices confirmed formula for 243 cases a,b,c,d=1..3, p=2,3,5. All prime p and positive block sizes covered algebraically; arbitrary cuts not claimed.
+
+## originality
+
+PASS
+
+General graph-state Schmidt rank=cut adjacency rank is old, as is qubit rook graph topological code construction. Liao-Sanders-Feder full arXiv HTML §IV.2.5 and Appendix F analyzes balanced L(K_m,m) graph codes and Hamming weights, not this qudit two-by-two block-cut spectrum. The computed four-block modular trichotomy is a distinct exact specialization.
+
+## value
+
+PASS
+
+A natural symmetric graph-state family has a surprisingly low-entropy macroscopic diagonal checkerboard cut and prime-dependent jumps. The formula supplies precise Schmidt spectra usable to assess structured cuts and code-state entanglement, rather than merely restating a universal rank identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
