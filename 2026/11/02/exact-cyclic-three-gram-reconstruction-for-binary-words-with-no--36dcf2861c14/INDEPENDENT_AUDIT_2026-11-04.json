@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T12:48:30.149389Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nonconstant circular binary 010-avoider every one-run has length >=2 and each zero-run length >=1. The cyclic list of t paired one-runs and zero-runs is unique up to slot rotation; v long zero gaps, A excess zeros, and B excess ones yield exactly profile (A,v,0,t,v,t-v,t,B) with n=3t+v+A+B and v=0=>A=0. Burnside fixed points under rotations of order d require d dividing t,v,A,B and give the claimed totient/binomial formula. Exhaustive disjoint casework of v=0, v=t, v=1, v=t-1 and interior gives precisely the singleton iff criterion, with constants separate. Geometric sums of parameter counts yield the displayed rational C_n and U_n generating functions; primitive order-3 and order-4 poles survive, giving exact eventual least period 12, C~n³/72 and U~4n/3. Independent full necklace/fiber enumeration through n=11 matches the formula, not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiah et al. establish existence/average asymptotic bounds, not exact per-necklace Burnside fibers; Chee et al. arXiv:2403.01454 count distinct-window RLL sequences."
+        ],
+        "reasoning": "General de Bruijn coding and restricted-tour frameworks have broader classes but weaker/different evaluated conclusions; no dominating exact fiber classification found.",
+        "searches": [
+          "Resultary: binary cyclic 010 avoiding order two Markov profile necklace exact fiber multiplicity",
+          "arxiv:1502.00517 sequence profile restricted de Bruijn quasipolynomial bounds"
+        ]
+      },
+      "checked_sources": [
+        "Jacquet, Knessl, Szpankowski, Counting Markov Types (2010), DOI:10.46298/dmtcs.2768",
+        "Kiah–Puleo–Milenkovic, arXiv:1502.00517",
+        "Chee et al., arXiv:2403.01454",
+        "Ye–Elishco, arXiv:2208.14963",
+        "Resultary two-multispectrum coding result 2026/10/4/...--13779c08da71"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A first-order transition-count Markov type cannot fix how length-three overlapping transitions are arranged. Distinct-window maximum lengths are not complete multiplicity-profile inverse-image counts."
+        ],
+        "reasoning": "The full Burnside fiber formula and singleton iff conditions require the candidate-specific cyclic run decomposition and do not follow from inspected first-order Markov type or distinct-window statements without material new work.",
+        "searches": [
+          "Jacquet Knessl Szpankowski Counting Markov Types 2010",
+          "Kiah Puleo Milenkovic Codes for DNA Sequence Profiles 2015",
+          "Chee Etzion Nguyen Maximum Length RLL Sequences in de Bruijn Graph 2024"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jacquet–Knessl–Szpankowski Counting Markov Types (2010) studies ordinary first-order type matrices; Kiah–Puleo–Milenkovic use constrained de Bruijn profile flow for higher-order sequence coding."
+        ],
+        "reasoning": "This is a second-order binary Markov type with a missing transition and a quotient by cyclic shifts. Neither first-order count nor general directed-flow model alone enumerates all rotational fiber sizes.",
+        "searches": [
+          "Resultary: binary cyclic 010 avoiding order two Markov profile necklace exact fiber multiplicity",
+          "web: 010-avoiding cyclic binary 3gram de Bruijn empirical Markov type necklaces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearby: Exact binary two-multispectrum code size and singleton classification (2026/10/4/...--13779c08da71) treats two-symbol observation rather than forbidden cyclic 3-gram fibers."
+        ],
+        "reasoning": "No exact table matching this all-n eight-coordinate spectrum identified in checked records; unsuccessful search alone is not a novelty theorem.",
+        "searches": [
+          "Resultary: cyclic binary 010 avoiding order two Markov profile necklace exact fiber multiplicity",
+          "web: C_n U_n 010 3gram profiles 96/n² unique proportion"
+        ]
+      },
+      "rationale": "Constrained sequence-profile theory already provides graph-flow and asymptotic machinery, while classical Markov types count first-order transition matrices. The candidate gives a fully evaluated order-two (3-gram) inverse-profile orbit census under the specific forbidden 010 transition, every singleton fiber, and two exact generating functions; these are not directly stated in the inspected primary results. General order-two Markov-type enumeration may imply a special case, so O is qualified.",
+      "residual_risks": [
+        "A comprehensive older constrained order-two Markov-type orbit enumeration could include a specialized formula without naming the forbidden word 010.",
+        "Noisy reads, reversal quotient, alternative forbidden factors, longer k-grams not addressed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Paper treats first-order transition count/matrix types, not fully specified order-two binary 010 forbidden rotational profile fibers.",
+          "evidence": [
+            "DMTCS (2010) first-order empirical Markov type enumeration."
+          ],
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2768",
+          "material_read": "Original publicly accessible conference PDF, early definitions, main approach, matrix transition-count formulation and scope; screenshot of technical page inspected.",
+          "method": "Read OA primary PDF text and inspected page screenshot.",
+          "title": "Counting Markov Types",
+          "trigger": "Potentially dominating Markov-type enumeration theorem"
+        },
+        {
+          "assessment": "General profile framework and counts, not the evaluated exact forbidden-three-gram all-fiber formula.",
+          "evidence": [
+            "General constrained profile counting theory, not exact singleton-reconstruction law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.00517",
+          "material_read": "Public primary PDF definitions and relevant profile-count theorem sections, including constraints and asymptotics.",
+          "method": "Read lawful public PDF and screenshot relevant page.",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Broad de Bruijn sequence-profile theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural exact full-profile reconstruction for one forbidden local pattern determines which cyclic necklaces can be recovered from noisy-free unordered reads of complete overlapping 3-grams. The theorem gives every multiplicity, a sharp unique-fiber classification, full zero-error capacity and the asymptotic loss of identifiability; this is a substantive complete invariant, not merely a counting exercise.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only binary cyclic complete ordered three-gram observations with forbidden 010; necklaces modulo rotation only.",
+    "Possible unindexed general Markov-type equivalent theorem remains a priority risk."
+  ],
+  "schema_version": 1
+}
