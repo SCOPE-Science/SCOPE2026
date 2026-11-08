@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "A direct state-by-state proof shows the terminal vacancy count is 0 or 2, derives an exact two-parameter rational recurrence, proves r_t(k) monotonic in intact-pair count and bounds its product, and bounds joint tagged-pair survival through an algebraically verified q_t(k) inequality. Fixed-T and then T→∞ yield the sharp 3/4 coefficient. Independent exhaustive labeled versus reduced recurrences agree for m=2..7, and 2985 finite exact rational assertions passed; finite checks are not used as the asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dyer–Frieze, doi:10.1002/rsa.3240020104, publisher abstract: graph approximation and forests",
+        "Miller–Pritikin, Random Structures & Algorithms 10 (1997), publisher abstract: lower bounds for approximation ratio",
+        "Gamarnik–Goldberg, arxiv:0807.1277, Theorem 5: girth at least four; fixed-degree high-girth results"
+      ],
+      "reasoning": "Broad randomized-matching approximation inequalities do not specify order-1/m failure probability or its coefficient. Gamarnik–Goldberg applies to high-girth graphs, whereas the candidate graph has triangles and degree growing with m. Full text of Dyer–Frieze could not be inspected, a remaining risk.",
+      "searches": [
+        "\"Randomized greedy matching\" Dyer Frieze 1991",
+        "\"On randomized greedy matchings\" Miller Pritikin 1997",
+        "\"Randomized greedy algorithms for independent sets and matchings in regular graphs\" Theorem 5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0807.1277 (theorems and model full-text sections)",
+      "arxiv:1908.00940 (fully connected model and conclusion full-text sections)",
+      "doi:10.1002/rsa.3240020104 (abstract only)",
+      "doi:10.1002/(SICI)1098-2418(199705)10:3<353::AID-RSA5>3.0.CO;2-V (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gamarnik–Goldberg restrict their sharp matching comparison to bounded-degree high-girth families, not these dense triangular graphs",
+        "Turban states a complete graph is fully covered, so its terminal vacancy probability is identically zero",
+        "Dyer–Frieze and Miller–Pritikin accessible abstracts give general performance bounds, not this event coefficient"
+      ],
+      "reasoning": "A total expected matching-size ratio near one does not imply the first-order nonperfect-matching probability, and a complete-graph saturation formula does not survive deletion of a forbidden perfect matching. The 3/4 coefficient comes from a two-tag survival argument rather than direct substitution.",
+      "searches": [
+        "arxiv:0807.1277 section 2 Theorem 5",
+        "arxiv:1908.00940 section 2.1 and conclusion",
+        "doi:10.1002/rsa.3240020104 randomized greedy matching",
+        "Miller Pritikin 1997 randomized greedy matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:0807.1277, pages 1-7: random edge greedy algorithm, Theorem 5",
+        "arxiv:1908.00940, sections 2.1 and 5: fully connected adsorption always saturates completely"
+      ],
+      "reasoning": "The graph is alternatively a cocktail-party graph, complement of a perfect matching, or complete graph with forbidden paired-edge deposition. None of the inspected exact formulas concerns the terminal two-vacancy event in that defective graph. A name-only search is not treated as a uniqueness proof.",
+      "searches": [
+        "\"cocktail party graph\" \"random sequential adsorption\" dimer",
+        "\"complete graph minus a perfect matching\" \"greedy matching\" random",
+        "\"random greedy matching\" \"complete graph\" \"perfect matching\" deleted forbidden pairs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The comparison surfaced no source tabulating the probability on K_(2m) minus a perfect matching. The finite numerical entries used here were independently generated from an exact transition recursion."
+      ],
+      "reasoning": "No matching published table was found in the examined sources. Absence from a search index alone cannot establish priority; exact numbers are not claimed to be globally absent.",
+      "searches": [
+        "\"cocktail party\" \"greedy matching\" \"random\" probability",
+        "\"3/(4n)\" dimer adsorption greedy matching",
+        "\"random sequential adsorption\" \"complete graph\" missing matching"
+      ]
+    },
+    "rationale": "The exact terminal law and coefficient 3/4 concern a dense, triangular matching-deleted clique. Read primary full text on sparse bounded-degree high-girth random greedy matching and fully connected adsorption: neither covers the missing-perfect-matching terminal event. General 1991/1997 bounds from accessible abstracts do not imply this sharp coefficient; 1991 full text remains inaccessible and historical priority is provisional.",
+    "residual_risks": [
+      "The 1991 random greedy matching paper was not available for full-text inspection; an implicit equivalent specialization cannot be ruled out.",
+      "The 1997 weighted greedy matching paper was compared only from abstract and general-bound statements.",
+      "Search and record-index nonmatches cannot prove global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering this dense triangle-containing graph or its rare exact failure coefficient",
+        "evidence": [
+          "Theorem 5 assumes girth at least 4",
+          "Section 1.2 identifies the regular large-girth graph focus"
+        ],
+        "identifier_or_url": "arxiv:0807.1277",
+        "material_read": "Full-text PDF: introduction/model pages 1–3, matching Theorem 5 and neighboring variance result pages 6–7, conclusion and references pages 22–24",
+        "method": "PDF text sections checked against rendered page image",
+        "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections",
+        "trigger": "Same random-edge algorithm and general matching bounds"
+      },
+      {
+        "assessment": "Fully connected substrate is always perfectly covered; no forbidden paired edges or nonzero terminal vacancies",
+        "evidence": [
+          "Section 2.1: every set of k vacant sites is a legal deposition",
+          "Section 5: saturation only at full coverage"
+        ],
+        "identifier_or_url": "arxiv:1908.00940",
+        "material_read": "Full-text PDF: abstract, introduction, model and master equation pages 1–3; final dimer limit and conclusion pages 17–19",
+        "method": "PDF text equations and rendered model-page image",
+        "title": "Random sequential adsorption of k-mers on the fully-connected lattice: probability distributions of the covering time and extreme value statistics",
+        "trigger": "Closest fully connected dimer adsorption setting"
+      },
+      {
+        "assessment": "Abstract emphasizes graph-family approximation and forests; full-text possible implicit special case cannot be excluded",
+        "evidence": [
+          "Random Structures & Algorithms 2 (1991), 29–46"
+        ],
+        "identifier_or_url": "doi:10.1002/rsa.3240020104",
+        "material_read": "Publisher abstract and publication metadata only; arXiv and open-access full-text attempts did not recover a readable copy",
+        "method": "Publisher metadata and secondary citation in arxiv:0807.1277; institutional full-text attempt unavailable",
+        "title": "Randomized greedy matching",
+        "trigger": "Original general random-edge greedy matching study"
+      },
+      {
+        "assessment": "General approximation ratio bounds do not directly entail sharp rare-event asymptotic; historical priority remains provisional",
+        "evidence": [
+          "Bounds r(G) >= 1/(2-|V|/(2|E|)) for graphs with perfect matchings"
+        ],
+        "identifier_or_url": "doi:10.1002/(SICI)1098-2418(199705)10:3<353::AID-RSA5>3.0.CO;2-V",
+        "material_read": "Publisher abstract and displayed statement of general lower bounds; full text not inspected",
+        "method": "Publisher landing-page comparison",
+        "title": "On randomized greedy matchings",
+        "trigger": "Generalization with weighted randomized edge-choice on fixed graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1e8252ab-63ec-4464-bb1a-9af607b62ce9",
+  "value": {
+    "rationale": "Deletion of a perfect matching is the maximally symmetric degree-one forbidden-edge perturbation of complete-graph deposition. It creates a rare, structurally forced jam with an unexpected sharp coefficient 3/4 rather than the naïve 1/2 of uniformly choosing the last two vertices. This gives a natural, reproducible finite-size kinetic benchmark rather than a relabeled or arbitrary invariant.",
+    "status": "PASS"
+  }
+}
