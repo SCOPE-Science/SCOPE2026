@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scientific limits
+# Independent mathematical audit
 
-Execute `python3 verify_orbits.py`, `python3 verify_points_polynomial.py`, `python3 verify_points_independent.py`, and `python3 verify_weil.py`; each is standalone and requires only the Python standard library. Their expected final success tags are, respectively, `MATRIX_CLASSIFICATION_OK`, `POLYNOMIAL_BASIS_COUNTS_OK`, `INDEPENDENT_POINT_COUNTS_OK`, and `WEIL_CERTIFICATE_OK`.
+## correctness
 
-The matrix script enumerates all \(3^9=19683\) ternary matrices, tests irreducibility of degree-three characteristic polynomials by the absence of roots over \(\mathbb F_3\), establishes the eight polynomial multiplicities, and computes the rank-eight polynomial representation and two affine-root classes. The polynomial-basis counter independently counts all affine and infinite points over \(\mathbb F_{3^n}\) for \(n=1,2,3,4,5,6\). The second counter implements primitive-power finite fields and directly evaluates the companion-matrix quintic, verifying the same complete point counts. The final script reconstructs the genus-six Weil numerators using Newton identities and functional equation and certifies GF(2) irreducibility by repeated squaring and Euclidean gcds. Actual executions produced all four success tags.
+PASS
 
-Numerical computations are exhaustive in the declared finite ranges; the claim for arbitrarily large extensions follows from the established zeta-function functional equation. The classification of geometric smoothness is taken from the cited source rather than inferred from local counts. The isogeny assertions invoke established finite-field isogeny classification. Independent external audit is not performed.
+The Homma-Kim normal form identifies plane-filling quintics by 3x3 matrices modulo scalars; irreducible cubic characteristic polynomial is the published smoothness criterion. Eight irreducible cubics split into affine-polynomial orbits of sizes 2,6, yielding 144 and 432 scalar-normalized models in two rational projective classes. For their displayed representatives, six extension counts determine all 12 genus-six Weil numerator coefficients by Newton identities and functional equation: P_s=(1+3T+5T^2+9T^3+9T^4)^3; P_g has coefficients (1,9,42,131,308,601,1067,1803,2772,3537,3402,2187,729). Independent polynomial arithmetic checked both numerator reconstructions and mod-2 irreducibility of quartic and degree-12 factor, confirming simple ordinary abelian surface cubed versus simple ordinary sixfold and P_s(1)=19683, P_g(1)=16589. Independently enumerated projective points by finite-field polynomial-basis arithmetic for n=1..4, reproducing first four counts of both tables, and inspected source exact verifiers for higher two levels. Finite fields n<=4 alone do NOT determine zeta without the cited smooth genus-six functional equation and certified remaining two counts.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precise final mathematical addition, not its known source definition; checked actual primary statements/implications and Resultary semantic neighbors; residual access and priority risks remain explicit. A classification plus ordinarity is necessary background, but the specific degree-12 numerator arithmetic is additional. Ordinary simple sixfold versus surface-cube is proved by irreducibility of the computed Weil factors.
+
+## value
+
+PASS
+
+This exact Weil/isogeny census refines a natural and pre-existing complete geometric classification of all smooth F3 plane-filling quintics. It distinguishes geometrically equivalent-looking counts at degree one by the arithmetic of their ordinary Jacobians and all extension-field point counts, a substantive natural exact invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
