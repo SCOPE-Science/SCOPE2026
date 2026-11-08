@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Every full outbreak on a rooted tree requires and suffices that each vertex reach all of its children. Conditional iid edge contacts and iid lifetime independence give the product of moments; changing roots changes only one moment factor. Positive-moment Cauchy–Schwarz gives strict degree ordering for nondeterministic lifetime. Exact beta integral yields the exponential case. CHECKER.py independently tested all 120 source/rate/distribution cases via exact rational Markov recurrence and outgoing-edge enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sharkey et al. 2013 establish exact pair/node dynamics on trees, DOI:10.1007/s11538-013-9923-5.",
+        "Hall and Siebert 2023 establish exact rooted-tree node marginals but explicitly note difficulties with joint probabilities, DOI:10.1007/s00285-022-01854-9.",
+        "Karrer and Newman 2010 allows arbitrary infectious-period laws and exact tree messages, arxiv:1003.5673."
+      ],
+      "reasoning": "The general epidemic frameworks cover the underlying process, not by themselves the theorem about the joint complete-outbreak event and ranking by degree only. Derivation additionally uses the full-edge success intersection and moment-log-convexity; it is not the same as a single-node-infection marginal. Historical theorem-level coverage beyond the inspected text remains a residual risk.",
+      "searches": [
+        "published-finding corpus: outbreak all vertices Markov SIR tree seed degree covariance infectious time",
+        "Web: SIR Markovian epidemic on trees epidemic infect all nodes probability transmissibility dependent siblings recovery",
+        "Web: general epidemic percolation networks probability infect every vertex from source degree tree infectious periods"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1003.5673 (full primary PDF, 2010)",
+      "doi:10.1007/s11538-013-9923-5 (open-access primary HTML, 2013)",
+      "doi:10.1007/s00285-022-01854-9 (open-access primary HTML, 2023)",
+      "doi:10.1103/PhysRevE.61.5678 (Moore–Newman 2000 background abstract)",
+      "Available scientific results compared for claim-level overlap",
+      "published-finding corpus semantic search query results for q1, q2, q3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2010 primary exact formulas: single-node marginal susceptibility as product of incoming messages; no all-vertex joint event degree formula located.",
+        "2013/2023 primary exact tree treatments derive node-state probabilities; they do not assert a topology-blind complete-outbreak comparison across all source degrees.",
+        "The mathematical proof establishes additional ratio \\(m_2/m_1^2\\) as an infectiousness heterogeneity statistic and strict ordering from moment log-convexity."
+      ],
+      "reasoning": "The prior work provides necessary model context and general solution machinery; the claim does not logically follow from *only* node marginals because joint infection events carry dependence from shared infectious lifetimes. Its derivation is a short but separate joint-event factorization. General epidemic-percolation representations could subsume the factorization if a prior author stated their complete cluster-size coefficient, so the exact priority remains provisional.",
+      "searches": [
+        "Web: A message passing approach for general epidemic models Karrer Newman full PDF 1003.5673",
+        "Web: exact equations for SIR epidemics on tree graphs Sharkey 2013",
+        "Web: exact solutions bounds rooted-tree approximation Hall Siebert 2023",
+        "published-finding corpus: outbreak all vertices Markov SIR tree seed degree covariance infectious time"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Karrer and Newman 2010 Eq.(24)–(25) concerns late-time marginal susceptibility and message passing; its note on correlated bond percolation identifies the mechanism but not this joint event formula.",
+        "Prior own entry ef1d8b65-985a-4ebd-bd05-fc65b5341cf2 concerns a stifling-rumor process with source-INDEPENDENT all-hear probability rather than SIR heterogeneity.",
+        "published-finding corpus query hits include 2026/10/4/SCOPE-no-outbreak-blocks-remove-the-atom-assumption-and-force-uniform--281da857aeb7, not equivalent: immunity-chain mixing rather than finite-tree all-vertex coverage."
+      ],
+      "reasoning": "The event here requires simultaneous success of every child-directed transmission, distinct from individual susceptibility and from rumor stifling. Direct search and within-document checks did not locate the same source-degree moment law. A broad directed-percolation representation may nevertheless implicitly imply the product after a separate computation.",
+      "searches": [
+        "published-finding corpus: homogeneous SIR epidemic arbitrary infectious period on trees complete outbreak probability depends only on seed degree full infection moment ratio",
+        "published-finding corpus: site source full outbreak infection probability tree infectious periods iid degree ordering reliability",
+        "Web: \"full infection\" \"tree\" \"degree\" \"SIR\" probability",
+        "Web: \"infect all\" \"tree\" \"source\" \"degree\" SIR probability",
+        "Prior-claim comparison: full outbreak, source degree and recovery/infectious period; examined pertinent scientific claims"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact source-by-source outputs in CHECKER.py are for verification, not copied from a table.",
+        "A separate prior scientific finding studies epidemic outbreak-size variance on complete bipartite graphs rather than the all-infection probability on trees.",
+        "published-finding corpus nearest topical hits did not provide an exact table or identical conclusion."
+      ],
+      "reasoning": "No located database of complete-coverage probabilities or degree-multiset invariant supersedes the result. A finite computation alone would be insufficient; the claim is symbolic over all finite trees and arbitrary iid positive infectious periods.",
+      "searches": [
+        "published-finding corpus: homogeneous SIR epidemic arbitrary infectious period on trees complete outbreak probability depends only on seed degree full infection moment ratio",
+        "published-finding corpus: site source full outbreak infection probability tree infectious periods iid degree ordering reliability",
+        "Web: network SIR full outbreak probability independent tree topology degree sequence distribution of infectious periods",
+        "Prior scientific-claim comparison: read available scientific titles, slogans and related statements for full-outbreak and seed-degree cases"
+      ]
+    },
+    "rationale": "The exact all-vertex event product and consequent source-degree invariance/strict moment-ratio classification were not found in the inspected closest primary literature, which addresses general SIR message-passing or marginal/node-level equations. The new statement is an event-specific structural reduction with a heterogeneity-identification ratio, not a claim to a new general tree SIR model. Prior correlated-bond constructions remain a meaningful possible-equivalence risk, explicitly recorded.",
+    "residual_risks": [
+      "A directed correlated-percolation or rooted SIR source-ranking theorem not found through tested aliases might state this product or strict degree ordering verbatim.",
+      "The result is for the rare complete-coverage event; its value does not extend to every final-size or epidemiological risk objective.",
+      "Scientific novelty has not been independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PREDECESSOR_NOT_DIRECT_COVERAGE: derives tree message-passing and single-vertex susceptibility/generating-function expressions, not the complete-outbreak joint probability product or its degree-ratio/CV identity",
+        "evidence": [
+          "arxiv:1003.5673 first version 2010-03-29, sections II, IV, V; Eq. (2), (24), (25); passage on correlated bond percolation and recovery-time variation"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1003.5673",
+        "material_read": "arXiv v2 10-page full paper: problem and tree equation (pp.1-3), general graph inequality (pp.3-5), late-time percolation and examples (pp.5-8), appendix discussion (pp.8-10); inspected PDF page renders and searchable text",
+        "method": "Primary PDF sections, exact equation statements, text search for all-vertex/full-outbreak probability and source-degree risk",
+        "title": "A message passing approach for general epidemic models",
+        "trigger": "Most directly matching arbitrary-distribution SIR theory exact on finite trees and correlated transmissions"
+      },
+      {
+        "assessment": "PREDECESSOR_NOT_DIRECT_COVERAGE: exact node/pair infection-time equations, not an all-vertex eventual-outbreak event or degree-only probability formula",
+        "evidence": [
+          "DOI:10.1007/s11538-013-9923-5, first online 2013-12-18; sections 1.2, 3, 4, 5"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11538-013-9923-5",
+        "material_read": "Open-access full-text paper, introductory model, central theorem and exact tree-closure argument, graph examples and discussion, searched for seed-degree/full-infection statements",
+        "method": "Full HTML relevant sections and within-page searches for all infected, degree, all individuals; examined primary conclusions and formal results",
+        "title": "Exact Equations for SIR Epidemics on Tree Graphs",
+        "trigger": "Exact finite SIR dynamics on trees and possible explicit all-infection probability"
+      },
+      {
+        "assessment": "PREDECESSOR_NOT_DIRECT_COVERAGE: derives exact marginals for each node; even its text warns joint probabilities need not follow from marginals, so its formulas do not directly establish all-vertex probability and degree-only quotient",
+        "evidence": [
+          "DOI:10.1007/s00285-022-01854-9, online 2023-01-10, section 2.2, text after Eq. (10) and discussion"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-022-01854-9",
+        "material_read": "Open-access full-text article, SIR rooted-tree Sect.2.2 and exact node-state solution, discussion and references, searched all nodes, all vertices, complete, full outbreak",
+        "method": "Primary HTML substantive text/equations in sections 2 and 4 with targeted phrase searches",
+        "title": "Exact solutions and bounds for network SIR and SEIR models using a rooted-tree approximation",
+        "trigger": "Close modern exact tree epidemic model with explicit single-source initial condition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2f9e3a02-73aa-466f-aa2b-0c62f01e6540",
+  "value": {
+    "rationale": "The event-specific degree-only law is a complete structural classification of catastrophic eventual all-vertex infection risk across every finite tree. Degree-preserving rewiring invariance and the exact degree-two/leaf risk ratio equal to 1 plus squared coefficient of variation of individual transmissibility isolate a biologically interpretable source-heterogeneity mechanism, not just a small graph enumeration. General finite trees and arbitrary positive iid infectious periods are treated; empirical inference/other severity objectives are explicitly excluded.",
+    "status": "PASS"
+  }
+}
