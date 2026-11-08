@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:42:01.858278Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each strict order and its reversal induce one ternary betweenness concept, so there are n!/2 concepts and each fixed middle-label query is positive for exactly n!/6. Any depth-d complete online mistake tree must have at least 2^(d−1) concepts at its positive root, yielding d≤1+floor(log2(n!/6)). Fetched the ACTUAL 78,165-byte certificate JSON (Git blob 80733f0b8c1c2032b59cfef5a3f5e715cd6bac96), independently enumerated lexicographic orders modulo reversal, evaluated all questions on all leaf paths in a separate JavaScript evaluator and verified distinct leaf witnesses at depths 1,3,5,7,10,13 for n=3..8, i.e. 2,8,32,128,1024,8192 leaves respectively. Independently implemented exhaustive monotone-prefix VC-support DFS for n=3..6; observed VC dimensions 1,2,4,6 (n=6 tested 558,091 retained support nodes). Thus finite exact values and universal root bound are supported. No exact values for n≥9 or VC n≥7 are claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manurangsi–Rubinstein discuss generic complexity and hardness of dimension computation.",
+          "Peters–Procaccia use pairwise comparisons and expected sorting complexity; Raz studies a different permutation incidence range space."
+        ],
+        "reasoning": "Neither generic hardness nor pairwise-query sorting bounds dominates the ternary-middle-labelled-query exact complete adaptive shattering tree.",
+        "searches": [
+          "betweenness ternary strict total order Littlestone VC dimension shattering",
+          "Manurangsi Rubinstein Inapproximability of VC Dimension and Littlestone Dimension arXiv:1705.09517",
+          "Peters Procaccia Preference Elicitation as Average-Case Sorting 2021",
+          "Ran Raz VC-dimension of sets of permutations 2000"
+        ]
+      },
+      "checked_sources": [
+        "Courcelle arxiv:2004.09777",
+        "Manurangsi–Rubinstein arxiv:1705.09517",
+        "Peters–Procaccia AAAI 2021",
+        "Resultary query betweenness ternary strict total order Littlestone VC dimension shattering",
+        "assigned RESULT.md SHA f4d44bd82e23b5c27dc0cd35953b92f9b191ecc0",
+        "actual certificates.json blob 80733f0b8c1c2032b59cfef5a3f5e715cd6bac96"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The positive-root bound 2^(d−1)≤n!/6 is a new application of a known counting principle, whereas exact sharpness for n=3..8 is certified by 8,192 distinct length-13 paths at n=8.",
+          "The prior reconstruction theorem supplies uniqueness of the underlying order only up to reversal."
+        ],
+        "reasoning": "Existing uniqueness and general learning theory give the counting side but not existence of this particular tree; finite certificate is essential for sharpness.",
+        "searches": [
+          "betweenness ternary strict total order Littlestone VC dimension shattering",
+          "Courcelle 2020 ternary betweenness theorem and reconstruction",
+          "Manurangsi Rubinstein 2017 definitions",
+          "AAAI 2021 average-case sorting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Courcelle describes ternary betweenness and uniqueness of linear orders up to reversal (the n!/2 concept count).",
+          "The certificate requires an adaptive shattering tree, not an ordering-reconstruction protocol."
+        ],
+        "reasoning": "The n!/2 count is known but does not imply the explicit exact depth values n≤8; a total-order sorting bound does not characterize a complete ternary mistake tree.",
+        "searches": [
+          "betweenness ternary strict total order Littlestone VC dimension shattering",
+          "Courcelle Betweenness of partial orders arXiv:2004.09777",
+          "ternary order shattering Littlestone permutation midpoint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search yielded ranking/ordinal and tournament results, no matching n=3..8 Ldim table.",
+          "The examined prior papers do not tabulate this specific concept class and question domain."
+        ],
+        "reasoning": "A table of n!/2 or generic dimension upper bounds cannot substitute for complete lower-bound witness trees; unlocated matching table remains a residual risk.",
+        "searches": [
+          "betweenness ternary strict total order Littlestone VC dimension shattering",
+          "Resultary semantic search betweenness ternary strict total order Littlestone VC dimension shattering",
+          "betweenness Ldim 1 3 5 7 10 13",
+          "ternary betweenness VCdim n<=8"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS as an exact finite-range adaptive and static shattering census for ternary betweenness predicates on total orders, including the first cardinality-bound deficit and first VC/Ldim gap. General dimension definitions and reversal uniqueness are prior work.",
+      "residual_risks": [
+        "A more specialized paper on ternary ordinal comparisons could have obtained the same finite learning-dimension values without the terminology betweenness.",
+        "Static VC proof is exact only n≤6 and adaptive certificates only n≤8; extrapolation is not justified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior reversal uniqueness and betweenness representation; no inspected finite online-shattering table.",
+          "evidence": "Courcelle, arXiv:2004.09777, definitions and main representation statements.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.09777",
+          "material_read": "Inspected the arXiv primary statements, the ternary betweenness definition, and reconstruction/uniqueness discussion; no claim of an exhaustive line-by-line search of all appendices.",
+          "method": "arXiv accessible primary text and section searches",
+          "title": "Betweenness of partial orders",
+          "trigger": "direct ternary betweenness on orders"
+        },
+        {
+          "assessment": "Generic hardness and definitions, not an explicit betweenness-class depth census.",
+          "evidence": "Manurangsi–Rubinstein, arXiv:1705.09517.",
+          "identifier_or_url": "https://arxiv.org/abs/1705.09517",
+          "material_read": "Read abstract and core definitions/problem statement as available; did not use uninspected material to assert global noncoverage.",
+          "method": "arXiv abstract/indexed sections",
+          "title": "Inapproximability of VC Dimension and Littlestone Dimension",
+          "trigger": "direct names of both target learning dimensions"
+        },
+        {
+          "assessment": "Query language and objective differ: pairwise expected identification versus ternary worst-case shattering.",
+          "evidence": "AAAI 2021.",
+          "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/16709/16516",
+          "material_read": "Inspected title, abstract and stated pairwise-comparison average-case model; not full-body negative conclusion.",
+          "method": "Published AAAI article indexed material",
+          "title": "Preference Elicitation as Average-Case Sorting",
+          "trigger": "same total-order objects with query complexity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural complete finite classification to eight labelled elements, with exact first thresholds and large independently checkable exhaustive lower-bound certificates. Ternary midpoint questions have a different learning complexity from pairwise order comparisons; exact finite cutoffs are substantive even without an all-n formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No statement about n≥9 adaptive values, and no static n≥7 value.",
+    "Certificates are finite mathematical witnesses, not an all-n formula or a historical priority certificate."
+  ],
+  "schema_version": 1
+}

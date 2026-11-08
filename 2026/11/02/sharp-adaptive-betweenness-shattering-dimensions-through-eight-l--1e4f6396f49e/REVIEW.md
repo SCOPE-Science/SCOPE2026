@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The upper bound for all sizes counts exactly one third of reversal-equivalent orders on the positive side of every ternary question. The lower bounds through eight labels have complete node-labeled trees with 9,386 distinct leaf witnesses in aggregate. A second implementation checks every leaf and every query split, while a trace-refinement enumeration determines the VC dimensions through six labels. The finite claims do not rely on sampling or extrapolation.
+## correctness
 
-**Originality — PASS under the accessible comparisons.** The closest primary source, Courcelle's 2020 preprint, establishes the ternary relation and reversal quotient but not the shattering dimensions. Manurangsi–Rubinstein 2017 discusses generic dimension computation, and Peters–Procaccia 2021 studies pairwise ranking elicitation rather than ternary midpoint mistake trees. The accessible earlier pairwise-permutation dimension result uses a different query domain and does not entail the claimed values. Full search strings, source inspections, implication comparisons, and remaining priority risks are in `AUDIT.json`. Searches do not establish exhaustive historical priority.
+PASS
 
-**Mathematical value — PASS.** The finite classification proves sharpness of a universal information-theoretic upper bound up to eight labels, discovers the first failure of the naive cardinality bound at six, and the first adaptive-versus-static gap at four. This is a natural complete sequence of exact online dimensions, with a 13-level certificate already containing 8,192 leaves. Larger label counts and the VC dimensions from seven labels onward remain open in this package.
+Each strict order and its reversal induce one ternary betweenness concept, so there are n!/2 concepts and each fixed middle-label query is positive for exactly n!/6. Any depth-d complete online mistake tree must have at least 2^(d−1) concepts at its positive root, yielding d≤1+floor(log2(n!/6)). Fetched the ACTUAL 78,165-byte certificate JSON (Git blob 80733f0b8c1c2032b59cfef5a3f5e715cd6bac96), independently enumerated lexicographic orders modulo reversal, evaluated all questions on all leaf paths in a separate JavaScript evaluator and verified distinct leaf witnesses at depths 1,3,5,7,10,13 for n=3..8, i.e. 2,8,32,128,1024,8192 leaves respectively. Independently implemented exhaustive monotone-prefix VC-support DFS for n=3..6; observed VC dimensions 1,2,4,6 (n=6 tested 558,091 retained support nodes). Thus finite exact values and universal root bound are supported. No exact values for n≥9 or VC n≥7 are claimed.
 
-The largest lower bounds rely on explicit executable certificates; no independent audit has been performed. The literature comparison is limited to the inspected material and available research records.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS as an exact finite-range adaptive and static shattering census for ternary betweenness predicates on total orders, including the first cardinality-bound deficit and first VC/Ldim gap. General dimension definitions and reversal uniqueness are prior work.
+
+## value
+
+PASS
+
+This is a natural complete finite classification to eight labelled elements, with exact first thresholds and large independently checkable exhaustive lower-bound certificates. Ternary midpoint questions have a different learning complexity from pairwise order comparisons; exact finite cutoffs are substantive even without an all-n formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

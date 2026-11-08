@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite certificates and replay
+# Independent mathematical audit
 
-The exact adaptive dimensions for orders of sizes three through eight are obtained by a universal counting upper bound and six complete lower-bound trees. Each tree is stored in `certificates.json` using zero-based indices into deterministically ordered lists of ternary queries and reversal-canonical permutations. The executable verification checks every root-to-leaf path from the decoded certificates, not a sample.
+## correctness
 
-Run `python verify_certificate.py certificates.json`. This must print `BETWEENNESS_CERTIFICATE_AND_STATIC_CHECKS_PASS`. A fresh `python build_witnesses.py --out rebuilt.json` reproduces the certificate, whose SHA-256 should equal that of `certificates.json`.
+PASS
 
-The exact verified leaf counts by increasing label count are \(2,8,32,128,1024,8192\), totaling \(9386\) complete root-to-leaf paths. At each internal node the verifier independently evaluates the ternary predicate on the canonical permutation carried by each descendant leaf. It separately checks that every query has exactly \(n!/6\) positive concepts. The static part completely backtracks over query-index supports for \(n=3,4,5,6\), halting an extension whenever its next query fails to split a current trace cell.
+Each strict order and its reversal induce one ternary betweenness concept, so there are n!/2 concepts and each fixed middle-label query is positive for exactly n!/6. Any depth-d complete online mistake tree must have at least 2^(d−1) concepts at its positive root, yielding d≤1+floor(log2(n!/6)). Fetched the ACTUAL 78,165-byte certificate JSON (Git blob 80733f0b8c1c2032b59cfef5a3f5e715cd6bac96), independently enumerated lexicographic orders modulo reversal, evaluated all questions on all leaf paths in a separate JavaScript evaluator and verified distinct leaf witnesses at depths 1,3,5,7,10,13 for n=3..8, i.e. 2,8,32,128,1024,8192 leaves respectively. Independently implemented exhaustive monotone-prefix VC-support DFS for n=3..6; observed VC dimensions 1,2,4,6 (n=6 tested 558,091 retained support nodes). Thus finite exact values and universal root bound are supported. No exact values for n≥9 or VC n≥7 are claimed.
 
-The finite certificates do not prove the upper bound for all sizes: the latter has the analytic root-count proof in `RESULT.md`. This replay is a reproducibility check rather than independent expert validation.
+## originality
+
+PASS
+
+Best-of-knowledge PASS as an exact finite-range adaptive and static shattering census for ternary betweenness predicates on total orders, including the first cardinality-bound deficit and first VC/Ldim gap. General dimension definitions and reversal uniqueness are prior work.
+
+## value
+
+PASS
+
+This is a natural complete finite classification to eight labelled elements, with exact first thresholds and large independently checkable exhaustive lower-bound certificates. Ternary midpoint questions have a different learning complexity from pairwise order comparisons; exact finite cutoffs are substantive even without an all-n formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
