@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Exact finite homology and symmetry certificate
+# Independent mathematical audit
 
-Reproduce with `python3 CHECKER.py CERTIFICATE.json` using Python 3's standard library only. The script rebuilds the graph, all 15 zero-cells, 48 one-cells, 30 two-cells, their signed integer boundaries, and the complete two-particle configuration one-skeleton. It verifies connectivity, an exact 26-by-26 boundary minor determinant \(-1\), four independent integral nullcycles forming a normalized rational basis, and all 48 signed-permutation automorphisms. It computes all homology traces using actual oriented cell maps, confirms the two closed character expressions, and averages them over both the full group and its 24-element determinant-one subgroup.
+## correctness
 
-Expected successful output:
+PASS
 
-```
-OCTAHEDRAL_TWO_POINT_EQUIVARIANT_CERTIFICATE_OK
-chain_cells=15,48,30 boundary_ranks=14,26 homology_dimensions=1,8,4
-all_48_automorphisms=verified; rational_invariants_full=(1,0,0); rotations=(1,1,0)
-```
+Abrams/Prue–Scrimshaw subdivision hypotheses hold for two particles: adjacent essential vertices have one edge and shortest nontrivial cycles have length 3. The finite cubical model has 15 vertices, 48 edges and 30 two-cells; connected one-skeleton gives rank ∂1=14. Independently reconstructed exact ∂2 over integers, verified specified 26×26 minor determinant −1 and four explicit independent null cycles with last four coordinates identity; hence rank ∂2=26 and Betti (1,8,4). For every one of 48 signed-permutation graph automorphisms independently computed signed cell action and induced action on four kernel cycles and verified chi_H1(g)=delta(g)*fixed_eight_sign_vectors(g) and chi_H2(g)=eta(g)+Σ_{sigma(i)=i}(−1)^flip_i. Semisimple rational characters give H1=delta⊗Q[{±1}³] and H2=W⊕eta. Character averages over all 48 and 24 rotations yield positive-degree invariant ranks (0,0) and (1,0). Exact finite certificate is exhaustive for this particular finite graph; no integral torsion or homotopy claim follows.
 
-The checker establishes the finite signed matrix data exactly; the deduction that these cubical calculations compute the continuous configuration space uses the published sufficient-subdivision theorem. Rational character and transfer arguments in the proof are mathematical deductions, not computational guesses. No integral first-homology torsion or stronger quotient homotopy classification is claimed.
+## originality
+
+PASS
+
+An–Knudsen give structural degree-two graph-configuration homology generators; Prue–Scrimshaw supply discretization. Other published SCOPE results treat cuboctahedral/dodecahedral two-particle spaces, octahedral matching complexes or exchange-sign Borel–Moore homology: none has both this octahedral unordered configuration space and full B3 ordinary rational character in the retrieved descriptions. No identified stronger theorem states this exact representation decomposition; best-of-knowledge, with unknown specialized computation risk.
+
+## value
+
+PASS
+
+Complete rational symmetry modules, all 48 characters, and quotient invariants refine a basic topological invariant for a canonical Platonic graph configuration space. The exact finite classification is independently useful in equivariant graph-braid topology, not a routine graph homology dimension alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

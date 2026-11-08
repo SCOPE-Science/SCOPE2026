@@ -1,15 +1,21 @@
-# Scientific review: octahedral two-point configuration homology
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite Abrams/Prue–Scrimshaw cubical complex for unordered pairs has 15 vertices, 48 edges and 30 squares; its one-skeleton is connected. The embedded certificate supplies an exact signed integral 26-by-26 boundary minor and four independent exact integer nullcycles with distinct free coordinates. More precisely the 26-by-26 boundary minor has determinant \(-1\), and four kernel cycles have an identity 4-by-4 coordinate block, forcing \(\operatorname{rank}\partial_2=26\), \(\dim H_1=8\) and \(\dim H_2=4\). Exact action on all 48 group elements recovers character formulas agreeing with the stated signed-permutation modules. Finite-group character uniqueness gives the representation theorem; rational transfer gives quotient homology. The cubical model's sufficient-subdivision hypotheses hold: one edge between distinct essential vertices and girth three. The reproducible checker was executed against the embedded integer certificate.
+## correctness
 
-## Originality — PASS against examined records
-An–Knudsen (arXiv:2008.10371; first public 2020-08-24) develop planar second-homology generators, not the octahedral full symmetry character. The published cuboctahedral and dodecahedral two-particle module computations concern different graph spaces. The exchange-sign Borel–Moore calculation on all finite graphs is mathematically distinct from ordinary singular homology, and the octahedral matching-complex character concerns another complex. The closest publicly accessible claim texts were inspected in full where available, and indexed query aliases include octahedral graph, \(K_{2,2,2}\), two-point configuration, signed permutations, and degree-one/two homology. A possible unindexed specialized calculation remains the chief novelty risk.
+PASS
 
-## Value — PASS
-The octahedral graph is a natural smallest Platonic symmetry test where the two-particle configuration complex has nonzero homology in both degrees 1 and 2. Its 48-element group detects orientation-sensitive topology invisible in ranks: passing from the 24 rotations to full symmetries eliminates precisely the remaining first-degree rational quotient class. The result fully determines both rational homology representations for a natural finite geometric object; it is more than a table of Betti numbers or a routine parameter substitution.
+Abrams/Prue–Scrimshaw subdivision hypotheses hold for two particles: adjacent essential vertices have one edge and shortest nontrivial cycles have length 3. The finite cubical model has 15 vertices, 48 edges and 30 two-cells; connected one-skeleton gives rank ∂1=14. Independently reconstructed exact ∂2 over integers, verified specified 26×26 minor determinant −1 and four explicit independent null cycles with last four coordinates identity; hence rank ∂2=26 and Betti (1,8,4). For every one of 48 signed-permutation graph automorphisms independently computed signed cell action and induced action on four kernel cycles and verified chi_H1(g)=delta(g)*fixed_eight_sign_vectors(g) and chi_H2(g)=eta(g)+Σ_{sigma(i)=i}(−1)^flip_i. Semisimple rational characters give H1=delta⊗Q[{±1}³] and H2=W⊕eta. Character averages over all 48 and 24 rotations yield positive-degree invariant ranks (0,0) and (1,0). Exact finite certificate is exhaustive for this particular finite graph; no integral torsion or homotopy claim follows.
 
-## Boundaries
-No integral torsion classification, higher-particle assertion, quotient homotopy-equivalence classification, or unproved generalization is claimed. Scientific interpretation and completeness of the literature remain open to independent scrutiny.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An–Knudsen give structural degree-two graph-configuration homology generators; Prue–Scrimshaw supply discretization. Other published SCOPE results treat cuboctahedral/dodecahedral two-particle spaces, octahedral matching complexes or exchange-sign Borel–Moore homology: none has both this octahedral unordered configuration space and full B3 ordinary rational character in the retrieved descriptions. No identified stronger theorem states this exact representation decomposition; best-of-knowledge, with unknown specialized computation risk.
+
+## value
+
+PASS
+
+Complete rational symmetry modules, all 48 characters, and quotient invariants refine a basic topological invariant for a canonical Platonic graph configuration space. The exact finite classification is independently useful in equivariant graph-braid topology, not a routine graph homology dimension alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
