@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T20:06:41.432958Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the exact n even >=4, 0<=k<=n/2, q=2^s, self-inclusive ascending sweep, pair-by-pair total-sum invariance gives p_i'=S+q_i, q_i'=S+p_i and unpaired z'=(S,z_1,...,z_{m-1}). The explicit invertible d_i=p_i+q_i, y_j=z_j+D, b_i=p_i+sum_{j even} y_j conjugacy splits a zero-sum cyclic shift of odd M=m+1 from I+N, N(d,b)=(0,(I_k+J_k)d), N^2=0. Rank(I+J)=k (even k) or k-1 (odd k). Hence the sharp order is M for k=0,1 and 2M for k>=2 and the t-fixed dimension is gcd(M,t)-1+[2k if t even else k+(k mod 2)], yielding the exact Möbius orbit census. Boundary k=0 and m=0 consistent. Independent direct sequential-vs-conjugate computations and counts for all states n=4,6,8; these finite checks are only corroboration of general algebra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aledo–Martínez–Valverde 2015 survey concerns graph SDS generalities.",
+          "Chen–Reidys 2015 is broader in graphs and finite fields but does not evaluate these ranks and counts."
+        ],
+        "reasoning": "General algorithms can potentially derive the formulas with extra work but are not published as a stronger theorem stating their numerical consequences; no implication without the new analysis.",
+        "searches": [
+          "sequential linear dynamical systems complete graph minus matching characteristic two scan update periods Jordan cycles",
+          "linear sequential dynamical systems complete graph missing edges characteristic two Jordan"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1510.04930 Theorem 3.1",
+        "doi:10.1155/2015/594294 (general graph SDS survey)",
+        "doi:10.1016/j.amc.2003.10.023 (abstract only)",
+        "Resultary semantic search: sequential linear dynamical systems complete graph minus matching characteristic two scan update periods Jordan cycles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.1 is a general update matrix representation; claim adds concrete conjugacy and nonmonotone maximum period L(n,0)=n+1, L(n,1)=n-1, L(n,2)=2(n-3)."
+        ],
+        "reasoning": "The claimed exact fixed-population identity is not an immediate corollary of an uncomputed general matrix identity. Distinguish known k=1 from new all-k and two-defect phenomenon.",
+        "searches": [
+          "sequential linear dynamical systems complete graph minus matching characteristic two scan update periods Jordan cycles",
+          "arxiv:1510.04930 theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Reidys arXiv:1510.04930 §3, Theorem 3.1 gives universal sequential matrix F=(I-A_pi)^{-1}(A-A_pi).",
+          "Actual source conjugacy is a special arithmetic block decomposition for K_n minus consecutive matching in char2."
+        ],
+        "reasoning": "The universal matrix formula can generate the system, but no explicit matching-block decomposition or all-parameter fixed counts were found in the material read; not automatically the same proved statement.",
+        "searches": [
+          "sequential linear dynamical systems complete graph minus matching characteristic two scan update periods Jordan cycles",
+          "linear sequential dynamical systems incidence algebras Mobius matrices Chen Reidys"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned a published parallel complete-multipartite parity automata census, not the sequential matching-deletion family.",
+          "No relevant standalone exact orbit table found in checked results."
+        ],
+        "reasoning": "This is an unbounded orbit-structure theorem, not a bounded table; a previously published finite table cannot by itself cover every even n and q.",
+        "searches": [
+          "sequential linear dynamical systems complete graph minus matching characteristic two scan update periods Jordan cycles",
+          "complete graph sequential update deleted matching orbit period exact fixed points"
+        ]
+      },
+      "rationale": "Best-of-knowledge: existing general sequential-system matrix formalism (Chen–Reidys, arXiv:1510.04930, Theorem 3.1) and graph dynamics survey do not state the exact matched consecutive-endpoint similarity, all-k Jordan ranks, period census or nonmonotone two-edge amplification. Earlier single-deleted-edge result is only a comparison baseline. A closely related 2005 digraph matrix-method paper was not readable in complete text and remains a real priority risk.",
+      "residual_risks": [
+        "Uninspected full Chen–Li–Zheng 2005 text or unindexed classification may state the same matching specialization.",
+        "Ordering restriction is essential; no claim for interleaving scan, other fields or odd n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_ONLY",
+          "evidence": [
+            "Thm 3.1 universal matrix expression; no matching-specific Jordan splitting in inspected sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.04930",
+          "material_read": "Primary PDF sections 2–3 including Theorem 3.1 matrix representation and update-order assumptions",
+          "method": "Accessible primary full PDF, mathematical theorem and formula read",
+          "title": "Linear sequential dynamical systems, incidence algebras, and Möbius functions",
+          "trigger": "Closest universal linear-SDS formula"
+        },
+        {
+          "assessment": "PRIORITY_RISK_UNINSPECTED",
+          "evidence": [
+            "2005 digraph matrix methods potentially permit specialized graph formula; cannot assert whole-document NOT_COVERING."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2003.10.023",
+          "material_read": "Citation and available abstract only",
+          "method": "Public abstract/search metadata, full text unavailable",
+          "title": "Matrix method for linear sequential dynamical systems on digraphs",
+          "trigger": "Possible exact specialization in earlier matrix method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural complete graph with disjoint deleted edges under a fixed sequential rule shows a sharp, counterintuitive period response: k=0 gives n+1, k=1 gives n-1, k=2 gives 2(n-3) for n>=8. The exact similarity, Jordan structure and all-period fixed-point populations are reusable structural dynamics data for an entire family, not an arbitrary finite experiment.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/two-matching-defects-amplify-the-longest-scan-cycle-in-complete--2b78456ed922/RESULT.md",
+    "GitHub frozen RESULT.md blob 41ef90d0364b57bf529655babd0d69f1688f642f",
+    "GitHub frozen verification-code blob 33920ee5ac4c72d90d9d59a9b2dc543268929513",
+    "arxiv:1510.04930 Theorem 3.1",
+    "doi:10.1155/2015/594294 (general graph SDS survey)",
+    "doi:10.1016/j.amc.2003.10.023 (abstract only)",
+    "Resultary semantic search: sequential linear dynamical systems complete graph minus matching characteristic two scan update periods Jordan cycles"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uninspected full Chen–Li–Zheng 2005 text or unindexed classification may state the same matching specialization.",
+    "Ordering restriction is essential; no claim for interleaving scan, other fields or odd n.",
+    "Whole-source source-privacy sanitization not completed, so do not publish."
+  ],
+  "schema_version": 1
+}

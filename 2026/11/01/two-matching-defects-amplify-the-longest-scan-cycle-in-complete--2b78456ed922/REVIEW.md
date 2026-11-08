@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The statement specifies the graph, scan, finite fields, matching size, and measurement of time in full sweeps. The exact paired-visit identities preserve the total between matched pairs; the even number of unmatched coordinates permits an invertible transformation to a cyclic shift plus a square-zero shear. The kernel rank of \(I_k+J_k\) is exactly \(k\) for even \(k\) and \(k-1\) for odd \(k\). The zero-sum cyclic model establishes fixed-space dimensions \(\gcd(m+1,t)-1\), and Möbius inversion gives the exact orbit census. Independent code paths directly confirm all enumerated cases. The general theorem does not rest on finite enumeration.
+PASS
 
-## Originality
+On the exact n even >=4, 0<=k<=n/2, q=2^s, self-inclusive ascending sweep, pair-by-pair total-sum invariance gives p_i'=S+q_i, q_i'=S+p_i and unpaired z'=(S,z_1,...,z_{m-1}). The explicit invertible d_i=p_i+q_i, y_j=z_j+D, b_i=p_i+sum_{j even} y_j conjugacy splits a zero-sum cyclic shift of odd M=m+1 from I+N, N(d,b)=(0,(I_k+J_k)d), N^2=0. Rank(I+J)=k (even k) or k-1 (odd k). Hence the sharp order is M for k=0,1 and 2M for k>=2 and the t-fixed dimension is gcd(M,t)-1+[2k if t even else k+(k mod 2)], yielding the exact Möbius orbit census. Boundary k=0 and m=0 consistent. Independent direct sequential-vs-conjugate computations and counts for all states n=4,6,8; these finite checks are only corroboration of general algebra.
 
-**PASS with residual priority risk.** Chen and Reidys (arXiv:1510.04930, Sections 2–3) provide a general sequential matrix formula, not the matching-block conjugacy, defect-induced shear rank, or explicit period census. The Aledo–Martínez–Valverde survey (DOI:10.1155/2015/594294) provides general context, not these graph-specific formulas. The previously known single-edge complete-graph case is excluded from the novelty claim. A digraph linear-SDS paper by Chen, Li and Zheng (DOI:10.1016/j.amc.2003.10.023) was available only in abstract and may contain related material; no whole-text noncoverage conclusion is asserted. Published-results searches did not identify the paired-matching formula, but absence from search results alone is not a novelty certificate.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is an exact structural and orbit-count classification on a natural family of graph perturbations, not a chosen numerical example. The sharp change from periods \(n+1\) to \(n-1\) to \(2(n-3)\) on deleting zero, one and two independent edges is a nonmonotone scheduling response with asymptotic amplification factor two. The complete fixed-period formula works simultaneously for every finite characteristic-two alphabet and matching size. Its natural uses include understanding how sparse missing interactions affect sequentially updated linear networks.
+Best-of-knowledge: existing general sequential-system matrix formalism (Chen–Reidys, arXiv:1510.04930, Theorem 3.1) and graph dynamics survey do not state the exact matched consecutive-endpoint similarity, all-k Jordan ranks, period census or nonmonotone two-edge amplification. Earlier single-deleted-edge result is only a comparison baseline. A closely related 2005 digraph matrix-method paper was not readable in complete text and remains a real priority risk.
 
-## Scientific limitations
+## value
 
-The result concerns even \(n\), characteristic two, and a specified matching-block scan; arbitrary visit permutations may behave differently. Related broad matrix machinery was known, and unpublished or unindexed identical specializations remain possible. No independent external audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural complete graph with disjoint deleted edges under a fixed sequential rule shows a sharp, counterintuitive period response: k=0 gives n+1, k=1 gives n-1, k=2 gives 2(n-3) for n>=8. The exact similarity, Jordan structure and all-period fixed-point populations are reusable structural dynamics data for an entire family, not an arbitrary finite experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
