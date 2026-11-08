@@ -1,0 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;const int Q=56,N=9;int b[9];long long nodes=0,solutions=0;unordered_set<unsigned long long> canon;unordered_map<unsigned long long,int> counts;
+vector<int> units;
+uint64_t normal(uint64_t mask){int a[9],k=0;for(int i=0;i<Q;i++)if(mask>>i&1ULL)a[k++]=i; uint64_t best=~0ULL;for(int u:units)for(int c=0;c<N;c++){uint64_t t=0;int sh=a[c];for(int x:a)t|=1ULL<<((u*(x-sh+Q))%Q); if(t<best) best=t;}return best;}
+void dfs(int dep,int start,uint64_t used){nodes++;if(dep==N){solutions++;uint64_t mask=0;for(int i=0;i<dep;i++)mask|=1ULL<<b[i];auto ca=normal(mask);canon.insert(ca);counts[ca]++;return;}for(int v=start;v<=Q-(N-dep);v++){uint64_t add=0;bool ok=true;for(int i=0;i<dep;i++){uint64_t bit=1ULL<<((v+b[i])%Q);if((used|add)&bit){ok=false;break;}add|=bit;}if(ok){b[dep]=v;dfs(dep+1,v+1,used|add);}}}
+int main(){for(int i=1;i<Q;i++)if(gcd(i,Q)==1)units.push_back(i);b[0]=0;dfs(1,1,0);cerr<<"nodes="<<nodes<<" containing_zero="<<solutions<<" orbit_count="<<canon.size()<<"\n";vector<pair<int,unsigned long long>> v;for(auto [x,c]:counts)v.push_back({c,x});sort(v.begin(),v.end());for(auto [c,x]:v){cout<<"count0="<<c<<" orbit_full="<<c*Q/N<<" canonical=";for(int i=0;i<Q;i++)if(x>>i&1ULL)cout<<i<<' ';cout<<'\n';}}
