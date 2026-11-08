@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-The analytic argument uses exact affine branch ranges, a normalized countable Markov kernel, skip-free first-passage decomposition, Lagrange inversion, and square-root singularity transfer. The minimum quadratic branch is fixed by the zero-time generating-function boundary value.
 
-Run `python checker.py` with Python 3. Exact rational tests compare 120 first-return coefficients with independently propagated Markov transitions, check 2,380 affine-image transition identities, and verify the finite-measure Kac relation. Large-horizon numerical ratios are illustrative only; no finite test certifies the infinite asymptotics or publication priority.
+# Independent mathematical audit
 
-The two publication references are cited in `RESULT.md`. The first supplies the dynamical map and known phase boundary; the second explains general skip-free first-passage machinery. A separate independent scientific audit has not been performed.
+## correctness
+
+PASS
+
+Check actual affine branch slopes and images: low cells 1..3 map onto (0,1], cell4 onto (0,lambda], high cells i>=5 onto (0,lambda^(i-2)]; so each row is geometric with low three rows identical. A skip-free unit-downcrossing PGF r=z(1-lambda)/(1-lambda*r) has the minimal square-root branch. Cell4 contributes h4=z(1-lambda^2)/(1-lambda^2*r), producing F=z(1-lambda^3)+lambda^3*r*h4. Lagrange inversion yields the printed coefficients, the z=1 root yields the escape mass, differentiation below 1/2 yields mean, and a uniform square-root singularity gives n^-3/2 and the Gaussian critical scaling. Independent rational Markov propagation of 36 coefficient cases at 1/5,1/2,3/5 agreed exactly. The T_lambda is induced time, not original physical-time returns.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified originality after exact statement/implication comparisons; primary work covers key ingredients, but the final parameter-specific classification is not established in inspected prior results. Residual risks explicitly retained.
+
+## value
+
+PASS
+
+Exact all-time defective first-return law and sharp parameter crossover for a naturally designated base of an established nonuniform countable-state Markov model quantify a meaningful recurrence transition, rather than merely repeat Ji–Ma conservativity threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
