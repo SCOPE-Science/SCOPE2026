@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-The result is a symbolic exact theorem about six parties in three distinct lower-quota pairs with strictly ordered residues and three extra seats. Seven inversion-free count patterns are exhaustive. The four necessary/sufficient inequalities follow from the nonnegative all-singleton mass and the Hall inequalities for a three-row off-diagonal transportation network. Every feasible table has an edge-extremal version with at most five nonzero transportation arcs. In the rational witness the complete flow interval is \([-2,1]\), and each endpoint has exactly one zero entry; hence at least five arcs plus the positive all-singleton mass are unavoidable.
+## correctness
 
-Run `python3 verify.py` using Python 3 without third-party packages. An exact-arithmetic replay performed for the packaged source printed:
+PASS
 
-```
-VERIFY_OK grid_profiles=18169 feasible=7854 infeasible=10315 zero_envy_patterns=7 sharp_support=6 support_interval=[-2,1]
-```
+The quota-respecting inverted-pair prohibition restricts 20 three-up outcomes to exactly seven: (1,1,1) or six permutations of (2,1,0). In the latter, off-diagonal 3-by-3 transport supplies l_i and demands 1-h_i with total S; Hall/mincut reduces exactly to S<=1 and l_i+1-h_i<=S. One 6-cycle permits edge cancellation and a support at most 6; for rational witness l=(3,7,12)/40, 1-h=(8,8,6)/40, six edge weights (1,2,3,4,5,7)/40, z=18/40, the one-dimensional margin polytope t in [-2,1] forces at least five edge types + z. Symmetric p threshold 2/3. Independent 7-outcome brute force and rational margin check carried out; source exact max-flow checker read. Conditions assume within-pair distinct residues.
 
-The script independently implements integral max-flow and compares it with the symbolic inequalities on 18,169 integer-grid profiles, including some tied-residue boundary profiles for which it tests the **fixed-priority inversion-free extension**, not literal envy equivalence. The claimed literal zero-envy classification assumes strict within-pair inequalities. Finite enumeration does not prove the all-real theorem. The full primary literature and all possible implicit corollaries have not been exhaustively ruled out, and no independent scientific audit has occurred.
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison finds a distinguishable addition to the inspected primary works, with explicit partial-access risks and no claim of exhaustive novelty. Specializing the prior algorithm needs reduction to one singleton-cut inequality per row and cycle support geometry; no existing cited result is shown to entail the particular sharp support lower bound without this reasoning.
+
+## value
+
+PASS
+
+Explicit closed cut inequalities plus the sharp smallest worst-case lottery support for the first nontrivial three-pair stratum are concrete fair-allocation design thresholds beyond just a black-box LP feasibility test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
