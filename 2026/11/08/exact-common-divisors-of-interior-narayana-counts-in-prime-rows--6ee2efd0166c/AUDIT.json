@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For each odd prime \\(p\\) and \\(2\\le k\\le p-1\\), \\(\\nu_p(\\mathcal N(p,k))=1\\) by two prime-row binomial valuations. Every additional common factor must divide \\(p-1\\) because \\(\\mathcal N(p,2)=p(p-1)/2\\). Lucas witnesses at \\(k=\\ell^{\\nu_\\ell(p-1)}+1\\) eliminate odd \\(\\ell\\mid p-1\\), and eliminate \\(\\ell=2\\) unless \\(p-1\\) is a power of two. For \\(p=2^r+1\\), the exact valuation \\(\\nu_2(\\mathcal N(p,k))=2r-\\nu_2(k)-2\\nu_2(k-1)-\\nu_2(k-2)\\) for \\(k\\ge3\\), together with \\(k=2\\), proves the global minimum \\(\\min(2,r-1)\\), attained at \\(k=2^{r-1}+1\\) for \\(r\\ge2\\) or \\(k=2\\) otherwise. Boundary cases \\(p=3\\) and \\(p=5\\) are included. Independent direct gcd checks for odd \\(p\\le257\\) and Lucas-witness checks through \\(p\\le2000\\) succeeded; finite checks are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bóna–Sagan 2005 Theorem 1.2 characterizes nondivisibility by one prime; Corollary 2.2 supplies p divisibility of interior entries for \\(n=p^m\\); Section 3 explicitly notes that higher valuations require additional analysis.",
+        "Classical Lucas and Kummer theorems yield digitwise divisibility and valuation tools for each binomial coefficient, but do not themselves state this minimized gcd over all nonendpoint Narayana peaks."
+      ],
+      "reasoning": "The old p-divisibility theorem proves the compulsory factor p but not that its exponent is exactly one, not absence of other common primes, nor the precise extra exponent at Fermat primes. The new global minimization and witnesses are needed. Generic Kummer-style valuation formulas are foundational tools, not a previously located explicit full gcd theorem.",
+      "searches": [
+        "p-adic valuation Narayana triangle rows Fermat primes",
+        "Bóna Sagan On divisibility of Narayana numbers by primes exact gcd interior",
+        "arxiv:math/0505382 Theorem 1.2 Corollary 2.2",
+        "Lucas theorem binomial coefficient base p digit congruence"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0505382 (full text read)",
+      "doi:10.1111/j.1467-9590.2006.00337.x (abstract/references only)",
+      "OEIS:A001263 (entry identity/table)",
+      "OEIS:A335965 (full sequence entry)",
+      "Targeted searches for gcd, Narayana rows, Fermat primes, 2-adic valuations, alternative Dyck peak terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bóna–Sagan Corollary 2.2: every interior entry in a row \\(n=p^m\\) is divisible by \\(p\\).",
+        "For an odd prime row index \\(p\\), the exact gcd is \\(p\\) normally, \\(2p\\) at \\(p=5\\), and \\(4p\\) at every larger Fermat prime.",
+        "Eu–Liu–Yeh 2006 abstract identifies Lucas congruences of several combinatorial sequences but does not mention the prime-row Narayana gcd."
+      ],
+      "reasoning": "The new theorem implies Bóna–Sagan interior divisibility for \\(n=p\\), whereas their prime-only divisibility result cannot imply the \\(4p\\) versus \\(2p\\) exponent distinction without additional higher-valuation arguments. The broader \\(p^m\\) domain of their weaker statement does not cover the exact gcd conclusion. The Eu–Liu–Yeh comparison is abstract-level only and is recorded as access risk.",
+      "searches": [
+        "Bóna Sagan On divisibility of Narayana numbers by primes exact gcd interior",
+        "Bóna Sagan theorem 1.2 Narayana primes 2005",
+        "On the Congruences of Some Combinatorial Numbers Eu Liu Yeh 2006 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "\\(\\mathcal N(p,k)=p^{-1}\\binom pk\\binom p{k-1}\\) counts Dyck paths with \\(k\\) peaks (OEIS A001263; Bóna–Sagan 2005).",
+        "The exact common modulus of all interior Narayana entries and the positive gcd of nontrivial peak counts are equivalent because the entries are integers."
+      ],
+      "reasoning": "Searching common factors, interior peak counts and Fermat-prime dyadic valuations addresses alternative wording of the same invariant; no source in the inspected corpus states the complete \\(p,2p,4p\\) classification. This negative search is not a proof of global uniqueness.",
+      "searches": [
+        "Narayana numbers row p prime gcd inner peak numbers Fermat prime",
+        "Narayana numbers gcd interior row prime Fermat prime 4p 2p",
+        "gcd Narayana row prime 17 68 Dyck paths Fermat prime",
+        "arxiv:math/0505382"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001263 is the entry table, not the prime-row gcd sequence.",
+        "OEIS A335965 counts the odd entries in complete Narayana rows; it does not contain exact 2-adic common divisors.",
+        "Direct independent computation gives \\(G(3)=3\\), \\(G(5)=10\\), \\(G(17)=68\\), and \\(G(257)=1028\\), compatible with but not inferred from the tables."
+      ],
+      "reasoning": "The exact gcd is a different invariant from counts of odd entries and from the raw triangle. Tables alone do not imply the closed formula and unrestricted prime quantifier; the known entries serve only as checks.",
+      "searches": [
+        "greatest common divisor all internal Narayana peak counts for prime size Dyck path rows",
+        "exact gcd Narayana numbers in n-th row n prime and p-adic valuations",
+        "OEIS A001263 Narayana triangle",
+        "OEIS A335965 odd numbers row Narayana triangle",
+        "Narayana prime row gcd 17 68 257 1028"
+      ]
+    },
+    "rationale": "The closest fully examined archival source Bóna–Sagan 2005, arXiv:math/0505382, characterizes divisibility by a prime and gives interior p-divisibility for rows \\(n=p^m\\). It neither states the entire gcd in prime rows nor fixes the valuation of its extra factor 2 at Fermat primes. OEIS A001263 lists entries and A335965 counts odd entries; neither supplies the prime-row gcd classification. Targeted full-statement searches found no equivalent covering result; the inaccessible full text of the less-direct Eu–Liu–Yeh article is retained as residual risk, not claimed to be eliminated.",
+    "residual_risks": [
+      "A hidden equivalent exact-gcd theorem may exist under another title or terminology; absence from searches alone does not prove novelty.",
+      "Eu–Liu–Yeh (2006) publisher full text was not materially inspected; accessible abstract does not identify a decisive covering theorem.",
+      "The result is a prime-row classification and must not be represented as a theorem for composite indices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: proves single-prime divisibility but not the exact positive gcd or its binary exponent",
+        "evidence": [
+          "Corollary 2.2 asserts that \\(p\\) divides every nonendpoint entry in a row \\(n=p^m\\).",
+          "Section 3 comments that one could determine valuations but that this is more complicated."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0505382",
+        "material_read": "Full HTML-converted article: Theorem 1.1, Theorem 1.2, proof, Corollaries 2.1 and 2.2, comments, references and primary MSC. Original arXiv submission date 2005-05-18 separately verified.",
+        "method": "Read full accessible article text and compare theorem statements and logical implications",
+        "title": "On divisibility of Narayana numbers by primes",
+        "trigger": "same Narayana triangle and prime-index divisibility, highest plausible overlap"
+      },
+      {
+        "assessment": "POSSIBLE_RELATED_SOURCE_WITH_ACCESS_LIMIT: no exact gcd claim present in available abstract; not adjudicated as full-text noncoverage",
+        "evidence": [
+          "Abstract describes Lucas-theorem congruences for central Delannoy, Apéry-like and noncrossing connected graph counts.",
+          "No prime-index Narayana gcd claim is stated in the accessible material."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1467-9590.2006.00337.x",
+        "material_read": "Publisher article abstract, bibliographic details and references; full article text not available in inspected access.",
+        "method": "Read publisher abstract and reference list available in the page",
+        "title": "On the Congruences of Some Combinatorial Numbers",
+        "trigger": "Narayana parity/OEIS secondary reference and congruence topic"
+      },
+      {
+        "assessment": "RAW_ENTRIES_ONLY: does not imply exact gcd classification without proof",
+        "evidence": [
+          "Narayana entry identity \\(\\mathcal N(n,k)=\\binom nk\\binom n{k-1}/n\\)."
+        ],
+        "identifier_or_url": "https://oeis.org/A001263",
+        "material_read": "Sequence identity and tabular definition via independent accessible descriptions; no complete prime-row gcd table was found.",
+        "method": "Compare the numerical object and invariant rather than the sequence title",
+        "title": "Narayana number triangle A001263",
+        "trigger": "exact database/table check"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT: odd-entry counts do not determine the full gcd or v2 at Fermat primes",
+        "evidence": [
+          "The sequence counts odd entries and cites Eu–Liu–Yeh (2006)."
+        ],
+        "identifier_or_url": "https://oeis.org/A335965",
+        "material_read": "Full accessible sequence page, comments and bibliography",
+        "method": "Read the explicit sequence invariant and compare to gcd valuations",
+        "title": "A335965 number of odd numbers in Narayana rows",
+        "trigger": "possible broader parity-row coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6ee2efd0-166c-4203-9002-d0085ffee405",
+  "value": {
+    "rationale": "The interior-row gcd is the canonical maximal common modulus for Dyck paths of prime semilength with every nonextreme peak count. Previously established p-divisibility motivates the precise higher-power question. The complete answer detects Fermat-prime exceptions and determines exact common 2-adic exponents, not a user-chosen sample or a mere table recomputation. This sharp uniform arithmetic classification is useful when determining common divisibility constraints in enumerative refinements; no composite-row or unknown-prime existence statement is required.",
+    "status": "PASS"
+  }
+}
