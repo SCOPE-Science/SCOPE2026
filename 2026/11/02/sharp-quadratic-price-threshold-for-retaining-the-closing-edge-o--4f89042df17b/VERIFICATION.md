@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` establishes the exact support boundary for every integer \(n\ge3\), every budget \(B>0\), and every relative price \(r>0\). Finite numerical tests are supporting evidence only. The script `verify_cycle.py` uses NumPy, SciPy, and SymPy and is run with `python verify_cycle.py`; `VERIFICATION_OUTPUT.txt` records a successful run.
+## correctness
 
-Checks independently evaluate Kirchhoff index by Laplacian inversion and by sum-over-pairs electrical series/parallel arc reduction; compare exact derivatives and critical-price formulas; confirm exact symbolic formulas at \(n=3,4\); compare constrained full-dimensional numerical optimizations at selected prices above and below the critical price; and inspect the asymptotic normalized threshold numerically. These tests are not exhaustive over the continuum of parameters and do not replace the strict-convexity proof, the zero-ordinary-edge exclusion, or the improper Riemann-sum argument.
+PASS
 
-The optimization comparisons use floating-point tolerances. No independent mathematical audit or external certification has been conducted.
+Re-derived Kirchhoff index n tr((L+J/n)^-1)-n; graph simple ensures any nonzero conductance perturbation gives H≠0, and second derivative 2n tr(Q^-1 H Q^-1 H Q^-1)>0. Reflection symmetry excludes paired ordinary-edge zeros, and a hypothetical opposite ordinary zero (even n) has path-end voltage gain/budget multiplier at least 2n/(n-1)>1, contradicting unit-price KKT. The closing-zero path is optimized by Cauchy–Schwarz with w_k=B sqrt(k(n-k))/S_n. The missing closing edge derivative is multiplier times n Σ(T_j-mean T)^2, giving iff via strict convexity and complementary slackness, including equality. Symmetric endpoint-singular Riemann sums converge to 2 arcsin√x, and the centered squared integral is pi^2/4-2. Independent numerical values give r_c(3)=3 and r_c(4)=11/3+4/sqrt3; at n=600 normalized value approaches the stated limit. Finite checks do not prove all n.
+
+## originality
+
+PASS
+
+Ghosh–Boyd–Saberi 2006/08 already prove convexity, global KKT framework and square-root tree allocations. Those parts are not new. The inspected primary sections do not give the one-price cycle support theorem, closing-edge threshold or quadratic asymptotic; distinct 2026 graph augmentation treats a different fixed-base/edge-choice setting. Best-of-knowledge PASS despite possible older specialized optimal-design derivation.
+
+## value
+
+PASS
+
+A complete support phase transition for an economically natural one-exceptional-price electrical-network design, with a sharp explicit decision rule and an unexpected quadratic size dependence. The all-ordinary-active statement is a genuinely structural classification beyond a KKT restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
