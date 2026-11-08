@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof determines every possible base/leaf pair by the set of original vertices labeled \(2\) and their open neighborhoods. Each allowed state is shown feasible and nondecreasable, including the nontrivial leaf-defender case. The number and weight of choices yield the exact subset polynomial; adding base edges strictly reduces total count by inspecting endpoint singleton subsets. The sunlet transfer matrix counts each indexed cyclic binary word once, and its explicitly computed characteristic polynomial has roots \(0,1,1+\sqrt2,1-\sqrt2\) at unit weight. Complete exhaustive checks cover all \(75\) base graphs of orders at most \(4\), cycles through order \(6\), and numeric cycle totals through order \(18\). The checks are corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS, with risk
-Abu-Khzam, Fernau and Mann (arXiv:2204.04765) provide general extension/enumeration algorithms and a private-neighbor characterization, which are acknowledged and can recover local ingredients of this argument. Their follow-up arXiv:2208.05261 gives exact path counts and graph-class enumeration bounds. Neither inspected text gives the stated all-graph-product weight enumerator, strict edge monotonicity with sharp extremal totals, and Pell–Lucas sunlet trace. Earlier corona papers address minimum weights or selected configurations. Search comparisons checked minimal Roman, pointwise minimal, pendant-leaf corona, sunlet, transfer, and possible Pell–Lucas aliases. An unindexed matching enumeration or an implicit specialization of a stronger enumeration theorem remains possible; no absolute priority is certified.
+PASS
 
-## Mathematical value — PASS
-The full weighted distribution for a natural graph product is substantially more informative than its known minimum Roman weight. Its exact base-neighborhood formula identifies the structural source of every minimal labeling and yields sharp extremal counts under graph densification, while the cycle specialization produces a nontrivial closed recurrence/eigenvalue profile. These results support future quantitative comparison of Roman function enumerators across base graphs and are not a mere small-order numerical check.
+For finite simple G of order n>=1, each minimal Roman function on G corona K1 has precisely pair states (2,0) on A=vertices labeled 2, (0,1) on B=N(A)\A, and independently (0,2) or (1,1) on U=V\(A union N(A)). A positive coordinate decrement destroys feasibility, so these states are exactly pointwise-minimal. This proves M(z)=sum_A 2^|U| z^(2n-|B|). Adding a missing edge strictly decreases sum_A2^|U| via singleton A; empty and complete G yield 3^n and 2^(n+1)-1, with n=1 coincidence. The length-n cyclic binary triple transfer gives the stated four-by-four T(z), with characteristic polynomial t*(t^3-3z^2t^2+(2z^4-z^3)t+2z^5-z^4); its z=1 eigenvalues give 1+(1+sqrt2)^n+(1-sqrt2)^n. Independently implemented graph generation, direct original Roman feasibility and coordinate-minimality checks for all 75 n<=4 base graphs, plus symbolic characteristic polynomial equality; all succeeded. These checks only corroborate the proof for arbitrary n.
 
-## Limits
-The invariant is pointwise-minimal Roman domination, not minimum-weight Roman domination. The cycle result is for one-leaf coronas, not unadorned cycles. Priority is conditional on accessible comparisons and independent audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General pointwise-minimal Roman algorithms and private-neighbor criteria precede this work. The exact full weighted one-leaf-corona distribution, strict edge-monotone total extrema and sunlet Pell–Lucas trace are additional product-specific assertions not located in inspected sources. This is a qualified best-of-knowledge judgment, not a claim that the older criteria are new or cannot be specialized to recover it.
+
+## value
+
+PASS
+
+The pointwise-minimal Roman function weight distribution is a natural graph invariant substantially finer than the minimum Roman domination number. This formula for any base graph gives full weights, a strict densification order and a nontrivial explicit sunlet spectrum; it is neither a tiny-instance exercise nor merely an already-known minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
