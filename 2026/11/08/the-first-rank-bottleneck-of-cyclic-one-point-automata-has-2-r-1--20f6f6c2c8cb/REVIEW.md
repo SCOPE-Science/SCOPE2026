@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The word model, rank threshold, and quantifiers are specified. Direct set-image dynamics give a co-moving hole update rule; in fewer than \(2r\) rotations at most one hole can lie in each of the \(r\) residue-class timestamp chains, even if extra ineffective merge letters occur. At exactly \(2r\) rotations, the timestamp-conflict graph is a three-vertex path plus \(r-1\) independent edges, proving both the sharp cost and the \(2^{r-1}\) count. An independent subset-automaton computation checked 130 rank threshold/word-count cases and 6,138 explicit witnesses. The finite checks are not the infinite proof.
+
+**Originality — PASS, qualified.** The closest published framework is Behague–Johnson on \(k\)-set rendezvous (arXiv:2008.12166, first public 2020-08-27), which treats general automaton bounds and different starting-subset questions. Martyugin (2009) treats general compression complexity, rather than the stated cyclic family and exponential optimal-word language in inspected portions. Relevant known examples (Černý and Wielandt automata) and a codimension-two cyclic-defect result do not imply the precise first-bottleneck optimizer classification under the given transition map. Previously recorded complete-reset uniqueness for a related family determines only the last rank threshold, not the intermediate frontier. Unindexed equivalent results and incompletely inspected older general sources remain risks.
+
+**Mathematical value — PASS.** Rank-time frontiers are a natural refinement of automaton synchronization, and the theorem provides a complete first-bottleneck classification across an infinite two-parameter family. Its transition from uniquely forced shortest words to exponentially many optimizers, with a sharp cost jump, makes the particular exact count structurally motivated. The timestamp-graph model also gives a concise, reusable description of the optimal labels rather than merely a witness or isolated numerical gain.
+
+**Scientific limits.** The theorem does not cover \(n\le2r\) or later rank thresholds. Finite verification is supportive, not certification of an infinite result. Bibliographic exclusion of all equivalents is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.

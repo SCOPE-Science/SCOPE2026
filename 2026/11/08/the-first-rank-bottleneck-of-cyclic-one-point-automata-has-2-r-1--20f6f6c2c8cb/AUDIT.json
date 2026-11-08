@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For any r>=2,n>=2r+1, rotating coordinates converts each merge letter at cumulative rotation t to an occupied timestamp update: add t, replace t-r by t, or no change. With fewer than 2r rotations each of r residue chains can have at most one hole, even with ineffective b letters. At 2r rotations equality requires r+1 effective merges at an independent set of timestamp positions; graph = path of length two plus r-1 independent edges, giving precisely 2^(r-1) words. Shorter thresholds use mandatory alternating b and a. Independent subset-BFS and constructive verification passed 130 rank/count cases plus 6,138 witnesses; finite checks are supportive only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Behague–Johnson, arXiv:2008.12166, Sections 1-2 and rank-related results: general rdv(k,n) bounds, not exact parameter-specific multiplicities",
+        "Martyugin 2009 discusses decidability and complexity of compressing automata, not an exact parametrized label-language enumeration in inspected portions"
+      ],
+      "reasoning": "Broader general algorithms for finding or bounding compression words do not themselves imply the exact first non-linear threshold and its 2^(r-1) different shortest words. No inspected stronger theorem with this parameter specialization was found.",
+      "searches": [
+        "Synchronizing Times for k-sets in Automata arxiv 2008.12166",
+        "cyclic one point automaton permutation cycle b sends 0 to n-2 exact minimum rank after length 2j-1 final jump synchronization rank profile",
+        "\"circular automaton\" \"rank\" \"shortest\" \"compress\" 2022"
+      ]
+    },
+    "checked_sources": [
+      "Behague and Johnson, arXiv:2008.12166 (public 2020-08-27), relevant PDF pp.1-4,7-8",
+      "Martyugin, Acta Cybernetica 19(2) (2009), relevant PDF pp.1-4",
+      "Published result-index record: Sharp early rank thresholds in the Wielandt automata",
+      "Published result-index record: Two-defect reachability in cyclic defect-one automata",
+      "Accessible own earlier scientific claim: Rigidity of shortest reset words in cyclic one-point automata"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Two-defect reachability in cyclic defect-one automata: codimension-two target reachability, whereas this result begins with r>=2 and counts codimension r+1>=3 optimizers",
+        "Sharp early rank thresholds in Wielandt automata: different labeled family and an initial 2j-1 unique-word law, but no 3r+1/2^(r-1) first bottleneck in retrieved statement",
+        "Previously established shortest full-reset-word rigidity for cyclic one-point automata concerns terminal rank 1, not counts of optimal partial-rank words"
+      ],
+      "reasoning": "The new count cannot be deduced from an existence bound, an optimal full-reset word, codimension-two reachability, or a rank profile for a different transition family. Similar linear prefixes do not imply the first failure threshold or the number of minimizing labels.",
+      "searches": [
+        "cyclic one point automaton permutation cycle b sends 0 to n-2 exact minimum rank after length 2j-1 final jump synchronization rank profile",
+        "exact rank compression for b: 0 maps to n-2 and a cyclic rotation automaton",
+        "arxiv:2008.12166",
+        "doi:10.37236/9819"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Actual published-record searches found closest rank-threshold results for named slowly synchronizing families, but no exact cyclic shift plus 0->r optimizer language",
+        "The primary 2020 paper centers k-set rendezvous rather than first r+1 rank drops from the full state set"
+      ],
+      "reasoning": "The statement is invariant under cyclic state relabeling and word-label renaming, so searches included circular, cycle-letter, one-point merge, rank compression and deficiency aliases. A result about shortest reset words alone does not determine all intermediate thresholds and literal optimal-label multiplicities.",
+      "searches": [
+        "2^(r-1) shortest rank compression words for a cycle and one rank n-1 letter first bottleneck",
+        "co-moving holes time-stamp independent set graph automaton r+1 effective merges 2r rotations",
+        "automaton cyclic shift a and idempotent b 0 to r rank n-r-1 minimum 3r+1",
+        "\"cyclic\" automata \"first\" \"rank\" compression words 2023",
+        "arxiv:2008.12166"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed results include Exact early deficiency profile of the Černý automata; Sharp early rank thresholds in the Wielandt automata; Two-defect reachability in cyclic defect-one automata",
+        "No matching tabulated classification of rank n-r-1 or 2^(r-1) optimal-label strings appeared in the retrieved results"
+      ],
+      "reasoning": "The available published-result index was searched for rank, threshold, displacement, exact word count and cyclic idempotent aliases. Negative index search alone does not establish priority; index incompleteness is a residual risk.",
+      "searches": [
+        "2^(r-1) shortest rank compression words for a cycle and one rank n-1 letter first bottleneck",
+        "automaton cyclic shift a and idempotent b 0 to r rank n-r-1 minimum 3r+1",
+        "exact rank compression for b: 0 maps to n-2 and a cyclic rotation automaton",
+        "periodic binary words run length Abelian powers square factor classification"
+      ]
+    },
+    "rationale": "Primary publications and a published-record index were compared by assumptions, transformations, parameter ranges, and logical implication. General k-set rendezvous bounds, compression-complexity results, other automaton rank profiles, codimension-two reachability, and terminal reset rigidity do not state or imply the entire first bottleneck and its exponential shortest-label count. Priority against unindexed equivalent papers remains unproven.",
+    "residual_risks": [
+      "Older general-automata text was inspected selectively, not as a full-document exclusion proof",
+      "A highly relevant published-result-index record had only its summary accessible, not full manuscript; no assertion that it was read",
+      "Unindexed or equivalently reparametrized literature might cover this classification"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General automaton bounds and k-set-to-singleton rendezvous, not exact from-full-state first-bottleneck optimal-word enumeration for this displacement-r cyclic family",
+        "evidence": [
+          "Sections 1-2 define power automaton and rendezvous time; arXiv:2008.12166, PDF pp. 2-4",
+          "The rank-minimality bounds used on PDF pp. 7-8 are non-specific; no r-dependent 2^(r-1) classification found in inspected material"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2008.12166",
+        "material_read": "Opening, introduction, power-automaton definitions and k-set rendezvous setup (pp. 1-4), plus rank-related sections on pp. 7-8",
+        "method": "Primary arXiv PDF text extraction, page 3 and 4 visual inspection, targeted term and theorem searches",
+        "title": "Synchronizing Times for k-sets in Automata",
+        "trigger": "Exact rank-reduction times resemble k-set rendezvous and power-automaton paths"
+      },
+      {
+        "assessment": "Discusses complexity of rank-compression problems across automaton classes; inspected material does not provide the first saturation threshold and optimal-word multiplicity for the present family",
+        "evidence": [
+          "pp. 1-4 define image rank and compression problem for generic automata",
+          "No explicit matching transition maps or 2^(r-1) optimizer language in inspected sections"
+        ],
+        "identifier_or_url": "https://acta.bibl.u-szeged.hu/12877/1/Martyugin_2009_ActaCybernetica.pdf",
+        "material_read": "Abstract, definitions and complexity setup pp. 1-4; targeted searches for cyclic transitions and rank terminology",
+        "method": "Primary institutionally hosted PDF text extraction and section searches; not a claim of exhaustive whole-document inspection",
+        "title": "Complexity of Problems Concerning Reset Words for Some Partial Cases of Automata",
+        "trigger": "Prior study of compression-to-rank decision and word length"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "20f6f6c2-c8cb-4bf4-a6aa-a6d0d6455cd8",
+  "value": {
+    "rationale": "Exact rank-vs-time threshold classification for a natural two-parameter synchronizing-family subproblem, with an abrupt r+2 letter jump and 2^(r-1) optimizers where all earlier optimizers are unique. This shows a meaningful structural branching transition in shortest compressing words, rather than an isolated numerical improvement. The independent-set model is a reusable representation of all first-bottleneck labels.",
+    "status": "PASS"
+  }
+}
