@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The proof independently obtains all local covariance kernels by explicit uniform-label integrals, with distance-at-least-three independence. It then counts configuration types for every rooted complete m-ary tree (including exceptional heights one and two), derives exact nL_m+R_m for h>=3, and establishes strict negativity by positivity of the three displayed polynomials at m-2>=0. It separately proves the exact path identity and one-sided variance coefficient, giving the limiting correlations. verify.py reruns 140 exact rational and exhaustive finite checks; the unbounded claim rests on the displayed formulas and sign proof, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krivelevich et al., original arXiv v1 text §1 explains the first parallel round selects vertices earlier than every neighbor; §§1.1 and 2.4 give expected sizes of fully completed greedy MIS, and do not formulate or imply the joint first-round min–max correlation law.",
+        "published-finding corpus id 2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f concerns terminal random-greedy MIS on complete multipartite graphs, a different variable and graph class.",
+        "published-finding corpus ids 2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d and 2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de also concern completed greedy output distributions."
+      ],
+      "reasoning": "Completed random greedy independent sets include vertices selected in subsequent rounds and do not generally equal the count of initial minima. Their estimates do not specialize to the two-sided min–max covariance. One-sided degree-regular normal approximation does not imply a cross-covariance sign on finite nonregular rooted trees.",
+      "searches": [
+        "published-finding corpus: first round parallel greedy independent sets sink source covariance perfect binary m-ary tree asymptotic",
+        "published-finding corpus: Krivelevich Mészáros Michaeli Shikhelman 2019 greedy maximal independent sets local limits first round sink two-sided covariance",
+        "Primary arXiv:1907.07216v1 §1, §1.1, §2.4, §4 and §6; arxiv.org/html/1907.07216v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1907.07216v1 (July 16, 2019), primary HTML",
+      "arxiv:1606.08025v2 (2017 revision of June 26, 2016 original), primary HTML §6–7",
+      "Baldi-Rinott-Stein NeurIPS 1989 six-page primary PDF",
+      "published-finding corpus 2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f",
+      "published-finding corpus 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+      "published-finding corpus 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Burdzy–Pal Theorem 7.2 is a conditional statement on the two highest peaks on regular rooted trees; it does not give joint unconditioned counts of maxima and minima.",
+        "Baldi–Rinott–Stein gives mean and normal approximation for count of minima, and illustrations for its variance, with no joint maxima variable.",
+        "Baldi–Rinott–Stein also explicitly distinguishes the iid random-energy labeling from independently oriented edges in its hypercube discussion; its one-sided results do not imply this two-sided law."
+      ],
+      "reasoning": "The new theorem cannot be obtained as a numerical substitution into the cited completed-greedy, conditional-two-peaks or one-sided count laws. It requires a two-sided local integral and a separate exact depth/configuration argument; no available prior implication dominates its all-arity sign and correlation limits.",
+      "searches": [
+        "Primary paper: https://arxiv.org/abs/1606.08025 §6–7",
+        "Primary paper: https://papers.neurips.cc/paper_files/paper/1989/file/d947bf06a885db0d477d707121934ff8-Paper.pdf, main result and applications",
+        "published-finding corpus: local extrema random permutation on tree maximum minimum count cross covariance negative positive path binary tree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Burdzy and Pal (arXiv:1606.08025), §7 Theorem 7.2 conditions on two peaks and describes peak locations rather than any joint minimum–maximum count covariance.",
+        "The closest indexed permutation-correlation record 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805 concerns covariance of pairwise inversion indicators, not vertex neighborhood extrema."
+      ],
+      "reasoning": "The standard aliases are peaks/pits, sinks/sources of the transitive ordering orientation and initial parallel-priority independent-set selectors. The inspected closest sources do not provide the two-sided covariance, sign dichotomy or asymptotic ratios. Nonappearance from search alone is not evidence of uniqueness.",
+      "searches": [
+        "published-finding corpus: cross covariance local minima local maxima independent vertex random labels rooted regular trees +1 -1 branching arity complete m-ary sign",
+        "published-finding corpus: random permutation labeling tree peaks pits correlation covariance local extrema path binary tree",
+        "Web: \"covariance\" \"local maxima\" \"local minima\" \"trees\" \"random\"",
+        "Web: \"minima\" \"maxima\" \"joint\" \"random labeling\" graph tree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The ranked mathematical-record results for these actual queries contained no table or assertion providing the complete-tree covariance sign and constants.",
+        "The nearest published-finding corpus id 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f treats degree–leaf dependence in a different random tree."
+      ],
+      "reasoning": "The claim is an infinite family analytic classification, not a small numerical table. No exact database coverage was located, but indexes can miss aliases, older papers and unpublished calculations.",
+      "searches": [
+        "published-finding corpus: Exact joint distribution of local minima and local maxima in randomly labeled trees, covariance degree sequence and extremal tree",
+        "published-finding corpus: Variance of number of local minima in random vertex permutations on trees star versus path extremality",
+        "published-finding corpus: number of local minima and local maxima of independent iid uniform vertex labels on complete m-ary trees covariance asymptotic and branching sign transition"
+      ]
+    },
+    "rationale": "The precise two-sided covariance and strict branching sign theorem is not implied by the inspected one-sided minimum statistics, conditional peak-location theorem or completed greedy independent-set laws. Mathematical-record searches and the inspected primary literature found no dominating theorem. Residual priority risk remains due to imperfect literature coverage.",
+    "residual_risks": [
+      "Prior unindexed work in random rank extrema may contain an equivalent two-sided covariance kernel or the complete-tree sign classification.",
+      "Absence from semantic search results does not establish mathematical novelty; independent priority review remains outstanding.",
+      "The comparison is for the exact joint unconditioned first-round statistic, not a claim to have invented iid vertex-label local extrema or one-sided moment methods."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: full greedy MIS occupancy/density, not joint initial min–max count covariance",
+        "evidence": [
+          "arXiv v1 introductory paragraph: parallel first round colors all sinks, then removes them and neighbors and continues; §2.4 gives greedy MIS density, §1.1 theorem focuses asymptotic expected fraction."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1907.07216v1",
+        "material_read": "Original v1 full-text HTML: introduction, §1.1 theorem statements, §2.4 on d-ary trees, §4 concentration statements and theorem scope in §6",
+        "method": "Inspected arXiv v1 original full-text HTML and cross-referenced accessible AofA 2020 PDF introduction",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Same iid vertex priority model, first parallel selection, d-ary tree discussion; original first-public version July 16 2019"
+      },
+      {
+        "assessment": "NOT_COVERING: analysis conditions on exactly two peaks, quantifying locations rather than unconditioned minima–maxima covariance",
+        "evidence": [
+          "§7 Theorem 7.2 explicitly studies highest and second highest peak locations under conditioning on having two peaks."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1606.08025v2",
+        "material_read": "Abstract, §6 general tree arguments, §7 regular-tree model and full Theorem 7.2 statements",
+        "method": "Inspected primary arXiv HTML §6–7 and PDF views",
+        "title": "Twin peaks",
+        "trigger": "Random permutation labellings of trees, including regular rooted trees and local extrema"
+      },
+      {
+        "assessment": "NOT_COVERING: one-sided local minimum count moments and normal approximation, not the joint minimum–maximum covariance transition",
+        "evidence": [
+          "§2 main theorem explicitly defines only the variable W=number of local minima, and §3 provides one-sided variance examples."
+        ],
+        "identifier_or_url": "https://papers.neurips.cc/paper_files/paper/1989/file/d947bf06a885db0d477d707121934ff8-Paper.pdf",
+        "material_read": "Main theorem, definition of random labels, complete application examples and references in the six-page paper; PDF page-three screenshot",
+        "method": "Read extracted primary PDF text and visually inspected PDF page 3",
+        "title": "On the Distribution of the Number of Local Minima of a Random Function on a Graph",
+        "trigger": "The original iid random energy label and local-extremum count model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f6e763b3-13bb-46ab-9423-c95e3db4b56a",
+  "value": {
+    "rationale": "A single iid ranking induces simultaneous local minimum and maximum counts. The result provides a structural sign reversal between long paths and every genuine complete branching tree at any finite height, with exact arity-dependent infinite-height correlation and asymptotic approach to opposite perfect-correlation extremes. This is a motivated dependence-law dichotomy for the initial round of a natural random-order graph process, not merely a textbook one-vertex moment.",
+    "status": "PASS"
+  }
+}
