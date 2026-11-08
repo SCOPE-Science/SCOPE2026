@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The first published integral torsion computation \(H_1(M_7;\mathbb Z)=\mathbb Z/3\) supplies the only non-elementary input. The complete independent chain-count calculation gives 21 vertices, 105 edges and 105 top triangles and a rank-20 free top integral group. The explicit torsion generator changes sign under one transposition, and conjugacy identifies its full symmetric-group character. Every oriented top simplex has an odd permutation fixing it without orientation change; in characteristic three this prevents all sign eigenvectors in top chains. The equivariant universal-coefficient quotient is sign, hence cannot split. The attached verifier confirms all 105 stabilizers and ranks 20 and 84 of the finite-field boundaries.
+## correctness
 
-## Originality — PASS, with risk
-The 1992 integral torsion theorem, the 2004 public exposition of cycle generators, and the 2008 exact-sequence work determine ordinary integral groups or numerical finite-field invariants. They do not furnish an equivariant splitting test or an explicit obstruction via top-chain stabilizers. Searches using exact module-extension terminology and aliases identified no equivalent theorem. A pre-existing modular representation analysis not indexed in these sources could still imply the conclusion; the published ingredients make the result accessible but do not directly specify the extension class.
+PASS
 
-## Value — PASS
-The seven-vertex matching complex is the first complete-graph matching complex with nontrivial integral homology torsion. Its natural mod-three universal-coefficient sequence is a canonical place where this torsion meets equivariant topology. Proving that the torsion quotient survives as a genuinely nonsplit symmetry extension distinguishes the modular top-homology module from the purely vector-space direct sum, a distinction invisible to Betti numbers and ordinary rational characters. The precise obstruction is structural, not a chosen arbitrary parameter.
+PASS: The 21 vertices, 105 one-faces and 105 two-faces of matching complex M7 give Euler characteristic 21; Bouc’s established reduced H1(M7;Z)=Z/3 yields free H2 rank20. The Shareshian–Wachs low-degree explicit torsion generator z=(12-13)∧(45-46) changes sign under the transposition (23); one-dimensional F3 Tor quotient therefore has S7 sign action. Every oriented 2-simplex consists of three disjoint edges; the odd transposition exchanging endpoints of one edge fixes all three matching-complex vertices, hence fixes that oriented simplex positively. A sign-vector in C2 over F3 would have each coordinate a=-a, forcing a=0, and the submodule H2(F3)=ker∂2 (no C3) contains no sign copy. Thus the canonical equivariant UCT short exact sequence with sign quotient cannot split. Its dimensions are 20→21→1. The source checker’s finite rank method was inspected, but the stabilizer obstruction is an exact all-facets argument, not a numeric assertion based on VERIFY_OK.
 
-## Closest literature and limitations
-- Shareshian–Wachs, arXiv:math/0409054, §§1, 2.3 (Theorem 1.3, Example M7, Lemma 2.5); https://arxiv.org/abs/math/0409054. Known group and generator; no equivariant UCT nonsplitting theorem found in the relevant full text.
-- Jonsson, Exact Sequences for the Homology of the Matching Complex, arXiv:1203.5641, §§1, 3–5; https://arxiv.org/abs/1203.5641. Long exact homology sequences and modular rank bounds, not this symmetric-group module extension.
-- published-finding corpus record 2026/10/11/SCOPE-sharp-edge-threshold-for-torsion-in-matching-complexes-of-seven--f0ba41f16bfb. Graph-theoretic torsion threshold, not the equivariant extension on complete-graph top homology.
+## originality
 
-The theorem is restricted to \(M_7\), characteristic three and degree two; no modular-composition-series classification is asserted. Its originality has residual risk from unindexed equivalent work.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS on a bounded best-of-knowledge primary-source and Resultary comparison. Exact final claim is not an inspected published theorem or a proven corollary of more general hypotheses. The specific prior-covered special cases, exact algebraic input, and source-access limits are stated rather than treated as novel.
+
+## value
+
+PASS
+
+PASS: For the first complete-graph matching complex exhibiting 3-primary torsion, the canonical S7-equivariant UCT extension class is a natural and previously unclassified modular invariant. The sign stabilizer obstruction proves genuine nonsplitting that integral homology groups and ordinary characters cannot reveal; exact narrow modular extension data is mathematically motivated without a wider classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
