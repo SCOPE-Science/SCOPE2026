@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The exact integer-arithmetic determinant expansion of the ten-state matrix agrees term for term with the two claimed bivariate factors (18 nonzero bivariate monomials after multiplication). A separate graph-adjacency brute force enumerator agrees with the transfer method for every cardinality at \(3\le n\le8\); total values are 13, 32, 69, 157, 361, 824. The stated first ten complementary coefficients were also checked directly by transfer recurrence for \(10\le n\le18\). The proof's infinite scope comes from the cyclic-word correspondence, determinant identity, and formal logarithmic trace, not these finite tests.
+# Independent mathematical audit
 
-To replay, run `python3 artifacts/verify.py`. No external software packages are required. Historical priority and mathematical interpretation have not undergone independent audit.
+## correctness
+
+PASS
+
+For C_n square K_2, n>=3, the cubic outside-neighbor P3-convex condition on S is equivalent to every vertex of the complement T having induced degree at least two. Four two-bit column states and a 16-pair transfer automaton characterize precisely every cyclic column word and its complement size, with no rotation quotient. The six acyclic transfer states contribute no determinant factors; independent exact SymPy polynomial determinant on the ten active states reproduced det(I-zM)=(1-yz+y^3z^2)*[1-(1+y+y^2)z+(y+y^2)z^2-(y^4+y^5)z^3+2y^5z^4+y^7z^5] with 18 monomials. The formal log-determinant identity then proves the all-n trace generating function. Independent graph-level brute force matched full cardinality polynomials for n=3..8 (total 13,32,69,157,361,824), and transfer checks for n=10..18 reproduce the claimed first ten coefficients; finite checks corroborate, rather than replace, the transfer and determinant. Perron-Frobenius for the primitive active component yields lambda~2.31240391. No arbitrary cubic-graph enumeration is asserted.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: primary 2026 P3-convex counting literature gives general algorithms and an unweighted path recurrence, not the full cardinality-refined cyclic-prism determinant. Product P3-hull-number work treats a different invariant. The natural equivalent two-neighbor-core/bootstrap vocabulary was searched with residual indexing uncertainty.
+
+## value
+
+PASS
+
+A complete size-refined counting polynomial for every cyclic prism solves an infinite natural family beyond mere total counts. The low-degree factorization, missing complements of sizes 5 and 7, and exact growth rate supply useful precise enumerative information rather than a generic finite-state method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
