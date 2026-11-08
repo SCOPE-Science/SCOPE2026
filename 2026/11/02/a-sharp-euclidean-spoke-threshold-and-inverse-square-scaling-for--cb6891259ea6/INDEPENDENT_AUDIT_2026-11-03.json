@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T23:53:09.452507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With unit rim conductances and spoke conductance r=2(cosh(a)-1), grounded rim Laplacian rI+Delta(C_m) has explicit positive Green inverse g_k=C(t^k+t^{m-k}), t=e^-a. From it hub resistance alpha and rim resistances delta_k=2alpha(1-Q_mk). The squared rim-distance circulant has strictly negative Fourier eigenvalues for every nonconstant rim mode by an exact strictly signed rational expression. On total zero-sum coefficients, split into rim contrasts z and radial hub contrast s: z^TD_rim²z+2s²(alpha² H_m-alpha²). Hence unique obstruction H_m(a)<=1, critical equality vector (m,-1,...,-1), dimensions m and m-1, and one negative centered Gram eigenvalue above. Monotonicity of cosh-ratios makes H_m strictly increase from 0 to 2(m-1)/m>1. The finite-metric negative-type interval property yields the three generalized-roundness regimes, and Riemann-sum H_m(c/m) -> explicit integral gives m²r_m -> 34.847671295...; m=3 root 3+2sqrt3. All parameters m>=3,r>0 are addressed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bapat–Gupta Theorem 5 exactly tabulates pairwise weighted-wheel resistances using generalized Fibonacci numbers; Li–Weston general strict-negative-type theorems and Sánchez finite-metric criteria apply abstractly."
+        ],
+        "reasoning": "Those general results reduce this problem to analysis of a concrete squared-distance spectrum, but the actual all-mode sign, unique radial root and asymptotic constant are not supplied by their inspected theorem statements.",
+        "searches": [
+          "Resultary: effective resistance wheel graph Euclidean embedding negative type threshold uniform spokes squared distances",
+          "Bapat–Gupta DOI 10.1007/s13226-010-0004-2 full author manuscript Theorem 5",
+          "Li–Weston arxiv:0901.0695"
+        ]
+      },
+      "checked_sources": [
+        "source:assigned Git RESULT.md, verify_wheel_resistance.py, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt",
+        "Resultary semantic query effective resistance wheel graph Euclidean embedding negative type threshold uniform spokes squared distances",
+        "Bapat–Gupta DOI 10.1007/s13226-010-0004-2 full author manuscript Theorem 5",
+        "Li–Weston arxiv:0901.0695",
+        "Sánchez arxiv:1108.0451"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Claim requires sign of every nonzero Fourier mode of delta_k² and radial Schur complement, then H_m strictly crossing 1 at exactly one r_m."
+        ],
+        "reasoning": "General wheel resistance formulas supply delta_k but require additional nonlinear squaring, Fourier analysis and monotonicity to obtain the embedding transition; no prior inspected claim forces the displayed root or c_*².",
+        "searches": [
+          "Bapat–Gupta DOI 10.1007/s13226-010-0004-2 full author manuscript Theorem 5",
+          "Li–Weston arxiv:0901.0695"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wheel effective resistance R_ij is the ordinary electrical distance, while Euclidean realization of R requires negative type of R_ij² (not negative type of R itself); Schoenberg squared-distance criterion and resistance metric should not be confused."
+        ],
+        "reasoning": "Weighted wheel formulas with spoke resistance alpha in Bapat–Gupta translate to spoke *conductance* r=1/alpha; necessary normalization checked.",
+        "searches": [
+          "Resultary: effective resistance wheel graph Euclidean embedding negative type threshold uniform spokes squared distances",
+          "Bapat–Gupta DOI 10.1007/s13226-010-0004-2 full author manuscript Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing resistance tables for wheel spokes and rims cover pairwise data at all weights."
+        ],
+        "reasoning": "A table of distances is not itself a table of Euclidean embedding ranges, negative-type exponents, or critical dimensions; Resultary wheel polytope entry concerns edge-root vertices, not electrical distance. An unindexed derivative computation remains possible.",
+        "searches": [
+          "Resultary: effective resistance wheel graph Euclidean embedding negative type threshold uniform spokes squared distances",
+          "Bapat–Gupta DOI 10.1007/s13226-010-0004-2 full author manuscript Theorem 5"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for Euclidean embeddability of *resistance distance itself* on a weighted wheel, its sharp spoke threshold, critical kernel/inertia, generalized-roundness regimes and inverse-square scaling. Bapat–Gupta Theorem 5 already gives exact weighted wheel resistance entries and is fully credited; it does not study the squared resistance as a Euclidean-distance-matrix condition. General p-negative type tests and cycle resistance identities do not explicitly supply the wheel hub radial threshold or continuum constant. Possible implicit derivation from complete weighted resistance matrix and Schoenberg criterion is a residual priority concern, but nontrivial Fourier sign and boundary/symmetry analysis are performed here.",
+      "residual_risks": [
+        "The weighted wheel resistance entries are established, not new, and may allow an earlier implicit embedding classification through general finite-metric criteria.",
+        "Generalized roundness away from r_m is only localized relative to exponent 2; no explicit formula for wp(m,r) at general r is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_PAIRWISE_FORMULAS_NOT_EMBEDDABILITY",
+          "evidence": "Theorem 5 derives hub/rim effective-resistance entries in generalized Fibonacci form; the paper states no Hilbert embed / 2-negative type / sharp single spoke conductance transition.",
+          "identifier_or_url": "https://doi.org/10.1007/s13226-010-0004-2",
+          "material_read": "Complete publicly available author 2009 manuscript on ResearchGate, Introduction, Section 2, Lemmas 1–4 and Theorem 5 including weighted wheel pairwise resistance formulas and proof; remaining fan material skimmed.",
+          "method": "licensed author full-text HTML text (researchgate publication/225679174_)",
+          "title": "Resistance distance in wheels and fans",
+          "trigger": "same weighted wheel exact effective resistances"
+        },
+        {
+          "assessment": "GENERAL_PRINCIPLE",
+          "evidence": "Abstract open interval/strictness theory is a tool; it does not compute wheel-specific root.",
+          "identifier_or_url": "https://arxiv.org/abs/0901.0695",
+          "material_read": "Open abstract, central strict-negative-type theorem cited as standard; full proof not separately read in current run.",
+          "method": "arXiv primary abstract/known theorem statement",
+          "title": "Strict p-negative type of a metric space",
+          "trigger": "general strict p-negative type monotonicity"
+        },
+        {
+          "assessment": "DIFFERENT_EXAMPLE",
+          "evidence": "Provides general test and shortest-path complete bipartite examples, not the resistance metric of wheels.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.0451",
+          "material_read": "Open abstract and stated finite-metric criterion; full manuscript not read in this run.",
+          "method": "arXiv literature lookup",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "universal finite metric p-negative type criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Whether an electrical effective-resistance metric (not its square root) embeds is a natural metric-geometry question. A unique weight-driven change in Hilbert embeddability, exact equality direction and dimension drop, and inverse-square large-wheel asymptotic provide a sharp meaningful geometric classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "source:assigned Git RESULT.md, verify_wheel_resistance.py, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt",
+    "Resultary semantic query effective resistance wheel graph Euclidean embedding negative type threshold uniform spokes squared distances",
+    "Bapat–Gupta DOI 10.1007/s13226-010-0004-2 full author manuscript Theorem 5",
+    "Li–Weston arxiv:0901.0695",
+    "Sánchez arxiv:1108.0451"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unit rim conductances and equal positive spoke conductances only, m>=3; resistance distance itself, not resistance^{1/2} nor shortest paths.",
+    "Own exact finite cases establish no infinite-range theorem; universal claims follow the nonzero Fourier and scalar integral arguments."
+  ],
+  "residual_risks": [
+    "The weighted wheel resistance entries are established, not new, and may allow an earlier implicit embedding classification through general finite-metric criteria.",
+    "Generalized roundness away from r_m is only localized relative to exponent 2; no explicit formula for wp(m,r) at general r is claimed."
+  ],
+  "schema_version": 1
+}

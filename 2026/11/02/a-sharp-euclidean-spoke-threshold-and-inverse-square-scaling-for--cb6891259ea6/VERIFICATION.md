@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-The analytic argument in `RESULT.md` proves the theorem for every integer rim size \(m\ge3\) and every positive spoke conductance \(r\). The main nonstandard step is the explicitly negative Fourier spectrum of the squared rim-resistance matrix; the proof includes its closed-form eigenvalues and strictly positive numerator factors.
+# Independent mathematical audit
 
-Running `python verify_wheel_resistance.py` with Python 3.10 or later requires no third-party packages. It independently inverts 45 grounded electrical Laplacians using exact rational arithmetic, checks resistance formulas, verifies all nonconstant rim Fourier modes numerically against the closed expression, checks exact radial signs, and tests the threshold equation and scaling limit.
+## correctness
 
-Observed final output:
+PASS
 
-```
-ASYMPTOTIC_OK c= 5.903191619375 c_squared= 34.847671295062
-ALL_WHEEL_RESISTANCE_CHECKS_OK exact_cases= 45
-```
+With unit rim conductances and spoke conductance r=2(cosh(a)-1), grounded rim Laplacian rI+Delta(C_m) has explicit positive Green inverse g_k=C(t^k+t^{m-k}), t=e^-a. From it hub resistance alpha and rim resistances delta_k=2alpha(1-Q_mk). The squared rim-distance circulant has strictly negative Fourier eigenvalues for every nonconstant rim mode by an exact strictly signed rational expression. On total zero-sum coefficients, split into rim contrasts z and radial hub contrast s: z^TD_rim²z+2s²(alpha² H_m-alpha²). Hence unique obstruction H_m(a)<=1, critical equality vector (m,-1,...,-1), dimensions m and m-1, and one negative centered Gram eigenvalue above. Monotonicity of cosh-ratios makes H_m strictly increase from 0 to 2(m-1)/m>1. The finite-metric negative-type interval property yields the three generalized-roundness regimes, and Riemann-sum H_m(c/m) -> explicit integral gives m²r_m -> 34.847671295...; m=3 root 3+2sqrt3. All parameters m>=3,r>0 are addressed.
 
-Exact rational checks support the electrical formulas and the finite radial signs. Floating-point Fourier comparisons and asymptotic diagnostics are not interval-arithmetic certificates. The universal sign, uniqueness, and asymptotic assertions are proven independently of these experiments in the written proof. Independent validation has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for Euclidean embeddability of *resistance distance itself* on a weighted wheel, its sharp spoke threshold, critical kernel/inertia, generalized-roundness regimes and inverse-square scaling. Bapat–Gupta Theorem 5 already gives exact weighted wheel resistance entries and is fully credited; it does not study the squared resistance as a Euclidean-distance-matrix condition. General p-negative type tests and cycle resistance identities do not explicitly supply the wheel hub radial threshold or continuum constant. Possible implicit derivation from complete weighted resistance matrix and Schoenberg criterion is a residual priority concern, but nontrivial Fourier sign and boundary/symmetry analysis are performed here.
+
+## value
+
+PASS
+
+Whether an electrical effective-resistance metric (not its square root) embeds is a natural metric-geometry question. A unique weight-driven change in Hilbert embeddability, exact equality direction and dimension drop, and inverse-square large-wheel asymptotic provide a sharp meaningful geometric classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
