@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:59:14.221062Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reverse preimages a^-1 rotate cyclic intervals and b^-1 can grow a nonfull interval only when it is {0,...,r-1}; each growth adds n-1 and requires n-1 inverse a-rotations before the next growth. Growing a singleton to all n states requires n-1 effective b actions, yielding the minimum L and its rigid unique word. One extra a must occur before forward W (after reverse set fills Q); one extra b must be an identity inverse insertion because any shrink loses too much. In the jth internal gap the only forbidden insertion offset is t=j; summing n-2 offsets for each of n-2 gaps gives (n-2)^2 plus aW. Wa,Wb are the two already-reset extensions, giving total (n-2)^2+3. Independent bit-mask subset dynamic programming verified no earlier resets, exactly one at L and the first-next counts 1,2,5,10,17,26,37,50,65,82 for n=2..11. Algebraic proof, not finite DP, justifies all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "K-avoiding thresholds and rank-deficiency profiles optimize different subset images rather than count full-state reset words one letter above the minimum."
+        ],
+        "reasoning": "Knowing minimal rank/avoidance lengths cannot determine a near-optimal language coefficient; older exact language-recognition or generating-function frameworks might still dominate after specialization.",
+        "searches": [
+          "Stoner On the Minimal Reset Words of Synchronizing Automata 2014",
+          "Resultary exact early deficiency profile Černý automata",
+          "Resultary exact k avoiding thresholds Černý"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 679b64725531391329614c762e1091307568881e/RESULT.md and verify.py",
+        "Kisielewicz–Kowalski–Szykuła DOI:10.1007/s10878-013-9682-0",
+        "Černý 1964 original threshold (background)",
+        "Resultary exact early deficiency profile 2026/10/4",
+        "Resultary exact k-avoiding thresholds 2026/9/17"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A shortest-length optimality proof supplies L but cannot exclude or enumerate one-letter insertion positions; the reverse cyclic-interval growth argument is needed."
+        ],
+        "reasoning": "The theorem asserts strict second-layer coefficient and explicit list, not merely the known optimal length; no inspected theorem directly implies the stronger conclusion.",
+        "searches": [
+          "Kisielewicz Kowalski Szykuła 2015 shortest reset words subset BFS",
+          "Stoner 2014 minimal reset words cyclic automata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Černý 1964 establishes (n-1)^2 shortest reset threshold; Kisielewicz–Kowalski–Szykuła (2015) give shortest-reset algorithms, not the first-final second-layer list."
+        ],
+        "reasoning": "The distinguished first-reset language consists of words whose proper prefix is not reset; this is not the same as arbitrary insertion-deletion minimality or counting all reset words.",
+        "searches": [
+          "\"Cerny\" \"next shortest\" reset words counting",
+          "Resultary Cerny automaton shortest reset word near shortest next length counting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary enumerators for Wielandt and D_n automata involve different transition graphs; no inspected exact table for the n-state Černý L+1 first-final count."
+        ],
+        "reasoning": "Tables of other automata do not cover the exact Černý formula; first 10 small-n values are corroboration, not novelty evidence.",
+        "searches": [
+          "Cerny automata first reset word enumerator n squared plus one",
+          "shortest reset multiplicity Wielandt seven states Resultary"
+        ]
+      },
+      "rationale": "PASS for exact second-layer first-synchronizing-language coefficient and full one-letter insertion classification, not for the classical shortest reset threshold. Relevant earlier algorithms analyze shortest words and avoiding/rank-compression thresholds rather than this multiplicity.",
+      "residual_risks": [
+        "A previously unindexed exact reset-language polynomial for Černý could imply the second coefficient.",
+        "The argument addresses only this labeled transition convention and first-reset at one slack."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant general shortest-word methods, no identified precise first-synchronizing coefficient at L+1.",
+          "evidence": "Distinguishes optimizing minimal reset length from counting words first reset at one greater length.",
+          "identifier_or_url": "https://doi.org/10.1007/s10878-013-9682-0",
+          "material_read": "Open-access full HTML article opened; introduction, subset-search methods and sections on shortest reset words examined.",
+          "method": "publisher open HTML",
+          "title": "Computing the shortest reset words of synchronizing automata",
+          "trigger": "Same Černý family and shortest-word enumeration algorithms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A canonical extremal synchronization family permits a complete classification immediately one letter above its sharp reset threshold; the exceptional insertions and exact next-layer language coefficient expose structural rigidity of near-optimal synchronization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree 679b64725531391329614c762e1091307568881e/RESULT.md and verify.py",
+    "Kisielewicz–Kowalski–Szykuła DOI:10.1007/s10878-013-9682-0",
+    "Černý 1964 original threshold (background)",
+    "Resultary exact early deficiency profile 2026/10/4",
+    "Resultary exact k-avoiding thresholds 2026/9/17"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the labeled n-state Černý automaton n≥2, the shortest reset word W=b(a^(n-1)b)^(n-2) is unique, length L=(n-1)^2; exactly (n-2)^2+1 words of length L+1 first reset at their final letter and (n-2)^2+3 words of length L+1 reset at or before the final letter; every first-final word is explicitly listed.",
+  "limitations": [
+    "Exactly (n-1)^2+1 letters, n≥2; distinction between first-final reset and already reset earlier preserved."
+  ],
+  "residual_risks": [
+    "A previously unindexed exact reset-language polynomial for Černý could imply the second coefficient.",
+    "The argument addresses only this labeled transition convention and first-reset at one slack."
+  ],
+  "schema_version": 1
+}

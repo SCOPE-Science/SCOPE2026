@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The proof in `RESULT.md` is an exact all-length argument using inverse preimages, an interval-growth lower bound, and a complete classification of the only allowable one-letter slack. No finite computation is used to infer an infinite statement.
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing the files. The executable computes the full bit-mask subset automaton for all state counts from 2 through 11. It uses dynamic programming on nonreset subsets to count first-reset words, separately builds the explicit word list, checks candidate distinctness, checks first synchronizing position for each candidate, checks minimum reset length and unique minimum word, and checks both next-length counts. The exact output ends with `VERIFY_OK`.
+## correctness
 
-Boundary cases \(n=2\) and \(n=3\) are included; the first-at-final-letter counts are \(1\) and \(2\), respectively. Subsequent values for \(n=4,5,6,7,8,9,10,11\) are \(5,10,17,26,37,50,65,82\).
+PASS
 
-Limitations: finite checks do not prove the universal theorem. Historical priority, which is not a computation, is assessed only from the cited and inspected literature. Independent audit has not been performed.
+Reverse preimages a^-1 rotate cyclic intervals and b^-1 can grow a nonfull interval only when it is {0,...,r-1}; each growth adds n-1 and requires n-1 inverse a-rotations before the next growth. Growing a singleton to all n states requires n-1 effective b actions, yielding the minimum L and its rigid unique word. One extra a must occur before forward W (after reverse set fills Q); one extra b must be an identity inverse insertion because any shrink loses too much. In the jth internal gap the only forbidden insertion offset is t=j; summing n-2 offsets for each of n-2 gaps gives (n-2)^2 plus aW. Wa,Wb are the two already-reset extensions, giving total (n-2)^2+3. Independent bit-mask subset dynamic programming verified no earlier resets, exactly one at L and the first-next counts 1,2,5,10,17,26,37,50,65,82 for n=2..11. Algebraic proof, not finite DP, justifies all n.
+
+## originality
+
+PASS
+
+PASS for exact second-layer first-synchronizing-language coefficient and full one-letter insertion classification, not for the classical shortest reset threshold. Relevant earlier algorithms analyze shortest words and avoiding/rank-compression thresholds rather than this multiplicity.
+
+## value
+
+PASS
+
+A canonical extremal synchronization family permits a complete classification immediately one letter above its sharp reset threshold; the exceptional insertions and exact next-layer language coefficient expose structural rigidity of near-optimal synchronization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
