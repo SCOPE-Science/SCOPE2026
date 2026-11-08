@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T10:11:38.517337Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 0a09ce61539b70981d1c3c238be45d5303cce5a9",
+        "Frozen SLOGAN.txt and VERIFICATION.md",
+        "independent_checks.py MARKOV_PASS all 15 partitions"
+      ],
+      "rationale": "Stationary two-state transition has nonconstant eigenvalue rho, hence P(all selected zero)=u product(u+p rho^gap). Enumerating all 15 labeled set partitions reduces to 4-pool, optimized 3+1, optimized 2+2 and singletons; 2+1+1 is dominated by 2+2 or all singletons according as u*A2 crosses 1/2. For rho<0, gap-two maximizes each factor and 2b-a-c=-p*rho*(1-rho)^2>0; positive-rho 2+2 is dominated by the 4-pool or singletons (including rho=0 boundary). Exact rational witnesses verify each negative-rho open phase; for a single h-pool n>=2h-1, the factor maximum is uniquely gap2 for negative rho and gap1 for positive rho. Independent script exhaustively enumerated 15 partitions at rational feasible points, which supplements but does not replace this continuous proof.",
+      "residual_risks": [
+        "Assumes perfect testing, stationary Markov chain, strict feasible rho, arbitrary nonlocal pooling. No theorem that multi-pool optimum for n>4 has parity pools."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lendle et al. derive hierarchical/matrix efficiency under exchangeable correlated binary responses; Landolfi–Lall optimize Dorfman partitions under symmetric/exchangeable laws."
+        ],
+        "reasoning": "Exchangeability erases index gaps, so neither stated model can imply a negative nearest-neighbor alternating-pair phase; broader in pool size is not broader in dependence class.",
+        "searches": [
+          "Lendle–Hudgens–Qaqish 2012 PMCID PMC3384753",
+          "Landolfi–Lall 2023 arXiv:2308.11050"
+        ]
+      },
+      "checked_sources": [
+        "PMC3384753",
+        "DOI:10.1109/TIT.2008.926363 (abstract)",
+        "arXiv:2308.11050 (abstract)",
+        "DOI:10.1287/mnsc.2023.04308 (abstract)",
+        "Resultary semantic four-site Markov query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General expected tests 1+m(1-q) is prior art; the chain-specific q(H)=u∏(u+p rho^gap) and global parity competition are additional."
+        ],
+        "reasoning": "Correlated-pool formula alone only sets up the optimization, does not decide all 15 partitions under stationary nonexchangeable negative rho.",
+        "searches": [
+          "Dorfman 1943 DOI 10.1214/aoms/1177731363",
+          "PMCID PMC3384753 sections 2–5",
+          "arXiv:2308.11050"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Markov-source group query papers consider recursive contiguous query trees, rather than every fixed two-stage noncontiguous 4-item partition."
+        ],
+        "reasoning": "Same Markov dependence does not imply the same admissible strategy or optimization: requiring contiguous groups excludes alternating {1,3}|{2,4}. Strongest risk is that group-testing aliases hide the same exact 15-partition result.",
+        "searches": [
+          "Resultary semantic: four Markov correlated samples Dorfman group testing nonconsecutive negative correlation alternating pair exact optimal partitions",
+          "Hong Scaglione 2008 DOI 10.1109/TIT.2008.926363"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No returned exact prior 15-partition phase table or four rational negative-rho regime witnesses; the supplied table checks strict inequalities."
+        ],
+        "reasoning": "The result is a parameter-uniform theorem rather than a lookup-table entry. Search failure alone is not historical proof of absence.",
+        "searches": [
+          "Resultary four-site Markov pooling semantic query",
+          "Frozen RESULT.md rational witness table"
+        ]
+      },
+      "rationale": "Best-knowledge originality belongs to the exhaustive four-site Markov partition/negative-correlation geometry and the one-pool h-gap result. The classical Dorfman objective and correlated-testing efficiency formulas were explicitly not counted as new.",
+      "residual_risks": [
+        "Full 2008 Hong–Scaglione primary text not inspected; alternative terminology for a noncontiguous 4-node two-stage optimum might exist.",
+        "Novelty is a best-knowledge comparison, not a complete bibliography; full 2026 Long–Qi–Sun–Zhang article not read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covered correlated group test efficiency but not stationary indexed Markov all-partition parity phase",
+          "evidence": "Summary explicitly restricts principal random models to exchangeable binary variables; procedure families differ.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3384753/",
+          "material_read": "Open-access full article, abstract, modeling of exchangeable binary units, efficiency equations, hierarchical and matrix procedures and conclusion",
+          "method": "Read publisher/open-access HTML full text",
+          "title": "Group Testing for Case Identification with Correlated Responses",
+          "trigger": "Exact disease-screening use of correlated binary statuses"
+        },
+        {
+          "assessment": "Known exchangeable symmetric optimal partitions are not directly covering spatial Markov optimization",
+          "evidence": "The defining symmetric distribution is invariant to specimen permutations.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.11050",
+          "material_read": "Abstract and publicly accessible summary; not independently read full paper",
+          "method": "Abstract and accessible bibliographic text",
+          "title": "Optimal Dorfman Group Testing for Symmetric Distributions",
+          "trigger": "Broader optimization of Dorfman partitions"
+        },
+        {
+          "assessment": "Its contiguous adaptive sensor queries are a different optimization, but hidden coverage in full text is an explicit risk",
+          "evidence": "Optimizes recursive contiguous data query trees, not the displayed two-stage 4-item min.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2008.926363",
+          "material_read": "Bibliographic abstract/algorithm description; complete 2008 source was not obtained",
+          "method": "Abstract/metadata",
+          "title": "Group Testing for Binary Markov Sources: Data-Driven Group Queries for Cooperative Sensor Networks",
+          "trigger": "Same Markov-source dependence"
+        },
+        {
+          "assessment": "Studies equal-correlation clusters or interindependent clusters and a distributionally robust weighted objective, not the exact stationary four-site Markov all-partition phase",
+          "evidence": "An optimization framework broad in uncertainty but different in exact joint distribution, objective and four-site alternating-pair theorem.",
+          "identifier_or_url": "https://doi.org/10.1287/mnsc.2023.04308",
+          "material_read": "Public publisher abstract and institutional research-portal descriptive text; full article not read",
+          "method": "Abstract and university research-portal description",
+          "title": "Distributionally Robust Group Testing with Correlation Information",
+          "trigger": "Recent 2026 study optimizing Dorfman testing with inter-individual correlations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dorfman two-stage testing model",
+        "Frozen RESULT.md section 2–5 proof",
+        "Full correlated-response testing primary article"
+      ],
+      "rationale": "A motivated exact combinatorial screening optimization: negative serial correlation can make noncontiguous parity pools optimal even when adjacent pools seem natural, and the four qualitative regimes have sharp parameter boundaries and attainable open phases. This is stronger and scientifically different from merely reporting a finite candidate minimum.",
+      "residual_risks": [
+        "Transfer to epidemiological practice requires validating negative correlation and costs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Assumes perfect testing, stationary Markov chain, strict feasible rho, arbitrary nonlocal pooling. No theorem that multi-pool optimum for n>4 has parity pools.",
+    "Full 2008 Hong–Scaglione primary text not inspected; alternative terminology for a noncontiguous 4-node two-stage optimum might exist.",
+    "Novelty is a best-knowledge comparison, not a complete bibliography; full 2026 Long–Qi–Sun–Zhang article not read.",
+    "Transfer to epidemiological practice requires validating negative correlation and costs."
+  ],
+  "schema_version": 1
+}
