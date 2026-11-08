@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T23:10:24.027002Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the stated payoff u_i=-r_i-c s_i, raising one's bid overtakes exactly earlier-index zero bidders and later-index one bidders, giving Δ_i=A_i-c. The adjacent identity A_(i+1)-A_i=1-s_i-s_(i+1) is exact. Adjacent bid switches force A=c, hence integer prices, and any repeat after the switch would violate a Nash inequality; the remaining suffix alternates. Solving its transition index produces two feasible prefix words at each r=1,...,n-1; constant profiles show all zeros is the sole equilibrium for c>n-1 and all ones is never an equilibrium when c>0. Both the n=2 and c=n-1 boundaries are included without duplicate counting. Independently reconstructed direct utilities and exhaustive best responses across 112 (n,c) configurations, n=2..9, corroborated all equilibria; finite enumeration does not prove the universal classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph-general c<1 nonexistence and all-zero sufficient/necessary price bounds apply here as special cases.",
+          "The proof classifies equilibrium at every positive c, including middle integer resonances that are not determined by those two bounds."
+        ],
+        "reasoning": "Broader graph setting is prior but the stated propositions do not dominate the complete-graph middle-price classification; general ranking-games results omit the own-bid fee.",
+        "searches": [
+          "Lin Lan Nguyen Kawahara Priority Coordination Games Hodge Decomposition Sharp Design Limit Proposition S44 Nash complete graph 2026",
+          "Ranking Games Brandt Fischer Harrenstein Shoham 2008 rank-only payoff"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.05832v1",
+        "https://ai.stanford.edu/~shoham/www%20papers/rankinggames_journal.pdf",
+        "Resultary semantic search on binary priced priority equilibria"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prop S44 implies no NE for 0<c<1 and all-zero iff c>=n−1 for complete graph.",
+          "Neither implication decides 1<c<n−1 or the exact number at c integer."
+        ],
+        "reasoning": "The newly derived alternating-suffix implication supplements but does not reattribute the published extreme-price facts.",
+        "searches": [
+          "arxiv:2610.05832v1 Proposition S44 complete conflict intermediate price",
+          "Lin Lan Nguyen Kawahara all zero price threshold no equilibrium under unit fee"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lin–Lan–Nguyen–Kawahara arXiv:2610.05832v1 Appendix S-D Proposition S44 addresses extreme prices and all-zero profile; RESULT.md derives all intermediate prices with A_i-c."
+        ],
+        "reasoning": "The free rank-based games and priced priority assignments have different utility semantics. No full integer-price profile count was identified in this exact model; this search does not prove absolute novelty.",
+        "searches": [
+          "binary priority coordination complete conflict graph two level bids priced pure Nash equilibria integer price resonance",
+          "priced priority games fixed tie breaking 0 1 complete interference graph equilibrium exact counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic hits concerned distinct matching/graph problems rather than same priced game.",
+          "Direct finite profile enumeration in assigned verify.py exercises n<=11; no previously published same all-n table was located."
+        ],
+        "reasoning": "No matching published table was found in searches, but lack of a result is not novelty proof.",
+        "searches": [
+          "priced two priority levels complete conflict all pure Nash 2 integer 0 noninteger equilibria",
+          "binary priority pricing complete graph integer resonance equilibrium counts",
+          "Resultary: binary priority coordination complete conflict graph two level bids priced pure Nash equilibria integer price resonance"
+        ]
+      },
+      "rationale": "The all-graph c in (0,1) nonexistence theorem and the all-zero price threshold are genuinely prior. The additional all-positive-price resonance count and explicit alternating strategy profiles for complete conflict with binary bids were not established in the inspected primary comparison. Priority queue/ranking games with different fee or state semantics do not automatically imply the result. Best-of-knowledge distinctness remains conditional on specialist literature.",
+      "residual_risks": [
+        "An unindexed priced-ranking-game classification under another terminology could cover the same complete-conflict specialization.",
+        "The theorem assumes index tie-breaking, identical positive fee, two bid levels; mixed equilibria and incomplete conflict graphs are not addressed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "No equilibrium for 0<c<1 on arbitrary conflict graphs and all-zero threshold; no all-price exact complete-conflict enumerator in inspected sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.05832v1",
+          "material_read": "Primary accessible arXiv HTML, model and appendix S-D Proposition S44",
+          "method": "read HTML sections/statement and compare quantifiers",
+          "title": "Priority Coordination Games: Hodge Decomposition and a Sharp Design Limit",
+          "trigger": "exact same priority game and fee model"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": [
+            "Payoff is rank-based without independently priced priority choice; cannot infer integer price resonance."
+          ],
+          "identifier_or_url": "https://ai.stanford.edu/~shoham/www%20papers/rankinggames_journal.pdf",
+          "material_read": "Publicly described ranking-game model and scope, not full paper reread in this execution",
+          "method": "citation/model comparison",
+          "title": "Ranking Games",
+          "trigger": "ranking-only possible analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact complete-conflict family is the first natural robustness test for the priced-priority equilibrium model: it shows all low generic noninteger prices have no pure Nash equilibrium, while each integer price up to n−1 has exactly two and sufficiently high price has one. This all-size sharp classification is a motivated structural equilibrium fact, not a sampled numerical anomaly.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite checks are corroborative; no extension to heterogeneous fees, higher priority levels, partial conflict graphs or mixed equilibria."
+  ],
+  "schema_version": 1
+}
