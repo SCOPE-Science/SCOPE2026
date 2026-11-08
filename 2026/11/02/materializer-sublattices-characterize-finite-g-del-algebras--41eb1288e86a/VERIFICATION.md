@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The principal theorem is established by the finite-poset/downset proof in RESULT.md. To repeat the finite checks, run `python verify_materializers.py` and `python verify_example.py` with Python 3 and no third-party dependencies.
+## correctness
 
-The first program enumerates all naturally labeled posets of orders one through six and independently computes Heyting implication, materializer fixed points and ambient union closure. It verifies the local principal-downset criterion and its global equivalence with prelinearity and the forest property. Poset counts by size are 1, 2, 7, 40, 357, 4824 (5231 total). The second program uses frozenset ideals and verifies the nine-element example, the seven-element materializer, and failure of distributivity of its internal lattice.
+PASS
 
-Finite exhaustive tests provide cross-checks, not proofs beyond the tested sizes. The general statements follow from the written mathematical argument. An independent scientific audit has not been performed.
+The finite-Birkhoff downset formula I⇒J={p:I∩↓p⊆J} gives the exact Horn test for materializers. The explicit c_I preserves I∩J, so is idempotent and has fixed points exactly M_H(I). A nonempty principal cone gives union closure; two incomparable maximal points produce two individually closed J,K with nonclosed union. Universal quantification yields all principal ↓p chains, equivalent to prelinearity. The four-element poset apex above three minima gives a seven-element nondistributive internal materializer in a nine-element algebra. Independently reimplemented all naturally labelled posets n≤4 and checked local/global/forest equivalences: (n,posets,forests)=(1,1,1),(2,2,2),(3,7,6),(4,40,24). Finite checks corroborate only these orders.
+
+## originality
+
+PASS
+
+The materializer is a genuinely defined structure from Bumpus–Kocsis; its individual ambient-join criterion, global prelinearity characterization and non-distributive fixed-point example are not claimed in their inspected discussion. Classical finite-Gödel duality is credited as known. Searches across Resultary and primary mathematical literature found no dominating exact materializer theorem; unknown historical equivalences remain a risk.
+
+## value
+
+PASS
+
+The complete boundary between ambient join-closed and merely internal-lattice materializers answers a motivated structural question in Heyting algebra theory; antecedent-level closure and a counterexample to distributivity are independently useful. It is more than a restatement of prelinearity, whose old forest characterization is explicitly separated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

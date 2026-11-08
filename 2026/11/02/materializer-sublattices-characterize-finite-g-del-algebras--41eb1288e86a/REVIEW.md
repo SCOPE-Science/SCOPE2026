@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The downset adjunction gives the exact implication and Horn-condition formula; preserving intersection with the antecedent verifies idempotence of the explicit closure. The two-maximal-element obstruction supplies the necessary direction for ambient join closure. The global forest/prelinearity equivalence and the seven-element nondistributive materializer have full proofs. Independent exact finite implementations check naturally labeled posets through six elements and the explicit example. Computation is supporting evidence, not an infinite proof.
+PASS
 
-## Originality — PASS subject to historical-priority limits
+The finite-Birkhoff downset formula I⇒J={p:I∩↓p⊆J} gives the exact Horn test for materializers. The explicit c_I preserves I∩J, so is idempotent and has fixed points exactly M_H(I). A nonempty principal cone gives union closure; two incomparable maximal points produce two individually closed J,K with nonclosed union. Universal quantification yields all principal ↓p chains, equivalent to prelinearity. The four-element poset apex above three minima gives a seven-element nondistributive internal materializer in a nine-element algebra. Independently reimplemented all naturally labelled posets n≤4 and checked local/global/forest equivalences: (n,posets,forests)=(1,1,1),(2,2,2),(3,7,6),(4,40,24). Finite checks corroborate only these orders.
 
-Bumpus and Kocsis (arXiv:2110.11515, 2021) define materializers and establish their ambient meet closure; their discussion motivates investigation of further structure. The inspected paper does not give the ambient-join criterion, canonical fixed-point closure, all-antecedent prelinearity characterization, or nondistributive example. Flaminio and collaborators (arXiv:2110.02528) discuss the classical forest duality of finite Gödel algebras; that duality alone does not imply the newly established materializer criteria. Searches for the corresponding principal-downset, Horn-closure, sublattice, fixed-point, and prelinearity formulations and comparison with nearby research records found no dominating published theorem. This remains a bounded, non-independent historical-priority assessment; an equivalent result may exist outside the inspected material.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result determines the entire finite-Gödel boundary of ambient materializer lattice closure and characterizes individual antecedents. It answers a structural question suggested by the source paper, and the fixed-point lattice and nondistributive witness expose meaningful behavior not captured by ambient distributivity. It does not claim implication-subalgebra closure, an infinite-algebra extension, or a minimum-size witness.
+The materializer is a genuinely defined structure from Bumpus–Kocsis; its individual ambient-join criterion, global prelinearity characterization and non-distributive fixed-point example are not claimed in their inspected discussion. Classical finite-Gödel duality is credited as known. Searches across Resultary and primary mathematical literature found no dominating exact materializer theorem; unknown historical equivalences remain a risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The complete boundary between ambient join-closed and merely internal-lattice materializers answers a motivated structural question in Heyting algebra theory; antecedent-level closure and a counterexample to distributivity are independently useful. It is more than a restatement of prelinearity, whose old forest characterization is explicitly separated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
