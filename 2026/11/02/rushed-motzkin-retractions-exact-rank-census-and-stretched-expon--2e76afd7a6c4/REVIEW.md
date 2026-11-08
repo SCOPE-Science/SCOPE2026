@@ -1,15 +1,21 @@
-# Review of the weak-cycle retraction census
+# Independent mathematical audit
 
-## Correctness (PASS)
-The image-arc argument correctly fixes the exact domain and excludes noncontiguous images, while the complementary-walk bijection proves the exact rank count without multiplicity. The determinantal resolvent is a direct tridiagonal cofactor identity. Perron eigenvalues are explicit; on the saddle-point scale their gap suppresses the signed spectral remainder. The Laplace minimizer is unique, and uniform outer bounds show the total and rank-concentration conclusions. The ambient cardinality is counted separately by step-sum constraints. Exhaustive finite independent construction agrees for \(3\le n\le9\). Remaining limits: numerical tests are finite, while general assertions depend on the accompanying proof.
+## correctness
 
-## Originality (PASS relative to inspected sources)
-The closest literature is Dimitrova et al. (2023), on cycle endomorphism monoids, and Bacher (2024), on *strict* rushed-Dyck models. The ordinary endomorphism count matches known OEIS A287709 and Bacher's one-sided-tree asymptotics; it is expressly excluded from the new claim. Weak contractions produce Motzkin (rather than Dyck) excursions with different transfer spectra and constants. The inspected sources do not cover this claimed combination of exact *weak* rank census and explicit stretched-exponential *weak* scaling. Bacher's conclusion identifies Motzkin generalization as a direction worth studying. Residual originality risk: an equivalent weak enumeration or generalized Motzkin-path theorem might exist elsewhere under different language. No priority beyond inspected evidence is asserted.
+PASS
 
-## Mathematical value (PASS)
-The rank census solves a natural idempotent-counting question in a finite transformation monoid, and the saddle-point result determines the characteristic rank of a typical retraction, not just a total sequence. The asymptotic rarity is exponentially subtler than ordinary polynomial decay. Crucially it extends the already known strict graph-map/Dyck setting to the mathematically distinct weak graph-map/Motzkin setting; it is not merely a relabeling of the strict formula.
+A non-surjective idempotent must fix a unique contiguous image arc. The omitted complementary path maps to a lazy walk in that arc, proving E_(n,l+1)=n(B_l^(n-l))_(0,l). Tridiagonal cofactor/resolvent gives n[z^(n-2l)]D_(l+1)^(-1). The Perron eigenvalue 1+2cos(pi/(l+2)) and its positive endpoint projection yield phase Phi(x)=x log 3+pi²/(3x²) at l=x n^(1/3); the unique saddle gives the c and kappa constants, with outer tails bounded by lambda_l^N. Step-sum closure yields |W_n|=n(T_n+2). Independent complete step-sequence enumeration for 3<=n<=8 verified every rank and monoid count, including (n,E_n,|W_n|)=(6,157,858) and (8,1025,8872). Asymptotic arguments, not small counts, support the n->infinity result.
 
-## Sources and limitations
-Dimitrova et al., arXiv:2310.04149; Bacher, arXiv:2403.08120; Knauer–Pipattanajinda (2018); OEIS A287709. The no-equivalent-prior-claim assessment is based on inspected accessible materials and searches, not a proof of historical uniqueness. A field-independent graph/matrix theorem is not involved; the classification is combinatorial and semigroup-theoretic.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge differentiated same-object formulations and stronger-coverage implications; no confirmed statement-level coverage found. This is a qualified priority decision, not evidence of exhaustive absence.
+
+## value
+
+PASS
+
+The idempotents/retractions of a natural graph-endomorphism monoid are classified by image size, with an explicit random-rank scale and stretched-exponential density. This answers a motivated semigroup counting question; distinguishing weak from strict edge-preserving maps changes the underlying path family and exponential base.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

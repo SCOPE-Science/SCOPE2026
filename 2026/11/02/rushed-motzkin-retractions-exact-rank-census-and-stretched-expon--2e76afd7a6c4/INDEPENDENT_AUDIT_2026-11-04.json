@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T23:12:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/rushed-motzkin-retractions-exact-rank-census-and-stretched-expon--2e76afd7a6c4/RESULT.md",
+        "2026/11/02/rushed-motzkin-retractions-exact-rank-census-and-stretched-expon--2e76afd7a6c4/verify_weak_cycle.py"
+      ],
+      "rationale": "A non-surjective idempotent must fix a unique contiguous image arc. The omitted complementary path maps to a lazy walk in that arc, proving E_(n,l+1)=n(B_l^(n-l))_(0,l). Tridiagonal cofactor/resolvent gives n[z^(n-2l)]D_(l+1)^(-1). The Perron eigenvalue 1+2cos(pi/(l+2)) and its positive endpoint projection yield phase Phi(x)=x log 3+pi²/(3x²) at l=x n^(1/3); the unique saddle gives the c and kappa constants, with outer tails bounded by lambda_l^N. Step-sum closure yields |W_n|=n(T_n+2). Independent complete step-sequence enumeration for 3<=n<=8 verified every rank and monoid count, including (n,E_n,|W_n|)=(6,157,858) and (8,1025,8872). Asymptotic arguments, not small counts, support the n->infinity result.",
+      "residual_risks": [
+        "All-length proof is mathematical, not established by bounded test."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dimitrova et al. establish ambient monoid cardinalities and regularity/Green relations but no displayed weak-idempotent rank generating function.",
+          "Bacher obtains stretched-exponential rushed Dyck paths, and explicitly proposes extending to Motzkin paths in the conclusion."
+        ],
+        "reasoning": "The strict Dyck result has different step set and growth base; it does not imply the weak Motzkin count by substitution.",
+        "searches": [
+          "arXiv:2310.04149 Sections 1-3",
+          "arXiv:2403.08120 Section 1 and conclusion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.04149",
+        "arXiv:2403.08120",
+        "OEIS:A287709"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing total |W_n| does not determine idempotent rank distribution or concentration.",
+          "The known strict asymptotic applies to paths with no horizontal steps; the weak count has base 3 and a different saddle constant."
+        ],
+        "reasoning": "A new arc-lazy-walk correspondence and spectral saddle-point analysis are required.",
+        "searches": [
+          "arXiv:2310.04149 Proposition 1.1 and cycle cardinalities",
+          "arXiv:2403.08120 concluding Motzkin question"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dimitrova et al. define weak cycle endomorphisms by consecutive images differing by -1,0,1 and analyze their monoid.",
+          "Bacher studies rushed Dyck paths, whereas allowing zero increments produces Motzkin/lazy walks with different transfer operators."
+        ],
+        "reasoning": "Compared graph retractions/idempotents and related lattice-path models, not name matching alone.",
+        "searches": [
+          "Resultary query: Motzkin retractions rank enumeration asymptotics weak-cycle maps",
+          "arXiv:2310.04149 Proposition 1.1",
+          "arXiv:2403.08120 definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A287709 counts Dyck paths with a progressive/rushed constraint, not weak-cycle idempotents; its sequence begins 1,1,1,2,4,9,22,... vs weak E_6=157."
+        ],
+        "reasoning": "Potential alternative OEIS encoding of the weak rank counts remains a risk; exact table match was not located.",
+        "searches": [
+          "https://oeis.org/A287709",
+          "web: Motzkin paths idempotents weak endomorphisms cycles count rank",
+          "Resultary Motzkin retractions rank enumeration asymptotics weak-cycle maps"
+        ]
+      },
+      "rationale": "Best-of-knowledge differentiated same-object formulations and stronger-coverage implications; no confirmed statement-level coverage found. This is a qualified priority decision, not evidence of exhaustive absence.",
+      "residual_risks": [
+        "Hidden work in Motzkin meanders/weak graph retractions could give an equivalent rank generating function or saddle constant.",
+        "The theorem concerns idempotents and fixed n>=3, not all transformation ranks or other graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Found weak map characterization and general monoid counts, not rank-indexed idempotent enumeration",
+          "evidence": [
+            "PDF Proposition 1.1 and Sections 2-3 on regularity, generator rank."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.04149",
+          "material_read": "Abstract, Introduction, Proposition 1.1, cardinality and regularity/Green sections including discussion of idempotents",
+          "method": "Open full-text arXiv PDF and inspect the title, abstract and relevant sections using text and page images",
+          "title": "On monoids of endomorphisms of a cycle graph",
+          "trigger": "Same monoid and closest direct comparator"
+        },
+        {
+          "assessment": "Model is strict Dyck rather than weak lazy Motzkin; explicitly names extensions as future research",
+          "evidence": [
+            "PDF page 10: potential Motzkin, Schröder and m-Dyck extensions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.08120",
+          "material_read": "Abstract, Definition 1, asymptotic discussion, conclusion including Motzkin extension proposal",
+          "method": "Open full-text arXiv PDF and inspect the title, abstract and relevant sections using text and page images",
+          "title": "Progressive and Rushed Dyck Paths",
+          "trigger": "Closest stretched-exponential lattice-path enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2310.04149",
+        "arXiv:2403.08120",
+        "OEIS:A287709"
+      ],
+      "rationale": "The idempotents/retractions of a natural graph-endomorphism monoid are classified by image size, with an explicit random-rank scale and stretched-exponential density. This answers a motivated semigroup counting question; distinguishing weak from strict edge-preserving maps changes the underlying path family and exponential base.",
+      "residual_risks": [
+        "Hidden work in Motzkin meanders/weak graph retractions could give an equivalent rank generating function or saddle constant.",
+        "The theorem concerns idempotents and fixed n>=3, not all transformation ranks or other graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Hidden work in Motzkin meanders/weak graph retractions could give an equivalent rank generating function or saddle constant.",
+    "The theorem concerns idempotents and fixed n>=3, not all transformation ranks or other graphs.",
+    "Source trees and material Git blobs were read at the assigned frozen snapshot. No public research-package editing or publication has occurred."
+  ],
+  "schema_version": 1
+}
