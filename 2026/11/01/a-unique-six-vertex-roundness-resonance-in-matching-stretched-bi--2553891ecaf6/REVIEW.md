@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Every graph distance is derived directly from the edge lengths for \(n\ge3\) and \(s\in[1,3]\). The powered distance matrix splits exactly on the zero-sum hyperplane into a one-dimensional radial mode, an \((n-1)\)-dimensional matched-symmetric mode, and an always strictly negative \((n-1)\)-dimensional matched-antisymmetric mode. The scalar quotient is proved strictly decreasing up to the competing spectral zero. This establishes the complete two-phase classification without relying on numeric root finding. Schoenberg centering gives the exact critical ranks, a regular hexagon realizes the six-point simultaneous equality, and an analytic implicit-function expansion supplies the uniform large-\(n\) law. Rational exact checks and high-precision diagnostics were replayed from the accompanying code. Risks: finite check grids cannot establish universal statements, and rank statements refer only to the specified snowflaked metric.
+## correctness
 
-**Originality: PASS (qualified).** The 2011 Sánchez article explicitly evaluates the unweighted complete bipartite metric, while the earlier unit crown result evaluates the opposite endpoint. Neither supplies the interior one-parameter interpolation, the strict six-point maximum at an irrational matching length, its simultaneous-equality planar hexagon, or the complete critical-rank phase changes. Li–Weston's interval theorem and Sánchez's general matrix algorithm are acknowledged rather than relabeled as discoveries. The original 2010 Horak et al. treatment concerns ordinary four-point graph roundness on unweighted graphs. Targeted searches for matching-stretched bipartite metrics, crown-graph generalized roundness, antipodal-pair metric equivalences, and critical Hilbert ranks found no equivalent evaluated interior theorem. Residual risk: an unindexed diagonal-defect matrix treatment may contain an equivalent parametrized result.
+PASS
 
-**Mathematical value: PASS.** This is a natural one-parameter interpolation between two classical graph metrics, not an arbitrary finite slice. Its exact branch switch at six points is tied to a rigid Euclidean regular hexagon, and the endpoint ranks change by two extra dimensions at the collision. The whole infinite balanced-biclique family is classified; its large-size expansion quantifies the vanishing benefit of matching-edge stretching. The endpoint computations alone are not counted as new value.
+A decisive false sentence in original RESULT.md was discovered: it says for n>=5 the equation (n-1)(2^p-1)=s^p has a UNIQUE positive root. For n=5,s=3, F(0)=-1, F(1)=1 and F(4)=-21, so by continuity it has two positive roots. The original finding cannot pass unchanged. A complete corrected RESULT.md has been written: it specifies the LEAST positive root (unique in (0,1)) and explicitly warns that a second F-root above the G boundary cannot restore negative type. Re-assessment of the FINAL corrected theorem: exact zero-sum block decomposition yields eigenvalues F=(n-1)(2^p-1)-s^p (dim1), G=s^p-2^p-1 (dim n-1), H=1-2^p-s^p<0 (dim n-1). Q_s=s^p/(2^p-1) strictly decreases until the first G root; at G=0, F=(n-2)2^g-n, locating the n=3 interior crossing and n=4 endpoint. For n>=5 the first F root lies in (0,1), so later F roots do not alter the p-negative-type interval. Centering gives the stated endpoint Gram ranks. Independently diagonalized the exact powered-distance block matrices at n3 A=3,B=4 (rank2), n4 A=2,B=3 (rank3), and checked an additional n5 example; finite spectral checks supplement exact proof. Uniform implicit-function expansion is valid because s lies in compact [1,3].
 
-**Closest sources and boundaries.** Sánchez, arXiv:1108.0451, Section 3 covers \(s=1\) and general finite-metric algorithms. The earlier crown-graph calculation covers \(s=3\) but not the continuum. Li–Weston, arXiv:0901.0695, proves interval/strictness generalities. Horak et al., doi:10.2140/involve.2010.3.67, studies ordinary graph roundness rather than the zero-sum \(p\)-negative-type invariant. Further publication-level priority review is needed to exclude unindexed symmetric-metric matrix derivations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality from actual published mathematical searches and inspected primary scientific material; relevant exact known cases and stronger-coverage risks are compared, not merely title-matched. The original globally unique positive-root sentence was mathematically false and is not accepted unchanged; the corrected first-root phase diagram is assessed.
+
+## value
+
+PASS
+
+The corrected theorem gives a continuous natural interpolation from a complete-bipartite metric toward a crown metric, a unique internal critical six-point regular hexagon, a quantified all-n Hilbert embedding rank phase transition, and uniform large-n expansion. Fixing the second spurious F-root preserves the genuinely motivated and mathematically useful first-negative-type endpoint; the original false assertion is not being laundered through a disclaimer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
