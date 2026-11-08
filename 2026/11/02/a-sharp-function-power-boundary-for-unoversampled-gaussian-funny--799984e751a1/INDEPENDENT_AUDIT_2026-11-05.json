@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T13:51:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-function-power-boundary-for-unoversampled-gaussian-funny--799984e751a1/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-function-power-boundary-for-unoversampled-gaussian-funny--799984e751a1/verify.py",
+        "Independent separately written reproducibility script (private owner attachment): independent_checks.py and independent_checks_output.txt, dated 2026-11-05 UTC"
+      ],
+      "rationale": "For B=A_L^(q-1/2)g, Ahat=A_L^(1/2)P_B A_L^(1/2) is PSD<=A_L; Loewner-Heinz gives Ahat^beta<=A_L^beta, so nuclear error equals m+L^beta-mu_L^beta, mu_L=(L^(2q)G²+R)/(L^(2q-1)G²+R). G²/R beta-prime density yields an exact scalar integral. Scaling y=L^(q-1/2)sqrt(G²/R) gives prefactor L^(beta-q+1/2); bracket dominated by integrable 1-(y²/(1+y²))^beta, asymptotic constant equals 2 Gamma((m+1)/2)Gamma(beta+1/2)/(Gamma(m/2)Gamma(beta)). For fixed almost-sure sample with G!=0, L-mu_L=O(1) and L^beta-mu_L^beta->0 for beta<1, including beta=1/2, despite persistent expected excess. Independently reassembled small matrices and 8 numerical Gamma-integral comparisons (216 matrix cases) with consistent results.",
+      "residual_risks": [
+        "Asymptotic holds only at fixed dimension m, passes q, beta, real sketch; quadrature examples do not establish dominated convergence.",
+        "Numerical finite-L approximations have integration tolerance; analytic beta-prime calculation is decisive."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General transfer establishes control of f(A) from control of A; Gaussian expected bounds retain oversampling premises, which this single-sketch construction violates."
+        ],
+        "reasoning": "The general algorithms are not a stronger theorem covering zero oversampling with the explicit coefficient; a deterministic transfer implication plus independent tail integration is needed.",
+        "searches": [
+          "Persson–Kressner 2209.11023 Theorem 3.9",
+          "Persson–Meyer–Musco 2311.14023 operator monotone transfer theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search: Gaussian Nyström unoversampled one sketch spectral spike rank one power function nuclear norm expectation phase transition",
+        "https://arxiv.org/abs/2209.11023",
+        "https://arxiv.org/html/2311.14023v2",
+        "https://arxiv.org/abs/2110.02820",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-function-power-boundary-for-unoversampled-gaussian-funny--799984e751a1/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The expected-error assumptions specify >=2 oversampling columns, while here a single sketch column has no oversampling.",
+          "The earlier expected guarantees do not directly apply; this claim reveals a rare-event non-uniform-integrability regime that ordinary deterministic approximation error does not quantify."
+        ],
+        "reasoning": "The earlier upper bounds do not imply the sharp rare-event coefficient at p=0.",
+        "searches": [
+          "arxiv:2209.11023v3 Thm 3.9",
+          "arxiv:2311.14023v2 Gaussian corollary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Persson–Kressner Theorem 3.9 has Gaussian oversampling p>=2 in the expected-error guarantee.",
+          "The exact beta-prime rank-one spike formula yields a nonzero boundary constant not stated in the inspected general theorem."
+        ],
+        "reasoning": "Algorithm equality is recognized, but the theorem computes a new sharp no-oversampling distributional boundary rather than renaming the algorithm.",
+        "searches": [
+          "Resultary: Gaussian Nyström unoversampled one sketch spectral spike rank one power function nuclear norm expectation phase transition",
+          "arxiv:2209.11023v3",
+          "arxiv:2311.14023v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic Resultary results concern unrelated Gaussian-chaos and numerical linear algebra invariants, not this rank-one expected nuclear-error spike coefficient."
+        ],
+        "reasoning": "No specific table of this unoversampled spiked-matrix expectation was located; such absence does not prove priority.",
+        "searches": [
+          "Resultary: Gaussian Nyström unoversampled one sketch spectral spike rank one power function nuclear norm expectation phase transition",
+          "arxiv:2110.02820"
+        ]
+      },
+      "rationale": "Prior funNyström papers develop the same algorithm and operator-monotone function-transfer bounds but impose Gaussian oversampling for their expected error corollaries; the rank-one p=0 critical expected error constant and lack of uniform integrability are not given by those bounds.",
+      "residual_risks": [
+        "Elementary rank-one ratio integrals might have been calculated earlier in randomized numerical linear algebra under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING_NO_OVERSAMPLING",
+          "evidence": "Thm 3.9 requires Gaussian oversampling p>=2; no p=0 spectral spike coefficient in inspected theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.11023",
+          "material_read": "Primary PDF, algorithm and Theorem 3.9 with oversampling hypotheses",
+          "method": "Read PDF text and inspect displayed theorem page screenshot",
+          "title": "Randomized low-rank approximation of monotone matrix functions",
+          "trigger": "Same funNyström algorithm and Gaussian expected nuclear error"
+        },
+        {
+          "assessment": "RELATED_NOT_DIRECT_COVERAGE",
+          "evidence": "Transfers good approximations but does not calculate tail-induced sharp expectation for a single unoversampled sketch.",
+          "identifier_or_url": "https://arxiv.org/html/2311.14023v2",
+          "material_read": "Full accessible HTML, transfer theorem and Gaussian corollary premises",
+          "method": "Read primary HTML, compare f(t)=t^beta and algorithm prerequisites",
+          "title": "Algorithm-agnostic low-rank approximation of operator monotone matrix functions",
+          "trigger": "Potential broader deterministic transfer theorem"
+        },
+        {
+          "assessment": "BACKGROUND_DIFFERENT_OBJECTIVE",
+          "evidence": "Preconditioning/effective dimension rather than exact power-function nuclear trace error.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.02820",
+          "material_read": "Abstract and relevant preconditioning context",
+          "method": "Compare source scope and target norm",
+          "title": "Randomized Nyström Preconditioning",
+          "trigger": "General Nyström spectral spike behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-function-power-boundary-for-unoversampled-gaussian-funny--799984e751a1/RESULT.md",
+        "https://arxiv.org/abs/2209.11023",
+        "https://arxiv.org/html/2311.14023v2",
+        "https://arxiv.org/abs/2110.02820"
+      ],
+      "rationale": "Identifies the exact zero-oversampling failure boundary and explicit leading constant in a standard operator-monotone approximation algorithm, including striking almost-sure/expectation contrast. The one-spike family is a natural diagnostic for randomized spectral methods.",
+      "residual_risks": [
+        "Future literature may establish stronger or equivalent prior coverage.",
+        "Elementary rank-one ratio integrals might have been calculated earlier in randomized numerical linear algebra under different notation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-function-power-boundary-for-unoversampled-gaussian-funny--799984e751a1/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-function-power-boundary-for-unoversampled-gaussian-funny--799984e751a1/verify.py",
+    "Independent separately written reproducibility script (private owner attachment): independent_checks.py and independent_checks_output.txt, dated 2026-11-05 UTC",
+    "https://arxiv.org/abs/2209.11023",
+    "https://arxiv.org/html/2311.14023v2",
+    "https://arxiv.org/abs/2110.02820"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Elementary rank-one ratio integrals might have been calculated earlier in randomized numerical linear algebra under different notation.",
+    "Asymptotic holds only at fixed dimension m, passes q, beta, real sketch; quadrature examples do not establish dominated convergence.",
+    "Numerical finite-L approximations have integration tolerance; analytic beta-prime calculation is decisive."
+  ],
+  "schema_version": 1
+}
