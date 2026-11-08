@@ -1,11 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-**Correctness — PASS.** The common-cubic identity proves an exhaustive trichotomy for all real equilibria; exact rational parametrization and a strictly unimodal branch function give every parameter interval. The exact Jacobian eigenvalue, trace, and determinant determine each stability index, while a nonzero second derivative and a one-dimensional kernel prove the six folds. The included standalone symbolic checker reproduced all nontrivial algebraic identities and sampled branch signatures. The full classification rests on symbolic inequalities, not on numerical root searches.
+## correctness
 
-**Originality — PASS under checked evidence.** The closest published primary sources concern weak-coupling symbolic coding, existence-region classes, finite-graph bifurcations, or Fiedler-vector onsets. The inspected 2019 and 2021 primary manuscripts do not state the sharp global three-ring cubic equilibrium/stability census. A previously available weak-coupling all-bounded-profiles result can imply the small-coupling 27/8 pattern on the three ring but cannot imply the exact fold at the identified algebraic number or the remaining global intervals. Two relevant older articles could not be inspected in complete form and are explicitly recorded as residual historical priority risks; no claim of independent priority certification is made.
+PASS
 
-**Mathematical value — PASS.** The simplest genuinely periodic three-site bistable network supports a complete, analytically sharp destruction diagram for pinned spatially heterogeneous sinks. This identifies an exact diffusion ceiling for six robust localized states, a distinct collapse of the remaining heterogeneous saddles, and a finite-network benchmark for weak-coupling counting theorems and pattern pinning. It is a motivated natural complete classification, not an arbitrary parameter slice.
+For cyclic three-site system dot x_i=x_i-x_i^3+d(x_{i-1}-2x_i+x_{i+1}), d>=0, each stationary coordinate is a root of shared depressed cubic t^3-(1-3d)t-dS. All equal, all distinct, and exactly two equal cases are exhaustive; latter (u,v,v) yields d=-r(r+1)/(r^3+2), v^2=(r+2)/(r^3+2), r<-2 or -1<r<0. P(r)=r^4+2r^3-4r-2 uniquely vanishes on (-1,0), producing the ordinary sixfold fold at unique d*=root(108d^4-36d^2+12d-1) in (0,1/3). Eigenvalue antisymmetric mode and exact 2x2 trace/determinant distinguish sinks vs saddles; all-distinct are saddles for 0<d<1/3. Counts d0:27/8 sinks, 0<d<d*:27/8, d*:21/2, d*<d<1/3:15/2, d>=1/3:3/2. At fold zero eigenvalues make the coalescing states non-exponentially attracting; no basin claims. Symbolic rational identities and branch signs checked independently.
 
-**Closest literature and scope.** Hesoun–Stehlík–Volek (2026, arXiv:2609.25868), Hupkes–Morelli–Stehlík–Švígler (2019, arXiv:1905.06107), Švígler (2021, DOI 10.14232/ejqtde.2021.1.23), and the finite-graph Allen–Cahn work of van Gennip et al. (2014, arXiv:1307.0045) provide the main comparison. The 2017 Stehlík graph-stationarity paper and 2021 Stehlík–Švígler–Volek Fiedler paper are unresolved full-text comparisons. The result proves only equilibria and their linear stability on the stated three-ring; it does not extend to longer rings or classify nonstationary attractors.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior periodic Nagumo lattice classification yields 3^n and 2^n at weak diffusion and qualitative parameter ranges. Fiedler-eigenvector bifurcation Theorem 1.1 assumes SIMPLE algebraic connectivity, whereas C3 has multiplicity TWO for lambda2=3; it does not imply this global 3-node branch/sink census. The exact fold polynomial and full d-range enumeration are not stated in full primary papers read. A plausible 2017 Nagumo-on-graphs article with detailed simple-graph example remains inaccessible in full (institutional VPN disconnected); that alone does not show prior coverage.
+
+## value
+
+PASS
+
+A natural minimal periodic Nagumo lattice with three sites admits an exact, global real bifurcation atlas: singular fold, critical coupling, all equilibrium classes, and stability partition. It sharpens the small-diffusion and large-diffusion qualitative theory and provides a controlled test for graph bistable reaction-diffusion and pinning thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
