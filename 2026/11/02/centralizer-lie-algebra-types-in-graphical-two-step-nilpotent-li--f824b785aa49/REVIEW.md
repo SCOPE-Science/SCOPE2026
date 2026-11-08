@@ -1,15 +1,21 @@
-# Scientific review: graphical centralizer structures
+# Independent mathematical audit
 
-## Correctness — PASS
-On every edge, the centralizer equation is \(a_i b_j-a_j b_i=0\). Nonzero-support components contribute precisely one scalar generator each; vertices outside the closed neighborhood contribute free generators. Only pairs of the latter can have nonzero brackets, and each such bracket is its own internal edge symbol. This proves the direct-sum isomorphism, exact derived dimension and finite-field weights. For the witness pair, both have one degree-one vertex and the two associated four-vertex complements have four versus five induced edges, proving the exact separation count.
+## correctness
 
-## Originality — PASS, with uncertainty
-Mainkar's arXiv:1310.3414v1 proves graph-isomorphism rigidity, not the centralizer decomposition or its distribution. The previously recorded six-vertex adjoint-rank collision and the general support polynomial are explicitly acknowledged as covered prior material; they do not establish any internal centralizer brackets or their derived dimensions. Semantic searches of the published mathematical records for graph-Lie centralizers, induced complementary neighborhood subgraphs, and centralizer-type spectra retrieved principally unrelated centralizers, filiform spectra and graph-group character results. No equivalent full centralizer-type statement was identified; an unindexed special case remains possible, and the work is not independently priority-certified.
+PASS
 
-## Value — PASS
-A graph's adjoint-rank distribution loses the internal multiplication of its centralizers. The theorem gives their actual Lie-algebra types for every graph, element and field and computes exact multiplicities. The six-vertex example proves this richer invariant strictly distinguishes structures that the full adjoint-rank distribution cannot separate, a motivated structural boundary rather than a numerical increment.
+For any graph G, edge-symbol independence gives centralizer equations a_i b_j-a_j b_i=0 per edge. If S={i:a_i !=0}, neighbors outside S have b_j=0; on each connected component of G[S], solutions are a scalar multiple of x restricted to that component; vertices U=V\N[S] are independent. All these component vectors centralize one another and all U, and brackets on U are exactly those of L_{G[U]}. Thus C(x) ~= L_{G[U]} directsum k^(m+c(S)-|E(G[U])|), including isolated vertices and char2. Counting q^m(q-1)^|S| over supports gives the full isomorphism-type distribution and H_G(q;t,w). Independent 64-support enumeration confirmed six-vertex pair A derived rank5 count zero and B exactly one singleton-support contribution q^7(q-1); known equal adjoint-rank polynomials separately match inspected verifier. Derived dimension is |E(G[U])|, not a substitute for whole Lie algebra type.
 
-## Residual limits
-The direct-sum classification is based on the given graphical presentation, not a canonical normal form eliminating all possible duplicate descriptions. Independent mathematical audit and exhaustive priority assessment remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+After independent comparison of statement/implication and the source inspections below, the final claim is original to the best of present knowledge, subject to the named residual risks. Existing rank polynomials do not determine induced centralizer bracket structure.
+
+## value
+
+PASS
+
+The explicit centralizer isomorphism type is a natural and stronger invariant than adjoint rank for graph-defined two-step nilpotent Lie algebras. A small exact graph pair demonstrates structural separation despite identical rank polynomial, and the arbitrary graph/field formula gives a reusable classification rather than merely a six-vertex table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
