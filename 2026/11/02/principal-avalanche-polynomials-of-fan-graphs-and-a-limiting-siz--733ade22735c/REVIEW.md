@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes \(n\ge2\), the sink and the exact degree thresholds. The recurrent-word criterion follows from the sink-burning algorithm, the saturated-run lemma proves that stabilization cannot topple sites more than once, and a fully specified finite-state weighted transfer system counts maximal runs with multiplicity exactly equal to possible trigger vertices. The rational transfer identity is verified symbolically over \(\mathbb Q(z,t)\), and an independent burning/stabilization implementation exhaustively tests every recurrent configuration and trigger vertex for \(2\le n\le9\). Pole asymptotics yield the stated normalized limiting distribution. The computations do not purport to prove an infinite theorem without the combinatorial transfer argument.
+PASS
 
-## Originality — PASS, qualified
+The sink-burning criterion on a fan gives the recurrent words characterized by every pair of zeros having a two between them (endpoints allow 0,1; interior 0,1,2). Saturated vertices form maximal contiguous path runs; adding at a saturated vertex topples every vertex in its run once and no other vertex, while an unsaturated addition topples none, by a direct chip-height check. A marked-run transfer decomposition gives M(z,t)=z^2 t/(1-tz)*(t+B(z)), B=(2-5z+2z^2)/(1-3z+z^2)^2, and t∂_tM counts positive avalanche sizes; subtracting from zR′(z) determines zero events. Dominant pole at z=alpha^-1 and Fibonacci recurrent counts give the normalized limiting masses. An independent direct sandpile burning and stabilization implementation enumerated every stable configuration for n=2..9 and verified every polynomial coefficient; for n=4 exactly 38+22t+14t^2+6t^3+4t^4. The transfer identity is an exact rational identity described by source proof, not inferred from finite tests.
 
-Austin et al. (arXiv:1605.02713, full text inspected) already give the fan recurrent-state characterization and Fibonacci count in Proposition 43, and compute avalanche polynomials for wheels. Those claims are credited, not submitted as new. Our precise fan polynomial and limiting size-biased geometric law are not stated by the inspected wheel theorem or that fan counting proposition. The available full text on complete bipartite graphs is about a different adjacency structure; its formula does not automatically entail the fan result. Targeted searches for fan avalanche polynomials, saturated runs, wheel-to-fan equivalences, and mathematical-record matches found no covering statement. The original Cori–Dartois–Rossin chapter was not fully accessible; this leaves a real residual bibliographic risk and makes the originality conclusion best-knowledge rather than a uniqueness certification.
+## originality
 
-## Value — PASS
+PASS
 
-Avalanche polynomials capture the full distribution of local cascades rather than only recurrent state counts; the fan is a canonical one-dimensional graph joined to a sink, and the neighboring wheel computation makes it a mathematically motivated comparison family. The formula determines every coefficient at every graph order and yields a nontrivial thermodynamic limit with explicit zero mass and size-biased geometric positive tail. These are coherent natural distributional invariants, not arbitrary small numerical slices or a renaming of a published recurrent count.
+The primary Austin et al. paper introduces the avalanche polynomial and its wheel-graph calculation, using fans only as a recurrent-word auxiliary, not this fan principal avalanche rational generating function or limiting distribution. Known fan recurrent counts are explicitly credited. Full text of a plausible 2004 historical avalanche-polynomial chapter could not be accessed after OA and authorized institutional attempt, so its possible coverage is retained as a risk, not an invented failure.
 
-## Limits and nearest literature
+## value
 
-The primary nearest source is Austin et al., *The Avalanche Polynomial of a Graph*, arXiv:1605.02713v1 (full text), especially its Proposition 43. The 2004 paper *Avalanche Polynomials of Some Families of Graphs* (DOI:10.1007/978-3-0348-7915-6_10) could not be examined in full; the 2016 literature review describes its families as trees, cycles, complete graphs and lollipops. This remaining access limitation is not represented as a negative full-document inspection. The result has not been independently reviewed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The principal avalanche polynomial is a natural sandpile statistic distinguishing trigger frequencies and actual individual topplings. Exact all-n rational coefficient formulas and a limit distribution on the infinite fan family give useful information beyond recurrent-state counting and known wheel formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

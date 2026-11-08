@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The following two supplied, standalone code artifacts use Python and SymPy. Run them from the extracted package root, for example `python checks/direct_burning.py` and `python checks/transfer_identity.py`.
+## correctness
 
-`checks/direct_burning.py` enumerates all stable path-height configurations and all possible addition sites for \(2\le n\le9\). It uses an independent sink-burning test and a direct discrete stabilization, and matches every avalanche-polynomial coefficient from the generating function. Its success marker is `DIRECT_BURNING_STABILIZATION_PASS`.
+PASS
 
-`checks/transfer_identity.py` constructs the full exact rational transfer matrices for the marked maximal saturated run and symbolically verifies both the marked-run and avalanche generating functions, as well as recurrent-count normalization. Its success marker is `EXACT_TRANSFER_MATRIX_IDENTITY_PASS`.
+The sink-burning criterion on a fan gives the recurrent words characterized by every pair of zeros having a two between them (endpoints allow 0,1; interior 0,1,2). Saturated vertices form maximal contiguous path runs; adding at a saturated vertex topples every vertex in its run once and no other vertex, while an unsaturated addition topples none, by a direct chip-height check. A marked-run transfer decomposition gives M(z,t)=z^2 t/(1-tz)*(t+B(z)), B=(2-5z+2z^2)/(1-3z+z^2)^2, and t∂_tM counts positive avalanche sizes; subtracting from zR′(z) determines zero events. Dominant pole at z=alpha^-1 and Fibonacci recurrent counts give the normalized limiting masses. An independent direct sandpile burning and stabilization implementation enumerated every stable configuration for n=2..9 and verified every polynomial coefficient; for n=4 exactly 38+22t+14t^2+6t^3+4t^4. The transfer identity is an exact rational identity described by source proof, not inferred from finite tests.
 
-The exact algebraic calculation certifies the stated rational identity for the implemented finite-state transition system. Its interpretation for arbitrary path length relies on the combinatorial proof of the recurrent-word condition and saturated-run lemma in `RESULT.md`. Exhaustive enumeration through size nine is supporting evidence, not an infinite proof. No independent scholarly audit was performed.
+## originality
+
+PASS
+
+The primary Austin et al. paper introduces the avalanche polynomial and its wheel-graph calculation, using fans only as a recurrent-word auxiliary, not this fan principal avalanche rational generating function or limiting distribution. Known fan recurrent counts are explicitly credited. Full text of a plausible 2004 historical avalanche-polynomial chapter could not be accessed after OA and authorized institutional attempt, so its possible coverage is retained as a risk, not an invented failure.
+
+## value
+
+PASS
+
+The principal avalanche polynomial is a natural sandpile statistic distinguishing trigger frequencies and actual individual topplings. Exact all-n rational coefficient formulas and a limit distribution on the infinite fan family give useful information beyond recurrent-state counting and known wheel formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
