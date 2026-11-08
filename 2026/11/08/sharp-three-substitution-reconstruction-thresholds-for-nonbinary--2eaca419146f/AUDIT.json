@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For all integer q>=3,n>=6, coordinate-type extraction yields exact F_d for d=1..6, F_d=0 for d>6. Explicit s=n-6,r=q-3 positive-polynomial identities show F2>F3,...,F6. Direct factorization yields F2>F1 at q3, F1>F2 for every q>=4. This proves unique maximizing separation and exact distinct-read ambiguity threshold. Standalone exhaustive checks support but do not replace symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Junnila et al. arXiv:2606.09158 treat general s-fold intersections of Hamming balls of varying radii; inspected article distinguishes balls (distance at most t) from spheres (exact distance t).",
+        "Papadopoulou et al. arXiv:2610.30001 explicitly restrict the reconstruction result to binary words."
+      ],
+      "reasoning": "Broader ball intersection formulas do not directly supply an extremum for an exact-radius shell intersection; one must separate shell contributions and optimize the exact-radius component. Binary results cannot imply the nonbinary q=3 versus q>=4 switch. Nonetheless a separate older sphere-specialization could subsume the result.",
+      "searches": [
+        "q-ary three substitution fixed weight Hamming shell intersection n>=6 max = (n-2)(q-1)^2(q-2)(n-1)/2 if q>=4",
+        "exact cardinality p_{3,3}^d of q-ary Hamming association scheme, optimizer d=1 for q>=4 or d=2 for ternary",
+        "arxiv:2606.09158"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.30001",
+      "https://arxiv.org/abs/2606.09158",
+      "https://mpcs.sci.am/index.php/mpcs/article/view/429"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Papadopoulou et al., source arxiv:2610.30001, treat q=2 and exactly t errors.",
+        "Junnila et al., arxiv:2606.09158, treat balls and include existing sphere intersection numbers as inputs.",
+        "Danoyan (2013) restricts the sphere problem to the binary cube."
+      ],
+      "reasoning": "The asserted theorem concerns q>=3, n>=6, exact radius three and maximization over all pairs, plus a zero-error read threshold. None of these inspected statements explicitly asserts that optimization. Classical F_d formulas are acknowledged, but extracting the strict comparison requires the stated sign lemmas. A stronger uninspected earlier specialization could still cover the new claim.",
+      "searches": [
+        "When Majority Vote Fails Sequence Reconstruction under Fixed Weight Substitutions Papadopoulou Yehezkeally Rameshwar Wachter Zeh",
+        "arxiv 2610.30001 When Majority Vote Fails Sequence Reconstruction under Fixed Weight Substitutions authors date",
+        "arxiv 2606.09158 intersection q-ary Hamming balls Junnila sphere t-ary intersections exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The pairwise sphere intersection is the Hamming association-scheme intersection number, computable by established formulas. Junnila et al. discuss existing sphere intersection numbers when studying cumulative Hamming-ball intersections."
+      ],
+      "reasoning": "The standard intersection-number formula is prior art and is not asserted new. It gives F_d at each separation but does not itself state or identify the strict global optimizer distance for radius three and all q>=3,n>=6; the polynomial sign comparison and resulting threshold are the claim.",
+      "searches": [
+        "maximum intersection exact radius t q-ary Hamming spheres fixed weight substitution reconstruction three errors",
+        "Hamming spheres intersection maximum adjacent centers q-ary two spheres same radius intersection reconstruction threshold",
+        "arxiv:2606.09158"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed mathematical records involve positive-definite masses of Hamming balls/shells or limited-magnitude error balls, which are different quantities. No inspected exact table gave the global q-ary radius-three optimizer or read threshold."
+      ],
+      "reasoning": "Known tables for F_d are not the same assertion as the maximum over d and its strict maximizing-distance transition. Failure to locate an exact database entry is not a proof of absence; unindexed tables remain a priority risk.",
+      "searches": [
+        "intersection of Hamming spheres q-ary code two errors p_{tt}^d Johnson association scheme maximum intersection",
+        "For q>=3, length n>=6, common intersection of q-ary Hamming spheres of exact radius three is uniquely maximized at center distance 2 when q=3 and at distance 1 when q>=4; threshold three fixed-weight substitutions"
+      ]
+    },
+    "rationale": "Inspected 2026 binary fixed-weight reconstruction and 2026 multi-center Hamming ball literature plus earlier binary sphere work. Classical sphere intersection numbers are not novel; the new target is strict all-q nonbinary radius-three global optimization and the zero-error exact-reads threshold. No inspected statement asserts or directly covers it. Priority risk is retained for older optimized intersection-number formulae.",
+    "residual_risks": [
+      "Classical algebraic coding theory includes tables of Hamming association-scheme intersection numbers, and a previously published optimization for radius three could imply the result without identical wording.",
+      "No independent literature-priority or mathematical referee evaluation; absence in searches is not a proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Binary q=2 only; does not cover claimed q>=3 threshold or exceptional ternary optimizer",
+        "evidence": [
+          "The paper abstract explicitly says binary sequence reconstruction.",
+          "The model uses an arbitrary error vector of exactly t bits, rather than q-ary symbol substitutions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.30001",
+        "material_read": "Full HTML-rendered text through channel formulation, worst-case threshold theorem, and comparison with majority-vote decoder; public abstract and first submission date independently checked",
+        "method": "Read body and statements, compare alphabet and error-radius hypotheses",
+        "title": "When Majority-Vote Fails: Sequence Reconstruction under Fixed-Weight Substitutions",
+        "trigger": "Most direct new fixed-weight substitution reconstruction theorem"
+      },
+      {
+        "assessment": "General ball intersection and structural formulas; individual sphere intersection numbers acknowledged as prior art. Inspected results do not state radius-three strict optimizer of exact shells over all q and n.",
+        "evidence": [
+          "Uses Hamming balls with distances bounded by radii.",
+          "Explicitly cites existing Hamming sphere intersection numbers and builds ball formulae from them."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.09158",
+        "material_read": "Primary full-text PDF, especially definitions, two-center and multi-center statements, discussion of classical sphere intersection numbers, and the ball-optimization corollaries",
+        "method": "Inspected PDF text and page image; distinguished <=t balls from exact-t shells",
+        "title": "The Size of the Intersection of q-ary Hamming Balls",
+        "trigger": "Potentially dominating intersection theorem over general alphabets"
+      },
+      {
+        "assessment": "Treats binary unit cube and sphere/union questions; not a nonbinary exact-three optimizer theorem.",
+        "evidence": [
+          "Page 119 defines word space as vertices of the binary unit cube.",
+          "Section 2 derives pairwise sphere intersection counts for binary centers."
+        ],
+        "identifier_or_url": "https://mpcs.sci.am/index.php/mpcs/article/view/429",
+        "material_read": "Six-page primary PDF including introduction, section 2 two-sphere formulas and sections 3–4 applications",
+        "method": "Inspected PDF text and page image of sphere definition; compared alphabet domain",
+        "title": "On Some Properties of Intersection and Union of Spheres in Hamming Metric",
+        "trigger": "Plausible older exact sphere intersection result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2eaca419-146f-4d7d-9e72-0c34454a29d3",
+  "value": {
+    "rationale": "The exact maximum two-source output overlap is the operationally natural worst-case read threshold for an active 2026 fixed-weight substitution reconstruction question. A strict ternary versus all q>=4 maximizing-center-distance phase transition and closed all-n formulas provide substantive new structure beyond tabulating individual classical intersection numbers. The theorem does not claim optimal decoding complexity.",
+    "status": "PASS"
+  }
+}
