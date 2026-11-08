@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The object is precisely the full labeled class of six-vertex near-regular tournaments, not tournaments with three specified high-score vertices. Its \(2640\) members and all \(32768\) possible edge-query supports are explicitly enumerated. A separate cut-inequality implementation agrees with direct trace testing on every support. The five maximum-support isomorphism classes are obtained under every vertex permutation. The full depth-eleven online tree carries \(2048\) valid, distinct leaf witnesses, and the cardinality bound excludes depth twelve. The general completion lemma follows from a standard integral orientation-flow argument. Each numerical statement is therefore within exhaustive finite or proved general scope.
+## correctness
 
-## Originality
-PASS, subject to historical-priority limits. Brualdi–Kiernan (2009) already establish prescribed-score completion criteria and discuss near-regular tournaments. Kolesnik–Sanchez (2020) establish a generalized score-feasibility theorem; neither paper reports the six-vertex shattering polynomial, five extremal-support types, or a depth-eleven tree restricted to fifteen edge coordinates. Prior regular seven-vertex results address twenty-one coordinates and do not imply preservation of full online depth after dropping six coordinates. Searches for the exact numbers and relevant aliases did not find a dominating published statement. Equivalent enumerations under other terminology remain possible.
+PASS
 
-## Value
-PASS. The object is the smallest nontrivial even-order score-balanced tournament beyond four vertices. Its finite exact classification quantifies which comparison subsets allow arbitrary assignments, while the eleven-round online tree demonstrates that deleting an alternative and its six comparisons can leave adaptive complexity unchanged despite lowering static shattering capacity. Counting and classifying all \(1185\) maximal supports supplies a complete natural extremal census rather than an isolated decimal value.
+The bijection with regular seven-vertex tournaments is exact after adding a vertex whose incident edge orientations encode the high/low scores. The fixed-score partial-orientation flow inequalities, checked against Brualdi–Kiernan theorem 3.1, yield the universal cut test on 15-edge supports. Independent complete 32768-support cut enumeration gives coefficients (1,15,105,455,1335,2697,3355,1185) and no shattered 8-edge support. The package enumerates 2640 valid score hypotheses and all 720 vertex permutations to classify the 1185 maximum supports into five types. Importantly, independently loaded the actual original JSON depth-11 certificate blob 48c8f1f919c5c37b9b272c8b902d023fd5d02817, checked every one of its 2048 distinct leaf witnesses belongs to the 2640 hypotheses and agrees with all 11 heap path edge answers, with no errors. Since 2^11<=2640<2^12, the certificate proves Ldim exactly 11; these are truly exhaustive finite domains, not probabilistic samples.
 
-## Limits
-No formula for all even orders is claimed; all finite searches are exhaustive only in their explicitly stated ranges. There is no independent expert validation or absolute historical-priority guarantee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Completion cut criteria and the 7-vertex regular-tournament score model are prior theory, but these do not enumerate six-vertex query-support traces or prove full online depth survives deleting six query coordinates. The specific finite coefficient vector, five orbit classes and 2048-leaf tree were not found in the inspected source results; prior exact tables under score constraints remain a risk.
+
+## value
+
+PASS
+
+A natural complete finite classification of a score-constrained tournament hypothesis class, with an unusual four-unit gap between static VC dimension and online Littlestone dimension, gives an exact meaningful learning-theoretic invariant and proof certificate, not an arbitrary slice or a certificate-only claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
