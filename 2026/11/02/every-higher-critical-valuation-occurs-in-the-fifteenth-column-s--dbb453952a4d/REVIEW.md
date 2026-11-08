@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The Stirling inclusion-exclusion formula was reconstructed, including the \(15!\) factor with valuation 11. The even-base contribution has valuation \(n-5\) at all indices divisible by sixteen. The normalized odd-base sum has the exact certificate \(1024\) modulo \(2048\), producing the isometric lift. Surjectivity on each finite residue ring yields the unique 2-adic center and all exact cancellation depths. The standalone exact modular verifier succeeded on 28 cases; the theorem does not extrapolate from those computations.
+## correctness
 
-## Originality: PASS, qualified
-The closest archival primary comparison is Zhao, Zhao, Hong (arXiv:1407.8443), which treats differential valuations at indices 3 and 7 and adjacent-scale differences for higher Mersenne indices. Lengyel's earlier work provides bounds, and Bennett--Mosteig classify the valuation of individual Stirling numbers over congruence classes. The present statement is the complete critical-depth *difference* spectrum for index 15, not the earlier lower bound, a fixed-depth table, or an off-resonance valuation. Some specialized historical literature or an unstated consequence of the later sections of Bennett--Mosteig could remain relevant.
+PASS
 
-## Value: PASS
-The critical boundary separates two competing valuations. Showing that *all* higher valuation levels occur is a structural classification of the resonance, with no finite upper bound and a constructive unique 2-adic root rather than a handful of computed examples. The cutoff is sufficient and is not claimed to be optimal.
+In inclusion–exclusion for S(n,15), split odd/even bases. For n multiple16, factor even bases to 2^n(T(n)+2^n U(n)); T(n)≡64 mod128, so ν2(E(n))=n−5. For odd bases Q_j(10)=(j^1024−1)/2^12 residues mod2048 are 573,415,374,1146,1355,1137,988 for j=3,5,7,9,11,13,15; binomial weighted sum is 1024 mod2048 and stable with higher r. Therefore odd-base difference after shift h2^N has ν2=N+ν2(h)+1. Scaling by H at critical exponent e=H−N−1 makes Φ:Z2→Z2 an isometry; reduction modulo each 2^t proves surjectivity and unique odd center rho for odd η=E(b2^N)/2^H. For odd u≡rho+2^t mod2^(t+1), choose large representative so even-base remainder is more divisible than 2^(H+t); obtain all and only valuations H+t,t>=1.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original in its precise qualified statement. Zhao–Zhao–Hong Theorem 1.2 treats columns 3 and 7 with a three-case valuation law; Theorem 1.3 also treats a special adjacent scaling for Mersenne columns, but not the entire infinite critical-shift depth spectrum at k=15 over odd u. Individual valuations on congruence classes do not determine differences or their arbitrary cancellation depth. Priority limits are recorded; an inaccessible plausible source alone is not treated as automatic failure.
+
+## value
+
+PASS
+
+The first higher Mersenne Stirling column supplies a genuinely motivated unresolved critical cancellation problem. Exact unbounded contiguous valuation spectrum and a canonical 2-adic center explain fine arithmetic behavior beyond generic difference estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
