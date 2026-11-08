@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (PASS).** The two formula branches are strictly increasing and the right-hand image lies below the partition, so any primitive two-cycle must alternate; the exact return equation is \(x=c\cos(\pi(1-a)\cos(\pi x))\). A derivative-sign argument with a strictly increasing auxiliary function proves that the return ratio has exactly one nondegenerate minimum. This establishes the exhaustive zero/one/two census, while the derivative product gives the precise stability types and the Taylor expansion yields the square-root fold. A separately executed standard-library checker evaluates direct map returns and multipliers and confirms five parameter slices. The calculation cannot replace the global sign argument.
+## correctness
 
-**Originality (PASS within examined evidence).** Section 4.2 of Lawnik–Moysis–Volos (2023, doi:10.3390/sym15071311) was read in full; it gives numerical phase/chaos diagrams, not the present exact two-cycle fold and exhaustive classification. Closest identified published records concern a different fractional-power branch of the same general map family, and other unrelated two-cycle classes. A 2024 follow-up (doi:10.1007/s11071-024-09349-6) uses different logistic/tent transformations in its abstract and preview; its full accepted manuscript was not obtainable, so that comparison remains a limited-access priority risk. No lack-of-search-results claim is treated as proof of novelty.
+PASS
 
-**Value (PASS).** The source describes fractal-like nonlinear parameter diagrams and difficulty of exact analysis. This theorem isolates a two-dimensional fixed-point-free parameter region in its actual cosine example, determines a sharp saddle-node in the primitive-two spectrum, and computes the opposite stability types and quantitative unfolding. It supplies an exact analytical landmark in a map originally studied numerically, not just a reformulation or arbitrary parameter example.
+For 1/4<=a<1/2, 0<c<1/2, switch b=1/2, the left branch exceeds the diagonal by at least a-1/[8(1-a)]>=1/12 and the right branch is strictly below it. Increasing branches prohibit a primitive cycle wholly inside one branch. Every primitive 2-cycle is equivalent to x=c C_a(x), x in (theta_a,1/2), C_a(x)=cos(pi(1-a)cos(pi*x)). For t=cos(pi*x), sign(C_a second derivative)=sign(t tan(k*t)-k(1-t^2)); its derivative is positive on (0,pi/(2k)), so exactly one sign change. H=C-xCprime first decreases then increases, H(theta+)<0, H(1/2)=1; hence Q=x/C has exactly one nondegenerate minimum c*<1/2. At the two roots lambda=c Cprime is >1 on the lower and in (0,1) on upper. Taylor expansion of c C-x gives sqrt(c-c*) splitting and correct multiplier coefficients. Inspected verify_cosine.py checks five parameter slices but no sampled scan is used to justify all-parameter uniqueness.
 
-Limitations: no classification of longer periods, other switch parameters or global basins. Unindexed equivalent literature is possible. No independent review has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact global primitive-two-cycle count, analytic threshold and attracting/repelling fold on this fixed-point-free cosine subfamily are not implied by the numerical phase plots in the source cosine example. The generic local saddle-node normal form does not give the unique global turning point. The related 2024 family-construction paper was not fully read, so assessment is priority-qualified.
+
+## value
+
+PASS
+
+The cosine no-equilibrium map is a concrete dynamical model with numerical bifurcation charts but lacked an exact 2-cycle count. Locating the unique fold and its universal square-root scaling and stability regions is a motivated structural classification, not just a renamed saddle-node lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

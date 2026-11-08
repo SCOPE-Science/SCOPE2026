@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:15:39.020331Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 1/4<=a<1/2, 0<c<1/2, switch b=1/2, the left branch exceeds the diagonal by at least a-1/[8(1-a)]>=1/12 and the right branch is strictly below it. Increasing branches prohibit a primitive cycle wholly inside one branch. Every primitive 2-cycle is equivalent to x=c C_a(x), x in (theta_a,1/2), C_a(x)=cos(pi(1-a)cos(pi*x)). For t=cos(pi*x), sign(C_a second derivative)=sign(t tan(k*t)-k(1-t^2)); its derivative is positive on (0,pi/(2k)), so exactly one sign change. H=C-xCprime first decreases then increases, H(theta+)<0, H(1/2)=1; hence Q=x/C has exactly one nondegenerate minimum c*<1/2. At the two roots lambda=c Cprime is >1 on the lower and in (0,1) on upper. Taylor expansion of c C-x gives sqrt(c-c*) splitting and correct multiplier coefficients. Inspected verify_cosine.py checks five parameter slices but no sampled scan is used to justify all-parameter uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (20) agrees with the two-branch definition; section 4.2 plots numerical behavior rather than giving a unique analytic 2-cycle fold or all-strip census.",
+          "Described logistic/tent transformations, bifurcation diagrams and crypto examples; lack of full text prevents excluding buried equivalent cosine-cycle analysis."
+        ],
+        "reasoning": "L. Moysis, M. Lawnik and C. Volos 2023 analyze the same two-branch map and broad numerical no-fixed-point chaos regions. Their broader parameter domain is not a theorem classifying primitive two-cycles or the threshold throughout the stated strip; the 2024 follow-up has a different map-construction emphasis, with full-text overlap risk.",
+        "searches": [
+          "piecewise cosine map fixed point free primitive period two orbits two cycle fold threshold bifurcation Lawnik Moysis",
+          "doi:10.3390/sym15071311",
+          "doi:10.1007/s11071-024-09349-6",
+          "Resultary semantic search piecewise cosine map fixed point free primitive period two orbits two cycle fold threshold bifurcation Lawnik Moysis",
+          "broader general sources versus special-case implication"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/sym15071311",
+        "doi:10.1007/s11071-024-09349-6",
+        "Resultary semantic search piecewise cosine map fixed point free primitive period two orbits two cycle fold threshold bifurcation Lawnik Moysis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (20) agrees with the two-branch definition; section 4.2 plots numerical behavior rather than giving a unique analytic 2-cycle fold or all-strip census.",
+          "Described logistic/tent transformations, bifurcation diagrams and crypto examples; lack of full text prevents excluding buried equivalent cosine-cycle analysis."
+        ],
+        "reasoning": "The 2023 source Eq. (20) supplies the family definition and numerical examples; its numerical diagrams do not imply uniqueness of H zero or square-root coefficient. The new direct curvature proof is necessary. Generic fold theory applies after local nondegeneracy, not before the global analysis.",
+        "searches": [
+          "piecewise cosine map fixed point free primitive period two orbits two cycle fold threshold bifurcation Lawnik Moysis",
+          "doi:10.3390/sym15071311",
+          "doi:10.1007/s11071-024-09349-6",
+          "Resultary semantic search piecewise cosine map fixed point free primitive period two orbits two cycle fold threshold bifurcation Lawnik Moysis",
+          "compare claim hypothesis and conclusion against prior theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary related hits: Gumowski–Mira period-two census, Rulkov map, Duffing map (not same cosine interval map).",
+          "Eq. (20) agrees with the two-branch definition; section 4.2 plots numerical behavior rather than giving a unique analytic 2-cycle fold or all-strip census."
+        ],
+        "reasoning": "Equivalent formulation is the cross-branch return equation x=c*cos(k*cos(pi*x)) and its unique minimum; no full equality or root-count theorem was found in the inspected 2023 same-map source. A generic 1D fold theorem is only local and does not establish no other roots.",
+        "searches": [
+          "piecewise cosine map fixed point free primitive period two orbits two cycle fold threshold bifurcation Lawnik Moysis",
+          "doi:10.3390/sym15071311",
+          "doi:10.1007/s11071-024-09349-6",
+          "Resultary semantic search piecewise cosine map fixed point free primitive period two orbits two cycle fold threshold bifurcation Lawnik Moysis",
+          "equivalence/duality of theorem parameters"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related hits: Gumowski–Mira period-two census, Rulkov map, Duffing map (not same cosine interval map).",
+          "Actual Git source RESULT.md theorem and verification boundary inspected."
+        ],
+        "reasoning": "This is a continuous bifurcation theorem, not a finite database/table lookup. Same-map numerical Lyapunov/fixed-point diagrams do not supply the exact entire-period-2 census or fold coefficients.",
+        "searches": [
+          "piecewise cosine map fixed point free primitive period two orbits two cycle fold threshold bifurcation Lawnik Moysis",
+          "doi:10.3390/sym15071311",
+          "doi:10.1007/s11071-024-09349-6",
+          "Resultary semantic search piecewise cosine map fixed point free primitive period two orbits two cycle fold threshold bifurcation Lawnik Moysis",
+          "table/database equivalent exact invariant"
+        ]
+      },
+      "rationale": "Exact global primitive-two-cycle count, analytic threshold and attracting/repelling fold on this fixed-point-free cosine subfamily are not implied by the numerical phase plots in the source cosine example. The generic local saddle-node normal form does not give the unique global turning point. The related 2024 family-construction paper was not fully read, so assessment is priority-qualified.",
+      "residual_risks": [
+        "The related 2024 Lawnik et al paper was only available as abstract/preview; undiscovered same-map two-cycle analysis may exist.",
+        "No claim about higher periods or general b, a, c is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MAP_NUMERICAL_CONTEXT_NOT_EXACT_FOLD",
+          "evidence": "Eq. (20) agrees with the two-branch definition; section 4.2 plots numerical behavior rather than giving a unique analytic 2-cycle fold or all-strip census.",
+          "identifier_or_url": "doi:10.3390/sym15071311",
+          "material_read": "Full-text HTML: section 4.2 map Eq.(20), parameter examples, bifurcation/Lyapunov discussion and conclusion",
+          "method": "publisher/full-text article HTML with formula and section inspection",
+          "title": "A Family of 1D Chaotic Maps without Equilibria",
+          "trigger": "Identical two-branch cosine map, original equation (20)"
+        },
+        {
+          "assessment": "PLAUSIBLE_INACCESSIBLE_OVERLAP",
+          "evidence": "Described logistic/tent transformations, bifurcation diagrams and crypto examples; lack of full text prevents excluding buried equivalent cosine-cycle analysis.",
+          "identifier_or_url": "doi:10.1007/s11071-024-09349-6",
+          "material_read": "Publisher/research-page abstract and accessible preview; full article not read",
+          "method": "lawful abstract and institutional research metadata; no complete text obtained",
+          "title": "Discrete one-dimensional piecewise chaotic systems without fixed points",
+          "trigger": "Same author group and closely related fixed-point-free chaotic maps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cosine no-equilibrium map is a concrete dynamical model with numerical bifurcation charts but lacked an exact 2-cycle count. Locating the unique fold and its universal square-root scaling and stability regions is a motivated structural classification, not just a renamed saddle-node lemma.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.3390/sym15071311",
+    "doi:10.1007/s11071-024-09349-6",
+    "Resultary semantic search piecewise cosine map fixed point free primitive period two orbits two cycle fold threshold bifurcation Lawnik Moysis"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The related 2024 Lawnik et al paper was only available as abstract/preview; undiscovered same-map two-cycle analysis may exist.",
+    "No claim about higher periods or general b, a, c is proved.",
+    "Frozen Git tree f524860bc5a6ff6cbe8464d7165bea0ded570e04 matched fetched tree; RESULT.md and checked verifier inspected at commit cee6a8611931dc24cf27d27764642f895841c83e. No GitHub writes or external attestation."
+  ],
+  "schema_version": 1
+}
