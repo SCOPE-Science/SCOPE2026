@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-The analytical certificate is the six-step proof in `RESULT.md`: mass conservation, direct interval solution, exact decomposition of order dependence, strict cumulative-hazard comparisons, two signed threshold-gap identities, and the two-stage minimality calculation. It covers the continuous positive parameter domain and both equality boundaries. No computational enumeration is claimed to prove the continuum theorem.
+## correctness
 
-The self-contained Python 3 standard-library checker `verify.py` computes all six stagewise solutions directly and reconstructs the simplified permutation score independently for 2,200 deterministic parameter choices. It also checks exact rational values at and across both sharp loading thresholds. Running `python verify.py` from the extracted package prints `VERIFY_OK assertions=22058`. The exact illustrative rates, \(h=\log2\), and sample masses are specified in `RESULT.md`.
+PASS
 
-These tests verify only the simple linear, single-stock, equal-stage-duration model and the explicitly defined integrated accumulating-pool mass proxy. They do not establish empirical stormwater suitability, correctness of unknown external documents, historical uniqueness, or a third-party audit. Full historical priority remains subject to independent literature review.
+Conservation gives P(t)=m+st-M(t) and E=mT+sT^2/2-int_0^T M. Exact stage formulas Mout=u_r Min+s z_r and stage integral=z_r Min+s(h-z_r)/r show the entire supply-dependent permutation term is s*z_a*z_b*z_c*r_middle. Strict cumulative hazard comparison eliminates dominated outer pair orders. Direct signed candidate gaps (a-b)z_a z_b (s z_c-m) and (b-c)z_b z_c (m-s z_a) prove all five regimes and ties; no additional optimizer is possible since positivity/distinctness make eliminations strict. With two stages the supply term cancels, so three is minimal. Independent exact rational tests of three rate triples and five loading regimes corroborate.
+
+## originality
+
+PASS
+
+Exponential wash-off ODE and stagewise variation-of-constants are standard and published. The precise full ordering and two-threshold continued-loading phase diagram for time-integrated cumulative exports is not contained in the inspected hydrology work. Scheduling and optimal-control reinterpretations are plausible; exact equivalence with a broad rearrangement theorem is a priority risk, not assumed absent.
+
+## value
+
+PASS
+
+Distinguishing integrated receiving-pool stock from terminal wash-off makes the order-dependent supply effect a natural mathematical question; two sharp thresholds and middle-rate independence yield a complete nontrivial three-stage classification and a meaningful minimality contrast to two stages. This is a toy linear model, not empirical risk guidance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
