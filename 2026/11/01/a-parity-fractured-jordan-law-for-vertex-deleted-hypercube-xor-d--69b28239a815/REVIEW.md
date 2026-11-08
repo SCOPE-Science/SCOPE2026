@@ -1,19 +1,21 @@
-# Review of the vertex-deleted cube theorem
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For every integer \(d\ge2\) and finite field of characteristic two, the square of the complete cube adjacency matrix is \((d\bmod2)I\). Its shifted square-zero map has rank exactly half the vertices by a two-coordinate-block argument. Compressing away one vertex preserves that rank: the kernel contains a vector with nonzero deleted coordinate and the image contains no deleted-coordinate basis vector. The resulting compression rank and exact identity \(B^2=\varepsilon I+ww^{\mathsf T}\) force the stated even and odd Jordan decompositions. Counted kernels, invariant periodic subspaces and preimage fibers yield every transient and orbit formula without extrapolating finite data. Independently rerun `verify.py` exactly reproduced `verification_output.txt` and checked 51,352 configurations. No mathematical step relies on finite computation for all dimensions.
+PASS
 
-## Originality: PASS, with residual risk
+For the intact cube over char2, A=sum of commuting coordinate flips satisfies A^2=(d mod2)I. With K=A+epsilon I, K^2=0 and first-coordinate block form proves rank N/2. Deleting one vertex gives B^2=epsilon I+ww^T, Bw=0, and the compression rank lemma (surjectivity K(W)=im K) supplies rank B or rank(B+I)=N/2. Thus even d has one J3(0) and N/2-2 J2(0), whereas odd d has one J1(0) plus N/2-1 J2(1). Kernel growth and periodic-space dimensions yield all q-dependent counts. Independently constructed GF2 matrices for d=2..6 and checked rank(B),rank(B^2) (even d rank B=N/2 and B2=1, odd d rank B=N-2 and B2=N-2), confirming the nonstandard rank decomposition; q powers then follow exact linear algebra.
 
-The closest primary paper, Kim–Reiner–Schoenzeit (arXiv:2608.27887), explicitly studies the singly punctured cube as a real-spectral subgraph; its eigenvalue/eigenspace results over \(\mathbb R\) cannot determine the characteristic-two Jordan block sizes or dynamical first-entry populations. Sutner (2001) develops nilpotent/regular methods for one-dimensional finite additive automata, not vertex-deleted Boolean cubes. Li–Wang–Zhang (arXiv:2410.09833) assumes Eulerian/uniform degree parity; the punctured cube has mixed vertex-degree parities. Search comparisons included other vertex-deleted cubes, distance-two cube parity automata, feedback and edge-defect hypercubes and exact-table aliases. No checked result proves the exact claim or dominates it; an unindexed equivalent remains possible. The 1996 finite-field automaton paper was examined at bibliographic and abstract level, not falsely treated as a full-text exclusion.
+## originality
 
-## Value: PASS
+PASS
 
-Removing a single vertex from a maximally symmetric linear network alters the maximal nilpotent chain from two to three in even dimension, and creates a transient line in the otherwise reversible odd-dimensional dynamics. The theorem identifies the exact Jordan mechanism and the complete population of fixed, two-cycle and transient configurations for every dimension and finite characteristic-two field. This is a natural network-failure invariant that distinguishes vertex removal from previously studied edge removal and feedback changes, not an arbitrary numerical slice.
+Qualified PASS for the complete mod-two Jordan decomposition and exact transient/periodic census of a singly vertex-punctured Boolean cube, not the real adjacency spectrum of the same graph. Li–Wang–Zhang restrict their theorem to Eulerian graphs, which fail after vertex deletion due to mixed degree parity.
 
-## Remaining limitations
+## value
 
-No independent review or exhaustive historical priority claim is made. The comparison to real-spectral punctured-cube results is based on the accessible full paper, with finite-field transfer checked as a matter of actual statement implication, not keyword disagreement. The code confirms finite dimensions; the algebraic proof establishes the infinite claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One-vertex deletion is a natural graph-fault perturbation whose mod-two Jordan response creates a size-3 nilpotent block for even dimension and a one-step transient direction for odd dimension; exact q-dependent population formulas are useful intrinsic invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

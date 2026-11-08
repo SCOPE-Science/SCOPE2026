@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T04:05:32.457353Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the intact cube over char2, A=sum of commuting coordinate flips satisfies A^2=(d mod2)I. With K=A+epsilon I, K^2=0 and first-coordinate block form proves rank N/2. Deleting one vertex gives B^2=epsilon I+ww^T, Bw=0, and the compression rank lemma (surjectivity K(W)=im K) supplies rank B or rank(B+I)=N/2. Thus even d has one J3(0) and N/2-2 J2(0), whereas odd d has one J1(0) plus N/2-1 J2(1). Kernel growth and periodic-space dimensions yield all q-dependent counts. Independently constructed GF2 matrices for d=2..6 and checked rank(B),rank(B^2) (even d rank B=N/2 and B2=1, odd d rank B=N-2 and B2=N-2), confirming the nonstandard rank decomposition; q powers then follow exact linear algebra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Wang–Zhang stated theorem assumes an Eulerian graph; punctured cube has vertices of degree d and d-1.",
+          "Sutner establishes general nilpotent/regular decomposition for additive automata, not specific punctured cube blocks.",
+          "Li–Wang–Zhang Theorem 9 full text treats uniform vertex-degree parity; punctured cube has mixed parity."
+        ],
+        "reasoning": "General decomposition is a method but does not give the concrete all-dimensional rank and census.",
+        "searches": [
+          "arxiv:2410.09833 Eulerian graphs characteristic two Jordan canonical",
+          "additive cellular automata Sutner 2001 decomposition"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md complete proof and AUDIT.json",
+        "arxiv:2608.27887 abstract",
+        "arxiv:2410.09833 abstract",
+        "Resultary punctured hypercube XOR query",
+        "arxiv:2410.09833 Theorem 9 in full primary PDF",
+        "arxiv:2608.27887 primary abstract; attempted OA and Oxford access returned disconnected VPN",
+        "Sutner author-uploaded 2001 full-text excerpts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The punctured cube has B^2=epsilon I+ww^T; in even d a rank-one nonzero B^2 gives a nilpotent three-block.",
+          "Odd-d compression has a single zero line and size-2 Jordan blocks at one."
+        ],
+        "reasoning": "These modular rank consequences are not logical consequences of the cited real adjacency theorem or an Eulerian-only theorem.",
+        "searches": [
+          "arxiv:2608.27887",
+          "arxiv:2410.09833"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kim–Reiner–Schoenzeit study the punctured adjacency spectrum over reals, while this concerns characteristic-two Jordan chains and finite-field orbit fibers."
+        ],
+        "reasoning": "Spectral eigenvalues over the reals do not determine Jordan blocks after reduction mod 2.",
+        "searches": [
+          "vertex deleted hypercube binary XOR adjacency Jordan form finite field",
+          "arxiv:2608.27887 punctured hypercube"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned distance-two cube XOR dynamics and real-topology cube results with different graph operators."
+        ],
+        "reasoning": "No same-operator exact Jordan table identified; a matching finite table could still exist.",
+        "searches": [
+          "Resultary: vertex deleted hypercube binary XOR adjacency Jordan form finite field"
+        ]
+      },
+      "rationale": "Qualified PASS for the complete mod-two Jordan decomposition and exact transient/periodic census of a singly vertex-punctured Boolean cube, not the real adjacency spectrum of the same graph. Li–Wang–Zhang restrict their theorem to Eulerian graphs, which fail after vertex deletion due to mixed degree parity.",
+      "residual_risks": [
+        "Kim–Reiner–Schoenzeit 2026 PDF not readable through attempted lawful sources; their full text might include a finite-field comparison not indicated by abstract. Institutional access disconnected; this is literature access risk, not proof of noncoverage.",
+        "An earlier finite-field additive automata treatment could include the punctured cube under a transformed name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Requires all vertices even-degree or all vertices odd-degree in the relevant form. A singly punctured cube has both degrees d−1 and d, so the theorem does not imply this result.",
+          "evidence": [
+            "Complete 13-page primary PDF accessible; read statement of Theorem 9 and hypotheses in Sections 2–4; screenshot p.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.09833",
+          "material_read": "Complete 13-page primary PDF accessible; read statement of Theorem 9 and hypotheses in Sections 2–4; screenshot p.3",
+          "method": "Lawful arXiv primary PDF, theorem and screenshot",
+          "title": "Annihilating polynomial, Jordan canonical form, and generalized spectral characterizations of Eulerian graphs",
+          "trigger": "closest characteristic-two adjacency Jordan theorem"
+        },
+        {
+          "assessment": "No whole-paper noncoverage claim. Real spectrum alone does not imply mod-two Jordan form, but possible uninspected modular treatment remains priority risk.",
+          "evidence": [
+            "Read primary title, author, date, abstract identifying singly punctured cube real adjacency spectrum. Attempted arXiv PDF and lawful OA alternative; inaccessible; Oxford institutional full text tool returned vpn_disconnected."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.27887",
+          "material_read": "Read primary title, author, date, abstract identifying singly punctured cube real adjacency spectrum. Attempted arXiv PDF and lawful OA alternative; inaccessible; Oxford institutional full text tool returned vpn_disconnected.",
+          "method": "Primary metadata and abstract; attempted lawful full PDF; authorized access unavailable",
+          "title": "Note on adjacency spectra for twice punctured hypercubes",
+          "trigger": "same one-deleted-cube graph, possibly prior stronger source"
+        },
+        {
+          "assessment": "Methodological predecessor, not same single-vertex punctured cube in inspected material.",
+          "evidence": [
+            "Read author-uploaded full-text excerpts on finite additive automata, generalized eigenbasis and cyclic spaces; original context one-dimensional automata"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/238213699_Decomposition_of_additive_cellular_automata",
+          "material_read": "Read author-uploaded full-text excerpts on finite additive automata, generalized eigenbasis and cyclic spaces; original context one-dimensional automata",
+          "method": "Author-uploaded OA article text excerpts",
+          "title": "Decomposition of Additive Cellular Automata",
+          "trigger": "general nilpotent/regular dynamics machinery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One-vertex deletion is a natural graph-fault perturbation whose mod-two Jordan response creates a size-3 nilpotent block for even dimension and a one-step transient direction for odd dimension; exact q-dependent population formulas are useful intrinsic invariants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific PASS is qualified best-of-knowledge, not certification or proof of historical priority.",
+    "Inaccessible or unindexed prior literature remains qualified originality risk, not an automatic scientific failure.",
+    "No GitHub or dispatcher write occurred."
+  ],
+  "schema_version": 1
+}

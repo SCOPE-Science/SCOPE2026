@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing that file. It requires only Python 3 and no network or external datasets. The output should match the complete contents of `verification_output.txt` byte-for-byte and finish with `PUNCTURED_HYPERCUBE_GF2_RANK_AND_STATE_CHECKS_PASSED: 7 dimensions, 51352 states`.
+## correctness
 
-The program constructs GF(2) adjacency rows and independently checks power ranks and recurrence identities in dimensions 2 through 8. It enumerates each binary state in dimensions 2 through 4, each quaternary-field state in dimensions 2 and 3 (addition is bitwise XOR), and samples additional larger-dimensional states. Its exact output was reproduced in a fresh replay, matching `verification_output.txt`.
+PASS
 
-The mathematical proof in `RESULT.md` separately establishes the N/2 compression rank for all dimensions over every characteristic-two field, then reconstructs Jordan sizes and state populations analytically. These finite tests do not constitute independent audit, infinite computation or a replacement for the all-dimensional proof.
+For the intact cube over char2, A=sum of commuting coordinate flips satisfies A^2=(d mod2)I. With K=A+epsilon I, K^2=0 and first-coordinate block form proves rank N/2. Deleting one vertex gives B^2=epsilon I+ww^T, Bw=0, and the compression rank lemma (surjectivity K(W)=im K) supplies rank B or rank(B+I)=N/2. Thus even d has one J3(0) and N/2-2 J2(0), whereas odd d has one J1(0) plus N/2-1 J2(1). Kernel growth and periodic-space dimensions yield all q-dependent counts. Independently constructed GF2 matrices for d=2..6 and checked rank(B),rank(B^2) (even d rank B=N/2 and B2=1, odd d rank B=N-2 and B2=N-2), confirming the nonstandard rank decomposition; q powers then follow exact linear algebra.
+
+## originality
+
+PASS
+
+Qualified PASS for the complete mod-two Jordan decomposition and exact transient/periodic census of a singly vertex-punctured Boolean cube, not the real adjacency spectrum of the same graph. Li–Wang–Zhang restrict their theorem to Eulerian graphs, which fail after vertex deletion due to mixed degree parity.
+
+## value
+
+PASS
+
+One-vertex deletion is a natural graph-fault perturbation whose mod-two Jordan response creates a size-3 nilpotent block for even dimension and a one-step transient direction for odd dimension; exact q-dependent population formulas are useful intrinsic invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
