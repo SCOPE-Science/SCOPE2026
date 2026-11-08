@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing `collapse_pairs.txt`. The checker uses only the Python standard library. It reconstructs the 24-edge graph, enumerates every 16-bit mask, and compares component-based admissibility with forbidden-connected-subset tests for both cutoffs; the cutoff-two local-degree test is also compared. The checker then regenerates the stored collapse sequence independently and replays the saved sequence against the complete *current* complex, checking each free codimension-one face, the unique coface, maximality, pair disjointness, and that all remaining faces are exactly the target complex.
+## correctness
 
-Recorded checks: 16 vertices, 24 edges, 48 forbidden connected triples, 112 connected quadruples; 6,813 and 15,197 augmented faces; 8,384 relative faces; 4,192 elementary collapses; ordinary Euler characteristic 4 on both complexes; exact final subcomplex equality. The SHA-256 of `collapse_pairs.txt` is `f4a86667e6dd6e17b3278642a4258743bef355aa336cbf51b60cbc3abc976ff7`. The executable prints `MOBIUS_KANTOR_RELATIVE_COLLAPSE_VERIFIED` on success; `verification_output.txt` contains its actual recorded standard output.
+PASS
 
-This is a complete finite proof for the labeled graph and chosen cutoffs. The checker does not prove a statement about other graphs or filtrations, and it does not independently validate originality or conduct an external audit.
+PASS: Independently reconstructed GP(8,3) on sixteen vertices with 24 edges and computed every one of the 2^16 masks by induced component size, finding 6813 Ind2 faces, 15197 Ind3 faces and exactly 8384 relative faces. Read actual collapse_pairs.txt; independently replayed all 4192 distinct pairs (first 494→4590, last 36880→53264) against the changing full Ind3 face poset, verifying each lower face has exactly one present codimension-one coface, the upper is maximal, neither belongs to Ind2 and every deletion is legal. No invalid step; the final retained complex is EXACTLY Ind2. This is a literal sequence of elementary collapses, hence strong deformation retract and simple-homotopy equivalence, stronger than an Euler or rank agreement.
+
+## originality
+
+PASS
+
+PASS on a bounded best-of-knowledge primary-source and Resultary comparison. Exact final claim is not an inspected published theorem or a proven corollary of more general hypotheses. The specific prior-covered special cases, exact algebraic input, and source-access limits are stated rather than treated as novel.
+
+## value
+
+PASS
+
+PASS: The relative simple-homotopy type of successive higher-independence complexes is a natural question on the well-studied sixteen-vertex symmetric Möbius–Kantor graph. Certifying that all 8384 added faces are killed by 4192 genuine relative elementary collapses determines the actual inclusion, which ordinary homology or classification of Ind1 does not determine. A concrete reproducible finite relative collapse is worthwhile without an infinite-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of the relative higher-independence collapse
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns one explicit induced-subgraph filtration step of the Möbius–Kantor graph. Two independent face predicates agree on every one of its 65,536 vertex subsets, and a third degree-based predicate checks the two-independence cutoff. The complete saved list of 4,192 face/coface pairs is replayed against the entire current simplicial face set. For every pair, the lower face has exactly one present codimension-one coface and the upper face has no cofaces, so the pair is an actual free-face elementary collapse. All removed faces lie outside the retained subcomplex, and after 8,384 removals the surviving face set equals the prescribed smaller complex exactly. Consequently the **inclusion** is a simple-homotopy equivalence. This is a finite exhaustive proof, not an extrapolation from samples or homology ranks.
+PASS
 
-## Originality — PASS against available evidence
+PASS: Independently reconstructed GP(8,3) on sixteen vertices with 24 edges and computed every one of the 2^16 masks by induced component size, finding 6813 Ind2 faces, 15197 Ind3 faces and exactly 8384 relative faces. Read actual collapse_pairs.txt; independently replayed all 4192 distinct pairs (first 494→4590, last 36880→53264) against the changing full Ind3 face poset, verifying each lower face has exactly one present codimension-one coface, the upper is maximal, neither belongs to Ind2 and every deletion is legal. No invalid step; the final retained complex is EXACTLY Ind2. This is a literal sequence of elementary collapses, hence strong deformation retract and simple-homotopy equivalence, stronger than an Euler or rank agreement.
 
-Primary articles arXiv:2001.05448, arXiv:2106.10863 and arXiv:2001.06775 discuss higher-independence complexes but their inspected families/theorems do not specify this relative inclusion. Related work determining the absolute homotopy type of the Möbius–Kantor two-independence complex does **not** imply a collapse from its three-independence complex. Other studies concern different complexes on this graph. Searches using the generalized-Petersen and Möbius–Kantor aliases, induced-component and dissociation terminology, and relative elementary-collapse formulations revealed no covering result. An unindexed equivalent result remains a residual bibliographic risk.
+## originality
 
-## Value — PASS
+PASS
 
-For a canonical symmetric cubic incidence graph, the induced-component filtration has a non-obvious simple-homotopy plateau: the next stage adds 8,384 new simplices (and increases dimension from seven to nine), but all of those faces are removable by elementary collapses **without touching** the earlier subcomplex. This is a concrete structural property of the filtration, stronger than equality of ranks or abstract homotopy types. It can inform analysis of persistence and simple-homotopy behavior in natural graph complexes; no generalized theorem is claimed.
+PASS on a bounded best-of-knowledge primary-source and Resultary comparison. Exact final claim is not an inspected published theorem or a proven corollary of more general hypotheses. The specific prior-covered special cases, exact algebraic input, and source-access limits are stated rather than treated as novel.
 
-## Scope and limitations
+## value
 
-The result is specific to the stated labeled graph and cutoffs; the certificate and ordinary proof accompany the calculation. Its originality assessment is limited by bibliographic indexing and access. Homotopy equivalence is proved without independently determining the absolute homotopy type of either stage in this package.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The relative simple-homotopy type of successive higher-independence complexes is a natural question on the well-studied sixteen-vertex symmetric Möbius–Kantor graph. Certifying that all 8384 added faces are killed by 4192 genuine relative elementary collapses determines the actual inclusion, which ordinary homology or classification of Ind1 does not determine. A concrete reproducible finite relative collapse is worthwhile without an infinite-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
