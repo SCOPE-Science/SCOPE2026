@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+For \(D,r>0\) and \(|a|<1\), the stationary characteristic function is the convergent infinite product of independent centered Laplace factors; conditioning on exponentially distributed mixing variances gives \(Y_q=\sqrt{V_q}Z\) in distribution, with \(V_q=(1-q)\sum q^jE_j\), \(q=a^2\). Finite geometric-weight majorization, with a correctly normalized finite tail, proves convex ordering of \(V_q\) and, after independent Gaussian multiplication, of \(Y_q^2\). Direct integration gives the two sharp stop-loss endpoints, and strict Jensen gives the nonendpoint gaps at positive thresholds. Normal-tail differentiation and an explicit fourth-centered-moment estimate prove the uniform positive-threshold Gaussian correction. Boundary cases \(q=0\) and \(q\uparrow1\) are separately handled; the latter is a limiting law. The standalone checker passed 205 deterministic diagnostic assertions. It does not substitute for the analytical argument.
+
+## Originality — PASS (with publication-priority qualification)
+
+Biroli–Feld–Hartmann–Majumdar–Schehr (arXiv:2406.08387v1) give the stationary distribution and first-passage results; they do not state the variance-normalized squared convex-order curve or its explicit Gaussian stop-loss correction. Pierce (arXiv:2204.07215v1) has stationary moments, density and Gaussian/Laplace crossover; the full text does not identify the sharp simultaneous threshold-risk envelopes or coefficient derived here. Di Bello et al. (arXiv:2305.13722) develop time-dependent and stationary partial-reset densities, not this fixed-variance optimization. Kolb–Wübker (DOI 10.1112/blms.70314) provide a Laplace-series stationary representation and analyze conditioning and convergence rates, not square-loss order. Weighted-average majorization and related peakedness are classical and are not asserted as innovations. The combination of the physically normalized family, the all-threshold exact bounds and the positive leading correction was not found in the inspected sources or the accessible claim catalogue. The classic Proschan paper was located by bibliographic record, not fully inspected; a broader result or unpublished treatment could subsume part of the claim. Search absence is not a proof of global priority.
+
+## Mathematical value — PASS
+
+Normalizing mean-square stationary displacement puts the partial-reset protocols on an equal-amplitude footing. The theorem compares **all** convex penalties for squared excursions at once, rather than selected low-order moments or plot-dependent density widths, identifies simultaneously sharp Gaussian and Laplace bounds, and quantifies how slowly the risk becomes Gaussian when resets barely contract the position. Excess-energy losses have a direct physical interpretation as stationary risk beyond a displacement budget; the explicit leading coefficient permits meaningful comparisons between near-Gaussian protocols. This is a motivated transport-risk property, not a selected arbitrary finite parameter slice.
+
+## Closest literature and limitations
+
+Sources: Biroli et al., https://arxiv.org/html/2406.08387v1; Pierce, https://arxiv.org/html/2204.07215v1; Di Bello et al., https://arxiv.org/abs/2305.13722; Kolb and Wübker, https://doi.org/10.1112/blms.70314; Proschan (1965), https://doi.org/10.1214/aoms/1177699798. The paper of Proschan is a source of a general peakedness/majorization tradition, not a source establishing this new physical risk comparison. The available bibliographic record does not support claiming it covers, or does not cover, every consequence of that tradition. Neither unnormalized pointwise tail order nor a first-passage theorem is proved. The Gaussian-rate estimate excludes thresholds moving with the weak-reset parameter.
+
+Self-review: passed. Independent audit: not yet performed.
