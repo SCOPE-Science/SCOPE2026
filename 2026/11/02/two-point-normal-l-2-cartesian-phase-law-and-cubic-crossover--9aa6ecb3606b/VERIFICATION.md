@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-For \(T=aP+bQ\), the proof requires no numerical approximation. The spectral theorem for the two orthogonal projection ranges gives the exact angular norm, and splitting the absolute value of \(A+R\cos u\) at its two zeros gives the elementary closed formula. The derivative and the exact integral representation of \(x-\arctan x\) establish the sharpness of the two global phase coefficients. For \(r=1-\varepsilon\) and \(\beta=\varepsilon t\), the uniform convergence of the scalar components on bounded \(t\)-intervals proves the crossover.
+## correctness
 
-Run the standard-library-only checker from these embedded files with `python3 verify_two_point.py`. It reports **909 consistency assertions passed**. It compares 78 direct angular quadratures to the exact formula, verifies monotonicity and endpoint consistency, samples upper and lower sharp cubic bounds across 240 interior phase/radius combinations, and probes the cubic and crossover asymptotics. Quadrature, sampling and asymptotic probes are not exhaustive and are not used as infinite proofs.
+PASS
 
-The result covers only two nonzero unequal-modulus spectral values of normal operators, with optional zero spectrum. The equal-modulus limiting law and a projectively orthogonal special case were previously known, and no independent novelty review or mathematical audit has been performed.
+The orthogonal spectral projections give ||Re(e^{-iθ}T)||²=M² max(cos²θ,r² cos²(θ−β)); this remains true in arbitrary Hilbert dimension and with a zero complement. The difference is A+R cos(2θ−γ), with A=(1−r²)/2>0 and R²−A²=r² sin²β; integrate its absolute value to derive 1/2+[r sinβ−A atan(r sinβ/A)]/pi. Its derivative wrt s=sinβ is r³s²/[pi(A²+r²s²)]>0. Writing x=r sinβ/A, the ratio (x−atan x)/x³ = integral_0^1 v²/(1+x²v²)dv strictly decreases, giving sharp upper/lower cubic coefficients, equality only at stated endpoints/limits. Taylor gives cubic β turn-on; r=1−ε,β=εt gives the uniform compact crossover. Independent numerical quadrature of four generic parameter pairs matched the analytic formula; source checker tests further finite points. Prior published orthogonal-phase endpoint is not claimed new.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct claim after comparison with directly relevant primary sources and published mathematical findings. Prior special cases and baseline formulas are explicitly credited. Complete historical originality is not certified.
+
+## value
+
+PASS
+
+The newly introduced integrated Cartesian numerical radius for normal operators has qualitatively different behavior for two unequal-modulus eigenvalues than for fixed-modulus unitaries or rank-one operators. A fully sharp two-parameter dependence, optimal cubic control at fixed r, and singular near-equal-modulus crossover identify a motivated spectral response and equality boundaries rather than a trivial inequality restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

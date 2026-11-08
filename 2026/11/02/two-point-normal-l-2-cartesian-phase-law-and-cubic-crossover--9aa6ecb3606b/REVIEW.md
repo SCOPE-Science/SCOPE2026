@@ -1,15 +1,21 @@
-# Review of the two-point normal \(L^2\)-Cartesian phase law
+# Independent mathematical audit
 
-## Correctness — PASS
-The orthogonal-projection spectral reduction is exact in arbitrary Hilbert dimension, including a zero complement. The real-part norm squared is the maximum of two squared cosine waves. Their difference has mean \(A=(1-r^2)/2\) and sinusoidal amplitude \(\sqrt{A^2+r^2\sin^2\beta}\); integrating its absolute value gives the claimed arctangent expression. Differentiation yields strict angular monotonicity. The elementary representation \(x-\arctan x=x^3\int_0^1u^2/(1+x^2u^2)\,du\) proves both sharp global cubic constants; Taylor expansion and uniform small-parameter limits justify the asymptotics. The standalone checker passed 909 finite assertions, but these are supporting calculations rather than a proof of infinite-dimensional statements.
+## correctness
 
-## Originality — PASS, best-knowledge assessment
-Audeh–Kittaneh–Moradi–Sahoo (arXiv:2610.04844v2) establish the defining angular invariant, general comparison inequalities and a single equal-modulus normal example. Previously published exact results for unitaries give the equal-modulus boundary, and a published rank-one formula treats a different operator class. A published cubic stability theorem already computes the orthogonal-phase endpoint value via \(\operatorname{diag}(1,-1,ir,-ir)\); it is not new here. The present exact response for the **interior unequal-modulus phase range**, the best bilateral \(\sin^3\beta\) constants, and the joint crossover were not found in targeted mathematical-record searches or accessible prior claims. A classical integral formula under different terminology remains an unresolved publication-priority risk. Independent verification of originality has not occurred.
+PASS
 
-## Mathematical value — PASS
-For a new integrated operator radius, the full normal two-point spectrum is the natural first case in which eigenvalue modulus contrast and relative phase interact. The theorem determines the full response, unique angular extremizers, global sharp phase-modulus constants and a nonuniform equal-modulus crossover. These quantify the angular instability of the lower comparison bound and explain the cubic-versus-linear transition. It does not classify spectra with three or more distinct nonzero eigenvalues or nonnormal operators.
+The orthogonal spectral projections give ||Re(e^{-iθ}T)||²=M² max(cos²θ,r² cos²(θ−β)); this remains true in arbitrary Hilbert dimension and with a zero complement. The difference is A+R cos(2θ−γ), with A=(1−r²)/2>0 and R²−A²=r² sin²β; integrate its absolute value to derive 1/2+[r sinβ−A atan(r sinβ/A)]/pi. Its derivative wrt s=sinβ is r³s²/[pi(A²+r²s²)]>0. Writing x=r sinβ/A, the ratio (x−atan x)/x³ = integral_0^1 v²/(1+x²v²)dv strictly decreases, giving sharp upper/lower cubic coefficients, equality only at stated endpoints/limits. Taylor gives cubic β turn-on; r=1−ε,β=εt gives the uniform compact crossover. Independent numerical quadrature of four generic parameter pairs matched the analytic formula; source checker tests further finite points. Prior published orthogonal-phase endpoint is not claimed new.
 
-## Scope and sources
-Primary source: arXiv:2610.04844v1, first public on 2026-10-04; current available text arXiv:2610.04844v2. Closest comparisons are the published projective-spectrum unitary formula, the global cubic stability theorem, and the rank-one overlap formula. Older 2015 Cartesian-direction results concern a supremum, not the squared angular mean. Bibliographic searches are not publication-priority certificates.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct claim after comparison with directly relevant primary sources and published mathematical findings. Prior special cases and baseline formulas are explicitly credited. Complete historical originality is not certified.
+
+## value
+
+PASS
+
+The newly introduced integrated Cartesian numerical radius for normal operators has qualitatively different behavior for two unequal-modulus eigenvalues than for fixed-modulus unitaries or rank-one operators. A fully sharp two-parameter dependence, optimal cubic control at fixed r, and singular near-equal-modulus crossover identify a motivated spectral response and equality boundaries rather than a trivial inequality restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
