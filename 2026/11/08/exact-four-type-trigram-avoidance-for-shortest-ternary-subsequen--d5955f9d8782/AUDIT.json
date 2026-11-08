@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "An exact arch-structure theorem reduces every shortest ternary k-universal word to k concatenated permutations. A length-three forbidden factor crosses at most one such block boundary. The six-state transfer matrices in RESULT.md are therefore exact for every integer k>=1. Determinant identities of explicit integer-polynomial matrices produce the four claimed rational functions, and the primitive transition graphs yield distinct growth constants. The provided standard-library verifier replays all four exact determinant identities and 20,439 independent direct word checks; finite counts are not substituted for the transfer proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamson et al., arXiv:2311.10658, Section 4, especially Corollary 4.12 and Corollary 4.14: counting all regular-language-accepted k-universal and perfect k-universal words.",
+        "Adamson, arXiv:2304.04583, Section 3: unrestricted suffix counting with zero free positions gives a base case."
+      ],
+      "reasoning": "The stronger general algorithms can calculate individual numbers for the regular language avoiding any given trigram. They are acknowledged as full computational coverage, but a per-instance algorithm is not an explicit four-class rational generating-function theorem or asymptotic hierarchy. The claim is intentionally only the symbolic special classification, not a new decision or counting algorithm.",
+      "searches": [
+        "\"k-Universality of Regular Languages\" 2023 counting paths DFA",
+        "pattern avoidance subsequence universal words forbidden contiguous factor enumeration",
+        "\"Ranking and Unranking k-subsequence universal words\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2304.04583",
+      "https://arxiv.org/abs/2311.10658",
+      "https://arxiv.org/html/2003.04629v1",
+      "https://oeis.org/A154244",
+      "https://oeis.org/A084326"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2304.04583 studies unrestricted k-universal words and ranks, and contains no forbidden-factor enumeration in the inspected sections.",
+        "arXiv:2311.10658 Corollary 4.12 implies an effective coefficient algorithm for any regular constraint, which includes all four classes; it does not give the closed forms in this theorem.",
+        "Barker et al. arXiv:2003.04629 treats arch universality, repetition and conjugacy, not the stated motif classes."
+      ],
+      "reasoning": "The established arch lemma supplies the object decomposition, and generic counting algorithms imply the ability to compute terms but not an already-stated identity of rational functions for all k. This result supplies the exact transfer derivation and complete ternary motif grouping; its novelty rests on that concrete classification rather than on the generic methods.",
+      "searches": [
+        "ternary shortest subsequence universal words avoiding any contiguous length three pattern 000 001 010 012 rational generating functions four Wilf classes",
+        "universality index ternary words forbidden factors 001 010 012 counting",
+        "k-subsequence universal shortest words avoiding factor length three ternary permutations 001 010 012"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adamson, arXiv:2304.04583, Section 3 counts unrestricted universal words; its shortest-length base case supports a permutation-block representation.",
+        "Barker et al., arXiv:2003.04629, Section 4 develops arch universality and concatenation properties without single-trigram motif classification."
+      ],
+      "reasoning": "Converting shortest universal words to concatenations of permutations is an equivalence used in the proof, not an independently novel result. Reversal and symbol relabeling reduce 27 motifs to four classes. Searched both phrasings; no checked source states the four motif-generating functions together.",
+      "searches": [
+        "ternary shortest subsequence universal words avoiding any contiguous length three pattern 000 001 010 012 rational generating functions four Wilf classes",
+        "length 3 factor avoidance in minimal k-universal strings over three-letter alphabet permutation blocks transfer matrix",
+        "\"concatenations of permutations\" \"avoid\" \"consecutive\" patterns",
+        "\"k-universal words\" \"forbidden\" substring permutation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A154244 (https://oeis.org/A154244) contains, with an initial term, 1,6,34,192,1084,... and recurrence 6a(n-1)-2a(n-2).",
+        "OEIS A084326 (https://oeis.org/A084326) contains 0,1,6,32,168,880,... and recurrence 6a(n-1)-4a(n-2)."
+      ],
+      "reasoning": "These two coefficient sequences and second-order recurrences already exist and are not claimed as newly discovered sequences. Their database appearances do not state the ternary shortest-universal contiguous-trigram avoidance interpretation or all four formulas; exact-match numeric identity is acknowledged as a material limitation.",
+      "searches": [
+        "\"6, 34, 192, 1084\" pattern",
+        "\"6, 32, 168, 880\" strings",
+        "\"5, 21, 90, 385, 1647, 7046\"",
+        "\"1-3x-5x^2-2x^3\" universal"
+      ]
+    },
+    "rationale": "The complete four-type symbolic enumeration for all 27 ternary forbidden trigrams is absent from the materially inspected primary texts. Generic regular-language counting algorithms compute terms but do not state the four closed rational functions; two numerical sequences are already present in OEIS, limiting the claim to their combined word-theoretic interpretation and the full four-type growth classification.",
+    "residual_risks": [
+      "A regular-language counting theorem includes an algorithm that can compute every coefficient, so the contribution is limited to closed forms and complete special classification.",
+      "Two numerical sequences/recurrences are known in OEIS; novelty is not claimed for those integer sequences.",
+      "A specialized formula in unindexed literature or an algebraically equivalent formulation could remain undiscovered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not give forbidden-contiguous-factor counts or four trigram types. Provides the known shortest-word permutation-block underpinning.",
+        "evidence": [
+          "Section 2, Theorem 2.4: universality iff at least k arches",
+          "Section 3.2: unrestricted suffix-count recursion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+        "material_read": "Rendered full text: definitions and arch characterization in Section 2, counting recursion in Section 3, and ranking/unranking Sections 4–5.",
+        "method": "Section and theorem-level comparison with restricted counting claim",
+        "title": "Ranking and Unranking k-Subsequence Universal Words",
+        "trigger": "Same universal-word objects and unrestricted enumeration"
+      },
+      {
+        "assessment": "General DFA counting includes each coefficient but no four-type trigram generating functions or asymptotic growth classification in the inspected material.",
+        "evidence": [
+          "Section 4 Corollary 4.12: count k-universal words accepted by DFA",
+          "Section 4 Corollary 4.14: perfect k-universal words accepted by DFA"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.10658",
+        "material_read": "Rendered text: introduction and Section 4 path-table definitions, Lemma 4.1, Corollary 4.12 and Corollary 4.14.",
+        "method": "Explicit algorithm/statement comparison to four symbolic rational generating functions",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Potential broad algorithmic domination of pattern-avoiding universal-word counts"
+      },
+      {
+        "assessment": "Arch universality/repetition statements, not restricted single-trigram word enumeration.",
+        "evidence": [
+          "Section 4 Theorem 4.1 relates repetition and universality",
+          "Section 4 discusses concatenations with alphabet permutations"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2003.04629v1",
+        "material_read": "Full-text HTML introduction, preliminary definitions, and Section 4 universality/powers statements.",
+        "method": "Read mathematical statements for overlap and conditions",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Foundational combinatorial results might already classify restricted shortest words"
+      },
+      {
+        "assessment": "The integer sequence predates this interpretation; no numerical novelty claimed.",
+        "evidence": [
+          "1,6,34,192,1084,6120,...; recurrence with coefficients 6,-2"
+        ],
+        "identifier_or_url": "https://oeis.org/A154244",
+        "material_read": "Indexed sequence and recurrence visible in exact numeric search result.",
+        "method": "Sequence comparison after indexing alignment",
+        "title": "OEIS A154244",
+        "trigger": "Exact match for numeric counts in `001` case"
+      },
+      {
+        "assessment": "The integer sequence predates this interpretation; no numerical novelty claimed.",
+        "evidence": [
+          "0,1,6,32,168,880,...; recurrence with coefficients 6,-4"
+        ],
+        "identifier_or_url": "https://oeis.org/A084326",
+        "material_read": "OEIS sequence entry with terms, recurrence and references.",
+        "method": "Coefficient-by-coefficient and recurrence comparison",
+        "title": "OEIS A084326",
+        "trigger": "Exact match for numeric counts in `010` case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d5955f9d-8782-4001-b3db-5f37942d8597",
+  "value": {
+    "rationale": "An exhaustive symmetry classification of all 27 length-three forbidden factors in the smallest genuinely nonbinary alphabet is natural rather than an arbitrary pattern slice. The exact infinite-k rational generating functions divide them into four unequal exponential-growth types and provide exact benchmarks for constrained-subsequence-universality counting. The asymptotic distinctions and all-pattern coverage are more informative than a numerical census or an isolated transfer-matrix instance; the result does not claim a general-alphabet theorem.",
+    "status": "PASS"
+  }
+}
