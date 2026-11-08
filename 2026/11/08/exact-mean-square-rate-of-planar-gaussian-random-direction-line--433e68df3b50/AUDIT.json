@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For all real 2x2 SPD H and iid unit-circle directions, exact directional minimization whitens to a rank-one orthogonal projector. Reflection symmetry closes two diagonal covariance moments; differentiating F(a,b) proves every rational transfer entry, with denominator uniformly positive. The symmetric positive transfer has the displayed trace and determinant and Perron root, reached from every nonzero initial squared-coordinate vector. The conditional bound gap is a strict explicit polynomial identity for t>1. The bundled checker verifies 111 finite algebraic and quadrature instances; analytic proof establishes all parameters and iterations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gower et al. (2019), Theorem 2 gives a broad linear-convergence upper bound depending on the smallest eigenvalue of an expected projector.",
+        "Gower and Richtárik (2015), Theorem 8 bounds E[||error||^2] by rho^n times initial error; its Appendix B supplies rho for 2D Gaussian directions.",
+        "Fuji, Poirion and Takeda (2022) study regularized sketches and local convergence with a different update, not the exact deterministic quadratic directional minimization."
+      ],
+      "reasoning": "These published results cover broader classes of functions, dimensions or samplings in terms of rates and bounds, but neither their generality nor their proof implies the exact expected-objective equality at every n or the sharper Perron asymptotic coefficient. The existing sharp one-step upper bound remains correct and is not contradicted.",
+      "searches": [
+        "arXiv:1905.10874 Theorem 2 randomized subspace Newton convergence",
+        "arXiv:1506.03296 Theorem 8 expectation of norm",
+        "arXiv:2209.04170 randomized subspace regularized Newton local convergence",
+        "Gaussian random pursuit asymptotic rate exact planar quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1506.03296 full accessible HTML, Sections 4.3-4.4, 6.3, Appendix B",
+      "arXiv:1905.10874 accessible primary HTML, Sections 2-3",
+      "arXiv:1111.0194 accessible primary HTML, Sections 3-6",
+      "arXiv:2209.04170 accessible primary HTML, Sections 4-5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "First-moment projector identity: E[vv^T]=H^(1/2)/Tr(H^(1/2)) in 2D (Gower–Richtárik 2015, Appendix B).",
+        "Generic expectation bound: E[||x_n||_H^2] <= [t/(t+1)]^n ||x_0||_H^2 (Gower–Richtárik 2015, Section 4.4 plus Appendix B).",
+        "New transfer has Perron rate lambda_+(t)<t/(t+1) for every t>1, so a strict inequality rather than restatement of that previous bound."
+      ],
+      "reasoning": "The earlier first-moment formula yields the sharp conditional one-step inequality and the resulting bound, but cannot force the strict smaller asymptotic exponent without evaluating E[P⊗P]. The exact all-start, all-iteration transfer and sharp long-run factor supply that missing implication. Conversely, the newly proved result specializes, and does not revise, the general previous estimates.",
+      "searches": [
+        "arXiv:1506.03296 Lemma 12 Theorem 8 2D gaussian mean square",
+        "arXiv:1905.10874 Algorithm 1 Theorem 2",
+        "arXiv:1111.0194 quadratic test functions Section 6.2.1",
+        "Gower Richtarik second moments Gaussian projection exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gower and Richtárik (2015), Section 6.3, identifies Gauss-pd as exact line-search Gaussian random pursuit; Appendix B Lemma 12 computes E[vv^T] in dimension two.",
+        "Gower et al. (2019), Algorithm 1 specializes at sketch size one and a quadratic with unit relative-smoothness parameter to the update claimed here.",
+        "Stich, Müller and Gärtner (2011), Sections 4-5, analyze random pursuit and general expected progress."
+      ],
+      "reasoning": "The method itself is equivalent to established random pursuit/sketch-and-project. The exact new claim is not algorithmic invention; it concerns E[ww^T C ww^T], a fourth moment of the random projection, whereas E[vv^T] is only a first matrix moment. The former cannot be reconstructed from the latter without additional identities, and its positive 2x2 transfer has a different asymptotic root than the one-step operator norm.",
+      "searches": [
+        "random pursuit two dimensional asymptotic convergence rate quadratic gaussian exact",
+        "Gauss-pd Gaussian positive definite random projection quadratic exact line search",
+        "arXiv:1506.03296 Section 6.3 Gaussian Positive Definite and Appendix B",
+        "arXiv:1111.0194 exact random pursuit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A direct primary-text examination of Appendix B of arXiv:1506.03296 found an exact 2D E[vv^T] identity, not the entries E[s^2], E[s(1-s)], E[(1-s)^2] of the new transfer.",
+        "The 2019 RSN paper includes general rates and algorithms but no tabulation of this exact planar second-moment Perron factor."
+      ],
+      "reasoning": "No checked tabulation or identity reproduces the claimed two-step moment transfer or eigenvalues. The first-moment 2D identity is acknowledged and strictly weaker for propagating a random covariance through independently sampled projections; absence of a hit is not treated as a novelty proof.",
+      "searches": [
+        "randomized subspace second moment planar quadratic convergence",
+        "Gaussian pursuit asymptotic rate 2d quadratic exact line search",
+        "planar Gauss-pd 2D rank one exact fourth moment transfer matrix expected squared error long-run",
+        "arXiv:1506.03296 Appendix B Expected Gaussian Projection Matrix in 2D"
+      ]
+    },
+    "rationale": "The Gaussian random-direction update is already in 2011/2015/2019 literature. The inspected full-text results prove general expected-loss bounds and the exact first moment of the 2D Gaussian projector, but do not provide the squared-projector fourth-moment transfer or its universal sharp long-run objective Perron root. Those require the new covariance closure and moment evaluation; no directly covering stronger theorem was located in the comparisons, with specialist precedence risk expressly retained.",
+    "residual_risks": [
+      "Equivalent sharp mean-square rates might be formulated in less-indexed planar random-projection or random-matrix-product publications; the comparison is not a complete field census.",
+      "The 2015 first-moment formula is very close to the moment calculation; novelty is claimed only for the full second-moment propagation and sharp long-run consequence, not for the underlying algorithm or first moment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "First Gaussian projector moment and one-step rate are covered; iterated fourth-projection-moment transfer and its exact Perron factor are not presented",
+        "evidence": [
+          "Theorem 8 inequality (42) is E||error||_B^2 <= rho^n||error_0||_B^2.",
+          "Appendix B Lemma 12 equation (63) gives E[xi xi^T/(xi^T xi)]=Omega^(1/2)/Tr(Omega^(1/2)), a first-moment identity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1506.03296v5",
+        "material_read": "Section 4.3 exact expected iterate, Section 4.4 expectation-of-norm bound, Section 6.3 Gaussian positive definite, Appendices A and B through Lemma 12",
+        "method": "Inspected accessible full HTML including equations (38), (42), (58), (63), (64) and nearby proofs",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "Exact 2D Gaussian projection appendix and same random-pursuit update"
+      },
+      {
+        "assessment": "Identical special-case update and broad linear rate, but no explicit fourth-moment planar transfer or exact long-run objective rate",
+        "evidence": [
+          "Algorithm 1 line 5 displays rank-one sketched inverse Hessian update at sketch size one.",
+          "Theorem 2 equation (15) provides a generic geometric upper bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.10874",
+        "material_read": "Algorithm 1 and its projection equivalences in Section 2; Section 3 Theorem 2, sketched condition number, relevant surrounding derivations",
+        "method": "Read full accessible primary HTML text and compared the exact update, assumptions and rate statement",
+        "title": "RSN: Randomized Subspace Newton",
+        "trigger": "Primary motivating algorithm and general rate"
+      },
+      {
+        "assessment": "Random pursuit equivalence is prior work; general convergence and numerical quadratic tests do not supply the fourth-moment rate formula",
+        "evidence": [
+          "Section 4 studies single-step expected progress.",
+          "Section 6.2.1 describes anisotropic quadratic test objectives."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1111.0194",
+        "material_read": "Directional sampling definitions, Sections 3–5 on expected progress and convergence, Section 6.2.1 quadratic examples",
+        "method": "Inspected accessible primary full HTML text and theorem-level claims",
+        "title": "Optimization of Convex Functions with Random Pursuit",
+        "trigger": "Earlier equivalent exact-line-search random direction method"
+      },
+      {
+        "assessment": "Uses regularization and acceptance/linesearch structure; no exact rank-one Gaussian planar quadratic second-moment identity identified",
+        "evidence": [
+          "Sections 4.2 and 5 concern iteration-complexity/local convergence claims under regularization rather than a closed fourth-moment formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.04170",
+        "material_read": "Method setup, Sections 4 and 5 on global and local convergence and their hypotheses",
+        "method": "Inspected accessible primary full HTML sections",
+        "title": "Randomized subspace regularized Newton method for unconstrained non-convex optimization",
+        "trigger": "Potentially stronger later Gaussian sketch Newton convergence theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "433e68df-3b50-47dc-bac7-42198dd03c32",
+  "value": {
+    "rationale": "Random one-column exact Newton/line search is a natural benchmark for sketch-and-project optimization, and its true long-run expected loss can be substantially faster than the one-step guarantee. An exact all-initialization two-state moment propagation and the sharp 3/2 high-anisotropy improvement give a structural quantitative description of the error-direction feedback, not a mere first-moment rephrasing or arbitrary finite lookup. The value lies in exactness and a meaningful gap, without claiming a new general algorithm or guarantee.",
+    "status": "PASS"
+  }
+}
