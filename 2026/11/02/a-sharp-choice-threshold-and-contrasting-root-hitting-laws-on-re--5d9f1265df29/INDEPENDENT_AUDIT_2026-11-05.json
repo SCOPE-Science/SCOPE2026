@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T18:16:20.964253Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For complete rooted b-ary tree, independent with-replacement offers k, parent appears with p=1−(b/(b+1))^k. Bellman solution H_i increases with depth since differences Δ_h=1, Δ_i=(1+q Δ_{i+1})/p>0; thus selecting parent whenever offered is optimal among arbitrary history-dependent policies (bounded stopped submartingale). Exact recurrence gives E T_h=h/(p−q)−2pq(1−(q/p)^h)/(p−q)². Coprimality rules out integer p=q and gives kcrit=floor(log(2)/log(1+1/b))+1. Independently inverted the exact radial systems for b,k,h=(2,2,4),(3,2,5),(2,1,5),(7,3,5), all exact rational formula matches. When p>q, decompose into independent downward passage times, couple reflecting-to-unbounded walk with exponentially small boundary errors and apply Lyapunov CLT: variance 4pq/(p−q)^3 per unit h. When q>p, rare leaf-return excursions have success s_h=(q/p−1)/((q/p)^h−1), bounded second moments, and renewal Laplace transform gives Exp(1) normalized by its mean, with correct exponential mean constant. All stochastic limits fix b,k and let h→∞, not simultaneous growth. Finite checks supplement the rigorous passage/renewal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full 28-page primary paper Theorems 1.1/1.2 establishes general hitting bound and cover-time O(|V|) on bounded-degree trees; Section5 notes drift on an infinite degree-four tree.",
+          "Those assertions do not entail the exact height-dependent law or normal limit variance and rare-event exponential normalization."
+        ],
+        "reasoning": "An all-graph bound on time has broader domain but weaker precision and a different target, thus does not dominate the current full asymptotic law.",
+        "searches": [
+          "Georgakopoulos Haslegrave Sauerwald Sylvester 2022 Theorems 1.1 1.2 2022",
+          "tree random walk power of choice hitting cover times exponential tree height"
+        ]
+      },
+      "checked_sources": [
+        "Georgakopoulos et al 2022 full 28-page PDF",
+        "Resultary semantic power-of-k tree hitting search",
+        "Classical biased gambler ruin and passage time generating function"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior paper gives choice-walk framework and qualitative outward drift for degree four, not the sharp all-k kcrit integer or both first-passage weak laws.",
+          "Classical gambler-ruin formulas imply some components after reducing to radial chain; optimal control proof and regime synthesis are supplied here."
+        ],
+        "reasoning": "Known drift insight is credited. Exact optimal mean and paired limit laws are substantive deductions not given as existing theorems in inspected main text.",
+        "searches": [
+          "The Power of Two Choices for Random Walks arxiv:1911.05170 full paper Sections1 4 5",
+          "gambler ruin reflected birth death walk passage CLT renewal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Georgakopoulos et al. arxiv:1911.05170 uses identical independent neighbor offers with replacement, including b=3,k=2 drift obstruction.",
+          "Their theorems address general hitting/cover bounds; inspected proof and theorem sections do not give this fixed-depth exact expectation with both distributions."
+        ],
+        "reasoning": "Equivalent birth-death, biased reflected random walk and controlled choice-walk formulations checked, distinguishing known drift bias from exact classified hitting distribution.",
+        "searches": [
+          "\"power of two choices\" \"root\" regular tree hitting distribution",
+          "\"k\" choices random walk b-ary tree Gaussian exponential first passage",
+          "Resultary semantic power of k choices random walks rooted b-ary tree leaf to root hitting Gaussian exponential limit bias threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search results for similar tree-walk and graphical-range claims concern other processes (e.g. balanced spiders mixing), no identified exact finite-horizon table for offered choices.",
+          "The exact formula was rederived from a full Bellman difference system and independently checked with rational matrix inversions."
+        ],
+        "reasoning": "The model is a natural one-parameter birth-death chain, so classical tables could yield portions; no identical combined table and paired limit theorem located.",
+        "searches": [
+          "\"k_crit\" \"b+1\" root hitting choices tree",
+          "\"p-q\" \"exponential\" \"choices\" reflected tree",
+          "Resultary search k offers tree root threshold"
+        ]
+      },
+      "rationale": "Qualified PASS for the complete all-integer offer threshold together with exact finite-height optimal mean and paired Gaussian/exponential depth-limit laws, not for the previously known power-of-choices model, outward drift on infinite regular trees, or classical gambler ruin.",
+      "residual_risks": [
+        "Standard one-dimensional birth-death limit theorems may yield the same laws under a different name, no exhaustive textbook priority test.",
+        "No varying b or k with h, and root known in advance; not a universal graph cover-time claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS choice model, upper bounds, qualitative drift, not exact all-k root hitting distribution in inspected main text.",
+          "evidence": "arxiv:1911.05170 / CPC 2022, Theorems1.1,1.2, Section5.",
+          "identifier_or_url": "https://wrap.warwick.ac.uk/152060/7/WRAP-Power-two-choices-random-walks-2021.pdf",
+          "material_read": "Full open-access 28-page primary paper, including Theorem 1.1/1.2, Section5 and root/tree examples; screenshots pages2 and19.",
+          "method": "Full primary publisher-author accepted PDF text plus page screenshots",
+          "title": "The Power of Two Choices for Random Walks",
+          "trigger": "Identical k=2 choice model and infinite regular-tree drift discussion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: optimal local choices on regular trees provide a natural benchmark for target search. The exact integer number of offers separates O(h) from exponential-in-h expected time, and the normal versus exponential laws expose distinct fluctuations. This full structural phase classification is not merely a small numerical case or a restatement of general cover bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Complete rooted regular trees, known target and with-replacement independent uniform neighbor offers.",
+    "Weak limits only at fixed b,k and h→infinity; no varying b,k or general graph statement.",
+    "Classical birth-death identities reused and credited."
+  ],
+  "schema_version": 1
+}
