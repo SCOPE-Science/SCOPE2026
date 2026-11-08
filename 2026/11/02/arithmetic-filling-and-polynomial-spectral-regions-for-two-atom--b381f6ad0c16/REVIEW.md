@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact norm growth, eigenfunction ranges, and BMOA/Bloch predual identifications come from the full-text 2026 primary source (Lemmas 2.3–2.4 and 4.1–4.2, Sections 3–4). The new proof checks the full complex spectral parameter range, continuous Kronecker phase density, and a concrete normalized approximate-eigenfunction lemma. That lemma forces non-Fredholmness rather than only spectral inclusion. Rational dependence reduces to a polynomial in one composition operator; each interior nonzero eigenvalue has infinitely many independent eigenfunctions, giving the full essential polynomial image. Boundary points follow by closure. Finite checks are auxiliary.
+PASS
 
-## Originality
+For atomic μ=aδ_u+bδ_v the assigned source derives predual S=aC_u+bC_v on H1 and D1 via BMOA/Bloch duality; the proof uses published semigroup norm estimates ||C_t||<=K/t and f_lambda=(1-z)^(-lambda) eigenfunctions for Re lambda<1. The binomial semigroup bound gives spectral radius <=M. For irrational log u/log v the irrational Kronecker flow makes eigenvalues dense in the open disk; normalized vertical eigenfunctions vanish on compact sets while norm one, so any Fredholm inverse estimate would contradict finite-dimensional kernel compactness. For rational ratios S=p(C_q), infinite-dimensional eigenvalue multiplicity for C_q forces full polynomial-image essential spectrum. Endpoint and zero included by closure. The predual and norm-estimate premises must be checked against source in full; independent small phase checks are not proof.
 
-**PASS on accessible best-knowledge evidence, with a specific residual risk.** The 2026 primary paper's full main results require extended Dunford–Riesz admissibility; genuine interior atomic Laplace transforms fail its wide-sector boundedness requirement, so those theorems do not imply the asserted disk-versus-polynomial classification. A nearby published upper-half-plane unitary dilation example has annulus/curve spectra, not the present BMOA/Bloch semigroup spectrum. Searches of publicly indexed mathematical results and existing related recorded claims found no equivalent pair of conclusions. The full 2024 Abadias–Oliva-Maza paper was unavailable after open-access attempts, leaving a nondecisive risk of implicit earlier coverage.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result completes a natural two-atom slice excluded from the current general admissible-measure theorem, and establishes a sharp topological arithmetic dichotomy. It detects a substantive difference between irrational and rational dilations in the Fredholm essential spectrum, rather than merely rephrasing a single-operator spectrum. Exact polynomial regions and the explicit noncircularity obstruction make the classification useful for testing spectral mapping hypotheses in nonanalytic semigroup averages.
+The actual theorem was compared with primary and indexed prior statements; the precise all-parameter claim is not known to be covered after the documented bounded searches. Best-of-knowledge only; risks retained.
 
-## Limitations and closest literature
+## value
 
-The result assumes two distinct interior atoms with positive coefficients and covers only BMOA and Bloch. Potential implicit coverage in older spectral-functional-calculus work has not been independently ruled out; independent scientific audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The rational/irrational discontinuity between a full Fredholm essential disk and a resonant polynomial image for two positive atomic measures is a mathematically motivated exact spectral classification; not a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

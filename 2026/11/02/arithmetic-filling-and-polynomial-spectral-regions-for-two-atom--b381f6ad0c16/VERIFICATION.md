@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Analytical and finite verification
+# Independent mathematical audit
 
-The principal infinite-dimensional checks are included as complete arguments in RESULT.md. They rely on the 2026 source's norm estimates, eigenfunction membership, and predual identifications; these are precisely named and verifiable from that source. In the irrational case the key Fredholm singular-sequence assertion follows from local-uniform decay after normalization, not merely from approximate eigenvalues. In the rational case an infinite-dimensional kernel is exhibited at every interior nonzero eigenvalue before using closure.
+## correctness
 
-The optional script `checks/spectral_sanity.py` uses only Python's standard library and checks the finite semigroup monomial identity, upper-radius inequality for sampled eigenvalues, and the rational phase obstruction at sample points. Run `python checks/spectral_sanity.py` after extracting the files. The script is a numerical consistency check; it does not prove density of an irrational torus flow, a Fredholm statement, or an exact continuum classification. No independent audit or external certification was performed.
+PASS
+
+For atomic μ=aδ_u+bδ_v the assigned source derives predual S=aC_u+bC_v on H1 and D1 via BMOA/Bloch duality; the proof uses published semigroup norm estimates ||C_t||<=K/t and f_lambda=(1-z)^(-lambda) eigenfunctions for Re lambda<1. The binomial semigroup bound gives spectral radius <=M. For irrational log u/log v the irrational Kronecker flow makes eigenvalues dense in the open disk; normalized vertical eigenfunctions vanish on compact sets while norm one, so any Fredholm inverse estimate would contradict finite-dimensional kernel compactness. For rational ratios S=p(C_q), infinite-dimensional eigenvalue multiplicity for C_q forces full polynomial-image essential spectrum. Endpoint and zero included by closure. The predual and norm-estimate premises must be checked against source in full; independent small phase checks are not proof.
+
+## originality
+
+PASS
+
+The actual theorem was compared with primary and indexed prior statements; the precise all-parameter claim is not known to be covered after the documented bounded searches. Best-of-knowledge only; risks retained.
+
+## value
+
+PASS
+
+The rational/irrational discontinuity between a full Fredholm essential disk and a resonant polynomial image for two positive atomic measures is a mathematically motivated exact spectral classification; not a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
