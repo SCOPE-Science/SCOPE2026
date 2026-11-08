@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T19:14:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 2128d97ebbdfc92adcd0393620526d4c6b29056f",
+        "Frozen checks/check_crown.py blob 3f3c741c5cf30b56af746d34eb2266484477d553 (read, not executed opaque)",
+        "Independent_check.py and independent_check_moments.py fresh local calculations, with logs and reproducible deterministic seeds",
+        "Actual matched Git tree af5f9ae648564622771f1b6eea44ec7e1b894b81; 7 Git blob hashes reconstructed exactly"
+      ],
+      "rationale": "Verified n≥3, intrinsic 2n−2 dimensional Euclidean normalization and Exp(2) rate convention. The transportation/Hall constraints p_i+q_i≤1 are necessary for singleton rows and sufficient since any ≥2 rows reach every column. Uniform-simplex Beta(1,n−1) marginals give Pr(p_i+q_i>1)=1/binom(2n−2,n−1); two strict violations cannot coexist, proving exact volume ratio. For deleted (e_i,e_i), Cauchy–Schwarz yields min squared distance n/[2(n−1)] with an explicit equal-weight Q coupling; convexity of distance(Q,.) forces a P vertex to be farthest, proving Hausdorff. Centered independent Gaussians divided by R∼χ_{2n−2} give uniform intrinsic spherical direction. Direct support maxima over i≠j prove Δ=[1_{I+}min(top gaps)+1_{I−}min(bottom gaps)]/R. Independent uniform ranking permutations give Pr(I+)=Pr(I−)=1/n and Pr(I+∩I−)=1/[n(n−1)], independent of gaps and R; hence exact positive probability 2/n−1/[n(n−1)]. With b_n=Φ^{-1}(1−1/n)>0, the Gaussian tail ratio shows b_n times each top gap converges to Exp(1), and the minimum of two independent limits is Exp(2). The double-coincidence case has conditional probability 1/(2n−3)→0, while R/√(2n)→1. Gaussian increasing hazard and a superpolynomial small lower-second-maximum exceptional event supply uniform integrability of first two scaled-gap moments; inverse χ moments of R supply the normalizer control. The positive part contributes EΔ∼1/[n b_n√(2n)] and EΔ²∼1/[2 n² b_n²]; subtracting (EΔ)² preserves the variance equivalent. Independent implementation: n=3,4,5 intrinsic ConvexHull ratios 0.5,0.8,13/14 and squared distance n/[2(n−1)]; 3900 fresh support identities, exact-permutation rarity simulations n=8,20,50,100,200; one-event scaled-gap moments n=30,100,500 show slow convergence but expected trend. Computations are corroboration, not all-n proof.",
+      "residual_risks": [
+        "Finite numerical Hull/SLSQP tests are floating point and check only n≤5; the universal theorem depends on the analytic Hall/convexity/spacing proofs.",
+        "For the moment asymptotics, the uniform-integrability tail estimate is sketched in source but reconstructible from normal increasing hazard and exponential lower-order-statistic exceptional event; not formally certified.",
+        "Affine transformations away from the stated intrinsic Euclidean embedding invalidate the metric constants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Almousa–Dochtermann–Smith general root-polytope theory covers this graph family, but its theorems concern subdivisions, tropical types, and toric edge ideals rather than Euclidean random widths.",
+          "Ohsugi–Tsuchiya Theorem 1.1 computes h*-polynomials and normalized volumes of PQ-type JOIN graph polytopes, not Q_n nor a conditional spherical-width law.",
+          "Resultary crown symmetric-edge inball theorem classifies polar potential extremizers, not this graph-root deleted-diagonal support defect."
+        ],
+        "reasoning": "General root-polytope constructions are stronger on object coverage but do not dominate these metric statistics. Gaussian extreme spacing supplies the stochastic limiting lemma, not the exact link between a particular vertex-deleted polytope and coincident rank permutations; no broader inspected result logically yields the complete stated theorem.",
+        "searches": [
+          "Resultary semantic query: crown graph root polytope diagonal deleted product of two simplices random directional widths gaussian maximum coincidence exponential limit Hausdorff volume",
+          "Resultary semantic query: bipartite crown graph root polytope Euclidean Hausdorff distance volume ratio normal cone solid angles deleted diagonal vertices",
+          "web search: root polytopes and Jaeger-type dissections directed graphs; triangulations of root polytopes",
+          "arXiv:2209.09851 §§1.1,1.2,4.5,5; arXiv:2103.15045 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.09851v3 primary full PDF relevant theorem sections",
+        "arXiv:2103.15045v1 primary full PDF relevant sections",
+        "Resultary published 2026/10/11 crown symmetric-edge inball RESULT.md full text",
+        "Resultary 2026/10/11 PQ-type balanced complete-bipartite Löwner ellipsoid summary",
+        "Resultary 2026/10/11 graphical zonotope width variance summary",
+        "web search for missing-diagonal crown root metric width, Gaussian extreme spacing and known table"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The crown symmetric-edge inball theorem supplies radius [max{(n+8)/2,n−(n mod 2)/(2n)}]^{-1/2} and a facet-contact phase, whereas the claim concerns d_H(P_n,Q_n), normalized volume, and directional width differences for the unsymmetrized hull.",
+          "Almousa–Dochtermann–Smith §1.1 includes the graph family but later algebraic results use toric edge ideals, not Gaussian support functions.",
+          "Theorem 1.1 in Ohsugi–Tsuchiya and its definitions include diagonal cells in PQ polytopes, so even an exact volume does not transfer to Q_n without new geometry."
+        ],
+        "reasoning": "No implication from any inspected prior exact inradius, Ehrhart series, root triangulation, or normal extremal-order gap theorem directly yields the joint metric discordance. A mathematical derivation requiring the new support defect representation is present in the source proof; overlap of background techniques does not itself constitute coverage.",
+        "searches": [
+          "Resultary semantic query: crown graph root polytope diagonal deleted product of two simplices random directional widths gaussian maximum coincidence exponential limit Hausdorff volume",
+          "Resultary semantic query: bipartite crown graph root polytope Euclidean Hausdorff distance volume ratio normal cone solid angles deleted diagonal vertices",
+          "Resultary item 2026/10/11/SCOPE-a-sharp-euclidean-inradius-and-tangent-facet-transition-for-crow--2cd222e2d952",
+          "arXiv:2209.09851 and arXiv:2103.15045 full-text relevant sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2209.09851 p.2 identifies general bipartite graph root polytopes with subpolytopes of simplex products, exactly allowing the crown graph after sign reversal.",
+          "Resultary 2026/10/11/SCOPE-a-sharp-euclidean-inradius-and-tangent-facet-transition-for-crow--2cd222e2d952 defines a symmetric ±(e_Ai-e_Bj) hull, whose inradius and tangency count are not the one-sided crown hull width-loss distribution.",
+          "arXiv:2103.15045 p.1 defines PQ adjacency as conv((e_i,e_j) with i=j OR {i,j} an edge), hence does not give the missing-diagonal Q_n."
+        ],
+        "reasoning": "Changing one bipartite part from + to − is isometric and is INCLUDED; normal-cone/assignment-matching probability and maximum-spacing formulations were also searched. Central symmetrization, the PQ graph augmentation by diagonal cells, and the positive one-sided crown hull are distinct metric objects; no equivalent three-metric theorem was identified.",
+        "searches": [
+          "Resultary semantic query: crown graph root polytope diagonal deleted product of two simplices random directional widths gaussian maximum coincidence exponential limit Hausdorff volume",
+          "Resultary semantic query: conv{(e_i,e_j): i unequal j} gap widths product simplex random sphere angular measure support Gaussian extremes",
+          "web search: crown graph root polytope Hausdorff directional width random Gaussian",
+          "primary: arXiv:2209.09851 §1.1; arXiv:2103.15045 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned several related entries (crown symmetric-edge inball, PQ ellipsoid, graphical zonotope width) but no table with exact P(Δ_n>0) or scaled conditional Exp(2) law.",
+          "Almousa–Dochtermann–Smith Proposition 4.23 gives generalized-permutohedron volume via type ideals, not Euclidean angular width statistics of this Q_n.",
+          "Ohsugi–Tsuchiya tabulate normalized volume/Ehrhart polynomial of different PQ graph polytopes."
+        ],
+        "reasoning": "Small n checks (n=3,4,5) are new bounded corroborations, not prior table entries. A known volume formula alone, if present elsewhere, cannot supply the exact random-width event and conditional asymptotic; no exact dominating database/table was located.",
+        "searches": [
+          "Resultary semantic query: crown graph root polytope diagonal deleted product of two simplices random directional widths gaussian maximum coincidence exponential limit Hausdorff volume",
+          "Resultary semantic query: conv{(e_i,e_j): i unequal j} gap widths product simplex random sphere angular measure support Gaussian extremes",
+          "web search: crown root polytope volume product diagonal width random",
+          "arXiv:2209.09851 Proposition 4.23; arXiv:2103.15045 Theorem 1.1"
+        ]
+      },
+      "rationale": "The natural sign-reversed bipartite root-polytope realization is indeed covered as an OBJECT by Almousa–Dochtermann–Smith, but their theorem family is tropical subdivisions, type ideals and toric edge-ring invariants (arXiv:2209.09851, §§1.1, 4.5, 5). The Ohsugi–Tsuchiya PQ adjacency polytope includes every diagonal vertex by definition (arXiv:2103.15045, p.1, §1), so its Ehrhart/normalized-volume formulas are for another hull and do not imply this diagonal-deleted random-width law. A published crown-graph symmetric-edge inball theorem uses the centrally symmetrized ± root hull, and proves radius/contact-facet phases rather than the one-sided P/Q directional width defect. Standard Gaussian extreme-order spacing is an acknowledged ingredient; the specific combination of exact volume, Hausdorff, Gaussian ranking event and conditional Exp(2) law has no dominating prior theorem in the inspected texts or Resultary results. This is best-of-knowledge and does not assert absolute novelty.",
+      "residual_risks": [
+        "The volume and Hausdorff formulas may be independently known in older graph-root-polytope literature; these alone are not the claimed new angular law.",
+        "An unindexed probabilistic normal-cone or permutation-coupling treatment may state the same exact rarity and conditional gap theorem as a corollary; no complete worldwide priority guarantee.",
+        "Conclusions about prior PDF coverage are limited to the full text read and theorem sections actually inspected, not an assertion of absence in every historical source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the root-polytope object and combinatorial volume frameworks, but its relevant theorem statements do not give Euclidean Q-vs-P Hausdorff, angular support-defect probability or exponential conditional scaling.",
+          "evidence": [
+            "arXiv:2209.09851 §1.1: Q_B is subpolytope of simplex product for bipartite B; §4.5 Proposition 4.23 concerns generalized-permutohedron volume and type ideals; §5 is toric edge ideals."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.09851",
+          "material_read": "42-page arXiv v3 full-text accessible; abstract and §§1.1–1.2 pp.1–3, relevant algebraic volume §4.5 pp.24–27 (Proposition 4.23), toric edge ideals §5; scanned full text for width, Hausdorff, Gaussian.",
+          "method": "Opened primary PDF text and screenshot p.2, inspected stated results and relevant volume/ideal sections and full-document term search.",
+          "title": "Root polytopes, tropical types, and toric edge ideals",
+          "trigger": "Direct parent class: general bipartite root polytopes, including crown subgraph of K_{n,n}"
+        },
+        {
+          "assessment": "PQ-type by definition includes diagonal vertices, so it differs from crown Q_n. Its central results concern lattice volumes and h-star polynomials of join graphs and do not imply the spherical random-width law.",
+          "evidence": [
+            "arXiv:2103.15045 p.1 ∇^PQ_G = conv{(e_i,e_j): {i,j}∈E(G) or i=j}; pp.2–3 Theorem 1.1 h* polynomial and normalized volume."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.15045",
+          "material_read": "18-page primary arXiv PDF; introduction p.1–3 including exact PQ definition and Theorem 1.1, §§2–3 framework and join-graph proof, surveyed complete multipartite and wheel results; scanned full document for Gaussian, width, Hausdorff.",
+          "method": "Read primary PDF text and screenshot p.1, compared actual vertex sets and theorem conclusion.",
+          "title": "PQ-type adjacency polytopes of join graphs",
+          "trigger": "Potentially stronger volume formula and visually identical vertex representation (e_i,e_j)"
+        },
+        {
+          "assessment": "The source concerns centered symmetric edge hull and its Euclidean insphere/facet contacts. It is not the nonsymmetric bipartite root polytope directional-width-defect distribution.",
+          "evidence": [
+            "Its P_n=conv{±(e_{A_i}−e_{B_j}):i≠j} and theorem radius (max{(n+8)/2,n−(n mod2)/(2n)})^(−1/2), unlike current Q_n⊂Δ×Δ."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-euclidean-inradius-and-tangent-facet-transition-for-crow--2cd222e2d952",
+          "material_read": "Complete RESULT.md for the published finding, including exact statement, assumptions, integer-potential proof, verification limits and references.",
+          "method": "Read full GitHub RESULT.md via repository connector at main, blob SHA 20a3fe5208473ee75f502493bfbdb4e0d74e8e1e; compared object and invariant.",
+          "title": "A sharp Euclidean inradius and tangent-facet transition for crown-graph symmetric edge polytopes",
+          "trigger": "Resultary highest-relevance exact crown geometry hit could have stronger metric coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem/proof and explicit geometric normalization",
+        "Almousa–Dochtermann–Smith root polytope class and general mathematical motivation",
+        "Resultary crown symmetric-edge inball metric counterpart"
+      ],
+      "rationale": "The crown root polytope Q_n is a canonical naturally defined deletion of a perfect matching of n vertices from the n²-vertex product Δ_{n−1}×Δ_{n−1}. Comparing three non-equivalent and motivated quantitative notions of geometric stability is useful: relative volume loss is exponentially small, Hausdorff gap tends to 1/√2, while random-direction width deficit appears with only Θ(1/n) probability and has a sharp conditional nondegenerate exponential scale. The exact objectwise formula and infinite-n limiting distribution form a self-contained structural separation, not a routine one-parameter renaming, arbitrary tiny table entry or unsupported numerical curiosity. Even if the elementary volume coefficient had been previously tabulated, the matching of exact rare-angle probability to extreme-order-statistic geometry is a motivated independent invariant with likely use in stability and random support-function comparisons.",
+      "residual_risks": [
+        "The result is special to one canonical graph-deletion family and a fixed Euclidean metric; no broad stability theorem for arbitrary deletions is claimed.",
+        "Some ingredients are standard (Hall, Gaussian order spacings); value rests on the complete coupled three-metric result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No formal machine-checked universal proof or external expert attestation claimed.",
+    "Novelty is best-of-knowledge after primary-text and Resultary comparisons; possible unindexed equivalence remains.",
+    "Two proposed metadata/AUDIT edits remove operational scope_run_id and correct unverified 2021 first-public-date provenance; server must separately validate source guards and publication changes."
+  ],
+  "schema_version": 1
+}
