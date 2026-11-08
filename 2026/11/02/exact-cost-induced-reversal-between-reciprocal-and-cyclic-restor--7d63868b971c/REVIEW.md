@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For positive fixed forward strength and costs, the matrix is irreducible at both budget endpoints and all intermediate allocations. Its characteristic polynomial is \(\lambda^3-2au\lambda-a^2v\), with one positive zero. After enforcing the cost budget, the characteristic polynomial evaluated at \(\lambda_*=a c_u/c_r\) is independent of investment split. Comparing its signs at the preceding positive root for two allocations determines strict monotonicity; the critical budget forces exact equality for all splits. Explicit endpoint roots and budget inversion complete the claim. The standalone checker independently verifies determinants and sampled root ordering, including limiting allocations. No stochastic or nonlinear persistence assertion is made.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The main nearby prior results are the metapopulation-capacity eigenvalue concept of Hanski–Ovaskainen (2000), Artzy-Randrup–Stone's cycle-persistence criterion (2010), the weighted-walk characteristic identities of Moon–Shuai–van den Driessche (2014), Nesterov–Protasov's structured spectral-radius optimization theory (2013), and Bertuzzo–Rodriguez-Iturbe–Rinaldo's fluvial capacity model (2015). The inspected accessible primary texts give those frameworks but did not state or directly imply the exact crossover, universal critical indifference, or target-budget split under the paired-link linear cost. Some broader inaccessible or unsearched spectral-design theorem could dominate it; independent literature priority has not been certified.
+PASS
 
-## Mathematical value — PASS
-The smallest network containing both a single three-step closure and two distinct local two-step feedback circuits displays an exact reversal of optimal interventions, with a full, non-asymptotic parameter classification and a continuum of ties precisely at one price threshold. This answers a natural intervention-design choice and supplies an exact budget needed to reach an imposed linear-growth threshold. The scope is intentionally finite but the result holds for every admissible positive real parameter, not a numerical slice or routine table recomputation.
+The assigned matrix M=[[0,u,v],[a,0,u],[0,a,0]] is nonnegative and irreducible even at both feasible endpoints for a,B,c_u,c_r>0. I independently expanded det(tI-M)=t^3-2aut-a^2v. On the budget 2c_u u+c_r v=B, the polynomial at t_*=a c_u/c_r equals a^2(B_*-B)/c_r, B_*=a c_u^3/c_r^2, independent of the split. The unique positive Perron root is respectively below/above t_* on each side of the threshold. Comparing polynomial signs at another split proves strict reversal of monotonicity and the all-splits tie at B=B_*. Endpoints yield radii (a^2B/c_r)^(1/3) and sqrt(aB/c_u); inverting the maximum gives min(c_r r^3/a^2,c_u r^2/a) for the threshold budget. Actual frozen RESULT.md and verify_corridor.py were separately inspected; independent symbolic determinant and anchor identities pass. Regression roots are corroboration, not a proof over all real parameters.
 
-## Limitations and evidentiary risk
-The coefficients are per-capita recruitment strengths rather than normalized migration probabilities. The strict conclusion concerns the three-patch linearized operator only. The two reciprocal return links must be purchased in equal strength, and the forward strengths and costs must remain fixed. The literature priority assessment is best-knowledge rather than a universal proof of novelty. The first published Nature source was accessible in abstract/preview only; several other highly relevant full texts were inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of statements rather than titles: close primary results supply tools, partial parameter regimes or weaker scalar/qualitative conclusions but do not directly cover this particular exact claim. Inaccessible plausible broader results are named and retained as specific historical-priority risks, not treated as automatic failure.
+
+## value
+
+PASS
+
+The smallest directed recruitment motif offering a long return circuit versus two local reciprocal feedback loops presents a motivated economic design question: which link restoration maximizes linearized spectral growth for a fixed cost? The exact all-positive-parameter reversal, unique endpoints away from the crossover, a continuum of critical ties, and sharp minimum target-growth budget are a complete useful structural classification; not an arbitrary numerical example. No stochastic persistence or general-network result is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
