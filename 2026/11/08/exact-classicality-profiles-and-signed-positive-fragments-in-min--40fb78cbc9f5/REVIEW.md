@@ -1,0 +1,26 @@
+# Self-review: exact classicality profiles and signed positive fragments
+
+## Correctness — PASS
+
+The claim is a single structural classification of finite-depth signed classicality trajectories and their positive consequence algebras for the **minimal** \(LET_F^-\) semantics. The semantic clause for \(\circ A\) gives necessity of \(t_{i+1}=1\Rightarrow t_i\ne f_i\). Structural recursion assigning simultaneously the positive and negative truth bits extends every locally permitted finite trajectory to all formulas, because the negative value of a \(\circ\)-formula is unrestricted. Every step of the count contributes three compatible choices for the next classicality bit and the current negative bit, resulting in \(4\cdot3^{k-1}\). Every positive trajectory is possible by choosing the complementary negative bits. Semantic entailment for positive formulas is therefore pointwise inclusion of truth sets on the exact realizable profile space. The full signed-positive fragment is the upset lattice of the punctured admissible profile poset for \(k\ge2\), with the empty upset realized by \(a_0\wedge\neg a_0\wedge a_1\). The unsigned fragment is the free unbounded distributive lattice with \(D(k)-2\) classes. For \(k=1\), signed-positive terms omit the empty upset, giving four classes. No quantifier-range extrapolation from the checker is used: the proof establishes the universal \(k\)-claims.
+
+The standalone finite checker exhaustively counts all signed bit profiles through \(k=7\), computes the 83 and 70,806 signed-fragment classes via finite antichain recursion, independently cross-checks the 83 count by all monotone four-variable Boolean functions, and checks Dedekind numbers through five variables. The program was run from the package material and passed. The exact signed count for \(k=3\) was independently cross-checked using a second poset recurrence during review.
+
+## Originality — PASS within inspected sources
+
+The 2026 primary source establishes sequent calculus and the nondeterministic \(LET_F^-\) clauses; it does not state the finite-depth signed-trajectory classification or an upset-lattice model with the exact small class counts. The 2022 Coniglio--Rodrigues paper discusses a known obstruction to deterministic finite matrices and the **stronger** propagation logic \(LET_F^+\). Its nonexistence observation is expressly excluded from the novelty claim, and its six-valued deterministic semantics does not subsume the present unrestricted minimal-logic signed profiles. The 2024 Carnielli--Frade--Rodrigues abstract describes analytic tableaux, not these exact signed profiles; only the abstract was inspected and priority risk is retained. The Dedekind count for free distributive lattices is classical and is used here rather than presented as new. Two targeted literature searches and three meaning searches of mathematical result records produced no equivalent identified result, but failed searches are not a proof of novelty. Strong general results about nondeterministic matrix semantics may still implicitly imply this special profile classification, requiring specialist priority review.
+
+## Mathematical value — PASS
+
+The signed classicality ladder is a natural diagnostic of **what classicality assertions can coexist with positive and negative evidence at successive syntactic depths**, directly motivated by the primary source's minimal semantics. The local-to-global extension theorem certifies that no hidden global constraint eliminates a finite signed trajectory. The entire signed-positive consequence quotient becomes an explicit, naturally defined finite distributive lattice rather than merely a lower bound on formula inequivalence; the exact 83/70,806 class counts quantify growth for the first nontrivial depths. This provides a reusable finite decision and enumeration model for positive combinations of nested reliability assertions. The unsigned free-lattice count follows structurally, not from arbitrary parameter slicing. The result is not presented as a general proof-theoretic completeness theorem or a claim about the stronger propagation logic.
+
+## Closest literature, limits and risk
+
+- Grandinetti and Rodrigues, *A Kleene-inspired sequent system for a minimal logic of evidence and truth*, arXiv:2610.24203v1, first public 2026-10-16. Exact semantic setting; inspected introduction, Definition 3.2, Theorem 3.3 and surrounding discussion.
+- Coniglio and Rodrigues, *On six-valued logics of evidence and truth expanding Belnap-Dunn four-valued logic*, arXiv:2209.12337v1. Inspected full accessible source, especially Introduction and semantic sections. Known deterministic-matrix obstruction and distinct stronger logic.
+- Carnielli, Frade and Rodrigues, *Analytic proofs for logics of evidence and truth*, arXiv:2412.10588. Abstract inspected only; full-text comparison outstanding.
+- Classical Dedekind monotone Boolean function count; not original here.
+
+Remaining risks: hidden equivalences in specialized LET literature; abstract-only access to one related work; ordinary independent verification of proof and exact enumeration has not occurred. No arbitrary-formula or propagation-logic classification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
