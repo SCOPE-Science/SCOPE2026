@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "A family of n odd five-cycles gives the exact frustrated-bond lower bound ceil(n/2). The explicit 8-state transfer gives trace(T(x)^n) exactly, and its scaled determinant has D0=1-3t^4+t^8 and D1=-2(t^3+t^5). Formal log determinant converts the first normalized coefficient into 2n times a Fibonacci number. The coefficient is strictly positive for all odd n>=5, proving attainment and completeness. A symbolic matrix reconstruction and 28 exact transfer computations plus three exhaustive spin enumerations corroborate the algebra; experiments alone are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jacobsen and Salas, arXiv:1303.5210, eqs. (3.3) and (5.8): Q=2 Potts/Ising partition functions for graphs G(nk,k); for k=2 their first index is even.",
+        "Kuhl (2008), Theorem 4: Tutte-polynomial uniqueness of P(m,2), not a uniform formula for the ground-state polynomial.",
+        "The proved theorem is restricted to odd first index, where the inner rim is a single cycle."
+      ],
+      "reasoning": "The most relevant broad Potts calculation applies to a distinct, even-index subfamily at k=2. Tutte uniqueness is a distinguishability assertion, not an explicit low-energy coefficient evaluation. Neither stronger-sounding general result subsumes the odd-index formula as a stated or direct parameter specialization.",
+      "searches": [
+        "Web full text: Jacobsen-Salas arXiv:1303.5210, sections 3 and 5.3, Q=2 generalized Petersen G(nk,k)",
+        "Web full text: Kuhl (2008) The Tutte polynomial and the generalized Petersen graph, Theorem 4",
+        "Published mathematical-record query: antiferromagnetic Ising generalized Petersen graph GP(n,2) zero-field ground state counts Fibonacci Lucas recurrence"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1502.04449",
+      "https://arxiv.org/html/1303.5210v2",
+      "https://www.researchgate.net/publication/267081866_The_Tutte_polynomial_and_the_generalized_Petersen_graph",
+      "https://arxiv.org/html/1905.05548v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Strečka et al. study Platonic solids only; GP(10,2) is a single even-index example.",
+        "Jacobsen–Salas use G(nk,k), k=2 implying even first index; the odd family is absent from their parameter domain.",
+        "Kuhl Theorem 4 concerns T-uniqueness, not a formula for T itself or its Ising low-temperature coefficient.",
+        "arXiv:1905.05548 maximizes over possible signed-edge configurations, not the all-negative signature and not the number of optimizers."
+      ],
+      "reasoning": "No inspected statement entails the odd-index two-branch Fibonacci formula by mere substitution, corollary, duality, or parameter inequality. The general coefficient-extraction method is familiar; the exact evaluated odd-index law and attainment bound are the specific claim.",
+      "searches": [
+        "Web full text: arXiv:1502.04449 sections 2-3, including dodecahedral n=10 count 250",
+        "Web full text: arXiv:1303.5210 section 3 definition G(nk,k) and section 5.3 Ising Q=2",
+        "Web full text: Kuhl (2008) Theorems 1-4 and applications to P(m,2)",
+        "Web full text: arXiv:1905.05548 definitions, frustration index and maximum-signature results",
+        "Published mathematical-record query: \"generalized Petersen\" \"odd\" \"Ising\" \"ground states\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact equivalence: maximum cut size equals 3n - minimum frustrated-edge count, and cut multiplicity modulo spin reversal equals half the spin configuration count.",
+        "Kuhl (2008), full text, discusses Tutte polynomial uniqueness of P(m,2), not specific maximum-cut counting sequences.",
+        "Published mathematical-record searches returned no direct odd-index graph Ising ground-state counting statement among relevant hits."
+      ],
+      "reasoning": "Searched the equivalent maximum-cut, frustration index, partition-function low-temperature coefficient, and Fibonacci-count formulations. A general transfer or Tutte framework can in principle compute the invariant, but without an evaluated odd-family law does not state or imply the exact closed form by itself.",
+      "searches": [
+        "Published mathematical-record query: \"GP(n,2)\" odd n antiferromagnetic Ising frustration ground-state degeneracy count Fibonacci",
+        "Published mathematical-record query: \"P(n,2)\" \"maximum cut\" \"Fibonacci\"",
+        "Web search: \"GP(n,2)\" \"max-cut\" odd graph",
+        "Web search: generalized Petersen maximum cut odd n Ising Fibonacci"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Strečka et al., arXiv:1502.04449, report 250 states for dodecahedral GP(10,2), outside the stated odd domain.",
+        "The searched primary articles did not provide a table or recurrence of odd GP(n,2) maximum-cut multiplicities.",
+        "An unindexed graph-polynomial table may still exist."
+      ],
+      "reasoning": "Compared tabulated ground-state degeneracies, maximum cuts and Tutte polynomial evaluations where available. The n=10 dodecahedral table is credited and does not determine all odd n. This is best-knowledge coverage, not a proof against uncatalogued tables.",
+      "searches": [
+        "Web search: \"Petersen graphs\" \"Ising\" \"degeneracy\"",
+        "Web search: \"P(n,2)\" \"maximum cut\" \"Fibonacci\"",
+        "Published mathematical-record query: \"Petersen\" \"Lucas\" \"ground states\" Ising generalized",
+        "Web full text: Strečka–Karľová–Madaras arXiv:1502.04449, dodecahedron tables and discussion"
+      ]
+    },
+    "rationale": "The exact odd-index two-residue Fibonacci degeneracies are not supplied or logically implied by the closest inspected published claims: a single even-index dodecahedral graph, an even-index full Potts transfer family, Tutte uniqueness without evaluated coefficients, and extremal frustration across signings. Relevant even-index classifications do not cover odd-index graphs. Overlap searches are not a uniqueness proof; an unindexed equivalent finite-state coefficient evaluation remains a risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible maximum-cut/Tutte low-temperature coefficient enumeration for odd generalized Petersen graphs might be equivalent.",
+      "General finite-state transfer methods yield all finite spin partition functions algorithmically; the specific closed Fibonacci coefficient evaluation is asserted as the novel content, not the transfer method.",
+      "No independent specialist priority assessment is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Reports GP(10,2) 250 states but no theorem for odd GP(n,2).",
+        "evidence": [
+          "Zero-field dodecahedron entropy term log(250)/20; section 3 discusses single dodecahedral graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1502.04449",
+        "material_read": "Full arXiv HTML text, including model definition, regular-polyhedron partition functions, Section 3 dodecahedron and Table 5 discussion.",
+        "method": "Read arXiv full-text HTML and author arXiv submission record (v1, 2015-02-16).",
+        "title": "Giant magnetocaloric effect, magnetization plateaux and jumps of the regular Ising polyhedra",
+        "trigger": "Focal 2015 work provides precise zero-field dodecahedral degeneracy and physical motivation."
+      },
+      {
+        "assessment": "Full Ising/Potts transfer for even-index G(2n,2) is acknowledged; its family does not cover odd GP(n,2).",
+        "evidence": [
+          "Equation (3.3) parameterizes G(nk,k); in Section 5.3, Q=2 spin transfer has 2^(k+1) contributing eigenvalues."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1303.5210v2",
+        "material_read": "Full HTML research article, especially Section 3 transfer graph definition, eqs. (3.3)-(3.9), and Section 5.3 Q=2 Ising reduction.",
+        "method": "Read arXiv HTML detailed formulas and inspect domain G(nk,k).",
+        "title": "A generalized Beraha conjecture for non-planar graphs",
+        "trigger": "Same generalized Petersen graphs and possible stronger all-temperature Ising/Potts partition function."
+      },
+      {
+        "assessment": "Proves that P(m,2) is determined by its Tutte polynomial, without evaluating the polynomial or a ground-state Fibonacci coefficient.",
+        "evidence": [
+          "Theorem 4: P(m,2) is T-unique for m>=13; introduction frames a graph identification problem."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/267081866_The_Tutte_polynomial_and_the_generalized_Petersen_graph",
+        "material_read": "Complete article text hosted by author, the definitions and proof of T-uniqueness, including Theorem 4.",
+        "method": "Read searchable author-hosted full text, not title/abstract only.",
+        "title": "The Tutte polynomial and the generalized Petersen graph",
+        "trigger": "Potential all-index graph-polynomial theorem dominating the Ising low-temperature coefficient."
+      },
+      {
+        "assessment": "Optimizes frustration over signatures; does not count Ising ground states for the all-negative signature.",
+        "evidence": [
+          "Definition 2: D(G)=max over negative-edge sets of frustration index; theorem concerns an additional outer maximization."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1905.05548v1",
+        "material_read": "Full HTML research text, including Section 2 definitions and Section 3 bounds for gcd(n,k)=1.",
+        "method": "Read arXiv HTML to compare optimization quantifiers and signatures.",
+        "title": "Maximum Frustration in Signed Generalized Petersen Graphs",
+        "trigger": "Potential coverage through equivalent frustration-index or maximum-cut language."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e01720ab-50ad-42c7-bd7e-dc7a7cf5f485",
+  "value": {
+    "rationale": "Odd n produces an inner rim that is one cycle rather than the two inner rim cycles of even n. This is a physically meaningful topological sector of an infinite family of uniformly frustrated cubic spin graphs. Its exact ground-state multiplicity is not a routine isolated graph count: it has distinct n modulo 4 Fibonacci laws, a sharp max-cut energy, and a positive thermodynamic residual entropy density. The natural question is the all-n zero-field ground-state classification, not arbitrary slices or parameter substitutions.",
+    "status": "PASS"
+  }
+}
