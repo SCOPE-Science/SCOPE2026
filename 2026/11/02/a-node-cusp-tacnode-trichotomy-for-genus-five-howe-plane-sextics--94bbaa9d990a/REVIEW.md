@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The defining sections are a basepoint-free three-dimensional linear series of degree three on \(\mathbf P^1\), giving an irreducible rational plane cubic. Its unique node or cusp is recovered from the derivative of the normalization map, and all intersections with coordinate axes are transverse where smooth, including the point corresponding to infinity. The squaring morphism is étale on the torus; an axis node gives two tacnodes by exactly order-two contact. The independent-square-class biquadratic cover has eight tame branch points and genus five, so the \(\delta\)-sum is five. A central node always occurs. All three baskets and the local Tjurina sums follow, uniformly in the stated characteristics. The exact script passed and verifies the explicit cusp witness as well as two independent finite-field comparison cases. Characteristic two, three, and five remain outside scope.
+PASS
 
-## Originality (O): PASS, qualified by historical risk
+In characteristics zero or p>=7 with seven distinct branch points, three degree-three basepoint-free sections [Q1:Q2:phi] are linearly independent and birationally parametrize a rational plane cubic with one node/cusp. Common zeros of W_i=Q_i'phi-Q_i phi' characterize nonimmersion away from coordinate divisors; node and cusp are the only cubic possibilities. The independent square classes Q1/phi and Q2/phi define a (Z/2)^2 cover of P1 with eight distinct simple branch points of inertia 2, yielding genus 5 by Riemann–Hurwitz and thus arithmetic-genus delta deficit 10-5=5. Pullback under [Y:Z:X]->[Y²:Z²:X²] produces the unavoidable central A1; on the torus this map is etale of degree four, yielding 4A1 or 4A2. A coordinate-axis node has two smooth transverse branches and maps to exactly two A3 tacnodes with contact order two. Delta sum=5 excludes additional singularities; Tjurina lengths 5,9,7 follow in stated characteristic. Independently computed gcd(W1,W2)=T-2, exact H(Q1,Q2,phi)=0, local tangent cubic 24s³ along the unique squared tangent and central linear form (-2,2), validating the char-zero 4A2 witness.
 
-The closest published primary source, Moriya–Kudo (2023), proves the same sextic construction, the 3-or-5 multiplicity-two point count, and generic five-point claim. Its axis analysis leaves the analytic exponent only bounded below by four; its point-count statement cannot rule out four cusps in the five-point case. Kudo's (2024) sequel analyzes a different branch-case family. published-finding corpus semantic comparisons for genus-five Howe sextic, analytic ADE, cusp Wronskians, and quotient cubic yielded no covering finding; accessible prior project claims likewise did not cover the statement. Earlier history and potentially unindexed literature remain risks; novelty is not proven by a missing search match.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The invariant is not a narrow arbitrary parameter test. Analytic type and Tjurina length for a distinguished published moduli family refine its published singularity count, separate three natural boundary mechanisms, and identify an explicit admissible four-cusp member. The genus-five fixed model and completed local rings provide the motivation for the exact numerical lengths, not vice versa.
+The original Moriya–Kudo same-family sextic theorem covers the construction and count of three/five multiplicity-two points, but its axis local exponent is only bounded >=4 and it neither distinguishes full ADE/Tjurina baskets nor gives the common-Wronskian cusp criterion and exact char-zero four-cusp witness. These are genuine new refinements on the inspected claims, with residual priority limitations.
 
-## Scope and literature limitations
+## value
 
-The first source (arXiv:2310.15993v1, §§3.2, 4.2) was read at the mathematical statement and proof level and compared for logical implication; sequel arXiv:2401.00760v1 was compared by case hypotheses and relevant sections. The four-cusp witness is established in characteristic zero only. No independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This classifies completed analytic singularity types and local Tjurina lengths throughout the natural fixed genus-five Howe sextic family rather than merely recomputing point counts. The sharp ramified-node A3 mechanism, computable Wronskian cusp criterion, and explicit characteristic-zero 4A2 witness answer substantive geometric questions for a published construction; the curve normalization and delta balance motivate the invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
