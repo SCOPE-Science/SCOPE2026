@@ -1,0 +1,15 @@
+# Scientific assessment: two random successor orders at rank three
+
+## Correctness
+**PASS.** The theorem fixes both the signature and the precise quantifier-rank cutoff. The joint Poisson convergence follows from mixed factorial moments of compatible directed adjacent-pair choices in a uniform permutation. The rank-three upper bound is proved using the recursively defined unary two-variable type profiles and a probabilistically justified isolated-defect condition. The lower bound uses explicit rank-three sentences to distinguish zero, one and at least two aligned or reversed shared arcs. Four, four and one equal-mass groups yield the exact fifty-member spectrum, and the lower-rank twelve-member spectrum is checked similarly. Finite enumerations in `checker.py` independently verify moment identities through size seven, sampled clean-neighborhood rank-two profiles, and the polynomial distinctness count, but are not used as an infinite proof.
+
+## Originality
+**PASS relative to inspected evidence, not an independent priority certification.** Jeż–Michaliszyn–Witkowski, arXiv:2610.19943, proves finite satisfiability and small-model bounds for arbitrary many successor predicates; it does not formulate a uniform-random-order limit law in its inspected main results and preliminaries. Michaliszyn–Witkowski, arXiv:2610.09758, gives satisfiability certificates and bounded-disagreement finite results, not the present limiting probability spectrum. Diaconis–Evans–Graham (2013) gives the exact one-dimensional aligned-successions law and its Poisson asymptotic, acknowledged rather than reproved as a novel marginal result; the inspected article does not give the joint reversed/aligned logical rank-three spectrum. The Figueira 2012 two-successor satisfiability article was accessible only by its abstract here, so its full contents are a residual historical-priority risk. The direct equivalence, stronger-coverage and exact-table searches recorded in the structured assessment did not reveal a covering published result.
+
+## Mathematical value
+**PASS.** The two-successor formalism is motivated by the difference between paths as hidden orders and paths as observable adjacency predicates. The result completely classifies the quantifier-rank-three limiting probabilities for that natural uniform model and pinpoints a strict expressive transition: twelve values at rank two versus fifty at rank three. It identifies the only two asymptotically surviving rare local obstructions and their optimal logical readout, rather than merely estimating a single chosen probability. No claim is made about unrestricted first-order logic, and the construction uses no arbitrary slice of a parameter range.
+
+## Limits and risks
+The asymptotic separation lemma applies to each fixed rank-three formula and does not yield an explicit uniform finite-size bound. The full contents of every older possible general limit-law theorem have not been exhaustively surveyed. An independently checked novelty and correctness review remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
