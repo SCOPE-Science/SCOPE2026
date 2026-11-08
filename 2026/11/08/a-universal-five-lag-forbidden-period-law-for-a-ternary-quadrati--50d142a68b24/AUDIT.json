@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "For any fixed state, invertibility gives a 5k-periodic two-sided sequence. Summing five F3 differences forces each column to have 0 or 3 nonzero entries. A zero column propagates to the all-zero word. For a nonzero column, an exhaustive two-zero cyclic-step analysis proves source zeros must be separated and successor zeros adjacent, an impossibility on a cycle; cyclic wrap rotations preserve adjacency. Every boundary k>=2 and the zero state are covered; a separate exact-integer program enumerates all 10 masks and all states for k=2..10.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Finch Theorem 8 counts only Fix(T_k^{4k}); Section 5 summarizes that as the rule-B result.",
+        "An earlier exact primitive census for Fix(T_k^{4d}) with d|k controls divisors of 4k, not Fix(T_k^{5k})."
+      ],
+      "reasoning": "No implication from the 4k fixed-point count to the 5k count follows: exponent divisibility goes neither way. Potential arbitrary-period theorems were sought by map aliases but not identified.",
+      "searches": [
+        "Five-times-lag periodic orbits of quadratic recurrence over F3 and forbidden 5k period two zero columns",
+        "periodic points x_n=x_{n-k}+x_{n-1}^2 over finite field three fixed 5k"
+      ]
+    },
+    "checked_sources": [
+      "Finch, arXiv:2610.34300v1, Sections 1, 3 and 5, primary full HTML text.",
+      "Previously recorded fixed-point census for 4d with d dividing k, checked by mathematical implication only.",
+      "Targeted literature and semantic-record searches for 5k, fixed points, lag quadratic recurrence and zero masks.",
+      "Cassaigne–Finch, Experimental Mathematics 4 (1995): publisher abstract and incomplete open-access PDF examination, inconclusive on exact recurrence."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 7 proves bijectivity and the unique period-one state; Theorem 8 counts 4k-fixed points.",
+        "The 5k bound removes nonzero cycles of lengths dividing 5k, including those not constrained by a 4k census."
+      ],
+      "reasoning": "The implication direction is not a special-case corollary: Fix(T^5k) cannot be inferred from Fix(T^4k) plus uniqueness of Fix(T). The proof requires a new five-row mask lemma.",
+      "searches": [
+        "arxiv:2610.34300v1 Proposition 7, Theorem 8, Section 5",
+        "Ternary quadratic lag recurrence x_n = x_{n-k} + x_{n-1}^2 mod 3 has no nonzero solutions of period 5k for all k; fixed points of T_k^(5k) only zero"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.34300v1 Section 3 identifies the same map and its binary nonzero-mask formulation; its Theorem 8 is 4k, not 5k.",
+        "The 5k-period word formulation is exactly equivalent to a state fixed by the 5k-th iterate because T_k is bijective."
+      ],
+      "reasoning": "Checked both permutation-fixed-point and cyclic-sequence descriptions. The primary exact period result concerns 4k; no equivalent 5k law was located among returned matches.",
+      "searches": [
+        "Ternary quadratic lag recurrence x_n = x_{n-k} + x_{n-1}^2 mod 3 has no nonzero solutions of period 5k for all k; fixed points of T_k^(5k) only zero",
+        "\"x_{n-k}\" \"x_{n-1}^2\" \"5k\" modulo 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Finch provides a numerical table of a special initial state and a formula for 4k-fixed states, but no 5k fixed-point table or all-k criterion.",
+        "Exact direct enumeration for k=2,...,10 returns one fixed state each; these are verification data, not independent originality evidence."
+      ],
+      "reasoning": "A special-orbit period table does not enumerate all 3^k states fixed by a specified iterate. The searched published table did not already contain the 5k law.",
+      "searches": [
+        "Three Quadratic Recurrences Modulo 3 Steven Finch 2026 five k period fixed points, five-row cyclic arrays",
+        "\"Three Quadratic Recurrences Modulo 3\" \"period\" \"5\""
+      ]
+    },
+    "rationale": "The primary 2026 paper proves a 4k fixed-point census for the identical permutation, whereas the present exact fixed-point count at 5k arises from a structurally different five-row zero-pattern obstruction. The previously recorded 4d-period formulas for divisors d of k do not imply this 5k exclusion. Three targeted semantic-record searches and multiple literature wording/alias searches located no stronger covering result. Residual historical risk remains; search failure is not proof of uniqueness.",
+    "residual_risks": [
+      "An unlocated prior symbolic-dynamics argument might contain an implicit equivalent forbidden-period result.",
+      "Semantic search rankings and primary-paper inspection cannot certify unique priority or exhaust every past source.",
+      "The 1995 Cassaigne–Finch paper is only partially readable in accessible copies and could contain historical antecedents; primary comparison is unresolved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the exact universal 5k fixed-point exclusion",
+        "evidence": "Proposition 7 is bijectivity; Theorem 8 and its proof are specific to 4k and a 4-row array. Section 5 gives no 5k classification.",
+        "identifier_or_url": "arxiv:2610.34300v1 | https://arxiv.org/html/2610.34300v1",
+        "material_read": "Full accessible HTML paper, notably Section 1 lines 35-68, Section 3 lines 136-174, Section 5 lines 208-213, references, and its addenda",
+        "method": "Read theorem statements, proof, period table and summary in primary full-text HTML",
+        "title": "Three Quadratic Recurrences Modulo 3: What We Can Prove and What We Can Guess",
+        "trigger": "The identical quadratic permutation and the closest fixed-point theorem"
+      },
+      {
+        "assessment": "Material insufficient to decide whether an implicit 5k-period statement occurs; unresolved historical priority risk, not asserted as NOT_COVERING",
+        "evidence": "The abstract concerns regularity of 1-additive sequences and a ternary recurrence; it does not identify the exact present state map or an all-memory 5k fixed-point count.",
+        "identifier_or_url": "Cassaigne and Finch, Experimental Mathematics 4 (1995), 49-60; doi:10.1080/10586458.1995.10504307",
+        "material_read": "Publisher abstract and first portions of an open-access PDF in which the extracted mathematical text was garbled; no reliable complete Section 3 comparison",
+        "method": "Viewed publisher abstract, attempted open-access PDF text and PDF viewer screenshot",
+        "title": "A Class of 1-Additive Sequences and Quadratic Recurrences",
+        "trigger": "Potential historical antecedent: its abstract mentions the periodicity of a ternary quadratic recurrence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "50d142a6-8b24-41d3-8b82-1d654415bcba",
+  "value": {
+    "rationale": "Finch identified a natural permutation with exponentially many 4k-periodic states but no general control of other period multipliers. This exact all-k theorem gives a sharp arithmetic period-spectrum exclusion at the first larger multiplier 5, separating permitted 4k behavior from impossible 5k behavior. The two-zero mask lemma is a reusable structural obstruction and the invariant is the complete fixed-state count, not an arbitrary test instance. It is a natural infinite classification independent of numerical experiment.",
+    "status": "PASS"
+  }
+}
