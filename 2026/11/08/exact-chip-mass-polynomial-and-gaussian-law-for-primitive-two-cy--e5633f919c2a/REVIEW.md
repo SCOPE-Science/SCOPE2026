@@ -1,0 +1,15 @@
+# Scientific self-review: Exact chip-mass polynomial and Gaussian law for primitive two-cycles on finite rings
+
+## Correctness — PASS
+The complete proof starts with two-round Laplacian conservation, so a nonfixed two-step trajectory has exactly one firing per vertex per two updates. The local inequalities restrict initial state values to 0–3 and are necessary and sufficient. Equal-phase bonds form a cyclic matching with the required parity, yielding a unique two-word pairing and exact chip-mass weights. The resulting polynomial and cyclic-transfer identity imply all numerical statements; eigenvalue domination and a second cumulant derivative of 1/(4√2) prove the conditional central limit theorem. Exhaustive direct dynamics for 349,504 states over n=3..9 and an independently structured coefficient implementation through n=150 passed. No finite run is substituted for the all-n proof.
+
+## Originality — PASS (qualified)
+The closest primary source is Dall'Asta (2006), arXiv:cond-mat/0601267: it *already establishes* the one-dimensional period-two building blocks and bulk interval, and has a separate critical-energy enumeration. What is not identified in that inspected paper is the per-mass finite-cycle generating polynomial, its Pell–Lucas total, parity-sensitive integer endpoints and conditional Gaussian law. Jiang (2010), arXiv:1003.0943, treats general period questions, notably complete bipartite graphs; Jiang–Scully–Zhang (2012), arXiv:1211.6786, constrains temporal firing patterns rather than providing this weighted cyclic census. The claim is an enumerative refinement and not a rediscovery of known block dynamics. Semantic searches for aliases (one-dimensional deterministic fixed-energy sandpile, cyclic period-two chip-firing, mass polynomial, matching transfer and Pell count) returned no direct equivalent. Originality remains qualified because a block-language derivation is possible and an unindexed older count may exist.
+
+## Mathematical value — PASS
+The conserved chip mass is the natural parameter of this model. This complete mass distribution gives exact finite-volume orbit populations throughout its established period-two regime; it distinguishes odd- and even-ring endpoint behavior and identifies typical conditional fluctuations from a genuine analytic transfer asymptotic. These data can test sandpile mixing/basin hypotheses without conflating initially recurrent configurations with basins. It is not a tiny isolated value or an arbitrary parametrization.
+
+## Closest literature and limits
+Dall'Asta 2006 is dominant structural prior art. The all-mass enumeration and Gaussian limit are the narrow new claim. The result concerns labelled nonnegative chip states on simple cycles of length at least three, only primitive-two recurrent states. The Gaussian convergence does not quantify attraction basins, and the direct checker only enumerates the rigorously sufficient 0–3 cube. Unindexed literature is a residual originality risk. No external independent review has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
