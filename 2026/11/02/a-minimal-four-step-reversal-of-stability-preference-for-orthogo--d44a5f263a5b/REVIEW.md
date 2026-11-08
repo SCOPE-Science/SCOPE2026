@@ -1,15 +1,21 @@
-# Scientific comparison: minimal periodic nonnormal-shear ordering
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim is a complete necessary-and-sufficient stability classification of the two cyclic classes of length-four balanced words, not a statement about generic switches. The proof multiplies each product, fixes its common determinant \(q^4\), applies the strict degree-two Schur inequalities and proves the crossover's uniqueness through \(q+q^{-1}\). Equality signs are excluded from exponential stability. Exact rational examples and a standalone no-dependency checker independently exercise the finite identities, while the universal conclusion rests on the analytic argument.
+## correctness
 
-## Originality
-PASS under inspected primary evidence, with historical priority still provisional. Sornette–Saiprasad–Troude (arXiv:2609.18017v1), whose entire 26-page text including supplement was inspected, already establish order-driven growth and alternating reciprocal shears in nonlinear dynamics. The related arXiv:2603.08191 has a two-step spectral amplification criterion. Sturman–Thiffeault (DOI 10.1007/s00332-018-9497-3) rigorously bound random positive/negative shear-product Lyapunov exponents. None of the inspected statements gives an exact, two-parameter, *deterministic four-step balanced word* stability classification and its unique order-preference reversal. Generic principles and the classical Schur test remain credited prior art. Relevant indexed research comparisons and the remaining unindexed-literature risk are recorded in AUDIT.json.
+PASS
 
-## Mathematical value
-PASS. Four factors are the **shortest possible** length where two fixed invertible matrices with the same letter counts can be reordered into non-cyclic classes. The unique damping threshold where the preferred order reverses is thus a minimal and sharp boundary, while the two Floquet exit multipliers have opposite signs. The result quantifies a real mechanism in nonnormal temporal composition even when all one-step eigenvalues and singular-value distributions agree.
+PASS: The two invertible damped triangular shears have orthogonally similar one-step matrices. Four-letter two-of-each words have only grouped UULL and alternating ULUL cyclic classes. Exact traces 2q²−4qx and 2q²−4qx+x², determinant q^4, imply by the quadratic Schur criterion sharp thresholds (1+q²)^2/(4q) versus (1+q)^2. The difference reduces to q²[(q+q^-1)²−4(q+q^-1)−8] and crosses once at q*=1+sqrt(3)−sqrt(3+2sqrt3). At the boundaries signs of unit multipliers differ; words of <=3 with the same multiplicities are cyclic conjugates. Independently multiplied symbolic matrices and evaluated both exact rational reversal witnesses; no numerical-experiment extrapolation.
 
-## Limits of review
-The classification applies only to planar linear two-shear words of period four with two occurrences of each matrix, \(0<a<1\), and \(k\ge0\). It is not a theorem about arbitrary switching, nonlinear chaos or global control. Historical novelty cannot be proven from searches, and independent scientific validation has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified: nonnormal order sensitivity, shear Lyapunov effects and switching-induced instability are classical. No inspected primary theorem states exact two-class four-step Schur boundaries, unique damping preference crossover and opposite exit signs for this particular pair. Highly relevant 2026 later paper not fully accessible, remains priority risk.
+
+## value
+
+PASS
+
+PASS: Four is provably the smallest schedule length for a genuine rearrangement of identical invertible factors with equal letter counts. The two explicitly identical local singular/eigenvalue data admit opposite stability preferences depending on one sharp damping crossover, providing a meaningful minimal counterexample and exact Floquet boundary rather than generic order sensitivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
