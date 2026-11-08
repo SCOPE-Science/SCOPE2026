@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-A fully executable independent-of-external-data reconstruction checks each of the \(262144\) edge subsets by two distinct incidence methods. Its exact deterministic Morse matching has \(34533\) pairs, seven critical eight-cells and two critical nine-cells (plus a basepoint); all \(485088\) Hasse incidences pass complete acyclicity. The integral cellular Morse boundary has columns with a determinant \(-1\) two-by-two minor, so both attachments are primitive. There are exactly five surviving eight-spheres up to ordinary homotopy. Separate mod-two boundary reduction and signed simplicial Lefschetz calculations for all 24 tetrahedral permutations corroborate the integral and rational claims. The supplied verifier has been executed against actual files; neither a field calculation nor an unproved infinite extrapolation is used for the central conclusion.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The closest published computation for the same graph determines its **one**-matching complex and deletion/link profiles, not the **two**-matching complex studied here. Vega's 2-matching results cover different graph families; Singh's higher matching classifications cover forests or complete/complete bipartite graphs. Their accessible full texts and the public same-graph RESULT.md were examined. Searches also covered uniform bounded-degree complexes, 3-uniform vertex-star hypergraph independence, two-matching terminology, exact sphere multiplicities, the graph's alternate name, and the published mathematical record. Neither a stronger classification nor an exact same-cutoff table was located. The remaining priority risk is an unindexed, inaccessible or unpublished equivalent result; failure of a search is not itself proof of originality.
+PASS
 
-## Value — PASS
-The truncated tetrahedron is a canonical cubic Archimedean graph whose matching cutoff filtration has a known and nontrivial first stage and a contractible third stage. Determining the **complete integral homotopy type** at the intermediate second cutoff is a coherent missing case; the nontrivial tetrahedral character reveals additional information not contained in ordinary Betti numbers. The finite classification is independently motivated and self-contained without a claim to a theorem for all cubic graphs.
+The graph is the 12 ordered pairs (i,j), i != j, with triangle and reversal edges; the degree-two bounded-degree complex includes the empty face. Independent exhaustive reconstruction gave 69,075 faces including empty and the exact 12-term f-vector, 34,533 augmented toggle pairs (34,532 nonempty pairs after basepoint transfer), one ordinary critical vertex plus seven 8-cells and two 9-cells. The full nonempty Hasse DAG with 485,070 arrows is acyclic; the independent signed Morse matrix has rows (0,0),(0,1),(0,0),(0,1),(1,0),(-1,0),(0,1), a primitive rank-two image with unit 2x2 minor. Since the 8-skeleton is a wedge of seven S8 and pi8 equals H8, this cancels two attachments, yielding five S8 without torsion. Enumerating all 24 S4 vertex permutations and every invariant face recovers class traces identity 5, transposition -1, double transposition 1, three-cycle 2, four-cycle 1 and 1+sgn+(sgn tensor Std4). No integral S4 lattice or equivariant wedge asserted.
 
-## Scope and limitations
-The degree-two complex's integral wedge splitting is non-equivariant; only its rational eighth-homology action is classified. No computation of filtration inclusion maps, general cubic-graph theorem, or integral group-lattice decomposition is claimed. An external independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Vega establishes general degree-two matching methods and named claw/wheel/leaf cases; Singh studies forests and complete(-bipartite) graph families. The truncated tetrahedron has no leaves, contains triangles and is not complete/bipartite. Resultary 2026 truncated tetrahedron M1 wedge22 S3 is a different cutoff, with no automatic implication of M2 or its S4 action.
+
+## value
+
+PASS
+
+The regular truncated tetrahedron is a natural vertex-transitive Archimedean cubic graph; its degree-two matching complex is the nontrivial bounded-degree stage between the already-calculated ordinary matching stage M1(T) and the degree-three full simplex. The exact eight-dimensional sphere rank and full S4 action answer a natural cutoff-specific homotopy question, not a change of graph labels or an arbitrary filter; torsion-freeness and symmetry require genuine integer attaching and signed trace calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
