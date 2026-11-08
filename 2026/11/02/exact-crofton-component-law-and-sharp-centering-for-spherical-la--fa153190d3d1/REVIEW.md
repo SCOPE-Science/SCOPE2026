@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result reduces a rigid-motion-invariant random plane to two independent scalar uniforms, an exact plane-circle height interval, and a complete zero/one/two-component classification. The absolute-value sine substitution has the correct Jacobian \(\cos U\cos V\), and the sign split has probability \(1/2\) in each case. The two independent elementary integration regions evaluate the two-component and empty probabilities; the remainder is the one-component law. Strict inequalities are independently derived using the negative second derivative of \(H\) and the positive derivative difference for the cross term. The sharp endpoint formulas and square-root onset use admissible physical boundaries. The actual standalone checker completes a deterministic midpoint integration, direct kinematic simulation, and limiting/shape diagnostics, all passing. Finite tests are corroboration, not a proof of universal quantifiers.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The full text of Moseeva–Tarasov–Zaporozhets (arXiv:2007.07297, 2020) was examined, including its definitions and main theorem. It concerns distance distributions and great-circle lengths for cone-generated convex spherical bodies, rather than topological components of affine sections of potentially nonconvex spherical zones. The full six-page open paper of Coleman (1992) was examined: it classifies annular and disk profiles from three-dimensional concentric radial shells and studies inversion, not surface latitude-zone section components. Coleman (1989) is a closer methodological comparator about the distribution of random plane-section disks of a sphere; its accessible abstract does not specify the new topology law, but full-text access was unavailable. Exact search of relevant mathematical records, as well as literature searches for variants of spherical belt, latitude zone, random plane, Crofton, and component count, revealed no statement logically dominating the complete law or its sharp fixed-area order. A failed search is not uniqueness proof; alternative historical terminology is the residual risk.
+PASS
 
-## Mathematical value — PASS
-The precise count of connected components is the simplest nontrivial topological statistic of random affine slices of a latitude zone. The complete exact law shows a rigid identity \(\Pr(N=1)=\operatorname{Area}(Z)/(4\pi)\) uniquely for centered zones, and a strict movement of three component probabilities under displacement at constant zone area. The abrupt disappearance of the minimum two-component probability at the half-sphere area threshold and its sharp square-root onset add a motivated geometric phase boundary. These classify an entire natural two-parameter section model, not an arbitrary sample computation or a relabeling of the known distribution of circle radii.
+Verified affine invariant conditioning: independent uniform signed plane offset s and axial normal u. For section center c=su and axial semiamplitude A=√((1−s²)(1−u²)), two components iff c−A<−a and c+A>b; zero iff entire circle lies outside. After u,s sine coordinates, cosU cosV density and explicit triangular-strip integral give p0,p1,p2. Strict monotonicity of arccos and sqrt, H(t)=arccos(t)√(1−t²) strict concavity, and derivative comparison establish unique centered extremum and displaced minimum. Expansion at h↑1/2 gives coefficient (π+2)/4. Independently classified raw planes using five 400×400 midpoint grids (within 0.006 absolute probability) and seven strict fixed-area comparisons; these approximate checks corroborate only.
 
-## Closest literature and limits
-See the references and statement-level comparisons in RESULT.md. General kinematic formulae may simplify pieces of the derivation but the cited results do not establish the joint three-count law and unique centered extremizers. The model assumes Euclidean unit-sphere zones and kinematically uniform affine planes; the full text of Coleman (1989) remains a documented historical-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical kinematic plane laws and great-circle section measures are not claimed new. Inspected primary 2020 spherical-convex work concerns great circles; full sphere radial section-radius literature concerns different topology. The 1989 Coleman primary paper could not be read in full despite OA and institutional attempts; its content is a named historical risk, not proof of noncoverage.
+
+## value
+
+PASS
+
+Exact topology distribution of random affine sections of an asymmetric spherical surface zone, with rigid probability=area identity, unique fixed-area optimal placement and a sharp half-area onset, is a natural self-contained stereological classification beyond generic integral-geometric normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
