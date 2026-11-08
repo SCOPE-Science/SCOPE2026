@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T11:44:48.100906Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the actual seven-blob source package at its assigned Git tree (the tree returned AUDIT.json, METADATA.json, RESULT.md, REVIEW.md, SLOGAN.txt, VERIFICATION.md, check.py and matched Git blob IDs). The final claim jointly concerns r>0, a separable Hilbert-space self-adjoint H and any positive trace-one initial state. The exact Kummer scalar response f_r(ω,t) is published prior work and is a random-unitary characteristic function, so |f|<=1 and f(0)=1. On S_2 the difference Liouvillian is self-adjoint; dominated spectral convergence f(ω,t)->1_{ω=0} yields the Hilbert-Schmidt projection. Compact Hilbert-Schmidt operators commuting with H have only finite-dimensional H-invariant eigenspaces away from zero singular values, hence the fixed-point projection is sum_E P_E ρ0 P_E. Interpolation with trace-norm contraction gives convergence for 1<p<2; S_2 dominance handles p>=2. The trace of the fixed point is pure-point mass m. If m<1, no trace-norm limit can exist (a trace-norm limit would equal the unique S_2 limit but would have trace one). If m=1, finite-eigenspace compressions and 1-norm contractivity give convergence. In the rank-one finite flat band, exact purity is ∫∫w(E)w(E')|f_r(E-E',t)|² dE dE'; Kummer's algebraic expansion at Bohr scale ω=y/sqrt(log(rt)) gives |f|²->e^{-2y²/r²}, with a uniform Gaussian envelope on the compact difference band. Since w∈L∞⊂L², its autocorrelation is continuous at zero and the approximate identity has mass r sqrt(pi/2), establishing the constant. For every positive null epsilon, select T_n with epsilon(T_n)<2^-n/n; choose two distinct eigenvalues 3n and 3n+δ_n with δ_n>0 small enough that |f(δ_n,T_n)|>=1/2. A pure state with pair weights 2^{-n-1} then has finite moments of all orders, and the 2x2 compression yields trace norm >=2^{-n-1} at T_n, making rate ratio unbounded. This proves nonuniformity but does not claim an individual universal lower rate. Independent numerical checks of exact mpmath hypergeometric values at logarithmic times L=6,12,20 recovered the e^{-2y²} local-frequency limit trend; a separately written 90-point Gauss-Legendre purity integral gave sqrt(L) P=1.19008,1.19077,1.19359 at L=6,11,20, consistent with slow convergence toward sqrt(pi/2)=1.25331, but finite checks are not infinite proof. The special-function uniformity is the nonstandard analytical point and is supported by the inspected Kummer-sector expansion, not merely check.py's PASS log.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "de Mauro, Kulkarni, Majumdar, Quantum resetting with memory (2026), arXiv:2608.02297v1, https://pdfs.assets.alphaxiv.org/2608.02297v1.pdf, Secs. 2--5, Appendices A--C",
+          "Rose, Touchette, Lesanovsky, Garrahan, Spectral properties of simple classical and quantum reset processes (2018), arXiv:1806.01298v2, https://arxiv.org/html/1806.01298v2, Sec. V.1 Eqs. (52)--(69), Sec. V.2 Eq. (74)",
+          "NIST DLMF §13.7, Eq. 13.7.2, https://dlmf.nist.gov/13.7.E2, leading large-argument Kummer M asymptotic"
+        ],
+        "reasoning": "The directly dominating scalar transfer function and fixed-nonzero-frequency law are in de Mauro et al., but that paper's explicit rate for gapped systems uses a positive least nonzero Bohr frequency; its continuum result concerns position spreading and the 1/log(t) phase window rather than 1/sqrt(log(t)) squared-amplitude purity. Rose et al. study memoryless reset to a fixed state, giving exponential generator shifts and different stationary behavior. A general spectral/ergodic theorem could absorb the abstract topology piece; the inspected prior sources do not cover all three specific implications together.",
+        "searches": [
+          "web: quantum resetting memory Schatten trace norm purity logarithmic convergence dephasing hypergeometric",
+          "web: quantum random unitary dephasing almost periodic trace norm convergence if pure point continuous Hamiltonian compact states",
+          "web: strong stable unitary quantum channels weighted ergodic means Hilbert Schmidt projection Schatten p trace class pure point",
+          "Resultary: quantum uniform-history resetting long time Schatten trace class pure point spectral projection logarithmic purity"
+        ]
+      },
+      "checked_sources": [
+        "de Mauro, Kulkarni, Majumdar, Quantum resetting with memory (2026), arXiv:2608.02297v1, https://pdfs.assets.alphaxiv.org/2608.02297v1.pdf",
+        "Rose, Touchette, Lesanovsky, Garrahan, Spectral properties of simple classical and quantum reset processes (2018), arXiv:1806.01298v2, https://arxiv.org/html/1806.01298v2",
+        "NIST DLMF §13.7, Eq. 13.7.2, https://dlmf.nist.gov/13.7.E2",
+        "Resultary semantic searches on uniform-history reset / spectral trace ideals (2026-11-03)",
+        "SCOPE-Science/SCOPE2026 frozen record source and targeted GitHub code searches (2026-11-03)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "de Mauro, Kulkarni, Majumdar, Quantum resetting with memory (2026), arXiv:2608.02297v1, https://pdfs.assets.alphaxiv.org/2608.02297v1.pdf, Eq. (13) exact multiplier, Eq. (14) its fixed-frequency asymptotic, Eq. (21) finite-gap decay, Eq. (22) discrete stationary density; Appendix C (C.7)--(C.15) ballistic effective logarithmic time in position",
+          "Rose, Touchette, Lesanovsky, Garrahan, Spectral properties of simple classical and quantum reset processes (2018), arXiv:1806.01298v2, https://arxiv.org/html/1806.01298v2, Markov fixed-state reset shifts nonzero generator eigenvalues, unlike history-dependent f_r",
+          "NIST DLMF §13.7, Eq. 13.7.2, https://dlmf.nist.gov/13.7.E2, same special-function asymptotic used for scalar multiplier"
+        ],
+        "reasoning": "De Mauro et al. logically imply the exact f_r, preservation of zero-frequency mode and each fixed coherence limit; these are excluded from any independent novelty. They do not explicitly prove S_p convergence for arbitrary singular-continuous or mixed spectra, its necessary-and-sufficient trace-norm counterpart, the sharp flat-band purity coefficient r sqrt(pi/2), or an arbitrarily-slow pure-point trace-distance counterexample with finite energy moments. Those require applying trace-ideal spectral calculus, a controlled small-Bohr Kummer Gaussian limit and a weighted doublet construction. The final three-part assertion is therefore not a mere verbatim restatement, although general functional analytic tools explain its derivability.",
+        "searches": [
+          "web: arxiv 2608.02297 Quantum resetting with memory de Mauro Kulkarni Majumdar full text 2026",
+          "web: quantum resetting memory Schatten trace norm purity logarithmic convergence dephasing hypergeometric",
+          "web: Rose Touchette Lesanovsky Garrahan spectral properties simple classical quantum reset processes full pdf 2018",
+          "Resultary: quantum uniform-history resetting long time Schatten trace class pure point spectral projection logarithmic purity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "de Mauro, Kulkarni, Majumdar, Quantum resetting with memory (2026), arXiv:2608.02297v1, https://pdfs.assets.alphaxiv.org/2608.02297v1.pdf, Eqs. (5), (13), (14) and Sec. 3",
+          "Hilbert-Schmidt Liouvillian fixed-point projection onto zero Bohr frequency from spectral calculus; trace-norm criterion needs compact-operator fixed-point identification and trace-mass argument",
+          "No matching Resultary semantic hit among inspected top-ranked records; the nearest are different Schatten operator problems, not quantum historical resetting"
+        ],
+        "reasoning": "The topology criterion may be reformulated as convergence of a bounded scalar functional calculus f_r(L,t) on Hilbert-Schmidt operators and identification of the conditional expectation onto the pure-point eigenspaces. That general-ergodic reformulation underlies the proof but does not by itself supply the exact trace-norm iff statement for this memory law or the independent continuum purity coefficient. Prior published gapped dephasing is an acknowledged special case; it does not imply the continuous-mass trace obstruction as a stated trace-ideal theorem.",
+        "searches": [
+          "Resultary: quantum uniform-history resetting long time Schatten trace class pure point spectral projection logarithmic purity",
+          "Resultary: memory reset convergence Hilbert Schmidt pinching arbitrary spectral types normal density matrix continuous spectrum",
+          "web: quantum random unitary dephasing almost periodic trace norm convergence if pure point continuous Hamiltonian compact states",
+          "GitHub code search SCOPE-Science/SCOPE2026: Schatten threshold quantum resetting memory"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "de Mauro, Kulkarni, Majumdar, Quantum resetting with memory (2026), arXiv:2608.02297v1, https://pdfs.assets.alphaxiv.org/2608.02297v1.pdf, paper has Kummer response and free-particle spread tables, but no flat-band spectral-purity coefficient or compact-resolvent rate-obstruction table",
+          "Resultary results for nearby R^{-1} phase-bath reduction and Schatten biased-sign resolvent concern different dynamics/operators"
+        ],
+        "reasoning": "The object is a general theorem on trace ideals plus a continuous spectral asymptotic, not a finite classification recoverable by database table lookup. Neither the checked primary source nor the inspected semantic findings supplied an exact same-invariant coefficient or already tabulated all-spectrum criterion; failed searches alone are not a proof of novelty.",
+        "searches": [
+          "Resultary: quantum uniform-history resetting long time Schatten trace class pure point spectral projection logarithmic purity",
+          "Resultary: spectral measure Liouvillian dephasing Schatten p trace convergence pure point",
+          "GitHub code search SCOPE-Science/SCOPE2026: logarithmic purity quantum reset spectral",
+          "web: uniform history quantum resetting flat band quantum purity logarithmic rate"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality for the joint three-part theorem, NOT for the exact scalar multiplier or ordinary fixed-frequency coherence decay already proved in arXiv:2608.02297. The 28-page primary text proves a gapped/discrete stationary density and continuum positional spreading, but its Eq. (14) and Appendix C do not state the all-spectrum Schatten/trace topology criterion, the sharp sqrt(log t) purity coefficient for a spectral band, or a compact-resolvent arbitrary-slow trace-distance example. The closest independent 2018 reset paper has a fixed-state Markovian reset and a shifted Lindblad generator, not uniform-history memory. New mathematical work is the norm-topology classification plus near-diagonal purity asymptotics and a quantitative slow-rate obstruction; ordinary spectral/ergodic ingredients are correctly credited. Stronger general dephasing and Tauberian theorems may imply parts and remain priority risks, so this is not a guarantee of uniqueness.",
+      "residual_risks": [
+        "A broad quantum-ergodic or dephasing theorem may already subsume the trace-ideal convergence equivalence, reducing its independent novelty; no global literature completeness claim.",
+        "Uniform Kummer asymptotics as a approaches zero require control of parameter-uniform errors, not just a pointwise fixed-frequency expansion; the source's argument and DLMF support the sector but do not replace a formal bound certificate.",
+        "The logarithmic purity coefficient could occur as a special case of general near-diagonal spectral-density/Tauberian laws under alternative terminology.",
+        "The original memory-reset paper already establishes the response multiplier and discrete stationary pinching; these aspects are not novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides kernel, gapped/discrete dephasing and continuum spatial spreading; not the sharp Schatten topology, band-purity coefficient, or slow compact-resolvent construction as statements",
+          "evidence": [
+            "Eq. (13) exact confluent-hypergeometric response and Eq. (14) fixed-frequency asymptotic",
+            "Eq. (21) finite smallest-Bohr-gap rate, Eq. (22) energy-basis stationary density",
+            "Appendix C (C.8) scales Bohr frequency as 1/log(rt) to study the position distribution, unlike the purity's Gaussian 1/sqrt(log(rt)) window"
+          ],
+          "identifier_or_url": "arXiv:2608.02297v1 | https://pdfs.assets.alphaxiv.org/2608.02297v1.pdf",
+          "material_read": "Primary 28-page PDF, core Sections 2--5 and Appendix C including Eqs. (5), (13)--(22), (49), (C.7)--(C.15), Appendix B effective-time realization and overall conclusions",
+          "method": "Read searchable primary PDF and visually inspected printed pages 6, 9, 17, 18 and 24 with page screenshots; compared theorem-level implications and Appendix C frequency scaling",
+          "title": "Quantum resetting with memory",
+          "trigger": "Exactly the same historical-memory quantum reset model and Kummer frequency multiplier"
+        },
+        {
+          "assessment": "Different Markovian fixed-state reset: shifted nonzero generator spectrum and stationary state; no historical averaging or model-specific Kummer/purity law",
+          "evidence": [
+            "Eq. (12) L^Gamma=L+Gamma|C0><-| -Gamma I",
+            "Eq. (14) non-stationary eigenvalues shifted by -Gamma",
+            "Eq. (74) quantum stationary density for fixed pure-state reset"
+          ],
+          "identifier_or_url": "arXiv:1806.01298v2 | https://arxiv.org/html/1806.01298v2",
+          "material_read": "Primary full HTML relevant Sections II--III, V.1--V.3, VI including reset generator Eq. (12) and quantum stationary Eq. (74)",
+          "method": "Read sections with master generator and finite-dimensional quantum reset, compared reset-state selection and Liouvillian spectral effect",
+          "title": "Spectral properties of simple classical and quantum reset processes",
+          "trigger": "Potentially broader spectral theorem for quantum reset dynamics"
+        },
+        {
+          "assessment": "Supplies classical special-function input, not model-specific novelty; uniform parameter behavior around a=0 must be justified analytically",
+          "evidence": [
+            "Eq. 13.7.2 algebraic contribution z^{-a}/Gamma(b-a) with Stokes-sector conditions",
+            "The exponential term is negligible since Re z=-rt while a is restricted to compact parameter set"
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/13.7",
+          "material_read": "Section 13.7(i) Eq. 13.7.2 and stated sector of validity; section 13.7(ii) error bounds overview",
+          "method": "Inspected leading algebraic and exponentially small components against z=-(r+iω)t and a=iω/(r+iω)",
+          "title": "DLMF §13.7, Asymptotic Expansions for Large Argument",
+          "trigger": "Critical uniform near-zero Kummer asymptotic in purity proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise topology in which a history-reset state equilibrates is intrinsic to quantum dynamics: all S_p observables for p>1 settle while the trace norm cannot settle when initial probability lies in continuous spectral subspaces. The exact logarithmic spectral-purity constant for a natural flat energy band is an independently useful quantitative prediction not computed in the motivating paper, and the doublet example shows why compact confinement and all finite energy moments do not guarantee a rate. These jointly address a motivated gap in spectral relaxation theory rather than a parameter rebranding, artificial finite slice, or a known-table reprint. Routine fixed-frequency dephasing and the classical Kummer formula are credited as ingredients, not used alone to justify value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No formal proof certification, Lean artifact, or external expert attestation; none is asserted.",
+    "The published scalar reset multiplier and fixed-frequency gapped energy pinching are prior work, not original findings.",
+    "Numerical checks are corroborative only; the analytical uniform Kummer asymptotic and spectral-operator argument carry the unlimited parameter claims.",
+    "Best-of-knowledge originality is qualified by generic ergodic/dephasing and Tauberian priority risks; source-inspection provenance identifies actual text read.",
+    "Earlier 2026-11-03 10:34 UTC batch b5b553b52a3257bb924bef4620df309f was reported in chat but not persisted due to a file transport failure; do not silently certify or reconstruct that history."
+  ],
+  "schema_version": 1
+}
