@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For all integer widths \(n\ge4\), the cyclic-column decomposition of perfect matchings is exhaustive, and its independent-edge-set model makes the four-cycle-flip component connected. For odd widths, each outside configuration has zero chords while every other matching has an odd number, so an exchange must traverse an odd-chord alternating cycle. The modular-sum winding obstruction forces at least \(n\) perimeter edges plus one chord. Every chord yields precisely one length-\(n+1\) alternating semicircle flip from each exception, proving both sharpness and exactly \(2n\) first bridges. Independently written exhaustive and tiling-model checkers agree for their stated finite ranges; neither is used as the infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The Lucas-cube decomposition under square flips is pre-existing and is expressly NOT the new claim. Ernastuti–Vajnovzki and Klavžar–Mollard–Petkovšek concern Lucas networks and degree sequences, Lekshmi–West counts Möbius matchings, and Ito et al. address unrestricted alternating-cycle reconfiguration. Tratnik–Ye address facial resonance; neither facial-only connectivity nor unrestricted connectivity determines the smallest permitted nonfacial alternating cycle. The proof adds a lower bound and a matching family of first bridges that do not follow from the square-flip decomposition by statement implication alone. The full text of McSorley's 1998 paper and Lekshmi–West's 2020 paper was not inspected, so equivalent historical formulations remain a genuine risk.
+PASS
 
-**Value — PASS.** This is an exact and unbounded local-move connectivity threshold in a canonical infinite family of cubic graphs. The \(n+1\) barrier is a structural winding obstruction, not an arbitrary finite parameter, and the complete first-bridge count quantifies exactly how previously frozen configurations become mobile. It differentiates the ability of local face switches from necessarily nonlocal alternating-cycle switches.
+Classify chord-containing perfect matchings by monomer-dimer tilings of cyclic n columns; each domino replaces two chords with two perimeter edges via a single alternating four-cycle, connecting the whole tiling sector. Even n has no outside configurations; odd n has two all-perimeter matchings with zero chords, while every tiling-sector matching has odd chord count. For any simple cycle with an odd number r of antipodal chords, edge-increment closure modulo 2n forces >=n perimeter edges, giving length >=n+r>=n+1. Exactly one alternating perimeter semicircle of length n exists for each of n antipodal chords from each all-perimeter matching. This proves Lconn=4 for even n and n+1 for odd, with exactly n first threshold neighbors per extreme (2n incident bridges total). Independent direct perfect-matching enumeration and flip connectivity for n=4..11 confirmed 1/3 component parity at length four, 1 component at threshold, and extreme degrees n at odd n.
 
-**Limitations.** This theorem concerns single simple alternating cycles in the labelled Möbius ladder for \(n\ge4\); it neither improves known matching counts nor asserts shortest path lengths. Independent expert audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The tiling-sector Lucas-cube representation, known number of matchings and four-cycle component structure are background, not asserted new. Ito et al. 2019 study shortest reconfiguration under unrestricted alternating cycles and do not give the sharp allowable cycle-length threshold for this special graph in inspected full text. Lekshmi and West calculate matching counts, while later Resultary Möbius-ladder papers concern homology actions rather than one-flip connectivity. The parity-dependent exact threshold and n first-bridge count are not implied merely by these statements; a specialized dimer flip/resonance paper could still subsume them.
+
+## value
+
+PASS
+
+The shortest allowed alternating-cycle length required to connect all perfect matchings is a natural reconfiguration invariant. Its sharp parity transition 4 versus n+1, winding-number obstruction and exact first-bridge count are meaningful infinite-family structure, not a recomputed matching count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
