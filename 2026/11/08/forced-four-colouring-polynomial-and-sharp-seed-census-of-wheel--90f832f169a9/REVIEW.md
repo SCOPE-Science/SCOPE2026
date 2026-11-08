@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The proof independently characterizes successful partial assignments with the hub precoloured and with the hub blank. In the former case the blank rim set must be independent and every blank's two rim neighbours must have distinct colours; in the latter, the initially coloured rim vertices must additionally use three different colours so that the hub is forced before any rim blank. This yields disjoint, unique-completion counting and the twelve-state transfer. The all-order minimum and optimizer count follow from the maximum independent blank sets and surjective cycle three-colourings. Direct original-rule enumeration (rim sizes \(4\) through \(7\)), separate construction counts (through \(10\)), transfer arithmetic, and extremal checks (through \(12\)) all agree. The proof handles boundary \(n=4\) separately. Risk: finite tests cannot replace proof; the proof is self-contained and relies only on elementary cycle colouring.
+
+## Originality — PASS, historical priority provisional
+Farr's initiating arXiv:2609.17108v1 introduces the forced-colouring function; the accessible HTML sections include definitions and sample small-graph formulas, but no universal wheel transfer or minimum-domain census. Its abstract advertises general properties, derivatives, and complexity, not this result. Exact-title, object, parameter, local forcing, and graph-family searches on public literature and the published mathematical findings search found no covering wheel result. A high-similarity known formula for complete multipartite graphs is inapplicable: the wheel rim has nonedges and cycle adjacency constraints, and the claim there has a different graph class and colouring structure. The rest of the initiating paper was not retrieved after later access failures; it remains a real priority risk, not a proof of novelty.
+
+## Mathematical value — PASS
+Wheel graphs form the canonical planar join of a cycle with one universal vertex; their chromatic number changes with rim parity. For the recently studied forced-colouring probability, the theorem gives every coefficient of a natural all-order polynomial using only twelve transfer states and derives a sharp seeding threshold with exact, parity-sensitive optimizer counts. The structural requirement of three distinct initially seeded rim colours when the hub is blank is crucial and is not captured by a generic zero-forcing analogy. This is substantive enumeration and characterization, not a single small numerical example. Risk: this is an elementary restricted graph family, not a universal complexity breakthrough.
+
+## Closest literature and scope
+G. E. Farr, *The forced colouring function of a graph*, arXiv:2609.17108v1, 2026-09-15. Its explicit general definition, small examples, and complexity results do not establish the stated all-wheel result in the material actually inspected. Formula is for four named colours, finite simple labelled wheels with rim size at least four, and exact sequential local forcing. Independent validation is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
