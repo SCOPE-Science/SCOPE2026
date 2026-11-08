@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducible checks and their scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 installation. No third-party packages or external data are needed. The program implements the exact two-stage construction (path/cycle extrema, then implication strongly connected blocks) and independently enumerates every binary assignment for small verification instances.
+## correctness
 
-Successful outputs from the included program:
+PASS
 
-```
-exhaustive path/cycle constraint systems: 10843
-random feasible-incidence systems: 1150
-sharp degree-three counterexample: four sites, three residents, sizes {1,3}
-large construction: 10000 candidate sites; feasible requested count verified
-```
+Each candidate variable occurs in at most two resident constraints and each resident tests the sum of at most two binary variables within an integer interval. Combining duplicate pair constraints reduces the dependency graph to disjoint paths/cycles; two-state dynamic programming gives feasible minimum L and maximum H in linear time. For any two feasible endpoint assignments, each forbidden mixed switch at opposite-sign changing sites becomes a directed implication; strongly connected components lie on sign-alternating paths or even cycles and change cardinality by at most one. Activating components in reverse condensation topological order preserves every local interval and sweeps all cardinalities between L and H. The 7-vertex three-arm exact-one construction yields feasible counts {1,3}, certifying a degree-three boundary. Independent exhaustive enumeration of 10843 path/cycle systems checked exact spectra; finite enumeration alone does not prove the SCC theorem.
 
-Each small case compares the attainable cardinality spectrum, minimum and maximum, and all requested cardinality witnesses with brute-force truth. Random instances may contain unary and pair constraints. The seven-vertex degree-three obstruction is checked by exhaustive solutions of its three displayed equations. The 10,000-site test checks the constructed witness against every local constraint. The exact general complexity and no-gap assertions rely on the mathematical proof; finite tests neither establish asymptotic bounds nor exhaust all finite networks.
+## originality
 
-No independent audit or independent validation has been performed.
+PASS
+
+Knop–Schierreich previously solved degree-two housing with arbitrary approval sets in polynomial time. Schierreich previously gave a linear-time algorithm only for upper-bound approvals, where deletion closure makes gap freedom trivial. Exact interval [ell,u] with positive lower bounds, a complete cardinality spectrum and a linear-time arbitrary-k constructive witness are stronger and not supplied by the inspected predecessor statements.
+
+## value
+
+PASS
+
+The theorem upgrades a realistic local constraint class from decision solvability to complete feasible-size spectrum and linear-time construction at any size, with a sharp degree-three obstruction. It gives a reusable path/cycle binary-CSP exchange principle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

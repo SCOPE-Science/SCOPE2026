@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:52:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/gap-free-placement-spectra-and-linear-time-witnesses-for-interva--b372b9528a95/RESULT.md",
+        "2026/11/02/gap-free-placement-spectra-and-linear-time-witnesses-for-interva--b372b9528a95/verify.py",
+        "/mnt/data/scope_worker03_20261107T0938Z/independent_checks_output.txt"
+      ],
+      "rationale": "Each candidate variable occurs in at most two resident constraints and each resident tests the sum of at most two binary variables within an integer interval. Combining duplicate pair constraints reduces the dependency graph to disjoint paths/cycles; two-state dynamic programming gives feasible minimum L and maximum H in linear time. For any two feasible endpoint assignments, each forbidden mixed switch at opposite-sign changing sites becomes a directed implication; strongly connected components lie on sign-alternating paths or even cycles and change cardinality by at most one. Activating components in reverse condensation topological order preserves every local interval and sweeps all cardinalities between L and H. The 7-vertex three-arm exact-one construction yields feasible counts {1,3}, certifying a degree-three boundary. Independent exhaustive enumeration of 10843 path/cycle systems checked exact spectra; finite enumeration alone does not prove the SCC theorem.",
+      "residual_risks": [
+        "Independent finite checks do not replace the stated infinite proof or establish correctness of assumptions outside the precise theorem domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General max-degree-two polynomial-time exact-k algorithms do not certify an all-k contiguous spectrum or O(V+E). Upper-bound-only linear time does not cover positive lower bounds."
+        ],
+        "reasoning": "Even though fixed-k decision is covered, the claimed structural interval/exchange and new complexity improvement are not an immediate statement of prior algorithms.",
+        "searches": [
+          "Resultary semantic: interval housing size spectrum max degree two",
+          "Knop Schierreich Host Community Respecting Refugee Housing arxiv 2302.13997 Theorem 3.6; Schierreich upper-bounds arxiv 2308.09501 Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2302.13997",
+        "arxiv:2308.09501",
+        "Resultary semantic: interval housing size spectrum max degree two"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arbitrary set DP is polynomial and depends on target size; upper-only accepts monotone deletion; neither establishes interpolation with strictly positive lower quotas."
+        ],
+        "reasoning": "The general interval constraints require a new switching implication proof; this is genuinely beyond the predecessor theorem statements.",
+        "searches": [
+          "Resultary semantic: interval housing size spectrum max degree two",
+          "arxiv 2302.13997 Section 3 degree-two polynomial DP; arxiv 2308.09501 theorem 3 upper-bound linear algorithm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The variable-constraint incidence formulation is equivalent only for binary variables in at most two interval constraints of arity at most two; the implication-SCC interpolation is an explicit exchange theorem."
+        ],
+        "reasoning": "The reduction does not extend to arbitrary binary CSP or disconnected approval sets, for which cardinality gaps can occur.",
+        "searches": [
+          "Resultary semantic: interval housing size spectrum max degree two",
+          "refugee housing interval approved arbitrary lower bounds degree2 candidate cardinality convexity binary CSP reconfiguration; Resultary housing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact finite lookup table could subsume the theorem for all graph sizes; exhaustive small cases and explicit seven-vertex witness were independently tested."
+        ],
+        "reasoning": "The sharp boundary is a structural counterexample; the result is not a recomputation of known tabulations.",
+        "searches": [
+          "Resultary semantic: interval housing size spectrum max degree two",
+          "Resultary refugee housing interval size spectra; binary path cycle constraint search"
+        ]
+      },
+      "rationale": "Knop–Schierreich previously solved degree-two housing with arbitrary approval sets in polynomial time. Schierreich previously gave a linear-time algorithm only for upper-bound approvals, where deletion closure makes gap freedom trivial. Exact interval [ell,u] with positive lower bounds, a complete cardinality spectrum and a linear-time arbitrary-k constructive witness are stronger and not supplied by the inspected predecessor statements.",
+      "residual_risks": [
+        "A general earlier constraint-satisfaction exchange theorem for at-most-two-occurrence convex binary systems might imply the gap-free property.",
+        "The output witness is for any one requested k in linear time, not a simultaneous output of exponentially large family; arbitrary disconnected approval sets or max-degree3 are excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior polynomial-time feasible housing; no all-cardinality interval or linear-time all-interval witness theorem",
+          "evidence": [
+            "Theorem 3.6 and algorithm"
+          ],
+          "identifier_or_url": "arxiv:2302.13997",
+          "material_read": "Full arXiv PDF section 3 and degree-two algorithm, especially theorem 3.6 with page screenshot",
+          "method": "arXiv PDF and page reading",
+          "title": "Host Community Respecting Refugee Housing",
+          "trigger": "Same original anonymous housing and degree-two graph topology"
+        },
+        {
+          "assessment": "Linear-time for upper-bound-only approvals, not positive lower bounds",
+          "evidence": [
+            "Theorem 3, approval model restrictions"
+          ],
+          "identifier_or_url": "arxiv:2308.09501",
+          "material_read": "Full arXiv PDF theorem 3 and surrounding restrictions, page screenshot",
+          "method": "arXiv PDF and page reading",
+          "title": "Towards More Realistic Models for Refugee Integration: Anonymous Refugee Housing with Upper-Bounds",
+          "trigger": "Same degree-two graph and possible stronger linear algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arxiv:2302.13997",
+        "arxiv:2308.09501"
+      ],
+      "rationale": "The theorem upgrades a realistic local constraint class from decision solvability to complete feasible-size spectrum and linear-time construction at any size, with a sharp degree-three obstruction. It gives a reusable path/cycle binary-CSP exchange principle.",
+      "residual_risks": [
+        "Value rests on the stated natural problem, not on code reproducibility or novelty alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general earlier constraint-satisfaction exchange theorem for at-most-two-occurrence convex binary systems might imply the gap-free property.",
+    "The output witness is for any one requested k in linear time, not a simultaneous output of exponentially large family; arbitrary disconnected approval sets or max-degree3 are excluded.",
+    "Scientific acceptance is not publication/import acceptance; public metadata sanitation blocked.",
+    "Historical ledger gaps preserved byte-for-byte and not reaudited."
+  ],
+  "schema_version": 1
+}
