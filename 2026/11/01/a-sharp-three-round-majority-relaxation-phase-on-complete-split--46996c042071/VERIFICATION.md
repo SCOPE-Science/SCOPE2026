@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Reproducible checks
-Run `python verify_majority_split.py` in this directory using Python 3.8 or later. It uses only the Python standard library.
+# Independent mathematical audit
 
-The primary implementation computes each vertex's next value from its complete graph-neighborhood count, retaining the previous bit on an exact tie. For every ordered pair of positive part sizes with total at most 16 it enumerates all labelled starting states, computes their first return at displacement two, and checks both the exact time-three classification and the full two-step recurrent-state count. This covers 120 size pairs and 1,835,012 starting configurations.
+## correctness
 
-A separately written word-level implementation computes each module's transition from its total counts. For all 1,024 ordered parameter pairs with part sizes from 1 through 32, it checks all 313,600 possible part-population signatures, their entry times, and the binomial-weighted time-three census. The code also checks that exactly two configurations are fixed in every small exhaustive case. Sample all-parameter checks include \(E_3(5,3)=60\), \(E_3(6,4)=120\), and \(E_3(7,5)=910\).
+PASS
 
-The recorded output in `verification_output.txt` ends with `MAJORITY_SPLIT_ALL_CHECKS_PASSED`. These checks do not prove the theorem beyond the stated finite ranges; the complete proof appears in `RESULT.md`. No independent external audit or formal proof assistant validation has been performed.
+Derived clique update from s=c+p and degree a+b-1: if total even and s=(a+b)/2 the entire clique complements, otherwise becomes constant; independent word becomes 0,I,1 according to 2c<a,=a,>a. Thus any state reaches a corner or two-cycle by time 2, and a>b corners collapse in one more step. Enumerating central line 1<=p<=b-1 excluding c=a/2 yields exact three-round phase iff a>b, even a+b, b>=3; Vandermonde subtraction gives E3=C(a+b,r)-2C(a,r)-1_{a even} C(a,a/2)C(b,b/2). Recurrent corners, central ties, and endpoints give R=2+2*1_{a<=b}+2*1_{a>b,even total}C(a,r)+1_{a,b even}C(a,a/2)C(b,b/2). Independent exhaustive direct graph updates for every a,b in [1,6] with a+b<=9 confirmed each relevant formula. Central binomial asymptotics give P(T=3)~sqrt(2/(pi(a+b))) as b grows, a>b. The finite check is corroboration, not the proof.
+
+## originality
+
+PASS
+
+Goles–Olivos 1980 general symmetric threshold eventual periods <=2; Kaaser–Mallmann-Trenn–Natale 2015/2016 analyzes majority voting time and module contraction, but not this three-round asymmetric complete split partition/census. Earlier balanced a=b two-round case does not imply a>b three-round regime.
+
+## value
+
+PASS
+
+Complete classification of a natural two-module majority graph family, with exact transient-layer counts, recurrent-cycle census, and rare maximal-transient asymptotics; finer than generic period-two theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

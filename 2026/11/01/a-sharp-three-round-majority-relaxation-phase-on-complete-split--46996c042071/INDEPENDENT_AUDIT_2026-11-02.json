@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T22:21:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/01/a-sharp-three-round-majority-relaxation-phase-on-complete-split--46996c042071/RESULT.md blob 75a3c0fe6b92d08dea001949dd35fa2a1ccdc4f4",
+        "2026/11/01/a-sharp-three-round-majority-relaxation-phase-on-complete-split--46996c042071/VERIFICATION.md blob 5d3d709776c6aefaac30436a979d604090661985"
+      ],
+      "rationale": "Derived clique update from s=c+p and degree a+b-1: if total even and s=(a+b)/2 the entire clique complements, otherwise becomes constant; independent word becomes 0,I,1 according to 2c<a,=a,>a. Thus any state reaches a corner or two-cycle by time 2, and a>b corners collapse in one more step. Enumerating central line 1<=p<=b-1 excluding c=a/2 yields exact three-round phase iff a>b, even a+b, b>=3; Vandermonde subtraction gives E3=C(a+b,r)-2C(a,r)-1_{a even} C(a,a/2)C(b,b/2). Recurrent corners, central ties, and endpoints give R=2+2*1_{a<=b}+2*1_{a>b,even total}C(a,r)+1_{a,b even}C(a,a/2)C(b,b/2). Independent exhaustive direct graph updates for every a,b in [1,6] with a+b<=9 confirmed each relevant formula. Central binomial asymptotics give P(T=3)~sqrt(2/(pi(a+b))) as b grows, a>b. The finite check is corroboration, not the proof.",
+      "residual_risks": [
+        "Relies on precise lazy tie convention and synchronous updates; formulas not applicable to arbitrary split graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General <=2 attractor period applies to all symmetric majority systems, but not quantitative first-entry T<=3 and exact E3(a,b)."
+        ],
+        "reasoning": "Broader eventual-period result logically covers only the no-period>2 portion; the sharp relaxation census is not entailed.",
+        "searches": [
+          "Kaaser–Mallmann-Trenn–Natale LIPIcs MFCS 2016; Goles–Olivos 1980"
+        ]
+      },
+      "checked_sources": [
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol058-mfcs2016/LIPIcs.MFCS.2016.55/LIPIcs.MFCS.2016.55.pdf",
+        "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "Resultary semantic query: complete split graphs synchronous strict neighbor majority tie retain convergence entry time three round recurrent cycles exact counting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An a=b two-round bound cannot imply strict three-round when a>b; general voting-time bounds do not give exact three-round phase."
+        ],
+        "reasoning": "Explicit central-total complement mechanism is the new implication not forced by existing broad bounds.",
+        "searches": [
+          "Kaaser et al 2016 module contraction; balanced complete split classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Goles–Olivos (1980) general period at most 2",
+          "Kaaser et al MFCS 2016 Definitions 2–3, voting-time theorem; no complete split census in inspected source"
+        ],
+        "reasoning": "The identical tie-retaining deterministic model is shared with broad majority dynamics; exact complete-split transient-time and labelled state count are additional.",
+        "searches": [
+          "Resultary complete split graphs synchronous strict neighbor majority tie retain convergence entry time three round recurrent cycles exact counting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact E3(a,b) formula among returned Resultary hits; closest parity complete multipartite maps use XOR, not strict majority."
+        ],
+        "reasoning": "This is an exact infinite-family labelled count, not a known finite table; search limitation remains.",
+        "searches": [
+          "Resultary split graph majority time count three rounds central binomial"
+        ]
+      },
+      "rationale": "Goles–Olivos 1980 general symmetric threshold eventual periods <=2; Kaaser–Mallmann-Trenn–Natale 2015/2016 analyzes majority voting time and module contraction, but not this three-round asymmetric complete split partition/census. Earlier balanced a=b two-round case does not imply a>b three-round regime.",
+      "residual_risks": [
+        "Exact exhaustive checks only finite a,b; proof handles unbounded part sizes. Earlier original 1980 paper not read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General time bounds, not an explicit complete-split three-round state census in read sections",
+          "evidence": "MFCS2016 Article55 pp 3–5 majority definitions and voting-time bounds",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol058-mfcs2016/LIPIcs.MFCS.2016.55/LIPIcs.MFCS.2016.55.pdf",
+          "material_read": "Definitions 2–3, introductory theorems and relevant module discussion",
+          "method": "accessible full PDF relevant sections and page image",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "Same neighbor majority with tie retention and transient time"
+        },
+        {
+          "assessment": "Supports eventual period <=2, no entire-paper noncoverage claim",
+          "evidence": "1980 Discrete Mathematics 30 pp 187–189 general periodicity",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Bibliographic information and accessible abstract-level description",
+          "method": "abstract-level only, publisher full text not read",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "General eventual-period-two theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e6631984c4c88c758388f6d844952479275aa138/2026/11/01/a-sharp-three-round-majority-relaxation-phase-on-complete-split--46996c042071/RESULT.md",
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol058-mfcs2016/LIPIcs.MFCS.2016.55/LIPIcs.MFCS.2016.55.pdf",
+        "https://doi.org/10.1016/0012-365X(80)90121-1"
+      ],
+      "rationale": "Complete classification of a natural two-module majority graph family, with exact transient-layer counts, recurrent-cycle census, and rare maximal-transient asymptotics; finer than generic period-two theorem.",
+      "residual_risks": [
+        "Value is bounded to the explicitly stated mathematical object/parameter class; no generalized downstream theorem claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Relies on precise lazy tie convention and synchronous updates; formulas not applicable to arbitrary split graphs.",
+    "Exact exhaustive checks only finite a,b; proof handles unbounded part sizes. Earlier original 1980 paper not read in full."
+  ],
+  "schema_version": 1
+}

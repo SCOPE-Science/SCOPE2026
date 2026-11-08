@@ -1,19 +1,21 @@
-# Review of the split-graph majority relaxation theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses the exact simultaneous-update formula on the two vertex modules. The only nonhomogeneous clique update is the complement operation when the total population equals half the graph order; the only nonhomogeneous independent-set update is identity when exactly half the clique is active. The proof partitions all cases by these two ties, shows that noncritical states enter a corner or fixation within two updates, and handles the critical central layer explicitly. The corner transition table establishes the sharp third round precisely when the clique is larger. Vandermonde's identity counts the central layer after removing endpoint and middle-tie populations. The listed recurrent families account for all periodic configurations; their fixed and two-cycle status is verified directly. Stirling's formula proves the stated asymptotic once the endpoint and tie corrections are controlled.
+## correctness
 
-The standalone checks independently implement neighbor counts on the actual graph. They test 1,835,012 initial states over 120 small parameter pairs and 313,600 population signatures over 1,024 parameter pairs. All assertions passed. These finite experiments supplement rather than replace the proof for arbitrary sizes.
+PASS
 
-## Originality
-PASS with residual literature risk. The closest mathematical predecessor, Kaaser--Mallmann-Trenn--Natale, *On the Voting Time of the Deterministic Majority Process* (arXiv:1508.03519, MFCS 2016), treats this same lazy-neighbor-majority rule and analyzes general convergence-time bounds via graph modules. The accessible arXiv full text and the full fifteen-page open-access proceedings version were materially inspected, including definitions, module-contraction theorems, and appendices. Neither states the complete-split phase boundary, an all-parameter sharp three-round bound, or a labelled central-binomial last-layer census.
+Derived clique update from s=c+p and degree a+b-1: if total even and s=(a+b)/2 the entire clique complements, otherwise becomes constant; independent word becomes 0,I,1 according to 2c<a,=a,>a. Thus any state reaches a corner or two-cycle by time 2, and a>b corners collapse in one more step. Enumerating central line 1<=p<=b-1 excluding c=a/2 yields exact three-round phase iff a>b, even a+b, b>=3; Vandermonde subtraction gives E3=C(a+b,r)-2C(a,r)-1_{a even} C(a,a/2)C(b,b/2). Recurrent corners, central ties, and endpoints give R=2+2*1_{a<=b}+2*1_{a>b,even total}C(a,r)+1_{a,b even}C(a,a/2)C(b,b/2). Independent exhaustive direct graph updates for every a,b in [1,6] with a+b<=9 confirmed each relevant formula. Central binomial asymptotics give P(T=3)~sqrt(2/(pi(a+b))) as b grows, a>b. The finite check is corroboration, not the proof.
 
-The general period-at-most-two result of Goles--Olivos (1980) is acknowledged; it does not itself provide any finite exact entry-time distribution. The accessible earlier balanced-split calculation covers only equal part sizes and sharp time two, not the newly identified strictly unbalanced time-three phase. A separate earlier Greenberg--Hastings calculation uses three states and different local rules. An exact family-specific predecessor outside the checked texts cannot be excluded; the 1980 publisher article was consulted bibliographically/through its abstract rather than its entire text. No claim of externally certified novelty is made.
+## originality
 
-## Mathematical value
-PASS. Voting time is a central invariant in discrete majority dynamics; deciding whether it exceeds a threshold is NP-hard on arbitrary graphs. The complete split family is a natural testbed with two maximal vertex modules. The result establishes a sharp regime transition invisible in the previously studied balanced case: all starts settle by time two except for a parity- and imbalance-dependent central layer requiring time three. The exact binomial expression measures that layer for every graph size, and the inverse-square-root asymptotic shows how worst-case and typical behavior diverge. This is an exact natural infinite-family classification rather than an arbitrary finite parameter slice.
+PASS
 
-## Closest literature, scope and risk
-The theorem is confined to full clique--independent joins under synchronous strict neighbor majority with ties retained. It does not apply unchanged to arbitrary split graphs, asynchronous rules, or stochastic ties. The principal documented source is D. Kaaser, F. Mallmann-Trenn and E. Natale, arXiv:1508.03519, first publicly submitted 2015-08-14, with the lawful full text also available at DOI: 10.4230/LIPIcs.MFCS.2016.55. The historical period-two source is E. Goles and J. Olivos, Discrete Mathematics 30 (1980), 187--189, DOI: 10.1016/0012-365X(80)90121-1. The earlier balanced-split statement was compared at the level of its exact recoverable claim; no independent check of that earlier record is implied here.
+Goles–Olivos 1980 general symmetric threshold eventual periods <=2; Kaaser–Mallmann-Trenn–Natale 2015/2016 analyzes majority voting time and module contraction, but not this three-round asymmetric complete split partition/census. Earlier balanced a=b two-round case does not imply a>b three-round regime.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Complete classification of a natural two-module majority graph family, with exact transient-layer counts, recurrent-cycle census, and rare maximal-transient asymptotics; finer than generic period-two theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
