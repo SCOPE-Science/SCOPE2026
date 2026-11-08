@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For every fixed support labeling, interior gaps admit exactly the transition counts of required parity, while a nonempty exterior edge budget fills all integer totals from the minimum disagreement count through an explicit maximum. Alternating queried labels force k>=s-1; the opposite-to-gap-parity choice forces k<=n-s. Both endpoints queried force an incompatible endpoint xor parity across labelings. This proves the iff criterion for all n>=2 and 0<=k<n. Direct matroid truncation gives all polynomial coefficients. An explicit independent-threshold subfamily and the distinct-hypothesis leaf count prove the online bounds. The independently encoded exhaustive checker tests 40,960 support instances for n<=11, all transition counts, plus exact online dimensions for n<=9; no finite experiment is substituted for the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghazi et al., arXiv:2007.03668v1, pp. 1-2: general closure upper bounds for Boolean aggregations, not coefficients of a fixed exact-switch class.",
+        "Haghtalab et al., arXiv:2102.08446v2, p. 15: disjoint positive-threshold blocks yield qualitative order k log n online dimension, but use a different hypothesis family and no enumeration of exact-k switch shattering supports."
+      ],
+      "reasoning": "Generic finite VC bounds and generic disjoint-threshold online-gap examples do not determine all shattered coordinate sets of the exact switch family. The general adaptive tree construction is explicitly treated as known methodology, not novelty. The full rank-r parallel-endpoint matroid structure is not implied by those statements.",
+      "searches": [
+        "\"fixed number of runs\" \"VC dimension\" words",
+        "\"Littlestone dimension\" \"piecewise constant\" \"intervals\" change points",
+        "\"VC dimension\" \"piecewise constant\" \"exactly\" \"changes\"",
+        "arXiv:2007.03668v1 Proposition 2.3",
+        "arXiv:2102.08446v2 Section 3.4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2007.03668",
+      "https://arxiv.org/pdf/2101.06490",
+      "https://arxiv.org/pdf/2102.08446",
+      "https://arxiv.org/abs/2102.08446"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Johnson defines a concept family through substrings/translates of a fixed binary sequence; a word-class coordinate support is a distinct quantifier structure.",
+        "Haghtalab et al. establish a similar asymptotic separation via disjoint thresholds, already acknowledged as the source of the lower-bound idea.",
+        "Relevant accessible historical claims concern at-most-two positive runs and constrained-word families; exact-k transition word classes are strict/different families."
+      ],
+      "reasoning": "The proposed novelty is the exact iff support theorem and all-coefficient matroid polynomial, not the already-known possibility of a logarithmic online advantage. For a strict subfamily, a larger-family VC count does not imply exact labeled trace realizability. The endpoint parity obstruction and completion interval are additionally required.",
+      "searches": [
+        "arXiv:2101.06490v2 binary-string VC and substring definitions",
+        "arXiv:2102.08446v2 Section 3.4 independent threshold blocks",
+        "Littlestone dimension fixed number k sign switches on n ordered points, k log n online VC dimension fixed k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Johnson, arXiv:2101.06490v2, pp. 1-2 and 17-18: the underlying relation is translate/substring VC for an individual word, not exact-transition word-class coordinate queries.",
+        "The archived claim concerning at most two positive runs in an ordered domain determines finite online dimensions, not a class of exactly k transitions or its complete support polynomial."
+      ],
+      "reasoning": "Parity-constrained exact k switches is not equivalent to at-most-k alternations, an at-most-two-union interval family, the shift-VC relation of one word, or a set of arbitrary k independent threshold coordinates. Exactness restricts both total switch parity and endpoint traces. These alternatives cannot imply the exact two-endpoint forbidden-pair classification.",
+      "searches": [
+        "\"exactly k\" \"alternations\" \"shattered\" \"VC\" sequences",
+        "\"exactly k switches\" \"VC dimension\" binary string",
+        "\"exactly k change points\" shattering",
+        "Exact-change binary word concepts with k flips or k transitions: VC dimension min(k+1,n-k), full shattered-support polynomial binomial(n,s)-binomial(n-2,s-2), endpoint obstruction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results concerning exactly K change-point detection concern statistical estimation of breakpoints; they do not tabulate VC-shattered coordinate supports.",
+        "Finite enumeration in check_exact_switches.py is independent corroboration; its outputs are not claimed as a previously unpublished infinite proof."
+      ],
+      "reasoning": "No database or numerical table in the inspected results gives the claimed all-parameter coefficient formula. This is limited negative search evidence, not a proof of uniqueness or priority.",
+      "searches": [
+        "\"exactly k switches\" \"VC dimension\" binary string",
+        "\"exactly k change points\" shattering",
+        "\"k alternations\" \"Littlestone dimension\"",
+        "Constrained piecewise constant Boolean classifiers exactly k change points: coordinate shattering all orders, maximum shattered supports and skeleton of two facets"
+      ]
+    },
+    "rationale": "In the inspected accessible source literature and previously accessible published findings, neither the exact-transition two-parameter support characterization nor its rank-truncated endpoint-parallel matroid polynomial is implied by published statements. Shift VC of one word, at-most-two positive runs, generic Boolean closure bounds, and disjoint-threshold online separation have different objects or weaker/different implications. The online lower-bound idea is acknowledged prior art, not claimed independently new. Priority remains qualified by potential unindexed results under alternate vocabulary.",
+    "residual_risks": [
+      "Earlier equivalent classification might appear under fixed-sign-change, segmented Boolean hypotheses or matroid shattering terminology not surfaced by present searches.",
+      "General disjoint-threshold adaptive gaps were published before this note; they cannot count as a new standalone discovery."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different notion: translate/substring traces of a fixed word rather than coordinate traces across all words with exact number of transitions.",
+        "evidence": "arXiv:2101.06490v2, pp. 1-2 and pp. 17-18.",
+        "identifier_or_url": "https://arxiv.org/pdf/2101.06490",
+        "material_read": "Full-text PDF introduction and definitions pp. 1-2; prime-string/substring treatment pp. 17-18; full-text term searches for change, run and alternat.",
+        "method": "Read primary accessible PDF text and inspected rendered p. 2, compared definitions and quantifiers.",
+        "title": "Binary strings of finite VC dimension",
+        "trigger": "Same vocabulary: binary strings, VC dimension, finite words."
+      },
+      {
+        "assessment": "General upper bounds for arbitrary Boolean aggregations; no exact coordinate-shattering polynomial for exactly k switches.",
+        "evidence": "arXiv:2007.03668v1, Proposition 2.3 and Introduction.",
+        "identifier_or_url": "https://arxiv.org/pdf/2007.03668",
+        "material_read": "Full-text PDF abstract and Sections 1, 2.1 and 2.2, pp. 1-2; threshold-dimension background on p. 4.",
+        "method": "Read primary PDF text and inspected rendered p. 2.",
+        "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+        "trigger": "Potentially dominating general theorem for online dimension of combinations of thresholds."
+      },
+      {
+        "assessment": "Qualitative online lower-bound construction is prior art; does not claim exact-switch support characterization or matroid polynomial.",
+        "evidence": "arXiv:2102.08446v2, Section 3.4.",
+        "identifier_or_url": "https://arxiv.org/pdf/2102.08446",
+        "material_read": "Full-text PDF Section 3.4, particularly p. 15, including independent-threshold construction; introduction pp. 1-3.",
+        "method": "Read PDF text and inspected rendered primary-source p. 15.",
+        "title": "Smoothed Analysis with Adaptive Adversaries",
+        "trigger": "Direct precedent for logarithmic online dimension at fixed VC rank from concatenated threshold blocks."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0961bfcd-9d1b-4203-bfb4-bda7f1e674ae",
+  "value": {
+    "rationale": "A full infinite two-parameter classification of all shattered coordinate supports for a natural exact-complexity regular-language family is mathematically motivated. It establishes an explicit matroid structure, all cardinality coefficients and maximum supports, with a sharp parity boundary at the two endpoints; the fixed-parameter online separation complements this structural result. Unlike a routine VC-rank bound or a finite numerical table, the classification gives the entire support complex uniformly in n and k.",
+    "status": "PASS"
+  }
+}
