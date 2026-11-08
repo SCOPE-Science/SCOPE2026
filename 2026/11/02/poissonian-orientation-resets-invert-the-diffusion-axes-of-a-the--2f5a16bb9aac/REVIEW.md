@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The derivation factors the positive-definite thermal mobility through its Schur complement; integrates the correlated angular displacement exactly on each continuous excursion; computes the renewal-reward centered covariance, including the necessary random-duration subtraction; and treats residual incomplete excursions using finite moment bounds. The generic effective tensor and the sharp derivative/root statements follow algebraically. A standalone rational-moment checker and separately simulated Brownian paths corroborate the computations. Finite simulations do not establish the asymptotic CLT or guarantee the theorem beyond its hypotheses.
+PASS
 
-## Originality
+The positive-definite block mobility μ=[K,h;h^T,m] has independent Schur noise E=Θ(K−hh^T/m) and angular diffusion D_r=Θm. Between orientation-only Poisson resets the cross term integrates in Stratonovich form to (R_{φ_S}−I)a, a=−Jh/m, with X fixed at jumps. Independent exponential renewal excursions give v=E[Y]/E[S]=−D_rρa/(1+ρ) and centered diffusion E[(Y−vS)(Y−vS)^T]/(2E S). Harmonic Laplace transforms C1=ρ/(ρ+1), C2=ρ/(ρ+4) give exactly the asserted f_parallel, f_perp and the rotated Schur matrix term. Bounded regenerative remainders yield CLT and asymptotic covariance. Independent symbolic reconstruction of first two angular reward moments and length compensation exactly equals the submitted f_parallel and f_perp for every positive formal ρ. Their derivative factors and difference polynomial prove unique maximum ρ=2 (value 5/27) and unique positive axis switch root ρ³+ρ²+ρ−2=0 in the isotropic-Schur c≠0 subfamily. High-rate tensor equals ΘK, low-rate tensor tr(E)/2 I. This checks the nonstandard random-duration correction, not merely a simulation.
 
-PASS, qualified best-knowledge. The 2026 hydrodynamically coupled colloid and periodic-reset transport were already studied by Cleuren and Eichhorn, while the 2024 Poisson orientation-reset diffusion tensor of Chaki, Olsen, and Löwen concerns a model without direct translational-angular thermal noise covariance. Its tensor is recovered when the cross block vanishes and is not new here. The proposed contribution is the joint nonzero-cross-block Poisson-clock tensor, its random-cycle centering correction, and the exact sharp diffusion-axis and peak-rate distinctions. A broader hidden-coordinate renewal formalism, fixed-period covariance methods, and not-yet-discovered equivalent derivations remain scientific priority risks.
+## originality
 
-## Value
+PASS
 
-PASS. Spatial diffusion rather than mean sorting velocity is a natural experimental control observable. The explicit all-mobility tensor separates independent Brownian spreading from correlated rotational translation; the isotropic-Schur family then shows a nontrivial universal reversal of principal dispersion directions and a longitudinal optimum at a distinct reset rate. These phenomena distinguish selection for direction-dependent spreading from optimization of mean directed transport, without adding artificial geometric parameters.
+Cleuren–Eichhorn arXiv:2603.19430, personally examined in full primary 7-page PDF, gives the general thermally cross-coupled mobility and regular periodic orientation resetting with drift; page 3 equation (8) is fixed-period mean transport, not a random-clock centered diffusion tensor. Chaki–Olsen–Löwen arXiv:2406.17550/2025, read in full public uploaded text, obtains a Poisson orientation-reset diffusion tensor (Section V Eq.64), but equations (1)–(3) have only three diagonal body mobilities and independent angular/translational noises: it equals the h=0 subcase, already known. The submitted h≠0 rank-one additive noise-correlation term and exact rate-optimum/axis-switch are not implied by either prior displayed result. A more general renewal-reward formula may provide a route to the same evaluation and remains priority risk.
 
-## Scope and limitations
+## value
 
-The assumptions are instantaneous orientation resets with no displacement, positive-definite constant body mobility, independent Poisson times, thermal Brownian forcing, and no active drive. The principal-axis transition is only for the specified isotropic-Schur family. Existing general renewal theorems justify the limit but do not alone establish that the exact model-specific formulas are new. The independent scientific and priority assessment remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural passive coupled colloid, diffusion anisotropy determines spatial dispersion independently of mean sorting drift. A complete exact mobility-dependent tensor plus a universal axis inversion at ρ≈0.810536 and a different peak at ρ=2 supply substantive controls and a counterexample to monotone orientation-preserving effective diffusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

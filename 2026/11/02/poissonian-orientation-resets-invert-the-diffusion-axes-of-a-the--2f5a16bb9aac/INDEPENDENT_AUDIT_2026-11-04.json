@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T23:04:51.060892Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/poissonian-orientation-resets-invert-the-diffusion-axes-of-a-the--2f5a16bb9aac/RESULT.md",
+        "Independent exact-arithmetic finite or symbolic script; actual frozen Git SHA-1 tree verified"
+      ],
+      "rationale": "The positive-definite block mobility μ=[K,h;h^T,m] has independent Schur noise E=Θ(K−hh^T/m) and angular diffusion D_r=Θm. Between orientation-only Poisson resets the cross term integrates in Stratonovich form to (R_{φ_S}−I)a, a=−Jh/m, with X fixed at jumps. Independent exponential renewal excursions give v=E[Y]/E[S]=−D_rρa/(1+ρ) and centered diffusion E[(Y−vS)(Y−vS)^T]/(2E S). Harmonic Laplace transforms C1=ρ/(ρ+1), C2=ρ/(ρ+4) give exactly the asserted f_parallel, f_perp and the rotated Schur matrix term. Bounded regenerative remainders yield CLT and asymptotic covariance. Independent symbolic reconstruction of first two angular reward moments and length compensation exactly equals the submitted f_parallel and f_perp for every positive formal ρ. Their derivative factors and difference polynomial prove unique maximum ρ=2 (value 5/27) and unique positive axis switch root ρ³+ρ²+ρ−2=0 in the isotropic-Schur c≠0 subfamily. High-rate tensor equals ΘK, low-rate tensor tr(E)/2 I. This checks the nonstandard random-duration correction, not merely a simulation.",
+      "residual_risks": [
+        "The reset is instantaneous, independent and orientation-only; nonconstant mobility, active forces, spatial resets or reset durations alter the answer.",
+        "The isotropic-Schur axis inversion is not asserted for arbitrary anisotropic E; proof uses nonzero coupling c."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Chaki–Olsen–Löwen 2024 section V has Poisson reset Gaussian tensor, but body mobility model includes Γ∥,Γ⊥,Γθ only and independent drivers.",
+          "Full Cleuren–Eichhorn 2026 PDF explicitly says more flexible random resets are further protocols, and computes periodic mean velocity."
+        ],
+        "reasoning": "Existing renewal methods are broad, but in inspected model-specific results none directly evaluates centered Poisson cross-covariance and its signed anisotropy reversal for all positive-definite μ.",
+        "searches": [
+          "orientation reset coupled translational rotational Brownian diffusion tensor axis inversion Poisson rate hydrodynamic mobility",
+          "\"Poissonian\" \"orientational resetting\" \"translation-rotation coupling\" diffusion tensor drift"
+        ]
+      },
+      "checked_sources": [
+        "Cleuren–Eichhorn arXiv:2603.19430 complete primary PDF (including screenshot page 3)",
+        "Chaki–Olsen–Löwen arXiv:2406.17550 complete public uploaded text equations 1–6,47–65",
+        "Resultary semantic search for coupled orientation-reset diffusion",
+        "Frozen RESULT.md, VERIFY.py and scientific files"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cleuren–Eichhorn 2026 Eq(8) depends on one deterministic reset interval τ; paper p5 explicitly proposes random resetting later.",
+          "Chaki–Olsen–Löwen 2024 Eq(64) can be recovered by setting h=0 in new tensor, whereas h≠0 gives a new geometric rank-one term and nonzero drift."
+        ],
+        "reasoning": "Neither prior result implies the h≠0 exact centered tensor without separately evaluating the excursion reward-duration mixed covariance; numerical optimum and root are not inherited from the known h=0 formula.",
+        "searches": [
+          "orientation reset coupled translational rotational Brownian diffusion tensor axis inversion Poisson rate hydrodynamic mobility",
+          "\"Sorting by Resetting\" \"diffusion enhancement\" \"rotational\" 2026",
+          "\"Anisotropic Brownian particles under resetting\" Poisson orientation only covariance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chaki–Olsen–Löwen 2024 full text Eq(1)–(3) independent angular and translational Gaussian drivers; Eq(64) Poisson-reset tensor.",
+          "Cleuren–Eichhorn 2026 PDF Eq(4) full mobility μ and Eq(8) deterministic-periodic mean velocity."
+        ],
+        "reasoning": "Equivalent off-centre tracer displacement and hydrodynamically cross-coupled Brownian descriptions were compared; the old Poisson tensor lacks h≠0 angular-driven displacement, while the coupled paper uses a different reset clock and observable.",
+        "searches": [
+          "orientation reset coupled translational rotational Brownian diffusion tensor axis inversion Poisson rate hydrodynamic mobility",
+          "Poisson resetting orientation only position unchanged Brownian colloid nonzero translational-rotational hydrodynamic mobility effective diffusivity drift exact anisotropy eigenaxis reversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The new critical invariants are unique positive root of ρ³+ρ²+ρ−2 and f_parallel maximum 5/27 at ρ=2.",
+          "Chaki Eq(64) gives monotone anisotropy in h=0 model, no such axis reversal under isotropic conditional mobility."
+        ],
+        "reasoning": "No inspected exact data table covers these coupled passive rates, although absence in search alone cannot certify novelty.",
+        "searches": [
+          "orientation reset coupled translational rotational Brownian diffusion tensor axis inversion Poisson rate hydrodynamic mobility",
+          "exponential clock orientation reorientation passive asymmetric colloid covariance diffusion parallel maximum r=2 rotational diffusion axis crossover"
+        ]
+      },
+      "rationale": "Cleuren–Eichhorn arXiv:2603.19430, personally examined in full primary 7-page PDF, gives the general thermally cross-coupled mobility and regular periodic orientation resetting with drift; page 3 equation (8) is fixed-period mean transport, not a random-clock centered diffusion tensor. Chaki–Olsen–Löwen arXiv:2406.17550/2025, read in full public uploaded text, obtains a Poisson orientation-reset diffusion tensor (Section V Eq.64), but equations (1)–(3) have only three diagonal body mobilities and independent angular/translational noises: it equals the h=0 subcase, already known. The submitted h≠0 rank-one additive noise-correlation term and exact rate-optimum/axis-switch are not implied by either prior displayed result. A more general renewal-reward formula may provide a route to the same evaluation and remains priority risk.",
+      "residual_risks": [
+        "A general hidden-coordinate reset theorem with an explicit coupled-mobility specialization may reproduce the same tensor under different terminology.",
+        "Oxford institutional download for the already-read Chaki text returned vpn_disconnected; comparison is instead based on an accessible full public article text, not an inaccessible-absence inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same coupled model and periodic drift are prior; Poisson-clock diffusion tensor not derived",
+          "evidence": "Equation (8) gives drift for periodic interval τ; concluding text proposes random resetting as further protocol.",
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2603.19430v1.pdf",
+          "material_read": "Complete seven-page primary PDF, equations (4)–(8), discussion and appendix headings; page 3 screenshot inspected",
+          "method": "read and compare resetting clock and claimed observables",
+          "title": "Sorting by Resetting",
+          "trigger": "same hydrodynamic mobility and orientation-reset physical model"
+        },
+        {
+          "assessment": "Partial prior: h=0 Poisson orientation-reset tensor, but no direct Brownian translational-angular covariance block",
+          "evidence": "Equations (1)–(3) use independent drivers and Γ∥,Γ⊥,Γθ; Section V Eq(64) gives anisotropic tensor only for this model.",
+          "identifier_or_url": "https://www.researchgate.net/publication/381704655_Anisotropic_Brownian_particles_under_resetting",
+          "material_read": "Full publicly uploaded CC-BY article text (original 2024 preprint) read, Sections II.A and V, equations 1–6 and 47–65",
+          "method": "directly compare noise covariance assumptions, reset protocol, tensor entries and Fourier modes",
+          "title": "Anisotropic Brownian particles under resetting",
+          "trigger": "closest Poisson orientation-only long-time diffusion tensor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/poissonian-orientation-resets-invert-the-diffusion-axes-of-a-the--2f5a16bb9aac/RESULT.md",
+        "Cleuren–Eichhorn arXiv:2603.19430 complete primary PDF (including screenshot page 3)",
+        "Chaki–Olsen–Löwen arXiv:2406.17550 complete public uploaded text equations 1–6,47–65"
+      ],
+      "rationale": "For a natural passive coupled colloid, diffusion anisotropy determines spatial dispersion independently of mean sorting drift. A complete exact mobility-dependent tensor plus a universal axis inversion at ρ≈0.810536 and a different peak at ρ=2 supply substantive controls and a counterexample to monotone orientation-preserving effective diffusion.",
+      "residual_risks": [
+        "Exact passive coupled-mobility tensor and phase diagram, not the known h=0 orientation-reset diffusion or deterministic periodic drift, are the valuable claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The reset is instantaneous, independent and orientation-only; nonconstant mobility, active forces, spatial resets or reset durations alter the answer.",
+    "The isotropic-Schur axis inversion is not asserted for arbitrary anisotropic E; proof uses nonzero coupling c.",
+    "A general hidden-coordinate reset theorem with an explicit coupled-mobility specialization may reproduce the same tensor under different terminology.",
+    "Oxford institutional download for the already-read Chaki text returned vpn_disconnected; comparison is instead based on an accessible full public article text, not an inaccessible-absence inference.",
+    "Exact passive coupled-mobility tensor and phase diagram, not the known h=0 orientation-reset diffusion or deterministic periodic drift, are the valuable claim."
+  ],
+  "schema_version": 1
+}
