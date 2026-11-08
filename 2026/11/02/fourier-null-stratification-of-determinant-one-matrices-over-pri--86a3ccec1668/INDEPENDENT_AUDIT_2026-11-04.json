@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T19:52:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each SL2(Fp) residue A has p³ determinant-one lifts forming the affine hyperplane with normal (adj A)^T. Character orthogonality kills the entire fiber unless barM is proportional to this normal. Primitive rank-one barM and nonsquare det barM thus vanish; primitive invertible square determinant gives two lifts of A indexed t=±sqrt(det barM), contributing two p²-th roots which cannot cancel for odd p. Imprimitive M=pN reduces to finite-field SL2 character sums: rank0 nonzero, rank1 -p, rank2 p times a Kloosterman sum of p-1 pth roots. The latter cannot vanish because zero integer-coefficient sum of primitive pth roots requires total coefficient count divisible by p. Half of invertible reductions have square determinant; p⁴ lifts per reduction yield rank. Independently counted all 648 determinant-one matrices at p3 and all 6561 frequencies with exact cyclotomic coefficient divisibility: rank 2025, nullity 4536.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "First covers general n for scalar trace Gauss sums; second covers general finite-field matrix frequencies.",
+          "Reviewed theorem requires classification of every M mod p², distinguishing barM=0, invertible square determinant and vanishing others."
+        ],
+        "reasoning": "Broader modulus/general-rank inputs do not as stated imply this exact full character-support or rank count without further arguments.",
+        "searches": [
+          "https://arxiv.org/abs/1805.09729 §3",
+          "https://arxiv.org/abs/1105.4513 Theorem 2.4"
+        ]
+      },
+      "checked_sources": [
+        {
+          "identifier_or_url": "https://arxiv.org/abs/1105.4513",
+          "material_read": "Theorem 2.4 rank-dependent SL2 finite-field character sums and supporting calculation",
+          "title": "Gauss sums over some matrix groups"
+        },
+        {
+          "identifier_or_url": "https://arxiv.org/abs/1805.09729",
+          "material_read": "Theorems 3.7-3.8 (trace character on SL_r(Z/nZ)), statements and relevant derivation",
+          "title": "Gauss sums of some matrix groups over Z/nZ"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finite-field rank-zero/one/two sums solve imprimitive barM=0 frequencies.",
+          "Primitive M frequency support follows instead from p³ lift-fiber annihilator lines, producing precisely two odd-order phases when det barM is a nonzero square."
+        ],
+        "reasoning": "The novel lift-fiber reduction and two-phase noncancellation are needed to bridge the prior character sums to the exact rank p⁴[1+((p²−1)(p²−p))/2].",
+        "searches": [
+          "https://arxiv.org/abs/1105.4513 Theorem 2.4",
+          "https://arxiv.org/abs/1805.09729 Theorems 3.7-3.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Existing residue-ring hyper-Kloosterman formulas concern ψ(t tr X) rather than ψ(<M,X>) with arbitrary 2x2 M.",
+          "For full-rank M a change of variables also changes the determinant constraint, while rank-one M cannot be inverted."
+        ],
+        "reasoning": "A scalar-trace formula by itself does not furnish the primitive rank-one zero pattern and full p² support criterion, although deeper reductions remain possible.",
+        "searches": [
+          "Resultary: Fourier support determinant one matrices modulo p squared SL2 additive character matrix Kloosterman sums",
+          "https://arxiv.org/abs/1805.09729 Theorems 3.7-3.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed finite-field Fourier-frame spectrum concerns restricted coordinate characters in M2(F_q), not additive convolution on M2(Z/p²)."
+        ],
+        "reasoning": "No exact p² all-frequency support table identified in searched corpus; absence does not establish priority.",
+        "searches": [
+          "Resultary: Fourier support determinant one matrices modulo p squared SL2 additive character matrix Kloosterman sums",
+          "Resultary 2026/10/11/SCOPE-four-level-fourier-frame-spectrum-on-determinant-one-matrices-ov--a9ad8796111d"
+        ]
+      },
+      "rationale": "General finite-field and scalar-trace prime-power Gauss-sum formulas are acknowledged and their precise scope compared; the arbitrary matrix frequency support and additive convolution rank over p² are not directly given. Qualified best-of-knowledge original, with possible implicit Kloosterman reduction.",
+      "residual_risks": [
+        "General local-ring hyper-Kloosterman identities might encode this square-class support through a nontrivial change of variables not identified in inspected results.",
+        "No claim for p=2 or modulus p^r with r≠2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides rank0/rank1/rank2 finite-field ingredient for imprimitive frequencies, not p² full frequency support",
+          "evidence": [
+            "Theorem 2.4 full-rank Kloosterman and rank-one -p formulas are cited, not claimed new."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1105.4513",
+          "material_read": "Theorem 2.4 rank-dependent SL2 finite-field character sums and supporting calculation",
+          "method": "Accessible original arXiv full PDF, theorem text inspected by page screenshot",
+          "title": "Gauss sums over some matrix groups",
+          "trigger": "Finite-field matrix character sums are invoked explicitly by proof"
+        },
+        {
+          "assessment": "Scalar trace-character Gauss sums are broader in modulus but do not explicitly classify all four-entry additive frequencies or p² convolution kernel",
+          "evidence": [
+            "General modulus/rank and trace parameters partly overlap; arbitrary primitive rank-one M is degenerate and requires the source fiber-normal argument."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.09729",
+          "material_read": "Theorems 3.7-3.8 (trace character on SL_r(Z/nZ)), statements and relevant derivation",
+          "method": "Original arXiv full PDF inspected with page screenshot",
+          "title": "Gauss sums of some matrix groups over Z/nZ",
+          "trigger": "Strong general residue-ring special-linear Kloosterman formulas, potential covering theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact spectral/kernel classification for convolution on a canonical finite additive matrix ring. The square-class phase transition, explicit dimension and limiting rank fraction 1/2 are natural invariants not reducible to simply counting SL2 elements.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "identifier_or_url": "https://arxiv.org/abs/1105.4513",
+      "material_read": "Theorem 2.4 rank-dependent SL2 finite-field character sums and supporting calculation",
+      "title": "Gauss sums over some matrix groups"
+    },
+    {
+      "identifier_or_url": "https://arxiv.org/abs/1805.09729",
+      "material_read": "Theorems 3.7-3.8 (trace character on SL_r(Z/nZ)), statements and relevant derivation",
+      "title": "Gauss sums of some matrix groups over Z/nZ"
+    }
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "General local-ring hyper-Kloosterman identities might encode this square-class support through a nontrivial change of variables not identified in inspected results.",
+    "No claim for p=2 or modulus p^r with r≠2."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only odd p and Z/p², additive not multiplicative convolution.",
+    "Nonzero spectral values are not individually evaluated."
+  ]
+}

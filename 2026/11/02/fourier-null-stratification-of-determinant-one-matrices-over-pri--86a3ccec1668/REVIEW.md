@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The determinant-one lift fibre is an affine hyperplane in four variables of cardinality \(p^3\). Its character sum is supported exactly on the corresponding normal line. For primitive frequencies, a nonsquare determinant gives no contributing residue; a square determinant gives two noncancelling odd-order phases. For imprimitive frequencies, the finite-field special-linear formula and a prime-cyclotomic divisibility argument show nonvanishing. The character-basis rank count is exact. The supplied integer/cyclotomic checker exhausts every frequency for \(p=3\) and samples a second odd prime; its finite reach is explicitly separated from the analytic proof.
+## correctness
 
-## Originality
-PASS under bounded source review. Li--Hu (arXiv:1105.4513v1, Theorem 2.4) proves the finite-field ingredient, not the prime-square all-frequency classification. Hu--He--Meng--Li (arXiv:1805.09729, Theorems 3.7--3.8) treats trace-character frequencies over general residue rings, not the complete arbitrary-matrix frequency census and its exact additive convolution rank. A nearby published finite-field restricted-frame result does not entail the prime-square convolution theorem. published-finding corpus semantic comparisons and the accessible historical claim corpus did not exhibit an equivalent statement. The general local-ring Gauss-sum literature may imply the present classification after additional reduction; independent novelty confirmation is outstanding.
+PASS
 
-## Mathematical value
-PASS. The full kernel of a canonical, nontrivial convolution on the additive matrix ring is described in algebraic terms by determinant square classes, giving an exact rank at every odd prime and a limiting density of annihilated Fourier modes. This is a natural complete spectral invariant, not a numerical example or an arbitrary truncated parameter case.
+Each SL2(Fp) residue A has p³ determinant-one lifts forming the affine hyperplane with normal (adj A)^T. Character orthogonality kills the entire fiber unless barM is proportional to this normal. Primitive rank-one barM and nonsquare det barM thus vanish; primitive invertible square determinant gives two lifts of A indexed t=±sqrt(det barM), contributing two p²-th roots which cannot cancel for odd p. Imprimitive M=pN reduces to finite-field SL2 character sums: rank0 nonzero, rank1 -p, rank2 p times a Kloosterman sum of p-1 pth roots. The latter cannot vanish because zero integer-coefficient sum of primitive pth roots requires total coefficient count divisible by p. Half of invertible reductions have square determinant; p⁴ lifts per reduction yield rank. Independently counted all 648 determinant-one matrices at p3 and all 6561 frequencies with exact cyclotomic coefficient divisibility: rank 2025, nullity 4536.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+General finite-field and scalar-trace prime-power Gauss-sum formulas are acknowledged and their precise scope compared; the arbitrary matrix frequency support and additive convolution rank over p² are not directly given. Qualified best-of-knowledge original, with possible implicit Kloosterman reduction.
+
+## value
+
+PASS
+
+An exact spectral/kernel classification for convolution on a canonical finite additive matrix ring. The square-class phase transition, explicit dimension and limiting rank fraction 1/2 are natural invariants not reducible to simply counting SL2 elements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
