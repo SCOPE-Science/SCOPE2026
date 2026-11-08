@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The exact bounded martingale recursion x_n=(1-r_n)x_(n-1)+epsilon_n holds for every fixed binary rule sequence. Square summability yields convergence of noise. Divergent harmonic intervention weight forces zero by the monotone Toeplitz lemma. Finite weight yields an almost sure limit whose conditional variance is strictly positive, by a late Pólya step and strictly positive tail product. An independent Bernoulli centered harmonic series converges almost surely, transferring the exact threshold to arbitrary p_n. All 1,950 exact rational finite checks passed; finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gao–Aguech DOI 10.1017/S0269964822000535 Section 3.3 obtains convergence under strict mean opposite reinforcement; this is not a vanishing mean-drift criterion.",
+        "Crimaldi–Louis–Minelli arXiv:2102.06287 Section 2 adds same-colour proportional counts, not opposite-colour additions.",
+        "Generic stochastic approximation methods can yield convergence from the displayed recursion but do not supply a directly located published theorem with the stated necessary-and-sufficient quenched criterion and nondegenerate finite branch."
+      ],
+      "reasoning": "The prior time-dependent studies differ in their replacement support or require stable nonzero drift. None of the inspected stated theorems logically implies the finite-harmonic-weight random-limit branch together with the exact opposing-reinforcement threshold. A general theorem may still exist; this is explicitly a residual risk.",
+      "searches": [
+        "time-dependent generalized Friedman urn vanishing drift summability conditions non-degenerate random limit",
+        "randomly reinforced urn diminishing negative replacement sum probabilities n convergence deterministic random limit",
+        "time inhomogeneous Friedmans urn mixing Polya reinforcement 1/log n"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2502.16768v1",
+      "https://arxiv.org/abs/2605.26669",
+      "https://doi.org/10.1017/S0269964822000535",
+      "https://arxiv.org/abs/2102.06287"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For a fixed p>0 from Alves–Rosales and Shi–Yin–Miao, sum_n p/n diverges automatically, and thus only the deterministic-limit side is covered.",
+        "Gao–Aguech Proposition 3.2 uses a nonzero opposing drift; the present finite-weight case deliberately has a summable opposing drift.",
+        "Crimaldi–Louis–Minelli equation (model description) prohibits opposite-colour additions at one draw, except zero, whereas here b>0."
+      ],
+      "reasoning": "The new finite-weight case does not follow as a corollary or parameter specialization of these named results, and the quenched conditioning on the entire binary rule sequence is absent. All cases are proved directly, not inferred from failure of a search.",
+      "searches": [
+        "Friedman Polya urn vanishing opposing reinforcement probabilities sum n inverse threshold",
+        "time-dependent Pólya urn negative reinforcement random versus deterministic limit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alves–Rosales arXiv:2502.16768v1 Theorem 1 fixes a constant p>0 and proves convergence to 1/2.",
+        "Shi–Yin–Miao arXiv:2605.26669 Sections 2–4 fix p in (0,1) and establish a central limit theorem under a parameter inequality."
+      ],
+      "reasoning": "Changing from a fixed positive p to an arbitrary deterministic rule string or a sequence of possibly vanishing p_n changes the conclusion: finite harmonic weight yields a random limit. Fixed p only occupies the divergent branch; no equivalent classification was identified in the inspected primary results or targeted semantic searches.",
+      "searches": [
+        "balanced Friedman Polya urn sequence p_n time varying rule random limit or deterministic limit critical weighted harmonic series",
+        "Friedman vs Polya varying mixture probability decaying p_n logarithmic phase transition",
+        "inhomogeneous Friedman Pólya mixture urn convergence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is an infinite-time almost-sure dichotomy under all exogenous binary sequences, not a fixed finite numerical invariant.",
+        "Targeted searches of mathematical result records and primary literature returned no exact table or named law recording this criterion."
+      ],
+      "reasoning": "No finite census or database table could by itself subsume the almost-sure for-all-sequences theorem. Available mathematical research records were searched for the formula and its equivalent model descriptions.",
+      "searches": [
+        "Pólya-Friedman Mixed Urn critical harmonic Bernoulli intervention schedules",
+        "critical rare opposite reinforcement in two color balanced urn 1 over log n"
+      ]
+    },
+    "rationale": "Fixed-p mixed urn results cover the divergent branch but not vanishing or arbitrary p_n; existing time-dependent urn articles inspected have persistent opposite reinforcement or same-colour-only additions. The new statement classifies every deterministic rule sequence and proves quenched limit nondegeneracy. No dominating theorem was located; generic stochastic approximation could be an unlocated implication, retained as historical priority risk.",
+    "residual_risks": [
+      "A generic stochastic-approximation or inhomogeneous generalized urn theorem not retrieved might imply part of the dichotomy.",
+      "Historical uniqueness cannot be concluded from semantic or web-search absence; independent priority check is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Fixed-p balance only; covers the divergent harmonic branch for iid constant p>0, not finite weight or deterministic rule strings.",
+        "evidence": "Theorem 1 requires fixed p in (0,1]; the proof sets all rule indicators iid Bernoulli(p).",
+        "identifier_or_url": "https://arxiv.org/html/2502.16768v1",
+        "material_read": "Abstract, introduction, Theorem 1, exact update equations, and proof narrative in the HTML full text",
+        "method": "Read HTML source, compared constant-p hypothesis and conclusion with the new sequence-indexed statements",
+        "title": "Friedman vs Pólya",
+        "trigger": "Exact two-colour mixed-urn model and strongest same-object predecessor"
+      },
+      {
+        "assessment": "No quenched sequence-of-choices criterion; fixed-p CLT under extra parameter condition.",
+        "evidence": "Section 2 takes a fixed p and Section 3 Theorem 3.3 states a Gaussian limit for that choice.",
+        "identifier_or_url": "https://arxiv.org/abs/2605.26669",
+        "material_read": "Rendered paper Sections 1–4 including the model recursion, Theorems 3.1–3.3 and displayed proof steps",
+        "method": "Compared fixed p in (0,1), scope of central limit and drift statements, and absence of nonhomogeneous p_n",
+        "title": "Central Limit Theorem for a Pólya-Friedman Mixed Urn Model",
+        "trigger": "Same two-colour random replacement, recent results"
+      },
+      {
+        "assessment": "Requires opposite reinforcement strong enough to yield stable negative drift; not the harmonic zero-drift threshold.",
+        "evidence": "Theorem 3.1 (Renlund) and Proposition 3.2 assume a stable point, whereas the new model may asymptotically have zero drift.",
+        "identifier_or_url": "https://doi.org/10.1017/S0269964822000535",
+        "material_read": "Open-access HTML, model assumptions, small-increment conditions and Section 3.3 limit theorems and proof",
+        "method": "Compared strict opposing mean and convergence to 1/2 with vanishing opposing-drift schedules",
+        "title": "Multiple-drawing dynamic Friedman urns with opposite-reinforcement",
+        "trigger": "Potential stronger theorem with time-dependent replacements and opposite reinforcement"
+      },
+      {
+        "assessment": "Same-colour-only growth for each sampled colour; excludes adding b>0 to the opposite colour in a Friedman step.",
+        "evidence": "Section 2 model additions are A_n times number of selected A colours and B_n times number of selected B colours.",
+        "identifier_or_url": "https://arxiv.org/abs/2102.06287",
+        "material_read": "Rendered text introduction, model (Section 2), Section 3 asymptotic hypotheses and proof material",
+        "method": "Compared replacement support, all-colour mean assumptions and limit law cases",
+        "title": "Urn models with random multiple drawing and random addition",
+        "trigger": "General random time-dependent replacement matrices could subsume model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a851c23e-380a-4263-840e-913b23093a0e",
+  "value": {
+    "rationale": "This is a natural complete classification of the vanishing-opposition boundary between the fixed-p Friedman deterministic limit and Pólya random limit. It gives a sharp harmonic weighted frequency law, a density-zero intervention phenomenon, the logarithmic threshold at exponent 1, and stronger quenched nondegeneracy. It is not a numerical slice or an unmotivated algebraic identity.",
+    "status": "PASS"
+  }
+}
