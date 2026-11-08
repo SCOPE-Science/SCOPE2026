@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "A complete proof checks every single-position deletion: untouched later exact period rejects middle-copy edits; finite-word suffix comparison at the unique shortened run determines first-/last-copy eligibility; suffixes beginning inside the minimum-letter run are handled separately. Length kp is impossible since P^k has a proper prefix suffix. The q distinct outputs have distinct Parikh vectors. Direct exhaustive and seeded tests corroborate 2447 finite parameter configurations and 76876 individual deletion candidates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Algorithmica 2023, Section 4, Theorems 5 and 8, and Section 7",
+        "arXiv:2201.06773"
+      ],
+      "reasoning": "Theorem 5 requires no letter repetition; here each letter repeats k times with k>=2. The more general algorithm finds an optimum but does not imply the symbolic count and complete location rule without additional analysis. The theorem does not purport to improve the generic runtime.",
+      "searches": [
+        "Computing Longest Lyndon Subsequences and Longest Common Lyndon Subsequences",
+        "longest Lyndon subsequence Lyndon word power repeated blocks"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s00453-023-01125-z",
+      "https://arxiv.org/abs/2201.06773",
+      "https://doi.org/10.4230/LIPIcs.CPM.2018.19",
+      "https://arxiv.org/abs/1701.00928"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bannai et al. 2023 Section 4: general optimization, unique-letter special case",
+        "Urabe et al. 2018: longest Lyndon SUBSTRING after edit",
+        "Glen et al. 2017: counting Lyndon FACTORS"
+      ],
+      "reasoning": "An algorithm returning a maximum subsequence does not supply all maximizing positions or distinct-output counts. Edited substrings are contiguous and Lyndon factors are contiguous; those are different objects. This is a new exact special-family enumeration under the inspected claims, not merely a change of notation.",
+      "searches": [
+        "\"Lyndon\" \"deletion\" \"power\" subsequence repeated word",
+        "\"longest Lyndon subsequence\" \"periodic\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bannai et al. 2023, Section 4, https://doi.org/10.1007/s00453-023-01125-z",
+        "Bannai et al. 2022, arXiv:2201.06773"
+      ],
+      "reasoning": "Compared longest Lyndon scattered subsequence in a repeated run-cycle word; also checked the equivalent one-position-deletion formulation. The inspected primary full text presents a general optimizing algorithm, not this complete characterization. No indexed exact equivalent found; absence of matches is not itself proof of novelty.",
+      "searches": [
+        "Exact maximum Lyndon subsequence of powers of a Lyndon word: one deletion, all deletion positions, ascending and descending adjacent runs",
+        "Long repeated periodic run words with distinct symbols: longest Lyndon subsequences one-symbol deletion near first or last period",
+        "\"longest Lyndon subsequence\" \"periodic\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "ArXiv and publisher results for arXiv:2201.06773",
+        "2018 CPM substring-after-edit publication, DOI:10.4230/LIPIcs.CPM.2018.19"
+      ],
+      "reasoning": "No inspected length-specific table or formula records exactly p qualifying physical positions and q distinct outputs for this family. Neither a table search nor a semantic database partition certifies uniqueness.",
+      "searches": [
+        "Counting all maximum-length Lyndon subsequences of powers of permutation words, exactly number of run letters",
+        "Lyndon subsequence powers of Lyndon word deleting one letter longest distinct Lyndon subsequences"
+      ]
+    },
+    "rationale": "The full accessible Algorithmica article supplies algorithms for optimization but not the simultaneous position-sensitive and distinct-output multiplicity classification for repeated distinct-run powers. Its all-characters-unique Theorem 5 does not cover these instances, as each label occurs at least twice. Checked related factor/substring work does not imply an exact scattered-subsequence theorem. Residual risk: unindexed equivalent.",
+    "residual_risks": [
+      "Unindexed or differently named equivalent result might exist.",
+      "The arXiv preprint record was checked, but the early preprint full text was not independently compared line by line with the examined lawful journal full text.",
+      "Secondary factor and substring work was screened at abstract/description level only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact run-cycle power optimizer multiplicity or deletion-position classification stated in inspected text",
+        "evidence": [
+          "Theorem 5: each character occurs once",
+          "Section 4: general longest Lyndon subsequence algorithms",
+          "Section 7: general computational conclusions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00453-023-01125-z",
+        "material_read": "accessible full journal HTML: Sections 1, 2, 4 including Theorem 5, and conclusion Section 7",
+        "method": "read full-text HTML and inspect statements/coverage, including unique-character and general algorithms",
+        "title": "Computing Longest Lyndon Subsequences and Longest Common Lyndon Subsequences",
+        "trigger": "exact optimization problem; possible general domination"
+      },
+      {
+        "assessment": "Original preprint is basis of chronological eligibility; no preprint-unique statement was claimed not to exist",
+        "evidence": [
+          "First public 2022-01-18 (arXiv submission record)",
+          "matching full journal article title and authors"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.06773",
+        "material_read": "preprint record title/abstract and first-public timestamp; corresponding later lawful full-text journal version examined",
+        "method": "arXiv record and full journal HTML for same work",
+        "title": "Computing Longest (Common) Lyndon Subsequences",
+        "trigger": "earliest primary preprint and date"
+      },
+      {
+        "assessment": "Applies to contiguous Lyndon substrings after edits, not longest scattered Lyndon subsequences; no whole-document exclusion asserted",
+        "evidence": [
+          "CPM 2018 abstract explicitly says substring"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2018.19",
+        "material_read": "publisher proceedings description and abstract only",
+        "method": "publisher abstract/title inspection",
+        "title": "Longest Lyndon Substring After Edit",
+        "trigger": "deletion/edit terminology and Lyndon word connection"
+      },
+      {
+        "assessment": "Counts contiguous Lyndon factors, not all optimum scattered subsequences; no claim about unchecked details",
+        "evidence": [
+          "Abstract defines distinct Lyndon factors and averages, not scattered subsequence maximizers"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1701.00928",
+        "material_read": "arXiv title and abstract only",
+        "method": "abstract statement comparison",
+        "title": "Counting Lyndon Factors",
+        "trigger": "potential Lyndon occurrence-count domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ab10950b-a638-433e-a71c-ac476c831567",
+  "value": {
+    "rationale": "A complete all-maximizer classification on a natural infinite-parameter family for the longest Lyndon subsequence problem. The switching of permissible deletion copy at ascents versus descents produces two exact, distinct invariants (p physical sites and q different optimum output words), whereas the generic optimization algorithm only returns a longest example. The statement remains quantitative and position-sensitive for arbitrarily large repetitions and run lengths.",
+    "status": "PASS"
+  }
+}
