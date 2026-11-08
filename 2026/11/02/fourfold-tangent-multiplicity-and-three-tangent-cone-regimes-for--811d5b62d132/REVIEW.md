@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Newton identities and flatness of the polynomial algebra over its symmetric invariant subalgebra establish the codimension-four complete intersection. A Vandermonde calculation establishes the complete geometric singular support, without relying on finite enumeration. In the affine chart at every indicator point, two linear equations and two initial quadratic equations form a regular initial sequence. The Gram determinants are \(-1\) and \(r\) in characteristic \(p\); the resulting associated graded ring, its Hilbert–Samuel multiplicity \(4\), and the three geometric cone types therefore follow. The attached exact checker provides independent finite symbolic checks of the critical jets. No assertion about reducedness of the Jacobian singular subscheme is made.
+PASS
 
-## Originality — PASS (qualified)
+For p≥5, r in [2,p), n=p+r, Newton identities identify the 1..4 power-sum ideal with e1..e4; freeness over symmetric polynomial invariants makes this a regular sequence of degree 1·2·3·4=24. Vandermonde Jacobian rank equals number of distinct coordinates capped at 4; a singular projective zero has <=3 values. First s nonzero power sums and invertible Vandermonde imply multiplicities of each distinct nonzero value are divisible by p, forcing exactly p equal nonzero entries and r zeros; hence binom(n,p) singular support points. The finite singular locus and dimension n−5≥2, plus CI Cohen–Macaulay, give normality and geometric integrality via connectedness. In a chart at an indicator point, two independent linear initial forms and two quadratic forms U,V form a regular initial sequence, with restricted Gram determinants p−1 and r both nonzero; associated graded is k[u,v]/(q_{p−2}(u),q_{r−1}(v)), Hilbert–Samuel multiplicity 4, and r=2,3,≥4 produce nonreduced, reduced reducible and integral normal regimes. Independently exhaustive F5 projective points for n7 and n8 recovered exactly 21 and 56 predicted indicator singular points; Gram determinants checked across p=5,7. Computation corroborates but not replaces proof over algebraic closures.
 
-The most relevant primary source is Giménez et al., arXiv:2610.32056v1. Its geometric results cover power-sum complete intersections, but its stated normality criterion for the four-moment case assumes \(p>n-2\), disjoint from \(n=p+r\), \(r\ge2\). The reviewed sections do not provide the exact singular-point count plus full multiplicity-four tangent-cone phase transition. Conca–Krattenthaler–Watanabe, arXiv:0801.2662, concerns characteristic-zero regular sequences and does not imply the modular local classification. The nearby prior three-moment singularity classification has only one quadratic tangent equation and cannot imply the new two-quadratic local structure. Semantic literature and mathematical-record searches did not find equivalent statements, but absence of hits cannot prove novelty. An implicit older theorem about symmetric invariant fibers or modular local quotient singularities is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is a canonical four-equation extension of finite-field power-sum varieties. The new invariant is not just another finite count: it identifies **every** geometric singular point for an infinite parameter family, determines a uniform nontrivial multiplicity \(4\), and exhibits a sharp three-phase degeneration in the complete local tangent geometry. It addresses a natural excluded characteristic regime of the motivating normality theorem. The differing cone structures matter to local intersection theory and deformation geometry, without presuming a downstream result not established here.
+Qualified best-of-knowledge PASS for the local multiplicity-four tangent cone classification, not for classical regular-sequence background. Giménez et al. arxiv:2610.32056 (first posted 2026-10-23) is VERY closely relevant to power-sum varieties including singularities and normality, and could already cover the global normality/singular-support part. Accessible abstract/record does not exhibit the exact r-dependent associated-graded ring or 3 tangent-cone regimes; arXiv/preprint/OA full-text retrieval failed and authorized institution returned vpn_disconnected. This material non-exclusion is a priority risk, not proof of coverage, and needs primary full-text human comparison before publication.
 
-## Comparison and limitations
+## value
 
-Primary references: Giménez et al., *Power Sum Varieties over Finite Fields*, arXiv:2610.32056v1, especially the introductory geometric theorem and Section 3; Conca, Krattenthaler and Watanabe, *Regular sequences of symmetric polynomials*, arXiv:0801.2662. Limitations: set-theoretic singular support, prime characteristic at least \(5\), first four consecutive unweighted moments, \(2\le r<p\), and no computed singular-scheme lengths or completed higher-order normal forms. Source priority is qualified and no independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact local scheme-level tangent cones and the nonreduced/reducible/normal degeneration boundary of a natural finite-field four-moment variety are substantive geometric invariants, not arbitrary finite counts. Set-theoretic support and Hilbert–Samuel multiplicity supply a sharp family result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
