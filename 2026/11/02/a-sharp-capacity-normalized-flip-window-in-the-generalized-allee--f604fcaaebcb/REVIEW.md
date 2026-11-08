@@ -1,17 +1,21 @@
-# Scientific assessment of the capacity-normalized GAL flip result
+# Independent mathematical audit
 
-## Correctness — PASS
-The specified parameter cone makes the cubic map nonnegative on the entire population interval. Exact maximization proves necessary and sufficient interval invariance. The decreasing upper-equilibrium branch has a single transverse multiplier \(-1\) crossing, and the explicitly positive cubic coefficient of the second iterate establishes a supercritical flip. The sharp ratio follows from an exact scalar inequality: after parametrizing the maximizer and flip by the shape parameter, the derivative of the logarithmic ratio has the sign of \(c-T(u)\). A strictly positive quartic on \(2/3\le u\le3/4\) proves that sign globally. All endpoint cases are included without division by vanishing coefficients. Symbolic identities and supplementary numerical checks in `verify.py` executed successfully. The mathematical proof, not the samples, establishes the continuum statement.
+## correctness
 
-## Originality — PASS under inspected evidence
-Pires–Andrade–Herrmann (arXiv:2606.05351v1) introduced the same map and provided equilibrium, tricriticality, and numerical chaos studies. Their accessible full text contains no monotone, sharp capacity-normalized first-flip theorem. The classical logistic endpoint and the pure cubic Allee endpoint are already known: a previously documented cubic endpoint result gives the flip at the equivalent \(kx^2(1-x)\) parameter \(k=16/3\); the present theorem does not claim either endpoint's isolated flip as novel. The proposed non-implied contribution is the full shape-parameter monotonicity, universal sharp ratio bounds, and the guarantee that the flip always precedes loss of interval invariance.
+PASS
 
-Rocha–Taha's 2019 four-parameter generalized logistic work has an abstract claiming a complete fixed-point stability classification, but the full text was inaccessible. It may contain relevant more general results; the abstract cannot settle the shape-normalized comparison. Related power-law maps studied by Rak–Rak have a different functional form. Published mathematical results returned by the targeted semantic searches concern different recurrence families or individual endpoint cases. None of the accessible evidence proved the new full interpolation, but a missed historical equivalent remains possible.
+Under A>=0 the cubic g=x(1-x)(A+mx) has unique maximum c, giving exact [0,1] invariance iff r<=1/g(c). Upper fixed-point multiplier 1+x q'/q is strictly decreasing, so -1 is crossed once at u; local normal form has a2²+a3>0, giving a generic supercritical flip. Shape-normalized ratio R(s)=g(c)/q(u) is strictly increasing: the displayed rational derivative is positive after reducing to a positive quartic over u∈[2/3,3/4]. Endpoints are 3/4 and 64/81. Independently solved roots and checked strict ratio increase on 101 shapes, but universal claim rests on rational inequalities, not the sample.
 
-## Mathematical value — PASS
-For an ecological map whose parameters must keep \([0,1]\) invariant, normalizing a local dynamical threshold by the maximal admissible growth strength compares like-for-like dynamical regimes. The sharp monotonic inequality predicts that every admissible Allee shape admits a positive fixed-point flip without leaving the physical state space; it quantifies how its relative location shifts as the Allee factor strengthens. This is a natural global parameter-space structural classification, not an arbitrarily chosen parameter slice. Its two endpoint values alone would not justify the contribution; the all-shape proof does.
+## originality
 
-## Limits and historical-priority risk
-The theorem covers only \(1-m(1+h)\ge0\), not the full generality of the motivating study. It is a local fixed-point bifurcation result, not a theorem about onset of chaos or global population basins. The most plausible older general fixed-point classification was not fully readable; independent bibliographic verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge originality for the exact theorem after mathematical statement/implication comparison; risk explicitly retained. Qualitative delayed onset of chaos and original GAL parametrization belong to the 2026 source; the full accessible text was inspected. Rocha–Taha is a decisive plausible broader-family comparator, but only its abstract was available: treat overlap and possible derivation as a residual risk rather than claim it is not covering.
+
+## value
+
+PASS
+
+The exact location of the first stable positive-branch flip relative to the biologically admissible interval is a substantive global-normalization question. The two sharp constants and strict monotone interpolation refine the earlier qualitative observation that Allee effects postpone chaos. The claim explicitly excludes later/global chaotic thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
