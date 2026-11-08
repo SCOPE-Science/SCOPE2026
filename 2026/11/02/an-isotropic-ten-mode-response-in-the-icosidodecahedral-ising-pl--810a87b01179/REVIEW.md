@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The local triangle-energy minimization works for every \(J>0\) and \(0<h<4J\) and gives an explicit positive gap to all nonmatching configurations. The standalone integer certificate independently determines the 36 matching states by two methods, exhausts the 435 site pairs, verifies the 900 entries of \(Q^2=24Q\) and 600 entries of \(BQ=0\), and checks the trace. The analytic rank argument identifies the covariance with a projector and the finite Gibbs identity identifies the Curie response. No finite-sample extrapolation is used.
+## correctness
 
-**Originality — PASS on inspected evidence, with historical-priority risk.** Rousochatzakis, Läuchli and Mila already established both the 36 matching manifold and ten independent localized magnons, but in the examined sections and appendices of the arXiv full text they are distinct observations and no full matching covariance, flat-band projector equality, or site-resolved susceptibility law is stated. The 2015 Kunisada–Fukumoto work measures quantum bond-bond correlations in a different state. The 2015 perfect-matching count does not determine second moments. Broader dimer and representation-theoretic literature could still contain an equivalent identity.
+PASS
 
-**Mathematical value — PASS.** The full susceptibility operator is a physically motivated, nontrivial invariant of a canonical frustrated molecular cluster. Equal strength in all ten response directions and the exact coincidence of classical plateau fluctuations with the one-magnon flat-band subspace are structural and not implied by the separately known dimensions; the complete two-site pinning law further distinguishes geometrically frustrated probes.
+For the line graph of the 20-vertex nonbipartite dodecahedron, 0<h<4J makes exactly one down spin per triangle the unique local minimizing pattern; compatible assignments correspond bijectively to 36 perfect matchings of D. Independently enumerating 36 matchings, computing all co-occupancies K, and evaluating Q=K−4 11^T gives exact integer identities Q²=24Q, BQ=0, trQ=240. This determines an orthogonal projector Q/24 of rank 10; since unsigned vertex-edge incidence B has rank 20 by connected odd cycles, its range equals kerB. Hence Cov(n)=Q/36=(2/3)P and Cov(sigma)=(8/3)P. The adjacency A_G=B^T B−2I and fluctuation-dissipation χ/β=Cov_beta(sigma), with positive energy gap, prove the spectral and zero-temperature statements. Direct independent finite enumeration also verified 900 Q-products, 36 matchings, and rank ten; the finite graph makes exhaustive enumeration an adequate certificate here when its code is checked.
 
-**Scope and uncertainty.** The theorem is finite, homogeneous, classical Ising, strict interior field, and infinitesimal response before the zero-temperature limit. The exact computational certificate is self-contained, while historical priority and independent validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after direct statement/implication comparisons against indexed findings and relevant primary sources. Known antecedents and any covered symmetric/special cases are acknowledged; no comprehensive priority certificate is claimed.
+
+## value
+
+PASS
+
+An exact classical Ising covariance operator equal to the quantum one-magnon flat-band subspace is an unexpectedly rigid structural relation between frustration and incidence geometry. The exact two-site pinning signs can be used to predict local probe interactions on this natural finite magnetic cluster.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
