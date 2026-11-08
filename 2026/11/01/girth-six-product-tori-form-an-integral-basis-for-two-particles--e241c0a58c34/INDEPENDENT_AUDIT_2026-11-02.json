@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T06:05:08.723075Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md f0bd9811cf08bd1e34ffb4260b3aa173eefb2988",
+        "Independent construction of all 120/336/228 Abrams cells and 24 hexagons, 60 disjoint pairs; all torus boundaries zero",
+        "Independent exact rank over F2/F3, explicit 20×20 determinant -1, full 336×228 integer Smith form diag(1×207,2×1)",
+        "Assigned verify.py/symmetry.py and recorded output read; 96-order 12/48 symmetry orbit claim checked at source-code level"
+      ],
+      "rationale": "PASS. Rebuilt GP(8,3) from the specified 24 edges and the unordered Abrams cubical model (C0,C1,C2)=(120,336,228); the n=2 subdivision conditions hold (every essential-vertex path has at least one edge and cycles have at least three). Regenerated all 24 simple girth-six cycles and all 60 disjoint pairs. Their product two-chains have zero boundary. Recomputed independently rank(d2,F3)=208 and rank(d2,F2)=207, and the listed 20-by-20 square-coordinate minor on the stated shortest-cycle tori is exactly det -1. Since the 20 primitive torus cycles lie in ker(d2) of rational rank 20 and have an integral unit minor, they form a full integral basis (not merely a rational spanning set). Independently computed full integral Smith form of d2: 207 unit factors, one factor 2, giving H1=Z^9⊕Z/2 by connectedness and H2=Z^20. Graph automorphism 96 and torus-orbit sizes 12/48 are supported by source symmetry code/outputs and its full graph-automorphism enumeration, rather than being inferred from a partial sample.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2008.10371v2",
+          "https://arxiv.org/abs/1101.2648"
+        ],
+        "reasoning": "An–Knudsen proves H2 generation for planar graphs and poses combinatorial bases; GP(8,3) is nonplanar and the theorem does not give primitive integral bases there. Ko–Park addresses H1, so cannot supply this H2 basis.",
+        "searches": [
+          "An–Knudsen arXiv:2008.10371 Thm1.1 §1.1",
+          "Ko–Park arXiv:1101.2648",
+          "Möbius Kantor graph unordered configuration space 2 particles disjoint six cycle product tori integral H2 basis torsion"
+        ]
+      },
+      "checked_sources": [
+        "Git tree a4edb0f753dcc6301e8264dd2d538a33a508152d at assigned commit 3216b56cf13f3458b5353d1e118761f975adbcd9",
+        "Read assigned RESULT.md blob f0bd9811cf08bd1e34ffb4260b3aa173eefb2988",
+        "Read assigned verification source symmetry.py:3403b39bdb09ab97f616289b12d6ae16d6fe8436",
+        "Actual source directory under main has unchanged file/blob SHA pairs matching assigned tree",
+        "Primary source https://arxiv.org/html/2008.10371v2",
+        "Primary source https://arxiv.org/abs/1101.2648"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2008.10371v2"
+        ],
+        "reasoning": "Previous planar-graph generators do not imply the explicit 20 primitive shortest-cycle basis on this nonplanar graph. Previous Betti/torsion tables alone would not imply a specific primitive basis and two orbit sizes. No decisive covering primary theorem identified.",
+        "searches": [
+          "An–Knudsen Thm1.1 and §1.1 questions",
+          "Resultary other symmetric graph UConf2 tables"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2008.10371v2",
+          "https://arxiv.org/abs/1101.2648"
+        ],
+        "reasoning": "Unordered two-particle configuration space equals the 2-strand graph braid space; graph-braid literature considers H2 and toric classes. The claim is a **specific primitive basis** from vertex-disjoint 6-cycles and two symmetry orbits, not just a general toric-generation statement.",
+        "searches": [
+          "Möbius Kantor graph unordered configuration space 2 particles disjoint six cycle product tori integral H2 basis torsion",
+          "graph braid group B_2 Möbius Kantor hexagon torus integral basis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-two-particle-petersen-configuration-homology-as-an-s-5-module--2bac82e0590d"
+        ],
+        "reasoning": "Resultary hit is Petersen two-particle H1/H2 on a different graph. No actual same Möbius–Kantor 60-hexagon torus basis table located; this does not prove exhaustive novelty.",
+        "searches": [
+          "Möbius Kantor graph unordered configuration space 2 particles disjoint six cycle product tori integral H2 basis torsion",
+          "Resultary Petersen two-particle configuration H1 H2 S5",
+          "Möbius Kantor UConf2 Betti H2 tori table"
+        ]
+      },
+      "rationale": "PASS. Ko–Park general H1 graph-braid machinery covers the possibility of order-two torsion, which is not counted as new. An–Knudsen planar degree-two toric-generation theorem cannot imply a shortest-hexagon primitive integral basis for the nonplanar GP(8,3); its stated nonplanar example is a different graph. Related published two-point homology examples in Resultary are different graphs/representations. The twenty explicitly indexed primitive girth-six product tori, sixty-carrier theorem and automorphism-orbit partition remain a specific un-covered assertion by bounded same-object searches; possible unindexed tables are residual risk.",
+      "residual_risks": [
+        "A specialized unpublished or unindexed graph-configuration H2 basis could cover the same 60-carrier theorem.",
+        "The 96-element symmetry orbit computation was checked against the supplied complete enumeration algorithm, but not separately rebuilt in a second group-enumeration implementation.",
+        "The cubical configuration model relies on the verified n=2 Abrams deformation-retraction hypotheses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Planar toric/theta generation does not cover nonplanar GP(8,3); specifically asks for combinatorial H2 bases",
+          "evidence": [
+            "Theorem1.1 requires planar Γ; §1.1 Question(2) asks for combinatorial H2 bases; Example6.8 uses K3,3 glued to a star"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2008.10371v2",
+          "material_read": "Full primary HTML introduction, Theorem1.1, §1.1 questions, §6 nonplanar example and surrounding constructions",
+          "method": "Compared graph hypotheses, generator types, and exact primitive-basis quantification",
+          "title": "On the second homology of planar graph braid groups",
+          "trigger": "Same 2-particle graph-configuration homology, potentially broad generation"
+        },
+        {
+          "assessment": "Can cover order-two H1 phenomenon but not claim shortest-cycle H2 basis",
+          "evidence": [
+            "H1 graph braid group calculations; no basis of H2 for named graph established by available material"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1101.2648",
+          "material_read": "Abstract/identified result and discussion in assigned text; full body not accessed in this run",
+          "method": "Scoped comparison to first homology not second-homology integral basis",
+          "title": "Characteristics of graph braid groups",
+          "trigger": "Potential general integral H1/torsion calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2008.10371v2",
+        "https://arxiv.org/abs/1101.2648"
+      ],
+      "rationale": "PASS. The two-point graph-braid H2 integral generator problem is a motivated natural combinatorial-basis question, explicitly posed by An–Knudsen. This result determines an exact shortest-geodesic support basis and its symmetry-carrier orbits for a canonical highly symmetric nonplanar cubic graph, not simply recomputing a generic Betti table. Finite result is complete for the named object; no broader theorem is needed.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree a4edb0f753dcc6301e8264dd2d538a33a508152d at assigned commit 3216b56cf13f3458b5353d1e118761f975adbcd9",
+    "Read assigned RESULT.md blob f0bd9811cf08bd1e34ffb4260b3aa173eefb2988",
+    "Read assigned verification source symmetry.py:3403b39bdb09ab97f616289b12d6ae16d6fe8436",
+    "Actual source directory under main has unchanged file/blob SHA pairs matching assigned tree",
+    "Primary source https://arxiv.org/html/2008.10371v2",
+    "Primary source https://arxiv.org/abs/1101.2648",
+    "Actual bounded independent computations: Independent construction of all 120/336/228 Abrams cells and 24 hexagons, 60 disjoint pairs; all torus boundaries zero",
+    "Actual bounded independent computations: Independent exact rank over F2/F3, explicit 20×20 determinant -1, full 336×228 integer Smith form diag(1×207,2×1)",
+    "Actual bounded independent computations: Assigned verify.py/symmetry.py and recorded output read; 96-order 12/48 symmetry orbit claim checked at source-code level"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No finite computation implies unrestricted parameter theorem; the supplied structural proof is required.",
+    "No independent authorship, provenance, or publication certification asserted."
+  ],
+  "residual_risks": [
+    "A specialized unpublished or unindexed graph-configuration H2 basis could cover the same 60-carrier theorem.",
+    "The 96-element symmetry orbit computation was checked against the supplied complete enumeration algorithm, but not separately rebuilt in a second group-enumeration implementation.",
+    "The cubical configuration model relies on the verified n=2 Abrams deformation-retraction hypotheses."
+  ],
+  "schema_version": 1
+}

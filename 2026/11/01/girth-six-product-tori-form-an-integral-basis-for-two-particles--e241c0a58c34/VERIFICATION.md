@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The scripts `verify.py` and `symmetry.py` reconstruct the graph and check this specific finite theorem from first principles. `verify.py` computes cubical boundary matrices over the integers; its Smith form is derived with exact integer arithmetic, while its rank bound is certified independently by elimination in the field with three elements and by a displayed integral unimodular minor. The program checks all sixty torus chains are actual two-cycles and exhaustively enumerates simple graph cycles shorter than seven edges. `symmetry.py` enumerates all graph isomorphisms to itself and checks the two orbits, rather than assuming an incomplete generating subgroup. The recorded outputs are `verify.out` and `symmetry.out`.
+# Independent mathematical audit
 
-**Key facts verified:** cell counts \((120,336,228)\), boundary ranks \((119,208)\) over characteristic zero, mod-two degree-two rank \(207\), Smith diagonal \((1^{\times207},2)\), exactly \(24\) shortest hexagons and \(60\) disjoint pairs, signed minor \(-1\), automorphism count \(96\) and pair-orbit sizes \((12,48)\). Standard homological algebra and the known graph-configuration deformation retraction identify the calculated cubical homology with the continuous configuration-space homology. These are exact finite verifications, not claims of independent external certification.
+## correctness
 
-**Limits:** `sympy` and `networkx` are external computational dependencies. The verification establishes only the stated graph, particle count, and actions; it does not establish novelty in every inaccessible publication.
+PASS
+
+PASS. Rebuilt GP(8,3) from the specified 24 edges and the unordered Abrams cubical model (C0,C1,C2)=(120,336,228); the n=2 subdivision conditions hold (every essential-vertex path has at least one edge and cycles have at least three). Regenerated all 24 simple girth-six cycles and all 60 disjoint pairs. Their product two-chains have zero boundary. Recomputed independently rank(d2,F3)=208 and rank(d2,F2)=207, and the listed 20-by-20 square-coordinate minor on the stated shortest-cycle tori is exactly det -1. Since the 20 primitive torus cycles lie in ker(d2) of rational rank 20 and have an integral unit minor, they form a full integral basis (not merely a rational spanning set). Independently computed full integral Smith form of d2: 207 unit factors, one factor 2, giving H1=Z^9⊕Z/2 by connectedness and H2=Z^20. Graph automorphism 96 and torus-orbit sizes 12/48 are supported by source symmetry code/outputs and its full graph-automorphism enumeration, rather than being inferred from a partial sample.
+
+## originality
+
+PASS
+
+PASS. Ko–Park general H1 graph-braid machinery covers the possibility of order-two torsion, which is not counted as new. An–Knudsen planar degree-two toric-generation theorem cannot imply a shortest-hexagon primitive integral basis for the nonplanar GP(8,3); its stated nonplanar example is a different graph. Related published two-point homology examples in Resultary are different graphs/representations. The twenty explicitly indexed primitive girth-six product tori, sixty-carrier theorem and automorphism-orbit partition remain a specific un-covered assertion by bounded same-object searches; possible unindexed tables are residual risk.
+
+## value
+
+PASS
+
+PASS. The two-point graph-braid H2 integral generator problem is a motivated natural combinatorial-basis question, explicitly posed by An–Knudsen. This result determines an exact shortest-geodesic support basis and its symmetry-carrier orbits for a canonical highly symmetric nonplanar cubic graph, not simply recomputing a generic Betti table. Finite result is complete for the named object; no broader theorem is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
