@@ -1,18 +1,21 @@
-# Scientific review: Gaussian stationary-state design via resetting
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary distributional identity uniquely forces the reset density. Direct Gaussian differentiation yields the displayed quadratic tilt. Matrix positive semidefiniteness, a range constraint, and completion of squares yield **necessary and sufficient** positivity; the normalization is automatic. A last-reset resolvent and a first-reset coupling prove existence and uniqueness. Isotropic optimization is differentiated and every boundary, including an unattained infimum at rate \(dk\), is treated. The standalone reproducibility program passed 71 independent deterministic calculations (Gaussian quadrature and exact rational symbolic checks); the proof of all-dimensional sufficiency is analytic.
+## correctness
 
-## Originality — PASS, with qualification
-Olsen, *Steady-state moments under resetting to a distribution* (arXiv:2310.04840), provides the forward source-to-moment theory and master equation. Trajanovski et al. (arXiv:2301.12304) derive OU resetting densities and moments for fixed return sites and comb geometry. Neither inspected primary source states the multivariate Gaussian **inverse source positivity** conditions, the unique admissible quadratic tilt, or the sharp bounded-to-unbounded displacement-reachability transition. The nearest accessible historical findings treat distinct covariance-twin, fractional-diffusion, and harmonic-gas problems. Research-record searches used Gaussian source-design aliases, Lyapunov matrix comparisons, pseudoinverse feasibility, and stationary inverse-law parameters; no decisive equivalent result emerged. Standard Fokker–Planck inversion and OU resetting itself are not claimed as new. A broader inverse-process synthesis result could still subsume the theorem; publication priority is not independently established.
+PASS
 
-## Mathematical value — PASS
-The theorem completely answers a physically motivated distribution-engineering problem for stable OU dynamics under random refreshing. It reveals that non-Gaussian resets can generate exactly Gaussian one-time statistics, and identifies a sharp dimension-dependent rate barrier for producing arbitrarily displaced Gaussian stationary means. This is a natural exact reachable-set classification with a concrete feasibility discontinuity, not merely numerical fluctuation data. It does not address resetting work, noisy experiments, nonlinear dynamics, or non-Poisson reset clocks.
+The full RESULT.md proves the all-dimension necessary-and-sufficient inverse-source classification for stable dX=-AX dt+sqrt(2D)dW with whole-vector independent Poisson resetting: the stationary adjoint equation forces mu=p-r^{-1}L*p, with p=N(m,S), Q=(AS+SA^T)/2-D, h=Am, tau=tr(S^{-1}Q). Gaussian differentiation gives rho=p[1+(y^T Q y+h^Ty-tau)/r], y=S^{-1}(x-m), and expectation identities prove normalization. A quadratic polynomial is globally nonnegative exactly when Q>=0, h lies in Ran Q and r>=tau+h^T Q^+h/4, with the equality singular boundary. A last-reset resolvent/coupling establishes existence and uniqueness, while isotropic covariance optimization separates r<dk, r=dk with unattained large-displacement boundary, and r>dk where any displacement is attainable by choosing finite S. Independently checked a nontrivial two-dimensional diagonal example: for A=diag(1,2), D=diag(1,2), S=diag(2,3), m=(1,0), the source positivity threshold is exactly 25/12; at the minimizing y its tilt is zero. Script verify_gaussian_reset.py was read but its claimed 71-check log was not treated as proof. Boundaries d>=1, D,S positive definite and stable A are stated.
 
-## Closest literature and limitations
-- K. Stølevik Olsen, arXiv:2310.04840 (2023): forward resetting distribution to OU moments, not inverse Gaussian attainable set.
-- P. Trajanovski et al., arXiv:2301.12304 (2023): fixed-site OU resetting and constrained comb diffusion.
-- Standard OU/Fokker–Planck identities are reused explicitly; residual risk of an unlocated general inverse-source theorem remains.
-- The claim assumes independent whole-vector Poisson resets, stable drift, positive diffusion, and strictly positive-definite Gaussian target covariance.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared exact full claim, not generic resetting: Olsen 2023 (arxiv:2310.04840) derives forward OU moments from supplied random refresh laws; Trajanovski et al. 2023 (arxiv:2301.12304) analyze fixed reset points and comb OU. These do not state a multivariate inverse *positive probability source* criterion including pseudoinverse/range and the sharp isotropic attainable-mean transition. Classical Fokker-Planck inversion is pre-existing and is not claimed as independent novelty. Resultary semantic research hits concern OU sensing and stationary moment constraints, not a matching inverse design. Best knowledge PASS with explicit broader inverse-generator literature risk.
+
+## value
+
+PASS
+
+A natural inverse nonequilibrium-control question asks which Gaussian stationary states are realizable by randomized resets despite non-Gaussian refresh mechanisms. The theorem supplies a complete continuously parameterized necessary/sufficient matrix criterion, a uniquely forced positive law with singular boundary, and a sharp transition in attainable mean displacement when target variance is free. These are nontrivial structural reachable-set facts with practical parameter-selection implications beyond forward OU moments or textbook completion squares. It does not address nonlinear drifts, time-dependent reset laws or cost optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
