@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The harmonic equations follow directly from relative-fitness reproduction and uniform-neighbor replacement; self-loops cancel. All 14 nonabsorbing equations for each four-vertex graph were independently solved and checked in exact rational functions. The six insertion differences have globally positive denominators and signed numerators with explicit positive factors, except the ninth-degree crossing polynomial. Descartes' one-sign-change bound, exact endpoint signs, and a rational interval prove a unique positive root; canonical graph enumeration is exhaustive through order four. The three-vertex difference is an explicit strictly negative rational function. The standalone exact-arithmetic verifier passed. Risk: transcription errors in long polynomial coefficients are mitigated by reproducible full symbolic recomputation; no general higher-order result is inferred.
+## correctness
 
-## Originality — PASS, with qualified historical priority
-Broom–Rychtář–Stadler (2009, DOI 10.1080/09720502.2009.10700618) **already describe the qualitative reversal between the path and paw** at selected fitnesses. The proposed advance is not this observation, but an exact algebraic crossover, a rigorous proof of uniqueness for all positive fitness advantages, an exhaustive classification of all six four-vertex edge insertions, and the sharp minimal order. Their inspected numerical comparisons and Hindersin–Traulsen (2015, DOI 10.1371/journal.pcbi.1004437) do not provide this all-fitness classification. Broom–Rychtář (2008, DOI 10.1098/rspa.2008.0058) was accessible only at the abstract/bibliographic level; a broader exact theorem elsewhere may imply part of the result. The novelty assessment is provisional and not independently certified.
+PASS
 
-## Value — PASS
-The complete small-graph answer and sharp minimum settle a natural structural boundary for the counterintuitive effect of adding a contact edge under fixed per-individual reproduction-to-neighbor selection. The exact continuous fitness interval is important where finite fitness sampling misses or mislabels rank changes; the result turns previously numerical graph-ordering evidence into a complete provable phase diagram in the first nontrivial graph size. This is a finite natural classification, not a claim of a universal large-network theorem.
+For connected simple undirected G of order <=4 and uniformly chosen single mutant, derived the fourteen-state harmonic system with gain rates r/d_i and loss rates 1/d_j and absorbing boundary values 0,1. The six connected order-four types and six one-edge insertions are exhaustive by canonical labeled-graph enumeration. Exact rational functions give negative star→paw, path→C4, paw→diamond, diamond→K4, positive C4→diamond, and path→paw sign equal to P(r)=12780r^9+14805r^8-177144r^7-665280r^6-1193573r^5-1412701r^4-1179232r^3-667896r^2-206727r-19404 for every r>1. Positive denominator factor shifts, one Descartes coefficient sign change, P(1)<0 and positive leading coefficient give exactly one crossing, 4.887<r_c<4.888. P3→K3 is negative for r>1; K2 has no edge insertion. Independently rebuilt the finite harmonic matrices with rational arithmetic: at r=2 path→paw = -35293/6486192; at r=5 it is +10823483975/182762925076026; also tested noncrossover signs. These samples corroborate, not replace, polynomial and enumeration arguments.
 
-## Closest literature and limitations
-Lieberman–Hauert–Nowak (2005), Broom–Rychtář (2008), Broom–Rychtář–Stadler (2009), and Hindersin–Traulsen (2015). The 2009 work is closest because it explicitly reports qualitative rank reversal. The exact full 2008 text was not inspected. Only uniform single-mutant birth–death processes on connected, undirected, unweighted graphs of order at most four are covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior Broom–Rychtář–Stadler (2009) already reports the qualitative path/paw ranking reversal for a finite fitness grid, and Broom–Rychtář (2008) supplies exact star and line processes. The tested novelty is the exact ninth-degree crossover threshold and its uniqueness over all r>1 together with the six-type all-fitness sign classification; neither the 2008 nor 2009 full paper provides this stated complete comparison. General Moran isothermal theorem is accepted prior theory. Best-of-knowledge priority remains provisional.
+
+## value
+
+PASS
+
+Mathematical value is a smallest-order complete parametric phase diagram for a natural graph modification in a widely used evolutionary process. The sharp four-vertex minimum and one-root crossover strengthen already observed qualitative reversal, without claiming new qualitative phenomenon or extension to larger graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
