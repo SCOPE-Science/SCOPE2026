@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the graph intersection algebra, all three entry orbits of the exact RK4 polynomial, strict positivity of nonadjacent entries and diagonals, monotonic cubic unique-root proof, sharp scalar eigenvalue stability boundary and gap sign identity. The rescaled cubic yields the sharp asymptotic horizon. Verified supporting computations from the supplied standalone verify.py, including 6,024 exact offdiagonal comparisons; finitely many tests are explicitly not the infinite proof. Assumes finite simple undirected unit-weight graphs with parameters specified in RESULT.md and end-step positivity only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gottlieb–Shu–Tadmor analyzes convex SSP sufficient conditions across general right-hand sides.",
+        "Horváth studies sharp thresholds on broad positive problem sets and invariant positive cones.",
+        "Fekete–Ketcheson–Lóczi investigates particular convection and heat discretizations."
+      ],
+      "reasoning": "A broad SSP guarantee or threshold for a class of arbitrary generators does not determine the maximal END-OF-STEP horizon for this fixed nonbipartite graph family. The full-text source objects and quantifiers do not match or imply the exact graph-dependent τ_n result.",
+      "searches": [
+        "graph Laplacian numerical time stepping positivity Runge Kutta method graph distance exact threshold",
+        "RK4 Markov stochastic matrix positivity triangular graph diffusion nonnegative polynomial threshold",
+        "strongly regular graphs numerical RK4 time step positivity spectral stability Chang graphs",
+        "doi:10.1137/S003614450036757X",
+        "doi:10.1016/j.apnum.2004.08.026",
+        "arxiv:1610.00228"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S003614450036757X",
+      "doi:10.1016/j.apnum.2004.08.026",
+      "arxiv:1610.00228",
+      "https://mathworld.wolfram.com/TriangularGraph.html",
+      "published-finding corpus:2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "published-finding corpus:2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+      "published-finding corpus:2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2001 general SSP conditions concern safe stages and general nonlinear operators, versus a fixed symmetric graph generator and endpoint alone.",
+        "2005 positivity threshold theorems specify different dynamical classes and positivity cones; its heat example is tridiagonal, not J(n,2).",
+        "2016 preprint uses convection and uniform heat grids.",
+        "published-finding corpus record 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab concerns a different [2/2] rational approximation.",
+        "Accessible earlier exact RK4 bipartite-regular graph result is restricted to bipartite graphs whereas triangular graphs contain triangles."
+      ],
+      "reasoning": "None of these sources asserts a stronger exact RK4 end-of-step criterion encompassing all T_n and the Chang-type parameter class. Transferring an SSP sufficient bound is weaker than computing the exact endpoint positivity horizon, and the bipartite theorem has disjoint graph hypotheses.",
+      "searches": [
+        "RK4 Markov stochastic matrix positivity triangular graph diffusion nonnegative polynomial threshold",
+        "graph Laplacian numerical time stepping positivity Runge Kutta method graph distance exact threshold",
+        "doi:10.1137/S003614450036757X",
+        "doi:10.1016/j.apnum.2004.08.026",
+        "arxiv:1610.00228"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The line graph L(K_n), triangular graph T_n and Johnson graph J(n,2) name the same vertex-set-intersection graph.",
+        "MathWorld triangular-graph entry documents classical graph parameter equivalences.",
+        "No matching published-finding corpus hit in the reported finite ranked records for these queries."
+      ],
+      "reasoning": "All three graph names and the wider strongly regular intersection-parameter equivalence were compared at statement level. A known Laplacian spectrum does not entail positivity of the exact quartic graph matrix without the signed offdiagonal analysis. Database nonmatches are only bounded evidence.",
+      "searches": [
+        "classical fourth-order Runge Kutta endpoint positivity triangular graphs T(n) line graphs of complete graphs exact timestep threshold",
+        "Johnson graph J(n,2) stability polynomial fourth-order Taylor heat kernel entrywise nonnegative",
+        "strongly regular graph RK4 entrywise positivity graph Laplacian line graph K_n stability",
+        "published-finding corpus semantic search aliases: line graph of complete graph; triangular graph; Johnson graph J(n,2); strongly regular graphs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus hits relevant to numerical positivity concern [2/2] Padé maps, SDIRK2, or CN resolvents on different generators.",
+        "MathWorld gives graph parameters but no timestep table; several exact τ_n are computed only as independent validation points."
+      ],
+      "reasoning": "No matching exact tabulation of τ_n or a polynomial-positive criterion was found in actually queried published-finding corpus and read primary sources. No extrapolation of this bounded search to exhaustive novelty is made.",
+      "searches": [
+        "classical fourth-order Runge Kutta endpoint positivity triangular graphs T(n) line graphs of complete graphs exact timestep threshold",
+        "Johnson graph J(n,2) stability polynomial fourth-order Taylor heat kernel entrywise nonnegative",
+        "strongly regular graph RK4 entrywise positivity graph Laplacian line graph K_n stability",
+        "line graph complete graph graph Laplacian fourth order Markov transition threshold normalized step",
+        "published-finding corpus semantic search for RK4 positivity on line graph of complete graph; Johnson graph diffusion"
+      ]
+    },
+    "rationale": "The graph-family RK4 endpoint criterion and its exact asymptotic spectral separation are not stated or implied by the compared general SSP results, positivity-threshold papers, primary semi-discretization study, graph reference, relevant mathematical database hits, or accessible own claims. The key structural statement is the sign of the adjacent-entry cubic for all Johnson graphs and parameter-equivalent strongly regular graphs, not the previously known graph spectrum or SSP polynomial. Publication priority remains qualified by uncatalogued specialist schemes.",
+    "residual_risks": [
+      "An uncatalogued numerical semigroup or algebraic-combinatorics treatment of RK4 matrix polynomials on Johnson schemes could cover these conclusions.",
+      "No independent publication-priority search by a domain expert has occurred.",
+      "The database search is semantically ranked and cannot establish global uniqueness of the statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general monotonicity/SSP machinery, but does not state the Johnson-graph RK4 adjacent-entry cubic or its exact graph-specific positivity and spectral-stability horizons",
+        "evidence": [
+          "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+          "doi:10.1137/S003614450036757X"
+        ],
+        "identifier_or_url": "doi:10.1137/S003614450036757X",
+        "material_read": "Author-hosted full PDF: abstract/introduction, SSP structure, proofs and discussion of examples and restrictions",
+        "method": "Direct full-text section and theorem reading, comparing stagewise SSP implications with an exact end-of-step graph-family condition",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "General explicit Runge–Kutta nonnegativity and convex stability may dominate a graph-specific RK4 claim"
+      },
+      {
+        "assessment": "Gives sharpness on certain broad IVP classes, positive invariant cones and one-dimensional heat discretization examples; not the sharp triangular-graph end-step RK4 entrywise horizon nor its all-order spectral comparison",
+        "evidence": [
+          "doi:10.1016/j.apnum.2004.08.026",
+          "publisher first-page online date 2004-10-27"
+        ],
+        "identifier_or_url": "doi:10.1016/j.apnum.2004.08.026",
+        "material_read": "Substantive full text, pages 1–15 of the 16-page authorized PDF, including all theorem sections and worked heat examples",
+        "method": "Read original article text for exact problem classes and thresholds; compared all positive initial data on graph diffusion with its general IVP class and invariant cone claims",
+        "title": "On the positivity step size threshold of Runge–Kutta methods",
+        "trigger": "Directly relevant rigorous positivity thresholds; possible general implication"
+      },
+      {
+        "assessment": "Studies convection-focused semi-discretizations and particular heat stencils, not all-order entrywise RK4 positivity on triangular graphs",
+        "evidence": [
+          "https://arxiv.org/pdf/1610.00228",
+          "https://arxiv.org/abs/1610.00228"
+        ],
+        "identifier_or_url": "arxiv:1610.00228",
+        "material_read": "Accessible arXiv full text: abstract/introduction and main technical classification and model sections, including later positivity examples",
+        "method": "Compared the discretized generators and parameters in its theorems with the strongly regular Johnson/triangular graph Laplacian",
+        "title": "Positivity for Convective Semi-Discretizations",
+        "trigger": "Full-text treatments of positivity polynomials for RK schemes and discretizations might imply the requested claim"
+      },
+      {
+        "assessment": "Provides classical graph identification, adjacency spectrum and parameter context, but no RK4 timestep-positivity criterion",
+        "evidence": [
+          "https://mathworld.wolfram.com/TriangularGraph.html"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/TriangularGraph.html",
+        "material_read": "Reference entry on graph parameters, alternative names and Chang graphs",
+        "method": "Compared graph classification facts and known parameters with the new RK4 one-step statement",
+        "title": "Triangular Graph",
+        "trigger": "Check existing graph spectra/alias and nonisomorphic equal-parameter graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1a3e2a74-1280-43fc-8790-62e70dc04d2c",
+  "value": {
+    "rationale": "A complete sharp all-timestep positivity classification for an infinite family of dense nonbipartite graph diffusion systems, with a strict stability/positivity separation for every n>=5 and a quantitatively sharp large-n ratio. The same result covers any strongly regular graph with identical intersection parameters, including nonisomorphic Chang graphs. These statements answer a meaningful graph-dependent numerical-positivity gap and are not a parameter substitution or isolated finite census.",
+    "status": "PASS"
+  }
+}
