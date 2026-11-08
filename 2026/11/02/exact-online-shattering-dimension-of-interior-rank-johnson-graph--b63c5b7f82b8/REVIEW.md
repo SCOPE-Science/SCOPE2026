@@ -1,18 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is for all integers \(3\le k\le n-3\), and its proof handles both exceptional boundary cases. After any two distinct positive queries the common-center family is empty, has four centers, or splits into two blocks of sizes \(n-k-1\) and \(k-1\). The trace lemma proves Littlestone dimension at most three on the latter family and at most two when \(\min(k,n-k)=3\), \(n\le9\), or \((n,k)=(10,5)\). Following the first two positive edges gives the stated universal depth-five and exceptional depth-four bounds. Complete explicit depth-four and depth-five trees for \(J(6,3)\) and \(J(10,4)\), independently checked against all leaf paths, together with induced rank embeddings give the matching lower bounds. The finite checker corroborates but is not substituted for the infinite proof.
+## correctness
 
-## Originality — PASS under accessible comparison
-The closest primary paper [1] determines VC dimension and density, including static dimension four for \(J(6,3)\), and the common-neighborhood count by pair distance. Its relevant entire Johnson-graph section was inspected and the terms “Littlestone” and “online” were searched in the full text; it does not give the exact adaptive formula. Other searches for Johnson-neighborhood Littlestone, online shattering, and Shelah 2-rank produced no stronger covering theorem. Published work on Johnson-slice spectra and Johnson-graph Vietoris–Rips complexes concerns different objects/invariants. Prior triangular-graph neighborhood results concern the smaller rank-two slice, so do not imply the uniform interior-rank upper bound or \(J(10,4)\) certificate. Historical-priority uncertainty remains, notably under alternative model-theoretic terminology, and search absence is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-Johnson graphs constitute a natural distance-regular class. A known sharp static VC bound of four does not control online learnability; indeed the new classification shows exactly where the adaptive dimension becomes five. A common-neighbor trace lemma yields a sharp uniform bound across all ranks and induced subgraphs, while explicit witnesses show the bound cannot be improved. This is a complete natural parameter classification rather than an arbitrary finite census.
+For two positive distinct neighborhood queries U,V, their centers F are empty at Johnson distance>=3; distance2 has exactly 4 centers, while distance1 splits into A and B of sizes n-k-1 and k-1. The case split on t=|Q intersect S| and h=|Q intersect {a,b}| yields traces all F, co-singleton within A/B, or at most two centers. This proves Ldim(F)<=3, global dimension<=5; refined bound <=2 when min rank3, n<=9, or (10,5) gives global<=4. Lower bounds use actual certified depth4 J(6,3) and depth5 J(10,4) binary trees; independent leaf-path checking confirmed all 16+32 distinct witness centers; fixed-coordinate embeddings and rank complementation propagate to every parameter.
 
-## Scientific limits and closest sources
-The exact formula is restricted to interior ranks. The primary source [1] is acknowledged for its static theorem and neighborhood geometry. The two constructive trees are computer-checkable finite certificates, not independently audited mathematical publications. No closed-neighborhood theorem is asserted, and the priority assessment is provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## Reference
-[1] Adler, Benediktsson, Macpherson, *Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs*, arXiv:2007.16042 (2020-07-31); doi:10.1016/j.dam.2021.09.017.
+Best-of-knowledge new stated claim after primary statement/implication comparisons and a Resultary search: The prior VC dimension=4 statement is consistent with either adaptive dimension 4 or 5, thus does not settle the claim. The paper common-neighbor formulas assist the upper bound, but new trace lemma and adaptive witness trees are needed.
+
+## value
+
+PASS
+
+Pinpoints when online (adaptive) shattering exceeds the known static VC dimension for a canonical graph family and provides a global constant bound with a sharp arithmetic/rank threshold. A complete classification of an intrinsically natural learning-theoretic graph invariant is mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
