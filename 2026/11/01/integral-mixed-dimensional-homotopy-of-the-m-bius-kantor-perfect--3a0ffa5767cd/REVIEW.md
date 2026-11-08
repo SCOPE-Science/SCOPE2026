@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The standalone verifier constructs every perfect matching by two independent methods (33 each) and independently checks the perfect-extension property on all 11,068 partial matchings. It enumerates 6,051 simplices, validates 3,014 face-poset pairings and checks all 27,192 directed Hasse incidences for acyclicity. The complete signed Morse boundary has exact rank five and a displayed determinant-minus-one 5-by-5 minor; hence the five nonzero integer Smith invariants are all units. With no critical 1-cells, the resulting simply connected 2-skeleton has \(\pi_2\cong\mathbb Z^9\), and the integer attachments give \(\bigvee^4S^2\vee\bigvee^8S^3\). Independent raw mod-two simplicial ranks corroborate the resulting homology without being used to infer the integral result.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** The 2022 honeycomb and 2024 polygonal-line-tiling primary full texts address different graph classes. The closest exact same-graph public calculation (record 4bfded76792e) concerns all partial matchings, not the extendible subcomplex; its wedge decomposition does not imply the new one. Targeted searches covered Möbius–Kantor, generalized Petersen, graph aliases, 1-factor/extendible matching, numerical signatures and broader classifications. The Möbius ladder family is nonisomorphic and does not subsume this graph. Accessible prior mathematical claims were compared for competing statements; none covered this claim. An unindexed equivalent source remains possible, so absolute novelty is not certified.
+PASS
 
-**Value — PASS.** The Möbius–Kantor graph is the canonical 16-vertex symmetric cubic incidence graph. The extendible-matching construction is the natural perfect-matching counterpart of its previously computed ordinary matching complex, whose topology occurs in dimensions four and five. This finding gives the complete integral homotopy type of the proper subcomplex, with distinct mixed dimensions two and three. The exact topology is not implied by its number of perfect matchings or by general honeycomb results. The scope is deliberately one graph; no generalized Petersen family theorem is claimed.
+PASS: The GP(8,3) graph is explicitly rebuilt on 16 vertices and 24 edges. Exhaustive smallest-unused-vertex recursion and a second bipartite permutation enumeration both give exactly 33 perfect matchings, and their downward closure has 6,051 nonempty faces with face vector (24,228,984,1842,1752,924,264,33). A distinct enumeration of all 11,068 graph matchings with residual perfect-matching feasibility matches the extendible face set. Independently reconstructed the 3,014 staged toggle matching pairs and entire oriented Hasse graph (27,192 covers); topological sorting visits every one of 6,051 faces with critical cells 1 in dimension 0, 9 in dimension 2, 13 in dimension 3. Reconstructed the signed gradient-path Morse matrix from actual face lists; its rational rank is exactly 5 and the asserted 5×5 minor on rows (1,2,3,4,5), columns (0,1,4,5,7) has determinant -1. Hence all five Smith factors are units. The Morse 2-skeleton is a simply connected wedge of nine 2-spheres; π2=H2 identifies all 3-cell attaching maps by integer degrees, and unimodular cancellation gives exactly wedge^4 S² ∨ wedge^8 S³. The finite enumeration is exhaustive for the stated single graph; no infinite graph-family theorem is inferred.
 
-Scientific limitations: finite exhaustive computer-assisted proof with complete reproducible code; originality relative to the inspected literature only; no equivariant homotopy or arbitrary-family classification; independent external audit not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: exact same graph ordinary matching complex is known but has a strictly larger face set and different homotopy type; known perfect-matching-complex theorems are for planar honeycomb or polygonal-line graph families. No inspected prior theorem implies the integral wedge of the 6,051-face extendible subcomplex. Residual unindexed graph-alias priority risk recorded.
+
+## value
+
+PASS
+
+PASS: The perfect-matching subcomplex is a canonical but substantially different object from the ordinary matching complex of the famous Möbius–Kantor graph. The exact integral mixed-dimensional homotopy, with a primitive nonzero 3→2 attaching matrix, resolves its natural complete invariant and can inform future perfect-matching-complex families and comparisons. It is not an arbitrary numerical slice or reproduction of a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
