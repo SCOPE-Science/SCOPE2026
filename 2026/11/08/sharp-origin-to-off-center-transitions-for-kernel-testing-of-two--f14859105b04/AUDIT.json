@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The m-by-m Hankel matrix reduces exactly to one 2-by-2 shear block. Poisson variance gives the angular/radial profile; the comparison against r=0 factors through two exact roots. The derivative of log c_+(t) has one interior zero for all m>=4 and only an endpoint maximum for m=3, proving the complete stated phase criterion and equality sets. Cubic optimization and uniform small-radius exclusion prove the limiting optimizer transition. The included 454 standard-library diagnostics verify finite sample computations without being used for the infinite-degree claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The finite-rank shifted-Blaschke theorem classifies operators obeying SRKT and norming kernels when the full Hankel norm is attained.",
+        "Dyakonov 2024/2025 studies Garsia norm equaling uniform norm and extreme-point structure, rather than optimal point location for nonmonomial two-frequency symbols."
+      ],
+      "reasoning": "The stronger-looking finite-rank SRKT theorem does not apply because a+bz^{m-1} with both coefficients nonzero gives a nonmonomial symbol known not to obey SRKT. The earlier Garsia-extremality classification compares a different norm, so cannot settle this phase diagram.",
+      "searches": [
+        "sharp threshold origin norm attaining kernels two-term polynomial az+bz^m Poisson variance Garsia norm m degree three four bifurcation",
+        "arXiv:2404.05565 Theorems 2.1 onward and section overview",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-shifted-blaschke-classification-of-finite-rank-srkt-hankel-opera--c64bd5a5783f/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-monomial-rigidity-for-polynomial-symbol-hankel-operators-obeying--bc8369ca1a24/RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2609.33242",
+      "https://arxiv.org/pdf/2404.05565",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-shifted-blaschke-classification-of-finite-rank-srkt-hankel-opera--c64bd5a5783f/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-monomial-rigidity-for-polynomial-symbol-hankel-operators-obeying--bc8369ca1a24/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 2026 proves kernel variance identity and states compact SRKT characterization; its examples mention quadratic failure but no m>=3 sharp coefficient threshold.",
+        "Shifted-Blaschke theorem applies only to full-operator-norm equality, while the new Garsia norm remains strictly less for every included nonmonomial.",
+        "The m=2 setting has a distinct radial variance polynomial and is excluded from the claimed m>=3 parameter family."
+      ],
+      "reasoning": "The prior results do not imply the new numerical threshold or the discontinuous equality-set bifurcation: SRKT fails on both sides of the new parameter boundary, so SRKT status alone cannot distinguish the cases. The exact threshold follows from a new explicit upper-root discriminant calculation.",
+      "searches": [
+        "finite rank Hankel operator two-frequency symbols strong reproducing kernel thesis quantitative deficit kernel maximizer",
+        "sharp threshold origin norm attaining kernels two-term polynomial az+bz^m Poisson variance Garsia norm m degree three four bifurcation",
+        "https://arxiv.org/pdf/2609.33242",
+        "https://arxiv.org/pdf/2404.05565",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-shifted-blaschke-classification-of-finite-rank-srkt-hankel-opera--c64bd5a5783f/RESULT.md",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-monomial-rigidity-for-polynomial-symbol-hankel-operators-obeying--bc8369ca1a24/RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bonsall identity equates reproducing-kernel Hankel testing and Poisson variance; the paper considers equality of this testing norm with the Hankel operator norm.",
+        "The full polynomial SRKT result is the qualitative statement that only monomials have equality; our nonmonomial symbol never satisfies that equality, regardless of which kernel maximizes its smaller testing norm."
+      ],
+      "reasoning": "An equivalent formulation of the new claim is a sharp origin-versus-off-center optimizer threshold for Poisson variance of az+bz^m, with a nonzero coexistence radius for m>=4. Neither the SRKT equality characterization nor the generic kernel-variance identity fixes that optimum or its phase transition.",
+      "searches": [
+        "Garsia seminorm two-term analytic polynomials z+az^m maximum Poisson variance threshold at origin",
+        "finite rank Hankel operator two-frequency symbols strong reproducing kernel thesis quantitative deficit kernel maximizer",
+        "arXiv:2609.33242 §2 eqs. (3)-(5), §3 addendum",
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-monomial-rigidity-for-polynomial-symbol-hankel-operators-obeying--bc8369ca1a24/RESULT.md"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic published-finding corpus matches the finite-rank shifted-Blaschke and monomial SRKT notes, but no result naming or specifying a sharp C_m, critical radius R_m, or cubic/higher-degree transition.",
+        "The quadratic case is excluded; its radial variance profile has a different degree and does not imply the stated higher-degree critical radii."
+      ],
+      "reasoning": "No published published-finding corpus summary or the relevant published mathematical statements supplied the present origin-kernel threshold. This is a bounded negative overlap search, not proof of global uniqueness.",
+      "searches": [
+        "two monomial Hankel z plus z power m Garsia norm reproducing kernels optimizing radius sharp threshold coefficient ratio",
+        "Garsia seminorm two-term analytic polynomials z+az^m maximum Poisson variance threshold at origin",
+        "coexistence zero nonzero norming kernels for finite-rank Hankel symbols z+z^m critical coefficient",
+        "Garsia norm binomial polynomial az+b z^n kernel maximizers",
+        "2026/10/11/SCOPE-shifted-blaschke-classification-of-finite-rank-srkt-hankel-opera--c64bd5a5783f",
+        "2026/10/4/SCOPE-monomial-rigidity-for-polynomial-symbol-hankel-operators-obeying--bc8369ca1a24"
+      ]
+    },
+    "rationale": "The public primary Garsia/Hankel works and the two closest published published-finding corpus findings were materially read: they establish SRKT qualitative classifications or other Garsia norm equalities, not the coefficient-dependent kernel-location boundary, critical coexistence set, or cubic-versus-higher-degree transition. The quadratic case m=2 is excluded. Actual semantic queries and primary comparisons are recorded; a broader unpublished or differently indexed scalar optimization remains a genuine residual priority risk.",
+    "residual_risks": [
+      "An unidentified broader scalar two-term Poisson-variance optimization result may imply this transition under different terminology.",
+      "Semantic search and accessible records do not exhaust all journal literature; originality is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the identity and qualitative compact SRKT classification; does not state the two-frequency optimizer transition",
+        "evidence": [
+          "arXiv:2609.33242v3, pp. 3-6, eq. (4), §3; arXiv first public 2026-09-27"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.33242",
+        "material_read": "Full 7-page public PDF, especially kernel identity equation (4), section 2 discussion and section 3 addendum",
+        "method": "PDF text extraction and visual page-6 inspection; arXiv submission history verified independently",
+        "title": "The strong reproducing kernel thesis for Hankel operators and the Garsia norm",
+        "trigger": "Primary 2026 kernel testing/Garsia motivation and plausible global covering theorem"
+      },
+      {
+        "assessment": "Treats G-extremality and extreme points rather than the two-term Poisson-variance location threshold",
+        "evidence": [
+          "arXiv:2404.05565, abstract, §1 and §2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.05565",
+        "material_read": "Abstract, introduction, definitions, overview and central theorem statements; term search for polynomial",
+        "method": "Public PDF text and visual first-page inspection",
+        "title": "Extremal problems in BMO and VMO involving the Garsia norm",
+        "trigger": "Potential general Garsia maximum theorem subsuming the claim"
+      },
+      {
+        "assessment": "Classifies full-norm SRKT finite-rank operators and their norming kernels, not the Garsia optimizer for non-SRKT two-frequency symbols",
+        "evidence": [
+          "2026/10/11/SCOPE-shifted-blaschke-classification-of-finite-rank-srkt-hankel-opera--c64bd5a5783f"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-shifted-blaschke-classification-of-finite-rank-srkt-hankel-opera--c64bd5a5783f/RESULT.md",
+        "material_read": "Entire public RESULT.md including finding, proof, relationship to prior work",
+        "method": "Public GitHub repository read",
+        "title": "Shifted-Blaschke classification of finite-rank SRKT Hankel operators",
+        "trigger": "Top published-finding corpus semantic match, possible broader finite-rank classification"
+      },
+      {
+        "assessment": "All nonmonomial symbols fail SRKT, but the result does not identify which kernel maximizes their strictly smaller testing norm",
+        "evidence": [
+          "2026/10/4/SCOPE-monomial-rigidity-for-polynomial-symbol-hankel-operators-obeying--bc8369ca1a24"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-monomial-rigidity-for-polynomial-symbol-hankel-operators-obeying--bc8369ca1a24/RESULT.md",
+        "material_read": "Entire public RESULT.md including proof and limitations",
+        "method": "Public GitHub repository read",
+        "title": "Monomial rigidity for polynomial-symbol Hankel operators obeying the strong reproducing kernel thesis",
+        "trigger": "Exact polynomial Hankel overlap candidate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f1485910-5b04-4512-b525-7d8c41b15399",
+  "value": {
+    "rationale": "In the natural family of the two lowest-complexity nonmonomial Hardy Hankel symbols with unbounded degree, the exact optimizer of the canonical reproducing-kernel lower bound undergoes a sharp, globally classified origin/nonorigin transition. The coexistence of m-1 off-center witnesses and local-versus-global metastability above cubic degree are not implied by mere failure of the strong reproducing kernel thesis, and give substantive parameter and equality geometry rather than an isolated recomputation.",
+    "status": "PASS"
+  }
+}
