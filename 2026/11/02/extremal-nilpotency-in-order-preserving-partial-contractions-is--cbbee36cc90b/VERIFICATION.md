@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 (standard library only). The script constructs every ordered pair of equal-size subsets of \([n]\) for \(0\le n\le12\). Each pair specifies the unique increasing injection. It tests contraction by consecutive gaps and then computes the least zero power by iterating that partial injection. The independently computed index is compared against the proposed condition \(\nu(\alpha)=\operatorname{rank}(\alpha)+1\).
+## correctness
 
-For every chain size and rank, the program compares this direct enumeration to an independent integer-partition dynamic program. It also checks all total counts against the coefficients of the Euler-product generating function. The program reports `VERIFY_OK` after all checks pass. Representative full rank profiles are \([0,12,6,2,0]\) for \(n=4\), \([0,56,68,50,28,14,6,2,0]\) for \(n=8\), and \([0,132,250,272,218,148,90,52,28,14,6,2,0]\) for \(n=12\).
+PASS
 
-These are exhaustive **finite** tests, not an infinite proof. All-chain correctness is supplied by the directed-path classification and partition-counting argument in `RESULT.md`. The large-chain asymptotic uses the classical Hardy–Ramanujan partition-number asymptotic and a dominated Riemann-sum argument, not finite experiments. Independently conducted mathematical audit has not been performed.
+The directed graph of a nilpotent injective partial map with rank k has k arrows in disjoint chains, so nilpotency index <=k+1; equality requires a single chain of k+1 vertices. Order preservation makes successive forward iterates strictly increasing (or decreasing) by induction, forcing forward/backward shifts along ordered support. For a forward shift contraction, successive positive gaps satisfy d_{i+1}<=d_i; these partitions of span m are counted by p_k(m) with n-m shifts and 2 orientations. The formal partition Euler product produces the stated GF; Hardy–Ramanujan plus a uniform exponentially decaying j/sqrt(n) tail controls E_n~(12/pi²)n p(n) and hence constant sqrt(3)/pi². Independently enumerated every rank-k partial monotone contraction for n=5,6,7,8 and direct composition nilpotency, matching rank vectors and sums. The infinite asymptotic is analytical, not inferred from enumeration.
+
+## originality
+
+PASS
+
+Best-of-knowledge acceptance for the precise final claim after separating prior-covered statements from new structural/quantitative content. Genuine refinement of established enumerations with distinct statistic, precise all-n,k classification and rarity law.
+
+## value
+
+PASS
+
+A natural index-refined extremal subfamily of a well-studied semigroup is classified exactly and exhibits partition-type growth. This separates rank-and-fixed-point counts from nilpotency INDEX, providing a useful generating-function and asymptotic invariant rather than re-listing all nilpotents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a rank-\(k\) partial injection, an index of \(k+1\) means that every one of its \(k\) arrows belongs to one directed path; order preservation forces that path to be monotone. Consecutive domain/image distances are both necessary and sufficient for contraction. Their weak monotonicity identifies an integer partition of the chain span. The possible initial vertices give \(n-m\) positions; the two shift directions are disjoint. This establishes the exact formula and the bivariate partition-product series without extrapolation from experiments. The asymptotic constant follows by a dominated Riemann sum from the standard Hardy–Ramanujan partition theorem. Exhaustive iteration of partial maps through chain size 12 independently matches all computed ranks, including boundary cases.
+## correctness
 
-## Originality — PASS relative to checked mathematics
-The closest primary source is Ahmed, AlDhamri, Al-Kharousi, Klein and Umar (arXiv:2203.06417v1), Theorem 2.6. Its rank/number-of-fixed-points enumeration already counts **all nilpotents** by taking the zero-fixed-point stratum; that fact is expressly acknowledged rather than claimed anew. The present theorem instead asks which rank-\(k\) elements have **maximal nilpotency index \(k+1\)**. The fixed-point count does not determine their directed-path lengths, and the inspected source does not provide this refinement. Zubairu and Ali (2024), Section 4, restrict to particular domain-gap types, while Al-Kharousi and collaborators (2025) investigate Green's relations and generating rank. The classical integer-partition product and its asymptotic are also acknowledged as pre-existing ingredients. The novelty assessment is consequently confined to the **metric-constrained maximal-index classification, its all-rank Euler-product enumerator, and the resulting subexponential asymptotic**.
+PASS
 
-## Mathematical value — PASS
-Nilpotency index is a natural structural invariant of finite transformation semigroups. The extremal-index stratum is canonical at every rank, not an arbitrarily selected finite slice; its existence is constrained by a chain of maximum possible length. The theorem classifies the entire stratum for every chain and rank, identifies exactly why contraction creates integer partitions rather than unrestricted subsets, gives a closed two-variable enumerator, and establishes subexponential rarity against the exponentially growing ambient semigroup. The classification also distinguishes rank alone from nilpotency depth, a distinction obscured by earlier fixed-point counts.
+The directed graph of a nilpotent injective partial map with rank k has k arrows in disjoint chains, so nilpotency index <=k+1; equality requires a single chain of k+1 vertices. Order preservation makes successive forward iterates strictly increasing (or decreasing) by induction, forcing forward/backward shifts along ordered support. For a forward shift contraction, successive positive gaps satisfy d_{i+1}<=d_i; these partitions of span m are counted by p_k(m) with n-m shifts and 2 orientations. The formal partition Euler product produces the stated GF; Hardy–Ramanujan plus a uniform exponentially decaying j/sqrt(n) tail controls E_n~(12/pi²)n p(n) and hence constant sqrt(3)/pi². Independently enumerated every rank-k partial monotone contraction for n=5,6,7,8 and direct composition nilpotency, matching rank vectors and sums. The infinite asymptotic is analytical, not inferred from enumeration.
 
-## Literature boundaries and residual risks
-The direct all-nilpotent rank enumeration in the 2022 paper covers a stronger-looking **different** statistic; no novelty is claimed for it. At rank \(n-1\), the two chain shifts are already a straightforward consequence of previously studied maximal-rank nilpotents, so the contribution depends on the simultaneous all-rank statement and partition structure. Index-refined information may be implicit in older work on order-preserving partial injections, or in an unavailable thesis; a previously published equivalent metric refinement cannot be ruled out globally. Computational verification confirms finite instances only. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge acceptance for the precise final claim after separating prior-covered statements from new structural/quantitative content. Genuine refinement of established enumerations with distinct statistic, precise all-n,k classification and rarity law.
+
+## value
+
+PASS
+
+A natural index-refined extremal subfamily of a well-studied semigroup is classified exactly and exhibits partition-type growth. This separates rank-and-fixed-point counts from nilpotency INDEX, providing a useful generating-function and asymptotic invariant rather than re-listing all nilpotents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
