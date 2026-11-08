@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The coordinate cycle-space identification is exact: a flow constant along each subdivided path is a circulation precisely when its base-edge values are a circulation on the complete graph. The base formula removes the divergence gradient and so is the true orthogonal cycle projection. For each directed base edge, the stabilizer's invariant circulation space is one-dimensional; every label-invariant projection must therefore use one scalar per subdivision position, with symmetric weights summing to one. Finite-group averaging reduces global norm minimization to this family. The cycle lower bound follows from the largest absolute weight; for the cut problem, transposition of a cut projection converts it into the complementary cycle projection, and a full row-sum expression gives an exact lower bound for every real weight vector. Equal weights attain both bounds. An extracted standalone checker has been replayed, yielding 94,060 exact assertions on the specified finite cases. No finite enumeration is used to prove the unrestricted result.
+## correctness
 
-## Originality — PASS, qualified
-Scientific searches compared the exact formulas, edge-subdivision parameter, synonymous incidence/cocycle/flow terminology, matrix zero-divergence formulation, and stronger general projection frameworks. The nearest primary article [1] introduces invariant cycle projections and studies Hamming graphs and discrete tori; its relevant sections do not give the uniform complete-graph subdivision family or both constants. The finite-metric predecessor [2] studies recursive diamond and Laakso constructions, not this two-parameter classification. Indexed results on cactus edge-basis suppression projections and clustered free-space subspace projections concern different spaces and invariants. Accessible historical research claims for the same research area showed no identical implication. The general averaging principle and the base complete-graph linear-algebra calculation are not claimed as novel. An unlocated equivalent earlier formula under network-flow or operator-projection terminology remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The new statement completely evaluates two natural, contrasting Banach-space projection invariants of a two-parameter family of highly cyclic networks. More importantly, it shows a strict reversal in the relative difficulty of complementing the flow and cut subspaces immediately after uniform edge subdivision, despite the circulation constant remaining unchanged. The nontrivial invariant-projection parameterization and the sharp row-norm optimization supply structural explanations, not merely finite table entries. The value does not rely on a stronger unproved theorem or a claimed downstream application.
+On the real unweighted edge-coordinate ell1 space of a uniformly r-subdivided K_n, n>=3,r>=1, internal degree-2 conservation forces circulations constant on each subdivided base edge, Z_{n,r}=RZ_0. For the complete-graph projection P_0=I-B^T(BB^T)^+B, antisymmetric formula subtracts (s_i-s_j)/n and each absolute column sum L=3(n-2)/n. S_n covariance and a fixed-edge stabilizer show that all invariant circulation projections are parameterized by symmetric path-layer weights w with sum1. Their ell1 norm rL max|w_t| minimizes uniquely at w_t=1/r. The transpose-complement correspondence for cut projections makes each relevant row norm |1-dw_t|+L||w||_1-d|w_t|; choosing a layer weight <=1/r proves >=1+L-2d/r, with equality for uniform weights. Averaging arbitrary projections over the finite signed-isometry group proves global optimality without assuming equivariance. The formulas and n>=5 order-reversal on r=1 versus r>=2 follow. Uniqueness is asserted only among invariant minimizers, not all minimizers.
 
-## Scientific limits
-Only real, unweighted, uniformly subdivided complete graphs with coordinate edge-\(\ell_1\) norms are covered. No claim of uniqueness among all minimizers or of historical priority beyond the inspected comparison is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: group-averaged minimal cycle projections are established in Dilworth–Kutzarova–Ostrovskii, as are flow/transportation norm techniques; the inspected primary sources do not state the simultaneous formulas for subdivision parameter r and the complementary cut-space norm, with strict ordering reversal. Related published cactus basis-coordinate projections optimize different subspaces.
+
+## value
+
+PASS
+
+Determines two natural relative Banach-space projection invariants on an infinite family of subdivided complete graphs, including exact cut-versus-cycle order reversal as edge paths lengthen. The proof supplies an explicit globally optimal projector over all competitors, and the r=1 and n=3 reductions give meaningful checks rather than arbitrary parameter slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
