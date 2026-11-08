@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+The statement is for every integer \(n\ge2\), integer \(0\le k<n\), and real \(\lambda\ge0\), with the intrinsic \(\ell_1\) metric. A pointwise identity gives the exact distance from any vector to the nonconvex sparse unit sphere. Its proof uses support-wise triangle inequalities and explicitly attains the bound by rescaling or augmenting coordinate masses. Adding \(\lambda C_n\) reduces the distance by \(\lambda\), truncated at zero. The largest-\(s\)-coordinate majorization inequality, sharp at equal moduli, reduces the global maximization to two endpoints of a convex one-variable function. Both endpoints, the full set-equality threshold, and the extremizer phase are checked analytically. Boundary cases \(\lambda=0\), \(k=0\), \(k=n-1\), and \(2(k+1)=n\) are included. The accompanying exact-rational verifier passed 980 signed-grid point-distance tests and 140 profile/threshold tests; it is corroboration rather than a proof of universal statements.
+
+## Originality — PASS (best-knowledge; external historical priority remains open)
+
+Meyer, *Finite convexification by Minkowski summation* (2026), develops abstract first-level exposed-face criteria; relevant source sections and special cases were inspected, but they do not explicitly provide the all-parameter metric profile of a cross-polytope skeleton. Fradelizi–Madiman–Marsiglietti–Zvavitch's 2018 survey covers general Schneider and Hausdorff indices, but its inspected sections do not imply the stated exact cross-polytope formula. Meyer's 2025 article concerns general index inequalities. Van Hintum's 2026 analysis of equal-weight self-averaging concerns a distinct Minkowski operator. A separate published research result establishes sharp finite saturation for **simplex** skeleta under equal-weight self-averaging, which neither implies this cross-polytope skeleton result nor supplies its exact metric deficit. Related published results about cross-polytopes concern other geometric invariants. These are comparisons of hypotheses and conclusions, not title-only matches. An index search can never establish uniqueness; historical priority remains the principal external risk. The foundational 1975 Schneider article was cited for definitions, not represented as having been fully inspected for every example.
+
+## Mathematical value — PASS
+
+This is a complete exact all-dimensional profile for a canonical, geometrically motivated family of nonconvex polytope skeleta directly relevant to the 2026 question of finite convexification. It identifies the sharp Schneider index, the full continuous approach to convexity, and a structural switch at half the coordinate directions: below that split outer uniform-coordinate points are the deepest holes; above it the origin is uniquely deepest. The metric formula is stronger than a finite-parameter threshold and supplies an exact benchmark and counterexample to a universal same-scale convexification heuristic. It is not merely an arbitrary low-dimensional computation. No claim of a broader theorem for other convexifiers is made.
+
+## Closest literature and scientific limitations
+
+Primary sources: Mark Meyer (2026), arXiv:2610.26744v1; Fradelizi, Madiman, Marsiglietti, Zvavitch (2018), DOI:10.4171/EMSS/26; Meyer (2025), DOI:10.1186/s13660-025-03356-w; van Hintum (2026), arXiv:2606.10815v1; Schneider (1975), *A measure of convexity for compact sets*. Related published record: *Sharp finite convexification thresholds for every skeleton of a simplex* (published-finding corpus, 2026), a different object and operator. The result is restricted to the \(\ell_1\) metric and a matching cross-polytope convexifier. Indexing gaps and historically equivalent rediscoveries are possible, and no independent mathematical audit has taken place.
+
+Self-review: passed. Independent audit: not yet performed.
