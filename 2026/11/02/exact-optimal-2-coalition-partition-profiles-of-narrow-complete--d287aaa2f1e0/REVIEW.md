@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact shore-occupancy domination criterion is verified directly. Every optimum has excess \(s-1\) by the established scalar theorem. All possible large-block occupancy multisets under this excess are exhaustively checked with a short standalone implementation for all 12 required finite base cases. A separate proof shows that, beyond the largest base circumference, at least two right-shore singleton blocks remain and no pair can saturate that shore; the set of possible profiles therefore stabilizes. The resulting seven are the one, two, and four families listed in RESULT.md (seven in total). The multinomial/falling-factorial count is checked independently with direct labeled partition enumeration in three cases. Residual risk is ordinary source-code or proof transcription error, not an unresolved infinite extrapolation.
+## correctness
 
-## Originality — PASS
-The 2024 foundational paper defines the invariant and proves initial biclique bounds. Crucially, the 2025 follow-up *already solves the numerical 2-coalition number for all bicliques*; that result is credited and the initially explored scalar claim is not retained. The present result makes a different stronger claim: complete structural and **labeled multiplicity** classification of all maximizers for the unbalanced small-shore classes. Searches of original and related mathematical literature and semantic research records found no theorem implying the exact profile lists or counts. The 2025 scalar result does not determine the number of optimizers. As with any literature-based novelty assessment, unindexed equivalent refinements remain a residual risk.
+PASS
 
-## Value — PASS
-The maximal 2-coalition partition multiplicity is a natural extremal enumerator beyond the already settled numerical optimum. Its qualitative growth changes from linear to cubic exactly between the fourth and fifth smaller-shore sizes, and the proof identifies the new mixed two-hub occupancy pattern responsible. The result gives a complete feasible-structure census in three full infinite regimes with a bounded exact certificate and a proved stabilization lemma, not merely one more graph-order data point. It does not claim a general theorem for larger shores.
+Direct shore occupancy gives 2-dominance iff (a=s or b>=2) and (b=t or a>=2). Pre-existing theorem C2(K_s,t)=t+1 for 3<=s<=5 gives exact excess s-1<=4, so all possible nonsingleton block multisets are finitely enumerable. Independent complete occupancy enumeration for twelve required base (s,t) pairs returns exactly 1,2,4 templates: s3 (2,1); s4 (3,1) or ((2,0),(2,1)); s5 (4,1), ((2,0),(3,1)), ((2,1),(3,0)), ((1,2),(2,1)). For t>=2(s-1)+2 any two blocks combined cannot cover all B and >=2 B-singletons remain, so same templates stabilize; this is the nonfinite step. Falling-factorial label counts give 3t,10t,25t+15t(t-1)(t-2), with every block unlabeled and every vertex labeled. Verified finite template candidates independently; the established numeric optimum is used with credit, not claimed new.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Brešar–Henning–Samadi Theorem5.2 already solves the numerical 2-coalition number C2(K_s,t) for all bicliques and constructs witness partitions; the original scalar claim is fully covered. Its proof does not give the exhaustive optimizing occupancy profiles or labeled multiplicity counts for s=3,4,5. Jafari–Alikhani–Bakhshesh defines k-coalitions, while double-coalition literature uses different domination. A well-motivated structural/enumerative refinement remains original under inspected source coverage, with unindexed enumerator risk.
+
+## value
+
+PASS
+
+A natural exact count and structural classification of all extremal partitions for three complete infinite parameter regimes of complete bipartite graphs, refining a solved scalar optimum. The linear-to-cubic optimizer multiplicity transition at s=5 and structural mixed-block reason are meaningful combinatorial phenomena; not a one-off recomputation of C2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
