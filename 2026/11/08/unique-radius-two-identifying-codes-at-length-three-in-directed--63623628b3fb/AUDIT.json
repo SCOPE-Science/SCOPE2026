@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Exact two-step directed-ball decomposition Q_c union R_(b,c) union {abc}; forced-word pair (abc,cbc) has singleton symmetric difference; nonbinary sufficiency proven by exhausting c-different, b-different, a-different cases, with strict q(q-1)>q and q-1>=2. Binary forced extras and two size-seven solutions checked with explicit signatures; incoming convention follows by word reversal. Two standalone direct-neighborhood programs passed for q=2..9 (outgoing) and q=2..7 (incoming). Finite tests are corroboration, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boutin–Goliber–Pelto Theorem 3.5 proves only the scalar lower bound q^(n-1)(q-1), and their radius-two construction has n>3 (Theorems 3.6–3.7); Theorem 3.9 concerns n=2t-1>=5, not n=3.",
+        "Theorem 3.11 constructs the endpoint-different word set for radius ONE when n=3, but larger balls can merge code signatures; their Figure 2 shows the binary radius-two failure.",
+        "The 2019 journal abstract still states optimal constructions for n>=2t, with only a potentially nonoptimal construction when n=2t-1."
+      ],
+      "reasoning": "The general lower bound supplies necessity but not existence or uniqueness at radius two, and the radius-one construction does not imply radius-two identification; the binary failure confirms the nonimplication. The exact nonbinary length-three boundary is absent from the explicit theorem hypotheses, and no stronger theorem covering it was located.",
+      "searches": [
+        "Boutin Goliber Pelto 2014 Identifying Codes on Directed De Bruijn Graphs Theorem 3.9 length 3 radius two",
+        "\"n=2t-1\" \"identifying\" \"de Bruijn\"",
+        "\"de Bruijn\" \"2-identifying\" \"3\" \"minimum\" code 2020",
+        "arxiv:1412.5842, Theorems 3.5–3.11 and Figure 2",
+        "doi:10.1016/j.dam.2019.02.005"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1412.5842v1 — 2014-12-18; inspected full-text relevant theorems and figure",
+      "doi:10.1016/j.dam.2019.02.005 — journal version of the same work; abstract confirms exclusions",
+      "arxiv:1508.00403v1 — 2015-08-03; undirected graph model",
+      "arxiv:0905.3820v1 — 2009-05-23; unrelated independent-set result"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The open boundary n=2t-1 is explicitly highlighted after Theorem 3.9, while n=3,t=2 is not included in its hypotheses.",
+        "Horan (2015) treats symmetrized adjacency and proves existence, not directed optimal cardinality or uniqueness.",
+        "Earlier work already establishes binary optimum seven and the nonbinary lower bound; neither implies that the endpoint-different code is radius-two identifying for every q>=3."
+      ],
+      "reasoning": "The claimed infinite family is not a corollary of the earlier radius-one construction, nor of the general lower bound, nor of the undirected existence result. The new proof supplies a separation-by-last-symbol and one-step-prefix argument and a pointwise compulsory-word argument for uniqueness.",
+      "searches": [
+        "\"de Bruijn\" \"2-identifying\" \"3\" \"minimum\" code 2020",
+        "\"2-identifying\" \"de Bruijn\" \"n=3\" d 2019 2024",
+        "On the Existence of t-Identifying Codes in Undirected De Bruijn Graphs arxiv:1508.00403",
+        "arxiv:1412.5842, Theorem 3.11 and Figure 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Reversal of strings is a digraph anti-isomorphism and fixes the set of words with different endpoint symbols; therefore incoming and outgoing two-ball code minima are equivalent.",
+        "Boutin–Goliber–Pelto use incoming balls; their Theorems 3.5–3.11 concern the same directed graph, while Horan 2015 explicitly passes to an undirected graph.",
+        "An indexed result on ternary length-three strongly two-separable codes concerns descendant sets of word families, not two-step directed graph balls."
+      ],
+      "reasoning": "The theorem is invariant under word reversal and alphabet relabeling. Related separable-code and undirected-neighborhood formulations are not the same radius-two directed ball incidence. No equivalent implication was found; relevance is checked at the level of definitions.",
+      "searches": [
+        "directed de Bruijn graph minimum identifying codes configuration reconfiguration token jumping classification",
+        "radius-two identifying codes on ternary length-three de Bruijn graph all words with different first and last symbol",
+        "unique minimum directed 2-identifying code words abc with a not equal c de Bruijn graph B(q,3)",
+        "arxiv:1412.5842, §§2–3; arxiv:1508.00403, Definition 1.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Figure 2 reports the two binary seven-word optima, but gives no nonbinary length-three table.",
+        "The indexed primary article abstract reports the general lower bound and longer-word constructions, not the nonbinary length-three radius-two code value or unique optimum.",
+        "Explicit breadth-first and predecessor implementations check q=3 through 7 and q=3 through 9, respectively, but these computations alone do not establish historical novelty."
+      ],
+      "reasoning": "No exact nonbinary q>=3 length-three radius-two code-size or unique-optimizer table was identified in the inspected literature. The equality with the known lower bound is a new existence assertion, not a new computation of that lower bound.",
+      "searches": [
+        "\"B(3,3)\" \"2-identifying\" code 18",
+        "\"B(4,3)\" \"2-identifying\" code 48",
+        "\"directed\" \"de Bruijn\" \"2-identifying\" d=3 n=3",
+        "\"de Bruijn\" \"identifying\" \"first\" \"last\" \"radius two\"",
+        "arxiv:1412.5842, Figure 2 and §§3.5–3.11"
+      ]
+    },
+    "rationale": "Primary 2014 directed de Bruijn work has the bound and a radius-one endpoint-word code, but radius-two optimal constructions start at n>=4, and n=2t-1 boundary case n=3,t=2 remains uncovered there; the binary special case is expressly prior art. A relevant 2015 work is about undirected balls. Actual external, source and accessible historical-claim searches found no stronger equivalence; residual historical-priority uncertainty remains.",
+    "residual_risks": [
+      "Semantic and web searches cannot establish global publication novelty; obscure or unindexed treatment of the nonbinary n=3,t=2 case may exist.",
+      "The 2019 publisher text was compared using its public abstract and the lawful full-text arXiv version; the publisher production PDF was not separately inspected.",
+      "The 2009 paper on maximum independent sets was considered through its abstract because its stated invariant differs decisively; no claim of whole-paper noncoverage is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The 2014 paper supplies the lower bound, radius-two constructions for n>3, and the binary example, but does not assert the q>=3 n=3 radius-two optimum or its uniqueness.",
+        "evidence": [
+          "Theorem 3.5: q^(n-1)(q-1) lower bound; page 8 Figure 2 binary n=3 t=2 optimum 7.",
+          "Theorem 3.9 requires n=2t-1 >=5; paragraph after it declares a boundary optimum open.",
+          "Theorem 3.11 provides the endpoint-different set only for radius ONE; its proof is local to one-step in-balls."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1412.5842",
+        "material_read": "Accessible primary PDF, Introduction and Definitions; Section 3, Theorems 3.5 through 3.11, including hypotheses and proof comparisons; Figure 2; paragraph after Theorem 3.9; nearby Section 4 background.",
+        "method": "Read rendered PDF text and screenshots of pages 8, 9, 15 and 16; compared hypotheses and actual theorem implications.",
+        "title": "Identifying Codes on Directed De Bruijn Graphs",
+        "trigger": "Same graph, same radius-two identifying-code parameter; possible original coverage."
+      },
+      {
+        "assessment": "Different graph: symmetrizing the arcs changes the balls. Existence of undirected codes neither determines the directed minimum size nor unique optimizer.",
+        "evidence": [
+          "Definition 1.4 expressly defines undirected B(d,n) from directed graph by forgetting direction.",
+          "The paper concerns identifiability/existence, not the present directed exact size and uniqueness."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.00403",
+        "material_read": "Accessible full HTML text of Definition 1.4, the introduction, Theorem 2.1, and the first nonbinary argument; inspected abstract and scope.",
+        "method": "Compared symmetrized edge relation and undirected ball definition against directed two-step reachability and uniqueness.",
+        "title": "On the Existence of t-Identifying Codes in Undirected De Bruijn Graphs",
+        "trigger": "Theorem for q>=3 n>=3 t=2 could plausibly imply boundary coverage if directed."
+      },
+      {
+        "assessment": "Different invariant and not a covering theorem; full text was not necessary for a decisive comparison of the stated objects.",
+        "evidence": [
+          "The abstract specifies maximum independent sets, not identifying code subsets or balls."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0905.3820",
+        "material_read": "Accessible abstract giving independence-number and comma-free-code classification, not two-ball identifying codes.",
+        "method": "Compared independent-set objective with separating two-ball traces.",
+        "title": "The maximum independent sets of de Bruijn graphs of diameter 3",
+        "trigger": "Same length-three de Bruijn word graph; possible equivalent configurations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "63623628-b3fb-4471-a98e-f7930594c16f",
+  "value": {
+    "rationale": "Addresses the shortest exceptional word length n=2t-1=3 for radius-two identification specifically omitted from the archival theorem, proving a sharp alphabet transition q=2 vs q>=3 and classifying every optimal directed identifying code in an infinite alphabet family. The uniqueness is structurally stronger than the previously known generic size lower bound and relevant to deterministic sensor placement in directed sequence networks; no speculative downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
