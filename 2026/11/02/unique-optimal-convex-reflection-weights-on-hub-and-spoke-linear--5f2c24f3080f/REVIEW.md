@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact claim ranges over all integers \(n\ge2\), all real \(0<c<1\), and strictly positive convex masses. A unit dual vector supplies the weight-independent upper bound on the least eigenvalue; the proposed masses attain it and an explicit eigenbasis proves it is the bottom eigenvalue. The equality-case eigenvector conditions yield uniqueness. An independent calculation of the uniform row Gram spectrum yields the asymptotic gap comparison. Running the packaged `check.py` produced `VERIFY_OK 3159`; finite checks only supplement the proof. The method is exact arithmetic.
+PASS
 
-## Originality
+For n>=2, 0<c<1 the independent unit normals have B(p)=2 sum_j p_j u_j u_j^T, trace B=2 and 0<lambda_min<=lambda_max<2, so ||I-B||=1-lambda_min. The normalized common Rayleigh direction q has |u_j.q|^2=(1-c)/[n+(n-2)c] for every j, forcing lambda_min<=2(1-c)/D for all strictly positive p. At p*=([1+(n-2)c],1,...,1)/D, q is a least eigenvector and the other eigenvalues 2(1-c^2)/D (mult. n-2) and 2(1+c)[1+(n-2)c]/D exceed it. Equality Bq=lambda_min q forces every spoke p_j=1/D, so the minimizer is unique without assuming symmetric p. The uniform Gram 2x2 block gives its gap 2lambda_-/n, asymptotic 2(1-c^2)/(c^2 n^2), against optimum 2(1-c)/[(1+c)n]. n=2 and 0<c<1 are covered; n=1/c=0 or c=1 not claimed. Inspected RESULT.md, check.py and SLOGAN at frozen blob identities. Independent numeric eigenchecks over n=2,3,5,8 and c=0.3,0.6,0.9 corroborated the exact proof; no finite check substitutes for it.
 
-**PASS, with residual historical priority risk.** Sharma's 2026 full accessible article states the general fixed-weight spectral formula, best common scaling, and global optimality of equal unit weights only in dimension two. The hub-and-spoke probability-simplex optimum in every dimension and the exact dimension-linear spectral-gap advantage are not stated there. Guida and Sbordone's 2023 primary work establishes the underlying method and geometric convergence, not the specialized allocation. General E-optimal design theory is the closest broader principle; a previously known equivalent specialized formula cannot be excluded. No mathematical novelty is claimed for the general spectral criterion, the two-row unit-weight optimum, or the classical centroid method.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result gives a unique positive weight prescription in a natural high-correlation multi-row family, with a growing-in-dimension improvement in a sharp worst-case contraction gap. This is a structural, nontrivial computational design consequence, not merely a scalar numerical bound. It does not establish runtime speedups, arbitrary-frame optimality or finite-precision robustness.
+Best-of-knowledge original as an explicit sharp and unique *probability-shape* optimization for the whole hub-and-spoke family, not as E-optimal design or Rayleigh min-max in general. Related optimal-design theory may contain the specialization in alternate terms.
 
-## References and limitations
+## value
 
-Sharma, *Sharp Convergence Rates and Optimal Weights for Cimmino's Reflection Algorithm*, arXiv:2605.24692v1 (2026); Guida and Sbordone, *The Reflection Method for the Numerical Solution of Linear Systems*, SIAM Review 65 (2023); Martinez and Wegman, *An alternative criterion useful for finding exact E-optimal designs*, Statistics & Probability Letters 47 (2000). Scholarly priority and independent validation remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exactly specified simultaneous reflection system is a natural structured frame, and changing the sharp contraction gap from order n^-2 to n^-1 under fixed c is a meaningful optimization and provable spectral improvement; the uniqueness of the optimizer is also structurally informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

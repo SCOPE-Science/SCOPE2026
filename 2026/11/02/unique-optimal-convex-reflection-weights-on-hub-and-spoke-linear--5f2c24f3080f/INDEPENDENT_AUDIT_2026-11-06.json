@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:49:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2, 0<c<1 the independent unit normals have B(p)=2 sum_j p_j u_j u_j^T, trace B=2 and 0<lambda_min<=lambda_max<2, so ||I-B||=1-lambda_min. The normalized common Rayleigh direction q has |u_j.q|^2=(1-c)/[n+(n-2)c] for every j, forcing lambda_min<=2(1-c)/D for all strictly positive p. At p*=([1+(n-2)c],1,...,1)/D, q is a least eigenvector and the other eigenvalues 2(1-c^2)/D (mult. n-2) and 2(1+c)[1+(n-2)c]/D exceed it. Equality Bq=lambda_min q forces every spoke p_j=1/D, so the minimizer is unique without assuming symmetric p. The uniform Gram 2x2 block gives its gap 2lambda_-/n, asymptotic 2(1-c^2)/(c^2 n^2), against optimum 2(1-c)/[(1+c)n]. n=2 and 0<c<1 are covered; n=1/c=0 or c=1 not claimed. Inspected RESULT.md, check.py and SLOGAN at frozen blob identities. Independent numeric eigenchecks over n=2,3,5,8 and c=0.3,0.6,0.9 corroborated the exact proof; no finite check substitutes for it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "H. Sharma, arXiv:2605.24692v1, general convergence criteria and two-row optimality; Guida-Sbordone SIAM Rev 65 (2023), contraction for reflection centroids."
+        ],
+        "reasoning": "The same-field spectral convergence machinery does not by itself give the all-n unique positive shape or two asymptotic gaps; n=2 is covered by known theory and is not claimed as the sole contribution.",
+        "searches": [
+          "Cimmino simultaneous reflection E-optimal weights unique hub spoke linear systems spectral gap",
+          "Sharma Sharp Convergence Rates and Optimal Weights for Cimmino 2605.24692"
+        ]
+      },
+      "checked_sources": [
+        "H. Sharma, arXiv:2605.24692v1",
+        "Guida and Sbordone, DOI 10.1137/22M1470463",
+        "Martinez and Wegman, DOI 10.1016/S0167-7152(99)00173-X",
+        "Resultary search: Cimmino simultaneous reflection E-optimal weights unique hub spoke linear systems spectral gap"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For any given p, rho=1-lambda_min(B); Sharma framework concerns this quantity but available material explicitly emphasizes n=2 and fixed-weight scaling; q Rayleigh equality uniquely selects p_j."
+        ],
+        "reasoning": "A general scaling theorem implies evaluation of a fixed p but does not establish the shape of p maximizing a least eigenvalue for this family. Primary full-text comparison to stronger E-optimal statements is incomplete.",
+        "searches": [
+          "Sharma 2605.24692 optimal weights spectral criteria",
+          "Guida Sbordone reflection method weighted centroid"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B=2 U^T diag(p) U, maximize lambda_min(B): general E-optimal experimental design formulation; primary Martinez-Wegman (2000) DOI 10.1016/S0167-7152(99)00173-X.",
+          "SCOPE Resultary semantic search returned related weighting/shift topics but no same all-n hub-and-spoke result."
+        ],
+        "reasoning": "The abstract convex-design equivalence is established and explicitly credited. This finite frame has an exact equal-angle dual Rayleigh vector and unique weight shape; no checked result states the formula, yet abstract equivalence leaves a credible priority risk.",
+        "searches": [
+          "Cimmino simultaneous reflection E-optimal weights unique hub spoke linear systems spectral gap",
+          "Cimmino simultaneous reflection weighted optimal E design frame scalable tight generalized"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Checked published Resultary summaries in semantic search; no returned record/table of this vector family."
+        ],
+        "reasoning": "The assertion is a continuous-parameter optimizer for n>=2 and c in (0,1), rather than a finite-code/database record. No matching exact table was identified, not proof of nonexistence.",
+        "searches": [
+          "E optimal design hub spoke optimal exact weights spectral gap tables",
+          "Cimmino simultaneous reflection E-optimal weights unique hub spoke linear systems spectral gap"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as an explicit sharp and unique *probability-shape* optimization for the whole hub-and-spoke family, not as E-optimal design or Rayleigh min-max in general. Related optimal-design theory may contain the specialization in alternate terms.",
+      "residual_risks": [
+        "A general E-optimal design equivalence theorem or alternative normalization might explicitly contain this exact family even if the available abstract does not.",
+        "Specialist primary full texts were not completely retrieved; no historical priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "partial overlap; specific all-n shape not demonstrated by accessed material",
+          "evidence": "arXiv:2605.24692; abstract, description of Theorems 1 and 5",
+          "identifier_or_url": "https://arxiv.org/abs/2605.24692",
+          "material_read": "arXiv abstract and bibliographic description of spectral criteria, two-row optimality and scaling formula; primary full text not retrieved",
+          "method": "primary abstract/metadata web retrieval",
+          "title": "Sharp Convergence Rates and Optimal Weights for Cimmino's Reflection Algorithm",
+          "trigger": "direct same-algorithm optimal-weight theorem"
+        },
+        {
+          "assessment": "methodological antecedent; cannot exclude weighted special case from partial text",
+          "evidence": "SIAM Review 65 (2023), 1137-1151",
+          "identifier_or_url": "https://doi.org/10.1137/22M1470463",
+          "material_read": "publication abstract, title and metadata; not the complete article",
+          "method": "primary abstract/metadata web retrieval",
+          "title": "The Reflection Method for the Numerical Solution of Linear Systems",
+          "trigger": "classical simultaneous convex reflection method"
+        },
+        {
+          "assessment": "general framework is prior, exact hub/spoke specialization uncertain",
+          "evidence": "Martinez-Wegman (2000), Stat Probab Lett 47 325-328",
+          "identifier_or_url": "https://doi.org/10.1016/S0167-7152(99)00173-X",
+          "material_read": "accessible introduction/abstract describing E-optimal design criterion, not full theorem proof",
+          "method": "primary abstract/metadata web retrieval",
+          "title": "An alternative criterion useful for finding exact E-optimal designs",
+          "trigger": "E-optimal equivalence could dominate specific design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exactly specified simultaneous reflection system is a natural structured frame, and changing the sharp contraction gap from order n^-2 to n^-1 under fixed c is a meaningful optimization and provable spectral improvement; the uniqueness of the optimizer is also structurally informative.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed positive probabilities, real nonsingular frame and fixed Euclidean norm; not optimal for signed/nonconvex or per-iteration work optimization.",
+    "No formal priority verification."
+  ],
+  "schema_version": 1
+}
