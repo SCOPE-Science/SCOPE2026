@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible finite checks
 
-Run the standalone standard-library Python program from the directory containing this file:
+# Independent mathematical audit
 
-```
-python3 verify_type_a_rips.py
-```
+## correctness
 
-It terminates with `TYPE_A_RIPS_CHECKS_OK` when all assertions pass. `verification_output.txt` records the actual run. For \(n=4,5,6\), it enumerates every face of the \(\sqrt2\)- and \(2\)-scale complexes (all subsets of the proven maximal source, target, or disjoint-source-target cliques), builds exact signed incidence only modulo two for homology ranks, and computes every mod-two boundary rank. The observed reduced first Betti ranks are \(5,11,19\), while the middle-stage reduced homology is respectively one-dimensional in degrees \(2,3,4\). It enumerates all 24 and 120 coordinate permutations for \(n=4,5\), evaluates oriented fixed-simplex Lefschetz traces, and compares the characters \(1-(f^2-3f+1)\) and \(1+(-1)^{n-2}\operatorname{sgn}(\sigma)\). Exact coordinate distances are recomputed for each parameter and found to have squared values \(2,4,6,8\). The antipodal-pair join description is checked structurally; the full high-dimensional simplicial chain complex at the penultimate scale is not enumerated.
+PASS
 
-The proof for all integers \(n\ge4\) is independent of and logically stronger than these finite computations: its essential uniform certificates are the row-column nerve, the two order maps \(\Phi,\Psi\) with \(\Phi\Psi=\mathrm{id}\le\Psi\Phi\), the explicit polyhedral homeomorphism to the standard representation sphere, and the antipodal-pair join with exterior-square orientation character. The code is a finite consistency check, not an infinite-dimensional certification. Integral torsion-freeness follows from the topological identifications, not from a finite-field rank check. There has been no independent external validation.
+Reconstructed the unrescaled roots e_i-e_j for all n>=4 and squared-distance spectrum exactly {2,4,6,8}. At sqrt2 maximal row/column simplices form a crown-graph good-cover nerve with first Betti n^2-3n+1; at scale2 the source/target closure gives equivariant Hom(K2,Kn) and the sphere of the standard representation; at sqrt6 the missing-pair perfect matching yields the join of binomial(n,2) two-point sets and determinant of exterior square sign^(n-1); last stage is a simplex. Distinct homological degrees settle integral bar endpoints. Independent exact distance/clique enumeration for n=4,5 checked stage face vectors and Euler characteristics, and inspected source verifier which tests mod-two ranks and all S4/S5 Lefschetz traces. Structural argument, not the finite n checks, proves all n and quotient rational-invariant claim.
+
+## originality
+
+PASS
+
+Comparison is of the actual final mathematical claim to prior implications, not titles. The all-n full filtration is not implied by known Hom(K2,Kn) alone. A one-instance table does not imply uniform all-n result; no matching infinite-series table located. No uninspected work is asserted not to cover the claim.
+
+## value
+
+PASS
+
+Finite type-A root sets form a canonical infinite family; an exact all-n Euclidean Rips homotopy and integral persistence classification together with symmetric-group modules and rational quotient parity is a natural structural result extending the known n=4 special case and known Hom middle stage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
