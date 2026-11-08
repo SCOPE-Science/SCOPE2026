@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The graph has a fixed 18-edge list and an independently checked standard LCF representation. An exact functional graph with 531441 vertices is constructed by one program using a state-by-state transition table and indegree peeling, and independently by a second using direct local updates and trajectory memoization. Both enumerate the whole finite state space. Their 74-class census digest 4952acb8915363cd777640d517b5e4db0dfb3d3692357ca7c4f92d30f1d052a7, orbit counts and three maximizers agree; each prints VERIFY_OK from the packaged path. Functional graph cycle peeling and reverse propagation justify exact minimal entrance times and periods. The three explicit witnesses also check the 21-step entry into period three. No infinite extrapolation is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gravner–Lyu–Sivakoff Theorem 3 determines synchronization via irrotationality and asymptotic circulation/activity on finite connected graphs; it does not list every Frucht orbit length or exact entry-time population.",
+        "Theorem 3(i) bounds synchronization time for irrotational configurations but does not bound the transient of a nonirrotational state by the graph diameter."
+      ],
+      "reasoning": "The general theory implies qualitative fixation versus sustained activity for each given initial state, not the exact 74 pairs or the exceptional 21-step entry law. The proposed census is strictly finer than its consequences.",
+      "searches": [
+        "arxiv:1610.07320v1 (general finite-graph GHM Theorem 3 and proof)",
+        "synchronous graph dynamical systems exact transient distributions cellular automata finite graphs 2010 2000"
+      ]
+    },
+    "checked_sources": [
+      "Gravner, Lyu, Sivakoff, arXiv:1610.07320v1 (full primary preprint and theorem)",
+      "Weisstein, MathWorld Frucht Graph (complete short entry)",
+      "NetworkX Frucht graph reference (complete short entry)",
+      "Relevant scholarly search results for Frucht-graph excitation, primitive periods, and entrance-time censuses",
+      "Published research-record hits concerning Frucht independence homology and finite graph dynamics on different graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The present statement includes 1979 primitive periodic orbits with least periods 1,3,4,5,6,7,8, and three maximizers of time 21; none of these exact figures appears in the checked primary GHM paper.",
+        "The graph identity source contains no GH transition map, and neighboring published graph-dynamics records are for other graphs or other update rules."
+      ],
+      "reasoning": "The qualitative circulation criterion cannot determine primitive periods or time until entry without further computation. Other-graph classifications and different rule families are not dominating the exact Frucht statement.",
+      "searches": [
+        "arxiv:1610.07320v1 theorem 3 finite GHM",
+        "Frucht graph GH three color excitable cellular automata orbit census 21 transient",
+        "Asymmetric cubic Frucht graph synchronous excitation primitive cycles 3 4 5 6 7 8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The graph has an alternate standard LCF encoding; the explicit vertex bijection is checked in verify_trajectories.py.",
+        "No exact GH orbit/entrance table for the Frucht graph was identified in these queries; no search-negative alone is treated as novelty proof."
+      ],
+      "reasoning": "The equivalent graph representations are handled by an explicit isomorphism. A result about the same finite graph under a different state update does not imply this three-state rule census. No equivalent dynamical statement was found in the checked sources.",
+      "searches": [
+        "\"Frucht graph\" \"Greenberg Hastings\" excitation automaton periods",
+        "\"Frucht graph\" \"period 7\" \"Greenberg\"",
+        "Frucht graph GH three color excitable cellular automata orbit census 21 transient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld gives the 12-vertex, 18-edge cubic identity graph and standard LCF descriptions, not a 3-state dynamical orbit table.",
+        "A semantically retrieved record titled \"The Frucht graph independence complex and its complete vertex-deletion classification\" concerns independent-set topology, not temporal excitation dynamics.",
+        "No exact Frucht GH state table was located in the inspected sources."
+      ],
+      "reasoning": "Known graph tables, LCF encodings and independence-complex computations describe graph structure or topology, and therefore cannot supply counts of least periods and first-periodic-entry times without a separate dynamical analysis.",
+      "searches": [
+        "Frucht graph Greenberg Hastings three-state excitable automaton 12 vertex period seven maximal transient length 21",
+        "\"Frucht graph\" \"excitable\" automaton 21 time period",
+        "Frucht graph 12 vertices 18 edges MathWorld LCF"
+      ]
+    },
+    "rationale": "The 2016 arbitrary-graph theory proves a qualitative circulation criterion and synchronization bound; it does not directly specify a Frucht-graph primitive period spectrum, its 74 nonempty entry classes, or a 21-step transient attained by exactly three initial configurations. Two differently constructed deterministic state-census programs supply the additional concrete classification. Accessible prior research records and the existing related finite-graph computations do not imply this 12-vertex asymmetric-graph census. Priority remains conditional on searches, not a proof of uniqueness.",
+    "residual_risks": [
+      "No exhaustive index of historic unpublished computations of Greenberg–Hastings dynamics on the Frucht graph exists; an older equivalent census may have escaped search.",
+      "The exact transient census is computer-assisted and specific to this one finite graph; the verification code and complete table are supplied for replay."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_THEORY_NOT_EXACT_CENSUS",
+        "evidence": "Theorem 3 characterizes synchrony by irrotationality and activity via cycle integrals; no named Frucht graph, exact 74-class table, exact temporal maximum 21, or seven primitive period counts.",
+        "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+        "material_read": "First public version dated 2016-10-24; introduction, precise transition rule (Eq. 1), finite-graph Theorem 3, proof in Section 4, context on graph-dependent synchronization and references. Full-text queried for Frucht and period.",
+        "method": "Read text and visual pages of the available primary preprint, including theorem and proof.",
+        "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+        "trigger": "Same three-state GHM rule on arbitrary finite connected graphs; a plausible stronger covering theorem."
+      },
+      {
+        "assessment": "GRAPH_DEFINITION_NOT_DYNAMICS",
+        "evidence": "Specifies 12 vertices, 18 edges, identity group and LCF offsets; no Greenberg-Hastings temporal census.",
+        "identifier_or_url": "https://mathworld.wolfram.com/FruchtGraph.html",
+        "material_read": "The full short graph entry, including size, symmetry, LCF descriptions and historical references.",
+        "method": "Read full HTML entry.",
+        "title": "Frucht Graph",
+        "trigger": "Source of a plausible graph-isomorphic tabulation."
+      },
+      {
+        "assessment": "GRAPH_IDENTIFICATION_ONLY",
+        "evidence": "Graph catalog identifies the asymmetric 12-vertex cubic graph; does not describe the excitation dynamical system.",
+        "identifier_or_url": "https://networkx.org/documentation/networkx-3.4.1/reference/generated/networkx.generators.small.frucht_graph.html",
+        "material_read": "Documentation of the named 12-vertex cubic graph generator.",
+        "method": "Read the available documentation page; graph isomorphism independently checked in the packaged executable.",
+        "title": "frucht_graph — NetworkX graph catalog",
+        "trigger": "Check that the finite graph under study matches a recognized standard graph."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7b215d08-f374-4736-9453-3ea1ccbc84b0",
+  "value": {
+    "rationale": "The Frucht graph is a canonical minimum-order example of a cubic graph without nontrivial automorphisms, so symmetry-reduced census shortcuts are not available. Complete temporal classification is a motivated exact invariant on a natural benchmark graph. The sharp 21-update clock exceeds both its 12 vertices and graph diameter 4, while only three of 531441 states attain it, and seven different eventual primitive periods coexist. These exact features, not just implementation or a minor arithmetic improvement, provide a useful reference case for finite excitable-network dynamics. No general-graph claim is necessary to make this complete finite classification meaningful.",
+    "status": "PASS"
+  }
+}
