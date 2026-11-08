@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "All-size proof derives weak best responses for all core/periphery player types, enumerates exactly the allowed occupancy families and binomial multiplicities, optimizes the explicit cut via concave integer quadratic, and identifies all worst and best equilibrium cuts including c=1 and m=1 boundaries. A fresh standard-library verifier independently tested every one of 260100 small labeled profiles plus 4900 larger occupancy pairs. Finite tests support, but do not replace, the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deligkas et al. give general optimization complexity and hardness, not a complete-split exact welfare formula",
+        "Lampis gives general algorithms/hardness for minimum stable cuts, but no inspected complete-split result",
+        "Prior balanced complete multipartite equilibrium result assumes all parts same size"
+      ],
+      "reasoning": "The complete-split graph is K_{m,1,...,1}, a generally unbalanced multipartite graph. A previously identified balanced K_{n,...,n} theorem overlaps only in degenerate cases (such as m=1), and neither its exact balanced census nor generic complexity algorithms directly entails the new all-size odd/even welfare transition.",
+      "searches": [
+        "arxiv:2305.07124v1",
+        "arxiv:2311.03195v1",
+        "arxiv:2104.13097v1",
+        "Some coordination problems are harder than others 2311.03195 complete multipartite vs complete split network"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2305.07124v1",
+      "arxiv:2311.03195v1",
+      "arxiv:2104.13097",
+      "accessible-ledger-item:fc098402-29e8-4d7d-9f20-848f272f6765",
+      "accessible-ledger-item:2af39b91-6123-4272-b2e3-657171be2e98",
+      "accessible-ledger-item:f2e2f40b-b478-4afe-a4c6-23c19f0a091d",
+      "2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f",
+      "2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5",
+      "2026/10/4/SCOPE-strong-alliance-polynomial-of-complete-multipartite-graphs--cf4980ea579a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General NP-hardness and graph-width algorithms apply broadly but do not calculate this network family’s exact equilibrium count",
+        "Balanced complete multipartite results constrain equal-sized parts; complete split graphs have part sizes m,1,...,1",
+        "Wheel and triangular-book game results have distinct edge sets and payoff parameters"
+      ],
+      "reasoning": "The new theorem proves explicit necessary-and-sufficient action occupancies, a labeled binomial census, and a parity-separated welfare bound on an unbalanced canonical family. These are not logical special cases of the inspected exact balanced-family theorems or direct consequences of general hardness statements. Generic local-max-cut conditions are standard inputs to the new proof.",
+      "searches": [
+        "arxiv:2305.07124v1",
+        "arxiv:2311.03195v1",
+        "arxiv:2104.13097v1",
+        "accessible-ledger-item:fc098402-29e8-4d7d-9f20-848f272f6765",
+        "join graphs K_c plus m independent vertices equilibria anti-coordination welfare"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lampis arxiv:2104.13097 pp. 1–2 explicitly identifies stable cuts with Nash profiles in unweighted Max Cut games",
+        "Deligkas et al. arxiv:2305.07124v1 uses binary-action anti-coordination games"
+      ],
+      "reasoning": "The Nash profiles are exactly locally stable cuts with weak majority on opposite side. Recasting as stable cuts or unfriendly partitions does not identify a covering exact labeled census in the inspected general literature. Such equivalence is acknowledged, not offered as novelty.",
+      "searches": [
+        "local Max-Cut stable cuts complete split graphs",
+        "unfriendly partitions complete split graph Nash equilibria",
+        "complete split graphs join clique independent set anti-coordination pure Nash equilibrium local max cut exact number price of anarchy",
+        "In unweighted anti-coordination cut games on complete split graph K_c join independent m, if c odd every Nash equilibrium achieves maximum cut but if c even inefficient equilibria and price of anarchy two",
+        "arxiv:2104.13097v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published record on complete split graphs concerns random-greedy independent sets, not anti-coordination equilibrium counts",
+        "Related majority colorings and alliance polynomials concern different local constraints and objectives",
+        "Own accessible historical claims concern balanced multipartite, weighted wheel and triangular-book networks"
+      ],
+      "reasoning": "No exact covering split-network labeled Nash count or price-of-anarchy table was recovered from actual semantic searches and sources checked. This negative search is limited and is not taken as a proof of absolute novelty.",
+      "searches": [
+        "complete split graphs join clique independent set anti-coordination pure Nash equilibrium local max cut exact number price of anarchy",
+        "split graph maximal cut local equilibrium counting social network anti coordination",
+        "count all stable cuts of clique joined independent set, central tied clique, binomial coefficient, parity welfare",
+        "complete split graph local max cut parity",
+        "complete multipartite equilibria labeled split stable cuts"
+      ]
+    },
+    "rationale": "Primary anti-coordination welfare and min-stable-cut literature gives general complexity, not an exact complete-split labeled equilibrium census. Earlier accessible balanced multipartite work assumes equal-sized parts and does not imply the m>1 unbalanced family. The new odd/even core parity discontinuity in all-Nash efficiency and asymptotic factor-2 loss is not found covered in compared primary works and semantic search records; residual priority risk remains.",
+    "residual_risks": [
+      "An equivalent special-family statement might exist in local Max-Cut, unfriendly-partition, or special-graph literature not indexed in the searched sources.",
+      "The new graph family is a complete multipartite subclass; a stronger exact all-part-size Nash enumeration could subsume this theorem although no such covering text was identified.",
+      "Independent external priority and proof validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides hardness/complexity landscape for welfare and potential of general polymatrix games; no identified exact complete-split pure Nash census or odd/even efficiency theorem",
+        "evidence": [
+          "arxiv:2305.07124v1 pp. 1–2 objectives (i)–(iii), p. 5–6 theorem summaries",
+          "arxiv first public 2023-05-11"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.07124",
+        "material_read": "PDF abstract and pp. 1–6, including introduction, objective definitions, statements and related work",
+        "method": "Read full-text PDF sections and compare theorem conclusions and named graph families; searched document for 'split graph'",
+        "title": "Complexity of Efficient Outcomes in Binary-Action Polymatrix Games with Implications for Coordination Problems",
+        "trigger": "Identical binary anti-coordination payoff concept and efficiency objective"
+      },
+      {
+        "assessment": "Closely related alternative version of initiating work; no identified complete-split exact census or odd/even asymptotic price-of-anarchy formula",
+        "evidence": [
+          "arxiv:2311.03195v1, pp. 1, 4–10, objectives and network complexity discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.03195",
+        "material_read": "PDF title/abstract, introduction, main welfare/equilibrium statements and discussion around pp. 4–10",
+        "method": "Compared scope of general social-network efficiency classifications and inspected for a complete-split stable-cut classification",
+        "title": "Some coordination problems are harder than others",
+        "trigger": "Expanded text by same authors and same anti-coordination welfare motivation"
+      },
+      {
+        "assessment": "Establishes correspondence to Nash equilibrium and general hardness/algorithms, not a complete-split labeled census or parity boundary; its general algorithm cannot imply an exact formula without further structural analysis",
+        "evidence": [
+          "arxiv:2104.13097 pp. 1–3, stable cuts, price of anarchy, and theorem statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2104.13097",
+        "material_read": "PDF abstract and introduction pp. 1–3 with explicit general min stable cut complexity and Nash correspondence",
+        "method": "Compared theorem hypotheses and conclusions, inspected major complexity statements, searched text for 'split graph'",
+        "title": "Minimum Stable Cut and Treewidth",
+        "trigger": "The equivalent local-max-cut/minimum-stable-cut problem could dominate the welfare claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e43d24b3-2b87-4acc-8c3d-b564a485da23",
+  "value": {
+    "rationale": "An exact finite-parameter classification for a natural clique-hub/independent-periphery social network sharply separates odd core sizes (all equilibria efficient) from even core sizes (nonoptimal equilibria with price of anarchy tending to 2). The complete labeled census quantifies the prevalence of the inefficient central ties and provides an interpretable baseline for anti-coordination welfare.",
+    "status": "PASS"
+  }
+}
