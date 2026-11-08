@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T11:54:46.846432Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/73fa1f2150d62444b9ad37a82e94eae587f2b4cc/2026/11/02/sharp-parity-dependent-magnetic-flux-design-for-quantum-ring-dep--59066a4904d4/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/73fa1f2150d62444b9ad37a82e94eae587f2b4cc/2026/11/02/sharp-parity-dependent-magnetic-flux-design-for-quantum-ring-dep--59066a4904d4/VERIFICATION.md",
+        "/mnt/data/scope_worker03_20261105T1138Z/independent_checks.py"
+      ],
+      "rationale": "Fourier diagonalization E_k=2J cos((2pi k+Phi)/N) yields the exact indexed two-energy difference 4J|sin((Phi+pi(j+k))/N) sin(pi(j-k)/N)|. For odd N, 2 invertible modulo N means independent sum/difference residues, giving the nearest-zero sine gap, uniquely maximized by quarter flux. For even N, equal parity of sum and difference gives min{sin(alpha)sin(alpha-theta),sin(2alpha)sin(theta)} in the reflected half-cell. Opposite strict monotonicities cross once at tan(theta*)=tan(alpha)/3; reflection yields exactly two maximizers and gap expression. Fourier Hilbert-Schmidt matrix units diagonalize the Cesaro dephasing difference with sinc factors; upper bound 2/(T Delta) is saturated at T=(2m+1)pi/Delta, establishing the claimed limsup and its parity asymptotics. Independent direct gaps across N=3..40 and 4560 flux comparisons matched; finite checks corroborate, not prove, all N.",
+      "residual_risks": [
+        "Only nondegenerate flux has the rank-one Fourier dephasing as actual limit. The optimization is an asymptotic Hilbert–Schmidt limsup, not finite-time, trace-norm, diamond-norm, many-body or disordered-ring convergence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General chiral walks with nondegenerate Fourier spectrum have average uniform vertex mixing."
+        ],
+        "reasoning": "Average uniformity does not bound or maximize a smallest Bohr frequency; HS averaged channel norm concerns all off-diagonal matrix units, not vertex probabilities.",
+        "searches": [
+          "https://arxiv.org/html/2605.04414v1",
+          "https://arxiv.org/html/2308.16378v1",
+          "Resultary semantic query: quantum tight binding magnetic flux ring optimize smallest nonzero spectral energy gap dephasing average Hilbert Schmidt"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2106.11685",
+        "https://arxiv.org/html/2605.04414v1",
+        "https://arxiv.org/html/2308.16378v1",
+        "https://doi.org/10.3389/frqst.2026.1894991"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Fourier spectrum plus general average mixing supply important premises, but no sharp flux optimizer under all-pair gaps follows automatically."
+        ],
+        "reasoning": "Need parity-residue minimax and Hilbert–Schmidt multiplier saturation arguments; these are supplied in RESULT.md and rechecked analytically.",
+        "searches": [
+          "https://arxiv.org/html/2605.04414v1",
+          "https://doi.org/10.3389/frqst.2026.1894991",
+          "Resultary semantic query: quantum tight binding magnetic flux ring optimize smallest nonzero spectral energy gap dephasing average Hilbert Schmidt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same Hamiltonian is diagonalized by discrete Fourier modes; elementary periodic gap geometry is a plausible equivalent formulation."
+        ],
+        "reasoning": "The spectral identity is antecedent, but explicit parity-dependent global maximin over all energy pairs and exact optimizer count were not in material actually checked.",
+        "searches": [
+          "Resultary semantic query: quantum tight binding magnetic flux ring optimize smallest nonzero spectral energy gap dephasing average Hilbert Schmidt",
+          "https://arxiv.org/abs/2106.11685"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table of smallest all-pair gaps over flux for every N located; thermometry focuses the ground-to-first gap."
+        ],
+        "reasoning": "Continuous flux maximin and infinite N family cannot be inferred from a finite spectrum table; absence does not certify priority.",
+        "searches": [
+          "Resultary semantic query: quantum tight binding magnetic flux ring optimize smallest nonzero spectral energy gap dephasing average Hilbert Schmidt",
+          "https://doi.org/10.3389/frqst.2026.1894991"
+        ]
+      },
+      "rationale": "Preexisting chiral ring Hamiltonian Fourier spectrum and average uniform mixing are fully credited. Levine et al. Theorem 5 concerns vertex average mixing for any simple-spectrum abelian circulant, not optimization of the smallest indexed energy difference or exact 2/Delta Hilbert–Schmidt superoperator limsup. Thermometry work optimizes a ground-to-first gap, not the minimum over all pairs. No covering parity-dependent all-size formula found; priority not certified.",
+      "residual_risks": [
+        "An unindexed spectral min-gap optimization for chiral uniform cycles may subsume this trigonometric result.",
+        "The asymptotic T norm uses finite-dimensional nondegenerate Fourier dephasing, and is not a pointwise finite-time optimum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING sharp Bohr-gap flux optimizer",
+          "evidence": "Theorem 5 gives mixing uniformity for any simple-spectrum circulant, not smallest indexed Bohr gap, flux phase maximin, nor HS superoperator Cesaro limsup constant.",
+          "identifier_or_url": "https://arxiv.org/html/2605.04414v1",
+          "material_read": "Full accessible primary HTML, in particular Theorem 5 on uniform average vertex mixing with distinct eigenvalues and its proof framework",
+          "method": "Full primary HTML theorem/proof inspection",
+          "title": "Uniform Mixing in Chiral Quantum Walks",
+          "trigger": "same chiral circulant with phase; potential broad mixing theorem"
+        },
+        {
+          "assessment": "Spectrum is prior, optimized objective differs",
+          "evidence": "Known fluxed cycle Fourier spectrum and transport criteria are credited; no whole-text NOT_COVERING claim.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.11685",
+          "material_read": "Accessible primary abstract and Fourier spectrum description",
+          "method": "Abstract/overview review",
+          "title": "Quantum-classical distance as a tool to design optimal chiral quantum walks",
+          "trigger": "same Peierls flux Hamiltonian on ring"
+        },
+        {
+          "assessment": "Different energy-gap objective",
+          "evidence": "Ground-to-first-excited gap is not the min over all indexed energy differences; neither optimization trivially implies the other.",
+          "identifier_or_url": "https://doi.org/10.3389/frqst.2026.1894991",
+          "material_read": "Accessible summary of ground-state thermometric sensitivity and its gap criterion",
+          "method": "Abstract and bibliographic statement reading",
+          "title": "Quantum walks on a ring as a versatile single-parameter sensor",
+          "trigger": "same fluxed cycle but spectral optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2106.11685",
+        "https://arxiv.org/html/2605.04414v1",
+        "https://arxiv.org/html/2308.16378v1",
+        "https://doi.org/10.3389/frqst.2026.1894991"
+      ],
+      "rationale": "Spectral min-gap directly controls the sharp long-time worst matrix-mode averaging envelope, a natural design criterion for finite quantum transport rings. The optimal flux changes discontinuously by parity in the large-N limit, a motivated structural design distinction rather than a trivial reparameterization.",
+      "residual_risks": [
+        "An unindexed spectral min-gap optimization for chiral uniform cycles may subsume this trigonometric result.",
+        "The asymptotic T norm uses finite-dimensional nondegenerate Fourier dephasing, and is not a pointwise finite-time optimum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2106.11685",
+    "https://arxiv.org/html/2605.04414v1",
+    "https://arxiv.org/html/2308.16378v1",
+    "https://doi.org/10.3389/frqst.2026.1894991"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An unindexed spectral min-gap optimization for chiral uniform cycles may subsume this trigonometric result.",
+    "The asymptotic T norm uses finite-dimensional nondegenerate Fourier dephasing, and is not a pointwise finite-time optimum."
+  ],
+  "schema_version": 1
+}

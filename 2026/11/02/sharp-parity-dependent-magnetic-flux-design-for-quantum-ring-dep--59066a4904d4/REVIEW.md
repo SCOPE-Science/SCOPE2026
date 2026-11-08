@@ -1,11 +1,21 @@
-# Self-review of a magnetic-cycle spectral design theorem
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof derives the full cosine-difference spectrum, then obtains the absolute smallest indexed energy separation by modular sum/difference arithmetic. For odd cycle length the two independent residues give a midpoint-maximizing law. For even length the parity restriction produces the exact minimum of one increasing and one decreasing sine branch, whose sole intersection is the maximum. Fourier matrix units yield an exact superoperator norm and prove sharpness by selecting an odd half-period of a minimum-gap transition. Quantifiers, phase periodicity, eigenvalue multiplicity, and matrix-norm choice are explicit. The standalone checker completed 11,446 finite assertions; finite testing is not a replacement for the analytic global proof.
+## correctness
 
-**Originality: PASS, qualified.** Frigerio et al. (arxiv:2106.11685) explicitly supply this magnetic-cycle Hamiltonian and its Fourier eigenvalues, and Baptista et al. (arxiv:2308.16378v1) supply general quantum-walk mixing averages. Levine et al. (arxiv:2605.04414v1) already establish generic *uniform average mixing* for all simple-spectrum circulants; that assertion is not claimed anew. Zanoli et al. (DOI:10.3389/frqst.2026.1894991) optimize the lowest excited-state gap for thermometry, not the smallest energy separation over every pair. The new assessed statement is the all-size parity-classified maximin Bohr gap and its exact equivalence to the sharp full matrix Cesaro-channel envelope. Literature and mathematical-record searches found no dominating theorem. Priority risk: equivalent optimization under different physical terminology or in uncatalogued earlier publications.
+PASS
 
-**Mathematical value: PASS.** The controlled observable is not merely a scalar graph curiosity: all off-diagonal quantum coherences have frequencies belonging to the same set, and the slowest one governs the sharp worst-case convergence of the time-averaged quantum channel. The theorem supplies a complete optimal-flux design rule in every system size, including a nontrivial odd-even asymptotic phase split. It does not claim fixed-time or all-norm optimization.
+Fourier diagonalization E_k=2J cos((2pi k+Phi)/N) yields the exact indexed two-energy difference 4J|sin((Phi+pi(j+k))/N) sin(pi(j-k)/N)|. For odd N, 2 invertible modulo N means independent sum/difference residues, giving the nearest-zero sine gap, uniquely maximized by quarter flux. For even N, equal parity of sum and difference gives min{sin(alpha)sin(alpha-theta),sin(2alpha)sin(theta)} in the reflected half-cell. Opposite strict monotonicities cross once at tan(theta*)=tan(alpha)/3; reflection yields exactly two maximizers and gap expression. Fourier Hilbert-Schmidt matrix units diagonalize the Cesaro dephasing difference with sinc factors; upper bound 2/(T Delta) is saturated at T=(2m+1)pi/Delta, establishing the claimed limsup and its parity asymptotics. Independent direct gaps across N=3..40 and 4560 flux comparisons matched; finite checks corroborate, not prove, all N.
 
-**Limitations:** Clean, static, translation-invariant one-particle nearest-neighbor cycles only; no impurities, noise or multi-particle effects. The sharp \(T^{-1}\) limsup coefficient is not a finite-time uniform ranking. Independent confirmation of the mathematics and publication priority remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Preexisting chiral ring Hamiltonian Fourier spectrum and average uniform mixing are fully credited. Levine et al. Theorem 5 concerns vertex average mixing for any simple-spectrum abelian circulant, not optimization of the smallest indexed energy difference or exact 2/Delta Hilbert–Schmidt superoperator limsup. Thermometry work optimizes a ground-to-first gap, not the minimum over all pairs. No covering parity-dependent all-size formula found; priority not certified.
+
+## value
+
+PASS
+
+Spectral min-gap directly controls the sharp long-time worst matrix-mode averaging envelope, a natural design criterion for finite quantum transport rings. The optimal flux changes discontinuously by parity in the large-N limit, a motivated structural design distinction rather than a trivial reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
