@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final claim is the joint global-convergence threshold and stable Hopf-cycle emergence for the Li–Zeng sinusoidal jerk flow, with its exact near-threshold amplitude, first-order period cancellation, and sharp universal period floor. The critical calculation is the directly differentiable identity \(\dot{\mathcal P}=(b+cd\cos(dx))y^2\). The quadratic part of \(\mathcal P\) is negative definite (determinant \(a>0\)), and its periodic dependence on \(x\) permits LaSalle's principle on a compact quotient cylinder; the critical equality set contains no invariant orbit other than equilibria. Global stable manifolds of countably many hyperbolically unstable equilibria exclude universal convergence when \(cd>b\). The cubic Hopf projection has positive crossing speed and strictly negative radial coefficient for every \(a,b,d>0\), with exact cancellation of the first frequency shift. Periodic Wirtinger inequality and the non-affineness of \(\sin(d(x_*+Rv))\) prove the strict global period bound. The symbolic and numerical program was executed on the actual files, with all checks passing. Numerical tests are explicitly supplementary.
+PASS
 
-## Originality — PASS within inspected sources
+The exact P derivative is (b+cd cos(dx))y^2, independently differentiated symbolically. Coercive P bounds transverse variables; compactifying x modulo 2pi/d and LaSalle plus isolated omega-limit-set connectedness proves all-initial convergence even at equality. Routh-Hurwitz and stable manifolds give necessity above the boundary without presuming recurrent attractors. Cubic Hopf normal form has Re(L)>0 and Re(Gamma)<0, their imaginary shifts cancel; a second derivative integral with periodic Wirtinger yields the strict period floor. Crosscheck does not by itself establish infinite dynamics.
 
-The defining 2023 article by Li and Zeng (DOI `10.3390/en16052494`) was materially inspected, including its system, Jacobian, eigenvalue cases, parameter diagrams, and conclusions. It provides selected numerical equilibria and attractor descriptions, not the all-initial-data Lyapunov threshold and equality-endpoint convergence theorem, or the exact supercritical Hopf normal form. Results indexed as "Global Hopf-slope balance for third-order feedback cycles and the Goodwin oscillator," "A sharp global period floor for the Hu–Sang–Wang hyperbolic-sine jerk family," and "Sharp global recurrence and period constraints for velocity-feedback jerk equations" have related methods but different feedback, and their accessible summaries do not imply the specific global threshold *and* explicit Hopf lattice claimed here. General Hopf and LaSalle theorems supply methods, not these coefficients or this nonlinear sign-definite Lyapunov function. Residual risks include unindexed sine-jerk feedback stability literature and the fact that those broader indexed records were comparable only through their available summaries.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result resolves a global dynamical transition in a published model with infinitely many equilibria: for \(cd\le b\), every initial condition in the unbounded phase space converges to one stationary state, whereas immediately on the other side the system has countably many locally attracting cycles. The closed critical endpoint and all-initial-data statement significantly exceed local eigenvalue analysis. Exact amplitude and zero first-order frequency drift give a quantitative, model-specific benchmark, while the strict global period inequality prevents faster periodic dynamics anywhere in the parameter family. These are natural properties of the model's observed multistability, not arbitrary parameter slices or isolated decimals.
+Li and Zeng (2023) study precisely the sinusoidal jerk model, numerical bifurcations and equilibria, but the accessible abstract/technical summary did not state the global closed threshold, equality case, exact Hopf coefficients or universal strict period floor. Similar jerk period results in Resultary concern hyperbolic-sine and modulus nonlinearities with different global dynamics. Best-of-knowledge originality with residual full-text and specialist period-theorem risks.
 
-## Literature and limitations
+## value
 
-The 2023 primary article and its mathematical equations and conclusions were directly inspected in an accessible full-text HTML mirror. Indexed general jerk and related feedback results were searched by mathematical implication, and indexed mathematical statements were used for source/claim overlap checks. There may be unindexed papers proving stronger general results; this is a publication-priority risk rather than a claim of exhaustive novelty. On the oscillatory side, only the immediate supercritical neighborhood is guaranteed to contain the constructed stable cycles. No statement of global attraction there, basin census, stochastic robustness, or independent certification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp global stability versus local oscillatory emergence for a standard multi-scroll jerk system is a structural dynamical boundary; the strict optimal universal period floor provides an independent testable invariant and exact endpoint behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

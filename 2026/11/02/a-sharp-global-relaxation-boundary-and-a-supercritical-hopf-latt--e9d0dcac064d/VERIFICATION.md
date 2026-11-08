@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scope of checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.10 or later, SymPy, NumPy and SciPy. The script directly differentiates the Lyapunov function, checks the strict positive determinant of its quadratic form, checks both critical Hopf eigenvectors and their normalization, evaluates the exact linear crossing and cubic coefficients, and checks the cancellation of the first frequency shift. It also integrates four illustrative parameter choices; two above the critical boundary match the predicted small-cycle amplitude and period, and two below approach the appropriate attracting equilibrium. The program completed with its PASS message.
+## correctness
 
-**Limits:** The numerical trajectories are finite approximations; they establish neither all-initial-data convergence nor infinite-lattice existence. Those depend on the stated coercivity, LaSalle invariance, stable-manifold and nondegenerate Hopf arguments. The strict period floor is established analytically through Wirtinger's inequality and equality-case exclusion. No independent mathematical audit has taken place.
+PASS
+
+The exact P derivative is (b+cd cos(dx))y^2, independently differentiated symbolically. Coercive P bounds transverse variables; compactifying x modulo 2pi/d and LaSalle plus isolated omega-limit-set connectedness proves all-initial convergence even at equality. Routh-Hurwitz and stable manifolds give necessity above the boundary without presuming recurrent attractors. Cubic Hopf normal form has Re(L)>0 and Re(Gamma)<0, their imaginary shifts cancel; a second derivative integral with periodic Wirtinger yields the strict period floor. Crosscheck does not by itself establish infinite dynamics.
+
+## originality
+
+PASS
+
+Li and Zeng (2023) study precisely the sinusoidal jerk model, numerical bifurcations and equilibria, but the accessible abstract/technical summary did not state the global closed threshold, equality case, exact Hopf coefficients or universal strict period floor. Similar jerk period results in Resultary concern hyperbolic-sine and modulus nonlinearities with different global dynamics. Best-of-knowledge originality with residual full-text and specialist period-theorem risks.
+
+## value
+
+PASS
+
+Sharp global stability versus local oscillatory emergence for a standard multi-scroll jerk system is a structural dynamical boundary; the strict optimal universal period floor provides an independent testable invariant and exact endpoint behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
