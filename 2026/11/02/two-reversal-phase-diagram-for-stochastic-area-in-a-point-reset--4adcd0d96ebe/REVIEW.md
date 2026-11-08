@@ -1,19 +1,21 @@
-# Scientific review: reset-induced reversals of signed area
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary generator gives three exact scalar identities. For \(0<u<1\), every relevant denominator is strictly positive. The full area integral is explicitly defined on a càdlàg path, with jumps of area \(xb-ya\); no claim is made that teleportation physically sweeps the corresponding chord. The Poisson compensator produces the jump contribution, while independence of the two thermal noises makes the expected continuous cross-noise term zero. These ingredients yield the rational area-current formula in RESULT.md, with no limiting or numerical approximation. A unique maximum of \(h(r)=r/[(r+1)^2-u^2]\) and its exact derivative give the global zero classification, including the tangency and both endpoints. A regenerative-cycle argument makes the stationary expectation and almost-sure long-time rates agree. The exact boundary example is algebraically factored. The attached checker reproduces the symbolic identities, eight renewal integrals, and three independent stationary-law sampling tests. Finite experiments only corroborate the analytic proof.
+PASS
 
-## Originality — PASS, with explicit priority limits
+Generator moment equations for reset point (a,b) yield (r+1)EX−uEY=ra, −uEX+(r+1)EY=rb, and (r+2)E(X²−Y²)=2(Tx−Ty)+r(a²−b²). The continuous area production is u E(X²−Y²); a reset jump contributes bX−aY, whose Poisson compensator gives r[bEX−aEY]. Summing and simplifying produces J=u/(r+2)[2ΔT+r(1−u²)ΔR/((r+1)²−u²)]. Independent symbolic derivation confirms all coefficients and factorization. When ΔT≠0 set q=−(1−u²)ΔR/(2ΔT); J has sign ΔT times (1−q h(r)), h=r/[(r+1)²−u²], whose unique maximum occurs at s=√(1−u²) and equals 1/[2(1+s)]. This proves zero/tangency/two-simple-zero regimes and root product s²; ΔT=0 gives constant sign ΔR or zero identically. For u=3/5,Tx=2,Ty=1,(a,b)=(0,5/√2), exact J=6(5r−8)(5r−2)/[5(r+2)(5r+2)(5r+8)]. Regeneration and integrable jump rewards justify a.s. long-time area rate. The submitted CHECK.py was inspected for symbolic and quadrature checks; independent algebra checks the central identity. Chord area is an explicitly defined geometric jump observable, not actual transported work.
 
-The 2023 gyrator study arXiv:2307.05248 establishes the unreset angular-momentum mean \(u(T_x-T_y)\), while the present result concerns resetting to a fixed off-axis point and includes its jump chords. Its unreset formula is precisely the \(r\downarrow0\) limit. The 2023 area study arXiv:2307.06245 covers continuous linear diffusions and so does not include a jump generator or contributions from reset chords. The 2022 resetting study arXiv:2211.15372 analyzes entropy production, not the two-dimensional signed area. These sources and additional specific scientific search queries yielded no equivalent two-crossing threshold or root-product law. Other broader path-functionals might ultimately imply part of this result; independent priority validation has not been performed. The assessed finding is the complete reset-controlled area-current phase classification, not the known OU/gyrator generator or pre-existing area formalism.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact threshold answers a natural nonequilibrium-current design question: can a fixed reset location reverse the observed long-run circulation twice without changing the two bath temperatures or trap coupling? The affirmative answer has a complete necessity/sufficiency criterion and an exact experimental benchmark \(r=2/5,8/5\). Its sharp parameter boundary and paired-root relation \(r_-r_+=1-u^2\) reveal the competing time scales of OU relaxation and reset-chord geometry. Removing jump chords changes the zero-count mechanism, so their explicit accounting is consequential rather than cosmetic. The claim does not require a new general fluctuation theorem, does not conflate area with heat or work, and does not overstate the physical interpretation.
+Best-of-knowledge distinct claim after comparison with directly relevant primary sources and published mathematical findings. Prior special cases and baseline formulas are explicitly credited. Complete historical originality is not certified.
 
-## Closest sources and limitations
+## value
 
-Full text of arXiv:2307.05248 and the HTML text of arXiv:2307.06245 were examined where model, observables, and main conclusions are stated. The parsed full text of arXiv:2211.15372 was also compared for the reset mechanism and thermodynamic observables. The process is a symmetric two-dimensional OU gyrator with independent temperature noise and deterministic Poisson reset point. Stochastic area is defined on the jump path; no statement concerns the current of the continuous portion alone, the physical reset mechanism, nor finite-time reversal probabilities. Publication priority remains subject to independent literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Brownian gyrator is a fundamental nonequilibrium two-temperature circulation model, and stochastic resetting is a physically motivated intervention. Whether its orientation reverses once or twice is a natural exact dynamical question. The exact phase boundary and reciprocal-root law for a correctly jump-inclusive area observable are useful qualitative predictions within a sharply specified model, not a restatement of unreset circulation or entropy production.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
