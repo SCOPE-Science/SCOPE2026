@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-For each integer parameter from 3 through 15, `forward_bfs.py` enumerated every distinct subset at each breadth-first layer until finding a singleton, counting all labeled paths of minimum length. `reverse_bfs.cpp` independently traversed the inverse-image graph from every singleton to the full state set, reproducing all thirteen thresholds and the multiplicity two. `witness_checks.py` confirmed that both distinct displayed words reset to state 2 at the minimal length in every case. The exact counts are listed in `counts.csv` and recorded in `verification_output.txt`.
+## correctness
 
-These exhaustive checks cover a bounded finite family only; no extrapolation to larger parameters is justified. They do not constitute independent external auditing.
+PASS
+
+Exact claim is restricted to integers 3<=p<=15 for the corrected transition tables. The finite power automaton BFS layers from the full state set exhaust every reachable subset before any singleton; its shortest-path counts distinguish letter labels and count every shortest reset word. A distinct inverse-image BFS uses reversed subset transitions. The two explicit words target q_2 with length 3p^2+4p-1. Reconstructed state tables and independent forward BFS for p=3..9 returned precisely the reported minimum length, count two, and subset counts (199,597,1587,3951,9454,21998,50157). The source forward and reverse programs and witness code were inspected; much larger p=10..15 exhaustive outputs were not independently rerun. This is a finite exact enumeration, not an all-p lower-bound proof.
+
+## originality
+
+PASS
+
+Wang (arXiv:2610.07044v1) provides the corrected automata, a construction establishing rt(A_p)<=3p^2+4p-1, and a different specified-state collision threshold, but the inspected sections do not prove the global reset threshold equals that upper bound nor enumerate shortest words. The assessed two-word finite-range exact census is not implied by Wang or Szykuła; related Resultary shortest-word enumerators concern other transition systems. Historical priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+The corrected Figure 3 family is a concrete synchronizing-automata threshold example with a published global upper bound and an open exact sharpness issue. Exhaustive exact sharpness for thirteen consecutive parameters plus the complete surprising two-word minimizer classification gives a meaningful, reproducible finite cutoff and distinguishes global reset length from pair-compression claims. It does not masquerade as a solution for all p.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

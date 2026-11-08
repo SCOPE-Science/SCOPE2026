@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T10:05:21.635038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact claim is restricted to integers 3<=p<=15 for the corrected transition tables. The finite power automaton BFS layers from the full state set exhaust every reachable subset before any singleton; its shortest-path counts distinguish letter labels and count every shortest reset word. A distinct inverse-image BFS uses reversed subset transitions. The two explicit words target q_2 with length 3p^2+4p-1. Reconstructed state tables and independent forward BFS for p=3..9 returned precisely the reported minimum length, count two, and subset counts (199,597,1587,3951,9454,21998,50157). The source forward and reverse programs and witness code were inspected; much larger p=10..15 exhaustive outputs were not independently rerun. This is a finite exact enumeration, not an all-p lower-bound proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang’s all-parameter word is an upper bound on reset threshold, not a lower bound.",
+          "Szykuła discusses the family and specified-state collision conjecture."
+        ],
+        "reasoning": "Broader ranges or collision theorems do not dominate this finite exact minimizer count unless they also imply the sharp global minimum and uniqueness classification.",
+        "searches": [
+          "arXiv:2610.07044 full article Sections 2, 4–5",
+          "arXiv:2608.24245 Figure 3 Conjecture 8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen assigned Git tree a44eb8eb744281b308801cc1063809aa040a29da, RESULT.md 491cc07313381abb4946411f6999ee46fb40582b, forward_bfs.py eea58f843a9d7a5fde68763cc63da09e24c608ee, reverse_bfs.cpp f95a3e81bbcaa7fbfba88f7b5f7231bb70fb1ec3, witness_checks.py a38093a7b5b148e1585ac19fc796a1c3886d9846",
+        "arXiv:2610.07044v1, substantive article text, corrected Figure 3 transitions and Proposition 3",
+        "arXiv:2608.24245v1 Figure 3 and Conjecture 8",
+        "Resultary semantic search and matched D9/Wielandt entries noted in originality comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior exhibits one reset word for every p; the current finite graph search checks all words up to first singleton and finds exactly two.",
+          "An upper bound and a specified-state collision theorem do not supply matching global lower bound."
+        ],
+        "reasoning": "The new finite exactness and full two-string census require exhaustive reachable-set optimization; they are not direct corollaries of the cited primary theorems.",
+        "searches": [
+          "arXiv:2610.07044v1 Proposition 3 Wang word",
+          "arXiv:2608.24245v1 Conjecture 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full-subset power automaton shortest labeled path to a singleton is exactly global reset length; Wang constructs a word of this length but proves only its existence.",
+          "The specified q0-compression threshold µ(q0)=4p concerns a different pair-merging question."
+        ],
+        "reasoning": "An equivalence would need the same corrected transitions and the global singleton-reaching distance or complete shortest-path census. Wang’s collision condition does not give that, and an upper bound does not imply minimum or multiplicity.",
+        "searches": [
+          "Szykuła corrected Figure 3 binary synchronizing automaton A_p exact reset threshold shortest reset word enumeration p=3..15",
+          "arXiv:2610.07044 Proposition 3 and Section 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matched shortest-word enumeration for D_9 variants and Wielandt W(q,q,p), not the corrected Figure 3 family.",
+          "The inspected assigned package has counts.csv and both exhaustive subset graph implementations for p=3..15."
+        ],
+        "reasoning": "The related database results concern different automata; they do not contain a matching table for these 13 transitions. Failure to locate one does not prove none exists.",
+        "searches": [
+          "Resultary: Szykuła corrected Figure 3 binary synchronizing automaton A_p exact reset threshold shortest reset word enumeration p=3..15",
+          "2026/10/4/SCOPE-exact-shortest-reset-letter-enumerators-for-d-9-and-d-9--dce2d8b528af",
+          "2026/10/4/SCOPE-exact-multiplicity-of-shortest-reset-words-in-the-wielandt-type--45b41a2c7114"
+        ]
+      },
+      "rationale": "Wang (arXiv:2610.07044v1) provides the corrected automata, a construction establishing rt(A_p)<=3p^2+4p-1, and a different specified-state collision threshold, but the inspected sections do not prove the global reset threshold equals that upper bound nor enumerate shortest words. The assessed two-word finite-range exact census is not implied by Wang or Szykuła; related Resultary shortest-word enumerators concern other transition systems. Historical priority remains best-of-knowledge.",
+      "residual_risks": [
+        "An unindexed separate 2026 finite power-automaton census could have the identical corrected transitions and two shortest words.",
+        "The thirteen large p=10..15 source BFS enumerations were inspected and dual algorithms agree as recorded, but independently rerun exhaustively only p<=9; source program fidelity remains a reproducibility caveat."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes µ(q0), explicit upper reset bound; no exact global rt lower bound or shortest-word census found in inspected material.",
+          "evidence": [
+            "Section 2 corrected family; Proposition 3 constructs reset word of length 3p²+4p−1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.07044",
+          "material_read": "Source article available as substantive full HTML/TeX text: definitions, corrected transition convention, Proposition 3, Sections 4–5 and witness",
+          "method": "arXiv full article read, statement and proof compared with assigned RESULT.md",
+          "title": "The compress-with-another threshold of Szykuła’s Figure 3 family",
+          "trigger": "Identical corrected automaton and claimed reset-length upper bound"
+        },
+        {
+          "assessment": "The original collision question differs from exact shortest global reset words.",
+          "evidence": [
+            "Figure 3; Conjecture 8, not a theorem determining global reset multiplicity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.24245",
+          "material_read": "Figure 3 and Conjecture 8 context, comparison of original and corrected diagram scope",
+          "method": "arXiv primary text/figure portions read",
+          "title": "Synchronizing Automata: Open Problems",
+          "trigger": "Original Figure 3 and conjectured compress-with-another behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected Figure 3 family is a concrete synchronizing-automata threshold example with a published global upper bound and an open exact sharpness issue. Exhaustive exact sharpness for thirteen consecutive parameters plus the complete surprising two-word minimizer classification gives a meaningful, reproducible finite cutoff and distinguishes global reset length from pair-compression claims. It does not masquerade as a solution for all p.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned Git tree a44eb8eb744281b308801cc1063809aa040a29da, RESULT.md 491cc07313381abb4946411f6999ee46fb40582b, forward_bfs.py eea58f843a9d7a5fde68763cc63da09e24c608ee, reverse_bfs.cpp f95a3e81bbcaa7fbfba88f7b5f7231bb70fb1ec3, witness_checks.py a38093a7b5b148e1585ac19fc796a1c3886d9846",
+    "arXiv:2610.07044v1, substantive article text, corrected Figure 3 transitions and Proposition 3",
+    "arXiv:2608.24245v1 Figure 3 and Conjecture 8",
+    "Resultary semantic search and matched D9/Wielandt entries noted in originality comparisons"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only corrected Figure 3 automaton p3..15; no infinite-p minimum or uniqueness theorem.",
+    "Independent full BFS not rerun for p10..15; recorded source two independent exhaustive algorithms are relied on after inspecting their recurrence and coverage.",
+    "Prior-art judgment remains best-of-knowledge, not historical certification."
+  ],
+  "schema_version": 1
+}
