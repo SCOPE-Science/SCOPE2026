@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-Run `python3 verify_humbert23.py` with a Python 3 interpreter and no third-party packages. The attached `verification_output.txt` is the output of an actual successful run from the packaged source, ending in `VERIFY_OK`.
+## correctness
 
-The program constructs \(\mathbb F_{23^2}=\mathbb F_{23}[t]/(t^2-5)\), verifies the exact degree-eleven Hasse factorization with nine linear factors and one irreducible quadratic, and exhaustively enumerates all \(110\) ordered pairs of distinct geometric supersingular roots. It separately checks the \(72\) ordered pairs of rational roots, all \(420\) smooth marked pairs over \(\mathbb F_{23}\), and all \(277202\) smooth marked pairs over \(\mathbb F_{23^2}\). It checks pairwise tangent independence at every higher-multiplicity point and the \(60\)-point relabeling orbit.
+PASS
 
-The statements over every extension and over the algebraic closure additionally use the printed proof of reduction to supersingular root pairs, the algebraic group-character quotient decomposition, and symmetric double counting; no higher extensions are exhaustively enumerated. The checker is not an external or independent scientific audit.
+The prime-to-23 isogeny to five elliptic Legendre quotients preserves p-rank, a-number and Newton slopes. The exact degree-eleven Hasse polynomial has nine F23 roots and an irreducible quadratic; all eleven lie in F529. The five cross-ratios, S5 transitivity on divisor pairs and exact root-pair census reduce every geometric multiplicity ≥2 to 110 ordered root pairs. An independently implemented F529 polynomial/root enumeration recovered s=2:56, s=3:18, s=4:36; the combinatorial identity C(s,2)N_s=10 A_s yields N2=560,N3=N4=60 and the rational parity split. Local forgetful coordinates give transverse pair intersections, with higher intersections having distinct tangents. Finite enumeration is exhaustive only because every multiple intersection can be relabelled to two supersingular Legendre parameters and all Hasse roots are in F529; it is not used to extrapolate directly to all extensions.
+
+## originality
+
+PASS
+
+The genus-five quotient decomposition and classical Legendre Hasse polynomial are prior inputs. The inspected primary quotient theorem does not give the simultaneous characteristic-23 five-divisor configuration or the full all-extension marked p-rank strata. No equivalent claim was located in targeted published or Resultary queries; a possibly unindexed characteristic-specific supersingular configuration remains a residual historical risk.
+
+## value
+
+PASS
+
+The five simultaneous elliptic supersingularity conditions define natural arithmetic strata of genus-five curves. Their exact high-multiplicity geometry, no-rank-zero obstruction, and unique rank-one marked orbit answer a structural question that does not follow mechanically from individual Legendre supersingular counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

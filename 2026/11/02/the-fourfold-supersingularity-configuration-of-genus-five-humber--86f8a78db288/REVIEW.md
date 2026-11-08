@@ -1,15 +1,21 @@
-# Review of the characteristic-\(23\) Humbert fourfold Hasse configuration
+# Independent mathematical audit
 
-## Correctness — PASS
-The same claim is established both by a mathematical reduction through five elliptic quotient maps of a tame \(2\)-power cover and by an exact finite-field certificate. The root factorization in \(\mathbb F_{23}[T]\), complete quadratic-field root enumeration, conditional root-pair distributions, incidence double counts, tangent independence, and a full parameter census over \(\mathbb F_{23}\) and \(\mathbb F_{23^2}\) agree. The formulas for every later extension are proved from the fact that all relevant geometric intersection points lie in the quadratic field; they are not guessed from the first two finite fields.
+## correctness
 
-## Originality — PASS, qualified
-Carvacho--Hidalgo--Quispe, arXiv:1507.02903v1, Section 5.1, establish the five elliptic quotients of Humbert curves. Auer--Top (2002) treat supersingular Legendre parameters. Neither established input is asserted as new. The precise characteristic-\(23\) intersections of five supersingularity divisors, the \(60\) quadruple parameters in one branch-configuration orbit, and the all-extension marked \(23\)-rank counts were not found in the inspected primary material, related previous results, or targeted mathematical-record queries. This is a best-knowledge originality assessment, not proof that no older classification exists. The full Auer--Top paper could not be opened; historical priority remains provisional.
+PASS
 
-## Mathematical value — PASS
-The result classifies the natural rank strata for a distinguished genus-five family at a characteristic admitting four simultaneous supersingular elliptic quotients, identifies a unique geometric branch configuration with \(23\)-rank \(1\), and explains why no smooth member over \(\mathbb F_{23}\) is ordinary. The five-divisor incidence is an exact geometric invariant, not an arbitrary selected parameter or a renaming of general isogeny theory.
+The prime-to-23 isogeny to five elliptic Legendre quotients preserves p-rank, a-number and Newton slopes. The exact degree-eleven Hasse polynomial has nine F23 roots and an irreducible quadratic; all eleven lie in F529. The five cross-ratios, S5 transitivity on divisor pairs and exact root-pair census reduce every geometric multiplicity ≥2 to 110 ordered root pairs. An independently implemented F529 polynomial/root enumeration recovered s=2:56, s=3:18, s=4:36; the combinatorial identity C(s,2)N_s=10 A_s yields N2=560,N3=N4=60 and the rational parity split. Local forgetful coordinates give transverse pair intersections, with higher intersections having distinct tangents. Finite enumeration is exhaustive only because every multiple intersection can be relabelled to two supersingular Legendre parameters and all Hasse roots are in F529; it is not used to extrapolate directly to all extensions.
 
-## Scope and limits
-The numerical statements count ordered marked branch configurations, not moduli classes with weights, except for the separately established single branch-equivalence class for the rank-one locus. General all-prime classification, arithmetic twists, and fields of moduli of exceptional configurations are not treated. The supporting code is a reproducible exact checker and does not substitute for the algebraic completeness argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The genus-five quotient decomposition and classical Legendre Hasse polynomial are prior inputs. The inspected primary quotient theorem does not give the simultaneous characteristic-23 five-divisor configuration or the full all-extension marked p-rank strata. No equivalent claim was located in targeted published or Resultary queries; a possibly unindexed characteristic-specific supersingular configuration remains a residual historical risk.
+
+## value
+
+PASS
+
+The five simultaneous elliptic supersingularity conditions define natural arithmetic strata of genus-five curves. Their exact high-multiplicity geometry, no-rank-zero obstruction, and unique rank-one marked orbit answer a structural question that does not follow mechanically from individual Legendre supersingular counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
