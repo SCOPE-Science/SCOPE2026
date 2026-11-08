@@ -1,19 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The canonical right-to-left deletion-mask scheme is bijective with distinct subsequences: a deleted letter equal to the next retained one would contradict the leftmost embedding. The three-state transfer records the next retained letter; pairing two copies and averaging over fair bits gives an exact nine-state moment resolvent. The proposed numerator and denominator have length-degrees at most four and five; Cramer's rule bounds the cross-multiplied polynomial at degree thirteen. The first fourteen **symbolic** length coefficients vanish exactly, proving the all-length, all-radii identity. Direct mask enumeration through length eight and independent three-deletion moments through length thirteen agree. The stated variance and total-count asymptotic follow by exact coefficient extraction and pole analysis. Computations have no external solver or hidden numerical tolerance.
+PASS
 
-## Originality — PASS (with documented residual priority uncertainty)
+Canonical leftmost subsequence embeddings are in bijection with right-to-left masks deleting a symbol only when different from the nearest retained symbol (or no retained symbol exists). The resulting three-state automaton and its nine-state tensor product give the precise resolvent. Its claimed rational closed form is proved for ALL n by polynomial numerator identity: adjugate u-degree <=8, determinant <=9, claimed numerator <=4 and denominator <=5, so equality through u^13 forces polynomial identity. Independently checked mask versus all deleted-output sets for every binary word n<=8, B3 exact mean and variance n<=11, plus inspected both distinct rational certificate scripts. Endpoints B0=Bn=1 and n=0 included. Finite checks are corroborative only; no biased-letter claim.
 
-The closest identified earlier mathematical result on random subsequences is Collins' 2013 mean formula, later extended to biased and dependent sources by Biers-Ariel, Godbole and Kelley. Li, Wang and Fu's 2026 deletion-ball work and Liron–Langberg's 2012 paper treat per-word bounds and run extremals. The earlier indexed binary two-deletion variance concerns one fixed pair of radii, not the full mixed-moment series; it does not determine three-deletion or total-count second moments. Scientific comparison of the actual claims and implications did not reveal a covering identity. The older 2008 study supplies explicit fixed-word counting formulas, but its full text was inaccessible: an unindexed equivalent moment computation cannot be excluded. Lack of a search hit is not regarded as proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem supplies all lengths and all deletion-radii covariances through a compact rational expression, a natural second-order counterpart to the classical mean enumerations for a deletion channel. The exact three-deletion variance isolates the \(n^{5/2}\) fluctuation scale, and the total distinct-subsequence statistic has an exponentially growing coefficient of variation, despite its exactly known expectation. These address broad probabilistic reconstruction behavior rather than an arbitrary small numerical example.
+Known expected distinct-subsequence counts and single-radius/two-deletion variances do not imply correlations between every pair of deletion radii. The nine-state rational joint enumerator and its three-deletion/total-count variance consequences survive best-of-knowledge comparison. Historical full text from Mercier et al could contain unindexed stronger transfer identities; access limitation is not claimed as proof of novelty.
 
-## Closest literature and limitations
+## value
 
-The first-public 2026 information-theoretic paper provides the date-eligible motivation, and the 2013 and 2017 expectation results delimit earlier mean-only knowledge. The 2008 full text could not be inspected, so publication-priority uncertainty remains. The theorem is for fair independent binary inputs, and independent expert validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A joint all-radii covariance kernel is a natural exact statistic in deletion-channel combinatorics: unlike a mean or deterministic radius bound it determines the fluctuation and covariance of every pair of sphere sizes and the total distinct-output variance; the polynomial certificate also turns an infinite family into a finite algebraic identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

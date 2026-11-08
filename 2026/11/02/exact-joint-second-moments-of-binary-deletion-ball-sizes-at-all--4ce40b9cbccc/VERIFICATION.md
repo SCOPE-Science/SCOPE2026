@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification and boundaries
+# Independent mathematical audit
 
-Run `python3 verify_joint_moments.py` to verify that the proposed length-generating numerator and denominator match the nine-state tensor transfer as exact polynomial identities through all fourteen degrees required by Cramer's degree bound. The program checks *all* deletion-degree monomials at each length, not just a finite selection of parameters. It also enumerates distinct subsequences by independent masks for every binary word of length at most eight.
+## correctness
 
-Run `python3 verify_variance3.py` to independently extract symbolic rational first and second moments for deletion radius three. It checks the rational identities in the polynomial ring and enumerates all binary input words of lengths three through thirteen, comparing with direct deletion masks through length eleven. Exact rational arithmetic is used throughout. Recorded output from actual successful executions is embedded in `verification_output.txt`.
+PASS
 
-The all-length theorem is a consequence of a finite algebraic certificate and explicit degree bound, not a claim extrapolated from finite experimentation. No claims are made for nonuniform sources, nonbinary alphabets, limit distributions, independent review, or exhaustive publication priority.
+Canonical leftmost subsequence embeddings are in bijection with right-to-left masks deleting a symbol only when different from the nearest retained symbol (or no retained symbol exists). The resulting three-state automaton and its nine-state tensor product give the precise resolvent. Its claimed rational closed form is proved for ALL n by polynomial numerator identity: adjugate u-degree <=8, determinant <=9, claimed numerator <=4 and denominator <=5, so equality through u^13 forces polynomial identity. Independently checked mask versus all deleted-output sets for every binary word n<=8, B3 exact mean and variance n<=11, plus inspected both distinct rational certificate scripts. Endpoints B0=Bn=1 and n=0 included. Finite checks are corroborative only; no biased-letter claim.
+
+## originality
+
+PASS
+
+Known expected distinct-subsequence counts and single-radius/two-deletion variances do not imply correlations between every pair of deletion radii. The nine-state rational joint enumerator and its three-deletion/total-count variance consequences survive best-of-knowledge comparison. Historical full text from Mercier et al could contain unindexed stronger transfer identities; access limitation is not claimed as proof of novelty.
+
+## value
+
+PASS
+
+A joint all-radii covariance kernel is a natural exact statistic in deletion-channel combinatorics: unlike a mean or deterministic radius bound it determines the fluctuation and covariance of every pair of sphere sizes and the total distinct-output variance; the polynomial certificate also turns an infinite family into a finite algebraic identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

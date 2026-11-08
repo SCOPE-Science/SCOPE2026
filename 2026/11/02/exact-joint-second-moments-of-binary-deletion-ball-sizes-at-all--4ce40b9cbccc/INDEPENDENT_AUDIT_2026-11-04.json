@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T09:44:15.356206Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-joint-second-moments-of-binary-deletion-ball-sizes-at-all--4ce40b9cbccc/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-joint-second-moments-of-binary-deletion-ball-sizes-at-all--4ce40b9cbccc/verify_joint_moments.py",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-joint-second-moments-of-binary-deletion-ball-sizes-at-all--4ce40b9cbccc/verify_variance3.py"
+      ],
+      "rationale": "Canonical leftmost subsequence embeddings are in bijection with right-to-left masks deleting a symbol only when different from the nearest retained symbol (or no retained symbol exists). The resulting three-state automaton and its nine-state tensor product give the precise resolvent. Its claimed rational closed form is proved for ALL n by polynomial numerator identity: adjugate u-degree <=8, determinant <=9, claimed numerator <=4 and denominator <=5, so equality through u^13 forces polynomial identity. Independently checked mask versus all deleted-output sets for every binary word n<=8, B3 exact mean and variance n<=11, plus inspected both distinct rational certificate scripts. Endpoints B0=Bn=1 and n=0 included. Finite checks are corroborative only; no biased-letter claim.",
+      "residual_risks": [
+        "Uniform fair independent binary symbols only; B_d counts distinct subsequences, not masks.",
+        "Degree-13 formal polynomial certificate is essential; finite n<=11 checks alone do not prove the rational identity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li/Wang/Fu 2026 establish deterministic run-structure extremal bounds; Biers-Ariel et al study expected outputs for random source variants."
+        ],
+        "reasoning": "These general source models or bounds do not algebraically evaluate the two-variable second moment in the binary uniform specialization. Full Mercier 2008 material not read, which leaves a coverage risk.",
+        "searches": [
+          "arXiv:2601.06493 Li Wang Fu deletion-channel bounds",
+          "arXiv:1704.08661 Biers-Ariel Godbole Kelley",
+          "arXiv:1202.1644 Liron Langberg"
+        ]
+      },
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-joint-second-moments-of-binary-deletion-ball-sizes-at-all--4ce40b9cbccc/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-joint-second-moments-of-binary-deletion-ball-sizes-at-all--4ce40b9cbccc/verify_joint_moments.py",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-joint-second-moments-of-binary-deletion-ball-sizes-at-all--4ce40b9cbccc/verify_variance3.py",
+        "https://arxiv.org/html/2601.06493v2",
+        "https://arxiv.org/abs/1310.7288",
+        "https://doi.org/10.1109/TIT.2008.924730"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Means are one-point coefficient evaluations and do not fix second moments; a deterministic word-level B_d formula could in principle be averaged jointly but no evaluated all-radii formula was verified in inspected materials."
+        ],
+        "reasoning": "Neither a known mean nor radius-two variance logically implies the bivariate resolvent; preserve the possibility that uninspected full primary 2008 source has a dominating mechanism.",
+        "searches": [
+          "arXiv:1310.7288",
+          "arXiv:1704.08661",
+          "doi:10.1109/TIT.2008.924730"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct subsequence counts B_d and total T are standard deletion-channel outputs; Collins obtains E[T_n]=2(3/2)^n-1, not E[B_dB_e]."
+        ],
+        "reasoning": "Same object and exact deletion radii, but expectation alone does not specify second mixed moments; explicitly excluded renaming and B2-only variance as originality.",
+        "searches": [
+          "Resultary search: exact joint second moments binary deletion balls distinct subsequences covariance all radii random words bivariate generating function",
+          "Collins arXiv:1310.7288 distinct subsequence mean",
+          "Mercier et al doi:10.1109/TIT.2008.924730"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary B2 variance (n-1)(n-2)(2n-3)/32 is a single coefficient, covered by the new bivariate formula, not the full table."
+        ],
+        "reasoning": "The existing radius-two variance and small-radius deterministic tables cannot determine all cross-radii covariances or arbitrary-n total second moments.",
+        "searches": [
+          "Resultary hit 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+          "Mercier Khabbazian Bhargava 2008 radius-specific results"
+        ]
+      },
+      "rationale": "Known expected distinct-subsequence counts and single-radius/two-deletion variances do not imply correlations between every pair of deletion radii. The nine-state rational joint enumerator and its three-deletion/total-count variance consequences survive best-of-knowledge comparison. Historical full text from Mercier et al could contain unindexed stronger transfer identities; access limitation is not claimed as proof of novelty.",
+      "residual_risks": [
+        "The full Mercier–Khabbazian–Bhargava 2008 article was not accessible; authorized retrieval was safety-blocked and not bypassed. It could provide a stronger implicit transfer result.",
+        "No claim for biased sources, nonbinary alphabets or asymptotic distribution of normalized T_n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the stated mixed all-radii moment formula in inspected full text",
+          "evidence": "Its main results are fixed-word deletion-ball inequalities and maximizers, not expected B_dB_e.",
+          "identifier_or_url": "https://arxiv.org/html/2601.06493v2",
+          "material_read": "Public full HTML sections on deletion balls and extremal run configurations, including theorem statements and arguments",
+          "method": "Read accessible arXiv primary HTML and compare finite-word bounds with random-word moments",
+          "title": "On the Number of Subsequences in the Nonbinary Deletion Channel",
+          "trigger": "Same deletion-ball quantities, 2026 deterministic limits"
+        },
+        {
+          "assessment": "First moment is a prior special statistic; no whole-document noncoverage assertion",
+          "evidence": "E[T_n]=2(3/2)^n-1 provides only the first moment.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.7288",
+          "material_read": "Public abstract and result description; not a verified complete full text read",
+          "method": "Compare stated first moment with required second-moment resolvent",
+          "title": "The Number of Distinct Subsequences of a Random Binary String",
+          "trigger": "The exact random-word total-count mean"
+        },
+        {
+          "assessment": "PRIORITY_RISK: full text inaccessible, not designated NOT_COVERING",
+          "evidence": "Later Li/Wang/Fu characterize deterministic results at fixed small radii; this does not rule out stronger unseen statements.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2008.924730",
+          "material_read": "Accessible abstract and later primary characterization of fixed small radii; publisher full text not obtained",
+          "method": "Checked open/arXiv availability; authorized institution request was blocked by safety checks and was not bypassed",
+          "title": "On the Number of Subsequences When Deleting Symbols From a String",
+          "trigger": "Relevant older deletion-ball single-word enumerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-joint-second-moments-of-binary-deletion-ball-sizes-at-all--4ce40b9cbccc/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-joint-second-moments-of-binary-deletion-ball-sizes-at-all--4ce40b9cbccc/verify_joint_moments.py",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-joint-second-moments-of-binary-deletion-ball-sizes-at-all--4ce40b9cbccc/verify_variance3.py",
+        "https://arxiv.org/html/2601.06493v2",
+        "https://arxiv.org/abs/1310.7288",
+        "https://doi.org/10.1109/TIT.2008.924730"
+      ],
+      "rationale": "A joint all-radii covariance kernel is a natural exact statistic in deletion-channel combinatorics: unlike a mean or deterministic radius bound it determines the fluctuation and covariance of every pair of sphere sizes and the total distinct-output variance; the polynomial certificate also turns an infinite family into a finite algebraic identity.",
+      "residual_risks": [
+        "The full Mercier–Khabbazian–Bhargava 2008 article was not accessible; authorized retrieval was safety-blocked and not bypassed. It could provide a stronger implicit transfer result.",
+        "No claim for biased sources, nonbinary alphabets or asymptotic distribution of normalized T_n."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-joint-second-moments-of-binary-deletion-ball-sizes-at-all--4ce40b9cbccc/RESULT.md",
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-joint-second-moments-of-binary-deletion-ball-sizes-at-all--4ce40b9cbccc/verify_joint_moments.py",
+    "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-joint-second-moments-of-binary-deletion-ball-sizes-at-all--4ce40b9cbccc/verify_variance3.py",
+    "https://arxiv.org/html/2601.06493v2",
+    "https://arxiv.org/abs/1310.7288",
+    "https://doi.org/10.1109/TIT.2008.924730"
+  ],
+  "disposition": "passed",
+  "final_claim": "For uniformly random binary length-n words, the entire bivariate deletion-ball moment generating function has the stated rational nine-state-transfer form for every n and pair of deletion radii, with exact B3 variance and asymptotic variance of total distinct-subsequence count.",
+  "limitations": [
+    "Uniform fair independent binary symbols only; B_d counts distinct subsequences, not masks.",
+    "Degree-13 formal polynomial certificate is essential; finite n<=11 checks alone do not prove the rational identity."
+  ],
+  "residual_risks": [
+    "The full Mercier–Khabbazian–Bhargava 2008 article was not accessible; authorized retrieval was safety-blocked and not bypassed. It could provide a stronger implicit transfer result.",
+    "No claim for biased sources, nonbinary alphabets or asymptotic distribution of normalized T_n."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING the stated mixed all-radii moment formula in inspected full text",
+      "evidence": "Its main results are fixed-word deletion-ball inequalities and maximizers, not expected B_dB_e.",
+      "identifier_or_url": "https://arxiv.org/html/2601.06493v2",
+      "material_read": "Public full HTML sections on deletion balls and extremal run configurations, including theorem statements and arguments",
+      "method": "Read accessible arXiv primary HTML and compare finite-word bounds with random-word moments",
+      "title": "On the Number of Subsequences in the Nonbinary Deletion Channel",
+      "trigger": "Same deletion-ball quantities, 2026 deterministic limits"
+    },
+    {
+      "assessment": "First moment is a prior special statistic; no whole-document noncoverage assertion",
+      "evidence": "E[T_n]=2(3/2)^n-1 provides only the first moment.",
+      "identifier_or_url": "https://arxiv.org/abs/1310.7288",
+      "material_read": "Public abstract and result description; not a verified complete full text read",
+      "method": "Compare stated first moment with required second-moment resolvent",
+      "title": "The Number of Distinct Subsequences of a Random Binary String",
+      "trigger": "The exact random-word total-count mean"
+    },
+    {
+      "assessment": "PRIORITY_RISK: full text inaccessible, not designated NOT_COVERING",
+      "evidence": "Later Li/Wang/Fu characterize deterministic results at fixed small radii; this does not rule out stronger unseen statements.",
+      "identifier_or_url": "https://doi.org/10.1109/TIT.2008.924730",
+      "material_read": "Accessible abstract and later primary characterization of fixed small radii; publisher full text not obtained",
+      "method": "Checked open/arXiv availability; authorized institution request was blocked by safety checks and was not bypassed",
+      "title": "On the Number of Subsequences When Deleting Symbols From a String",
+      "trigger": "Relevant older deletion-ball single-word enumerations"
+    }
+  ]
+}
