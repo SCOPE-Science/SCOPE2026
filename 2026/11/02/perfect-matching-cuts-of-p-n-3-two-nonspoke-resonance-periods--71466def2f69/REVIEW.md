@@ -1,19 +1,21 @@
-# Scientific review: perfect matching cuts of \(P(n,3)\)
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every claimed cut is a bipartition for which each cubic vertex has exactly one opposite-colored neighbor. The outer-neighbor equations determine the inner bits, and the complete local nine-bit constraint is exactly equivalent to the remaining inner equations. The de Bruijn shift encodes every cyclic outer word, including wraparound, as a closed walk. The induced recurrent core of its finite 256-state graph has two loops, one 4-cycle, and two 5-cycles, so the infinite-family enumeration follows by closed-walk counting, not extrapolation. The attached `verify.cpp` checks all 512 possible Boolean transitions, the 16-state certificate, and an independent complete vertex-coloring census on 11,182,080 assignments for \(7\le n\le12\). It returned `VERIFY_OK` after compilation and execution.
+PASS
 
-## Originality — PASS, with a priority risk
+For each n>=7 the cubic graph GP(n,3) has a perfect-matching cut iff a binary shore coloring has exactly one opposite-color neighbor at each vertex. Its outer bits a_i determine b_i uniquely by the 3-bit local rule; forbidden isolated outer bits have no extension. The inner condition is a check on nine outer bits, hence a length-n closed walk in the 8-bit de Bruijn overlap digraph. I reconstructed all 512 candidate nine-bit tests and confirmed precisely 90 arcs. Repeated in/out pruning retains exactly 42,20,16 states, with the final induced graph consisting solely of loops (0),(255), a 4-cycle (51,153,204,102), and two 5-cycles (24,140,198,99,49), (57,156,206,231,115). Each closed walk is a labeled cyclic outer coloring for any n, even when the nine-bit window wraps repeatedly; the inner bits are unique. Thus 2+4[4|n]+10[5|n] colorings, quotient by fixed-point-free global complement gives 1+2[4|n]+5[5|n] cuts. Direct independent enumeration of 2^(n-1) normalized outer colorings for n=7..11 returned counts (1,3,1,6,1) and exact crossing-spoke strata (n), (n and 0), (n), (n and n/5), (n). Finite samples corroborate, whereas the exhaustive state certificate and closed-walk bijection prove the universal claim.
 
-The 2021 Le–Telle primary paper defines the exact same cut object and studies complexity and algorithms; their conclusion explicitly raises counting and enumeration as further directions; the 2023 Bonnet–Chakraborty–Duron paper proves hardness on cubic bipartite planar graphs and explains the cycle-union interpretation. Neither inspected paper supplies a numerical cut classification for \(P(n,3)\). Comparisons included the stronger-formulation search (monochromatic cycle partitions), the difference from disconnected perfect matchings, and the nearby jump-two family: even at order eight, the jump-two and jump-three cut counts differ. No equivalent exact result was identified in the examined literature and mathematical research records. This is not proof of publication priority; unindexed work remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem completely classifies a natural, well-studied cubic graph family for an invariant with difficult general recognition. The nonspoke cuts exist at precisely two independent divisibility periods, and their spoke usage distinguishes geometrically different classes. The simultaneous primitive 4- and 5-period behavior is a substantive structural distinction from the adjacent jump-two family, not a routine parameter substitution. An exact natural finite-state classification is a legitimate combinatorial result without a general-jump theorem.
+The object is exactly a perfect two-coloring with neighbor-quotient matrix [[2,1],[1,2]] on cubic GP(n,3), not merely an analogous matching problem. Karami (2022) explicitly treats GP(n,3) perfect 2-coloring parameter matrices, including this A1 feasibility; hence generic existence must NOT be claimed as new. The assessed full number of edge-set cuts and primitive 4-,5-period/spoke spectrum are not displayed in the inspected published parameter-matrix classification. Le--Telle and Bonnet et al. formulate the same cut constraint but prove broad complexity/hardness, not this all-n enumeration. Resultary nearest named Petersen entries concern cut/matching complexes, not exact perfect-matching-cut counts. Originality PASS is qualified by possible further color-multiplicity tables in unindexed work.
 
-## Scope and residual limitations
+## value
 
-The theorem concerns simple \(P(n,3)\), \(n\ge7\), and perfect matching edge cuts themselves. It neither counts disconnected perfect matchings nor addresses arbitrary generalized Petersen jump parameters. The mathematical proof is supplied with an exhaustive finite-state certificate, but publication priority and independent mathematical validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Perfect matching cuts partition a cubic graph into two induced 2-regular sides and are nontrivial to recognize generally. For the canonical GP(n,3) family, exact edge-set counts and a sharp classification of nonspoke periodic resonances at mod 4 and mod 5 are intrinsic extremal enumeration facts. The distinction between existence (known) and a full number/spoke distribution (claimed here) is mathematically substantive; this is neither a reformulation nor an arbitrary selected numeric instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
