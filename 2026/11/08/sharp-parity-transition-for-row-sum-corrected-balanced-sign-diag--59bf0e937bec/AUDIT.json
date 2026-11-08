@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Exchangeability gives rho=(E S²-n)/(n(n-1)), parity fixes rho minimum; E[z_i(Az)_i]=(1-rho)A_ii+rho r_i and Var(z_i(Az)_i)=(1-rho)(q_i+rho s_i²). Independent averaging produces the exact risk. Strict positive derivative for B≠0 proves optimality. Rowwise Cauchy--Schwarz proves full zero-risk classification. Cost sign comparisons and B1=0 witnesses prove all query thresholds, with n=2 exception. Python exact rational checker replays 1423 assertions for n=2..9; all n comes from proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hallman--Ipsen--Saibaba 2022 gives concentration bounds for Rademacher, sparse Rademacher, and Gaussian diagonal estimators; Baston--Nakatsukasa derives Diag++.",
+        "Neither inspected result identifies a pair-correlated correction using A1 or the exact even/odd zero-variance space."
+      ],
+      "reasoning": "General concentration/low-rank diagonal estimators may achieve better errors but do not imply the fixed-correlation affine optimality theorem or its exact budget threshold. We make no global algorithmic dominance claim.",
+      "searches": [
+        "balanced Rademacher probes fixed zero sign sum unbiased matrix diagonal estimator with one known row sum variance uniform improvement",
+        "Monte Carlo matrix diagonal estimator paired fixed-weight signs versus iid Hutchinson variance",
+        "https://ar5iv.labs.arxiv.org/html/2202.02887",
+        "https://ar5iv.labs.arxiv.org/html/2201.10684"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2201.10684",
+      "arxiv:2202.02887",
+      "arxiv:2208.03268",
+      "arxiv:2301.07825"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dharangutte--Musco: iid signs yield baseline E||dhat-diag A||²=||B||²_F/m; the candidate modifies within-vector sign covariance to rho_min and corrects the mean via A1.",
+        "Epperly--Tropp--Webber XDiag: uses low-rank leave-one-out correction, not the proposed fixed-sum affine correction.",
+        "Exact cost transition depends on a separate all-ones matvec and has n-specific thresholds."
+      ],
+      "reasoning": "The new finite-population sign construction is outside the iid premises of the exact baseline, and existing XDiag formula is not an algebraic strengthening that yields this restricted optimum as a corollary. Higher-level estimation bounds cannot produce uniqueness of optimal exchangeable sign laws without proving the S² parity constraint and affine-correction comparison.",
+      "searches": [
+        "https://ar5iv.labs.arxiv.org/html/2208.03268 Definition 1",
+        "https://ar5iv.labs.arxiv.org/html/2301.07825 §2.4",
+        "diagonal matrix estimation zero sum probes one deterministic all ones matrix vector product",
+        "matrix diagonal estimation using fixed-magnetization Rademacher probe and all ones matvec unbiased correction parity even odd zero variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "XDiag §2.4 formula averages leave-one-out low-rank residuals using exchangeability across probe vectors, not fixed-sum within-probe signs.",
+        "Uniform fixed-count signs produce rho_min by the parity identity E(S²)."
+      ],
+      "reasoning": "Searched fixed Hamming-weight, balanced signs, antithetic correlation and XDiag aliases. The XDiag estimator has a different sample space and algebraic correction; the exact parity threshold is not a specialization of its stated formulas.",
+      "searches": [
+        "exchangeable sign vectors fixed Hamming weight matrix diagonal estimator optimal pair correlation row sum control variate",
+        "Exchangeable fixed-sum Rademacher diagonal estimator exact risk E diag(A) correction with A1 formula, parity zero variance",
+        "matrix diagonal estimation using fixed-magnetization Rademacher probe and all ones matvec unbiased correction parity even odd zero variance",
+        "unbiased diagonal estimator antithetic balanced signs pairwise negative correlation variance off diagonal row sum",
+        "https://ar5iv.labs.arxiv.org/html/2301.07825 §2.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "One related indexed paper-level finding computes a curvature RMS effect using iid Hutchinson probes, rather than a fixed-sum sign design.",
+        "Another indexed mathematical finding studies first absolute moments of pairwise-independent fair signs, without matrix diagonal estimation."
+      ],
+      "reasoning": "No exact database/table of fixed-sum corrected diagonal variances was returned. The nearest records study iid Hutchinson curvature or unrelated sign moment topics; database coverage is incomplete and failure to match does not establish novelty.",
+      "searches": [
+        "balanced random sign probes even dimension annihilate constant off-diagonal matrix diagonal variance, odd dimension residual variance",
+        "sharp optimal permutation invariant sign laws for diagonal probing using known matrix row sums",
+        "diagonal probing nullspace exactly equal off diagonal row entries for zero sum Rademacher",
+        "diagonal matrix estimation zero sum probes one deterministic all ones matrix vector product"
+      ]
+    },
+    "rationale": "The novel narrow claim is exact optimal negatively dependent within-vector sign design with one known all-ones product, full parity zero-variance space and query-cost threshold. The four closely relevant primary full-text estimators and real indexed claim matches were compared for mathematical implication. No inspected result contains or directly implies the combined theorem; specialist finite-population probing precedence remains a risk rather than a proven absence.",
+    "residual_risks": [
+      "Unindexed older finite-population sampling, antithetic diagonal probing, or graph-design literature could contain an equivalent correction/zero-risk classification.",
+      "Broad non-affine algorithms such as XDiag are not dominated, and the optimized family deliberately excludes them.",
+      "Primary comparisons relied on accessible full HTML and exact displayed formulas, not a human independent novelty determination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uses independent-coordinate Rademacher/Gaussian probes and Diag++; does not state fixed-sum negative dependence with A1 correction, parity zero-variance classification or matched-budget threshold.",
+        "evidence": [
+          "https://arxiv.org/abs/2201.10684",
+          "https://ar5iv.labs.arxiv.org/html/2201.10684"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2201.10684",
+        "material_read": "HTML §§1, 3, 6 and 9, the diagonal estimation formulas and Rademacher assumptions; arXiv abstract page verifies first public date 2022-01-26.",
+        "method": "Lawful full HTML formula and text inspection; compared estimator assumptions and implication to affine row-sum correction.",
+        "title": "Stochastic diagonal estimation: probabilistic bounds and an improved algorithm",
+        "trigger": "Earliest verified motivating paper about matrix-free diagonal estimation; compare Rademacher equation and improved estimator."
+      },
+      {
+        "assessment": "Bounds for iid/randomized vector classes and symmetric matrices; no row-sum-corrected fixed-imbalance law or parity-zero structure was identified. Its general bounds do not directly assert exact restricted optimality.",
+        "evidence": [
+          "https://arxiv.org/abs/2202.02887",
+          "https://ar5iv.labs.arxiv.org/html/2202.02887"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2202.02887",
+        "material_read": "HTML abstract, §§1–3 and distribution/bounded-moment analysis, keyword and MSC entries; arXiv 2202.02887 initial date 2022-02-06.",
+        "method": "Read primary HTML and compared random vector independence, moment conditions, formula for diagonal estimator and risk.",
+        "title": "Monte Carlo Methods for Estimating the Diagonal of a Real Symmetric Matrix",
+        "trigger": "Potential broad coverage through general vector-distribution results and primary classification MSC 65F50."
+      },
+      {
+        "assessment": "Supplies the standard iid diagonal estimator and bounds; no dependence within sign vector or known-row-sum correction. The baseline is credited, not claimed new.",
+        "evidence": [
+          "https://ar5iv.labs.arxiv.org/html/2208.03268"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2208.03268",
+        "material_read": "HTML definition 1 and risk / concentration sections, where iid-coordinate Rademacher probes are stipulated.",
+        "method": "Inspected full lawful HTML and exact iid estimator formula; compared to affine correction using A1.",
+        "title": "A Tight Analysis of Hutchinson's Diagonal Estimator",
+        "trigger": "Exact iid-sign diagonal-risk benchmark, possible dominance by stronger result."
+      },
+      {
+        "assessment": "Uses exchangeability among whole probe vectors and leave-one-out low-rank residual projections; distinct from coordinate-permutation-invariant fixed-sum signs and one A1 product, so not implication of the parity classification.",
+        "evidence": [
+          "https://ar5iv.labs.arxiv.org/html/2301.07825"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2301.07825",
+        "material_read": "HTML abstract and §1.2.3; §2.4 formula (15) and XDiag expression; supplementary MATLAB XDiag implementation near lines 902–936.",
+        "method": "Read and algebraically compared full relevant primary construction, noting meaning of exchangeability.",
+        "title": "XTrace: Making the most of every sample in stochastic trace estimation",
+        "trigger": "XDiag is named an exchangeable diagonal estimator; possible competing same formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "59bf0e93-7bec-459a-a60e-bbd0b80cd0f7",
+  "value": {
+    "rationale": "Matrix-free diagonal estimation is a motivated numerical linear-algebra task. The result gives a complete design/classification among natural exchangeable sign probes, an exact parity-triggered change in zero-variance structure and a sharp fair matvec-budget threshold. Even-dimensional dense constant-coupling matrices become exactly recoverable in two products, which distinguishes the structural effect from a small constant-factor improvement; no universal algorithmic claim is made.",
+    "status": "PASS"
+  }
+}
