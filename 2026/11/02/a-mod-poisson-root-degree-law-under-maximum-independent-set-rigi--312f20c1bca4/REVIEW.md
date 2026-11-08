@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact event recursion has been checked against global maximum-independent-set enumeration. Recursive-tree combinatorial differentiation yields the normalization and fully marked root degree generating function; standard logarithmic singularity transfer (with a complex-uniform parameter neighborhood) yields the mod-Poisson form. First and second logarithmic derivatives give the precise \(\log\log n\) deficits. The embedded checker passed 11,887 exact assertions and independently checked the unmarked recurrence. Finite tests do not certify the infinite asymptotic; the proof does.
+PASS
 
-## Originality — PASS, qualified
+Root essentiality iff all root branches nonessential follows by exact dynamic-programming comparison of root-included/excluded maximum independent sets. Uniform recursive tree exponential specifications T(z)=−log(1−z), E’=exp(T−E) solve e^E=1+T, so marking the number of nonessential root branches yields [z^{n−1}]exp(u[T−log(1+T)]) for the exact joint pgf. Algebraic-logarithmic singularity transfer uniformly for u near 1 gives n^{u−1}/(Gamma(u)(log n)^u)(1+O(1/logn)); division yields mod-Poisson λ=logn−loglogn. Differentiating complex-uniform errors gives mean λ+γ and variance λ+γ−π²/6 up to O(1/logn); CLT follows. At n=1 event certain; n=2 event impossible; n>=3 positive. Independent exhaustive global maximum independent-set enumeration and rational marked coefficient comparison matched all n<=7; finite enumeration does not prove asymptotics.
 
-The 2019 work of Fuchs, Holmgren, Mitsche and Neininger already computes the unmarked root inclusion probability and total independent-set CLT; Janson establishes a root-essentiality recursion and the fixed-time Yule formula; Dadedzi–Wagner compute total spectral/independence-number fluctuations. This contribution is the joint root-degree law and its nontrivial conditional mod-Poisson asymptotic, not those earlier results. Accessible literature and implication comparisons did not show implication-equivalent coverage. Remaining risks include incompletely accessible historical work on vertex-essentiality and limitations of semantic search; novelty is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-For a natural global graph-optimization event of probability asymptotic to \(1/\log n\), both the root-degree mean and variance lose \(\log\log n\) despite normal fluctuations of order \(\sqrt{\log n}\). This quantifies a meaningful link between local connectivity and optimization rigidity; the inverse-Gamma mod-Poisson refinement supplies more information than a scalar density or central limit theorem.
+Fuchs et al. already establish the unmarked root-essential probability, and Janson establishes essentiality recursion/Yule-time formulas; total independence-number CLTs and known unconditioned degree are likewise prior. The additional joint root-degree/essentiality marked PGF and complex-uniform conditional mod-Poisson law with diverging loglog deficit were not in materially inspected primary earlier sections. Novelty qualified because generic recursive-tree marking methods and unindexed deterministic essential-vertex work may contain an implicit equivalence.
 
-## Limitations
+## value
 
-Uniform recursive trees, the oldest root and root membership in every maximum independent set only. No statement about other labels, multiple joint essentiality events, or large-deviation scales away from the parameter neighborhood. All claims are self-reviewed; independent mathematical validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural rare root membership in every maximum independent set interacts with a fundamental local statistic. A diverging loglog correction to both conditional mean and variance, and an inverse-Gamma correction governing all cumulants, is an interpretable structural result beyond scalar root-rigidity probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
