@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The analytic argument in `RESULT.md` proves the full stated parameter range. Its critical ingredients are: exact path resistances on trees, normalization of the resistance diameter to one, existence and uniqueness for the strictly convex reciprocal-cost problem, invariant unique minimizers under spoke permutations, the three competing diameter path families, and the KKT sign check at either active spoke cap.
+## correctness
 
-Run `python check.py` with NumPy and SciPy installed. The tested script ran successfully from its actual file before packaging, producing:
+PASS
 
-```text
-Exact rational branch/boundary cases: 5
-Independent grounded-Laplacian resistance comparisons: 225
-Asymmetric feasible allocation inequalities: 14625
-Independent full-dimensional numerical minimizations: 54
-Regime sample counts: {'triangle': 80, 'left_cap': 76, 'right_cap': 69}
-All implemented checks passed; infinite-domain proof is analytic.
-```
+For arbitrary individual conductances, the tree effective resistance is the sum of reciprocal weights along unique paths. Rescale maximum resistance to one and minimize strictly convex Σprice_e/ρ_e on path-sum constraints. A minimizer exists with positive coordinates and is unique, hence symmetry under leaf permutations is deduced, not assumed. All candidate diametral paths reduce to 2x,2y,x+y+z; z>0 forces x+y+z=1. Weighted Cauchy–Schwarz yields the interior solution when √(pa) and √(qb) lie within one bridge root, while KKT gives left/right x=1/2 or y=1/2 cap regimes and the stated F. Boundaries are covered; budget scaling gives conductances B/(Fx),B/(Fy),B/(Fz), minimum F/B and uniqueness. The asymptotic equal-weight/optimal ratio→3/2 follows algebraically for fixed q, p→∞. Independent radical/budget branch tests checked both cap and triangle boundaries; finite sampling is no universal certificate.
 
-The random generator is seeded and the script fails upon a violated assertion. Exact-rational checks cover a handful of radical-square cases; they do not exhaust rational parameters. Numerical optimization and finite examples are not proofs for all parameters. The independent external audit channel is unperformed. The potentially relevant older tree-edge-reduction source could not be inspected in full.
+## originality
+
+PASS
+
+The general minimax effective-resistance problem, convex viewpoint and tree resistance identity are already known and not new. The identified contribution is the sharp globally optimal price-triangle active-set solution for independently adjustable double-star edges, including diametral pair classification. Older tree-diameter edge-reduction literature is plausible but may use a different linear reduction-price objective; its full statement remains a material priority risk.
+
+## value
+
+PASS
+
+This solves a natural robust network design problem on the two-hub tree family, exhibiting three competing path classes and a sharp priced transition. The exact unique allocation and fixed 3/2 performance ratio over equal conductances have a motivated optimization interpretation, beyond the general generic convex-program specification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

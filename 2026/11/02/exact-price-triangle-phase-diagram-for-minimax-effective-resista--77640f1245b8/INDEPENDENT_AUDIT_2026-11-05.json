@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T23:10:24.027014Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For arbitrary individual conductances, the tree effective resistance is the sum of reciprocal weights along unique paths. Rescale maximum resistance to one and minimize strictly convex Σprice_e/ρ_e on path-sum constraints. A minimizer exists with positive coordinates and is unique, hence symmetry under leaf permutations is deduced, not assumed. All candidate diametral paths reduce to 2x,2y,x+y+z; z>0 forces x+y+z=1. Weighted Cauchy–Schwarz yields the interior solution when √(pa) and √(qb) lie within one bridge root, while KKT gives left/right x=1/2 or y=1/2 cap regimes and the stated F. Boundaries are covered; budget scaling gives conductances B/(Fx),B/(Fy),B/(Fz), minimum F/B and uniqueness. The asymptotic equal-weight/optimal ratio→3/2 follows algebraically for fixed q, p→∞. Independent radical/budget branch tests checked both cap and triangle boundaries; finite sampling is no universal certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi 2006/2008 includes general effective-resistance optimization, without the checked explicit double-star active-set classification.",
+          "Chepoi–Noltemeier–Vaxès and Hambrusch–Lim are plausible tree diameter upgrading analogues."
+        ],
+        "reasoning": "General convex optimization formulations could compute these answers numerically but do not themselves imply the sharp analytic three-regime formulas; complete older cost models were not fully inspected.",
+        "searches": [
+          "Ghosh Boyd Saberi minimizing effective resistance graph maximum pairwise double star 2008",
+          "tree edge reduction diameter minimizing budget Hambrusch Lim 1998 cost function",
+          "Chepoi Noltemeier Vaxes upgrading trees diameter budget constraints"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "https://www.sciencedirect.com/science/article/pii/S0166218X03001354",
+        "Resultary search: minimax effective resistance double stars"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General convexity and tree path identities supply the problem reduction, but not which of the three path families is binding at each price.",
+          "The present KKT solution adds the exact active-set boundary U=V+W or V=U+W and pair ties."
+        ],
+        "reasoning": "Neither a general SDP nor the optimal single-hub star is sufficient alone to state the double-star support classification.",
+        "searches": [
+          "Ghosh Boyd Saberi effective resistance graph convex programming maximum pair resistance tree",
+          "priced heterogeneous weighted double star tree minimax paths cap active"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tree resistance equals path sum of reciprocal conductances; general edge-upgrading can be written as diameter reduction but may assign linear reduction costs."
+        ],
+        "reasoning": "In the current model paid conductance is proportional to reciprocal resistance, so equivalence to linearly priced edge-length reductions has not been established.",
+        "searches": [
+          "minimax effective resistance diameter double star tree three price classes optimal conductances phase transition",
+          "tree inverse conductance edge lengths minimax diameter weighted budget leaf hub stars"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned different double-star fort and other optimization findings; no exact triple threshold.",
+          "Assigned check.py independently compares grounded weighted Laplacians and formula in sampled cases."
+        ],
+        "reasoning": "Search and finite tests do not establish absence from specialized optimization tables or papers.",
+        "searches": [
+          "double star resistance diameter price triangle square root optimal effective resistance conductances",
+          "Resultary: minimax effective resistance diameter double star tree three price classes optimal conductances phase transition"
+        ]
+      },
+      "rationale": "The general minimax effective-resistance problem, convex viewpoint and tree resistance identity are already known and not new. The identified contribution is the sharp globally optimal price-triangle active-set solution for independently adjustable double-star edges, including diametral pair classification. Older tree-diameter edge-reduction literature is plausible but may use a different linear reduction-price objective; its full statement remains a material priority risk.",
+      "residual_risks": [
+        "Hambrusch–Lim older tree-diameter edge-reduction full text could encode a stronger parameterized formula; not read in full.",
+        "Class-uniform positive spoke prices and p,q≥2 are required; disconnected zero conductance is excluded by infinite-diameter convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_PARTIAL",
+          "evidence": [
+            "General effective-resistance design provides context; the concrete priced-double-star triangle boundary was not established by material actually inspected."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Publisher/author abstract and identifiable convex-optimization scope; full PDF not freshly read for this execution",
+          "method": "abstract/scope inspection plus assigned proof comparison",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "foundational effective-resistance optimization and possible broader implication"
+        },
+        {
+          "assessment": "UNRESOLVED_COMPARISON",
+          "evidence": [
+            "Standard tree upgrading charges for shortening edge lengths; equivalence to c_e/r_e conductance payment is unverified."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0166218X03001354",
+          "material_read": "Public search metadata/summary of tree edge-length reduction, not full text",
+          "method": "bibliographic search and model check",
+          "title": "Upgrading trees under diameter and budget constraints",
+          "trigger": "plausible tree diameter reduction analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This solves a natural robust network design problem on the two-hub tree family, exhibiting three competing path classes and a sharp priced transition. The exact unique allocation and fixed 3/2 performance ratio over equal conductances have a motivated optimization interpretation, beyond the general generic convex-program specification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Numerical checks cannot establish global infinite-domain optimization; prior tree-upgrading literature has an access-limited comparison."
+  ],
+  "schema_version": 1
+}
