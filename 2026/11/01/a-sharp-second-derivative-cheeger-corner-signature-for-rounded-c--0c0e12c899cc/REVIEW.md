@@ -1,16 +1,21 @@
-# Scientific review: the Cheeger corner-signature theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The quantified theorem concerns every nondegenerate convex Euclidean polygon with genuine vertices and exact Cheeger constants of its outer Euclidean disk parallels. The universal Cheeger equation is an explicitly attributed 2006 theorem. Erosion of an outer parallel convex body is reconstructed using all support halfspaces, giving the two disjoint cases \(r\le t\) and \(r\ge t\), with matching boundary \(r=t\). At that boundary the area comparison is exactly \(A\) against \(\pi t^2\), so the threshold is \(t_*=\sqrt{A/\pi}\). For \(t<t_*\) sufficiently close to the threshold the inner inset retains all genuine sides; its area is exactly \(A-Ps+Cs^2\), where \(C=\sum_i\cot(\alpha_i/2)\). The small root is unique by the Cheeger theorem. Implicit differentiation gives the nonzero exact one-sided second-derivative jump and \(C^1\) matching. Jensen's inequality provides the exact sharp angular bound with its equality criterion. The independently derived symbolic identities and high-precision checks all passed from the included standalone checker.
+## correctness
 
-Risks: the below-threshold formula is local, not global; the classical Cheeger characterization is accepted as published mathematics rather than reproved here; the numerical tests alone do not prove universal statements.
+PASS
 
-## Originality — PASS, with historical-priority risk
-The 2006 Kawohl--Lachand-Robert paper proves the general Cheeger-radius characterization and gives the polygonal inner-offset geometry; both are directly credited. Its Section 4 concerns unrounded polygons and does not state the rounded-profile second-derivative jump. Saracco's June 2019 work characterizes self-Cheeger domains using rolling disks, which explains the threshold but does not calculate the angular cusp. Ftouhi--Masiello--Paoli (June 2022) studies extremal Cheeger inequalities and Blaschke--Santaló diagrams, not the second-order transition. Ftouhi (December 2024) analyzes the same outer-parallel Cheeger family, proving first differentiability and monotonicity, but does not establish the one-sided second derivative, the corner coefficient, or the sharp angular detection inequality. These comparison conclusions use inspected primary text, not only abstracts. No covering assertion was found in additional searches for Cheeger polygon outer offsets, differentiability, angular cotangents and self-Cheeger thresholds; lack of discovery does not establish priority.
+Use planar convex Cheeger-radius theorem: reciprocal h is unique r solving |(K+tB)⊖rB|=πr². Support halfspaces show outer offset erosion equals K+(t-r)B for r<=t, or K⊖(r-t)B for r>=t. Comparing at r=t gives exact cutoff A=πt². For t>=t* the Steiner formula A+P(t-r)+π(t-r)²=πr² yields h=(P+2πt)/(A+Pt+πt²), with K+tB self-Cheeger. For t<t* near the cutoff, small polygon insets retain each side and |K⊖sB|=A-Ps+Cs², C=Σcot(alpha_i/2); the small root of A−πt²−(P+2πt)s+(C−π)s²=0 determines r=t+s. Implicit differentiation at t* gives s'=-2πt*/B*, different second coefficient by (C−π)(s')²/B*, hence jump h''(t*+)-h''(t*-) =8π²(C−π)/B*³. The independent symbolic series check reproduced the coefficient. Jensen on exterior half turns β_i with Σβ_i=π yields C>=n tan(π/n)>π, equality iff equiangular; regular n-gons attain. The lower branch is explicitly only a germ, not a global formula for arbitrary insets.
 
-Residual risk: the claim is developed from classical Cheeger, Steiner and inset-polygon identities, and an unlocated source may have already carried out this local second-order calculation. Its mathematical contribution is the fully specified sharp corner signature for *every* convex polygon, including those Cheeger-irregular before rounding; merely combining the old self-Cheeger and first-derivative statements does not state this classification.
+## originality
 
-## Value — PASS
-The problem is motivated by the inverse-geometric content of a scalar shape-functional response: the global rounded-body Cheeger curve forgets most geometric data once the body becomes calibrable, but its local loss of \(C^2\) regularity retains a complete and sharply normalized sum of corner angles. The exact junction gives a natural, universal threshold, an actual differentiability obstruction, and a sharp equiangular equality class for every side count. For polygons whose original Cheeger sets have lost sides, the same corner statistic remains visible from measurements near the threshold; the original polygon Cheeger formula need not see every vertex. The result does not claim reconstruction of the full angle vector or numerical robustness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge originality PASS after searches and real statement-level primary comparisons; no source found to imply the exact final claim. Explicit historical/inaccessible-source risks remain: The signature follows from elementary differentiation of classical parallel-body and Cheeger formulas, so another unindexed source could have calculated it already.; At offsets far below t*, the inner inset can lose sides and the quadratic branch may fail; full polygon recovery is not claimed.
+
+## value
+
+PASS
+
+The scalar geometric response to disk rounding has a universal loss of twice differentiability that recovers a genuine polygonal corner-angle invariant even when original Cheeger sets are irregular. The sharp angular inequality identifies equiangular extremizers at every side count; this provides exact inverse-geometric information beyond known differentiability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

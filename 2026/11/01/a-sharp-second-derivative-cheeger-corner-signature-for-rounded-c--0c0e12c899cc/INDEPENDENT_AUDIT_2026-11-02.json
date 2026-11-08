@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T13:11:38.074902Z",
+  "axes": {
+    "correctness": {
+      "critical_checks": [
+        "Independent SymPy calculation compared left/right Cheeger-radius jets and reproduced exact positive second-derivative jump.",
+        "Read actual source checked program checks/check_cheeger_cusp.py and its independent implicit differentiation / rectangle and triangle inset identities.",
+        "The critical Cheeger radius theorem is correctly attributed rather than treated as a new lemma."
+      ],
+      "rationale": "Use planar convex Cheeger-radius theorem: reciprocal h is unique r solving |(K+tB)⊖rB|=πr². Support halfspaces show outer offset erosion equals K+(t-r)B for r<=t, or K⊖(r-t)B for r>=t. Comparing at r=t gives exact cutoff A=πt². For t>=t* the Steiner formula A+P(t-r)+π(t-r)²=πr² yields h=(P+2πt)/(A+Pt+πt²), with K+tB self-Cheeger. For t<t* near the cutoff, small polygon insets retain each side and |K⊖sB|=A-Ps+Cs², C=Σcot(alpha_i/2); the small root of A−πt²−(P+2πt)s+(C−π)s²=0 determines r=t+s. Implicit differentiation at t* gives s'=-2πt*/B*, different second coefficient by (C−π)(s')²/B*, hence jump h''(t*+)-h''(t*-) =8π²(C−π)/B*³. The independent symbolic series check reproduced the coefficient. Jensen on exterior half turns β_i with Σβ_i=π yields C>=n tan(π/n)>π, equality iff equiangular; regular n-gons attain. The lower branch is explicitly only a germ, not a global formula for arbitrary insets.",
+      "risks": [
+        "At offsets far below t*, the inner inset can lose sides and the quadratic branch may fail; full polygon recovery is not claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Self-Cheeger rolling-disk criteria explain the threshold of rounded polygons but do not calculate the second derivative jump.",
+          "Sharp Cheeger shape inequalities optimize other functionals rather than identify the curvature discontinuity."
+        ],
+        "reasoning": "No broader inspected theorem dominates the new junction law; potential direct differentiation of known formulas remains a historical risk.",
+        "searches": [
+          "arXiv:1906.12101 rolling disk criterion",
+          "arXiv:2206.13158 sharp Cheeger inequalities",
+          "Resultary polygon corner-derivative search"
+        ]
+      },
+      "checked_sources": [
+        "https://www.mi.uni-koeln.de/mi/Forschung/Kawohl/kawohl/CheegerConvexR-2.pdf",
+        "https://arxiv.org/pdf/2412.20917",
+        "https://arxiv.org/abs/1906.12101",
+        "https://arxiv.org/abs/2206.13158"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "First derivative formula holds for all convex bodies; it is compatible with a jump in second derivative.",
+          "Cheeger radius uniqueness plus local inner-polygon area yields C−π from the difference of second-order coefficients."
+        ],
+        "reasoning": "Prior first-order differentiability does not imply smooth C2, and the explicit jump is a genuine additional quantified result, albeit derivable from acknowledged classical lemmas.",
+        "searches": [
+          "Ftouhi arXiv:2412.20917 Theorem 1.3 and §4",
+          "Kawohl and Lachand-Robert 2006 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2006 source provides |K_-r|=πr² for convex Cheeger radius and inner polygon geometry; both explicitly reused.",
+          "Ftouhi proves existence/formula of first derivative t↦h(K+tB), not the one-sided h double-prime defect."
+        ],
+        "reasoning": "Neither known radius characterization nor C1 theorem states the second-order corner signature, although together with elementary polygon inset geometry they provide ingredients.",
+        "searches": [
+          "Kawohl and Lachand-Robert 2006 full PDF Theorem 1 and polygon Section 4",
+          "Ftouhi 2412.20917 full PDF theorem 1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source tables classify Cheeger sets of unrounded polygons and first-order variation, not this rounded corner coefficient.",
+          "Resultary exact search returned different convex functionals and no stored Cheeger kink table."
+        ],
+        "reasoning": "No exact table was found; negative search alone does not establish originality.",
+        "searches": [
+          "Kawohl 2006 polygon algorithms",
+          "Ftouhi 2024/2025 first-variation theorem",
+          "Resultary 8-hit Cheeger convex polygon queries"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS after searches and real statement-level primary comparisons; no source found to imply the exact final claim. Explicit historical/inaccessible-source risks remain: The signature follows from elementary differentiation of classical parallel-body and Cheeger formulas, so another unindexed source could have calculated it already.; At offsets far below t*, the inner inset can lose sides and the quadratic branch may fail; full polygon recovery is not claimed.",
+      "residual_risks": [
+        "The signature follows from elementary differentiation of classical parallel-body and Cheeger formulas, so another unindexed source could have calculated it already.",
+        "At offsets far below t*, the inner inset can lose sides and the quadratic branch may fail; full polygon recovery is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE known Cheeger-radius and small-inset formulas; no outer-parallel second-derivative angular jump",
+          "evidence": "Unique r with inner Cheeger area πr² is shown; no complete rounded profile corner signature.",
+          "identifier_or_url": "https://www.mi.uni-koeln.de/mi/Forschung/Kawohl/kawohl/CheegerConvexR-2.pdf",
+          "material_read": "Primary 17-page OA PDF accessible; Theorem 1 proof p3 examined with screenshot, polygon examples and Section 4 mathematical formulas inspected.",
+          "method": "full source PDF focused theorem/section inspection",
+          "title": "Characterization of Cheeger sets for convex subsets of the plane",
+          "trigger": "foundational radius equation and polygon inset geometry"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE first variation and monotonicity, not specified second variation",
+          "evidence": "Theorem 1.3 explicitly gives f'(0) for convex sets, with no second derivative theorem or polygon corner jump.",
+          "identifier_or_url": "https://arxiv.org/pdf/2412.20917",
+          "material_read": "19-page OA PDF read for Theorem 1.3 and entire proof sections 3-4 relevant to regularity; screenshots p7 and p15.",
+          "method": "primary OA full-document sections and screenshot",
+          "title": "The monotonicity of the Cheeger constant for parallel bodies",
+          "trigger": "closest same outer-parallel h(t) mathematical object"
+        },
+        {
+          "assessment": "RELEVANT_NOT_FULL_TEXT_COMPARED",
+          "evidence": "Potential self-Cheeger criterion, not independently excluded for any second-order discussion.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.12101",
+          "material_read": "Abstract, bibliographic and source-package relevance only, full text not read in this run.",
+          "method": "primary abstract comparison",
+          "title": "A sufficient criterion to determine planar self-Cheeger sets",
+          "trigger": "broader self-Cheeger threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "mathematical_motivation": "Natural exact threshold, structural law, or finite classification in explicitly defined scientific objects; independent of novelty/reproducibility alone.",
+      "rationale": "The scalar geometric response to disk rounding has a universal loss of twice differentiability that recovers a genuine polygonal corner-angle invariant even when original Cheeger sets are irregular. The sharp angular inequality identifies equiangular extremizers at every side count; this provides exact inverse-geometric information beyond known differentiability.",
+      "residual_risks": [
+        "At offsets far below t*, the inner inset can lose sides and the quadratic branch may fail; full polygon recovery is not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The signature follows from elementary differentiation of classical parallel-body and Cheeger formulas, so another unindexed source could have calculated it already.",
+    "At offsets far below t*, the inner inset can lose sides and the quadratic branch may fail; full polygon recovery is not claimed."
+  ],
+  "schema_version": 1
+}
