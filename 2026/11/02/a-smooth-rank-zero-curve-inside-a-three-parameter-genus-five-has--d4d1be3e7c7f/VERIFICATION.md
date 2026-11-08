@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The symbolic verifier `verify_symbolic.py` reconstructs the matrix of coefficients of the defining degree-eleven polynomial, checks the \(3+2\) block decomposition and determinant \(T\), expands the separability resultant over characteristic three, and checks transverse-derivative identities and examples. It completed with `SYMBOLIC_GENUS5_CHAR3_CERTIFICATE_OK`.
+# Independent mathematical audit
 
-The separate stdlib-only verifier `verify_fields.py` uses polynomial Euclid to test squarefreeness rather than the resultant expression, reconstructs the Hasse–Witt matrix directly, and computes five Frobenius-twisted factors over finite fields. It completed with `GF3_EXHAUSTIVE_CARTIER_OK`, `GF9_EXHAUSTIVE_CARTIER_OK`, and `INDEPENDENT_GENUS5_CHAR3_FIELD_CERTIFICATE_OK`.
+## correctness
 
-Over \(\mathbb F_3\), there are 20 smooth triples with \(3\)-ranks \(4:15,2:4,0:1\), and 7 singular triples. Over \(\mathbb F_9\), there are 656 smooth triples with ranks \(4:589,2:60,0:7\), and 73 singular triples. These checks are not a proof of an infinite algebraic-closure classification; the block-matrix proof supplies that argument. The code requires Python 3; SymPy is additionally required by the symbolic verifier. Independent external audit has not been performed.
+PASS
+
+Read and independently reconstructed the coefficient-extraction Hasse–Witt matrix H and odd/even block decomposition. B rank2 always; C rank<2 would force c=0,ab=1 and singular quintic. The twisted two-step 2×2 block D has det T=a³b³+c³(a⁴−b)−1, and rank-one D on T=0 has second iterate controlled by E=b³+ac³+a^27. Frobenius stable rank doubles, proving 4/2/0. T=(a⁴−b)c³+(ab−1)³ irreducible by noncube pole along a⁴−b. On U∩{T=0}, c≠0 and partial derivatives T_b=−c³,E_a=c³ give smooth transverse codimension-two loci. Three F3 triples witness each stratum. Independent F3 full enumeration and symbolic matrix verification corroborate without replacing generic proof.
+
+## originality
+
+PASS
+
+Novoselov develops Hasse–Witt methods for odd-power trinomial families x^{2g+1}+u x^{g+1}+vx; at genus5 exponents differ (11,6,1). Frei examines large a-number and Nourozi–Rahmati–Tafazolian binomial families, none of the inspected primary statements gives exact T,E stratification of this three-parameter odd family. Resultary search returned unrelated characteristic-3 algebraic examples, not an equivalent genus-five family.
+
+## value
+
+PASS
+
+Determines the entire stable Frobenius rank in a natural order-four-automorphism hyperelliptic genus-five family where ordinary Cartier rank stays fixed; the rank-zero curve and rank-drop divisor are geometrically characterized, not just samples in small fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

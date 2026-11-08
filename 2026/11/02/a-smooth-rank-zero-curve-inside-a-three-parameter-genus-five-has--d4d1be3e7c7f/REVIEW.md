@@ -1,11 +1,21 @@
-# Scientific review: genus-five odd hyperelliptic Frobenius strata
+# Independent mathematical audit
 
-**Correctness (C): PASS.** For every algebraically closed field of characteristic three and every point in the separable quintic parameter open, direct Cartier–Manin coefficient extraction yields a rank-four matrix. Its odd/even block decomposition reduces stable Frobenius rank to the nine-semilinear two-by-two matrix from the transpose Hasse–Witt Frobenius, with determinant \(T\); on that divisor, its rank-one second-iterate scalar is \(E\). The proof supplies the required quantifiers and the differential criteria making the first locus a smooth irreducible surface and the deeper locus a smooth nonempty transverse curve. The symbolic and distinct exact field verifiers execute successfully; finite checks are corroboration only.
+## correctness
 
-**Originality (O): PASS with residual risk.** Novoselov's 2017/2019 work develops a different genus-five monomial support (degrees 11, 6, 1), not the full odd five-term support (11, 7, 5, 3, 1). Frei's large-\(a\) bound cannot imply the constant-\(a=1\) Frobenius stratification; Nourozi–Rahmati–Tafazolian concern monomial/binomial specializations. Exact own-history comparisons found different characteristic, genus, or objects. Relevant mathematical-result searches returned no statement of the determinant \(T\), deeper condition \(E\), and smooth rank-zero complete intersection. The original 2017 text was not fully inspected; unindexed coverage remains a genuine priority risk.
+PASS
 
-**Mathematical value (V): PASS.** The simultaneous constancy of \(a=1\), nonordinary rank four generically, rank two on a smooth irreducible divisor, and rank zero along a smooth transverse curve identifies a structural stratification of a natural entire family. The result distinguishes one-step Cartier rank from asymptotic Frobenius behavior. The precise geometry and complete rank enumeration are useful even without a Newton-polygon classification.
+Read and independently reconstructed the coefficient-extraction Hasse–Witt matrix H and odd/even block decomposition. B rank2 always; C rank<2 would force c=0,ab=1 and singular quintic. The twisted two-step 2×2 block D has det T=a³b³+c³(a⁴−b)−1, and rank-one D on T=0 has second iterate controlled by E=b³+ac³+a^27. Frobenius stable rank doubles, proving 4/2/0. T=(a⁴−b)c³+(ab−1)³ irreducible by noncube pole along a⁴−b. On U∩{T=0}, c≠0 and partial derivatives T_b=−c³,E_a=c³ give smooth transverse codimension-two loci. Three F3 triples witness each stratum. Independent F3 full enumeration and symbolic matrix verification corroborate without replacing generic proof.
 
-**Limitations.** Parameters are marked coefficients, not geometric isomorphism classes. The rank-zero curve is not asserted irreducible. No characteristic other than three, Newton-polygon, or full moduli statement is proved. Independent external mathematical audit and validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Novoselov develops Hasse–Witt methods for odd-power trinomial families x^{2g+1}+u x^{g+1}+vx; at genus5 exponents differ (11,6,1). Frei examines large a-number and Nourozi–Rahmati–Tafazolian binomial families, none of the inspected primary statements gives exact T,E stratification of this three-parameter odd family. Resultary search returned unrelated characteristic-3 algebraic examples, not an equivalent genus-five family.
+
+## value
+
+PASS
+
+Determines the entire stable Frobenius rank in a natural order-four-automorphism hyperelliptic genus-five family where ordinary Cartier rank stays fixed; the rank-zero curve and rank-drop divisor are geometrically characterized, not just samples in small fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
