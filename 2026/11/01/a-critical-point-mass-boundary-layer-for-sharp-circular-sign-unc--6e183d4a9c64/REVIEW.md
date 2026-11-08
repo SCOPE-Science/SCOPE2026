@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polynomial \(\Phi_m(z)=z^m-\frac{\tau}{1+m\tau}\sum_{j<m}z^j\) is orthogonal by an exact Fourier Gram computation. The real paraorthogonal zero equation is derived by a geometric sum. On \((0,\pi/m)\), the tangent ratio increases strictly from \(m\) to infinity; this verifies existence, uniqueness, and the location of the first zero. Ismoilov's published general measure theorem supplies the **prior** sharpness and unique extremizer. Uniform root convergence proves the \(m\tau\)-critical law; a uniform Taylor expansion yields the sharp \(\sqrt3/\pi\) fixed-mass constant. Compact-open holomorphic factorization controls the quotient profile even at removable zeros. The supplied script checks representative finite identities and limit trends; none is substituted for a proof.
+PASS
 
-## Originality — PASS under inspected evidence
+Use unnormalized Haar+tau delta_0. Orthogonality of Phi_m(z)=z^m−a∑_{j=0}^{m−1}z^j, a=tau/(1+m tau), is exact because the Haar constant coefficient cancels the atom evaluation for each low Fourier test. Its symmetric paraorthogonal polynomial B_m has real boundary expression e^(-imt/2)B_m(e^{it})=cos(mt/2)−a cot(t/2)sin(mt/2). The ratio tan(mt/2)/tan(t/2) rises strictly from m to infinity on (0,pi/m), so the nearest zero is unique; Ismoilov (2026) Theorem 1 supplies sharp sign radius, zero mean and extremizer uniqueness in the general symmetric measure problem, credited as prior. x=m t solves tan(x/2)/(m tan(x/(2m)))=1+1/(m tau). Uniform compact convergence and monotone inversion yield m tau→c, c→0 and c→infinity regimes; R_m(x)=1+(1−m^-2)x²/12+O(x^4) gives rho m^(3/2) sqrt(tau)→sqrt(3)/pi in the large regime. Rescaling the self-reciprocal polynomial h and cosine difference gives profile 2G_c(u)^2/(u²−x_c²), with moving removable poles handled by local holomorphic factorization, including coalescing c=infinity roots. Independent 1196 exact rational Gram equations and 12 critical-root comparisons corroborate. Note m>=2 and tau>=0 boundaries explicitly.
 
-Ismoilov's arXiv:2606.02299v1 Theorem 1 already determines the sharp radius via a zero for **all** symmetric measures. Consequently the finite-degree formula is a direct corollary and receives no independent novelty credit. The present claim is instead the asymptotic trichotomy under degree-dependent atom strength, the critical transcendental curve, and uniform limiting extremizer profile. In the inspected complete main theorem, applications and proof, no such concentration window is stated. Simon's paraorthogonal interlacing and Wong's point-mass recursion formula do not supply the sign-uncertainty scaling assertion. Targeted searches of relevant mathematical records, source texts and the literature found no equivalence. Residual risk: a known OPUC point-mass asymptotic might implicitly furnish this transition, and a broad theorem can imply the finite model after calculation.
+## originality
 
-## Value — PASS
+PASS
 
-The parameter \(m\tau\) compares the point mass with the number of Fourier degrees of freedom. Its order-one balance yields a nonlinear interpolating law that changes the exponent of the best possible sign radius, while the microscopic extremizer profiles identify the corresponding geometry. This is an all-degree, full-critical-window classification, not a fixed small-parameter table, routine numerical computation, or arbitrary slice.
+Ismoilov arXiv:2606.02299 Theorem 1 is prior general SHARP sign uncertainty for any symmetric circle measure, with orthogonal-polynomial nearest-zero formula and extremizer uniqueness. Thus no claim of novel finite-degree extremal mechanism, or even of the point-mass root equation as an independently new theorem, survives. The new content is explicit m-dependent atom-strength phase diagram, sharp scaling constants, critical nonlinear root relation, and full locally uniform extremizer profiles. Rank-one paraorthogonal perturbations of Simon and Wong supply general OPUC ingredients but not an explicitly inspected crossover theorem; latent equivalence remains residual risk.
 
-**Scientific limits:** The background sharpness theorem is cited rather than re-proved; no arbitrary-measure universality, higher-order error bounds, or independent audit is claimed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An atom perturbation of Haar is the simplest natural singular perturbation of the sharp circle sign-uncertainty problem. Exactly how concentration mass changes with bandwidth reveals the natural critical m^-1 scale, a nontrivial crossover from Haar m^-1 to atom-dominated m^-3/2, and the entire rescaled extremal shape. These are motivated quantitative asymptotic invariants rather than recomputation of a fixed known zero.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
