@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T14:44:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The explicitly normalized positive Cauchy wavelet is a Hardy-space isometry and horizontal-invariant localization is multiplication by m_k(ω)=p_k(e^(−2ω)), p_k(t)=t−t²+t^k−t^(2k). Exact Sturm variation V(0)−V(1)=1 for integers 2≤k≤8; independently rebuilt these seven exact Sturm counts. For all k≥9, signs of p'_k at 1/2,13/20,1−1/k,1 alternate +−+−, and Descartes bounds total positive roots by three; hence exactly three simple roots and one valley. Comparing p_k at t*=2^(−1/k) with upper bound of first peak proves right peak is strict global maximum. Monotone inverse branches yield spectral multiplicity four only on (p_k(r2),p_k(r1)), two elsewhere, no point spectrum. Uniform C² expansion of e^(−x)−e^(−2x)+e^(−x/k)−e^(−2x/k) near x=ln2 gives x*=ln2+2/k+O(k^-2) and the stated 1/k,1/k² norm terms. Finite checks are not proof for all k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hutník gives a broad diagonalization representation for vertical masks.",
+          "Nicola–Tilli finite-Lp localization norm inequality does not apply to horizontal strips with infinite Haar measure."
+        ],
+        "reasoning": "The general theorems provide machinery but not explicitly the count 1 versus 3 at integer 8/9; the stronger finite-measure norm bound has false hypotheses for this mask.",
+        "searches": [
+          "Hutník 2011 arXiv:1102.3707 theorem 3.2 vertical symbols",
+          "Hutník Maximenko Mišková 2016 Toeplitz Localization Operators Spectral Functions Density",
+          "Nicola Tilli arXiv:2207.08624 §5"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen Git RESULT.md and check.py source tree 05eeab381e4af024790039a8387660dc158991c1",
+        "Hutník arXiv:1102.3707, Theorem 3.2",
+        "Hutník–Maximenko–Mišková DOI 10.1007/s11785-016-0564-1",
+        "Nicola–Tilli arXiv:2207.08624 §5",
+        "Resultary search: Cauchy wavelet localization two octave scale intervals spectral multiplicity critical point bifurcation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general formula p_k(t) follows from earlier multiplier representation, but its three critical points and spectral branch count require a nontrivial global sign/Descartes argument.",
+          "Finite-Lp extremal bounds for localization cannot logically imply this infinite-horizontal-mask spectral multiplicity theorem."
+        ],
+        "reasoning": "The exact scientific addition is a consequence of known representation combined with genuinely new elementary polynomial analysis; it is not directly covered by the inspected prior theorems.",
+        "searches": [
+          "Hutník Wavelets from Laguerre Polynomials and Toeplitz-type Operators Thm 3.2",
+          "Nicola Tilli The norm of time-frequency and wavelet localization operators arXiv:2207.08624"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scale-only Toeplitz/Calderón operators are Fourier multiplication operators; for first Laguerre/Cauchy wavelet their multiplier is the displayed sum of four exponentials.",
+          "The new claim counts stationary points and inverse spectral branches, not merely equality of multipliers."
+        ],
+        "reasoning": "Equivalent formulations via Laplace transforms and wavelet localization are prior known, but knowing the multiplier as a function does not by itself furnish a sharp all-k classification or peak comparison.",
+        "searches": [
+          "Cauchy wavelet localization two octave scale intervals spectral multiplicity critical point bifurcation",
+          "Hutník Toeplitz Laguerre vertical scale masks multipliers 2011",
+          "Cauchy wavelet two bands bimodality critical frequency"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Sturm table k=2..8 arises from the audited polynomial and independently recomputed Euclidean chains.",
+          "Returned Resultary hits concern other localization operators and unrelated thresholds, not this fixed 2-octave family."
+        ],
+        "reasoning": "No exact tabulation of threshold 9 was located, but negative database results do not establish novelty.",
+        "searches": [
+          "two disjoint octave wavelet spectral function 8 9 bifurcation",
+          "Resultary semantic search: Cauchy wavelet localization two octave scale intervals spectral multiplicity critical point bifurcation",
+          "Cauchy wavelet two intervals critical point table"
+        ]
+      },
+      "rationale": "PASS, qualified: the wavelet multiplier and vertical-symbol spectral representation are classical (Hutník and collaborators). The claimed sharp k=8→9 root-count phase transition, four-branch multiplicity interval, unique global peak and large-k spectral-edge expansion were not derived in inspected general papers. An equivalent two-octave specialization hidden in older spectral-function literature remains possible.",
+      "residual_risks": [
+        "Noninteger scale gaps are not classified; a critical transition for real k is outside scope.",
+        "Prior operator papers may contain a hidden 2-band specialized example; searched sources did not conclusively exclude it.",
+        "Asymptotic norm formula relies on uniform C² expansion/localization near ln 2, not merely finite profiles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_GENERAL_MULTIPLIER; NO_EXPLICIT_INTEGER_TRANSITION",
+          "evidence": [
+            "General vertical symbol spectral function, not the exact stationary-point count for two equal octave bands."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1102.3707",
+          "material_read": "Accessible complete primary PDF, the setup and Theorem 3.2 on vertical symbols",
+          "method": "PDF full-text and page screenshot",
+          "title": "Wavelets from Laguerre Polynomials and Toeplitz-type Operators",
+          "trigger": "same vertical Calderón–Toeplitz multiplier operator"
+        },
+        {
+          "assessment": "PARTIAL_INSPECTION_PRIORITY_RISK",
+          "evidence": [
+            "Spectral-functions density results are broader in symbol space but no inspected statement asserts sharp two-band k=9 bifurcation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11785-016-0564-1",
+          "material_read": "Publication abstract and citation, not all sections of full paper",
+          "method": "abstract/scope check",
+          "title": "Toeplitz Localization Operators: Spectral Functions Density",
+          "trigger": "plausible broader spectral-function theory"
+        },
+        {
+          "assessment": "INAPPLICABLE_FINITE_MEASURE_HYPOTHESES",
+          "evidence": [
+            "The band masks extend over all translations and have infinite Haar measure; they are not in finite-Lp class assumed by cited norm bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.08624",
+          "material_read": "Section 5 norm estimates and finite-integrability conditions as described in primary source",
+          "method": "paper section comparison",
+          "title": "The norm of time-frequency and wavelet localization operators",
+          "trigger": "possible dominating norm theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: a clean transition from unimodal to bimodal localization spectrum and doubling of absolutely continuous spectral multiplicity in a natural two-octave mask is an interpretable operator-theoretic phenomenon; exact integer threshold, strict peak selection and asymptotic norm are individually motivated and potentially reusable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Noninteger scale gaps are not classified; a critical transition for real k is outside scope.",
+    "Prior operator papers may contain a hidden 2-band specialized example; searched sources did not conclusively exclude it.",
+    "Asymptotic norm formula relies on uniform C² expansion/localization near ln 2, not merely finite profiles."
+  ],
+  "schema_version": 1
+}

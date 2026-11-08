@@ -1,15 +1,21 @@
-# Review of the ninefold two-octave spectral transition
+# Independent mathematical audit
 
-## Correctness
-PASS. The wavelet isometry is verified by the integral \(\int_0^\infty 2\omega e^{-2y\omega}dy=1\), giving the exact scalar multiplier. Exact rational Sturm variations show precisely one stationary point for each integer \(2\le k\le8\). For all \(k\ge9\), three disjoint sign-change intervals plus Descartes's multiplicity bound give exactly three simple critical points. A right-peak trial point rigorously dominates the left peak. Branch counting under pushforward of Lebesgue measure proves the purely absolutely continuous spectral multiplicity classification. A compactly uniform Taylor expansion proves the large-separation norm expansion. The standalone `check.py` passes 205 assertions, which are corroborating finite checks, not substitutes for these proofs.
+## correctness
 
-## Originality
-PASS under examined evidence, subject to historical-priority uncertainty. Hutník's 2011 Theorem 3.2 is the already-known general vertical-symbol multiplier, and Hutník–Maximenko–Mišková's 2016 convolution representation likewise precedes this result. The substantive new claim is not diagonalization or ordinary calculus of a known single interval: it is the sharp all-integer two-peak bifurcation, fourfold spectral multiplicity, strict winning peak and its asymptotics for equal-octave double bands. Nicola–Tilli's 2022 sharp norm theorems concern finite-\(L^p\) symbols, not the infinite-Haar-measure horizontal strip masks studied here. The inspected texts and searched mathematical records did not establish the sharp ninefold theorem. This is not proof that no earlier result exists.
+PASS
 
-## Mathematical value
-PASS. Two equally wide octave scale bands are a natural two-passband mask, and the 8-to-9 switch is an exact spectral-topology transition, not a numerical optimization of an arbitrary isolated parameter. The spectral multiplicity grows from two to four on an explicitly characterized positive-length energy interval, with structural consequences for measurable functional calculus and localization-energy degeneracy. The strict dominant-peak comparison and asymptotics show how separated measurement scales govern the sharp localization energy.
+PASS: The explicitly normalized positive Cauchy wavelet is a Hardy-space isometry and horizontal-invariant localization is multiplication by m_k(ω)=p_k(e^(−2ω)), p_k(t)=t−t²+t^k−t^(2k). Exact Sturm variation V(0)−V(1)=1 for integers 2≤k≤8; independently rebuilt these seven exact Sturm counts. For all k≥9, signs of p'_k at 1/2,13/20,1−1/k,1 alternate +−+−, and Descartes bounds total positive roots by three; hence exactly three simple roots and one valley. Comparing p_k at t*=2^(−1/k) with upper bound of first peak proves right peak is strict global maximum. Monotone inverse branches yield spectral multiplicity four only on (p_k(r2),p_k(r1)), two elsewhere, no point spectrum. Uniform C² expansion of e^(−x)−e^(−2x)+e^(−x/k)−e^(−2x/k) near x=ln2 gives x*=ln2+2/k+O(k^-2) and the stated 1/k,1/k² norm terms. Finite checks are not proof for all k.
 
-## Closest literature and limitations
-The three sources and their actual inspected sections are specified in `AUDIT.json` and `RESULT.md`. The work does not classify noninteger scale ratios or asymmetric band widths, does not produce discrete eigenvalues, and has not undergone independent verification. Historical priority is provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: the wavelet multiplier and vertical-symbol spectral representation are classical (Hutník and collaborators). The claimed sharp k=8→9 root-count phase transition, four-branch multiplicity interval, unique global peak and large-k spectral-edge expansion were not derived in inspected general papers. An equivalent two-octave specialization hidden in older spectral-function literature remains possible.
+
+## value
+
+PASS
+
+PASS: a clean transition from unimodal to bimodal localization spectrum and doubling of absolutely continuous spectral multiplicity in a natural two-octave mask is an interpretable operator-theoretic phenomenon; exact integer threshold, strict peak selection and asymptotic norm are individually motivated and potentially reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
