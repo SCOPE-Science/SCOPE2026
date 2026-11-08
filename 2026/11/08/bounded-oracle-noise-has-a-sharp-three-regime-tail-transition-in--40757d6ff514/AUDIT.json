@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Exact algebraic numerator/denominator identity verified; boundedness follows from separation of supports, the critical tail from triangular corner area and cancellation, the supercritical tail from transverse 1/t strip width and dominated convergence, the log moment from the corner integral, and all moment thresholds from tail integration. One-step proof is universal within its assumptions. Standalone verifier reproducibly passed 10452 checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Toth Assumption 1.2 imposes a uniform bound on the coefficient sum M_alpha; Theorems 2–3 assume it.",
+        "Wei–Bao–Liu introduce damping and adaptive regularization; neither paper claims unregularized bounded-uniform denominator distributions.",
+        "Garner–Lerman–Zhang study deterministic symmetric fixed-point convergence rates."
+      ],
+      "reasoning": "Existing general AA convergence guarantees have hypotheses (bounded coefficient sum, regularization or determinism) that exclude the singular regimes. A deterministic two-point formula alone does not imply the probability and moment constants.",
+      "searches": [
+        "arxiv:2110.01543 stochastic Anderson mixing damped regularized",
+        "doi:10.1137/16M1080677 Theorem 2 Theorem 3 Assumption 1.2",
+        "arxiv:2311.02490 windowed Anderson convergence",
+        "published-finding corpus: stochastic Anderson acceleration coefficient noise singular random least squares heavy tail Cauchy"
+      ]
+    },
+    "checked_sources": [
+      "https://www.osti.gov/servlets/purl/1408509",
+      "https://arxiv.org/abs/2006.02559",
+      "https://arxiv.org/abs/2110.01543",
+      "https://arxiv.org/abs/2311.02490",
+      "published-finding corpus semantic search of AA/Aitken/secant and uniform-noise forms",
+      "Accessible own research ledger deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full Toth preprint Theorem 2 assumes bounded coefficient sums and derives finite local error bounds; Theorem 3 inherits this via probabilistic error control. The present critical/supercritical laws have unbounded coefficients almost surely near a zero residual difference.",
+        "The prior Gaussian two-point result has first-order tails because Gaussian difference density is positive at the root; this does not entail the support-tangency case with order two or the no-root bounded case."
+      ],
+      "reasoning": "The present result does not reassert generic instability; it computes a distinct sharp three-regime complete probability/moment classification. Published bounded-coefficient conclusions cannot imply its unbounded coefficient distribution.",
+      "searches": [
+        "doi:10.1137/16M1080677 full preprint Sections 1.1 2.1 2.2",
+        "arxiv:2006.02559 unregularized Anderson regularization denominator",
+        "own ledger Gaussian two-point Anderson infinite-moment tail result"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Scalar Anderson(1) is equivalently a stochastic secant/Aitken rational combination of two fixed residuals; explicit reduction (Z−theta)=N/D is reconstructed in RESULT.md.",
+        "arxiv:2006.02559 and Toth et al. give residual-minimizing affine coefficients, not this uniform-noise distribution."
+      ],
+      "reasoning": "Equivalent names and the rational quotient mechanism were checked. The analyzed new invariant is the exact uniform-square tangency/transversal singularity tail law; no inspected equivalent formulation supplies the amplitude and moment transition.",
+      "searches": [
+        "published-finding corpus: noisy Aitken delta-squared uniform noise ratio singularity endpoints corner tail",
+        "published-finding corpus: unregularized Anderson acceleration scalar noisy linear fixed point Gaussian residual small denominator infinite variance heavy tail",
+        "arxiv:2006.02559 Section 2 residual minimization",
+        "doi:10.1137/16M1080677 Algorithm 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest published ID 2026/10/4/SCOPE-depth-one-anderson-acceleration-can-break-a-positive-diagonal-co--5b097239b6a3 treats positive-cone violation in a deterministic 2D contraction.",
+        "Accessible own findings 2a3edc5d-ee7a-4a82-aa08-9529d3aea7e1 and 07736d81-de8f-4f90-86a9-96fcec526832 concern Gaussian two-point Anderson or Gaussian Aitken tails, not bounded uniform support."
+      ],
+      "reasoning": "No exact table or previously recorded formula with the same uniform-square boundary threshold was retrieved; retrieval is evidence of no detected match, not a global uniqueness proof.",
+      "searches": [
+        "published-finding corpus: depth-one Anderson acceleration two evaluation independent uniform bounded oracle noise exact moment threshold critical denominator support corner",
+        "published-finding corpus: two-point noisy secant bounded uniform errors noise amplitude threshold finite infinite variance square-corner tail",
+        "own ledger terms: anderson; secant; noisy fixed point; uniform noise; rational tail"
+      ]
+    },
+    "rationale": "The new statements are the sharp bounded-uniform noise amplitude boundary, the square-corner order-two tail with symmetric cancellation, the interior-line order-one tail, positive exact constants, and the subcritical logarithmic second-moment coefficient. In the full Toth inaccurate-evaluation preprint, Assumption 1.2 bounds coefficient sums, so its local theorems cannot imply the unbounded-coefficient critical/supercritical cases. The other inspected stochastic Anderson analyses regularize or damp. Accessible prior Gaussian-denominator calculation does not cover bounded-noise tangency.",
+    "residual_risks": [
+      "Specialist or classical probability literature could independently state a general ratio-of-uniform-variables theorem implying some constants; no exhaustive proof of global novelty is possible.",
+      "The result is a one-step conditional scalar benchmark, not an entire stochastic iteration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONDITIONALLY DIFFERENT: requires a bound on coefficient magnitudes; no distributional uniform-support critical law",
+        "evidence": [
+          "Assumption 1.2: sum of absolute Anderson coefficients <= M_alpha uniformly",
+          "Theorem 2 and 3 both explicitly require Assumption 1.2; objective is local improvement and stagnation"
+        ],
+        "identifier_or_url": "https://www.osti.gov/servlets/purl/1408509",
+        "material_read": "Full public preprint, Algorithm 1, Assumption 1.2, Theorems 1–3, Sections 1.1, 2.1, 2.2, 3 and conclusion",
+        "method": "Full-text PDF textual extraction with theorem/assumption comparison",
+        "title": "Local Improvement Results for Anderson Acceleration with Inaccurate Function Evaluations",
+        "trigger": "Direct plausible predecessor: bounded and stochastic inaccurate function evaluations"
+      },
+      {
+        "assessment": "DOES NOT COVER the claimed bounded-uniform tail phase diagram",
+        "evidence": [
+          "Focuses on globalization and adaptive regularization of Anderson coefficients, not distributional oracle-noise tail laws"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2006.02559",
+        "material_read": "Full HTML/PDF theoretical introduction, objective residual coefficients, regularized/globalized algorithm and theoretical scope",
+        "method": "Full-text reading and formula comparison",
+        "title": "Nonmonotone Globalization for Anderson Acceleration via Adaptive Regularization",
+        "trigger": "Classical AA formulation and unregularized instability"
+      },
+      {
+        "assessment": "DIFFERENT method and noise question, with damped adaptive regularization",
+        "evidence": [
+          "Damped/adaptively regularized stochastic mixing controls stochastic residual fluctuations; no uniform-square sharp threshold"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2110.01543",
+        "material_read": "Full PDF abstract, algorithm, key hypotheses, convergence results and appendix",
+        "method": "Full-text PDF review of stochastic mixing and coefficient safeguards",
+        "title": "Stochastic Anderson Mixing for Nonconvex Stochastic Optimization",
+        "trigger": "Closest algorithmic stochastic Anderson source"
+      },
+      {
+        "assessment": "DOES NOT COVER oracle-noise tails",
+        "evidence": [
+          "No independent uniform stochastic oracle errors in main theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.02490",
+        "material_read": "Full PDF, statement, convergence assumptions and theorems",
+        "method": "Full-text comparison of deterministic vs noise hypotheses",
+        "title": "Improved Convergence Factor of Windowed Anderson Acceleration for Symmetric Fixed-Point Iterations",
+        "trigger": "Broad possibility of a stronger AA result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "40757d6f-f514-4b4d-a408-e8bba3552961",
+  "value": {
+    "rationale": "Unregularized scalar Anderson(1) is a fundamental acceleration building block; a sharp admissible bounded-noise amplitude for finite moments and its exact singular boundaries directly diagnose whether safe coefficients are required. Critical square-corner vs supercritical interior-line geometry and symmetric cancellation give a nontrivial structural classification, not a textbook sufficient condition.",
+    "status": "PASS"
+  }
+}

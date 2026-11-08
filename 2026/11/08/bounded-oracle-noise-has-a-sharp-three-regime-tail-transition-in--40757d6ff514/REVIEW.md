@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The algebraic Anderson numerator identity is verified by direct cancellation; the difference of independent uniform errors determines exactly when the denominator can vanish. Below the threshold a positive denominator gap bounds the quotient. At equality its only zero lies at one square corner: planar small-ball area yields a quadratic tail, with a numerator cancellation exactly for reflection-symmetric inputs. Above equality the zero set crosses an interior line segment and its normal strip yields the explicit positive first-order tail constant. The second-moment logarithmic coefficient follows by integration in corner coordinates; tail integration gives the exact moment classification. Standalone rational identities and numerical integrations (10,452 assertions) replay successfully. Finite calculations are corroboration, not a substitute for the asymptotic proof.
+
+## Originality — PASS (qualified)
+Comparison was at the theorem/implication level. Ouyang et al. (arXiv:2006.02559) address adaptive regularization and deterministic/global convergence control, not unregularized independent bounded-uniform tails. Wei, Bao and Liu (arXiv:2110.01543) control noisy coefficient matrices by damping and regularization, with different scope. The accessible full preprint of Toth et al. (DOI:10.1137/16M1080677) gives local improvement/stagnation results **under a bounded coefficient-sum assumption** (Assumption 1.2; Theorems 2–3); that assumption is exactly violated in the critical and supercritical cases of the present result, and their theorems do not determine either tail exponent or any sharp amplitude threshold. Garner et al. (arXiv:2311.02490) study deterministic windowed Anderson. Prior Gaussian two-point Anderson noise results identify a first-order tail whenever the denominator density is positive throughout the real line. They neither imply a finite-support onset nor the distinct order-two boundary law. Residual risk: obscure independent descriptions of rational-function singularity distributions may subsume parts of the exact constants; comprehensive publication precedence is not certified.
+
+## Value — PASS
+The exact noise-amplitude boundary is a meaningful safeguarding benchmark: bounded independent perturbations alone do not bound the one-step output of an unsafeguarded residual-minimizing extrapolation. The result distinguishes the positive-gap, tangency and transverse-zero geometries, including an exceptional cancellation and all moment thresholds. It is a complete natural scalar benchmark rather than a routine numerical check or unsupported claim about iterative convergence.
+
+## Scope and risks
+The independent uniform assumption, fixed distinct inputs and affine strict contraction are necessary for the literal formulas. All moments are absolute moments of one output relative to its true fixed point. No claim is made for later iterates, floating-point implementations or arbitrary perturbation laws. Publication precedence and generalization require independent assessment.
+
+Self-review: passed. Independent audit: not yet performed.
