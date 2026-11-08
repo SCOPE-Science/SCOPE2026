@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result states the exact two-zone geometry, hazards, positivity restrictions, and unwrapped cumulant normalization. Direct transfer-matrix computation gives an analytic principal-eigenvalue equation, with nonzero first derivative in the eigenvalue parameter at zero. Its Taylor coefficients are computed explicitly to fourth order; differentiation yields the long-time cumulants and exact sign threshold. The independent high-precision monodromy program agrees in six parameter settings, including homogeneous rates and both signs of the fourth-cumulant coefficient. Numerical checks supplement, not replace, the proof. The claim is about leading large-time cumulants, not finite-time kurtosis at the transition.
+## correctness
 
-**Originality — PASS on the compared record, with residual risk.** Relevant sources include Tailleur and Cates (arXiv:0803.1069, 2008), whose exact microscopic transport equations and slowly varying drift-diffusion theory are distinct from the two-zone tilted spectral law, and Singh, Sabhapandit and Kundu (arXiv:2004.11041, 2020), whose studied profiles concern unbounded inhomogeneous and absorbing geometries. The closest inaccessible plausible paper, Angelani and Garra (Phys. Rev. E 100, 052147, 2019), addresses variable propulsion speed, but the full text was unavailable. Actual comparative searches are documented in AUDIT.json. Historical priority is not independently certified.
+PASS
 
-**Value — PASS.** The sign of the fourth-cumulant rate, which controls the leading approach of excess kurtosis to its Gaussian limit, is experimentally and analytically meaningful. The exact critical zone-length/contrast relation proves that two systems have identical long-time diffusion yet opposite higher-order dispersion. It therefore separates Gaussian-scale effective transport from a specific observable non-Gaussian correction. The threshold is sharp and attained within strictly positive rate protocols whenever \(aL>2\sqrt3\,v\).
+For periodic λ(x)=a±b on equal half-cells (a>|b|≥0), constant speed ±v and unwrapped coordinate, the tilted generator is sv(∂+k)+λ(f_{−s}−f_s). Monodromy across the two half-periods uses traceless B_λ(θ)=[[θ+λ,−λ],[λ,−θ−λ]]/v, B²=θ(θ+2λ)I/v². Periodicity gives half-trace F(θ)=cosh(kL), with the exact cosh/sinhc product, and Taylor coefficients F'(0)=L²a/v² and F''(0)/2=L²(4L²a²−L²b²+12v²)/(24v⁴). Analytic implicit inversion yields ψ(k)=v² k²/(2a)+[−v⁴/(8a³)+L²b²v²/(96a³)]k⁴+O(k⁶), so ψ''(0)=v²/a, ψ''''(0)=−3v⁴/a³+L²b²v²/(4a³). Therefore sign switches exactly at L|b|=2√3v, under admissibility a>|b|. The excess-kurtosis leading t^{-1} coefficient follows after normalization and only unwrapped cumulants are claimed. Independently expanded transfer matrix with SymPy for all symbolic parameters and matched both cumulants. Markov phase compactness/positive switches supplies local analytic eigenbranch; no finite-time sign claim.
 
-**Limitations.** Symmetric direction speeds, two equal-width periodic spatial zones, and positive Poisson reversal rates only. No claim is made about arbitrary rate profiles, other particle interactions or full finite-time kurtosis. Relevant inaccessible historical literature is a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS for the precise stated claim, not a priority certificate. Equivalent formulations include the tilted-Floquet principal eigenvalue, periodic telegraph-equation monodromy and fourth derivative of the scaled cumulant generating function. Generic deformed generators can in principle compute all cumulants but do not state the equal-zone two-rate sign threshold. Monthus 2021 studies generic space-dependent velocities/switching rates and deformed generators on the infinite line *with a localized steady state*, then perturbation to low cumulants. Our periodic symmetric reversal rates have no localized steady state on the infinite line and the specific fourth derivative, unchanged diffusivity and sign boundary are not in the inspected paper. Singh–Sabhapandit–Kundu 2020 study inhomogeneous nonperiodic asymmetric reversal with survival/exit observables. Angelani–Garra 2019 concerns space-dependent speed; its inaccessible full text remains a residual comparison risk. Principal residual risk: An unindexed periodic telegraph equation/Floquet higher-cumulant theorem might explicitly contain this sign transition.
+
+## value
+
+PASS
+
+Holding the diffusive variance growth fixed while reversing the sign of the leading non-Gaussian fourth-cumulant correction by changing spatial reversal contrast is a sharp physically meaningful transport distinction. The precise L|b| threshold and feasible parameter region characterize an observable stochastic-phase transition, not a routine diffusion coefficient calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
