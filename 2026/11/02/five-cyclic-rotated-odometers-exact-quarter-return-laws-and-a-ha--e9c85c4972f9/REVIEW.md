@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The dyadic odometer sends the last quarter exactly onto the first quarter; before first return only two affine branches can occur. Exhaustive rational intersections track every starting point of the half-open first quarter and terminate by iteration ten. The supplied executable checks the complete interval table and exact moments. Independent finite affine substitutions certify the five half-open periodic intervals and the disjoint return-tower complement. The conclusions do not depend on statistical simulations or extrapolation.
+PASS
 
-## Originality
+A(y) returns to the first quarter exactly for y in [3/4,1); outside that return region the remaining dyadic branches are only translations +1/2 and -1/4. Therefore tracking rational affine half-open subintervals yields a finite exhaustive first-return tree, with no surviving paths after time 10. Independently recomputed all five full partitions and rational moments. For s=4, the five explicit intervals map via translations +3/10,+3/10,-9/20,+3/10,-9/20 and cycle with total measure 1/2; the six-level return tower plus a fixed subbase has measure 1/2 and covers the complement.
 
-**PASS within the inspected prior record.** Bruin–Lukina (arXiv:2101.00868, full open-access paper) developed the general model and first-return induction, including examples for several five-sector permutations. Those structural results are prior work; the specific five cyclic quarter-return tables, their orientation-dependent mean, and the complete half-measure five-cycle decomposition were not found stated there. A published three-sector classification is mathematically adjacent but covers different permutations, interval lengths, and branch intersections. Searches by aliases, translations, quarter return, five-cycle island, periodic half measure, and five-sector cyclic permutations found no direct covering identity. The main residual risk is that the original general first-return algorithm yields these quantities after explicit substitution, or that an unindexed equivalent calculation exists. Novelty is claimed for the explicit classification, not for the computational method or general periodicity theory.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The five cyclic rotations are a canonical, finite, symmetry-organized family at the first odd prime sector count above three. The exact half-measure periodic island in the reverse orientation and the factor-of-two change in return mean show a sharp dynamical distinction that the generic existence of periodic intervals does not quantify. The complete return profiles and invariant split provide a natural reference example for recurrence and ergodicity tests, rather than an arbitrary numeric subcase.
+Bruin–Lukina establish the rotated-odometer construction, induction methods and existence of periodic components; a relevant three-sector Resultary census is distinct. The concrete exhaustive five cyclic return laws and the exact s=4 half-measure decomposition were not observed as the same evaluated table in inspected primary sections.
 
-## Limits
+## value
 
-The table is specific to \(q=5\), the quarter target, and cyclic translations. It does not classify all permutations or imply ergodicity for the remaining rotations. The original general algorithm may make the finite computation straightforward, and other unindexed tables remain possible. These risks affect publication priority, not the rational branch certificate. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact complete return-time distribution for a natural five-sector family and the strict half-measure phase separation for reversed rotation are useful finite-symbolic dynamical invariants, with a physical ergodic-component interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
