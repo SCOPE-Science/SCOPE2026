@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** Explicit enumeration of the six permutation compositions gives a uniform six-digit affine recursion with contraction \(q^3\). Contractive iterated-function-system theory proves the unique stationary law and support identity. An exact five-gap calculation proves the first-level separation condition; strictly monotone polynomials prove the unique threshold roots. A central-gap necessity argument and an interval-covering sufficiency argument give the exact full-interval iff statement, including equality. The strongly separated dimension formula is the standard equal-ratio self-similar dimension theorem. The eight-case portable exact-rational verifier corroborates the algebra and finite moments; it is not used as a universal proof.
+## correctness
 
-**Originality: PASS, subject to historical-priority uncertainty.** Chen–Zhang (arXiv:2610.19444) give the underlying random-reshuffling algorithm and last-iterate bounds, not these exact support thresholds. Ying et al. (arXiv:1803.07964) obtain general steady-state mean-square analysis, so the present variance formula is contextual, not a priority claim. Camuto et al. (arXiv:2106.04881) already establish the IFS viewpoint and give Cantor-set examples for with-replacement SGD, so the generic fractal phenomenon and standard dimension formula are credited. The new narrow assertion is the exact six-permutation digit geometry and two rigorous threshold values, including the not-full-yet-not-first-level-separated interval. Focused mathematical-literature searches showed related stochastic-optimizer invariant-law results but no covering three-component permutation-reshuffling theorem. The surviving risk is an equivalent treatment in older specialized self-similar-set or numerical-optimization literature, which cannot be exhaustively excluded by search.
+PASS
 
-**Mathematical value: PASS.** Three samples are the smallest permutation model exhibiting a six-map stationary geometry with two distinct gap scales; unlike the elementary two-sample analogy, it has a nontrivial intermediate regime. The result supplies an exact learning-rate benchmark for how the stationary uncertainty set changes from a separated fractal to a fully interval-filling support. This is a natural, fully quantified support classification for a specified numerical algorithm, not a claim about general optimization speed. The first-level hull separation is explicitly not misrepresented as the full strong-separation classification above its threshold.
+A fresh random permutation of centers -1,0,1 under quadratic component steps x↦qx+(1-q)c yields the exact epoch IFS X↦q^3X+(1-q)^2 D with six equiprobable digits D={-1-q,-1,-q,q,1,1+q}. The hull radius is (1-q^2)/(1+q+q^2); adjacent digit gaps are q,1-q,2q,1-q,q. Comparison to 2q^3(1+q)/(1-q^3) proves first-generation hulls are strictly disjoint iff q<q_sep root 1-q-3q^3-q^4=0, and IFS support fills its hull iff q>=q_fill root 1-q^2-2q^3=0. The central gap persists below fill; standard strong-separation formula applies only below sep. Independently enumerated permutations and exact rational gaps for multiple q, bracketed both roots and verified stationary variance identities.
 
-**Limitations and residual risks.** The three-component equal-curvature symmetric model is narrow. We do not infer the exact intermediate Hausdorff dimension or any absolute continuity; interval filling need not imply a density. The source-inspection and database searches do not constitute an independent priority audit. Independent mathematical validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact claim-vs-prior comparison after this run’s independent Resultary search and primary-source checks. Earlier generic IFS and reshuffling theory gives the framework, not the two special roots, persistent central hole, and exact separated six-way dimension. Those conclusions require the new explicit digit geometry. Priority qualified: Older specialized six-digit self-similar IFS calculations might state equivalent overlap thresholds; recent algorithm paper was not exhaustively inspected.
+
+## value
+
+PASS
+
+The precise symmetric 3-sample random-reshuffling benchmark has two noncoincident geometric phase boundaries, explicitly isolating separated fractal support, intermediate central-hole support, and interval support. These step-size thresholds and exact dimension under separation are natural geometric invariants of stochastic optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

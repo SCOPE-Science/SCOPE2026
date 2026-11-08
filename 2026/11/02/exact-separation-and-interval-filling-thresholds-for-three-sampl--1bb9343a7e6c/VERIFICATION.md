@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 with its standard library only. The checker uses `fractions.Fraction`, enumerates the six compositions of the component maps, verifies all five scaled gaps at eight rational parameters, tests the exact algebraic stationary variance identity and 56 finite-epoch moment sums, checks both disjointness and interval-filling comparisons, and brackets both unique polynomial roots with rational endpoints.
+## correctness
 
-The **universal** correctness evidence is the algebraic proof in `RESULT.md`: the six maps have a common strict contraction, the enclosing interval has explicit endpoints, adjacent interval gaps are exact, and the two threshold polynomials are strictly decreasing on the full admissible parameter range. The dimension assertion relies on the standard self-similar dimension theorem under strong separation. The finite verification does not establish these infinite claims by enumeration; nor does it test absolute continuity, intermediate-regime dimensions, or higher-dimensional objectives.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fresh random permutation of centers -1,0,1 under quadratic component steps x↦qx+(1-q)c yields the exact epoch IFS X↦q^3X+(1-q)^2 D with six equiprobable digits D={-1-q,-1,-q,q,1,1+q}. The hull radius is (1-q^2)/(1+q+q^2); adjacent digit gaps are q,1-q,2q,1-q,q. Comparison to 2q^3(1+q)/(1-q^3) proves first-generation hulls are strictly disjoint iff q<q_sep root 1-q-3q^3-q^4=0, and IFS support fills its hull iff q>=q_fill root 1-q^2-2q^3=0. The central gap persists below fill; standard strong-separation formula applies only below sep. Independently enumerated permutations and exact rational gaps for multiple q, bracketed both roots and verified stationary variance identities.
+
+## originality
+
+PASS
+
+Best-of-knowledge exact claim-vs-prior comparison after this run’s independent Resultary search and primary-source checks. Earlier generic IFS and reshuffling theory gives the framework, not the two special roots, persistent central hole, and exact separated six-way dimension. Those conclusions require the new explicit digit geometry. Priority qualified: Older specialized six-digit self-similar IFS calculations might state equivalent overlap thresholds; recent algorithm paper was not exhaustively inspected.
+
+## value
+
+PASS
+
+The precise symmetric 3-sample random-reshuffling benchmark has two noncoincident geometric phase boundaries, explicitly isolating separated fractal support, intermediate central-hole support, and interval support. These step-size thresholds and exact dimension under separation are natural geometric invariants of stochastic optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
