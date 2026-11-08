@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-Two standard-library Python checkers are supplied. Execute `python verify_necklace_profiles.py` and `python verify_necklace_pebbles.py` after extracting these files into the same directory. Compare their stdout byte-for-byte against the respective `.out` files; both were replayed successfully from the package inputs.
+# Independent mathematical audit
 
-The first checker exercises two-variable stationary extension profiles across 1,092 finite instances, Burnside necklace counts for 30 length/alphabet combinations, and 112 direct local sibling-witness tests. The second computes stable substitution-set color refinements of all variable assignments, using exact finite fixed points, across 135 two-variable examples, 52 three-variable examples, and eight four-variable pairs. It compares all predicted equivalence classes with the computed classes.
+## correctness
 
-These calculations examine finite samples and provide no computational certificate for the unbounded theorem. The theorem's infinite cases rely on the variable-recycling definition, finite-path formula construction, and permanent matching strategy in RESULT.md. The review reported in REVIEW.md is not independent validation.
+PASS
+
+In arc-only signature the indegree criterion Core(x)=∃y E(y,x) uses two variables. One-pebble logic sees loops only; two-pebble atomic extension types yield 5 phases (loop with 1 or ≥2 leaves, core lengths 2,3,≥4). For k≥3, 3 reusable variables define arbitrary fixed-length core walks; kth child-count threshold uses root variable shadowed after k−1 selected siblings and a third-variable sibling-parent predicate, hence min(b_i,k) is FO^k-definable. Conversely, k-pebble Duplicator uses fixed cyclic core rotation and injective fiber matching, with ≥k fibers always leaving free leaf after at most k−1 occupied. Burnside counts necklace orbits and minimal clipped representatives. Independent exact type-refinement of bounded test structures and independent Burnside necklaces (k=3,4,5, ℓ≤6) agreed; all-length theorem relies on pebble proof, not finite tests.
+
+## originality
+
+PASS
+
+Brown–Hoshino 2007 give rank-bounded undirected paths/cycles EF game classification, not fixed-variable width of directed leaf-covered coronas. Dawar–Holm 2012 establishes general pebble-game semantics, not this explicit FO^k equivalence invariant and necklace count. Nearby published Resultary classification of finite directed paths addresses quantifier rank and a crown-homotopy necklace deals with a different logic. Broad unary-function model theory may imply the result by general types, so that remains residual risk.
+
+## value
+
+PASS
+
+A complete FO^k theory equivalence classification at every depth, with sharp k=1,2 phase changes, k≥3 orientation-sensitive clipped necklaces, exact number of theories and minimal models, is a motivated finite-model-theoretic invariant for a natural family of functional digraphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

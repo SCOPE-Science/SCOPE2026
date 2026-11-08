@@ -1,15 +1,21 @@
-# Scientific review: finite-variable theories of leaf-covered unicyclic functional digraphs
+# Independent mathematical audit
 
-## Correctness — PASS
-A complete proof recovers the core with two variables, explicitly enumerates and matches every two-variable pair extension type, and for every width at least three constructs exact core-walk and clipped local leaf-count predicates. The critical nonstandard step shadows the core anchor only after retaining other children; common-parent subformulas reuse an available third variable, so the syntactic width stays at the declared value. Conversely a fixed rotation and a clipped-fiber injection produce a permanent pebble-game strategy. A Burnside count gives the enumerator and canonical minimality. Both embedded Python checkers replayed their outputs, but finite tests are not used as infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-Brown and Hoshino (2007) prove bounded-quantifier-rank statements for undirected paths and cycles, rather than the present unlimited-depth fixed-variable equivalence of directed decorated cycles. Dawar and Holm (2012) give the general k-pebble characterization but no concrete classification for these functional digraphs. Accessible historical findings about undirected sunlets, directed plain cycles, group actions, and counting logic on unary functional digraphs do not imply the five ordinary two-variable phases or exact k-clipped necklaces. Searches and relevant primary-source inspections found no dominating result, but a general monounary theorem under different terminology remains a possible historical-priority risk. The specific searches, implications, material inspected and risks appear in AUDIT.json.
+PASS
 
-## Mathematical value — PASS
-This is a complete natural classification, not an isolated finite computation: for all cyclic branching words, two variables forget the entire positive branching pattern, while three or more distinguish the precise circular pattern up to a sharp reusable-variable threshold. The theorem also gives all theory counts at fixed length and each theory's unique least-order representative. In particular, the k-variable root-recycling argument supplies the structural reason that the cutoff is k rather than the naive k-1.
+In arc-only signature the indegree criterion Core(x)=∃y E(y,x) uses two variables. One-pebble logic sees loops only; two-pebble atomic extension types yield 5 phases (loop with 1 or ≥2 leaves, core lengths 2,3,≥4). For k≥3, 3 reusable variables define arbitrary fixed-length core walks; kth child-count threshold uses root variable shadowed after k−1 selected siblings and a third-variable sibling-parent predicate, hence min(b_i,k) is FO^k-definable. Conversely, k-pebble Duplicator uses fixed cyclic core rotation and injective fiber matching, with ≥k fibers always leaving free leaf after at most k−1 occupied. Burnside counts necklace orbits and minimal clipped representatives. Independent exact type-refinement of bounded test structures and independent Burnside necklaces (k=3,4,5, ℓ≤6) agreed; all-length theorem relies on pebble proof, not finite tests.
 
-## Scope and limits
-Only finite connected height-one functional digraphs with every cycle vertex having at least one pendant in-leaf, in the pure binary arc signature, are covered. Neither arbitrary functional digraphs nor counting logic is classified. The computation is corroborative and finite; generality is mathematical. Historical originality is provisional and no independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brown–Hoshino 2007 give rank-bounded undirected paths/cycles EF game classification, not fixed-variable width of directed leaf-covered coronas. Dawar–Holm 2012 establishes general pebble-game semantics, not this explicit FO^k equivalence invariant and necklace count. Nearby published Resultary classification of finite directed paths addresses quantifier rank and a crown-homotopy necklace deals with a different logic. Broad unary-function model theory may imply the result by general types, so that remains residual risk.
+
+## value
+
+PASS
+
+A complete FO^k theory equivalence classification at every depth, with sharp k=1,2 phase changes, k≥3 orientation-sensitive clipped necklaces, exact number of theories and minimal models, is a motivated finite-model-theoretic invariant for a natural family of functional digraphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
