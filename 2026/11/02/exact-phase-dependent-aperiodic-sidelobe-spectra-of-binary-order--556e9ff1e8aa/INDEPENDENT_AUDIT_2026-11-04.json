@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T12:17:55.951743Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every 32-state de Bruijn Hamiltonian successor is determined by one of 2^16 complementary-output Boolean tables on 16 four-bit suffixes; all tables are checked for one 32-cycle, giving a complete 2048-cycle family without rotation duplicates. Inspected independent Euler-tour DFS enumerator for 4-bit de Bruijn graph and mismatch-count versus sign-product correlation equality. Independently enumerated ALL 2048 cycles, their 65536 cuts and all 31 aperiodic lags using bitwise mismatch/bit_count: reproduced every rooted PSL and cycle optimum histogram entry. Lowest PSL=4 on 40 cuts belonging to 32 cycles, with eight cycles having two optimal cuts; eight cycles have best level=16. Computation is exhaustive of claimed finite universe, not extrapolation to higher orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spinsante et al 2011 all 2048 de Bruijn sequence spreading codes",
+          "Fujisaki-Nabeshima 2011 periodic normalized correlation extrema",
+          "Dmitriev-Jedwab 2007 general binary sequence aperiodic PSL bounds"
+        ],
+        "reasoning": "The first two enumerate same underlying cycles but test cyclic sums; the general binary PSL bounds cover larger word classes but do not provide the exact order-5 cycle-cut distribution as an implication.",
+        "searches": [
+          "binary de Bruijn sequences order five complete aperiodic peak sidelobe level root cut distribution spectrum",
+          "Spinsante Andrenacci Gambi binary de Bruijn sequences DS-CDMA aperiodic correlation 2011 order 5"
+        ]
+      },
+      "checked_sources": [
+        "Spinsante et al EURASIP JWCN 2011:4",
+        "Fujisaki and Nabeshima NOLTA 2 (2011) 400-408",
+        "Dmitriev and Jedwab Adv Math Commun 1 (2007) 461-475"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Root-change leaves periodic correlations fixed",
+          "Concrete word 00000111110111001101010010001011 has P(root0)=6, P(root1)=4"
+        ],
+        "reasoning": "An identical periodic correlation vector cannot recover P(W,j) over each root, so prior periodic tables cannot logically entail the indexed 18-level aperiodic histogram. A distinct prior nonwrapping enumeration could, but none located.",
+        "searches": [
+          "binary de Bruijn sequences order five complete aperiodic peak sidelobe level root cut distribution spectrum",
+          "Spinsante Andrenacci Gambi binary de Bruijn sequences DS-CDMA aperiodic correlation 2011 order 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aperiodic peak = max over 1<=t<32 of |32-t-2 mismatch_count(t)|",
+          "Spinsante 2011 defines both aperiodic and periodic correlation in the model"
+        ],
+        "reasoning": "Aperiodic cut roots are linearizations; rotating a cycle changes which pairs wrap. Periodic correlations use modulo-32 indices and are rotation invariant, so the 2011 periodic threshold classes are not equivalent to 65536 cut maxima.",
+        "searches": [
+          "binary de Bruijn sequences order five complete aperiodic peak sidelobe level root cut distribution spectrum",
+          "Spinsante Andrenacci Gambi binary de Bruijn sequences DS-CDMA aperiodic correlation 2011 order 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Spinsante-Andrenacci-Gambi Table of 2048 de Bruijn sequences periodic correlation thresholds, 12 and 784 cases",
+          "Fujisaki-Nabeshima periodic worst/second-worst table"
+        ],
+        "reasoning": "The named published thresholds are specific numeric tables but about a DIFFERENT periodic observable. Exact 18-level aperiodic root table and Q(W) optimized histogram not located; no guarantee against unindexed appendices.",
+        "searches": [
+          "binary de Bruijn sequences order five complete aperiodic peak sidelobe level root cut distribution spectrum",
+          "Spinsante Andrenacci Gambi binary de Bruijn sequences DS-CDMA aperiodic correlation 2011 order 5"
+        ]
+      },
+      "rationale": "Spinsante, Andrenacci and Gambi 2011 enumerate the same 2048 cycles but their reported order-five sidelobe-threshold subset counts 12 and 784 refer to PERIODIC autocorrelation, invariant under the cut; Fujisaki/Nabeshima also use periodic autocorrelation. The indexed cut-dependent nonwrapping spectrum is a separate claim; earlier aperiodic data appendix remains a priority risk.",
+      "residual_risks": [
+        "Fujisaki-Nabeshima 2011 full article was not inspected; only abstract-level noncoverage supported.",
+        "Unindexed code-design aperiodic root-by-root tables may predate this census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The displayed order-five threshold census is for periodic theta_c(t); code-model mention of aperiodic is NOT itself a full indexed-cut spectrum",
+          "evidence": "Spinsante et al, EURASIP JWCN 2011 article 4; periodic 12/784 subsets",
+          "identifier_or_url": "https://link.springer.com/article/10.1186/1687-1499-2011-4",
+          "material_read": "Full accessible primary HTML with model definitions distinguishing periodic/aperiodic and order-five threshold table",
+          "method": "Read HTML sections and numerical tables",
+          "title": "Binary De Bruijn sequences for DS-CDMA systems: analysis and results",
+          "trigger": "Complete 2048 order-five de Bruijn code corpus"
+        },
+        {
+          "assessment": "Reported normalized periodic autocorrelation analysis, but cannot assert unread full-paper absence of relevant appendix",
+          "evidence": "Fujisaki and Nabeshima, NOLTA 2 (2011) 400-408",
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/nolta/2/4/2_4_400/_article",
+          "material_read": "Abstract and bibliographic descriptors; full article not materially inspected",
+          "method": "J-STAGE article abstract",
+          "title": "On auto-correlation values of de Bruijn sequences",
+          "trigger": "Same de Bruijn sequences and correlation extremality"
+        },
+        {
+          "assessment": "General binary length-N bounds need not determine order-five de Bruijn spectra",
+          "evidence": "Dmitriev and Jedwab 2007",
+          "identifier_or_url": "https://doi.org/10.3934/amc.2007.1.461",
+          "material_read": "Bibliographic abstract/search description, not full text",
+          "method": "Search citation and abstract",
+          "title": "Bounds on the growth rate of the peak sidelobe level of binary sequences",
+          "trigger": "General aperiodic PSL bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Peak NONWRAPPING sidelobes determine practical root-sensitive code quality; exact cut distributions and optimized cycle profiles supply a complete natural finite benchmark not determined by periodic correlation tables.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact finite theorem only for order five; counts de Bruijn necklaces up to rotation, cuts indexed; no higher-order extrapolation."
+  ],
+  "schema_version": 1
+}
