@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Hermitian midpoint approximation turns operator distance into a minimized spectral width. Finite-dimensional convex optimality gives intersecting expectation convex hulls of the top and bottom eigenspaces; for two observables these hulls are themselves pure-state joint numerical ranges by Toeplitz–Hausdorff, giving a sharp orthogonal witness. For three scaled Pauli-block observations, complete shell geometry, the overlap inequality, and explicit antiparallel Bloch witnesses give the exact defect; block eigenvalues give operator distance one. The proof treats degenerate cases and endpoints. Supplementary exact-fraction and direct-vector tests passed.
+## correctness
 
-**Originality — PASS (best knowledge).** Johnson's 2026 work establishes zero-defect affine rigidity for one complex operator (equivalently two self-adjoint components), but not the all-matrix quantitative identity and orthogonal maximizers. The older joint-numerical-range papers study sets, faces, and shadows, not exact conditional pure-state oscillations or the scaled Pauli obstruction. Relevant indexed claims on numerical radii, constrained numerical ranges, and numerical-shadow equivalence do not imply the formula. Explicitly checked titles, logical implications, and available full texts; residual risk of an unindexed quotient-norm or quantum tomography formulation remains.
+PASS
 
-**Mathematical value — PASS.** This gives an optimal stability modulus for precisely the two-observation information-rigidity theorem, and proves the first higher-observation barrier is discontinuous in strength: at three observables, arbitrarily small and even zero pure-state conditional oscillation coexists with fixed nonzero operator distance. The exact one-parameter transition and nonlinear factorization identify why two-dimensional convexity is decisive rather than merely supplying another counterexample.
+For k<=2 independent Hermitian observations modulo I, minimize the convex coercive spectral width of B−Σt_j A_j. At the minimizer, subgradient optimality yields intersecting convex hulls of expectation vectors on extremal eigenspaces; Toeplitz-Hausdorff makes each of these pure-state expectation sets convex for k<=2. Hence unit top/bottom eigenvectors with matching observations attain spectral width, are orthogonal if positive, and Δ=2 operator-norm distance from real affine span. For scaled Pauli blocks, exact Bloch shells have radial intervals [|(1+r)p−r|,r+(1−r)p]. Overlap for p>=q yields gap ≤4r/(1+r) and q=0,p=2r/(1+r) attains it; both residual qubit blocks force affine distance 1. At r=0 pure Bloch sphere gives B=2||a||−1, not affine. Zero, one, two observations and r endpoints are included. Independent exact-rational overlap tests checked 1,386 grid pairs and witnesses; infinite quantifiers rest on analytic proof.
 
-**Closest literature and limitations.** Johnson arXiv:2610.29826 is the direct qualitative antecedent; Gutkin–Życzkowski arXiv:1207.1227 and Pikul et al. arXiv:2510.27670 address related joint-range geometry. The universal theorem is finite-dimensional and uses pure states. The example is a specified four-dimensional family, not a general three-observable classification. Unindexed equivalent general convex duality remains possible; no independent scientific audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original quantitative stability and parameterized obstruction, while qualitative affine factorization and joint-range geometry are prior.
+
+## value
+
+PASS
+
+An optimal modulus for what two pure-state expectations cannot reveal, with an orthogonal witness; the three-observation phase transition gives a sharp boundary to the numerical-information rigidity theorem and an explicit nonlinear zero-defect counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

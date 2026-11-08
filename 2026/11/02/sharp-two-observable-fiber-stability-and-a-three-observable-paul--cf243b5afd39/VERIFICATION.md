@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-- Reconstruction: the operator-distance calculation reduces to minimizing spectral width of a Hermitian pencil and matching top/bottom pure-state expectation vectors via Toeplitz–Hausdorff convexity.
-- Boundary checks: one or zero measured operators follow by dropping coordinates; the zero-width case puts the target in the observed span. At scaling zero, the Pauli shell becomes the sphere of radius equal to the top-block mass. At scaling one, the full interval bound is attained by orthogonal block states.
-- Independent identities: the two qubit blocks of each residual have eigenvalues centered at the scalar residual and displaced by the Euclidean Pauli coefficient norm; this gives distance exactly one.
-- Run `python CHECK.py` to reproduce exact rational shell tests and floating explicit Pauli-vector witnesses. Finite checks provide consistency only; the proof establishes the continuum of parameters and arbitrary finite dimension.
-- No externally performed independent audit or proof certification is asserted.
+## correctness
+
+PASS
+
+For k<=2 independent Hermitian observations modulo I, minimize the convex coercive spectral width of B−Σt_j A_j. At the minimizer, subgradient optimality yields intersecting convex hulls of expectation vectors on extremal eigenspaces; Toeplitz-Hausdorff makes each of these pure-state expectation sets convex for k<=2. Hence unit top/bottom eigenvectors with matching observations attain spectral width, are orthogonal if positive, and Δ=2 operator-norm distance from real affine span. For scaled Pauli blocks, exact Bloch shells have radial intervals [|(1+r)p−r|,r+(1−r)p]. Overlap for p>=q yields gap ≤4r/(1+r) and q=0,p=2r/(1+r) attains it; both residual qubit blocks force affine distance 1. At r=0 pure Bloch sphere gives B=2||a||−1, not affine. Zero, one, two observations and r endpoints are included. Independent exact-rational overlap tests checked 1,386 grid pairs and witnesses; infinite quantifiers rest on analytic proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge original quantitative stability and parameterized obstruction, while qualitative affine factorization and joint-range geometry are prior.
+
+## value
+
+PASS
+
+An optimal modulus for what two pure-state expectations cannot reveal, with an orthogonal witness; the three-observation phase transition gives a sharp boundary to the numerical-information rigidity theorem and an explicit nonlinear zero-defect counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
