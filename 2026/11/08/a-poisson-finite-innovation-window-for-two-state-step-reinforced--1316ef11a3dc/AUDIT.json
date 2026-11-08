@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The exact Fourier/forest identity reduces the claim to an all-even cluster event. A fixed number of uniformly cut labels has asymptotically disjoint descendant fringes and independent geometric Yule-size limits after rescaling relative birth times; integrating birth times gives \\(1/[k(k+1)]\\). Binomial-Poisson convergence yields independent Poisson size counts, odd intensity \\(\\lambda\\log2\\), and hence exact bias \\(e^{-\\lambda\\log2}\\). The previously established uniform upper bound handles diverging expected fresh counts. Verified exact recurrences agree in all 60 n/alpha cases and an additional 75 numerical, odd/even and bound checks (135 total). No finite check is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baur (2014), Theorem 1 hypotheses around §2.1 require diverging nonroot-cluster scales for generation 1, whereas deletion probability of order 1/N gives a bounded scale.",
+        "Baur--Bertoin (2014), §5 treats \\(1-p(n)\\) of order \\(1/\\log n\\) for giant-cluster results.",
+        "Peres--Qin (2026b), Proposition 1.3 concerns fixed reinforcement mixing, with no exact finite-innovation Poisson window."
+      ],
+      "reasoning": "The closest general percolation-cluster limit has a hypothesis that fails at the finite-cut boundary. Fixed-reinforcement estimates are not uniform enough to imply the exact critical profile. No stronger covering statement was found in inspected primary texts; absence of a hit is not proof of uniqueness.",
+      "searches": [
+        "Percolation random recursive tree finite number of deleted edges Bernoulli probability lambda/n component size vector Poisson 1/k(k+1) independent subtree sizes",
+        "arxiv:1407.2508 Theorem 1 assumptions (1-p(n))n^p",
+        "arxiv:2604.07207 fixed reinforcement mixing time",
+        "arxiv:1406.2238 section 5 supercritical parameter"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.07227 full text §§1.1-1.2,2.1,2.5",
+      "arxiv:2604.07207 full text introduction and §3",
+      "arxiv:1406.2238 full text §§2,5",
+      "arxiv:1407.2508 full text §§1,2,3.4.1",
+      "Meir--Moon (1974) result as cited and reproduced in Baur--Bertoin (2014), Proposition 1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Peres--Qin (2026a), Corollary 1.6: \\(e^{-N(1-\\alpha)/2}\\alpha^{N/2}\\le b_N\\le\\alpha^{N/2}\\) for even N.",
+        "At \\(\\alpha_N=1-\\lambda/N\\), these known bounds converge to \\(e^{-\\lambda}\\) and \\(e^{-\\lambda/2}\\), bracketing but not determining \\(e^{-\\lambda\\log2}\\).",
+        "The known one-edge RRT cut law alone gives only a marginal, not the needed independence for finitely many cuts."
+      ],
+      "reasoning": "The exact coefficient \\(\\log2\\) is strictly between the prior bound exponents 1 and 1/2, so neither their inequalities nor their fixed-alpha estimates imply the current limit. The proof adds a joint fringe-size convergence/Poisson marking step absent from those statements.",
+      "searches": [
+        "arxiv:2604.07227 Corollary 1.6 return probability Z2",
+        "arxiv:2604.07227 equation (37) recursive forest",
+        "arxiv:1407.2508 first generation cluster scaling assumptions",
+        "Step reinforced random walk Z2 fair increments near perfect reinforcement 1-alpha=lambda/n parity return probability limit 2^-lambda Poisson forest"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Peres--Qin (2026a), equation (37): the Fourier return bias equals the all-even cluster probability.",
+        "Peres--Qin (2026a), Lemma 2.8: the same bias equals the alternating central elephant polynomial coefficient; their paper presents bounds, not the critical-limit value."
+      ],
+      "reasoning": "The proof explicitly compares the forest-event and elephant-polynomial formulations. Source equivalences are treated as known, not as novel. The claimed new statement is the exact finite-innovation scaling limit and associated joint Poisson marks.",
+      "searches": [
+        "step reinforced random walk Z2 fair increments near perfect reinforcement 1-alpha=lambda/n parity return probability limit 2^-lambda Poisson forest",
+        "Elephant polynomials R_2n(0) alpha_n=1-lambda/n sharp asymptotic 2^{-lambda} return probability",
+        "arxiv:2604.07227 equation (37), section 2.5",
+        "arxiv:2604.07207 section 1.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Meir--Moon (1974), reproduced in Baur--Bertoin (2014), Proposition 1: a single uniformly cut edge has detached size law \\(1/[k(k+1)]\\) conditioned by the finite tree size.",
+        "The standalone exact rational recurrence checks the claimed finite forest-parity identity independently of the closed limiting proof."
+      ],
+      "reasoning": "The single-cut mass function is known and expressly credited. The claim is not an unknown entry of a finite table; it requires joint independent-mark and Poisson limits for multiple rare cuts plus parity inversion.",
+      "searches": [
+        "random recursive tree uniform random edge cut subtree size Meir Moon 1/k(k+1)",
+        "arxiv:1406.2238 Proposition 1",
+        "finite innovation random recursive forest all components even exact bias table"
+      ]
+    },
+    "rationale": "The earliest 2026 source states the forest-parity identity and finite-parameter upper and lower bounds but not the exact \\(\\alpha_N=1-\\lambda/N\\) limit. A 2014 RRT source records the known single-fringe law; another near-one percolation theorem requires diverging first-generation cluster scales and does not cover finitely many cuts. Comparison of primary full texts, aliases and published mathematical records identified no direct implication or equivalent reported result. Priority is provisional.",
+    "residual_risks": [
+      "A separately formulated finite-cut Poisson multiset limit may occur in older recursive-tree fragmentation or Yule-mutation literature and would require human historical-priority checking.",
+      "The single-cut law and exact forest representation are already known and are not claimed as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The known forest identity and bounds are credited; no stated finite-innovation constant or joint finite-cut Poisson limit identified in inspected sections",
+        "evidence": [
+          "arXiv:2604.07227, Corollary 1.6, Eq. (37), §2.5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.07227v2",
+        "material_read": "Full introduction §1.1-§1.2 and methods §2.1 and §2.5, including Corollary 1.6, Lemma 2.8, equation (37) and its proof",
+        "method": "arXiv HTML full text, targeted line-by-line theorem and proof inspection",
+        "title": "Transition probabilities of step-reinforced random walks",
+        "trigger": "Same group, step rule, exact return bias and elephant-polynomial relation"
+      },
+      {
+        "assessment": "Fixed-alpha mixing and cluster frequencies do not settle the near-alpha-one triangular scaling",
+        "evidence": [
+          "arXiv:2604.07207, Def. 1.1, Prop. 1.3, §3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.07207v3",
+        "material_read": "Full text introduction §1, fixed-parameter mixing and the forest-cluster analysis §3",
+        "method": "arXiv HTML full text, hypotheses and theorem comparisons",
+        "title": "Mixing times of step-reinforced random walks",
+        "trigger": "Companion finite-group theorem and RRT forest-cluster approach"
+      },
+      {
+        "assessment": "Exact single-cut law already known; supercritical clusters use another deletion scale and do not state the finite Poisson marking result",
+        "evidence": [
+          "arXiv:1406.2238, Proposition 1, §5, Eq. (14)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.2238",
+        "material_read": "§2.1-2.2 Proposition 1, remarks on uniform edge cuts, and full §5 percolation results",
+        "method": "Public arXiv full-text HTML view, theorem and parameter-comparison inspection",
+        "title": "Cutting edges at random in large recursive trees",
+        "trigger": "The selected-cut fringe size law and related cluster percolation"
+      },
+      {
+        "assessment": "First-generation convergence requires (\\(1-p(n)\\)) n^p(n) diverging; this fails at \\(p(n)=1-\\lambda/n\\), so the nonroot-cluster conclusion is not a covering theorem for the present window",
+        "evidence": [
+          "arXiv:1407.2508, §2.1 hypothesis after Eq. (1), Proposition 2, §3.4.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.2508",
+        "material_read": "Introduction, precise Theorem 1 hypotheses §2.1 and proof methods §§2.2-2.3, along with §3.4.1",
+        "method": "Public arXiv full-text HTML view, source hypotheses and conclusions checked",
+        "title": "Percolation on random recursive trees",
+        "trigger": "Potentially dominating theorem covering p(n) approaching 1"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1316ef11-a3dc-460b-bad6-1339fe0b7b66",
+  "value": {
+    "rationale": "The exact near-perfect-memory window resolves a natural scale where existing exponential estimates only bracket the return bias; its constant \\(2^{-\\lambda}\\) is quantitatively distinct from both prior bounds. The joint Poisson finite-cluster profile identifies the structural mechanism and provides a useful boundary-regime law for recursive-tree percolation, with a motivated connection to finite-group mixing.",
+    "status": "PASS"
+  }
+}
