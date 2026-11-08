@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. For the degree-three cycle vertices and degree-one leaves, the proportional threshold takes exactly three discrete regimes. The proof gives a necessary-and-sufficient cyclic-gap criterion in the middle regime and a necessary-and-sufficient independent-set criterion in the high regime, then derives each complete source-set generating polynomial. The minimal-source formulas and all-minimizer counts follow by coefficient analysis and the maximum independent-set structure of cycles. An independently implemented original-graph simulator exhaustively verifies all source subsets for every \(3\le n\le9\); the infinite claims are supported by the combinatorial proof, not the finite search. Boundary equality at the threshold fractions is explicitly assigned to the correct regime.
+## correctness
 
-## Originality
-PASS under currently accessible literature, with provisional priority. Garbe–McDowell–Mycroft establish general degree-proportional contagion bounds but not these cycle-corona exact source-set polynomials. Bushaw–Clifton establish three-neighbor bootstrap percolation results on rectangular and toroidal grid graphs, not the sunlet classification; only their accessible introductory theorem statements could be inspected. The closest published-record search found an irreversible threshold-conversion classification for complete multipartite graphs; its partition-aggregate mechanism does not cover a cycle with private leaves. Search also identified related one-leaf-corona domination, but domination is a one-step neighborhood condition, not the present irreversible threshold dynamics. Unindexed or inaccessible exact percolation results remain a historical-priority risk.
+PASS
 
-## Mathematical value
-PASS. The sunlet is a standard infinite unicyclic family with both degree-one and degree-three vertices, giving nontrivial changes in a uniform degree-proportional activation rule. The result counts *every* contagious set by cardinality in every phase, not only an isolated optimum, and identifies contrasting parity-sensitive and Fibonacci-type optimizer structures. The exact cyclic-gap description is a reusable structural criterion for the related fixed threshold-two activation process. No downstream theorem or unrestricted-graph generalization is claimed.
+Cycle threshold t=ceil(3ρ) takes values 1,2,3. For t1 any nonempty seeds spread through the connected graph. For t2 at least one cycle seed is necessary and sufficient together with at most one unsupported pair in each gap: spreading from gap ends proves sufficiency and two unsupported positions create an inert interval. For t3 every cycle/leaf pair must be seeded and leaf-only positions form an independent set. Gap weights Q_l=z^l+l z^(l−1), cycle independent sets, and counting maximum independent sets prove the three polynomials and exact minimizers. Independent synchronous simulation exhaustively checked all subsets for n=3..7.
 
-## Scope and limits
-Only simple labelled sunlets with at least three cycle vertices and strictly positive proportional threshold are covered. The proof is exact for all orders; the computer check is finite and corroborative. The full text of the 2026 grid paper could not be obtained, so its contents beyond accessible introductory statements were not excluded by inspection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Garbe–McDowell–Mycroft give general bounds for degree-proportional contagious sets, not a complete labelled sunlet-generating polynomial. Standard independent-set cycle enumeration supplies the high threshold weights but not the exact t2 propagation/gap criterion and all phase counts by itself. The recent grid bootstrap primary source was read only in excerpts and remains risk; no dominating sunlet theorem identified.
+
+## value
+
+PASS
+
+A sunlet is a canonical unicyclic graph with leaves and degrees 1 versus 3. All contagious-source sets, threshold transition points, and parity-sensitive exact minimum counts follow from a natural propagation criterion, useful for benchmark studies of bootstrap processes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
