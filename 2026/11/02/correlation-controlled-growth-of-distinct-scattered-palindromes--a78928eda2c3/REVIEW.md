@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Greedy first-completion times have explicitly derived same-letter and opposite-letter waiting-time generating functions; strong Markov independence yields the product weight. Palindrome adjacency indicators are paired, giving the exact rational generating function. The dominant root is unique for strictly interior transition probabilities and aperiodic because the kernel has positive degree-two and degree-three coefficients. Convexity at the level-one crossing gives a strict negative derivative of that root with respect to transition probability. Exhaustive actual-subsequence checks and an independent interval dynamic program support the calculations, but are not substituted for the proof.
+## correctness
 
-**Originality — PASS, residual risks disclosed.** The inspected Markov analysis of Biers-Ariel–Godbole–Kelley counts unrestricted distinct subsequences, not palindromic scattered patterns. The inspected Rubinchik–Shur treatment concerns contiguous palindromic factors. Existing i.i.d. and deterministic alternating scattered-palindrome identities imply the two stated boundary cases only; they do not imply the rational interpolation, strict interior rate law or its leading constant. Meaning-based research searches did not return a corresponding result. An undiscovered general weighted Markov-language formula remains the main risk.
+PASS
 
-**Mathematical value — PASS.** Correlation changes the set of scattered palindrome patterns, not merely the number of their embeddings. The result gives an exact infinite-family expectation, a bias-dependent leading constant and a sharp extremal characterization across a natural continuum of correlated sources with unchanged single-letter marginals. The qualitative rate increase is nontrivial: deterministic constancy gives base one, an independent fair source gives \((1+\sqrt2)/2\), and perfect alternation gives \(\sqrt{(1+\sqrt5)/2}\).
+The greedy occurrence time of each fixed subsequence has first-hit PGF I_t and successive equal/different target-symbol waiting PGFs S_t,F_t, independently by the strong Markov property. Binary palindromes are encoded by a first symbol and mirrored adjacency indicators: odd lengths give 2(S²+F²)^k, even lengths 2S(S²+F²)^k. Coefficientwise summation and division by (1-z) yield exactly 2I(1+S)/[(1-z)(1-H)]. For 0<t<1 the positive solution H(r)=1 is simple, inside the unit circle, and the z²/z³ support ensures it is the unique dominant pole. At fixed z, H=F²+[z-(1-z)F]² is convex in F and any first positive crossing of level one has positive F derivative; since F increases strictly in t, r decreases strictly, so growth base increases. At t=0 P_n=n; at t=1 the alternating chain has a second dominant pole and only growth base, not one-constant asymptotic, is claimed. Independent exhaustive binary words n<=8, three exact Markov parameters and coefficient comparison (24 cases) corroborated the rational PGF.
 
-The theorem is specific to stationary symmetric two-state chains; the endpoint \(t=1\) has parity-dependent asymptotics, so the single-pole constant is not asserted there. No independent validation or independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: Biers-Ariel–Godbole–Kelley analyze all distinct binary subsequences including a Markov source, but do not restrict to the language of palindromes. Rubinchik–Shur analyze contiguous palindromic factors and iid sources, a different random variable. The genuinely correlated 0<t<1 exact palindrome series and strict optimization were not identified as previously covered; general weighted-language generating-function machinery is a plausible reduction risk.
+
+## value
+
+PASS
+
+Distinct scattered-palindrome complexity is a natural nonlocal word invariant; an exact rational expected-count generating function plus correlation-dependent exponential rate and optimal alternating source gives mathematically informative behavior not supplied by unrestricted subsequence enumeration or contiguous factor counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

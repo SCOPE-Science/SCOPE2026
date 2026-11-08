@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:42:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The greedy occurrence time of each fixed subsequence has first-hit PGF I_t and successive equal/different target-symbol waiting PGFs S_t,F_t, independently by the strong Markov property. Binary palindromes are encoded by a first symbol and mirrored adjacency indicators: odd lengths give 2(S²+F²)^k, even lengths 2S(S²+F²)^k. Coefficientwise summation and division by (1-z) yield exactly 2I(1+S)/[(1-z)(1-H)]. For 0<t<1 the positive solution H(r)=1 is simple, inside the unit circle, and the z²/z³ support ensures it is the unique dominant pole. At fixed z, H=F²+[z-(1-z)F]² is convex in F and any first positive crossing of level one has positive F derivative; since F increases strictly in t, r decreases strictly, so growth base increases. At t=0 P_n=n; at t=1 the alternating chain has a second dominant pole and only growth base, not one-constant asymptotic, is claimed. Independent exhaustive binary words n<=8, three exact Markov parameters and coefficient comparison (24 cases) corroborated the rational PGF.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biers-Ariel et al. count unrestricted subsequence strings of a two-state Markov source; Rubinchik–Shur count contiguous palindrome factors, not scattered subsequences."
+        ],
+        "reasoning": "A count of all distinct subsequences does not recover the number of palindromic members; contiguous subpalindromes grow on different scales. Shared source alphabet and some parameter values do not imply the theorem.",
+        "searches": [
+          "Biers-Ariel Godbole Kelley expected number distinct subsequences Markov 2018 Section 3.2",
+          "Rubinchik Shur number distinct subpalindromes random words 2015"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 3c54a2624ea89162fac4236184f524bca8563e4d and verify_markov_pal.py 0cc43852b7f9bd46412eeea33fc8c163fca4a254",
+        "Biers-Ariel–Godbole–Kelley 2018 DMTCS 19:2 / arXiv:1704.08661 Section 3.2 full PDF",
+        "Rubinchik–Shur arXiv:1505.08043 PDF",
+        "Resultary Markov scattered palindrome semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Markov-chain occurrence analysis is similar but word-language restriction and mirrored-palindrome indicator pairing are additional substantive calculations."
+        ],
+        "reasoning": "Neither inspected original result has as a corollary the displayed H_t denominator or the strict t-comparison, though a future general weighted-language result could.",
+        "searches": [
+          "arXiv:1704.08661 Section 3.2",
+          "arXiv:1505.08043 palindrome factors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Palindrome words form a mirror-symmetric language whose adjacency indicator pairing gives H=F²+S²; context-free weighted-language methods are a possible equivalent approach."
+        ],
+        "reasoning": "A weighted-context-free generating-function theorem might yield the same rational series by specialization, but no retrieved theorem/explicit coefficient comparison dominates the correlated rate monotonicity.",
+        "searches": [
+          "Resultary: Markov binary scattered palindromic subsequences distinct expectation transition correlation generating function",
+          "random word palindromic subsequence distinct scattered Markov source renewal generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns short code tables and subsequence-universality exact formulas for other invariants, not a correlated Markov palindrome expectation series."
+        ],
+        "reasoning": "Endpoint iid/alternating specializations are expressly not novelty claims. Finite source-word tables cannot imply the strictly monotone all-parameter growth rate.",
+        "searches": [
+          "Resultary binary subsequence universality and palindromic duplication exact examples",
+          "distinct scattered palindromes alternating binary strings Markov growth"
+        ]
+      },
+      "rationale": "PASS, qualified: Biers-Ariel–Godbole–Kelley analyze all distinct binary subsequences including a Markov source, but do not restrict to the language of palindromes. Rubinchik–Shur analyze contiguous palindromic factors and iid sources, a different random variable. The genuinely correlated 0<t<1 exact palindrome series and strict optimization were not identified as previously covered; general weighted-language generating-function machinery is a plausible reduction risk.",
+      "residual_risks": [
+        "A general weighted-context-free generating-function theorem could implicitly recover the rational expectation and growth-rate comparison.",
+        "The formula assumes exactly two symmetric Markov symbols; periodic t=1 has parity-dependent leading constants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_FINAL_CLAIM",
+          "evidence": [
+            "Section 3.2 treats arbitrary distinct subsequences; does not impose palindromic restriction or give root monotonicity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.08661",
+          "material_read": "Primary complete PDF; Section 3.2 Markov-source recurrence and theorem statement; specifically unrestricted subsequence counts",
+          "method": "Full primary PDF inspected including relevant page 7 of ten-page article",
+          "title": "Expected Number of Distinct Subsequences in Randomly Generated Binary Strings",
+          "trigger": "Same binary Markov source and distinct subsequence observable"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": [
+            "Their subpalindromes are contiguous factors under iid source, not distinct scattered subsequence strings of a correlated Markov source."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.08043",
+          "material_read": "Primary PDF introduction and definitions, relevant statements for contiguous factors",
+          "method": "Full paper retrieved; problem definitions and first page inspected",
+          "title": "The Number of Distinct Subpalindromes in Random Words",
+          "trigger": "Potential earlier palindrome counts in random strings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distinct scattered-palindrome complexity is a natural nonlocal word invariant; an exact rational expected-count generating function plus correlation-dependent exponential rate and optimal alternating source gives mathematically informative behavior not supplied by unrestricted subsequence enumeration or contiguous factor counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general weighted-context-free generating-function theorem could implicitly recover the rational expectation and growth-rate comparison.",
+    "The formula assumes exactly two symmetric Markov symbols; periodic t=1 has parity-dependent leading constants."
+  ],
+  "schema_version": 1
+}
