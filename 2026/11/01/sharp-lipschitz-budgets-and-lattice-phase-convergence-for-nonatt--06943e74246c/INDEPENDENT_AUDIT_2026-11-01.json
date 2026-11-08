@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T21:41:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/01/sharp-lipschitz-budgets-and-lattice-phase-convergence-for-nonatt--06943e74246c/RESULT.md",
+        "2026/11/01/sharp-lipschitz-budgets-and-lattice-phase-convergence-for-nonatt--06943e74246c/check.py",
+        "2026/11/01/sharp-lipschitz-budgets-and-lattice-phase-convergence-for-nonatt--06943e74246c/VERIFICATION.md"
+      ],
+      "rationale": "For real C([0,1]) the atomic positive/negative parts of mu have disjoint support and mass 1/2, hence ||mu||=1 and every projection onto ker mu is I-mu tensor h with mu(h)=1. Rank-one Daugavet equality (also verifiable by dense nonsupport test points) gives norm 1+||h||inf. The Lipschitz and amplitude constraints bound |mu(h)| by Phi_L(t)=sum w_m min(t,L/(2m^beta)); the clipped affine ramp h(x)=min(t,-t+Lx) attains every term, establishing exact feasibility L>=2/B and the unique minimum t_L including L=Lc. For s=(L/2)^(1/beta), the exact geometric tail eta(s), uniform Taylor remainder and bounded piecewise derivative imply t_L-1=beta*q^N/N*(1/(1-q)-r)+O(q^N/N^2), N=floor(s), r=s-N. Extremizing the continuous periodic profile gives liminf beta/(1-q) and limsup beta*exp((-log q)/(1-q)-1)/(-log q); both phases are realized. Independently solved finite scalar roots for q=1/2,beta=1 and q=.3,beta=2 with expected phase approach; read provided decimal code but did not treat its finite checks as proof.",
+      "residual_risks": [
+        "The phase expansion is uniform only for fixed q in (0,1) and beta>0, not in degenerating parameter limits.",
+        "Projection norms rely on real C([0,1]) and the specified exact atomic functional."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heinemann-Klatt-Munk, DOI:10.1007/s00245-022-09911-x, studies bounded-Lipschitz transport duals for finitely supported measures; the dual formulation alone does not evaluate this infinitely supported correction norm or its lattice asymptotics.",
+          "Kania-Lewicki supplies the unconstrained Daugavet endpoint but no quantitative regularization budget theorem in examined relevant sections."
+        ],
+        "reasoning": "Daugavet endpoint and bounded-Lipschitz duality are broader methods, but they do not state the countably supported geometric-tail asymptotic, and an implicit dual representation is not the evaluated answer.",
+        "searches": [
+          "Resultary: Lipschitz-constrained projection constants C[0,1] nonattaining hyperplane atomic measures geometric weights",
+          "arXiv:2604.10771 Theorem 3.1 Example 3.4(a) rank one projection nonattaining",
+          "DOI:10.1007/s00245-022-09911-x bounded-Lipschitz Kantorovich Rubinstein",
+          "Resultary: An unattained weak-star projection constant on nonattaining Lipschitz subspaces"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: Lipschitz-constrained projection constants C[0,1] nonattaining hyperplane atomic measures geometric weights",
+        "arXiv:2604.10771 Theorem 3.1 Example 3.4(a) rank one projection nonattaining",
+        "DOI:10.1007/s00245-022-09911-x bounded-Lipschitz Kantorovich Rubinstein",
+        "Resultary: An unattained weak-star projection constant on nonattaining Lipschitz subspaces",
+        "arXiv:2604.10771v1",
+        "DOI:10.1007/s00245-022-09911-x",
+        "Resultary:2026/10/11/SCOPE-an-unattained-weak-star-projection-constant-on-nonattaining-lips--86a26e350389"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The qualitative value inf_h ||P_h||=2 and nonattainment do not determine Lc=2/B or the unique root of Phi_L(t)=1.",
+          "Finite-support KR duality yields a possible optimization framework but not the countable-geometric tail expansion or log-periodic envelope; these require separate exact analysis."
+        ],
+        "reasoning": "Unconstrained norm 2 is implied by previous theory, but the critical budget 2/B and liminf/limsup require extra infinitely indexed extremal and uniform-tail computations.",
+        "searches": [
+          "Resultary: Lipschitz-constrained projection constants C[0,1] nonattaining hyperplane atomic measures geometric weights",
+          "arXiv:2604.10771 Theorem 3.1 Example 3.4(a) rank one projection nonattaining",
+          "DOI:10.1007/s00245-022-09911-x bounded-Lipschitz Kantorovich Rubinstein",
+          "Resultary: An unattained weak-star projection constant on nonattaining Lipschitz subspaces"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kania-Lewicki arXiv:2604.10771v1 Example 3.4(a): same dyadic atomic hyperplane and unconstrained constant 2, with no finite-L scalar root/profile in examined relevant sections.",
+          "Resultary 2026/10/11/SCOPE-an-unattained-weak-star-projection-constant-on-nonattaining-lips--86a26e350389 studies weak-star maps on a different Lipschitz-function space."
+        ],
+        "reasoning": "The base functional and qualitative nonattainment overlap Kania-Lewicki, but finite-L constrained projection optimization is a distinct assertion; weak-star Lipschitz nonattainment concerns another class.",
+        "searches": [
+          "Resultary: Lipschitz-constrained projection constants C[0,1] nonattaining hyperplane atomic measures geometric weights",
+          "arXiv:2604.10771 Theorem 3.1 Example 3.4(a) rank one projection nonattaining",
+          "DOI:10.1007/s00245-022-09911-x bounded-Lipschitz Kantorovich Rubinstein",
+          "Resultary: An unattained weak-star projection constant on nonattaining Lipschitz subspaces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary indexed exact projection-norm records concern finite metric free spaces, cross-polytopes, or weak-star settings, none computes this countable atomic Phi_L function or dyadic phase limits.",
+          "Kania-Lewicki qualitative example is the exact underlying object but does not tabulate the constrained budgets."
+        ],
+        "reasoning": "No checked table of atom-by-atom Lipschitz budgets or periodic-phase envelope matches the two-parameter scalar root; the database search was bounded.",
+        "searches": [
+          "Resultary: Lipschitz-constrained projection constants C[0,1] nonattaining hyperplane atomic measures geometric weights",
+          "arXiv:2604.10771 Theorem 3.1 Example 3.4(a) rank one projection nonattaining",
+          "DOI:10.1007/s00245-022-09911-x bounded-Lipschitz Kantorovich Rubinstein",
+          "Resultary: An unattained weak-star projection constant on nonattaining Lipschitz subspaces"
+        ]
+      },
+      "rationale": "Kania-Lewicki arXiv:2604.10771v1 explicitly has the dyadic nonattaining hyperplane and projection constant 2, but its qualitative Example 3.4(a) and surrounding Theorem 3.1 do not solve finite-L Lipschitz feasibility, the exact minimizing correction, or the geometric-lattice residual and sharp envelopes. The bounded-Lipschitz optimal-transport duality of Heinemann-Klatt-Munk is acknowledged; their finite-support general formalism does not state or directly evaluate the infinitely accumulating atoms' exact phase asymptotic. No equivalent exact result found among semantically searched published mathematical records; old unindexed regularization work may exist.",
+      "residual_risks": [
+        "Older bounded-Lipschitz optimal-transport or approximation papers might encode the exact countable-atom optimization under another name.",
+        "A cited finite-support duality article was not exhaustively checked for all possible countable extension results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers underlying dyadic example and norm 2 nonattainment, not the displayed regularity-budget optimization and phase law",
+          "evidence": [
+            "https://arxiv.org/html/2604.10771v1"
+          ],
+          "identifier_or_url": "arXiv:2604.10771v1",
+          "material_read": "Accessible full HTML, especially Theorem 3.1, Example 3.4(a) and related discussion",
+          "method": "Primary-text theorem and hypothesis comparison",
+          "title": "Finite-codimensional subspaces of Daugavet spaces: projection constants and minimal projections",
+          "trigger": "Same exact dyadic atomic hyperplane and qualitative nonattainment"
+        },
+        {
+          "assessment": "Finite-support dual framework acknowledged; plausible overlap in methodology but exact infinite weighted phase not determined by the material checked",
+          "evidence": [
+            "https://doi.org/10.1007/s00245-022-09911-x"
+          ],
+          "identifier_or_url": "DOI:10.1007/s00245-022-09911-x",
+          "material_read": "Available abstract and bounded-Lipschitz dual description, especially Section 2.1 as reported; full equivalence was not established in this run",
+          "method": "Bibliographic/accessible-text comparison; no unsupported whole-document exclusion",
+          "title": "Kantorovich–Rubinstein Distance and Barycenter for Finitely Supported Measures: Foundations and Algorithms",
+          "trigger": "Bounded-Lipschitz extremal duality could dominate the constrained scalar problem"
+        },
+        {
+          "assessment": "Different domain, projection topology and regularity constraint",
+          "evidence": [
+            "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-an-unattained-weak-star-projection-constant-on-nonattaining-lips--86a26e350389"
+          ],
+          "identifier_or_url": "Resultary:2026/10/11/SCOPE-an-unattained-weak-star-projection-constant-on-nonattaining-lips--86a26e350389",
+          "material_read": "Published indexed summary; full proof not read",
+          "method": "Resultary semantic source inspection",
+          "title": "An unattained weak-star projection constant on nonattaining Lipschitz subspaces",
+          "trigger": "Similar weak-star nonattainment terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/01/sharp-lipschitz-budgets-and-lattice-phase-convergence-for-nonatt--06943e74246c/RESULT.md",
+        "Resultary: Lipschitz-constrained projection constants C[0,1] nonattaining hyperplane atomic measures geometric weights",
+        "arXiv:2604.10771 Theorem 3.1 Example 3.4(a) rank one projection nonattaining",
+        "DOI:10.1007/s00245-022-09911-x bounded-Lipschitz Kantorovich Rubinstein",
+        "Resultary: An unattained weak-star projection constant on nonattaining Lipschitz subspaces"
+      ],
+      "rationale": "The explicit Kania-Lewicki nonattainment example naturally raises the cost-of-regularity question, with a sharp feasibility threshold and an optimizing ramp. The nonconstant lattice phase and explicit liminf/limsup quantify a genuine effect of geometric atomic weights; these are not merely restatements of Daugavet nonattainment.",
+      "residual_risks": [
+        "Does not extend to arbitrary nonattaining functionals or irregular atom spacing/weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The phase expansion is uniform only for fixed q in (0,1) and beta>0, not in degenerating parameter limits.",
+    "Projection norms rely on real C([0,1]) and the specified exact atomic functional.",
+    "Older bounded-Lipschitz optimal-transport or approximation papers might encode the exact countable-atom optimization under another name.",
+    "A cited finite-support duality article was not exhaustively checked for all possible countable extension results.",
+    "Does not extend to arbitrary nonattaining functionals or irregular atom spacing/weights."
+  ],
+  "schema_version": 1
+}

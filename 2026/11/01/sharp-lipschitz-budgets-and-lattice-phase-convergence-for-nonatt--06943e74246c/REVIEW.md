@@ -1,15 +1,21 @@
-# Scientific review: Lipschitz-budget hyperplane projections
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim has explicit scalar and ambient-space hypotheses, an exact definition of the admissible projections, and a fixed-parameter limiting regime. Every projection onto the codimension-one kernel has a unique rank-one correction. The norm identity follows either from the Daugavet property of real \(C([0,1])\) or from the supplied direct finite-atom-interpolation proof. The bound on \(|\mu(h)|\) uses only the amplitude and Lipschitz constraints, and the clipped affine ramp attains it simultaneously at every atom. This proves the feasibility cutoff and unique optimum for every finite budget, including equality at the cutoff. The uniform Taylor and derivative estimates justify the phase asymptotic even when its floor changes. The standalone standard-library checker passed 102 finite arithmetic checks for the critical point, exact root formula, and asymptotic expansion. Those checks are illustrative rather than an infinite proof.
+## correctness
 
-## Originality — PASS (best-knowledge, not priority certification)
-Kania–Lewicki, arXiv:2604.10771v1, Theorem 3.1 and Example 3.4(a), establishes the qualitative projection constant and nonattainment for the dyadic atomic case. Relevant HTML sections, including its further-questions section, were inspected; the exact Lipschitz-budget minimization, feasibility threshold, geometric-tail expansion, and phase envelopes were not found. Heinemann–Klatt–Munk's open-access 2022 article formulates a bounded-Lipschitz transport dual for finitely supported measures; that general duality is acknowledged rather than claimed. It does not itself compute a regularized projection constant for this countably supported hyperplane or its uniform fractional-phase asymptotic. Other bounded-Lipschitz and projection-constant formulations were searched, including published mathematical records. The closest accessible related projection-regularization statement treats an absolutely continuous codimension-two moment kernel with a power-law penalty, not the accumulating atomic codimension-one family. The precise publication priority of the countable-atom phase law remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The motivating nonattainment example raises a natural quantitative question: how much regularity is required for a feasible projection, and how close can its norm be to the unattained optimum? The finding answers both sharply, across a two-parameter natural family of geometrically weighted polynomially accumulating atoms, with an explicit optimizer. It distinguishes a hard feasibility threshold from norm convergence above the threshold, and proves that the residual is not a plain stretched exponential: an exact nonconstant lattice phase survives. The original published dyadic measure has computable, unequal normalized liminf and limsup. These invariants quantify regularity cost for a canonical failure of best approximation, rather than an arbitrary small numerical gain. The result does not imply analogous laws for all nonattaining measures.
+For real C([0,1]) the atomic positive/negative parts of mu have disjoint support and mass 1/2, hence ||mu||=1 and every projection onto ker mu is I-mu tensor h with mu(h)=1. Rank-one Daugavet equality (also verifiable by dense nonsupport test points) gives norm 1+||h||inf. The Lipschitz and amplitude constraints bound |mu(h)| by Phi_L(t)=sum w_m min(t,L/(2m^beta)); the clipped affine ramp h(x)=min(t,-t+Lx) attains every term, establishing exact feasibility L>=2/B and the unique minimum t_L including L=Lc. For s=(L/2)^(1/beta), the exact geometric tail eta(s), uniform Taylor remainder and bounded piecewise derivative imply t_L-1=beta*q^N/N*(1/(1-q)-r)+O(q^N/N^2), N=floor(s), r=s-N. Extremizing the continuous periodic profile gives liminf beta/(1-q) and limsup beta*exp((-log q)/(1-q)-1)/(-log q); both phases are realized. Independently solved finite scalar roots for q=1/2,beta=1 and q=.3,beta=2 with expected phase approach; read provided decimal code but did not treat its finite checks as proof.
 
-## Closest literature and limitations
-Kania and Lewicki (2026), *Finite-codimensional subspaces of Daugavet spaces: projection constants and minimal projections*, arXiv:2604.10771v1; Heinemann, Klatt, and Munk (2022), *Kantorovich–Rubinstein Distance and Barycenter for Finitely Supported Measures: Foundations and Algorithms*, DOI 10.1007/s00245-022-09911-x. The proof is restricted to real \(C([0,1])\), polynomial atom locations and geometric weights; phase estimates are fixed-parameter. Alternative terminology in older bounded-Lipschitz or optimal-transport literature may conceal a stronger implication; this has not been excluded absolutely.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kania-Lewicki arXiv:2604.10771v1 explicitly has the dyadic nonattaining hyperplane and projection constant 2, but its qualitative Example 3.4(a) and surrounding Theorem 3.1 do not solve finite-L Lipschitz feasibility, the exact minimizing correction, or the geometric-lattice residual and sharp envelopes. The bounded-Lipschitz optimal-transport duality of Heinemann-Klatt-Munk is acknowledged; their finite-support general formalism does not state or directly evaluate the infinitely accumulating atoms' exact phase asymptotic. No equivalent exact result found among semantically searched published mathematical records; old unindexed regularization work may exist.
+
+## value
+
+PASS
+
+The explicit Kania-Lewicki nonattainment example naturally raises the cost-of-regularity question, with a sharp feasibility threshold and an optimizing ramp. The nonconstant lattice phase and explicit liminf/limsup quantify a genuine effect of geometric atomic weights; these are not merely restatements of Daugavet nonattainment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
