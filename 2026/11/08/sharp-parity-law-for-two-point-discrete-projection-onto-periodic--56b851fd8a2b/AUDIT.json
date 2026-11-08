@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The cyclic normal matrix is exactly 2(A²+B²)I+2AB(T+T⁻¹). Its periodized geometric inverse directly yields the signed sample rows and an exact total-variation norm for every N≥3 and 0<t<1/2. Opposing signs across adjacent rows give strict knot-only localization; constant reproduction gives the positivity defect. Hyperbolic differentiation gives strict odd-case monotonicity, and alternating midpoint equations give the rank boundary. The standalone exact-rational checker independently tests 33 matrices plus midpoint and knot endpoints, without mistaking finite tests for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grigorieff–Sloan Theorem 4.4: if J≥r and sigma>0 then p-stability holds with a constant; this does not specify an optimal constant or evaluate the periodic two-site norm.",
+        "Crouzeix–Thomée Theorem 1 applies to integral-defined projections on interval finite-element spaces, not discrete sampling.",
+        "The 2000 follow-up found by its abstract addresses commutators and superapproximation rather than a periodic exact endpoint norm."
+      ],
+      "reasoning": "A general boundedness theorem cannot imply the specific optimal factor, norming locations or parity degeneration without extra calculation; replacing integral observations by discrete samples changes the operator despite possible Gram equality. The 2000 paper was not available in full, so its abstract is not treated as a full-text exclusion.",
+      "searches": [
+        "Grigorieff Sloan 1998 discrete orthogonal projections continuous piecewise linear periodic uniform grid symmetric two point quadrature exact infinity norm parity N even odd (1-2t) inverse Gram",
+        "Crouzeix Thomee 1987 stability Lp W1p L2 projection onto finite element spaces PDF",
+        "Grigorieff Sloan Brandts 2000 superapproximation discrete orthogonal projections splines full text PDF"
+      ]
+    },
+    "checked_sources": [
+      "Grigorieff–Sloan 1998 full text, https://doi.org/10.1017/S0004972700032263",
+      "Crouzeix–Thomée 1987 primary PDF extracted text, https://doi.org/10.1090/S0025-5718-1987-0878688-2",
+      "Karkulik–Pfeiler–Praetorius 2013 arXiv abstract, https://arxiv.org/abs/1307.0917",
+      "Published mathematical-result semantic searches for exact discrete spline norms and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest discrete paper proves a qualitative uniform bound for fixed positive quadrature and nonperiodic grids, which is compatible with every constant given here but does not fix its value.",
+        "The previously established uniform periodic spline norm is for continuous arclength integration. The two-point Gauss rule yields the same Gram matrix for piecewise-linear products but a different input functional; its sharp sqrt(3) norm is not implied by a continuous-measure row integral.",
+        "The parity boundary-layer historical claim concerns the continuous L² projection and has a different q and kernel integration."
+      ],
+      "reasoning": "The new conclusions are not mere parameter substitution: the signed dual kernel acts on 2N point samples, whereas the continuous measure operator integrates against a piecewise-linear Green kernel. The older results neither imply the exact sample row nor its all-parameter total variation. The abstract identity relating negativity to a reproduced constant is known generally and is not independently claimed as the novelty.",
+      "searches": [
+        "doi:10.1017/S0004972700032263 Theorem 4.4 Lp stability discrete spline projection",
+        "doi:10.1090/S0025-5718-1987-0878688-2 Theorem 1 continuous projection",
+        "Exact two-periodic spline projection norms and a quadratic mesh-contrast law",
+        "Parity boundary layers for periodic linear-spline least-squares projection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grigorieff and Sloan 1998 Section 1 specifies quadrature-defined least squares on interval splines and Theorem 4.4 establishes qualitative p-stability, not explicit periodic two-site constants.",
+        "The explicit signed row of the new claim has two geometric waves, with parity factor 1-(-q)^N in its denominator. No matching expression was identified in the inspected primary text or targeted searches."
+      ],
+      "reasoning": "The equivalence search tested Lebesgue constant, discrete projection, least-squares, circulant Gram, Gauss quadrature and parity terminology. The closest general stability result has no periodized boundary conditions, numerical sharp constant, or Nyquist degeneration. No evidence of an exact equivalent was found, but no exhaustive indexing claim is made.",
+      "searches": [
+        "exact Lebesgue constants periodic two-point composite quadrature spline least squares two symmetric interior nodes at t and 1-t, sharp endpoint norm",
+        "circulant tridiagonal Gram matrix symmetric two sample continuous piecewise linear finite element quadrature exact L infinity operator norm",
+        "Sharp L infinity norm of periodic piecewise linear spline discrete least squares two Gauss points per cell equals sqrt 3, odd-even Nyquist correction and exact positivity defect",
+        "doi:10.1017/S0004972700032263"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches retrieved spline stability theory, general finite-element quadrature studies, and unrelated cyclic Lebesgue constants, not a numerical table or exact data source for the stated two-sample family.",
+        "The new proof gives an analytical closed form, not a value extracted from a precomputed table."
+      ],
+      "reasoning": "The search checked equivalent parametric constants and Gauss-site aliases. No exact table with the all-N and all-t law was found; absence from a search index is not proof of priority.",
+      "searches": [
+        "Sharp L infinity norm of periodic piecewise linear spline discrete least squares two Gauss points per cell equals sqrt 3, odd-even Nyquist correction and exact positivity defect",
+        "discrete spline projection stability inner nodes approaching common midpoint odd even number of periodic elements",
+        "periodic linear splines two point Gaussian quadrature projection exact L infinity norm Lebesgue constant sqrt3"
+      ]
+    },
+    "rationale": "General stability of quadrature-defined spline projections was proved by Grigorieff–Sloan (1998), while Crouzeix–Thomée (1987) concerns continuous L² projection. The full periodic two-site signed row, all-N parity formula, exact Gauss constant, and midpoint singular/finiteness dichotomy are not statements or implications of those inspected general estimates. Existing continuous-measure periodic spline results concern a different right-hand-side functional even where the two-point Gauss rule gives an identical Gram matrix. Priority may remain in unindexed numerical-analysis literature.",
+    "residual_risks": [
+      "Earlier printed date of the 1998 lead paper is known only by month, not by exact first dissemination day; recorded dated online appearance is explicitly distinguished from print.",
+      "Unindexed or inaccessible older discrete quadrature papers might contain an equivalent special-case formula.",
+      "The Grigorieff–Sloan–Brandts 2000 superapproximation article was located by abstract only; it concerns commutator properties but its full text was not used to exclude every conceivable ancillary identity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING",
+        "evidence": "Theorem 4.4 asserts p-stability under J≥r and sigma>0, while its setup is on interval grids with no periodic condition. Neither a sharp norm of symmetric two-point periodic least squares nor the parity expression is stated in inspected portions; text search found no periodic/ sharp formulation.",
+        "identifier_or_url": "https://doi.org/10.1017/S0004972700032263",
+        "material_read": "Publisher full-PDF text: title, abstract and definitions pp.307-310; stability criteria from Section 3; Theorem 4.4 and the continuous counterpart on p.321; searches for periodic, sharp and Lebesgue over the accessible full text; rendered page 307 and p.321.",
+        "method": "Publisher PDF textual inspection plus page screenshots and full-text term search.",
+        "title": "Stability of discrete orthogonal projections for continuous splines",
+        "trigger": "Same object class: quadrature-defined continuous spline projection."
+      },
+      {
+        "assessment": "DIFFERENT_OPERATOR",
+        "evidence": "The paper defines projection by continuous integral L² inner products with zero boundary conditions and establishes p-stability bounds, not discrete periodic Gauss-point least-squares sharp constants.",
+        "identifier_or_url": "https://doi.org/10.1090/S0025-5718-1987-0878688-2",
+        "material_read": "Accessible AMS full-PDF extracted text: abstract and Sections 0-1 through Gram-matrix and Theorem 1 argument (pp.521-525); screenshot retrieval returned 403.",
+        "method": "Publisher PDF extracted text; first-page image request attempted but access denied.",
+        "title": "The Stability in Lp and Wp1 of the L2-Projection onto Finite Element Function Spaces",
+        "trigger": "Precursor general norm-stability result cited by the discrete projection paper."
+      },
+      {
+        "assessment": "CONTEXT_ONLY",
+        "evidence": "The abstract concerns H1-stability of continuous L² projections in dimensions at least two and mesh grading, not two-point periodic sampling.",
+        "identifier_or_url": "https://arxiv.org/abs/1307.0917",
+        "material_read": "The public first-version title, submission timestamp and abstract only; not used for a full-document exclusion.",
+        "method": "ArXiv abstract metadata.",
+        "title": "L2-orthogonal projections onto finite elements on locally refined meshes are H1-stable",
+        "trigger": "Archival dated comparison on finite-element projector stability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "56b851fd-8a2b-4d04-98f6-49286882293d",
+  "value": {
+    "rationale": "Sharp norm and positivity loss across all uniform periodic grid sizes and all symmetric two-point quadrature locations is a natural and reusable stability invariant, not an arbitrary finite slice. It locates every extremizing evaluation point and reveals a parity-dependent singular limit: even grids blow up as sites coalesce, while odd grids remain bounded by N. The exact Gauss constant sqrt(3), independent of even grid size, quantifies a standard quadrature design. This is a structural full-parameter classification beyond general boundedness.",
+    "status": "PASS"
+  }
+}
