@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is proved by an exact metric-geodesic formula on sector quotients with half-angle strictly less than \(\pi\), the uniform radial and folded-angular sampling laws, and explicit second and fourth moment integrals. All four endpoint inequalities are justified algebraically, including the positivity of the small interval for the fixed-area ambiguity. Three disjoint open parameter intervals and continuity guarantee three distinct solutions for each observation signature; the radius is then fixed exactly by scaling. No finite experiment is used to prove multiplicity or uniqueness. A standalone symbolic/numerical checker validates the critical factorization identities and independently integrates the original distance formula.
+PASS
 
-## Originality — PASS, with residual priority risk
+Unfolded intrinsic geodesics have shortest angular gap δ=min(|θ-φ|,2t-|θ-φ|) uniform on [0,t], t<π. Independent radii have E r^j=2R^j/(j+2); integrating r²+s²−2rs cos δ and its square gives F(t)=1−8 sin(t)/(9t) and H(t)=5/3+sin(2t)/(4t)−32 sin(t)/(15t). Scaling area A=tR² and E D²=R²F yields inverse equations Q=F/t and K=H/F². Correct strict signs Q(π/2)<1/π<Q(9π/10) and K(π/2)<5/3<K(2π/3), with Q(0+)=∞, Q(π)=1/π, K(0+)=27/10, K(π)=5/3, force roots in three disjoint intervals by IVT. Independently numerically integrated original three-variable distance formula and bracketed example roots. No claim of exactly three or maximal ambiguity regions; different t are intrinsically distinct.
 
-The closest broad reference is Mémoli–Needham (arXiv:1810.09646), whose full preprint was inspected in the introduction and inverse-problem sections. It investigates whole distance distributions, plane curves, Riemannian manifolds and metric graphs, but gives no sampled conical disk moment equivalence. Rukhovich (arXiv:2212.12806) addresses singular-to-singular distances as a function of *random surface moduli*, not distances between random points in a fixed disk. Fu (arXiv:2409.14188) addresses trajectory length/self-intersection estimates. Indexed work on solid cones' random *projection widths* does not imply the present intrinsic-geodesic moment ambiguity. Mathematical overlap was compared by observables, assumptions and implications, not just titles. Searches cannot prove exhaustive historical novelty; unindexed, older equivalent formulations remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-The inverse question is natural in intrinsic geometric sampling: can measured surface area and a low distance statistic, or two even distance moments, recover a singularity's cone angle and radial scale? The proof exhibits *open*, not isolated or numerically accidental, three-to-one failures of two separate elementary measurement protocols. This is a structural and motivated boundary on moment-based curvature-defect recovery, not an arbitrary scalar computation. The claim does not assert a broad characterization, quantitative stability or optimal number of moments.
+Distance-distribution inverse problems exist in general, but point-pair area-weighted second and fourth moments of intrinsic flat conical disks are not the same as distance between cone singularities, ambient chord lengths or random planar curve observations. The assessed contribution is two explicit open triple-ambiguity regions with analytic moment formulas.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A robust (open, not isolated) inverse nonidentifiability result for a canonical 2-parameter metric-measure family, twice with different low-dimensional observables; useful for understanding how many intrinsic distance moments are insufficient to recover conical geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
