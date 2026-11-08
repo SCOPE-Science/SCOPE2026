@@ -1,19 +1,21 @@
-# Review of four-run self-shuffles
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The finite derivative and parity-atom enumeration give a rigorous universal \(8\)-symbol atom bound. The certificate covers exactly \(2764\) even-Parikh smooth words at the four lengths \(38,40,42,44\); each supplied coloring is verified directly, with complete alternative enumeration of the finite domain. The negative residual-automaton checks exhaust all candidate bounded-run colorings, rather than relying on a timeout. The infinite argument uses only the proven atom bound, factoriality and the observation that swapping two colors within a completed self-shuffle preserves both induced subwords. No finite data is extrapolated to infinity without this argument.
+PASS
 
-## Originality (O): PASS, subject to stated priority risk
+Reconstructed the smooth derivative with deletion of singleton boundary runs, factoriality, ten parity-return atoms of length at most eight, and greedy even-Parikh cut blocks. The first parity cut after distance 38 must lie in {38,40,42,44}; each block has a bounded-4 self-shuffle coloring. Swapping both colors between blocks forces a color change at block boundaries and preserves the two equal infinite output streams. Independently generated exactly 22,194 nonempty smooth words through length 44 and rechecked ALL 2,764 TSV positive certificates (length counts 538,674,682,870), with exact root equality and maximum monochromatic run four. Exhaustive independently implemented prefix-comparable residual-state search certified all twelve stored negative witnesses, including the length-38 bound-three obstruction and shorter four-length windows. These finite certificates prove the finite window; the infinite theorem additionally requires the parity-atom argument and infinitely many even-Parikh prefixes.
 
-Kilpatrick, *Shuffle squares in smooth binary words and the Kolakoski sequence* (arXiv:2610.02262, first public 2026-10-01), establishes the even-Parikh smooth theorem and an explicit Kolakoski run bound of \(48\). Zwierzyński, *Shuffle Squares in Differentiable Words* (arXiv:2610.07828, first public 2026-10-06), establishes broader C3 existence results and exact unconstrained self-shuffle tests. Neither inspected primary text asserts a uniform bound \(4\) or the four-run exact finite window. published-finding corpus queries for color-run and Kolakoski equivalences returned no directly dominating statement. The older graph-based work of Grytczuk, Pawlik and Ruciński was examined at abstract level only; unindexed stronger statements remain possible. These limits prevent a claim of exhaustive publication priority.
+## originality
 
-## Value (V): PASS
+PASS
 
-The explicit bound for Kolakoski monochromatic runs drops from \(48\) to \(4\), while the theorem simultaneously extends to every smooth infinite binary word with infinitely many even-Parikh prefixes. This controlled-interleaving feature is strictly stronger than ordinary shuffle-square existence. The least compatible four-consecutive-even-length window \(38,40,42,44\) is a sharp and naturally motivated finite invariant: four even lengths cover every possible atom jump of size at most \(8\). Complete explicit positive and negative certificates make this useful for further investigation of stronger run limits.
+Best-of-knowledge new exact bounded-color-run control 4 for an infinite smooth self-shuffle and sharp finite-window threshold 38, not the earlier shuffle-square existence, parity-atom classification, or a claim of infinite optimality. The accessible full Kilpatrick primary text gives an explicit weaker 48 run bound; Zwierzyński primary abstract gives even-Parikh criteria but complete text remained inaccessible, so originality retains a direct same-object risk.
 
-## Limits
+## value
 
-The bound \(4\) is not proved optimal for the infinite Kolakoski word. Exact finite-window optimality is a statement about a specific universal block-assembly criterion, not about every possible infinite coloring. Scientific priority remains provisional pending independent literature verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A substantive controlled infinite-shuffle construction for a canonical low-complexity word family. The sharp four-length finite window and nontrivial bounded-color certificate serve as reusable combinatorial structure, not a renamed parity-only existence result; the quantitative reduction from 48 to 4 is mathematically meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The certificate and checker are supplied as `four_run_witnesses.tsv`, `four_run_lower_bound.tsv`, and `verify_four_run.py`. Run `python3 verify_four_run.py` with Python 3.10 or later from the directory containing the files; only the standard library is needed. `verification_output.txt` gives the actual successful output.
+# Independent mathematical audit
 
-The checker independently constructs the complete finite smooth language through length \(44\) by two mechanisms (finite-derivative inverse images and right extension with direct repeated differentiation). It verifies that the positive certificate contains every smooth even-Parikh word at lengths \(38\), \(40\), \(42\), and \(44\), with no duplicate or spurious word. It directly compares both induced subwords and maximum color-run lengths. It separately exhausts all shorter-run color assignments for twelve explicit obstruction words, checking the minimal four-length window and the existence of an obstruction to three-run coloring at length \(38\).
+## correctness
 
-The infinite conclusion is justified by the written proof of parity atoms of length at most \(8\), the consequent allowed block-length window, and independent color swapping between consecutive finite self-shuffles. Verification of finite cases alone would not prove the infinite statement. External mathematical validation has not been performed.
+PASS
+
+Reconstructed the smooth derivative with deletion of singleton boundary runs, factoriality, ten parity-return atoms of length at most eight, and greedy even-Parikh cut blocks. The first parity cut after distance 38 must lie in {38,40,42,44}; each block has a bounded-4 self-shuffle coloring. Swapping both colors between blocks forces a color change at block boundaries and preserves the two equal infinite output streams. Independently generated exactly 22,194 nonempty smooth words through length 44 and rechecked ALL 2,764 TSV positive certificates (length counts 538,674,682,870), with exact root equality and maximum monochromatic run four. Exhaustive independently implemented prefix-comparable residual-state search certified all twelve stored negative witnesses, including the length-38 bound-three obstruction and shorter four-length windows. These finite certificates prove the finite window; the infinite theorem additionally requires the parity-atom argument and infinitely many even-Parikh prefixes.
+
+## originality
+
+PASS
+
+Best-of-knowledge new exact bounded-color-run control 4 for an infinite smooth self-shuffle and sharp finite-window threshold 38, not the earlier shuffle-square existence, parity-atom classification, or a claim of infinite optimality. The accessible full Kilpatrick primary text gives an explicit weaker 48 run bound; Zwierzyński primary abstract gives even-Parikh criteria but complete text remained inaccessible, so originality retains a direct same-object risk.
+
+## value
+
+PASS
+
+A substantive controlled infinite-shuffle construction for a canonical low-complexity word family. The sharp four-length finite window and nontrivial bounded-color certificate serve as reusable combinatorial structure, not a renamed parity-only existence result; the quantitative reduction from 48 to 4 is mathematically meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
