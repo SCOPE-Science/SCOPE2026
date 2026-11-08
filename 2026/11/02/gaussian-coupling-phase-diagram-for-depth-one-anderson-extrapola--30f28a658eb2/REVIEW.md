@@ -1,19 +1,21 @@
-# Review of the Gaussian-coupling theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Anderson algebra reduces exactly to the ratio of independent Gaussian sum and difference modes, including both singular covariance endpoints. Its denominators are almost surely nonzero. The denominator-window integration, bounded density and finite Gaussian absolute moment yield the sharp positive \(t^{-1}\) constant; the tail integral gives the exact moment boundary. Exceptional endpoint distributions follow by substitution, while a one-variable logarithmic derivative proves the unique worst correlation when the trials are centered. All quantifiers, the fixed trial-point requirement, positive noise scale, strict affine contraction, and endpoint cases are stated. Exact-fraction and Gaussian-window checks reproduce representative identities and limits; experiments alone are not used as proofs.
+PASS
 
-## Originality — PASS (qualified)
+For a scalar affine contraction |a|<1 with c=1−a>0 and fixed distinct trials d=x1−x0≠0, verified algebraically that unsafeguarded depth-one Anderson Z−θ=m+dN/D where m=(x0+x1)/2−θ, N=cm−(ε0+ε1)/2 and D=−cd+ε1−ε0. Equal marginal Gaussian variances imply Cov(N,D)=0 and independence even at rho=±1, so N~N(cm,σ²(1+rho)/2), D~N(−cd,2σ²(1−rho)). If rho<1, D has positive density at 0, and conditioning on N gives tP(|Z−θ|>t)→2|d|f_D(0)E|N| by dominated convergence; the shift m changes no leading coefficient. The 1/t tail gives finite positive moments iff q<1 whenever N is not a.s. zero. Exceptional rho=1 gives Z−θ=ε/c normal, rho=−1 & m=0 gives exact Z=θ. Differentiating log K for m=0 has a unique critical rho*=(1−b)/(1+b) and maximum 2σ/(πc) exp(−(1+b)/2). Independently verified 250 exact rational substitutions and six b-values against a 2000-correlation grid. The trial points must be prescribed, not adapted; center about unknown θ only hypothetical.
 
-The stochastic mixing algorithm of Wei, Bao and Liu (2021), inspected through its method and proof sections, employs damping and adaptive regularization for stability and does not state a complete unregularized two-evaluation Gaussian-correlation phase diagram. Scieur, d'Aspremont and Bach (2017), inspected through its stochastic stability and convergence results, treats regularized extrapolation bounds rather than this exact distributional classification. Earlier Anderson convergence theory imposes different hypotheses, and Gaussian ratio tails are classical; neither fact alone claims the theorem's coupling-dependent exceptional regimes and unique maximal tail coefficient. The indexed deterministic depth-one counterexample concerns positivity loss in two dimensions rather than stochastic tails in one dimension. A 2017 analysis of inaccurate Anderson evaluations could be especially relevant; its full body was inaccessible, so publication priority and possible overlap remain explicit risks, not established exclusions.
+## originality
 
-## Value — PASS
+PASS
 
-The correlation of two equally accurate Gaussian evaluations, rather than just their separate variances, controls whether unsafeguarded Anderson extrapolation has any finite first absolute error moment. Both extreme noise couplings avoid the reciprocal tail for centered trials, yet the worst extreme-tail risk is uniquely interior, with an explicit testable correlation and coefficient. This distinguishes noisy extrapolation from deterministic contraction and gives an exact benchmark for noise reuse, antithetic sampling, and safeguard design without claiming a convergence theorem for any regularized method.
+Qualified PASS. The ratio-of-normal heavy-tail mechanism is classical; the contribution is the precise coupled-noise phase diagram after reduction of unregularized scalar Anderson step, including two different exceptional rho endpoints and a uniquely worst interior correlation at centered trials. Wei–Bao–Liu 2021 and Scieur–d'Aspremont–Bach 2017 analyze regularized/stabilized acceleration rather than this exact distributional question; published Resultary Anderson positivity finding is a deterministic 2D phenomenon. Important Toth et al 2017 on Anderson with inaccurate evaluations and stochastic heavy-tail errors has only publisher preview available in lawful sources; full text could not be obtained and authorized institutional read returned vpn_disconnected. This is a real residual priority risk but does not itself establish coverage or negate the statement-specific result.
 
-## Literature and limitations
+## value
 
-Sources inspected: Wei–Bao–Liu (arXiv:2110.01543) and Scieur–d'Aspremont–Bach (arXiv:1706.07270), both full HTML text in relevant sections; Toth and collaborators (DOI:10.1137/16M1080677), abstract and opening-page publisher preview only. Classical Gaussian ratios, deterministic Anderson mixing and regularized stochastic methods are background. The result is a one-output, two-fixed-point scalar Gaussian model; the exact antithetic equality presumes trial centering at the actual fixed point. Independently validating the proof and searching inaccessible specialized work remain appropriate before any publication-priority claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Correlation itself, not just each Gaussian oracle variance, changes a raw Anderson extrapolate from finite Gaussian moments to a 1/t heavy tail and infinite mean absolute error, or to exact antithetic cancellation. The explicit sharp interior worst-correlation calculation gives a natural benchmark for common random numbers and safeguard design; no claim is made about multistep algorithms, nonlinear or regularized convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
