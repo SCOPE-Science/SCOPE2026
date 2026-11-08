@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Exact D_m numerator formula is algebraically reindexed with A=a-m+1, B=b-n, giving c_(k+j)=sum_A W_m(A)W_m(mj-kA). Substituting A/m turns this into trapezoidal quadrature for a compact piecewise-quadratic tent product. Finite breakpoint control gives O_k(m^-2) error; direct integration gives central (6k-2), interior 6(k-|j|), endpoint 1 after scaling 6k². Polynomial factorization follows from a three-tap/triangular convolution. For coprime m,n, the Fejér-character sum establishes no unit-circle roots and reciprocal pairing. Multiplicity-sensitive Rouché disks of radii O_k(m^-2) at simple roots and O_k(m^-1) at double kth roots give precise root labeling and simplicity for sufficiently large n. CHECK.py passed 108530 independent finite consistency assertions; finite numerical checks are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deng--Fu arXiv:2611.07480 Theorem 1.1 establishes positive phase-corrected unit-circle boundary values for all coprime m>n; inspected the full available source sections 1-4, including Lemma 3.1.",
+        "Edholm--Mathew arXiv:2505.20489 gives an exact numerator representation, palindromy and small-gap limits, but no all-k coefficient-normalized factorization."
+      ],
+      "reasoning": "Exact finite-n source coefficients and general root counts are broader regarding m,n, but neither asserts a simultaneous k-parameter limiting polynomial or rates. The new asymptotic requires a quantitative triangular-convolution Riemann sum and multiplicity-sensitive root perturbation. Its reliance on prior formulas is acknowledged.",
+      "searches": [
+        "published-finding corpus: Hartogs Bergman denominator diagonal numerator fixed numerator difference asymptotic as slope approaches 1 zero outlier -2+sqrt3 roots of unity universal limit",
+        "published-finding corpus: Rational Hartogs triangle Bergman kernel zeros Q_mn palindromic polynomials Fejer nonvanishing zero locations radial distribution",
+        "Web: \"Bergman\" \"m-n\" \"roots of unity\" \"sqrt3\" polynomial"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2505.20489 (original 2025 preprint, relevant theorems and remarks)",
+      "arxiv:2611.07480 (2026-11-05 all-k positivity comparison)",
+      "published-finding corpus:78891bb4627f (gap-three asymptotic)",
+      "published-finding corpus:bbc621b5541a (gap-five positivity)",
+      "published-finding corpus:17801e7b1b53 (gap-seven through seventeen positivity)",
+      "published-finding corpus:9edb3c31f9f5 (n=1 integer slope positivity)",
+      "Accessible local current-week ledger p0001_g000136 recoverable claim/index overlap scan"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2505.20489 explicitly derives the gap-two limit and mentions its gap-one analogue; subsequent general gaps remain a root-location question in the source.",
+        "2611.07480 proves all-gap zero-free unit circles, which fixes counts but not positions in the limit.",
+        "78891bb4627f proves a stronger first-order radial limit in gap three only.",
+        "Published record bbc621b5541a and 17801e7b1b53 prove nonvanishing in gap families only."
+      ],
+      "reasoning": "The exact all-k conclusion specializes to known cases k=1,2 and a weaker k=3 consequence; those portions are explicitly excluded from the novelty contribution. The new assertion is a simultaneous structural theorem for arbitrary fixed k (in particular all k>=4), with coefficientwise O_k(m^-2) and root O_k(m^-1) bounds. It is not logically implied by root counts and does not follow by substitution of any single fixed-gap formula.",
+      "searches": [
+        "Web primary: arXiv:2505.20489 Section 4 and Remark 4.18",
+        "Web primary: arXiv:2611.07480 Lemma 2.1 and Theorem 1.1",
+        "published-finding corpus full RESULT.md 78891bb4627f, bbc621b5541a, 17801e7b1b53, 9edb3c31f9f5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Edholm--Mathew arXiv:2505.20489 Remark 4.18: k=2 polynomial limit (z+1)^2(z^2+4z+1).",
+        "published-finding corpus 2026/10/11/...78891bb4627f RESULT.md: special k=3 roots and sharp n^{-1} radial constant; reviewed full RESULT text."
+      ],
+      "reasoning": "The k=2/3 statements are proper fixed-parameter instances and neither quantifies every k nor proves the universal factorization with coefficient O_k(m^-2). The all-k positivity theorem is not a root-limit theorem. Search terms included source polynomial aliases, fixed difference and limit roots to avoid title-only matching.",
+      "searches": [
+        "published-finding corpus: For fixed gap k=m−n and n→∞ coprime, Hartogs diagonal palindromic Bergman numerator coefficients converge to (1+4z+z²)(1+z+...+z^{k−1})², roots concentrate on kth roots of unity and -2±sqrt3",
+        "published-finding corpus: Palindromic Hartogs polynomials R_{m,n} fixed difference k root condensation at kth roots and universal quadratic factor",
+        "Web: \"Hartogs triangle\" \"fixed gap\" \"roots\" \"asymptotic\" \"unity\"",
+        "Web: \"Q_{m,n}\" \"root accumulation\" \"m-n\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest published records: 78891bb4627f (k=3), bbc621b5541a (k=5 nonvanishing), 17801e7b1b53 (k=7 to 17 nonvanishing), 9edb3c31f9f5 (integer-slope positivity).",
+        "The recoverable claims of the accessible current-week local ledger contained no Hartogs/Bergman diagonal numerator root-limit claim."
+      ],
+      "reasoning": "The inspected exact coefficient sources are computational representations rather than a table of the universal all-k limiting roots. Fixed-gap positivity records do not supply rates or root distribution. No matching all-k database/table was found; this is evidence of incomplete search coverage, not a proof of absolute novelty.",
+      "searches": [
+        "published-finding corpus: Edholm Mathew polynomial coefficient triangular convolution Riemann sum tent filter fixed k large n",
+        "Web: \"Q_{m,n}\" \"n\" \"limit\" roots Hartogs",
+        "Own local ledger: searched recoverable claims for hartogs, bergman kernel, palindromic, Fejér and exact fixed-gap formula"
+      ]
+    },
+    "rationale": "The all-fixed-gap cubic-normalized polynomial limit and its O_k(m^-2) coefficient rate give a universal quadratic outlier factor and double roots at all nontrivial k-th roots. Edholm--Mathew explicitly gave only k=1,2 asymptotic special cases; the published gap-three result treats k=3 with a sharper individual rate; Deng--Fu gives no-unit-circle positivity for all k but not this all-k root-condensation asymptotic. Exact source formulas determine finite coefficients but do not state the new uniform-asymptotic structure. The searched sources did not supply a statement implying the claimed all-k limit. Residual risk of an equivalent older or unindexed asymptotic remains.",
+    "residual_risks": [
+      "Edholm--Mathew finite coefficient formula allows derivation of limits; an older paper could already have performed the general fixed-gap asymptotic manipulation.",
+      "Unindexed, non-English or alternative Bergman-root asymptotic literature may contain equivalent fixed-gap limits.",
+      "The k=1,2 special limits and k=3 more detailed rate are known and explicitly not novel portions.",
+      "No independent publication-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides finite polynomial and gap 1/2 examples; no all-fixed-k limit and error or root condensation",
+        "evidence": [
+          "arxiv:2505.20489v3; lines around Remark 4.18: (z+1)^2(z^2+4z+1) for k=2"
+        ],
+        "identifier_or_url": "arxiv:2505.20489; https://arxiv.org/pdf/2505.20489",
+        "material_read": "Theorem 1.3, Section 3 numerator, Section 4 and Remarks 4.6/4.18 with PDF text and visually inspected pages 21-22 of the 24-page paper",
+        "method": "Original arXiv PDF full-text navigation and page screenshots",
+        "title": "Arithmetic properties and zeros of the Bergman kernel on a class of quotient domains",
+        "trigger": "Exact same two-point kernel numerator and explicit prior gap-one/two limits"
+      },
+      {
+        "assessment": "Strong all-k unit-circle nonvanishing and count, but no fixed-gap large-n coefficient factorization/root condensation. Later than the week anchor; checked for novelty, not used as earliest motivating source.",
+        "evidence": [
+          "arxiv:2611.07480 Theorem 1.1 (circle positivity), Lemma 2.1 (centered coefficients), Lemma 3.1 (Fejér factorization)"
+        ],
+        "identifier_or_url": "arxiv:2611.07480; https://arxiv.org/abs/2611.07480",
+        "material_read": "Full available mathematical text, Sections 1-4, including numerator Lemma 2.1, Fejér identity Lemma 3.1 and main Theorem 1.1",
+        "method": "ArXiv extracted complete source text read, formula and implication comparison",
+        "title": "Bergman Kernel Zeros on Rational Hartogs Triangles",
+        "trigger": "Plausibly dominating full rational Hartogs zero theorem published 2026-11-05"
+      },
+      {
+        "assessment": "Covers the k=3 case, with sharper radial coefficient; does not entail general k. Present result acknowledges the covered special case.",
+        "evidence": [
+          "published-finding corpus record 78891bb4627f: k=3 root asymptotic and n(1-|s|)->sqrt(6)"
+        ],
+        "identifier_or_url": "published-finding corpus published-record identifier 78891bb4627f",
+        "material_read": "Entire RESULT.md including exact sextic, discriminant and radial-condensation proof",
+        "method": "Read public result document through repository file API",
+        "title": "Cubic-root condensation of diagonal Bergman-kernel zeros in gap-three Hartogs triangles",
+        "trigger": "Closest indexed prior asymptotic root-location result"
+      },
+      {
+        "assessment": "Proves fixed-gap positivity and count, not asymptotic location or universal factorization",
+        "evidence": [
+          "published-finding corpus bbc621b5541a Result: positive boundary polynomial in k=5"
+        ],
+        "identifier_or_url": "published-finding corpus published-record identifier bbc621b5541a",
+        "material_read": "Full RESULT.md and precise statement and limitations",
+        "method": "Public repository file read",
+        "title": "Difference-five Bergman numerator polynomials have no unit-circle zeros",
+        "trigger": "Same diagonal polynomial family, k=5"
+      },
+      {
+        "assessment": "Gives count/nonvanishing for k=7..17; no all-k root-condensation theorem",
+        "evidence": [
+          "published-finding corpus 17801e7b1b53 Result: positive boundary polynomial for k=7..17"
+        ],
+        "identifier_or_url": "published-finding corpus published-record identifier 17801e7b1b53",
+        "material_read": "Full RESULT.md covering assumptions, exact coefficient reindexing and proof",
+        "method": "Public repository file read",
+        "title": "Bergman zeros for every rational Hartogs numerator gap from seven through seventeen",
+        "trigger": "Same polynomial family, multiple larger k"
+      },
+      {
+        "assessment": "n=1 varies k, distinct asymptotic regime, no fixed-k large-n result",
+        "evidence": [
+          "published-finding corpus 9edb3c31f9f5 Result: integer-slope unit-circle positivity"
+        ],
+        "identifier_or_url": "published-finding corpus published-record identifier 9edb3c31f9f5",
+        "material_read": "Full RESULT.md, especially identity for n=1 and stated limitations",
+        "method": "Public repository file read",
+        "title": "Fejér-square positivity for every integer-slope Hartogs diagonal kernel",
+        "trigger": "Overlapping Fejér method and exact Q polynomial for n=1"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6878ab13-c2f7-4eac-9d7a-617a3555ea6c",
+  "value": {
+    "rationale": "The exact distribution of zeros as the Hartogs exponent (n+k)/n approaches 1 is an intrinsically motivated degeneration problem: known finite kernel zeros may approach the boundary of the zero-free limiting domain in distinct ways. The theorem provides an all-k universal interior outlier, a regular polygon of boundary accumulation points and quantitative approach rates, not just a redisplay of a finite coefficient table. This distinguishes a persistent coordinate-product root from k-1 escaping spectral roots, is useful to organize fine Bergman zero-set geometry, and extends beyond the previously covered k<=3 limits.",
+    "status": "PASS"
+  }
+}

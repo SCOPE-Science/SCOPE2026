@@ -1,0 +1,15 @@
+# Scientific review: fixed-gap Hartogs numerator root condensation
+
+## Correctness — PASS
+The exact numerator formula, centering, cubic normalization and exponent bounds were independently reconstructed. The coefficient identity is an exact finite convolution; each coefficient is a trapezoidal sum for a compact piecewise-quadratic function, with an \(O_k(m^{-2})\) integration error from finitely many kink cells. The integrals give the universal factorization. The strict positive Fejér representation rules out boundary zeros for coprime parameters, and reciprocal symmetry plus Rouché identifies every root cluster and its rate. The saved checker has 108530 exact and numerical consistency assertions across independent coefficient algorithms; it does **not** replace the infinite proof.
+
+## Originality — PASS relative to inspected evidence
+Edholm--Mathew (arXiv:2505.20489, 2025) gives the base numerator and specific \(k=1,2\) root limits; the inspected gap-three published mathematical result gives a stronger \(k=3\) radial rate. Deng--Fu (arXiv:2611.07480, 2026) proves general unit-circle positivity and root counts, not the all-fixed-gap asymptotic factorization or positions. Other inspected gap-five and gap-seven-to-seventeen work establishes finite-family nonvanishing but no matching universal root-limit law. These special cases and the positivity input are acknowledged as prior. Exact coefficients do not alone amount to the derived uniform \(O_k(m^{-2})\) limit and multiplicity-aware \(O_k(m^{-1})\) root condensation. Remaining risk: equivalent older or obscure asymptotic work could exist; priority is not independently certified.
+
+## Mathematical value — PASS
+The family of rational Hartogs triangles with \(m=n+k\) degenerates toward the zero-free exponent-one triangle. Describing **where** its diagonal-slice zeros go is a natural quantitative question not solved by finite root counts. The result finds a universal real interior limiting point \(-2+\sqrt3\) for every fixed gap and organizes the remaining \(k-1\) roots at a regular root-of-unity configuration, with quantitative rates. It is a complete fixed-gap limiting classification, not an arbitrary finite numerical slice. No assertion is made about sharp radial constants, growing gaps or all two-variable zeros.
+
+## Closest literature and limits
+The closest source is Edholm--Mathew, *Arithmetic properties and zeros of the Bergman kernel on a class of quotient domains*, arXiv:2505.20489, especially its Section 4 and Remark 4.18. The all-k positivity comparison is Deng--Fu, *Bergman Kernel Zeros on Rational Hartogs Triangles*, arXiv:2611.07480. A published gap-three mathematical result supplies a stronger special-case radial coefficient. Other published fixed-gap results cover nonvanishing but not all-k root locations. All results are on an oblique parameter slice, not the kernel's positive Hermitian diagonal. No independent mathematical or priority audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
