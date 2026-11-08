@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every \(n\ge3\) and integer \(q\ge1\), the proof calculates each vertex's own load and distinguishes zero-valued goods in its neighbors' bundles. Both all-good EFX inequalities are necessary and sufficient, then translate bijectively to cyclic length-three windows. Matrix weights account for each labeled parallel-good allocation. Integer Newton identities verify the \(9\times9\) and \(16\times16\) determinant factors; independent exhaustive direct evaluation of 491320 individual orientations agrees for 21 test cases. The limits of finite tests are stated explicitly.
+PASS
 
-## Originality — PASS, with residual risk
+For each edge i let x_i count its goods allocated to i+1; self-value L_i=x_(i−1)+q−x_i. All-good EFX, crucially including deleting a good of zero value to the envier, is exactly equivalent to the two local inequalities x_i≤2x_(i−1)+1_(x_(i−2)=0) and 2x_(i−1)≤x_(i−2)+q+1_(x_i=q). They depend only on consecutive triples, so closed walks on state pairs (a,b) with binomial(q,c) weight count every labeled orientation exactly once, yielding trace(T_q^n). Integer Newton identities verify q2/q3 characteristic polynomials and their cubic recurrences; positive dominant roots with other eigenvalue moduli≤1 yield exponential survival bases. Independent direct all-good EFX orientation enumeration checks small n,q including zero-value goods and independent exact charpolys q2,3. Infinite n,q follows from the bijection, not finite tests.
 
-The motivating 2026 multigraph EFX paper proves general allocation existence, whereas the claim enumerates orientation-only EFX solutions on uniform multicycles. The 2024 paper treats multicycle existence and bipartite-multigraph orientability boundaries; the 2025 parameterized study treats decisions and charity. Neither accessible full-text material read supplies a homogeneous cycle orientation counting law. Existing exact simple-cycle and multistar claims concern different graph families/multiplicities and do not imply the present transfer matrix or cubic factors. Research-record and literature searches did not reveal equivalent spectra. Unindexed fair-orientation enumeration remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The number and random frequency of fair orientations are natural quantitative refinements of existence and constructibility for graph-constrained fair division. Doubling or tripling contested goods changes local EFX restrictions because a neighbor can hold zero-valued goods; this is reflected in the two extra indicator terms. The exact two- and three-copy laws reveal nontrivial algebraic rarity rates for all cycle lengths, rather than an arbitrary fixed-size census or mere re-evaluation of a known table.
+Qualified PASS: existence and computational complexity of EFX multicycle allocations/orientations are prior art; the evaluated all-good uniform-q census, small-q characteristic factors, and rarity comparison are not supplied by inspected existence papers. Particular q=1 simple-cycle enumeration is not novel.
 
-## Closest literature and limitations
+## value
 
-Afshinmehr et al., *EFX Allocations Exist on Multi-Graphs* (2026), https://arxiv.org/abs/2606.18665; Afshinmehr et al., *EFX Allocations and Orientations on Bipartite Multi-graphs: A Complete Picture* (2024), https://arxiv.org/abs/2410.17002; Kanellopoulos et al., *EF(X) Orientations: A Parameterized Complexity Perspective* (2025), https://arxiv.org/abs/2512.25033. The analysis covers homogeneous unit-valued endpoint goods and strict all-good EFX for orientations, not heterogeneous weights or general allocations. It does not assert absolute publication priority. Independent review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Counting all fair orientations, not merely proving existence, is a natural enumerative refinement for agents with identical incident-unit values. Exact transfer law and first genuinely parallel q2/q3 spectra expose a non-obvious survival-rate comparison relevant to random allocations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

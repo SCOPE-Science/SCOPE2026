@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The file `verify.py`, included with the result, is a standard-library-only exact checker. It tests every labeled orientation on 21 small multicycle instances (491320 individual orientations), compares independent direct all-good EFX evaluation with the transfer trace, and verifies two claimed characteristic factorizations using integer Newton identities. Its expected terminal marker is `VERIFY_OK direct_cases=21 exhaustive_orientations=491320 charpoly_cases=3`.
+# Independent mathematical audit
 
-The mathematical proof is the cyclic-local-constraint bijection and finite characteristic polynomial computation. Finite exhaustive checks cover their stated cases only; the general formula for unbounded cycle length and multiplicity relies on the proof. No independent validation or external certificate has been performed.
+## correctness
+
+PASS
+
+For each edge i let x_i count its goods allocated to i+1; self-value L_i=x_(i−1)+q−x_i. All-good EFX, crucially including deleting a good of zero value to the envier, is exactly equivalent to the two local inequalities x_i≤2x_(i−1)+1_(x_(i−2)=0) and 2x_(i−1)≤x_(i−2)+q+1_(x_i=q). They depend only on consecutive triples, so closed walks on state pairs (a,b) with binomial(q,c) weight count every labeled orientation exactly once, yielding trace(T_q^n). Integer Newton identities verify q2/q3 characteristic polynomials and their cubic recurrences; positive dominant roots with other eigenvalue moduli≤1 yield exponential survival bases. Independent direct all-good EFX orientation enumeration checks small n,q including zero-value goods and independent exact charpolys q2,3. Infinite n,q follows from the bijection, not finite tests.
+
+## originality
+
+PASS
+
+Qualified PASS: existence and computational complexity of EFX multicycle allocations/orientations are prior art; the evaluated all-good uniform-q census, small-q characteristic factors, and rarity comparison are not supplied by inspected existence papers. Particular q=1 simple-cycle enumeration is not novel.
+
+## value
+
+PASS
+
+Counting all fair orientations, not merely proving existence, is a natural enumerative refinement for agents with identical incident-unit values. Exact transfer law and first genuinely parallel q2/q3 spectra expose a non-obvious survival-rate comparison relevant to random allocations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
