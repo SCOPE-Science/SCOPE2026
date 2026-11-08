@@ -1,13 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The prime-power characterization is proved directly, including zero and unit residue cases and the excluded intermediate valuation. For each residue class modulo \(p\), the lift count is either \(p^{a-1}\), one, or zero; the proof exhausts these possibilities, then applies CRT. For consecutive shifts the three ranges are evaluated without an asymptotic approximation. Positivity produces the attained sharp cutoff; a two-sided inclusion–exclusion argument yields the exact run histogram. A standalone direct-residue enumerator reproduces all 8,343 tested counting cases; its role is corroboration only.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** The closest inspected 2023/2025 arXiv manuscript and its 2026 journal publication compute the one-point quantity \(\varrho(n)\) (Morgado's formula) and random single-message success, not the all-finite-pattern correlation law, run cutoff, or exact histogram. A full-text inspected Haukkanen–Tóth paper treats a regular-integer Ramanujan sum and Fourier transforms; its known Fourier expression does not state these evaluated correlation formulas. The 2025 and 2026 RSA preprints' accessible abstracts establish correctness on regular messages but not simultaneous-shift counts; its full PDF was inaccessible. Mathematical-record searches with regular-integer, simultaneous-shift, von Neumann regular, and consecutive-run aliases returned unrelated near matches. An earlier implicit or general finite-ring formulation may exist; searches alone cannot certify priority.
+PASS
 
-**Mathematical value — PASS.** The source's count of individual regular residues is extended to *all* finite translate patterns, addressing a motivated joint-regularity question for structured groups of consecutive or otherwise correlated messages. The dependence on repeated modulo-\(p\) shift classes is an exact structural obstruction not recoverable simply by multiplying one-point probabilities. The resulting sharp universal maximum \(2q-1\) and complete formula for the distribution of maximal run lengths constitute a natural classification of periodic regularity blocks at arbitrary moduli. No encryption-security conclusion is implied.
+For n>=2 and any nonempty finite integer shift set H, the local criterion z regular in Z/p^a iff z is a unit or zero mod p^a is proved: p|z with 0<v_p(z)<a makes z(zy-1) have valuation v_p(z), which cannot vanish mod p^a. Partition starting residues x mod p by whether an occupied shift class c satisfies x+c=0: p-r_p(H) unobstructed classes have p^(a-1) successful lifts, and each occupied class contributes one lift iff all its shifts coincide mod p^a. Chinese remaindering gives the product for C_n(H). For H={0,...,L-1}, exact occupied multiplicities yield the p,p-L and 2p-L piecewise factors, including p and 2p boundary overlaps; nonsquarefree minimal squared-prime q determines maximal length 2q-1 and B_n(2q-1)>0. Double indicator inclusion-exclusion gives exact bounded cyclic run histogram E_n(L)=B_n(L)-2B_n(L+1)+B_n(L+2). Squarefree moduli are explicitly excluded from bounded-run statement. Independent fresh exact-integer residue counting agreed with the product on 714 cases for n=2..120 and six diverse shift sets per modulus. The original verify.py was inspected, not assumed to certify infinity.
 
-**Closest literature.** Morgado (1972), Haukkanen–Tóth (2010/2012), Dohmen–Lange-Geisler arXiv:2304.02471v7 (original 2023), and Cryptology ePrint 2025/1157 (initial 2025-06-18). The 2026 journal version is not used as evidence of first public appearance for the arXiv paper.
+## originality
 
-**Limits and risks.** The inaccessible full PDF of the 2025 and 2026 RSA preprints, older ring-theoretic generalities, and possible unpublished formulations leave a residual priority risk. Correctness and novelty have no independent audit; the finite exhaustive tests are not an unbounded proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge original extension of regular-integer counting from single residues to exact arbitrary simultaneous shift correlations and a complete run-length histogram. Haukkanen–Toth develop regular-integer Fourier/Ramanujan sums; Dohmen–Lange-Geisler count the regular residues and discuss one-message RSA correctness. Neither inspected theorem states the collision-sensitive local law and its run distribution. A Fourier inversion may give an alternate route but is not itself a demonstrated stronger evaluated formula. Full 2025/1157 and 2026/1589 IACR PDFs were not obtained; only public abstracts were checked, so their priority risk is explicit rather than a scientific FAIL.
+
+## value
+
+PASS
+
+The regular elements of finite residue rings are a natural arithmetic object and their one-point count is classical. Exact multi-translation joint probabilities and full maximal-run distribution measure spatial structure absent from the one-point invariant, with a sharp smallest-squared-prime cutoff and collision-sensitive shifts. Such exact quantities are independently useful for questions about patterns in periodic arithmetic sets; the claim makes no unsupported cryptographic security assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
