@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The universal static formula follows from the forest/tree obstruction and explicit two-parity star witnesses. The finite adaptive table follows from the exact version-space recurrence, exhaustive integer-mask evaluation, independent topological-sort enumeration, an independent depth-ten impossibility calculation, and a complete depth-nine tree whose 512 witnesses are replayed against every answer path. The result claims no infinite-size formula.
+## correctness
 
-## Originality
-PASS under accessible comparisons. Chan and Pak's 2023 preprint treats zigzag linear-extension enumeration but not the adaptive comparison depth. The known general linear-extension static classification implies the VC component and is not presented as novel. Existing exact dimensions for all permutations or for other restricted permutation classes do not entail the displayed exact dimensions for this subclass. No covering mathematical claim was identified among the compared scholarly sources and research records. Residual priority risk remains for differently named online comparison-tree results.
+PASS
 
-## Mathematical value
-PASS. The height-two fence family is canonical and has Euler zigzag counts. The calculation distinguishes its adaptive comparison complexity from the known static dimension and identifies the first information-bound failure at seven positions and the first three-unit adaptive excess at eight. This is an exact finite threshold rather than an arbitrary unmotivated slice.
+For arbitrary n, a cyclic query graph forces a transitivity-contradicting labeling; a spanning tree is also unshatterable because it has a path opposing a fixed adjacent fence comparison, establishing VC<=n-2. Comparisons forming parity-class stars realize every 0/1 pattern, proving equality. For each n=2,...,8, independent enumeration of all up/down permutations and a monotone bitmask recursion can(S,d) using all nonadjacent queries and only valid cardinality pruning computed 0,1,2,4,5,7,9 exactly; n=8 has 1385 concepts and both depth nine feasible and depth ten impossible. It was a full version-space search with 10,991 cached states at n=8, not a sample. The package certificate contains an additional explicit 511-internal-node depth-nine witness, whose entire uploaded bytes were not replayed locally; this is not needed for the independent exhaustive recurrence.
 
-The adaptive results beyond eight positions remain unknown here; independent historical-priority verification may find related formulations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the narrow incremental claim after statement-level comparisons; accessible full primary texts checked where available, material-access limits and priority risks explicit. The exact adaptive finite table, not static VC or Euler enumeration.
+
+## value
+
+PASS
+
+Online comparison shattering of fence-poset linear extensions is a natural adaptivity invariant; its exact sequence through the first nontrivial gap n=8 is a complete motivated finite classification rather than an arbitrary sample. The proven VC formula is prior general theory and contextual only; the adaptive exact table is the added value, with no claim beyond n=8.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
