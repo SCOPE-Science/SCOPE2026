@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The universal estimate uses a strictly positive affine reciprocal polynomial and an exact three-contact concavity argument. At the stated three-dimensional witness the difference between squared residual and the proposed constant squared times squared iterate norm is an explicitly displayed positive-semidefinite quadratic form; its coefficient matrix is actually positive definite. Both calculations were reconstructed and verified symbolically by the standalone checker. The positive-definite limiting family follows by continuity of the strict quadratic inequality for each smaller proposed constant.
+
+**Originality — PASS, with historical-priority risk.** The closest inspected source is Dereziński–Nakatsukasa–Rebrova, arXiv:2604.16075v1, whose Theorem 9 gives \(3/(k^2-1)\) and whose reciprocal-polynomial proof motivates this result; at \(k=2\) that provides only \(1\). Levin–Saff's 1988 Theorem 2.3 gives general \(k^{-2}\) reciprocal-approximation rates, not this weighted spectral extremizer. Binh Lam's 1976 paper is relevant to exact scalar rational approximation, but only its abstract was accessible; scalar approximation is *not* claimed as a new mathematical topic. No matching all-PSD two-dimensional Krylov-subspace sharp-value theorem was found in the inspected literature, the mathematical-record searches or the accessible prior claims. Independent historical-priority verification remains necessary.
+
+**Value — PASS.** A sharp and attained finite-step guarantee for the actual backward-error objective supplies a useful initial-iteration benchmark where the motivating theorem is quantitatively vacuous. The explicit three-point spectral measure shows that a scalar uniform rational upper bound is genuinely the worst case for the optimization problem itself, and the positive-definite limiting family rules out explaining sharpness solely through exact singularity.
+
+**Limitations.** Exact arithmetic only; singular extremizer, positive-definite approximation rather than finite SPD equality; no assertion about later MINBERR steps, numerical stability, or nonsymmetric operators. The 1976 scalar rational-approximation source could not be examined in full.
+
+Self-review: passed. Independent audit: not yet performed.

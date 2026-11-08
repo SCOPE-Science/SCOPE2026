@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For norm-one PSD matrices, p(t)=2(1+sqrt(2))-4t is strictly positive, and t-1/p(t) is concave with signed contacts -E,+E,-E at t=0,1/sqrt(2),1, proving a uniform matrix-functional-calculus bound E=(sqrt(2)-1)/2. For A=diag(0,1/sqrt(2),1) and squared component weights sqrt(2)-1,sqrt(2),1, the residual-square minus E^2 iterate-square is exactly a quadratic in affine polynomial coefficients with leading minor 3-sqrt(2)>0 and determinant (3sqrt(2)-4)/8>0; its unique zero is the constructive p. Thus the lower bound holds for ALL affine polynomials, and the upper bound is attained. Strict quadratic positivity for each smaller constant survives SPD perturbation of the zero eigenvalue, proving the limiting SPD supremum. Exact identities were rerun with the included SymPy file; random tests supplement but do not establish the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2604.16075v1 Theorem 9 gives 3/(k^2-1) and Remark 10 gives a numerical conjecture for large-k optimal constants",
+        "https://www.math.vanderbilt.edu/saffeb/texts/80.pdf Theorem 2.3 gives bounds up to positive constants rather than fixed degree-one values"
+      ],
+      "reasoning": "The source bound has the same universal PSD matrix and vector scope but is strictly weaker at k=2 (1 versus about 0.2071). The older reciprocal approximation rate theorem is broader over degrees but does not imply the sharp single-iteration constant or a worst-case b without further arguments. Generic MINRES/GMRES results use different objectives.",
+      "searches": [
+        "MINBERR 2-step sharp bound positive semidefinite all b",
+        "MINBERR two-dimensional Krylov backward error sharp universal first two steps 0.207106781 3x3 PSD",
+        "minimum backward error second Krylov iterate positive semidefinite 3x3 extremal eigenvalues"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2604.16075v1 (full relevant HTML sections)",
+      "https://www.math.vanderbilt.edu/saffeb/texts/80.pdf (selected extracted PDF sections)",
+      "https://doi.org/10.1137/0713076 (abstract only)",
+      "public mathematical-record semantic queries about MINBERR and exact second-step constants; closest records concern distinct MINRES positivity and GMRES(1) error objectives"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2604.16075v1 eqs (7), Theorem 9 and proof inequalities give a one-sided reduction to polynomial reciprocal approximation",
+        "https://www.math.vanderbilt.edu/saffeb/texts/80.pdf Theorem 2.3 gives order bounds without explicit degree-one constants",
+        "https://doi.org/10.1137/0713076 abstract alone is insufficient to exclude a scalar formula"
+      ],
+      "reasoning": "The motivating paper proves a one-sided minimax upper bound, not equality with a reciprocal-polynomial norm over spectral measures. A scalar best error would not alone imply that a fixed b forces every affine polynomial to incur it. The new exact positive-definite quadratic certificate makes this implication rigorous for a three-point spectral measure. A preexisting more general matrix approximation duality could potentially cover the claim; none was identified.",
+      "searches": [
+        "Derezinski Nakatsukasa Rebrova MINBERR degree one reciprocal polynomial lower bound worst case",
+        "best uniform reciprocal linear polynomial approximation x on [0,1] (sqrt(2)-1)/2 equioscillation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2604.16075v1 sections 3.1 and 4.1 (backward error definition and ideal MINBERR objective)",
+        "https://doi.org/10.1137/0713076 abstract describes best rational approximation, but no Krylov spectral-weight theorem in accessible abstract"
+      ],
+      "reasoning": "The claim is equivalent to a supremum over PSD spectral measures of an infimum of a quadratic ratio over affine polynomials, NOT merely to the scalar uniform reciprocal-polynomial error. The scalar minimax polynomial supplies an upper bound; the explicit positive weights and coercive quadratic certificate supply the required reverse inequality.",
+      "searches": [
+        "MINBERR sharp 2 iteration backward error constant one step reciprocal polynomial degree one sqrt2-1 /2 PSD",
+        "Derezinski Nakatsukasa Rebrova universal MINBERR degree-one best uniform reciprocal polynomial exact extremal spectrum 0 1/sqrt2 1",
+        "MINBERR two iterations exact backward error worst case rational approximations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/html/2604.16075v1 sections 4.1 and 5.2 contain generic error bounds and synthetic examples, not an exact tabulated second-subspace worst-case constant",
+        "https://doi.org/10.1137/0713076 abstract mentions closed-form rational approximation errors for other classes"
+      ],
+      "reasoning": "This theorem is an optimized operator-error value across all finite-dimensional PSD instances, not a table of numerical data. The checked sources did not provide a table with the exact algorithmic constant or an equivalent three-point spectral witness. A historical scalar approximation table may exist and is expressly not claimed as novel.",
+      "searches": [
+        "MINBERR two steps 0.20710678 3/(k^2-1) Dereziński Nakatsukasa Rebrova",
+        "best uniform approximation x by reciprocal affine polynomial on [0,1] sqrt2"
+      ]
+    },
+    "rationale": "The inspected motivating 2026 paper bounds the ideal MINBERR backward error by 3/(k^2-1); for k=2 this equals 1, not the attained exact worst-case factor (sqrt(2)-1)/2. Its polynomial approximation step supplies the known method of finding universal UPPER bounds, whereas the three-mode spectral-weight lower-bound certificate and sharp finite-step algorithmic value are not stated. Levin and Saff (1988) prove rate estimates for polynomial reciprocals; their Theorem 2.3 does not state the weighted MINBERR sharp threshold. Binh Lam (1976) describes exact rational Chebyshev errors and may include the scalar approximation constant; the claim is strictly the worst-case optimization value and matched matrix/vector witness, not priority for scalar approximation itself. Source comparisons and mathematical-record searches disclosed no covering algorithmic theorem, but publication priority is not independently certified.",
+    "residual_risks": [
+      "The 1976 Binh Lam full text and some older equivalent approximation calculations were unavailable; priority for the scalar reciprocal-affine constant is not asserted.",
+      "Semantic searches of mathematical records and published sources cannot rule out unindexed equivalent results or stronger abstract duality formulations.",
+      "The witness uses a singular inconsistent system; the positive-definite extremal value is a supremum approached as the smallest eigenvalue tends to zero."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces MINBERR and its one-sided general bound, not the exact two-step sharp constant or attaining three-mode measure.",
+        "evidence": [
+          "Theorem 9 states 3/(k^2-1)",
+          "Proof reduces upper bound to max over [0,1] of |t-1/p(t)|",
+          "Remark 10 discusses putative asymptotic constant rather than the exact early step"
+        ],
+        "identifier_or_url": "arXiv:2604.16075v1",
+        "material_read": "Full HTML sections 3.1 and 4.1, Theorem 9, Remark 10, polynomial proof and Appendix C; numerical examples in section 5.2",
+        "method": "Primary open arXiv HTML text inspection",
+        "title": "Towards Universal Convergence of Backward Error in Linear System Solvers",
+        "trigger": "Introduces the algorithm and broadest applicable PSD bound"
+      },
+      {
+        "assessment": "Rate results not a weighted two-step Krylov backward-error extremal theorem.",
+        "evidence": [
+          "Theorem 2.3 gives two-sided k^-2alpha rate estimates for reciprocal approximation of x^alpha on [0,1]"
+        ],
+        "identifier_or_url": "https://www.math.vanderbilt.edu/saffeb/texts/80.pdf",
+        "material_read": "Accessible PDF extracted abstract, introduction and Theorem 2.3; visual page rendering timed out; did not assert examination of entire scanned document",
+        "method": "Open PDF extracted text (visual page fetch unavailable)",
+        "title": "Degree of Approximation of Real Functions by Reciprocals of Real and Complex Polynomials",
+        "trigger": "Closest cited general reciprocal-polynomial approximation theory"
+      },
+      {
+        "assessment": "Possibly contains scalar reciprocal-affine minimax expressions, but no evidence in accessible material of the PSD MINBERR spectral-weight sharpness statement. Material uncertainty retained.",
+        "evidence": [
+          "Abstract concerns explicit errors for rational approximation of a polynomial of degree n+1",
+          "No claim of complete-text exclusion is made"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0713076",
+        "material_read": "Publisher abstract and bibliographic entries only; full text inaccessible via publisher and authorized institutional path was unavailable",
+        "method": "Publisher page abstract inspection; institutional access unavailable",
+        "title": "A Note on Best Uniform Rational Approximation",
+        "trigger": "Plausible classical exact scalar minimax special-case coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d7c7cc6f-cdd4-4ed1-a711-f6c4dd963cb4",
+  "value": {
+    "rationale": "The motivating general MINBERR estimate at two Krylov vectors only yields a backward-error factor of 1. The new exact attained factor about 0.2071 is substantially sharper, directly operational for stopping and method comparison. The critical three-point positive spectral measure proves that the reciprocal polynomial estimate is not an artificial analysis artifact, and the SPD limiting result shows relevance to arbitrarily ill-conditioned consistent systems. A rigorous exact finite-step sharp benchmark is useful even without a new all-k convergence theorem.",
+    "status": "PASS"
+  }
+}
