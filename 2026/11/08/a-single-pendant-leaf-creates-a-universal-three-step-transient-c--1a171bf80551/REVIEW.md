@@ -1,0 +1,15 @@
+# Mathematical assessment
+
+## Correctness — PASS
+The domain, graph operation, field and exact-entry convention are explicit. The cube adjacency lemma is proved by a concrete invertible substitution in a truncated group algebra. In odd dimension, a three-vector nilpotent chain and an orthogonal invariant complement give the complete Jordan decomposition. In even dimension, explicit powers through the fifth update and independently calculated ranks one through three give the full zero-primary partition and recurrent fixed-space dimension. Fitting decomposition then gives each exact entrance-period population. The proof covers the smallest dimensions, the entire family and every finite characteristic-two extension field. Separate exact rank and full-state verification scripts were executed successfully on the stated ranges; the proof is not dependent on numerical extrapolation.
+
+## Originality — PASS, subject to historical priority risk
+The closest mathematical foundations treat additive automata on translation-invariant lattice geometries, and the closest high-dimensional cube paper studies a different, non-additive totalistic rule and an unmodified cube. A nearby published modular parity census concerns the distance-two graph, not a distance-one cube with a pendant vertex. Actual searches included the one-leaf Boolean-cube adjacency, pendant GF(2) Jordan form, neighbor-sum dynamics, and semantic publication-record comparisons. The examined sources do not provide an implication establishing this one-leaf cube's characteristic-two Jordan forms, the sharp three-update entrance law or the full census. Since a literature search cannot certify global priority, an unindexed equivalent or broader perturbation theorem remains a residual risk.
+
+## Mathematical value — PASS
+The ordinary cube has a complete dimension-parity dichotomy: in odd dimension every state is initially periodic, whereas in even dimension every state vanishes in at most two steps. The single-leaf perturbation simultaneously creates a sharp length-three nilpotent clock in *every* dimension, changes the dimension of the recurrent space from almost full to just two across the parity boundary, and yields a universal maximum-entry fraction independent of cube dimension. This is an exact all-dimension structural boundary-effect classification on a canonical graph family, with a natural state-transition census, rather than a small isolated numerical invariant or an arbitrary parameter slice.
+
+## Sources and remaining limits
+Wolfram (1983) establishes general background, Martin–Odlyzko–Wolfram (1984) provides the relevant linear-automaton framework, and Brunnet–Chaté (2004) examines non-additive high-dimensional cube dynamics. The accessible full texts were inspected in relevant sections. The closest published research-record matches were compared by object and implication, rather than by title alone. The result is limited to a single pendant leaf and characteristic two. Independent audit and historical-priority verification remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
