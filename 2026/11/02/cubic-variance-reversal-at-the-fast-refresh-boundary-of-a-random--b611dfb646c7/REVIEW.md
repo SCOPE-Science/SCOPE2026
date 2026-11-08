@@ -1,11 +1,21 @@
-# Review of the cubic fast-refresh variance boundary
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is an expansion in \(q=1-p\) for iid site biases with a bounded nearest-neighbour step. Exact renewal reward identities reduce its coefficients to four static-block moments. Each static path receives a product of site-departure moments; paths of length at most four require only first and second site moments. Explicit exact path enumeration yields the displayed values of \(A_n\) and \(B_n\), and substitution produces the coefficient \(-8s^2\). The uniform \(O(q^4)\) tail follows from \(|Z_n|\le n\) and the geometric tail. The strict maximum at zero drift and the triangular-family crossover follow from strict signs and uniform remainder control. The exact-fraction checker corroborates the finite identities but is not treated as an infinite proof.
+## correctness
 
-**Originality — PASS, historically qualified.** Martin--Nagel's October 2026 primary result and Lemma 3.3 already give the first two derivatives, including the positive nonzero-drift quadratic coefficient. This work does not reclaim that. Inspection of the full accessible primary text, its result statements, relevant cooling-RWRE literature, semantic mathematical-record searches and available related scientific claims revealed no third derivative \((\sigma^2)'''(1)=48s^2\), the strict zero-drift maximum or the nearly-unbiased crossover. The closest comparison has the opposite fixed-nonzero-drift regime and does not imply the sign when the quadratic coefficient vanishes. A more general prior perturbation theorem might subsume this special model; priority has not been independently certified.
+PASS
 
-**Mathematical value — PASS.** At zero drift the curvature result previously used to establish a local minimum becomes exactly inconclusive; the cubic term determines a genuine reversal in variance behavior, and the sharp \(|m|\asymp\sqrt{1-p}\) scaling describes where the two mechanisms compete. This identifies a missing structural regime in a natural stochastic model, not a mere substitution or numerical constant improvement.
+Block regeneration gives v=p^2 sum q^{n-1}A_n and sigma^2=p^2 sum q^{n-1}(B_n-2nvA_n+n^2v^2). Each path of at most four steps departs a site at most twice; annealed weights use only mean and variance of omega. Independently re-enumerated exact first four displacement moments and symbolic q^3 series, recovering +12sm^2 and -8s^2 and absence of q term; absolute |A_n|<=n,B_n<=n^2,|v|<=1 bound all n>=5 uniformly by O(q^4). For m=0,s>0 the negative cubic gives strict local maximum; for s(q)->s0 and m(q)^2/q->tau the nonzero limit is 12s0 tau-8s0^2. Equality threshold not decided, nor global monotonicity.
 
-The mathematical scope is restricted to iid one-dimensional environments refreshed globally at geometric times. The equality-line crossover needs higher order, and no full-interval monotonicity or nongeometric generalization follows. The independent-audit channel remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for cubic term, unbiased local-maximum reversal, and triangular near-unbiased boundary. Martin–Nagel introduced the exact model and previously established second derivative and nonzero-drift minimum; that result vanishes at m=0 and cannot imply the sign of the cubic term. Full primary paper could not be directly read here, so a corresponding third derivative hidden in its text remains a real risk.
+
+## value
+
+PASS
+
+Zero drift is the structurally singular regime where known positive second-order curvature disappears. An explicit third-order sign and sharp square-root drift crossover describe a new statistical phase boundary, not a routine second-derivative restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

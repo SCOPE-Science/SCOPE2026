@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible analytical and computational checks
+# Independent mathematical audit
 
-The proof is in `RESULT.md`, with the renewal-reward identity, explicit path-weight formula and fully uniform bound on omitted geometric-block contributions. The standalone `checker.py` requires only standard Python libraries; invoke `python checker.py` in the same folder. It exhaustively enumerates two-sided paths through length four and computes all assertions using exact rational fractions; no enumeration of finite paths purports to prove an infinite-domain theorem.
+## correctness
 
-Eight rational environment laws (symmetric, asymmetric, multi-atom and deterministic) confirm four first moments, four second moments, four velocity coefficients and four diffusivity coefficients each. A separate symmetric two-atom example with retention failure `q=1/10` is checked with exact moments through block length twelve and a provable geometric remainder estimate; the accepted signs follow from the analytic Taylor theorem, not that example. The actual results in `checker-output.txt` include 129 passed exact rational assertions and the numerical values of the rational quantities.
+PASS
 
-Not established: independent verification, historical uniqueness, general refresh mechanisms or the sign exactly at the critical triangular scaling boundary.
+Block regeneration gives v=p^2 sum q^{n-1}A_n and sigma^2=p^2 sum q^{n-1}(B_n-2nvA_n+n^2v^2). Each path of at most four steps departs a site at most twice; annealed weights use only mean and variance of omega. Independently re-enumerated exact first four displacement moments and symbolic q^3 series, recovering +12sm^2 and -8s^2 and absence of q term; absolute |A_n|<=n,B_n<=n^2,|v|<=1 bound all n>=5 uniformly by O(q^4). For m=0,s>0 the negative cubic gives strict local maximum; for s(q)->s0 and m(q)^2/q->tau the nonzero limit is 12s0 tau-8s0^2. Equality threshold not decided, nor global monotonicity.
+
+## originality
+
+PASS
+
+Qualified PASS for cubic term, unbiased local-maximum reversal, and triangular near-unbiased boundary. Martin–Nagel introduced the exact model and previously established second derivative and nonzero-drift minimum; that result vanishes at m=0 and cannot imply the sign of the cubic term. Full primary paper could not be directly read here, so a corresponding third derivative hidden in its text remains a real risk.
+
+## value
+
+PASS
+
+Zero drift is the structurally singular regime where known positive second-order curvature disappears. An explicit third-order sign and sharp square-root drift crossover describe a new statistical phase boundary, not a routine second-derivative restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
