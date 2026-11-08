@@ -1,19 +1,21 @@
-# Review: c-normal maximal Sylow flags in coprime affine extensions
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument proves the criterion for every subspace \(W\le V\), including subspaces not preserved by the complement. Normality of the constructed supplement follows because its vector part is \(H\)-stable and contains \([V,H]\). The averaging decomposition is valid because \(p\) does not divide \(|H|\). The semisimple-module flag classification requires one-dimensional constituents, and the graph-lift recurrence provides the exact Gaussian coefficient. Direct small-group normal-subgroup checks and independent flag enumerations agree. No finite experiment is used as an infinite proof.
+PASS
 
-## Originality — PASS, with explicit priority risks
+For G=V⋊H, |H| prime to p, the averaging idempotent splits V=F⊕U with F=V^H and U=[V,H]. A normal supplement N of a p-subgroup W forces H<=N then U<=N, so W∩U is H-stable; conversely if K=W∩U is stable choose F-complement L of projection(W) and N=(U⊕L)⋊H, obtaining WN=G and W∩N=K<=Core_G W. In a complete flag each step changes either intersection with U or projection to F, giving invariant U-flags and unconstrained F-flags. Maschke implies invariant U full flags exist iff every irreducible constituent is one-dimensional; count shuffles of eigenspace flags u!/∏mχ! ∏Φ_p(mχ). For fixed component flags and interleaving, projection steps at intersection rank a have p^(u−a) graph-map extensions, whose Gaussian binomial sum [n choose u]_p multiplies Φ_p(f), giving the theorem and ratio. All flags c-normal iff every H-matrix scalar on U. Independent group multiplication, normal-subgroup enumeration for F3^2⋊C2 diag(-1,1) matched the criterion for every one of six V-subspaces (14 group subgroups, six normal); independent full-flag enumeration for the Klein action on F3^3 with distinct moving characters and one fixed coordinate gave exactly 26/52. No enumeration is used in place of the all-group proof.
 
-The full 2026 Meng–Geng source defines c-normal maximal chains and derives \(p\)-nilpotence and supersolvability consequences rather than an exact affine flag count. Beltrán–Shao (2023) concerns AC-normality with an external coprime action and tests invariant subgroups, not the c-normality of every subspace of a semidirect product. Tărnăuceanu (2015) enumerates unrestricted elementary-abelian chains without this ambient c-normality condition. Targeted mathematical research records and published-source searches did not identify an equivalent enumeration or a broader theorem explicitly implying it. Older 1996–2003 c-normality literature and general semisimple-module flag combinatorics might encode a derivation; absolute historical priority has not been independently determined.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 2026 work motivates determining when c-normal maximal Sylow chains exist. Here the complete count is obtained for every coprime elementary-abelian extension, not just cyclic or scalar actions. The result supplies an exact zero/nonzero boundary, a sharp all-flags boundary, and a fixed-space-independent density, together with a reversible structural explanation. It quantifies a natural group-theoretic condition that existence-only criteria cannot measure.
+Best-of-knowledge qualified: the final statement is not shown to be equivalent to, an implication of, or covered by the materially inspected prior primary statements. General background and known subcases are credited explicitly; inaccessible plausible primary literature is a documented priority risk, not automatic scientific failure.
 
-## Scope and residual limits
+## value
 
-The theorem is restricted to elementary abelian kernels of split coprime extensions and counts distinct flags rather than conjugacy classes. It does not assert novelty relative to all unpublished or inaccessible sources. The available small examples corroborate but do not replace the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full c-normal constrained chain enumerator and existence/all-flags criteria for a broad natural coprime semidirect-product class answer a natural quantitative refinement of the recent c-normal maximal-chain question. The explicit representation-theoretic multiplicity dependence and independence from fixed-subspace dimension are structural, not a restatement of unconstrained Gaussian flag counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

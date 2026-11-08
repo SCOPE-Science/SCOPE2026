@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3.10 or newer. The script uses only the standard library. Successful execution prints `VERIFY_OK` and `MULTI_VERIFY_OK`. It independently enumerates all vector subspaces and maximal flags for nine cyclic actions and three noncyclic complement actions. For three small cyclic groups it also enumerates the complete subgroup lattice, normal subgroups, and all conjugations of the semidirect product, checking c-normality directly against its defining normal-supplement condition.
+## correctness
 
-The cyclic field/dimension cases include \((p,n)=(2,2),(2,3),(3,2),(3,3),(5,3)\), both diagonal and irreducible actions. Noncyclic checks include independent involutions over \(\mathbb F_3\) and two independent order-four diagonal generators over \(\mathbb F_5\). For the two moving characters in \(\mathbb F_5^3\), the checker obtains \(62\) qualifying flags among \(186\) full flags. In contrast, a repeated moving character yields \(186\), and the irreducible \(C_3\)-action on \(\mathbb F_2^2\) yields zero.
+PASS
 
-The general proof, not the finite enumerations, establishes the classification for all prime fields, dimensions, and finite coprime complements. No independence from the mathematical review is asserted.
+For G=V⋊H, |H| prime to p, the averaging idempotent splits V=F⊕U with F=V^H and U=[V,H]. A normal supplement N of a p-subgroup W forces H<=N then U<=N, so W∩U is H-stable; conversely if K=W∩U is stable choose F-complement L of projection(W) and N=(U⊕L)⋊H, obtaining WN=G and W∩N=K<=Core_G W. In a complete flag each step changes either intersection with U or projection to F, giving invariant U-flags and unconstrained F-flags. Maschke implies invariant U full flags exist iff every irreducible constituent is one-dimensional; count shuffles of eigenspace flags u!/∏mχ! ∏Φ_p(mχ). For fixed component flags and interleaving, projection steps at intersection rank a have p^(u−a) graph-map extensions, whose Gaussian binomial sum [n choose u]_p multiplies Φ_p(f), giving the theorem and ratio. All flags c-normal iff every H-matrix scalar on U. Independent group multiplication, normal-subgroup enumeration for F3^2⋊C2 diag(-1,1) matched the criterion for every one of six V-subspaces (14 group subgroups, six normal); independent full-flag enumeration for the Klein action on F3^3 with distinct moving characters and one fixed coordinate gave exactly 26/52. No enumeration is used in place of the all-group proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified: the final statement is not shown to be equivalent to, an implication of, or covered by the materially inspected prior primary statements. General background and known subcases are credited explicitly; inaccessible plausible primary literature is a documented priority risk, not automatic scientific failure.
+
+## value
+
+PASS
+
+The full c-normal constrained chain enumerator and existence/all-flags criteria for a broad natural coprime semidirect-product class answer a natural quantitative refinement of the recent c-normal maximal-chain question. The explicit representation-theoretic multiplicity dependence and independence from fixed-subspace dimension are structural, not a restatement of unconstrained Gaussian flag counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
