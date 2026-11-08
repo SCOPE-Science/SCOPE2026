@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The file `verify.py` uses only the Python standard library. Execute `python verify.py` alongside this file to test exact rational identities, not floating-point approximations.
+## correctness
 
-The checker independently enumerates uniform subsets and internal gap compositions for all integers \(2\le N\le11\) and \(2\le k\le N\). It checks conditional uniformity, total and conditional expectations, the two exact covariance identities, stochastic threshold means, the one-step urn transport equation, strict finite covariance signs, and quadratic-concentration monotonicity. In the recorded run it exited with status zero and printed `exact_checks_passed: 6527`.
+PASS
 
-Finite enumeration does not certify the infinite family. The uniformity induction, vector martingale identity, exact moment formulas, and covariance arguments in `RESULT.md` provide proofs for arbitrary finite admissible parameters. No external or independent audit has been performed.
+Conditional positive-composition law follows since every internal gap composition at span r has exactly N-r left-endpoint placements. From (1,...,1), the transition g→g+e_i with probability g_i/r yields target uniform composition because sum_i(h_i-1)=r+1-m. Conditional E[(g_i+1_i)/(r+1)|g]=g_i/r gives the simultaneous vector martingale; absolute gaps cannot decrease. Jensen plus independent-copy covariance identity establishes opposite signed associations and strict boundaries for k≥3 and N>k. Independent exact rational enumeration tested all k,N through N=9, conditional moments, transition distribution and covariance formulas; no finite-experiment leap is used.
+
+## originality
+
+PASS
+
+Kochar–Korwar 2001 already supplies sampling-without-replacement spacings and pairwise dependence; the Pólya and convex-order mechanisms are classical, and Calabrese 2012/2013 proves a related Pólya convex-order result with a different comparison parameter (replacement count at fixed draws). Their inspected statements do not assert the joint span-conditioned coordinate/normalized orders or exact span covariances. A general stochastic-order theorem could imply these after specialization; residual priority risk is explicit.
+
+## value
+
+PASS
+
+The natural, statistically interpretable span, adjacency, and relative concentration statistics exhibit a provably opposing clustering order for all finite grid and sample sizes; the simultaneous coupling yields a family of inequalities, not a renamed identity. Precise negative adjacency covariance gives a finite-sample calibration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
