@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cyclic predecessor criterion is precisely a nonzero diagonal in the four-pair Boolean transfer product. Every one of the four classical forbidden words yields the zero relation, proving necessity. The 13-state suffix-prefix avoidance automaton gives a canonical closed path for every cyclic avoiding word. Exact breadth-first closure of the product of this automaton with the 4-by-4 Boolean relation state, with path length capped at two, checks every possible returning cycle and proves period-preserving preimages for all lengths at least two. The one-cell exception follows immediately from the local truth table. The same 13-state integer transfer matrix, with exact Newton identities rather than polynomial fitting, proves the rational generating function and spectral growth. A second brute-force implementation checked all input rings through length sixteen. `verify.py` reproduced `VERIFY_OK`.
+PASS
 
-## Originality — PASS (qualified historical priority)
+The source correctly encodes Rule54 pair transitions T0=(1,8,0,12) and T1=(2,4,3,0). I independently reconstructed the 13 forbidden-pattern proper prefixes and their suffix transitions and exhaustively closed all reachable (prefix, Boolean 4x4 relation, min(length,2)) triples for each of 13 origins; their state counts matched the source. Each closed length>=2 state had a nonzero relation diagonal; forbidden patterns have zero relation product. The integer prefix adjacency determinant factorizes to (1+z^2)(1-2z+z^3-z^4), and direct periodic images through n=14 matched the avoiding words with singleton correction. The finite automaton closure, unlike sampled enumerations, covers all lengths.
 
-Jen (1989) established the forbidden basis for **linear** one-step Rule-54 image words; that part is explicitly credited, not republished as new. Martínez–Adamatzky–McIntosh (2014) gave Rule-54 glider, de Bruijn and subset diagrams, plus specific Garden-of-Eden configurations, not an all-length periodic-image characterization or exact rational image census in the inspected sections. Salo (2022/2023) established general finite-state decidability and weak periodic lifting concepts; these do not calculate the stated Rule-54 all-ring boundary or enumerator. Specific research-record searches and direct comparison with the preceding Rule-184 and Rule-110 claims found no equivalent. The possibility of an unpublished or unindexed older period-count table remains; the attribution is not an independent historical-priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-On a finite ring, membership in the bi-infinite image shift need not guarantee a predecessor of the same period. The theorem settles that issue at **every** ring size for a well-studied nonlinear cellular automaton, isolates an exact one-cell obstruction, supplies a constant-size constructive feasibility criterion, and derives the exact finite-volume number and asymptotic rate of possible outputs. These are natural reachability and information-loss invariants, not a finite table extension or a routine recomputation of the already-known forbidden patterns.
+Jen 1989 Proposition 2 proves the four finite forbidden words for finite blocks; this is not claimed new. Martínez–Adamatzky–McIntosh Rule54 subset diagrams and periodic examples are also established. The remaining exact same-period cyclic-lifting theorem and generating function are not stated in those focused inspected results; a different finite automaton census could overlap.
 
-## Verification scope and limitations
+## value
 
-The finite-state closure is mathematically exhaustive for arbitrarily long cycles because the complete relation and suffix states are retained. The length-sixteen direct census is not itself an all-length proof. We did not resolve multi-step image sets, precursor multiplicities, or the possibility of a historically prior equivalent result in less accessible sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It closes the natural distinction between locally permissible outputs and same-period ring preimages for a canonical cellular automaton, including an explicit all-n count and topological growth rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

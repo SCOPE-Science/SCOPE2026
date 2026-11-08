@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The companion `verify.py` implements the local Rule-54 output function and the four-by-four Boolean predecessor matrices from the truth table, independently constructs the forbidden-pattern suffix automaton, and checks all returning length-at-least-two cycles by exhaustive closure in the finite relation product state. It reports visited-state counts (in the canonical 13-state order) of `144, 131, 132, 119, 103, 112, 84, 67, 67, 65, 119, 112, 67`. No fixed path-length cutoff enters the mathematical certificate; equal triples are merged only when their exact automaton state, Boolean product and capped length match.
+## correctness
 
-The verifier calculates 13 exact transfer traces, uses Newton identities to recover all 13 coefficients of the characteristic determinant, and confirms `1, -2, 1, -1, -1, 1, -1` followed by seven zeros. It independently enumerates the Rule-54 image and cyclic forbidden avoidance for all ring sizes 1 through 16 and confirms the unique length-one exception. Expected final line: `VERIFY_OK`.
+PASS
 
-The direct enumeration is finite corroboration; the all-length conclusions are supplied by the finite relation closure and exact matrix identity. No independent audit or external theorem prover is claimed.
+The source correctly encodes Rule54 pair transitions T0=(1,8,0,12) and T1=(2,4,3,0). I independently reconstructed the 13 forbidden-pattern proper prefixes and their suffix transitions and exhaustively closed all reachable (prefix, Boolean 4x4 relation, min(length,2)) triples for each of 13 origins; their state counts matched the source. Each closed length>=2 state had a nonzero relation diagonal; forbidden patterns have zero relation product. The integer prefix adjacency determinant factorizes to (1+z^2)(1-2z+z^3-z^4), and direct periodic images through n=14 matched the avoiding words with singleton correction. The finite automaton closure, unlike sampled enumerations, covers all lengths.
+
+## originality
+
+PASS
+
+Jen 1989 Proposition 2 proves the four finite forbidden words for finite blocks; this is not claimed new. Martínez–Adamatzky–McIntosh Rule54 subset diagrams and periodic examples are also established. The remaining exact same-period cyclic-lifting theorem and generating function are not stated in those focused inspected results; a different finite automaton census could overlap.
+
+## value
+
+PASS
+
+It closes the natural distinction between locally permissible outputs and same-period ring preimages for a canonical cellular automaton, including an explicit all-n count and topological growth rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

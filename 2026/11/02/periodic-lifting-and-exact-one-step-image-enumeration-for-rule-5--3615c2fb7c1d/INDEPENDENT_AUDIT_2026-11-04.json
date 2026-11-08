@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T18:52:43.873860Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source correctly encodes Rule54 pair transitions T0=(1,8,0,12) and T1=(2,4,3,0). I independently reconstructed the 13 forbidden-pattern proper prefixes and their suffix transitions and exhaustively closed all reachable (prefix, Boolean 4x4 relation, min(length,2)) triples for each of 13 origins; their state counts matched the source. Each closed length>=2 state had a nonzero relation diagonal; forbidden patterns have zero relation product. The integer prefix adjacency determinant factorizes to (1+z^2)(1-2z+z^3-z^4), and direct periodic images through n=14 matched the avoiding words with singleton correction. The finite automaton closure, unlike sampled enumerations, covers all lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Martínez et al. 2014 Section 3.4 gives de Bruijn/subset diagrams and Garden-of-Eden patterns"
+        ],
+        "reasoning": "The inspected published constructions do not give the exact all-n indexed cyclic-image count or universal length-preserving lifting certificate.",
+        "searches": [
+          "Rule 54 complete structure 2014 subset diagram cycles",
+          "elementary cellular automaton Rule 54 cyclic ring exact image size periodic predecessor forbidden patterns 10110 10101 01101 10111101"
+        ]
+      },
+      "checked_sources": [
+        "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+        "https://arxiv.org/html/1410.3096v1",
+        "Resultary semantic search: elementary cellular automaton Rule 54 cyclic ring exact image size periodic predecessor forbidden patterns 10110 10101 01101 10111101"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jen gives zero-preimage finite factors but does not establish 13-origin relation closure",
+          "Source closure proved for every periodic length >=2"
+        ],
+        "reasoning": "New claim is strictly more than forbidding substrings; the finite-state certificate is the additional exact lifting argument.",
+        "searches": [
+          "elementary cellular automaton Rule 54 cyclic ring exact image size periodic predecessor forbidden patterns 10110 10101 01101 10111101",
+          "Jen 1989 Rule54 forbidden patterns"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jen Proposition 2 explicitly lists the four forbidden words",
+          "The source proves exact n-periodic existence rather than merely finite-block possibility"
+        ],
+        "reasoning": "Finite-block forbidden basis gives eventual/preimage language but does not automatically imply a predecessor of the same cyclic period.",
+        "searches": [
+          "elementary cellular automaton Rule 54 cyclic ring exact image size periodic predecessor forbidden patterns 10110 10101 01101 10111101",
+          "Jen 1989 Proposition 2",
+          "Rule54 periodic point lifting regular language"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source count list n=1..16 comes from exact determinant, not a finite lookup; prior 2014 cycle examples concern dynamics"
+        ],
+        "reasoning": "No exact published list found; a table or known rational zeta could cover the count if identified later.",
+        "searches": [
+          "Rule54 image counts rings 1 2 5 14 22 41 79",
+          "Rule54 dynamical image generating function"
+        ]
+      },
+      "rationale": "Jen 1989 Proposition 2 proves the four finite forbidden words for finite blocks; this is not claimed new. Martínez–Adamatzky–McIntosh Rule54 subset diagrams and periodic examples are also established. The remaining exact same-period cyclic-lifting theorem and generating function are not stated in those focused inspected results; a different finite automaton census could overlap.",
+      "residual_risks": [
+        "Automata zeta-function literature or historical Rule54 tables might already contain an equivalent rational count.",
+        "Finite closure certificate crucial; independent reconstruction matched but is not a formal proof assistant artifact."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves four forbidden patterns and finite-complement finite-block result, no same-length periodic census in inspected argument",
+          "evidence": [
+            "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf#page=25"
+          ],
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "PDF Section 5.1, especially scanned pages 444–446 and Proposition 2 on page 445; page image inspected",
+          "method": "Primary PDF text plus screenshot page 444",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "same Rule54 forbidden-word source"
+        },
+        {
+          "assessment": "Finite subset diagram and cycle examples, but not the all-n periodic-image formula",
+          "evidence": [
+            "https://arxiv.org/html/1410.3096v1#S3.SS4"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1410.3096v1",
+          "material_read": "Accessible full HTML, Sections 2, 3.3, 3.4 and 4 with tables",
+          "method": "Read primary HTML and compare exact scope",
+          "title": "Complete Characterization of Structure of Rule 54",
+          "trigger": "same rule and periodic subset diagrams"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It closes the natural distinction between locally permissible outputs and same-period ring preimages for a canonical cellular automaton, including an explicit all-n count and topological growth rate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+    "https://arxiv.org/html/1410.3096v1",
+    "Resultary semantic search: elementary cellular automaton Rule 54 cyclic ring exact image size periodic predecessor forbidden patterns 10110 10101 01101 10111101"
+  ],
+  "disposition": "passed",
+  "final_claim": "For Rule 54 on indexed cyclic binary rings, n>=2 outputs are reachable iff they avoid four known finite Garden-of-Eden words in periodic continuation; at n=1 only 0 is reachable. Exact rational image generating function -zQ'/Q-z, Q=(1+z^2)(1-2z+z^3-z^4), and growth lambda^n+O(1) follow.",
+  "limitations": [
+    "Scientific comparison is best-of-knowledge and does not certify exhaustiveness.",
+    "Finite checks are corroboration; all-range assertion rests on the reconstructed proof."
+  ],
+  "residual_risks": [
+    "Automata zeta-function literature or historical Rule54 tables might already contain an equivalent rational count.",
+    "Finite closure certificate crucial; independent reconstruction matched but is not a formal proof assistant artifact."
+  ],
+  "schema_version": 1
+}
