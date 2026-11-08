@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every minimum attractor must select one occurrence of each letter. For factors of length at most the period, a selected endpoint of an occurring cyclic transition can be aligned with the factor in any period copy, while constant factors are attracted by the chosen letter. For longer factors, the overlapping periodic occurrences cover the entire internal-boundary strip, hence the selected wrap-transition endpoint. Independently applying inclusion–exclusion to the forbidden edge events derives the exact count. The orientation classification for non-singleton runs and the terminal exception for singleton runs follow formally. A standalone literal-occurrence program checked 307 finite parameter families, 125,015 candidate sets and 29,362 distinct-factor profiles.
+## correctness
 
-**Originality — PASS, with residual risk.** The inspected primary works treat attractor bounds for powers (Mantaci et al., arXiv:1907.04660), infinite-word profiles (Restivo et al., arXiv:2206.00376), and attractors of binary Rote pseudopalindromic prefixes (Dvořáková–Hendrychová, arXiv:2308.00850). Their precise statements do not imply the cyclic-bigram equivalence and all-run-length optimal-set count for distinct-run cycles with at least three letters. Targeted scientific searches for cyclic run powers, bigram certificates, all optimal attractors and the count formula located related different word families but no covering theorem. Binary two-run cases are explicitly outside the accepted scope. An equivalent unindexed general result remains possible.
+PASS
 
-**Mathematical value — PASS.** Counting *all* optimal attractors is a finer invariant than determining minimum cardinality. The fixed-length bigram certificate collapses every factor constraint, including arbitrarily long factors, into a small structural test. The exact count for any positive run-length vector, together with two extremal closed forms, gives a natural complete classification and a sharp independence phenomenon for all nonsingleton runs. The result is neither a computed isolated table nor a restatement of the known power inequality.
+Any attractor needs one position of each of q>=3 distinct letters. With exactly q positions, hitting every cyclic transition a_j a_(j+1) is necessary and sufficient: for factors of length<=period realign around a selected transition or inside a constant run; factors longer than the period have translated overlapping occurrences covering every internal period-boundary position. Inclusion–exclusion over q transition types gives the exact 2^q-term product formula, including singleton-run overlap and the missing terminal period edge. For all run lengths>=2 each selected position witnesses at most one transition; the only two cyclic orientations yield 2 k^(q-1)(k-1) optimal sets. For all singleton runs only the terminal adjacency can be missed and count is k^q-k^(q-2). Independently enumerated literal factor occurrence masks for mixed (2,1,3),k=2 (18 attractors), (2,2,2,2),k=3 (108), (1,1,1),k=3 (24), and (2,2,2),k=2 (8), agreeing with short certificate and special formulas. Finite checks are corroborative only.
 
-Scientific boundaries: The proof assumes distinct letter types in one run each, at least three letter types, and at least two periods. Finite tests are supporting checks only. Unseen equivalences in broader periodic-word literature remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for an all-factor certificate using length-1/2 conditions and complete minimum-set counting polynomial for powers of distinct-run periods. Mantaci–Restivo–Romana–Rosone–Sciortino prove general word-power inequalities for minimum attractor sizes but no classification of every minimizing position set in this family; Dvořáková–Hendrychová analyze aperiodic binary Rote words. Related previously published Resultary attractor enumerations target other automatic/pseudopalindromic sequences.
+
+## value
+
+PASS
+
+The string attractor is a natural compression-theoretic invariant; a constant-length certificate replacing all substring constraints and a parameter-uniform exact count of every minimizer reveal structural rigidity of periodic words. The all-run-length and all-k formula is more than a finite sample or alphabet-size lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
