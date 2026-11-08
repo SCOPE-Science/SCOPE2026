@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T22:11:45.879820Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Checked one-to-one almost-everywhere change from ordered triple (x1,x2,x3) to circumcenter c, radius r and three circle angles, with absolute Jacobian r^3|det(u2-u1,u3-u1)|; normalized sampling density pi^-3. For each c, feasible angles form a single arc with half-length alpha=pi for r+s<=1, arccos((r²+s²-1)/(2rs)) in the intersecting regime, or zero outside. Sorting three labeled angles supplies 6 permutations; the gap variables and sine area produce Phi(alpha)=24[alpha²+alpha sin(2alpha)/2+cos(2alpha)-1], Phi(pi)=24pi². Center polar integration gives j(r,s)=(2r³s/pi²)Phi(alpha) and f_R(r) with contained-circle 24r³(1-r)_+² plus crossing integral on |1-r|<s<1+r. The map covers all noncollinear triples and gives total probability1. Contained probability integral is exactly2/5; known P(R<1)=4-32/pi² matches crossing mass. Finite source quadrature and quasi-Monte Carlo checks are supplementary; analytic Jacobian and angular integral prove all r,s.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2608.29975 abstract explicitly says exact disk circumradius distribution on [1,infinity).",
+          "Resultary/2026 2026/10/11/SCOPE-the-area-perimeter-signature-in-the-small-circumradius-law-of-a--1252d4f1e8f4/RESULT.md (Git blob 0995d00a41db271ca7324b81519fb8bec69e2394) supplies F_K(t)=6pi²t^4/A²−512Pt^5/(15A³)+O(t^6)."
+        ],
+        "reasoning": "The known tail and leading small-r asymptotics constrain but do not specify the conditional crossing contribution or full two-variable density.",
+        "searches": [
+          "Bakó-Szabó Besau Fodor 2026 arxiv 2608.29975 CDF >=1",
+          "Resultary general convex body small circumradius asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.29975 public abstract / primary source (full unavailable)",
+        "arXiv:1803.08484 abstract",
+        "Resultary area-perimeter small-radius full paper",
+        "unit-disk joint density direct source proof and geometric verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known P(R<1)=4−32/pi² is one scalar integral; known contained mass2/5 is another scalar integral.",
+          "The published general smooth K result supplies first two r→0 coefficients, not the finite-r two-variable density."
+        ],
+        "reasoning": "A pair of integral probabilities or a local asymptotic cannot determine arbitrary j(r,s); the restricted-arc kernel is an additional exact calculation.",
+        "searches": [
+          "Bakó-Szabó et al 2608.29975 abstract",
+          "Resultary area perimeter full RESULT.md",
+          "Le Caër arXiv:1803.08484"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Circumcircle change of variables also appears in Resultary/2026 2026/10/11/SCOPE-the-area-perimeter-signature-in-the-small-circumradius-law-of-a--1252d4f1e8f4/RESULT.md (Git blob 0995d00a41db271ca7324b81519fb8bec69e2394)",
+          "Le Caër arXiv:1803.08484 defines C,R but conditions the entire circle to lie in B."
+        ],
+        "reasoning": "Unconditional R,S and conditioned contained circle are different probability laws; same variables alone do not imply coverage.",
+        "searches": [
+          "circumradius circumcenter joint density random triangle three uniform points unit disk crossing boundary circle density",
+          "arXiv:2608.29975 disc random triangle circumradius ball convex",
+          "Le Caër 2018 random circumspheres joint center radius"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary/2026 2026/10/11/SCOPE-the-area-perimeter-signature-in-the-small-circumradius-law-of-a--1252d4f1e8f4/RESULT.md (Git blob 0995d00a41db271ca7324b81519fb8bec69e2394)",
+          "Le Caër arXiv:1803.08484 describes a beta/Dirichlet joint law only for circles entirely within unit disk."
+        ],
+        "reasoning": "No exact full-disk crossing joint density in checked published findings; absence from search is only bounded evidence.",
+        "searches": [
+          "circumradius circumcenter joint density random triangle three uniform points unit disk crossing boundary circle density",
+          "Resultary area-perimeter 2026/10/11",
+          "Le Caër 2017 J Math Phys 58 053301"
+        ]
+      },
+      "rationale": "PASS best of knowledge. Bakó-Szabó–Besau–Fodor arXiv:2608.29975 explicitly calculates the unit disk circumradius CDF for R>=1, and its public abstract says so, not a joint (R,S) density across R<1. Le Caër arXiv:1803.08484 states condition that circumsphere be fully contained, which excludes the new crossing population. Published general smooth-convex-body small-radius expansion gives only the first two coefficients of marginal near zero; its full text has no evaluated restricted-arc joint density. Highly relevant 2026 arXiv paper full text was inaccessible; authorized Oxford route returned vpn_disconnected, so priority claims have this residual risk and no unearned NOT_COVERING label for unread entire document.",
+      "residual_risks": [
+        "Bakó-Szabó–Besau–Fodor arXiv:2608.29975 highly relevant full manuscript could not be inspected; Oxford VPN disconnected, no authorization bypass.",
+        "Older random-triangle integral-geometry paper may contain equivalent unconditional joint density; novelty is best knowledge, not historical proof.",
+        "Marginal f_R is given by one-dimensional definite integral, not a closed elementary antiderivative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers small-r F_K leading orders but not full unit disk joint law",
+          "evidence": "F_B(t)=6t^4−1024/(15pi²)t^5+O(t^6); no exact j(r,s) statement",
+          "identifier_or_url": "Resultary/2026 2026/10/11/SCOPE-the-area-perimeter-signature-in-the-small-circumradius-law-of-a--1252d4f1e8f4/RESULT.md (Git blob 0995d00a41db271ca7324b81519fb8bec69e2394)",
+          "material_read": "full RESULT.md assumptions, Jacobian, two asymptotic coefficients and limitations",
+          "method": "GitHub connector, Resultary published full proof",
+          "title": "The area–perimeter signature in the small-circumradius law of a random triangle",
+          "trigger": "same random circumcircle in convex planar bodies"
+        },
+        {
+          "assessment": "Abstract covers R>=1, but full-text priority comparison is provisional and not asserted globally",
+          "evidence": "Abstract explicitly states CDF of random circumradius on [1,infinity); cannot extrapolate whole-paper absence of subunit density",
+          "identifier_or_url": "arXiv:2608.29975, https://arxiv.org/abs/2608.29975",
+          "material_read": "title, abstract, public talks and bibliographic metadata only; full paper inaccessible via available arXiv/OA route and authorized Oxford VPN disconnected",
+          "method": "arxiv abstract and OA records; Oxford attempt vpn_disconnected",
+          "title": "Sylvester's four point problem for ball-convex bodies",
+          "trigger": "same random unit-disk triangle and circumradius"
+        },
+        {
+          "assessment": "Its joint distribution assumes full containment, unlike all-samples unconditional law",
+          "evidence": "Abstract: focus on circumspheres contained in the unit ball; R,D conditional beta/Dirichlet laws",
+          "identifier_or_url": "arXiv:1803.08484, https://arxiv.org/abs/1803.08484",
+          "material_read": "arxiv abstract and listed conditional results; full text not obtained in this execution",
+          "method": "arXiv abstract",
+          "title": "Circumspheres of sets of n+1 random points in a d-dimensional Euclidean unit ball",
+          "trigger": "same circumcenter and radius observables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Resolves a natural explicitly identified geometric-probability gap: the full joint law of circumradius and circumcenter including boundary-crossing circumcircles. Exact restricted-arc determinant integration supplies a usable one-dimensional marginal and separates physically distinct events; not a mere known-contained-case re-expression.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2608.29975 public abstract / primary source (full unavailable)",
+    "arXiv:1803.08484 abstract",
+    "Resultary area-perimeter small-radius full paper",
+    "unit-disk joint density direct source proof and geometric verifier"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Bakó-Szabó–Besau–Fodor arXiv:2608.29975 highly relevant full manuscript could not be inspected; Oxford VPN disconnected, no authorization bypass.",
+    "Older random-triangle integral-geometry paper may contain equivalent unconditional joint density; novelty is best knowledge, not historical proof.",
+    "Marginal f_R is given by one-dimensional definite integral, not a closed elementary antiderivative.",
+    "Read-only assessment only: no repository or dispatcher write; status-file publication not ready until confidentiality-safe metadata correction."
+  ],
+  "schema_version": 1
+}
