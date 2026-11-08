@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:51:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/shifted-square-root-conductance-law-for-heterogeneously-priced-b--8a3533e467e4/RESULT.md at frozen Git blob c2102c38f18d3ff2527a72a347c1a5e7197f70b7",
+        "2026/11/02/shifted-square-root-conductance-law-for-heterogeneously-priced-b--8a3533e467e4/check_biclique.py (source inspected; analytic claims assessed independently)",
+        "/mnt/data/scope_worker03_20261106T0638Z/independent_checks_output.txt"
+      ],
+      "rationale": "The full edge allocation objective N tr[(L|1⊥)^−1] is strictly convex on the connected positive domain; injectivity of the edge-to-Laplacian map yields uniqueness and right-vertex permutation symmetry forces w_ij=a_i. Connectedness forces each a_i>0. Three exact resistance types sum to (N−1)/q Σ1/a_i+N(q−1)/Σa_i. The constrained positive-definite Hessian and KKT equations imply a_i=t/(rho_i−alpha)^1/2 with the stated monotone scalar equation alpha in (0,min rho_i), which has unique solution. Budget fixes t=B/(qT), objective (N−1)T²/B. For fixed prices with unique cheapest, q²(rho1−alpha)→rho1 and T/q→sqrt(rho1), giving all limits. Independent rational weighted Laplacian pseudoinverses on K_2,2, K_2,3 and K_3,4 corroborated the reduced objective and numerical KKT stationary design. Strict convexity, not random numerical comparisons, establishes global optimality.",
+      "residual_risks": [
+        "Computational samples are finite and do not independently certify unquantified infinite-domain conditions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General convexity theorem covers uniqueness and numerical optimization on any given graph",
+          "Current theorem makes explicit positive shift alpha, exact heterogeneous row weights and unique-cheapest-row asymptotics"
+        ],
+        "reasoning": "Generic convex optimization contains the problem as an instance but without solving its KKT system it does not supply the claimed all-parameter closed form or scaling law; abstract of Chen–Yan has no allocation objective.",
+        "searches": [
+          "Kirchhoff index minimize total effective resistance complete bipartite graph heterogeneous cost conductance square root",
+          "Ghosh Boyd Saberi 2008 minimizing effective resistance weighted graph tree complete bipartite",
+          "Chen Yan vertex weighted complete multipartite resistance 2021"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh, Boyd, Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008), 37–66, official Stanford PDF sections on convexity and graph classes",
+        "Ghosh, Boyd, Saberi 2006 MTNS article on resistance minimization general convex method",
+        "Chen and Yan 2021 Resistance distances in vertex-weighted complete multipartite graphs DOI 10.1016/j.amc.2021.126382 abstract only; full paper inaccessible",
+        "Resultary semantic graph-resistance query and nearest published biclique graph findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General convexity and trace method are acknowledged as prior",
+          "Optimality derivation requires special right-vertex symmetry plus exact three resistance formulas and Lagrange multiplier solution"
+        ],
+        "reasoning": "Existence of a general convex program does not logically imply the explicit optimal scalar alpha without the nontrivial symmetry reduction and exact resistance calculation; full prior specialization remains a residual risk.",
+        "searches": [
+          "Kirchhoff index minimize total effective resistance complete bipartite graph heterogeneous cost conductance square root",
+          "Ghosh Boyd Saberi SIAM Review 2008 convexity minimum resistance",
+          "Chen Yan 2021 resistance distances"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nearest semantic biclique entry concerns Lipschitz-free Banach–Mazur distance, not optimizing electrical conductances",
+          "Classical graph resistance optimization uses trace pseudoinverse"
+        ],
+        "reasoning": "Complete bipartite graph appearance alone does not make a transport-space distortion theorem equivalent to constrained Kirchhoff-index minimization.",
+        "searches": [
+          "Kirchhoff index minimize total effective resistance complete bipartite graph heterogeneous cost conductance square root",
+          "Kpq effective resistance heterogeneous per-row edge price optimal conductance",
+          "Resultary 2026/10/11/SCOPE-maximal-hilbert-distortion-for-complete-bipartite-transportation--203c5ca21810"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The optimum varies continuously with arbitrary positive real price vector, no exact table identified by bounded searches",
+          "Known Kpq homogeneous normalization w=B/(pq rho) is an admitted special case"
+        ],
+        "reasoning": "A homogeneous-price table cannot determine the heterogeneous shifted square-root equation and concentration; absence in a database is not proof of novelty.",
+        "searches": [
+          "Kirchhoff index minimize total effective resistance complete bipartite graph heterogeneous cost conductance square root",
+          "complete bipartite optimum total effective resistance price matrix table",
+          "Resultary search row-priced conductance Kirchhoff"
+        ]
+      },
+      "rationale": "Ghosh–Boyd–Saberi established the general convex effective-resistance design framework and common graph examples; the row-price biclique one-dimensional closed solution and large-right-class concentration are additional mathematical statements. Chen–Yan studies weighted complete multipartite resistance distances rather than exact heterogeneously priced budget optimization; complete paper inaccessible, so risk retained.",
+      "residual_risks": [
+        "A specialized complete-bipartite resistance optimization paper may already imply the scalar shift equation.",
+        "Chen–Yan 2021 full text inaccessible; its resistance formulas might shorten the first part of proof, even though the budget optimum differs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL METHOD PRIOR; NO INSPECTED HETEROGENEOUS BICLIQUE SCALAR LAW",
+          "evidence": "Strict convex resistance allocation and generic SDP/numerical method previously known",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Primary PDF sections describing trace inverse convexity, graph examples, optimization formulation",
+          "method": "official full text PDF opened, relevant mathematical sections and page image inspected",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "closest general effective-resistance design theory"
+        },
+        {
+          "assessment": "INACCESSIBLE PLAUSIBLE COMPARISON",
+          "evidence": "Abstract studies vertex-weighted pair resistance formulas rather than constrained conductance allocation, but full article cannot be judged noncovering",
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2021.126382",
+          "material_read": "Publisher abstract and metadata only",
+          "method": "arXiv and OA attempts, then authorized institutional downloader blocked by VPN",
+          "title": "Resistance distances in vertex-weighted complete multipartite graphs",
+          "trigger": "same graph structure, possible stronger resistance formulas"
+        },
+        {
+          "assessment": "PRIOR GENERAL OPTIMIZATION FRAMEWORK",
+          "evidence": "Already introduces graph conductance allocation objective",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "Article opening/related formulation and methods via author-hosted reference",
+          "method": "official conference version identification and available literature cross-reference",
+          "title": "Minimizing Effective Resistance of a Graph (conference version)",
+          "trigger": "earlier primary original for general convexity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ghosh, Boyd, Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008), 37–66, official Stanford PDF sections on convexity and graph classes",
+        "Ghosh, Boyd, Saberi 2006 MTNS article on resistance minimization general convex method",
+        "Chen and Yan 2021 Resistance distances in vertex-weighted complete multipartite graphs DOI 10.1016/j.amc.2021.126382 abstract only; full paper inaccessible",
+        "Resultary semantic graph-resistance query and nearest published biclique graph findings"
+      ],
+      "rationale": "Closed-form unique optimum for an arbitrary number of heterogeneous row prices and a sharp large-size budget-concentration law resolve natural implementable graph design questions beyond a numerical convex solver.",
+      "residual_risks": [
+        "A specialized complete-bipartite resistance optimization paper may already imply the scalar shift equation.",
+        "Chen–Yan 2021 full text inaccessible; its resistance formulas might shorten the first part of proof, even though the budget optimum differs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ghosh, Boyd, Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008), 37–66, official Stanford PDF sections on convexity and graph classes",
+    "Ghosh, Boyd, Saberi 2006 MTNS article on resistance minimization general convex method",
+    "Chen and Yan 2021 Resistance distances in vertex-weighted complete multipartite graphs DOI 10.1016/j.amc.2021.126382 abstract only; full paper inaccessible",
+    "Resultary semantic graph-resistance query and nearest published biclique graph findings"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A specialized complete-bipartite resistance optimization paper may already imply the scalar shift equation.",
+    "Chen–Yan 2021 full text inaccessible; its resistance formulas might shorten the first part of proof, even though the budget optimum differs."
+  ],
+  "schema_version": 1
+}
