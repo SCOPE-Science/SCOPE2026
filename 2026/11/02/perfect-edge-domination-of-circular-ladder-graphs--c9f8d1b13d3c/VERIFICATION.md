@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-From the top-level directory containing this document, run `python3 verification/verify.py` with Python 3.8+. No third-party modules or network access are required. The checker enumerates all 512 triples of three-bit columns, builds all allowed transitions, uses an independent Kosaraju strongly connected components routine, checks the precise cyclic components and verifies the predicted cyclic count for lengths 3 through 48. It also directly enumerates every chosen-edge subset for prisms of lengths 3, 4, 5 and 6 with explicitly constructed adjacency lists.
+## correctness
 
-Expected output: `VERIFY_OK states=42 arcs=102 cyclic_SCCs=1+6 brute_prisms_n=3..6 exact_all_n_by_cycle_classification`.
+PASS
 
-The graph-theoretic reduction from a perfect edge dominating set to the three local clauses, and from a periodic word to a closed walk, is proved in `RESULT.md`. The finite computation exhausts a fixed state space, rather than extrapolating from finite graph orders. Reproduction does not constitute independent mathematical certification. Full-text historical priority for all general counting results remains unverified.
+Translation of perfect edge domination to three local Boolean clauses for rung, top rail and bottom rail edges is exact; selected edges have no constraint. The binary three-column transfer graph on pairs of 3-bit labels has 42 active pair states and 102 arcs, with exactly two cyclic strongly connected components: the 7→7 fixed loop and the six-state cycle (0,1)→(1,5)→(5,0)→(0,2)→(2,6)→(6,0). Any closed walk lies entirely in a cyclic SCC; only six-cycle length divisible by six contributes six labelled phases, one selected bit per column, while all-7 selects 3n. The 8³=512 transition cases are exhaustive finite classification, not a sample of graph sizes; independent rebuild of this transfer graph and SCCs reproduced its cyclic structure, and independent direct edge-subset enumeration n=3..6 gave exactly the claimed counts.
+
+## originality
+
+PASS
+
+Related perfect-edge-domination papers study complex algorithmic graph classes or open boundary ladders but no explicitly stated all-circular-prism phase-six polynomial in accessible material. Resultary related prism entries concern other invariants. The most relevant 2026 manuscript full text was inaccessible, retained as substantive historical-priority risk.
+
+## value
+
+PASS
+
+The two-term entire cardinality polynomial and mod-six rigidity on a natural infinite family of cubic circular ladders are complete meaningful graph-family enumerations, including a sharp change in optimal PED size. The cyclic constraint is not inherited from open-ladder end boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
