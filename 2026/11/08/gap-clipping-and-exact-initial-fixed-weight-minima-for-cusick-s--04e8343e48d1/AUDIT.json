@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Column-wise binary carry conservation proves the event C≤k. A carry entering any inter-one zero run has already consumed at least one carry; after k further zeros no surviving state can keep a carry. The shortened run preserves the entire retained carry-count distribution, giving a finite k-gap domain and attainment. An exact no-floating-point 5,063,361-case full enumeration reproduces the eight minima and all canonical optimizers, with a separate Fraction implementation independently checking initial cases and compression examples. All statements have explicit quantifiers and bounds; unproved k≥9 exact values are excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cheng arXiv:2608.25899v1 proves the sharp large-weight asymptotic of the same F(k), not finite values or a general polynomial-length minimizer certificate in the inspected statements.",
+        "Cheng arXiv:2606.23398v1 gives all-shift lower bound c_t≥1/2+2^{-2s_2(t)-1}, not exact first-eight minima."
+      ],
+      "reasoning": "Asymptotic large-k coverage and uniform lower bounds neither determine exact finite-k minimizers nor guarantee a universal finite canonical gap set. The result here does not challenge either stronger asymptotic or universal positivity claims.",
+      "searches": [
+        "Exact infimum of binary digit-sum shift bias c_t over integers t of Hamming weight 3, and all equality cases; Cusick constants F(3) triple one bits",
+        "Exact low Hamming-weight minima of Cusick's c_t, correlation measure binary additive digit sums, weight 2 3 4",
+        "arXiv:2608.25899v1 Introduction, main extremal theorem and relevant proof sections",
+        "arXiv:2606.23398v1 Introduction and Theorem 1.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.25899v1 (abstract, main theorem, relevant accessible sections)",
+      "arXiv:2606.23398v1 (introduction, main lower-bound theorem)",
+      "arXiv:1509.08623v2 (27-page PDF; introduction, Lemma 2.1, Table 1, equivalent formulations)",
+      "Scientific-record index: six semantic queries; nearest result titled Superadditivity of summatory all-one block counts, a different question",
+      "External scientific sources listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary new structural implication: every k-weight shift has an exact density equal to a canonical shift below 2^(k²).",
+        "Neither a fixed-shift evaluation recurrence, the fixed-weight asymptotic nor a universal lower bound alone supplies equality of densities under long zero-gap clipping; the novel step is the budgeted-carry extinction argument."
+      ],
+      "reasoning": "Prior facts imply computability of c_t individually, not a proven global finite horizon. The finite first-eight profile is a nontrivial application. The exact notion of novelty is this implication, not formulas for known individual t.",
+      "searches": [
+        "Exact infimum of binary digit-sum shift bias c_t over integers t of Hamming weight 3, and all equality cases; Cusick constants F(3) triple one bits",
+        "Binary sum-of-digits Cusick bias c_t invariant under truncating each gap between consecutive one-bits at Hamming weight plus one; finite search for exact fixed Hamming weight extremal F(k)",
+        "For fixed binary Hamming weight k the minimum Cusick digit-sum shift density c_t is attained by clipping every consecutive 1-bit gap at k+1; exhaustive exact rational F(k) for k up to 8 (8839/16384 at k=8), all equality shifts.",
+        "arXiv:2608.25899v1 Theorems 1.1-1.2",
+        "arXiv:1509.08623v2 Lemma 2.1 and Table 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Drmota–Kauers–Spiegelhofer Lemma 2.1 derives fixed-shift digit-sum difference recurrences and describes a two-dimensional density computation; distinct from the present global fixed-weight finite cutoff.",
+        "A semantic scientific-record search found no matching shift-gap result; its closest binary block-counting work concerns a different statistic."
+      ],
+      "reasoning": "Binary carry count and digit-sum difference distribution are equivalent descriptions and are compared as such. Prior recurrences enable calculation for a given shift but do not imply a finite set of shifts that globally dominates all shifts at a fixed weight. An arbitrary finite search without clipping cannot certify the infimum.",
+      "searches": [
+        "Binary sum-of-digits Cusick bias c_t invariant under truncating each gap between consecutive one-bits at Hamming weight plus one; finite search for exact fixed Hamming weight extremal F(k)",
+        "Digit sum translation correlation measure carry cost cutoff gap compression binary Hamming weight k fixed-weight minima finite search",
+        "For fixed binary Hamming weight k the minimum Cusick digit-sum shift density c_t is attained by clipping every consecutive 1-bit gap at k+1; exhaustive exact rational F(k) for k up to 8 (8839/16384 at k=8), all equality shifts.",
+        "arXiv:1509.08623v2 §2 and §3.3; binary carry-automata and digit correlation recurrences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2016 Table 1 already gives individual c_11=c_13=19/32 and c_5=5/8, and reports checking all t<2^30 for positivity; these are acknowledged as prior individual values.",
+        "The present exact table is a universal minimum over every shift at each fixed weight, not a recomputation of the Table 1 values or an assertion of positivity up to a numeric cutoff."
+      ],
+      "reasoning": "The published tables and finite numerical claims do not logically establish global fixed-weight minima for all binary lengths. Every equality case follows from compression and exact canonical enumeration; no novelty is assigned to preexisting point evaluations.",
+      "searches": [
+        "Exact Cusick digit sum extremal bias for Hamming weights 3 4 5 6 and unique minimizers 11, 27, 107 with palindromic one blocks",
+        "For fixed binary Hamming weight k the minimum Cusick digit-sum shift density c_t is attained by clipping every consecutive 1-bit gap at k+1; exhaustive exact rational F(k) for k up to 8 (8839/16384 at k=8), all equality shifts.",
+        "arXiv:1509.08623v2 Table 1 and paragraph following it",
+        "search web: \"8839/16384\" Cusick",
+        "search web: Cusick F(3) Hamming weight minimum"
+      ]
+    },
+    "rationale": "The new implication is uniform gap clipping and a global minimum over every shift of fixed Hamming weight, with exhaustive initial exact minimizer classification. Cheng 2026 obtains asymptotics for F(k) and an all-shift lower bound; Drmota–Kauers–Spiegelhofer 2016 gives individual rational c_t values and a pointwise recurrence, but not the all-shift finite cutoff in inspected material. Six semantic scientific-record searches returned no covering result. Historical priority risk from unindexed equivalent finite-state analyses remains.",
+    "residual_risks": [
+      "An equivalent gap-clipping automaton theorem might exist in older or unindexed literature.",
+      "No independent scholarly priority audit or mathematical certification has occurred.",
+      "Semantic scientific-record retrieval is similarity-ranked, not a proof of absence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No directly covering gap-clipping/minimizer classification identified in material read; source is the motivating prior large-weight asymptotic",
+        "evidence": "arXiv:2608.25899v1, publicly 2026-08-26, fixes F(k) and gives F(k) asymptotically, not the first-eight exact values in the main theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.25899",
+        "material_read": "Abstract; main introduction; statements of main extremal and stability results and relevant sections of accessible arXiv HTML",
+        "method": "Compared definition, asymptotic quantifiers, and whether finite-k exact optimizers or clipping were stated",
+        "title": "Sharp extremal asymptotics for Cusick's sum-of-digits bias at fixed Hamming weight",
+        "trigger": "Exactly the fixed-weight infimum F(k) of this finding"
+      },
+      {
+        "assessment": "Proves strictly positive all-shift bias with lower bound, not the exact global extrema claimed here",
+        "evidence": "arXiv:2606.23398v1, initial public 2026-06-22, lower bound c_t−1/2≥2^(−2s_2(t)−1).",
+        "identifier_or_url": "https://arxiv.org/abs/2606.23398",
+        "material_read": "ArXiv HTML introduction and Theorem 1.1; theorem and stated bounds",
+        "method": "Compared universal weight-dependent inequality against exact fixed-weight extremal claims",
+        "title": "A first-exit proof of Cusick's sum-of-digits conjecture",
+        "trigger": "Stronger universal positivity could subsume narrow claimed positivity, but not exact optima"
+      },
+      {
+        "assessment": "Individual c_11=c_13=19/32 and recurrence are expressly prior; no covering proof of first-eight *global* minima located",
+        "evidence": "arXiv:1509.08623v2, Lemma 2.1, Table 1 and numerical experiment paragraph, pp. 3–4.",
+        "identifier_or_url": "https://arxiv.org/pdf/1509.08623",
+        "material_read": "Full 27-page lawful arXiv PDF accessed; mathematical introduction and lemma, table and surrounding text, equivalent formulations and numerical discussion inspected, including page-image view of Table 1",
+        "method": "Contrasted pointwise digit-correlation recurrence and 2^30 experiment with uniform k-weight gap clipping and all-shift minimum",
+        "title": "On a Conjecture of Cusick Concerning the Sum of Digits of n and n+t",
+        "trigger": "Foundational paper provides c_t recurrences and early exact rational entries"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "04e8343e-48d1-45b5-a64f-d055ed155569",
+  "value": {
+    "rationale": "Cheng's recent work poses exactly the fixed Hamming-weight extremal F(k). Uniform finite attainment for every k is a structural advance over pointwise c_t computability and asymptotic bounds, and the first eight exact minimum/optimizer values give natural benchmark data rather than an arbitrarily chosen slice. No general closed formula or new global Cusick positivity claim is asserted.",
+    "status": "PASS"
+  }
+}
