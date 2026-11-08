@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claimed scope, including all integer quantifiers and edge cases, was reconstructed from the elementary cycle structures. Exactly \(n-2\) fixed points means a single transposition, and exactly \(n-3\) means a single three-cycle; both orientations and every span have been counted. Cancelling their formulas gives the stated signed minor and all-size threshold. The full-TP2 claim for \(n\le4\) is a finite exhaustive check of all matrices displayed in the proof; the all-size negative assertion is an exact symbolic witness. Conditioning record indicators on a fixed-point event yields the reciprocal-binomial covariance formula. The standalone verifier passed 31,317 independent integer/rational assertions. Finite tests do not substitute for infinite-domain arguments.
+## correctness
 
-## Originality (PASS, with residual risk)
-Existing fixed-point enumerations, general record-and-cycle master polynomials, and asymptotic record laws conditioned on cycle type were compared against this particular fixed-count cross-stratum minor. Their formulas either encode counts without a displayed determinant sign classification, or concern asymptotic regimes with diverging non-fixed-point count. A separate cycle-count/fixed-point TP2 theorem does not imply this record-count result because Foata's marginal equidistribution does not preserve the fixed-point statistic. No statement giving the exact threshold \(2r(r+1)-n\), the sharp all-size failure at five, or the accompanying covariance contrast was found in the inspected sources or current literature comparisons. An implicit or obscure earlier treatment remains possible; the literature search cannot prove absolute priority.
+PASS
 
-## Mathematical value (PASS)
-This supplies a sharp boundary for a natural positive-dependence principle: equal marginal record/cycle laws behave differently once joint conditioning on fixed points is introduced. The two highest nontrivial fixed-point strata are structurally forced by transpositions and three-cycles, rather than an arbitrary numerical slice. The all-size minor threshold identifies exactly where the conditional likelihood-ratio direction changes, while the positive covariance proves that low-order association hides the failure. It is an exact nonasymptotic distinction with plausible utility when determining whether total-positivity inference is justified for permutation statistics.
+A permutation with exactly n-2 fixed points is one transposition: its span d=b-a removes exactly d records, hence w_n(r,n-2)=r. Exactly n-3 fixed points entails one three-cycle; counting the two orientations by their outer span gives w_n(r,n-3)=(2r-1)n-2r^2. Algebraic cancellation yields adjacent minor 2r(r+1)-n; r=1 makes 4-n<0 for all n>=5. Full TP2 for n=2,3,4 is established by complete exact joint matrices and all minors. For the covariance identity, condition record I_i on each fixed-point J_j: j<i contributes 1/(i-1), j=i contributes 1/binom(n-1,i-1), and j>i contributes 1/i, causing cancellation and giving positive (1/n)sum_{j=1}^{n-1}binom(n-1,j)^-1. Independently enumerated all n! permutations for n=2..8 and tested the covariance and near-identity cells exactly.
 
-## Scope and closest literature
-See the full cited papers in `RESULT.md`. Sokal–Zeng's general enumerators are the most substantial possible implicit-coverage risk; Dubach's fixed-cycle-type record work requires diverging numbers of nonfixed points for the key asymptotic theorem. The claim does not settle all minors of the joint array or weighted permutation laws.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge scientific comparison: Master-polynomial specialization could derive w_n, but no directly inspected theorem concludes all-n 2r(r+1)-n, sharp TP2 cutoff n=5, and exact positive Cov(R,F). Classical equal marginal distributions of records/cycles are insufficient for this joint comparison. The targeted Resultary query and primary works were compared on objects, hypotheses, implication and parameters, not simply titles. No decisive prior-coverage theorem identified; this is not a proof of historical priority.
+
+## value
+
+PASS
+
+Record and cycle statistics have identical marginals yet different interaction with fixed points. The first TP2 failure at n=5 and sign-changing adjacent minor are meaningful dependence-structure boundaries; an all-n positive covariance alongside negative minors provides a precise, natural counterexample to conflating linear association with likelihood-ratio order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

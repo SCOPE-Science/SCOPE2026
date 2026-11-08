@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-## Standalone checks
+# Independent mathematical audit
 
-Execute `python verify_record_fixed_signs.py` with Python 3 and no nonstandard dependencies. The script's most recent run returned `PASS: 31317 exact assertions; exhaustive permutations n=2..9; entire 2x2 minor tables n=2..4; symbolic integer checks to n=249`.
+## correctness
 
-The program independently creates every permutation through nine labels and computes upper records and fixed points directly from the one-line permutation. It tests the two near-identity formulas, adjacent minor identity, positivity of all minors at the finite sharpness boundary, and the covariance identity as an exact rational number. It tests the algebraic identities for larger sizes without enumerating permutations.
+PASS
 
-## Proof limits
+A permutation with exactly n-2 fixed points is one transposition: its span d=b-a removes exactly d records, hence w_n(r,n-2)=r. Exactly n-3 fixed points entails one three-cycle; counting the two orientations by their outer span gives w_n(r,n-3)=(2r-1)n-2r^2. Algebraic cancellation yields adjacent minor 2r(r+1)-n; r=1 makes 4-n<0 for all n>=5. Full TP2 for n=2,3,4 is established by complete exact joint matrices and all minors. For the covariance identity, condition record I_i on each fixed-point J_j: j<i contributes 1/(i-1), j=i contributes 1/binom(n-1,i-1), and j>i contributes 1/i, causing cancellation and giving positive (1/n)sum_{j=1}^{n-1}binom(n-1,j)^-1. Independently enumerated all n! permutations for n=2..8 and tested the covariance and near-identity cells exactly.
 
-The program does not certify infinitely many cases. General correctness relies on the transposition and oriented three-cycle counting proof, algebraic minor cancellation, and conditional-record indicator argument in `RESULT.md`. The test of full TP2 for all sizes is replaced by a proof of failure at every size \(n\ge5\); only positivity at \(n\le4\) needs finite exhaustive checking.
+## originality
 
-## Audit status
+PASS
 
-A self-review was completed. Independent audit has not been performed.
+Bounded best-of-knowledge scientific comparison: Master-polynomial specialization could derive w_n, but no directly inspected theorem concludes all-n 2r(r+1)-n, sharp TP2 cutoff n=5, and exact positive Cov(R,F). Classical equal marginal distributions of records/cycles are insufficient for this joint comparison. The targeted Resultary query and primary works were compared on objects, hypotheses, implication and parameters, not simply titles. No decisive prior-coverage theorem identified; this is not a proof of historical priority.
+
+## value
+
+PASS
+
+Record and cycle statistics have identical marginals yet different interaction with fixed points. The first TP2 failure at n=5 and sign-changing adjacent minor are meaningful dependence-structure boundaries; an all-n positive covariance alongside negative minors provides a precise, natural counterexample to conflating linear association with likelihood-ratio order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
