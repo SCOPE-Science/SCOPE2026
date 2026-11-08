@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a digraph on \(n\) vertices, maximal \((n-2)\)-faces of its multipath complex are directed Hamiltonian paths. Their \((n-3)\)-dimensional ridges have at most two top completions. Two completions exist exactly when the two joining arcs close a unique directed Hamiltonian cycle. As a result, the top boundary matrix splits into singleton columns (whose coefficients must vanish in the kernel) and disjoint blocks each equal to the top boundary of a formal \((n-1)\)-simplex's boundary sphere. Every block has one primitive integral boundary generator, and no degree \(n-1\) chains exist. Equivariance follows from simplicial orientation signs; the bidirected-wheel dihedral action is free and transitive on its \(2m\) cycles. A dependency-free checker separately corroborates signed boundaries, ridge completions, exact finite-field ranks, and symmetry on exhaustive small digraphs. The argument is integral and applies to disconnected and cyclic inputs.
+PASS
 
-## Originality — PASS on inspected evidence
+Actual RESULT.md defines faces as sets of vertex-disjoint directed paths, includes isolated vertices, and allows antiparallel arcs. An (n-1)-arc face is a spanning Hamiltonian path and an (n-2)-arc ridge has exactly two path components, with at most two joining arcs. Two possible completions close one unique directed Hamiltonian cycle. Paths lacking a closing arc have a private ridge so zero coefficient in any top cycle; all remaining Hamiltonian-path faces split into disjoint blocks of n facets per directed Hamiltonian cycle. In each block the integral top-boundary kernel is the primitive rank-one boundary of a formal (n-1)-simplex, and no n-arc simplices exist, proving the direct integral sum. Arc permutation signs give the precise G-module. A bidirected wheel corresponds to m omitted rim edges times two traversal orientations, free transitive D_m orbit. Independent exhaustive mod-2 top-boundary checks for all 64 n=3 and 4096 n=4 digraphs matched cycle counts, not used as proof for n>4.
 
-The earliest selected motivating primary paper is the 2022 multipath-homotopy work (arXiv:2208.04656), which computes special graph families rather than this all-digraph top-chain decomposition. The prior cycle-free chessboard paper (arXiv:0710.5252) proves connectivity and related results; its inspected parts do not state this Hamiltonian-cycle integral top basis. The 2026 polygon study (arXiv:2601.05670) computes full homology only for bidirected polygonal graphs and therefore cannot imply the theorem for arbitrary digraphs. Previously recorded complete-bidirected-graph and bidirected-cycle cases are specializations, not a general implication. Searches for the Hamiltonian-cycle formulation, cycle-free chessboard aliases, the top-homology criterion, and the signed equivariant generalization disclosed no covering statement. Residual risk: equivalent results might occur unindexed or implicitly in older chain-complex work; originality is a best-knowledge assessment, not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a canonical primitive **integral** basis of a natural topological invariant for *every* finite directed graph and characterizes directed Hamiltonicity by its nonvanishing. Unlike a mere Euler-characteristic identity, it identifies generators, quantifies exactly which top chains survive, and resolves arbitrary automorphism actions over the integers. The bidirected-wheel example yields a regular dihedral representation, not just an unspecified rank. This does not yield a polynomial-time way to compute Hamiltonicity or settle any lower-dimensional homology.
+The arbitrary-digraph primitive integral top-chain theorem and signed automorphism action extend beyond existing graph-family homotopy calculations and cycle-free-chessboard connectivity statements, on primary text examined.
 
-## Scope and independent status
+## value
 
-Only top reduced homology and its automorphism module are established; the complex need not be pure or shellable, and lower homology is unrestricted. The finite checker corroborates but cannot replace the proof, and bibliography can have omissions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A uniform exact primitive integral basis identifies when highest multipath homology is nonzero exactly by Hamiltonicity, and gives all graph-automorphism actions, including a natural regular dihedral module for bidirected wheels. This is structural chain information unavailable from homology-rank tables or field checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
