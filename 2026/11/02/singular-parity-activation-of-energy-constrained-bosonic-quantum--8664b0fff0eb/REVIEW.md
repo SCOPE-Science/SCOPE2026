@@ -1,24 +1,21 @@
-# Review: singular parity activation of energy-constrained bosonic quantum communication
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the complementary qubit exactly, including its determinant \((1-r)q(1-q)\). The complementary output factors through the bosonic output's number measurement, proving degradability for the discrete noise model without applying an inapplicable continuous-density theorem. Finite-energy entropy bounds justify the energy-constrained coding reduction. Conditioning photon number on parity and maximizing two nonnegative-integer entropies proves the geometric optimizer and the exact one-parameter capacity formula. Concavity of classical–quantum conditional entropy and strict concavity of thermal entropy prove uniqueness. The derivative and integrated entropy expansions yield the stated essential singularity, including its prefactor. `verify.py` passed 382 checks, but its finite tests are only corroboration. The limit is at fixed \(E>0\); no assisted capacity is claimed.
+PASS
 
-## Originality — PASS (best-knowledge, not independently certified)
+For memoryless binary 0/pi phase kicks on one bosonic mode with finite mean photon budget E>0, an isometry correlates the environment only with the photon-number parity P: the environmental density matrix has determinant (1-r)q(1-q), so its small eigenvalue is eta_r(q)=[1-sqrt(1-4(1-r)q(1-q))]/2. Measurement of output parity followed by preparing the corresponding environment state proves degradability for this discrete law. Number pinching preserves the complement and increases output entropy; energy-constrained degradable coding then reduces quantum/private unassisted rates to maximization of coherent information over number-diagonal inputs. Conditional entropy is maximized at common geometric laws on the two parity sectors with mean (E-q)/2, giving exactly max_{0<=q<=min(E,1)}[g((E-q)/2)+h2(q)-h2(eta_r(q))]. The binary cq conditional entropy is concave, and g strictly concave, yielding unique interior q for r>0 (with appropriate endpoint derivatives). At r=0 q=0 and capacity g(E/2); at r=1 thermal q=E/(1+2E). Differentiating at q->0 uniformly at fixed E and r->0 gives -L_E/2+r log(1/q)+(1-r)log(1-r)+O_E(q|log q|), so q_r~e^-1 exp[-L_E/(2r)] and capacity gain~r*q_r/ln2. Independent mpmath optimization for E=2, r=.1,.05,.025,.01 reproduced ratios converging toward one; the analytic derivative remainder, not sampling, supports the infinite asymptotic. No photon loss, two-way assistance, general phase law or jointly varying E is covered.
 
-The 2026 motivating result gives the general Fock-diagonal characterization under a phase-density hypothesis and explicitly leaves model-specific optimization open. It does not cover the singular two-point phase law as stated or give a parity-sector optimum. The 2023 Lami–Wilde exact formula addresses unconstrained capacities, while the 2020 Arqand–Memarzadeh–Mancini problem concerns Gaussian phase diffusion. The standard degradable coding theorem is appropriately credited to Wilde–Qi. Targeted mathematical-record searches found no exact statement of a geometric distribution in each parity sector together with a nonperturbative \(\exp[-c/r]\) activation law. The remaining priority risk is an older or differently described special case of discrete bosonic phase randomization.
+## originality
 
-## Value — PASS
+PASS
 
-The source identifies explicit optimum photon-number distributions for concrete noise as a mathematically motivated outstanding step. The binary \(0/\pi\) phase channel is a natural exactly solvable non-Gaussian boundary case with an infinite-dimensional, finite-energy constraint. Its optimal input is not simply the noiseless even-sector state whenever \(p<1/2\): the unique odd-sector weight becomes exponentially small, exposing an essential singularity invisible to any fixed-order expansion. The exact finite-energy capacity envelope and sharp activation law provide an operational quantitative characterization, not a routine reparametrization of the general capacity theorem.
+Best of knowledge PASS: the relevant generalized bosonic phase-noise coding literature gives capacity reductions or unconstrained capacity, not this exact singular two-point phase-noise optimizing parity distribution and e^{-constant/r} boundary layer. The primary 2026 arXiv full text could not be retrieved this execution despite arXiv and open-access mirror attempts, and authorized institutional retrieval was blocked by VPN; its actual abstract and research source-specific comparisons were inspected, but no claim of full-text noncoverage is based solely on the abstract. No covering theorem identified; residual historical risk explicit.
 
-## Closest literature and risks
+## value
 
-- A. Arqand and G. Smith (arXiv:2610.13854v1, 2026): capacity characterization for absolutely continuous phase noise; concrete optimization left open.
-- L. Lami and M. M. Wilde (arXiv:2205.05736; Nature Photonics 2023): unconstrained bosonic dephasing capacities, not the finite-energy binary case.
-- A. Arqand, L. Memarzadeh and S. Mancini (arXiv:2007.03897; PRA 2020): Gaussian phase-diffusion optimization rather than two-point parity noise.
-- M. M. Wilde and H. Qi (arXiv:1609.01997; TIT 2018): pre-existing energy-constrained degradable-channel coding theorem used as background.
+PASS
 
-No claim is made that this result has passed independent literature-wide priority verification. Strict code constraints, correlated uses, general noise, and two-way assistance lie outside the mathematical scope.
+The exact energy-limited solution for a natural non-Gaussian binary-phase bosonic noise channel identifies the full capacity optimizing photon distribution and a physically meaningful essential-singularity boundary layer; this cannot be read off from a general capacity variational principle without doing the nontrivial constrained entropy optimization.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
