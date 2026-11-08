@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T01:17:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For central-plane sections of right regular n-gonal prisms with circumradius1 and half-height h>0, the angular separation probability of an edge endpoint pair for Haar normals equals its endpoint angle/pi, since the two sign-disagreement sectors occupy 2theta of 2pi. Generic section vertices correspond bijectively to crossed prism edges, so linearity of expectation yields (2n/pi)[atan h+2asin(sin(pi/n)/sqrt(1+h²))]. The n vertical edges have angle 2atan h and 2n rim edges angle 2asin(sin(pi/n)/sqrt(1+h²)). Differentiation produces (2n)/(pi(1+h²))*[1-2s h/sqrt(h²+c²)], s=sin(pi/n), c=cos(pi/n); q(h)=h/sqrt(h²+c²) strictly increases to1. For n=5, 2s>1, so unique global maximum at h=(3+sqrt5)/4, E=5.246274819729384...; for every n>=6, 2s<=1 implies strict increase and no finite maximizer. Expanding atan and asin proves n=6 gap 3/(2pi h³)+O(h^-5) and n>=7 gap [2n/pi]*(1-2sin(pi/n))/h+O_n(h^-3). Independent direct-angle and derivative checks corroborate selected values but are not used for infinite quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full published rectangular-box RESULT.md treats n=4 family only, with a hexagonal section probability observable.",
+          "The full published uniform regular-prism width RESULT.md evaluates E(width²), not mean central-section vertices.",
+          "The arXiv:2609.16195 accessible abstract focuses on combinatorial slicing/section reconstruction; complete full text unavailable."
+        ],
+        "reasoning": "No inspected full-text theorem covers arbitrary aspect ratio regular n-gonal prism section vertex means and phase transition; cannot conclude the inaccessible arXiv paper does not contain an equivalent statement.",
+        "searches": [
+          "Birkemeyer Brose Brandenburg Prün Combinatorial slicing problems of polytopes arxiv:2609.16195",
+          "Resultary Exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes",
+          "Resultary Exact mean-square width of every uniform regular prism"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md and verify_prism_sections.py",
+        "published Resultary 2026/10/11/...45d2a55425d4 complete RESULT",
+        "published Resultary 2026/10/11/...eb371b3be549 complete RESULT",
+        "arXiv:2609.16195 abstract (full text unavailable)",
+        "doi:10.1111/j.1365-2818.1982.tb00443.x abstract",
+        "doi:10.2307/1427832 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rectangular-box result gives n=4 distribution but no n=5 pentagonal optimum.",
+          "Mean-square support width does not determine expected number of central section edges.",
+          "Combinatorial slicing abstract and old stereological abstracts do not resolve mathematical implication in inaccessible full texts."
+        ],
+        "reasoning": "The two actually inspected complete theorems do not imply this result. Inspected bibliographic snippets for three plausible papers are too limited to rule out hidden coverage, so the originality verdict is qualified and residual risks explicitly retained.",
+        "searches": [
+          "published Resultary central rectangular boxes full theorem",
+          "published Resultary regular prism mean-square width full theorem",
+          "arxiv:2609.16195 abstract and OA attempts",
+          "Voss 1982 and Ohser–Mücklich 1995 abstracts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim counts edges crossing a plane through the CENTROID with Haar uniform normal; random offset/affine stereology has different measures.",
+          "The general edge-angle identity computes the mean but not the height-optimization classification."
+        ],
+        "reasoning": "Checked mean section vertices vs mean crossed edges, central vs offset sections, aspect ratio h vs full prism height 2h and circumradius1. The edge-angle identity is not claimed new; no directly equivalent sharp optimization theorem was located.",
+        "searches": [
+          "regular pentagonal prism expected vertices Haar central section aspect ratio",
+          "central polygon sections regular prism mean number of vertices height",
+          "Voss 1982 frequencies of n polygons in planar sections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearby records for prism mean-square width and rectangular box hexagon law have different observables or n ranges.",
+          "No exact table in inspected published record supplies the n=5 optimum or n=6 cubic decay constant."
+        ],
+        "reasoning": "Parameter-matched tables of counts are not enough without Haar central probability and optimized height. No exact natural-invariant database entry with both thresholds was found.",
+        "searches": [
+          "Resultary regular pentagonal prism expected vertices Haar central section aspect ratio",
+          "regular prism plane section vertex expectation table mean polygon type",
+          "pentagonal prism h optimal (3+sqrt5)/4"
+        ]
+      },
+      "rationale": "A best-of-knowledge distinct theorem about the expectation and sharp aspect-ratio regimes of Haar CENTRAL sections of regular n-gonal prisms. Previously published central rectangular-box hexagon probabilities cover n=4 and a different full distribution; previously published mean-square width for regular prisms concerns a different observable. A general edge-angle expectation identity is known/elementary and is not claimed as new. The specific five-versus-six sharp maximizer/threshold is not implied by inspected combinatorial slicing or width statements. A particularly relevant 2026 polytope slicing paper was inaccessible in complete full text: its abstract only cannot establish a whole-paper negative; institutional retrieval blocked by VPN, recorded as residual risk. Similarly two older stereology papers were abstract-only; inaccessible plausible sources alone do not force O failure.",
+      "residual_risks": [
+        "Combinatorial slicing arXiv:2609.16195 full text unavailable after arXiv and OA attempts; institutional Oxford attempt failed vpn_disconnected. Stronger coverage not positively shown, but priority cannot be fully settled.",
+        "Voss 1982 and Ohser–Mücklich 1995 full texts unavailable; abstract cannot establish that their measures exclude Haar central sections.",
+        "The elementary edge angular probability identity is prior mathematical background, not the new contribution; originality is concentrated in the exact all-n height classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING n>=5 regular prisms",
+          "evidence": "Only orthogonal rectangular boxes (n=4 base family) have a four/hexagon law; no regular pentagon or hexagon prism theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4",
+          "material_read": "Complete RESULT.md: arbitrary box side lengths, exact hexagon probability, optimization, limits",
+          "method": "Published full RESULT.md via repository read",
+          "title": "Exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes",
+          "trigger": "same Haar central section sampling and possible special case"
+        },
+        {
+          "assessment": "NOT_COVERING central section edge-count expectation",
+          "evidence": "Studies second moment of directional width for fixed unit side/height prisms; does not derive section crossings or optimize a free height.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-mean-square-width-of-every-uniform-regular-prism--eb371b3be549",
+          "material_read": "Complete RESULT.md, width² formula, proof of difference body split, limitations",
+          "method": "Published full RESULT.md via repository read",
+          "title": "Exact mean-square width of every uniform regular prism",
+          "trigger": "same n-prism family and Haar normals"
+        },
+        {
+          "assessment": "FULL TEXT UNAVAILABLE, COMPARISON UNRESOLVED AS PRIORITY RISK",
+          "evidence": "The abstract concerns combinatorial reconstruction of polytope slices; no whole-document claim of noncoverage, so possible implication remains a priority risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.16195",
+          "material_read": "Public abstract/bibliographic summary; complete arXiv HTML/PDF and lawful OA retrieval did not yield full text",
+          "method": "arXiv/OA attempted, then authorized institutional attempt blocked by disconnected VPN",
+          "title": "Combinatorial slicing problems of polytopes: How (not) to reconstruct a polytope from its slices",
+          "trigger": "strongly relevant primary slicing paper plausibly containing generalized combinatorial section results"
+        },
+        {
+          "assessment": "FULL TEXT UNAVAILABLE, residual historical-priority risk",
+          "evidence": "Potentially different random-offset plane model; cannot infer exclusion from abstract.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2818.1982.tb00443.x",
+          "material_read": "Accessible abstract/bibliography only",
+          "method": "Journal abstract",
+          "title": "Frequencies of n-polygons in planar sections of polyhedrons",
+          "trigger": "older stereological probability of polygon counts"
+        },
+        {
+          "assessment": "FULL TEXT UNAVAILABLE, residual historical-priority risk",
+          "evidence": "Sampling from an ensemble of prisms differs potentially from fixed central-plane Haar normals; precise comparison cannot be completed without full text.",
+          "identifier_or_url": "https://doi.org/10.2307/1427832",
+          "material_read": "Accessible journal description and abstract only",
+          "method": "Publisher abstract",
+          "title": "Stereology for some classes of polyhedrons",
+          "trigger": "classical prism-section probabilities potentially dominating"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The expected combinatorial size of a uniformly oriented central section is a natural convex/stochastic-geometric observable, and the height-to-circumradius ratio is an intrinsic normalized parameter. The unique regular-pentagon finite optimum and the hexagon cancellation changing the asymptotic rate supply a sharp, interpretable and nontrivial phase transition across the entire natural n>=5 prism family. The angular identity is elementary, but the exact complete extremal classification is worthwhile.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Haar-uniform planes through the center only; regular n-gonal right prisms with n>=5 and circumradius-normalized half-height h>0; no polygon-type probability distribution or offset-plane claim.",
+  "schema_version": 1
+}
