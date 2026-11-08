@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The theorem defines a concrete \(K\)-Lie algebra and specifies that ideals and subalgebras are over the base field \(k\). The coordinate bracket has three coefficients equal to the \(2\times2\) minors of the two projected vectors in \(K^3\); all three vanish exactly for projective dependence. Every abelian subalgebra with nonzero quotient image consequently lies in a unique preimage of a \(K\)-line, and those preimages intersect precisely at the center. Counting the resulting subspace-lattice cover gives both \(A_d\) and the commuting-tuple formula. For ideals, one nonzero \(X/Y\) coordinate forces all of the derived algebra into the ideal, and one nonzero \(U\) coordinate forces all of the center. These implications give an exhaustive, disjoint three-stratum ideal classification and the formula \(I_d\). The automorphism action is checked using explicit invertible generator substitutions. Every boundary, including characteristic two and the empty tuple, is accounted for. Direct computations verify many finite cases without being used as a general proof.
+## correctness
 
-## Originality (O): PASS relative to examined literature
-The primary model and its uniqueness over \(q\ge3\) are explicitly credited to Kundu–Naik–Singh [1]. The claim assessed for originality is the *simultaneous complete base-field ideal and abelian-subalgebra lattice enumeration and the two maximal-abelian automorphism orbits for \(m\ge2\)*. Section 5 and the principal classification of [1] describe structure constants and isomorphism, not the enumerators or the orbit geometry. Ceballos–Towers [2] study extremal dimensions, not full finite-field counts; Carnevale–Schein–Voll [3] give ideal zeta functions of class-two Lie rings, not the class-three algebra; Benito–Roldán-López [4] discuss characteristic-zero automorphism structures without this restricted-scalar finite-field incidence result. Accessible existing work for \(m=1\) is excluded from novelty scope. Searches for extension-field class-three ideal and abelian-subalgebra enumerators and projective incidence returned no equivalent published claim, but a failed search is not proof of global priority. The full text of older possible general studies of free nilpotent subalgebras was not all available, leaving an acknowledged literature risk.
+PASS
 
-## Value (V): PASS
-These are two mathematically natural and distinct complete lattices for an infinite, structurally motivated family of nilpotent Lie algebras. Their closed dimension enumerators expose how extension-field projective points partition base-field abelian subalgebras, while the ideal lattice is controlled by the lower-central filtration. The unique maximum-dimensional abelian ideal and two automorphism orbits give structural information beyond the maximum dimension or total count. The exact result can serve as a tractable benchmark for larger class-three Lie algebra subalgebra-counting and automorphism-orbit studies. It is not a claim about arbitrary class-three algebras.
+PASS: L/Z(L)=K³ has commutator cross-product coordinates, so two projected vectors commute iff K-collinear, including characteristic two. Distinct inverse images of the P=Q²+Q+1 K-projective points are precisely maximal Fq-abelian 3m-spaces, pairwise intersecting in 2m-center; Gaussian-binomial inclusion-exclusion gives A_d and P Q^{3r}−(P−1)Q^{2r}. Bracketing with KX,KY and then KX,KY again forces any ideal with X/Y-component to contain D, and a U-component to contain Z; hence the three disjoint ideal families giving I_d. D is characteristic singleton and GL2(K) plus U-shears transitively moves other maximal abelian spaces, yielding two orbits. Independent exact arithmetic for q=2,m=2 gives 21 maximal abelian, 137 ideals, 80896 commuting pairs and full dimension sequences, matching inspected verification source; arbitrary q,m rest on algebraic proof.
 
-## Limits and closest literature
-Closest primary source: Kundu–Naik–Singh (2022), arXiv:2208.07676, Theorem 1.3 and Section 5. Ceballos–Towers (2011), arXiv:1110.2389, studies maximal abelian dimensions; Carnevale–Schein–Voll (2019), arXiv:1903.03090, concerns class-two ideal growth; Benito–Roldán-López (2019), arXiv:1911.01897, treats characteristic-zero automorphism structures. The results are for \(m\ge2\); finite verification is corroboration, not a proof. Priority is provisional. Independent audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): Kundu–Naik–Singh identify this class-three centralizer-dimension algebra, but the examined primary result is an isomorphism/centralizer classification, not the exact Fq-subspace ideal and abelian lattices, commuting tuple numbers, and maximal-abelian orbit cardinalities after restriction of scalars. Familiar free nilpotent algebra tools credited.
+
+## value
+
+PASS
+
+PASS: Entire Fq-ideal/abelian-subalgebra lattices for a specific free class-three Lie algebra under scalar restriction, their Gaussian-binomial counts and maximal-incidence projective orbits are intrinsic algebraic invariants relevant to subalgebra growth and finite-field geometry, not just isolated small-field tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
