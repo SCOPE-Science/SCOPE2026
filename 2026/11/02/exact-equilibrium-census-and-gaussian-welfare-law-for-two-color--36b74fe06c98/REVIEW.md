@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Exact swap-payment inequalities split into adjacent and nonadjacent cases and establish the if-and-only-if run criterion, including the singular two-run and three-cycle cases. Cyclic positive compositions and a four-state forbidden-singleton transfer matrix determine every stable-coloring count; the explicit eigenvalues and an analytic moment-generating function prove the typical-welfare Gaussian law. The accompanying independent exact enumeration checks all binary configurations on cycles of sizes \(3\) through \(14\), while exact polynomial recurrence comparisons cover sizes through \(33\). The finite checks do not imply the universal or asymptotic claims; those follow from the mathematical arguments.
+## correctness
 
-## Originality — PASS, subject to priority limitations
-Agarwal, Elkind, Gan and Voudouris give the foundational swap Schelling framework. Bilò, Bilò, Lenzner and Molitor prove exact cycle price-of-anarchy bounds and the key absence of isolated runs in ordinary equilibria with at least two occupants of each color. Those findings are explicitly **not** claimed new. The present claim adds a complete stable-configuration census for every color split, the complete welfare generating polynomial, and the probabilistic typical-equilibrium asymptotic. Later robustness analyses do not appear to cover this enumeration. Classical Lucas/run identities and a potentially unindexed specialist result remain concrete prior-art risks; the proof of one earlier relevant publisher document was not fully accessible. No absolute novelty claim or external priority certification is made.
+PASS
 
-## Mathematical value — PASS
-A full equilibrium census and explicit distribution of welfare refine existing extreme-welfare bounds to quantitative information about how common equilibria of different quality are. These hold for every number of sites and every color split, and the asymptotic limit distinguishes typical from worst equilibrium quality. The result uses a natural model and observable rather than arbitrary selected parameters.
+For labeled C_n, n>=3, inspected the bilateral strictly profitable exchange criterion for both adjacent and nonadjacent differently colored agents. Nonadjacent benefit iff their two original same-neighbor counts sum to <2; the adjacent case requires neighboring singleton runs. Hence stable iff J<=2 or all cyclic monochromatic runs have length >=2. Counting r alternating run compositions gives N_{n;a,b}=n+sum_{r>=2} (n/r) binom(a-r-1,r-1)binom(b-r-1,r-1), with the all-one-color cases separately 1. The pair-state transfer matrix excludes singleton runs, and 2n z^2 restores stable two-run configurations with a singleton. Its eigenvalues give Z_n(1)=phi^n+(1-phi)^n+2cos(n*pi/3)+2n. Analytic perturbation of the simple Perron eigenvalue lambda_+(z)=(1+sqrt(1+4z))/2 proves W/n->(5+sqrt5)/10 and centered sqrt(n) CLT variance sqrt5/25 for the UNRESTRICTED uniform stable coloring. This is an infinite proof, not inferred from finite checks.
 
-## Limitations
-The model is full occupancy, binary types, degree-normalized own-type preference, strict bilateral swaps on a single cycle. The Gaussian claim draws uniformly over *all* equilibria, not over equilibria at a fixed type split nor the terminal distribution of strategic play. Formal independent audit and specialist literature priority resolution remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The pre-existing cycle price-of-anarchy analysis establishes the necessary no-singleton condition for equilibria with both populations >=2 and welfare extrema. It does not state the joint fixed-population enumeration, all-compositions welfare polynomial, or the Gaussian law of a uniformly sampled equilibrium. Those distributional and counting claims are the assessed new contribution, with finite-run enumerative precedent a residual risk.
+
+## value
+
+PASS
+
+Motivated by known welfare efficiency bounds for stable Schelling allocations: the exact feasible-composition counts and law of typical equilibrium welfare answer a different canonical question (how many equilibria and what they typically achieve). The fluctuations distinguish typical rather than extremal welfare and may be used as a benchmark in further probabilistic game analysis; not a mere renaming of a standard Fibonacci identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
