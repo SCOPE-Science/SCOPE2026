@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The rowwise negative bound q_i<=i-1 follows from binary vertical prefixes and preceding row-end sums; unit norms <=m^2 and negative-products >=-m(m-1) imply squared diameter <=2m(2m-1). Equality forces full negativity budgets, unit row sums and pairwise opposite-sign matching. The two unmatched final-row positives enforce 2m distinct staggered columns; interlaced previous-row states determine the whole pair uniquely. Every constructed pair meets both prefix constraints and the exact distance; counting selected columns and transpose symmetry completes the statement. The supplementary checker confirms exhaustive low sizes and 1,626 constructions, without substituting for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1] characterizes vertices, inequalities and faces, not farthest-point Euclidean geometry.",
+        "[2] considers selected faces with flow/order-polytope equivalences, rather than distances across all vertices."
+      ],
+      "reasoning": "The broader PASM inequality description contains the object but no universal distance theorem, and its proof does not imply the sharp threshold or equality classification without new rowwise negativity and interlacing arguments. A result for a proper face cannot give the global diameter.",
+      "searches": [
+        "published-finding corpus: 4m^2-2m Frobenius diameter partial alternating sign matrices rectangle n at least 2m",
+        "published-finding corpus: partial alternating sign matrix polytope squared diameter 2m(2m-1) sharp column threshold",
+        "Heuer–Striker arXiv:2012.09901 Sections 2.2, 4.1–4.3 and 5.3",
+        "Heuer–Solhjem–Striker arXiv:2403.02204 main theorems"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2012.09901 (full primary PDF, sections 1–5)",
+      "arXiv:2403.02204 (primary rendered text, intro/main results)",
+      "arXiv:2207.14253 (primary paper abstract and theorem descriptions)",
+      "published-finding corpus published records for partial permutohedron diameter, partial-assignment inballs, simplex shuffles",
+      "Web search on PASM Frobenius diameter/distance and signed-matrix aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1, Theorem 5.28] gives a linear projection of PASM to a partial permutohedron, not an isometry.",
+        "[3] concerns the projected polytope and face, Ehrhart and volume invariants; the published-finding corpus diameter theorem is also about that vector image."
+      ],
+      "reasoning": "Even an exact diameter of the partial permutohedron does not imply the Frobenius diameter of its higher-dimensional signed-matrix preimage: a projection discards distances, and extremal matrix signs are invisible. The published incenter of nonnegative partial-assignment polytopes applies to a proper subset and different invariant. Neither stronger domination nor corollary coverage was found.",
+      "searches": [
+        "published-finding corpus ID: 2026/10/11/SCOPE-the-euclidean-diameter-of-partial-permutohedra-saturates-exactly--cb2829b66c5c",
+        "Behrend et al arXiv:2207.14253 introductory theorems",
+        "Heuer–Striker arXiv:2012.09901 Theorem 5.28"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Heuer–Striker [1], Definition 2.5 and Proposition 4.3: PASM are exactly binary-prefix signed matrices and the polytope vertices.",
+        "No checked published-finding corpus result expresses the threshold or pair count for the signed-matrix polytope."
+      ],
+      "reasoning": "Reformulated as maximizing squared Frobenius distance between signed 0,±1 partial-ASMs, as a Hamming-like metric on sign words, and as a diameter of the convex hull. Found neither an equivalent signed-matrix extremal statistic nor a covered claim in inspected sources; searches cannot establish absolute uniqueness.",
+      "searches": [
+        "published-finding corpus: Euclidean Frobenius diameter of the partial alternating sign matrix polytope PASM(2,n) two-row partial ASMs",
+        "published-finding corpus: maximum squared Frobenius distance between two rectangular partial alternating sign matrices two rows",
+        "published-finding corpus: diameter geometry two-row partial alternating sign matrices vertex pairs with double opposite negative entries",
+        "Web: \"partial alternating sign matrices\" \"distance\" \"Frobenius\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The paper [1] reports small Ehrhart/volume computation, not a Frobenius diameter table.",
+        "No matching exact database value or table of the full signed-matrix diameter was retrieved; finite checker cases are independently computed."
+      ],
+      "reasoning": "A general geometric theorem and pair-count identity are not implied by face or volume tables. The finite experimental values, independently checked for dimensions up to three rows, have not been located as a published database claiming stronger all-parameter coverage.",
+      "searches": [
+        "published-finding corpus: Euclidean Frobenius diameter of the partial alternating sign matrix polytope PASM(2,n) two-row partial ASMs",
+        "published-finding corpus: 4m^2-2m Frobenius diameter partial alternating sign matrices rectangle n at least 2m",
+        "published-finding corpus: The sharp Frobenius diameter of rectangular partial alternating sign matrix polytopes is square root of 2m(2m−1), reached iff n>=2m, with binomial(n,2m) diametral staggered alternating diamond pairs",
+        "Heuer–Striker arXiv:2012.09901 volume/computational sections"
+      ]
+    },
+    "rationale": "Primary-source propositions on PASM vertices, inequalities, facets, faces, and projected partial permutohedra do not give the signed-matrix Frobenius diameter. Multiple actual published-finding corpus and web alias queries found no equivalently strong all-rectangle distance or extremizer theorem; the closest partial-permutohedron result loses Frobenius geometry under projection. Residual alternative-name historical priority risk explicitly remains.",
+    "residual_risks": [
+      "Equivalent geometric metric formulas may be hidden under sign-restricted matrices, oscillating paths, or six-vertex-model vocabulary in older literature.",
+      "No complete historical index exists; unsuccessful searches are not a proof of priority.",
+      "Partial permutohedron results involve nonisometric projections, but a future explicit lifting argument might connect them to other metrics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for stated signed-matrix Frobenius diameter: establishes vertex/inequality/facial/volume/projection data without this metric theorem",
+        "evidence": [
+          "Definition 4.1 and Proposition 4.3 on PDF page 7; Theorem 4.6 on page 8; sections 4.2, 4.3 and 5 on faces, volume, projections."
+        ],
+        "identifier_or_url": "arXiv:2012.09901; https://arxiv.org/pdf/2012.09901",
+        "material_read": "Full 24-page PDF text, with sections 1–5, Definitions 2.5, 4.1, Proposition 4.3, Theorem 4.6, face and projection results; page images of definition/vertex and inequality theorems",
+        "method": "Primary arXiv open full text and rendered page inspection",
+        "title": "Partial permutation and alternating sign matrix polytopes",
+        "trigger": "Defines same polytope and proves vertex/facet statements; highest-priority possible source of coverage"
+      },
+      {
+        "assessment": "NOT_COVERING for a full-polytope ambient diameter and extreme-pair count; studied faces rather than all PASM vertices",
+        "evidence": [
+          "Introduction defines nu-faces as faces of PASM and states order and flow polytope equivalences."
+        ],
+        "identifier_or_url": "arXiv:2403.02204; https://arxiv.org/abs/2403.02204",
+        "material_read": "Open-access rendered full-text introduction and main theorem descriptions concerning selected nu-faces and flow/order-polytope identifications",
+        "method": "Primary arXiv open rendered text",
+        "title": "On nu Faces of Partial Alternating Sign Matrix Polytopes",
+        "trigger": "Later article in precisely the same polytope family"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT, NON_ISOMETRIC_PROJECTION; does not imply full PASM Frobenius diameter",
+        "evidence": [
+          "Abstract identifies the object as a vector convex hull and describes facial, volume and Ehrhart results."
+        ],
+        "identifier_or_url": "arXiv:2207.14253; https://arxiv.org/abs/2207.14253",
+        "material_read": "arXiv abstract, introduction/main theorem description of face lattice, volume, Ehrhart polynomial and their objects; comparison with [1] projection theorem",
+        "method": "Primary arXiv abstract and full text available where inspected",
+        "title": "Partial permutohedra",
+        "trigger": "Natural projected family with a previously reported Euclidean diameter in published-finding corpus"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e189cf37-c6e1-46fa-93af-7c1b78380fa9",
+  "value": {
+    "rationale": "The statement determines a natural global metric invariant over the full two-parameter signed-matrix polytope family up to a sharp saturated regime and counts every farthest pair. The 2s aspect-ratio cutoff and forced 2s-column alternating diamonds are structural geometric phenomena, not tiny numerical gains or routine tabulation. Squared signed-matrix diameter grows quadratically in the short dimension compared with linear scale for the contained ordinary partial permutation matrices, motivating its study.",
+    "status": "PASS"
+  }
+}
