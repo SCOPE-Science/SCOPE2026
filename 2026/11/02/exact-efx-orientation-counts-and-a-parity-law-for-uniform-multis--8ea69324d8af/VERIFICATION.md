@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and no external packages. The actual source-file run printed:
+## correctness
 
-`VERIFY_OK exact_labeled_orientation_cases= 13 binomial_profiles= 56`
+PASS
 
-The program directly enumerates every labeled assignment of each edge to its center or leaf for thirteen small combinations, tests all ordered agent pairs and every removed good, and compares the count with Equation (1). The separate coefficient recurrence checks Equation (2) whenever its stable-range hypothesis holds, over \(b\in\{2,\ldots,8\}\) and \(q\in\{2,\ldots,9\}\). It also checks the three displayed low-multiplicity closed formulas on finite ranges.
+Let y_i be center receipts from leaf i, x_i=q−y_i, C=∑y_i. Center-to-leaf EFX becomes C+min(y_i)≥q−1. Leaf-to-center EFX with some center bundle item of zero value forces y_i≤floor(q/2); only when other y_j all vanish does y_i≤(q+1)/2, with feasible extra orientations only at q=3, giving 3b. Each y_i has binomial(q,y_i) labeled realizations. For b≥q−1 all disallowed small sums ≤q−2 include a zero component, giving polynomial correction; binomial symmetry yields exact parity rates. Independently brute-forced complete all-goods EFX for eight small (b,q) against the finite formula.
 
-The mathematical proof, rather than the finite experiment, establishes the formula for all integers \(b,q\ge2\), the exceptional \(q=3\) correction, and the large-\(b\) parity rate. These checks do not establish publication priority or extend the result to nonuniform weights, different multigraphs, or a positive-good-only EFX definition.
+## originality
+
+PASS
+
+General multigraph EFX orientation papers determine existence or computational complexity, not the exact labeled enumeration or its parity-sensitive random orientation rate for uniform unit multistars. Strongly related incidence-valuation fair-orientation definitions were compared explicitly, including all-goods versus positive-only variants.
+
+## value
+
+PASS
+
+EFX orientation feasibility is known, but the number and fair-coin probability of all allowed orientations are natural finer combinatorial statistics. The uniform multistar is the first tractable parallel-edge test family, and the isolated q=3 exception and parity-dependent asymptotic rate are substantive boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

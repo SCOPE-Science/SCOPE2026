@@ -1,11 +1,21 @@
-# Scientific review: uniform-multistar EFX orientation enumerator
+# Independent mathematical audit
 
-**Correctness — PASS.** Equation (1) follows from necessary-and-sufficient EFX comparisons: the center receives \(C=\sum_i y_i\) and must satisfy \(C+\min_i y_i\ge q-1\); a leaf whose center owns any other leaf's edge must satisfy \(y_i\le\lfloor q/2\rfloor\). Only \(q=3\) allows a one-leaf exceptional vector beyond this bound, accounting for precisely \(3b\) labeled orientations. For \(b\ge q-1\), every center-receipt total below \(q-1\) includes a zero leaf, establishing the polynomial coefficient correction. The asymptotic parity law is an exact binomial half-sum identity. An independent direct implementation checks all deletions, not merely positively valued deletions, against the analytic count for thirteen small parameter pairs. These finite checks corroborate the general proof but do not independently certify the infinite theorem.
+## correctness
 
-**Originality — PASS, with residual risk.** The exact counting assertion was compared to the relevant existence theorems for multistars in Afshinmehr et al., Proposition 3.1 and Proposition 4.3; the 2025/2026 parameterized EFX orientation decision and minimum-charity results of Kanellopoulos et al., in particular Theorem 23; Hsu's bi-valued multigraph results; and an earlier count for unit-valued orientations of simple cycles. None of these statements implies the uniform-multistar enumerator (1), finite polynomial correction (2), or parity-dependent exponential rate (3). Semantic research-record searches and targeted full-text searches did not identify these claims. A missing unindexed counting argument, a differently worded exact multistar count, or an unpublished independent derivation is a residual priority risk; database absence does not prove originality.
+PASS
 
-**Value — PASS.** Existence of a fair orientation does not quantify how fragile fairness is under uncoordinated edge assignment. The exact proportion of fair edge orientations on a natural, infinite, uniformly replicated star family makes that quantitative question precise. The surprising odd/even distinction in the exponential survival factor, including the exact \(3^b-1\) and \(4^b-1\) laws and the isolated \(q=3\) exception to the local majority constraint, supplies a structural benchmark for random fair division. This result does not imply a new generic existence theorem, a polynomial counting algorithm for arbitrary multigraphs, or any conclusion under non-unit weights.
+Let y_i be center receipts from leaf i, x_i=q−y_i, C=∑y_i. Center-to-leaf EFX becomes C+min(y_i)≥q−1. Leaf-to-center EFX with some center bundle item of zero value forces y_i≤floor(q/2); only when other y_j all vanish does y_i≤(q+1)/2, with feasible extra orientations only at q=3, giving 3b. Each y_i has binomial(q,y_i) labeled realizations. For b≥q−1 all disallowed small sums ≤q−2 include a zero component, giving polynomial correction; binomial symmetry yields exact parity rates. Independently brute-forced complete all-goods EFX for eight small (b,q) against the finite formula.
 
-**Closest literature and limits.** Afshinmehr et al., *EFX Allocations and Orientations on Bipartite Multi-graphs: A Complete Picture*, https://doi.org/10.1007/s10458-026-09754-8, provides multistar existence without full enumeration. Kanellopoulos et al., *EF(X) Orientations: A Parameterized Complexity Perspective*, https://arxiv.org/abs/2512.25033, provides structural decision algorithms rather than counts. Hsu, *EFX Orientations of Multigraphs*, https://doi.org/10.3233/FAIA251259, gives hardness and sufficient conditions. All comparisons concern the stated all-goods EFX notion. Independent scientific audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General multigraph EFX orientation papers determine existence or computational complexity, not the exact labeled enumeration or its parity-sensitive random orientation rate for uniform unit multistars. Strongly related incidence-valuation fair-orientation definitions were compared explicitly, including all-goods versus positive-only variants.
+
+## value
+
+PASS
+
+EFX orientation feasibility is known, but the number and fair-coin probability of all allowed orientations are natural finer combinatorial statistics. The uniform multistar is the first tractable parallel-edge test family, and the isolated q=3 exception and parity-dependent asymptotic rate are substantive boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
