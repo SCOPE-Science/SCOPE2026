@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The novel kernel identity follows by summing the published exact second difference of path greedy expectations. Its first three discrete difference ratios have verified strict signs for every \\(j\\ge1\\); checkerboard pairing proves positivity of \\(\\eta_j\\) and \\(\\\\(\\eta_j\\)-\\eta_{j+1}\\), and an alternating series proves positive on-path difference for KC paths of length >=2. For length one, a neighbor of the source endpoint witnesses strict component splitting, with \\(1+\\alpha_b>\\alpha_{b+1}\\) and \\(\\alpha\\)-subadditivity. Cited nonnegative off-path terms and the KC poset plus first-vertex induction prove all-order unique path minimization. Exact checker passed 30741 assertions (orders through 11); finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2019 arXiv:1907.07216 / 2023 online journal article Theorem 1.4 is weaker, non-strict.",
+        "The 2020 conference version (doi:10.4230/LIPIcs.AofA.2020.20) also reports only a non-strict inequality."
+      ],
+      "reasoning": "The relevant earlier bounds over the same full tree class allow equality at nonpaths and therefore do not imply unique minimization; generic random greedy graph-family results do not establish it. Known counterexamples to expectation KC monotonicity neither establish nor refute strict auxiliary functional monotonicity.",
+      "searches": [
+        "random greedy independent set path unique minimizer trees strict 2025",
+        "greedy random maximal independent set trees strict KC transformations",
+        "expected size random greedy independent sets trees path minimum uniqueness"
+      ]
+    },
+    "checked_sources": [
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+      "https://arxiv.org/abs/1907.07216",
+      "https://doi.org/10.4230/LIPIcs.AofA.2020.20",
+      "https://doi.org/10.1007/s00493-010-2516-0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "KMM&S Section 8.1 exact on-path increment equals a finite alternating mixed-difference sum; the published proof establishes only nonnegativity.",
+        "The new proof shows strictness of this sum for bare-path length at least two and supplies an independent positive off-path contribution for length one.",
+        "KMM&S Section 8.1 KC poset unique path minimum, combined with their first-vertex lower bound, then gives new uniqueness."
+      ],
+      "reasoning": "The earlier theorem does not imply strictness because nonnegative KC increments could vanish. The new checked kernels and boundary witness rule out equality at all proper KC steps; together with the existing poset, this strictly strengthens the earlier minimizer theorem.",
+      "searches": [
+        "Greedy maximal independent sets via local limits Theorem 8.4 strict equality path",
+        "2024 KMM&S unique minimizer path expected greedy independent set"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "KMM&S Theorem 1.4 (https://doi.org/10.1002/rsa.21200) gives a non-strict path minimum; their Section 8 expressly says uniqueness is not implied.",
+        "KMM&S Theorem 8.3 states only nondecreasing shattering functional."
+      ],
+      "reasoning": "The equivalent statement would be the equality classification for every finite tree, or strict positivity of the auxiliary shattering functional under every proper KC move. The inspected primary work proves neither; its exact formulas support the new strictness proof.",
+      "searches": [
+        "random greedy maximal independent sets trees path unique minimum expected cardinality",
+        "greedy maximal independent set tree path unique minimizer expectation",
+        "strict ν KC tree shattering functional randomly ordered greedy independent set path minimizer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Comparisons of available indexed mathematical claims returned related greedy-MIS results for threshold and chain graphs and complete multipartite variance, but none with this tree-wide strict statement.",
+        "The finite exact-rational checker enumerates all unlabelled trees through order 11 as verification rather than claiming a novel tabulation."
+      ],
+      "reasoning": "No claim with the exact structural statement or a dominating general result was identified among the inspected records. This negative search is evidence of a bounded comparison, not proof of novelty.",
+      "searches": [
+        "random greedy maximal independent sets trees path unique minimum expected cardinality",
+        "strict monotonicity of shattered component path functional under proper KC transformations of trees"
+      ]
+    },
+    "rationale": "The precise source theorem is non-strict and explicitly leaves equality classification unresolved; strict positive-decreasing checkerboard and adjacent-endpoint results are additional statements. Full primary sections and exact implication comparisons were examined. No indexed stronger tree-extremality theorem was identified, but priority risk persists.",
+    "residual_risks": [
+      "An unindexed independent proof of the equality case in later literature could subsume novelty.",
+      "The global strict theorem relies on the published Csikvari KC tree-poset reachability and cited decomposition, not an independent rederivation of those published results.",
+      "No independent mathematical audit or expert referee assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source proves non-strict extremality and explicitly does not claim uniqueness; establishes the supporting algebra and KC machinery but not the new strict argument.",
+        "evidence": [
+          "Theorem 1.4 gives \\(m(P_n)\\le m(T)\\).",
+          "Section 8 says the proof does not imply uniqueness.",
+          "Theorem 8.4 derives the exact central mixed-difference sum and off-path nonnegativity."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+        "material_read": "Open full-text HTML: introductory tree theorem, Sections 8.1, 8.2 and 9, Theorems 1.4, 8.3, 8.4, Lemma 8.1, equations 10–13.",
+        "method": "Read the theorem and proof identities, including the on-path difference formula and off-path nonnegativity, and checked which inequalities were strict.",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Same process, tree family, path extremality and KC shattering functional"
+      },
+      {
+        "assessment": "Reports non-strict path-minimizing expectation; no strict claim in material read.",
+        "evidence": [
+          "The proceedings abstract says the path expected cardinality is no larger than any same-order tree."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2020.20",
+        "material_read": "Open proceedings metadata and abstract; not represented as full-text review.",
+        "method": "Compared its stated tree extremality claim with the strict equality classification.",
+        "title": "Greedy Maximal Independent Sets via Local Limits (AofA 2020)",
+        "trigger": "Earliest conference comparison of the same underlying theorem"
+      },
+      {
+        "assessment": "First public posting was 2019-07-16, within cohort interval.",
+        "evidence": [
+          "arXiv:1907.07216 shows submission July 16, 2019."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1907.07216",
+        "material_read": "ArXiv abstract and version-history date, with article body inspected separately via lawful full HTML.",
+        "method": "Checked earliest version public timestamp versus later journal posting.",
+        "title": "Greedy maximal independent sets via local limits (arXiv first version record)",
+        "trigger": "Verify earliest public source date within middle cohort"
+      },
+      {
+        "assessment": "Independent confirmation of the path as unique minimum of the transformation order, not a result about the random-greedy expectation.",
+        "evidence": [
+          "Csikvári (2010), Combinatorica 30(2), 125–137, describes a leveled tree poset with path minimum and star maximum."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00493-010-2516-0",
+        "material_read": "Bibliographic records and the cited minimum/maximum poset theorem statement; full article not inspected.",
+        "method": "Compared published abstract and the explicit use of the result in KMM&S Section 8.1.",
+        "title": "On a Poset of Trees",
+        "trigger": "Original source of the generalized tree-shift poset and unique path minimum."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cfdfc0cc-2b01-4bf5-996e-fa2779b0f0aa",
+  "value": {
+    "rationale": "The prior same-object theorem expressly leaves open uniqueness of minimizers. The strict structural KC shattering lemma closes a mathematically motivated equality gap for all finite trees, gives an explicit proof mechanism that is distinct from false expectation KC monotonicity, and does not merely compute an incidental finite invariant.",
+    "status": "PASS"
+  }
+}
