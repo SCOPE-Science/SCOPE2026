@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Original edge-centric de Bruijn graph has F_(k+2) edges and the stated +1/-1 imbalances. The explicit vertex potential has drop at most one per original directed edge, giving R>=F_k-k+1 for arbitrary endpoints. A bijective pairing of every nonexceptional negative vertex to a positive vertex via j leading-one shifts gives exactly that many added edges and an Euler trail, proving equality. Special k=2 is Eulerian. Replayed standalone checker independently computes optimal BFS lengths for k<=5 and tests constructive and potential invariants k<=13; not treated as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schmidt et al., Matchtigs (2023), Results/Methods, give a polynomial-time general minimum-cost string-set representation permitting repeated k-mers, not a symbolic formula for a one-string constraint.",
+        "Chakraborty et al. (2026), Introduction Section 1 and §3 emphasize no-repetition path/cycle and necklace representations."
+      ],
+      "reasoning": "General min-cost-flow/Chinese-postman ideas can be applied as an algorithmic framework, so the problem is not a new decidability or algorithm theorem. The asserted exact value for *all* k, tight repeat overhead, and dual potential plus canonical augmentation are a separate symbolic closed-form derivation. None of the inspected broader theorems immediately implies the numeric expression without solving the specialized optimization.",
+      "searches": [
+        "https://link.springer.com/article/10.1186/s13059-023-02968-z",
+        "Exact Chinese postman distance for forbidden 00 de Bruijn graph, duplication cost Fibonacci-k+1",
+        "https://arxiv.org/html/2602.19408v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.19408 full HTML (2026-02-23)",
+      "Schmidt et al., Genome Biology 24:136 (2023) full HTML",
+      "arxiv:0711.1695 full HTML (2007)",
+      "Semantic research index queries on closed-form forbidden-00 one-string cover",
+      "Accessible own prior claim ledger (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 necklace-cover manuscript studies no-repeat collections and compressed branching representations; this claim permits repetitions but fixes a single finite string.",
+        "2023 Matchtigs gives a general solution framework to a variable-number string-set minimization; a symbolic one-string optimum for the golden-mean family does not follow as a directly stated corollary.",
+        "2007 Moreno–Matamala periodic-language de Bruijn sequences use Eulerian cyclic graphs, whereas the finite linear dictionary produces imbalanced vertices."
+      ],
+      "reasoning": "The claimed formula follows here from an explicit degree-imbalance potential with one-path augmentation. It is neither a straightforward substitution in a published numerical formula nor a restatement of an exact table. A general-purpose min-cost algorithm could compute fixed instances, but is not itself an all-parameter Fibonacci evaluation; residual implicit coverage remains a risk.",
+      "searches": [
+        "arxiv:2602.19408",
+        "doi:10.1186/s13059-023-02968-z",
+        "arxiv:0711.1695",
+        "Shortest zero-run-constrained universal word (without forbidden k-mer windows) Fibonacci formula shortest common superstring"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moreno–Matamala 2007, Section 2.1 explicitly defines periodic cyclically admissible words rather than all linearly admissible words, https://arxiv.org/html/0711.1695v1",
+        "Chakraborty et al. 2026, Introduction and Section 3, study no-repetition SPSS and necklace cover, https://arxiv.org/html/2602.19408v1"
+      ],
+      "reasoning": "The candidate can be expressed as a minimum directed open edge-covering walk (directed route inspection) on a specific *imbalanced* golden-mean finite-word de Bruijn graph. Cyclic de Bruijn sequences over periodic languages and no-repetition multi-string path covers do not express this exact one-string objective. Generic route-inspection techniques apply but do not state the all-k Fibonacci formula or produce its sharp potential certificate.",
+      "searches": [
+        "Shortest single linear superstring containing exactly every binary length k word avoiding 00 as k-mer at least once; Fibonacci F(k+2)+F(k), exact golden mean forbidden 00 dictionary directed postman",
+        "minimum edge-covering walk length in de Bruijn graph of all finite binary words without consecutive zeros golden mean one-string shortest",
+        "arxiv:0711.1695",
+        "arxiv:2602.19408"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Research-record search results closest include Fibonacci shortest absent scattered subsequences (ID 1a6556f14d28) and binary two-multispectrum counts (ID 13779c08da71), neither defines a forbidden-00 contiguous k-mer one-string route covering invariant.",
+        "The exact sequence of shortest lengths for k=2..13 is 4,7,11,18,29,47,76,123,199,322,521,843 by standalone checker."
+      ],
+      "reasoning": "No indexed exact formula/table covering this invariant was returned. The search index and enumeration are incomplete and not uniqueness proofs; these are negative-evidence checks combined with theorem-by-theorem comparisons.",
+      "searches": [
+        "Shortest single linear superstring containing exactly every binary length k word avoiding 00 as k-mer at least once; Fibonacci F(k+2)+F(k), exact golden mean forbidden 00 dictionary directed postman",
+        "minimum edge-covering walk length in de Bruijn graph of all finite binary words without consecutive zeros golden mean one-string shortest",
+        "Exact Chinese postman distance for forbidden 00 de Bruijn graph, duplication cost Fibonacci-k+1",
+        "Shortest zero-run-constrained universal word (without forbidden k-mer windows) Fibonacci formula shortest common superstring"
+      ]
+    },
+    "rationale": "Searches of published result records, accessible historical claims, and original full texts found no direct or stronger all-k exact minimum single-string spectrum formula for the finite binary forbidden-00 dictionary. The 2023 Matchtigs general min-cost methods are substantial adjacent algorithmic coverage but do not immediately furnish the closed-form evaluation with a matching explicit potential and augmentation; historical priority remains provisional.",
+    "residual_risks": [
+      "General min-cost route-inspection results might hide a specialized Fibonacci identity in an unindexed proof or appendix.",
+      "Index coverage and full-text searches cannot establish historical uniqueness.",
+      "Expert comparison with broader constrained de Bruijn and postman literature is still outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not directly covering; studies no-repetition path/cycle covers and necklace representations, no forbidden-00 all-k one-string formula found",
+        "evidence": [
+          "Intro defines exact k-mer spectra and no-repetition focus (§1, lines 53–72); §3 necklace cover and comparison; no Fibonacci formula found"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.19408v1",
+        "material_read": "HTML full text including abstract, introduction, definitions, no-repetition path-and-cycle/necklace section, and contribution comparison",
+        "method": "Read accessible original paper in HTML; compared object, repeat permission, string count, objective and formulas",
+        "title": "Variations on the Problem of Identifying Spectrum-Preserving String Sets",
+        "trigger": "Recent 2026 spectrum-preserving k-mer representations; exact dictionary preservation"
+      },
+      {
+        "assessment": "Strong related general algorithmic coverage; does not directly give the one-string golden-mean Fibonacci expression. Potential implicit derivation risk retained.",
+        "evidence": [
+          "Abstract and contribution give general polynomial-time minimum SPSS; Results §Matchtigs describes a min-cost circular walk with arbitrary jumps representing multiple strings"
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s13059-023-02968-z",
+        "material_read": "Open access original article, abstract, background, contributions, Results and Chinese-postman modeling",
+        "method": "Read HTML original and compare unrestricted string-set formulation versus single-string constraint and symbolic k-dependent formula",
+        "title": "Matchtigs: minimum plain text representation of k-mer sets",
+        "trigger": "General shortest representation with repeated k-mers may dominate this optimization"
+      },
+      {
+        "assessment": "Not covering; defines periodical-word dictionary, minimal lexicographic Eulerian cycles, not shortest finite single superstring with repeated k-mers",
+        "evidence": [
+          "Section 2.1 expressly defines a word to be legal when its infinite periodic repetition is legal, and §3 studies lexicographically least Eulerian cycle"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0711.1695v1",
+        "material_read": "Accessible original full HTML: Introduction, definitions in §2, Eulerian property, §3 minimal lexicographical cycle, remarks",
+        "method": "Read original and compare cyclic periodic admissibility against finite linear admissibility, graph imbalance, and optimization criteria",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Potential exact forbidden-factor universal-word coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e1b4abc5-d372-4480-a8de-f9c9df72f02b",
+  "value": {
+    "rationale": "For a natural Fibonacci forbidden-factor dictionary arising in finite-type word constraints and k-mer exact-spectrum storage, the result gives a complete exact optimal linear representation, unavoidable duplicate-factor overhead and a deterministic construction. The fact that repetitions become necessary precisely beyond k=4, together with the tight global potential certificate, is structural information not given by a generic shortest-cover algorithm.",
+    "status": "PASS"
+  }
+}
