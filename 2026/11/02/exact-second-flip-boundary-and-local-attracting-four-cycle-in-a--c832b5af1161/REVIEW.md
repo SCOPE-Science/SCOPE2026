@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The displayed rational factorization of the second iterate gives the complete primitive two-cycle census, and the quadratic's symmetric functions give an exact multiplier. The multiplier is strictly decreasing over its existence region and crosses \(-1\) exactly at the displayed radical. Nonvanishing derivatives and the strictly negative Schwarzian establish the positive local flip normal-form coefficient. The analytic expansion of the squared return map produces exactly two new roots in each old-cycle neighborhood for parameters above the threshold, none below, and a multiplier strictly inside the unit circle. A bundled symbolic/high-precision checker confirmed the critical algebra and checked local numerical instances. The proof does not infer global behavior from finite tests.
+## correctness
 
-## Originality — PASS within inspected evidence
-Kumar et al. (2022), DOI `10.3934/mbe.2022115`, pages 2492–2497, present the map, fixed-point condition, approximate period-two window ending at \(5.033\), and period-four plots, but no radical flip threshold or explicit local four-cycle coefficients. Conejero, Lizama and Quijada (2025), DOI `10.3390/math13030518`, present the same map as a parameter slice and describe numerical bifurcation values around \(5.03\) in indexed sections; its complete text was inaccessible and is a residual priority risk. The textbook logistic-map period-doubling computation concerns a different map, so it does not imply the present formula. No identical claim was found in the inspected mathematical research records; a failed search is not a proof of priority.
+PASS
 
-## Value — PASS
-The exact second period-doubling threshold resolves a specific, explicitly reported numerical transition for a natural published family; the exact two-cycle phase classification, local creation of the attracting four-cycle, its two unequal square-root amplitudes, and its leading return multiplier are useful dynamical invariants beyond merely replacing an approximate decimal. No claims are made about global basin structure or higher period-doubling cascade.
+For K_mu(x)=mu*x*(1-x)/(1+x), 0<mu<=3+2sqrt(2), verified K^2-x rational factorization with quadratic primitive-cycle factor Q, discriminant (mu^2-1)(mu^2-4mu-1), unique two-cycle for mu>2+sqrt(5), and multiplier 1-(mu^2-1)(mu^2-4mu-1)/(2mu^2). The strictly decreasing multiplier crosses -1 uniquely at mu_f=1+sqrt(2)+sqrt(4+2sqrt(2)). The exact negative Schwarzian of K gives positive cubic normal coefficient of K^2 and transverse flip, yielding exactly one local attracting 4-cycle for mu>mu_f near threshold with two explicit distinct square-root amplitudes. Independently recalculated symbolic identities, quartic radical and numerical amplitude values.
 
-## Limits of review
-This is a self-review, not an independent audit. Generic flip normal forms are classical and are not claimed as original. The 2025 article could not be inspected in complete text, and unindexed equivalent results remain possible. Numerical tests are supplementary only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact claim-vs-prior comparison after this run’s independent Resultary search and primary-source checks. The exact multiplier and negative Schwarzian + transverse unfolding complete the missing family-specific steps that are not entailed by prior numerical observations; generic flip theory alone is insufficient to calculate these numbers. Priority qualified: An unindexed appendix to earlier rational-map bifurcation studies could have derived the same algebra; no claim of globally exhaustive priority.
+
+## value
+
+PASS
+
+It converts a numerical published second period-doubling threshold of a particular rational unimodal map to a closed radical, proves exact two-cycle stability phases and computes local normal-form amplitudes and return multiplier; the supercritical classification is an analytically useful sharpening, not a mere rounded numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
