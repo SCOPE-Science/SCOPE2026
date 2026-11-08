@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The stationary alternating-renewal age law gives Pr(A>s|orientation)=H(s)/m. The positive-run deficit is Z=Z0 exp(-kappa A) and, after a negative run of length U, Z0>=1-exp(-kappa U). This yields matching upper/lower support-edge bounds with exponentially negligible short-U exceptions, using Pr(T<=u)=O(u^beta). Karamata gives H(s)~s Pr(T>s)/(alpha-1), proving the exact equivalent. The half-t density has survival 1-t/sqrt(t^2+tau^2), H(t)=sqrt(t^2+tau^2)-t and m=tau. A window shrinking as O(log s) yields the explicit relative O(log s/s) error. The standalone checker validates algebraic identities, finite bounds and Monte Carlo diagnostics, not the infinite asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Heath, Resnick and Samorodnitsky (1998) study long-range dependence in heavy-tailed on/off fluid models, not an identified harmonic-filter boundary equivalent",
+        "arxiv:2409.00578 addresses finite-tumble-time model moments, distinct from arbitrary regularly varying run-time survival"
+      ],
+      "reasoning": "A general shot-noise or on/off fluid theorem may imply the present statement, but the accessible descriptions do not supply the exact stationary support-edge probability in the harmonic active particle or establish an immediate stronger covering theorem. This possibility remains an explicit residual originality risk.",
+      "searches": [
+        "\"stationary integrated telegraph process power law run duration near upper support heavy tailed distribution\"",
+        "\"exponential moving average alternating renewal heavy tail boundary stationary distribution\"",
+        "doi:10.1287/moor.23.1.145",
+        "arxiv:2409.00578"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2401.01576",
+      "https://arxiv.org/abs/2401.01576",
+      "https://arxiv.org/abs/1811.03808",
+      "https://arxiv.org/abs/2409.00578",
+      "https://doi.org/10.1287/moor.23.1.145"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Farago and Smith report that the edge switching rate tends to zero for their half-t example and that the nonzero-rate large-deviation expression does not apply",
+        "Dhar et al. compute stationary distribution and boundary behavior for exponential tumbling times",
+        "The current theorem relies on an equilibrium residual age and a separate quantitative exclusion of anomalously short previous runs"
+      ],
+      "reasoning": "A vanishing position-dependent switching rate does not by itself fix the coefficient or slowly varying asymptotics of boundary mass. The general computational framework is more flexible in model scope but does not state a uniform theorem of this exact implication; Markovian exact formulas are not a stronger result covering regularly varying waiting times.",
+      "searches": [
+        "arxiv:2401.01576 Sections II, IV.3, V",
+        "arxiv:1811.03808",
+        "\"stationary distribution boundary harmonic trapped run and tumble non Markovian heavy tailed waiting time logarithm\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2401.01576 Section IV.3 numerically studies vanishing effective switching rate rather than a cumulative endpoint equivalent",
+        "arxiv:1811.03808 concerns Markovian, exponential interarrival times"
+      ],
+      "reasoning": "The claim can equivalently be phrased as a stationary exponential-filter endpoint tail, a renewal-age tail sampled at logarithmic distance, or an inverse-logarithmic spatial edge mass. No inspected source was found to state that equivalence with the same hypotheses and leading coefficient.",
+      "searches": [
+        "\"run-and-tumble\" \"logarithmic\" \"boundary\" \"heavy\" confinement stationary",
+        "\"telegraph\" \"regularly varying\" \"harmonic\" filter stationary endpoint",
+        "\"half-t\" \"run-and-tumble\" endpoint logarithmic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2401.01576 has numerical steady-state density and effective-rate plots for a half-t law, not a published cumulative-edge table or coefficient",
+        "The half-t coefficient here is derived analytically from the equilibrium residual-life tail"
+      ],
+      "reasoning": "A numerical plot of the stationary distribution does not state the precise limiting coefficient, and the present claim is an exact asymptotic law rather than a recomputation of an existing table.",
+      "searches": [
+        "\"Farago Smith half t tumbling distribution stationary position near edge inverse logarithmic tail\"",
+        "\"half-t\" \"run-and-tumble\" endpoint logarithmic",
+        "arxiv:2401.01576 Sections IV.3 and V"
+      ]
+    },
+    "rationale": "The physical model and half-t waiting-time family are credited to Farago and Smith. Their full primary HTML treats numerical edge behavior under a force with vanishing derivative at the boundary and observes effective edge tumbling rate vanishing, but supplies no regular-variation cumulative edge equivalent or harmonic half-t coefficient. Earlier exact Markovian trapped RTP work has exponential durations and algebraic support-edge laws. Other on/off heavy-tail frameworks were compared at the level of the actual claim; a broader unindexed theorem could still cover this special mechanism.",
+    "residual_risks": [
+      "A not-indexed general theory of heavy-tailed alternating on/off exponential filters could imply this edge equivalent.",
+      "The full texts of related finite-tumble-time and older Markovian articles were not fully inspected; their abstracted models differ, but no exhaustive priority certification is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the exact cumulative harmonic-trap support-edge equivalent and coefficient; model and half-t law are prior",
+        "evidence": "Section IV.3 equations (36) and accompanying edge-switching observations show gamma_+(x) approaching zero; discussion says the nonzero-rate large-deviation formula fails, without deriving the present inverse-logarithmic boundary probability. The example force has vanishing edge derivative, unlike harmonic confinement.",
+        "identifier_or_url": "https://arxiv.org/html/2401.01576",
+        "material_read": "Full accessible HTML primary text including introduction, Section II model and current equations, Section IV.3 half-t analysis, Section V discussion and references",
+        "method": "Primary arXiv HTML text inspection and claim-to-equation comparison",
+        "title": "Confined run and tumble particles with non-Markovian tumbling statistics",
+        "trigger": "Identical renewal-run RTP model, explicit half-t example, and edge-rate discussion"
+      },
+      {
+        "assessment": "Distinct exponential-run-time case; full-text equivalence not claimed",
+        "evidence": "The primary abstract describes a constant-rate telegraph process with stationary power-law boundary regimes.",
+        "identifier_or_url": "https://arxiv.org/abs/1811.03808",
+        "material_read": "Primary abstract and model description; complete PDF not read",
+        "method": "arXiv abstract and bibliographic source comparison",
+        "title": "Run-and-tumble particle in one-dimensional confining potential: Steady state, relaxation and first passage properties",
+        "trigger": "Classical exact harmonic-trap edge behavior"
+      },
+      {
+        "assessment": "Likely different run/rest mechanism but uninspected-full-text residual risk",
+        "evidence": "The abstract concerns finite-duration tumble states and a moments recursion; it does not state a heavy-tail edge law.",
+        "identifier_or_url": "https://arxiv.org/abs/2409.00578",
+        "material_read": "Primary abstract and paper metadata only; complete text not accessible",
+        "method": "arXiv abstract inspection",
+        "title": "Exact moments for a run and tumble particle in a harmonic trap with a finite tumble time",
+        "trigger": "Potentially related finite-tumble harmonic model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f24f2b0f-9542-436a-b89a-607be9b87047",
+  "value": {
+    "rationale": "The stationary support edge is a canonical confined-particle observable. Its logarithmic concentration resolves the singular heavy-tailed regime where the motivating non-Markovian source reports a vanishing switching-rate edge and limited large-deviation heuristics. The explicit constant and general regular-variation law enable identification of the hidden tumbling-tail exponent from stationary positions. This is not just a normalization check or an arbitrary finite parameter slice.",
+    "status": "PASS"
+  }
+}
