@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "From Lemma 3.3 an idempotent is an oriented matching with one selected endpoint per matched edge and independent selections: the selected image is fixed and must therefore lie in its own fiber. On paths, the run generating function gives binom(2n-3k+1,k), including the empty map and top rank. On cycles, distinguished monomers give n/(n-2k) binom(2n-3k-1,k) for m>0, and two perfect matchings with two constant orientations give four for m=0. The oriented-edge conflict graph has each neighborhood covered by two cliques (with C3 complete), hence claw-free; the classical Chudnovsky–Seymour independence-polynomial theorem yields real-negative roots, and Newton gives ultra-log-concavity. All componentwise and graph-size boundaries are addressed. Standalone direct semigroup checks on 8 small graphs and separate matching/conflict-graph checks reproduce the formulas. Experiments cannot prove the infinite assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 7.3 and 7.4 of arxiv:2609.39370v2 prove regularity of St(P_n) and St(C_n), a qualitative structural property.",
+        "Section 8 of arxiv:2609.39370v2 enumerates the entire strict semigroup by rank, without distinguishing composition-idempotents; a total-map rank count cannot determine the idempotent subcount.",
+        "Chudnovsky–Seymour 2007 proves real-rootedness for independence polynomials of claw-free graphs; it does not identify oriented-edge conflict graphs of these semigroups."
+      ],
+      "reasoning": "The only exact stronger class theorem, Chudnovsky–Seymour, covers the *root consequence* conditional on a claw-free representation, but not the new representation or rank coefficients. Counting all strict transformations does not imply how many are composition-idempotent. The 2020 precursor studies broader semigroup constructions and idempotent chain depth without exact path/cycle rank profiles.",
+      "searches": [
+        "arxiv:2609.39370v2 Section 8 counts of arbitrary strict maps; Sections 3,7,11",
+        "arxiv:2005.02606 Sections 2–4",
+        "Chudnovsky Seymour roots independence polynomial claw-free graph 2007",
+        "Zero set real-rooted idempotent rank enumerator for continuous partial transformations on paths and cycles"
+      ]
+    },
+    "checked_sources": [
+      "Margolis–Rhodes arxiv:2609.39370v2, Definitions 3.1–3.2, Lemma 3.3, Theorems 7.3–7.4, Sections 8 and 11",
+      "Margolis–Rhodes arxiv:2005.02606, Sections 2–3 including Lemma 3.11",
+      "Chudnovsky–Seymour 2007, bibliographic theorem statement",
+      "Public mathematical findings searched semantically for exact strict-semigroup idempotents and alternative matching models; closest IDs 2026/10/4/SCOPE-real-rooted-one-point-extension-spectra-of-partial-steiner-tripl--9599713a6632, 2026/10/4/SCOPE-a-characteristic-three-idempotent-line-in-the-quandle-algebra-of--06aa9c19e539, 2026/9/18/SCOPE-unit-orbits-control-wreath-product-relative-rank--1d4bcdcec1ba, 2026/10/4/SCOPE-exact-high-deficiency-rank-profile-of-pribavkina-s-widehat-mathc--ef663bcc4c9e",
+      "Web literature searches for strict continuous maps, oriented-matching enumeration, and idempotent rank polynomials"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lemma 3.3 gives arbitrary matching to arbitrary independent image assignment, whereas idempotence additionally requires each image vertex to be a fixed endpoint of its own matching edge.",
+        "The qualitative regularity theorems guarantee generalized inverses, not frequencies of idempotents; section 11 constructs specific idempotents.",
+        "published-finding corpus quandle idempotent-line finding concerns nonassociative quandle algebra; wreath product relative rank and automaton rank profiles concern distinct semigroups or invariants."
+      ],
+      "reasoning": "Existing structure is used as premise, with all constrained enumerative cases proved anew. Root real-negativity is a known theorem applied to a newly identified conflict graph. Neither the cited qualitative structure, the all-map rank formula, nor unrelated prior findings implies this exact rank spectrum by direct statement. Historical implicit equivalences remain possible.",
+      "searches": [
+        "arxiv:2609.39370v2 Lemma 3.3 Theorems 7.3 7.4 Section 8 Section 11",
+        "arxiv:2005.02606 Sections 2–3",
+        "2026/10/4/SCOPE-a-characteristic-three-idempotent-line-in-the-quandle-algebra-of--06aa9c19e539",
+        "2026/9/18/SCOPE-unit-orbits-control-wreath-product-relative-rank--1d4bcdcec1ba",
+        "2026/10/4/SCOPE-exact-high-deficiency-rank-profile-of-pribavkina-s-widehat-mathc--ef663bcc4c9e",
+        "Idempotents of 0-simple Rees semigroup of matchings and independent sets oriented matchings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Margolis–Rhodes arxiv:2609.39370v2, Definitions 3.1–3.2 and Lemma 3.3, yields equivalence of idempotents and oriented matchings with independent marked endpoints after applying f^2=f.",
+        "The run decomposition yields coefficients binom(2n-3k+1,k) and n/(n-2k)*binom(2n-3k-1,k), with even-cycle boundary four; these exact values are not given in the examined relevant sections of arxiv:2609.39370v2.",
+        "published-finding corpus closest id 2026/10/4/SCOPE-real-rooted-one-point-extension-spectra-of-partial-steiner-tripl--9599713a6632 counts one-point extensions via a different leave-graph matching polynomial."
+      ],
+      "reasoning": "Checked equivalent language: strict continuous partial transformations, matching/independent transversals, orientable dimers, semigroup retractions, idempotent-rank enumerators. The parent paper supplies the matching description but does not enforce its idempotent endpoint constraint in its full-map enumeration. The nearest matching-polynomial finding concerns another mathematical object and does not imply these formulas.",
+      "searches": [
+        "Idempotent enumeration for strict continuous partial transformations St(P_n) Margolis Rhodes monoid path oriented matching selected endpoints independent rational generating function 1/(1-x-2zx^2+z^2x^4)",
+        "Margolis Rhodes monoid paths idempotent counts 1 1 3 5 10 and polynomial degree",
+        "Oriented matchings independent selected endpoints paths forbidding adjacent right-left dominoes 1-x-2x^2+x^4",
+        "Strict semigroup St(P_n) St(C_n) idempotent enumeration rank distribution independent representatives path cycle Margolis Rhodes 2026",
+        "\"strict continuous\" graph semigroup idempotent generating function matchings",
+        "\"oriented matchings\" independent endpoint choices path binomial 2n-3k+1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Arxiv:2609.39370v2 Section 8 tables and formulas enumerate all maps of St(P_n), St(C_n) by rank, not the smaller idempotent fibers.",
+        "No matching numerical sequence/table for the precise composition-idempotent rank spectra was identified in the searches; this is negative search evidence, not exhaustive table coverage."
+      ],
+      "reasoning": "Comparison was by counted objects and logical implication, not by coincident rank numbers. No observed database/table row resolves the idempotent rank counts. Other graph matching tables do not constrain the edge-endpoint marking restriction of f^2=f.",
+      "searches": [
+        "Margolis Rhodes monoid paths idempotent counts 1 1 3 5 10 and polynomial degree",
+        "Strict semigroup St(P_n) St(C_n) idempotent enumeration rank distribution independent representatives path cycle Margolis Rhodes 2026",
+        "\"St(Pn)\" idempotents enumeration \"Margolis Rhodes\" path",
+        "Margolis Rhodes graph semigroup idempotent rank polynomial paths cycles 2026"
+      ]
+    },
+    "rationale": "The exact rank enumerators count composition-idempotents of the 2026 strict graph semigroup, not all elements previously counted by rank. The marked-dimer enumeration and claw-free conflict representation are independently derived. The 2020 paper provides degree-two semigroup structure, not these path/cycle idempotent rank coefficients. The Chudnovsky–Seymour theorem is acknowledged as supplying real-rootedness once a new claw-free conflict graph is exhibited. Published mathematical findings and bibliographic searches did not identify a statement implying all three components (path exact counts, cycle exact counts, rank-polynomial root geometry); absence of search hits is not novelty proof.",
+    "residual_risks": [
+      "A specialized earlier oriented-matching rank enumerator under different graph or combinatorial terminology may imply these formulas without using the strict-semigroup name.",
+      "Only the published statements/abstract of the Chudnovsky–Seymour proof were inspected, though its classical theorem is well-established; the application is independently proved from that result.",
+      "Negative database results do not establish novelty; independent literature-priority assessment is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Definitions and matching image premises established; regularity, general rank tables and selected idempotents, but no full composition-idempotent rank formulas or negative-root theorem in the inspected relevant sections",
+        "evidence": [
+          "Definition 3.2 and Lemma 3.3 on PDF page 5",
+          "Theorems 7.3–7.4 on pages 13–14",
+          "Section 8 rank counts for all strict maps",
+          "Section 11 idempotent constructions"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.39370v2",
+        "material_read": "Full-text sections 3, 7, 8, 11 and nearby rank/idempotent results; PDF pages 4–5, 11–16, 20–23 inspected including PDF page images",
+        "method": "Primary full-text comparison of maps counted, idempotent conditions and displayed formulas",
+        "title": "The Margolis-Rhodes Monoid of a Graph",
+        "trigger": "Identical strict semigroup and nearest publication; possible preempting idempotent counts"
+      },
+      {
+        "assessment": "Semigroup structure and chain-depth bound are related but do not give exact idempotent numbers by rank for the 2026 stricter St(P_n)/St(C_n) semigroups",
+        "evidence": [
+          "Section 2 introduces strict continuity with different conditions from the 2026 strict fiber definition",
+          "Lemma 3.11 bounds idempotent-chain depth via matching and independence numbers"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2005.02606",
+        "material_read": "Primary full text abstract, Sections 2–3, strict map definitions and Lemma 3.11; keyword searches for idempotents and paths; relevant original PDF page image",
+        "method": "Compare older degree-two continuity and strict map settings to newer exact St(G) object",
+        "title": "Degree 2 Transformation Semigroups as Continuous Maps on Graphs: Foundations and Structure",
+        "trigger": "Foundational precursor on strict graph maps and idempotent semigroup depth"
+      },
+      {
+        "assessment": "General theorem is prior; new claim applies it via explicit conflict-graph claw-free proof and derives exact coefficients independent of this theorem",
+        "evidence": [
+          "Chudnovsky and Seymour (2007), JCTB 97:350–357, independence polynomial of claw-free graphs has only real roots"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jctb.2006.06.001",
+        "material_read": "Bibliographic/abstract theorem statement and published secondary theorem summaries; not asserted full article read",
+        "method": "Check exact theorem and logical dependency of root claim",
+        "title": "The roots of the independence polynomial of a clawfree graph",
+        "trigger": "Direct potential coverage of real-rootedness consequence"
+      },
+      {
+        "assessment": "Unrelated one-point extensions and leave graphs; does not imply strict graph semigroup idempotent rank formula",
+        "evidence": [
+          "Published summary states extension polynomial is matching generating polynomial of leave graph, with real-rootedness."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-real-rooted-one-point-extension-spectra-of-partial-steiner-tripl--9599713a6632",
+        "material_read": "Published title and semantic summary only, not full-text source",
+        "method": "Compare objects and implications at published-summary level",
+        "title": "Exact one-point extension matching polynomial for partial Steiner triple systems",
+        "trigger": "Closest relevant matching-polynomial semantic search result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "08c8f8c3-9757-4ed5-bc4f-d60658985a35",
+  "value": {
+    "rationale": "Composition-idempotents and their rank strata are intrinsic semigroup invariants linked to retracts and Green-class structure. The theorem supplies complete exact families on both path and cycle strict semigroups, including the exceptional perfect-matching cycle case, an all-degree-at-most-two product classification and a nontrivial all-rank shape consequence via a new claw-free representation. These data cannot be recovered from merely counting all semigroup elements, and they allow precise tests and comparisons of newly studied examples. It is an infinite motivated classification rather than an arbitrary finite count.",
+    "status": "PASS"
+  }
+}
