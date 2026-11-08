@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The analytical argument is self-contained apart from elementary Fourier inversion on \(\mathbb Z_p\). Fourier-row normalization, the zero-autocorrelation consequence of constant modulus, the singleton-difference obstruction for Fourier supports of sizes two and three, the cocycle/subgroup dichotomy, and the matched-curvature chirp parametrization are explicitly derived in `RESULT.md`.
+## correctness
 
-Execute `python artifacts/verify.py` from the package root using Python 3 and the standard library. In the reviewed package, it completed 446 finite checks over primes 5, 7 and 11, including every two- and three-point frequency set at those primes. These checks are supplementary, not a proof of all primes; they also do not show that support size \(4p-3\) is attained.
+PASS
 
-Literature overlap was checked against the 2022 exact-minimizer theorem, a published all-signal \(p\)-versus-\(2p\) support gap and a distinct phase-only sparse-input Fourier theorem. Earlier phase-code literature could contain unindexed equivalents. Independent external review and validation have not been performed.
+The Fourier autocorrelation of each unimodular row h_j forces a unique nonzero ordered Fourier difference to have zero product; for 2 or 3 frequencies a singleton difference always exists at odd prime p>=5. Thus each row has 1 or >=4 frequencies. When a row is a character, the translation ratios r_j form a subgroup of Z_p, giving either exactly one or all p character rows and totals >=4p-3 or p. The all-character cocycle telescopes to matching quadratic phases. Full support and nonzero modulus are essential; no claim that the second lower bound is achieved. Independently enumerated 1176 three-frequency difference supports and 8909 chirp configurations.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact mathematical implications, including stronger prior results and aliases. The reviewed additional conclusion is not established by the primary/public mathematical results actually inspected; stated access and historical risks are retained.
+
+## value
+
+PASS
+
+The restricted constant-envelope STFT spectrum is a natural zero-cancellation invariant in time-frequency/phase-only signal design; the 4p-3 forbidden band is strictly stronger than the known unrestricted 2p bound. Its exact rigidity and lower-band exclusion are meaningful even without attaining 4p-3.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
