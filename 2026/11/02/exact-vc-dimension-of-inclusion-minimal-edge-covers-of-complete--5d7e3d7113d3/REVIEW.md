@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof establishes the precise minimal-cover degree-one condition, derives the maximum-edge restriction, excludes shattering at that maximum by separate two-star configurations, and constructs an explicit minimal cover for every trace on an \(a+b-3\)-edge support. The construction's cases have been checked by their endpoint degrees and by a standalone exhaustive verifier. The verifier confirms all \(7{,}688\) instances of the proposed construction for \(3\le a,b\le7\) and independent full finite VC computations for ten parameter pairs. Computational confirmation is supplementary, not a substitute for the general proof.
+## correctness
 
-**Originality — PASS with historical-priority risk.** Kunjwal, Theorem 7, already determines the star-forest structure and maximum size of minimal edge covers of complete bipartite graphs, and the 2018 upper-edge-cover optimization paper invokes the general star-forest equivalence. Those results do not imply the new exact edge-query VC dimension without the upper nonshattering obstruction and all-traces construction. Focused searches for minimum/minimal edge-cover shattering, VC dimension, and spanning-star-forest concept classes yielded no directly covering theorem. Terminological variants and unindexed literature remain a residual risk.
+PASS
 
-**Value — PASS.** The exact VC dimension of a natural graph-theoretic concept class is determined uniformly over an infinite two-parameter family, including a sharp structural one-edge loss compared to the largest hypothesis size. The proof gives reusable trace realizations through a canonical three-star support, rather than merely a small finite table or a change of notation.
+Every inclusion-minimal edge cover is a spanning star forest since each edge must have a degree-one endpoint. With a,b>=2, any cover has >=2 components and size<=a+b−2. A hypothetical shattered support of this maximal size must equal a two-star minimal cover; deleting an appropriate leaf edge while keeping all others forces a redundant retained edge (with separate a=2 or b=2 case), impossible. For a=2 the support of b−1 edges all incident to one vertex realizes every trace by assigning free right vertices. For a,b>=3 the three-star support {(0,j):j>=2} U {(i,0):i>=2} U {(1,1)} has a constructive extension to a minimal cover for every trace using the two cases depending on the middle edge. Independently brute enumerated minimal covers, all shattering candidates and VCdim for (2,2),(2,3),(3,3),(3,4), obtaining a+b−3 in each. For min(a,b)=1 the sole cover is the entire star and VCdim=0.
 
-**Scope and residual risks.** No claim is made for general bipartite graphs or exact online dimensions. Historical priority may be affected by work phrased through nonblockers, star factors, maximal solutions, or incidence set systems. Finite verification has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: complete bipartite spanning star-forest structure and maximum minimal-cover size are established prior work, but no inspected primary statement identified the exact edge-incidence concept VC dimension or its all-traces construction.
+
+## value
+
+PASS
+
+The VC dimension of the edge-membership concept class of all inclusion-minimal covers is a well-motivated combinatorial/statistical invariant of a natural graph family; determining the sharp one-edge gap below maximum minimal-cover cardinality is not implied by the known star-forest characterization without proving the full shattering lower and obstruction upper bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
