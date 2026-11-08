@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The conditional local-time Poisson excursion construction is exact for symmetric edge jump rates. Conditional moments give fixed mean and affine 1/w variance. A mean-preserving Poisson-exponential Markov semigroup proves convex ordering. The positive-occupation strictness, stochastic incomparability, and singular limits follow analytically. Direct augmented-generator inversion plus symbolic checks passed 167 assertions; no finite check is substituted for general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grebenkov–Tupikina, arxiv:1712.01020, Sec II Eqs (8)–(10), general transform; Sec III B, heterogeneous interval examples and heavy-tail trap.",
+        "Oliveira–Peres, arxiv:1807.06858, Definition 1 and Theorems 1–2, bound discrete-time lazy-walk hitting times.",
+        "Zatloukal, arxiv:2012.15399, Sec II, local-time generating function and discrete-time resolvent."
+      ],
+      "reasoning": "General propagator formulas cover potential numerical computation on arbitrary graphs but do not prove monotone convex order between all positive pendant conductances or the singular zero-rate limit; the other works use different normalizations and study different conclusions.",
+      "searches": [
+        "Heterogeneous continuous-time random walks Grebenkov Tupikina arxiv 2018",
+        "local time of random walks on graphs Zatloukal arxiv 2020",
+        "random walks on graphs new bounds hitting meeting coalescing returning 2018"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1712.01020",
+      "https://arxiv.org/abs/1807.06858",
+      "https://arxiv.org/abs/2012.15399"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2017 heterogeneous CTRW gives first-passage density via a generalized resolvent but does not make a conductance monotonicity statement.",
+        "2018 Oliveira–Peres gives bounds for lazy walks, not symmetric-rate pendant excursion order.",
+        "2020 Zatloukal gives discrete-time local-time calculations, not the Poisson-exponential mean-preserving semigroup for weighted pendant waiting."
+      ],
+      "reasoning": "The current statement needs identification of an independent core local-time clock, compound-Poisson insertion with rate and mark scale reciprocals, and the mean-preserving semigroup/convex-order argument. Generic methods are precursors but the inspected results do not directly imply the stated comparison without the new specialized derivation.",
+      "searches": [
+        "arxiv:1712.01020",
+        "arxiv:1807.06858",
+        "arxiv:2012.15399",
+        "random walk hitting time pendant leaf conductance mean variance",
+        "time change local times random walks adding dangling vertex rate occupation variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grebenkov–Tupikina (2017), Sec II Eq. (10), gives a matrix propagator; Sec III A–B discusses hitting-time densities and heterogeneous traps, not an identified pendant-edge semigroup.",
+        "Zatloukal (2020), Sec II, treats discrete-time graph local times and resolvents."
+      ],
+      "reasoning": "The explicit conditional Poisson-exponential law is a new evaluation of a particular symmetric-rate pendant perturbation; no inspected source stated an equivalent convex-order family or rate-independent mean plus reciprocal variance.",
+      "searches": [
+        "continuous time random walk pendant edge conductance hitting time Laplace transform order time change",
+        "random walk graph local time excursions pendant leaf exponential compound Poisson time change",
+        "arxiv:1712.01020",
+        "arxiv:2012.15399"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches surfaced general random-walk hitting/local-time works, rather than an exact pendant-conductance distribution or parameter table.",
+        "A direct full-generator rational computation supports only the new finite examples; it is not used as novelty evidence."
+      ],
+      "reasoning": "The claim is an all-finite-graph distributional order and sharp variance formula, rather than a finite graph table; no checked table implied the complete family.",
+      "searches": [
+        "pendant graph random walk first-passage variance inverse conductance graph",
+        "random walk first passage time dangling leaves edge weight Laplace order stochastic incomparability",
+        "finite Markov chain pendant trap Poisson occupation time exact table"
+      ]
+    },
+    "rationale": "Direct comparison with the inspected 2017 general heterogeneous first-passage formalism, 2018 discrete-time graph hitting bounds, and 2020 discrete-time local-time calculus found no stated pendant-weight convex-order theorem, reciprocal-variance law, or rare-trap discontinuity. Broader transform formalisms allow calculations but do not themselves establish the explicit parameterwise ordering; earlier equivalent excursion theorems remain a historical-priority risk.",
+    "residual_risks": [
+      "Classical Markov excursion theory may have an unlocated equivalent special-case theorem.",
+      "General heterogeneous first-passage transform theory is broader as a computational framework; explicit convex-order comparison has not been independently priority-audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BROADER_METHOD_NOT_EXPLICIT_COMPARISON",
+        "evidence": "General transform covers finite-state first passage; paper studies heterogeneous interval travel-time distributions rather than the exact pendant-rate convex-order family.",
+        "identifier_or_url": "https://arxiv.org/pdf/1712.01020",
+        "material_read": "Introduction; Sec II A (general Laplace propagator, Eq. 10); Sec III A–B (first-passage and heterogeneous interval examples); searched for pendant, trap, convex, variance",
+        "method": "Public preprint full-text extraction with page inspection",
+        "title": "Heterogeneous continuous time random walks",
+        "trigger": "The closest broad first-passage transform formalism for heterogeneous networks and local traps"
+      },
+      {
+        "assessment": "NOT_DIRECT_COVERAGE",
+        "evidence": "Explicitly discrete-time lazy walk, with upper bounds in terms of relaxation time; no pendant conductance comparison.",
+        "identifier_or_url": "https://arxiv.org/pdf/1807.06858",
+        "material_read": "Definition 1 and main hitting-time/return estimates in Introduction and Sec 1.1, with theorems and scope inspected",
+        "method": "Public preprint full-text extraction and page inspection",
+        "title": "Random walks on graphs: new bounds on hitting, meeting, coalescing and returning",
+        "trigger": "Graph hitting-time inequalities and possible dominating source theorem"
+      },
+      {
+        "assessment": "PRECURSOR_DIFFERENT_TIME_MODEL",
+        "evidence": "Discrete-time local-time path-functional resolvent; no continuous-time Poisson pendant excursion comparison.",
+        "identifier_or_url": "https://arxiv.org/pdf/2012.15399",
+        "material_read": "Introduction and Sec II definitions and local-time generating/resolvent identities; search for pendant and hitting",
+        "method": "Public preprint full-text extraction and page inspection",
+        "title": "Local time of random walks on graphs",
+        "trigger": "Generic local-time distribution calculus could subsume conditional occupation argument"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "77cc1414-0aa2-4915-95e3-68d64d7acdd3",
+  "value": {
+    "rationale": "A natural graph perturbation admits a full convex-order classification across all conductances and finite weighted cores, exact sensitivity of fluctuations, and a rare-trap loss of uniform integrability. This distinguishes expectation-based and distribution-based network analysis; explicit kernel structure enables use with arbitrary convex risk criteria, not just one example.",
+    "status": "PASS"
+  }
+}
