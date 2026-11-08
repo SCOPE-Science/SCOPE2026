@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Formal excursion first-return decomposition gives F(z,q)=zq C(zq²,q), C=1/(1-F). Coefficientwise differentiation yields F_q=z/(1-4z) and mixed return/area generating function; exact extraction proves finite moments. The rational strict super-solution P_n=(2n²+7n+3)/3 proves covariance<0 for all n>=2 by induction. Coefficient extraction for exactly 1 versus 2 primitive pieces gives exact gap n for n>=2. Separate integer DP and exhaustive enumeration were replayed; finite checks do not replace infinite proof. Boundary n=1 and area normalization are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bandlow–Killpatrick (2001), §2 states univariate q-Catalan area recurrence; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v8i1r40/pdf/",
+        "Denisov–Kolb–Wachtel (2013), Theorems 1 and 3 are local limits for area and area/endpoint, not return counts; https://oa.tib.eu/renate/bitstreams/8b44dbcf-3632-439b-b6b8-76818eed85f7/download",
+        "Janson (2007), introduction explicitly excludes local-time integrals and local-time-conditioned processes from its area survey; arXiv:0704.2289",
+        "Deutsch (1999), table/section structure tracks return patterns; no area/return joint law in inspected text."
+      ],
+      "reasoning": "The classical q-Catalan area polynomial alone does not mark the number of zero returns; Deutsch return enumeration alone does not mark integrated height. Combining their classical decomposition by a new mixed specialization yields the displayed conditional and covariance coefficients. The available broader theorems on Brownian limits and positive-walk area do not themselves state a finite-n return-count mixed moment. A historical joint enumerator could imply this and is acknowledged as residual risk.",
+      "searches": [
+        "Dyck paths area returns joint generating function number of returns q Catalan",
+        "\"Brownian excursion\" \"local time\" \"integrated\" \"covariance\" discrete excursions",
+        "\"Dyck path enumeration\" Emeric Deutsch pdf area",
+        "published-finding corpus: area under Dyck path versus root degree of plane tree covariance 4n"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0704.2289",
+      "OWP-2013-19",
+      "Deutsch (1999) DOI:10.1016/S0012-365X(98)00371-9",
+      "Bandlow–Killpatrick (2001) EJC 8:R40",
+      "Takács (1991) abstract only",
+      "Kreweras (1986) metadata only",
+      "FindStat St000012",
+      "published-finding corpus searches listed in originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own prior item 7f7acb2f-cb69-446a-b665-4f85dc2bca14 concerns the unrestricted walk bridge and squared positive-occupation imbalance, not the nonnegative conditioned integrated height.",
+        "Own prior item 33a10a07-3c69-485c-a05c-1610afa9b5e8 concerns short-excursion counts conditional on returns in the unrestricted bridge, not area.",
+        "Own prior item 9ca6906b-0c50-40ae-87d0-059eb5d6671e concerns cherries and leaf depths of a full binary Catalan tree, a different model/observable.",
+        "Deutsch (1999), Bandlow–Killpatrick (2001), Janson (2007), and Denisov–Kolb–Wachtel (2013) do not state the displayed joint dependence in the inspected material."
+      ],
+      "reasoning": "No prior exact mixed-moment law was found from which the candidate follows by parameter restriction or a change of notation. In particular, a nonnegative path is not the unrestricted simple bridge, and Brownian-area moment results lack a finite-n zero-return mark. Existing q-Catalan and first-return tools help derive the theorem but are not an already-proved theorem jointly marking the two observables. A stronger historical joint result not discovered could supersede the claim.",
+      "searches": [
+        "uniform Dyck path covariance of area sum of heights and number of returns to zero or primitive components",
+        "Dyck excursion decomposition area moments correlated with returns count",
+        "random Catalan trees total path length and root degree covariance",
+        "positive simple symmetric walk bridge constrained to stay nonnegative, joint covariance of integrated height and number of zero returns exact formula",
+        "area under Dyck path versus root degree of plane tree covariance 4n",
+        "return count and integrated walk height total area uniform Catalan excursions negative covariance",
+        "\"Joint distributions of three descriptive parameters of bridges\" Kreweras area local time number returns",
+        "\"Dyck path enumeration\" area return step exact mixed moment"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Deutsch (1999), §§2 and 6: Dyck return steps and return-descents; https://core.ac.uk/download/pdf/82732633.pdf",
+        "Janson (2007), introduction and §2: Brownian excursion area moments; arXiv:0704.2289",
+        "Own prior item aeed4b8d-8b3b-439a-9d48-fbc246606861: number of returns and maximum in an unrestricted symmetric bridge, not area in the nonnegative ensemble."
+      ],
+      "reasoning": "The conditioned walk is in bijection with a Dyck path, and its return count is the root outdegree of the associated ordered plane tree. Its area is a depth sum (up to normalization); searches and inspected texts did not supply the mixed root-degree/depth statistic. The closest unrestricted-bridge laws do not transfer by conditioning on nonnegativity.",
+      "searches": [
+        "uniform Dyck path covariance of area sum of heights and number of returns to zero or primitive components",
+        "Dyck excursion decomposition area moments correlated with returns count",
+        "random Catalan trees total path length and root degree covariance",
+        "\"Dyck\" \"covariance\" \"returns\" \"area\"",
+        "\"area\" \"number of returns\" \"Dyck\" \"generating\"",
+        "published-finding corpus: positive simple symmetric walk bridge constrained to stay nonnegative, joint covariance of integrated height and number of zero returns exact formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "FindStat St000012 documents the marginal q-area recurrence and equidistributions, not a return/area bivariate table: https://www.findstat.org/StatisticsDatabase/St000012/",
+        "Deutsch (1999) contains return-descents tables but not a mixed integrated-area table in reviewed §§2, 6 and appendix.",
+        "No published-finding corpus hit retrieved with the finite covariance formula or conditional one-/two-return area gap."
+      ],
+      "reasoning": "Area-only and return-only tables or marginal identities do not determine covariance. Search absence is not proof of novelty; the exact finite mixed statement was compared with recoverable near matches and its implication relationship assessed.",
+      "searches": [
+        "FindStat statistic area Dyck path St000012",
+        "\"area\" \"number of returns\" \"Dyck\" \"generating\"",
+        "published-finding corpus: return count and integrated walk height total area uniform Catalan excursions negative covariance"
+      ]
+    },
+    "rationale": "Searched published-finding corpus with six actual semantic queries plus primary q-Catalan/return/area sources and compared all 81 recoverable historical claims in the accessible latest own ledger. Neither the closest unrestricted bridge return results nor reviewed historical area and return literature directly covers the finite conditioned mixed covariance law and conditional one-/two-return gap. Classical techniques are acknowledged, as are uninspected older plausible sources.",
+    "residual_risks": [
+      "Older, uninspected joint enumeration (especially Kreweras 1986) may imply the mixed law.",
+      "Takács 1991 complete text not inspected; abstract-only evidence cannot prove noncoverage.",
+      "Formal q-Catalan first-return methods are classical; implicit derivability from broader tree-depth/degree enumerators remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RETURN_MARGINAL_NOT_JOINT",
+        "evidence": "§2 identifies return steps and primitive decomposition; §6 tabulates return-descent parameters, whereas the inspected area reference relates to polyominoes.",
+        "identifier_or_url": "https://core.ac.uk/download/pdf/82732633.pdf",
+        "material_read": "Full text available in indexed PDF: introduction; §§2,3 and pertinent §6 tables, appendix and references; queried occurrence of area/returns",
+        "method": "Opened 36-page publisher-linked PDF; read indexed sections and targeted text search",
+        "title": "Dyck path enumeration",
+        "trigger": "Classical number-of-returns generating functions might already include the joint area statistic"
+      },
+      {
+        "assessment": "AREA_MARGINAL_NOT_JOINT",
+        "evidence": "Univariate q-Catalan recurrence is given by first-return splitting; the inspected paper focuses on area/inversions and descending pattern statistics rather than zero-return counts.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v8i1r40/pdf/",
+        "material_read": "Abstract, introduction, §2 background and its q-Catalan area recurrence; references; PDF page image",
+        "method": "Opened open journal PDF, read corresponding text and page image",
+        "title": "An Area-to-Inv Bijection Between Dyck Paths and 312-avoiding Permutations",
+        "trigger": "The q-Catalan area polynomial could already provide a weighted return enumeration"
+      },
+      {
+        "assessment": "CONTINUUM_AREA_RESULTS_NOT_FINITE_MIXED",
+        "evidence": "Introduction treats integrated Brownian excursion and states that integrals of local time or processes conditioned on local time are not covered; its results do not mark finite-n zero-return count.",
+        "identifier_or_url": "https://arxiv.org/pdf/0704.2289",
+        "material_read": "Abstract, introduction, table of contents, §2 opening definitions and boundary of coverage; PDF first-page image",
+        "method": "Opened arXiv PDF and read relevant sections, targeted first-page screenshot",
+        "title": "Brownian excursion area, Wright’s constants in graph enumeration, and other Brownian areas",
+        "trigger": "Standard Brownian excursion area moments might dominate a proposed covariance claim"
+      },
+      {
+        "assessment": "AREA_LOCAL_LIMIT_NOT_RETURN_JOINT",
+        "evidence": "Theorems give local area density approximations and a joint area/endpoint local theorem; they do not track the positive-time zero-return count.",
+        "identifier_or_url": "https://oa.tib.eu/renate/bitstreams/8b44dbcf-3632-439b-b6b8-76818eed85f7/download",
+        "material_read": "Open preprint introduction, Theorems 1–3, and discussion of random walks and area normalization",
+        "method": "Opened the full lawful preprint and read the principal hypotheses and conclusions",
+        "title": "Local Asymptotics for the Area of Random Walk Excursions",
+        "trigger": "A probability-theoretic general area law may imply the finite mixed moment"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT",
+        "evidence": "Abstract describes excursion area distribution, moments and asymptotics without explicitly mentioning zero-return counts; cannot conclude absence from the uninspected full text.",
+        "identifier_or_url": "https://doi.org/10.2307/1427622",
+        "material_read": "Abstract and bibliographic metadata only; full text not accessible",
+        "method": "Read scholarly source landing page and checked for lawful open copies",
+        "title": "A Bernoulli Excursion and Its Various Applications",
+        "trigger": "Foundational exact Bernoulli-excursion area distribution, plausible earlier implicit joint work"
+      },
+      {
+        "assessment": "HISTORICAL_PRIORITY_UNRESOLVED",
+        "evidence": "Related descriptions concern jump/landing run lengths and subpatterns; direct chapter not inspected and could in principle contain an equivalence.",
+        "identifier_or_url": "https://doi.org/10.1007/BFb0072516",
+        "material_read": "Bibliographic record and related abstracts of linked work only",
+        "method": "Targeted search for work and parameters; full chapter unavailable",
+        "title": "Joint distributions of three descriptive parameters of bridges",
+        "trigger": "Title indicates an older broad joint enumeration of Dyck bridges"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cafac1f2-0e17-4d15-bac5-58c901bc80af",
+  "value": {
+    "rationale": "In a canonical nonnegative conditioned random walk, zero-return local time and total integrated height are two natural stochastic observables with separate well-studied marginals. Their exact joint dependence is not determined by those marginals. The theorem gives a strict finite-size negative sign, an explicit linear-order asymptotic covariance, and a surprising exact conditional mean-gap equal to n between one and two returns. These precise facts quantify the cost of excursion fragmentation without claiming a broader unproved limit theorem.",
+    "status": "PASS"
+  }
+}
