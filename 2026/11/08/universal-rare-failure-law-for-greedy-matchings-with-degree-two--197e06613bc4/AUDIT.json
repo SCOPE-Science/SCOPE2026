@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For vertex sets of size at most four, a one-step hazard estimate yields a uniform power-law survival bound. For a fixed forbidden edge, exact algebra compares the real transition to the isolated-missing-edge reference. Triple and four-vertex survival bounds control each step perturbation by \\(O(s/N^3)\\); reference factors telescope to \\(3/(N^2-1)\\), and the accumulated error is \\(O(\\log N/N^3)\\). Degree-two forbidden graphs guarantee that failure occurs exactly when the last pair is forbidden. The standalone exact-rational checker passed 28,833 assertions; those finite checks corroborate but do not establish the analytic uniform limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arnosti DOI 10.1287/stsy.2021.0082 Theorems 1-2 quantify average matching-size comparisons over random bipartite input distributions.",
+        "Dyer-Frieze DOI 10.1002/rsa.3240020104 abstract describes approximation guarantees in general graphs and improved performance for forests.",
+        "Tang-Wu-Zhang arXiv 1907.05135 studies random vertex-first decisions, not the same edge sampler."
+      ],
+      "reasoning": "The Arnosti quantified results cannot imply the exact per-forbidden-edge survival probabilities on a fixed deterministic nonbipartite near-complete graph. A general bound on matching size does not entail the sharp 1/N rare-failure constant or conditional location law. Dyer-Frieze full text is a named unresolved priority risk.",
+      "searches": [
+        "random greedy matching dense graph complement bounded maximum degree perfect matching failure probability",
+        "Nick Arnosti Greedy Matching in Bipartite Random Graphs pdf 2021 arxiv"
+      ]
+    },
+    "checked_sources": [
+      "Nick Arnosti, Greedy Matching in Bipartite Random Graphs, DOI 10.1287/stsy.2021.0082 (2021 online)",
+      "Martin Dyer and Alan Frieze, Randomized greedy matching, DOI 10.1002/rsa.3240020104 (1991), abstract only",
+      "Tang, Wu, Zhang, Towards a Better Understanding of Randomized Greedy Matching, arXiv:1907.05135 (2019), abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arnosti 2021 main theorem concerns stochastic dominance between RANDOM-EDGE and RANDOM-VERTEX averaged over random bipartite graphs.",
+        "Prior specialized calculation for deletion of a perfect matching has a 3/4 asymptotic coefficient when N is twice the number of deleted edges.",
+        "The new proof controls survival moments for all sets of at most four vertices uniformly over forbidden graphs of maximum degree two, and obtains per-edge errors and conditional location laws."
+      ],
+      "reasoning": "The special perfect-matching deletion is covered by the new result, not conversely. No single symmetric case or approximation-ratio bound implies arbitrary nonisomorphic unions of paths and cycles, nor nearly uniform identity of the surviving forbidden edge.",
+      "searches": [
+        "random greedy matching on cocktail-party graphs 3/(4n) failure",
+        "Dyer Frieze randomized greedy matching 1991 arxiv"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arnosti 2021 Section 1.1 defines RANDOM-EDGE as an edge-priority random greedy algorithm, equivalent to uniform feasible-edge sampling.",
+        "Dyer-Frieze 1991 abstract explicitly states selection of a random remaining edge; this matches the sampling rule but not the proved outcome.",
+        "For just one forbidden edge, the exact survival probability is \\(3/(N^2-1)\\), rather than the uniform-pair probability \\(2/[N(N-1)]\\)."
+      ],
+      "reasoning": "Algorithm aliases RANDOM-EDGE, randomized greedy, uniform feasible edge and random edge-priority are comparable; the claimed leading factor and conditional defect-location uniformity were compared at statement level rather than by wording.",
+      "searches": [
+        "random greedy matching on complete graphs with bounded degree missing edges K_n minus H, asymptotic probability of nonperfect matching universal 3/2 correction",
+        "sequential uniform feasible edge matching complement of disjoint paths cycles fixed forbidden graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published paper results inspected: Arnosti 2021 Table 1 consists of approximation ratios, not residual pair probability tables.",
+        "Searches of rare-failure probabilities and missing-pair survival yielded no cited exact tables dominating the all-H theorem."
+      ],
+      "reasoning": "The exact one-edge factor is derivable algebraically, but an exact single-edge calculation or tabulation for a single deleted graph cannot imply the uniform all-degree-two theorem. No matching database result was located; failed lookup is not a proof of absence.",
+      "searches": [
+        "random sequential matching complete graph forbidden edges maximum degree deleted bounded degree exact asymptotic probability",
+        "fixed forbidden pair survival probability 3/((N-1)(N+1)) random greedy matching almost complete"
+      ]
+    },
+    "rationale": "The accessible full Arnosti paper provides randomized-algorithm comparisons on random bipartite graphs, not a shape-uniform fixed-complement rare-failure law. The Dyer-Frieze algorithm introduction is broader in domain but its accessible abstract describes worst-case guarantees and forests, not an equivalent estimate. A previous symmetric deleted-matching special case does not imply the present uniform theorem for deleted paths/cycles. Plausible historical coverage in inaccessible material remains a risk.",
+    "residual_risks": [
+      "Historical-priority confidence is limited by inaccessible full text of Dyer-Frieze 1991; the available abstract cannot exclude an appendix covering this special dense class.",
+      "Other literature under alternative terminology may contain a stronger statement; searched evidence is not proof of uniqueness.",
+      "No independent mathematical audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No fixed K_N minus bounded-degree H rare-failure theorem; its domain is random bipartite graphs and mean/stochastic ordering of algorithms.",
+        "evidence": [
+          "DOI 10.1287/stsy.2021.0082, pp.133-137 and 145-149; Theorems 1 and 2 compare RANDOM-EDGE to other algorithms for random bipartite inputs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/stsy.2021.0082",
+        "material_read": "Open full-text PDF; abstract and sections 1.1-1.4 (algorithm/model and Theorems 1-2), Section 2 chain/coupling description, Section 3 examples, Section 4 discussion, Appendix B headings/description and reference list; screenshots pages 1, 4, 10, 13 and 17.",
+        "method": "Primary PDF text extraction and selected page images",
+        "title": "Greedy Matching in Bipartite Random Graphs",
+        "trigger": "Same algorithm name RANDOM-EDGE and primary 2021 source"
+      },
+      {
+        "assessment": "The abstract focuses on worst-case approximation and forest bounds, but full-text noncoverage cannot be inferred. Historical-priority risk persists.",
+        "evidence": [
+          "DOI 10.1002/rsa.3240020104; 1991 publisher abstract, pp.29-45."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Publisher abstract and bibliographic details only; complete text was not available through the preprint or open-access sources checked.",
+        "method": "Publisher abstract and bibliographic search; full-text retrieval attempted",
+        "title": "Randomized greedy matching",
+        "trigger": "Foundational general-graph analysis of exactly the same randomized feasible-edge rule"
+      },
+      {
+        "assessment": "RDO and modified greedy use a vertex-first rule; no direct implication to uniform feasible-edge rare-failure asymptotics.",
+        "evidence": [
+          "arXiv:1907.05135 initial public date July 11, 2019; abstract defines Random Decision Order as vertex-first."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1907.05135",
+        "material_read": "Original arXiv abstract and algorithm description",
+        "method": "ArXiv abstract and search-index record",
+        "title": "Towards a Better Understanding of Randomized Greedy Matching",
+        "trigger": "Potentially broader 2019 randomized greedy matching results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "197e0661-3bc4-4906-98a0-4157cdb2155d",
+  "value": {
+    "rationale": "The theorem proves shape-universality for rare greedy-matching failure across arbitrary degree-two forbidden subgraphs: the leading failure probability depends only on the number of missing edges, is 3/2 times naive uniform-pair sampling, and the location of the failure becomes asymptotically uniform. This is a natural reliability statistic not supplied by approximate matching-size ratios; the moment method genuinely handles lack of symmetry and dependence across all path/cycle configurations.",
+    "status": "PASS"
+  }
+}
