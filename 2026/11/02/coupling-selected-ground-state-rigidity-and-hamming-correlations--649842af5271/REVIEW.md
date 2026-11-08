@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The weighted adjacency operator is diagonal in the Walsh basis with levels \(J(d-2k)+K(-1)^k\). Within each index parity those levels decrease by \(4J\), so only the last two levels can minimize the energy. The spin-vector Rayleigh inequality is sharp because each minimizing eigenspace contains sign characters. The critical completeness step is not assumed: any sign-valued affine linear form in the independent coordinate signs has at most one nonzero coefficient, by comparing all nonconstant Walsh coefficients of its square to zero. This proves no additional minimizing sign states exist. Direct enumeration of all spins at \(d=2,3,4\), and independent explicit adjacency action at \(d=2,\ldots,8\), corroborate the result. Real couplings not enumerated follow from the algebraic proof, not numerical extrapolation.
+PASS
 
-## Originality — PASS on inspected scientific evidence
+Weighted adjacency B=J sum_j translation by e_j + K translation by all-ones is diagonal in Walsh characters χ_S, with λ_k=J(d−2k)+K(−1)^k. For fixed parity, λ_k drops by 4J as k rises by 2, so the only minimum candidates are k=d and k=d−1; comparing gives η=(−1)^d K/J and threshold η=1. Rayleigh lower bound Nλ_min/2 is attained by an actual Boolean character, giving the exact energy for all J>0, real K, d≥2. At equality a Boolean spin after multiplying by χ_D is affine a0+sum_j a_j z_j; f(z)^2=1 forces a0 a_j=0 and a_i a_j=0 for all i≠j, hence exactly one coefficient ±1. This rules out all other minimizers, giving 2,2(d+1),2d states. Averaging character products over the appropriate r mismatching coordinates gives the three Hamming correlation laws. Independent full enumeration of all 2^(2^d) spin states for d=2,3,4 at K/J∈{−3,−1,0,1,3} verified exact energy/minimizers/correlations. These checks corroborate the all-dimensional proof.
 
-The closest physical comparison is Franco–Cannas (2003), which studies every Hamming shell through half the dimension with fixed binomial weights. Its opposed-domain pattern and count \(2d\) are recognized and credited; the model has a distinct interaction support and lacks a freely varied antipodal exchange, so the new all-coupling classification and exact piecewise two-point law are not direct corollaries. Mirafzal (2011) classifies folded-cube automorphisms, not optimizing Ising spins. Van Dam–Sotirov (2015) treats max-cut spectral bounds for Hamming association schemes, a technique used in our proof; their general eigenvalue bounds alone do not list all Boolean equality cases across the two-shell coupling line or the ground-state correlations. Chen–Naserasr–Sarti (2026) develops signed projective-cube switching and homomorphisms, not this tunable two-range Ising classification. Six pages of a relevant eight-page 2010 folded-cube article were visually inspected; the two other page views were unavailable, retained as a residual coverage risk. A specialized stronger historical statement cannot be ruled out without independent priority review. Published research-record queries and the accessible earlier claim ledger found no implication-equivalent statement; neither absence is treated as proof of universal uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The weighted folded cube is a canonical finite frustrated-spin network. Varying only the long diagonal coupling produces a sharp parity-selected optimization crossing and a complete, unexpectedly rigid catalogue of all minimizers, with a simple measurable Hamming-distance correlation profile. The result is neither a one-off small computation nor a known-table value; it is uniform in graph dimension and continuous coupling, with nontrivial equality and degeneracy consequences. It deliberately makes no thermodynamic phase-transition or experimentally validated claim.
+Qualified best-of-knowledge PASS for complete Boolean ground-state rigidity with all-real antipodal coupling threshold and exact Hamming two-point law on the two-shell (1,d) folded cube. Walsh spectral diagonalization, max-cut bounds, and two-domain antiferromagnetic patterns are old; the claim isolates a specified tunable sparse two-shell Hamiltonian and proves equality classification. Older association-scheme formulations might imply the spectral minimum but not automatically the Boolean equality-class enumeration.
 
-## Scientific boundaries and nearest references
+## value
 
-The core physical antecedent is Franco–Cannas (2003), https://arxiv.org/abs/cond-mat/0302412; geometry: Mirafzal (2011), https://arxiv.org/abs/1103.4351; spectral method: van Dam–Sotirov (2015), https://arxiv.org/abs/1503.06595; closely related signed graph geometry: Chen–Naserasr–Sarti (2026), https://doi.org/10.1002/jgt.70046. The proof assumes binary classical spins, zero field and homogeneous cube/antipodal strengths. Finite numerical tests supplement but never replace the arbitrary-size proof. Residual originality risk remains where specialized signed-graph/Ising literature was not identifiable or fully accessible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural finite frustrated Ising family on folded hypercubes, the exact coupling-driven switch, complete labelled ground-state degeneracy and full distance-dependent zero-temperature correlations give a useful all-dimension phase classification. The subtle Boolean-equality proof rules out mixed eigenvectors, so the claim goes beyond reporting eigenvalues or a single minimizing example; no unsupported finite-temperature phase transition is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

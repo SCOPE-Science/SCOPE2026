@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:57:37.815763Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/coupling-selected-ground-state-rigidity-and-hamming-correlations--649842af5271/RESULT.md at exact Git blob f9c199f6f535f9b2f3e3e08c9465fc0eb7e8a2ab",
+        "2026/11/02/coupling-selected-ground-state-rigidity-and-hamming-correlations--649842af5271/reproduce.py at exact Git blob 35d4abf77059f1bb2aec6ebe637f87a0a3e87559",
+        "independent_math_checks.py (fresh stdlib/sympy calculations independent of package verifier); original verification code inspected at frozen blob SHA; finite cases do not replace proof."
+      ],
+      "rationale": "Weighted adjacency B=J sum_j translation by e_j + K translation by all-ones is diagonal in Walsh characters χ_S, with λ_k=J(d−2k)+K(−1)^k. For fixed parity, λ_k drops by 4J as k rises by 2, so the only minimum candidates are k=d and k=d−1; comparing gives η=(−1)^d K/J and threshold η=1. Rayleigh lower bound Nλ_min/2 is attained by an actual Boolean character, giving the exact energy for all J>0, real K, d≥2. At equality a Boolean spin after multiplying by χ_D is affine a0+sum_j a_j z_j; f(z)^2=1 forces a0 a_j=0 and a_i a_j=0 for all i≠j, hence exactly one coefficient ±1. This rules out all other minimizers, giving 2,2(d+1),2d states. Averaging character products over the appropriate r mismatching coordinates gives the three Hamming correlation laws. Independent full enumeration of all 2^(2^d) spin states for d=2,3,4 at K/J∈{−3,−1,0,1,3} verified exact energy/minimizers/correlations. These checks corroborate the all-dimensional proof.",
+      "residual_risks": [
+        "Classical finite-size zero-temperature result only: no bulk finite-T phase transition, finite-temperature correlations or disorder stability.",
+        "The two-domain pattern itself is known from differently weighted multi-shell hypercube models."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Van Dam–Sotirov arXiv:1503.06595 develops semidefinite/eigenvalue bounds for cuts in Hamming association schemes.",
+          "Mirafzal arXiv:1103.4351 identifies folded-hypercube Cayley graph geometry and symmetry, without the tunable Ising coupling ground-state equality set."
+        ],
+        "reasoning": "Broad spectral bounds cover the Rayleigh lower-bound technique and can produce energy estimates, but does not alone enumerate which ±1 configurations saturate tied eigenspaces, especially at η=1; discrete rigidity and correlations are a distinct exact claim.",
+        "searches": [
+          "Ising spin ground states folded hypercube Hamming distance one and antipodal interaction coupling exchange Walsh characters degeneracy correlations",
+          "van Dam Sotirov max k cut Hamming association scheme eigenvalue bounds",
+          "Mirafzal folded hypercubes automorphism graph spectrum"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md and reproduce.py (f9c199f6...,35d4abf7...)",
+        "Franco–Cannas (2003) arXiv:cond-mat/0302412, full text §II",
+        "Mirafzal (2011) arXiv:1103.4351 abstract",
+        "van Dam–Sotirov (2015) arXiv:1503.06595 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Franco–Cannas 2003 identifies opposed-domain minimizers in a different interaction model; the same pattern at some parameters is an acknowledged antecedent.",
+          "Generic association-scheme eigenvalue methods give λ_k and a lower energy bound; equality requires classifying binary vectors in the bottom eigenspaces, handled here by the squared-affine Walsh argument."
+        ],
+        "reasoning": "The earlier two-domain pattern or raw spectrum does not directly entail the COMPLETE finite-dimensional ground-state list and two-spin correlations for a variable independent antipodal K. New claim is not that the spectral method or domain-wall motif is new.",
+        "searches": [
+          "Ising spin ground states folded hypercube Hamming distance one and antipodal interaction coupling exchange Walsh characters degeneracy correlations",
+          "Franco Cannas 2003 hypercubic antiferromagnetic ground states 2d degeneracy",
+          "van Dam Sotirov Hamming scheme cut spectra 2015"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Franco–Cannas arXiv:cond-mat/0302412 studies antiferromagnetic Ising couplings J(r)=1/C(d,r) over Hamming shells r=1,…,d/2, and reports two-domain ground state patterns.",
+          "The audited Hamiltonian has only two shells r=1 and r=d, with independently variable real K/J, yielding a different spectral level comparison."
+        ],
+        "reasoning": "Ground-state domain-wall patterns overlap as examples, but the earlier all-intermediate-shell model is not the same tunable two-shell model, so its stated patterns do not imply the sharp η=1 transition or exact two-point correlations.",
+        "searches": [
+          "Ising spin ground states folded hypercube Hamming distance one and antipodal interaction coupling exchange Walsh characters degeneracy correlations",
+          "Franco Cannas 2003 non glassy ground state hypercubic cell Hamming distance shell coupling",
+          "folded hypercube Walsh Ising ground states antipodal K positive negative"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary same-object semantic search returned Walsh spectral concentration and unrelated Ising thermal results, not a table of two-shell ground-state counts.",
+          "Independent full spin-state enumeration at d=2,3,4 identified the predicted 2, 2d, 2(d+1) counts for 15 dimension/coupling choices."
+        ],
+        "reasoning": "Ground-state counts form exact all-dimension closed formulas, not a claim copied from a small enumerative table; finite censuses do not establish universal uniqueness. Search absence does not constitute novelty proof.",
+        "searches": [
+          "Ising spin ground states folded hypercube Hamming distance one and antipodal interaction coupling exchange Walsh characters degeneracy correlations",
+          "Ising hypercube 2^d spins antipodal K/J exact ground state degeneracy table",
+          "Resultary Walsh folded hypercube Ising ground states"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS for complete Boolean ground-state rigidity with all-real antipodal coupling threshold and exact Hamming two-point law on the two-shell (1,d) folded cube. Walsh spectral diagonalization, max-cut bounds, and two-domain antiferromagnetic patterns are old; the claim isolates a specified tunable sparse two-shell Hamiltonian and proves equality classification. Older association-scheme formulations might imply the spectral minimum but not automatically the Boolean equality-class enumeration.",
+      "residual_risks": [
+        "The spectral energy lower bound is standard; earlier Hamming-association-scheme/max-cut theory might contain implicit equality characterization.",
+        "Classical finite-size zero-temperature result only: no bulk finite-T phase transition, finite-temperature correlations or disorder stability.",
+        "The two-domain pattern itself is known from differently weighted multi-shell hypercube models."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The source treats many Hamming shells with weights 1/C(d,r), not variable two-shell nearest-neighbor+antipodal coupling; domain pattern prior.",
+          "evidence": [
+            "L. Franco and S. A. Cannas (2003), arXiv:cond-mat/0302412, especially model couplings in §II."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0302412",
+          "material_read": "Complete arXiv PDF accessed and sampled title, introduction, physical Hamiltonian/model §II and ground-state discussions; PDF screenshots of pages 1 and 3 inspected.",
+          "method": "OA arXiv full-text parsed text plus selected page images",
+          "title": "Non glassy ground-state in a long-range antiferromagnetic frustrated model in the hypercubic cell",
+          "trigger": "same hypercube Ising spins and domain-wall ground-state degeneracy"
+        },
+        {
+          "assessment": "Underlying graph symmetry prior, no specific tunable zero-temperature ground-state characterization in inspected material.",
+          "evidence": [
+            "S. M. Mirafzal (2011), arXiv:1103.4351."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1103.4351",
+          "material_read": "Public abstract/geometric characterization inspected; full paper not needed for claims about its Hamiltonian.",
+          "method": "arXiv abstract",
+          "title": "Some other algebraic properties of folded hypercubes",
+          "trigger": "same underlying folded hypercube Cayley graph"
+        },
+        {
+          "assessment": "Generic cut-eigenvalue techniques recognized; unknown direct coverage of equality classifications, retained as risk.",
+          "evidence": [
+            "E. R. van Dam and R. Sotirov (2015), arXiv:1503.06595."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.06595",
+          "material_read": "Public abstract and described method inspected, not full mathematical paper.",
+          "method": "arXiv metadata and summary",
+          "title": "New bounds for the max-k-cut and chromatic number of a graph",
+          "trigger": "association-scheme cut spectral lower bounds may imply minimum energy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/coupling-selected-ground-state-rigidity-and-hamming-correlations--649842af5271/RESULT.md",
+        "Franco–Cannas (2003) arXiv:cond-mat/0302412, full text §II",
+        "Mirafzal (2011) arXiv:1103.4351 abstract",
+        "van Dam–Sotirov (2015) arXiv:1503.06595 abstract"
+      ],
+      "rationale": "For a natural finite frustrated Ising family on folded hypercubes, the exact coupling-driven switch, complete labelled ground-state degeneracy and full distance-dependent zero-temperature correlations give a useful all-dimension phase classification. The subtle Boolean-equality proof rules out mixed eigenvectors, so the claim goes beyond reporting eigenvalues or a single minimizing example; no unsupported finite-temperature phase transition is asserted.",
+      "residual_risks": [
+        "Mathematical significance is specific to the stated objects and parameter domains; broader model relevance is not proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The spectral energy lower bound is standard; earlier Hamming-association-scheme/max-cut theory might contain implicit equality characterization.",
+    "Classical finite-size zero-temperature result only: no bulk finite-T phase transition, finite-temperature correlations or disorder stability.",
+    "The two-domain pattern itself is known from differently weighted multi-shell hypercube models."
+  ],
+  "schema_version": 1
+}
