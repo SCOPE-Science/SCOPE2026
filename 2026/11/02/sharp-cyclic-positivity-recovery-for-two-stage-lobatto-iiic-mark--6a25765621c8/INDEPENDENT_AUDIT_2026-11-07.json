@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:11:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct Butcher tableau elimination gives R(z)=1/(1−z+z²/2). On n-cycle Q=P−I, factorization of R(h(P−I)) gives a convergent complex-pole pair α=ρe^{iθ}, θ=atan(1/(1+h)), ρ=cosθ−sinθ<1. Summing powers by residues P^n=I produces c_{n,j}=2ρ^(j+1)/(h|1−α^n|²)[sin((j+1)θ)+ρ^n sin((n−j−1)θ)]. If nθ≤π all coefficients are nonnegative, and at equality only j=n−1 vanishes. For π<nθ<2π that last coefficient is negative; for nθ≥2π, k=ceil(3π/(2θ)) yields sin(kθ)≤−1/√2 while ρ^n≤e^(−2π), forcing a negative coefficient. Thus n≤4 positive for all h>0; for n≥5 h=0 or h≥cot(π/n)−1 exactly, with large-step positivity recovery. Independent exact matrix inversions at 45 n/h cases checked signs and formula, plus n=5,10 numerical boundaries; finite tests supplement all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lóczi–Ketcheson radius theory does not state graph-size-dependent reentrant positivity.",
+          "Entire-function nonnegativity preserver theorem has different analytic-class and input quantifiers."
+        ],
+        "reasoning": "Neither inspected broader primary statement directly implies the necessary-and-sufficient cotangent threshold without new cyclic evaluation and sign analysis.",
+        "searches": [
+          "Lobatto IIIC two stage rational stability Markov directed cycle positivity threshold cot pi over n",
+          "arXiv:1303.6651",
+          "arXiv:math/0511325"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1303.6651",
+        "arXiv:math/0511325",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+        "Lobatto IIIC two stage rational stability Markov directed cycle positivity threshold cot pi over n",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical Lobatto IIIC stability function is prior; no claim it was invented here.",
+          "Bharali–Holtz Fourier criterion could inspire analysis but does not derive rational coefficients for fixed shifted cycle generator.",
+          "Other published SSP-SDIRK method has different matrix rational map."
+        ],
+        "reasoning": "The nonmonotone positive-time set {0}∪[cot(π/n)−1,∞) cannot be deduced merely from general SSP radius or another RK tableau; all-phase sign proof is separately required.",
+        "searches": [
+          "Lobatto IIIC two stage rational stability Markov directed cycle positivity threshold cot pi over n",
+          "arXiv:1303.6651",
+          "arXiv:math/0511325",
+          "published SSP-SDIRK2 source"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent problem is cyclic inverse of A_h(1−αP)(1−conjugate(α)P).",
+          "Bharali–Holtz Theorem 10 Fourier coefficients apply to entire function mapping all nonnegative circulants, a different domain."
+        ],
+        "reasoning": "The rational resolvent’s modular alias and phase sign are essential; generic absolute monotonicity is a sufficient property on broader classes, not an iff for this fixed Q.",
+        "searches": [
+          "Lobatto IIIC two stage rational stability Markov directed cycle positivity threshold cot pi over n",
+          "arXiv:1303.6651",
+          "arXiv:math/0511325"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Other published thresholds refer to [2/2] Padé or SSP-SDIRK2, and their exact rational functions differ.",
+          "Current theorem is an infinite family, not a table of n≤some cutoff."
+        ],
+        "reasoning": "Related exact numerical positivity findings do not cover the same rational map, cycle topology or all-n phase boundary.",
+        "searches": [
+          "Lobatto IIIC two stage rational stability Markov directed cycle positivity threshold cot pi over n",
+          "published Gauss Padé 8-state Markov positivity",
+          "published SSP-SDIRK2 3-state Markov positivity"
+        ]
+      },
+      "rationale": "Lóczi–Ketcheson arXiv:1303.6651 treats absolute monotonicity of rational Runge–Kutta stability functions, which gives general sufficient constraints but not this exact directed-cycle late-step positivity recovery. Bharali–Holtz arXiv:math/0511325 develops entire functions preserving nonnegativity of all nonnegative circulant matrices and a Fourier characterization, not this fixed rational function on shifted cycle generators. Published Gauss Padé and SSP-SDIRK Markov results use different rational R and do not imply the cotangent Lobatto threshold. Specialist cyclic resolvent work remains a priority risk.",
+      "residual_risks": [
+        "Specialist source may have exact inverse-circulant positivity phases not indexed under Lobatto IIIC terminology.",
+        "Large-h positivity does not establish accurate approximation to exp(hQ)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analyzes general radius and monotonicity, not n-dependent cyclic recovery at h=cot(π/n)−1",
+          "evidence": "Global absolute monotonicity is not necessary for positivity on this particular cycle family.",
+          "identifier_or_url": "arXiv:1303.6651",
+          "material_read": "Full 42-page arXiv PDF, introductory general rational function and absolute monotonicity sections, including visual first page",
+          "method": "Full primary PDF text and screenshot",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "Exact rational RK method positivity/monotonicity possible coverage"
+        },
+        {
+          "assessment": "Theorem 10 gives Fourier criterion for entire f on EVERY entrywise nonnegative circulant, not this rational resolvent on P−I",
+          "evidence": "Fixed rational shifted-generator positivity does not follow by applying theorem for entire functions.",
+          "identifier_or_url": "arXiv:math/0511325",
+          "material_read": "Full 20-page primary arXiv PDF, Section 6 circulant Fourier formula and Theorem 10, visually inspected page 9",
+          "method": "Full primary PDF text and screenshot",
+          "title": "Functions preserving nonnegativity of matrices",
+          "trigger": "Theorem on circulant matrices might subsume case"
+        },
+        {
+          "assessment": "Distinct method: squared implicit-midpoint stability map, so n=3 h=4 pure-birth threshold not Lobatto IIIC cycle threshold",
+          "evidence": "R_h(Q)=[(I+hQ/4)(I−hQ/4)^−1]^2, different from Lobatto IIIC R(z).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+          "material_read": "Entire published RESULT.md proof and rational map",
+          "method": "Actual GitHub full source text",
+          "title": "Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2)",
+          "trigger": "Similar RK endpoint positivity dimension threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A standard implicit Runge–Kutta method can have invalid transition weights at small positive steps but recover valid stochastic matrices at a computable graph-size-dependent large-step threshold. The all-n sharp boundary, zero pattern and n/π scale are natural method/graph interaction facts useful for diagnosing Markov discretization; not a cosmetic numerical root.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only two-stage unmodified Lobatto IIIC endpoint map and unit-rate directed cycles; no internal-stage positivity or accuracy guarantee at recovered large steps.",
+    "Cycle orientation changes coefficient indexing but not entrywise positivity; row/column sums remain one.",
+    "Older specialist rational matrix function / cyclic Markov positivity coverage not excluded."
+  ]
+}
