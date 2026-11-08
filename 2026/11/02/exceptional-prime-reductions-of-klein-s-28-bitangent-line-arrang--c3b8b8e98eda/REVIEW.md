@@ -1,19 +1,21 @@
-# Scientific review: exceptional-prime Klein bitangent arrangement
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all 28 source line forms over \(R=\mathbb Z[\alpha]/(\alpha^2+\alpha+2)\), the proof reduces concurrence changes to the vanishing of three-by-three determinants. The exhaustive 3276-determinant norm certificate has nonzero prime support exactly \(\{2,3,7,11\}\). The baseline pair intersection comparison reproduces 252 ordinary double and 21 ordinary quadruple points. Exact residue calculations account for all pair incidences at each prime above the four exceptional rational primes and for both dyadic factorizations. The conic secant identification over \(\mathbb F_7\) and each line's twelve-point profile over \(\mathbb F_{11}\) are explicitly tested and follow from exhaustive finite projective enumeration. There is no extrapolation from a finite field sample to infinitely many other primes: the determinant norm divisibility proves their exclusion. Risks are transcription mistakes, mitigated by explicit indexed source coefficient table, and distinction between geometric and literal-model fibers, stated in the theorem.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+The 3276 exact triple determinants in the quadratic integer ring have norm-support only 2,3,7,11, giving an unrestricted no-new-concurrence conclusion away from those primes. Exact pair cross products yield 252 double and 21 quadruple points in characteristic zero; residue-field line reductions cover all 378 pairs and the two p=2 fibers, p=3 over F9, p=7 over F7, p=11 at both roots. Independent newly implemented determinant/rational-projective and p=7/11 arithmetic reproduced the exact norm histogram, generic (252,21), p7 8+21+28, and both p11 profiles. Finite special-fiber enumeration is exhaustive on its finite field, while the norm divisibility is essential for all primes. The coefficients in RESULT and verifier match printed source equations, notwithstanding the mistaken source-table number.
 
-The complex 252-double/21-quadruple baseline, printed coefficient triples, classical conic secant combinatorics, and previously observed characteristic-three Hermitian incidence are all treated as prior knowledge. The source paper [1] supplies the equations but does not present the complete exceptional prime list or characteristic-eleven jump. Bethea–Brazelton [2] establishes symmetry of the bitangents, not the reduced incidence schemes. Dolgachev–Martin [3] discusses characteristic-seven geometry but not this 28-line special-fiber census. The identified characteristic-seven conic-secants equivalence, characteristic-eleven 84 triple-point profile at both split primes, two distinct dyadic fiber multiplicity patterns, and all-other-prime determinant-norm exclusion form the assessed new combined claim. Targeted searches for variants using "Klein 28 bitangent", "reduction modulo 11", "28 secants conic F7", "exceptional primes" and "bitangent incidence" found no dominating claim. An earlier unindexed arithmetic calculation and inaccessible historical primary accounts remain residual priority risks; absence of a match is not mathematical proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 28-bitangent arrangement is a canonical highly symmetric enumerative object. Its complete arithmetic incidence behavior is not forced by the complex arrangement. Notably, the characteristic-eleven jump occurs at a prime not dividing 168, the order of the familiar projective symmetry group, while characteristic seven admits a structural identification with the full secant geometry of an eight-point conic. Distinct dyadic fibers show that a single rational residue characteristic can support different nonreduced configurations. The theorem is a complete, naturally bounded classification, not an arbitrary numerical slice. It supplies a reproducible determinant certificate, exact geometric incidence profiles, and transparent limitations.
+Qualified best-of-knowledge novelty applies to the complete fixed-model characteristic classification and norm-supported exceptional prime set; generic complex combinatorics, Hermitian characteristic-three behavior and classical F7 conic geometry are credited.
 
-## Closest literature and limitations
+## value
 
-[1] Janasz–Pokora–Zieliński, arXiv:2308.16514, Table 1 and Proposition 3.1, supplies the input model and already known complex profile. [2] Bethea–Brazelton, *Bitangents to Symmetric Quartics*, studies the characteristic-zero group action. [3] Dolgachev–Martin, *Automorphisms of del Pezzo surfaces in odd characteristic*, addresses different exceptional-characteristic Klein geometry. [4] Elkies, *The Klein Quartic in Number Theory*, provides historically relevant context; comprehensive reading of this source was unavailable. This is a theorem about the fixed integral arrangement rather than arbitrary models of a Klein quartic. Independent mathematical audit and validation were not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact bad-reduction locus and full geometric multiplicity tables for a classical highly symmetric line arrangement are natural arithmetic incidence invariants. The unexpected p11 triples and unequal dyadic fibers show nontrivial phenomena not deducible from the complex table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
