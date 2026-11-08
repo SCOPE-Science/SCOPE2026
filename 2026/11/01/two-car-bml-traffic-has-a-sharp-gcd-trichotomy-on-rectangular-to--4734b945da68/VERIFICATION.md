@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof checks
+# Independent mathematical audit
 
-Execute `python3 verify_two_car.py` in the same directory as the other files. The script requires only the Python standard library and independently simulates the labeled horizontal and vertical positions with ordered half-steps. It does **not** implement the reduced arithmetic orbit map as its step function.
+## correctness
 
-The executed run passed \(225\) pairs of grid dimensions \((m,n)\) with \(2\le m,n\le16\) and all \(18{,}000\) nonoverlapping relative placements on those grids. It checked the exact primitive eventual full-configuration period, number of failed attempts by each species per period, at-most-once blocking for gcd at least three, and the exact number \(2\operatorname{lcm}(m,n)-1\) of placements suffering one block in that regime. Representative larger dimension predictions are also printed; those are formula evaluations, not a proof for large sizes.
+PASS
 
-Independent mathematical reconstruction should verify the relative map at each of the two exceptional states; the \(\gcd\)-class action; the two congruence systems determining intervals between event types; and the closure of full physical positions rather than only relative displacement. These steps are written in `RESULT.md` and establish the arbitrary-dimension result analytically. Finitely many exact simulations cannot establish universality or absence of unindexed historical literature. Independent audit remains unperformed.
+For exactly one eastbound H and one northbound V car, ordered east-then-north updates on m>=2 by n>=2 torus reduce by (a,b)=(xV-xH,yH-yV) to R(1,0)=(1,-1), R(1,1)=(0,1) and otherwise R(a,b)=(a-1,b-1). Free classes labeled a-b mod g=gcd(m,n) and exceptional jumps fully yield: g>=3 at most one block and eventual full period L=lcm(m,n), exactly 2L-1 blocking initial relative positions; g=2 one H and one V block every L+1 complete moves; coprime g=1 one-species blocks with inverse r of m mod n: H only if 2r>n period m(n-r)+1, else V only period mr. Verified full-position closure by displacement multiples and no shorter relative recurrence. Independently physically simulated all 4,125 valid relative placements on 100 grids 2<=m,n<=11, matching periods and block counts; the infinite statement rests on congruence proof.
+
+## originality
+
+PASS
+
+The published BML rectangle literature treats many-car aspect-ratio dependent jammed states, and square-grid small-cardinality results establish eventual flow for a different geometry. Neither inspected work classifies all two-car rectangular states via gcd, modular inverse, and exact periods.
+
+## value
+
+PASS
+
+The exactly two-car regime is the smallest nontrivial interaction model; a sharp gcd1/gcd2/gcd>=3 change displays persistent congestion at arbitrarily low density and precise speed deficits, clarifying limitations of square-grid free-flow intuition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

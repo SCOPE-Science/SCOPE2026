@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T08:56:45.819665Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exactly one eastbound H and one northbound V car, ordered east-then-north updates on m>=2 by n>=2 torus reduce by (a,b)=(xV-xH,yH-yV) to R(1,0)=(1,-1), R(1,1)=(0,1) and otherwise R(a,b)=(a-1,b-1). Free classes labeled a-b mod g=gcd(m,n) and exceptional jumps fully yield: g>=3 at most one block and eventual full period L=lcm(m,n), exactly 2L-1 blocking initial relative positions; g=2 one H and one V block every L+1 complete moves; coprime g=1 one-species blocks with inverse r of m mod n: H only if 2r>n period m(n-r)+1, else V only period mr. Verified full-position closure by displacement multiples and no shorter relative recurrence. Independently physically simulated all 4,125 valid relative placements on 100 grids 2<=m,n<=11, matching periods and block counts; the infinite statement rests on congruence proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Austin–Benjamini on N-by-N grids is consistent with g=N>=3 no further block, but cannot cover g=1/2 rectangular cases. D’Souza studies aspect-ratio traffic bands rather than exhaustive two-body cases."
+        ],
+        "reasoning": "General descriptions of density-dependent traffic phases do not logically imply this exact all-placement two-body trichotomy.",
+        "searches": [
+          "D’Souza 2005 author-archived PDF",
+          "Austin and Benjamini 2006 square-grid low-car theorem",
+          "Resultary: Biham Middleton Levine two vehicles rectangular torus gcd coprime periodic blocking"
+        ]
+      },
+      "checked_sources": [
+        "D’Souza 2005 full author PDF",
+        "Austin–Benjamini arXiv:math/0607759 abstract",
+        "Resultary BML two-vehicle arithmetic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A square with n=m>=3 belongs to g>=3 and agrees with Austin–Benjamini, but the coprime-rectangle periodic blocks cannot follow from a theorem restricted to squares."
+        ],
+        "reasoning": "This trichotomy is more refined than prior geometric traffic descriptions and includes a separate arithmetic mechanism.",
+        "searches": [
+          "D’Souza 2005 pp1–10, rectangular aspect ratios",
+          "Austin and Benjamini 2006 square free-flow theorem",
+          "Resultary: Biham Middleton Levine two vehicles rectangular torus gcd coprime periodic blocking"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D’Souza treats rectangular multi-car low- and intermediate-density patterns; Austin–Benjamini proves square torus eventual flow below a car-count bound."
+        ],
+        "reasoning": "The same BML update is shared, but neither premises (particle number and rectangle arithmetic) nor conclusions (all two-car primitive periods) match.",
+        "searches": [
+          "Resultary: Biham Middleton Levine two vehicles rectangular torus gcd coprime periodic blocking",
+          "D’Souza PRE 71 (2005), Coexisting phases and lattice dependence",
+          "Austin–Benjamini arXiv:math/0607759"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary search returned no exact two-car table. D’Souza numerical figures do not enumerate all m*n-1 relative placements or provide the 2L-1 count."
+        ],
+        "reasoning": "No matching exact database was found among inspected sources; that is only bounded coverage evidence.",
+        "searches": [
+          "Resultary: Biham Middleton Levine two vehicles rectangular torus gcd coprime periodic blocking",
+          "D’Souza Figures/analyses of rectangular BML jam bands"
+        ]
+      },
+      "rationale": "The published BML rectangle literature treats many-car aspect-ratio dependent jammed states, and square-grid small-cardinality results establish eventual flow for a different geometry. Neither inspected work classifies all two-car rectangular states via gcd, modular inverse, and exact periods.",
+      "residual_risks": [
+        "Unindexed two-body special case derivation in older BML/traffic cellular automata work",
+        "Specific update order and full-configuration (not relative) periods must not be conflated"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for examined all-source paper: no exact one-east/one-north gcd initial-state classification",
+          "evidence": "Describes traffic-band winding structures and density, does not enumerate all two-car full configuration periods.",
+          "identifier_or_url": "https://web.cs.ucdavis.edu/~raissa/Pubs/bml-pre.pdf",
+          "material_read": "Full 10-page lawful author PDF read, including introduction/model, aspect-ratio and periodic-jam calculations, figures; inspected PDF images p1 and p7",
+          "method": "read text and screenshot pages in original PDF",
+          "title": "Coexisting phases and lattice dependence of a cellular automaton model for traffic flow",
+          "trigger": "BML on periodic rectangular grids, possible gcd-dependent overlap"
+        },
+        {
+          "assessment": "PARTIAL_SPECIAL_CASE: strong square-grid sufficient flow, not rectangular classification",
+          "evidence": "Square N-by-N with fewer than N/2 cars eventually flows; does not address gcd1 rectangular torus with perpetual one-car blocking.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0607759",
+          "material_read": "Abstract and theorem description for square N-by-N torus; full proof not read in this run",
+          "method": "read accessible primary abstract and source summary",
+          "title": "For what number of cars must self organization occur in the Biham–Middleton–Levine traffic model from any possible starting configuration?",
+          "trigger": "potential stronger all-initial-configuration theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exactly two-car regime is the smallest nontrivial interaction model; a sharp gcd1/gcd2/gcd>=3 change displays persistent congestion at arbitrarily low density and precise speed deficits, clarifying limitations of square-grid free-flow intuition.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "D’Souza 2005 full author PDF",
+    "Austin–Benjamini arXiv:math/0607759 abstract",
+    "Resultary BML two-vehicle arithmetic query"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Unindexed two-body special case derivation in older BML/traffic cellular automata work",
+    "Specific update order and full-configuration (not relative) periods must not be conflated"
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Exactly one H and one V, east-first then north, no other cars or positive-density claim",
+    "Finite independent physical simulation only corroborative, not a proof of unrestricted m,n"
+  ]
+}
