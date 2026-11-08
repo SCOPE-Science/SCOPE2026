@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The source Markov transition is exact. On the logarithmic grid, an ordinary step is the deterministic PDMP flow and the root doubling probability exactly matches the first-jump hazard. Coupling the remaining within-interval jumps bounds the local error by 2/k² and iteration gives an explicit L1 error for every finite log-time horizon. The PDMP is nonexplosive; compact one-jump density minorization, aperiodicity and LV=2-z establish geometric Harris ergodicity. This proves weak convergence by a two-limit argument without moment determinacy. Original established moment limits plus uniform integrability identify the invariant moments; E=2, E(square)=5. The standalone Python verifier passed 2,952 finite diagnostics, which are not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Meyn–Tweedie (1993) supplies general drift/minorization criteria for recurrence and ergodicity, not the particular discrete-tree-to-PDMP approximation.",
+        "Davis (1984) defines the general class of piecewise-deterministic processes.",
+        "Björnberg–Mailler (2025), Prop. 1.1, proves moments and tightness, insufficient alone for weak convergence."
+      ],
+      "reasoning": "A generic PDMP ergodicity result covers the continuous limiting process after checking conditions, and is used as a cited ingredient. It does not establish that the root-doubling discrete tree asymptotically follows this PDMP. No located stronger theorem implies both the exact coupling and claimed weak convergence without additional model-specific work.",
+      "searches": [
+        "\"Lamperti\" \"doubling\" \"recursive tree\" scaling",
+        "\"linear drift exponential decay jump doubling state dependent rate 1/x PDMP stationary\"",
+        "\"Bjornberg Mailler doubling recursive tree moments indeterminate Yule size scale-invariant Markov process logarithmic time\"",
+        "\"piecewise deterministic Markov processes Foster Lyapunov small sets ergodicity minorization paper 2023\"",
+        "https://doi.org/10.1017/S0001867800025532",
+        "https://doi.org/10.1111/j.2517-6161.1984.tb01308.x"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2501.18466",
+      "https://arxiv.org/abs/2501.18466",
+      "https://portal.mardi4nfdi.de/wiki/A_random_recursive_tree_model_with_doubling_events",
+      "https://researchportal.bath.ac.uk/en/publications/a-random-recursive-tree-model-with-doubling-events-2/",
+      "https://doi.org/10.1017/S0001867800025532",
+      "https://doi.org/10.1111/j.2517-6161.1984.tb01308.x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Björnberg–Mailler Proposition 1.1 implies tightness and moment convergence, but Remark 1.2 says this does not establish weak convergence without uniqueness.",
+        "The nearby ordinary random-recursive-tree covariance theorems use a different recursion with no global doubling events."
+      ],
+      "reasoning": "The new result directly resolves the gap left by the strongest known matching primary paper. A uniform weak limit does not follow from the paper’s moment results absent determinacy; here uniqueness instead comes from Harris ergodicity of a new continuous-time approximation. Neither ordinary recursive-tree covariance statement controls this root-doubling model.",
+      "searches": [
+        "\"A random recursive tree model with doubling events\" limit distribution size 2026",
+        "\"random recursive tree\" \"doubling\" \"piecewise deterministic\" limit distribution",
+        "\"random recursive tree doubling events B_n/n convergence in distribution weak limit unique invariant piecewise deterministic Markov process\"",
+        "\"Björnberg Mailler random recursive tree doubling events normalized B_n/n weak convergence unique stationary law Markov piecewise deterministic\"",
+        "https://arxiv.org/html/2501.18466",
+        "\"root attachments have an exact negative path-length profile\" recursive tree",
+        "\"equal-share covariance of root degree and leaves\" recursive tree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Björnberg–Mailler, arXiv:2501.18466, Remark 1.2, states weak convergence of the normalized size is not established.",
+        "The exact source size transition, and the logarithmic time-change generator, describe the same normalized process via the new coupling."
+      ],
+      "reasoning": "Equivalent phrasing as convergence of normalized nonroot population, log-clock stochastic approximation, and stationary limits of a reciprocal-hazard growth-jump process was compared. The primary result specifies only moment asymptotics, not this weak convergence. The PDMP transformation is new as a route to selecting the limit.",
+      "searches": [
+        "\"random recursive tree\" \"doubling\" \"weak convergence\" size",
+        "\"A random recursive tree model with doubling events\" limit distribution size 2026",
+        "\"random recursive tree\" \"doubling\" \"piecewise deterministic\" limit distribution",
+        "\"random recursive tree doubling events B_n/n convergence in distribution weak limit unique invariant piecewise deterministic Markov process\"",
+        "\"Björnberg Mailler random recursive tree doubling events normalized B_n/n weak convergence unique stationary law Markov piecewise deterministic\"",
+        "https://arxiv.org/html/2501.18466#S1.SS2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published source displays the exact limiting moment sequence but explicitly notes the missing distributional convergence in Remark 1.2.",
+        "The nearest returned recursive-tree records concern ordinary recursive-tree leaf/root-degree covariance and path length, not root-doubling-size laws."
+      ],
+      "reasoning": "Exact moment products for this model were already known and are credited. This contribution is not a re-tabulation of them; it supplies a probability-law convergence theorem and an invariant-measure characterization. No directly matching limit law was found in the queried mathematical records.",
+      "searches": [
+        "\"random recursive tree\" \"doubling\" \"weak convergence\" size",
+        "\"A random recursive tree model with doubling events\" limit distribution size 2026",
+        "\"B_n/n\" \"doubling\" \"weak convergence\" \"Bjornberg\"",
+        "\"root doubling tree asymptotic size Bn/n limit Lamperti PDMP generator 1-y jump 2y rate 1/y\"",
+        "https://arxiv.org/abs/2501.18466"
+      ]
+    },
+    "rationale": "The primary paper proves convergence of moments and explicitly states in Remark 1.2 that weak convergence of exactly this size ratio was not established. The new implication uses an exact model-specific log-grid jump coupling and a uniquely ergodic PDMP. Generic PDMP and Foster–Lyapunov results provide machinery but do not assert the tree-size weak convergence. Targeted source, alias, reduction and adjacent-record comparisons uncovered no direct coverage; exhaustive priority is not claimed.",
+    "residual_risks": [
+      "Unindexed or later weak-convergence theorem concerning the same root-doubling population may exist; search failure is not priority proof.",
+      "General PDMP and stochastic-approximation literature was not inspected exhaustively; its potential broader specialization remains a priority risk.",
+      "Independent examination of the coupling and Harris argument has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the asserted weak convergence; supplies the exact size recursion and moments, expressly says weak convergence is unestablished by its proof",
+        "evidence": "https://arxiv.org/html/2501.18466, lines 39-86 and 149-166",
+        "identifier_or_url": "https://arxiv.org/html/2501.18466",
+        "material_read": "Full open-access arXiv HTML: introduction, formal root-doubling model, Proposition 1.1 and Remark 1.2, Section 2.1 size transition and moment proof, results table of contents and later extension descriptions",
+        "method": "Read primary full HTML and compare definitions, B_n recursion, hypotheses, moment/weak-convergence logical implications",
+        "title": "A random recursive tree model with doubling events",
+        "trigger": "Same model and size statistic, explicit weak-convergence uncertainty"
+      },
+      {
+        "assessment": "General ergodicity method is cited, not claimed as new; cannot itself assert convergence of discrete root-doubling normalized size",
+        "evidence": "https://doi.org/10.1017/S0001867800025532",
+        "identifier_or_url": "https://doi.org/10.1017/S0001867800025532",
+        "material_read": "Published bibliographic information, description and abstract only; complete paper not used for claim-level novelty exclusion",
+        "method": "Match scope of general drift-small-set machinery to model-specific coupling",
+        "title": "Stability of Markovian processes III: Foster–Lyapunov criteria for continuous-time processes",
+        "trigger": "Potential general ergodicity theorem subsuming PDMP invariant-law step"
+      },
+      {
+        "assessment": "General framework recognized and credited; remaining uninspected full-text scope is a historical-priority risk",
+        "evidence": "https://doi.org/10.1111/j.2517-6161.1984.tb01308.x",
+        "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1984.tb01308.x",
+        "material_read": "Bibliographic information and abstract only; the primary general theory was not read in full",
+        "method": "Check abstract-level model class and whether a model-specific tree-size convergence claim is advertised",
+        "title": "Piecewise-Deterministic Markov Processes: A General Class of Non-Diffusion Stochastic Models",
+        "trigger": "Standard PDMP framework for deterministic flow and random jumps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "db5e2cb6-78fc-40f4-af81-93196f1ac08b",
+  "value": {
+    "rationale": "The originating paper explicitly identifies weak convergence of its most basic growing-tree statistic as unresolved by its method. The theorem resolves this natural population-level question for the exact model, without requiring a questionable moments-only uniqueness step, and gives a distinct continuous-time ergodic characterization which recovers the earlier moment sequence. It is structurally motivated, not an arbitrary finite statistic or a rephrasing of a known table.",
+    "status": "PASS"
+  }
+}
