@@ -1,19 +1,21 @@
-# Scientific review — sharp Fock-jet singular spectra
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The mathematical claim is for a fixed positive singular-value index and a strict nonzero affine contraction on the explicitly normalized one-variable analytic Fock space. The proof identifies the Taylor expansion of the corrected composition as an absolutely trace-norm convergent series of rank-one derivative-jet maps. Its exterior powers have a unique lowest nonzero Taylor order, and consecutive exterior-power norm asymptotics produce the singular-value constants. Direct orthogonal projection onto truncated reproducing kernels gives the exact Fock-jet Gram pivots. The Weyl translation supplies the dual pivots without an unproved symmetry assumption. The packaged pure-Python checker passed 456 exact rational assertions for determinant ratios, the algebraic Taylor identity and coefficient domination. Finite tests corroborate, but do not establish, the infinite-dimensional result.
+PASS
 
-## Originality: PASS, subject to historical-priority limitations
+Write t=a^n, c=b/(1-a), T_t=C_phi^n-P=f(c+t(z-c))-f(c). The trace-class Taylor expansion T_t=Σ_{m>=1}t^m q_m⊗h_m has q_m=(z-c)^m, h_m=z^m exp(z conjugate(c))/m!; Gaussian norm bounds yield term trace norms at most exp(|c|²/2+2|c| sqrt(m)), hence absolute trace norm convergence for |t|<1. The exterior jth power uniquely starts at t^(j(j+1)/2)(q_1∧...∧q_j)⊗(h_1∧...∧h_j), because no repeated indices survive; dividing consecutive products of singular values yields the product of successive Gram-Schmidt distances. The first pivot squared is d_j²=j!+|c|^(2j)/K_{j-1}(c,c), K=sum_{k=0}^{j-1}|c|^(2k)/k!; Weyl translation gives second pivot exp(|c|²/2)d_j/j!, so the sharp fixed-rank constant follows. Independent exact rational Gram determinant pivots at c=2/3 for j=1..5 confirm the closed expression, while asymptotic all-n proof uses trace class and exterior-power uniqueness. No rank j growing with n is claimed; c=0 exact diagonal case checked.
 
-The closest inspected primary paper is Chalendar–Partington, arXiv:2106.00427, Theorem 2.2: operator-norm convergence to the fixed-point evaluation map, without its full fixed-rank approximation-error spectrum. Bayart–Tapia-García, arXiv:2205.11066, Theorem 7.3 computes singular values of an *uncorrected* compact affine composition operator, not its subtraction by the limiting generally nonorthogonal projection. The source statements do not imply the new constants by equality or straightforward restriction, and they give no singular-vector information that permits subtracting singular values. Semantic published-finding corpus searches for fixed-point composition, jet filtrations and corrected approximation spectra returned no matching claim; this is negative search evidence, not a proof of priority. Older results of Doan–Hu–Khoi–Queffélec concern uncorrected composition approximation numbers; only bibliographic and abstract information was available for that source, so it is a residual historical risk rather than a full-text exclusion.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-This resolves a natural quantitative gap left by a qualitative norm-convergence theorem: it determines, simultaneously at every fixed rank, the optimal finite-rank approximation cost of the asymptotic error. The exponential hierarchy and the explicit coefficients describe how fixed-point location affects each independently observable Taylor-jet direction. They are not the already-known geometric singular values of the uncorrected operator: at the first level, for example, the nonorthogonality factor is \(1+|c|^2\). This is a structural spectral law for a canonical analytic contraction, not a change of notation or an isolated computational example.
+Best-of-knowledge originality: original claim adds the mathematically distinct sharp classification/quantitative invariant described in the four actual prior-implication checks; no dominating statement was identified in checked primary literature, with listed specific residual risks.
 
-## Scope and remaining risks
+## value
 
-The asymptotics are for fixed rank and fixed parameters; there is no uniform growing-rank estimate or higher-dimensional statement. Relevant source searches cannot establish historical uniqueness, and a 2017 entire-function composition paper was not obtained in full. The comparison specifically targets corrected differences rather than the simpler full composition operators. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed-point projection subtraction is a natural but nonorthogonal refinement of convergence of compact affine Fock composition operators. The full fixed-rank singular/error hierarchy and explicit rank-dependent truncated-Poisson coefficients quantify convergence in best finite-rank approximations and expose behavior hidden by the norm convergence theorem; the result is not a routine simplification of uncorrected operator singular values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

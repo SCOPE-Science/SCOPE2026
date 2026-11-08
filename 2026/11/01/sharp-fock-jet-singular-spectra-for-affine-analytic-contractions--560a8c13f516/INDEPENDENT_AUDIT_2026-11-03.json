@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T05:08:56.442102Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write t=a^n, c=b/(1-a), T_t=C_phi^n-P=f(c+t(z-c))-f(c). The trace-class Taylor expansion T_t=Σ_{m>=1}t^m q_m⊗h_m has q_m=(z-c)^m, h_m=z^m exp(z conjugate(c))/m!; Gaussian norm bounds yield term trace norms at most exp(|c|²/2+2|c| sqrt(m)), hence absolute trace norm convergence for |t|<1. The exterior jth power uniquely starts at t^(j(j+1)/2)(q_1∧...∧q_j)⊗(h_1∧...∧h_j), because no repeated indices survive; dividing consecutive products of singular values yields the product of successive Gram-Schmidt distances. The first pivot squared is d_j²=j!+|c|^(2j)/K_{j-1}(c,c), K=sum_{k=0}^{j-1}|c|^(2k)/k!; Weyl translation gives second pivot exp(|c|²/2)d_j/j!, so the sharp fixed-rank constant follows. Independent exact rational Gram determinant pivots at c=2/3 for j=1..5 confirm the closed expression, while asymptotic all-n proof uses trace class and exterior-power uniqueness. No rank j growing with n is claimed; c=0 exact diagonal case checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full Chalendar–Partington PDF Section 2 establishes operator norm convergence but not j-specific singular-value limits.",
+          "Full Bayart–Tapia-García PDF Section 7 derives approximation numbers for uncorrected affine compositions, different operator."
+        ],
+        "reasoning": "Earlier theorems may have broader function-space or dimension parameters but do not dominate the corrected difference operator and its explicit Poisson-sum factors.",
+        "searches": [
+          "Fock space affine composition powers fixed point evaluation projection approximation numbers singular values jets",
+          "Chalendar Partington weighted composition Fock iteration Theorem 2.2",
+          "Bayart Tapia Garcia Fock singular values theorem 7.3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2106.00427",
+        "https://arxiv.org/pdf/2205.11066",
+        "https://doi.org/10.1016/j.indag.2016.07.003",
+        "Resultary 2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uncorrected affine Fock singular values are geometric with a common scale factor; corrected error constants have extra j-dependent factor 1+|c|^(2j)/(j! K_{j-1}).",
+          "Theorem 2.2 gives convergence rate in norm without the full fixed-rank hierarchy."
+        ],
+        "reasoning": "Neither convergence to P nor exact singular values of C_phi implies singular values of C_phi−P; the new dual-jet Gram-Schmidt argument is mathematically necessary.",
+        "searches": [
+          "Fock space affine composition powers fixed point evaluation projection approximation numbers singular values jets",
+          "approximation numbers C_phi^n vs C_phi^n-P Fock",
+          "arxiv 2205.11066 Theorem 7.3 and arxiv 2106.00427 Theorem 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chalendar–Partington arXiv:2106.00427 Theorem 2.2 proves convergence to evaluation projection P but no fixed-j constants.",
+          "Bayart–Tapia-García arXiv:2205.11066 Theorem 7.3 computes singular numbers of uncorrected C_phi."
+        ],
+        "reasoning": "Compared subtraction C_phi^n−P, Taylor-jet remainder, and best rank-(j−1) approximation; a rank-one nonorthogonal subtraction cannot be handled by deleting an existing singular value.",
+        "searches": [
+          "Fock space affine composition powers fixed point evaluation projection approximation numbers singular values jets",
+          "fixed point corrected affine Fock Koopman powers approximation numbers derivative jets",
+          "Fock composition operator asymptotic rank one projection singular values"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526 concerns weighted lattice backward shifts rather than a nonorthogonal fixed-point projection error."
+        ],
+        "reasoning": "No exact table for these corrected fixed-rank constants found; exact finite Gram coefficients are new structural inputs in the proof, not a tabulated uncorrected spectrum.",
+        "searches": [
+          "Fock space affine composition powers fixed point evaluation projection approximation numbers singular values jets",
+          "rank j singular values affine Fock composition difference from fixed point projection",
+          "Fock jet Gram determinant asymptotic q_j h_j"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: original claim adds the mathematically distinct sharp classification/quantitative invariant described in the four actual prior-implication checks; no dominating statement was identified in checked primary literature, with listed specific residual risks.",
+      "residual_risks": [
+        "A specialized literature on approximation numbers of operator differences or Koopman Taylor remainders may contain an equivalent general singular-value lemma.",
+        "The 2017 Doan–Hu–Khoi–Queffélec paper was checked at abstract/bibliographic level only, not whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Convergence C_phi^n→P, no sharp hierarchy of singular numbers for difference",
+          "evidence": [
+            "Theorem 2.2, operator-norm fixed-point asymptotic"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.00427",
+          "material_read": "Full relevant PDF sections 1–3, particularly Theorem 2.2; page images reviewed",
+          "method": "Read primary PDF and inspected theorem",
+          "title": "Weighted composition operators on the Fock space: iteration and semigroups",
+          "trigger": "Same fixed-point convergence, possible dominating theorem"
+        },
+        {
+          "assessment": "Exact uncorrected approximation numbers, but not those of corrected C_phi^n−P",
+          "evidence": [
+            "Theorem 7.3 and adjacent proof"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.11066",
+          "material_read": "Primary PDF introduction and Section 7 through Theorem 7.3; page image reviewed",
+          "method": "Read relevant primary PDF and compared singular-value object",
+          "title": "Cyclicity of composition operators on the Fock space",
+          "trigger": "Exact approximation numbers of related affine compositions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-point projection subtraction is a natural but nonorthogonal refinement of convergence of compact affine Fock composition operators. The full fixed-rank singular/error hierarchy and explicit rank-dependent truncated-Poisson coefficients quantify convergence in best finite-rank approximations and expose behavior hidden by the norm convergence theorem; the result is not a routine simplification of uncorrected operator singular values.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2106.00427",
+    "https://arxiv.org/pdf/2205.11066",
+    "https://doi.org/10.1016/j.indag.2016.07.003",
+    "Resultary 2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A specialized literature on approximation numbers of operator differences or Koopman Taylor remainders may contain an equivalent general singular-value lemma.",
+    "The 2017 Doan–Hu–Khoi–Queffélec paper was checked at abstract/bibliographic level only, not whole-document noncoverage.",
+    "Bounded mathematical checks do not replace infinite-domain proofs; historical priority is best of knowledge, not guaranteed."
+  ],
+  "schema_version": 1
+}
