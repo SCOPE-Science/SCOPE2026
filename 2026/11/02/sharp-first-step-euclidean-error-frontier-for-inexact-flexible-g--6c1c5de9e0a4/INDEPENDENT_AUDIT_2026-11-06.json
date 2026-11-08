@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:01:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With initial residual unit v, the first FGMRES LS step chooses α=(v·w)/||w||² for w=Az, ||v-w||≤µ, and residual q=v-αw=t u, t≤µ, u unit, v·u=t. Conversely every such pair u,v is realized by w=v-tu,z=A^-1w, so this constrained geometry is exact, not a relaxation. Errors are Bv and tBu for B=A^-1; compressing B² onto span{u,v} with SPD eigenvalue ratio≤κ reduces to the sharp norm ||diag(γ,1) R_t diag(γ^-1,1)||, γ≤κ. Its determinant is one, squared Frobenius norm 2+(γ-γ^-1)²(1-t²); the top singular value equals [√(4+δ²(1-t²))+δ√(1-t²)]/2 with δ=κ-κ^-1. Multiplying by t gives exact envelope gκ(t), achieved by two-dimensional right singular vector construction for arbitrary t. Optimizing over t≤µ yields t*=√[(4+δ²)/(4+2δ²)] and Gκ(µ)=gκ(min{µ,t*}); saturation (κ+κ^-1)/2. Solving gκ(t)=1 gives exact nonexpansion iff µ≤[1+δ²]^-1/2 for κ>1; for κ=1 G=µ. Independently constructed 2D SPD singular-vector witnesses for κ=1,2,10,100 across t=.05,.2,.7,.94 and matched computed LS error ratio to envelope including κ=10,µ=.2 giving≈1.9603998767. The determinant/singular-value proof, not finite tests, carries all dimensions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc full RESULT.md",
+          "Güttel–Nyman arxiv:2604.27971v1"
+        ],
+        "reasoning": "Compare published symmetric GMRES(1) sharp Euclidean error and exact Richardson error frontiers for dominating results. Symmetric unpreconditioned GMRES(1) fixes search action to current residual, and its SPD step is nonexpansive; flexible inexact action permits any w in the µ-ball and can amplify error. Therefore prior class does not cover this model.",
+        "searches": [
+          "flexible GMRES first step SPD Euclidean solution error inner tolerance sharp amplification angle",
+          "Resultary/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc full RESULT.md",
+          "Güttel–Nyman arxiv:2604.27971v1"
+        ]
+      },
+      "checked_sources": [
+        "Güttel and Nyman (2026), Flexible GMRES converges in two phases, arXiv:2604.27971v1, inner tolerance and residual bounds (full relevant primary HTML read)",
+        "Resultary published A sharp Euclidean solution-error barrier for symmetric GMRES(1), 2026-09-20, full RESULT.md read, https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+        "Bauer and Householder (1960), Some inequalities involving the euclidean condition of a matrix, DOI 10.1007/BF01386231",
+        "Weiss (1994), Error-Minimizing Krylov Subspace Methods, DOI 10.1137/0915034",
+        "Resultary search: flexible GMRES first step SPD Euclidean solution error inner tolerance sharp amplification angle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Güttel–Nyman arxiv:2604.27971v1 inner ||v-Az||≤µ and sharp outer residual bounds",
+          "Weiss (1994) general residual/error gap"
+        ],
+        "reasoning": "Check if sharp outer residual contraction implies solution error frontier for SPD and conditioned inversion. From ||r1||/||r0||≤µ follows only ||e1||/||e0||≤κµ, not the sharp Gκ(µ), and allows increase; neither prior residual result yields its exact safe tolerance.",
+        "searches": [
+          "flexible GMRES first step SPD Euclidean solution error inner tolerance sharp amplification angle",
+          "Güttel–Nyman arxiv:2604.27971v1 inner ||v-Az||≤µ and sharp outer residual bounds",
+          "Weiss (1994) general residual/error gap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Güttel–Nyman arxiv:2604.27971v1",
+          "Bauer–Householder 1960 DOI 10.1007/BF01386231"
+        ],
+        "reasoning": "Compare flexible GMRES first-step solution error versus residual norm convergence, SPD angular distortion, and minimal residual Krylov geometry. Classic matrix-condition distortion provides the two-vector inequality, but the exact composition with arbitrary flexible inner residual budget and clipped minimax profile is not supplied in the inspected original GMRES statement.",
+        "searches": [
+          "flexible GMRES first step SPD Euclidean solution error inner tolerance sharp amplification angle",
+          "Güttel–Nyman arxiv:2604.27971v1",
+          "Bauer–Householder 1960 DOI 10.1007/BF01386231"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query: flexible GMRES first step SPD Euclidean solution error inner tolerance sharp amplification angle",
+          "Resultary/2026 2026-09-20 SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc"
+        ],
+        "reasoning": "Query Resultary for exact flexible GMRES first-step minimax tolerance and SPD error frontiers. The closest exact published factor 2/√3 is a different symmetric unpreconditioned problem; no identical κ,µ frontier located, but this is not priority certification.",
+        "searches": [
+          "flexible GMRES first step SPD Euclidean solution error inner tolerance sharp amplification angle",
+          "Resultary query: flexible GMRES first step SPD Euclidean solution error inner tolerance sharp amplification angle",
+          "Resultary/2026 2026-09-20 SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc"
+        ]
+      },
+      "rationale": "Güttel–Nyman (2026) use the same inner action norm criterion but prove sharp outer residual contraction, not this Euclidean solution-error minimax frontier. Published Resultary symmetric GMRES(1) theorem treats *unpreconditioned* symmetric (often indefinite) actions and is not the flexible inexact preconditioning model; its SPD monotonicity does not imply monotonicity under adversarial flexible actions.",
+      "residual_risks": [
+        "Classical angular distortion estimates may already be assembled into the same SPD FGMRES first-step minimax under different algorithm terminology.",
+        "First iteration only, exact arithmetic, unrestricted admissible preconditioner action; not prescribed inner Krylov solver or multistep guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source establishes residual control but not exact first-step Euclidean solution-error minimax gκ(µ).",
+          "evidence": [
+            "Inner tolerance condition",
+            "First-step residual bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.27971",
+          "material_read": "Primary full arXiv HTML including exact inner bound and first-step residual sharpness results",
+          "method": "public arXiv HTML",
+          "title": "Flexible GMRES converges in two phases",
+          "trigger": "same FGMRES inner approximate-preconditioner norm condition"
+        },
+        {
+          "assessment": "Unpreconditioned symmetric GMRES(1) result with factor 2/√3 and SPD nonincrease, not variable inner actions; distinct feasible sets.",
+          "evidence": [
+            "Full theorem",
+            "Definite systems cannot exhibit this error amplification",
+            "Computational model and limitations"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+          "material_read": "Full public RESULT.md including proof, SPD nonincrease statement, symmetric-indefinite equality and limitations",
+          "method": "GitHub source full scientific file",
+          "title": "A sharp Euclidean solution-error barrier for symmetric GMRES(1)",
+          "trigger": "published neighboring exact first-step Euclidean error theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete sharp tolerance/conditioning frontier is directly actionable for assessing when a nominally accurate inner preconditioner can worsen solution error, with exact two-dimensional adversarial witnesses and saturation. This is a natural numerical reliability invariant, not just the classical qualitative residual-error distinction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Güttel and Nyman (2026), Flexible GMRES converges in two phases, arXiv:2604.27971v1, inner tolerance and residual bounds (full relevant primary HTML read)",
+    "Resultary published A sharp Euclidean solution-error barrier for symmetric GMRES(1), 2026-09-20, full RESULT.md read, https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+    "Bauer and Householder (1960), Some inequalities involving the euclidean condition of a matrix, DOI 10.1007/BF01386231",
+    "Weiss (1994), Error-Minimizing Krylov Subspace Methods, DOI 10.1137/0915034",
+    "Resultary search: flexible GMRES first step SPD Euclidean solution error inner tolerance sharp amplification angle"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only first outer iteration of flexible GMRES with unrestricted z satisfying ||v-Az||≤µ<1, real SPD A and exact arithmetic.",
+    "Two-dimensional witnesses can use adversarial preconditioners; no claim a specific inner algorithm produces them.",
+    "No multistep or indefinite/nonsymmetric system generalization.",
+    "Frozen public AUDIT.json and METADATA.json contain operational scope_run_id in each package. Complete confidentiality-safe replacement UTF-8 bytes with exact source Git blob guards and SHA-256 content hashes were not staged; publication must be withheld."
+  ],
+  "residual_risks": [
+    "Classical angular distortion estimates may already be assembled into the same SPD FGMRES first-step minimax under different algorithm terminology.",
+    "First iteration only, exact arithmetic, unrestricted admissible preconditioner action; not prescribed inner Krylov solver or multistep guarantee."
+  ],
+  "schema_version": 1
+}

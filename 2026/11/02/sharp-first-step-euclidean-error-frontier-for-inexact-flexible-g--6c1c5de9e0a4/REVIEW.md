@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The first FGMRES least-squares residual is a Euclidean projection, so the attainable residuals are precisely \(tu\) with \(u,v\) unit and \(v^{\mathsf T}u=t\le\mu\); the reverse construction \(Az=v-tu\) proves there is no relaxation gap. The ratio of physical errors is \(t\|A^{-1}u\|_2/\|A^{-1}v\|_2\). Compression of \(A^{-2}\) to the span of \(u,v\) and a determinant-one two-by-two singular-value calculation give the exact fixed-\(t\) envelope. Its one-variable derivative has one maximizing point. Direct algebra yields the unique safe-tolerance crossing, and an explicit two-mode singular-vector construction attains equality. A standard-library verifier checked 99 exact-rational identities and 27,461 numerical conditions; finite checks supplement the proof.
+PASS
 
-## Originality — PASS, subject to historical priority
+With initial residual unit v, the first FGMRES LS step chooses α=(v·w)/||w||² for w=Az, ||v-w||≤µ, and residual q=v-αw=t u, t≤µ, u unit, v·u=t. Conversely every such pair u,v is realized by w=v-tu,z=A^-1w, so this constrained geometry is exact, not a relaxation. Errors are Bv and tBu for B=A^-1; compressing B² onto span{u,v} with SPD eigenvalue ratio≤κ reduces to the sharp norm ||diag(γ,1) R_t diag(γ^-1,1)||, γ≤κ. Its determinant is one, squared Frobenius norm 2+(γ-γ^-1)²(1-t²); the top singular value equals [√(4+δ²(1-t²))+δ√(1-t²)]/2 with δ=κ-κ^-1. Multiplying by t gives exact envelope gκ(t), achieved by two-dimensional right singular vector construction for arbitrary t. Optimizing over t≤µ yields t*=√[(4+δ²)/(4+2δ²)] and Gκ(µ)=gκ(min{µ,t*}); saturation (κ+κ^-1)/2. Solving gκ(t)=1 gives exact nonexpansion iff µ≤[1+δ²]^-1/2 for κ>1; for κ=1 G=µ. Independently constructed 2D SPD singular-vector witnesses for κ=1,2,10,100 across t=.05,.2,.7,.94 and matched computed LS error ratio to envelope including κ=10,µ=.2 giving≈1.9603998767. The determinant/singular-value proof, not finite tests, carries all dimensions.
 
-The inspected full first arXiv version of Güttel–Nyman develops sharp FGMRES residual contraction but not the Euclidean solution-error envelope, sharp nonexpansion threshold, or the saturated two-mode gain. Weiss's accessible abstract establishes a qualitative error/residual distinction, not the exact dependence on both \(\kappa\) and \(\mu\). Bauer–Householder spectral inequalities are related background and may subsume the angular lemma; the new assertion is the entire exact FGMRES optimization. A published unpreconditioned symmetric GMRES(1) error-barrier theorem uses a different search direction and no inner tolerance, so neither statement implies the other as given. The strongest residual risk is an older equivalent result in a minimum-error/Krylov or matrix-angle formulation not located in the inspected material.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The naturally motivated target is the smallest **inner residual tolerance sufficient to prevent a one-step solution-error increase**. The theorem gives its sharp dependence on conditioning, the complete minimax profile, and exact adversarial equality witnesses: for \(\kappa=10\) and \(\mu=1/5\), a residual contraction of \(1/5\) can coexist with solution-error amplification almost twofold. This is a substantive stopping-rule boundary, not merely a generic norm inequality. It is intentionally limited to first-step exact-arithmetic SPD systems.
+Güttel–Nyman (2026) use the same inner action norm criterion but prove sharp outer residual contraction, not this Euclidean solution-error minimax frontier. Published Resultary symmetric GMRES(1) theorem treats *unpreconditioned* symmetric (often indefinite) actions and is not the flexible inexact preconditioning model; its SPD monotonicity does not imply monotonicity under adversarial flexible actions.
 
-## Closest literature and limitations
+## value
 
-Güttel–Nyman (arXiv:2604.27971v1) supplies the first-step residual guarantee and the motivating preconditioner criterion. Weiss (1994) supplies qualitative error/residual separation. Bauer–Householder (1960) supplies classical condition-number geometry. A publicly available unpreconditioned GMRES(1) theorem establishes a different sharp Euclidean error bound. These comparisons cannot certify historical uniqueness; some older primary full texts were not accessible. Independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete sharp tolerance/conditioning frontier is directly actionable for assessing when a nominally accurate inner preconditioner can worsen solution error, with exact two-dimensional adversarial witnesses and saturation. This is a natural numerical reliability invariant, not just the classical qualitative residual-error distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
