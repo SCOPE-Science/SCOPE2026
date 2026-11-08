@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full-fiber identity follows from the explicit rational-kernel expansion of the derivative of the fiber-normalized Blaschke product, exact Bergman interpolation, and the proper holomorphic area formula. A normalized derivative-composition isometry converts matrix equality into subspace membership. In degree two, automorphism normal form reduces membership to an oddness condition, and coefficients of degrees zero and two give necessity and sufficiency. The exact rational checker passed its six fiber and four pair tests. The checker is supplementary; it does not substitute for the analytic argument.
+PASS
 
-## Originality — PASS under inspected evidence
+For C=phi_w∘B the regular full fiber is the simple zero set. Partial fractions show C' lies in the finite span of the normalized Bergman kernels, including the possible zero at the origin. Minimal-norm Gram interpolation gives ||C'||²=v*G^{-1}v/(1−|w|²)²; proper degree-d change-of-area gives ||C'||²=d. Thus H on the fiber has the unique eigenvalue d. For degree two, source/target automorphisms reduce B to z² and weighted composition U_Bf=√2 z f(z²) has exactly odd functions as range. A two-kernel difference is odd iff z2=−z1 (distinct), so equality occurs precisely on a full fiber; strict positivity off-fiber follows from the known semidefinite inequality. Exact independent rational inverse-Gram checks verified three real-zero fibers of degrees 2, 3, 4; those tests are supplementary.
 
-The initiating 2026 theorem proves the sharp matrix inequality but establishes uniform sharpness through a power-map boundary configuration, not the arbitrary-map all-interior-fiber identity or the full degree-two equality locus. The closest published 2026 range–valence theorem explicitly has exact interior power-map sharpness; that monomial subcase is already covered and is excluded from the new contribution. The 2024 operator-theoretic multipoint treatment addresses different hyperbolic divided-difference inequalities. Checked searches compared equivalent terminology (Bergman derivative Gram, full fiber, weighted composition isometry), stronger uniform coverage and general versus specialized point configurations. Possible historical implicit equality characterizations remain a residual risk; failed searches alone are not claimed as proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-An exact equality locus is a natural missing piece of a sharp finite-point inequality: the full-fiber formula distinguishes genuine interior norm attainment for arbitrary finite branched covers from limiting tests, and degree-two rigidity identifies *all* two-point optimal sampling geometries. It changes the interpretation of sharpness from only a universal worst-case constant to precise geometric saturation. Neither a cosmetic reparameterization nor a recomputation of the published power-map example, the pair classification is structurally informative and could guide higher-degree equality and critical-fiber analyses.
+The sharp uniform bound d belongs to Tian (2026), and the power-map full-fiber example is already in the published range-valence result. The new, narrower claims are the exact inverse-Gram identity for EVERY regular fiber of EVERY degree-d finite Blaschke product and the if-and-only-if equality locus for any distinct degree-two sampling pair. Searches by derivative weighted composition, Bergman Gram equality and full fiber found no explicit corresponding classification. Tian primary full text was inaccessible here, so this PASS is best-of-knowledge with a substantial priority risk, not a whole-document negative finding.
 
-## Closest literature and limits
+## value
 
-- Tian, *A finite-Point Schwarz-Pick Inequality*, arXiv:2608.10443, full text inspected, pp. 1–8 (particularly proof and sharpness on pp. 4–6).
-- *Sharp range–valence constant for finite-point Schwarz–Pick matrices*, 2026, full RESULT.md inspected, including power-map interior sharpness, which is not claimed as new.
-- Badea–Renard, *Schwarz-Pick type inequalities from an operator theoretical point of view*, arXiv:2405.01357v2, full HTML sections and subject compared.
-- No classification is claimed for critical fibers, higher-degree off-fiber configurations or repeated-point jets. Historical implicit coverage cannot be excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete geometric equality classification for all regular interior degree-d fibers and the first nontrivial off-fiber setting, resolving which point configurations actually saturate a known sharp inequality rather than only repeating its uniform constant. The distinction between full-fiber interpolation, arbitrary sample pairs and the known monomial example is a natural analytic invariant useful in further rigidity/critical-fiber work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
