@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof is a universal symbolic argument and does not rely on finite experiments. The accompanying stand-alone `eulerian_tame_verify.py` can be executed with `python3 eulerian_tame_verify.py`. It independently constructs the Eulerian polynomials from their recurrence and tests the prime-block congruence and a full coprime-factor Hensel correction modulo \(p^2\). It also checks the exact unit-residue label of the distinguished local factor.
+## correctness
 
-Actual executed ranges: \(p\in\{3,5,7,11,13\}\) and every \(0\le t\le p-2\), giving 34 complete cases. The verifier returned `VERIFY_OK full_prime_blocks= 34 including_first_Hensel_lifts_mod_p2`; one factor has degree \(p-1\) and the other degree \(t\) in each case. The code uses the Python standard library, integer arithmetic, and modular polynomial division, not floating-point approximations.
+PASS
 
-The script is not an independent mathematical audit. It tests modulo \(p^2\) and cannot establish higher-precision Hensel lifting, field nonisomorphism, or universal exhaustiveness; those claims follow from the explicit mathematical proof in `RESULT.md`. No external certification was performed.
+Eulerian inclusion-exclusion gives E_p(X)≡Phi_p(X) mod p, and the differential recurrence gives E_{p+t}≡Phi_p E_{t+1} for 0<=t<=p-2. Since E_{t+1}(1)=(t+1)! is a p-adic unit, these factors are coprime mod p and lift uniquely and monically. Factorial valuation and Wilson give F_{p,t}(1)/p≡-1/(t+1) mod p. Translating X=1+Y yields an Eisenstein degree-p-1 polynomial; its uniformizer satisfies (alpha-1)^{p-1}/p≡1/(t+1) mod maximal ideal, so principal-unit Hensel adjustment yields a radical root of Y^{p-1}=p/(t+1). The p-1 residue unit classes give pairwise distinct Kummer degree-p-1 cyclic total tame fields and exhaust the classification. Independent Eulerian recurrence and coefficientwise mod-p checks tested all 22 pairs for p=3,5,7,11, including factorial-unit residues.
+
+## originality
+
+PASS
+
+Eulerian recurrences, local tame Kummer classification and related Eisenstein polynomial examples are classical; this theorem combines them to provide a single contiguous natural Eulerian index family realizing all p-1 local field isomorphism classes, with exact residue label. In the inspected primary results no such realization or stated implication of their formulas was identified.
+
+## value
+
+PASS
+
+An explicit, arithmetic-combinatorial set of canonical polynomials realizes every totally ramified tame cyclic extension of maximum degree p-1 exactly once. This sharp local-field census connects Eulerian descent enumeration with concrete p-adic isomorphism classes, beyond textbook existence of those fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
