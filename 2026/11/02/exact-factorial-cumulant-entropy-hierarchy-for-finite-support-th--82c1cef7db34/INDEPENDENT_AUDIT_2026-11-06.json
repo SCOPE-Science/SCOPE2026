@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T02:59:48.167320Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Poisson–Charlier exponential generating functions provide a full Poisson L^2 orthogonal expansion and a Gaussian-plane coefficient isometry. For finite support G, H_n(z)=exp(-lambda z)G(z/n)^n has leading term kappa_r z^r/(r! n^(r-1)); the paper proves uniform weighted L^2 convergence via a small-complex-disk bound and an exponentially Gaussian-suppressed outer tail. This yields the chi-square constant and a strong Poisson L^2 density limit. L^1 convergence yields TV, while the bounded continuous entropy remainder psi(u) and uniform integrability of scaled u_n^2 yield the one-half KL coefficient without invalid pointwise interchange of infinite tails. The truncated exponential witness has nonnegative exact masses, vanishing factorial cumulants up to m and kappa_(m+1)=-1. Independent exact fractions verified masses and factorial moments for m=2..10. These finite identities corroborate, rather than prove, the L^2 limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "HJK Theorem 22 yields matching information divergence lower bounds under moment cancellation; does not on its own give the matching general upper bound and strong L^2, TV limits. Kavvadias gives information-theoretic bounds including n^2 scales."
+        ],
+        "reasoning": "General lower bounds do not imply exact constants without a matching upper asymptotic. The inspected results have related frameworks but are not clearly stronger statements covering the whole finite-support triple-limit claim.",
+        "searches": [
+          "Harremoës–Johnson–Kontoyiannis arXiv:1601.04255 Theorem 22",
+          "Kavvadias arXiv:2608.02927 thinning Poisson–Föllmer",
+          "Harremoës–Johnson–Kontoyiannis arXiv:0906.0690"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md SHA 47e08ae4b3a383a7c8f5ff59e92ac4faa4700360",
+        "verify.py SHA 65112e11573b45769655ecbfcdc577d19d09ebb6",
+        "Independent exact truncated-Poisson laws m=2..10",
+        "Harremoës, Johnson, Kontoyiannis arXiv:1601.04255 Theorem 22",
+        "Zacharovas, Hwang arXiv:0810.4756",
+        "Kavvadias arXiv:2608.02927",
+        "Resultary semantic query on Charlier entropy thinning"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "HJK lower limit equals the proved KL constant but is one-sided; general Parseval alone is an identity, not asymptotic tail control."
+        ],
+        "reasoning": "One-sided inequalities plus convergence in distribution do not imply equality; the new uniform L^2-tail bound supplies the missing implication. An existing general expansion might yield this as a corollary, and is recorded as a risk.",
+        "searches": [
+          "arXiv:1601.04255 Theorem 22",
+          "arXiv:0810.4756 Charlier–Parseval orthogonality",
+          "arXiv:2608.02927 Poisson–Föllmer thinning"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim can be formulated as strong Poisson–Charlier L^2 leading mode under unitwise thinning; this is stronger than distributional Poisson convergence."
+        ],
+        "reasoning": "Compared Charlier-Parseval orthogonality, factorial-cumulant Edgeworth expansions and information-projection rate formulations. The method is classical, but consulted formulations do not establish all three stated leading constants for arbitrary finite-support input.",
+        "searches": [
+          "Resultary query: Poisson thinning finite support factorial cumulants Charlier entropy exact leading constant all orders",
+          "Zacharovas and Hwang arXiv:0810.4756 Charlier–Parseval expansions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No catalogue/table for all cancellation orders and witness exact coefficients 1/[2(m+1)!] was found in checked material."
+        ],
+        "reasoning": "Exact constants arise from the first orthogonal polynomial mode rather than a finite combinatorial table; no exact broader table providing all values was identified.",
+        "searches": [
+          "Resultary query factorial-cumulant entropy hierarchy law of thin numbers",
+          "Zacharovas–Hwang Poisson binomial approximation examples"
+        ]
+      },
+      "rationale": "Best-of-knowledge separate statement/implication comparison supports survival of the claimed exact classification; priority is bounded by named inspected sources. Unavailable/abstract-only sections are explicitly reserved as risks, not treated as proof of novelty.",
+      "residual_risks": [
+        "A more general, older full Poisson–Charlier expansion may imply the exact finite-support triple asymptotic as a corollary even without matching wording.",
+        "A recent relevant 2026 Poisson–Föllmer preprint was not read completely, limiting exclusion of overlap.",
+        "No extension beyond fixed finite support and fixed λ,r; uniform growing-support asymptotics not proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_LOWER_BOUND_ONLY",
+          "evidence": "Theorem 22 provides moment-based information-divergence lower bound; it is not a two-sided chi-square/KL/TV asymptotic in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.04255",
+          "material_read": "Original preprint theorem 22 and associated Poisson–Charlier lower-bound discussion",
+          "method": "Original preprint PDF selected theorem pages",
+          "title": "Thinning and Information Projections",
+          "trigger": "Matching higher-order KL divergence coefficient"
+        },
+        {
+          "assessment": "METHOD_ANTECEDENT",
+          "evidence": "Supplies Charlier Parseval technique but not in inspected passages the finite-support all-cumulant-order KL/TV constants.",
+          "identifier_or_url": "https://arxiv.org/abs/0810.4756",
+          "material_read": "Original preprint sections 1–5: orthogonality identity and Poisson-binomial approximation estimates",
+          "method": "Original preprint PDF selected pages and equations",
+          "title": "A Charlier–Parseval Approach to Poisson Approximation and Its Applications",
+          "trigger": "Poisson–Charlier exact coefficient identity and asymptotics"
+        },
+        {
+          "assessment": "NO_DECISIVE_COVERAGE_IN_MATERIAL_READ",
+          "evidence": "Inspected abstract and estimates emphasize information bounds rather than the all-order coefficient. Full technical sections not exhaustively inspected; priority risk retained.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.02927",
+          "material_read": "Accessible abstract and entropy-rate/Poisson-Föllmer claims; not the entire full paper",
+          "method": "Preprint abstract and accessible public text",
+          "title": "Thinning Operation via the Poisson–Föllmer Process",
+          "trigger": "Recent 2026 possible dominant entropy-rate result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The exact hierarchy links the earliest surviving factorial cumulant to the sharp chi-square, relative-entropy, and total-variation rates for a natural thinning limit, and explicit finite-support examples realize arbitrary even entropy exponents. Matching sharp constants (rather than generic inequalities) are relevant in discrete Poisson approximation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md SHA 47e08ae4b3a383a7c8f5ff59e92ac4faa4700360",
+    "verify.py SHA 65112e11573b45769655ecbfcdc577d19d09ebb6",
+    "Independent exact truncated-Poisson laws m=2..10",
+    "Harremoës, Johnson, Kontoyiannis arXiv:1601.04255 Theorem 22",
+    "Zacharovas, Hwang arXiv:0810.4756",
+    "Kavvadias arXiv:2608.02927",
+    "Resultary semantic query on Charlier entropy thinning"
+  ],
+  "disposition": "passed",
+  "final_claim": "For iid unitwise 1/n thinning of every fixed finite-support count law X with mean lambda>0, if r>=2 is its first nonzero higher factorial cumulant, then n^(2r-2) chi-square -> kappa_r^2/(r!lambda^r), n^(2r-2) KL -> half that, and n^(r-1) TV -> |kappa_r| E|C_r(Poisson(lambda))|/(2 r!lambda^r); truncated exponential laws realize every r=m+1 >=3.",
+  "limitations": [
+    "Fixed finite-support iid count law, λ>0, non-Poisson, independently thinned with rate 1/n; no uniform n-dependent law/support bound.",
+    "Independent exact m<=10 checks demonstrate moment cancellation but not L^2 or KL infinite limits; analytical tail control is essential.",
+    "A more general, older full Poisson–Charlier expansion may imply the exact finite-support triple asymptotic as a corollary even without matching wording.",
+    "A recent relevant 2026 Poisson–Föllmer preprint was not read completely, limiting exclusion of overlap.",
+    "No extension beyond fixed finite support and fixed λ,r; uniform growing-support asymptotics not proved."
+  ],
+  "schema_version": 1
+}
