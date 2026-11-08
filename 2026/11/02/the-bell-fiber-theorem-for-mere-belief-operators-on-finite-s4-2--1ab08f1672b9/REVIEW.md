@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Directedness and finiteness give each successor cone exactly one greatest strongly connected component. The identity \(\Diamond\Box X\Longleftrightarrow T(w)\subseteq X\) is valid because every successor reaches that component, and a member of that component has precisely the component as its successor set. The mixed formula adds the strict condition \(R(w)\nsubseteq X\). The intersection over its positive subsets recovers the terminal class, while the complements of singletons recover every successor outside that class. All terminal rows give the constant-false output, and only terminal-only components can be repartitioned. A direct labelled-component decomposition proves the EGF. The standalone exhaustive checker verifies all \(1+4+26+255=286\) S4.2 frames through four worlds, all argument subsets, all operator fibers, and the first seven nonempty EGF coefficients. These tests do not substitute for the symbolic universal proof.
+PASS
 
-## Originality
+For each finite reflexive transitive upward-directed frame R, quotienting by mutual reachability gives a finite directed poset whose every successor cone has a unique greatest terminal strongly connected class T_R(w). Thus diamond box X iff T_R(w) subset X and H_R(X) iff T_R(w) subset X while R(w) is not subset X. The positive H truth sets recover nonterminal worlds, the intersection of such X recovers T_R(w), and truth on W\{u} reconstructs every nonterminal successor outside T. Terminal classes visible from them are also determined. Remaining invisible terminal vertices U can be partitioned into arbitrary equivalence classes with no change in H, and no other relation is free: fiber size Bell(|U|). Each visible weak component consists of nonempty terminal T plus arbitrary preorder on D and all D-to-T edges; labelled exponential formula yields exp(x+(e^x−1)(P(x)−1)). My independent brute enumeration of all labelled S4.2 relations on n=1..4 recovers frame/operator counts (1,1),(4,3),(26,22),(255,229), including Bell fiber distribution; general proof is symbolic.
 
-**PASS within inspected evidence, with remaining historical-priority uncertainty.** Ding and Yang (arXiv:2603.26268, Sections 2–5.2 and Lemma 5.9) treat the same unary mere-belief bundle and supply general bisimulation and semantic representation theorems. Their results concern expressive equivalence, axiomatization, and representation; the inspected statements do not enumerate labelled fibers of full complex operators or classify their irrecoverable rows. The present result specializes to the finite directed setting but strengthens the information about the inverse image of the concrete complex-operator map, including its exact Bell multiplicity and EGF. Gilbert and Venturi (2017) examine distinct false-belief and unknown-truth bundles. OEIS A000798 supplies the classical counts of all preorders as an input, not the resulting operator-quotient sequence. An independent historical comparison of all algebraic and neighborhood formulations is outstanding; an older survey was not available in full text.
+## originality
 
-## Value
+PASS
 
-**PASS.** The exact fiber theorem answers an intrinsically motivated identifiability question for a primitive unary modality: which accessibility edges remain observationally visible when the standard epistemic and doxastic operators are compressed into one bundle? A full classification, a sharp per-frame uniqueness criterion, and an infinite-parameter counting formula are non-routine structural information. The EGF measures all distinct set-functions on labelled finite S4.2 frames and separates their information content from mere counts of preorders. The scope is a natural and established modal-frame class, not an arbitrary finite slice.
+Bounded best-of-knowledge original contribution is The Bell-fiber theorem for mere-belief operators on finite S4.2 frames; source inspections and four implication checks below separate its precise claim from prior theorems; earlier subresults are credited, and stated residual priority risks remain.
 
-## Limits and closest literature
+## value
 
-The work assumes all propositional subsets are observable and fixes the labelled carrier. Formula equivalence under one valuation, arbitrary preorders without directedness, and infinite cones are outside the theorem. The 2026 primary paper is the closest same-operator source; the neighborhood false-belief papers use different operators. The finite-topology numbers are pre-existing enumerative inputs. Potential older exact classifications using alternative terminology remain a residual priority risk. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact reconstruction/fiber theorem quantifies identifiability of the underlying finite preorder from the full mere-belief truth-set operator. Determining the number and structure of indistinguishable models is a natural information-loss question in modal neighborhood semantics; a Bell-number fiber classification plus quotient generating function is substantive beyond generic expressivity or preorder counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

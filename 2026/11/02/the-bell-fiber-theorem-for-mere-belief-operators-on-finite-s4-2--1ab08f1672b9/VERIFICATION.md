@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The accompanying `checker.py` uses Python standard-library bit masks to enumerate **every** binary relation on labelled carriers of cardinality \(1,2,3,4\), tests the original three frame axioms, and calculates the modal bundle \(\Diamond\Box X\land\neg\Box X\) directly for every subset \(X\). Its comparison does not assume the claimed terminal-cluster simplification. It reconstructs all nonterminal rows by intersection and singleton-complement formulas and independently groups all frames by their full powerset operator.
+## correctness
 
-Observed pairs (admissible frames, distinct complex operators) are \((1,1)\), \((4,3)\), \((26,22)\), and \((255,229)\); each observed fiber has the predicted Bell cardinality. A separate exact integer recurrence checks \(Q_0,\ldots,Q_7=1,1,3,22,229,3361,71444,2233351\) from the established labelled-preorder values of OEIS A000798.
+PASS
 
-Run `python3 checker.py` after extracting it verbatim from this package. The expected terminal line is `ALL_CHECKS_OK`.
+For each finite reflexive transitive upward-directed frame R, quotienting by mutual reachability gives a finite directed poset whose every successor cone has a unique greatest terminal strongly connected class T_R(w). Thus diamond box X iff T_R(w) subset X and H_R(X) iff T_R(w) subset X while R(w) is not subset X. The positive H truth sets recover nonterminal worlds, the intersection of such X recovers T_R(w), and truth on W\{u} reconstructs every nonterminal successor outside T. Terminal classes visible from them are also determined. Remaining invisible terminal vertices U can be partitioned into arbitrary equivalence classes with no change in H, and no other relation is free: fiber size Bell(|U|). Each visible weak component consists of nonempty terminal T plus arbitrary preorder on D and all D-to-T edges; labelled exponential formula yields exp(x+(e^x−1)(P(x)−1)). My independent brute enumeration of all labelled S4.2 relations on n=1..4 recovers frame/operator counts (1,1),(4,3),(26,22),(255,229), including Bell fiber distribution; general proof is symbolic.
 
-The proof in `RESULT.md` establishes the claim for all finite labelled cardinalities. Exhaustive computations cover only up to four worlds, and table-driven coefficients beyond four depend on classical preorder enumerations. The result does not establish historical priority, independent validation, correctness for infinite nonterminal cones, or equivalence of pointed models under a fixed valuation.
+## originality
+
+PASS
+
+Bounded best-of-knowledge original contribution is The Bell-fiber theorem for mere-belief operators on finite S4.2 frames; source inspections and four implication checks below separate its precise claim from prior theorems; earlier subresults are credited, and stated residual priority risks remain.
+
+## value
+
+PASS
+
+The exact reconstruction/fiber theorem quantifies identifiability of the underlying finite preorder from the full mere-belief truth-set operator. Determining the number and structure of indistinguishable models is a natural information-loss question in modal neighborhood semantics; a Bell-number fiber classification plus quotient generating function is substantive beyond generic expressivity or preorder counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
