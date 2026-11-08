@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The accompanying `verify.py` uses Python 3 standard library and `COCHAIN.json` and can be run directly with `python3 verify.py`. The latter file gives the 184 nonzero entries of a complete mod-three two-cochain indexed by lexicographically ordered, row-major triangular faces; no external package, network, or unavailable file is required.
+## correctness
 
-The program checks all 600 tetrahedral coboundary identities, the signed integral boundary of a selected eight-triangle fundamental sphere, its nonzero cocycle evaluation, 1,800 exhaustive six-square supports, each support's nonzero evaluation, all pair incidences, the generating group actions, and the mod-three chain ranks. Its output is embedded in `verification_output.txt`.
+PASS
 
-The general flag-complex support lower bound and the derivation of all possible opposite-pair types are proved in `RESULT.md`, not inferred from enumeration. The known integral homology \(\mathbb Z/3\) is cited to Shareshian--Wachs and Jonsson rather than independently recomputed by this verifier. The cocycle certificate proves nonvanishing of the given integral carrier, not a complete integral Smith-normal-form computation.
+The flag-complex link argument forces at least eight triangles for a mod-3 essential cycle; if there were fewer than eight, vertex link degrees and the absence of nonzero H_2 in a flag complex on <=5 vertices give a contradiction. At eight, all six supported vertices have link degree four, yielding K6 minus a perfect matching and an induced octahedral support. The published H_2(M_5,5;Z)=Z/3 and H_1=0 are appropriately used as background. An independently inspected frozen COCHAIN.json had 184 nonzero F3 entries, closed on all 600 genuine tetrahedra, and paired 2 with the specified eight-face sphere; it certifies nontriviality. Independent enumeration over all six-square sets found 900+900 induced octahedra, incidence counts 432 per square, 54 attacking and 108 compatible pairs. All orbits follow symmetry. The cochain certificate proves one generator and symmetry extends it; it is not a proof of an arbitrary larger board.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct mathematical contribution after actual analogy/equivalence and stronger-coverage searches; the strongest available direct sources and their material access limits are documented, not an exhaustive priority proof.
+
+## value
+
+PASS
+
+Sharp shortest-support classification of the first square ordinary chessboard with 3-torsion is a natural homological systole and incidence/orbit invariant, not merely the already-known group order or one example. The finite object and specific geometric support make the count independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

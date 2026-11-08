@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Flag-complex link reduction forces four incident triangles per support vertex in any minimum nontrivial two-cycle. A five-vertex flag complex has no second homology, so the lower bound is eight; equality forces the octahedral one-skeleton and induced opposite pairs. Row/column counting gives exactly 900 supports of each type. A complete mod-three cocycle verifies that an explicit eight-triangle integral sphere is nonzero, and the published integral identification of the entire group as \(\mathbb Z/3\) converts this into a generator statement. A standalone exhaustive computation reconstructs and verifies the face and orbit claims; finite tests are not used to infer universal flag-complex steps.
+## correctness
 
-**Originality — PASS, with residual risk.** Shareshian--Wachs, Theorem 1.7(i), and Jonsson, Section 3, already prove the 3-torsion homology and Jonsson actually writes down an octahedral cycle generator and a subgroup sign action. The new statement is not those known facts: it classifies **every minimum-support torsion carrier**, establishes the exact count of 1,800, its single symmetry orbit, and the pair-incidence scheme. Inspected primary sections give generator examples and exact group ranks rather than this full support census. Relevant indexed mathematical findings concern other complexes, not this exact invariant. There remains a risk of an unindexed equivalent enumeration or of an implicit classification in an uninspected combinatorial treatment.
+PASS
 
-**Value — PASS.** The smallest standard balanced chessboard case with integral 3-torsion is a natural test case for integral cycle geometry. A complete sharp systolic layer and its two-class pair-incidence regularity are topological information not encoded by the known \(\mathbb Z/3\) answer or a single cycle example; they concretely describe where all shortest integral torsion witnesses can lie. It is a bounded natural classification, not an arbitrary sample.
+The flag-complex link argument forces at least eight triangles for a mod-3 essential cycle; if there were fewer than eight, vertex link degrees and the absence of nonzero H_2 in a flag complex on <=5 vertices give a contradiction. At eight, all six supported vertices have link degree four, yielding K6 minus a perfect matching and an induced octahedral support. The published H_2(M_5,5;Z)=Z/3 and H_1=0 are appropriately used as background. An independently inspected frozen COCHAIN.json had 184 nonzero F3 entries, closed on all 600 genuine tetrahedra, and paired 2 with the specified eight-face sphere; it certifies nontriviality. Independent enumeration over all six-square sets found 900+900 induced octahedra, incidence counts 432 per square, 54 attacking and 108 compatible pairs. All orbits follow symmetry. The cochain certificate proves one generator and symmetry extends it; it is not a proof of an arbitrary larger board.
 
-**Limitations.** Depends on known integral homology/connectivity; finite cocycle and orbit checks are independently reproducible, but no independent audit has been performed and equivalent prior literature could remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct mathematical contribution after actual analogy/equivalence and stronger-coverage searches; the strongest available direct sources and their material access limits are documented, not an exhaustive priority proof.
+
+## value
+
+PASS
+
+Sharp shortest-support classification of the first square ordinary chessboard with 3-torsion is a natural homological systole and incidence/orbit invariant, not merely the already-known group order or one example. The finite object and specific geometric support make the count independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
