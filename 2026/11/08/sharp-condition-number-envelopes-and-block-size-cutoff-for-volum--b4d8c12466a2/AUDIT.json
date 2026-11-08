@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Direct weighted-subset counting gives p_i=lambda_i e_{r-1}(lambda_-i)/e_r(lambda). Ordering follows by cancellation. Newton inequalities make each e_j/e_{j-1} coordinatewise nondecreasing, yielding sharp minimization of p_min. The max/min ratio reduces to h(s+1)/(s+h), increasing with s; maximizing all middle coordinates then h gives the sharp spectrum cap. Strictness and all endpoints (r=1,r=d,K=1) are handled separately. Block-size cutoff follows by exact integer rearrangement. An exact-rational checker passed 497970 finite assertions; infinite ranges rest on analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.12346 states exact transformed spectrum for each given Gram matrix and qualitative equalization",
+        "arxiv:1904.04587 analyzes volume-sampled coordinate descent"
+      ],
+      "reasoning": "A general individual-spectrum formula determines outputs but does not state or solve the separate minimax optimization over all eligible spectra. Here the sharp extremizers are proved via Newton monotonicity; no searched general spectral-cap envelope dominates it.",
+      "searches": [
+        "randomized block Kaczmarz determinantal volume sampling worst case spectral contraction n/[n+(d-n) kappa]",
+        "\"volume sampling\" \"condition number\" \"sharp\" randomized projections 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.12346",
+      "https://arxiv.org/abs/1904.04587",
+      "https://arxiv.org/abs/1005.4107",
+      "https://epubs.siam.org/doi/10.1137/25M1764372",
+      "Published mathematical record queries on volume-sampling spectral envelopes (search terms recorded in named checks)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.12346 supplies p_i as an explicit spectral transform",
+        "Yu 2012 establishes majorization across sampling sizes, an independently covered fact not claimed here"
+      ],
+      "reasoning": "The published transform is a premise, not claimed original. General majorization does not supply a sharp condition-number-specific worst-case multiplier or its equality spectrum. The sharp constrained extremization is obtained here as an additional theorem; a stronger unpublished or overlooked inequality remains possible.",
+      "searches": [
+        "source full-text arxiv:2610.12346 Theorem 1 and Section 4",
+        "arxiv:1904.04587 volume sampling spectral lemmas",
+        "arxiv:1005.4107 inclusion probabilities majorization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.12346 Thm 1 gives general p_i but no extremal optimization",
+        "arxiv:1904.04587 gives related elementary symmetric structure"
+      ],
+      "reasoning": "Existing spectral representations are not claimed; a full fixed-condition-number supremum with equality classifications would imply this finding, and was not found.",
+      "searches": [
+        "volume sampling expected projector sharp condition number upper bound 1+(kappa-1)(d-n)/(d-1) one smallest eigenvalue",
+        "\"volume sampling\" \"n+(d-n)\" eigenvalue"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [],
+      "reasoning": "No known table or published table listing the d,r,K envelope or extremizing spectra was identified; all historical conclusions are best-knowledge rather than uniqueness proof.",
+      "searches": [
+        "elementary symmetric polynomial volume sampled spectral equalization sharp interpolation condition number",
+        "Volume Sampling; Kaczmarz; elementary symmetric"
+      ]
+    },
+    "rationale": "The complete spectral transform and qualitative equalization are openly credited to arXiv:2610.12346, with earlier volume sampling to arXiv:1904.04587. The new constrained extremal problem is the simultaneous exact sharp lower envelope for the expected projector, its exact condition-number envelope and all equality cases, resulting in the necessary-and-sufficient worst-case block-size cutoff. In inspected primary sections and actual targeted database/literature searches, no prior theorem directly performs this κ-capped extremization. Residual historical priority is acknowledged.",
+    "residual_risks": [
+      "Equivalent sharp extremal bounds could be present in unindexed determinantal-process, survey-sampling or spectral inequality literature.",
+      "A known more general inequality might imply the exact cap after nontrivial specialization; comprehensive historical priority is not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT_TRANSFORM_PRIOR; condition-number-only sharp global envelope and cutoff not directly stated",
+        "evidence": [
+          "Theorem 1 and formula (4); Sections 3.1, 3.2, 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.12346",
+        "material_read": "abstract, Sections 2–4 (spectral theorem, conditioning and expected projector construction), discussion",
+        "method": "primary arXiv full HTML text",
+        "title": "Volume Sampling and Spectral Equalization in Randomized Alternating Projections",
+        "trigger": "exact underlying transformation and possible dominating source"
+      },
+      {
+        "assessment": "RELATED_BUT_NO_DIRECT_CAP_EXTREMIZATION_IDENTIFIED",
+        "evidence": [
+          "Volume sampling and elementary-symmetric expressions in foundational analysis"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.04587",
+        "material_read": "introduction, spectral and elementary-symmetric lemmas and relevant performance bounds",
+        "method": "primary arXiv open-access PDF text/page inspection",
+        "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+        "trigger": "older volume-sampled iterative methods"
+      },
+      {
+        "assessment": "MAJORIZATION_COVERED; not asserted as novel or used to certify sharp condition-number bounds",
+        "evidence": [
+          "Yu 2012 inclusion-probability majorization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1005.4107",
+        "material_read": "abstract and main result summaries describing inclusion probability majorization",
+        "method": "public abstract and indexed article description",
+        "title": "On the inclusion probabilities in some unequal probability sampling plans without replacement",
+        "trigger": "possible equivalent majorization claims"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b4d8c124-66a2-4c2b-97c2-17b5b5aca2ee",
+  "value": {
+    "rationale": "The natural uncomputed quantity is the worst-case one-step projection progress when only the Gram condition number, dimension and block size are known, rather than the full eigenvalue list. The exact cap gives a necessary-and-sufficient smallest block size for any required guaranteed contraction, with equality examples and a second sharp conditioning envelope. This is not merely a numerical instance: it is an all-dimensional structural extremal result with useful finite threshold; it makes no practical-sampling or finite-precision claim.",
+    "status": "PASS"
+  }
+}
