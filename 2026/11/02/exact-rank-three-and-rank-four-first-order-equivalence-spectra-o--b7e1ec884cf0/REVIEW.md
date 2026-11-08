@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The induction defining the exact back-and-forth type is standard but spelled out, including repeated vertices and Spoiler moves in either structure. The C++17 computation exhaustively classifies every squared path order from one through forty-seven; a different Python implementation confirms decisive instances around the threshold. Independently, the sentinel-gap Duplicator invariant with threshold \(3\cdot2^r\) establishes equivalence for all larger orders. These arguments combine into a complete proof for every positive integer order, not an extrapolation from finite experiments. The finite computation has two sources and replayable stdout, but full formal verification has not been performed.
+PASS
 
-## Originality — PASS under accessible comparisons
+For G_n=P_n^2, adjacency iff 1<=|i-j|<=2, in the equality-and-adjacency language with no order/constants, rank-q EF equivalence equals equality of recursively constructed sets of atomic extension types. Pinned verify_types.cpp was inspected, compiled and actually executed through n=47, recovering rank-3 classes min(n,11) and rank-4 classes min(n,26) for each of those n. The separate all-size Duplicator invariant matches equal gaps shorter than B_r=3*2^r and large gaps >=B_r; splitting at B_{r+1}=2B_r and B_0=3 preserves adjacency at game termination. It proves infinite tail equivalence for n,m>=23 at rank 3 and >=47 at rank 4; finite type overlap by transitivity gives sharp all-n thresholds 11 and 26. The finite program is not an infinite proof; the game-strategy and threshold bridge are necessary.
 
-Brown and Hoshino's 2007 ordinary-path game classification uses a different adjacency predicate. Ganian et al.'s interval-graph logic theorem is qualitative and does not give sharp thresholds for these unit-interval graph instances. Fagin et al.'s quantifier-count results study a different logical resource, and Allen et al.'s squared-path work concerns Ramsey numbers. A related directed-path record has a different signature and threshold. Searches for squared paths, powers of paths, unit interval graphs, rank-three/four Ehrenfeucht--Fraisse games, aliases, and the explicit thresholds did not uncover a statement that implies the two exact classifications. Search incompleteness and possible historical rediscovery remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The squared path is a basic unit-interval graph and a natural graph power. The exact rank-three and rank-four equivalence partitions measure precisely how far elementary first-order logic can recover its order, and how boundary effects persist as the logical depth increases. The rank-four threshold twenty-six is not obtained by the uniform locality bound (forty-seven); the exact cutoffs therefore require substantive finite analysis plus a separate all-size argument. The result is a complete classification for two ranks, not an arbitrarily chosen small graph count. Higher ranks and alternate languages remain open here.
+Best-of-knowledge originality of the specific final claim, excluding established background components; real Resultary searches and relevant primary-source statements did not show a dominating equivalent, with explicit primary access and unindexed-source residual risks. Published result for directed paths gives 2^q threshold in successor language; the claimed q=3 cutoff 11 and q=4 cutoff26 are neither equal nor consequences. Interval FO model checking yields no numeric cutoff.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Sharp complete low-quantifier-rank EF spectra of an elementary but structurally nontrivial graph power, including two provably optimal stabilization thresholds; this distinguishes adjacency-only squared paths from ordinary paths and directed successors. A natural exact logical invariant, not a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

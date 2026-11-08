@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The claim concerns squared paths with exactly the simple-graph adjacency predicate and equality; endpoints and path order are not named. The complete recursive types include all ordered tuples, repeated choices, and all one-point extensions. The C++17 checker enumerates sizes one through forty-seven and compares complete rank-three/rank-four sentence types by interning their exact extension signatures. It checks the asserted class identifiers rather than trusting precomputed output. The independent Python checker uses a different atomic-type representation and verifies the early segment and the twenty-five/twenty-six/twenty-seven rank-four boundary.
+## correctness
 
-From the extracted package directory:
+PASS
 
-```sh
-g++ -O3 -std=c++17 verify_types.cpp -o verify_types
-./verify_types 47 > replay_finite.txt
-python3 independent_types.py > replay_independent.txt
-```
+For G_n=P_n^2, adjacency iff 1<=|i-j|<=2, in the equality-and-adjacency language with no order/constants, rank-q EF equivalence equals equality of recursively constructed sets of atomic extension types. Pinned verify_types.cpp was inspected, compiled and actually executed through n=47, recovering rank-3 classes min(n,11) and rank-4 classes min(n,26) for each of those n. The separate all-size Duplicator invariant matches equal gaps shorter than B_r=3*2^r and large gaps >=B_r; splitting at B_{r+1}=2B_r and B_0=3 preserves adjacency at game termination. It proves infinite tail equivalence for n,m>=23 at rank 3 and >=47 at rank 4; finite type overlap by transitivity gives sharp all-n thresholds 11 and 26. The finite program is not an infinite proof; the game-strategy and threshold bridge are necessary.
 
-The exact final success strings are `COMPLETE_RANK_THREE_AND_FOUR_FINITE_TYPE_CHECK_PASS through_n=47` and `INDEPENDENT_PYTHON_TYPE_CLASSIFICATION_PASS`. Original result logs are included as `finite_types.txt` and `independent_check.txt`. All finite status comparisons are exact integer/set operations.
+## originality
 
-The all-size continuation is a mathematical Duplicator strategy with gap thresholds \(3\cdot2^r\); it proves rank-four equivalence for every two sizes at least forty-seven and rank-three equivalence for every two sizes at least twenty-three. Computation bridges the gap down to the sharp thresholds twenty-six and eleven, respectively. The program does not itself establish the all-size step, nor do these checks establish historical priority or independent scientific validation.
+PASS
+
+Best-of-knowledge originality of the specific final claim, excluding established background components; real Resultary searches and relevant primary-source statements did not show a dominating equivalent, with explicit primary access and unindexed-source residual risks. Published result for directed paths gives 2^q threshold in successor language; the claimed q=3 cutoff 11 and q=4 cutoff26 are neither equal nor consequences. Interval FO model checking yields no numeric cutoff.
+
+## value
+
+PASS
+
+Sharp complete low-quantifier-rank EF spectra of an elementary but structurally nontrivial graph power, including two provably optimal stabilization thresholds; this distinguishes adjacency-only squared paths from ordinary paths and directed successors. A natural exact logical invariant, not a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
