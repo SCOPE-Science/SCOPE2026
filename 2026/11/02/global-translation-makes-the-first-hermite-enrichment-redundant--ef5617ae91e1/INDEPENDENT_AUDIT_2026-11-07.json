@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T22:39:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Gaussian translation integrals give c0(b)>0, c1(b)=∫(t-b)e^{-(t-b)^2/4}dν/√2, c2(b)=∫(t-b)^2e^{-(t-b)^2/4}dν/(2√2)≥0. Dominated convergence for finite positive ν yields smoothness and coefficient decay as |b|→∞ so maximal projected energies exist. Derivative identities c0'=c1/√2 and c1'=c2-c0/√2 imply Q0'=√2 c0 c1, Q1'=2c1 c2. Any maximizer of Q1 has c1=0: if c2=0 positivity forces single delta at b and therefore c1=0. Thus max Q1<=max Q0 while Q1>=Q0 pointwise, and both argmax sets coincide via Q0 stationarity. For non-atomic/non-singleton ν, c2>0 at optimal b makes Q2 strictly larger. Symmetric doublet stationary b=a tanh(ab/2) yields unique 0 center up to a²<=2, then ± nonzero centers; signed φ1 violates positivity hypothesis. Independent quadrature/derivative and center checks match these equations; arbitrary-measure assertions rely on analytic positivity/compactness, not discrete tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior methods optimize scaling/translation of Hermite approximations for PDE or approximation rates; they have different freedoms/objectives and no displayed implication of exact Q0-Q1 equality."
+        ],
+        "reasoning": "General basis adaptation does not entail that a particular enrichment is globally redundant. No stronger theorem found in material inspected; risk of implicit coherent-state identity remains.",
+        "searches": [
+          "Resultary semantic: positive Gaussian mixture optimal translation first Hermite function φ0 φ1 equal approximation errors derivative cancellation c1 c2",
+          "arxiv:2009.13170 moving scaling Hermite spectral methods",
+          "arxiv:2412.08044 optimized Hermite approximation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2203.15630 adaptive Hermite basis; inspected relevant formulation",
+        "arXiv:2009.13170 moving/scaling spectral methods",
+        "DOI 10.1109/34.1000236 Gaussian mean shift",
+        "Frozen RESULT.md blob 155f40ee37a2e0a0991e721df6b3c5a1f24821fb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mode-finding yields stationarity of c0 and two-mode basis enrichment is algorithmically discussed, but optimal captured-energy equality Q0*=Q1* and strict Q2* improvement are not corollaries of a mere mode equation."
+        ],
+        "reasoning": "Known symmetric two-Gaussian mode threshold is acknowledged; the actual stronger universal norm-approximation implication was compared and not seen in relevant source treatments.",
+        "searches": [
+          "Resultary semantic: positive Gaussian mixture optimal translation first Hermite function φ0 φ1 equal approximation errors derivative cancellation c1 c2",
+          "Chou Shao Xia 2022 adaptive Hermite spectral paper",
+          "Comaniciu Meer 2002 mean shift Gaussian modes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Projected energies Q0=c0², Q1=c0²+c1²; derivative cancellation and strict c2 positivity for nontrivial positive mixtures establish new argmax equivalence."
+        ],
+        "reasoning": "Compared basis-center optimization, coherent state coefficients and mean-shift mode equations; prior moving-basis methods do not expressly establish the all-finite-positive-measure equality.",
+        "searches": [
+          "Resultary semantic: positive Gaussian mixture optimal translation first Hermite function φ0 φ1 equal approximation errors derivative cancellation c1 c2",
+          "arxiv:2203.15630 translated Hermite spectral methods",
+          "Gaussian coherent state best one mode vs two mode translation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-atom a=√2 center pitchfork is a standard Gaussian-kernel mode phenomenon, but this finite example is ancillary to an all-measure theorem."
+        ],
+        "reasoning": "No natural exact finite database is central; searches target universal coefficient equality rather than just a threshold number. The failed match does not establish publication priority.",
+        "searches": [
+          "Resultary semantic: positive Gaussian mixture optimal translation first Hermite function φ0 φ1 equal approximation errors derivative cancellation c1 c2",
+          "Gaussian mixture best one-two Hermite global optimizer exact equality table",
+          "Resultary published semantic result search: positive Gaussian mixture first Hermite enrichment"
+        ]
+      },
+      "rationale": "PASS with qualifications. Chou–Shao–Xia (2022), Xia–Shao–Chou (2020) study moving/rescaled Hermite basis spectral methods, not the exact globally optimized one-versus-two-mode identity for arbitrary positive Gaussian location mixtures. General Gaussian kernel mean-shift/stationarity already supplies b=a tanh(ab/2), which is explicitly not assigned independent originality. Resultary semantic query found no claim-level equivalent or stronger all-positive-measure projection result. Conceivably coherent-state and variation-diminishing approximation theory imply the identity; that implicit-coverage risk is recorded.",
+      "residual_risks": [
+        "Possible general coherent-state approximation theorem could imply the argmax equality without identical keywords",
+        "Literature inspection of some method papers is limited to accessible text, not exhaustive all sections",
+        "Positivity and fixed width essential; signed targets furnish counterexample"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithmic moving/rescaled Hermite expansions; not the exact globally optimized φ0/φ1 redundancy for every positive mixture",
+          "evidence": "arXiv:2203.15630, method/approximations.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.15630",
+          "material_read": "Accessible article formulation and movement/rescaling methodology, as available",
+          "method": "Read relevant method description and claims",
+          "title": "Adaptive Hermite Spectral Methods in Unbounded Domains",
+          "trigger": "Moving centers and Hermite projection for similar approximation problem"
+        },
+        {
+          "assessment": "Provides motivation for moving Hermite bases but does not establish inspected projection invariant in available material",
+          "evidence": "arXiv:2009.13170.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.13170",
+          "material_read": "Accessible abstract and formulation, not claimed complete article",
+          "method": "Primary preprint landing and method scope examination",
+          "title": "Efficient Scaling and Moving Techniques for Spectral Methods in Unbounded Domains",
+          "trigger": "Potential wider adaptive optimized Hermite coverage"
+        },
+        {
+          "assessment": "Classical mode stationarity not novel; cannot claim full paper never contains every consequence",
+          "evidence": "IEEE TPAMI 2002 Gaussian mean-shift context.",
+          "identifier_or_url": "https://doi.org/10.1109/34.1000236",
+          "material_read": "Published method statement and mode-finding context, not full-text noncoverage claim",
+          "method": "Read accessible methodological description; compare derivative condition",
+          "title": "Mean Shift: A Robust Approach Toward Feature Space Analysis",
+          "trigger": "Classical Gaussian KDE mode bifurcation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The initially counterintuitive fact that an extra orthogonal basis function never helps after optimal global translation, while the next enrichment always helps for a genuine positive mixture, is a useful exact structural distinction for adaptive Hermite approximation. Sharp width/positivity boundaries and two-component bifurcation motivate the invariant beyond a routine coefficient calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2203.15630 adaptive Hermite basis; inspected relevant formulation",
+    "arXiv:2009.13170 moving/scaling spectral methods",
+    "DOI 10.1109/34.1000236 Gaussian mean shift",
+    "Frozen RESULT.md blob 155f40ee37a2e0a0991e721df6b3c5a1f24821fb"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every nonzero finite positive Gaussian location-mixing measure on the real line, globally optimized standard-width translated φ0 and φ0,φ1 Hermite projections have identical optimal squared errors and exactly the same maximizing translations; degree two gives strict improvement unless the mixing measure is a single point mass. The symmetric ±a example splits optimal centers at a=√2.",
+  "limitations": "Only real L2, unit-width 1D Gaussian location mixtures, finite positive ν, optimized translations; signed mixtures, width optimization and nonlinear PDE convergence are excluded.",
+  "residual_risks": [
+    "Possible general coherent-state approximation theorem could imply the argmax equality without identical keywords",
+    "Literature inspection of some method papers is limited to accessible text, not exhaustive all sections",
+    "Positivity and fixed width essential; signed targets furnish counterexample"
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Algorithmic moving/rescaled Hermite expansions; not the exact globally optimized φ0/φ1 redundancy for every positive mixture",
+      "evidence": "arXiv:2203.15630, method/approximations.",
+      "identifier_or_url": "https://arxiv.org/abs/2203.15630",
+      "material_read": "Accessible article formulation and movement/rescaling methodology, as available",
+      "method": "Read relevant method description and claims",
+      "title": "Adaptive Hermite Spectral Methods in Unbounded Domains",
+      "trigger": "Moving centers and Hermite projection for similar approximation problem"
+    },
+    {
+      "assessment": "Provides motivation for moving Hermite bases but does not establish inspected projection invariant in available material",
+      "evidence": "arXiv:2009.13170.",
+      "identifier_or_url": "https://arxiv.org/abs/2009.13170",
+      "material_read": "Accessible abstract and formulation, not claimed complete article",
+      "method": "Primary preprint landing and method scope examination",
+      "title": "Efficient Scaling and Moving Techniques for Spectral Methods in Unbounded Domains",
+      "trigger": "Potential wider adaptive optimized Hermite coverage"
+    },
+    {
+      "assessment": "Classical mode stationarity not novel; cannot claim full paper never contains every consequence",
+      "evidence": "IEEE TPAMI 2002 Gaussian mean-shift context.",
+      "identifier_or_url": "https://doi.org/10.1109/34.1000236",
+      "material_read": "Published method statement and mode-finding context, not full-text noncoverage claim",
+      "method": "Read accessible methodological description; compare derivative condition",
+      "title": "Mean Shift: A Robust Approach Toward Feature Space Analysis",
+      "trigger": "Classical Gaussian KDE mode bifurcation"
+    }
+  ]
+}

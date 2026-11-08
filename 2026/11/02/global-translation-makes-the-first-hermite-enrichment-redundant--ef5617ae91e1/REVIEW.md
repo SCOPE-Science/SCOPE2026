@@ -1,15 +1,21 @@
-# Scientific review of an exact Hermite approximation boundary
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the exact normalized translated-Hermite overlap coefficients for any finite positive Gaussian mixture. Differentiation gives the crucial cancellation \(Q_1'=2c_1c_2\) with \(c_2\ge0\); at every global maximizer the first excited coefficient must vanish. Existence of maximizing translations follows from Gaussian convolution vanishing at infinity. Consequently the optimized degree-zero and degree-one captured energies and their full argmax sets coincide. At their common optimizer, \(c_2>0\) for any non-point mixture, which proves strict improvement at degree two. The explicit two-Gaussian phase boundary follows from the strictly decreasing function \(\tanh(z)/z\). A separate sign-changing example checks necessity of positivity. The packaged verifier checked 15 direct integrals, 63 derivatives, finite optimizations, and the bifurcation; these computations do not replace the universal proof. Risk: all statements depend on normalized Hermite functions, fixed width, and a nonnegative finite mixing measure.
+PASS
 
-## Originality — PASS (qualified)
+PASS. Gaussian translation integrals give c0(b)>0, c1(b)=∫(t-b)e^{-(t-b)^2/4}dν/√2, c2(b)=∫(t-b)^2e^{-(t-b)^2/4}dν/(2√2)≥0. Dominated convergence for finite positive ν yields smoothness and coefficient decay as |b|→∞ so maximal projected energies exist. Derivative identities c0'=c1/√2 and c1'=c2-c0/√2 imply Q0'=√2 c0 c1, Q1'=2c1 c2. Any maximizer of Q1 has c1=0: if c2=0 positivity forces single delta at b and therefore c1=0. Thus max Q1<=max Q0 while Q1>=Q0 pointwise, and both argmax sets coincide via Q0 stationarity. For non-atomic/non-singleton ν, c2>0 at optimal b makes Q2 strictly larger. Symmetric doublet stationary b=a tanh(ab/2) yields unique 0 center up to a²<=2, then ± nonzero centers; signed φ1 violates positivity hypothesis. Independent quadrature/derivative and center checks match these equations; arbitrary-measure assertions rely on analytic positivity/compactness, not discrete tests.
 
-Actual searches of related mathematical findings were made using the claim, Hermite translation/enrichment aliases, Gaussian-mixture projection optimization, and the mean-shift bifurcation. No recoverable prior record asserting the all-positive-mixture equality of globally optimized zero/first Hermite projection errors, plus strict degree-two separation, was identified. The current source and its 2020 predecessor were inspected in full-text portions concerning moving and scaling of Hermite bases, error estimates, and the proposed adaptations. The later scaling-optimized paper was also inspected; it optimizes width rather than deriving the translation/enrichment identity. Classical Gaussian mean-shift stationarity and Gaussian-Hermite overlap identities are **not** claimed as new. The particular global structural obstruction is not a direct corollary of the inspected sources as stated; independent publication-priority review, including less-accessible spectral-approximation literature, remains a risk. Nonmatching research-search hits do not prove novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The result identifies a universal, exact boundary in approximation-space enrichment: spending a mode on the first translated Hermite derivative gives no improvement when the basis center is optimized, while spending the next mode does improve the best error for every genuinely mixed nonnegative Gaussian input. This provides a principled decision benchmark for p-refinement versus basis movement in adaptive Hermite approximations. Its all-finite-positive-measure scope and sharp two-Gaussian center bifurcation make it more than an arbitrary low-dimensional numerical exercise. It is not a global accuracy theorem for actual PDE solvers or an assertion about fixed-center incremental accuracy.
+PASS with qualifications. Chou–Shao–Xia (2022), Xia–Shao–Chou (2020) study moving/rescaled Hermite basis spectral methods, not the exact globally optimized one-versus-two-mode identity for arbitrary positive Gaussian location mixtures. General Gaussian kernel mean-shift/stationarity already supplies b=a tanh(ab/2), which is explicitly not assigned independent originality. Resultary semantic query found no claim-level equivalent or stronger all-positive-measure projection result. Conceivably coherent-state and variation-diminishing approximation theory imply the identity; that implicit-coverage risk is recorded.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS. The initially counterintuitive fact that an extra orthogonal basis function never helps after optimal global translation, while the next enrichment always helps for a genuine positive mixture, is a useful exact structural distinction for adaptive Hermite approximation. Sharp width/positivity boundaries and two-component bifurcation motivate the invariant beyond a routine coefficient calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
