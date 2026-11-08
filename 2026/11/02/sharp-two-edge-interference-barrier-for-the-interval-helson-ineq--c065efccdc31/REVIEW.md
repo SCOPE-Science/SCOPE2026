@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a precise asymptotic theorem for a stated pair of mirrored boundary packets, not a global extremizer theorem. The exact Fourier transform has two disjoint components, and the boundary weight is \(2\min(\xi,1-\xi)\); the weighted numerator is independent of packet width. Periodic-phase averaging is valid for \(L^1\) envelopes by approximation. Hardy \(H^1\) factorization yields \(Q(H)\le1\), and the explicit positive-frequency Carleman extremal is approached in \(L^1\) by compact positive-frequency profiles. A strictly decreasing one-variable angular average proves the unique balanced-amplitude optimum. The upper bound for the unrestricted interval constant is obtained by two half-line estimates. No limit was exchanged without a domination or approximation argument.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The main 2026 convex-domain papers establish qualitative or dimension-uniform Helson bounds, and the 2025 antecedent discusses interval inequalities, but the relevant inspected theorems and proofs do not state the sharp two-mirrored-endpoint law. The law is not a corollary of the half-line constant alone: it additionally uses exact opposition of the interval edges and the average modulus of two coherent carriers. Literature and mathematical-record searches for the constant, equivalent packet geometry, and phase averaging found no decisive dominating result. This is best-knowledge originality, not a uniqueness or exhaustive-indexing certificate. Remaining risk: unindexed or unexamined research may already contain the precise two-edge construction.
+PASS
 
-## Value — PASS
-The 2026 theory raises the natural question of how its optimal constant behaves on even the simplest bounded convex spectrum. A single collapsing boundary packet reaches only the half-line contribution \(1/2\). Two packets interfere in the time-domain \(L^1\) norm and force a strictly larger universal lower bound \(\pi^2/16\). The theorem determines the exact best constant and unique amplitude pattern for a physically and analytically natural mirror-packet concentration mechanism and provides a reproducible calibration test for any proposed global sharp estimate. It does not settle the unrestricted constant and is not represented as doing so.
+The final claim is explicitly restricted to two mirrored packets with a common positive-frequency L1 envelope H and fixed a,b>=0. Their disjoint Fourier supports have exact numerator ((a^2+b^2)/2) int_0^infty |Hhat(u)|^2/u du because omega(x)=2min(x,1-x). Carrier-phase averaging yields denominator M(a,b)^2 ||H||_1^2; the periodic averaging follows by L1 approximation. Hardy H1=H2 H2 factorization and the Cauchy-Schwarz convolution estimate give the sharp half-line Carleman quotient Q(H)<=1. The analytic H0(t)=(1-2 pi i t)^-2 has Fourier transform u exp(-u)1_{u>0}, norm 1/2 and weighted integral 1/4; positive-frequency cutoffs approximate it in L1. The phase average m(c) decreases strictly with c=2ab/(a²+b²), hence equal packet strengths uniquely maximize the amplitude factor at pi²/16. The global interval constant is only bounded between pi²/16 and 1. Independently checked sharp H0 integrals and amplitude inequalities for four amplitude pairs.
 
-## Closest literature and limitations
-The closest full-text sources are arXiv:2608.19806 (introduced weight and half-line benchmark), arXiv:2609.10730 (general Helson estimate), and arXiv:2504.05986 (qualitative interval estimate). The Riesz factorization and Carleman inequality are standard, reused rather than claimed new. Possible unseen exact constants and broader packet classes are residual risks. Scientific verification is analytical and confined to the claim's stated hypotheses.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The generalized convex-domain Helson/Carleman inequalities of Bampouras and Perfekt and of Bampouras establish existence/upper estimates, but their inspected public abstracts do not settle this two-component asymptotic sharpness. Mirrored endpoint carrier interference and its pi²/16 optimization are not a direct corollary of a one-endpoint inequality; Q<=1 is classical and acknowledged.
+
+## value
+
+PASS
+
+The interval has two competing boundary components whereas the half-line has one. The exact quantitative amplification under two mirrored edge packets isolates natural boundary interference and provides a rigorous lower bound for the unresolved global Helson constant. The result is a sharp motivated model theorem, not presented as solving the full inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
