@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Each polygon is identified by its six integral exponent pairs as printed in both 2014 and 2015 figures. The six character evaluations are linearly independent on (F8*)². The torus map (x,y)→(x^-1,x^-3y) is an involution and coordinate scaling x³ is invertible. Direct algebra gives x³(A(x^-1)+b x^-3y+c x³y^-1)=A_rev(x)+b y+c x⁶y^-1, and since x⁷=1, x⁶=x^-1. Coefficient reversal is a bijection, hence these two six-dimensional code spaces are equal after an explicit monomial operator. A standalone GF8 implementation checks all 49 generator-row identities, both ranks six, and the coordinate permutation bijection. Different boundary lattice counts 4 and 3 independently establish non-lattice-equivalence. No experimental extrapolation is needed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hussain–Luo–Yau–Zhang–Zuo, CAG 28 (2020), introduction and Theorem 1.2: the actual new equivalence and non-equivalence results concern dimension-seven polygons.",
+        "Luo et al. 2015 Theorem 1.2 explicitly excepts the pair in question, and its Conjecture 1.1 states the desired outcome."
+      ],
+      "reasoning": "The 2020 sequel calls the six-dimensional classification earlier work in a broad introductory sentence but provides neither a resolution of the named exception nor an explicit 49-coordinate equivalence for these polygons. The only directly relevant earlier theorem leaves it open; a general claim of near-completeness without this comparison is not dominating coverage.",
+      "searches": [
+        "toric codes dimension six 2014 conjecture solved finite field 8",
+        "toric surface codes classification dimension 6 F_8 equivalent conjecture 2023",
+        "On classification of toric surface codes of dimension seven 2020 Theorem 1.2 earlier dimension six"
+      ]
+    },
+    "checked_sources": [
+      "Luo et al. arXiv:1402.0060 v2 Figure 1.4, Conjecture 1.1, Theorem 1.2, Table A.1",
+      "Luo et al. Finite Fields and Their Applications 33 (2015) 90–102, Figure 1 and pp. 90–95",
+      "Hussain et al. Communications in Analysis and Geometry 28 (2020) 263–319, introduction, Theorem 1.2 and Table 3.1",
+      "Targeted web records for the exact pair, authors, conjecture and later classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2015 primary theorem excludes the unresolved F8 P6(4)/P6(5) pair; its conjecture asserts their equivalence without establishing it.",
+        "The explicit operator on functions f is Tf(x,y)=x^3 f(x^-1,x^-3*y); after substitution a*x^-3 terms become x^6*y^-1=x^-1*y^-1 because x^7=1 on F8*, and cubic coefficients reverse.",
+        "The two polygons have respectively four and three boundary lattice points, so the equivalence cannot be the known lattice-unimodular sufficient criterion."
+      ],
+      "reasoning": "The previous equal weight enumerator does not imply monomial equivalence; the prior F7 example concerns different polygons and cannot imply this F8 case. The direct involution supplies a new constructive implication filling exactly the missing step, without claiming earlier code definitions or other classified cases as new.",
+      "searches": [
+        "Luo Zhang Yau Zuo 2015 Conjecture 1.1 proof GF8 equivalent 2025",
+        "toric codes dimension six 2014 conjecture solved finite field 8",
+        "2015 Luo Yau Zhang Zuo Theorem 1.2 Conjecture 1.1 toric code F8",
+        "2020 Hussain Luo Yau Zhang Zuo P6(4) P6(5) proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Luo et al., arXiv:1402.0060, Theorem 1.2 and Conjecture 1.1: the exact pair over F8 is left open and its equivalence conjectured.",
+        "The 2015 journal version, pp. 91–93 (Theorem 1.2, Conjecture 1.1), states the same unproved pair explicitly."
+      ],
+      "reasoning": "The claim is actual monomial equivalence, not equality of weight enumerators, of two specifically identified six-point lattice polygons. The main primary source explicitly treats equality of weight enumerators as only conjectural evidence for monomial equivalence, so it cannot imply the new statement.",
+      "searches": [
+        "Luo Zhang Yau Zuo 2015 Conjecture 1.1 proof GF8 equivalent 2025",
+        "C_{P_6}^{(4)} C_{P_6}^{(5)} monomial 8 proof",
+        "toric surface code P6(4) P6(5) equivalence coordinate permutation scale x cubed",
+        "2014 toric surface codes C_P6 4 C_P6 5 F8 classification solved monomial equivalence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2014 preprint Table A.1 for F8 gives identical enumerator-polynomial prefixes 1+245z^28+735z^35+1029z^36+... for the pair.",
+        "2015 journal Figure 1 and 2014 arXiv Figure 1.4 give the exact six exponent lattice points; no monomial matrix or permutation appears beside the stated conjecture."
+      ],
+      "reasoning": "The table is a weight enumeration, not an equivalence test: two codes can have equal weight enumerators yet be inequivalent. The new witness is the algebraic coordinate permutation plus diagonal scaling, verifiable on all 49 coordinates. Hence the exact table does not already supply the claim.",
+      "searches": [
+        "C_{P_6}^{(4)} C_{P_6}^{(5)} monomial 8 proof",
+        "On Classification of Toric Surface Codes of Low Dimension MSC primary",
+        "On Classification of Toric Surface Codes of Low Dimension Table A.1 F8 P6(4) P6(5)"
+      ]
+    },
+    "rationale": "The 2014 arXiv source and the 2015 published version explicitly state the exact equality of weight enumerators but leave this same named equivalence open as Conjecture 1.1. Its identity is now exhibited by an explicit 49-coordinate permutation and nowhere-vanishing diagonal weights. The 2020 dimension-seven sequel cites the earlier work and considers distinct 7-point questions; its inspected text gives no explicit transformation settling the six-point pair. Targeted literature and mathematical-record searches found no earlier statement or stronger classification providing this specific matrix. The historical priority of the direct transformation is not independently certified.",
+    "residual_risks": [
+      "A later specialist article or unpublished note could have stated the same simple involution without indexing the original polygon names. The literature search is substantial but not a complete historical proof.",
+      "The 2020 sequel contains a broad phrase describing the six-dimensional classification as classified; it does not provide a directly covering theorem for the exact missing pair.",
+      "The proof is elementary and self-contained; publication priority requires independent human review despite the explicit original conjecture."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The conjecture is explicit and unproved in this version; identical weight enumerators and a different F7 equivalence are prior results.",
+        "evidence": [
+          "arXiv PDF p. 2 Theorem 1.2 and Conjecture 1.1; p. 4 Figure 1.4; Table A.1 (F8 row, appendix)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1402.0060",
+        "material_read": "Abstract, introduction, Theorem 1.2, Conjecture 1.1, Figure 1.4 on page 4 of arXiv v2 PDF, Section 2 code definition, Section 3 discussion of the conjectured equivalence, and Table A.1 for F8.",
+        "method": "Read arXiv full-text rendering and PDF figure visually; compared the six point coordinates and statements.",
+        "title": "On Classification of Toric Surface Codes of Low Dimension (arXiv preprint)",
+        "trigger": "Exact pair, original source and first-public date, figure with all lattice points."
+      },
+      {
+        "assessment": "MSC lists 14G50 first and 94B27 second. The journal explicitly retains the open F8 pair and Conjecture 1.1.",
+        "evidence": [
+          "Finite Fields and Their Applications 33 (2015), p. 90 MSC 14G50, 94B27; pp. 91–93 Theorem 1.2, Figure 1, Conjecture 1.1."
+        ],
+        "identifier_or_url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/89/4646-On_classification_of_toric_surface_codes_of_low_dimension.pdf",
+        "material_read": "Published pages 90–93 (including MSC header, Figure 1, Theorem 1.2, Conjecture 1.1), and the sections defining monomial equivalence.",
+        "method": "Read journal PDF text and visually inspected PDF pages 90 and 92.",
+        "title": "On classification of toric surface codes of low dimension (journal version)",
+        "trigger": "Check final published source, its preferred primary MSC and exact scope of the open conjecture."
+      },
+      {
+        "assessment": "Addresses seven-point polygon equivalence and references earlier dimension-six classification, but no statement, matrix, or transformation settling the named six-point F8 pair was identified. Introductory near-completeness is not a scientific proof of the missing pair.",
+        "evidence": [
+          "CAG 28 (2020), pp. 264–270 introduction and Theorem 1.2 concern seven-point polygon cases; p. 275 Table 3.1 uses six-point polygons as inputs, not equivalence targets."
+        ],
+        "identifier_or_url": "https://intlpress.com/site/pub/files/_fulltext/journals/cag/2020/0028/0002/CAG-2020-0028-0002-a003.pdf",
+        "material_read": "Full paper sections 1 and 3, Theorems 1.1–1.2, Table 3.1 passages referencing P6(4) and P6(5), and reference to the earlier classification.",
+        "method": "Searched the published PDF text for the six-point polygon symbols and read the first sections; inspected title page visually.",
+        "title": "On classification of toric surface codes of dimension seven",
+        "trigger": "Later paper by overlapping authors could dominate the result or silently resolve the old pair."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "594b09b3-3f67-4e9f-90b5-a0bc3c7e2cd6",
+  "value": {
+    "rationale": "The original mathematical source explicitly identifies this precise F8 equivalence as its sole remaining dimension-six classification ambiguity and states the desired conclusion as Conjecture 1.1. A direct 49-coordinate transformation settles that natural outstanding classification question. The finite-field exponent wraparound explains a nontrivial phenomenon: non-lattice-equivalent polygons can yield monomially equivalent toric surface codes; the concrete involution is a reproducible witness rather than another enumerator coincidence.",
+    "status": "PASS"
+  }
+}
