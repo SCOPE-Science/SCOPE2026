@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is quantified over all nondegenerate tetrahedra, every subset of four vertices, every admissible disjoint cut-depth vector, and every generic unit viewing direction. The key lemma is the convex-polyhedron visible/hidden facet-sign criterion for silhouette edges. The proof separately exhausts six surviving old–old edges and three cut–old edges per truncated vertex; no cut–cut edges exist under the pairwise depth condition. A pairwise argument proves a pathwise constant sum of twelve; a fourteen-chamber symmetry enumeration proves the complete regular-tetrahedron law. The classical cone-angle probability is explicitly identified as prior work. Independently constructed numerical projected hulls passed 28,800 cases; exact symbolic enumeration passed five distributions. These finite tests supplement the general proof.
+## correctness
 
-**Originality — PASS, with historical risk.** Feldman–Klain (2008) prove the triangle-shadow probability for original tetrahedra, and prior geometry illustrates selected truncated-tetrahedron projections. The full publicly available *Area-weighted silhouette probabilities of arbitrary tetrahedra* result computes untruncated tetrahedral shadow moments. None of those statements determines the same-direction complementary-truncation coupling or the four nonbaseline Haar laws: computing a marginal distribution of the original alone does not determine a joint coupling for two geometrically different truncations without the new edge transfer. No equivalent or stronger theorem was found among the identified close records. Unknown unindexed stereology may cover the result; this is explicitly recorded as a priority risk rather than ruled out.
+PASS
 
-**Value — PASS.** The theorem is a complete intrinsic combinatorial classification of shadows across a natural sixteen-member truncation family, robust under continuous changes of truncation depth and with a perfectly anticorrelated pathwise statistic for complementary cuts. It predicts strict support gaps, including only octagonal/nonagonal generic silhouettes after complete truncation, and explains these phenomena through an invariant facet-normal combinatorics rather than selected projections or simulations. This is a meaningful polyhedral-projection relation, not a numerical observation or a routine relabeling.
+For a tetrahedron with original outward facet normals n_i, disjoint parallel-to-opposite-facet truncations of vertex subset S require t_i+t_j<1. Each retained original edge between facets F_i,F_j is a generic silhouette edge exactly for opposite signs s_i≠s_j; each new cut triangle normal is −n_i and meets three old facets, giving [s_i=s_j]. These are ALL edges because cuts are pairwise disjoint; summing yields N_S=Σ_(i<j)[s_i≠s_j]+Σ_(i∈S,j≠i)[s_i=s_j]. For each unordered pair, complement S^c contributes exactly two edges across the two polytopes irrespective of signs; N_S+N_Sc=12 for every generic viewing line and any shape/depths meeting hypotheses. For regular tetrahedron, sign patterns k=1,2,3 positive (14 total), all singleton chambers have total probability p=6 acos(1/3)/pi−2 by classical vertex-cone law, and balanced chamber probability 1−p. For r=|S|, balanced count 4+r and singleton-minority count 3+2(r−1_{m∈S}), giving stage laws r0 {3:p,4:1−p}; r1 {3:p/4,5:1−p/4}; r2 {5:p/2,6:1−p,7:p/2}; r3 {7:1−p/4,9:p/4}; r4 {8:1−p,9:p}. Independent exhaustive 224 subset-sign pattern combinatorial cases pass complement. The generic exception and disjoint cuts are essential.
 
-References and comparison scope: Feldman–Klain, arXiv:0809.3459v1; Al-Ajmi–Koca–Bait Bu Salasel, DOI 10.24200/squjs.vol19iss2pp77-90; *The Truncated Tetrahedron* projection reference; *Area-weighted silhouette probabilities of arbitrary tetrahedra* (2026). The theorem excludes overlapping/oblique cuts and nongeneric directions. Historical-priority uncertainty remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Feldman–Klain (2008) establishes the already known triangular-shadow probability for an untruncated tetrahedron. Resultary previously published arbitrary tetrahedron area-weighted shadow moments, which do not determine new facets under truncation; Coxeter-plane truncated tetrahedron illustrations give selected projections but not the all-direction paired count. The all-shape same-direction complementary law and four new regular probability rows were not found as consequences of inspected sources. Unknown general polyhedral stereology may contain an equivalent sign-edge transfer and remains an explicit priority risk.
+
+## value
+
+PASS
+
+A complete finite-stage natural classification for all subsets of tetrahedron vertex cuts, with a depth-robust pathwise conservation law and perfectly anticorrelated complementary shadows. Extends classical tetrahedron silhouette probabilities to all five truncation stages, predicts only 8/9-gonal generic full-cut shadows, and applies to every nondegenerate original tetrahedron for the complement law. This is a useful geometric structural identity rather than an arbitrary simulated viewing direction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
