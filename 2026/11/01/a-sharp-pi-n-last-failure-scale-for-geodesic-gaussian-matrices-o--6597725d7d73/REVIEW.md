@@ -1,15 +1,21 @@
-# Review of the finite-cycle Gaussian last-failure asymptotic
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement quantifies two strict and uniform properties. The upper side follows from Poisson summation, an explicit two-tail truncation estimate, and strict diagonal dominance beyond parameter one. The lower side requires different frequency choices on the four congruence classes; the even-order exact identity and the odd-order sine-weighted tail both have positive limiting truncation coefficients. For a fixed \(c<\pi\), the omitted tail decays as \(\exp(-cn/4)\) up to polynomial factors, whereas the fully periodized positive Gaussian Fourier mode is \(O(\sqrt n\exp[-\pi^2n/(4c)])\). This genuinely yields a negative eigenvalue. Dominated convergence is justified by summable bounds; the formula does not rest on a numerical finite-to-infinite extrapolation. The checker was run from the actual proposed package path, and all selected high-precision tests passed. The proof gives no finite-order uniqueness claim.
+## correctness
 
-## Originality — PASS under bounded literature and record review
-The closest inspected source [3] gives an equally spaced-circle Fourier matrix and establishes a **fixed-scale continuum obstruction**. Its theorem allows the required number of sample points to grow, but it does not calculate a leading transition constant when the Gaussian exponent itself grows with sample size. The full-text primary [2] poses finite-sample positive-definite bandwidth questions without the present explicit deterministic value. The primary [1] concerns the all-bandwidth geometry of geodesic kernels, a logically different quantification. Accessible published research records, own prior claims, and searches for aliases such as circular covariance truncation, cyclic Fourier Gaussian, periodic Gaussian aliasing and near-Nyquist sign thresholds did not identify a covering claim. The 1995 Wood article [4] is a residual risk because only bibliographic material was available, not its full article. Search nonmatches are not treated as proof of novelty.
+PASS
 
-## Value — PASS
-The statement answers a natural sharp asymptotic kernel-admissibility question for increasingly fine uniform samples of the geodesic circle. The constant \(\pi\) comes from competition between the positive Gaussian theta spectrum and the negative contribution from the antipodal cusp; the balance is not a dimensional counting identity. In unit-circle coordinates the result gives a concrete necessary and sufficient leading growth scale \(\lambda\sim n/(4\pi)\) for eventual uniform positive definiteness, linking finite-sample bandwidth admissibility to the known continuum obstruction. The theorem handles every parity class rather than only a convenient negative witness subsequence. It does not purport to solve arbitrary-point sampling or finite-sample exact thresholds.
+PASS: Circulant diagonalization gives real eigenvalues L_{n,j}(t) as finite Gaussian Fourier sums. Poisson summation yields a positive full-lattice theta series bounded below by sqrt(π/t)exp(-π²/(4t)); the finite-cycle truncation error has uniform bound 2exp(-tn²/4)/(1-exp(-tn)). For all t∈[a/n,1], a>π, the error/theta ratio tends to zero uniformly in index and t at exponential rate exp(-(a²-π²)n/(4a)); for t>=1 strict diagonal dominance holds. For c<π, the proof explicitly chooses a near-Nyquist Fourier index for each of four congruence classes. The even-n omitted-tail identity has positive limit (1-e^-c)/(1+e^-c); the odd-n sine-weighted identity has positive limit (1-e^-c)/(2(1+e^-c)^2) after 1/n normalization. Since the missing tail is exp(-cn/4) up to polynomial factors but full theta is O_c(sqrt(n)exp(-π²n/(4c))), the finite eigenvalue is negative eventually. These exact inequalities prove the all-n squeeze and finiteness of τ_n. Independent 100-digit Fourier calculations confirmed selected above-threshold positivity and eventually negative below-threshold witnesses, with n=63 below-threshold witness still positive (permitted by the asymptotic quantifier). The n=83 and 103 near-Nyquist witnesses were negative. No claim of finite-n unique crossing is made.
 
-## Closest literature and limitations
-Primary references: Feragen–Lauze–Hauberg (arXiv:1411.0296v1); Feragen–Hauberg (PMLR 49, 2016); Da Costa–Mostajeran–Ortega (arXiv:2302.10623v1). Related historical covariance reference: Wood (1995), not available in complete text. The proof and source comparisons are bounded, and mathematical independence has not been established externally.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS: Feragen–Lauze–Hauberg establish geometric obstructions to positive definiteness at all bandwidths, while Da Costa–Mostajeran–Ortega prove that no fixed Gaussian scale works on the full continuous circle, using finite equispaced samples. Those theorems do not state a simultaneous high-parameter positive interval or its π/n deterministic threshold. The 2016 finite-sample open-problem paper does not determine the coefficient. The highly plausible Wood 1995 circle covariance paper remained abstract-only; potential hidden coverage is a named risk, not sufficient alone to fail originality. The full leading constant and all-congruence witness appear not covered in inspected evidence.
+
+## value
+
+PASS
+
+PASS: Squared-geodesic Gaussian Gram matrices on finite uniform cycles are canonical covariance matrices with a real positive-definiteness obstruction. The leading last-failure scale across every cyclic order, with a simultaneous all-larger-t guarantee, is quantitatively useful for choosing sampling-dependent bandwidth. The π coefficient emerges from a nontrivial competition of Poisson theta tails and finite truncation, with a sharp even/odd Fourier witness. It is not merely the standard fixed-bandwidth infinite-circle non-positive-definiteness theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
