@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T10:17:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All n>=0: 0..2 copies of each 3^j are in weight-preserving bijection with an arbitrary number r of ones by unique ternary expansion. Other part sizes remain capped. Thus P(q)=B(q)/(1-q) formally, P(0)=1, P(-1)=0 and P(n)-P(n-1)=B(n). Excluding 1 and 3 from B leaves n=1,3 empty, n=2 singleton 2, and all n>=4 supported: non-3-power n singleton; n=3^k>=9 pair (2,n-2). Independent bounded-multiplicity dynamic-programming tables through n=90 verified equality and the plateau set; finiteness is corroboration, bijection is unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Merca Theorem 11 supplies P(n) for every n as coefficient of a product over allowed part sizes; N begins 3,8,9,15,...",
+          "Part sizes 2,4,5 remain allowed, so the first-difference support follows for all n without an additional theorem."
+        ],
+        "reasoning": "Prior product model strictly dominates the plateau support assertion and gives entire partition counts; removing unrestricted ones is a one-factor operation.",
+        "searches": [
+          "https://doi.org/10.1007/s00010-024-01117-6#Sec5",
+          "Glaisher partition digit-carry bijection"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s00010-024-01117-6",
+        "https://arxiv.org/abs/2409.19907",
+        "Resultary query: partition function multiplicity at most 2+v_2(m) plateau first differences equality indices ternary Glaisher"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set N excludes 1,2,4,5; N contains 3. Merca Theorem 11 counts partitions into sizes not in N.",
+          "P(q)=(1-q)^{-1}Q(q); Q(n)>0 for n=2,4,5, every even n>=4 by twos and every odd n>=5 by five and twos; Q(1)=Q(3)=0."
+        ],
+        "reasoning": "The published theorem algebraically and combinatorially entails exactly the equality set {1,3}; an implied corollary is covered despite different wording. New B representation is a routine re-expression of the same Q coefficients.",
+        "searches": [
+          "https://doi.org/10.1007/s00010-024-01117-6#Sec5",
+          "Merca Theorem 11 ddot p(n)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Merca Theorem 2: ddot p counts partitions capped 2+nu_2(m); Merca Theorem 11: same ddot p counts unrestricted parts outside N.",
+          "The factor (1-q) removes unrestricted copies of part one; both positive first-difference interpretations count that coefficient."
+        ],
+        "reasoning": "The unweighted P is identically Merca ddot p, not the differently weighted overpartition count. Replacing the 3^j digit family by unrestricted ones is classical product algebra.",
+        "searches": [
+          "partition function multiplicity at most 2+v_2(m) plateau first differences equality indices ternary Glaisher",
+          "https://doi.org/10.1007/s00010-024-01117-6#Sec5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Merca article explicitly identifies N={3,8,9,15,20,21,24,27,...} and cites OEIS A267092 for modular-Nim source sequence."
+        ],
+        "reasoning": "The exact first-difference support follows from the published unrestricted-part table even without a separate indexed plateau entry; lack of an exact database title cannot restore originality.",
+        "searches": [
+          "partition function multiplicity at most 2+v_2(m) plateau first differences equality indices ternary Glaisher",
+          "OEIS A267092 N_{2n} Merca partition restrictions"
+        ]
+      },
+      "rationale": "Decisive prior implication: Merca (2024) Theorem 11 already identifies exactly the same unweighted capped partition count ddot p(n) with unrestricted partitions whose parts avoid N={3,8,9,15,20,21,24,27,...}, while 1 remains allowed. Removing the free part 1 yields positive first-difference coefficients for all n supported by remaining allowed parts. The support is exactly n>=2 except 3: 2,4,5 allowed and generate all integers >=4 (evens from 2; odd n>=5 from 5+2k). Therefore the complete claimed plateau classification is a direct corollary of published Theorem 11. The displayed bounded B(n) identity is an elementary alternative product factorization via classical ternary carrying, not a surviving independently original mathematical advance. The paper does not have to print the same plateau numbers for implication coverage.",
+      "residual_risks": [
+        "Specific positive B(n) model is differently phrased but follows by elementary ternary carrying; the rejection is for originality/value of the final packaged result, not correctness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: exact same ddot p(n) and unrestricted part model logically imply claimed full plateau support",
+          "evidence": [
+            "Definition line 122–127, Section 5 Theorem 11, and N set equation (12); 2024-09-06 publication"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00010-024-01117-6",
+          "material_read": "Full accessible Springer article; definition and Theorem 2 around section 1; Sections 3 and 5 including equation (12), Theorem 11 and proof; support set N",
+          "method": "Publisher open full-text HTML, paragraphs/theorems/formulas",
+          "title": "Overpartitions in terms of 2-adic valuation",
+          "trigger": "Same exact unweighted capped partition function, original theorem and related consequences"
+        },
+        {
+          "assessment": "Not decisive: addresses truncated q-series positivity, not needed for the stronger covering comparison",
+          "evidence": [
+            "Study identified in package bibliography; not used as proof of novelty"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.19907",
+          "material_read": "Abstract and cited overview only; no whole-paper noncoverage conclusion",
+          "method": "Public abstract/index",
+          "title": "A general positivity result on coefficients of certain q-series",
+          "trigger": "Potential positivity theorem for related Merca conjectures"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact support/plateau index of this natural function would normally be useful, but the result is an immediate support consequence of the previously published unrestricted-part model (Merca Theorem 11), and the alternative first-difference interpretation follows by a routine base-three/Glaisher factor cancellation. This package adds no motivated structural obstacle, classification beyond that direct corollary, or independently significant new invariant; under the same value bar it is an elementary deduction of a known stronger description.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "First-difference identity is correct, but the stated full equality/plateau classification follows immediately from an older stronger partition theorem.",
+    "Not a claim that Merca explicitly wrote P(n)-P(n-1)=B(n)."
+  ],
+  "schema_version": 1
+}
