@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T20:01:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any center version space A size m, quadratic character chi with chi(0)=0 satisfies exact sum_x(sum_{c in A} chi(x-c))^2=m(q-m), using sum_x chi((x-a)(x-b))=-1 for distinct a,b and q-1 diagonals. Thus some query x has |X_A(x)|<=sqrt m. Exact zero-difference convention gives 2N_A(x)=m+X_A(x)-1[x in A], so both branch populations exceed (m-sqrt m-1)/2. The T_d=8*2^d-7*2^(d/2) inequality (T_d-sqrt T_d-1)/2>=T_(d-1) for d>=1 follows from concavity and monotonicity; it recursively constructs a full depth-d adaptive tree for q>=T_d. Concept count gives Ldim<=floor(log2 q), and d=floor(log2 q)-3 gives lower bound. Independent exact character-moment checks across odd primes up to 31 and memoized exact Littlestone recursion for q=3,5,7,11,13,17,19,23,29,31 corroborate observed maximal small depths. Composite prime powers covered by the general character proof, not by these prime tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General discrepancy/second-moment splitting implies a depth guarantee after new recurrence, but no inspected source asserts this threshold for all QR version-space subsets.",
+          "Related general finite-field incidence VC studies treat different query families."
+        ],
+        "reasoning": "The character orthogonality input is standard and acknowledged; the uniform version-space adaptive shattering recursion and explicit additive deficiency are not supplied by the compared static VC or linear-combination results.",
+        "searches": [
+          "quadratic character version space balanced queries Littlestone q",
+          "arXiv:2210.03789 theorem 1.4 finite fields",
+          "arXiv:2109.04805 dimension of zero sets"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2210.03789",
+        "https://arxiv.org/abs/2109.04805",
+        "Resultary semantic search: quadratic residues finite fields translate Paley Littlestone dimension near log2 q online shattering"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A VC lower bound implies a Littlestone lower bound but only of order one-half log q, not log q - 3.",
+          "General Ldim <=log2(number of concepts) supplies only the upper bound, credited prior counting."
+        ],
+        "reasoning": "The new near-saturation lower bound requires the pointwise quadratic-character moment for every adaptive center set and threshold induction, not an algebraic restatement of the cited bounds.",
+        "searches": [
+          "arXiv:2210.03789 Theorem 1.4 Theorem 1.6",
+          "arXiv:2109.04805 Theorem 3.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "McDonald–Sahay–Wyman studies ordinary VC shattering of the same nonzero QR translates; its theorem yields a lower bound of roughly half log q, not this online bound.",
+          "Guingona et al study zero sets of nontrivial linear combinations of independent functions, not this q-element nonlinear translation orbit."
+        ],
+        "reasoning": "VC and Littlestone differ; known VC results cannot establish an additive-3 Littlestone bound. The zero-sets theorem has a different concept-class closure and is not an equivalent characterization of QR translates.",
+        "searches": [
+          "quadratic residues finite fields translate Paley Littlestone dimension near log2 q online shattering",
+          "\"Littlestone\" \"Paley\" graph neighborhood dimension finite fields",
+          "arXiv:2210.03789 Paley graph VC dimension",
+          "arXiv:2109.04805 Littlestone VC zero sets linear span"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source checker produces exact small-q values, but the claimed theorem is a uniform all-odd-prime-power bound, not a recomputed known catalog; published finite-field VC numerical tables are static rather than Littlestone."
+        ],
+        "reasoning": "Finite data cannot dominate an infinite quantified depth bound; no exact literature table for that bound located.",
+        "searches": [
+          "Littlestone Paley graph neighborhoods exact dimension table",
+          "quadratic residues finite fields translate Paley Littlestone dimension near log2 q online shattering"
+        ]
+      },
+      "rationale": "Targeted Resultary semantic searches and primary literature comparisons, with specific mathematical implication checks and residual priority risks, support qualified best-of-knowledge originality of the final scoped claim.",
+      "residual_risks": [
+        "A general discrepancy-to-Littlestone result may phrase the same recurrence for symmetric difference sets.",
+        "Full Guingona et al source not exhaustively examined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family, different invariant and weaker lower bound; cannot imply stated additive-3 Ldim estimate.",
+          "evidence": [
+            "Theorems 1.4, 1.6: VC dimensions; numerical Paley graph examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.03789",
+          "material_read": "Full original arXiv PDF, including statements of Theorems 1.4 and 1.6, definitions and numerical study.",
+          "method": "Read full PDF and inspected PDF images; compared VC versus online query quantifiers and lower-bound coefficient.",
+          "title": "The VC-dimension of quadratic residues in finite fields",
+          "trigger": "Exact nonzero-square translate family and Paley graph"
+        },
+        {
+          "assessment": "Different closure and parameter assumptions; residual full-text comparison risk remains.",
+          "evidence": [
+            "Theorem 3.10 as described in accessible statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "Accessible arXiv abstract and relevant theorem statement (Theorem 3.10); complete text not exhaustively inspected.",
+          "method": "Compared family definition (linear-combination zero sets) and hypotheses against translated fixed QR set.",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Closest theory also involving Littlestone dimension"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform additive-3 defect from the information-theoretic ceiling for the online Littlestone dimension of a natural finite-field translate class is a substantive improvement over a constant-fraction static VC-dimension lower bound, with a useful exact second-moment adaptive splitting lemma that holds for arbitrary version spaces.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2210.03789",
+    "https://arxiv.org/abs/2109.04805",
+    "Resultary semantic search: quadratic residues finite fields translate Paley Littlestone dimension near log2 q online shattering"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only odd prime powers and all q centers/queries; zero excluded from squares.",
+    "No exact Ldim saturation for all q, only within three of maximum.",
+    "No corresponding VC improvement; finite experiments not an infinite proof."
+  ],
+  "residual_risks": [
+    "A general discrepancy-to-Littlestone result may phrase the same recurrence for symmetric difference sets.",
+    "Full Guingona et al source not exhaustively examined."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Same family, different invariant and weaker lower bound; cannot imply stated additive-3 Ldim estimate.",
+      "evidence": [
+        "Theorems 1.4, 1.6: VC dimensions; numerical Paley graph examples."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2210.03789",
+      "material_read": "Full original arXiv PDF, including statements of Theorems 1.4 and 1.6, definitions and numerical study.",
+      "method": "Read full PDF and inspected PDF images; compared VC versus online query quantifiers and lower-bound coefficient.",
+      "title": "The VC-dimension of quadratic residues in finite fields",
+      "trigger": "Exact nonzero-square translate family and Paley graph"
+    },
+    {
+      "assessment": "Different closure and parameter assumptions; residual full-text comparison risk remains.",
+      "evidence": [
+        "Theorem 3.10 as described in accessible statement."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+      "material_read": "Accessible arXiv abstract and relevant theorem statement (Theorem 3.10); complete text not exhaustively inspected.",
+      "method": "Compared family definition (linear-combination zero sets) and hypotheses against translated fixed QR set.",
+      "title": "Littlestone and VC-dimension of families of zero sets",
+      "trigger": "Closest theory also involving Littlestone dimension"
+    }
+  ]
+}
