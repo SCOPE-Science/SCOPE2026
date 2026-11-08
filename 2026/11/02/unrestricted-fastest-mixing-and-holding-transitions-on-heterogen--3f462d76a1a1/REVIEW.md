@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (PASS).** The all-size proof is by a convex symmetry average, an exact tensor eigenspace decomposition, two sharp minimax lower bounds, and saturation of the coordinate-only contrast spaces. Crucially, the saturation argument upgrades existence of an invariant optimum to **uniqueness among all individually weighted edges**. The standalone program passed 362 assertion groups for 19 explicit graphs, verifying exact holding/budget arithmetic, full matrix eigenvalues, separate minimax linear programs and feasible perturbations. Finite tests are corroboration rather than proof.
+## correctness
 
-**Originality (PASS, qualified).** Boyd–Diaconis–Xiao introduced the general FMMC SDP; Boyd–Diaconis–Parrilo–Xiao give Cartesian-product spectral identities and the exact homogeneous Hamming answer. Neither inspected source states pointwise uniqueness for unrestricted heterogeneous multiaxis products or the multi-alphabet sharp holding frontier. A related two-factor result determines an invariant optimum but makes no all-optimizer rigidity claim. A 2026 association-scheme article presents broad LP tools and homogeneous Hamming examples; only excerpts were accessible and specialized stronger coverage remains possible. The homogeneous formulas and general reduction methods are **not** claimed as new.
+PASS
 
-**Value (PASS).** Heterogeneous Cartesian clique products model coordinate-update sampling with unequal alphabet sizes. The result gives the unique implementable optimal design and an exact critical surface at which holding probability disappears, including the two heterogeneous triple equality configurations \((2,3,6)\) and \((2,4,4)\). Unrestricted rigidity has mathematical content beyond a two-parameter numerical optimization, and the statement covers an infinite structural family.
+The feasible set of symmetric nonnegative row-stochastic edge/self-loop kernels is convex/compact. Coordinate-permutation averaging preserves the norm SLEM. Invariant kernels have coordinate spectral shifts z_i=n_i a_i and eigenvalues 1-sum_{i∈S}z_i on every nonconstant subset mode, with budget sum c_i z_i≤1. Hence SLEM t obeys t≥(d-1)/(d+1) and t≥1-1/C. Choosing z_i=u=min(2/(d+1),1/C) attains both bounds and is the unique invariant minimizer by saturation. For any unrestricted optimum, each conjugate is optimal and averaging Rayleigh quotients on the one-coordinate centered eigenspaces U_i forces equality with the spectral upper bound µI-P≥0 on 1-perp. Therefore P acts as (1-u)I on EVERY U_i, fixing each complete-graph fiber Laplacian to u(I-J/n_i), all off-diagonal probabilities u/n_i, and the common diagonal 1-Cu. Positive holding iff Σ1/n_i>(d-1)/2; Egyptian fraction classification for d=3 gives (2,3,6),(2,4,4),(3,3,3). Independent finite LPs over all nonconstant subset modes and direct eigenvalue checks support the formulas; they do not prove unrestricted uniqueness.
 
-**Scientific limits and overlap.** Only symmetric stochastic spectral contraction is optimized. Broader algorithms for structured Markov chains do not automatically imply the proved exact parameters or all-optimizer uniqueness, but undiscovered specific results remain a novelty risk. Prior equal-alphabet Hamming claims are expressly credited. Independent scrutiny is still required before treating the result as externally certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier FMMC papers prove SDP formulation, product Laplacian spectra and equal-alphabet Hamming formulas, so these ingredients and homogeneous specialization are not new. The different-size all-dimension optimal boundary and rigidity among all edge-nonuniform kernels were not found in the inspected primary sections. A 2026 association-scheme article remains partial-read priority risk.
+
+## value
+
+PASS
+
+Complete all-size optimizer, exact phase boundary for whether holding helps, and uniqueness without imposing edge-orbit symmetry are independently useful sharp network mixing facts for anisotropic product state spaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

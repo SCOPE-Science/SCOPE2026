@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T17:49:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The feasible set of symmetric nonnegative row-stochastic edge/self-loop kernels is convex/compact. Coordinate-permutation averaging preserves the norm SLEM. Invariant kernels have coordinate spectral shifts z_i=n_i a_i and eigenvalues 1-sum_{i∈S}z_i on every nonconstant subset mode, with budget sum c_i z_i≤1. Hence SLEM t obeys t≥(d-1)/(d+1) and t≥1-1/C. Choosing z_i=u=min(2/(d+1),1/C) attains both bounds and is the unique invariant minimizer by saturation. For any unrestricted optimum, each conjugate is optimal and averaging Rayleigh quotients on the one-coordinate centered eigenspaces U_i forces equality with the spectral upper bound µI-P≥0 on 1-perp. Therefore P acts as (1-u)I on EVERY U_i, fixing each complete-graph fiber Laplacian to u(I-J/n_i), all off-diagonal probabilities u/n_i, and the common diagonal 1-Cu. Positive holding iff Σ1/n_i>(d-1)/2; Egyptian fraction classification for d=3 gives (2,3,6),(2,4,4),(3,3,3). Independent finite LPs over all nonconstant subset modes and direct eigenvalue checks support the formulas; they do not prove unrestricted uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical SDP applies to arbitrary graphs but is a computational formulation, not an explicit heterogeneous formula/uniqueness theorem. The association-scheme examples available concern homogeneous coordinate alphabets."
+        ],
+        "reasoning": "Generic convex-program solvability is weaker than asserting a unique closed form for all mixed coordinate sizes; the 2026 source was not exhaustively inspected and remains a residual risk.",
+        "searches": [
+          "Resultary: fastest mixing Markov chains cartesian product complete graphs different sizes Hamming direct product SLEM unique optimum holding",
+          "Boyd–Diaconis–Xiao 2004 FMMC SDP",
+          "Jafarizadeh IEEE Access 2026 association scheme DOI:10.1109/ACCESS.2026.3680803"
+        ]
+      },
+      "checked_sources": [
+        "Boyd et al. arXiv:0709.0955 full relevant §§3.2–3.3.3",
+        "Boyd et al. SIAM Review 46 (2004) 667–689 relevant full PDF sections",
+        "Jafarizadeh IEEE Access 14 (2026) DOI 10.1109/ACCESS.2026.3680803 partial text",
+        "Resultary: fastest mixing Markov chains cartesian product complete graphs different sizes Hamming direct product SLEM unique optimum holding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Symmetry averaging yields existence of an invariant optimal chain and subset eigenvalues; it does not force every unrestricted optimum to be invariant."
+        ],
+        "reasoning": "Rayleigh saturation for each U_i, then comparison of off-diagonal fiber Laplacians, is an additional rigidity implication not in the inspected symmetry averaging theorem.",
+        "searches": [
+          "Resultary: fastest mixing Markov chains cartesian product complete graphs different sizes Hamming direct product SLEM unique optimum holding",
+          "arXiv:0709.0955 §§2,3.2,3.3.3",
+          "Boyd et al. SIAM Review 2004 general formulation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyd et al. §3.3.3 calculate standard homogeneous Hamming graph optimum; §3.2 gives product eigenspaces; the full result assumes heterogeneous n_i and proves uniqueness of every non-invariant optimizer."
+        ],
+        "reasoning": "The product spectral bound alone proves an invariant extremum, not the strong pointwise rigidity; the equality-saturated U_i argument supplies that logically separate statement.",
+        "searches": [
+          "Resultary: fastest mixing Markov chains cartesian product complete graphs different sizes Hamming direct product SLEM unique optimum holding",
+          "Boyd et al., arXiv:0709.0955 §§3.2–3.3.3",
+          "fastest mixing anisotropic Hamming product complete graph edge nonuniform"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hamming K_n^d equal-factor values are known and explicitly excluded from the claimed new domain. Resultary nearby matches concern other Cartesian products/graph optimization without the mixed-alphabet optimum."
+        ],
+        "reasoning": "The known homogeneous table is not the complete heterogeneous regime (or a uniqueness certificate), although it specializes from the current proof when all n_i equal.",
+        "searches": [
+          "Resultary: fastest mixing Markov chains cartesian product complete graphs different sizes Hamming direct product SLEM unique optimum holding",
+          "Boyd et al. 2007 §3.3.3 Hamming exact tables",
+          "Resultary heterogeneous-coordinate fastest-mixing semantic search"
+        ]
+      },
+      "rationale": "The earlier FMMC papers prove SDP formulation, product Laplacian spectra and equal-alphabet Hamming formulas, so these ingredients and homogeneous specialization are not new. The different-size all-dimension optimal boundary and rigidity among all edge-nonuniform kernels were not found in the inspected primary sections. A 2026 association-scheme article remains partial-read priority risk.",
+      "residual_risks": [
+        "An unlocated heterogeneous Hamming fastest-mixing formula or stronger general convex-symmetry theorem may imply the formula.",
+        "Jafarizadeh 2026 available excerpts did not permit an exhaustive full-text comparison of all schemes and examples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers known product spectrum and equal-factor optimum; no heterogeneous multi-axis unrestricted uniqueness in those sections",
+          "evidence": [
+            "§3.2 coordinate product modes; §3.3.3 H(d,n) equal-factor weight formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+          "material_read": "Primary full-text PDF: symmetry averaging, §3.2 Cartesian product spectrum and §3.3.3 equal-alphabet Hamming graph weights",
+          "method": "Read relevant complete sections and viewed PDF page screenshots",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries — Boyd, Diaconis, Parrilo and Xiao (2007/2009)",
+          "trigger": "Closest established product and Hamming spectral theorem"
+        },
+        {
+          "assessment": "General optimization framework rather than the specific all-heterogeneous closed form",
+          "evidence": [
+            "FMMC operator norm SDP applies broadly but does not assert this graph-family formula and uniqueness."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "Primary PDF: problem definition, convex objective, feasible stochastic matrices and general results",
+          "method": "Read relevant model/SDP sections with PDF visual inspection",
+          "title": "Fastest Mixing Markov Chain on a Graph — Boyd, Diaconis and Xiao (2004)",
+          "trigger": "General FMMC optimization might dominate theorem"
+        },
+        {
+          "assessment": "Potential stronger coverage remains a specifically identified residual risk; no whole-document NOT_COVERING assertion",
+          "evidence": [
+            "Accessible examples involve H(4,3); scheme approach broadly relevant."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/ACCESS.2026.3680803",
+          "material_read": "Available excerpts showing scheme-based LP and ordinary Hamming examples; full text not exhaustively inspected",
+          "method": "Inspected accessible excerpts, not a complete full-text proof",
+          "title": "Pareto–Optimal Design of Markov Chains on Networks Based on Association Schemes — Jafarizadeh (2026)",
+          "trigger": "Recent broad spectral-association-scheme work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete all-size optimizer, exact phase boundary for whether holding helps, and uniqueness without imposing edge-orbit symmetry are independently useful sharp network mixing facts for anisotropic product state spaces.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Symmetric, uniform stationary distribution, nonnegative kernels only; not nonreversible chains or cutoff.",
+    "Equal-factor Hamming calculation acknowledged as known and excluded from novelty claim.",
+    "An unlocated heterogeneous Hamming fastest-mixing formula or stronger general convex-symmetry theorem may imply the formula.",
+    "Jafarizadeh 2026 available excerpts did not permit an exhaustive full-text comparison of all schemes and examples."
+  ],
+  "schema_version": 1
+}
