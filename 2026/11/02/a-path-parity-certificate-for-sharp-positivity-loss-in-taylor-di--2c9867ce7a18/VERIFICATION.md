@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The linear-algebra proof uses the binomial identity for the degree-\(s\) exponential Taylor polynomial and the nonnegativity of alternating exponential partial sums on \([0,1]\). The walk-gap hypothesis eliminates every polynomial power except the \((s-1)\)-st, whose coefficient is \(1-dh\).
+## correctness
 
-`python verify.py` was run on the actual package code using the Python standard library. The result was `VERIFY_OK cases=29 exact_assertion_groups=698`. All numerical matrix calculations use rational arithmetic, and assertions check the exact witness identity, row sums, and signs. This finite replay does not independently certify the arbitrary-order mathematical argument, prove bibliographic uniqueness, or test every possible graph.
+PASS
+
+Since A commutes with dI, binomial rearrangement yields T_s(h)=Σ_{j=0}^s h^j A^j E_{s-j}(-dh)/j!. Alternating Taylor sums E_m(-x)≥0 for 0≤x≤1, all A^j≥0, and T_s 1=1, proving sufficient stochasticity. For witness (u,v), A^j_uv=0 j<s-1, A^{s-1}_uv>0, A^s_uv=0, so exact entry h^{s-1}A^{s-1}_uv(1-dh)/(s-1)! <0 at every h>1/d. A bipartite geodesic of length s-1 gives shorter walk absence and opposite-parity s-walk absence. Applies to directed bipartite strongly connected constant-exit-rate chains too. Independently checked 5 C8 RK4 rational step transition signs and stochastic rows, including explicit h³(1-2h)/6 witness.
+
+## originality
+
+PASS
+
+General SSP positive coefficient-one sufficiency and classwise sharpness are prior results. The nontrivial surviving contribution is fixed-network, all-order necessity under a structural walk-parity certificate, producing an exact negative transition entry for every h>1/d. Closest Horváth text was materially read in full and did not state this graph-certificate result.
+
+## value
+
+PASS
+
+Positivity preservation of graph diffusion is an exact numerical admissibility property, distinct from norm/spectral stability. The graph-theoretic walk-parity certificate yields a sharp network-specific all-timesteps obstruction in broad regular bipartite families and a concrete entry crossing, a useful cutoff despite higher Taylor accuracy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

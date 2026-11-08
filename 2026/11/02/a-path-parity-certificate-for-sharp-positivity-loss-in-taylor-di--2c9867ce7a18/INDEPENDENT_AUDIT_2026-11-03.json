@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T22:04:09.237742Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": "Full RESULT.md coefficient and geodesic/parity argument; actual verify.py exact rational matrices for cycles/hypercubes; independent C8 RK4 transition checks",
+      "rationale": "Since A commutes with dI, binomial rearrangement yields T_s(h)=Σ_{j=0}^s h^j A^j E_{s-j}(-dh)/j!. Alternating Taylor sums E_m(-x)≥0 for 0≤x≤1, all A^j≥0, and T_s 1=1, proving sufficient stochasticity. For witness (u,v), A^j_uv=0 j<s-1, A^{s-1}_uv>0, A^s_uv=0, so exact entry h^{s-1}A^{s-1}_uv(1-dh)/(s-1)! <0 at every h>1/d. A bipartite geodesic of length s-1 gives shorter walk absence and opposite-parity s-walk absence. Applies to directed bipartite strongly connected constant-exit-rate chains too. Independently checked 5 C8 RK4 rational step transition signs and stochastic rows, including explicit h³(1-2h)/6 witness.",
+      "residual_risks": [
+        "Walk gap is sufficient, not necessary; no classical nonlinear RK order s claim for s>4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gottlieb proves generic linear-order-s SSP coefficient-one sufficient threshold. Horváth proves general problem-class strict RK thresholds and invariant cones."
+        ],
+        "reasoning": "Neither inspected theorem supplies the per-graph exact witness using the missing A^s_uv parity walk; broad classwise sharpness does not imply necessity for each weighted bipartite graph.",
+        "searches": [
+          "Gottlieb Grant Higgs 2014 linear-order SSP",
+          "Horváth 2005 Theorem 8 and Section 4"
+        ]
+      },
+      "checked_sources": [
+        "Horváth 2005 DOI:10.1016/j.apnum.2004.08.026 full text",
+        "Gottlieb–Grant–Higgs arXiv:1403.6519",
+        "Horváth 1998 abstract",
+        "Resultary SSP and positivity queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Method-class absolute monotonicity coefficient one is known; the current formula identifies a concrete A^s_uv=0 witness for each graph with a length-(s-1) geodesic and parity."
+        ],
+        "reasoning": "A worst-case-class sharpness statement alone is logically weaker than universal sharpness within this structured graph family; no checked stronger result made the walk-gap implication automatic without computing it.",
+        "searches": [
+          "Horváth 2005 full DOI text",
+          "Gottlieb et al 2014 Section 2",
+          "Taylor polynomial walk-gap parity criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SSP coefficient 1 yields the known h≤1/d safe bound; absolute monotonicity or polynomial positivity need not settle a given graph beyond sufficient range."
+        ],
+        "reasoning": "Compared graph shortest-path parities, SSP/absolute monotonicity, fixed generator transition matrix, and classical RK4 stability polynomial rather than only method names.",
+        "searches": [
+          "Taylor polynomial diffusion Markov generator positivity bound graph bipartite shortest walk parity SSP Runge Kutta sharp time step",
+          "Horváth DOI:10.1016/j.apnum.2004.08.026",
+          "Gottlieb Grant Higgs arXiv:1403.6519"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published comparison results concern SSP-SDIRK2 and 2/2 Padé, different stability functions."
+        ],
+        "reasoning": "No exact all-order Taylor walk-gap criterion table matched; mathematical implication of analogous but different integrators does not establish coverage.",
+        "searches": [
+          "Resultary Taylor diffusion positivity graph query",
+          "Resultary 2026/10/4 SSP-SDIRK2 two-state threshold",
+          "Resultary 2026/9/20 2/2 Padé positivity"
+        ]
+      },
+      "rationale": "General SSP positive coefficient-one sufficiency and classwise sharpness are prior results. The nontrivial surviving contribution is fixed-network, all-order necessity under a structural walk-parity certificate, producing an exact negative transition entry for every h>1/d. Closest Horváth text was materially read in full and did not state this graph-certificate result.",
+      "residual_risks": [
+        "Specialized network-positivity literature may contain equivalent walk-distance criterion.",
+        "Earlier 1998 Horváth full paper not read; no whole-document noncoverage claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CLASSWISE_NOT_GRAPH_CERTIFICATE",
+          "evidence": "Explicit classwise necessary threshold for arbitrary positive IVPs; no per-network walk-gap A^{s-1}, A^s pair established.",
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+          "material_read": "Entire 16-page 2005 article, pages 1–16: definitions and schemes, Theorem 8 classwise strictness, Sections 3–4 matrix examples and invariant cones, reference list",
+          "method": "Authorized institutional full-text extraction/read page by page after lawful open options failed",
+          "title": "On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "closest rigorous general positivity threshold"
+        },
+        {
+          "assessment": "KNOWN_SUFFICIENCY",
+          "evidence": "Provides coefficient-one SSP bound, not necessary for each fixed bipartite network.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.6519",
+          "material_read": "Accessible primary full HTML, Section 2 and theorem on linear-order explicit SSP polynomials",
+          "method": "arXiv HTML primary mathematical section inspection",
+          "title": "Optimal Explicit Strong Stability Preserving Runge–Kutta Methods with High Linear Order and Optimal Nonlinear Order",
+          "trigger": "SSP linear-order-s coefficient-one sufficiency"
+        },
+        {
+          "assessment": "PARTIAL_SOURCE_RISK",
+          "evidence": "Cannot assert complete 1998 document does not contain a similar walk parity specialization.",
+          "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6",
+          "material_read": "Abstract/metadata and citations in Horváth 2005 paper; original full text not obtained in current run",
+          "method": "prior paper abstract plus backward citations",
+          "title": "Positivity of Runge–Kutta and diagonally split Runge–Kutta methods",
+          "trigger": "earlier absolute monotonicity positivity theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": "Bipartite shortest-path parity, Markov transition entry positivity, explicit RK4 stability polynomial",
+      "rationale": "Positivity preservation of graph diffusion is an exact numerical admissibility property, distinct from norm/spectral stability. The graph-theoretic walk-parity certificate yields a sharp network-specific all-timesteps obstruction in broad regular bipartite families and a concrete entry crossing, a useful cutoff despite higher Taylor accuracy.",
+      "residual_risks": [
+        "Does not classify nonregular/nonbipartite graphs lacking walk gap and does not require stagewise positivity of every Runge–Kutta tableau."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Walk gap is sufficient, not necessary; no classical nonlinear RK order s claim for s>4.",
+    "Specialized network-positivity literature may contain equivalent walk-distance criterion.",
+    "Earlier 1998 Horváth full paper not read; no whole-document noncoverage claim.",
+    "Does not classify nonregular/nonbipartite graphs lacking walk gap and does not require stagewise positivity of every Runge–Kutta tableau."
+  ],
+  "schema_version": 1
+}
