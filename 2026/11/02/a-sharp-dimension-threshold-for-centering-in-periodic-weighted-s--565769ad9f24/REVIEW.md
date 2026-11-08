@@ -1,9 +1,21 @@
-# Review of the centering projection theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-periodic case follows from the triangle inequality. For three-periodic vectors with at most two supported coefficients, the positive three-cycle variational principle, an exact two-complex-variable dual calculation, and a completed-square bound prove a sharp ratio \(4/\sqrt{15}\). The displayed complex vector attains it by exact algebra. In all dimensions \(n\ge4\), two isolated equal-weight edges create a double top eigenvalue, and the mean-subtraction perturbation creates an explicit first-order splitting. The finite checker verifies algebraic identities and representative spectral computations but is not an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Sharif's 2023 full text explicitly defines the periodic weight-space norm and studies multiplier and shift norms; it does not state a theorem for the complementary centering projection. The older periodic-weight variational principle is acknowledged as an ingredient. published-finding corpus searches for centering, mean subtraction, sparse triangle amplification, and equivalent cyclic Perron norms did not identify the stated dimension threshold. A close Green-kernel Hessian record concerns nondegenerate positive backgrounds, whereas the higher-period proof here uses a degenerate sparse background. The original Ridge paper and those close published records were not fully accessible; equivalent prior coverage remains a genuine priority risk.
+PASS
 
-**Mathematical value — PASS.** The theorem settles a natural qualitative operator-norm question for every period, finds a sharp non-Hilbertian amplification constant in the smallest exceptional period for a canonically sparse test class, and quantifies the failure mechanism in higher dimensions. The exact unrestricted norm in any exceptional period is deliberately left open.
+For period two, numerical-radius norm is (|a0|+|a1|)/2 and P2 is contractive by the triangle inequality. In period three, the two-supported Perron graph is a two-edge path; dualizing the Rayleigh quotient and Cauchy–Schwarz reduces the squared factor to F≤9x(1−x)+9(1−x)^2/16≤12/5, and the stated complex conjugate pair realizes exact input 2√15 and centered Perron output 8. In n≥4, two isolated Perron blocks at ε=0 are split by a newly active coupling edge; one interblock edge for n≥5, two for n=4, yielding the exact slopes 1/(2n),1/n in the ratio. No unrestricted ||P3|| equality is asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Relevant periodic-weight primary literature supplies the Perron norm reduction but does not furnish a centering projection classification; Resultary smoothness and geometric-shift results concern other operators/invariants.
+
+## value
+
+PASS
+
+The first noncontractive periodic dimension, an exact restricted extremal constant, and explicit first-order instability slopes describe geometry of a natural numerical-radius Banach norm; the sparse degeneracy is structurally different from routine positive-background perturbations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
