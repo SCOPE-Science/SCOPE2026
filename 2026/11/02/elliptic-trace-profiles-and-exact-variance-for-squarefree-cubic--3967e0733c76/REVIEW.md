@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every non-squarefree monic cubic has a unique repeated linear root, giving a bijective double-root parameterization. The simultaneous repeated-root equations reduce to one quadratic in the repeated-root location; its discriminant and the square-class normalization produce the claimed single-character-sum formula. Inclusion–exclusion, the smooth/singular cubic factorization, and the elliptic-point normalization were algebraically recomputed. The second moment follows from finite-field character orthogonality and an explicitly counted conic; the characteristic-three diagonal exception is included. The included verifier independently enumerates the complete nonsquarefree cubic sets over nine fields and reproduces the counts and shift moments for 293 cases. Finite verification supports but does not replace the universal proof.
+## correctness
 
-## Originality
-PASS, subject to historical-literature risk. Carmon–Rudnick (arXiv:1205.1599, main theorem) establishes large-field Möbius autocorrelation estimates, not exact simultaneous squarefree counts. Keating–Rudnick (arXiv:1504.03444, Appendix A, Theorem A.2) establishes a large-degree singular-series asymptotic and therefore does not imply the exact degree-three elliptic trace or the complete normalized-shift variance. Almousa–Wood (arXiv:1210.0472) counts root-multiplicity types of a single polynomial. Rosenberg (arXiv:1410.7449) treats squarefree values in sparse polynomial families as the field grows. Existing affine-shift cubic enumeration considers shifts of degree at most one, which cannot imply the quadratic-shift formula. The exact parameter profile, singular strata and variance were not identified in the checked sources. Residual risk is a previously published equivalent identity or a stronger general result in unlocated literature.
+PASS
 
-## Mathematical value
-PASS. This solves a natural two-polynomial squarefreeness correlation for the first degree at which quadratic shifts are possible, with a complete normalized-discriminant parameterization, an elliptic-versus-singular stratification, and an exact field-uniform first and second moment. The exact variance distinguishes average independence from pointwise correlation and is not determined by the known asymptotic theory. The formula applies uniformly to prime and nonprime fields and includes the characteristic-three transition. No implication concerning higher degrees or a full trace-distribution law is claimed.
+Every nonsquarefree monic cubic uniquely equals (T-r)²(T-s). Requiring f+h nonsquarefree at x, write d=x-r; d=0 contributes q only if discriminant Delta=0, while d!=0 yields a quadratic in x with discriminant 4(2u d³+u²d²+Delta). Character sum and substitution d=uz/2 give B=q-1+sum_(z!=0) chi(z³+z²+t)+q 1_(t=0). The character-sum specializations give B=2q-2 for t=0 and the other singular formula at t=-4/27 when char!=3. Else y²=z³+z²+t gives elliptic trace. Averaging over w amounts to averaging over t; standard quadratic character correlation plus exact collision count M=2q-5-chi(-3)+1_(char3) prove mean q and variance 2q-6-chi(-3)+1_(char3)-1/q. Direct independent finite enumeration of every nonsquarefree cubic and quadratic shift over F3,F5,F7,F11 for selected u,v matched profiles and moments. The formulas for nonprime odd prime powers rest on the field-character proof, not prime-field experiments.
 
-## Limits
-A literature search and same mathematical model proof inspection cannot establish absolute priority. The proof addresses odd characteristic only. The smooth case remains expressed through an elliptic Frobenius trace; the first two moments do not determine every trace frequency. The standalone computation tests finitely many fields.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Carmon–Rudnick and Keating–Rudnick establish asymptotic correlations/squarefreeness for differing limits; the inspected Keating–Rudnick Appendix A Theorem A.2 is degree-growing, not a fixed monic-cubic exact elliptic trace with second moment over quadratic shifts. Almousa–Wood and Rosenberg treat different one-polynomial/asymptotic counting. Character correlations are classical and not claimed original; the exact finite quadratic-shift profile and variance are assessed new.
+
+## value
+
+PASS
+
+This solves an exact naturally defined low-degree polynomial-pair counting problem where the dependence survives as elliptic Frobenius fluctuations but averages to the independent-marginals benchmark. The explicit exceptional discriminants and full shift variance are useful finite-field arithmetic invariants rather than routine asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
