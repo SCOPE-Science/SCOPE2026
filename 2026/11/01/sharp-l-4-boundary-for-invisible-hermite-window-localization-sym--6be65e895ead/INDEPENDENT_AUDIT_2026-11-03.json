@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T09:13:28Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md detailed Fourier, Helmholtz, Bessel and normalization argument; inspected source check_threshold.py",
+        "Independent J0(2r) fourth-power annular integral ratios for r=100..500 and 200..1000 agree with coefficient 3/(4pi)"
+      ],
+      "rationale": "Fulsche–Hagger's Fourier–Weyl identity for true polyanalytic order k gives vanishing quantization iff a tempered Fourier transform is supported on the finite union of Laguerre-zero circles; for k=1 the multiplier has no zeros and quantization is injective for any bounded symbol. For k>=2 isolate roots by smooth compact Fourier cutoffs whose inverse transforms are Schwartz; Young preserves Lp. Because every Laguerre root is simple, each Fourier-localized term solves (Delta+4lambda)u=0 globally. Angular Fourier separation and smoothness at the origin force each mode c_m J_|m|(2sqrt(lambda)r); Jensen plus the oscillatory asymptotic J_m~r^-1/2 rules out any nonzero Lp mode for p<=4, including critical p=4. For p>4 average null plane waves over a root circle to obtain nonzero real bounded a(z)=J0(2sqrt(lambda)|z|), which is in Lp iff p>4. Integrating its cos^4 leading term gives exactly 3/(4pi lambda) log R +O(1) for critical fourth-power mass. No extrapolation from finite roots is used.",
+      "residual_risks": [
+        "The Fourier–Weyl multiplier is a cited published theorem; it is not reproved here.",
+        "Statement limited to bounded symbols in unweighted planar Lp and standard 1-complex-dimensional normalization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fulsche–Hagger classifies bounded null characters, a broader null-space structure, but no general Lp<=4 uniqueness statement or endpoint mass coefficient was located.",
+          "Keller–Luef develops Hermite-window calculus, not this exact Lebesgue symbol integrability transition in cited portions."
+        ],
+        "reasoning": "The stronger null-frequency characterization is prior art, and the threshold is a new integrability corollary requiring entire Helmholtz Lp obstruction plus explicit witness. Novelty cannot be based on null-frequency detection alone.",
+        "searches": [
+          "Fulsche–Hagger arXiv:2308.11292 entire relevant Section 3",
+          "Keller–Luef arXiv:1905.07741 polyanalytic Toeplitz symbolic calculus"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, check_threshold.py and exact record Git-tree blobs",
+        "Fulsche–Hagger arXiv:2308.11292 Section 3 primary full text",
+        "Keller–Luef arXiv:1905.07741",
+        "Resultary Fourier Laguerre Bessel Lp semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A finite union of characteristic circles supports the Fourier transform; global smooth Helmholtz waves with nonzero angular Bessel coefficients cannot be in planar Lp for p<=4; circular averaging gives a p>4 counterexample."
+        ],
+        "reasoning": "Existing theorems jointly make the threshold accessible, but the exact bounded-symbol all-k Lp equivalence with endpoint logarithmic coefficient was not stated by inspected literature. An older general Lp Helmholtz theorem could imply the uniqueness half as a special case; priority risk acknowledged.",
+        "searches": [
+          "Fulsche–Hagger arXiv:2308.11292 Theorem 3.4 and Prop 3.8",
+          "General Fourier restriction/Helmholtz Bessel decay results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fulsche–Hagger Theorem 3.4 gives exact bounded-symbol null characters / Laguerre zero circles, and Proposition 3.8 already gives L1 injectivity."
+        ],
+        "reasoning": "Bounded null-symbol construction and L1 boundary are NOT new, but the full sharp p<=4 injectivity and p>4 Bessel null witness are not contained in the inspected source statements; Fourier-restriction methods are classical ingredients.",
+        "searches": [
+          "Fulsche–Hagger arXiv:2308.11292 Theorem 3.4, Proposition 3.8",
+          "Resultary: polyanalytic Fock Toeplitz kernel Lp threshold p=4 Laguerre zero Bessel J0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact Lp phase table at p=4 or critical fourth-power log coefficient in retrieved records; result has a continuous integrability parameter rather than finite enumeration."
+        ],
+        "reasoning": "The threshold and constant have a natural analytic scale; these are not repeated entries of an existing computation table, although related Helmholtz uniqueness theory can imply them indirectly.",
+        "searches": [
+          "Resultary Fock polyanalytic Bessel invisible symbols p=4",
+          "Fulsche–Hagger arXiv:2308.11292"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the full theorem, not just its title: Bounded null-symbol construction and L1 boundary are NOT new, but the full sharp p<=4 injectivity and p>4 Bessel null witness are not contained in the inspected source statements; Fourier-restriction methods are classical ingredients. Existing theorems jointly make the threshold accessible, but the exact bounded-symbol all-k Lp equivalence with endpoint logarithmic coefficient was not stated by inspected literature. An older general Lp Helmholtz theorem could imply the uniqueness half as a special case; priority risk acknowledged.",
+      "residual_risks": [
+        "General Helmholtz Fourier restriction or polyanalytic Toeplitz injection literature may already imply the Lp<=4 half, even without explicit parameter k.",
+        "The strongest starting null-frequency theorem and all bounded counterexamples are already known; novelty is integrability and critical mass only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the kernel-frequency support and L1 injectivity ingredients, not expressly an all-p p=4 phase boundary and its endpoint Bessel mass",
+          "evidence": "Theorem 3.4, Proposition 3.8",
+          "identifier_or_url": "https://arxiv.org/abs/2308.11292",
+          "material_read": "Materially inspected complete relevant Section 3, Theorem 3.4, Proposition 3.8 in accessible journal text",
+          "method": "Read primary full online article relevant statements",
+          "title": "Quantum harmonic analysis for polyanalytic Fock spaces",
+          "trigger": "Exact same quantization, null characters, Fourier multiplier and L1 injectivity"
+        },
+        {
+          "assessment": "Provides technical background, no comprehensive negative coverage assertion",
+          "evidence": "Hermite window calculus scope",
+          "identifier_or_url": "https://arxiv.org/abs/1905.07741",
+          "material_read": "Title/abstract, relevant setting and citations; full text not used for global noncoverage",
+          "method": "Source context",
+          "title": "Polyanalytic Toeplitz operators: isomorphisms, symbolic calculus and approximation of Weyl operators",
+          "trigger": "Related Hermite/Laguerre symbol calculus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Natural threshold p=4, complete one-dimensional Fock order classification",
+        "Explicit Bessel null symbols for all p>4 and sharp logarithmic divergence constant"
+      ],
+      "rationale": "Identifies the exact Lebesgue integrability boundary at which noninjectivity first becomes possible for Hermite-window Fock localization, for every order, and quantifies the critical logarithmic obstruction. The p=4 endpoint and Bessel symbol connect Fock quantization to planar Fourier restriction and are natural mathematical invariants rather than arbitrary examples.",
+      "residual_risks": [
+        "Result follows from combining published multiplier identities and classical Bessel asymptotics, so its novelty is an exact synthesis rather than a new general technique."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md, check_threshold.py and exact record Git-tree blobs",
+    "Fulsche–Hagger arXiv:2308.11292 Section 3 primary full text",
+    "Keller–Luef arXiv:1905.07741",
+    "Resultary Fourier Laguerre Bessel Lp semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The Fourier–Weyl multiplier is a cited published theorem; it is not reproved here.",
+    "Statement limited to bounded symbols in unweighted planar Lp and standard 1-complex-dimensional normalization.",
+    "General Helmholtz Fourier restriction or polyanalytic Toeplitz injection literature may already imply the Lp<=4 half, even without explicit parameter k.",
+    "The strongest starting null-frequency theorem and all bounded counterexamples are already known; novelty is integrability and critical mass only.",
+    "Result follows from combining published multiplier identities and classical Bessel asymptotics, so its novelty is an exact synthesis rather than a new general technique."
+  ],
+  "residual_risks": [
+    "General Helmholtz Fourier restriction or polyanalytic Toeplitz injection literature may already imply the Lp<=4 half, even without explicit parameter k.",
+    "The strongest starting null-frequency theorem and all bounded counterexamples are already known; novelty is integrability and critical mass only.",
+    "The Fourier–Weyl multiplier is a cited published theorem; it is not reproved here.",
+    "Statement limited to bounded symbols in unweighted planar Lp and standard 1-complex-dimensional normalization."
+  ],
+  "schema_version": 1
+}

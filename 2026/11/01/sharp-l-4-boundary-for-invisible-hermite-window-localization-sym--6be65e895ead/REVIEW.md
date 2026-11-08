@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim treats \(a\in L^\infty\cap L^p\) in unweighted planar measure and standard true-polyanalytic Fock normalization. The published Fourier--Weyl multiplier is the product of a nonvanishing Gaussian and \(L_{k-1}(|\xi|^2)\); vanishing quantization restricts the symplectic Fourier transform to its finitely many positive-radius zero circles. Smooth radial Fourier cutoffs preserve \(L^p\) by Young's inequality and yield entire Helmholtz solutions at positive frequency. Each angular coefficient is a constant multiple of a classical Bessel function; \(L^p\) integrability with \(p\le4\) forces that constant to vanish. A circular plane-wave average produces a real, smooth, bounded nonzero Bessel symbol in the nullspace for \(p>4\); stationary Bessel asymptotics establish the logarithmic endpoint constant. The proof covers all stated degrees and exponents, independently of the finite checker. The local Laguerre spectral inversion near each root and the absence of the singular Bessel branch were expressly checked.
+PASS
 
-## Originality — PASS, with historical-priority uncertainty
+Fulsche–Hagger's Fourier–Weyl identity for true polyanalytic order k gives vanishing quantization iff a tempered Fourier transform is supported on the finite union of Laguerre-zero circles; for k=1 the multiplier has no zeros and quantization is injective for any bounded symbol. For k>=2 isolate roots by smooth compact Fourier cutoffs whose inverse transforms are Schwartz; Young preserves Lp. Because every Laguerre root is simple, each Fourier-localized term solves (Delta+4lambda)u=0 globally. Angular Fourier separation and smoothness at the origin force each mode c_m J_|m|(2sqrt(lambda)r); Jensen plus the oscillatory asymptotic J_m~r^-1/2 rules out any nonzero Lp mode for p<=4, including critical p=4. For p>4 average null plane waves over a root circle to obtain nonzero real bounded a(z)=J0(2sqrt(lambda)|z|), which is in Lp iff p>4. Integrating its cos^4 leading term gives exactly 3/(4pi lambda) log R +O(1) for critical fourth-power mass. No extrapolation from finite roots is used.
 
-The main source, Fulsche--Hagger (arXiv:2308.11292, Section 3, read in HTML), explicitly proves bounded-symbol noninjectivity and \(L^1\) injectivity but does not state a sharp \(L^p\) endpoint at four. Keller--Luef (arXiv:1905.07741, polyanalytic Fock construction and symbolic calculus inspected) concerns operator isomorphisms and expansions rather than the null-symbol integrability dichotomy. The 2022 Hagger abstract concerns compactness and Fredholm questions; its full text was not completely inspected. Several published-record comparisons concerned Fock Toeplitz zero divisors and radial Schatten phenomena but none implied the new \(L^p\)-critical assertion. The Fourier-support and Helmholtz ingredients are established prior mathematics; novelty is the sharp localization-symbol synthesis. A stronger or differently phrased prior Lp uniqueness theorem could cover this fact.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The known individual-order quantization map fails to be injective on unrestricted bounded symbols while retaining \(L^1\) injectivity; an exact, dimensionally natural boundary between detectable and invisible spatial-decay classes is therefore a motivated unresolved classification. The result identifies the entire sharp exponent interval, produces concrete null symbols beyond it, and quantifies the borderline logarithmic divergence. The fact concerns standard Hermite-window localization operators and is not a parameter-renaming or isolated arithmetic sample.
+Best-of-knowledge comparison of the full theorem, not just its title: Bounded null-symbol construction and L1 boundary are NOT new, but the full sharp p<=4 injectivity and p>4 Bessel null witness are not contained in the inspected source statements; Fourier-restriction methods are classical ingredients. Existing theorems jointly make the threshold accessible, but the exact bounded-symbol all-k Lp equivalence with endpoint logarithmic coefficient was not stated by inspected literature. An older general Lp Helmholtz theorem could imply the uniqueness half as a special case; priority risk acknowledged.
 
-## Limitations
+## value
 
-The numerical test script checks only finite-degree Laguerre identities, finite angular quadrature, and sample annular integrals, whereas the analytical proof establishes the general theorem. The result does not treat unbounded symbols, varying Gaussian scalings beyond normalization, or arbitrary complex dimensions. Historical literature search is not exhaustive, and independent validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Identifies the exact Lebesgue integrability boundary at which noninjectivity first becomes possible for Hermite-window Fock localization, for every order, and quantifies the critical logarithmic obstruction. The p=4 endpoint and Bessel symbol connect Fock quantization to planar Fourier restriction and are natural mathematical invariants rather than arbitrary examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

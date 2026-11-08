@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The analytical argument consists of the published Laguerre Fourier--Weyl multiplier, a smooth localization on its finitely many spectral circles, the angular Bessel obstruction to planar \(L^p\) Helmholtz waves for \(1\le p\le4\), and the angular plane-wave construction of a bounded \(J_0\) null symbol for \(p>4\). The exact endpoint coefficient is obtained by averaging \(\cos^4\) over its oscillation period. These steps are not replaced by finite numerical experiments.
+## correctness
 
-The accompanying `check_threshold.py` passed 153 deterministic checks with NumPy and SciPy: Laguerre positive roots and their numerical simplicity through degree 11, six angular integral identities, the fourth-power logarithmic slope on three annuli, and radial Bessel envelope values. Execute `python check_threshold.py` in a Python environment with these two packages installed.
+PASS
 
-No independent mathematical audit has been conducted. Historical-priority uncertainty and the bounded-symbol/one-complex-dimension scope remain.
+Fulsche–Hagger's Fourier–Weyl identity for true polyanalytic order k gives vanishing quantization iff a tempered Fourier transform is supported on the finite union of Laguerre-zero circles; for k=1 the multiplier has no zeros and quantization is injective for any bounded symbol. For k>=2 isolate roots by smooth compact Fourier cutoffs whose inverse transforms are Schwartz; Young preserves Lp. Because every Laguerre root is simple, each Fourier-localized term solves (Delta+4lambda)u=0 globally. Angular Fourier separation and smoothness at the origin force each mode c_m J_|m|(2sqrt(lambda)r); Jensen plus the oscillatory asymptotic J_m~r^-1/2 rules out any nonzero Lp mode for p<=4, including critical p=4. For p>4 average null plane waves over a root circle to obtain nonzero real bounded a(z)=J0(2sqrt(lambda)|z|), which is in Lp iff p>4. Integrating its cos^4 leading term gives exactly 3/(4pi lambda) log R +O(1) for critical fourth-power mass. No extrapolation from finite roots is used.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the full theorem, not just its title: Bounded null-symbol construction and L1 boundary are NOT new, but the full sharp p<=4 injectivity and p>4 Bessel null witness are not contained in the inspected source statements; Fourier-restriction methods are classical ingredients. Existing theorems jointly make the threshold accessible, but the exact bounded-symbol all-k Lp equivalence with endpoint logarithmic coefficient was not stated by inspected literature. An older general Lp Helmholtz theorem could imply the uniqueness half as a special case; priority risk acknowledged.
+
+## value
+
+PASS
+
+Identifies the exact Lebesgue integrability boundary at which noninjectivity first becomes possible for Hermite-window Fock localization, for every order, and quantifies the critical logarithmic obstruction. The p=4 endpoint and Bessel symbol connect Fock quantization to planar Fourier restriction and are natural mathematical invariants rather than arbitrary examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
