@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every field of characteristic different from \(2\), each endomorphism has bracket-preserving block data \((A,\psi,\mu)\) satisfying \(A^{\mathsf T}BA=\mu B\). Idempotency reduces \(\mu\) to \(0\) or \(1\); the latter forces identity and the former forces the image of \(A\) onto an isotropic line or zero. The resulting rank-one projection normal form exhausts all cases, including the nonsplit boundary. Products of two distinct rank-one idempotents commute only in the opposite-isotropic-line case with mutual kernel-image alignment; counting the free lifts yields the entire \(K_{q,q}\) plus isolated vertices. The clique polynomial, maximal commuting families, centralizers, and commuting probability follow without external unproved lemmas. Executed verifiers independently reproduced this description for prime fields of orders \(3,5,7,11\) and extension field order \(9\). The proof—not finite testing—establishes the universal claims.
+PASS
 
-## Originality — PASS relative to inspected evidence
+The endomorphism matrix is necessarily (A,0; psi,mu) because the commutator ideal is Kz. Bracket preservation is A^T diag(1,lambda) A=mu diag(1,lambda); idempotence gives A^2=A, mu in {0,1}, psi A+mu psi=psi. If mu=1, invertibility forces A=I and psi=0. If mu=0, the image of A is totally isotropic, so anisotropy yields only 0 and I; in the split case the two distinct isotropic lines each contribute q choices of complement/kernel and q central lifts. Distinct rank-one projections on the same isotropic line never commute. Across the two isotropic lines they commute exactly when opposite lines are their kernels, yielding K_(q,q) plus 2q(q-1) isolates. The complete clique, centralizer, maximal-subsemigroup and commuting-probability formulas follow by counting graph vertices/edges. Independent enumeration directly multiplied idempotent matrices at q=3 and q=5, checking 18 and 50 noncentral vertices and q^2 edges respectively; source code also covers prime and F9 fields. The proof, not finite tests, supports arbitrary characteristic not 2 and all odd q.
 
-The full accessible 2023 source arXiv:2310.11180v1, especially its section 3, already establishes the explicit bracket form and works out preservation matrices for automorphisms; these aspects are credited. The 2022 classification supplies the underlying algebra and its types, while arXiv:2104.05922 deals with cyclic Leibniz endomorphisms and the 2024 source treats another automorphism-group case. Known nonsplit idempotent cardinality and earlier split/nonsplit *automorphism* statistics are not presented as new. The precise cross-retraction commutation graph, complete clique polynomial, maximal commuting subsemigroups and centralizer-size census are neither stated nor implied by the accessible source conclusions. Related searches for idempotent retractions, isotropic projections, and commuting graphs did not locate an equivalent theorem. A general uncatalogued result about projections or symmetric bilinear-form Leibniz structures could subsume portions; search failure is not proof of global priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Commuting idempotent endomorphisms are precisely compatible algebra retractions, so a complete commuting graph characterizes which subalgebra retracts can be made simultaneously. The two isotropic lines are a natural arithmetic threshold; the sharply different compatibility outcomes across square classes are not implicit in single-endomorphism or automorphism counts. A graph and full clique-polynomial classification for all odd prime powers, with exact maximal compatible-system multiplicities, is a motivated invariant, not a one-off numerical slice. The graph characterization supplies both a qualitative boundary and a reproducible finite-field census.
+Existing primary classification determines this Leibniz structure and automorphism group, but invertible automorphisms exclude precisely the noninvertible idempotents at issue. The specific two-isotropic-line projection compatibility and full commuting graph with clique, centralizer and probability profiles are not consequences of the inspected automorphism theorems. Originality is qualified by possible unlocated retraction/commuting-graph results for equivalent two-step algebras.
 
-## Limits and literature relationship
+## value
 
-The assertion of novelty excludes general endomorphism-preservation equations, the known algebra type, earlier automorphism results, and the previously counted anisotropic idempotents. The accessible full primary sources and relevant public abstracts were compared by mathematical implication. Broader equivalent literature may exist. The calculation is only for the specified symmetric rank-two bracket form in odd characteristic; extension beyond it is unproved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The splitting of a natural nonassociative algebra's symmetric bracket form controls the entire commuting graph of retractions and its maximal commuting subsemilattices. Exact centralizer profiles and a sharp q-dependent commuting probability are intrinsic structural invariants, not merely normalization or a single small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
