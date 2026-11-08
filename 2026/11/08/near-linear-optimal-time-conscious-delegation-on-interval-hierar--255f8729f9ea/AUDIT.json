@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The subtree feasible interval recurrence is proved by the integer adjacency of windows [s-delta_c(s),s] indexed by consecutive child times. Independently conditioned child subtrees yield the exact Bellman max-sum equation; a sorted endpoint max-heap sweep and range-add difference arrays evaluate every message in O(S log S). A standalone verifier matches an independently enumerated optimum and witness for 5750 randomly generated finite trees and checks a strict confluence obstruction. The induction, not tests, proves the infinite-family claim. Assumptions include explicit time-value input, nonnegative admissible horizons and one fixed parent per nonroot voter.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bubboloni et al. arXiv:2312.11390 accessible abstract concerns earliest arrival, temporal branchings and other distinct travel criteria; complete text inaccessible in this run.",
+        "Brunelli--Viennot SAND 2023 source abstract solves single-source temporal reachability, not additive-score fixed-tree confluence.",
+        "Escoffier--Gilbert--Pass-Lanneau arXiv:1904.05775 abstract concerns strategic convergence and equilibrium on static tree social networks."
+      ],
+      "reasoning": "These papers cover nearby structural graph families but their reported results concern different path, branching, waiting-time or strategic objectives. A broadly applicable weighted temporal-tree dynamic-programming theorem could subsume the claim; this is recorded as residual risk and not ruled out by mere title mismatch.",
+      "searches": [
+        "On Computing Optimal Temporal Branchings and Spanning Subgraphs Bubboloni Catalano Marino Silva 2023",
+        "Computing Temporal Reachability Under Waiting-Time Constraints in Linear Time Brunelli Viennot",
+        "The Convergence of Iterative Delegations in Liquid Democracy in a Social Network Escoffier Gilbert Pass-Lanneau"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2307.12898v1",
+      "https://arxiv.org/abs/2312.11390",
+      "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SAND.2023.4",
+      "https://arxiv.org/abs/1904.05775",
+      "Local maxima determine temporal zero forcing on injectively timed paths (temporal path forcing, not delegation optimization).",
+      "Oriented-tree general position as a Greene--Kleitman two-family (poset structural problem, not time-conscious welfare).",
+      "Exact logarithmic switching lifetime near a nonfreezing seven-agent confidence system (switching dynamics, not voting delegation)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Initiating paper Theorem 1 NP-hard general welfare, Theorem 2 polynomial only when temporal constraints removed, Theorem 4 when confluence removed, Theorem 5 exponential in delegators under retrospective trust.",
+        "The present proof works for arbitrary time-dependent trust but requires a fixed single-parent tree, and supplies an explicit O(S log S) envelope."
+      ],
+      "reasoning": "General NP-hardness does not imply impossibility on the fixed tree; general path algorithms do not guarantee one shared outgoing time per voter. Ordinary tree DP alone generally evaluates pairwise compatibility in quadratic size; combining interval geometry and weighted-stabbing sweeps yields the stated near-linear bound, with a distinct quantified scope.",
+      "searches": [
+        "Markakis Papasotiropoulos 2023 Theorems 1 through 5 time conscious confluent",
+        "Bubboloni temporal branchings 2023 optimal waiting time",
+        "general tree constraint max sum DP plus weighted interval stabbing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Markakis--Papasotiropoulos 2023 sections 2-3 and Appendix A, arXiv:2307.12898v1; definitions of confluence, time-consciousness and general hardness.",
+        "A search of public mathematical research records returned no covering named result; none discusses these simultaneous hierarchy constraints."
+      ],
+      "reasoning": "Equivalently a max-sum tree constraint problem with each directed edge having compatibility pairs defined by s-delta(s) <= t <= s. Generic tree CSP DP is known, but does not itself state a contiguous feasible-time projection or an O(S log S) all-scores algorithm under arbitrary nonmonotone horizons.",
+      "searches": [
+        "time conscious confluent temporal liquid democracy rooted tree delegation interval dynamic programming optimal utility trust horizon arbitrary time",
+        "Markakis Papasotiropoulos 2023 time conscious delegation fixed hierarchy O(S log S) max weighted intervals parent",
+        "time-label feasible projections contiguous interval arbitrary backward waiting time rooted tree welfare 2023",
+        "temporal hierarchical delegation arbitrary trust horizons weighted interval max envelope"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The records search returned no matching finite table or identical formula; most similar entries are temporally labeled zero forcing and unrelated tree poset results."
+      ],
+      "reasoning": "The claim is an infinite-family optimization/interval theorem, not a numerical table or finite count. No equivalent record identified; absence alone is not evidence of novelty.",
+      "searches": [
+        "time conscious confluent temporal liquid democracy rooted tree delegation interval dynamic programming optimal utility trust horizon arbitrary time",
+        "Markakis Papasotiropoulos 2023 time conscious delegation fixed hierarchy O(S log S) max weighted intervals parent"
+      ]
+    },
+    "rationale": "The complete initiating article proves general computational hardness and several relaxations but not the fixed-tree interval-feasibility/near-linear welfare theorem. The candidate is not simply another path-reachability statement: it optimizes common action times for a single confluent hierarchy under arbitrary nonmonotone temporal trust and local time-indexed utilities. No covering mathematical-record or relevant source statement was identified. Priority uncertainty persists for general interval-valued tree-constraint optimization literature and inaccessible full texts.",
+    "residual_risks": [
+      "An equivalent abstract tree-CSP plus weighted interval-stabbing formulation may exist independently.",
+      "The primary full text of Bubboloni et al. was inaccessible, and only its abstract was compared.",
+      "Other dynamic-tree delegation and temporal-waiting-time works may contain stronger applicable algorithmic statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No same interval hierarchy theorem or near-linear all-score algorithm; explicitly motivates further tractable restricted families.",
+        "evidence": [
+          "Time-conscious condition t_i >= t_(i+1) >= t_i-delta(v_i,t_i) in Section 2.",
+          "Theorems 1-5 and Appendix A, plus Section 4 future directions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2307.12898v1",
+        "material_read": "Full accessible HTML: Sections 1-4, formal definitions in Section 2, all five theorem statements and Appendix A proofs, plus conclusion.",
+        "method": "Read original paper HTML and compared exact model and all five claimed implications.",
+        "title": "As Time Goes By: Adding a Temporal Dimension Towards Resolving Delegations in Liquid Democracy",
+        "trigger": "Initiating model with time-consciousness, confluence, utility and general complexity"
+      },
+      {
+        "assessment": "Not established as covering: investigates temporal branchings and travel criteria, rather than common trust-window action labels and additive delegation scores. Full-text priority risk remains.",
+        "evidence": [
+          "Abstract lists FT, LD, MT, MW, ST optimal temporal out-branchings; no hierarchy trust-horizon theorem described."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.11390",
+        "material_read": "Public paper abstract and dated bibliographic record; primary full text access attempted but not obtained.",
+        "method": "Compared available stated objectives and model; sought arXiv HTML.",
+        "title": "On Computing Optimal Temporal Branchings and Spanning Subgraphs",
+        "trigger": "Potential broad temporal branching/optimization coverage"
+      },
+      {
+        "assessment": "Source addresses time-constrained reachability, not shared time choices or utility maximization; cannot exclude an implicit reduction in unread text.",
+        "evidence": [
+          "Abstract states single-source temporal reachability of nodes and edges in linear time."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SAND.2023.4",
+        "material_read": "Publication landing page abstract, keywords, cited earlier algorithms; did not access all 11 pages.",
+        "method": "Compared exact source single-source reachability with global confluent weighted action assignment.",
+        "title": "Computing Temporal Reachability Under Waiting-Time Constraints in Linear Time",
+        "trigger": "Potential linear-time waiting-time propagation overlap"
+      },
+      {
+        "assessment": "Optimizes static delegation equilibria, not time-conscious fixed-parent action labels.",
+        "evidence": [
+          "Abstract describes tree equilibrium and satisfaction DP, without time-indexed trust horizons."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.05775",
+        "material_read": "Accessible dated abstract; full paper not inspected.",
+        "method": "Compared static strategic equilibrium problem and tree algorithms against temporal confluence.",
+        "title": "The Convergence of Iterative Delegations in Liquid Democracy in a Social Network",
+        "trigger": "Potential tree-social-network dynamic-programming coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "255f8729-f9ea-47eb-98ce-ad7636c9b2fa",
+  "value": {
+    "rationale": "Time-consciousness and confluence are the two central desiderata of the source voting framework, whose combination with utility optimization is hard generally. A fixed referral hierarchy with stable uninterrupted approval is a motivated organizational restriction; the result supplies the exact remaining eligibility of every subtree and a near-linear utility-optimal assignment despite arbitrary changes in trust horizons, plus a small example explaining why local path checks alone are inadequate. The improvement is not a mere numeric constant and the full nonmonotone input family is natural.",
+    "status": "PASS"
+  }
+}
