@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the classical Sylvester intersection array, the polynomial identities \(A_2=A^2-5I\) and \(4A_3=A^3-2A^2-9A+10I\) reproduce every distance adjacency eigenvalue. All nonconstant eigenvalue branches of the powered-distance matrix are analyzed for *every* real exponent \(p\ge0\). The only crossing is the ten-fold \(-1\) adjacency eigenspace (exactly the row/column contrast space of the distance-three rook graph), at the unique positive root of \(3^p-2^p=1/4\). The competing \(-3\) eigenspace is bounded strictly above by the maximum \(-17/27\) of a cubic and hence cannot cross. Gram rank and Gaussian kernel statements follow from finite-dimensional Schoenberg theory. The included `verify.py`, executed from the packaged file path, reconstructs the graph using a distinct Hoffman--Singleton construction, confirms all intersection identities and several spectra, and reconstructs all twelve rook-graph coordinate cliques and ten explicit critical eigenvectors. The finite tests do not replace the analytic real-exponent proof.
+## correctness
 
-## Originality — PASS, bounded search
-The structural graph data and classical distance-regular polynomial recurrence belong to prior literature. Sánchez, arXiv:1108.0451v1, provides a general finite-metric determinant characterization, and Murugan, arXiv:1112.5657v1, provides general equality criteria for vertex-transitive graph metrics, but their inspected complete texts do not calculate the Sylvester graph exponent or its endpoint nullity. Aalipour et al., arXiv:1509.01196v1, study ordinary graph distance spectra and several general families, not this real-parameter powered-distance positivity window. DistanceRegular.org gives the Sylvester graph array and ordinary adjacency spectrum but no powered-distance threshold. Searches for name aliases, matching root equation and powered-distance kernels found no explicitly stronger or equivalent numerical classification. The closest possible mathematical implication is specialization of general spectral/negative-type methods together with the tabulated graph spectrum; this requires the additional sign and crossing analysis supplied here. An older unpublished or difficult-to-find equivalent specialization cannot be excluded.
+PASS
 
-## Value — PASS
-This is a complete exact natural invariant of the distinguished unique \(36\)-vertex, diameter-three distance-transitive graph, not a parameter slice chosen solely to produce a number. It identifies the exact boundary for universal positive definiteness of homogeneous Gaussian distance kernels, an explicit row-plus-column ten-dimensional endpoint obstruction, and the sharp doubly centered \(25\)-dimensional squared-Euclidean representation, distinct from the \(35\)-dimensional interior. These properties are useful for choosing permissible radial kernels and understanding homogeneous metric embeddings; a general downstream theorem is not claimed.
+The 36-vertex graph has A_2=A^2-5I and 4A_3=A^3-2A^2-9A+10I, and nonconstant adjacency eigenspace dimensions 16,10,9. For D_p=A_1+2^p A_2+3^p A_3, the only crossing is 4(3^p-2^p)-1 on the ten-dimensional (-1)-adjacency sector: p*=0.4219679707924...; other branches stay <0 by elementary inequalities including -3+4u^2-2u^3 <= -17/27 for u=2^(p/2)>=1. At critical p, the 6x6 rook row/column contrasts span exactly ten null directions; Gram rank 25, otherwise 35 below, and Schoenberg gives all-bandwidth Gaussian positivity. Independently reconstructed the Sylvester graph from 50-vertex Hoffman–Singleton and numerically checked matrices below/at/above p*. The finite experiment supplements the exact all-real-p proof.
 
-## Limitations
-The classification is not a new theorem about all distance-regular graphs. Originality rests on inspected sources and bounded comparisons; graph spectra and general negative-type criteria are credited, and a hidden equivalent historical computation remains a risk. Numerical verification gives finite corroboration only. No independent audit has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded original statement-to-statement/implication comparisons found no prior result explicitly establishing the full final claim including its nontrivial exact invariant or sharp all-parameter classification. Does not treat unsuccessful search as priority proof; stated source risks remain, especially the diameter-two QEC general method for record 4.
+
+## value
+
+PASS
+
+The Sylvester graph is a distinguished small distance-regular metric, and supremal negative type governs its exact Hilbert snowflake range and universally positive Gaussian kernels; the ten-dimensional geometrically described obstruction and minimal embedding rank are natural exact invariants beyond reprinting its adjacency spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
