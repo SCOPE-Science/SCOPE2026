@@ -1,0 +1,11 @@
+# Review of the joint crossing–nesting Gaussian limit
+
+**Correctness — PASS.** The matching law is represented exactly by independent continuous endpoint pairs; the explicit conditioning formulas give the first-projection covariance matrix \(\operatorname{diag}(1/45,1/45)\). The bounded degenerate second-order remainder has variance \(O(n^2)\), so an ordinary vector CLT proves convergence to independent Gaussian coordinates. The finite correlation \(-5/[2(n+3)]\) is obtained by exact covariance decomposition. The reproducibility code checked \(105\) exact assertions, including complete enumeration through seven chords; it does not substitute for the infinite proof.
+
+**Originality — PASS, with priority risk.** The known joint continued fraction in Kasraoui–Zeng (2006, Proposition 3.8) encompasses every finite joint moment and therefore dominates the finite covariance formulas. No novelty is assigned to those moments or to separate marginal Gaussian limits. Klazar's symmetry, Flajolet–Noy's marginal crossing limit, Paguyo's marginal normal approximation, and Baik–Jenkins's asymptotic independence of *maxima* do not themselves assert the joint independent-Gaussian limit for *pair counts*. Féray's pattern theorems treat a different uniform set-partition model. The explicit first-projection cancellation and the joint limit are the assessed contribution; an unlocated earlier bivariate asymptotic treatment remains possible.
+
+**Value — PASS.** This determines the joint fluctuation law for two historically paired natural chord-diagram statistics, resolving why strict finite-sample negative covariance coexists with independent limiting fluctuations. The diagonal covariance is a nonautomatic structural cancellation; single-coordinate central limit results and finite symmetry alone do not yield it. No convergence rate or broader model class is asserted.
+
+Closest literature: Klazar (2005), https://arxiv.org/abs/math/0503012; Kasraoui and Zeng (2006), https://arxiv.org/abs/math/0601081; Flajolet and Noy (2000), DOI 10.1007/978-3-662-04166-6_17; Paguyo (2021), https://arxiv.org/abs/2104.01134; Baik and Jenkins (2011), https://arxiv.org/abs/1111.0269; Féray (2018), https://arxiv.org/abs/1811.03923.
+
+Self-review: passed. Independent audit: not yet performed.
