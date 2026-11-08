@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification
-The analytic proof identifies the exact domain of the covariance operator, its trace-class property, the eigenvalue product and its convergence, the CP-divisibility equivalence for invertible qubit phase-damping maps, and a stationary finite-correlation Gaussian counterexample for each sign-changing modulation. These are mathematical deductions and not numerical extrapolations.
+# Independent mathematical audit
 
-The standalone Python 3/NumPy file `verify_quadratic_dephasing.py` was executed with environment `OPENBLAS_NUM_THREADS=1`. It reported 480 fixed-sign monotonicity comparisons on 40 independently seeded random continuous-covariance-inspired discretizations, 18 echo and static-limit comparisons (including five strictly positive Ornstein–Uhlenbeck relaxation rates and three couplings), and 20 complex-determinant cross-checks, a total of 518 successful finite checks. Its tests use positive-semidefinite, possibly oscillatory kernels. The finite tests do not establish the infinite-dimensional all-baths theorem; that theorem rests on the proof.
+## correctness
 
-The physical model assumes classical centered real Gaussian quadratic noise, a bounded deterministic control, and a finite observation interval. Each stationary Ornstein–Uhlenbeck process used for necessity has finite positive relaxation rate. An independent audit has not been performed.
+PASS
+
+PASS. Read frozen RESULT.md and verify_quadratic_dephasing.py. Covariance C trace-class and bounded real g make B_t=C^(1/2)M_{g1[0,t]}C^(1/2) self-adjoint trace class; Gaussian quadratic determinant gives |F|=∏(1+4κ²λ_j²)^(-1/4)>0. One-sign control gives monotonic Loewner B_t or -B_t, hence modulus nonincreasing and CP-divisible invertible qubit maps. If g changes sign on positive measure, |∫_0^t g| must decrease between two times; rank-one Gaussian bath witnesses strict revival and stationary OU σ²exp(-ε|t-s|) with ε>0 approximates it in L², preserving strictness. Checked scalar characteristic modulus; finite covariance matrix tests do not prove all-covariance statement.
+
+## originality
+
+PASS
+
+PASS at best knowledge. Determinants, quadratic noise, dynamical decoupling echoes and the phase-damping CP test predate this work. The inspected Cai and Cywiński sources evaluate selected noise/control models, not the quantified all-continuous-Gaussian-covariance iff plus mixing OU necessity construction. General positive-kernel theory could imply sufficient direction.
+
+## value
+
+PASS
+
+PASS. Precise robustness boundary for bath-independent qubit CP-divisibility with physically nondegenerate finite-memory counterexample is a meaningful natural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

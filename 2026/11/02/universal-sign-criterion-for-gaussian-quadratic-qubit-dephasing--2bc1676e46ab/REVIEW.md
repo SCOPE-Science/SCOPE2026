@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The trace-class Gaussian covariance representation, self-adjoint quadratic-form determinant, positive Loewner family for fixed-sign modulation, min–max eigenvalue monotonicity, and qubit dephasing-channel CP criterion jointly give the forward direction for every admissible Gaussian bath. Every sign-changing bounded modulation has a decrease in the absolute primitive; a static Gaussian witness gives a strict coherence revival, and a coupled stationary Ornstein–Uhlenbeck process with arbitrarily slow **positive** relaxation preserves it. The all-quantifier steps are analytic, not inferred from simulation. The standalone program passed 518 finite checks, with a fixed random seed and independent determinant comparison.
+## correctness
 
-## Originality — PASS, subject to residual priority risk
-Cai et al. (arXiv:2407.06074) explicitly analyze quadratic noise for chosen OU/telegraph processes; Cywiński (arXiv:1308.3102) investigates qubit dynamical-decoupling switching functions with quadratic Gaussian noise; Norris et al. (arXiv:1512.01575) analyze qubit non-Gaussian noise spectroscopy. Their cited physical objects, pulse-induced echo, Gaussian quadratic determinants, and fixed-bath behaviors are not new here. The evaluated distinction is a sharp **universal covariance-quantified** CP-divisibility iff for all bounded modulations, with a finite-memory mixing witness for each forbidden control. published-finding corpus and primary literature comparisons uncovered no same full claim. The strongest residual risk is that a more general mathematical or quantum-control theorem outside the inspected sources implies this classification; no publication-priority guarantee is given.
+PASS
 
-## Mathematical value — PASS
-Bath-independent dephasing divisibility is a mathematically meaningful and physically motivated robustness criterion; allowing arbitrarily correlated Gaussian baths makes the control classification nontrivial. The converse remains physically pertinent because it uses mixing stationary Gaussian noise rather than infinite-memory quenched disorder. The theorem gives a full control-sign boundary and highlights why decay observed for one bath does not prove robustness for every bath.
+PASS. Read frozen RESULT.md and verify_quadratic_dephasing.py. Covariance C trace-class and bounded real g make B_t=C^(1/2)M_{g1[0,t]}C^(1/2) self-adjoint trace class; Gaussian quadratic determinant gives |F|=∏(1+4κ²λ_j²)^(-1/4)>0. One-sign control gives monotonic Loewner B_t or -B_t, hence modulus nonincreasing and CP-divisible invertible qubit maps. If g changes sign on positive measure, |∫_0^t g| must decrease between two times; rank-one Gaussian bath witnesses strict revival and stationary OU σ²exp(-ε|t-s|) with ε>0 approximates it in L², preserving strictness. Checked scalar characteristic modulus; finite covariance matrix tests do not prove all-covariance statement.
 
-## Scope and verification limits
-Results concern classical centered quadratic Gaussian dephasing, commuting qubit dynamics and finite horizons. They do not assert multi-time process tensor Markovianity, entanglement dynamics, noise spectroscopy completeness, quantum bath back-action, or uniform decoherence for a sign-changing control in each individual covariance. Independent scientific validation and exhaustive priority search remain pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS at best knowledge. Determinants, quadratic noise, dynamical decoupling echoes and the phase-damping CP test predate this work. The inspected Cai and Cywiński sources evaluate selected noise/control models, not the quantified all-continuous-Gaussian-covariance iff plus mixing OU necessity construction. General positive-kernel theory could imply sufficient direction.
+
+## value
+
+PASS
+
+PASS. Precise robustness boundary for bath-independent qubit CP-divisibility with physically nondegenerate finite-memory counterexample is a meaningful natural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
