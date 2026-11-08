@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Cyclic unit groups give the exact k-th-power images modulo prime powers of 3 and 2; the target M modulo 3^(s+2) supplies a universal lower obstruction; Cauchy--Davenport together with one-variable Hensel lifting gives at most k+1 powers at every prime >=5; CRT proves the global equivalence. The proof treats a<=s+1 separately and explicitly uses k>=s+2. Exact integer checks across 105 prime powers and 458 moduli passed, but the infinite inference uses the symbolic proof alone.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alnaser--Cochrane 2008, introduction eq. (1) and main Theorems 1--3 give broad upper estimates.",
+        "Alnaser et al. 2020, Section 3 gives a universal odd-prime-power upper bound but not an identical exact global extremal-locus classification.",
+        "Alnaser--Cochrane 2008, p.2 describes Small 1977 as providing a general procedure; its full text was unavailable."
+      ],
+      "reasoning": "General bounds do not alone imply exactness without the lower obstruction and identification of the sole extremal prime. This proof supplies those arguments. Small 1977 remains a plausible stronger prior source and is named as an unresolved risk.",
+      "searches": [
+        "Alnaser Cochrane 2008 Waring number mod m Theorem 1 and local bounds",
+        "Alnaser Cochrane Ostergaard Spencer 2020 diagonal congruences Section 3",
+        "Charles Small Solution of Waring Problem Mod n general procedure 1977"
+      ]
+    },
+    "checked_sources": [
+      "Arias, Borja, Anaya, J. Integer Sequences 26 (2023), Article 23.8.1, especially Table 3.",
+      "Alnaser and Cochrane, J. Number Theory 128 (2008), Eq. (2), Theorems 1--3, Sections 2--3.",
+      "Alnaser, Cochrane, Ostergaard, Spencer, Rocky Mountain J. Math. 50 (2020), Sections 1--5.",
+      "Charles Small (1977), both Monthly papers: citations and partial abstract only; full texts not accessible."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alnaser--Cochrane 2008, p.1, equation (2) literally gives M-1 for k=2*3^s at a>=s+1.",
+        "At s=1 and a=3, the proved obstruction and direct exhaustive enumeration give gamma(6,27)=9, while the literal 2008 equation would yield 8.",
+        "Arias--Borja--Anaya 2023 Table 3 independently records gamma(6)=9."
+      ],
+      "reasoning": "Because the printed 2008 statement differs from the proposed exact result in the sharp regime, it is not a covering implication as written. A typo, corrected edition, or overlooked derivation of the exact case elsewhere remains an explicit residual risk. Comparisons are of the statements and their hypotheses, not only titles.",
+      "searches": [
+        "Alnaser Cochrane 2008 equation (2) gamma(p^e-p^(e-1),p^n) any n>=e",
+        "Arias Borja Anaya 2023 gamma(6)=9 Table 3",
+        "Alnaser et al 2020 kth power modular gamma primitive vs ordinary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The definition of the ordinary modular Waring number agrees with Arias--Borja--Anaya 2023, Section 7 and Table 3.",
+        "Alnaser--Cochrane 2008, Section 2 separates ordinary and primitive/unit-based Waring counts, whose quantifiers are different."
+      ],
+      "reasoning": "Compared ordinary gamma(k,N), prime-power local gamma(k,p^a), primitive-summand gamma-star, and global supremum. A primitive-unit bound does not automatically provide the claimed sharp global locus.",
+      "searches": [
+        "\"gamma(18)\" \"27\" \"Waring\" modular",
+        "\"gamma(54)\" \"81\" \"Waring\" modulus",
+        "\"2*3^s\" \"Waring\" \"mod\"",
+        "Waring number modulo prime powers cyclic unit kth power images 3-adic threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Arias--Borja--Anaya 2023 Table 3 reports only gamma(6)=9 among the present parameter family and gives k<=9.",
+        "Exact program output in checks/exact_enumeration.txt gives matching k=6 and verifies additional exponents at finite moduli."
+      ],
+      "reasoning": "The 2023 table does not list general s, the strict divisor criterion, or the complete 3-adic profile. The finite verification is not substituted for originality evidence.",
+      "searches": [
+        "Arias Borja Anaya 2023 Table 3 gamma(k) k=2 to 9",
+        "\"gamma(18)\" \"27\" modular Waring table",
+        "\"gamma(54)\" \"81\" Waring table"
+      ]
+    },
+    "rationale": "The specific global all-moduli divisibility threshold and entire exponential family are not stated in the inspected modern primary sources. The 2023 table contains only the exponent-six value; the 2008 introductory equation is contrary rather than an equivalent covering theorem at the first higher ternary level. This judgment is conditional on accessible literature and does not establish absolute priority.",
+    "residual_risks": [
+      "Small 1977 follow-up and preceding paper were not accessible in full and might imply the claimed specialization.",
+      "The discrepancy with Alnaser--Cochrane 2008 Eq. (2) needs source-level interpretive and erratum review; the literal printed equation is inconsistent with the demonstrable obstruction.",
+      "Later, unindexed or unpublished equivalent specializations cannot be ruled out by indexed searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The only tabulated member of the present family is exponent 6; no exact infinite sharp threshold located in inspected sections.",
+        "evidence": [
+          "Table 3 lists gamma(6)=9 and only k=2 through 9.",
+          "Footer dates publication to 2023-08-28, MSC primary 11A07."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf",
+        "material_read": "Introduction defining modular sums, the modular Waring discussion in later sections, Table 3 and article bibliographic footer",
+        "method": "Open-access full PDF with parsed text and rendered page 16",
+        "title": "Counting Integers Representable as Sums of k-th Powers Modulo n",
+        "trigger": "2023 middle-period primary motivating article, same ordinary modular Waring number"
+      },
+      {
+        "assessment": "The printed Eq. (2) has a higher-prime-power discrepancy with the present sharp statement; main text supplies general estimates and lifting framework, not the exact corrected locus.",
+        "evidence": [
+          "Equation (2) prints M-1 for all n>=e in the p=3, k=phi(3^e) specialization.",
+          "Theorem 1 excludes exponents divisible by (p-1)/2, so cannot directly yield this p=3 equality.",
+          "The paper specifically says Small gave a procedure and treated special cases."
+        ],
+        "identifier_or_url": "https://www.math.k-state.edu/~cochrane/research/waringmodm.pdf",
+        "material_read": "Opening definitions, Eq. (1)--(2), Theorems 1--3, discussion of Small, primitive variants and local lifting lemma",
+        "method": "Open-access full PDF, extracted mathematical statements and rendered first page",
+        "title": "Waring's Number Mod m",
+        "trigger": "Direct same-object, same-parameter foundational article"
+      },
+      {
+        "assessment": "Contains stronger quantified coefficient problems and general upper bounds, but not the exact global threshold or ternary one-step jump.",
+        "evidence": [
+          "Section 3 states general odd-prime-power gamma bounds.",
+          "Section 5 provides the lifting lemma relevant to nonzero variables."
+        ],
+        "identifier_or_url": "https://www.math.ksu.edu/~cvs/alnaser_cochrane_ostergaard_spencer-diagonal_cong.pdf",
+        "material_read": "Definitions, Theorem 2.1, Section 3, Cauchy--Davenport bounds, and Hensel lifting Section 5",
+        "method": "Open author-hosted PDF, sections read via parsed text",
+        "title": "Waring Numbers for Diagonal Congruences",
+        "trigger": "Subsequent same-author potentially stronger local estimates"
+      },
+      {
+        "assessment": "NOT_EXCLUDED. Original paper potentially bears on general algorithmic determination.",
+        "evidence": [
+          "AMS 1975 preliminary abstract describes complete results for low exponents and partial ones for larger exponents."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00029890.1977.11994269",
+        "material_read": "Journal title/bibliography and AMS preliminary abstract of partial higher-exponent results; not the original full article",
+        "method": "Open bibliographic and archive-search material; full PDF inaccessible",
+        "title": "Waring's Problem Mod n",
+        "trigger": "Small 1977 original general modular Waring method"
+      },
+      {
+        "assessment": "NOT_EXCLUDED. Exact implications could not be compared to full text.",
+        "evidence": [
+          "Publisher record identifies 1977 Monthly follow-up pages 356--359."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00029890.1977.11994355",
+        "material_read": "Publisher metadata and citations only; original text inaccessible",
+        "method": "Open bibliographic search, arXiv/OA attempts and original full text not retrievable from open sources",
+        "title": "Solution of Waring's Problem Mod n",
+        "trigger": "Plausible all-exponent algorithm or stronger exact theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b364881e-e91f-4737-b3fb-c60c9719f39f",
+  "value": {
+    "rationale": "The exact global maximal modular Waring number is identified for an unbounded family of exponents and, beyond isolated local values, its entire sharp modulus locus is determined by a precise 3-adic divisibility condition. The exceptional one-step jump and uniform dismissal of every other prime form a motivated structural classification extending the 2023 table entry at exponent 6.",
+    "status": "PASS"
+  }
+}
