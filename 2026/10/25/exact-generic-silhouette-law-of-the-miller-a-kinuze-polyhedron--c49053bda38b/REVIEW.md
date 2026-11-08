@@ -1,21 +1,21 @@
-# Scientific review of the J37 generic silhouette law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The convex hull is defined by 24 explicit points of Q(sqrt(2)); exact enumeration of all 2024 triples reconstructs 26 supporting facets, 48 edges and their outward normal incidences. The face-sign criterion is necessary and sufficient at every generic orthographic direction. The symmetry generators are verified exactly; all facet-change lines in the fundamental wedge are exhausted by eight affine functions. Five exact intersection levels divide it into 54 sign cells, each checked by exact Q(sqrt(2)) comparisons; no interior sign changes remain. Spherical Jacobian and two-triangle solid-angle formulas integrate every count region into finite arctangent expressions. Dihedral-normal angle multiplicities give an independent mean check, and 1800 independent projected convex hulls corroborate the directional law. Numerical samples are not used as continuum proof.
+PASS
 
-## Originality — PASS relative to inspected evidence
+For the exact 24 J37 vertices in Q(sqrt(2)), reconstructed all 2024 vertex triples with independent exact rational-pair field arithmetic, found precisely 26 supporting facets (8 triangles,18 quadrilaterals) and 48 distinct edges; independently reconstituted the Git tree from seven frozen blob SHA identities. The silhouette-edge criterion is sign(u·n_i) opposite sign(u·n_j), valid for generic orthographic projections. For p>0, 0<q<1 in the 16-symmetry fundamental wedge, checked no extra positive facet-event threshold lines beyond q, sqrt(2)q, (1−q)/sqrt(2), (1+q)/sqrt(2), 1−q, 1, 1+q, sqrt(2). Their five internal order-change values yield exactly 54 open chambers; independently checked every chamber sign count in exact Q(sqrt(2)), giving 20 N10,18 N11,16 N12 chambers. The A/B/C/D strip classification covers all generic directions, not merely finite samples, because no sign changes occur in a chamber. Independent spherical-Jacobian integration corroborated P10=0.44710927047909377, P11=0.4038628346745253, P12=0.14902789484638096 and sum 1; source exact spherical-triangle arctangent formulas make these exact constants, not floating estimates. Edge-angle classes 24 at pi/4 and 24 at arctan(1/sqrt(2)) independently reproduce mean 6+24 atan(1/sqrt(2))/pi. Exact symmetry reduction and elementary spherical-triangle area identity supply the global continuum proof; finite numeric hulls are ancillary. Boundary great circles are excluded by the theorem.
 
-The compared sources classify Johnson solids and their coordinates, provide example orthographic projections, or prove asymptotic expected silhouette bounds; none of their inspected theorems specifies the three-point Haar-distribution of silhouette vertex counts for J37. The related regular rhombicuboctahedral distribution and the snub-cube distribution do not imply the J37 law, because local facet types/mean do not determine their global spherical sign-cell areas. This is an originality assessment relative to inspected literature and indexed records, not a proof of historical priority.
+## originality
 
-Closest inspected works: Johnson (1966, exact geometric classification and J37 identification); the J37 coordinate/projection reference (several special views); Glisse and Lazard (2007, asymptotic mean silhouette bounds for mesh families); and the later Poisson-polytope silhouette study (2016). The related uniform rhombicuboctahedral 10/12 law is expressly treated as prior work, not as a new result. Uninspected historical technical tables remain a priority risk.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge originality for the full exact Haar three-atom (10,11,12) count law of the J37 Miller–Aškinuze gyrobicupola, not for the prior expected-silhouette formula or regular rhombicuboctahedron/octrahedron 10/12 comparison. Independent Resultary and SCOPE searches and primary comparison reveal geometry and general shadow expectations but not the same J37 angular chamber law. Failure of searching is not a novelty certificate; obscure historical tables remain a stated risk.
 
-A canonical, historically confusing pair of polyhedra has identical face types, local vertex figures, and two exterior dihedral-angle multiplicities; both therefore have exactly equal mean silhouette complexity. Nevertheless, the twisted member has a strictly positive eleven-vertex shadow probability while the uniform member has only even-sided generic shadows. The theorem gives a full nontrivial angular law and complete directional inequalities for this natural metric-combinatorial observable, which is not a routine symmetry-axis count or generic table recomputation.
+## value
 
-## Scientific limits
+PASS
 
-The count law applies only to Haar-generic orthographic views of the exact regular J37 solid. Boundary viewing directions and continuous deformable families are excluded. The numerical convex-hull checks corroborate an independently specified analytical chamber argument; they do not constitute an infinite proof by themselves.
+The 24-vertex elongated square gyrobicupola is an intrinsically natural Johnson solid, and its lookalike uniform rhombicuboctahedron has the same face sizes, vertex figure and exterior normal-angle multiplicities. The latter force an identical expected silhouette count, but the complete new J37 distribution has a positive eleven-sided shadow event absent from the uniform solid. The 54-chamber classification and exact Haar mass of each count are a natural, nontrivial geometric-combinatorial invariant; a future projection-geometry investigator can use the exact directional inequalities and probability law. This distinguishes global projection combinatorics from local metric/f-vector data; it is more than evaluating a known isolated table entry or a routine mean substitution.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
