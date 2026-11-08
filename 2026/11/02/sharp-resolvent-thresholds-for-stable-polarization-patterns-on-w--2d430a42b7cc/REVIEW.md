@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The assumptions specify a finite connected symmetric positive-weight graph, strong enough central slope, and strictly interior clipping radius. The energy is continuously differentiable and strictly decreases off equilibria. Every asymptotically stable equilibrium must be a local energy minimum, yet every point with at least one central or kink coordinate has strictly negative curvature along a permissible one-coordinate displacement. Remaining equilibria have uniquely determined resolvent states for their plateau signs and negative-definite Jacobian. The row-stochastic resolvent argument proves both directions of the sharp diagonal criterion, including necessity through one-dissenter patterns. The normalized bipartite quotient and explicit star computations were checked with exact fractions. The finite checker passed 117 cases; it is not presented as a universal proof.
+PASS
 
-## Originality
+For finite connected undirected positive weighted graphs, b>0 and 0<epsilon<b/(b+dmax), the clipped-sign flow is negative gradient of E(x)=x^TLx/2+b||x||²/2-b sum F_epsilon(x_i). At central or kink coordinate the inward central second derivative d_i+b-b/epsilon<0, contradicting local minimum at an attracting equilibrium, so all attracting states occupy strict plateaus. There x=H_b s with H_b=b(L+bI)^-1 strictly positive row stochastic. Stationarity and -L-bI local Jacobian imply exact if-and-only-if count by s_i(H_b s)_i>epsilon. A single dissenter i is stable iff H_ii>(1+epsilon)/2, and all 2^n patterns attract iff the least H_ii crosses this strict cutoff. On K1,5 with b=2,epsilon=1/10, H_hub=3/8<11/20 and H_leaf=17/24>11/20, yielding leaf-only but not hub-only stable dissent. This classifies asymptotically stable equilibria, not basins, other states or out-of-regime dynamics.
 
-PASS, subject to stated residual risk. AlMahmoud–Mallmann-Trenn (arXiv:2410.09225v1) contains the same continuous-time model and clipped-sign function, but its exact sign-state classification is for complete networks, and its two-block section uses asymptotic approximations. The present theorem classifies *all attracting equilibria on every finite weighted symmetric graph* by a diagonal-resolvent inequality, with an if-and-only-if all-pattern threshold and vertex-dependent isolated dissenter survival. The Candogan et al. earlier model is a plausible comparison; only abstract-level material could be accessed, so potential hidden coverage is not ruled out. Duncan et al. concern steep edge nonlinearities in a different regulatory-network system; no direct dominating claim was found. The reviewed comparison is based on propositions and implications, not merely title similarity or a failed keyword search.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The finite-network model has a natural unresolved question: what graph structures and feedback strengths permit simultaneous attracting minority/dissent patterns? A single graph-resolvent diagonal gives an exact global *multistability-count threshold*, avoiding exhaustive dynamical integration of every sign configuration. The star example shows degree-position asymmetry, making the new criterion structurally and practically meaningful rather than a routine name change; complete-bipartite formulas permit further population-imbalance analysis. This is an exact, self-contained finite-network classification, not an unsupported claim about real-world political behavior.
+The clipped-sign model and several equilibrium treatments originate in AlMahmoud and Mallmann-Trenn; earlier related platform influence literature is credited. In inspected open material, neither the exact arbitrary finite weighted graph attractor census nor sharp per-vertex resolvent threshold appears. Because the motivating primary full text was not accessible here, the O judgment is best of knowledge with a material priority risk, not blanket exclusion of prior coverage.
 
-## Limits and closest literature
+## value
 
-The contribution is limited to asymptotically stable equilibria for homogeneous clipped self-feedback on finite symmetric weighted graphs in the explicit slope regime; basin volumes, other equilibria, and stochastic dynamics are not classified. Strongest comparator: AlMahmoud–Mallmann-Trenn (2024), Theorem 7 and Section 5. Other comparators: Candogan et al. (2022; full-text access limited), Duncan et al. (2021), and classical fixed-input graph-resolvent opinion models. Equivalence in unindexed literature or the inaccessible earlier full text remains a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gives a concrete exact stable-state count and sharp polarization onset for arbitrary finite symmetric weighted networks, distinguishing vertex roles even on a small star, a natural structural extension of previously studied symmetric/mean-field examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

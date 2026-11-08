@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T06:16:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md 7bbb75ed6dfe9f4b3199c31f42a60967008e0102 proof energy/resolvent/inequalities",
+        "Git verification/check.py c57c4040e75e39baa4c0b2519f52f91026fde7cb inspected for rational exact input checks",
+        "Independent SymPy rational resolvent inversions for 18 path/complete/star parameter instances; exhaustive <=64 sign vectors per instance; all-pattern and one-dissenter tests matched"
+      ],
+      "rationale": "For finite connected undirected positive weighted graphs, b>0 and 0<epsilon<b/(b+dmax), the clipped-sign flow is negative gradient of E(x)=x^TLx/2+b||x||²/2-b sum F_epsilon(x_i). At central or kink coordinate the inward central second derivative d_i+b-b/epsilon<0, contradicting local minimum at an attracting equilibrium, so all attracting states occupy strict plateaus. There x=H_b s with H_b=b(L+bI)^-1 strictly positive row stochastic. Stationarity and -L-bI local Jacobian imply exact if-and-only-if count by s_i(H_b s)_i>epsilon. A single dissenter i is stable iff H_ii>(1+epsilon)/2, and all 2^n patterns attract iff the least H_ii crosses this strict cutoff. On K1,5 with b=2,epsilon=1/10, H_hub=3/8<11/20 and H_leaf=17/24>11/20, yielding leaf-only but not hub-only stable dissent. This classifies asymptotically stable equilibria, not basins, other states or out-of-regime dynamics.",
+      "residual_risks": [
+        "Strict central slope is essential and not interchangeable with eps<1; no global basin theorem.",
+        "Original model primary paper full text could not be obtained (institutional VPN disconnected)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Candogan et al Theorem 2 concerns two-block stochastic social networks/large-population setting rather than exact arbitrary finite weighted graph plateaus.",
+          "Duncan et al study regulatory-network steep sigmoid switching, not the identical homogeneous self-feedback law."
+        ],
+        "reasoning": "Generality of topic is not implication between different differential equations; neither inspected theorem provides the min-diagonal exact iff for this setup.",
+        "searches": [
+          "arXiv:2202.12453 Social Learning under Platform Influence Theorem 2",
+          "arXiv:2103.17184 networks steep sigmoidal nonlinearities"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md original Git blob 7bbb75ed6dfe9f4b3199c31f42a60967008e0102",
+        "Verification script verification/check.py original Git blob c57c4040e75e39baa4c0b2519f52f91026fde7cb",
+        "Resultary semantic search with record-specific aliases and related published SCOPE records",
+        "Primary literature compared by statements and theorem assumptions; precise inspections listed separately"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known complete-graph and two-agent treatments are proper subfamilies of the claim, and are credited.",
+          "An all-graphs exact plateau-stability classification would imply these cases, but reverse implication is not valid."
+        ],
+        "reasoning": "The actual reviewed proof uses a new strong-slope local-minimum exclusion plus positive-resolvent sign inequalities; no stronger inspected prior statement was identified. Relevant uninspected primary article remains an unresolved bibliographic risk, not a correctness counterexample.",
+        "searches": [
+          "arXiv:2410.09225 Theorem 7 complete networks",
+          "arXiv:2202.12453 platform influence consensus persistent disagreement",
+          "arXiv:2103.17184 steep sigmoids"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "AlMahmoud and Mallmann-Trenn describe the same model and complete/low-dimensional cases; original full text not available in this run.",
+          "Resultary closest social-learning/stability matches use other models or finite specializations."
+        ],
+        "reasoning": "Equilibrium sign consistency is naturally a resolvent fixed-point condition; equivalence to an uninspected theorem in the original model paper remains an explicit risk.",
+        "searches": [
+          "arXiv:2410.09225 Harmonizing vs Polarizing Platform Influence Functions clipped sign",
+          "Resultary: stable equilibria clipped-sign social influence graph resolvent sign vectors diagonal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Specific six-vertex star has H_hub=3/8 and H_leaf=17/24; no matching previously published exact census table identified."
+        ],
+        "reasoning": "A graph-specific counterexample cannot alone prove novelty, but no searched catalogue gave the same all-graph criterion.",
+        "searches": [
+          "weighted graph resolvent exact number stable clipped opinion sign configurations table",
+          "Resultary: stable equilibria clipped-sign social influence graph resolvent sign vectors diagonal"
+        ]
+      },
+      "rationale": "The clipped-sign model and several equilibrium treatments originate in AlMahmoud and Mallmann-Trenn; earlier related platform influence literature is credited. In inspected open material, neither the exact arbitrary finite weighted graph attractor census nor sharp per-vertex resolvent threshold appears. Because the motivating primary full text was not accessible here, the O judgment is best of knowledge with a material priority risk, not blanket exclusion of prior coverage.",
+      "residual_risks": [
+        "Full text of same-model AlMahmoud–Mallmann-Trenn source inaccessible due authorized institution VPN, so historical originality remains qualified.",
+        "Unindexed equivalent formulation or dominating prior result remains possible; search failure alone is not priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known two-agent and complete-network equilibrium classifications are credited; absence of full text means equivalence to arbitrary weighted finite-graph stable-state threshold cannot be conclusively excluded.",
+          "evidence": [
+            "The abstract investigates platform-induced consensus/polarization; full-text unavailability is explicit originality risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.09225",
+          "material_read": "Abstract and accessible high-level result descriptions; original full PDF not available in this execution",
+          "method": "arXiv abstract and lawful OA attempts; authorized institutional retrieval returned vpn_disconnected",
+          "title": "Harmonizing vs Polarizing Platform Influence Functions",
+          "trigger": "Same clipped-sign platform model; key prior-work comparison"
+        },
+        {
+          "assessment": "Analyzed large-network social influence rather than all finite weighted graph strict-plateau census; not a direct implication.",
+          "evidence": [
+            "Theorem 2 concerns stochastic two-block population model; checked parameter assumptions differ."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.12453",
+          "material_read": "PDF opening setup, and Section with Theorem 2 on two-block random-graph population model",
+          "method": "Open-access PDF text and rendered pages",
+          "title": "Social Learning under Platform Influence: Consensus and Persistent Disagreement",
+          "trigger": "Possible broader exact theorem for platform-induced sign dynamics"
+        },
+        {
+          "assessment": "Broad steep sigmoid regulatory-network theory with different edge feedback structure; no inspected diagonal stochastic resolvent equivalence.",
+          "evidence": [
+            "The model uses regulatory interactions rather than the particular homogeneous self-response f_epsilon(x_i)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.17184",
+          "material_read": "Opening model and representative stability sections (rendered PDF opening and later theorem pages)",
+          "method": "Open-access PDF text and rendered pages",
+          "title": "Equilibria and their Stability in Networks with Steep Sigmoidal Nonlinearities",
+          "trigger": "Possible general domination by network switching-plateau theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "The exact object/invariant and structural classification in RESULT.md original Git blob 7bbb75ed6dfe9f4b3199c31f42a60967008e0102",
+        "The motivating prior theorem statements discussed in originality comparisons"
+      ],
+      "rationale": "Gives a concrete exact stable-state count and sharp polarization onset for arbitrary finite symmetric weighted networks, distinguishing vertex roles even on a small star, a natural structural extension of previously studied symmetric/mean-field examples.",
+      "residual_risks": [
+        "Narrow exact invariant carries no claim of major downstream theorem or universal utility; it is justified by natural metric/combinatorial object and nontrivial complete classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only finite connected undirected symmetric positive-weight graphs under strict eps<b/(b+dmax), not directed or heterogeneous self gains.",
+    "Full text of same-model AlMahmoud–Mallmann-Trenn source inaccessible due authorized institution VPN, so historical originality remains qualified."
+  ],
+  "schema_version": 1
+}
