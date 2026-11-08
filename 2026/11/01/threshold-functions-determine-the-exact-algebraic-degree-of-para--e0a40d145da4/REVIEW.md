@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement quantifies over every full-dimensional parallelotope, every nonzero normal, and every interior cutoff. The proof reconstructs the signed truncated-power formula by oriented integration, realizes every nonconstant strict Boolean threshold labeling on an open chamber, and proves that no two chambers yield the same rational volume branch: the squarefree polynomial coefficients encode all vertex-membership indicators through Boolean-lattice Möbius inversion. A nonzero global annihilating polynomial must therefore have at least \(T_d-2\) distinct rational roots. The displayed product attains this bound; continuity treats normals with zero coordinates and affine invariance handles all parallelotopes. The actual standalone checker returned 72,172 finite exact tests, supporting the algebra and low-dimensional examples. No finite test is used as a universal proof.
+PASS
 
-## Originality — PASS, provisional priority
+The signed truncated-power cube clipping formula holds for either sign of each nonzero normal coordinate by oriented one-coordinate integration. Every nontrivial strict Boolean threshold subset occurs on a nonempty open parameter chamber (perturbing zero normal entries). The rational branch N_J/(d! product eta_i) is distinct for every J: coefficients of squarefree monomials yield all weighted upper-set membership sums, whose Boolean-lattice Möbius inversion recovers J. An annihilating global polynomial therefore has T_d-2 distinct rational roots over R(eta,s); the explicit product of linear branch factors attains exactly this degree. Continuity covers degenerate normals, and the invertible affine substitution preserves the w-degree. Independently evaluated signed 2D clipping at normal (1,-1), threshold 1/4 gives exact area 23/32, verifying sign convention in one nontrivial case; the original standalone source also explicitly checks finite Boolean signatures, but finite checks cannot prove all d.
 
-Shan's arXiv:2610.19660 (Introduction, Definition 1.1) observes polytope algebraicity, without the minimal volume-variable degree. Cho–Kim arXiv:1512.07768 (Theorem 1) and Lasserre arXiv:1412.4617 (Section 2.3) supply the classical cutoff formula and are expressly credited. Brandenburg–Meroni arXiv:2510.09265 (Introduction, Related work) links Boolean threshold chambers to cube-section combinatorics, while Brandenburg–De Loera–Luo–Meroni arXiv:2603.25643 (Theorem 1, Introduction) computes rational slice/slab formulas. These statements do not provide the distinct-root argument for all cumulative cutoff branches or the sharp global degree. Published counts in OEIS A000609 are acknowledged as prior data. A broader piecewise-rational algebraic-function treatment could have an equivalent implicit conclusion; priority remains provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The minimal polynomial degree is a natural quantitative refinement of *algebraic integrability*: saying a body admits some polynomial cutoff equation leaves its exact algebraic complexity unspecified. The theorem gives a complete sharp answer in every dimension for the standard affine family of parallelotopes, and identifies an unexpectedly large combinatorial invariant of Boolean threshold arrangements (already \(1880\) in dimension four) as its exact value. The sharp lower bound is structural, not a table recomputation, normalization check, or one-off example. The result clarifies why fixed-direction polynomiality can dramatically understate global parametric complexity.
+No inspected primary source or published-record result gives the exact global minimal degree T_d-2 and the distinct-rational-branch lower bound. Established clipping formulas and threshold counts are credited; priority remains best-of-knowledge.
 
-## Closest literature and limitations
+## value
 
-The direct cutoff-volume formula, the general existence of polytope algebraic equations, and the threshold counts are established and not claimed as discoveries. No classification of arbitrary polytopes, coefficient-size bound, irreducible algebraic equation, or independent historical-priority certification is asserted. The equation is reducible over the field of rational hyperplane parameters. A fresh expert examination of classical box-spline or algebraic-function literature remains desirable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimal global algebraic degree is an intrinsic sharp complexity measure for hyperplane cutoff volumes of a natural d-dimensional family. Identifying it with a familiar but fast-growing threshold-function count is structurally motivated and supplies both an explicit optimal annihilator and a nontrivial all-dimensional lower bound; not an arbitrary numeric table or mere clipping-formula restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
