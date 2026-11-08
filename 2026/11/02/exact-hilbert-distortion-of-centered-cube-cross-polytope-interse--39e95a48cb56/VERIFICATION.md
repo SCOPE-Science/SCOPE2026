@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The proof rests on the permutation-invariant quadratic-form reduction, two exactly attained dual norm maxima, the signed-mass transfer inequality, and strict monotonicity on either side of the optimal interpolation scale. The parameter boundaries \(\tau=2j\) and \(\tau\ge2\lfloor n/2\rfloor\), and the exceptional cases \(n=2,3\), are included.
+## correctness
 
-The companion `checker.py` is a standard-library exact-rational cross-check for the two sphere factors and a finite rational coordinate grid. Its successful run reports 310,298 grid vectors and 210 exact rational assertions. The finite grid is not an exhaustive proof over real vectors; the theorem is proved analytically in `RESULT.md`.
+PASS
 
-No independent audit or independent mathematical validation has been performed. Historical priority under all possible terminology has not been certified.
+PASS: Permutation-averaging any admissible positive Hilbert pullback on H_n={sum_i x_i=0} reduces to the scalar Euclidean quadratic form without increasing distortion. For N_tau=max(||.||infty,||.||1/tau), the exact Euclidean-sphere dual squared radius is max((n-1)/n,4floor(n/2)ceil(n/2)/(n tau²)); the other radial factor is 2(floor(s)+(s-floor(s))²), s=min(tau/2,floor(n/2)), by positive/negative mass concentration. Both factors are attained by explicit sign and saturated-coordinate witnesses. Piecewise monotonicity yields unique tau_star=2sqrt(ab/(n-1)) for n>=4, while n=2,3 have constant distance. Independent 6,303 zero-sum grid-vector inequalities and sign-vector extremum checks corroborate only bounded cases. The all-real formula follows from averaging and mass transfer, not this grid.
+
+## originality
+
+PASS
+
+Best-knowledge PASS, qualified. The convex intersection and coordinate-sum-zero section differs from the unconstrained cube/crosspolytope pair; the invariant is distance from a Hilbert space, not their mutual Banach–Mazur distance or Kolmogorov widths. General convex estimates and related quadratic mixtures do not mechanically imply the sharp floor/fractional-support formula. An equivalent symmetric-radius calculation in older Banach-space literature remains a priority risk.
+
+## value
+
+PASS
+
+PASS: An exact Banach–Mazur distance and unique shape-optimal balancing parameter for a natural centered section of an intersection of two classical norm balls, including phase changes of extremal saturated support and n^(1/4) asymptotics, are independently useful convex-geometric information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
