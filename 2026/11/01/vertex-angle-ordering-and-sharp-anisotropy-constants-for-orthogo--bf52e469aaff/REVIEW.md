@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The hypothesis \(a_i>0\) excludes degenerate cones; every quantified statement is for all integers \(d\ge2\) and all such leg lengths. The Gaussian event is the exactly derived tangent cone. Swapping independent normal coordinates proves the strict inverse ordering, including ties. A positive-orthant Jacobian gives the integral; pointwise Gaussian bounds yield the strict, sharp envelope. The gamma factor follows from the simplex-slice integral. The three-dimensional trihedral formula and anisotropic fullness coefficient were recalculated from independent geometric formulas. Deterministic script checks support but do not replace these analytic steps.
+## correctness
 
-## Originality (PASS, with residual priority uncertainty)
-Licht's Section 3 and Example 3.2 provide a general orthant formula and a degenerating family, not an all-leg-length minimum-vertex classification or sharp \(p_*/Q\) bounds. Its Section 4 compares general fullness and solid angle, but does not imply the new equal-leg lower extremizer, the endpoint hierarchy, or the dimension-sharp upper constant by simple specialization. The 2003 Dompierre et al. accessible full text surveys minimum-solid-angle quality measures and three-dimensional formulas, without this all-dimensional optimization. Akopyan and Karasev study maximum minimal angles for polytopes; their full article does not derive the fixed-leg product profile. Index searches for right/orthogonal simplices and anisotropic smallest solid angles returned no covering statement. Older unindexed work or a related explicit identity could still limit priority; this is not a proof of absolute novelty.
+PASS
 
-## Value (PASS)
-The smallest vertex cone is the relevant shape-quality obstruction in anisotropic simplex meshes. The theorem gives its location without evaluating \(d+1\) cones, a sharp dimension-only calibration using the intrinsic orthogonal leg product, equality rigidity, a computable three-dimensional formula, and a canonical sharpness sequence for the universal solid-angle/fullness comparison. The complete family and sharp constants constitute a natural finite-dimensional geometric classification rather than an arbitrary numerical slice.
+At a leg endpoint ai ei the tangent cone is {G_j≥0 for j≠i, G_i+Σ(ai/aj)G_j≤0}. For ai≥ak, interchanging Gaussian coordinate labels in the pk cone shows event inclusion; it is strict on an open set if ai>ak, and p0=2^-d>pi. At any longest leg L, write tj=aj/L≤1. Direct Gaussian change of variables on the cone yields p*/Q=(2π)^(-d/2)∫_{R_+^d}exp(−[(z0+Σzj)^2+Σtj² zj²]/2)dz, Q=∏tj. Replacing all tj by 1 lowers the integrand and gives C_d, equality precisely all legs equal; dropping Σtj² zj² gives strict U_d, and dominated convergence as all tj→0 proves sharpness. Simplex slice ∫_{positive orthant} f(Σz)=[1/(d−1)!]∫s^(d−1)f(s) gives U_d=Γ(d/2)/[2(d−1)!π^(d/2)]. d2 right-triangle angle and d3 classical trihedral formula give stated values and sharp degeneration; fixed other legs and L→∞ yields p*∼U_d∏others/L^(d−1) and Ωmin/(dμ)→1. Checked dimensions, normalization, equality cases and the existence of a strict gap for every nondegenerate shape; finite numerical checks are supplemental.
 
-## Reproducibility and limitations
-Run `python verify.py` after installing SciPy. The program compares two independently formulated three-dimensional angle integrals and tests exact factors. The upper equality is achieved only as a degenerating limit, never by a positive-length simplex. Published formulae for general cones and the 3D trihedral identity are inherited, not claimed as new. No assertion is made about nonorthogonal simplices.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: full relevant text in Licht proves general simplex fullness-angle comparison and orthant representations, but does not give the exact orthogonal family vertex ordering and its sharp C_d,U_d anisotropy constants. The trihedral solid-angle formula and general coefficient d are known, explicitly separated from novel sharp family profile.
+
+## value
+
+PASS
+
+Vertex solid angles and fullness are standard meaningful simplex-quality measures in anisotropic meshing. The theorem supplies full rank-order rigidity and dimension-sharp uniform shape anisotropy coefficients, including exact equality and highly anisotropic degeneration, for the canonical right-simplex family. Unlike a raw trig substitution, the orthant integral comparison is all-dimensional and locates sharp constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

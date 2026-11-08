@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T10:14:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual assigned RESULT.md and verify.py including Gaussian/trihedral formulas",
+        "Martin W. Licht, On solid angles and simplex shape measures, full primary paper sections 3–4"
+      ],
+      "rationale": "At a leg endpoint ai ei the tangent cone is {G_j≥0 for j≠i, G_i+Σ(ai/aj)G_j≤0}. For ai≥ak, interchanging Gaussian coordinate labels in the pk cone shows event inclusion; it is strict on an open set if ai>ak, and p0=2^-d>pi. At any longest leg L, write tj=aj/L≤1. Direct Gaussian change of variables on the cone yields p*/Q=(2π)^(-d/2)∫_{R_+^d}exp(−[(z0+Σzj)^2+Σtj² zj²]/2)dz, Q=∏tj. Replacing all tj by 1 lowers the integrand and gives C_d, equality precisely all legs equal; dropping Σtj² zj² gives strict U_d, and dominated convergence as all tj→0 proves sharpness. Simplex slice ∫_{positive orthant} f(Σz)=[1/(d−1)!]∫s^(d−1)f(s) gives U_d=Γ(d/2)/[2(d−1)!π^(d/2)]. d2 right-triangle angle and d3 classical trihedral formula give stated values and sharp degeneration; fixed other legs and L→∞ yields p*∼U_d∏others/L^(d−1) and Ωmin/(dμ)→1. Checked dimensions, normalization, equality cases and the existence of a strict gap for every nondegenerate shape; finite numerical checks are supplemental.",
+      "residual_risks": [
+        "Product bounds are only for coordinate-orthogonal simplices; general simplex results are credited, not reproved as new.",
+        "The trihedral identity is standard, used here only as an ingredient."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Licht proves μ≤Ωmin/d in general and bounds minimum angle by generic geometric quantities; Example 3.2 uses a nonorthogonal ε-simplex with vertices 0,e1,e1+εe2,..., not the present coordinate right simplex family.",
+          "Anisotropic mesh shape measures compare quality metrics; no explicit all-d orthant sharp product bounds found in accessible indexed scope."
+        ],
+        "reasoning": "The general inequality is stronger by geometric family but weaker in constants and cannot imply sharp exact C_d or leg ordering; the general d is credited as known.",
+        "searches": [
+          "Resultary: orthogonal right simplex solid angle vertex ordering product anisotropy bounds sharp constants",
+          "Licht preprint On solid angles and simplex shape measures Theorem 3.1 and Example 3.2",
+          "Dompierre et al 2005 anisotropic simplex shape measures"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: orthogonal right simplex solid angle vertex ordering product anisotropy bounds sharp constants",
+        "Licht arXiv:2610.05883 full author PDF",
+        "Dompierre et al Comp Methods Appl Mech Eng 194 (2005) 4895-4914 indexed",
+        "Van Oosterom–Strackee IEEE T-BME 30 (1983)",
+        "Resultary regular-simplex face-angle record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Licht μ≤Ωmin/d yields an inequality Ωmin≥dμ, but μ uses diameter involving two largest legs and does not give the exact C_d and U_d product constants.",
+          "Trihedral identity supplies only one 3D angle formula, not the d-dimensional product bounds or global angle ranking."
+        ],
+        "reasoning": "The claimed sharp anisotropic family profile requires new event inclusion and Gaussian orthant comparison. The endpoint saturation of known coefficient d is the only consequence assigned to the older theorem.",
+        "searches": [
+          "Resultary: orthogonal right simplex solid angle vertex ordering product anisotropy bounds sharp constants",
+          "Licht Theorem 3.1 and μ≤Ωmin/d",
+          "Van Oosterom–Strackee 1983"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized angle pi equals the probability of a standard Gaussian falling in the tangent cone; Q=vol/relative largest-leg scale, not a generic mesh-quality mean ratio.",
+          "The d3 arctangent is a specialization of a classical solid-angle formula, not asserted as newly discovered in isolation."
+        ],
+        "reasoning": "Ranking all endpoints plus exact sharp coefficient range C_d≤p*/Q<U_d is a family-wide constrained statement absent from the general normal-cone formula alone.",
+        "searches": [
+          "Resultary: orthogonal right simplex solid angle vertex ordering product anisotropy bounds sharp constants",
+          "Licht arXiv:2610.05883 full PDF",
+          "Van Oosterom–Strackee 1983 trihedral formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Equal-leg d3 trihedral angle is an established special calculation; present all-leg strict inequality and extremal constants are not determined by a three-dimensional isolated table.",
+          "Resultary regular-simplex face-angle obstruction pertains to angles between faces of a different family, not normalized cone probabilities for arbitrary orthogonal legs."
+        ],
+        "reasoning": "No identified table gives the entire dimension/parameter family or equality/degeneration classification. Known low-dimensional formulas are used, not rebranded as novelty.",
+        "searches": [
+          "Resultary: orthogonal right simplex solid angle vertex ordering product anisotropy bounds sharp constants",
+          "Licht Example 3.2",
+          "Van Oosterom–Strackee solid angle of a plane triangle",
+          "Resultary: exact face-angle obstruction radius regular simplices"
+        ]
+      },
+      "rationale": "Best-of-knowledge: full relevant text in Licht proves general simplex fullness-angle comparison and orthant representations, but does not give the exact orthogonal family vertex ordering and its sharp C_d,U_d anisotropy constants. The trihedral solid-angle formula and general coefficient d are known, explicitly separated from novel sharp family profile.",
+      "residual_risks": [
+        "Older anisotropic mesh-quality literature or unindexed textbooks may contain exact equivalent orthant inequalities.",
+        "The d3 arctangent identity is classical and is not independently original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General μ–Ω comparison does not state the orthogonal right-simplex sharp product constants or leg-ordering.",
+          "evidence": "Theorem 3.1 sum of vertex solid angles≤half sphere; μ≤Ωmin/d. Example3.2 vertices 0,e1,e1+εei is not coordinate right simplex.",
+          "identifier_or_url": "https://martinlicht.github.io/pdf/preprint.solidangles.pdf",
+          "material_read": "Full author PDF opened; Theorem 3.1, Example 3.2, general orthant integral, Sections 3–4 and relevant inequality discussion inspected; page screenshots reviewed.",
+          "method": "Author lawful OA PDF, in-document theorem search, screenshot and section read.",
+          "title": "On solid angles and simplex shape measures",
+          "trigger": "Closest broad simplex minimum solid-angle/fullness theorem."
+        },
+        {
+          "assessment": "Covers a d=3 computational ingredient, not global vertex ranking or all-d extremal constants.",
+          "evidence": "tan(Ω/2)=det/(1+pairwise dot products) for three unit rays.",
+          "identifier_or_url": "doi:10.1109/TBME.1983.325207",
+          "material_read": "Bibliographic and established analytic formula, not full historic journal text.",
+          "method": "Reference traced through geometrical literature, formula checked by substitution.",
+          "title": "The solid angle of a plane triangle",
+          "trigger": "Classical trihedral formula that might imply d=3 displayed expression."
+        },
+        {
+          "assessment": "Different invariant: extremal dihedral face-angle obstruction in regular simplices rather than endpoint cone angles of arbitrary orthogonal legs.",
+          "evidence": "Parameters and theorem objects are distinct.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-face-angle-obstruction-radius-for-regular-simplices--5db252949916",
+          "material_read": "Indexed scientific claim only.",
+          "method": "Resultary semantic search.",
+          "title": "Exact face-angle obstruction radius for regular simplices",
+          "trigger": "Geometrically nearest Resultary simplex-angle match."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Licht general solid-angle/fullness baseline",
+        "complete Gaussian comparison proof in assigned RESULT.md"
+      ],
+      "rationale": "Vertex solid angles and fullness are standard meaningful simplex-quality measures in anisotropic meshing. The theorem supplies full rank-order rigidity and dimension-sharp uniform shape anisotropy coefficients, including exact equality and highly anisotropic degeneration, for the canonical right-simplex family. Unlike a raw trig substitution, the orthant integral comparison is all-dimensional and locates sharp constants.",
+      "residual_risks": [
+        "Restriction to coordinate-orthogonal family prevents inferring the same coefficients for arbitrary simplices."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim for degenerate zero legs or arbitrary skew simplices.",
+    "The explicit trihedral-angle identity is not novel in isolation."
+  ],
+  "schema_version": 1
+}
