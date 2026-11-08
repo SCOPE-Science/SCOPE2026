@@ -1,0 +1,192 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T22:15:53.408286Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md 18c38bc7a5e0c09226e3c5957dccb03a45f780b0 and checker.py 2895e2f0ae1a87cfd1e0ef1f40ce701eea2c4051",
+        "Independent symbolic verification PASS: Gram inversion, four row values, both endpoint gaps, positivity certificates, sharp limits, 24 rational cell checks",
+        "Malyugin 1983 n=3 independently confirms sharp envelopes"
+      ],
+      "rationale": "The RESULT fixes positive a,b,c and exact continuous linear spline L2 orthoprojection. Reconstructed the standard hat Gram matrix, alternating-sign inverse, kernel row integral formula and endpoint maximum by absolute-value convexity. Independently computed the rational row formulas and row-dominance identities with SymPy, checked positive-factor differences and both n=3 degenerating meshes, and checked 24 exact sample cellwise integrals. These exact algebraic identities, not finite sampling alone, validate all-positive-three-cell inequalities, strictness, endpoint location and fixed-mesh sign attainment. The values agree with Malyugin 1983 n=3 theorem. No statement for higher spline degree or degenerately zero actual cells is proved.",
+      "risks": [
+        "The numerical checks do not prove universal quantifiers; exact symbolic certificates and structural argument do."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Malyugin 1983 Theorem 2 (equations (26)-(29)) proves sharp upper 3−1/(3·2^(n−3)) for all n>1, the sharp infimum 5/3 for odd n, and classifies limit mesh sequences. At n=3, 3−1/3=8/3 and the lower value is 5/3, exactly both claimed uniform constants.",
+          "Malyugin 1983 Theorem 1 already yields a full partition-dependent norm formula for arbitrary n, stronger domain than exactly three cells.",
+          "Foucart 2008 pp. 2–3 explicitly states that the k=2,m=1 continuous broken-line case of its finite-breakpoint sharp-norm problem was settled by Malyugin."
+        ],
+        "reasoning": "The older theorem covers every positive three-cell mesh as n=3 inside arbitrary n. Both infimum and supremum, strict nonattainment, extremal degeneration and general exact norm are already supplied. The final claim is not original merely because it writes a simpler special-case rational expression.",
+        "searches": [
+          "https://www.mathnet.ru/php/getFT.phtml?jrnid=mzm&option_lang=rus&paperid=5739&what=fullt",
+          "Foucart spline orthoprojector Malyugin k=2 m=1 settled exact finite knots",
+          "https://foucart.github.io/publi/OpenPb.pdf"
+        ]
+      },
+      "checked_sources": [
+        "S. A. Malyugin, Exact estimates of the norm in C of the orthoprojector onto subspaces of broken lines, Matematicheskie Zametki 33:5 (1983) 689–699, https://www.mathnet.ru/eng/mzm5739",
+        "S. Foucart, Open Questions around the Spline Orthoprojector (2008), https://foucart.github.io/publi/OpenPb.pdf",
+        "https://arxiv.org/abs/1308.4824",
+        "https://arxiv.org/abs/math/0611573",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34/RESULT.md",
+        "doi:10.1007/978-1-4614-4565-4_24"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted RESULT.md asserts exact norm on three cells, strict 5/3<norm<8/3, and both sharp limits. Malyugin gives exact norm for all positive n-cell partitions and the same extrema at n=3.",
+          "Foucart says k=2,m=1 continuous broken lines settled by Malyugin, corroborating that the prior theorem concerns the identical spline-projection problem, not merely similarly titled literature.",
+          "Resultary/2026 simplex affine projector concerns only discontinuous element-local affine polynomial projection on one simplex; it does not supply 3-cell continuity but was checked as a distinct, noncovering related case."
+        ],
+        "reasoning": "The stated 3-cell envelope follows immediately from Malyugin Theorem 2 by n=3, and the full partition norm can be computed from his Theorem 1. Thus key asserted results are covered as direct special cases of a published stronger theorem. The explicit terminal-end comparison may not be stated in those words, but it is a low-dimensional algebraic consequence of the prior complete norm profile; no independently motivated non-implied remaining claim is established in the presented final package.",
+        "searches": [
+          "Malyugin 1983 full primary source §§1–2 Theorems 1 and 2",
+          "Foucart Open Questions Spline Orthoprojector first nontrivial case Malyugin",
+          "Resultary semantic queries exact L-infinity L2 orthogonal projector linear splines three intervals",
+          "Resultary/2026 exact positivity defect max norm affine least squares projector on simplex"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Malyugin 1983 §1, Theorem 1 and eq. (13): exact L-infinity/C-operator norm for every partition into n affine-continuous cells, expressed via recursively defined Lebesgue functions and the partition-ratio parameters. Same orthogonal projector, same Lebesgue measure, same continuous piecewise-linear space.",
+          "Malyugin 1983 §1 uses sign inputs to attain the pointwise kernel-row norm (equations (14)-(17)).",
+          "The n=3 specialization of the general partition-dependent formula is the exact object whose 4x4 Gram inverse the submitted finding re-expresses."
+        ],
+        "reasoning": "Norm in C[0,1] of the L2-orthogonal projector onto continuous polygonals and the induced L-infinity norm of its continuous reproducing-kernel extension coincide. Malyugin already provides the exact norm for arbitrary n and knot vectors; n=3 is a special case, not an independent unaddressed norm problem. The submitted shorter-end endpoint criterion is an explicit elementary comparison between two endpoint expressions obtained by specializing that general known formula, not enough to establish a distinct novel final three-cell claim.",
+        "searches": [
+          "Malyugin 1983 exact norm orthogonal projection piecewise linear functions n intervals",
+          "https://www.mathnet.ru/eng/mzm5739",
+          "Malyugin 1983 Mathematical Notes 33 5 C norm projector polygonals",
+          "https://foucart.github.io/publi/OpenPb.pdf"
+        ]
+      },
+      "evidence": [
+        "Malyugin 1983 primary full PDF §1 eq.13 and §2 Theorem 2 eq.26",
+        "Foucart 2008 §1 p.3 explicitly cites Malyugin solution",
+        "Pinned RESULT.md claims identical n=3 bounds"
+      ],
+      "exact_database_or_table": {
+        "evidence": [
+          "Malyugin 1983 Theorem 2, n=3: exact sharp 5/3 and 8/3 constants, with strict bounds and limiting sequences.",
+          "Malyugin 1983 Theorem 1: arbitrary-partition exact norm via recursive functions λ_i^(n); n=3 recovers the full finite-dimensional profile after algebra."
+        ],
+        "reasoning": "This is not a previously unknown exact three-cell table: the sharp envelope occurs verbatim as the odd n=3 specialization of the 1983 exact theorem. Existing recursive formula dominates the package-specific symbolic inversion. No database absence can outweigh the directly read original paper.",
+        "searches": [
+          "Malyugin Matematicheskie Zametki 1983 exact norm C projectors polygonals theorem 2 three cells",
+          "https://www.mathnet.ru/eng/mzm5739",
+          "Malyugin n=3 inf 5/3 sup 8/3 linear spline orthogonal projection"
+        ]
+      },
+      "rationale": "Decisive direct prior coverage. S. A. Malyugin (1983) already proves the exact L-infinity norm of the orthogonal projector onto continuous linear splines for every knot partition (Theorem 1) and its sharp n-cell extrema (Theorem 2), with the precise 5/3 infimum and 8/3 supremum for n=3. Foucart (2008) explicitly identifies this k=2,m=1 finite-breakpoint case as settled by Malyugin. The submitted work omits that original and presents its n=3 special case as new. A shorter-end algebraic expression does not rescue the original covered final finding as a whole.",
+      "residual_risks": [
+        "Although the short-terminal-side endpoint comparison is not explicitly located in Malyugin by that wording, its status as an independent non-implied contribution is not established; Malyugin provides complete general n mesh formulas from which it is derived by elementary n=3 algebra.",
+        "The 2013 Oswald chapter remained inaccessible (VPN disconnected); no negative coverage inference was drawn.",
+        "No systematic exhaustive historical uniqueness assertion beyond the decisive published prior theorem is required."
+      ],
+      "risks": [
+        "Although the short-terminal-side endpoint comparison is not explicitly located in Malyugin by that wording, its status as an independent non-implied contribution is not established; Malyugin provides complete general n mesh formulas from which it is derived by elementary n=3 algebra.",
+        "The 2013 Oswald chapter remained inaccessible (VPN disconnected); no negative coverage inference was drawn.",
+        "No systematic exhaustive historical uniqueness assertion beyond the decisive published prior theorem is required."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY COVERING. Full partition-dependent norm formula for arbitrary n and sharp n=3 lower and upper envelopes predate this package by 43 years.",
+          "evidence": [
+            "§1 Theorem 1 (13) exact norm max_i λ_i^(n)",
+            "§2 Theorem 2 (26)-(29): n-cell sharp upper 3−1/(3·2^(n−3)), lower 5/3 for odd n; strict and extremal-mesh conditions",
+            "Introduction specifies exactly L2-orthoprojection onto continuous broken lines for 0=s0<...<sn=1."
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/eng/mzm5739 (1983, Mathematical Notes 33(5), 689–699 Russian; Eng. transl. 355–361)",
+          "material_read": "Full 12-page primary Russian PDF (introduction, §1 Theorem 1 formula (13), §2 Lemma 2 and Theorem 2 formula (26), proof, references); original page images verified at pp.689 and 697 and automated text cross-checked.",
+          "method": "Read full PDF extracted text with Russian mathematical notation and directly inspected original page images; checked n=3 specialization of bounds and operator definitions.",
+          "title": "Точные оценки нормы в C ортопроектора на подпространство ломаных [Exact estimates of the C norm of an orthoprojector onto spaces of piecewise-linear functions]",
+          "trigger": "Identical L2-continuous piecewise-linear projector and exact norm over every n-cell knot partition"
+        },
+        {
+          "assessment": "Confirms exact family was settled by Malyugin; the package omits the decisive source.",
+          "evidence": [
+            "p.3: first nontrivial case k=2,m=1 continuous broken lines was settled by Malyugin",
+            "Problem 1 and definitions of finite-breakpoint supremum Λ_{k,m,N}"
+          ],
+          "identifier_or_url": "https://foucart.github.io/publi/OpenPb.pdf (Foucart, 2008)",
+          "material_read": "Introduction and §1 finite-breakpoint problem (pp.1–3) including explicit attribution k=2,m=1 case to Malyugin; inspected original page image p.3.",
+          "method": "Read PDF full-text extracted passage and page image; compared index N interior breakpoints with n=N+1 cells.",
+          "title": "Open Questions around the Spline Orthoprojector",
+          "trigger": "Independent English-language survey that identifies whether finite-breakpoint linear spline sharp norm was previously solved"
+        },
+        {
+          "assessment": "General estimates and convergence are weaker than Malyugin and do not displace the covering 1983 theorem.",
+          "evidence": [
+            "Theorem 1.1 almost-everywhere convergence",
+            "Theorem 1.2 inverse Gram kernel estimates"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1308.4824",
+          "material_read": "Accessible introductory theorem statements and published source comparisons; earlier self-review reports selected §2 and §5 pages, not adopted as my full independent reading.",
+          "method": "Read source statements and contrasted with Malyugin exact finite-n theory.",
+          "title": "On almost everywhere convergence of orthogonal spline projections with arbitrary knots",
+          "trigger": "General same spline projection and arbitrary knots"
+        },
+        {
+          "assessment": "Not direct coverage; source proves one-simplex affine projection formula but no continuity across interior knots.",
+          "evidence": [
+            "Assumptions explicitly exclude global continuity constraints; L∞ norm 1+2Cd for one simplex"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34/RESULT.md",
+          "material_read": "Full source RESULT.md via GitHub connector, including theorem, proof and scope.",
+          "method": "Compared one-simplex element-local affine subspace with globally continuous 3-cell spline space.",
+          "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+          "trigger": "Relevant published SCOPE mathematical endpoint norm of an affine L2 projector"
+        },
+        {
+          "assessment": "Uninspected text remains a historical risk; not needed to decide originality because Malyugin is directly covering.",
+          "evidence": [
+            "2013 chapter title and DOI",
+            "Authorized institutional response vpn_disconnected; no full text examined"
+          ],
+          "identifier_or_url": "doi:10.1007/978-1-4614-4565-4_24 (Oswald, 2013)",
+          "material_read": "Only bibliographic metadata and availability checks; full text inaccessible.",
+          "method": "Searched arXiv/preprint and lawful OA, then authorized Oxford Download (returned vpn_disconnected); no access bypass.",
+          "title": "L-infinity Bounds for the L2-Projection onto Linear Spline Spaces",
+          "trigger": "Plausibly relevant title on identical orthoprojector"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "evidence": [
+        "Malyugin 1983 supplies exact n-parameter projector norm and all sharp n=3 bounds",
+        "No independently non-implied new theorem isolated as the final claim"
+      ],
+      "rationale": "A sharp finite-mesh stability benchmark for continuous spline orthoprojections is intrinsically mathematically motivated, and the elementary exact algebra is useful expository verification. However the submitted final contribution is a rederivation of the complete n=3 instance of Malyugin 1983 Theorems 1–2, including its headline constants and normalization; known-table recomputation is not a new scientific contribution. The shorter-boundary endpoint comparison has not been shown to be a new structurally substantive and non-implied result independent of the complete published norm formula. Correctness and reproducibility alone cannot establish distinct value.",
+      "risks": [
+        "A genuinely new motivated strengthening would require a separate fully rewritten final research package and a new C/O/V review; none was supplied."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "S. A. Malyugin, Exact estimates of the norm in C of the orthoprojector onto subspaces of broken lines, Matematicheskie Zametki 33:5 (1983) 689–699, https://www.mathnet.ru/eng/mzm5739",
+    "S. Foucart, Open Questions around the Spline Orthoprojector (2008), https://foucart.github.io/publi/OpenPb.pdf",
+    "https://arxiv.org/abs/1308.4824",
+    "https://arxiv.org/abs/math/0611573",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34/RESULT.md",
+    "doi:10.1007/978-1-4614-4565-4_24"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No GitHub write, dispatcher closeout or scheduling modification.",
+    "Oswald chapter institutional access blocked by vpn_disconnected; decisive direct Malyugin coverage does not depend upon it.",
+    "Transport limitation: no native connector-to-container artifact bridge; identities carefully copied from the actual tool response and source Git tree.",
+    "Publication not_ready: potentially public source metadata requires protected-provenance sanitization before any failed-path relocation."
+  ],
+  "residual_risks": [
+    "Although the short-terminal-side endpoint comparison is not explicitly located in Malyugin by that wording, its status as an independent non-implied contribution is not established; Malyugin provides complete general n mesh formulas from which it is derived by elementary n=3 algebra.",
+    "The 2013 Oswald chapter remained inaccessible (VPN disconnected); no negative coverage inference was drawn.",
+    "No systematic exhaustive historical uniqueness assertion beyond the decisive published prior theorem is required."
+  ],
+  "schema_version": 1
+}
