@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T07:53:15.053949Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Unique feedback table for each de Bruijn n-cycle follows from the bijective successor permutation pairing states 0u and 1u. Lexicographically sorting all n-bit prefixes (each appears exactly once) makes consecutive BWT predecessor bits the complementary pair (m_j,1-m_j). Reversal turns each BWT predecessor into the ORIGINAL next bit of the reversed state, replacing suffix j by fixed-width bit-reversal rev_{n-1}(j). Exactly 2^{n-1} within-block letter changes yield run formula r=2^n-T(m); run count is linear, not cyclic. Independent enumeration visited ALL 2^16 order-five Boolean feedback masks, identified 2048 single-cycle tables, computed forward/reverse BWT directly from sorted rotations, checked both full strings against symbolic block transport, and reproduced the claimed nine-class difference spectrum 4,44,216,436,648,436,216,44,4. The all-order transport rests on symbolic proof, not the finite census.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/1901.08392",
+          "Higgins gives complementary BWT two-character blocks for de Bruijn sets (forward direction) and existing classifications tabulate the one-dimensional order-five marginal. Neither the forward-only blocks nor known marginals alone determine the fixed bit-reversal *reverse* permutation or its joint run-count spectrum. Broader reversal-sensitivity work treats other word classes. These prior components are expressly excluded from the novel claim."
+        ],
+        "reasoning": "The strongest previously known results and hypothesis restrictions were inspected. Higgins Theorem 3.4 supplies complementary 2-letter BWT blocks without their relation under reversal. A bit-reversal permutation of m changes adjacent-block matches, so forward marginal cannot imply pairwise joint spectrum.",
+        "searches": [
+          "Higgins Burrows Wheeler transformations de Bruijn words complementary pairs reversal",
+          "https://arxiv.org/pdf/1901.08392, https://arxiv.org/pdf/2008.08506, https://doi.org/10.4230/OASIcs.Manzini.1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1901.08392",
+        "https://arxiv.org/pdf/2008.08506",
+        "https://doi.org/10.4230/OASIcs.Manzini.1",
+        "https://arxiv.org/pdf/2008.08506",
+        "https://doi.org/10.4230/OASIcs.Manzini.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Higgins Theorem 3.4 supplies complementary 2-letter BWT blocks without their relation under reversal. A bit-reversal permutation of m changes adjacent-block matches, so forward marginal cannot imply pairwise joint spectrum.",
+          "Higgins gives complementary BWT two-character blocks for de Bruijn sets (forward direction) and existing classifications tabulate the one-dimensional order-five marginal. Neither the forward-only blocks nor known marginals alone determine the fixed bit-reversal *reverse* permutation or its joint run-count spectrum. Broader reversal-sensitivity work treats other word classes. These prior components are expressly excluded from the novel claim."
+        ],
+        "reasoning": "Compare the exact objects, quantifiers, parameter regimes and mathematical implications. Higgins Theorem 3.4 supplies complementary 2-letter BWT blocks without their relation under reversal. A bit-reversal permutation of m changes adjacent-block matches, so forward marginal cannot imply pairwise joint spectrum.",
+        "searches": [
+          "de Bruijn cycle cyclic Burrows Wheeler transform reverse word bit reversal feedback run count joint",
+          "https://arxiv.org/pdf/1901.08392, https://arxiv.org/pdf/2008.08506, https://doi.org/10.4230/OASIcs.Manzini.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aliases tested: extended BWT of de Bruijn set under word reversal, feedback shift-register block permutation by digit reversal",
+          "Higgins Theorem 3.4 supplies complementary 2-letter BWT blocks without their relation under reversal. A bit-reversal permutation of m changes adjacent-block matches, so forward marginal cannot imply pairwise joint spectrum."
+        ],
+        "reasoning": "Higgins Theorem 3.4 supplies complementary 2-letter BWT blocks without their relation under reversal. A bit-reversal permutation of m changes adjacent-block matches, so forward marginal cannot imply pairwise joint spectrum.",
+        "searches": [
+          "de Bruijn cycle cyclic Burrows Wheeler transform reverse word bit reversal feedback run count joint",
+          "Higgins Burrows Wheeler transformations de Bruijn words complementary pairs reversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier order-five forward BWT run marginal is known; two-dimensional joint table (2048 cycles) is not determined by either one-dimensional marginal. Resultary semantic query returned unrelated circular-word and BWT-adjacent results, no actual exact reverse transport match."
+        ],
+        "reasoning": "Known exact numerical subresults are credited rather than claimed novel. Earlier order-five forward BWT run marginal is known; two-dimensional joint table (2048 cycles) is not determined by either one-dimensional marginal. Resultary semantic query returned unrelated circular-word and BWT-adjacent results, no actual exact reverse transport match.",
+        "searches": [
+          "Resultary semantic search: de Bruijn cycle cyclic Burrows Wheeler transform reverse word bit reversal feedback run count joint",
+          "OEIS/table checks as relevant to Bit-reversal transport of reverse Burrows–Wheeler transforms of de Bruijn cycles"
+        ]
+      },
+      "rationale": "Higgins gives complementary BWT two-character blocks for de Bruijn sets (forward direction) and existing classifications tabulate the one-dimensional order-five marginal. Neither the forward-only blocks nor known marginals alone determine the fixed bit-reversal *reverse* permutation or its joint run-count spectrum. Broader reversal-sensitivity work treats other word classes. These prior components are expressly excluded from the novel claim.",
+      "residual_risks": [
+        "An implicit reverse-word identity in earlier feedback-shift-register or extended BWT theory could duplicate the bit-reversal formula.",
+        "Census and sharp gap apply to order five only; no all-order gap maximum claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 3.4 covers complementary paired BWT outputs in the forward orientation, not bit-reversal transport of the reversed word or order-five joint spectrum.",
+          "evidence": [
+            "Higgins Section 3: complementary two-symbol block structure for BWT of de Bruijn words"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.08392",
+          "material_read": "Full manuscript, relevant de Bruijn-set characterizations and Section 3 Theorem 3.4",
+          "method": "Primary full-text PDF or scholarly paper, inspected relevant original proofs/statements in context",
+          "title": "Burrows–Wheeler transformations and de Bruijn words (Higgins 2012; arXiv manuscript 2019)",
+          "trigger": "Same transform and binary de Bruijn objects; possible stronger coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-order exact reversal transport gives a structural relation between two transforms, and the complete n=5 joint census quantifies sensitivity that univariate BWT run tables cannot reconstruct. Exact sharp discrepancy and witnesses are natural finite invariants of de Bruijn cycles.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An implicit reverse-word identity in earlier feedback-shift-register or extended BWT theory could duplicate the bit-reversal formula.",
+    "Census and sharp gap apply to order five only; no all-order gap maximum claimed.",
+    "PUBLIC-FILE CONFIDENTIALITY: Existing METADATA.json and AUDIT.json contain scope_run_id operational identifiers, incompatible with neutral public provenance; full scrubbed replacements and guards were not staged.",
+    "Publication withheld; minimal server-derived audit-status operations alone cannot sanitize existing public payloads."
+  ],
+  "schema_version": 1
+}

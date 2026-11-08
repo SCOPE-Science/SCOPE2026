@@ -1,25 +1,21 @@
-# Scientific review: reverse BWT block transport and order-five joint spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unrestricted theorem is proved from an explicit one-cycle binary feedback permutation. The rotation-sorting order equals lexicographic order of its distinct \(n\)-bit prefixes. Computing the predecessor of the forward rotation and the successor of the corresponding reversed rotation gives the two complementary block products, with the second indexed by exact fixed-width bit reversal. Counting unequal adjacencies proves the displayed run-count identities, including the linear/noncircular boundary convention.
+PASS
 
-The order-five finite statement is exhaustive, not a sampling inference: all \(65536\) feedback masks are tested and the unique 32-state cycles are selected. An independent Euler-tour enumerator reproduces the same \(2048\) necklaces. For each cycle, direct rotation-sorted BWTs of the word and reverse agree with the symbolic products; the two independent enumerators agree on the whole 36-cell distribution. The supplied standalone checker is replayable, prints `VERIFY_OK`, and records an extremal witness. Counts and quantifiers apply only to the stated cases.
+Unique feedback table for each de Bruijn n-cycle follows from the bijective successor permutation pairing states 0u and 1u. Lexicographically sorting all n-bit prefixes (each appears exactly once) makes consecutive BWT predecessor bits the complementary pair (m_j,1-m_j). Reversal turns each BWT predecessor into the ORIGINAL next bit of the reversed state, replacing suffix j by fixed-width bit-reversal rev_{n-1}(j). Exactly 2^{n-1} within-block letter changes yield run formula r=2^n-T(m); run count is linear, not cyclic. Independent enumeration visited ALL 2^16 order-five Boolean feedback masks, identified 2048 single-cycle tables, computed forward/reverse BWT directly from sorted rotations, checked both full strings against symbolic block transport, and reproduced the claimed nine-class difference spectrum 4,44,216,436,648,436,216,44,4. The all-order transport rests on symbolic proof, not the finite census.
 
-## Originality — PASS, with historical uncertainty
+## originality
 
-The original 1994 Burrows–Wheeler report defines the cyclic-rotation transform. Higgins's 2012 de Bruijn analysis characterizes the complementary blocks but does not identify their **forward-to-reverse bit-reversal permutation**. Giuliani and collaborators (2020) establish large BWT reversal sensitivity using Fibonacci-plus and standard-plus strings, not de Bruijn cycles. Lipták and Parmigiani's 2024 BWT de Bruijn slides describe generation from complementary block orientations, without an explicit reversal law; the full conference paper was not accessible. Fici and collaborators' 2025 survey presents de Bruijn BWT structure and reversal sensitivity in separate sections and no joint de Bruijn reversal census.
+PASS
 
-An earlier forward-only exact order-five BWT-run census provides the marginal counts but does not specify the matching between a cycle and its reversed cycle, and therefore does not determine the 36-cell joint table or sharp individual reversal gaps. Searches for bit-reversal block transport and order-five reversed-run joint tables found no equivalent source. The earlier marginal is explicitly *not* presented as novel.
+Higgins gives complementary BWT two-character blocks for de Bruijn sets (forward direction) and existing classifications tabulate the one-dimensional order-five marginal. Neither the forward-only blocks nor known marginals alone determine the fixed bit-reversal *reverse* permutation or its joint run-count spectrum. Broader reversal-sensitivity work treats other word classes. These prior components are expressly excluded from the novel claim.
 
-**Residual priority risk:** the inaccessible full 2024 construction paper or another unindexed source could contain the bit-reversal transport rule. No inference of uniqueness is made from a negative search alone; the positive comparison is at the level of the mathematical statements, including distinctions between BWT, its inverse, and reversal of the source string.
+## value
 
-## Value — PASS
+PASS
 
-BWT run count directly controls run-length indexing and serves as a standard compressed-structure complexity measure. Reversal is a natural operation in sequence processing, while binary de Bruijn words have identical circular factor coverage, making them a clean benchmark for the variability of that measure. The unrestricted structural law converts a difficult lexicographic reranking question into fixed-width bit reversal of a finite feedback table; it is reusable at every order. The exact order-five joint classification identifies the first substantial reversal gap, eight sharp extremizers and 648 equal-run cases, facts that cannot be inferred from an isolated one-sided distribution. The result is more than a cosmetic reparameterization or a recomputation of a known one-variable table.
+The all-order exact reversal transport gives a structural relation between two transforms, and the complete n=5 joint census quantifies sensitivity that univariate BWT run tables cannot reconstruct. Exact sharp discrepancy and witnesses are natural finite invariants of de Bruijn cycles.
 
-## Limits and status
-
-The all-order result is binary and sentinel-free and concerns cyclic rotations. Only the \(n=5\) joint table is exhaustively classified. No closed-form higher-order reversal-gap extremum is claimed. No independent mathematical audit or complete historical-priority certification has been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

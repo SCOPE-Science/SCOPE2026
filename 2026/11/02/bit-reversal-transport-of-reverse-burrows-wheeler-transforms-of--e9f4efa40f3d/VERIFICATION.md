@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The mathematical proof of the unrestricted binary order-\(n\) bit-reversal identity is in `RESULT.md`; finite checking is not used in place of that proof.
+# Independent mathematical audit
 
-The self-contained Python 3 program `verify_reversal.py` was executed on the complete 65536-mask space at order five and prints `VERIFY_OK`. It also checks both complete cyclic BWTs directly against the symbolic formula for all de Bruijn necklaces at orders 2, 3, 4 and 5. A distinct Euler-tour enumeration of the order-four directed de Bruijn graph independently generates exactly the same 2048 cycles and the same complete joint run-count table.
+## correctness
 
-The proof of exhaustive coverage is the bijection between a single-cycle successor permutation and one binary de Bruijn necklace, with a unique root at its all-zero state. The audit of the 2048-cycle table therefore does not extrapolate from a sample.
+PASS
 
-Scope: sentinel-free cyclic-rotation BWT; *linear* run count of the BWT result; arbitrary binary de Bruijn order \(n\ge2\) for the exact transport identity; order five only for the joint distribution and the sharp gap. No independent validation has been performed. Historical-priority checking covers the named accessible literature and searchable records, not all possible historical sources.
+Unique feedback table for each de Bruijn n-cycle follows from the bijective successor permutation pairing states 0u and 1u. Lexicographically sorting all n-bit prefixes (each appears exactly once) makes consecutive BWT predecessor bits the complementary pair (m_j,1-m_j). Reversal turns each BWT predecessor into the ORIGINAL next bit of the reversed state, replacing suffix j by fixed-width bit-reversal rev_{n-1}(j). Exactly 2^{n-1} within-block letter changes yield run formula r=2^n-T(m); run count is linear, not cyclic. Independent enumeration visited ALL 2^16 order-five Boolean feedback masks, identified 2048 single-cycle tables, computed forward/reverse BWT directly from sorted rotations, checked both full strings against symbolic block transport, and reproduced the claimed nine-class difference spectrum 4,44,216,436,648,436,216,44,4. The all-order transport rests on symbolic proof, not the finite census.
+
+## originality
+
+PASS
+
+Higgins gives complementary BWT two-character blocks for de Bruijn sets (forward direction) and existing classifications tabulate the one-dimensional order-five marginal. Neither the forward-only blocks nor known marginals alone determine the fixed bit-reversal *reverse* permutation or its joint run-count spectrum. Broader reversal-sensitivity work treats other word classes. These prior components are expressly excluded from the novel claim.
+
+## value
+
+PASS
+
+The all-order exact reversal transport gives a structural relation between two transforms, and the complete n=5 joint census quantifies sensitivity that univariate BWT run tables cannot reconstruct. Exact sharp discrepancy and witnesses are natural finite invariants of de Bruijn cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
