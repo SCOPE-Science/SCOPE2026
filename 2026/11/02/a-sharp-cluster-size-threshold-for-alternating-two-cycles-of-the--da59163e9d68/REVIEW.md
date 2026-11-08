@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(2<\kappa<\pi\), strict monotonicity of \(2u/\sin u\) gives the unique exact orbit. Every original-map update is computed, and the two-step derivative equals the square of one explicitly block-constant symmetric Jacobian. Its full invariant-space eigenvalue decomposition proves both the stability and instability statements. The threshold integral identity, strict covariance sign, and endpoint limits establish the universal \(2/3\) and \(2/\pi\) bounds and the finite-size corollaries. The companion executable checks actual maps and Jacobians for a finite sample; the proof itself covers every integer size. Risk: the theorem is strictly local and open-parameter only; no global attractor classification is implied.
+## correctness
 
-## Originality — PASS under accessible primary evidence
-Zhai–Xiao–Zheng (2023) already describe discrete circle-map period doubling, the two-cluster splitting phenomenon, and two-node reduction; these are not new contributions here. Direct inspection of their accessible full text identified discussion of cluster snapshots and mean-field criteria, but not an all-partition full finite-size two-step Jacobian spectrum or the sharp \(2/3\)-to-\(2/\pi\) threshold. Gade–Gupta (2026) motivates the discrete phase-lag network and proves onset criteria in the continuum setting; only an abstract of its original paper could be inspected, so a plausible full-text priority risk remains. Published mathematical search results on quadrature-lag and repulsive-coupling networks do not imply the present positive-coupling zero-lag alternating-bipartition theorem. Searches alone cannot certify historical uniqueness. Risk: a full version of Gade–Gupta or an unindexed older circle-map calculation could contain a close theorem.
+PASS
 
-## Mathematical value — PASS
-The exact classification makes a falsifiable structural prediction across all finite network sizes: three oscillators form a unique obstruction to stable bipartition-alternating motion, whereas balanced bipartitions are robustly attracting for every other size throughout an entire strong-coupling window. The sharp partition threshold is relevant to cluster synchronization and is not just rephrasing the well-known synchronization flip at coupling two. Risk: results concern a homogeneous zero-lag slice and do not quantify attraction basins or global synchronization outcomes.
+The function 2u/sin(u) increases strictly from 2 to pi, so each 2<kappa<pi yields unique u. Directly substituting opposite two-block phases gives a literal least-period-two orbit; both Jacobians are the same symmetric block matrix because cos is even. Its eigenvalues on common rotation, inter-block, and intra-block zero-sum subspaces are respectively 1, 1-kappa*cos(u), 1-kappa*(p+q*cos(u)) (m-1 times) and 1-kappa*(q+p*cos(u)) (N-m-1 times). Floquet eigenvalues are their squares, and the singleton missing-mode cases do not undermine the criterion. Transverse attraction iff max(p,q)<p*=(sin(u)-u*cos(u))/(u*(1-cos(u))); > gives unstable eigenvalue, equality neutral +1 only. Integral p*=integral(s*sin(us))/integral(sin(us)), covariance of s and s*cot(us) strictly negative, gives 2/3 down to 2/pi; n=3 uniquely obstructed. Independently evaluated 21 original map/Jacobian cases.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Sine-circle period doubling and clustered discrete Kuramoto behavior are known; finite block-size-dependent exact Floquet spectrum and monotone sharp fraction 2/3 to 2/pi do not follow from the inspected continuum incoherent-state theory or the earlier numerical cluster studies. Full recent 2026 motivating preprint inaccessible; priority qualified.
+
+## value
+
+PASS
+
+Gives a complete exact local stability classification of an explicit natural family of finite-network periodic states and a striking finite-size threshold: N=3 always unstable while balanced 2 and >=4 attract. It predicts block-imbalance thresholds across every strong-coupling parameter, not just isolated simulation examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
