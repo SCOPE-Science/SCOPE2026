@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The labelled-graph vertex-to-edge identification is exact. The proof identifies every maximal geodesic in \(L(K_n)\), proves both directions of the ordinary \(P_4\)-freeness equivalence, classifies all edge-maximal admissible complements, and derives both exponential generating functions by the labelled exponential formula. It separately justifies the endpoint cardinalities and their multiplicities. The embedded executable exhaustively verifies the original shortest-path predicate and independent component recurrence for orders \(4,5,6\); finite verification is not used as the infinite proof.
+
+**Originality — PASS, provisional.** Manuel–Brešar–Klavžar (2021) introduces the geodesic-transversal invariant but does not give the triangular-graph census in the inspected text. Gould–Tang–Wei–Zhang (2012) treats the ordinary \(P_4\)-saturation **edge spectrum** and existing extremal values, which are not claimed as new here. Burr (2017) studies minimum \(P_4\)-saturation and its component forms, also acknowledged. The complete all-set and inclusion-minimal cardinality generating functions for the *geodesic-transversal* set system were not found in direct keyword, synonym, equivalent-reduction and semantic literature checks. However, the full Balister–Dogan (2018) saturation-spectrum text could not be inspected; prior equivalent enumeration remains possible.
+
+**Value — PASS.** This is an all-cardinalities exact solution to a natural geodesic-hitting problem on the classical triangular graphs. Existing saturation bounds and edge spectra do not give the multiplicity of irredundant hitting configurations at each selection budget. The bijection explains an otherwise hidden graph-saturation interpretation and leads to compact generating functions and explicit extremal multiplicities. This is an exact natural invariant and complete classification, not merely an optimum or a special case obtained by renaming.
+
+The primary scientific risk is a possible unindexed earlier bivariate enumeration or one embedded in the uninspected saturation paper. No independent publication-priority or mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
