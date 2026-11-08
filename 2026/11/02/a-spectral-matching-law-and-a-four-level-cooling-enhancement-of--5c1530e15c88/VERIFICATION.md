@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification procedure and limits
+# Independent mathematical audit
 
-Run `python3 check.py` using a standard Python 3 interpreter. The script requires no nonstandard packages or network connection and prints a PASS line on success.
+## correctness
 
-The checker compares the greedily computed optimum with the exact maximum across **every permutation** for 325 fixed randomized strictly increasing integral spectra in dimensions 2 through 6. The initial Gibbs weights are exact rational powers of one half. Thresholds include exact energy differences (testing the inclusive event) and half-integer values. For each maximizer it verifies the precise greedy set of winning sources. Separately, it verifies the explicit four-level spectrum, the exact \(17/160\) right derivative at \(\beta=0\), a numerical root of the peak equation, the peak probability, and strict negative average extracted work for the displayed transposition at representative positive inverse temperatures.
+PASS
 
-Proof-level checks, not encoded as infinite computation, are the convex extreme-point reduction, the nested-target matching criterion, the lexicographic comparison of feasible source sets, canonical derivative monotonicity, and the energy-majorization identity. For universality at arbitrary real spectra, thresholds, inverse temperatures and Hilbert-space dimension, refer to the written analytical proof. Finite tests do not establish these universal statements or originality. No independent external proof or publication-priority validation has been performed.
+For one fixed strictly increasing spectrum and a single unconstrained closed unitary, TPM probability is linear in T_ji=|U_ji|². Birkhoff decomposition proves an attaining permutation. Nested eligible target sets {0,...,k_i-1} give Hall feasibility k_(s_t)>=t. The earliest feasible indices form the unique Gibbs-weight maximizing winning set when beta>0. Analysis of d<=3 possibilities proves no positive cooling derivative; the explicit d=4 spectrum (0,2,19/5,39/10), w=39/20 gives only target 0, greedy G={1}, p1(0)=1/4 and p1 prime(0)=17/160; dE_beta/d beta=-Var E ensures one peak at beta≈0.15974068847. Gibbs passivity makes E[W]<0 whenever threshold successes occur at beta>0. Independent exact/floating permutation enumeration agrees in examples; the proof is general.
+
+## originality
+
+PASS
+
+Extreme-point reduction and nested Hall matching are known tools. The exact temperature-independent optimal source selector for unrestricted fixed-H TPM, plus the dimension-four onset of cooling-induced success enhancement, is not stated in the checked Otto-cycle or bath-assisted probabilistic work articles. No full-literature novelty guarantee.
+
+## value
+
+PASS
+
+This gives an exact efficiently computable performance optimum for single-shot closed cyclic control, and a sharp smallest-dimension thermodynamic counterintuition while retaining negative mean extracted work. The threshold event and restricted unitary class are clearly motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
