@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T23:12:54Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/scalar-curvature-from-the-second-moment-of-random-short-geodesic--e555d2c7e5c4/RESULT.md",
+        "2026/11/02/scalar-curvature-from-the-second-moment-of-random-short-geodesic--e555d2c7e5c4/check_curvature.py"
+      ],
+      "rationale": "In normal coordinates J(x)=1-Ric(x,x)/6+O(r³), while d(exp x,exp y)²=|x-y|²-R(x,y,y,x)/3+O(r^5). Euclidean ball radial moments and quotient normalization yield a measure-Jacobian correction -4Scal r^4/[3(n+4)(n+2)^2]. Independence/tensor contraction yields a distance correction -Scal r^4/[3(n+2)^2]. Their sum is -(n+8)Scal r^4/[3(n+2)^2(n+4)] with r² leading term 2nr²/(n+2). Independent exact rational arithmetic verified the coefficient for dimensions 2 through 24; space-form quadrature at radii 0.3, 0.2, 0.14 converged to coefficient -10/288 in dimension two for both curvature signs. Uniform normal-coordinate expansions, not finite numerical tests, prove the all-n formula.",
+      "residual_risks": [
+        "All-length proof is mathematical, not established by bounded test."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Veronelli Lemma 9 gives the squared-distance Taylor term, and standard geodesic-ball volume expansions supply Jacobian coefficients.",
+          "Jauregui uses relative capacity, and Hickok-Blumberg use ball volume, neither directly states the normalized two-point moment."
+        ],
+        "reasoning": "Both local expansions jointly enable this calculation, but no located theorem already states its integrated, normalized coefficient; risk is that a general integrated-distance theorem subsumes it.",
+        "searches": [
+          "arXiv:1710.07178 Lemma 9",
+          "arXiv:2009.12394 Introduction and main theorem",
+          "web: distance energy geodesic balls scalar curvature moment"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1710.07178",
+        "arXiv:2009.12394",
+        "arXiv:2308.02615 (abstract/metadata only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 9 is a pointwise distance expansion; it alone does not account for volume-uniform normalized sampling.",
+          "Classical volume growth alone does not include the pairwise curvature tensor contraction."
+        ],
+        "reasoning": "Combining two established ingredients and computing their exact contractions is the substantive step, although an unexamined general moment theorem may directly imply this specialization.",
+        "searches": [
+          "arXiv:1710.07178 Lemma 9 eq. (21)",
+          "arXiv:2009.12394 eq. (1)",
+          "arXiv:2308.02615"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Veronelli treats local q-extent as a supremum over n+1 points, not an iid second moment.",
+          "Riemannian distance energy / normalized random pair squared distance are equivalent to the current statistic; targeted queries found no exact displayed expansion."
+        ],
+        "reasoning": "Compared observable definitions and normalization, not titles. Known Taylor formulas are acknowledged.",
+        "searches": [
+          "Resultary query: scalar curvature expectation second moment short random geodesic segments",
+          "web: expected squared distance geodesic ball scalar curvature expansion",
+          "arXiv:1710.07178 Lemma 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted geometric literature searches located curvature via capacity, maximal extent and volume, not the exact coefficient for iid squared pair distance."
+        ],
+        "reasoning": "Unindexed metric-measure moments may cover this; lack of search hits does not certify priority.",
+        "searches": [
+          "Resultary query: scalar curvature expectation second moment short random geodesic segments",
+          "web: pairwise distance scalar curvature small balls squared",
+          "web: mean squared distance small geodesic balls scalar curvature integral"
+        ]
+      },
+      "rationale": "Best-of-knowledge differentiated same-object formulations and stronger-coverage implications; no confirmed statement-level coverage found. This is a qualified priority decision, not evidence of exhaustive absence.",
+      "residual_risks": [
+        "An older theorem in geodesic energy / distance moments may already imply the exact two-point coefficient.",
+        "The observable is a population infinitesimal limit; finite-sample stability and finite-radius comparisons are not proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different extremal (n+1)-point observable; supplies distance expansion used here",
+          "evidence": [
+            "Lemma 9 eq. (21) establishes -R/3 correction to squared distance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1710.07178",
+          "material_read": "Abstract, Introduction, Theorem 1 setting and Lemma 9 squared-distance expansion at pages 8-9",
+          "method": "Open full-text arXiv PDF and inspect the title, abstract and relevant sections using text and page images",
+          "title": "Scalar Curvature via Local Extent",
+          "trigger": "Same infinitesimal metric distance geometry"
+        },
+        {
+          "assessment": "Relative capacity, not normalized mean pair distance",
+          "evidence": [
+            "Eq. (1) is classical volume asymptotic, and paper studies relative capacity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.12394",
+          "material_read": "Abstract and Introduction with equations (1)-(2) and capacity motivation",
+          "method": "Open full-text arXiv PDF and inspect the title, abstract and relevant sections using text and page images",
+          "title": "Scalar curvature and the relative capacity of geodesic balls",
+          "trigger": "Possible stronger small-ball curvature recovery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1710.07178",
+        "arXiv:2009.12394",
+        "arXiv:2308.02615 (abstract/metadata only)"
+      ],
+      "rationale": "The expectation of a single natural unlabeled pair-distance observable recovers pointwise scalar curvature without volume measurements or optimized simplex configurations. The explicit coefficient requires combining both geometric distance and sampled-volume corrections and is useful to metric-measure inference; it is not merely a dimensional normalization check.",
+      "residual_risks": [
+        "An older theorem in geodesic energy / distance moments may already imply the exact two-point coefficient.",
+        "The observable is a population infinitesimal limit; finite-sample stability and finite-radius comparisons are not proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older theorem in geodesic energy / distance moments may already imply the exact two-point coefficient.",
+    "The observable is a population infinitesimal limit; finite-sample stability and finite-radius comparisons are not proved.",
+    "Source trees and material Git blobs were read at the assigned frozen snapshot. No public research-package editing or publication has occurred."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses uniform normal-coordinate expansions of the Riemannian volume Jacobian and the squared geodesic distance. Quotient normalization of uniform ball volume gives the explicit correction \(-4\operatorname{Scal}/[3(n+4)(n+2)^2]\) to the iid Euclidean pair-separation moment; a separate curvature-tensor contraction gives \(-\operatorname{Scal}/[3(n+2)^2]\). Their sum equals the claimed coefficient, and the remainder is \(O_p(r^5)\). Exact rational arithmetic checks the coefficient for dimensions 2–20; deterministic quadrature checks curvature signs and scale dependence for sphere and hyperbolic space forms in dimensions 2,3. A finite computation is not treated as proof of the all-dimensional statement.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Veronelli's (2017) complete local-extent result recovers curvature from a maximized \((n+1)\)-point configuration, while Lemma 9 supplies the known distance expansion. Jauregui's (2020) characterization is by the relative capacity of concentric balls. Hickok and Blumberg's (2023) point-cloud method estimates small-ball volumes, as their Section 3 and Theorems A–B specify; no formula there computes the curvature coefficient for the mean squared intrinsic distance of two volume-uniform samples. Searches of geometric metric-moment aliases in indexed mathematical findings and the public primary literature did not identify an equivalent or stronger covering statement. Residual risk is an earlier result in Fréchet-variance, statistical manifold or energy terminology; absent search hits do not prove priority.
+PASS
 
-## Mathematical value — PASS
-The exact second moment of unlabeled two-point distances is a concrete and natural metric-measure statistic. Its first deviation from a Euclidean ball quantifies scalar curvature in every dimension, including on surfaces, without extremal point placement or externally supplied volume-growth curves. The need to combine curvature corrections from both the sampling measure and the metric gives substantive geometric information beyond the standard ball-volume expansion. No practical estimator performance or generalization to nonsmooth spaces is claimed.
+In normal coordinates J(x)=1-Ric(x,x)/6+O(r³), while d(exp x,exp y)²=|x-y|²-R(x,y,y,x)/3+O(r^5). Euclidean ball radial moments and quotient normalization yield a measure-Jacobian correction -4Scal r^4/[3(n+4)(n+2)^2]. Independence/tensor contraction yields a distance correction -Scal r^4/[3(n+2)^2]. Their sum is -(n+8)Scal r^4/[3(n+2)^2(n+4)] with r² leading term 2nr²/(n+2). Independent exact rational arithmetic verified the coefficient for dimensions 2 through 24; space-form quadrature at radii 0.3, 0.2, 0.14 converged to coefficient -10/288 in dimension two for both curvature signs. Uniform normal-coordinate expansions, not finite numerical tests, prove the all-n formula.
 
-## Boundaries and evidence
-Assume an interior point of a smooth Riemannian manifold, normalized uniform volume sampling, known dimension and geodesic radius shrinking through a normal convexity regime. The intrinsic distance is the ambient geodesic metric. The result is asymptotic rather than a finite-radius stochastic comparison. The source comparisons involve actual mathematical objects and implications, not title matching. Independent confirmation of originality or correctness is not available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge differentiated same-object formulations and stronger-coverage implications; no confirmed statement-level coverage found. This is a qualified priority decision, not evidence of exhaustive absence.
+
+## value
+
+PASS
+
+The expectation of a single natural unlabeled pair-distance observable recovers pointwise scalar curvature without volume measurements or optimized simplex configurations. The explicit coefficient requires combining both geometric distance and sampled-volume corrections and is useful to metric-measure inference; it is not merely a dimensional normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
