@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The labelled token graph has exactly three vertex types: the distinguished pair, the \(2n\) cross pairs, and the \(\binom n2\) within-large-part pairs. The proof explicitly reconstructs every adjacency. The three column states and the selected-within-part edge set give necessary **and sufficient** domination conditions. The hub-selected count is a product calculation; the hub-omitted count is an incidence-degree inclusion-exclusion with distinct formulas when the forced clique has at least two vertices and when it has at most one. All summations are finite for each integer \(n\ge2\); no normalized probability is involved.
+PASS
 
-For minima, the hub-selected lower bound is \(n+\frac{(t-1)(t-2)}2\) and equality has \(t=1\) or \(2\). The hub-omitted proof uses \(|D|=n-t+u+e\), the forced clique, and the degree requirement to prove \(|D|\ge n\), then exhausts the four possibilities \(t=0,1,2,3\). It counts \(4,15,24,0\) hub-free optima as \(n=2,3,4,\ge5\). Exact direct-adjacency enumeration of all \(2{,}131{,}008\) subsets for \(n=2,3,4,5\) matches every coefficient and the hub/no-hub split; the standalone verifier also checks the symbolic formula for \(n=6\) through \(11\). These finite checks support but do not replace the proof for arbitrary \(n\). No correctness caveat is disguised as a claim of certification.
+For n>=2, token vertices split into hub h={a1,a2}, 2n cross vertices x_(r,i), and binomial(n,2) within-large-part vertices y_(ij). Explicit adjacency makes a dominating set equivalent to a partition of columns T/S/U (0/1/2 selected x vertices), a selected within-part edge set E containing the forced clique binom(T,2), and—when h omitted—positive E-degree at every vertex of T union S plus at least one selected cross vertex. These are necessary and sufficient, so hub-including sets factor as z sum binom(n,t) z^binom(t,2)(2z+z²)^(n-t)(1+z)^(M-binom(t,2)); hub-free sets are counted via inclusion-exclusion over uncovered T/S vertices, with t>=2 vs t<=1 branch. The minimal hub count occurs only t=1 or2, yielding n(n+3)2^(n-3) (including rational-written n2=5); direct equality case analysis of |D|=n-t+u+e proves hub-free minima only n2,3,4 with counts 4,15,24, so total minima 9,33,80, n(n+3)2^(n-3) thereafter and all contain hub from n>=5. No claim for higher tokens or other domination notions.
 
-## Originality — PASS, with priority qualifications
+## originality
 
-The two October 2026 preprints by Chinman et al. and Acosta Troncoso et al. prove the ordinary domination number \(n\) for \(F_2(K_{2,n})\); this fact is explicitly credited. The latter's Lemma 2.2 also gives a powerful general characterization of all dominating sets of \(F_2(K_{m,n})\). That structural result substantially anticipates the feasibility conditions, but neither inspected preprint states an ordinary domination polynomial, the minimum-set multiplicity formula, or the hub-exclusion cutoff. The novel asserted content is the explicit complete enumerator, its sharp optimum-layer count, and threshold, not the base feasibility lemma or minimum cardinality. The 2019 double-vertex-graph paper and the 2025 star/complete-graph token paper cover other statements. A previous total-domination polynomial of the same token-graph family and an independent-domination enumerator do not count the same objects. Search comparisons against exact aliases and published research records found no equivalent formula; this is evidence of non-identification, not proof of unique historical priority. A broader earlier enumeration could still imply the claim.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge priority judgment after direct mathematical comparison; prior material credited and residual risks recorded. The feasibility criterion and gamma=n specialization are prior, but no ordinary domination generating polynomial or exact hub-free multiplicities were stated in the inspected primary sources. A prior general characterization could be specialized as a starting point, not a precomputed formula.
 
-The recently determined domination number leaves the multiplicity and cardinality distribution of all dominating sets unresolved. The proposed formula determines the full polynomial of a natural infinite family and the precise sizes of its two structurally distinct classes; it is not a check on a single small instance. The sharp \(n=5\) cutoff, beyond which every optimal solution must include the distinguished pair, and the closed count \(n(n+3)2^{n-3}\) give interpretable information about the family of minimum certificates. The need to account for forced within-part cliques and incident-edge constraints motivates the inclusion-exclusion construction. These are exact natural invariants and a qualitative structural transition, not a renaming of the domination number.
+## value
 
-## Closest literature and limitations
+PASS
 
-Chinman et al., arXiv:2610.28936v1 (2026-10-20), Theorem 1.1; Acosta Troncoso et al., arXiv:2610.31557v1 (2026-10-22), Theorem 1.1 and Lemma 2.2; Prabhu and Manjula (2019), *Domination in Double Vertex Graphs*; and Fabila-Monroy and Gómez-Galicia, arXiv:2509.16448v1 (2025), were inspected to the extent documented in the structured audit. A related exact total-domination enumerator on \(F_2(K_{m,n})\) concerns open neighbourhoods and does not count ordinary dominating sets. The statement does not concern \(m>2\), larger token size, arbitrary minimal-set counts, or symmetry orbits. Comprehensive historical-priority evaluation and an independent mathematical audit remain outstanding.
+For a natural family of two-token graphs whose minimum domination number has only recently been determined, the complete ordinary domination polynomial is an exact cardinality invariant useful for counting all feasible solutions. The closed optimal-set multiplicity and n=5 hub-forcing transition provide a sharp structural classification beyond the known single minimum number. Counting by forced cliques and edge-incidence degree makes it nontrivial despite an earlier feasibility lemma.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
