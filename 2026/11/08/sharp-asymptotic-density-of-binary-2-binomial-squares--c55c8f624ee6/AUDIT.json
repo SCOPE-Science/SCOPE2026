@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Precisely identified the complete 2-binomial signature (weight, 01 subsequence count). Gaussian-binomial coefficients enumerate each fiber. Theorem 4.5 (Canfield–Janson–Zeilberger) applies uniformly in a binomial central window; uniform squared local masses, a Chebyshev tail bound, and the exact variance k(n-k)(n+1)/12 yield conditional collision (2 sqrt(3)/sqrt(pi))n^(-3/2). Vandermonde and binomial concentration supply 1/sqrt(pi n); the final constant follows. The standalone source at verify.py reproduces DP through 100 and direct all-word signatures through length 12. The proof, not the tests, establishes the asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:0908.2089v1 Theorem 4.5 gives uniform local mass asymptotics for the fixed-content inversion statistic.",
+        "Its hypotheses are satisfied for k=n/2+O(n^(2/3)); the original theorem has no sum over all possible symbol counts."
+      ],
+      "reasoning": "The broad LCLT is an essential imported theorem and implies conditional collision asymptotics; the new claim additionally aggregates squared conditional probabilities over the random binomial composition, leading to the second square-root factor. Priority is qualified for possible implicit corollary coverage.",
+      "searches": [
+        "two-binomially equivalent random binary words probability asymptotic n^-2 Gaussian q multinomial",
+        "Canfield Janson Zeilberger Mahonian probability distribution on words local limit theorem"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0908.2089v1 Theorem 4.5",
+      "arxiv:1310.4743v1 complete accessible preprint",
+      "arxiv:2510.07159 relevant sections",
+      "Indexed records from scientific semantic searches with literal aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2013 full preprint establishes existence of morphic avoidance words rather than an all-binary-word density.",
+        "The 2009 LCLT provides an exact one-content approximation; its stated theorem does not evaluate the distributional collision sum across varying content.",
+        "The 2025 discussion identifies partition-lattice class structures and fair words; the inspected relevant sections do not state this two-Gaussian density."
+      ],
+      "reasoning": "The main claim is not an individual coefficient estimate or an instance of the local theorem without an extra global aggregation. It is derived transparently from existing results, so novelty is claimed only for the complete asymptotic enumeration and explicit constant.",
+      "searches": [
+        "number of binary 2-binomial squares length 2n asymptotic q-binomial Gaussian binomial sum of squared coefficients",
+        "inversion count collisions independent binomial random words asymptotic",
+        "arxiv:0908.2089 Theorem 4.5",
+        "arxiv:1310.4743 Section 2 and Section 3",
+        "arxiv:2510.07159 equivalence class partition lattice"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The count equals the number of ordered pairs of binary halves with identical 2-binomial signatures; equivalently, the collision mass of the bivariate (Hamming weight, inversion count) distribution.",
+        "arxiv:1310.4743v1 §1 identifies precisely the 2-binomial equivalence of halves."
+      ],
+      "reasoning": "Exact equivalents would involve random-word 2-binomial collision probability or squared coefficient sums of Gaussian binomials. The inspected primary literature does not give their combined large-n constant.",
+      "searches": [
+        "number of binary 2-binomial squares length 2n asymptotic q-binomial Gaussian binomial sum of squared coefficients",
+        "The asymptotic count of binary 2-binomial squares, balanced inversion collision constant 2 sqrt 3 over pi n squared",
+        "2-binomial squares enumeration generating function collision probability inversions binary words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct integer counts S_4=18, S_8=1064 and S_12=122570 were reproduced by independent signature enumeration and q-binomial polynomial DP.",
+        "Published search results included the 2013 avoidance paper and no verified indexed table of the entire count sequence."
+      ],
+      "reasoning": "Neither a finite table nor the checked source descriptions provides the infinite sharp constant. Absence of a database hit is not considered proof of novelty.",
+      "searches": [
+        "2-binomial squares Rao Rigo Salimov counting how many all words length 2n",
+        "18, 1064, 122570 2-binomial square counts",
+        "2-binomial squares number length words enumeration"
+      ]
+    },
+    "rationale": "The exact counted language was introduced by Rao–Rigo–Salimov, but their full accessible source proves morphic avoidance, not the asymptotic density. Canfield–Janson–Zeilberger prove a uniform conditional inversion local limit theorem, not the double-averaged binomial-square collision count. The derived probability involves the nontrivial conditional collision integral and an independent Gaussian weight mixture. A 2025 binary equivalence-class treatment does not state the claimed density. Searches revealed no direct covering claim, subject to an explicit implicit-prior risk.",
+    "residual_risks": [
+      "General local limit theorems imply the key conditional estimate, so the sharp constant may be an implicit but unstated corollary in earlier work.",
+      "Unindexed historical tables or formulations of the Gaussian-binomial collision sum may exist.",
+      "No independent mathematical audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PROVIDES_NEEDED_NONTRIVIAL_LEMMA, but does not evaluate the pairwise 2-binomial-square frequency",
+        "evidence": [
+          "Theorem 4.5: uniform local normal inversion masses with error O(1/N_*).",
+          "Section 1: Gaussian-binomial coefficient representation for two-symbol multiset inversions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0908.2089",
+        "material_read": "Definitions, two-letter Gaussian-binomial correspondence, conditional variance, Section 4 and Theorem 4.5 on PDF pp. 1–14",
+        "method": "Full textual inspection of relevant parts of the open arXiv PDF and page-image verification of the theorem",
+        "title": "The Mahonian probability distribution on words is asymptotically normal",
+        "trigger": "Potential stronger conditional inversion limit and precise applicability"
+      },
+      {
+        "assessment": "NOT_COVERING_OWN_DENSITY_CLAIM; studies avoidance and morphisms",
+        "evidence": [
+          "Definition 1 defines equivalence of scattered subword counts.",
+          "Theorems 1 and 4 concern morphic avoidance, not total count or asymptotic fraction."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1310.4743",
+        "material_read": "Full accessible nine-page preprint: introduction, Sections 2 and 3, concluding theorem and references",
+        "method": "Accessible arXiv PDF, parsed full text, and page-image inspection of first and final pages",
+        "title": "Avoiding 2-binomial squares and cubes",
+        "trigger": "Original definition and plausible direct earlier enumeration"
+      },
+      {
+        "assessment": "RELATED_GENERAL_CLASS_STRUCTURE; no density constant identified in inspected relevant material",
+        "evidence": [
+          "Equivalent class graph as a lattice of integer partitions; fair-word characterization.",
+          "No matching all-length binary 2-binomial-square density formula found."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.07159",
+        "material_read": "Abstract, contents, relevant Sections 2–4 and Section 5 fair-word results of accessible HTML full-text",
+        "method": "Open arXiv full HTML text and relevant section/term searches",
+        "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+        "trigger": "Later potentially dominating binary equivalence-class structural work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c55c8f62-4ee6-4c2e-bcf3-1c7f080b5d19",
+  "value": {
+    "rationale": "This resolves the sharp leading all-word density of 2-binomial squares, a natural pattern from 2013 avoidance theory. It quantifies the generic collision rate of 2-subsequence signatures and makes a nontrivial passage from a conditional Gaussian coefficient limit to a mixture of two collision phenomena; the exact constant 2 sqrt(3)/pi is an invariant of the binary language, not an arbitrary finite case.",
+    "status": "PASS"
+  }
+}
