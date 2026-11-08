@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The analytical chain is: positive-rate telegraph support equals the convex bounded-input reachable zonoid; the finite planar zonotope area is the determinant pair sum; passage to a continuous integral yields an exact time-domain area formula; the semigroup determinant identity yields its one-dimensional convolution; a forced first-order differential equation for its derivative localizes every loss of third differentiability to a simple zero of the oscillator impulse response; jump ratios uniquely determine the normalized physical parameters.
+## correctness
 
-The included `CHECKER.py` requires Python 3 and only its standard library. Run `python CHECKER.py`. During package construction it passed 39 independent finite diagnostic assertions, comparing direct discrete Minkowski-sum area with continuum quadrature, limiting values, cusp-jump ratios and short-time behavior. Finite checks do not establish universal claims or empirical identifiability.
+PASS
 
-The result is not a theorem for dynamics with unbounded Gaussian input. The topological support is not an estimator of its own finite-sample reachability. The general LTI reach-volume formula is older literature and is not attributed to this result. Publication priority and independent scientific validation have not been established.
+For positive telegraph switch rate, every finite switching history has positive support probability; rapid alternating controls approximate any bounded measurable forcing in the variation-of-constants integral, so the fixed-horizon support equals the planar zonoid b∫[0,T] e^{As}e2 u(s) ds with |u|<=1 and no dependence on switching rate. The zonotope area formula 4Σ_{i<j}|det(w_i,w_j)| yields A(T)=4b²/δ∫_0^T(1-e^{-δ(T-u)})|h(u)|du using det(g(s),g(t))=-e^{-δs}h(t-s). Twice differentiating gives A''+δA'=4b²|h(T)|. In the underdamped case h=e^{-αt}sin(ωt)/ω, its simple zeros yield jump 8b²e^{-αnπ/ω} in the third derivative, and spacing, ratio, amplitude recover ω, α and b, not λ. Overdamped and critical h>0 for T>0 are analytic. Independent N=750 double-determinant zonotope and convolution quadratures agreed with 4.5e-6 relative error; this is supplementary numerical corroboration.
+
+## originality
+
+PASS
+
+PASS qualified: the exact inertial run-and-tumble stationary model and reachability/zonoid constructions predate this work, while the finite-time cusp spectrum, exact third derivative jumps and parameter identifiability were not identified in the inspected primary source sections.
+
+## value
+
+PASS
+
+A direct observable geometric fingerprint separates damping regimes and identifies normalized mechanical parameters without knowing a stochastic switching rate, extending stationary-support analysis to finite time with sharp singularity locations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

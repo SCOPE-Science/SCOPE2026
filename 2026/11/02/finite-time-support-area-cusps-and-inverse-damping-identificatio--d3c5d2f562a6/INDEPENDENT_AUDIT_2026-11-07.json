@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T15:50:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive telegraph switch rate, every finite switching history has positive support probability; rapid alternating controls approximate any bounded measurable forcing in the variation-of-constants integral, so the fixed-horizon support equals the planar zonoid b∫[0,T] e^{As}e2 u(s) ds with |u|<=1 and no dependence on switching rate. The zonotope area formula 4Σ_{i<j}|det(w_i,w_j)| yields A(T)=4b²/δ∫_0^T(1-e^{-δ(T-u)})|h(u)|du using det(g(s),g(t))=-e^{-δs}h(t-s). Twice differentiating gives A''+δA'=4b²|h(T)|. In the underdamped case h=e^{-αt}sin(ωt)/ω, its simple zeros yield jump 8b²e^{-αnπ/ω} in the third derivative, and spacing, ratio, amplitude recover ω, α and b, not λ. Overdamped and critical h>0 for T>0 are analytic. Independent N=750 double-determinant zonotope and convolution quadratures agreed with 4.5e-6 relative error; this is supplementary numerical corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic planar linear-control reachable-set volume methods can generate the double integral, a substantial antecedent; their model-independent formulas do not directly state the underdamped cusp spectral inverse mapping."
+        ],
+        "reasoning": "The zonoid area is not standalone novelty; the physical oscillator specialization yields explicit nonanalyticity and identifiability.",
+        "searches": [
+          "Haddad Khodary Halder 2023 volume reachable set LTI zonotope area theorem 5",
+          "stochastic run and tumble finite time reachable set area exact cusp"
+        ]
+      },
+      "checked_sources": [
+        "Harmonically trapped inertial run-and-tumble particle in one dimension — https://arxiv.org/pdf/2406.06120",
+        "General bounded-input reach-set volume methodology (Haddad, Khodary, Halder) — https://arxiv.org/search/?query=Khodary+Halder+volume+reachable+set&searchtype=all"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the established impulse response and general zonotope area, the convolution identity follows by determinant algebra; the sharp cusp law and extraction from consecutive jumps require the sign-change analysis."
+        ],
+        "reasoning": "Prior general volume identities plus known h imply the calculation, so originality is specifically the derived fingerprint and inverse geometry rather than the general area technique.",
+        "searches": [
+          "arXiv:2406.06120 Section stationary support Appendix C",
+          "linear systems reachable set area formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dutta et al. analyze identical harmonic inertial run-and-tumble model and stationary phase-plane support; their scanned text has stationary support curves, not a finite-time third-derivative area profile."
+        ],
+        "reasoning": "Same underlying process and reachable geometric support, but the final claim concerns finite horizon and parameter reconstruction from cusp data rather than stationary density marginals.",
+        "searches": [
+          "inertial run tumble oscillator finite time accessible support area cusps damping identifiability telegraph",
+          "arXiv:2406.06120"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned distinct oscillator support/stability results, not this finite-time area sequence; Dutta main paper gives stationary support bounds."
+        ],
+        "reasoning": "No exact finite-T cusp-height table located; the stationary support geometry is acknowledged.",
+        "searches": [
+          "Resultary inertial run and tumble oscillator finite time accessible support area cusps damping identifiability telegraph",
+          "arXiv:2406.06120 finite time support area"
+        ]
+      },
+      "rationale": "PASS qualified: the exact inertial run-and-tumble stationary model and reachability/zonoid constructions predate this work, while the finite-time cusp spectrum, exact third derivative jumps and parameter identifiability were not identified in the inspected primary source sections.",
+      "residual_risks": [
+        "General exact support-area formulas for second-order underdamped control systems might already imply the jump spectrum as a routine specialization; checked known adjacent theory but not exhaustive.",
+        "The theorem is population support, not finite noisy-sample parameter estimation; requires λ>0 and no thermal forcing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_PRIOR_NOT_DEMONSTRATED_CUSPS",
+          "evidence": "Source explicitly studies stationary state and boundary of joint support; search for finite-time area/cusp did not locate a theorem, though uninspected material remains a risk.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.06120",
+          "material_read": "Full abstract, introduction, Section II support discussion, stationary-boundary equations 46–47, and Appendix C discussion located; page 1 screenshot; not an exhaustive line-by-line read",
+          "method": "Read arXiv PDF extracted text with targeted finds and screenshot",
+          "title": "Harmonically trapped inertial run-and-tumble particle in one dimension",
+          "trigger": "Identical stochastic model and prior stationary phase-plane support"
+        },
+        {
+          "assessment": "PRIOR_METHOD_RISK",
+          "evidence": "No whole-document noncoverage assertion; generic area reduction is credited, while cusp inverse claim awaits stronger broad-method search.",
+          "identifier_or_url": "https://arxiv.org/search/?query=Khodary+Halder+volume+reachable+set&searchtype=all",
+          "material_read": "Source title and prior claim identified in reviewed RESULT.md; no independent full text obtained",
+          "method": "Source comparison limited to package citation and search",
+          "title": "General bounded-input reach-set volume methodology (Haddad, Khodary, Halder)",
+          "trigger": "Generic reachability volume is potential domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A direct observable geometric fingerprint separates damping regimes and identifies normalized mechanical parameters without knowing a stochastic switching rate, extending stationary-support analysis to finite time with sharp singularity locations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General exact support-area formulas for second-order underdamped control systems might already imply the jump spectrum as a routine specialization; checked known adjacent theory but not exhaustive.",
+    "The theorem is population support, not finite noisy-sample parameter estimation; requires λ>0 and no thermal forcing."
+  ],
+  "schema_version": 1
+}
