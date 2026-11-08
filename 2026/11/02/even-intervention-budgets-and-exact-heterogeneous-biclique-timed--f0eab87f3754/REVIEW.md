@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof works with the same non-progressive timed-target intervention convention as the 2023 primary source. Bipartite natural updates separate into disjoint alternating vertex-time strands, each with identical optimal saturation cost by one-step shifting from an empty natural state. The global optimum is twice that cost because full adoption saturates both strands, and a full part automatically propagates full positivity to its opposite side with no further targeting. On a biclique, the natural successor cardinality is exactly the threshold cumulative count independently of the active vertices' identities; the weighted state graph is therefore both sound and complete. Every edge cost is a realizable minimum added intervention count. Dijkstra yields the optimum and predecessor arcs yield a constructive schedule. The uniform-threshold formula is proved by an upper construction and a first-natural-activation lower bound.
+PASS
 
-The bundled independent exhaustive full-state test compared every threshold multiset on bicliques of part sizes up to three (168 cases). A separate all-graph test checked 3860 small bipartite graph/threshold pairs for even optimum, and 3025 uniform biclique parameter combinations checked the formula. These support but do not establish infinite correctness; the included proof supplies that.
+For each bipartite edge, all t+1 natural neighbors depend on the opposite part at t, separating the two alternating vertex-time strands. One shift from empty initial natural state equates their optimum saturation costs; a fully naturally positive target forces saturation of each strand, and a saturated side propagates naturally after zero-cost updates. On K_{a,b}, natural successor counts are f(v),g(u) regardless of identities, giving exact nonnegative Dijkstra transition weights v-g(u),u-f(v) and optimum twice the minimum distance to a saturated side. Initial source arcs u correctly charge time-0 targeting. Uniform case requires min(alpha,beta) direct activations before first natural event or saturation.
 
-Risks/limits: the result does not cover asynchronous updates, nonbipartite graphs for the parity claim, or graphs other than bicliques for the efficient count compression. The all-graph computational test happens also to include isolated zero-threshold vertices, which is beyond the declared theorem.
+## originality
 
-## Originality — PASS, with residual priority uncertainty
+PASS
 
-The primary 2023 paper was inspected in its accessible full arXiv text and PDF, including definitions, Example 1, Theorems 2–3 and 8, the double-cover proof in Appendix B.3, and the future-work discussion. Its earlier parity splitting is explicitly recognized. Its star and strict-majority \(K_{2,2\ell}\) examples, general bounds, and tree algorithm do not provide the arbitrary-heterogeneous biclique count-state algorithm or the exact minimum formula. The available non-progressive *static* target-set paper and *progressive* dense-graph research address different objectives. The most similar research-record hits concern irreversible conversion or discounted hitting domination, neither of which implies the timed non-progressive statement.
+Best-of-knowledge original in its precise qualified statement. Soltani et al. already separate odd/even intervention parity and provide exact tree algorithm plus special stars/bicliques, so those ideas are not new; their stated results do not supply exact equal-cost strand saturation and heterogeneous biclique weighted shortest-path with arbitrary positive thresholds. Their bipartite double-cover comparison is a different graph operation. The progressive/static results lack repeated vertex-time targeting. Priority limits are recorded; an inaccessible plausible source alone is not treated as automatic failure.
 
-Risk: a specialized biclique timed-threshold algorithm may exist under different terminology or in unindexed literature. This is a best-knowledge primary-material and record comparison, not a mathematical proof of uniqueness or publication priority.
+## value
 
-## Mathematical value — PASS
+PASS
 
-The problem is already known to be hard on unrestricted networks and to admit a special exact tree algorithm. Complete bipartite networks model fully connected interactions between two communities and include graphs far outside the tree class. Heterogeneous individual adoption thresholds are natural, and timed controls cannot generally be replaced by static seed sets. The result replaces a potentially exponential space of intervention histories by an exact \(O(ab\log(a+b))\) count-state search, recovers actual optimal schedules, and yields an exact closed formula for uniform thresholds. The four-by-four example shows a genuinely multi-round, two-intervention cascade; the universal even-cost structure restricts every bipartite optimum. This is a motivated tractability boundary and structural theorem, not a mere table recomputation.
+Timed intervention cost in non-progressive adoption is a natural exact control invariant; bipartite parity makes it even, and a polynomial algorithm for arbitrarily heterogeneous bicliques supplies schedules and separates timed from static targeting. Nontrivial generalization of previously solved tree class.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

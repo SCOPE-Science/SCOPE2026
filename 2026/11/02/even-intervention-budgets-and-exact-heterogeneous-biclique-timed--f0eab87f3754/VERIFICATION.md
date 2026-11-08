@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The included `verify.py` uses only the Python standard library. Executing `python verify.py` tested:
+## correctness
 
-- 168 biclique threshold-multiset instances, independently comparing the compressed alternating count-state shortest path against full-state shortest path over all intervention subsets;
-- 3860 labeled bipartite graph / threshold instances on at most five vertices, checking the even-minimum consequence with no parity or count compression in the verifier;
-- 3025 uniform-threshold biclique parameter combinations, checking the closed formula.
+PASS
 
-All tests passed. The full-state method enumerates active configurations and all possible added targeted vertices at each transition, so it is independent of the claimed count compression. These finite tests are not infinite proofs and do not establish originality. The mathematical arguments in `RESULT.md` are necessary for the unrestricted-size claims. The code does not require any external package and does not make web requests.
+For each bipartite edge, all t+1 natural neighbors depend on the opposite part at t, separating the two alternating vertex-time strands. One shift from empty initial natural state equates their optimum saturation costs; a fully naturally positive target forces saturation of each strand, and a saturated side propagates naturally after zero-cost updates. On K_{a,b}, natural successor counts are f(v),g(u) regardless of identities, giving exact nonnegative Dijkstra transition weights v-g(u),u-f(v) and optimum twice the minimum distance to a saturated side. Initial source arcs u correctly charge time-0 targeting. Uniform case requires min(alpha,beta) direct activations before first natural event or saturation.
 
-Primary source date 2023-07-18 was taken from the first public arXiv posting, not the later journal appearance. Relevant source comparison: https://arxiv.org/abs/2307.09111 . No independent external audit or formal certification has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge original in its precise qualified statement. Soltani et al. already separate odd/even intervention parity and provide exact tree algorithm plus special stars/bicliques, so those ideas are not new; their stated results do not supply exact equal-cost strand saturation and heterogeneous biclique weighted shortest-path with arbitrary positive thresholds. Their bipartite double-cover comparison is a different graph operation. The progressive/static results lack repeated vertex-time targeting. Priority limits are recorded; an inaccessible plausible source alone is not treated as automatic failure.
+
+## value
+
+PASS
+
+Timed intervention cost in non-progressive adoption is a natural exact control invariant; bipartite parity makes it even, and a polynomial algorithm for arbitrarily heterogeneous bicliques supplies schedules and separates timed from static targeting. Nontrivial generalization of previously solved tree class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
