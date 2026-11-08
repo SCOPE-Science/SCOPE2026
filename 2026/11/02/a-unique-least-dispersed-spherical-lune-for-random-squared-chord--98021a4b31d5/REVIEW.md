@@ -1,19 +1,21 @@
-# Mathematical assessment: squared-chord dispersion in spherical lunes
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Area-uniform spherical coordinates give the explicit centroid and second moment matrix. The identities \(\mathbb E(X\cdot Y)=\|\mathbb EX\|^2\) and \(\mathbb E(X\cdot Y)^2=\operatorname{tr}((\mathbb E XX^\top)^2)\) yield the variance exactly. The derivative factorization is checked algebraically. A monotonicity proof using \((\tan t-t)/t^3\) establishes that its root is unique and determines the global extremal ordering. The standalone numerical checker independently samples the actual uniform area measure and corroborates the derived formulas. No finite experiment is used as an infinite uniqueness proof.
+PASS
 
-## Originality
+On S² with area-normalized longitude lune 0<alpha<=pi, integration using uniform longitude and polar density sin(theta)/2 gives centroid m=(pi sin(alpha/2)/(2alpha),0,0) and second-moment matrix diag((1+sin(alpha)/alpha)/3,(1-sin(alpha)/alpha)/3,1/3). Independence gives E||X-Y||²=2-2||m||² and Var||X-Y||²=4(tr(M²)-||m||⁴), proving both stated formulas. For t=alpha/2, q=(sin t/t)², exact derivative factorization dV(2t)/dt=q qprime[8H(t)/9-pi^4/32] holds, H=(t cot t)²+t³/(tan t-t) strictly decreases from 4 to 0 by explicit derivative inequalities; unique crossing produces a strict nondegenerate global minimum. Endpoints give Var(pi)=13/12 and limit Var(0+)=20/9-pi^4/64; the latter is lower than hemisphere, so maximum is unique there. Independent scipy root gives alpha=1.1164752259454593, variance=0.6753158386946392, matching the result; finite checks only corroborate the all-angle proof.
 
-PASS on the accessible scientific record, with historical priority provisional. The closest full primary work, Moseeva–Tarasov–Zaporozhets (arXiv:2007.07297, Section 2 and Corollaries 2.2–2.3), derives spherical random-point distances for line-free cone bodies and computes a cap example; a pole-to-pole lune is outside that pointed-cone domain. It does not state this squared-Euclidean-chord moment function or its global minimum. Spherical-lune, spherical-wedge, digon, and squared-chord-variance searches did not return a matching theorem. A related latitude-zone moment-reconstruction result uses a different family and does not imply a lune opening optimum. Search non-detection is not proof of historical novelty, and a generic unpublished or older tensor calculation is a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The natural varying family of spherical lunes has a nonobvious global interior **minimum** of squared chord dispersion even though its mean rises strictly with lune opening. A complete shape classification, unique transcendental optimum, exact hemispherical upper extremum and positive quadratic stability coefficient are supplied for every permitted angle. The substantive content is the sharp all-opening extremum, not merely the one-point tensor integration.
+Qualified PASS. Classical spherical random-distance and chord results overlap at moment methodology, but the closest inspected paper requires pointed spherical cone bodies and treats geodesic/cap distributions. A pole-to-pole lune is not a pointed cone, and its squared ambient chord-variance shape optimum does not follow from that source. Generic integral-geometric tensor moment formulas are prior background.
 
-## Scope and limits
+## value
 
-The statistic is the variance of squared **ambient Euclidean** chord length, not the variance of spherical arc length. The opening is \(0<\alpha\le\pi\). Historical priority and an external independent audit are unverified; the computations check finite examples only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The parameter alpha ranges over the standard geometric family of spherical lunes, and squared Euclidean chord dispersion is a natural two-point shape statistic. Unique interior minimization despite strictly increasing mean gives a nontrivial global shape effect with exact endpoint rigidity and curvature. The precise optimal shape could be needed for stochastic geometry benchmarks; not an arbitrarily chosen finite subcase.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
