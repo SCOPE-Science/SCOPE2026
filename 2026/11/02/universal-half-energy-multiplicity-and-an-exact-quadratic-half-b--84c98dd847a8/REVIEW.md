@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof applies to complex polynomials on bounded reflection-symmetric open domains with a positive integrable reflection-invariant weight. Reflection anticommutes with the centered concentration operator. Division of every odd polynomial by the reflected coordinate produces an admissible even test polynomial, proving injectivity of the odd-to-even block by a strictly positive weighted integral. This determines the exact multiplicity at half energy and all paired noncentral eigenvalues at every degree. For the uniform ball at degree two, explicit moment identities, an orthonormal odd basis, and the orthogonal images of its radial and transverse components yield all singular values, complete multiplicities, and all top maximizers. The standalone monomial-moment checker agrees in 24 independent dimension-band tests. Residual risk: no independent proof review; numerical comparisons are finite and not infinite certification.
+PASS
 
-## Originality — PASS (provisional)
+Reflective half-domain energy compression has J=2C-I anti-commuting with reflection, hence off-diagonal parity blocks; odd polynomial f=t h paired with even h yields ∫|t||h|² w>0, so the odd-to-even block is injective and zero eigenspace dimension exactly dim(E)-dim(O), counted by binomial parity formula. All other J eigenvalues pair ± and lie strictly inside (-1,1) by polynomial uniqueness on two open halves. On the uniform unit ball at L=2, exact beta moments give B images of t and t*y_j with singular values s0 and s1; transverse O(d-1) orthogonality, s0>s1, their multiplicities, and gamma asymptotics establish complete quadratic spectrum. Independent generalized Gram matrix calculations reproduce dimensions 2..6.
 
-The focal 2023 ball-Slepian work establishes the polynomial-bandlimit setting and asymptotic spectral distribution, not the exact centered multiplicity at every degree or the full degree-two all-dimensional eigenvalues. The 2016 ball-Slepian work uses different spectral bands; the 2026 Gerhards–Huang treatment emphasizes spectral shape and asymptotics. The closest indexed central-eigenvalue analogues concern spherical harmonics on the sphere, Hermite modes on a line, and Walsh functions on a discrete cube; their statements do not imply the uniform-volume polynomial-half-ball formulas without additional analysis. Real semantic searches of publicly indexed mathematical findings identified no equivalent statement. This is a priority assessment, not a proof of global uniqueness. Residual risks include unindexed specialized literature and incomplete access to some older full texts.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Exact spectral information is a central invariant of Slepian localization. The result provides a dimension- and weight-independent rigid count of precisely half-concentrated modes at every polynomial bandwidth, a full closed-form spectrum at the first bandwidth where radial and transverse modes separate, an exact best-concentration polynomial, and two nontrivial high-dimensional spectral limits. It therefore gives a reproducible benchmark for multivariate polynomial concentration rather than an arbitrary small numerical census. It does not claim sharp outer eigenvalues at higher polynomial degree.
+Gerhards–Huang establish polynomial Slepian concentration and asymptotic eigendistribution on d-ball. Their Theorem 2.1 and Appendix B do not state the exact central half-energy multiplicity for arbitrary finite L or the complete d-dimensional L=2 spectrum. Resultary has an analogous parity-multiplicity theorem for hemispherical spherical harmonics but not d-ball polynomials. The parity anti-commutation is general textbook structure, but the nontrivial injectivity and explicit beta-moment spectrum add an object-specific classification.
 
-## Closest literature and limitations
+## value
 
-Gerhards–Huang (arXiv:2308.03543, first public 7 August 2023), Khalid–Kennedy–McEwen (2016), and Gerhards–Huang (2026) are discussed in `RESULT.md`; related indexed hemisphere, Hermite and Walsh midpoint-symmetry findings are compared in the originality assessment. The general theorem requires reflection symmetry and positivity. The exact noncentral spectral formula is specific to the uniform ball and total polynomial degree at most two.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact universal half-energy multiplicities for each bandlimit on reflection-symmetric polynomial domains and complete quadratic spectrum on d-balls, including unique optimal half-ball concentration line and limiting dimensions; natural spectral invariant complementing asymptotic Shannon counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

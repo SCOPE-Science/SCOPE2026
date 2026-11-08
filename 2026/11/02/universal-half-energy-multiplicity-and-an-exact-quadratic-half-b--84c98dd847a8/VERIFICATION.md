@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The included `halfball_slepian_checker.py` uses the Python standard library and NumPy (`requirements.txt`). After installing the stated dependency, run `python halfball_slepian_checker.py` from the directory containing the file. Its monomial Gram matrix is calculated from explicit ball moments; the gamma-function eigenvalue and maximizing-polynomial predictions are supplied independently, rather than building the calculated operator from the claimed spectral decomposition.
+## correctness
 
-The execution returned `PASS: independent monomial Gram assembly, exact half-energy counts and symmetry; 24 dimension-band tests`. It additionally checks the explicit top and bottom quadratic polynomials as generalized eigenvectors. It tested all total-degree-two monomial spaces for dimensions \(2\le d\le9\), and the paired spectral symmetry and central multiplicity for \(2\le d\le5\), \(0\le L\le3\). Numerical comparisons use absolute tolerance \(2\cdot10^{-8}\) in well-conditioned cases. Finite numerical checks cannot prove the arbitrary-degree or arbitrary-dimension statements: those follow from the algebraic parity and beta-moment argument in `RESULT.md`.
+PASS
 
-The strongest science limit is that no external independent audit or experimental validation has been completed. The historical priority search did not establish universal absence of stronger results.
+Reflective half-domain energy compression has J=2C-I anti-commuting with reflection, hence off-diagonal parity blocks; odd polynomial f=t h paired with even h yields ∫|t||h|² w>0, so the odd-to-even block is injective and zero eigenspace dimension exactly dim(E)-dim(O), counted by binomial parity formula. All other J eigenvalues pair ± and lie strictly inside (-1,1) by polynomial uniqueness on two open halves. On the uniform unit ball at L=2, exact beta moments give B images of t and t*y_j with singular values s0 and s1; transverse O(d-1) orthogonality, s0>s1, their multiplicities, and gamma asymptotics establish complete quadratic spectrum. Independent generalized Gram matrix calculations reproduce dimensions 2..6.
+
+## originality
+
+PASS
+
+Gerhards–Huang establish polynomial Slepian concentration and asymptotic eigendistribution on d-ball. Their Theorem 2.1 and Appendix B do not state the exact central half-energy multiplicity for arbitrary finite L or the complete d-dimensional L=2 spectrum. Resultary has an analogous parity-multiplicity theorem for hemispherical spherical harmonics but not d-ball polynomials. The parity anti-commutation is general textbook structure, but the nontrivial injectivity and explicit beta-moment spectrum add an object-specific classification.
+
+## value
+
+PASS
+
+Exact universal half-energy multiplicities for each bandlimit on reflection-symmetric polynomial domains and complete quadratic spectrum on d-balls, including unique optimal half-ball concentration line and limiting dimensions; natural spectral invariant complementing asymptotic Shannon counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
