@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The conclusion is an unrestricted *value* optimum, established through convex group averaging rather than assuming symmetric individual edge weights. The exact two-factor Fourier decomposition produces all eigenvalues and reduces the objective to three affine barriers. Their boundaries give the two-layer parity result, the three-by-three flat optimum, and the odd-cycle switching condition \(m=4(1+\cos(\pi/n))\). Explicit verification with the included package checker corroborated 1,716 scalar optimizations, 48 full spectra, 225 feasible asymmetric perturbations and exact rational special cases. Finite tests do not substitute for the analytical proof.
+## correctness
 
-**Originality — PASS, qualified.** Boyd, Diaconis and Xiao (2004) give the general SDP formulation; Boyd, Diaconis, Parrilo and Xiao (2007) provide group averaging and Cartesian-product spectral methods, but their inspected examples do not state a zero-holding \(C_n\mathbin{\square}K_m\) classification or the universal 7/8 binding-mode transition. Reber (2018) considers a fixed lazy prism walk; Jafarizadeh's clique lifts use full inter-fiber connections instead of the matchings here. A 2026 association-scheme paper has general LP machinery, but no evaluated same-family formula was found in its relevant sections. Five mathematical research-record searches and all 32 accessible earlier local claim entries disclosed no equivalent or dominating result. The absence of a search hit is not proof of novelty; specialized literature remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** A requirement to move every step can fundamentally alter fastest-mixing solutions. The result supplies closed transition probabilities for an entire natural two-parameter network family, identifies a sharp parity obstruction, an exceptional flat solution set and a universal *seven versus eight* spectral-active-mode change. Its optimized mixing gap improves the equal-edge simple walk by asymptotic factor \((m+1)/2\), quantifying a genuine design effect rather than a cosmetic parameter specialization.
+Norm(P-J/(nm))2 is convex and invariant under D_n x S_m, whose edge orbits are exactly the cycle and within-fiber clique edges; averaging any feasible P gives a globally no-worse two-class P. Fourier diagonalization of C_n and clique constant/contrast decomposition gives ALL eigenvalues 1-a*delta_k and 1-mb-a*delta_k of multiplicity m-1. With b=(1-2a)/(m-1), SLEM is maximum of three affine lines L=1-alpha*a, H=(-1+2ma)/(m-1), U=1/(m-1)+a*(beta-2m/(m-1)). For m2 even graph bipartite implies eigenvalue -1 for any no-holding P; m2 odd unique two-class line intersection. For m>=3 L falls, H rises, U nondecreases; first L/U or L/H crossing minimizes, except n=m=3 plateau. Algebra reduces odd-n crossover to m>=4(1+cos(pi/n)), lying strictly (7,8) for odd n>=5; n3 exactly6. Independent grid checked 35 n and 17 m and threshold. Analytical spectral/averaging proof, not finite grid, establishes arbitrary n,m.
 
-**Closest literature and limitations.** The cited 2004 and 2007 papers are the strongest known background for symmetry and product-spectrum reduction. The specific calculated minimax envelope is not stated there in the inspected passages. The 2026 association-scheme methods may give an alternative implicit LP route, and unpublished or unindexed equivalent calculations cannot be ruled out. The result requires symmetric zero-diagonal stochastic matrices with uniform stationary distribution; it determines a globally optimal two-class allocation but does not claim uniqueness over all unrestricted allocations, or finite-time total-variation optimality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Boyd et al. 2007 primary paper develops FMMC convex symmetry reduction and product spectra, and this foundational method is explicitly credited. The zero-holding C_n square K_m exact closed evaluated minimax phase diagram, exceptional plateau and universal integer 7-to-8 switch were not stated in inspected sections of that primary full text. Different clique-lift products use complete bipartite inter-fiber edges, unlike here one-to-one cycle edges. Best-knowledge PASS with specialized product-graph mixing literature priority risk.
+
+## value
+
+PASS
+
+Cyclic clique networks are a natural graph family for spatial/layered random walks, and forbidding all holding probabilities materially changes the mixing optimum. A global (not merely symmetric-edge-assumed) exact SLEM and sharp m7/8 eigenmode change give a useful graph-design phase diagram, including bipartite obstruction and scaling gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
