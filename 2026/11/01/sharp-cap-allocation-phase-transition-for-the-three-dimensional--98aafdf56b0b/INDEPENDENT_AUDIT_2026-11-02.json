@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T07:09:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md Git blob ec3b8c2ca537521a2ba8cf76e7535667743302b6",
+        "frozen verify_double_caps.py Git blob 7b5197d05371b7ce651bbac9d5784777d88a7044",
+        "independent symbolic 5/3 identity check"
+      ],
+      "rationale": "Affine reduce to the standard tetrahedron with x1<=1-s and x2<=1-t. For s,t>=0, s+t<=1, c=s^3+t^3<1, the disjoint cap-volume calculation is vol=(1-c)/6. The coordinate facets have areas (1-t^2)/2, (1-s^2)/2 and (1-s^2-t^2)/2. By the mixed-area formula with support h_{-K}, the other outward facets have zero support and 6V(K,K,-K) equals their weighted sum N. Independent symbolic expansion verifies rho-5/3=(1-u)((1-u)(5u+4)+12st)/[3(1-c)], u=s+t, so equality requires u=1. Fixing c, st=(u^3-c)/(3u), u ranges c^(1/3)..min((4c)^(1/3),1); differentiation gives dN/du<=u^2-1<0 for 0<u<1, strict also at u=1 when c<1. Endpoints then give one-cap maximum, balanced minimum for c<=1/4, edge-contact minimum thereafter and the explicit quadratic discriminant solutions. The universal proof uses geometry/algebra; finite exact difference-body checks are supplementary.",
+      "residual_risks": [
+        "At c=0 or c=1 the fixed-volume theorem is not claimed; c=1 leaves zero volume.",
+        "s+t>1 involves overlapping removed caps and is outside proof scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Godbersen upper bound 3 for tetrahedra is not a sharp fixed-c bound or a lower 5/3 plateau.",
+          "The Resultary one-vertex simplex truncation profile describes a strictly smaller parametric family."
+        ],
+        "reasoning": "Global inequalities and one-parameter special cases cannot imply the sharp all-pairs redistribution law under c=s^3+t^3.",
+        "searches": [
+          "https://arxiv.org/abs/2312.03473",
+          "arxiv:2610.06806",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2312.03473",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949",
+        "arxiv:2610.06806",
+        "frozen RESULT.md literature section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sadovsky lemma provides the relevant general mixed-volume calculation, but no stated two-cap monotone fixed-c extremization.",
+          "The global simplex equality bound 3 agrees at s=t=0; it cannot give the strict lower plateau 5/3 or exact maximizing function."
+        ],
+        "reasoning": "Known general results explain technique and boundary, not full equality locus and phase diagram.",
+        "searches": [
+          "https://arxiv.org/abs/2312.03473",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949",
+          "arxiv:2610.06806"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sadovsky treats projection/mixed-volume formulas for locally anti-blocking bodies, supplying a calculation method but not the fixed two-cap allocation optimizer.",
+          "One-corner profile takes t=0 whereas the phase transition is at st>0."
+        ],
+        "reasoning": "Checked same denominator and mixed volume functional rather than superficial tetrahedron naming; the missing fixed-c two-cut optimization is substantive.",
+        "searches": [
+          "three dimensional Godbersen mixed volume ratio two vertex truncated tetrahedron fixed removed cap volume phase transition quarter",
+          "Godbersen ratio truncated tetrahedra cap allocation mixed area anti blocking"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searched mixed volume, truncation and fixed-volume threshold vocabulary; one-cap record appeared but no same double-cut table.",
+          "The claimed c=1/4 transition and full edge-contact locus are absent from the compared one-cap statement."
+        ],
+        "reasoning": "No exact double-cap table found in the actual ranked results; that negative search is not historical uniqueness proof.",
+        "searches": [
+          "three dimensional Godbersen mixed volume ratio two vertex truncated tetrahedron fixed removed cap volume phase transition quarter",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949"
+        ]
+      },
+      "rationale": "The anti-blocking mixed-volume projection identity is prior work, as are the general Godbersen inequality and one-corner simplex truncation profile. The precise two-cut fixed-c reallocation extremum, threshold 1/4 and 5/3 plateau are not logical corollaries of those general bounds or one-cap formulas without fresh two-variable optimization. Best-of-knowledge PASS with older truncation literature risk.",
+      "residual_risks": [
+        "Some older polyhedral mixed-volume optimization might present the same two-cap family under other terminology.",
+        "Related one-corner result inspected at indexed summary rather than full primary proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlying computational method is prior; not a two-cut fixed removed-volume optimization",
+          "evidence": "General projection formula and anti-blocking inequality do not specify the c=1/4 redistribution threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.03473",
+          "material_read": "Accessible full primary PDF, theorem statement and mixed-volume projection lemma",
+          "method": "primary PDF read",
+          "title": "Godbersen’s conjecture for locally anti-blocking bodies",
+          "trigger": "Same opposite-body mixed volume and coordinate anti-blocking polytopes"
+        },
+        {
+          "assessment": "One-corner slice, no whole-document exclusion claim",
+          "evidence": "One-corner s=c^(1/3),t=0 yields the maximum but not the balanced/edge-contact minimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949",
+          "material_read": "Resultary ranked title/scientific summary only",
+          "method": "indexed abstract",
+          "title": "Exact Godbersen mixed-volume profile for one-vertex simplex truncations",
+          "trigger": "Exact same mixed-volume ratio on one-corner subfamily"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2312.03473",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949",
+        "frozen RESULT.md"
+      ],
+      "rationale": "The removed volume c is a natural geometric constraint for loss of tetrahedral vertices; the exact optimal placement of two cuts is a nontrivial finite-parameter mixed-volume problem. A rigorous phase boundary c=1/4, unique equal-cut minimizer below it, a continuous edge-contact minimizing family above, and a sharp explicit maximum provide geometric information not present in the global Godbersen inequality.",
+      "residual_risks": [
+        "No general extremum among arbitrary polytopes or beyond the nonoverlapping homothetic cuts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "At c=0 or c=1 the fixed-volume theorem is not claimed; c=1 leaves zero volume.",
+    "s+t>1 involves overlapping removed caps and is outside proof scope.",
+    "Some older polyhedral mixed-volume optimization might present the same two-cap family under other terminology.",
+    "Related one-corner result inspected at indexed summary rather than full primary proof.",
+    "No general extremum among arbitrary polytopes or beyond the nonoverlapping homothetic cuts."
+  ],
+  "schema_version": 1
+}
