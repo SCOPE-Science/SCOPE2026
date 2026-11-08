@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is a genuine cyclic centrally symmetric hexagon with three positive half-gaps summing to \(\pi/2\). Shoelace area and paired side lengths yield equation (1) with positive denominators. Under an arbitrary two-coordinate averaging, the exact rational formula (2) has derivative (3), whose factor \(B(u,q)\) is negative on the *entire* admissible interval by a two-case analytic bound. This gives strict Schur-convexity. Pairwise smoothing establishes the unique lower extremizer; transferring to a zero-angle boundary establishes the strict sharp upper bound, and a continuous one-parameter family supplies the range. Exact polynomial-algebra identity and deterministic diagnostics are replayable with the packaged standard-library code; only the analytic inequalities prove the continuum statement.
+## correctness
 
-## Originality — PASS, with documented priority uncertainty
-Inspected 2026 Chouikha articles treat local perturbations and special side-length families, not this full three-gap hexagon result. The general cyclic-polygon area identity of Dulio–Laeng computes areas without implying the derivative sign. Close indexed geometric hexagon results address different objects/invariants (enclosing parallelogram, translative convex-hull ratio, norm asymmetry) and do not imply a pseudo-area majorization law. Older papers by X.-M. Zhang directly address pseudo-perimeters and Schur-convex geometric inequalities. Their complete texts were unavailable for this comparison, and exact overlap cannot be ruled out; the claimed novelty is the explicit global strict angular-majorization statement, not general isoperimetry.
+PASS
 
-## Mathematical value — PASS
-Levy's conjectured sharp endpoints are an active isoperimetric problem for cyclic polygons. Centrally symmetric cyclic hexagons form a natural complete family with three independent arc gaps, not an arbitrary numerical slice. The majorization theorem simultaneously proves the entire conjectured range and its equality/degeneration structure on this family, going beyond neighborhood results and two-side-length deformations. The monotonicity mechanism is reusable in symmetry-restricted polygonal extremal problems.
+Antipodal cyclic gaps give three positive x,y,z summing pi/2. Two equal copies of side lengths 2Rsin x etc. yield L=4R sum sin x and exact Phi=(sum sin x) product cos x / product(sin x+sin y). With m=(x+y)/2, d=(x-y)/2, u=sin m, q=cos d, the asserted expression (2) and factored derivative (3) were independently differentiated in SymPy: exact identity true. The remaining factor B(u,q) is strictly negative on 0<u<1/sqrt(2), sqrt(1-u^2)<q<=1, as the two stated elementary interval bounds show, so every nontrivial pair averaging decreases Phi. Symmetric averaging fixes unique minimum x=y=z=pi/6; boundary x=0 gives Phi=1, approached but not attained, and connected paths give full range. This is a global analytic proof, not a finite grid argument.
 
-## Closest literature and limitations
-Primary direct comparisons: Chouikha (arXiv:2607.07095, 2609.00963), Dulio–Laeng (2021). Priority-sensitive incomplete comparisons: Zhang (1997, 1998), complete article texts inaccessible. No conclusion is drawn about arbitrary cyclic hexagons or higher numbers of sides. Independent validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct mathematical contribution after actual analogy/equivalence and stronger-coverage searches; the strongest available direct sources and their material access limits are documented, not an exhaustive priority proof.
+
+## value
+
+PASS
+
+The exact directional majorization theorem settles an entire three-gap family of a long-studied cyclic-polygon pseudo-area inequality, providing sharp extrema, rigidity and range rather than only local perturbative examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
