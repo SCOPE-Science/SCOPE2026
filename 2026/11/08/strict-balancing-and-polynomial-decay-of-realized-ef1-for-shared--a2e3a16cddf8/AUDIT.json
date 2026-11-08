@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Realized EF1 is equivalent to the range-at-most-one event for independent bundle success counts. One-trial transfer is coupled as U+Z versus V+Z, with U~Bin(a,p), V~Bin(b-1,p), and Z~Bern(p). The difference is p E[K(U+1,V,C)-K(U,V+1,C)]. Antisymmetry of the bracket, monotonicity for U<V, and the binomial monotone-likelihood-ratio comparison make this nonnegative. The (U,V)=(0,1), all-other-counts-zero contribution supplies the explicit lower bound (b-a-1)p^2(1-p)^(m-2)>0. Finite transfers converge to the balanced size vector and strictness proves uniqueness. Inclusion-exclusion for adjacent count intervals proves the exact formula; the standard binomial local CLT and Gaussian integration give the coefficient (2^n-1)/sqrt(n). Exact testing from verify.py: 7,920 formula/count+optimality tests, 1,458 independent bit-pattern tests, 30,240 strict transfer tests. The infinite claims are proved analytically; numeric checks are not substitutes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.34906v1 Lemma 4.6 and Appendix A.2: pointwise binomial/log-concave smoothing and likelihood-ratio comparison for exact EF",
+        "arXiv:2609.23577v1 Sections 1-2 and 4: online allocation randomness with fixed valuations, not uncertain realized goods",
+        "arXiv:2602.12359v1 Sections 1-3: truthful stochastic allocation mechanisms and welfare"
+      ],
+      "reasoning": "The published likelihood-ratio tool is explicitly acknowledged and reused; it does not by itself assert strict Schur balancing of the range-at-most-one fair-division event nor the finite optimal success law. The general EF optimizer concerns the smaller equality event, and the online results use a different probability model. No established stronger EF1 result for these exact quantifiers was identified.",
+      "searches": [
+        "binomial independent counts range at most one probability majorization balanced sizes Schur concavity",
+        "strict Schur concavity probability n independent binomial random variables range at most one under balanced sample sizes fair division identical Bernoulli",
+        "\"independent binomial\" \"range\" \"Schur-concave\" \"sample sizes\"",
+        "arxiv 2610.34906 Proposition 7.2 identical valuations Lemma 4.6",
+        "randomized online fair division realized EF1 common item values"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.34906",
+      "https://arxiv.org/abs/2609.23577",
+      "https://arxiv.org/html/2602.12359v1",
+      "https://iris.gssi.it/handle/20.500.12571/30247"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.34906v1 Proposition 7.2 balances the exact-equality event; the formula here includes mixed adjacent counts, with a separate proof",
+        "arXiv:2610.34906v1 Appendix A.6 proves likelihood ratio ordering of convolution powers, a shared technical input",
+        "arXiv:2609.23577v1 treats randomized online allocations against fixed adversarial valuations",
+        "arXiv:2602.12359v1 concerns strategic incentive-compatible allocation rules"
+      ],
+      "reasoning": "No cited result directly gives the strict improvement for EF1, all equality cases, or the universal polynomial asymptotic constant. The likelihood-ratio lemma is a legitimate known ingredient but its application to the realized-EF1 range event and the consequent fair-division classification remain distinct assertions. Publication precedence could change if a specialized range-balancing theorem exists elsewhere.",
+      "searches": [
+        "arXiv:2610.34906v1 Sections 4,7 and Appendix A.2",
+        "arXiv:2609.23577v1 realized EF1 online",
+        "arXiv:2602.12359v1 truthful stochastic fair division",
+        "fair division lotteries ex post EF1 iid Bernoulli identical stochastic valuations balanced bundle sizes optimal probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.34906v1 Section 7.1: maximizing probability that all realized bundle values are exactly equal, not range at most one",
+        "arXiv:2610.34906v1 Section 8 explicitly identifies EF1 as a further direction",
+        "published-finding corpus semantic results for the listed queries: no returned exact EF1 range-balancing claim"
+      ],
+      "reasoning": "For binary common valuations, realized EF1 is the event max X_i-min X_i<=1, rather than all X_i equal. The positive probability of differences of one means exact-EF results do not state the same objective. Searched probability aliases (range, Schur concavity, binomial samples) to avoid mistaking vocabulary differences for originality.",
+      "searches": [
+        "fair division lotteries ex post EF1 iid Bernoulli identical stochastic valuations balanced bundle sizes optimal probability",
+        "binomial independent counts range at most one probability majorization balanced sizes Schur concavity",
+        "strict Schur concavity probability n independent binomial random variables range at most one under balanced sample sizes fair division identical Bernoulli",
+        "lottery goods common Bernoulli realized value ex-post envy-freeness up to one good balanced allocation binomial counts",
+        "ex post EF1 probability optimal fixed partition iid Bernoulli values all agents shared",
+        "\"ex-post EF1\" \"Bernoulli\" \"identical valuations\" probability allocation balanced",
+        "\"independent binomial\" \"range\" \"Schur-concave\" \"sample sizes\"",
+        "\"balanced\" \"binomial\" \"range at most one\" probability",
+        "binomial samples probability maximum minus minimum at most one Schur concavity allocation sizes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2610.34906v1 Proposition 7.3 provides general dynamic-programming evaluation for exact EF, not a binomial EF1 optimum table",
+        "AAMAS 2024 Aloisio et al. abstract concerns expected maximum envy and does not give the requested probability table",
+        "No accessible exact EF1 binomial table appeared in the searches."
+      ],
+      "reasoning": "The formula sums the probabilities of adjacent-count range events for all populations and horizons; it is not a retabulation of a fixed finite enumeration. The existing exact-EF computation and expected-envy results solve different numerical quantities.",
+      "searches": [
+        "fair division lotteries ex post EF1 iid Bernoulli identical stochastic valuations balanced bundle sizes optimal probability",
+        "lottery goods common Bernoulli realized value ex-post envy-freeness up to one good balanced allocation binomial counts",
+        "ex post EF1 probability optimal fixed partition iid Bernoulli values all agents shared",
+        "\"ex post EF1\" \"Bernoulli\" \"balanced\" \"lottery\" fair division",
+        "\"balanced\" \"binomial\" \"range at most one\" probability"
+      ]
+    },
+    "rationale": "Closest primary article arXiv:2610.34906v1 treats ex-post exact EF; Section 7.1 and Proposition 7.2 establish equal-realized-value optimality for exact EF and Section 8 explicitly leaves EF1 as a future direction. Its Appendix A.2 provides a general monotone-likelihood-ratio ingredient, but not the claimed EF1 probability optimizer, strict gap, or asymptotic. Other inspected stochastic/online fair division works use different probability spaces or optimize expected envy. Searched aliases included binomial-range Schur concavity and near-equality probability; no direct equivalent or dominating statement was found in accessible records. Unindexed probabilistic majorization literature remains a material priority risk.",
+    "residual_risks": [
+      "A general unindexed majorization theorem for independent binomial ranges might imply the pair-smoothing conclusion.",
+      "AAMAS 2024 related full text was not inspected; the accessible abstract concerns a different expected-value objective.",
+      "Only iid shared Bernoulli value realizations are covered; extending to heterogeneous or agent-specific valuation lotteries is unresolved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strongly relevant predecessor: exact EF and likelihood-ratio technique; no direct EF1 statement, and conclusion explicitly proposes EF1 as further work",
+        "evidence": [
+          "Proposition 7.2 is exact equality of all realized bundle values under common valuations",
+          "Proposition 7.3 computes exact-EF probability, not exact EF1",
+          "Section 8 names EF1 as future work",
+          "Appendix A.2 proves general likelihood-ratio order used as prior mathematical tool"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.34906",
+        "material_read": "Full-text HTML material: introduction and model, Sections 4, 7.1-7.3, 8, and Appendix A.2 including Lemma 4.6 and Lemma A.6",
+        "method": "Direct reading of publicly available rendered original text",
+        "title": "Fair Division of Lotteries",
+        "trigger": "Same common-value stochastic fair-division object and natural EF1 extension"
+      },
+      {
+        "assessment": "Distinct model: random online allocation with fixed adversarial valuation inputs, not fixed allocations with randomized realized goods",
+        "evidence": [
+          "Section 2.1 defines random allocation algorithm after values are revealed",
+          "Section 4 bounds online EF1 success probability under adversarial inputs"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.23577",
+        "material_read": "Rendered full text Sections 1-2, contributions/related work and Section 4 statements",
+        "method": "Direct public primary-source text inspection",
+        "title": "Randomized Online Fair Division: High-Probability and Expected Realized Fairness",
+        "trigger": "Potential probabilistic EF1 coverage"
+      },
+      {
+        "assessment": "Incentive and welfare mechanisms; does not state the fixed pre-realization shared-valuation Bernoulli EF1 optimum",
+        "evidence": [
+          "Sections 1-3 analyze DSIC and BIC welfare/fairness, with agent-level stochastic utilities",
+          "Bernoulli sums occur in welfare comparisons, not ex-post EF1 range balancing"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.12359v1",
+        "material_read": "Full-text rendered abstract, introduction, Section 3 mechanisms, and passages mentioning EF1 and Bernoulli variables",
+        "method": "Direct public primary-source text inspection",
+        "title": "Truthful Fair Division under Stochastic Valuations",
+        "trigger": "Stochastic independent item-valuation literature"
+      },
+      {
+        "assessment": "Expected maximum envy rather than the realized EF1-event probability; full-text uninspected residual priority risk",
+        "evidence": [
+          "Abstract states minimization of expected maximum envy and randomized allocations with ex-ante fairness"
+        ],
+        "identifier_or_url": "https://iris.gssi.it/handle/20.500.12571/30247",
+        "material_read": "Publisher repository abstract and description only, not the full paper",
+        "method": "Direct public abstract inspection",
+        "title": "Approximately Fair Allocation of Indivisible Items with Random Valuations",
+        "trigger": "Earlier stochastic fair-division model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a2e3a16c-ddf8-4ebc-b00c-0d49cd2783dc",
+  "value": {
+    "rationale": "The 2026 lottery-goods paper specifically leaves EF1 as a natural research direction. An ex-ante fair assignment is not generally safe ex post; here a complete all-n, all-m optimizer classification is proved for the canonical common Bernoulli-valued domain, with a strict quantitative transfer inequality, a closed-form optimal EF1 probability, and the exact polynomial decay rate. This is a motivated natural exact invariant, not an arbitrary fixed table or a trivial relabeling. Under three agents, six goods, p=1/2, balanced gives 23/32 versus 9/16 for sizes (1,2,3). Mathematical significance is restricted to the stated stochastic domain.",
+    "status": "PASS"
+  }
+}
