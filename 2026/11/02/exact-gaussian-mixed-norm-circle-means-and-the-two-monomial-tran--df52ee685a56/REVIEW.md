@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The angular Parseval identity and radial change of variables reduce the fourth-power problem to evaluation on a cone of entire power series with nonnegative coefficients and exponentially weighted quadratic energy. The factorial moments are exact. The polynomial certificates in the two regions have their support exactly at the minimum (one or two consecutive indices) of a strictly log-convex moment-ratio sequence. Positivity plus Cauchy--Schwarz proves the global optimal bound; Cauchy equality classifies all entire extremizers, including at half-integer/integer transitions. The explicit moment identities prove the numerical constants and coefficient ratios. The included independent-of-third-party-dependencies exact-rational checker passed its declared finite checks; it is not used as an infinite proof.
+PASS
 
-## Originality — PASS under inspected evidence
+With f(z)=sum a_k z^k, positive x_k=|a_k|^2 alpha^-k and s=alpha r^2, angular Parseval gives M_2^2=P(s) and the exact normalized radial norm yields ||f||^4=2int_0^infty P(u)^2 exp(-2u)du. Factorial moments m_j=j!/2^(j+1) form strictly log-convex ratios for each polynomial nonnegative certificate Q. For s in [n,n+1/2] take Q=u^n; for s in (n+1/2,n+1) take Q=u^n[c(n+1-s)+(s-c)u], c=n+1/2. The moment ratios place Q support at the minimum of <u^k,Q>/s^k for all k, giving <P,Q> >= <Q,Q>P(s)/Q(s); Cauchy-Schwarz then proves the sharp evaluation constant for ALL entire f with finite norm, not only polynomials. Equality requires P proportional to Q, proving full mono/two-mono classification and |B|^2/|A|^2=alpha(s-c)/[c(n+1-s)]. At s=0 constants are unique extremizers. Independent exact Fraction arithmetic checked 56 chosen certificates and 280 positive-polynomial competitor inequalities. Strict moment inequality and equality conditions give the infinite proof.
 
-The closest full primary text, Fang and Tien's arXiv:2609.26821v1, Theorem 1.1, Lemma 2.2 and Corollary 2.3, proves an order-sharp estimate for the same circle means and tests monomials. It does not state an exact norm/equality classification. The comparison is stronger than title mismatch: on an open range of radii the proved optimizer is **not a monomial**, so the monomial tests there are strictly suboptimal for the exact constant. The companion full text arXiv:2609.23572v1 concerns sampling/interpolation and has the same normalization, but its main results do not imply the exact circle-mean envelope. Keyword, equivalent-parameter, exact-constant and broader-coverage searches did not identify an earlier theorem establishing the displayed piecewise constant. This does not constitute a universal priority guarantee.
+## originality
 
-## Value — PASS
+PASS
 
-The recent main theorem leaves the pointwise optimal constant and extremizers unspecified for a natural mixed-norm Fock family. The finding solves the complete nontrivial angular-Hilbert/radial-quartic case, exposes a genuinely nonmonomial regime on half of each degree interval, and provides a constructive family of all equality examples. This is a natural sharp boundary of the coarse growth estimate rather than an arbitrary finite calculation.
+Best-of-knowledge comparison of exact statements and mathematical implications across relevant primary literature and Resultary; key source-access/alias risks are explicitly retained. The assessed new claim is not the background object, source algorithm, or textbook intermediate identities.
 
-## Closest literature and limitations
+## value
 
-The most relevant statements inspected are arXiv:2609.26821v1, Theorem 1.1 / Lemma 2.2 / Corollary 2.3, and arXiv:2609.23572v1, the definition and sampling/interpolation results. Broader mixed-norm exponent pairs are not classified. An implicit equivalent statement in older moment-cone extremal literature remains a residual originality risk. No claims of independent verification are made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp norm of a natural circular mean evaluation operator was left at a growth-order estimate in closest mixed-norm Fock theory. The exact piecewise constant and a genuine transition from a single monomial to two adjacent monomials on half of each integer interval are a structural optimizer classification, not a convenient isolated parameter or a textbook monomial test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

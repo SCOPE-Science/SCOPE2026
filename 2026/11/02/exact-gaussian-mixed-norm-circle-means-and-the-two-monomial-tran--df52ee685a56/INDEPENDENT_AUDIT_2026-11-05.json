@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T06:17:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With f(z)=sum a_k z^k, positive x_k=|a_k|^2 alpha^-k and s=alpha r^2, angular Parseval gives M_2^2=P(s) and the exact normalized radial norm yields ||f||^4=2int_0^infty P(u)^2 exp(-2u)du. Factorial moments m_j=j!/2^(j+1) form strictly log-convex ratios for each polynomial nonnegative certificate Q. For s in [n,n+1/2] take Q=u^n; for s in (n+1/2,n+1) take Q=u^n[c(n+1-s)+(s-c)u], c=n+1/2. The moment ratios place Q support at the minimum of <u^k,Q>/s^k for all k, giving <P,Q> >= <Q,Q>P(s)/Q(s); Cauchy-Schwarz then proves the sharp evaluation constant for ALL entire f with finite norm, not only polynomials. Equality requires P proportional to Q, proving full mono/two-mono classification and |B|^2/|A|^2=alpha(s-c)/[c(n+1-s)]. At s=0 constants are unique extremizers. Independent exact Fraction arithmetic checked 56 chosen certificates and 280 positive-polynomial competitor inequalities. Strict moment inequality and equality conditions give the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fang-Tien Theorem 1.1 gives growth order up to constants; Lemma 2.2 and Corollary 2.3 give monomial tests or estimates at coarse scale.",
+          "Companion paper studies sampling and interpolation, not exact radial evaluation operator norms."
+        ],
+        "reasoning": "Up-to-constant growth estimates do not imply the exact best constant or classify equality. The upper-half interval optimizer strictly beats all single monomials, so prior monomial tests cannot already be sharp there.",
+        "searches": [
+          "arxiv:2609.26821 sharp Gaussian mixed norm Fock spaces entire circle means",
+          "arxiv:2609.23572 sampling interpolation Fock spaces",
+          "Resultary Fock mixed norm endpoint query"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, CHECKER.py, VERIFICATION.md, AUDIT.json",
+        "Fang-Tien arxiv:2609.26821 primary theorem/Lemma 2.2/Corollary 2.3",
+        "Companion arxiv:2609.23572 abstract and scope",
+        "Resultary query including Fock mixed-norm and evaluation aliases",
+        "Independent 56 exact certificates and 280 rational inequalities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fang-Tien coarse lower tests select monomials, whereas for n+1/2<s<n+1 the constructed Q=u^n(a+bu) gives a strictly larger ratio.",
+          "Cauchy-Schwarz plus global positive-moment supporting certificate is stronger than degree-restricted monomial evaluation."
+        ],
+        "reasoning": "Known general growth exponents cannot entail the claimed exact piecewise multiplicative factor and all equality functions. The proven strict two-term improvement excludes monomial-only deductions.",
+        "searches": [
+          "arxiv:2609.26821 Lemma 2.2 Corollary 2.3",
+          "arxiv:2609.23572 sampling interpolation theorem",
+          "Resultary sharp fourth-moment analogous records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fang-Tien considers exactly these Gaussian circular means with matching radial-angular normalization.",
+          "Reduction to nonnegative Taylor coefficient cone identifies an equivalent finite-/infinite-dimensional positive moment optimization problem."
+        ],
+        "reasoning": "Theorem in the present record sharpens the same space, while an older cone-optimization theorem could be equivalent in different language. Searched target primary does not contain the explicit piecewise exact norm/equality classification in examined theorems.",
+        "searches": [
+          "Resultary sharp Gaussian mixed norm Fock circular mean query",
+          "arxiv:2609.26821 Theorem 1.1 Lemma 2.2 Corollary 2.3",
+          "positive coefficient polynomial moment extremal evaluation exponential L2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact piecewise C_alpha(r) formula or list of mono/two-mono extremizers was found in inspected Fang-Tien theorems.",
+          "Published Resultary similarity hits involve finite Fourier extension/moment problems, not Gaussian Fock radial means."
+        ],
+        "reasoning": "No checked exact constants table dominates the parameter continuum; literature incompleteness persists.",
+        "searches": [
+          "Fang-Tien arxiv:2609.26821 exact evaluation constants",
+          "Resultary Fock moment sharp norm search",
+          "two-monomial Gaussian circular mean extremizer searches"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of exact statements and mathematical implications across relevant primary literature and Resultary; key source-access/alias risks are explicitly retained. The assessed new claim is not the background object, source algorithm, or textbook intermediate identities.",
+      "residual_risks": [
+        "An older positive-polynomial moment cone extremal theorem might imply the construction without matching Fock vocabulary.",
+        "Companion work not exhaustively reread this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL PRIOR COVERAGE: correct order and monomial estimates, not exact piecewise sharp constant or equality list in reviewed statements",
+          "evidence": "Growth order with unspecified multiplier and monomial tests do not imply the positive-moment certificate solution.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.26821",
+          "material_read": "Accessible full arXiv text, targeted Theorem 1.1, Lemma 2.2 and Corollary 2.3 with norm definition",
+          "method": "arXiv HTML/text reading of relevant primary theorems",
+          "title": "Sharp Gaussian Mixed-Norm Theory for Fock Spaces",
+          "trigger": "Identical function space, norm and circle means"
+        },
+        {
+          "assessment": "Addresses discrete sampling/interpolation geometry; no whole-document NOT_COVERING assertion",
+          "evidence": "Target claim concerns radius-by-radius circular evaluation constant, mathematically different from sampling density.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23572",
+          "material_read": "Abstract, scope and described sampling/interpolation theorems; no exhaustive full document rereading",
+          "method": "arXiv abstract/theorem-topic comparison",
+          "title": "Sampling and Interpolation in Gaussian Mixed-Norm Fock Spaces",
+          "trigger": "Companion work with same norm and possibly sharp evaluation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp norm of a natural circular mean evaluation operator was left at a growth-order estimate in closest mixed-norm Fock theory. The exact piecewise constant and a genuine transition from a single monomial to two adjacent monomials on half of each integer interval are a structural optimizer classification, not a convenient isolated parameter or a textbook monomial test.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md, CHECKER.py, VERIFICATION.md, AUDIT.json",
+    "Fang-Tien arxiv:2609.26821 primary theorem/Lemma 2.2/Corollary 2.3",
+    "Companion arxiv:2609.23572 abstract and scope",
+    "Resultary query including Fock mixed-norm and evaluation aliases",
+    "Independent 56 exact certificates and 280 rational inequalities"
+  ],
+  "disposition": "passed",
+  "limitations": "Proved only angular exponent 2 and radial exponent 4 with exact 4alpha normalization; circle averages rather than point evaluations. Potential implicit equivalent in older log-convex positive-moment/Hardy-space literature remains priority risk.",
+  "residual_risks": [
+    "An older positive-polynomial moment cone extremal theorem might imply the construction without matching Fock vocabulary.",
+    "Companion work not exhaustively reread this run."
+  ],
+  "schema_version": 1
+}
