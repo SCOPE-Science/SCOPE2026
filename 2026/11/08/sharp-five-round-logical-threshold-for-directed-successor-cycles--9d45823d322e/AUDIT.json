@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The atomic/extension-signature recursion is a proved exact characterization of rank-q first-order equivalence. The standard-library checker exhaustively enumerates every required extension through lengths 1..32 and ranks 1..5 using equality-tested structural keys, and cross-checks smaller cases by independent direct EF minimax. The proved cyclic-gap EF invariant identifies all lengths >=32. Together they exhaust all positive cycle lengths. No finite test is being extrapolated past its range without the separate tail proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grohe and Schweikardt, arXiv:2606.11993 (June 2026), abstract and accessible source summaries describe rank-preserving Gaifman normal form.",
+        "van Bergerem et al., arXiv:2609.37337, materially read introduction and main theorem discussion (public HTML)."
+      ],
+      "reasoning": "The general locality statements apply to a broader class of structures and provide locality methods, but the inspected statements do not determine exact equivalence classes of cycles with lengths below 19 or the sharp cutoff 19; extracting those numbers requires the additional complete type census. No inference that a general upper bound alone proves the exact classification was made.",
+      "searches": [
+        "\"finite model theory Gaifman weighted structures rank-preserving locality exact bounds and tight examples\"",
+        "A Rank-Preserving Gaifman Normal Form arxiv:2606.11993",
+        "A Rank-Preserving Gaifman Normal Form for First-Order Logic on Weighted Structures arxiv:2609.37337"
+      ]
+    },
+    "checked_sources": [
+      "Grohe and Schweikardt, arXiv:2606.11993",
+      "van Bergerem et al., arXiv:2609.37337",
+      "Libkin, Elements of Finite Model Theory",
+      "Published exact-directed-path rank profile 2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112",
+      "Published one-red-linear-order rank profile 2026/10/4/SCOPE-exact-quantifier-rank-profiles-for-finite-one-red-linear-orders--eec9053b6af5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Directed-path result states all directed paths of size at least 2^q are rank-q equivalent for q at least two, with smaller path lengths distinguished.",
+        "Rank-five directed-cycle classes are 1,...,18 and 19+, with 19 strictly smaller than the general 32-vertex EF tail bound."
+      ],
+      "reasoning": "Even if the path theorem and locality theory are fully accepted, their statements do not force the finite-cycle threshold to be 19. An endpoint-defining formula can sharply affect path behavior, and replacing a path with a cycle changes all boundary conditions. The prior results establish general techniques, not the 19 cutoff or the 19 rank-five cycle theories. Specialized priority remains a residual risk.",
+      "searches": [
+        "\"first-order Ehrenfeucht Fraisse game directed cycle paths quantifier rank 2 power boundary\"",
+        "\"finite model theory Gaifman weighted structures rank-preserving locality exact bounds and tight examples\"",
+        "published record 2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112",
+        "published record 2026/10/4/SCOPE-exact-quantifier-rank-profiles-for-finite-one-red-linear-orders--eec9053b6af5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact directed-path quantifier-rank record 2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112 concerns endpoints and the rank threshold for paths, not single directed cycles.",
+        "General EF-game and type recursion framework in Libkin, Elements of Finite Model Theory, chapters 3-4."
+      ],
+      "reasoning": "Equivalent descriptions sought included one-cycle permutation structures, successor-only directed cycles, quantifier-rank profiles, and Ehrenfeucht–Fraïssé equivalence. The paths theorem cannot be relabeled into the cycle theorem: endpoints are definable in paths and absent in cycles. No equivalent precise 19-threshold claim was located; search non-detection alone is not proof of originality.",
+      "searches": [
+        "\"exact Ehrenfeucht Fraisse quantifier rank types of directed simple cycles in successor language, sharp indistinguishability threshold by length\"",
+        "\"rank-five first order Ehrenfeucht Fraisse equivalence classes of finite directed successor cycles, size 19 threshold, exact classification through rank five\"",
+        "\"full quantifier rank spectrum for successor structures that are single cyclic permutations, exact finite models and bounded rank cutoffs\"",
+        "\"Ehrenfeucht Fraisse games on finite cyclic orders directed cycles with only successor predicate (no linear order)\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact rank-five threshold table was found in searched relevant published abstracts and results.",
+        "The nearby exact table for finite one-red linear orders 2026/10/4/SCOPE-exact-quantifier-rank-profiles-for-finite-one-red-linear-orders--eec9053b6af5 is a different class and language."
+      ],
+      "reasoning": "The exact 1-to-5 sequence and the rank-five boundary were searched explicitly, including without the numeral 19. A failure to locate a table is not proof none exists. The nearest indexed exact profiles involve paths and colored linear orders, not cycles.",
+      "searches": [
+        "\"rank-five first order Ehrenfeucht Fraisse equivalence classes of finite directed successor cycles, size 19 threshold, exact classification through rank five\"",
+        "\"full quantifier rank spectrum for successor structures that are single cyclic permutations, exact finite models and bounded rank cutoffs\"",
+        "\"exact Ehrenfeucht Fraisse quantifier rank types of directed simple cycles in successor language, sharp indistinguishability threshold by length\"",
+        "\"directed cycle\" \"quantifier rank\" \"19\"",
+        "\"Ehrenfeucht Fraisse\" \"directed cycles\" \"successor\""
+      ]
+    },
+    "rationale": "The exact rank-five successor-cycle threshold 19 and the full rank 1-to-5 profile were not implied by the broader locality results or the published exact directed-path result that were inspected. The finite-cycle equivalence calculation and the tail lemma give an additional precise result. This is a best-evidence priority assessment, not certification of absolute novelty.",
+    "residual_risks": [
+      "An older specialized successor-cycle EF classification could contain the exact 19 bound despite targeted searches.",
+      "Full texts of the relevant published path profile and the June preprint were not accessible here; comparisons with those sources are accordingly limited to their publicly stated claims.",
+      "No independent audit of the complete proof or the executable certificate has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Broad locality/normal-form theorem, no identified exact 19-length directed-cycle rank-five census",
+        "evidence": [
+          "arXiv submitted June 10, 2026",
+          "https://arxiv.org/abs/2606.11993"
+        ],
+        "identifier_or_url": "arxiv:2606.11993",
+        "material_read": "Abstract, introduction-level public description and its reported scope; full arXiv HTML was unavailable",
+        "method": "public arXiv abstract and independent bibliographic record",
+        "title": "A Rank-Preserving Gaifman Normal Form",
+        "trigger": "Earlier publicly dated preprint establishing rank-preserving locality, potential general coverage"
+      },
+      {
+        "assessment": "No inspected statement determines the exact rank-five single-cycle partition",
+        "evidence": [
+          "arXiv submitted September 29, 2026",
+          "https://arxiv.org/abs/2609.37337"
+        ],
+        "identifier_or_url": "arxiv:2609.37337",
+        "material_read": "HTML introduction and stated main theorem/rank discussion, not a complete line-by-line inspection",
+        "method": "public arXiv HTML previously accessible, with abstract corroborated independently",
+        "title": "A Rank-Preserving Gaifman Normal Form for First-Order Logic on Weighted Structures",
+        "trigger": "Most relevant newer extension of rank-preserving locality"
+      },
+      {
+        "assessment": "Supplies classical equivalence criteria and general locality, not an identified sharp rank-five cycle table",
+        "evidence": [
+          "Libkin chapters 3 and 4"
+        ],
+        "identifier_or_url": "Leonid Libkin, Springer 2004",
+        "material_read": "Sections on rank types, EF games, and cycle/path locality examples",
+        "method": "accessible online textbook text, relevant sections",
+        "title": "Elements of Finite Model Theory",
+        "trigger": "Classical exact EF recursion and locality background"
+      },
+      {
+        "assessment": "Not covering: path length threshold uses endpoints absent from single cycles",
+        "evidence": [
+          "Threshold 2^q for paths at q≥2; path/cycle domain discrepancy decisive for direct implication"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112",
+        "material_read": "Public result summary and full stated theorem; complete research package not accessible in this session",
+        "method": "published research index record; primary repository page fetch attempted but inaccessible",
+        "title": "Exact quantifier-rank threshold for finite directed paths",
+        "trigger": "Same logic and sharp rank cutoff for related objects"
+      },
+      {
+        "assessment": "Different relational signature and marked-point linear-order class; no direct implication to cycles",
+        "evidence": [
+          "Finite one-red linear-order profile (2^q-1)^2+2"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-quantifier-rank-profiles-for-finite-one-red-linear-orders--eec9053b6af5",
+        "material_read": "Public indexed result summary and stated formula; full package inaccessible",
+        "method": "published research index record",
+        "title": "Exact quantifier-rank profiles for finite one-red linear orders",
+        "trigger": "Related exact small-rank type counting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9d45823d-322e-4744-aee2-47e591fe1591",
+  "value": {
+    "rationale": "Exact finite-rank logical spectra on single successor cycles quantify the sharp distinguishability boundary of a canonical finite model family. The first five thresholds (2,4,7,11,19), particularly the 19-length rank-five cutoff compared with the generic 32-length EF tail guarantee, give a complete natural cutoff useful for finite-model benchmarks and comparing locality bounds; this is not an arbitrary unmotivated subfamily or a mere restatement of the classical EF criterion.",
+    "status": "PASS"
+  }
+}
