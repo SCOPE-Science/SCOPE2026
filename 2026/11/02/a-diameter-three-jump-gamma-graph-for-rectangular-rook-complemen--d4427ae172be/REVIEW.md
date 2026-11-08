@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is explicitly the categorical product, and all assertions are quantified over integers \(m,n\ge4\). The minimum-dominating-set classification follows from a closed-neighborhood obstruction to all other three-cell patterns, and the two degree formulas follow by disjoint retained-pair completions. The lower diameter bound uses two disjoint corner triples. For the upper bound, any two triples use at most six rows and six columns, so the explicit \(25\)-case finite-kernel lemma is logically sufficient for arbitrary factor orders. Its source `proof_checker.py` was executed; it checked every three-step neighborhood in all \(25\) kernels and \(17{,}224\) original-predicate comparisons. The computational lemma is finite and exhaustive, not a claim of direct checking over infinitely many graphs.
+PASS
 
-## Originality — PASS with documented priority limitations
+Direct closed-neighborhood domination shows gamma(K_m x K_n)=3 for m,n>=4 and exactly two triple shapes: corner and three-row/three-column matching. Counts L=mn(m-1)(n-1), T=6 C(m,3)C(n,3); retained-pair completion yields degrees mn-1 and 3((m-2)(n-2)+1). Regular iff (m-3)(n-3)=1, i.e. 4x4. For any two triples their union occupies <=6 row/column labels; reducing to any of 25 p-by-q kernels with 2<=p,q<=6 is therefore exhaustive for arbitrary m,n. Independent bitset enumeration verified ALL 25 exact finite-kernel graphs, every source vertex reaches every other in <=3 jumps, largest 3300 states. Every intermediate corner/matching remains dominating in the original grid; two disjoint corner triples need >=3 jumps, proving diameter exactly three. Direct independent small-graph degree checks included 4x4=240 vertices/1800 edges, 4x5=480/4800, 6x6=3300/76950. The finite lemma is exhaustive under a rigorously bounded support reduction, not finite-to-infinite extrapolation.
 
-OEIS A292074 (2017) and A384123 (2025) **already give** the two minimum-triple patterns and count for square/rectangular rook complements; these facts are not the assessed new result. The 2020 Mynhardt–Nasserasr survey defines the jump \(\gamma\)-graph and describes known examples, but its relevant sections do not derive this categorical-product reconfiguration graph. Rall's 2021 direct-product paper treats well-dominatedness, not the minimum-solution jump metric. Mathematical-record searches for rook complements, categorical products, exchange graphs, and diameter three returned no equivalent result; the closest rank-three matroid exchange-diameter result concerns a different feasibility family and does not imply this assertion. General containment as an induced subgraph of a Johnson graph does not supply diameter bounds. Possible unindexed or differently expressed prior work remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The jump model tests whether optimal dominating configurations can be transformed by local one-cell replacements. The uniform exact diameter \(3\), independent of board dimensions, is not entailed by the known minimum-set count or by generic Johnson-graph embedding. The two explicit degree classes and the unique regular \(4\times4\) boundary additionally describe how reachable alternatives depend on the shape of a minimum configuration. These are structural, reusable reconfiguration facts for a standard infinite graph family.
+The minimum dominating triple shape/count is in OEIS and expressly acknowledged prior work. Jump reconfiguration geometry, uniform diameter three, degree formulas and regularity criterion were not implied by inspected dominant set counts or general jump gamma-graph survey and direct-product results.
 
-## Scope and limitations
+## value
 
-The result is restricted to factor orders at least four, and to unrestricted single-cell jumps rather than adjacent-cell slides. The diameter upper bound uses a complete and replayable bounded-support computation. Publication priority has not been exhaustively certified. The status below does not imply external confirmation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The jump reconfiguration graph of minimum dominating sets is an established natural combinatorial object; proving uniform diameter three despite a growing configuration space, along with exact degree/regularity transition, gives a meaningful global mobility classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

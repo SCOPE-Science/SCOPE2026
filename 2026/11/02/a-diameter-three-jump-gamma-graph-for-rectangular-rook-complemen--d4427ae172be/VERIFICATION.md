@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the bounded-support exchange theorem
 
-The exact predicate is the categorical-product adjacency \((i,j)\sim(i',j')\) if \(i\ne i'\) and \(j\ne j'\). A successful three-cell domination configuration is one of two disjoint families: three distinct rows and columns, or a row-column corner occupying two rows and two columns. This classification is proved mathematically in `RESULT.md`.
+# Independent mathematical audit
 
-Run the included standalone `proof_checker.py` using Python 3. The source has no external dependencies. It has two logically distinct tests. First, for the six boards \(4\times4\), \(4\times5\), \(4\times6\), \(5\times5\), \(5\times6\), \(6\times6\), it compares every three-cell shape to the original direct closed-neighborhood domination predicate and independently compares exact degrees and counts. It checks \(17{,}224\) triples in this stage.
+## correctness
 
-Second, it exhaustively constructs the pattern exchange graphs for all \(25\) ordered pairs \((p,q)\) with \(2\le p,q\le6\). Adjacency is computed exactly by common two-cell subsets. Bitset operations calculate all vertices at distance at most two and at most three from **every** source vertex, with an assertion that the three-step neighborhood is the whole graph. This proves a finite combinatorial lemma used in `RESULT.md`. The largest of these graphs has \(3300\) vertices; all assertions passed. The saved output is `checker_output.txt`.
+PASS
 
-The infinite conclusion is not deduced from naive extrapolation: any two minimum dominating triples in an arbitrary rectangle occupy at most six row labels and at most six column labels. Relabeling this bounded support embeds them in one of the verified finite exchange graphs. Every intermediate corner/matching triple lifts to a minimum dominating set in the original rectangle. The disjoint-corner witness independently proves that two jumps never suffice for all pairs.
+Direct closed-neighborhood domination shows gamma(K_m x K_n)=3 for m,n>=4 and exactly two triple shapes: corner and three-row/three-column matching. Counts L=mn(m-1)(n-1), T=6 C(m,3)C(n,3); retained-pair completion yields degrees mn-1 and 3((m-2)(n-2)+1). Regular iff (m-3)(n-3)=1, i.e. 4x4. For any two triples their union occupies <=6 row/column labels; reducing to any of 25 p-by-q kernels with 2<=p,q<=6 is therefore exhaustive for arbitrary m,n. Independent bitset enumeration verified ALL 25 exact finite-kernel graphs, every source vertex reaches every other in <=3 jumps, largest 3300 states. Every intermediate corner/matching remains dominating in the original grid; two disjoint corner triples need >=3 jumps, proving diameter exactly three. Direct independent small-graph degree checks included 4x4=240 vertices/1800 edges, 4x5=480/4800, 6x6=3300/76950. The finite lemma is exhaustive under a rigorously bounded support reduction, not finite-to-infinite extrapolation.
 
-**Limits:** This confirms the bounded finite computation and its use in the written proof, not external or independent mathematical certification; the full literature-priority question remains open to further review.
+## originality
+
+PASS
+
+The minimum dominating triple shape/count is in OEIS and expressly acknowledged prior work. Jump reconfiguration geometry, uniform diameter three, degree formulas and regularity criterion were not implied by inspected dominant set counts or general jump gamma-graph survey and direct-product results.
+
+## value
+
+PASS
+
+The jump reconfiguration graph of minimum dominating sets is an established natural combinatorial object; proving uniform diameter three despite a growing configuration space, along with exact degree/regularity transition, gives a meaningful global mobility classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

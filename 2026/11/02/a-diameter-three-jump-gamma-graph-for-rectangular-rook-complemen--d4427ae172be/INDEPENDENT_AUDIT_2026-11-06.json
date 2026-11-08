@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T14:07:33.186409Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct closed-neighborhood domination shows gamma(K_m x K_n)=3 for m,n>=4 and exactly two triple shapes: corner and three-row/three-column matching. Counts L=mn(m-1)(n-1), T=6 C(m,3)C(n,3); retained-pair completion yields degrees mn-1 and 3((m-2)(n-2)+1). Regular iff (m-3)(n-3)=1, i.e. 4x4. For any two triples their union occupies <=6 row/column labels; reducing to any of 25 p-by-q kernels with 2<=p,q<=6 is therefore exhaustive for arbitrary m,n. Independent bitset enumeration verified ALL 25 exact finite-kernel graphs, every source vertex reaches every other in <=3 jumps, largest 3300 states. Every intermediate corner/matching remains dominating in the original grid; two disjoint corner triples need >=3 jumps, proving diameter exactly three. Direct independent small-graph degree checks included 4x4=240 vertices/1800 edges, 4x5=480/4800, 6x6=3300/76950. The finite lemma is exhaustive under a rigorously bounded support reduction, not finite-to-infinite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General domination reconfiguration surveys give jump definitions and tree/cograph diameters, not the categorical K_m x K_n family.",
+          "Rall classifies well-dominated direct graph products, a different property than jumps between their minimum dominating sets."
+        ],
+        "reasoning": "The candidate more-general papers use these hypotheses and conclusions: General domination reconfiguration surveys give jump definitions and tree/cograph diameters, not the categorical K_m x K_n family. An apparent general theme is not assumed to imply the specialized exact claim.",
+        "searches": [
+          "Resultary: minimum dominating set jump reconfiguration categorical product complete graphs rook complement diameter",
+          "OEIS A292074 minimum dominating rook complement triples",
+          "OEIS A384123 minimal dominating rectangular rook complements",
+          "Mynhardt Nasserasr reconfiguration of colourings and dominating sets survey arXiv:2003.05956",
+          "Rall well-dominated direct Cartesian and strong product graphs arXiv:2105.09797"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and proof_checker.py actual Git tree fb8935b006856f54282ebf06f391b7bc4f335db9",
+        "Independent full 25-case bounded-support bitset enumeration p,q<=6 and degree count checks",
+        "OEIS:A292074",
+        "OEIS:A384123",
+        "arXiv:2003.05956v1 full survey sections 4.3-4.4",
+        "arXiv:2105.09797v1",
+        "Resultary search jump gamma rook complements"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Counts L,T do not imply the restricted Johnson graph is connected, much less diameter three; the independent full 25-case kernel proof provides a nontrivial new metric result."
+        ],
+        "reasoning": "The mathematical implication test compared assumptions and actually supplied conclusions, including known special cases and dominating parameters.",
+        "searches": [
+          "Resultary: minimum dominating set jump reconfiguration categorical product complete graphs rook complement diameter",
+          "OEIS A292074 minimum dominating rook complement triples",
+          "OEIS A384123 minimal dominating rectangular rook complements",
+          "Mynhardt Nasserasr reconfiguration of colourings and dominating sets survey arXiv:2003.05956",
+          "Rall well-dominated direct Cartesian and strong product graphs arXiv:2105.09797"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Min dominating sets correspond to 3-element partial rook placements of two types; the jump graph is the induced Johnson graph on these triples.",
+          "Being an induced subgraph of Johnson J(mn,3) does NOT imply its graph distances equal Johnson distances; an explicit bounded-support connectivity proof is required."
+        ],
+        "reasoning": "The precise claimed equivalence/alias was compared with published formulations: Min dominating sets correspond to 3-element partial rook placements of two types; the jump graph is the induced Johnson graph on these triples.",
+        "searches": [
+          "Resultary: minimum dominating set jump reconfiguration categorical product complete graphs rook complement diameter",
+          "OEIS A292074 minimum dominating rook complement triples",
+          "OEIS A384123 minimal dominating rectangular rook complements",
+          "Mynhardt Nasserasr reconfiguration of colourings and dominating sets survey arXiv:2003.05956",
+          "Rall well-dominated direct Cartesian and strong product graphs arXiv:2105.09797"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A292074 (2017) and A384123 (2025) list known minimum/minimal dominating set counts or shapes; they contain no verified jump degree/diameter/regularity tables in inspected material."
+        ],
+        "reasoning": "Any already-known exact special cases were separated from the claimed new all-case or different invariant result; failed search alone is not novelty proof.",
+        "searches": [
+          "Resultary: minimum dominating set jump reconfiguration categorical product complete graphs rook complement diameter",
+          "OEIS A292074 minimum dominating rook complement triples",
+          "OEIS A384123 minimal dominating rectangular rook complements",
+          "Mynhardt Nasserasr reconfiguration of colourings and dominating sets survey arXiv:2003.05956",
+          "Rall well-dominated direct Cartesian and strong product graphs arXiv:2105.09797"
+        ]
+      },
+      "rationale": "The minimum dominating triple shape/count is in OEIS and expressly acknowledged prior work. Jump reconfiguration geometry, uniform diameter three, degree formulas and regularity criterion were not implied by inspected dominant set counts or general jump gamma-graph survey and direct-product results.",
+      "residual_risks": [
+        "A separately named reconfiguration study of categorical products may already contain degree/diameter results.",
+        "The theorem concerns jump exchanges, not slide, and factor orders at least four; finite kernel proof is computational but exhaustive after proven reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_FRAMEWORK_NOT_SPECIAL_CLASS",
+          "evidence": [
+            "Theorem 4.4 realizes a jump gamma graph as an induced Johnson graph but does not constrain distances; tree/cograph results apply to other graph families."
+          ],
+          "identifier_or_url": "arXiv:2003.05956v1",
+          "material_read": "Full 20-page arXiv PDF accessed; sections 4.3-4.4 and Theorem 4.4 on Johnson embedding, class-specific graph results",
+          "method": "arXiv lawful full-text PDF extraction and rendered page",
+          "title": "Reconfiguration of Colourings and Dominating Sets in Graphs: a Survey",
+          "trigger": "Same jump gamma-graph definition and potentially dominating distance result"
+        },
+        {
+          "assessment": "COVERS_SHAPE_NOT_JUMP_METRIC",
+          "evidence": [
+            "Published state counts do not provide reconfiguration graph degree sequence or diameter."
+          ],
+          "identifier_or_url": "OEIS:A292074",
+          "material_read": "Formula and comments on two triple shapes",
+          "method": "public OEIS entry",
+          "title": "Number of minimum dominating sets in the n x n rook complement graph",
+          "trigger": "Exact same minimum domination triple families in the square case"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": [
+            "Well-dominated product property is not jump gamma-graph metric."
+          ],
+          "identifier_or_url": "arXiv:2105.09797v1",
+          "material_read": "Abstract and principal product classification",
+          "method": "lawful arXiv primary article text",
+          "title": "On well-dominated direct, Cartesian and strong product graphs",
+          "trigger": "Same categorical product of complete graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The jump reconfiguration graph of minimum dominating sets is an established natural combinatorial object; proving uniform diameter three despite a growing configuration space, along with exact degree/regularity transition, gives a meaningful global mobility classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and proof_checker.py actual Git tree fb8935b006856f54282ebf06f391b7bc4f335db9",
+    "Independent full 25-case bounded-support bitset enumeration p,q<=6 and degree count checks",
+    "OEIS:A292074",
+    "OEIS:A384123",
+    "arXiv:2003.05956v1 full survey sections 4.3-4.4",
+    "arXiv:2105.09797v1",
+    "Resultary search jump gamma rook complements"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A separately named reconfiguration study of categorical products may already contain degree/diameter results.",
+    "The theorem concerns jump exchanges, not slide, and factor orders at least four; finite kernel proof is computational but exhaustive after proven reduction."
+  ],
+  "schema_version": 1
+}
