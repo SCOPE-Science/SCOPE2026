@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T03:59:46.029349Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Full assigned RESULT.md and verification/volume_spline_verifier.py",
+        "Independent exact fraction-arithmetic integration of 420 cross-polytope deficits, dimensions 2 through 13",
+        "Artstein-Avidan–Falah–Slomka (2024) full arXiv HTML",
+        "Mark Meyer (2026) full arXiv HTML"
+      ],
+      "rationale": "PASS. For the d-dimensional unit l1 cross-polytope C_d and its signed coordinate vertex set V_d, the deficit H_d(t), the volume of (1+t)C_d outside V_d+tC_d, is well-defined for all integer d>=2 and real t>=0. Direct l1 geometry gives distance to nearest vertex s+1-2 min(M,1), where s=sum |x_i| and M=max |x_i|. For 0<=t<=1 the 2d translated tC_d interiors are disjoint, yielding vol(C_d)[(1+t)^d-2d t^d]. For t>=1 each orthant’s upper-bounded simplex slices reduce via exact inclusion-exclusion to the specified positive-part polynomial sum over j=3..d; it vanishes exactly for t>=d-1. Differentiating finite positive-part terms gives the stated (d-1)-derivative jump at t=1 and d-derivative jumps at integers 2..d-2, with final positive chamber coefficient. Independently evaluated 420 exact rational samples for d=2..13 against separately derived slice integrals, including boundary/threshold cases; finite checks do not replace the all-d proof.",
+      "residual_risks": [
+        "Exact t and d coverage is for equally dilated l1 cross-polytopes at signed coordinate vertices only, not arbitrary vertex configurations or Euclidean balls.",
+        "Historical priority against unindexed l1 ball union-volume formulas remains uncertain.",
+        "Computational samples cover d2..13 only and do not establish the infinite family in isolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meyer 2026 Theorems give general exposed-face criteria for eventual Minkowski convexification.",
+          "Artstein-Avidan et al 2024 study vertex-generated/covering families."
+        ],
+        "reasoning": "The qualitative all-polytope statements may imply the threshold but do not yield H_d(t) for every real t, exact polynomial coefficients or smoothness jumps.",
+        "searches": [
+          "Resultary semantic: cross-polytope vertex radius t L1 balls union missing volume spline all dimensions",
+          "L1 balls union centers vertices cross polytope missing volume spline exact",
+          "https://arxiv.org/html/2407.20604v1",
+          "https://arxiv.org/html/2610.26744v1"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/01/complete-volumetric-convexification-spline-for-cross-polytope-ve--7c478cf9bf62/RESULT.md",
+        "2026/11/01/complete-volumetric-convexification-spline-for-cross-polytope-ve--7c478cf9bf62/verification/volume_spline_verifier.py",
+        "Vertex generated polytopes — https://arxiv.org/html/2407.20604v1",
+        "Finite convexification by Minkowski summation — https://arxiv.org/html/2610.26744v1",
+        "Cross-polytope full volume proof and verifier — 2026/11/01/complete-volumetric-convexification-spline-for-cross-polytope-ve--7c478cf9bf62/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Threshold-only criteria specify a zero set H_d(t)=0 after t*, not volumes for 0<t<t*.",
+          "The final proof requires nontrivial finite binomial cancellation of positive-part simplex integrals."
+        ],
+        "reasoning": "A general eventual convexification theorem or equivalently Schneider vertex index does not imply exact defect values or differentiation jumps; not a parameter substitution.",
+        "searches": [
+          "Resultary semantic: cross-polytope vertex radius t L1 balls union missing volume spline all dimensions",
+          "L1 balls union centers vertices cross polytope missing volume spline exact",
+          "https://arxiv.org/html/2407.20604v1",
+          "https://arxiv.org/html/2610.26744v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Deficit is volume of convex hull (1+t)C_d minus union of 2d translated l1 balls.",
+          "Nearest-center distance identity and simplex-slice expression are equivalent volume descriptions."
+        ],
+        "reasoning": "Alternative geometric forms were searched; existence of a convexifying t and volume-loss spline are different invariants.",
+        "searches": [
+          "Resultary semantic: cross-polytope vertex radius t L1 balls union missing volume spline all dimensions",
+          "L1 balls union centers vertices cross polytope missing volume spline exact",
+          "https://arxiv.org/html/2407.20604v1",
+          "https://arxiv.org/html/2610.26744v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned an unrelated Hadamard-truncation volume spline with jump/vertex correspondence.",
+          "No exact table of l1 vertex-ball deficit for all dimensions and t was found."
+        ],
+        "reasoning": "Similar words spline, cross-polytope, convexification do not denote the same arrangement; one must compare the union of 2d shifted l1 balls itself.",
+        "searches": [
+          "Resultary semantic: cross-polytope vertex radius t L1 balls union missing volume spline all dimensions",
+          "L1 balls union centers vertices cross polytope missing volume spline exact",
+          "https://arxiv.org/html/2407.20604v1",
+          "https://arxiv.org/html/2610.26744v1"
+        ]
+      },
+      "rationale": "PASS on checked literature implication. Artstein-Avidan–Falah–Slomka (2024) study vertex-generated polytopes and general covering/convexification indices, explicitly noting that higher-dimensional cross-polytopes are not vertex generated. Meyer (2026) studies finite Minkowski convexification with exposed-face covering criteria. These broader qualitative statements concern whether a threshold exists, not a complete missing-volume function with all polynomial coefficients and derivative jumps. Targeted Resultary searches returned nearby Hadamard-truncation spline and other convexity results but no same exact cross-polytope union-volume table. Historical unindexed l1-volume formulas remain a priority risk.",
+      "residual_risks": [
+        "Exact t and d coverage is for equally dilated l1 cross-polytopes at signed coordinate vertices only, not arbitrary vertex configurations or Euclidean balls.",
+        "Historical priority against unindexed l1 ball union-volume formulas remains uncertain.",
+        "Computational samples cover d2..13 only and do not establish the infinite family in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "THRESHOLD_COVERING_NOT_DEFICIT",
+          "evidence": "Describes cross-polytope not vertex-generated and general covering indices; no exact H_d(t) polynomial or derivative jumps.",
+          "identifier_or_url": "https://arxiv.org/html/2407.20604v1",
+          "material_read": "Full arXiv HTML, §1 definitions and vertex-convexification index, §5 explicit cross-polytope example, §6 covering estimates",
+          "method": "Primary full HTML read",
+          "title": "Vertex generated polytopes",
+          "trigger": "same A=vertex set and K=convex hull; potential broader theorem"
+        },
+        {
+          "assessment": "GENERAL_THRESHOLD_ONLY",
+          "evidence": "Characterizes existence of convexification but not exact missing-volume spline for all t, d.",
+          "identifier_or_url": "https://arxiv.org/html/2610.26744v1",
+          "material_read": "Full arXiv HTML §§1–5 on exposed sets, covering radii and finite convexification criteria",
+          "method": "Primary full HTML read",
+          "title": "Finite convexification by Minkowski summation",
+          "trigger": "same finite threshold for V_d+tC_d"
+        },
+        {
+          "assessment": "FINAL_CLAIM_VERIFIED",
+          "evidence": "Exact positive-part formula, transition and derivative discontinuities checked.",
+          "identifier_or_url": "2026/11/01/complete-volumetric-convexification-spline-for-cross-polytope-ve--7c478cf9bf62/RESULT.md",
+          "material_read": "Entire RESULT.md and verification/volume_spline_verifier.py",
+          "method": "Exact Git blobs and independent fraction arithmetic",
+          "title": "Cross-polytope full volume proof and verifier",
+          "trigger": "final all-dimensional volumetric claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original all-dimensional exact volume proof",
+        "Artstein-Avidan et al covering framework",
+        "Meyer general finite convexification criteria",
+        "420 independent exact rational volume checks"
+      ],
+      "rationale": "PASS. The finite-convexification deficit of a vertex set plus a dilated copy of its convex hull is a standard, natural measure of how far a nonconvex Minkowski sum is from filling its hull. For the canonical l1 cross-polytope this work determines the entire all-dimensional volume function, exact threshold and smoothing transitions instead of a narrow arbitrary slice. The exact binomial spline relates geometric overlap chambers to regularity and captures the full pre-threshold behavior that qualitative convexification criteria omit.",
+      "residual_risks": [
+        "Exact t and d coverage is for equally dilated l1 cross-polytopes at signed coordinate vertices only, not arbitrary vertex configurations or Euclidean balls.",
+        "Historical priority against unindexed l1 ball union-volume formulas remains uncertain.",
+        "Computational samples cover d2..13 only and do not establish the infinite family in isolation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/11/01/complete-volumetric-convexification-spline-for-cross-polytope-ve--7c478cf9bf62/RESULT.md",
+    "2026/11/01/complete-volumetric-convexification-spline-for-cross-polytope-ve--7c478cf9bf62/verification/volume_spline_verifier.py",
+    "Vertex generated polytopes — https://arxiv.org/html/2407.20604v1",
+    "Finite convexification by Minkowski summation — https://arxiv.org/html/2610.26744v1",
+    "Cross-polytope full volume proof and verifier — 2026/11/01/complete-volumetric-convexification-spline-for-cross-polytope-ve--7c478cf9bf62/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact t and d coverage is for equally dilated l1 cross-polytopes at signed coordinate vertices only, not arbitrary vertex configurations or Euclidean balls.",
+    "Historical priority against unindexed l1 ball union-volume formulas remains uncertain.",
+    "Computational samples cover d2..13 only and do not establish the infinite family in isolation."
+  ],
+  "residual_risks": [
+    "Exact t and d coverage is for equally dilated l1 cross-polytopes at signed coordinate vertices only, not arbitrary vertex configurations or Euclidean balls.",
+    "Historical priority against unindexed l1 ball union-volume formulas remains uncertain.",
+    "Computational samples cover d2..13 only and do not establish the infinite family in isolation."
+  ],
+  "schema_version": 1
+}
