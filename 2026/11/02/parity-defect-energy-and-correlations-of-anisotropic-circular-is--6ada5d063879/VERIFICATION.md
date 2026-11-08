@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python3 CHECK.py` in a directory containing `CHECK.py` and `CHECK_OUTPUT.txt`. The standard library alone suffices. The script computes all \(2^{2n}\) labelled spin assignments for each \(n=3,4,5,6,7,8,9\), and couples \((J,K)=(1,1),(1,3),(2,1)\). It verifies the theorem's fixed-sector minimum for every absolute magnetization, the degeneracies at weak/intermediate/coexistence/saturation fields, and exact integer-cleared spin correlations for odd \(n=3,5,7\). The independent-set sequence is recomputed by direct combinatorial exclusion and matched with the Pell–Lucas trace formula.
+## correctness
 
-The saved `CHECK_OUTPUT.txt` is a deterministic expected result. Each count and comparison is recomputed from the code and checked with exact integers; no numerical tolerances are used. This tests finite cases only, and does not prove the statements for arbitrary \(n\); the separate induced-edge extremal argument and domain-wall counting in `RESULT.md` supply that proof.
+PASS
 
-The saturated independent-set count is pre-existing transfer-matrix knowledge. Novelty and historical priority are provisional on the particular finite-size, anisotropic energy and correlation classification. Independent audit status is not performed.
+The graph is (2J+K)-weighted regular. For the minority-spin set S of size k<=n, E_ex=2nJ+nK-2(2J+K)k+4J e_leg(S)+4K e_rung(S). Even n admits independent sets of all sizes <=n; odd n admits such sets through n-1, while any n-set has at least one internal leg edge by odd-cycle independence and a construction attains exactly one leg edge with zero rung edges. Field minimization is then a comparison of affine lines in k and the one exceptional sector. At saturation all independent sets occur, counted by the 3-state rung transfer matrix. The one-frustrated-bond positional average gives C_n(r)=(-1)^r(1-2r/n), and the same-rung correction counts the exceptional rung. Fresh independent exhaustive small-graph energies, minima, multiplicities and correlations for n=3..7 and J,K=(1,1),(1,3),(2,1) all matched. Infinite-n claim rests on structural argument.
+
+## originality
+
+PASS
+
+Qualified PASS. Varma 2013 explicitly treats the unfrustrated ladder L1 and transfer-matrix saturation entropy with bulk phase arguments; it does not give this anisotropic odd-ring full fixed-M energy and uniform defect correlations in its examined Section II. Known independent-set counts and MaxCut reductions are credited.
+
+## value
+
+PASS
+
+PASS. The odd-circumference 4J parity defect is independent of rung coupling, creates an exact finite-size M=2 field plateau and yields a spatial correlation law at coexistence; a complete all-sector/anisotropic classification is a motivated structural refinement beyond counting saturation independent sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

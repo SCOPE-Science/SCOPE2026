@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact weighted spin-cut identity reduces each magnetization sector to an induced-edge minimization. For even circumference a size-\(n\) independent set removes the cost in every sector; for odd circumference a maximal independent set has size \(n-1\), and every size-\(n\) set forces at least one leg edge. The alternating construction realizes exactly one such edge and no rung edges, proving the universal \(4J\) correction independently of \(K\). Comparing the exact sector slopes proves all field intervals and coexisting magnetizations. Counting the unique defect location and the two orientations proves the \(2n\)/\(4n\) multiplicities; the three-state transfer gives the known saturation independent-set count. Uniformly distributed frustrated row bonds and the single exceptional rung prove the spatial correlation identities. The embedded exhaustive exact checker passed 147 sector, 126 field, and 270 correlation comparisons; these tests do not replace the analytic proof.
+## correctness
 
-**Originality — PASS on inspected evidence, subject to historical priority.** Varma (arXiv:1305.4606) directly studies the ladder L1 and its saturation entropy; the full accessible relevant text and table establish a transfer approach and bulk transition, but do not state the finite odd-circumference constrained energy, the anisotropic lower transition, or the correlation tensor. Cen–Das–Fong (2022) benchmark circular-ladder max cuts without the weighted fixed-magnetization result. The related odd/even Möbius-ladder Ising law uses a different edge identification and uniform coupling and does not imply the displayed prism-graph formulas. The saturated independent-set count, the zero-field MAX-CUT equivalence, and transfer techniques are credited existing knowledge and excluded from novelty. Remaining risk: an earlier finite periodic-ladder transfer or specialized frustration paper may already derive these equivalent local correlation results.
+PASS
 
-**Value — PASS.** Odd periodic closures are a natural finite-size frustration boundary condition for spin ladders. The exact induced-edge \(4J\) penalty, independently tunable rung transition \(h=K\), and all-distance correlations quantify a finite-size magnetization effect hidden by the infinite-ladder approximation. The classification supplies exact energy, coexistence entropy and correlation benchmarks for every circumference and two independent positive exchange constants. The result is not a generic Ising restatement: its sharp odd-sector defect and its localized-rung versus delocalized-wall correlations rely on the circular-ladder geometry.
+The graph is (2J+K)-weighted regular. For the minority-spin set S of size k<=n, E_ex=2nJ+nK-2(2J+K)k+4J e_leg(S)+4K e_rung(S). Even n admits independent sets of all sizes <=n; odd n admits such sets through n-1, while any n-set has at least one internal leg edge by odd-cycle independence and a construction attains exactly one leg edge with zero rung edges. Field minimization is then a comparison of affine lines in k and the one exceptional sector. At saturation all independent sets occur, counted by the 3-state rung transfer matrix. The one-frustrated-bond positional average gives C_n(r)=(-1)^r(1-2r/n), and the same-rung correction counts the exceptional rung. Fresh independent exhaustive small-graph energies, minima, multiplicities and correlations for n=3..7 and J,K=(1,1),(1,3),(2,1) all matched. Infinite-n claim rests on structural argument.
 
-**Closest literature and limits.** Varma (2013) is closest on ladder saturation, Cen–Das–Fong (2022) is closest on circular-ladder max cut, and Jurčišinová–Jurčišin (2014) treats a different zigzag/multisite model. The theorem is classical, finite, zero-temperature, nearest-neighbor and uniform within leg/rung types. No independent verification of scientific priority was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS. Varma 2013 explicitly treats the unfrustrated ladder L1 and transfer-matrix saturation entropy with bulk phase arguments; it does not give this anisotropic odd-ring full fixed-M energy and uniform defect correlations in its examined Section II. Known independent-set counts and MaxCut reductions are credited.
+
+## value
+
+PASS
+
+PASS. The odd-circumference 4J parity defect is independent of rung coupling, creates an exact finite-size M=2 field plateau and yields a spatial correlation law at coexistence; a complete all-sector/anisotropic classification is a motivated structural refinement beyond counting saturation independent sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
