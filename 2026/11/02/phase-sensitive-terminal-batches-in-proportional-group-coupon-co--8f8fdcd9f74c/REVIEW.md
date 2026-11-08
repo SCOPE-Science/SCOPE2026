@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For a prescribed finite set of labels, one group draw has exact inclusion probabilities given by falling-factorial hypergeometric ratios. Uniform comparison with independent Bernoulli selections across \(O(\log n)\) rounds gives mixed factorial moments of independent Poisson first-discovery counts at finitely many late rounds. The unseen-count factorial moments, a union bound, and a Poisson left-tail estimate ensure last-discovery tightness. These steps justify the joint limit for last-round location and last-round multiplicity, including the sum over all possible completion offsets. The absolutely convergent phase-profile series permits Mellin/Fourier unfolding, and nonvanishing of Gamma proves nonconstant phases. Logarithmic equidistribution and the zero Fourier coefficient give the averaged logarithmic-series law. The verifier independently checks exact finite-size inclusion–exclusion against exhaustive subset transitions in 365 assertions; it does not replace these infinite proofs.
+PASS
 
-## Originality
+For independent rounds of uniform fixed-cardinality d_n=floor(cn) subsets with 0<c<1, set q=1−c,a=−log q, t_n=floor(log n/a), phase α_n. For any fixed R marked coupons, a prescribed inclusion/exclusion pattern in one round has exact hypergeometric factor (d_n)_s(n−d_n)_u/(n)_R = c_n^s q_n^u(1+O_R(1/n)); over O(log n) rounds this approximates independent geometric first arrivals with relative O_R(log n/n). Thus finite vectors of late first-discovery counts N_{n,k}, along α_n→α, converge jointly by all factorial moments to independent Poisson(c q^{k−1−α}) variables. Exact factorial moments of unseen U_{n,t_n+k} imply Poisson(q^{k−α}) and two-sided tightness of final offset T_n−t_n. A terminal batch at t_n+k has exactly r first discoveries there and none later, giving joint mass exp(−q^{k−1−α})(c q^{k−1−α})^r/r!, summed over k to H_{c,r}(α_n)+o(1). Its periodic profile has Fourier coefficients c^r Γ(r−2πim/a)/(a r!), nonzero for m≠0 since Gamma has no zeros; all phases realized by integer n, so no ordinary limit. Logarithmic weighted phase equidistribution yields mean mass c^r/(a r) and complete logarithmic-series law since Σ_{r>=1}c^r/r=a. Independent exact-rational direct finite subset-state Markov enumeration agreed with independent inclusion-exclusion terminal-multiplicity formula for n=3..6 multiple d and t; finite tests do not prove limiting independence.
 
-PASS under the accessible-record, best-knowledge comparison, with priority caveats. The closest primary source, Berend and Sher (arXiv:2605.06953v1), gives a sharp expected completion-time asymptotic and a one-time Poisson limit for unseen coupon counts in proportional group drawings, not a multitime marked first-discovery limit or the law of how many types are first discovered *in the completing package*. Schilling–Henze (2021) and Betken–Thäle (2023) study fixed-size group drawing counts and marginal Poisson approximation. Extant mathematical records and accessible prior claims do not identify the exact terminal-batch phase profiles or their logarithmic-series averages. These are statement-level distinctions, not arguments from titles. Stadje (1990) might contain an equivalent finite distribution or a transform yielding this asymptotic, but its full text was inaccessible; the precise historical novelty is therefore not independently certified.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A proportional package can simultaneously reveal several as-yet-unseen coupons in the final round, so the classical unique-last-coupon property fails. The theorem resolves the natural multiplicity statistic, provides its full attainable phase family, proves genuine nonconvergence, and identifies a canonical logarithmic-series averaged law. The ratio \(c/[-\log(1-c)]\) has direct interpretation as the averaged probability of a unique last discovery. The phenomenon specifically isolates the macroscopic-batch regime rather than yielding an arbitrary special-case computation.
+Best-of-knowledge originality PASS based on direct comparison of exact statements, hypotheses and implications. Prior model ingredients and general lemmas are credited; no inspected full-text theorem establishes the precise additional classification. The named inaccessible and abstract-only comparisons remain risks, not proof of priority. A limit law for unseen count U_t at a single t gives P(T_n<=t), but not the full joint law of number newly seen in the last round: consecutive unseen counts and their dependence must be analyzed. The joint factorial-moment argument and subsequent Fourier/logarithmic averaging are additional steps beyond the inspected scalar limit statements.
 
-## Closest literature and remaining limits
+## value
 
-Berend and Sher (2026), arXiv:2605.06953v1, Section 2 and the proportional-group proof in Section 3, supply the direct comparison. Schilling and Henze (2021), DOI 10.1017/jpr.2021.15, Theorem 2.1, and Betken and Thäle (2023), DOI 10.1017/jpr.2023.6, supply related group-coupon Poisson results in different scopes. Stadje (1990), DOI 10.2307/1427566, is an unresolved full-text priority risk. The result assumes fixed \(0<c<1\), independent uniform packages, fixed multiplicity \(r\), and finite-dimensional first-discovery windows only. No full historical-priority or independent theorem verification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For fixed positive fraction group sampling, finishing a coupon collection can discover several missing types at once. The full last-round multiplicity distribution, nonvanishing lattice oscillations, multitime first-arrival Poisson structure and logarithmically averaged logarithmic-series law are natural explicit observables beyond expected completion time. The singleton finish probability c/−log(1−c) has a precise operational interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

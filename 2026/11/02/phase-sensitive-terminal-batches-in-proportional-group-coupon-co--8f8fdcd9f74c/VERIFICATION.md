@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and evidence
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python's standard library. The checked output in `verify_output.txt` is:
+## correctness
 
-```
-ALL CHECKS PASSED: 365
-q=0.1 uniqueness probabilities at phases 0,1/2: 0.4228450039085308 0.35864555478618615
-first Fourier coefficient magnitude: 0.022262606886656395
-```
+PASS
 
-The executable enumerates all uniform nontrivial package sizes for coupon counts \(3\le n\le7\) and collection rounds \(1\le t\le6\), comparing exact rational dynamic transitions with an independent exact inclusion–exclusion formula for every achievable terminal multiplicity. It also checks the normalization of the proposed Poisson terminal-event probabilities, numerical phase integration against the asserted logarithmic-series masses for three package fractions and seven terminal multiplicities, and the predicted magnitude of a nonzero Fourier coefficient.
+For independent rounds of uniform fixed-cardinality d_n=floor(cn) subsets with 0<c<1, set q=1−c,a=−log q, t_n=floor(log n/a), phase α_n. For any fixed R marked coupons, a prescribed inclusion/exclusion pattern in one round has exact hypergeometric factor (d_n)_s(n−d_n)_u/(n)_R = c_n^s q_n^u(1+O_R(1/n)); over O(log n) rounds this approximates independent geometric first arrivals with relative O_R(log n/n). Thus finite vectors of late first-discovery counts N_{n,k}, along α_n→α, converge jointly by all factorial moments to independent Poisson(c q^{k−1−α}) variables. Exact factorial moments of unseen U_{n,t_n+k} imply Poisson(q^{k−α}) and two-sided tightness of final offset T_n−t_n. A terminal batch at t_n+k has exactly r first discoveries there and none later, giving joint mass exp(−q^{k−1−α})(c q^{k−1−α})^r/r!, summed over k to H_{c,r}(α_n)+o(1). Its periodic profile has Fourier coefficients c^r Γ(r−2πim/a)/(a r!), nonzero for m≠0 since Gamma has no zeros; all phases realized by integer n, so no ordinary limit. Logarithmic weighted phase equidistribution yields mean mass c^r/(a r) and complete logarithmic-series law since Σ_{r>=1}c^r/r=a. Independent exact-rational direct finite subset-state Markov enumeration agreed with independent inclusion-exclusion terminal-multiplicity formula for n=3..6 multiple d and t; finite tests do not prove limiting independence.
 
-The finite calculations do not prove convergence or nonconvergence for arbitrary coupon counts. The infinite assertions are established analytically using finite-label hypergeometric comparison, multivariate factorial moments, last-time tightness, exact Fourier/Mellin integration and logarithmic equidistribution, all written in `RESULT.md`. The generated checker output is not evidence of independent mathematical certification.
+## originality
+
+PASS
+
+Best-of-knowledge originality PASS based on direct comparison of exact statements, hypotheses and implications. Prior model ingredients and general lemmas are credited; no inspected full-text theorem establishes the precise additional classification. The named inaccessible and abstract-only comparisons remain risks, not proof of priority. A limit law for unseen count U_t at a single t gives P(T_n<=t), but not the full joint law of number newly seen in the last round: consecutive unseen counts and their dependence must be analyzed. The joint factorial-moment argument and subsequent Fourier/logarithmic averaging are additional steps beyond the inspected scalar limit statements.
+
+## value
+
+PASS
+
+For fixed positive fraction group sampling, finishing a coupon collection can discover several missing types at once. The full last-round multiplicity distribution, nonvanishing lattice oscillations, multitime first-arrival Poisson structure and logarithmically averaged logarithmic-series law are natural explicit observables beyond expected completion time. The singleton finish probability c/−log(1−c) has a precise operational interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
