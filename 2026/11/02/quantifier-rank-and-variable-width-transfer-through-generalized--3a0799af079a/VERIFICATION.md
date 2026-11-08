@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof is a structural formula induction rather than a finite enumeration. Steps independently checked algebraically: multiplication in both parity cases; reflection-coset squares; qf kernel formula; existential and universal case splitting; no new bound variable symbols; preservation of rank by qf relativization; sharp equality of least distinguishing ranks in every finite-variable fragment.
+## correctness
 
-`python check_transfer_atoms.py` produced the companion `check_transfer_output.txt`. This tests atomic identities for examples of orders 3, 5 and 9 and is explicitly not a proof for arbitrary groups.
+PASS
 
-Unproved limits: no claim on function-language quantifier depth, on groups with nonzero two-torsion in the reverse direction, or on independent priority/certification. The 2000 Koponen–Luosto manuscript cited by Gomaa was inaccessible; its possible coverage is an originality risk.
+In ternary relational multiplication with named identity, for each fixed parity assignment equality and product atoms reduce without added names to additive T, because (a,i)(b,j)=(a+(-1)^i b,i+j). Splitting each quantifier into two parity cases preserves quantifier rank and variable width even under shadowing. Conversely δ(x)=(x=e) OR not M(x,x,e) quantifier-free defines A×{0} exactly when there is no nonzero 2-torsion, so relativization preserves rank/width. The two implications give exact least distinguishing ranks, including infinity. Independently rechecked all parity-product atoms and squares for Z/3, Z/5 and (Z/3)^2: 216, 1000, 5832 product triples. This finite test corroborates but induction proves all groups.
+
+## originality
+
+PASS
+
+Previously established cyclic dihedral rank equivalence (Gomaa 2007 Lemma 3.10) is properly credited, so that portion alone is not novel. The claim adds all possibly noncyclic/infinite abelian kernels without 2-torsion and simultaneously every FO^k resource budget. A generic quantifier-free interpretation is only a method until both explicit width-preserving interpretations are proved. Existing wider unpublished definitions may cover it, especially Koponen–Luosto 2000, so PASS qualified.
+
+## value
+
+PASS
+
+Exact preservation of both quantifier rank and finite variable width is a structural transfer from arbitrary additive groups to nonabelian inversion semidirect products. It allows genuinely reusable finite-pebble logical bounds across noncyclic and infinite families; not a numerical renaming of known cyclic results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
