@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Vertex transitivity makes each diagonal spectral-projector entry equal to multiplicity divided by \(2n\), giving an exact return formula. The key nonstandard ingredient, the complete solution of the cosine-difference resonance equation for roots of unity, is proved by bounding all Galois conjugates and comparing the cyclotomic trace \(\mu(m)\) with the positive integral norm. All surviving interbranch collisions have been counted without overlap. The standalone checker independently diagonalizes physical adjacency matrices for 48 lengths and compares 598 spectral instances. This is supplementary finite evidence, not the universal proof.
+## correctness
 
-**Originality — PASS on inspected sources, with residual priority risk.** Godsil's 2011 complete article supplies the universal spectral formula and treats cycles; its stated results do not evaluate prism collision arithmetic. The 2017 commutant article supplies a broader operator framework without the prism family, while the 2019 full text establishes a Cartesian-product lower bound but not its exact equality cases for prisms. The claimed new step is the family-wide \(4\)-and-\(6\)-divisibility resonance classification and resulting exact excess, not the spectral formula, general product bound, or Fourier eigenvalues. Searches included the family names and alternative return/mixing terms. Relevant unindexed or older source coverage cannot be ruled out.
+PASS
 
-**Value — PASS.** Quantum return/mixing is a natural graph-transport invariant. The result resolves exactly when a general spectral lower bound is attained on an infinite, physically motivated two-channel ring family, and reveals two independent arithmetic degeneracies invisible in the generic product estimate. The precise \(2/n^2\) contributions, while diminishing for large rings, classify a nontrivial spectral selection rule at every finite size rather than a routine numerical update.
+Adjacency of C_n square K_2 has branches c_k±1, c_k=2cos(2pi k/n). Cesaro spectral averaging gives R_n=(4n²)^-1 sum multiplicity². The cross-branch equation a-b=2 for cyclotomic cosine sums forces nonnegative conjugates of the algebraic integer a; the trace mu(m) and integral norm force a in {0,1,2}, and the only collisions require 4|n (a,b)=(2,0),(0,-2) or 6|n (1,-1). Multiplicity-squared increments are +8 each, proving R_n=1/n-(1+[2|n])/(2n²)+2([4|n]+[6|n])/n². Schur product of merged orthogonal spectral projectors proves product-mixing PSD inequality, with strict positive diagonal excess exactly in resonant cases. Independent direct spectral multiplicity enumeration for n=3..84 agrees exactly; it does not establish infinite collision exclusion.
 
-**Limitations.** The result concerns coherent adjacency dynamics of unweighted prisms and continuous-time Cesàro average; it does not establish convergence of the unitary walk, nonuniform-hopping results, or independent priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Godsil 2011 supplies spectral average mixing, and Godsil–Guo–Sobchuk 2019 Lemma 4.2 supplies the Cartesian PSD product inequality. The all-prism equality criterion controlled by divisibility by 4/6 and exact diagonal excess require the cyclotomic resonance classification not supplied there.
+
+## value
+
+PASS
+
+An all-size equality characterization for a general known matrix inequality is mathematically natural; two distinct cyclotomic resonances provide exact return probability and quantify how product separability fails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
