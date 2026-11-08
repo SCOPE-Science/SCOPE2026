@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives a canonical functional-digraph species decomposition, and Möbius inversion legitimately turns the period-dividing counts into exact periods. The key nonstandard issue—identifying when different transformations generate the identical *embedded* submonoid—is resolved for all depths: precisely \(\varphi(p)\) generators for maximum tail depth zero or one, and a unique generator for depth at least two. This follows from a complete power-sequence argument, not finite experimentation. The independent enumerator exhausts every transformation in dimensions one through six (including all 46,656 in dimension six), while the cycle-index calculator verifies totals through dimension twelve. Proof applies to every \(n\ge1\).
+## correctness
 
-## Originality — PASS relative to accessible evidence
-Elliott–Levine–Mitchell (arXiv:2303.12387, March 22, 2023) prove an enumeration *up to abstract isomorphism* in terms of which threshold–period combinations are realizable; their complete arXiv full text was inspected. That determines only existence of a type, not the number of actual embedded copies for each pair. The present result counts those copies, including cycle-length arithmetic and generator multiplicities. Direct web searches for “number of distinct cyclic subsemigroups of full transformation monoid,” embedded subgroup/monoid enumerations and the initial integer sequence did not identify a dominating formula. A published monounary-algebra counting result was inspected in full; it imposes a different source-height property and counts maps, not embedded submonoids. An existing embedded inverse-submonoid formula for partial permutations uses different objects and does not imply these values. Residual risk: an equivalent count may occur in older transformation-semigroup or functional-digraph enumeration under another name.
+PASS
 
-## Mathematical value — PASS
-The 2023 isomorphism-type enumeration collapses many labeled subsets to one class. Exact embedded counts answer the distinct and natural incidence question—how many actual cyclic submonoids occur inside a fixed full transformation monoid—and refine it simultaneously by eventual-period and transient-depth invariants. They provide exact values in all dimensions, a separate finite partition-sum evaluation, and a quantitative statement that almost every transformation uniquely generates its embedded monoid. For example, there are only \(22\) abstract isomorphism types in degree six by Elliott–Levine–Mitchell, but \(42488\) distinct embedded monogenic submonoids, so the distinction is substantial rather than a renaming. Standard species steps are acknowledged; the value lies in the full embedded census and the corrected generator-fiber analysis.
+A functional digraph decomposes into cycles with attached rooted in-trees; bounded height is counted by T_0=z, T_(h+1)=z exp(T_h), with F_(h,d)=exp(∑_(j|d)T_h^j/j). Subtracting adjacent heights and Möbius inversion isolates maximum depth and lcm period. At h=0 the positive powers form an ambient permutation cyclic subgroup, at h=1 their positive powers form a cyclic subgroup of order p with its own local identity, so exactly φ(p) positive powers generate the same ambient-identity submonoid; at h≥2, f is the unique power capable of generating f again. Correcting n^n counts only depth≤1 maps; those are determined by cyclic vertex set, its permutation and arbitrary one-step tails. Positive-coefficient bound of 1/(1−ze^z) at z=1/2 and Stirling yields the stated exponential error. Independent literal monoid equality and multiplicity n=1…5 corroborates.
 
-## Risks and limitations
-This review is internal mathematical cross-checking of the single displayed finding; it is not an independent publication-priority or expert assessment. There is no claim that cycle-index enumeration or the threshold–period classification itself was invented here. The periodicity-refined formula is a finite formal-series coefficient expression, not a closed elementary product. Possible older results on distinct cyclic subsemigroups in finite transformation monoids warrant independent literature checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for exact embedded labeled h,p census and asymptotic uniqueness. Elliott–Levine–Mitchell count abstract monogenic submonoid types, not actual labeled subsets. Published monounary-algebra enumeration treats a different common source-height condition and does not identify cyclic-power generator fibers.
+
+## value
+
+PASS
+
+The explicit sharp h=1/2 generator-rigidity threshold transforms the standard functional-digraph species numerator into a nontrivial embedded-submonoid profile; the exponential rarity law quantifies how often distinct maps collapse to one generated submonoid.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

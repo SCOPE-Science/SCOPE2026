@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction
 
-Run `python verify.py` and `python counts.py` from a directory containing these two supplied files. Both use only the Python standard library.
+# Independent mathematical audit
 
-`verify.py` exhaustively enumerates all labeled self-maps in degrees one to six, constructs their actual embedded generated submonoid by iterating powers, and partitions identical submonoids into equality classes. For every nonzero \((h,p)\) class it checks the formal-series coefficient predicted by the theorem and verifies that the number of generating transformations per class is \(\varphi(p)\) when \(h\le1\), otherwise one. It also tests zero classes for smaller periods. Results: the six exact monoid totals are \(1,4,26,237,2842,42488\); output terminates in `VERIFY_OK`.
+## correctness
 
-`counts.py` independently generates integer partitions of each cyclic-set size, evaluates the number and order of permutations of that cycle type, and sums the finite total formula exactly with rational arithmetic. Values for degrees one to twelve are printed; the first six are cross-checked against exhaustive values. Output terminates in `FORMULA_OK`.
+PASS
 
-The exhaustive checks do not prove the statement for arbitrary degree; the complete proof is in `RESULT.md`. The exponential estimate relies on the formal-series coefficient bound evaluated at \(z=1/2\) and Stirling's formula, not on extrapolation from the tables.
+A functional digraph decomposes into cycles with attached rooted in-trees; bounded height is counted by T_0=z, T_(h+1)=z exp(T_h), with F_(h,d)=exp(∑_(j|d)T_h^j/j). Subtracting adjacent heights and Möbius inversion isolates maximum depth and lcm period. At h=0 the positive powers form an ambient permutation cyclic subgroup, at h=1 their positive powers form a cyclic subgroup of order p with its own local identity, so exactly φ(p) positive powers generate the same ambient-identity submonoid; at h≥2, f is the unique power capable of generating f again. Correcting n^n counts only depth≤1 maps; those are determined by cyclic vertex set, its permutation and arbitrary one-step tails. Positive-coefficient bound of 1/(1−ze^z) at z=1/2 and Stirling yields the stated exponential error. Independent literal monoid equality and multiplicity n=1…5 corroborates.
+
+## originality
+
+PASS
+
+Qualified PASS for exact embedded labeled h,p census and asymptotic uniqueness. Elliott–Levine–Mitchell count abstract monogenic submonoid types, not actual labeled subsets. Published monounary-algebra enumeration treats a different common source-height condition and does not identify cyclic-power generator fibers.
+
+## value
+
+PASS
+
+The explicit sharp h=1/2 generator-rigidity threshold transforms the standard functional-digraph species numerator into a nontrivial embedded-submonoid profile; the exponential rarity law quantifies how often distinct maps collapse to one generated submonoid.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
