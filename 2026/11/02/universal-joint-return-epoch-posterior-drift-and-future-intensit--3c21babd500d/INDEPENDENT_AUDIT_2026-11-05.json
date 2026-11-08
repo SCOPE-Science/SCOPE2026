@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T16:02:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed a,b>0, de Finetti mixing gives Beta(a,b) latent p and conditional return probability r(p)=2min(p,1-p)=1-U. Thus N|p is geometric in positive-time return count, P(N>=k|p)=(1-U)^k. Exact beta posterior reweighting gives kU->Exp(1), sign asymptotically fair, and by Scheffe total variation of k(2p-1) to centered Laplace. Conditional future R=N-k is geometric with parameter U, hence UR->independent Exp(1). Defective first-return generating function 1-sqrt(1-4p(1-p)z^2) gives [F_p(e^-s/k^2)/F_p(1)]^k -> exp(x-sqrt(x^2+2s)) with U=x/k; post-k excursions are independent of future returns conditional on p. Mixing x~Exp(1) produces T=1/(2 Exp(1)), CDF exp(-1/(2t)). Exact a=b=1 joint survival formula follows beta integral. Independently recomputed finite posterior integrals and numeric Laplace convergence for k=100,1000 and inspected rational/exhaustive source checker.py. Infinite-limit statements are justified by uniform compact expansion/tightness, not those finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2014 results dominate the standalone balanced intensity and duration tails; 2016 extends duration/intensity to nonlinear fitness variants."
+        ],
+        "reasoning": "Neither inspected theorem supplies the conditional latent drift/past-epoch/future-return joint law across arbitrary fixed positive masses. Older abstract-only first passage work remains risk.",
+        "searches": [
+          "arxiv:1402.4536",
+          "arxiv:1604.02097",
+          "arxiv:1005.0867",
+          "Polya urn tie return epoch rare many returns conditional hidden bias inverse exponential Brownian hitting time"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1402.4536",
+        "https://arxiv.org/abs/2504.14813",
+        "https://arxiv.org/abs/1005.0867",
+        "https://arxiv.org/abs/2412.17994",
+        "Resultary semantic query: Polya urn tie return epoch rare many returns conditional hidden bias inverse exponential Brownian hitting time"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Old indexed tie kernels imply possible marginal T in the balanced case but do not specify the posterior distribution of hidden p or asymptotic independence of future count from past time."
+        ],
+        "reasoning": "The joint theorem requires mixing de Finetti with k-fold defective first-return transforms and conditional geometric future returns; no direct prior implication was established in inspected full text.",
+        "searches": [
+          "arxiv:1402.4536",
+          "arxiv:2504.14813",
+          "conditional geometric mixture drift posterior Polya k returns"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Balanced (a=b=1) draw-count returns equal the competition tie intensity after conventions; Jiang et al. explicit finite indexed kernels make balanced timing marginal old/implicit."
+        ],
+        "reasoning": "Full four-coordinate conditional limit includes de Finetti latent p and future marks; exact indexed return-time kernels alone do not state their joint conditional dependence.",
+        "searches": [
+          "Polya urn tie return epoch rare many returns conditional hidden bias inverse exponential Brownian hitting time",
+          "arxiv:1402.4536 Section 5.3",
+          "Polya urn competition tie indexed time conditional large intensity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2014 provides balanced indexed-tie exact kernels and probability tables, but not a reported conditional four-variable limiting law."
+        ],
+        "reasoning": "This is a stochastic weak-limit statement rather than a new finite count table; the balanced marginal is not independently novel.",
+        "searches": [
+          "arxiv:1402.4536 equations 19–25",
+          "Resultary semantic query: Polya urn tie return epoch rare many returns conditional hidden bias inverse exponential Brownian hitting time"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison against stronger and equivalent claims, not titles alone; primary texts and known antecedents acknowledged. The joint theorem requires mixing de Finetti with k-fold defective first-return transforms and conditional geometric future returns; no direct prior implication was established in inspected full text. Unresolved historical-priority possibilities are explicitly retained; unsuccessful searches are not proof of novelty.",
+      "residual_risks": [
+        "Jiang et al. 2014 exact indexed-tie formulas may imply the balanced timing marginal, which is not claimed independently new.",
+        "An abstract conditioned-renewal random-drift mixture theorem could dominate the joint limit.",
+        "Antal 2010 and Mookerjee/Kostinski 2024 full technical text not inspected; residual priority risk.",
+        "Infinite-horizon conditioning differs from any fixed finite observation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_BALANCED_MARGINAL_PRIOR",
+          "evidence": [
+            "Exact finite indexed-tie kernels and intensity/last-tie tails; may imply balanced marginal T after asymptotics; no latent p posterior plus future return mark joint statement in examined sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.4536",
+          "material_read": "Complete accessible parsed 2014 paper, especially Theorems 1,3 and Section 5.3 equations (19)–(25) on indexed tie times",
+          "method": "Translated competition tie intensity to returns of white-minus-black draw count and compared finite indexed-time kernels with the four-coordinate moving rare-event conditional law",
+          "title": "On the duration and intensity of cumulative advantage competitions",
+          "trigger": "Exactly matched balanced initial-mass Pólya competition tie/return event"
+        },
+        {
+          "assessment": "GENERAL_MODEL_PRIOR",
+          "evidence": [
+            "Urn-driven random walk framework, not an observed stated four-variable conditional limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.14813",
+          "material_read": "Relevant paper statement/model and related return computations",
+          "method": "Compared unconditioned return and urn reinforcement description to conditioning N>=k and posterior mark limit",
+          "title": "Urn-driven random walks",
+          "trigger": "Same reinforced random-walk model and possible general recurrence analysis"
+        },
+        {
+          "assessment": "PRIORITY_RISK_INCOMPLETE",
+          "evidence": [
+            "Same underlying urn first passages; no whole-document NOT_COVERING assertion warranted."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1005.0867",
+          "material_read": "Accessible publication abstract and relevant identified first-passage statements; full primary not independently read",
+          "method": "Marked full text as not fully inspected; compared topical scope only",
+          "title": "First Passage Properties of the Polya Urn Process",
+          "trigger": "Pólya urn first passage and ties"
+        },
+        {
+          "assessment": "PARTIAL_PRIOR",
+          "evidence": [
+            "Fixed-bias return probabilities are building blocks; full result not inspected."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.17994",
+          "material_read": "Accessible abstract and recurrence description, not full technical paper",
+          "method": "Identified standard fixed-bias recurrence ingredient, reserved potential strong coverage as risk",
+          "title": "Exact closed-form recurrence probabilities for biased random walks at any step number",
+          "trigger": "Conditional fixed-bias first-return law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simultaneous limiting latent drift, k-th return epoch and future return count answers a natural rare conditioning question for exchangeable reinforcement and clarifies the dependence structure between posterior drift and Brownian first-passage time. The exact finite balanced survival formula is a useful consistency check; standalone 1/k tie intensity and balanced time marginals are already known.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1402.4536",
+    "https://arxiv.org/abs/2504.14813",
+    "https://arxiv.org/abs/1005.0867",
+    "https://arxiv.org/abs/2412.17994",
+    "Resultary semantic query: Polya urn tie return epoch rare many returns conditional hidden bias inverse exponential Brownian hitting time",
+    "Exact assigned Git tree/blob identities; RESULT.md; named mathematical checker scripts"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Jiang et al. 2014 exact indexed-tie formulas may imply the balanced timing marginal, which is not claimed independently new.",
+    "An abstract conditioned-renewal random-drift mixture theorem could dominate the joint limit.",
+    "Antal 2010 and Mookerjee/Kostinski 2024 full technical text not inspected; residual priority risk.",
+    "Infinite-horizon conditioning differs from any fixed finite observation."
+  ],
+  "residual_risks": [
+    "Jiang et al. 2014 exact indexed-tie formulas may imply the balanced timing marginal, which is not claimed independently new.",
+    "An abstract conditioned-renewal random-drift mixture theorem could dominate the joint limit.",
+    "Antal 2010 and Mookerjee/Kostinski 2024 full technical text not inspected; residual priority risk.",
+    "Infinite-horizon conditioning differs from any fixed finite observation."
+  ],
+  "schema_version": 1
+}
