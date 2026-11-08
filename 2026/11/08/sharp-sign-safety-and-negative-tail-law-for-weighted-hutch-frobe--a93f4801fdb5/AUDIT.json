@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Proof constructs a deterministic negative sketch for any nonzero matrix and fixed positive weight, upgrades to positive probability by Gaussian full support; rank-one output equals a signed product of independent scaled chi-square variables; conditioning gives the exact integral; sum/difference coordinates yield a unique boundary saddle and a uniform two-dimensional Laplace evaluation with explicit constant. Exact-rational and numerical script checks returned VERIFY_OK 35456 checks. Finite checks do not establish asymptotics without the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen et al. Theorem 1.1 and Section 3 give unbiasedness, \\(O(r^{-2})\\) variance and oracle weight \\(\u0007lpha^*=1/(1+2T)\\), but no sign-tail limit.",
+        "Their general Chebyshev deviation bound decays at polynomial order; the new fixed-rank-one sign probability decays as \\(r^{-1/2}e^{-rJ(c)}\\).",
+        "Meyer et al. (2021) Hutch++ is a different adaptive projected-residual estimator rather than the weighted nonadaptive Hutch# product."
+      ],
+      "reasoning": "Variance identities and general two-sided error bounds do not determine a rare-event exponent and prefactor. The oracle weight is known and not claimed original; the new negative-sign law is a different assertion. A general full-distribution theorem for two gamma variables could still cover a special case, and this remains a residual risk.",
+      "searches": [
+        "arXiv:2609.28472 full HTML Sections 1-5 and Appendix A",
+        "Web: \"Hutch#\" \"nonnegative\" \"Frobenius\"",
+        "Web: matrix norm estimator nonnegative Gaussian cross term sign negative variance Hutch sharp"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.28472 (2026-09-23) full public mathematical HTML",
+      "Meyer et al. Hutch++ (SOSA 2021) public abstract and formula reproduced in 2026 article",
+      "Published mathematical findings on Gaussian products, matrix norm estimators, and one-sided tails",
+      "Web exact-phrase searches for Hutch# sign and negative tails"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published result \\(\u0007lpha_r^*=r/(r+4)\\) for rank-one follows from the source variance formula, hence is explicitly labeled prior.",
+        "New consequences include universal positive-probability sign failure for every nonzero matrix and fixed positive weight; unique gamma rate saddle; sharp prefactor and \\(e^{-2}\\) variance-oracle sign ratio."
+      ],
+      "reasoning": "The source paper supplies definition and second moments. It does not supply a distributional tail formula, a sign-safety classification, or the asymptotic constant. A stronger general gamma-product tail formula not inspected could imply part of the rank-one result; no evidence was found that it does.",
+      "searches": [
+        "arXiv:2609.28472 Eq. (4), Section 2, Section 3, Section 5 and Appendix A",
+        "Literature query: Hutch# Hutch sharp 2026 nonadaptive Frobenius estimator negative probability positive sign weighted rank one chi square sharp large deviation rare event"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 defining formula, arXiv:2609.28472 Eq. (4), yields a signed product of independent scaled chi-square variables on rank-one input.",
+        "The author paper has no statement of a sign-support classification or negative-event rare-tail limit.",
+        "A related published study of tails of a Studentized Gaussian independence statistic concerns a different object and does not cover the Frobenius estimator."
+      ],
+      "reasoning": "Product-gamma and difference-of-Gaussian-chaos descriptions are plausible aliases. The exact gamma survival integral is reducible to standard distributions, but the sharp boundary-Laplace constant and all-matrix sign dichotomy require comparison beyond a generic chi-square product. No covering implication was found; absence of search hits is not proof of worldwide novelty.",
+      "searches": [
+        "Literature query: Hutch# Hutch sharp 2026 nonadaptive Frobenius estimator negative probability positive sign weighted rank one chi square sharp large deviation rare event",
+        "Literature query: rank-one Gaussian Hutch sharp estimator probability negative variance optimal mixing coefficient nonnegativity rare event",
+        "Web: \"Hutch#\" \"negative\" \"estimator\"",
+        "Web: \"Hutch#\" \"large deviations\" weighted"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published Gaussian cross-validation variance analyses concern a different estimator, not the weighted matrix-query estimator.",
+        "The 2026 paper figures report RMSE for spectral ensembles; they do not tabulate negative probability or the rank-one boundary-Laplace prefactor."
+      ],
+      "reasoning": "No matching indexed exact-tail table was found. The exact integral is a standard special-function representation, so priority of this representation is qualified rather than asserted categorically.",
+      "searches": [
+        "Literature query: nonadaptive randomized Frobenius norm estimate signed inclusion exclusion estimator below zero sharp exponent",
+        "Web: \"Hutch#\" \"negative\" \"estimator\"",
+        "arXiv:2609.28472 numerical results Sections 5.1-5.2"
+      ]
+    },
+    "rationale": "The inspected September 2026 Hutch# manuscript defines the method, derives unbiasedness/variance and optimizes the mixture; those are acknowledged as prior. The sign-safety dichotomy, rank-one negative-tail sharp constant and variance-oracle factor e^-2 were not present in its inspected mathematical analysis or targeted records. Historical priority is qualified by possible unindexed product-gamma tail literature and a baseline available only at abstract level.",
+    "residual_risks": [
+      "General product-gamma large-deviation results could imply the rank-one coefficient under a reformulation; historical indexing is incomplete.",
+      "The older Hutch++ full text was not accessible through the publicly retrieved link; comparison is limited to abstract and cited implementation formula.",
+      "Nonzero full-rank matrices may have different quantitative probabilities, which are not classified here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The defining formula, variance and optimal mixture are prior; the claimed sharp sign-tail law and coefficient are absent from examined text",
+        "evidence": [
+          "Eq. (4) definition of weighted H#",
+          "Theorem 1.1 variance of H#",
+          "Section 3 alpha-star and effective-rank optimization",
+          "Section 5 reports RMSE rather than signed negative-output rates"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.28472",
+        "material_read": "Introduction and Eq. (4); Sections 2 and 3, variance proof and optimal mixing; numerical experiments Section 5 and Appendix A proof formulas",
+        "method": "Publicly accessible full HTML article, mathematical statements and derived formulas compared directly",
+        "title": "Hutch#: Optimal non-adaptive Frobenius norm estimation",
+        "trigger": "Primary source defining exactly the weighted nonadaptive estimator"
+      },
+      {
+        "assessment": "Different adaptive PSD trace-estimation method, not directly a covering law for the specific nonadaptive weighted cross-sketch signed product; not treated as full-paper noncoverage",
+        "evidence": [
+          "2021 paper states O(1/epsilon) complexity for PSD trace",
+          "2026 Chen et al. Section 5.2 uses a projection-residual implementation"
+        ],
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/34723248/",
+        "material_read": "2021 primary-paper abstract and the explicit Hutch++ implementation formula reproduced in Chen et al. 2026 Section 5.2",
+        "method": "Accessible indexed abstract and the 2026 primary-paper mathematical comparison; public full text redirected to a browser verification page",
+        "title": "Hutch++: Optimal Stochastic Trace Estimation",
+        "trigger": "Potential stronger variance-reduced stochastic trace estimator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a93f4801-fdb5-45c9-b718-ab752041b3c0",
+  "value": {
+    "rationale": "Numerical squared-norm estimates should be nonnegative, yet the newly proposed optimal-query nonadaptive estimator has an intrinsic sign-support failure for every nonzero input at any positive correction weight. The exact tail law shows the event is exponentially rare, quantifies the rate and leading probability, and determines the nontrivial e^-2 reduction from the published oracle variance-optimal weight. This measures a meaningful reliability/variance tradeoff, not merely a negative numerical example.",
+    "status": "PASS"
+  }
+}
