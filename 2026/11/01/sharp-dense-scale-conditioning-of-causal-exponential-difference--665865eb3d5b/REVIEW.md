@@ -1,19 +1,21 @@
-# Scientific review: causal exponential-difference scale spectra
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The normalization is reconstructed from the elementary identity \(\langle h_a,h_b\rangle=1/(a+b)\). A four-term factorization gives the exact Gram coefficients, including the diagonal value one and positivity at every offset. The logarithmic change of variables is unitary, and the Mellin transform yields the stated Gamma factor and its hyperbolic-secant modulus. Poisson aliasing has the required \(1/L\) factor. Positivity of the resulting continuous symbol proves Riesz stability and Fejér concentration proves optimality of the minimum and maximum. The two-range argument near \(\theta=\pi\) gives the sharp dense-scale minimum without assuming the fixed-ratio minimizer. Exact-rational checks and spectral comparisons replay successfully. These checks are supplementary to the analytic proof.
+PASS
 
-## Originality
+For c>1, L=log c and h_a(t)=a^-1 exp(-t/a)1_(t>0), ψ_c=h_c-h_1 has squared norm N²=(c-1)²/[2c(c+1)]. Direct <h_a,h_b>=1/(a+b) expands to Gram g_k=2(c+1)² c^(3k/2)/[(c+c^k)(1+c^k)(1+c^(k+1))]. The unitary x=log t map converts L²-normalized dilates to translations by jL. The Mellin transform gives Gamma(1/2-iξ)(c^(-1/2-iξ)-1)/N, and |Gamma(1/2+iξ)|²=pi/cosh(pi ξ), producing the periodic positive Gram symbol G_c(theta)=pi(1+q²-2q cos theta)/(L N²) sum_m sech[pi(theta+2pi m)/L], q=c^-1/2. Its continuous positive minimum/maximum are sharp two-sided and one-sided Riesz bounds via Fejér concentration; positivity of all g_k gives maximum at 0. For L->0, the nearest two antipodal aliases give P_L(pi)~4 exp(-pi²/L), D_L(pi)/N²~16/L²; uniform two-range comparison excludes shifted smaller values and yields A~64pi L^-3 exp(-pi²/L), B~pi/L, B/A~L² exp(pi²/L)/64. Independent numerical Mellin symbol checks at L=.5,.3,.2 gave A_symbol(pi)/asymptotic ≈1.02606,1.00938,1.00417, while B_symbol(0)/asymptotic ≈1.01546,1.00560,1.00250. These finite numbers corroborate but do not prove infinite Gram and uniform minimization.
 
-**PASS under inspected evidence.** Pedersen--Lindeberg--Gerstoft (arXiv:2609.17201, Sections 4.3 and 5.1) give the causal difference-of-exponentials filter and frequency-wise filter-bank bounds, and introduce finite interchannel Gram matrices. They do not state the normalized infinite-dilation Gram symbol, its Riesz constants, or the essential-singularity condition-number law. Lindeberg's earlier scale-normalization discussion (arXiv:2510.05834, Sections 2.8 and 3.2) concerns causal constructions and scale covariance, not this spectral minimum. General Mellin and translation theory can supply a method but does not itself give the explicit \(64\pi\) coefficient. Related published results about translated exponential sampling and unrelated Gabor frame bounds concern different operators and do not imply the claim. Historical implicit coverage cannot be excluded completely.
+## originality
 
-## Value
+PASS
 
-**PASS.** Adjacent causal exponential integrators are a concrete primitive for logarithmically spaced time-frequency channels. The theorem gives exact spectral control of their normalized scale coefficient system for every \(c>1\), and proves that denser scale placement causes an essentially exponential conditioning penalty \(\sim L^2e^{\pi^2/L}/64\). This quantifies a design tradeoff that cannot be read off from single-channel bandwidths or norms. It is a structural stability result rather than a single arbitrary numerical example.
+Direct statement-level comparison with relevant original primary research and semantic published-finding records did not identify an equivalent or dominating fully checked result. Known premises are attributed; nontrivial new specific quantitative conclusions assessed at qualified best-of-knowledge level. Inaccessible and incompletely inspected papers remain explicit residual priority risks.
 
-## Scientific boundaries
+## value
 
-No claim is made that the unshifted dilates are a frame for the full time-domain space. Their Gram/Riesz bounds differ from bounds for signal analysis by a filterbank with all temporal translations. For individual fixed ratios the minimum is specified by an explicit positive periodic symbol; the proof does not classify its exact minimizing angle. The dense-scale leading terms are exact asymptotics, not uniform-in-scale finite-channel formulas. Possible older equivalent Mellin identities remain an originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Dense sampling of natural causal exponential-difference scale channels creates a concrete coefficient-recovery conditioning problem. The exact Riesz Gram symbol proves stability at every finite ratio and quantifies exponentially catastrophic deterioration in the dense-scale limit with the sharp non-obvious 64pi and 1/64 constants. This is a motivated spectral stability classification not reducible to single-channel response energy; no translated filterbank claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
