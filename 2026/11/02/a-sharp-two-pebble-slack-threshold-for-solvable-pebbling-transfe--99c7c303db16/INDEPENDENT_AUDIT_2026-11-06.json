@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:15:39.020363Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 14 Fano-incidence vertices are generated as point-line incidence with lines {i,i+1,i+3} mod 7. For a distribution D, the exact all-target reachable bitmask is support(D) union over all legal directed pebbling moves R(D-2e_u+e_v); each move decreases the pebble total so dynamic programming terminates. Every weak composition is enumerated for t=5,6,7,8: candidate counts 8568,27132,77520,203490, with solvable 0,161,5936,71323 respectively. Every legal unit jump and graph-edge slide is enumerated from each solvable distribution and counted once. A separately written, independently compiled C++ checker on this graph rederived jump-edge counts 0,42,33726,1145396 and slide-edge counts 0,42,11970,314496, with exact t=6 singleton/triple component signatures, t=7 jump components 2576 and 3360, slide components 21x24,28x74,3360x1, and t=8 connected for both. The t=7 capacity<=2 component split was checked by the source primary program and the independent enumeration; no solvable totals<5 by pebbling monotonicity. This is a FINITE exhaustive proof for t<=8, no claim about >=9.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defines separate-target solvability and scalar optimal pebbling; no Heawood-labelled jump/slide exchange component enumeration in inspected material.",
+          "Studies the existence/minimum count under per-vertex capacity restrictions, not the connectivity of reconfiguration graphs for every solvable Heawood configuration."
+        ],
+        "reasoning": "Bunde et al 2005 establish general optimal pebbling theory and structural upper bounds. Papp 2023 studies capacity-restricted scalar optima, NP-completeness and minimum-degree criteria. Neither theorem determines the number or connected components of all Heawood solvable states at t=6,7,8. A 2007 diameter-three value paper may dominate only the scalar optimum.",
+        "searches": [
+          "Heawood graph solvable pebbling configurations 6 7 8 unit jumps slides connectivity configuration graph",
+          "arxiv:math/0510621v1",
+          "arxiv:2301.09867",
+          "doi:10.1016/j.disc.2006.11.005",
+          "Resultary semantic search Heawood graph solvable pebbling configurations 6 7 8 unit jumps slides connectivity configuration graph",
+          "broader general sources versus special-case implication"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:math/0510621v1",
+        "arxiv:2301.09867",
+        "doi:10.1016/j.disc.2006.11.005",
+        "Resultary semantic search Heawood graph solvable pebbling configurations 6 7 8 unit jumps slides connectivity configuration graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Defines separate-target solvability and scalar optimal pebbling; no Heawood-labelled jump/slide exchange component enumeration in inspected material.",
+          "Studies the existence/minimum count under per-vertex capacity restrictions, not the connectivity of reconfiguration graphs for every solvable Heawood configuration."
+        ],
+        "reasoning": "A known scalar optimum six would imply S_5 is empty only if one supplies the value; it does NOT imply 161 vs 5936 vs 71323 states or jump/slide edge and component counts. Classical pebbling moves decrease total, whereas the studied transfer graph moves keep total, so no automatic domination.",
+        "searches": [
+          "Heawood graph solvable pebbling configurations 6 7 8 unit jumps slides connectivity configuration graph",
+          "arxiv:math/0510621v1",
+          "arxiv:2301.09867",
+          "doi:10.1016/j.disc.2006.11.005",
+          "Resultary semantic search Heawood graph solvable pebbling configurations 6 7 8 unit jumps slides connectivity configuration graph",
+          "compare claim hypothesis and conclusion against prior theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary related hits: Heawood cut/matching complexes, Heawood particle homology (not solvable pebbling reconfiguration graph).",
+          "Defines separate-target solvability and scalar optimal pebbling; no Heawood-labelled jump/slide exchange component enumeration in inspected material."
+        ],
+        "reasoning": "Optimal pebbling asks existence of one solvable D with given total; the new graph has EVERY solvable distribution as a vertex and edges from single-pebble transfers, not classical moves. This configuration-space construction is not mathematically equivalent to the scalar optimum.",
+        "searches": [
+          "Heawood graph solvable pebbling configurations 6 7 8 unit jumps slides connectivity configuration graph",
+          "arxiv:math/0510621v1",
+          "arxiv:2301.09867",
+          "doi:10.1016/j.disc.2006.11.005",
+          "Resultary semantic search Heawood graph solvable pebbling configurations 6 7 8 unit jumps slides connectivity configuration graph",
+          "equivalence/duality of theorem parameters"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related hits: Heawood cut/matching complexes, Heawood particle homology (not solvable pebbling reconfiguration graph).",
+          "Actual Git source RESULT.md theorem and verification boundary inspected."
+        ],
+        "reasoning": "The exact t=6..8 enumeration is a finite classification requiring complete weak-composition generation and decidable target reachability, rather than a known graph table. Two source verifiers plus a separately implemented C++ graph verify all finite candidate and transition counts. No published table located in inspected sources.",
+        "searches": [
+          "Heawood graph solvable pebbling configurations 6 7 8 unit jumps slides connectivity configuration graph",
+          "arxiv:math/0510621v1",
+          "arxiv:2301.09867",
+          "doi:10.1016/j.disc.2006.11.005",
+          "Resultary semantic search Heawood graph solvable pebbling configurations 6 7 8 unit jumps slides connectivity configuration graph",
+          "table/database equivalent exact invariant"
+        ]
+      },
+      "rationale": "The classical optimal-pebbling number and restricted optimal-pebbling notions are prior art; novelty is the complete labelled configuration-space exchange-graph classification and first connectivity at two slack pebbles on this natural Heawood graph. Source comparisons study scalar minimum and complexity, not adjacency/component graphs of all solvable distributions.",
+      "residual_risks": [
+        "A previously unlocated Heawood enumeration or software table could duplicate these finite counts.",
+        "No conclusion on t>=9; exact independent run covers only t=5..8."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SCALAR_OPTIMUM_NOT_EXCHANGE_CENSUS",
+          "evidence": "Defines separate-target solvability and scalar optimal pebbling; no Heawood-labelled jump/slide exchange component enumeration in inspected material.",
+          "identifier_or_url": "arxiv:math/0510621v1",
+          "material_read": "arXiv PDF: definitions, abstract, main structural bounds/results, and targeted Heawood/transfer searches",
+          "method": "full-text PDF sections and within-document searching",
+          "title": "Pebbling and Optimal Pebbling in Graphs",
+          "trigger": "Foundational definition, potential prior optimal value"
+        },
+        {
+          "assessment": "CAPACITY_RESTRICTION_NOT_CONFIG_COMPONENTS",
+          "evidence": "Studies the existence/minimum count under per-vertex capacity restrictions, not the connectivity of reconfiguration graphs for every solvable Heawood configuration.",
+          "identifier_or_url": "arxiv:2301.09867v1",
+          "material_read": "Entire nine-page PDF made accessible; introduction, theorems on NP-hardness and density-based restriction comparison, capacity concept and later sections",
+          "method": "arXiv full-text PDF review and targeted theorem comparison",
+          "title": "Restricted optimal pebbling is NP-hard",
+          "trigger": "Potential capacity-two domination of t=7 split"
+        },
+        {
+          "assessment": "INACCESSIBLE_SCALAR_OVERLAP_RISK",
+          "evidence": "Could cover optimal t=6; cannot establish or exclude full transfer component census from an abstract.",
+          "identifier_or_url": "doi:10.1016/j.disc.2006.11.005",
+          "material_read": "Bibliographic record and abstract; full paper not read",
+          "method": "lawful abstract-level inspection",
+          "title": "Optimal pebbling of graphs",
+          "trigger": "Possible Heawood scalar optimum from diameter-three graph theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Heawood graph is a canonical 14-vertex cubic incidence graph. Full solvable-configuration reconfiguration graphs are natural nontrivial finite objects; the sharp 6-to-8 connectivity transition, 7-pebble capacity obstruction, and precise jump-versus-slide distinction are independently useful exact facts. An unfinished census at higher totals does not diminish the complete first-feasible-level classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:math/0510621v1",
+    "arxiv:2301.09867",
+    "doi:10.1016/j.disc.2006.11.005",
+    "Resultary semantic search Heawood graph solvable pebbling configurations 6 7 8 unit jumps slides connectivity configuration graph"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A previously unlocated Heawood enumeration or software table could duplicate these finite counts.",
+    "No conclusion on t>=9; exact independent run covers only t=5..8.",
+    "Frozen Git tree 8b8343a453d40031c7be3ffa7796f1710c239c6a matched fetched tree; RESULT.md and checked verifier inspected at commit cee6a8611931dc24cf27d27764642f895841c83e. No GitHub writes or external attestation."
+  ],
+  "schema_version": 1
+}
