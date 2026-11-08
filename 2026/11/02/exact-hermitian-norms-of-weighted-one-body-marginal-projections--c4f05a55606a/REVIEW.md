@@ -1,11 +1,21 @@
-# Review of the one-body marginal projection formula
+# Independent mathematical audit
 
-**Correctness: PASS.** Trace-pairing self-adjointness reduces both Hermitian endpoint norms to maximal trace norm on pure dual states. The exact eigenvalue law of centered marginals reduces each such norm to a scalar average. Conditional Jensen, with auxiliary spectral-index selectors, bounds arbitrary entangled marginals by independent Bernoulli terms; product-pure states attain equality. The binomial point-mass identity and Poisson/local-central-limit asymptotics are derived with explicit quantifiers. The standalone checker independently evaluates the matrix normalization and selected rational identities, but is not relied on for the infinite families.
+## correctness
 
-**Originality: PASS (qualified).** The close classical analogue is the first-order Fourier projection on a Boolean cube. The cited quantum Boolean literature develops Pauli expansions and influence inequalities rather than an exact weighted Hermitian operator/trace-norm projection identity for arbitrary local dimensions. The implication gap is the noncommutative supremum over entangled states; the proof closes it by convex ordering the spectra of every reduced density matrix. Web and mathematical-record searches did not reveal an equivalent statement. More general noncommutative Hoeffding projection literature may contain a reformulation and remains a priority risk.
+PASS
 
-**Mathematical value: PASS.** The one-body projection is a natural local-observable extraction map in noncommutative analysis, and the result gives a complete sharp norm invariant over heterogeneous finite matrix factors and all real weights. In addition to exact product-state extremality, the homogeneous family has a nontrivial binomial formula and a dimension/particle-number crossover: Gaussian order at fixed local dimension, linear order when dimensions increase proportionately, with explicit Poisson cusps. This is not an arbitrary finite parameter evaluation; it isolates when locality extraction amplifies bounded Hermitian observables.
+The normalized conditional expectations are self-adjoint for the unnormalized trace pairing, giving equality of both Hermitian endpoint dual norms with sup_{pure rho}||P_t(rho)||_1. For any state, the reduced marginals on distinct tensor factors commute and diagonalize to a uniform index expectation of |sum_j t_j(d_j lambda_{j,I_j}-1)|. Auxiliary independently selected K_j with distributions lambda_{j,*} and conditional Jensen give the uniform Bernoulli upper bound, while a product-pure state attains equality. Exact binomial rearrangement yields 2n binom(n-1,floor n/d)(d-1)^(n-floor n/d)/d^n. Local CLT and Poisson point-mass convergence establish the stated limits; one-sided derivatives of F(lambda)=2e^-lambda lambda^floorlambda/floorlambda! yield positive jumps at integers. Independent exact scalar identities and direct small tensor matrix checks corroborate normalization, not a general proof.
 
-**Limitations.** The theorem is specifically for the real Banach space of Hermitian matrices; it does not give the norm for non-Hermitian inputs or completely bounded norms. There is no independent assessment. The novelty search is extensive but cannot establish absolute priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known commutative first Walsh-level projection constants yield the lower-bound Bernoulli moment in qubit cases; Volberg–Zhang and Rouzé–Wirth–Zhang treat quantum Boolean influence/hypercontractive inequalities. The specific sharp weighted Hermitian quantum upper bound for arbitrary entangled states and nonuniform qudit dimensions requires the marginal-spectral convex-order argument. Defant et al. 2023/24 provide classical Fourier projection norms, but their classical result does not alone imply the noncommutative upper bound. Equivalent noncommutative Hoeffding or martingale projection results may exist and remain a bounded originality risk.
+
+## value
+
+PASS
+
+One-body marginal extraction is a natural degree-one projection in quantum Boolean/noncommutative analysis. Its exact endpoint amplification and product-state attainment quantify a meaningful locality/norm phenomenon for arbitrary real weights and heterogeneous matrix dimensions, while the homogeneous Gaussian/Poisson crossover has a nontrivial sharp phase profile. The natural general-dimensional invariant is not an arbitrary isolated finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
