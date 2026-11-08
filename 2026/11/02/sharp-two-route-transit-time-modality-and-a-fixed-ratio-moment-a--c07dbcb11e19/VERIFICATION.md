@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Execute `python3 proof_check.py` from the extracted package directory with the Python standard library. It verifies both exact rational moment identities; a rational lower bound on \(e^{16/5}\); critical-weight inequalities for the moment-aliased pair; the \(k=3,R=3\) critical point; and 800 sampled mode predictions versus the sign pattern of the full derivative. All checks executed successfully for the packaged source. No third-party data are required.
+## correctness
 
-The universal proof is the monotonicity of \((k-2)/s-1/(k-1-s)+R-1\) for \(k\ge3\), and the explicit unique maximum of \((1-s)e^{(R-1)s}\) for \(k=2\). Finite numerical sampling cannot verify the continuum of parameter values and is not relied upon for those assertions. Exact moments concern the mathematical idealization, and statistical identifiability under noise is unproved. Historical originality is reviewed within accessible primary literature but not externally certified; one relevant 1990 density-shape study could not be inspected in full.
+PASS
+
+For f(t)=w a e^{-at}+(1-w)b^k t^{k-1}e^{-bt}/(k-1)!, set s=bt and R=a/b. Its derivative divided by positive b²e^{-at} equals -w R² +(1-w)φ_{k,R}(s)/(k-1)!, φ=s^(k-2)(k-1-s)e^((R-1)s). At s≥k-1 the sign is strictly negative. For k≥3 the derivative of logφ decreases strictly from +∞ to -∞, giving a single maximum and exactly two strict peaks (zero and a positive one) when the level C=(k-1)!wR²/(1-w) lies strictly below φ*. Equality is only a horizontal shoulder. For k=2, φ=(1-s)e^((R-1)s) starts at 1 and increases first only when R>2, yielding the separate w0=1/(1+R²) and w* thresholds; for k=1 mixture is decreasing. The two stated rational k3,R3 parameter triples were independently checked to have mean exactly 1, second moment 493/242, variance 251/242, with weights on opposite sides of the rigorous φ* threshold. Numerical derivative sampling is supplemental, not the universal proof. Endpoint equality and nonpeak shoulders were considered.
+
+## originality
+
+PASS
+
+Best-of-knowledge mathematical statement-and-implication comparison of the exact reviewed final theorem with relevant primary literature, published-record searches, and recognized prior ingredients. Search failure is not novelty proof; priority risks remain specified.
+
+## value
+
+PASS
+
+Modality of a physically interpretable mixture of one exponential transit route and a serial Erlang route is a natural density-shape question. The exact all-rate, all-integer-stage phase diagram (including the special k2 boundary) and the explicit fixed-ratio two-moment alias address identifiability: two distributions can have the same low moments yet differ in peak count. The result neither claims complete general gamma-mixture classification nor identifies parameters from noisy data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

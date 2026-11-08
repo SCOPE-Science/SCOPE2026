@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T21:51:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/sharp-two-route-transit-time-modality-and-a-fixed-ratio-moment-a--c07dbcb11e19/RESULT.md @ 7255c776f75eb58fdbbdd3cb3dde3b5430fbcbed",
+        "Independent check: independent_checks.py, case S3"
+      ],
+      "rationale": "For f(t)=w a e^{-at}+(1-w)b^k t^{k-1}e^{-bt}/(k-1)!, set s=bt and R=a/b. Its derivative divided by positive b²e^{-at} equals -w R² +(1-w)φ_{k,R}(s)/(k-1)!, φ=s^(k-2)(k-1-s)e^((R-1)s). At s≥k-1 the sign is strictly negative. For k≥3 the derivative of logφ decreases strictly from +∞ to -∞, giving a single maximum and exactly two strict peaks (zero and a positive one) when the level C=(k-1)!wR²/(1-w) lies strictly below φ*. Equality is only a horizontal shoulder. For k=2, φ=(1-s)e^((R-1)s) starts at 1 and increases first only when R>2, yielding the separate w0=1/(1+R²) and w* thresholds; for k=1 mixture is decreasing. The two stated rational k3,R3 parameter triples were independently checked to have mean exactly 1, second moment 493/242, variance 251/242, with weights on opposite sides of the rigorous φ* threshold. Numerical derivative sampling is supplemental, not the universal proof. Endpoint equality and nonpeak shoulders were considered.",
+      "residual_risks": [
+        "Does not characterize all gamma mixtures; a general prior criterion might derive this threshold without the paper explicitly writing it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Došlá 2009 treats general mixtures and explicit gamma subcases (equal shapes or equal rates with shapes above 1); the different-rate exponential versus Erlang k≥2 subclass needs a separate derivative analysis. General criteria apply in principle and are acknowledged as prior, but no reviewed theorem supplies this closed subclass phase diagram or fixed-R moment alias."
+        ],
+        "reasoning": "Došlá 2009 treats general mixtures and explicit gamma subcases (equal shapes or equal rates with shapes above 1); the different-rate exponential versus Erlang k≥2 subclass needs a separate derivative analysis. General criteria apply in principle and are acknowledged as prior, but no reviewed theorem supplies this closed subclass phase diagram or fixed-R moment alias.",
+        "searches": [
+          "exponential Erlang mixture bimodality sharp thresholds boundary mode same mean variance fixed rate ratio",
+          "https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf",
+          "https://doi.org/10.5194/hess-14-1537-2010"
+        ]
+      },
+      "checked_sources": [
+        "https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf",
+        "https://doi.org/10.5194/hess-14-1537-2010",
+        "https://doi.org/10.1080/15326349908807148",
+        "https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Došlá Propositions 6–7 are not directly specialized because these routes have both unequal shapes and unequal rates; the discussion following Prop 7 marks different rate/shape gamma mixtures outside its explicit cases. The generic preceding theorem remains a source of possible mechanical derivability."
+        ],
+        "reasoning": "Došlá Propositions 6–7 are not directly specialized because these routes have both unequal shapes and unequal rates; the discussion following Prop 7 marks different rate/shape gamma mixtures outside its explicit cases. The generic preceding theorem remains a source of possible mechanical derivability.",
+        "searches": [
+          "exponential Erlang mixture bimodality sharp thresholds boundary mode same mean variance fixed rate ratio",
+          "https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf",
+          "https://doi.org/10.5194/hess-14-1537-2010",
+          "https://doi.org/10.1080/15326349908807148"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A two-route gamma/exponential density is a two-component hyper-Erlang/phase-type law. General mixture modal criteria can test derivative ratios but do not necessarily give the explicit integer-shape mixing boundary and strict zero-boundary classification."
+        ],
+        "reasoning": "A two-route gamma/exponential density is a two-component hyper-Erlang/phase-type law. General mixture modal criteria can test derivative ratios but do not necessarily give the explicit integer-shape mixing boundary and strict zero-boundary classification.",
+        "searches": [
+          "exponential Erlang mixture bimodality sharp thresholds boundary mode same mean variance fixed rate ratio",
+          "https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rational pair with k=3,R=3, both mean 1 and second moment 493/242, was checked exactly; Resultary and hydrological searches revealed no external identical paired-model table."
+        ],
+        "reasoning": "The rational pair with k=3,R=3, both mean 1 and second moment 493/242, was checked exactly; Resultary and hydrological searches revealed no external identical paired-model table.",
+        "searches": [
+          "exponential Erlang mixture bimodality sharp thresholds boundary mode same mean variance fixed rate ratio",
+          "https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical statement-and-implication comparison of the exact reviewed final theorem with relevant primary literature, published-record searches, and recognized prior ingredients. Search failure is not novelty proof; priority risks remain specified.",
+      "residual_risks": [
+        "The full Johnson–Taaffe 1990 density-shape paper was not accessible; its results might imply or tabulate the fixed-rate-ratio mixture case.",
+        "General unimodal mixture criteria may permit an alternative short derivation of this narrow formula; historical priority is not independently certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_CRITERIA_PRIOR_EXPLICIT_GAMMA_SUBCASES_DIFFER",
+          "evidence": "Proposition 6 assumes equal gamma shapes, Proposition 7 treats equal rates with both shapes above one; the text after Proposition 7 notes the different-shape/different-rate case is not given a general explicit result.",
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf",
+          "material_read": "Full 15-page primary PDF; inspected general derivative-ratio theorems, gamma-mixture Propositions 6–7, and following comparison discussion concerning distinct rates and shapes",
+          "method": "lawful journal PDF, targeted full-text and screenshot",
+          "title": "Conditions for bimodality and multimodality of a mixture of two unimodal densities",
+          "trigger": "Same mathematical problem of a two-density mixture with possible gamma components"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/sharp-two-route-transit-time-modality-and-a-fixed-ratio-moment-a--c07dbcb11e19/RESULT.md @ 7255c776f75eb58fdbbdd3cb3dde3b5430fbcbed",
+        "Independent check: independent_checks.py, case S3",
+        "https://dml.cz/bitstream/handle/10338.dmlcz/140075/Kybernetika_45-2009-2_6.pdf",
+        "https://doi.org/10.5194/hess-14-1537-2010"
+      ],
+      "rationale": "Modality of a physically interpretable mixture of one exponential transit route and a serial Erlang route is a natural density-shape question. The exact all-rate, all-integer-stage phase diagram (including the special k2 boundary) and the explicit fixed-ratio two-moment alias address identifiability: two distributions can have the same low moments yet differ in peak count. The result neither claims complete general gamma-mixture classification nor identifies parameters from noisy data.",
+      "residual_risks": [
+        "Does not characterize all gamma mixtures; a general prior criterion might derive this threshold without the paper explicitly writing it."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The full Johnson–Taaffe 1990 density-shape paper was not accessible; its results might imply or tabulate the fixed-rate-ratio mixture case.",
+    "General unimodal mixture criteria may permit an alternative short derivation of this narrow formula; historical priority is not independently certified.",
+    "Does not characterize all gamma mixtures; a general prior criterion might derive this threshold without the paper explicitly writing it.",
+    "The publication plan is not_ready because source provenance and prior-work date metadata have not been sanitized."
+  ],
+  "schema_version": 1
+}
