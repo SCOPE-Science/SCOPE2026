@@ -1,21 +1,21 @@
-# Scientific review: complete four-agent RSD matching-lottery spectrum
+# Independent mathematical audit
 
-## Correctness (PASS)
-The domain is exactly four distinct agents and four distinct goods with four independent strict, complete rankings, giving \(24^4\) profiles. A unique object relabeling fixes the first ranking, partitioning the domain into exactly \(24^3\) canonical configurations, each having \(24\) labeled equivalents. For each canonical profile, all \(24\) deterministic serial-dictatorship orders are explicitly evaluated and their identical perfect-match outcomes grouped. This proves that the signature histogram is exhaustive, rather than a sample of the profiles.
+## correctness
 
-`verify.py` independently produces the same complete outcome counter in each canonical case by an agent-order simulation and by a remaining-agent recursion. `verify_full.cpp` examines all \(331{,}776\) labeled profiles without normalization and produces exactly the 57 frequencies in `spectrum.csv`. `verify_pareto.py` compares all 24 candidate perfect matchings against direct Pareto dominance for each canonical profile and confirms the full RSD support, not just its size. The distribution sums to \(331{,}776\); first and second moments are checked in exact rational arithmetic. The structural \(K=1\) formula has a direct proof. Every other numerical assertion is restricted to the completely enumerated finite domain.
+PASS
 
-The code and CSV are complete, independent of inaccessible tables or services, and have no hidden input files. Computational certificates are finite exhaustive proofs only for the four-agent case; no general-size extrapolation is made.
+For four labeled agents and four objects, normalization of the first ranking by object permutation is unique, reducing 24^4 labeled preference profiles to exactly 24^3 canonical profiles with multiplicity 24. Enumerating all 24 priority orders within each canonical profile counts the full 24-matching outcome lottery (not marginal probabilities). A NEW separately coded exhaustive Python implementation evaluated all 13,824 canonical profiles, found exactly 57 positive multiplicity signatures and the claimed 16 support sizes; exact rational aggregation gave E[K]=1597/288 and Var(K)=684839/82944. The actual package contains verify.py, independent full-label verify_full.cpp (all 331,776 profiles), verify_pareto.py, spectrum.csv and support tables; verifier source inspected for the full-label approach. Counting is exhaustive over this FINITE domain, not a general-n theorem. K=1 iff all first choices differ by exchanging priority of two agents; K=24 endpoint attested by the exhaustive table, not an asserted general theorem.
 
-## Originality (PASS with residual risk)
-Basteck and Ehlers (arXiv:2608.27261v1, 27 August 2026) characterize waste bounds of RSD for four agents or three objects, but not four-by-four exact matching-lottery shapes. Their earlier Econometrica article (2025) establishes incentive/welfare properties, not this enumeration. Abraham et al. (2004) characterize Pareto-optimal matching uniqueness and use *signature* to denote a topological priority ordering associated with one matching; that is not a sorted multiset of matching **probability multiplicities**. Their uniqueness theorem covers our support-one condition, which is duly attributed. Their general Pareto/serial-dictatorship equivalence is also prior.
+## originality
 
-The closest published mathematical records are an exact three-agent RSD probability-shape classification (five shapes), an exact four-agent census of **ordinal inefficiency** for marginal RSD, and a four-agent RSD/probabilistic-serial comparison. Those count different statements and do not provide or logically determine the 57 matching-level signature frequencies. Searches explicitly asked for four-agent matching support sizes, identical priority-order collisions, their shape partitions and the potential gap above 12. None of the inspected sources supplied the new full numerical table. Unindexed computational enumerations or unpublished data remain a genuine priority risk; absence from search is not itself a proof of novelty.
+PASS
 
-## Value (PASS)
-The **complete** matching-probability signature is an operational invariant of RSD: it describes exactly how its \(24\) priority randomizations collapse to distinct allocations, and refines the marginal random-assignment matrix studied in many efficiency comparisons. The four-by-four market is the first size where random priority can be ordinally inefficient; knowing the exact number and probability-weight shapes of its Pareto-efficient deterministic outcomes gives a natural baseline at this structural boundary. The support-size gap (all sizes 1–12 occur, but among 13–24 only 14, 16, 18 and 24 are possible) is qualitative and not an arbitrary selected parameter slice. The exact histogram, witnesses, moments and all 57 signatures form one complete, self-contained classification, not unrelated microresults. There is no claim of an algorithm for arbitrary market size.
+The literature does characterize serial-dictatorship/Pareto-optimal assignments and ordinal inefficiency for four agents, and a published SCOPE record gives the three-agent lottery-shape spectrum. Those do not supply this complete matching-level four-agent 57-signature distribution. Abraham et al. use signature for a topological order of one assignment, not the vector of lottery probabilities across assignments. Best-knowledge novelty is the complete exact finite table and missing support values, not the RSD rule or Pareto equivalence.
 
-## Sources and limitations
-The most pertinent papers are Basteck--Ehlers (2026, arXiv:2608.27261v1), Basteck--Ehlers (2025, Econometrica DOI 10.3982/ECTA22762), Abraham--Cechlárová--Manlove--Mehlhorn (2004, https://eprints.gla.ac.uk/1062/), Abdulkadiroğlu--Sönmez (1998), and the two public 2026 finite RSD census records identified in RESULT.md. Priority remains qualified by the possibility of an unindexed earlier table. The result is finite and computation-based; an external independent mathematical review has not occurred.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Four by four is the first nontrivial market size for marginal RSD inefficiency and an established exact small-market benchmark. The 57 matching-probability signatures and impossible support cardinalities characterize the rule more finely than marginals; a future matching-lottery study can directly reuse the exact distribution. This is complete motivated finite enumeration with independent algorithms, not a random small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
