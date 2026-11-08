@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Reconstruction uses the actual update and its invariant root, exact cubic Schur inequalities, uniform boundedness of all stable steps, a strictly negative limiting Schur obstruction, and sharp small-delta expansions on both sign branches. The rational example is checked exactly. Standalone SymPy verification passed; its finite grid is supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang Sec IV gives Phi<1 as sufficient for stability, with no necessity claim.",
+        "Tian abstract and Sec 3 optimize worst-case rates over classes and their AugDGM Eq (3) is different."
+      ],
+      "reasoning": "General class bounds and conservative certified radius do not imply a fixed-graph sharp stability supremum, especially its matching upper bound. A broader unpublished/older exact robust-stability theorem is not ruled out.",
+      "searches": [
+        "consensus eigenvalue near negative one versus positive one gradient tracking stability allowable stepsize heterogeneity",
+        "two-agent ATC-DIGing normalized step radius Jury two heterogeneous quadratic curvatures W eigenvalue plus minus sigma",
+        "arxiv:2608.03548v1 Sec IV Lemma 3",
+        "arxiv:2607.23601v1 Theorem 2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.03548v1 (substantive HTML sections)",
+      "arxiv:2607.23601v1 (substantive HTML sections)",
+      "published-finding corpus 2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6 (full RESULT.md)",
+      "Cubic Jury/Schur stability criterion (classical)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang Sec III exact cases eta=0 or sigma=0; IV explicitly handles eta>0 through sufficient perturbation bound.",
+        "Published signed homogeneous finding eta=0 only.",
+        "Tian Eq (3) differs in tracker update for heterogeneous H."
+      ],
+      "reasoning": "The previous signed optimizer optimizes contraction under eta=0, whereas the present theorem treats eta>0 and the supremum of all stable steps. The heterogeneous general-case source provides only a sufficient upper radius and cannot imply a sharp necessary near-bipartite ceiling. The Tian et al. exact worst-case result analyzes distinct tracker mixing and worst-case function/network classes; it does not entail exact Schur stability for this Wang-type two-node heterogeneous matrix.",
+      "searches": [
+        "2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6",
+        "two-agent distributed gradient tracking scalar quadratic heterogeneous curvature signed consensus eigenvalue sharp stable stepsize radius Jury Schur polynomial",
+        "arxiv:2608.03548v1",
+        "arxiv:2607.23601v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang et al. arXiv:2608.03548v1 Sec II-B/IV specifies a 3x3 heterogeneous reduced matrix and an upper-radius sufficient certificate.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6 states eta=0 signed rate-optimal optimizer.",
+        "Tian et al. arXiv:2607.23601v1 Eq (3) mixes the gradient difference through W."
+      ],
+      "reasoning": "The equivalent full-state and reduced-state formulations were compared; no cited source implies both limits for eta>0. The homogeneous eta=0 result cannot give nonzero heterogeneity, and the alternative mixed-gradient update is a different matrix.",
+      "searches": [
+        "two-agent distributed gradient tracking scalar quadratic heterogeneous curvature signed consensus eigenvalue sharp stable stepsize radius Jury Schur polynomial",
+        "gradient tracking heterogeneous local Hessians two agents near bipartite consensus eigenvalue -1 maximum stable common stepsize linear spectral gap 2(1+lambda_min)",
+        "2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest located item 2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6 is exact eta=0 rate tuning.",
+        "Exact-rational finite witness polynomial computed from the new matrix and verified with SymPy."
+      ],
+      "reasoning": "No inspected table contains the nonzero-heterogeneity sign-paired boundary or exact rational separation. Failure to retrieve a table is not proof of novelty.",
+      "searches": [
+        "gradient tracking signed network spectral gap stable step versus curvature ratio near bipartite counterexample",
+        "2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6"
+      ]
+    },
+    "rationale": "The exact fixed-positive-heterogeneity two-network stability ceiling asymptotics, global sharp necessity, full cubic Schur specialization and rational same-descriptor divergence witness are not found or implied in inspected source statements; previously published homogeneous sign sensitivity and the general Schur theorem are excluded from the claimed new contribution. Historical-priority uncertainty remains.",
+    "residual_risks": [
+      "A more general older robust-control or graph-dependent stability theorem could imply the specialized asymptotics.",
+      "No claim of exhaustive literature priority or novelty of the Jury criterion or homogeneous signed-graph effects."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies method and a sufficient certificate but not the two signed sharp stability ceilings",
+        "evidence": [
+          "arxiv:2608.03548v1 Eq (2), Eq (8), Sec III-A/B, Sec IV Lemma 3, Theorem 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.03548",
+        "material_read": "Accessible HTML source: Sec II equations (2),(8), Sec III exact regimes, Sec IV Lemma 3, and relevant appendix passages",
+        "method": "Read equation statements and proofs; compared matrix, exact-regime assumptions and implication of certificate",
+        "title": "Adaptive Stepsizes With Certified Convergence in Distributed Gradient Tracking With Quadratic Costs",
+        "trigger": "Exact same update and source reduced matrix for heterogeneous quadratic costs"
+      },
+      {
+        "assessment": "Related worst-case theory; its AugDGM is not the same tracker update for noncommuting H and W, and it does not state the sign-paired stability ceiling",
+        "evidence": [
+          "arxiv:2607.23601v1 Eq (3), Sec 3, Sec 4, Sec 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.23601v1",
+        "material_read": "Accessible HTML source: Introduction and algorithm equations, Sec 3 theorem scope, Sec 4 system decomposition and Sec 6 conclusions",
+        "method": "Compared update Eq (3) term placement of W to Wang Eq (2b), class-level conclusions vs fixed matrix",
+        "title": "Exact Worst-case Convergence Rates of Distributed Gradient Tracking Methods",
+        "trigger": "Potential broader exact gradient-tracking convergence rates over graph classes"
+      },
+      {
+        "assessment": "Known sign sensitivity in homogeneous tuning, but not the eta>0 exact stable stepsize ceilings",
+        "evidence": [
+          "Published RESULT.md Finding, Assumptions and scope, Proof, Limitations"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6",
+        "material_read": "Published RESULT.md in full via repository read",
+        "method": "Compared explicit eta=0 hypotheses, spectral radius minimizer, and theorem implications",
+        "title": "Exact sign-aware graph-specific tuning for homogeneous distributed gradient tracking",
+        "trigger": "Closest published signed graph analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "713186cf-8a8b-43cb-b787-6714bad700ac",
+  "value": {
+    "rationale": "A sharp stability scale and constructive same-descriptor sign separation address practical choice of common stepsizes based on unsigned network spectral radius and curvature dispersion; the two regimes differ by an unbounded factor even when both networks remain connected, unlike a routine coefficient evaluation. It establishes an exact benchmark missing from the motivating sufficient certificate.",
+    "status": "PASS"
+  }
+}
