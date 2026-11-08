@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:11:18.314481Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each degree d>=1, the endpoint-minimum-L2 polynomials h0,h1 are orthogonal to bubbles and have Gram H=R_d^-1 with a=1/[d(d+2)], b=(-1)^(d+1)/[(d+1)d(d+2)]. The global nodal Gram on unit metric K_(p,q) is [aq I_p,b J;b J,ap I_q]; its inverse row at a vertex of the p-side yields kernels K_incident=(A+B/p)/q and K_nonincident=B/(pq). For the p-leaf star q=1, every corresponding K_(p,q) edge kernel is precisely 1/q the star kernel, so summed L1 evaluation norm V_d(p)=∫|A+B/p|+(1-1/p)∫|B| is q-independent, increases with p by triangle inequality, and tends to ∫(|A|+|B|). Constant reproduction fixes negative excursion=(V_d(p)-1)/2. Independently inverted rational nodal mass matrices at d=1 and (p,q)=(2,3),(3,2),(1,5) verifying coefficient identities; supplied exact checker covers degrees 1..8 and p,q<=6. All-degree part follows from Legendre endpoint identity, not finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Search returned related finite metric and complete bipartite polytope results rather than spline kernel identities. General Schur complement formalism gives a method but not the specific cloned edge-functional result in inspected references."
+        ],
+        "reasoning": "No located stronger operator theorem entails q-independence for all degrees at vertices; previous degree-one/two formulas are special cases but do not automatically assert uniform d.",
+        "searches": [
+          "complete bipartite metric graph polynomial spline orthogonal projector kernel star cloning",
+          "Resultary: orthogonal polynomial projection kernel complete bipartite metric graph spline star vertex evaluation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree d7beffe8695a43fe815087ad04caee18ea2c0621; RESULT.md d52ace762878973865dd196101e966eb7c2f6049; check_clone.py 11e76475f19d524cb8094f068b390d2c91215fdf",
+        "Kayumov arXiv:math/0408418",
+        "Arioli–Benzi DOI:10.1093/imanum/drx029"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General finite-element mass matrix inversions can derive the present formula, but neither inspected work supplies the exact p,q,d nodal coefficient cancellation."
+        ],
+        "reasoning": "The stronger content is a universal family identity plus attained optimal evaluation norm, not novelty of matrix inversion or Legendre polynomial sums.",
+        "searches": [
+          "Arioli Benzi 2018 FEM quantum graph mass matrix Schur complement",
+          "Kayumov 2004 endpoint splines projection constants"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kayumov addresses interval L-spline projection bounds; Arioli–Benzi uses graph finite-element mass matrices mainly for PDE and low polynomial degrees."
+        ],
+        "reasoning": "The pointwise 1/q cloning identity uniformly in d is more than standard spectral bounds or an interval projection constant; no matching formula found in inspected source material.",
+        "searches": [
+          "Kayumov least squares approximation L splines arXiv:math/0408418",
+          "Arioli Benzi finite element method quantum graphs doi:10.1093/imanum/drx029"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known degree-one identity V1(p)=(7p+3)/(3(p+1)) agrees, but no all-degree p,q database was identified; independent small-matrix tests corroborate."
+        ],
+        "reasoning": "Known small-degree values are not novel; the claimed pointwise cloning and all-degree formulas extend beyond a finite table.",
+        "searches": [
+          "vertex evaluation norm metric star spline L2 projector degree d exact table",
+          "complete bipartite finite element matrix inverse vertex evaluation norm polynomial"
+        ]
+      },
+      "rationale": "The Legendre endpoint Gram and block Schur-complement machinery are standard, and linear FEM/spline stability formulas precede the claim. Inspected Kayumov and Arioli–Benzi results do not state arbitrary-degree pointwise per-edge cloning between K_(p,q) and p-leaf stars or the q-invariant sharp evaluation norm. Historical unindexed metric-graph identities are an explicit residual risk.",
+      "residual_risks": [
+        "No claim about the full L-infinity projector norm at interior points; the result is strictly vertex-evaluation.",
+        "Unindexed reproducing-kernel formulas for metric graph splines may imply the same identity.",
+        "Unit equal edge length/density and common degree hypotheses are essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General graph FEM predecessor, not an all-degree bipartite star-cloning theorem",
+          "evidence": "Uses finite element matrices for spectral/PDE applications; all-d kernel equality not stated in inspected text.",
+          "identifier_or_url": "https://doi.org/10.1093/imanum/drx029",
+          "material_read": "Accessible primary preprint/full-text discussion of mass matrices and quantum-graph finite-element constructions",
+          "method": "Primary open-access preprint reading of relevant construction and mass matrix context",
+          "title": "A finite element method for quantum graphs",
+          "trigger": "Closest numerical linear algebra on metric graphs"
+        },
+        {
+          "assessment": "Different one-dimensional interval splines, not a graph-star cloning statement",
+          "evidence": "Endpoint L-spline stability lacks complete-bipartite geometric replication.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+          "material_read": "Primary preprint abstract, core interval approximation setting and stated norm estimates",
+          "method": "Primary abstract/theorem-level reading",
+          "title": "Least-squares approximation by second-order L-splines",
+          "trigger": "Historical sharp spline projection norm studies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact operator-kernel equality across nonisomorphic graphs for every polynomial degree, not merely a bound; it determines actual extremal inputs, monotonicity and a sharp positivity overshoot in natural numerical projections. Restriction to vertices is mathematically motivated by finite-element nodal stability.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git tree d7beffe8695a43fe815087ad04caee18ea2c0621; RESULT.md d52ace762878973865dd196101e966eb7c2f6049; check_clone.py 11e76475f19d524cb8094f068b390d2c91215fdf",
+    "Kayumov arXiv:math/0408418",
+    "Arioli–Benzi DOI:10.1093/imanum/drx029"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No claim about the full L-infinity projector norm at interior points; the result is strictly vertex-evaluation.",
+    "Unindexed reproducing-kernel formulas for metric graph splines may imply the same identity.",
+    "Unit equal edge length/density and common degree hypotheses are essential."
+  ],
+  "schema_version": 1
+}
