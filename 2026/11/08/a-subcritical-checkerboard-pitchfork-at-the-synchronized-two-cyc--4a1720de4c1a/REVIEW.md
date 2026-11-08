@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The synchronized Floquet polynomial and its unique checkerboard crossing are exact algebraic identities. The two-colour reduction yields analytic mean branches and a scalar odd fixed-point condition; the coefficient \(B=17.802009840364\ldots>0\) is determined by explicit radicals and enclosed using rational bounds. This gives precisely two lower-coupling nonuniform period-two orbits. A one-dimensional Lyapunov–Schmidt kernel and invariance under spatial shifts by two exclude other nearby full-ring solutions. A Schur-complement calculation identifies their one expanding multiplier, with the remaining spectrum strictly stable. The finite numerical checks (124 assertions) are corroborative, not a universal proof.
+
+**Originality — PASS within inspected literature.** The exact synchronized two-cycle and its stability endpoint were already calculated by Dettmann (2001 preprint; 2002 publication), and subsequently treated by Lippolis (2025 first public version). The new finding is the *nonlinear* subcritical branch, its exhaustive two-orbit near-threshold count and its exact square-root amplitude and unstable-multiplier coefficients. The separately published Chebyshev checkerboard travelling wave is distinct and already credited. Unindexed or specialized older literature may still contain equivalent conclusions.
+
+**Mathematical value — PASS.** The first loss of synchronized stability suggests a mode-selection bifurcation but linear Floquet theory does not reveal direction, branch count, or newly created saddle dynamics. The exact two-saddle classification provides a natural nonlinear boundary and a quantitative local benchmark for coupled-map synchronization transitions, for every fixed even ring size rather than an arbitrary finite example.
+
+**Scientific scope and risks.** Local finite-dimensional theorem only; no global attractor assertions, infinite-volume uniformity or nonlinear neutral-parameter conclusion. The older Dettmann primary text was inspected through a parsed full-PDF text view, with screen rendering unavailable. Exact analytical proof is supported by, not replaced with, finite computation. Independent scientific validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
