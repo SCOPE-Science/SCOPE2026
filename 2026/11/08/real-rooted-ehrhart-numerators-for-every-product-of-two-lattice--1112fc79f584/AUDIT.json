@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Pick discriminant isolates exactly (B,I)=(3,1),(3,2),(3,3), with other pairs covered by Wagner. Exact fourth-dimensional finite differences produce H_i. For J≥1, the quartic discriminant after J=1+u has 28 strictly positive coefficients in each of three cases, each provided in the complete integer certificate; a specific negative-point evaluation forces at least two real roots, and positive discriminant forces all four distinct reals. J=0,c>0 cubic discriminants have positive polynomial coefficients; J=c=0 quadratic discriminants are 9,24,57. All numerators have nonnegative coefficients and constant 1, ruling out nonnegative zeros. Checker rederives all identities from the Pick Ehrhart polynomials with exact symbolic arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.06338 Theorem 2.2(i) product preservation under dual real-rootedness assumptions",
+        "arxiv:2307.10852 Theorem 3.3 Wagner product preservation under same assumptions",
+        "arxiv:2609.11589 Corollary 5.1 only log-concavity conclusion",
+        "arxiv:2608.03635 requires sufficiently large lattice width, which is not guaranteed for polygons with B=3"
+      ],
+      "reasoning": "None of the inspected theorems covers both nonreal polygon numerators. Large-width conditions are not available for all polygon products; log-concavity preservation does not imply real-rootedness; the product-of-real-rooted-factors theorem leaves three exceptional factors untreated.",
+      "searches": [
+        "Ehrhart real rootedness Cartesian product two lattice polygons h* polynomial Segre product polygon 4 dimensional",
+        "\"Ehrhart\" \"polygon\" \"Cartesian product\" \"real-rooted\"",
+        "arxiv:2610.06338 Sections 1-2",
+        "arxiv:2307.10852 Section 3.1",
+        "arxiv:2609.11589 Sections 1 and 5",
+        "arxiv:2608.03635 large width"
+      ]
+    },
+    "checked_sources": [
+      "Feihu Liu, arXiv:2610.06338 (v1 2026-10-05), Section 2 Theorem 2.2(i)",
+      "L. Ferroni and A. Higashitani, arXiv:2307.10852 (2023-07-20), Section 3.1 Theorem 3.3",
+      "Y. Liu and J. Mao, arXiv:2609.11589 (2026-09-10), Section 5 Corollary 5.1",
+      "D. G. Wagner, Total Positivity of Hadamard Products, JMAA 163 (1992), Theorem 0.2 as quoted in the first two sources",
+      "B. Nill, arXiv:2608.03635 (2026-08-04), large-width real-rootedness theorem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pick numerator 1+(I+B-3)z+Iz² has nonreal roots exactly for (B,I)=(3,1),(3,2),(3,3)",
+        "Wagner-style prior real-rootedness requires both input h-star numerators to be real-rooted, violated in the exceptional cases",
+        "Liu–Mao preserves a weaker property under factor hypotheses"
+      ],
+      "reasoning": "The new theorem strictly extends the conditional preservation statement by covering all nonreal-factor Pick-data exceptions. Log-concavity preservation does not imply quartic real-rootedness, and the large-width theorem cannot cover uniformly thin products.",
+      "searches": [
+        "arxiv:2610.06338 Theorem 2.2(i)",
+        "arxiv:2307.10852 Theorem 3.3",
+        "arxiv:2609.11589 Corollary 5.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2307.10852 Section 3.1 explicitly assumes both h-star factor polynomials real-rooted",
+        "arxiv:2610.06338 Section 2 Theorem 2.2(i) also requires both factors individually real-rooted",
+        "arxiv:2609.11589 Section 5 concludes log-concavity, not the four-dimensional unconditional root statement"
+      ],
+      "reasoning": "The new theorem covers all pairs of two-dimensional lattice polygons, including cases B=3 and I=1,2,3 when a factor has nonreal h-star roots. The verified factor-conditional theorems cannot imply these cases, and the one-dimensional segment result cannot substitute for an arbitrary planar second factor.",
+      "searches": [
+        "\"product of two lattice polygons\" \"real-rooted\"",
+        "\"Ehrhart\" \"two lattice polygons\" \"real roots\" product",
+        "\"Ehrhart\" \"polygon\" \"Cartesian product\" \"real-rooted\"",
+        "\"Ehrhart\" \"polygon product\" \"Segre\" \"roots\"",
+        "arxiv:2307.10852 Section 3.1",
+        "arxiv:2610.06338 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected preservation theorems do not give the exceptional-factor coefficient table or discriminant identities.",
+        "The new finite algebraic certificate specifies all 28 monomial coefficients for each of three quartic discriminants, with no equivalent source located in the inspected literature."
+      ],
+      "reasoning": "No inspected article or located mathematical table gives a universal real-rootedness claim for products of arbitrary lattice polygons. The finite discriminant certificate is a distinct explicit all-parameter computation; priority cannot be inferred from absence of matching search hits.",
+      "searches": [
+        "\"product of two lattice polygons\" \"real-rooted\"",
+        "\"lattice polygon product lattice polygon Ehrhart h star roots real\"",
+        "\"Ehrhart\" \"polygon\" \"Cartesian product\" \"real-rooted\"",
+        "arxiv:2307.10852 Section 3.1",
+        "arxiv:2610.06338 Section 2"
+      ]
+    },
+    "rationale": "Inspected Feihu Liu arXiv:2610.06338 and Ferroni–Higashitani arXiv:2307.10852 require both factor numerators to be real-rooted; that premise fails exactly for three Pick-data polygon types handled in the new result. Liu–Mao arXiv:2609.11589 gives the weaker conclusion of log-concavity. No inspected stronger covering theorem was found. Full historical priority is not asserted.",
+    "residual_risks": [
+      "Original 1992 Wagner full text was not independently inspected, although its Theorem 0.2 is reproduced in two relevant inspected papers.",
+      "Searches do not rule out an older equivalent classification phrased through Segre transforms or 4-dimensional Hilbert numerators."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING identified exceptional case: both input numerators must already be real-rooted",
+        "evidence": "Section 2 Theorem 2.2(i) explicitly imposes separate real-rootedness; Section 2 gives product/Ehrhart series formula.",
+        "identifier_or_url": "arxiv:2610.06338",
+        "material_read": "Abstract, introduction, Section 2 (including Theorem 2.2 and proof context), references",
+        "method": "Retrieved author full parsed arXiv text, compared assumptions and conclusion of Theorem 2.2(i)",
+        "title": "Ehrhart Properties under Operations on Lattice Polytopes",
+        "trigger": "Identical Cartesian-product operation, explicit h-star real-rootedness table"
+      },
+      {
+        "assessment": "NOT_COVERING exceptional cases; requires real-rooted individual numerator factors",
+        "evidence": "Theorem 3.3 assumes both factor h-star polynomials are real-rooted; Section 3.1 asks about preservation properties.",
+        "identifier_or_url": "arxiv:2307.10852",
+        "material_read": "Section 3.1, especially Theorem 3.3 and discussion of Wagner operator; introductory setup",
+        "method": "Retrieved complete parsed arXiv text; compared Theorem 3.3 hypotheses to B=3,I=1..3 factors",
+        "title": "Examples and Counterexamples in Ehrhart Theory",
+        "trigger": "Foundational product real-rootedness result and possible equivalent formulation"
+      },
+      {
+        "assessment": "NOT_COVERING real-rootedness; theorem preserves log-concavity only",
+        "evidence": "Section 5 Corollary 5.1 concludes log-concavity under log-concave factors; no general nonreal-factor real-rootedness theorem.",
+        "identifier_or_url": "arxiv:2609.11589",
+        "material_read": "Introduction Theorem 1.2, Section 2 coefficient formula, Section 5 Applications Corollary 5.1",
+        "method": "Retrieved complete parsed arXiv text and inspected named theorem and application",
+        "title": "Preservation of Log-Concavity under Hadamard Products",
+        "trigger": "Product numerator under same Segre/Hadamard operation, potentially stronger theorem"
+      },
+      {
+        "assessment": "NOT_APPLICABLE universally; width lower bound is absent",
+        "evidence": "Theorem is for sufficiently large width in a fixed dimension; thin products of triangles have bounded width.",
+        "identifier_or_url": "arxiv:2608.03635",
+        "material_read": "Abstract and scope of large-width result",
+        "method": "Read publisher/arXiv abstract and compared dimension/width assumptions",
+        "title": "Lattice polytopes of large width have real-rooted Ehrhart h-star polynomials",
+        "trigger": "Potentially stronger unconditional real-rootedness in dimension four"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT_RISK, but reported theorem only conditional, so does not directly cover nonreal-factor case",
+        "evidence": "Ferroni–Higashitani explain Theorem 0.2 requires both W-transformed inputs negative real-rooted.",
+        "identifier_or_url": "Wagner, JMAA 163 (1992) 459-483",
+        "material_read": "Exact theorem statement and description as reproduced in Ferroni–Higashitani Section 3.1 and Feihu Liu Section 2; original full text not obtained",
+        "method": "Compared reliable primary-paper descriptions, not original complete text",
+        "title": "Total Positivity of Hadamard Products",
+        "trigger": "Original source of product root preservation, historical priority"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1112fc79-f584-4cd1-8b3f-afabc822d21e",
+  "value": {
+    "rationale": "The natural question is whether the product operation repairs the only three types of planar nonreal Ehrhart numerators. The theorem supplies a complete classification for all 4-dimensional Cartesian products of arbitrary polygon factors, demonstrates nontrivial conversion of nonreal inputs to all-real outputs, and proves a universal invariant without width restrictions. It is not the routine Wagner product corollary because the critical hypotheses fail for those three genuine polygon families.",
+    "status": "PASS"
+  }
+}
