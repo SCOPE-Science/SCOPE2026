@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The exact 14-dimensional binary vanishing space is independently constructed by row reduction. For all 139 projective equation orbits, affine-chart Jacobian Groebner ideals identify exactly 10 smooth orbits/1512 smooth forms. A separately implemented C++ finite-field gradient test over extension degrees 1 through 10 agrees. The genus-six normalization formula bounds the geometric singular Frobenius degree by 10 for reduced plane quintics; nonreduced quintics have a repeated factor of degree <=2 with an F2-rational zero. Thus both smoothness checks are mathematically exhaustive, not finite guesses. Exact XOR subspace enumeration gives 16800 pencils, and the 168-element projective-group action gives 108 orbits: 96 of length 168 and 12 of length 56. Each program independently recovers the same 672/3024/13104 member-type distribution and orbit–stabilizer orders. The 108 representative masks and their class types are regenerated and compared byte-for-byte with the packaged CSV. Basepoint transversality follows from three nonzero gradients in a two-dimensional F2 cotangent space, and Bezout yields residual length 18.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Asgarli–Ghioca–Reichstein arXiv:2207.00918, Theorem 2 constructs projective-dimension-two smooth linear systems without requiring seven common rational basepoints.",
+        "Asgarli–Ghioca arXiv:2307.03072 Section 4 Proposition 4.5 studies existence of a smooth member in a particular one-parameter family, not the full set of 16800 all-smooth pencils."
+      ],
+      "reasoning": "A general existence theorem is not a universal classification; its constructed systems need not contain the entire F2 projective plane. Conversely, the special C_k family does not sweep all binary filling quintic pencils or impose simultaneous smoothness of every rational member.",
+      "searches": [
+        "arXiv:2207.00918 Theorem 2 and Section 3",
+        "arXiv:2307.03072 introduction, Sections 3–4, Proposition 4.5",
+        "Pencils and nets of geometrically smooth plane-filling quintics over F2 with all rational members smooth, maximal linear subspaces quartic versus quintic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2203.07169; initial posting 2022-03-14; full-text HTML inspected as stated",
+      "arXiv:2207.00918; initial posting 2022-07-02; full-text HTML inspected as stated",
+      "arXiv:2307.03072; initial posting 2023-07-06; full-text HTML inspected as stated",
+      "Earlier individual smooth F2 filling quintic curve census and earlier binary quartic-pencil classification: compared at scientific claim level for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The degree-five F2 condition with seven fixed common rational points imposes a strict two-dimensional upper bound via tangent-space differentiation; this is not the same as unconstrained smooth-pencil existence.",
+        "Individual smooth-curve classification does not state the pairwise XOR graph, 16800 complete pencils, 108 group orbits, or 12 cyclic stabilizer types."
+      ],
+      "reasoning": "The new exact pencil census is not a direct special case of the cited general existence theorems. It is algorithmically computable from complete individual-curve data, but requires an additional all-pairs incidence computation and a second projective orbit classification that are not given in the earlier single-curve result.",
+      "searches": [
+        "arXiv:2203.07169 Theorem 1.3, Examples 1.5–1.6",
+        "arXiv:2307.03072 Section 4 Proposition 4.5",
+        "A pencil of plane curves passing through every point of P2(F2) with all three rational members smooth, degree 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A binary pencil has members F,G,F+G; the classification is equivalently an orbit census of projective lines contained in the smooth locus of the 13-dimensional projective binary filling-quintic coefficient space.",
+        "Asgarli–Ghioca arXiv:2203.07169, Introduction, Question 1.2, Theorem 1.3, Examples 1.5–1.6: general smooth-pencil existence, not an all-filling quintic orbit census."
+      ],
+      "reasoning": "Compared smooth-pencil existence with the much stronger exact orbit and member-type enumeration under the common seven-point base constraint. The known existence statement supplies no number 16800, no 108 representatives, and no stabilizer-stratification implication.",
+      "searches": [
+        "Pencils of smooth quintics all containing P2(F2), seven basepoints, projective orbit and automorphism counts, order 3 stabilizers",
+        "A pencil of plane curves passing through every point of P2(F2) with all three rational members smooth, degree 5",
+        "arXiv:2203.07169 introduction; all three rational pencil members smooth"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted literature searches did not identify a published table with 108 binary filling-quintic pencil projective orbits.",
+        "Existing 1512-form/ten-orbit individual-curve census concerns points of the moduli parameter space, not its all-smooth lines; the present attached CSV supplies 108 explicit line-orbit representatives."
+      ],
+      "reasoning": "This work recomputes individual smoothness from first principles and then classifies *incidence subspaces* rather than simply repeating a count of individual equations. Unindexed older tables remain possible, so searches are not treated as uniqueness certificates.",
+      "searches": [
+        "16800 pencils of Fano-plane filling smooth plane quintic curves GF(2) 108 PGL3 orbits",
+        "plane-filling quintics pencils F2 smooth finite fields",
+        "all smooth pencils of plane quintics over GF(2) projective orbits",
+        "smooth quintics through all Fano points F2 pencil classification"
+      ]
+    },
+    "rationale": "Published work asks for smooth finite-field linear systems, establishes broad existence and constructs individual plane-filling curves, but does not supply the complete all-basepoints binary quintic pencil orbit classification. Existing exact work on individual smooth F2 filling quintics supplies only one-curve types; the new claim determines second-order incidence (which triples span a smooth pencil), explicit 108 pencil orbit representatives, stabilizers and their relation to member types. Earlier quartic pencil classifications concern different degree and do not imply the quintic orbit counts. An indexed/semantic search does not show a covering exact table; lack of a hit is not proof of unique historical priority.",
+    "residual_risks": [
+      "An older unindexed exhaustive finite-field geometry computation might have already tabulated the same 108 pencil classes; no universal negative-priority proof is claimed.",
+      "The classification of individual curves already makes the pencil set algorithmically computable, although not an immediate reported equivalence or orbit table.",
+      "No independent historical-priority review has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact plane-filling quintic pencil count and projective-orbit strata; covers general pencils and existence.",
+        "evidence": [
+          "The statement of Question 1.2 and Theorem 1.3 concerns unrestricted degree-d hypersurface pencils over finite fields.",
+          "Examples 1.5–1.6 concern conic linear systems over F2; no seven-basepoint quintic classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.07169",
+        "material_read": "Open arXiv full-text HTML, Introduction, Questions 1.1–1.2, Theorem 1.3, Examples 1.5–1.6 and main-proof sections describing the discriminant method",
+        "method": "Direct reading of arXiv full-text HTML",
+        "title": "Smoothness in pencils of hypersurfaces over finite fields",
+        "trigger": "Closest foundational paper on pencils with every rational member smooth"
+      },
+      {
+        "assessment": "NOT_COVERING; its broad linear-family existence statements omit the common seven-point base constraint and exact orbit counts.",
+        "evidence": [
+          "Theorem 2 bounds and constructs linear systems without requiring every hypersurface to contain P2(F2).",
+          "The source contains no discussion of plane-filling curves or 108 pencil orbits."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.00918v2",
+        "material_read": "ArXiv full-text HTML Introduction, Theorem 2, Sections 2–3 including normal-basis construction and the general maximal-dimension bound",
+        "method": "Direct reading and targeted full-text search for plane-filling constraints",
+        "title": "Linear families of smooth hypersurfaces over finitely generated fields",
+        "trigger": "Potential stronger general linear-family existence theorem"
+      },
+      {
+        "assessment": "NOT_COVERING the census: Proposition 4.5 establishes a conditional existence principle for a smooth member of a pencil, not all-smooth simultaneous conditions or binary projective classes.",
+        "evidence": [
+          "Introduction sets q+3 filling-curve existence questions.",
+          "Section 4 Proposition 4.5 discusses the family C_k and existence of a single smooth member, without enumerating every all-smooth F2 quintic pencil."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2307.03072v1",
+        "material_read": "ArXiv full-text HTML Introduction, Theorems 1.2–1.8, Sections 2–4 including Proposition 4.5 and discussion of its pencil C_k",
+        "method": "Direct reading and targeted full-text search for pencils",
+        "title": "Plane-filling curves of small degree over finite fields",
+        "trigger": "Degree q+3 is the first degree above the smooth plane-filling minimum; paper also treats one-parameter families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4d4f28e2-1603-44e5-8a38-a4f11b9ad1c3",
+  "value": {
+    "rationale": "The subject is the entire moduli of basepoint-constrained smooth pencils at the first postminimal plane-filling degree q+3 over the smallest field, combining two motivating published directions. A complete classification of all such pencils, rather than an arbitrary numerical slice, is a natural extremal finite-field geometry question. The new 108 projective orbits and the dichotomy between trivial stabilizer and cyclic order-three symmetry, recognized exactly by whether their three members share one individual orbit type, give geometric structure not captured by single-curve totals. The base-scheme transversality and length-18 residual intersection place the count in the geometry of linear systems; no downstream theorem or broad-field generalization is asserted.",
+    "status": "PASS"
+  }
+}
