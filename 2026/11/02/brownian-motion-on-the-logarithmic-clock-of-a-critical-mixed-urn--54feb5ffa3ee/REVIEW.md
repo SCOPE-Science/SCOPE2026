@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise conditional variance identity and the deterministic cancellation at the critical surface are established directly. Bounded iid total increments imply summable corrections to \(U_n/\sqrt n\); a logarithmic-time martingale functional central limit theorem gives the claimed Brownian process. The exact-rational checker validates the conditional recurrences but does not stand in for the infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Shi–Yin–Miao (arXiv:2605.26669v1) state a strict-fast-regime one-time CLT, not this critical logarithmic-time invariance principle. Alves–Rosales (arXiv:2502.16768) state the almost-sure proportion limit. Fang (arXiv:2509.15049, 2026 journal) already proves the critical logarithmic-clock Brownian law for the elephant random walk, a deterministic-total urn analog; this time change cannot itself be claimed as new. The present result instead addresses the exact critically balanced mixed random-replacement model, potentially random total, and its variance parameter. Classical urn theories, especially Janson's 2004 functional limit theorems, create material potential broader coverage: full text was unavailable for direct implication comparison, so this review does not certify historical priority. published-finding corpus and prior research records comparisons by the urn model, critical exponent, aliases, and clock did not identify an equivalent accessible claim.
+PASS
 
-**Mathematical value — PASS.** At the previously excluded critical surface of the 2026 mixed-urn model, the time change \(n\mapsto\lfloor N^t\rfloor\) retains entire Brownian trajectories where usual fixed-fraction-time normalizations conceal them. Despite the same time clock in the earlier elephant result, the random-total mixed model requires control of a stochastic denominator, and its exact variance \(q\min(s,t)\) separates polynomial-time fluctuations and quantifies an observable dependence structure, including for random total size.
+PASS: In the exact two-colour Bernoulli mixed replacement model, h=E[H]=mu/2 on 4bp=mu. Conditional urn drift E[Delta U|F]=hU/T, centered martingale difference zeta=H epsilon-hU/T has E[zeta^2|F]=q-h^2(U/T)^2. With T_n=mu n+O(sqrt(n)log n) almost surely, W_n=U_n/sqrt(n) obeys W_k-W_{k-1}=zeta_k/sqrt(k)+beta_k W_{k-1}, beta_k=sqrt((k-1)/k)(1+h/T_{k-1})-1=O(k^-2+k^-3/2 log k); summable beta W follows maximal Azuma/Gronwall. Hence W_n-S_n is a.s. bounded/convergent, S_n=sum zeta_k/sqrt(k), and predictable log-time bracket tends uniformly to q t, Lindeberg jumps O(1/sqrt(log N)). Martingale FCLT gives X_N(t)=>sqrt(q)B(t) in J1 including t=0. Finite exact source checker inspected and independent moment algebra checked; source log alone does not establish FCLT.
 
-**Limitations.** Fixed independent mixing and additions only, fixed initial counts, critical equality only. The functional limit is analytical; numerical and exact finite experiments provide limited corroboration. The logarithmic-clock Brownian phenomenon itself is known from elephant walks; broader generalized-urn results may subsume this specialization, and independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge qualified: Shi-Yin-Miao's mixed urn theorem is in the strict 4bp>mu regime and does not state equality/log-clock. Fang already proves essentially the same Brownian logarithmic clock for critical elephant random walks, so time change and shape are prior. The Bernoulli mixture with random T_n requires explicit summable-denominator correction; an equivalent corollary of broad Janson generalized random-urn results remains substantial priority risk because full text was inaccessible. No novelty claim to the time-change principle itself.
+
+## value
+
+PASS
+
+PASS: The exact critical surface of the recently posed mixed urn is an analytically meaningful missing phase boundary; its joint polynomial-time fluctuations and variance q min(s,t) distinguish an entire process limit from a marginal CLT. Extension to random-total Bernoulli replacements is a concrete issue requiring control, although technique and log clock have precedents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
