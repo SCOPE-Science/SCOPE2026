@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For every stated parameter pair and every explicitly admissible odd base, the construction uses the two-digit identity \(s_b(b^m+R+jd)=1+R+jd\) for \(0\le j\le p-2\), justified by the strict low-digit inequalities. For each prime divisor \(q\) of the corresponding digit sum, the chosen exponent makes \(b^m\equiv b\pmod q\), even in the case \(q\mid b\). Any hypothetical common factor of a term and its digit sum would therefore divide both \(b-1\) and one of the factors of \(H\), contradicting the stated hypothesis. This proves an infinite family. The congruence \(s_b(n)\equiv n\pmod p\) and \(p\nmid d\) prohibit runs of length \(p\), establishing exact maximality. The CRT argument and its coprimality hypotheses prove the density, not just infinitude, of admissible bases. The standalone checker corroborates arithmetic for 977 parameter instances but is not substituted for any infinite proof.
+
+## Originality — PASS within inspected evidence
+The closest full preprint, Blau et al., arXiv:2308.05228v1 (2023-08-09), explicitly formulates the sharp fixed-even-difference problem as Conjecture 4.3 and proves the sharp cases \(d=1,2\), not the present uniform \(d\ge4\), positive-density-base result. Its freely varying-difference theorem does not force any selected \(d\), and its upper bound does not force equality. The other fully inspected 2023 work arXiv:2303.06534 concerns Niven rather than anti-Niven numbers. Targeted published-literature searches, mathematical result searches under digit-sum, coprimality, fixed-step, and prime-obstruction aliases, and accessible prior-claim comparisons did not reveal a statement covering the theorem. The inability to inspect the later journal full text and the possibility of a related theorem in unindexed work remain genuine priority risks: a lack of search matches alone cannot prove novelty.
+
+## Mathematical value — PASS
+The work answers a robust positive-density portion of a specifically published open conjecture: for **every** even difference at least four and **every** eligible odd prime obstruction, the upper bound is exactly achieved throughout an explicit infinite arithmetic progression of bases, with computable witnesses in each base. Its density assertion and simultaneous control of the progression's digit sums go beyond an isolated example, and the prime-power-base subfamily supplies concrete structured cases. It does **not** assert a resolution for every base, an optimal starting-size bound, or anything for odd differences.
+
+## Closest sources and residual risks
+The primary comparison is arXiv:2308.05228v1, Theorems 2.4–2.5, 3.2–3.3, and Conjecture 4.3. The arXiv preprint was examined in full for these claims, while the later journal article identified by DOI 10.1216/rmj.2026.56.13 was not available for a complete independent comparison. Unindexed prior work and an implicit result in a later version remain possible; independent priority verification has not been performed. No statistical claim is made about starting-point densities.
+
+Self-review: passed. Independent audit: not yet performed.
