@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The counting definition fixes the number of edges, distinguishes leaves from undirected degree-one vertices, and covers the star boundary. Lagrange extraction yields the exact joint table. Explicit row-ratio computations, including common-support and zero-support boundaries, prove TP2 and strict stochastic ordering; a covariance identity proves positivity for every strictly increasing leaf transform. The moment-generating-function identities give exact covariance and correlation. Standalone independent enumeration and rational checks passed 15,911 assertions. The infinite theorem is proved symbolically, not extrapolated from a finite computation.
+PASS
 
-## Originality — PASS, with a specific residual risk
+With T(z,u)=z(u+T/(1-T)) marking vertices and leaves, Lagrange inversion gives [z^m u^k]T^d=(d/m)binom(m,k)binom(m-d-1,k-d) for d<m; the exceptional star d=m has leaf count m. Normalize by sum_k A=(d/m)binom(2m-d-1,m-d). The adjacent-degree ratio A_(d+1,k)/A_(d,k)=((d+1)/d)*((k-d)/(m-d-1)) rises strictly in k, and supports [d,m-1] shift right, proving TP2 including zeros and star. This yields strict stochastic increase for any strictly increasing h, with positive covariance by symmetrizing E[(D-Dprime)(g(D)-g(Dprime))]. Narayana leaf variance and root-degree generating-function derivatives give ED=3m/(m+2), EL=(m+1)/2, EDL=(3m-1)/2 and the displayed covariance/correlation. Independently enumerated plane trees m=2..8 and checked all table coefficients, pair minors through m=29. Neither finite test is a proof for all m.
 
-The Narayana distribution and general root-degree and multirooted valency enumerators are prior art, not novelty claims. Full text of the relevant 1972 valency paper, the 2004 leaf-refinement preprint, and the 2023 multirooted paper was examined for an equivalent stochastic-order conclusion. The inspected material did not explicitly establish finite-size TP2 or the strict ordering of all conditional total-leaf distributions by root degree. General multi-rooted valency formulas can in principle recover factorial moments and perhaps the joint table via marked-leaf sums; whether an earlier source already states an equivalent likelihood-ratio inequality remains an unresolved priority risk. The accepted contribution is the stochastic-dependence theorem rather than the availability of generic enumerative methods.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The all-size TP2 theorem is a structural dependence ordering between a local tree statistic and a global one. It controls every increasing leaf-count transform simultaneously, not just a single covariance. The explicit finite-size covariance is positive even though ordinary correlation tends to zero, providing a precise example in a canonical conditioned tree model. The classification includes all attainable parameter and support boundaries.
+Classical valency enumeration and Narayana leaf-count marginals provide much of the counting scaffold. The specific conditional root-degree vs total-leaf-count likelihood-ratio TP2 property and every-strictly-increasing-transform covariance, together with the exact covariance/correlation decay for uniform plane trees, are the substantive assessed contribution. A nontrivial specialization of fully general marked-valency formulas may already imply the joint array; no inspected source establishes its stochastic order directly. Published Resultary covariance for random recursive trees concerns a different distribution/model, and does not dominate Catalan-plane-tree TP2.
 
-## Boundaries
+## value
 
-The sample is a uniformly random ordered plane tree with at least two edges. Strict positive minors require all four cells to be positive, but all distinct conditional distributions are strictly stochastically ordered. Originality and correctness have not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural pair of tree statistics exhibits a strong finite-size monotone-likelihood-ratio dependence even though Pearson correlation decays as m^-1/2. This all-m classification of dependence is structurally meaningful and not just a Narayana marginal recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
