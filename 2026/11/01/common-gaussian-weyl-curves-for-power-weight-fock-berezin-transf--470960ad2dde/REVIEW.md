@@ -1,19 +1,21 @@
-# Scientific review: common Gaussian Weyl curves for power-weight Fock Berezin transforms
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The weight is probability-normalized and the monomial moments exactly reproduce the Mittag–Leffler kernel. Published sectorial asymptotics give the normalized local Gaussian density \(G_\alpha(h)=\alpha p^2\pi^{-1}e^{-\alpha p^2|h|^2}\), with \(p=m/2\). The strong rescaled limit is proved using the same paper's global Gaussian intrinsic-distance bound; the outer-region tail is explicitly controlled. Translation estimates for large compactly supported plane waves then yield one weakly null Weyl sequence working for any finite list of weight parameters. The essential-norm statement uses only bounded polynomial calculus and the fact that compact operators vanish on weakly null unit sequences. The standalone supplementary script passes 67 direct numerical checks, which are not substitutes for the proof.
+PASS
 
-## Originality (O): PASS relative to inspected material
+From normalized radial moments alpha^(-n/p)Gamma((n+1)/p)/Gamma(1/p), p=m/2>1, reconstructs reproducing kernel Gamma(1/p)E_(1/p,1/p)(alpha^(1/p)z conjugate(w)). Published sectorial Mittag–Leffler asymptotic and intrinsic Gaussian metric bound yield delta_R^2 B_alpha(R+delta_R u,R+delta_R v) -> G_alpha(u-v)=alpha p^2/pi exp(-alpha p^2|u-v|^2), delta_R=R^(1-p), with strong L2 convergence on compactly supported test functions after inner Gaussian and far-region tail control. Multiplier is exp(-|xi|^2/(4alpha p^2)); expanding smooth compactly supported wave packets at |xi|=2p sqrt(s) have error O(1/L). Taking each packet first and R_n afterward handles nonuniformity and obtains a weakly-null common Weyl sequence for all fixed alpha, including s=infinity by frequency going to infinity. Bounded polynomial telescoping and compact operators vanishing on weakly-null sequences imply asserted Calkin lower bounds. Maximizing |t-t^r| on [0,1] gives |r-1|r^(-r/(r-1)); independently checked r=2 and r=1/2 both give 1/4. Full local-to-global tail proof imports Borichev–Fantolini–Youssfi Lemma 3.2; CHECK.py finite kernel tests are not substituted for that analytical premise.
 
-The closest source, Borichev–Fantolini–Youssfi, arXiv:2610.33937v1 (2026-10-24), was inspected in full accessible HTML. It supplies crucial kernel estimates and proves compactness and infinite rank of commutators; it does not state a common singular approximate spectrum or a positive exact-form essential *difference* lower bound. Tian's arXiv:2610.14599v1 concerns product equality; the earlier arXiv:2510.07887v1 concerns commutativity. Actual searches for joint Weyl sequences, limit-operator Gaussian multipliers, Calkin curves, and the explicit scalar formula found no decisive covering result. Unindexed general semiclassical/limit-operator work remains a material originality risk; no independent audit or universal novelty guarantee is claimed.
+## originality
 
-## Value (V): PASS
+PASS
 
-The theorem extracts new spectral information from recently introduced compact-commutator estimates. The continuum of common approximate eigenvalue tuples yields a nontrivial family of lower bounds for all polynomial combinations, and already for pairs gives a strictly positive quantitative essential separation with a closed form. Its value is the structural distinction between nearly commuting transformations and distinct noncompact operators, rather than a routine parameter substitution.
+Read the primary 2026 Borichev–Fantolini–Youssfi article full HTML, especially Lemma 3.2 and Proposition 4.1: it proves bounded Berezin operators, compact commutators and asymptotic Gaussian estimates but does not state common singular approximate eigenvectors or this multi-parameter Calkin lower-bound curve. Tian’s products paper addresses identities not common essential spectrum. The new wave-packet extraction is additional, albeit potentially a special case of general limit-operator machinery.
 
-## Scope and limitations
+## value
 
-Only fixed exponents \(m>2\) and finitely many fixed positive parameters are covered. The exact operator essential norm, full essential spectrum, and any parameter-uniform convergence are not established. The principal external analytic inputs are kernel localization and operator boundedness from arXiv:2610.33937v1. An equivalent specialized result could exist in unindexed literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Extracts a continuum of joint approximate spectral data from a family known to have compact commutators: every polynomial combination acquires explicit essential-norm lower bounds and distinct parameters have a strictly positive computable separation, clarifying what qualitative almost-commutation does not say.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

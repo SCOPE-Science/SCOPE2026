@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T23:16:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md equations (3)-(9), blob 6cb538f85cf96bf88a8a1b8a96613e143681fb88",
+        "Borichev–Fantolini–Youssfi arXiv:2610.33937v1, section 3 local/global Gaussian kernel bounds and Prop. 4.1 boundedness",
+        "Assigned CHECK.py exact series/moment/frequency tests, blob 0e9e6cf38e1060da2589397a6818071db2f4f988"
+      ],
+      "rationale": "From normalized radial moments alpha^(-n/p)Gamma((n+1)/p)/Gamma(1/p), p=m/2>1, reconstructs reproducing kernel Gamma(1/p)E_(1/p,1/p)(alpha^(1/p)z conjugate(w)). Published sectorial Mittag–Leffler asymptotic and intrinsic Gaussian metric bound yield delta_R^2 B_alpha(R+delta_R u,R+delta_R v) -> G_alpha(u-v)=alpha p^2/pi exp(-alpha p^2|u-v|^2), delta_R=R^(1-p), with strong L2 convergence on compactly supported test functions after inner Gaussian and far-region tail control. Multiplier is exp(-|xi|^2/(4alpha p^2)); expanding smooth compactly supported wave packets at |xi|=2p sqrt(s) have error O(1/L). Taking each packet first and R_n afterward handles nonuniformity and obtains a weakly-null common Weyl sequence for all fixed alpha, including s=infinity by frequency going to infinity. Bounded polynomial telescoping and compact operators vanishing on weakly-null sequences imply asserted Calkin lower bounds. Maximizing |t-t^r| on [0,1] gives |r-1|r^(-r/(r-1)); independently checked r=2 and r=1/2 both give 1/4. Full local-to-global tail proof imports Borichev–Fantolini–Youssfi Lemma 3.2; CHECK.py finite kernel tests are not substituted for that analytical premise.",
+      "residual_risks": [
+        "Relies on cited published intrinsic-metric tail estimates and boundedness on unweighted L2; no claim of complete joint spectrum or exact operator essential norm."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Global Gaussian intrinsic-distance bound and boundedness are necessary external inputs",
+          "Published result gives qualitative noncompactness and compact commutators, not pairwise quantitative essential separation"
+        ],
+        "reasoning": "A general Calkin or semiclassical limit-operator theorem could cover such a curve if its hypotheses apply; no verified dominating source found.",
+        "searches": [
+          "arXiv:2610.33937v1 Lemma 3.2 and Prop 4.1",
+          "arXiv:2610.14599 generalized Fock Berezin products",
+          "generalized Fock limit operator Gaussian multiplier Weyl sequences"
+        ]
+      },
+      "checked_sources": [
+        "Borichev–Fantolini–Youssfi arXiv:2610.33937v1 full HTML",
+        "Tian arXiv:2610.14599",
+        "Borichev–Fantolini–Youssfi arXiv:2510.07887",
+        "Resultary semantic query power-weight generalized Fock Berezin transforms common Weyl sequences Gaussian spectral curve essential norm difference"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary kernel estimate implies a pointwise Gaussian blow-up after scale delta_R=R^(1-p)",
+          "To conclude a common Weyl sequence needs uniform tail domination, L2 strong convergence, frequency-controlled packet errors, diagonal choice and compact operator argument"
+        ],
+        "reasoning": "Those additional steps are mathematical and are not a statement of the prior commutator results; the final essential-norm bound is not mechanically asserted by same-paper theorems.",
+        "searches": [
+          "arXiv:2610.33937v1 kernel bounds",
+          "arXiv:2610.14599 products of Berezin transforms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Borichev–Fantolini–Youssfi 2026 proves compactness/infinite rank of commutators; commuting modulo compacts is consistent with but does not identify common Weyl multipliers",
+          "Current theorem explicitly realizes the Gaussian curve in common singular approximate spectrum"
+        ],
+        "reasoning": "Commutativity modulo compacts does not by itself select characters, spectral points, or quantitative essential gaps; new escaping wave packets provide this.",
+        "searches": [
+          "power-weight generalized Fock Berezin transforms common Weyl sequences Gaussian spectral curve essential norm difference",
+          "arXiv:2610.33937v1 local kernel and commutators",
+          "arXiv:2510.07887 commutativity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest records concern weighted shifts and unrelated essential-norm profiles",
+          "The lower-bound function |r-1|r^(-r/(r-1)) was not given in inspected Fock Berezin sources"
+        ],
+        "reasoning": "Exact ratio-dependent bound is continuous rather than finite table; no result search is only bounded evidence.",
+        "searches": [
+          "power-weight generalized Fock Berezin transforms common Weyl sequences Gaussian spectral curve essential norm difference",
+          "Resultary power-weight generalized Fock Berezin transforms common Weyl sequences Gaussian spectral curve essential norm difference",
+          "arXiv:2610.33937v1"
+        ]
+      },
+      "rationale": "Read the primary 2026 Borichev–Fantolini–Youssfi article full HTML, especially Lemma 3.2 and Proposition 4.1: it proves bounded Berezin operators, compact commutators and asymptotic Gaussian estimates but does not state common singular approximate eigenvectors or this multi-parameter Calkin lower-bound curve. Tian’s products paper addresses identities not common essential spectrum. The new wave-packet extraction is additional, albeit potentially a special case of general limit-operator machinery.",
+      "residual_risks": [
+        "General limit-operator or semiclassical Fock Berezin theorems could imply the same Gaussian curve; no exhaustive theorem search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies sectorial kernel asymptotic, metric decay and boundedness; proves commutator results, not the common Weyl multiplier curve or explicit ratio essential gap",
+          "evidence": "Borichev–Fantolini–Youssfi 2026, Lemma 3.2(3.9), Proposition 4.1",
+          "identifier_or_url": "https://arxiv.org/html/2610.33937v1",
+          "material_read": "Full primary accessible HTML including definitions, Lemma 3.2 eqs (3.2)-(3.9), Proposition 4.1 and later commutator sections",
+          "method": "Full-text reading of theorem and relevant supporting sections",
+          "title": "Berezin Transform Commutators",
+          "trigger": "Direct source for full kernel and operator-boundedness premises on same generalized Fock spaces"
+        },
+        {
+          "assessment": "Studies equality/products, no inspected statement that implies common escaping packet spectrum",
+          "evidence": "Tian 2026 arXiv:2610.14599",
+          "identifier_or_url": "https://arxiv.org/abs/2610.14599",
+          "material_read": "Accessible abstract and product-relation description; not counted as full reading",
+          "method": "Abstract/model scope comparison",
+          "title": "Products of Berezin Transforms on Generalized Fock Spaces",
+          "trigger": "Same power-weight Fock Berezin operators; possible stronger product theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md polynomial lower bound and pairwise closed-form gap",
+        "Borichev–Fantolini–Youssfi 2026 prior qualitative noncompactness/commutator results"
+      ],
+      "rationale": "Extracts a continuum of joint approximate spectral data from a family known to have compact commutators: every polynomial combination acquires explicit essential-norm lower bounds and distinct parameters have a strictly positive computable separation, clarifying what qualitative almost-commutation does not say.",
+      "residual_risks": [
+        "Quantities are lower bounds, not exact essential norms or full joint essential spectrum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "m>2 and finitely many fixed alpha; no uniform parameter limits or m<=2.",
+    "Published kernel and boundedness estimates are external premises; only lower essential-norm bounds."
+  ],
+  "schema_version": 1
+}
