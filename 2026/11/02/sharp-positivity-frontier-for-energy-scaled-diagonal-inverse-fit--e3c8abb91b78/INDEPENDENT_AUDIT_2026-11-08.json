@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T00:07:49.309241Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Expansion of the exact energy-scaled Frobenius loss gives the strictly convex quadratic n/2-sum_i A_ii x_i+(1/2)sum_ij A_ij^2 x_i x_j. The Hessian A Hadamard A is SPD by Schur product; its normal equations reduce after correlation scaling to (R Hadamard R)w=1. Cramer determinants for a three-by-three SPD R yield d1x1=(1-t)(1+t-u-v)/Delta and cyclic analogues with u=a^2,v=b^2,t=c^2, Delta=1+2uvt-u^2-v^2-t^2>0. The sign inequalities and their equalities are necessary and sufficient, and two nonpositive coefficients would force one squared correlation >=1. Dimensions 1 and 2 always give positive coefficients. In the symmetric family R(r,s), 0<s<1 and 2r^2<1+s guarantee SPD; the optimum loses positivity exactly when (1+s^2)/2<r^2<(1+s)/2. A zero-first-coordinate KKT solution is the unique nonnegative optimum, with exact gap (2r^2-1-s^2)^2/[2(1+s^2)(1+s^2-2r^4)], while strictly positive fitting attains only its infimum. Independent rational checks recovered x=(-650,950,950)/889 and gap 4225/132461 for r=9/10,s=7/10, including leading principal minors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qu et al. optimize diagonal preconditioning for condition number; Amsel et al. optimize fixed-sparsity matrix approximation/query complexity rather than the unconstrained weighted-Frobenius preconditioner."
+        ],
+        "reasoning": "An SPD guarantee for a positively constrained scaling cannot imply SPD of the unconstrained least-squares optimum, and the objectives differ. Broad approximation theorems do not imply the sign loss in this exact 3D subproblem.",
+        "searches": [
+          "Resultary: positive definite diagonal energy scaled Frobenius inverse fitting SPD Schur square normal equations",
+          "arXiv:2209.00809 optimal diagonal preconditioning",
+          "arXiv:2402.09379 fixed-sparsity matrix approximation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and standard-library verify.py exact Git blobs; matched Git tree",
+        "Xia and Moxey arXiv:2610.31982 accessible abstract/summary, institutional full text blocked",
+        "Qu et al. arXiv:2209.00809 abstract",
+        "Resultary 2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original objective and qualitative indefiniteness are prior; normalized inequality a^2+b^2<1+c^2 and the exact boundary price are strictly sharper quantitative statements.",
+          "Resultary related claim has factorized (D+L) inverse and SPD threshold by norm, a different approximant and structural setting."
+        ],
+        "reasoning": "An existential warning does not imply which SPD matrices fail the optimization or prove dimension three minimal. The explicit cone KKT penalty is also absent from the accessible claim; possible full manuscript coverage is not excluded.",
+        "searches": [
+          "arXiv:2610.31982 Section 4.4.2 Appendix A.3 (full text not available)",
+          "Resultary 2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba",
+          "Resultary: positive definite diagonal energy scaled Frobenius inverse fitting SPD Schur square normal equations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normal equations (A Hadamard A)x=diag(A) are equivalent to (R Hadamard R)w=1 after diagonal congruence; the sign of w equals the sign of x.",
+          "Xia and Moxey arXiv:2610.31982 source abstract describes energy-scaled approximate elemental inverse, not the complete normalized 3D Cramer sign result."
+        ],
+        "reasoning": "Ordinary Frobenius diagonal inverse fitting, condition-number preconditioning, and this energy-scaled congruence loss are not interchangeable. An equivalent general theorem would need to solve the positive inverse image of 1 by a squared correlation matrix; none was identified.",
+        "searches": [
+          "Resultary: positive definite diagonal energy scaled Frobenius inverse fitting SPD Schur square normal equations",
+          "arXiv:2610.31982 weighted Frobenius inverse fitting normal equations",
+          "Hadamard square positive diagonal inverse fit correlation matrix ones"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original DG study uses numerical examples and empirical diagonal shifts, whereas the final claim gives symbolic inequalities over all three real squared-correlation parameters."
+        ],
+        "reasoning": "A numerical matrix table cannot dominate universal SPD parameter-space inequalities. No exact prior 3x3 symbolic sign table or cone penalty was located, but failed lookup alone does not establish novelty.",
+        "searches": [
+          "Resultary: positive definite diagonal energy scaled Frobenius inverse fitting SPD Schur square normal equations",
+          "three by three SPD correlation Hadamard square inverse times ones exact sign table"
+        ]
+      },
+      "rationale": "Xia–Moxey introduce the exact energy-scaled fitting objective and warn qualitatively about indefinite fitted inverses, but the accessible source description does not provide the complete 3D normalized sign boundary or cone penalty. Resultary bidirectional Gauss–Seidel inverse uses a distinct factorized inverse. Condition-number-based diagonal scaling (Qu et al.) and fixed-sparsity ordinary Frobenius approximation (Amsel et al.) have different objectives. Full original paper was inaccessible via both OA and authorized institutional access, retained as priority risk rather than unsupported whole-document noncoverage.",
+      "residual_risks": [
+        "The precisely relevant October 2026 primary manuscript was not accessible in full; authorized Oxford retrieval returned vpn_disconnected.",
+        "A general 3x3 correlation-Hadamard inverse positivity theorem could encompass this exact symbolic frontier.",
+        "The constrained gap is proved only in the displayed symmetric-coupling subfamily; not for every SPD A."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines objective and positivity caveat, but entire paper cannot be classified as NOT_COVERING",
+          "evidence": [
+            "Original work explicitly acknowledged; inaccessible full text remains a specific priority risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.31982",
+          "material_read": "Bibliographic record, abstract, publicly accessible summaries of Section 4.4 only; full manuscript unavailable",
+          "method": "Attempted arXiv and OA, then authorized Oxford retrieval (vpn_disconnected)",
+          "title": "A Novel Matrix-Free Approximate Elemental Inverse for Efficient Preconditioning of Discontinuous Galerkin Spectral Elements",
+          "trigger": "Exact source objective, Sections 4.4 and Appendix A.3"
+        },
+        {
+          "assessment": "Positive diagonal condition-number optimization is a different constrained problem",
+          "evidence": [
+            "The optimum target is conditioning, not the Hadamard-square LS normal equations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.00809",
+          "material_read": "Abstract and mathematical objective characterization; not entire manuscript",
+          "method": "Public abstract and conceptual objective comparison",
+          "title": "Optimal Diagonal Preconditioning",
+          "trigger": "Potential broader SPD diagonal-scaling theorem"
+        },
+        {
+          "assessment": "Uses distinct additively symmetrized Gauss-Seidel inverse, not the energy-weighted diagonal LS fit",
+          "evidence": [
+            "Factorized inverse criterion involving L^T D^-1 L differs from (A∘A)x=diag(A)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba",
+          "material_read": "Resultary mathematical summary only",
+          "method": "Resultary search",
+          "title": "Additive bidirectional Gauss-Seidel inverse: exact SPD threshold and quadratic weak-coupling clustering",
+          "trigger": "Closest published exact-SPD frontier title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The positivity failure of energy-congruence weighted Frobenius approximate inverse fitting, already noted in DG preconditioner work, has a useful sharp all-SPD dimension-three classification, minimal dimension, concrete open failure region and exact price of a PSD constraint. These are natural optimizer-definiteness invariants that guide diagonal approximate-inverse implementations; the result has mathematical substance beyond an isolated negative example or textbook Schur positivity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and standard-library verify.py exact Git blobs; matched Git tree",
+    "Xia and Moxey arXiv:2610.31982 accessible abstract/summary, institutional full text blocked",
+    "Qu et al. arXiv:2209.00809 abstract",
+    "Resultary 2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba summary"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All real SPD matrices in dimension three for signs; symmetric positive r,r,s family only for exact cone price.",
+    "No claim for arbitrary sparse patterns, PDE mesh realizations, iterative approximate solver or floating-point stability."
+  ],
+  "residual_risks": [
+    "The precisely relevant October 2026 primary manuscript was not accessible in full; authorized Oxford retrieval returned vpn_disconnected.",
+    "A general 3x3 correlation-Hadamard inverse positivity theorem could encompass this exact symbolic frontier.",
+    "The constrained gap is proved only in the displayed symmetric-coupling subfamily; not for every SPD A."
+  ],
+  "schema_version": 1
+}

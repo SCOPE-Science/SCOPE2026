@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The objective is a strictly convex quadratic with Hessian the Hadamard square of an SPD matrix. The complete sign classification follows from exact Cramer determinants after diagonal normalization, including boundary equalities and mutual exclusion of multiple nonpositive entries. A two-mode decomposition proves the sharp feasible positivity-loss window for the symmetric-coupling family. Exact KKT conditions establish the nonnegative-cone optimizer, and direct substitution gives its excess objective. The rational witness and standard-library exact-arithmetic verifier independently check nontrivial instances. Finite tests are supporting evidence, not proof of universal statements.
+PASS
 
-## Originality: PASS within stated historical-access limits
+Expansion of the exact energy-scaled Frobenius loss gives the strictly convex quadratic n/2-sum_i A_ii x_i+(1/2)sum_ij A_ij^2 x_i x_j. The Hessian A Hadamard A is SPD by Schur product; its normal equations reduce after correlation scaling to (R Hadamard R)w=1. Cramer determinants for a three-by-three SPD R yield d1x1=(1-t)(1+t-u-v)/Delta and cyclic analogues with u=a^2,v=b^2,t=c^2, Delta=1+2uvt-u^2-v^2-t^2>0. The sign inequalities and their equalities are necessary and sufficient, and two nonpositive coefficients would force one squared correlation >=1. Dimensions 1 and 2 always give positive coefficients. In the symmetric family R(r,s), 0<s<1 and 2r^2<1+s guarantee SPD; the optimum loses positivity exactly when (1+s^2)/2<r^2<(1+s)/2. A zero-first-coordinate KKT solution is the unique nonnegative optimum, with exact gap (2r^2-1-s^2)^2/[2(1+s^2)(1+s^2-2r^4)], while strictly positive fitting attains only its infimum. Independent rational checks recovered x=(-650,950,950)/889 and gap 4225/132461 for r=9/10,s=7/10, including leading principal minors.
 
-The diagonal case is a restriction of the energy-scaled least-squares problem introduced by Xia and Moxey; their Section 4.4.2 and Appendix A.3 explicitly recognize lack of guaranteed positive definiteness. They do not state the all-SPD three-dimensional sign equivalence, minimal dimension, sharp two-coupling phase window, or constrained optimality gap in the inspected full text. Searches of mathematical research records under matrix-Hadamard, approximate-inverse and diagonal-positivity aliases returned other preconditioner constructions rather than these conclusions. Relevant full texts on diagonal condition-number optimization and fixed-sparsity ordinary Frobenius approximation have different objectives; their main theorems do not imply the present exact weighted-fitting formulas. Historical priority is not claimed exhaustively.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-A diagonal inverse is the simplest sparse pattern (Band1) in an active approximate elemental inverse design. The all-input sign frontier states exactly when an unconstrained spectral-proximity objective violates the positive-definiteness needed for standard PCG. The sharp rational construction rules out treating negative coefficients as numerical artifacts. The family gives the exact optimal price of retaining a nonnegative diagonal, rather than merely exhibiting an arbitrary correction. No claim about a complete DG solver is made.
+Xia–Moxey introduce the exact energy-scaled fitting objective and warn qualitatively about indefinite fitted inverses, but the accessible source description does not provide the complete 3D normalized sign boundary or cone penalty. Resultary bidirectional Gauss–Seidel inverse uses a distinct factorized inverse. Condition-number-based diagonal scaling (Qu et al.) and fixed-sparsity ordinary Frobenius approximation (Amsel et al.) have different objectives. Full original paper was inaccessible via both OA and authorized institutional access, retained as priority risk rather than unsupported whole-document noncoverage.
 
-## Closest literature and limitations
+## value
 
-Xia and Moxey (arXiv:2610.31982v1) provide the least-squares objective and the qualitative warning, not the sharp diagonal analysis. Qu et al. (arXiv:2209.00809), Demmel (doi:10.1137/22M1504901), and Amsel et al. (arXiv:2402.09379) consider distinct numerical objectives; Demmel's full publisher text was not accessible in this research pass, leaving a limited priority risk despite its distinct abstract formulation. These findings apply to exact SPD matrices and the specified diagonal ansatz, not generic sparse patterns, discretization geometries, or empirical corrective algorithms.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The positivity failure of energy-congruence weighted Frobenius approximate inverse fitting, already noted in DG preconditioner work, has a useful sharp all-SPD dimension-three classification, minimal dimension, concrete open failure region and exact price of a PSD constraint. These are natural optimizer-definiteness invariants that guide diagonal approximate-inverse implementations; the result has mathematical substance beyond an isolated negative example or textbook Schur positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
