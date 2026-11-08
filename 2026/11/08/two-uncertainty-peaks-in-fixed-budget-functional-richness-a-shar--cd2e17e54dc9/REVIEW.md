@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact variance formula follows from group-absence indicators, including correct endpoint and overlap conventions. A short exact-arithmetic program enumerates all positive-integer partitions through size 13; the recursion exhausts all partitions by their first part, and non-unimodality is exactly the occurrence of a negative first difference followed later by a positive first difference after zero differences are removed. The unique size-13 exceptional profile has a direct survivor-subset check. For the infinite family, explicit expressions for the differences at indices 3–4 and \(m-1\)–\(m\), and an all-integer binomial lower bound, give an analytic proof rather than extrapolation from finite tests.
+
+**Originality — PASS, with residual historical priority risk.** Heck, van Belle and Simberloff (1975) established the general mean/variance formula for fixed-sample rarefaction; Fonseca and Ganade (2001) apply it to functional guilds. Therefore the formula itself is prior art and is not claimed as new. The inspected accessible 2001 full text and the 2006 infinite-urn text do not identify the uniquely minimal 13-species non-unimodal variance profile or the all-\(m\) family. Search comparisons cover rarefaction, occupancy, variance-curve unimodality and two-peak functional uncertainty, including relevant research records. The full text of the short 1975 paper could not be retrieved, so it has not been declared definitely non-covering; earlier unknown numerical or analytic work remains a risk.
+
+**Value — PASS.** The precise first non-unimodal community size and the stable infinite family expose a mathematically consequential limitation of summarizing ecological uncertainty with one intermediate attrition window. The two peaks arise within the very fixed-budget functional-richness model motivating the classic conservation literature. This is a complete small-size boundary together with a structural infinite-family mechanism, not an arbitrary one-off recomputation of variance values.
+
+The finding is conditional on the idealized guild model, and no direct conclusion for empirical ecosystem functioning follows without verifying its assumptions.
+
+Self-review: passed. Independent audit: not yet performed.
