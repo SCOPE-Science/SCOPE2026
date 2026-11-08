@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "All eight triple types and four endpoint pairs were exactly reduced to six distinct profile increments; the six-feature transfer expression is exact for any length n>=2. Denominator/numerator degree bounds (256/257) imply each claimed rational generating function is certified by exact coefficient comparison through degree 279, beyond the 272 cross-multiplication bound; a second program directly enumerates every word through length 14. The asymptotic 1/8 follows from endpoint-transition probability and exponentially small omission of four motifs. No finite enumeration is substituted for an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2015 paper defines general profile vectors and noise models as substitutions/undersampling; its enumeration theorem is for valid-profile counts, not deletion-shadow size distributions.",
+        "2012 paper abstract counts Markov types by balanced matrices; no documented per-word single-deletion profile ball result."
+      ],
+      "reasoning": "General definitions of profile vectors and asymptotics for counts of Markov-type profiles do not imply the six rational GFs for deletion balls without a new local-change/saturation analysis.",
+      "searches": [
+        "Codes for DNA Sequence Profiles Kiah Puleo Milenkovic 2015",
+        "Counting Markov Types Jacquet Knessl Szpankowski 2012",
+        "single deletion induced two-gram profile changes possible profiles exact maximum run patterns"
+      ]
+    },
+    "checked_sources": [
+      {
+        "comparison": "Defines pair-profile vectors and codes; synthesis and sequencing substitutions and read undersampling, but no distribution of per-input single-source-deletion profile shadows.",
+        "id": "arXiv:1502.00517v1",
+        "title": "Codes for DNA Sequence Profiles"
+      },
+      {
+        "comparison": "Accessible abstract counts total Markov profiles; entire full text not accessible, so priority beyond abstract remains a risk.",
+        "id": "DOI:10.1109/TIT.2012.2191476",
+        "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs"
+      },
+      {
+        "comparison": "Read full public RESULT.md; counts distinct original profile classes and unique representatives, not deletion-induced profile-ball size distribution.",
+        "id": "2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+        "title": "Exact binary two-multispectrum code size and singleton classification"
+      },
+      {
+        "comparison": "Read full public RESULT.md; counts pairs of words with two common word descendants, not per-word distinct profile descendants.",
+        "id": "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kiah et al. Thm 3.3 and Cor 4.6 concern quasipolynomial counts of realizable profile vectors; Props 2.2 and 7.1 concern substitution or read coverage.",
+        "Binary two-multispectrum theorem gives Q_n and singleton words; finite distributions of per-word altered spectra are not inferred.",
+        "Two-read graph theorem uses intersection of raw deletion balls, not projection of a single deletion ball to frequency vectors."
+      ],
+      "reasoning": "Neither an all-profile count Q_n, an original-profile singleton test, a profile-code distance bound, nor a word-ball pair intersection count determines the six-class cardinality statistic. Direct feature automata and six GFs address a distinct finer question.",
+      "searches": [
+        "arXiv:1502.00517v1 Sections 2,3,5,7",
+        "published-finding corpus published binary two-multispectrum complete RESULT.md",
+        "published-finding corpus two-read deletion graph complete RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kiah et al. 2015 arXiv:1502.00517v1 sections 1-2 and 7: same pair-profile concept, but no source-deletion ball law.",
+        "Published binary two-multispectrum RESULT.md gives profile classes and singleton classification, different observation statistic."
+      ],
+      "reasoning": "The full distribution is of the number of distinct *profiles of word-deletion descendants of each source*. It is not the number of deletion descendants, number of realizable 2-gram profiles, or class size of a fixed Markov type. Source-by-source local modifications and endpoint effects are essential.",
+      "searches": [
+        "all length distribution of distinct dinucleotide frequency profiles produced by deleting one symbol from binary word 6 outcomes rational generating function",
+        "single deletion profile ball radius dinucleotide 00 01 10 11 occurrence counts generating functions",
+        "two gram Markov type binary word deletion shadow profile cardinality six",
+        "Markov type deletion profile shadow cardinality source word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest IDs: 13779c08da71 (all binary 2-multispectra), 737fed325e91 (two-read deletion graph), 6c9fe70986cc (two-deletion word sphere variance).",
+        "Own accessible ledger titles and claims were searched: no exact single-deletion pair-profile shadow distribution."
+      ],
+      "reasoning": "The closest returned finite tables count full word-deletion balls, profile classes or graph edges. None tabulates N_j(n) for the six defined profile-ball sizes. Negative search is not proof of novelty.",
+      "searches": [
+        "all length distribution of distinct dinucleotide frequency profiles produced by deleting one symbol from binary word 6 outcomes rational generating function",
+        "single deletion profile ball radius dinucleotide 00 01 10 11 occurrence counts generating functions",
+        "two gram Markov type binary word deletion shadow profile cardinality six",
+        "exact pair-profile deletion sphere count distribution binary length sequence OEIS"
+      ]
+    },
+    "rationale": "A specific six-class *per-source-word* distribution of adjacent-pair-frequency profiles after exactly one symbol deletion is not supplied or implied by the checked published sources. Source channel definitions, counting objects, and end-boundary conditions were compared explicitly, not just titles. Unindexed or inaccessible equivalences remain a stated priority risk.",
+    "residual_risks": [
+      "Earlier or unindexed exact enumeration of deletion-induced Markov-type/histogram-ball sizes may exist.",
+      "The 2012 Markov-type paper was not fully readable; no full-text NOT_COVERING claim is asserted.",
+      "Independent historical and mathematical validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides precise profile definition and coding motivation; does not determine the claimed source-deletion six-class distribution",
+        "evidence": [
+          "Introduction distinguishes synthesis substitutions, sequencing substitutions and undersampling; §2 defines length-2 profile counts",
+          "Theorem 3.3 enumerates realizable profile vectors, not mutation shadows"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1502.00517",
+        "material_read": "HTML full text sections 1,2,3,4,5,7 including Thm 3.3, Props 2.2, 7.1 and coding descriptions",
+        "method": "Read arxiv HTML full-text and term-searched source-deletion models",
+        "title": "Codes for DNA Sequence Profiles",
+        "trigger": "Primary foundational profile-vector and noisy-channel paper, earliest public 2015-02-02"
+      },
+      {
+        "assessment": "Counts original length-n multispectrum classes and singleton fibers, not profiles of deletion descendants",
+        "evidence": [
+          "Formula Q_{2m}=3m²-m+2, Q_{2m+1}=3m²+2m+2",
+          "Singleton classes characterized by at most one transition or even alternating words"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71/RESULT.md",
+        "material_read": "Complete public RESULT.md including definitions, proof, scope, limitations and references",
+        "method": "Read published GitHub result file and compared quantified objects",
+        "title": "Exact binary two-multispectrum code size and singleton classification",
+        "trigger": "published-finding corpus nearest object identity: linear binary pair profiles"
+      },
+      {
+        "assessment": "Distinct source-pair intersections of raw word deletion balls are not the per-source profile-ball-size distribution",
+        "evidence": [
+          "Graph adjacency requires exactly two shared *word* deletion descendants",
+          "Counts total graph edges, not histogram-projection ball sizes"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91/RESULT.md",
+        "material_read": "Complete public RESULT.md including domain, proof and limitations",
+        "method": "Read published GitHub result file and compared quantified objects",
+        "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+        "trigger": "Same single-deletion operation, possible stronger raw-word coverage"
+      },
+      {
+        "assessment": "Total Markov-type enumeration concerns a different invariant in abstract; full priority comparison unresolved",
+        "evidence": [
+          "Abstract enumerates all Markov types by balanced frequency matrices; full content inaccessible"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2012.2191476",
+        "material_read": "Accessible abstract and bibliographic details only, not full article",
+        "method": "Read public abstract and consulted its stated quantified objects",
+        "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+        "trigger": "Older potentially broader Markov-type enumeration terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "294c530e-44d7-4d70-a5e1-6a445e82895e",
+  "value": {
+    "rationale": "Deletion under pair-frequency observation is a natural profile channel distinct from full-word deletion. The theorem supplies a complete six-class distribution at every length, an exact first saturation threshold n=9, and an interpretable limiting 1/8 frequency. This provides sharp channel ambiguity statistics beyond a routine local error vector bound or finite table; no unsupported extension to multi-deletion or other alphabets is claimed.",
+    "status": "PASS"
+  }
+}
