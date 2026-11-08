@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python verify_wheel_xor.py` using Python 3 standard library. The standalone implementation builds the undirected wheel's adjacency masks and computes binary matrix powers without using the polynomial decomposition as an input to its matrix routine. It also iterates the vertexwise neighbor-XOR rule on the complete functional graph, marking actual periodic cycles before assigning transient distances.
+## correctness
 
-Recorded successful output in `verification_output.txt`: `WHEEL_XOR_VERIFY_OK`. The finite matrix checks cover \(3\le n\le128\) with 585 power-rank comparisons. The functional-graph checks exhaust \(262128\) configurations across \(3\le n\le16\), including all first-entry shells, not merely sampled orbits. Concrete checked counts include \(n=4\): \((1,7,8,16)\), \(n=6\): \((16,16,32,64)\), \(n=8\): \((1,7,24,96,384)\), and \(n=12\): \((256,1792,2048,4096)\).
+PASS
 
-These tests are finite corroboration only. The infinite assertion is proved symbolically through a CRT factorization, exact power-rank calculations on the primary factor, nilpotent Jordan reconstruction, and Fitting decomposition. No separate external or independent audit is represented by these checks.
+Verified the polynomial update (bf+hS,epsilon f), z+1-primary CRT and invertibility away from z+1; computed F^2 and F^t (t>=3), rank profiles for e=2,4,>=8, Jordan reconstruction, and Fitting-kernel state counts. An independent GF(2) direct wheel adjacency rank program checked 459 rank/power comparisons for 3<=n<=128. For odd n the kernel argument requires eps(S)=1, and for even n dimension of nilpotent primary part is e+1. Finite rank tests only corroborate the symbolic all-n proof.
+
+## originality
+
+PASS
+
+Best-knowledge originality is restricted to the characteristic-two Jordan partition and complete first-entry census, not the known real spectrum/determinant or standard Rule-90 dynamics.
+
+## value
+
+PASS
+
+The hub changes the dyadic nilpotent Jordan profile in a canonical wheel graph, inducing an explicit universal first-periodic-entry law across all n with fixed v2(n). Full shell distributions and the exceptional 3-step threshold for e=2,4 quantify natural finite linear dynamical transients, not merely determinant parity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
