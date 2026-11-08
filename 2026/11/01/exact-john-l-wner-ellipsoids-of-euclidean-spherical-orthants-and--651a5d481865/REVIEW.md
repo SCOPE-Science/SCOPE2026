@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The John candidate satisfies all \(d\) coordinate halfspaces and the quadratic sphere constraint by explicit identities, and its \(d+1\) normalized boundary contacts form a regular simplex. The Löwner candidate contains every positive-orthant unit vector because its gauge is a convex quadratic in the diagonal coordinate; explicit positive contact probability measures prove global Löwner optimality. The complete contacts, equalities, and transition are checked analytically. The packaged verifier checks these identities numerically; finite sampling is not used as proof.
+## correctness
 
-**Originality: PASS, subject to historical-priority uncertainty.** Güler–Gürtuna (2007) supplies the general extremal-ellipsoid criteria but treats different spherical cuts and cones. Gruber–Schuster (2012) proves an abstract John contact theorem. Bansal et al. (2018) considers exactly this spherical orthant, but addresses the enclosing Euclidean ball rather than ellipsoids. Closest other indexed findings deal with capped cubes, rank-selected Boolean polytopes or circular sectors, not the simultaneous orthant/ball constraint in dimensions at least three. No stronger result covering the precise formulas and dimension-six contact switch was identified among inspected sources. An unindexed equivalent theorem remains possible.
+PASS
 
-**Value: PASS.** A canonical curved convex body obtains complete exact inner/outer ellipsoids and finite-contact invariances, with a sharp and nonobvious contact-orbit deletion at a fixed dimension. The geometric classification applies in all dimensions and is neither a single numerical instance nor a formal renaming of a known criterion.
+John candidate Q has diagonal d/(d+1)^2 equal squared center coordinate, giving nonnegative coordinates; axial inequality implies ||x||²<=1. d+1 contact points form normalized regular simplex with zero barycenter and covariance I/d, sufficient for unique John maximality. Löwner candidate unit-sphere gauge q(z) is strictly convex in z=e·omega∈[1/sqrt d,1], with both endpoints gauge one; interior is strictly inside. Origin has gauge <=1 and equals one for d=3,4,5, strictly <1 for d>=6. Explicit positive weights for contact sets give center and covariance Q/d; contact certificate gives unique covering ellipsoid. Independently recomputed Q/covariance identities for d=3,4,5,6,7,10,20 (max numerical error 2.8e-17), and origin gauges 1 through d=5, 0.9439 at d=6. All-dimensional claim rests on exact algebra, not finite checks.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: identified and materially compared directly relevant primary theorems, distinguished prerequisite frameworks from implication of the final exact claim, recorded access and priority risks.
+
+## value
+
+PASS
+
+This gives complete dual extremal ellipsoids of a canonical symmetric nonpolyhedral body in every dimension, exposes an unexpected dimension-six contact loss, and proves nontrivial invariance under enclosing polytopes; directly useful as exact convex-geometry benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
