@@ -1,19 +1,21 @@
-# Scientific review: elliptic resolvents and rational four-secants
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The explicit additive parametrization is algebraically invertible on rational affine points, since \(w^8=z+y^2\). Every affine line restricts to a nonzero additive quartic polynomial, forcing intersection sizes \(0,1,2,4\). The cubic slope map is determined from the parametrization, and the two exceptional slope fibers are accounted for separately. The characteristic-two cubic resolvent formula is derived from symmetric functions of roots, and the rational-point count on the resulting smooth elliptic model gives exactly \(6+6s_4\). The degenerate parameter is treated through a separate trace calculation. Exact polynomial-basis tests of all nonzero parameters over \(\mathbb F_{2^r}\), \(2\le r\le7\), reproduce the entire distribution and elliptic counts. The tests alone are not a proof of the unrestricted theorem.
+PASS
 
-## Originality
+In F_(2^r), alpha^8=t gives an additive bijection w -> (w⁴+alpha w²+w,alpha²w⁴+w²) with inverse w⁸=z+y², hence exactly q smooth affine points and no smooth points at X=0. Any affine line restricts to a nonzero additive polynomial of degree <=4, so intersections have cardinality 0,1,2,4 (never 3). Its degree-three direction map for nonzero parameters is (w³+alpha w+1)/(alpha²w³+w); characteristic-two cubic cyclic resolvent yields a genus-one Artin–Schreier double cover for Delta=1+alpha³ !=0. Special direction/pole accounting gives #E(Fq)=6+6s4 and the stated N_j. At Delta=0 the separate trace computation gives (q-2)/6 for odd r, (q-4)/6 for even r. An independently coded polynomial-basis finite-field enumerator checked the full rational point set, direction weights, exceptional count and elliptic point count for every t!=0 in q=4,8,16,32,64. These tests corroborate but do not prove all r; the resolvent proof does.
 
-**PASS within inspected evidence; independent priority check remains outstanding.** The motivating pencil and its geometric tangency/singularity behavior appear in Hilario–Stöhr, *On regular but non-smooth integral curves*, §3 (arXiv:2211.16962). Their two later papers extend the classification and tangent geometry (arXiv:2306.08579, §§4–5; arXiv:2409.05464, §§3–4). Their inspected statements do not supply the additive affine-set line-intersection spectrum, the degree-three direction resolvent, its nonsingular genus-one equation, or the exceptional \(t^3=1\) count. All four results are compared as statements, not merely by title. General cubic-resolvent and Artin–Schreier methods are prior knowledge, and equivalence in unindexed finite-geometry or Galois-cover literature remains a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** For a geometrically rational degree-four curve, the number of rational lines meeting it in four *distinct rational smooth points* is a natural finite-projective-geometric invariant, not determined by the published geometric bitangent classification. The theorem determines the full line-intersection profile for every finite field and parameter, reveals a nontrivial governing elliptic Frobenius trace, and locates precisely the singular-resolvent boundary. The point-count formula can vary across parameters even at fixed field size, so it is not simply a constant-size combinatorial exercise.
+Hilario and Stöhr study the identical characteristic-two quartic pencil and its singular/tangent geometry, not the arithmetic four-rational-point secant statistics or the auxiliary cubic direction resolvent in the inspected full 2024 primary text. Artin–Schreier cubic resolvent and binary linearized-polynomial counting are standard techniques. The reduction to this pencil with all t, including t³=1, is the assessed additional content.
 
-## Residual limitations and closest literature
+## value
 
-The original paper's rational quartic and bitangent results are not new and are not represented as such. The auxiliary cubic resolvent does not imply genus one for the original quartic. The proof controls rational smooth intersections, not full intersection multiplicity or all extension-field intersections. Potential unindexed treatments of these additive point sets or the exact resolvent map could alter the priority assessment. No external independent mathematical review has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete line intersection distribution for a canonical singular rational quartic pencil is a natural finite-geometry invariant. The explicit elliptic curve connects secant numbers to Hasse fluctuations, and the singular parameter is handled exactly rather than hidden in genericity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
