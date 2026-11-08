@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The logical theorem has a mathematical all-plane proof: the noncounting three-pebble strategy preserves ranks, containment, and parallel/intersecting two-line pair profiles, whose one-point extension **supports** are uniform for every affine plane of order at least three. No enumeration is used to infer an infinite family from finitely many cases.
+# Independent mathematical audit
 
-`checks/verify_incidence_profiles.py` enumerates actual finite-field affine planes of orders 2, 3, 4, 5, 7, and 9, including two extension fields. It confirms 21 pair profiles, 144 total distinct ordered support patterns for order two and 148 for each larger order, and it compares each profile's full set of supported pair-profile transitions. The exact recorded output is `checks/incidence_profiles.out`.
+## correctness
 
-`checks/verify_fo3_types.py` independently builds the order-two and order-three planes and computes complete \(\mathrm{FO}^3\) Hintikka-type refinement (including unassigned-variable states) through quantifier rank seven. A quantifier substitutes one variable and records the set of earlier types; therefore it models ordinary existential quantifiers, not counting. It verifies agreement at ranks zero through three and first separation at rank four. Exact recorded output is `checks/fo3_types.out`.
+PASS
 
-To replay, use Python 3: `python3 checks/verify_incidence_profiles.py` and `python3 checks/verify_fo3_types.py`. Both programs use standard-library imports only. They do not check non-Desarguesian finite coordinates, because that universal case is proved by incidence axioms. An independent audit has not been performed.
+The pure-inclusion poset has ranks 0,1,2,3 for empty, points, lines and plane. The source proves that pair profiles consisting of ranks, containment/equality and same-rank line-parallelism/intersection have uniform one-element extension support in all affine planes of order q>=3: exactly 148 ordered profile triples across 21 anchored profiles, versus 144 at q=2. Incidence geometry gives q-2 parallel lines not through an external point and q(q-2) points outside a pair of disjoint lines, precisely the q=2 exceptions. These counts depend only on axioms, including non-Desarguesian cases, supporting arbitrary-length three-pebble back-and-forth for q>=3. Independently implemented exact noncounting FO³ type refinement on complete AG(2,2) and AG(2,3) pure inclusion posets: for unassigned triples, equality at ranks 0,1,2,3 and first inequality at rank 4; type counts 45,192,245,367,444. The finite logic refinement is exhaustive for those two models, not a general finite-sample extrapolation; the all-plane extension lemma transfers order-3 theory to all q>=3. The proof also argues two-pebble collapse across all q and rank<=3 agreement with unrestricted pebbles by forgetting profiles unobservable at low quantifier rank. Smallest representatives have 12 (q2) and 23 (q3) flats.
+
+## originality
+
+PASS
+
+General theory of affine-flat geometries and finite-variable pebble games is classical. Guo 2008 concerns lattice geometricity of affine/vector spaces, and Grohe/Otto develops algebraic pebble-game techniques. The exact unrestricted FO³ order-two/non-two dichotomy for pure-inclusion flat posets, with the first distinguishing rank four, is not covered by the inspected statements. Comparable finite-model-theoretic homogeneous configuration classifications remain a priority risk.
+
+## value
+
+PASS
+
+This completely classifies the counting-free three-variable theories for ALL finite affine planes (including non-Desarguesian), with simultaneous sharp width-two and quantifier-rank boundaries. It shows how severe variable limitations erase both field order and coordinatization even under unrestricted nesting, a natural finite-model-theoretic property of geometric posets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
