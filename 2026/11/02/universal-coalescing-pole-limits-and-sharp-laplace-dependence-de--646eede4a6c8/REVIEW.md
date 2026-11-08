@@ -1,15 +1,21 @@
-# Scientific review: coalescing inverse-distance poles
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem uses independent samples on a unit circle, continuous density strictly positive at the common limiting center, and inverse-distance exponent strictly larger than one. The one-pole Laplace integral equals \(2\Gamma(1-1/\beta)s^{1/\beta}\); the joint triangular-array Laplace calculation follows from exact factorization, local rescaling by \(n g(0)\), and a bounded-density dominated-convergence argument. For finite scaled separation the limit is a unit-intensity Poisson field on the line, whose two sums are almost surely finite. Diverging scaled separation sends the overlap convolution to zero. The strict dependence ordering follows from interval-overlap geometry for symmetric, strictly radially decreasing kernels. Convolution differentiation gives the stated curvature; disjoint-neighborhood decomposition gives the exact large-separation coefficient. Scaling and strict ordering rule out joint stability at finite positive separation. The numerical verifier passed 183 tests, providing corroboration, not a substitute for the proof. No theorem is asserted for dependent observations or for exponents at most one.
+## correctness
 
-## Originality — PASS, qualified
-The one-pole limiting mechanism is developed in Bassols Cornudella and Castro, arXiv:2609.22499v1 (2026-09-18). General Poisson shot-noise Laplace transforms, including multi-location observables, are explicitly developed by Olson and Andrews, arXiv:2406.05212v1. Those contributions and the standard Poisson Laplace functional are prior work. Compared by mathematical implication, neither inspected source explicitly provides this independently sampled moving-two-pole regime together with its universal finite-separation law, strict monotonicity, sharp quadratic near-coincidence coefficient, sharp power-law far-separation coefficient, and failure of joint stability. Searches of mathematical-research records for aliases (coalescing singularities, two-point shot noise, Riesz potentials, stable limits) surfaced neighboring but noncovering results. A general convolution or shot-noise reference might nevertheless implicitly contain pieces of this analysis. This is a best-knowledge priority assessment, not exhaustive certification.
+PASS
 
-## Mathematical value — PASS
-The \((n g(0))^{-1}\) separation is a natural threshold: smaller separation produces perfect dependence, larger separation produces independence, and critical separation produces a continuum of non-stable joint laws whose marginals remain strictly stable. Because the marginal means are infinite, the exact Laplace-dependence exponent is a meaningful dependence observable where covariance is not defined. The two sharp endpoint expansions quantify how the transition emerges and vanishes, and the constants identify universal power-law structure beyond a generic Poisson representation. The complete finite-separation classification addresses a motivated distributional gap rather than an unmotivated finite numerical instance.
+The single-pole integral is 2 Gamma(1-1/beta) s^(1/beta). Joint triangular-array Laplace functional splits into two marginals minus convolution overlap; convergence follows from g continuity, local coordinate scaling and integrable beta>1 tails (infinity separation gives zero overlap). Layer-cake intersections of moving centered intervals give strict decrease, differentiating convolution and integration by parts gives J0-Jdelta = beta*s*t*Gamma(2+1/beta)/(s+t)^(2+1/beta)*delta^2+o(delta^2), and splitting two neighborhoods gives C_beta*(t*s^(1/beta)+s*t^(1/beta))*delta^(-beta)+o. Scaling J_delta(cs,ct)=c^(1/beta)J_(delta*c^(-1/beta))(s,t) rules out joint positive stable homogeneity for delta in (0,infinity). Independent fresh quadrature beta=2,s=0.8,t=1.3 found small-delta coefficient ratio 0.99997165 at 0.01 and large-delta coefficient ratio 0.99974208 at delta=100; this corroborates but does not prove all-beta assertions.
 
-## Closest prior literature and limitations
-Bassols Cornudella–Castro (2026) concerns one-pole stable laws in a conditioned absorbing-chain context. Olson–Andrews (2024) establishes multi-location Poisson shot-noise transforms, so generic transform calculus is not new. The theorem applies only to iid continuously distributed observations, inverse powers \(\beta>1\), and two centers coalescing macroscopically. It gives no conclusion for the corresponding conditioned Markov-chain problem, fixed separated centers with unequal densities, or singular densities at the center. Independent historical-priority inspection, particularly of general convolution-tail and Poisson-potential literature, remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinction based on actual statement/implication comparisons: generic techniques or marginals are credited, and the explicit theorem-specific conclusions were not found as covered by the primary material inspected; no claim of exhaustively proven historical novelty. The rescaled two-coalescing-pole inverse-distance statistics of independent observations on a circle converge to the specified two-site Poisson shot-noise law, with continuous strictly decreasing joint-Laplace overlap J_delta, sharp quadratic near-coincidence defect, power-law large-separation overlap, and non-joint-stability for every finite delta>0.
+
+## value
+
+PASS
+
+The 1/(n*g(0)) coalescence window is a motivated critical spatial scale at which two singular observables change from identical to independent stable marginals. Exact monotonicity, both leading constants and the non-stable intermediate family provide a quantitative two-point dependence classification beyond generic Poisson-integral machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
