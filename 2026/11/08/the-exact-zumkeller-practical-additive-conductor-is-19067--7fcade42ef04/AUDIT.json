@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The proof splits even inputs, all large odd inputs, the finite odd bridge, and the exact obstruction. For evens, nine explicit residue identities give Zumkeller-plus-practical representations. For odd N >=716683, exhaustive coverage of 99225 odd residues modulo 198450 produces q+945u <=716683 with q practical and gcd(u,105)=1; the coprime multiplier lemma proves 945(u+210t) Zumkeller for every t>=0. A checker directly verifies every even candidate q up to 716683 against two equivalent exact practical criteria, every needed small odd Zumkeller divisor partition, and the finite bridge; only 20177 is missing from the restricted bridge and 20176+1 supplies it. At 19067, q=1 forces nonabundant 19066, and for every even practical q<19067, z=19067-q fails the necessary paired Zumkeller sigma conditions. The checker was executed at its actual current package path and reproduced all assertions. The infinite claim follows from periodic lifting, not bounded computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Somu–Kukla–Tran 2023 Proposition 4.10 proves eventual representability only.",
+        "Somu–Kukla–Tran 2023 Proposition 4.8 covers even integers >=8 only; does not determine odd maximal exception."
+      ],
+      "reasoning": "A theorem giving a smaller or exact universal conductor would imply the new statement, but the strongest inspected mixed-summand coverage has no effective cutoff and the class-specific even theorem leaves odd integers unresolved. The two-Zumkeller theorem is a different summand condition and neither implies nor is implied by the mixed claim.",
+      "searches": [
+        "published-finding corpus: all integers greater than 19067 sum Zumkeller practical odd exceptions",
+        "published-finding corpus: effective additive Zumkeller practical exact odd exceptional conductor 2023",
+        "web: \"Zumkeller\" \"practical\" \"all integers\" \"19067\"",
+        "web: \"Zumkeller\" \"practical\" \"sum\" \"exceptions\" \"all\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.14149v2 (HTML full Section 4)",
+      "OEIS:A083207",
+      "OEIS:A005153",
+      "published-finding corpus: published number-theory search, including Zumkeller 2^a p q effective criterion",
+      "published-finding corpus: published Zumkeller partition count for 2^a p"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Somu–Kukla–Tran 2023 Lemma 2.1 and Proposition 4.10 supply the coprime multiplier mechanism but do not bound their practical representatives.",
+        "Published findings entitled An effective criterion for Zumkeller numbers of the form 2^a p q and Exact Zumkeller partition counts for the family 2^a p concern membership or partition multiplicity, not an additive mixed conductor."
+      ],
+      "reasoning": "The prior eventually-large theorem contains neither 19067 as a nonrepresentable witness nor any bound <=19068. The current finite bridge and exhaustive necessary-condition obstruction are extra mathematical facts; the new theorem is not a corollary of the cited prior quantified claims alone.",
+      "searches": [
+        "published-finding corpus: Zumkeller classification squarefree 3 prime factors 2pq 2pqr divisors equal sums",
+        "published-finding corpus: squarefree Zumkeller numbers necessary sufficient condition 2pq",
+        "published-finding corpus: largest exceptional integer not sum of a Zumkeller number and practical number 19067",
+        "web: \"Somu\" \"Kukla\" \"Tran\" \"practical\" \"sufficiently large\" sum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Somu–Kukla–Tran 2023 arXiv:2310.14149v2 Section 4, Proposition 4.10: unquantified eventual N.",
+        "OEIS A083207 and A005153 are individual-summand sequences, with no described exact mixed additive conductor."
+      ],
+      "reasoning": "The equivalent formulation max(N not in Z+P)=19067, or all integers >=19068 in Z+P with 19067 omitted, is strictly stronger than existence of an unspecified threshold. No exact matching or equivalent numerical statement was found in the queried records.",
+      "searches": [
+        "published-finding corpus: largest exceptional integer not sum of a Zumkeller number and practical number 19067",
+        "published-finding corpus: exact conductor threshold Zumkeller plus practical 19067 2023 Somu Kukla Tran",
+        "web: \"19067\" \"Zumkeller\"",
+        "web: \"Zumkeller\" \"practical\" \"largest\" \"sum\" exception"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A083207 lists Zumkeller numbers; OEIS A005153 lists practical numbers, but neither records the last missing value of the mixed sumset.",
+        "Somu–Kukla–Tran 2023 numerical table and code in Section 4 concern sums of two Zumkeller numbers, with last exception 32761."
+      ],
+      "reasoning": "Existing exact tables enumerate individual classes or a different two-Zumkeller sumset. The new last mixed exception is not a direct transcription of the inspected tables; it requires cross-class additive calculation plus an infinite-cover proof.",
+      "searches": [
+        "web: site:oeis.org \"Zumkeller\" \"practical\" \"sum\" \"19067\"",
+        "web: site:oeis.org \"Zumkeller\" \"practical\" \"sum\" \"largest\"",
+        "web: site:oeis.org \"not the sum of a Zumkeller number and a practical number\"",
+        "published-finding corpus: Zumkeller two-summand Goldbach exact finite conductor largest nonrepresentable 94185"
+      ]
+    },
+    "rationale": "The directly inspected Somu–Kukla–Tran 2023 paper, Proposition 4.10, gives eventual Zumkeller-plus-practical representability without numerical conductor. Its computed maximal exception 32761 is explicitly for TWO Zumkeller summands, not for the mixed-summand set. The exact value 19067 and sharp universal cutoff were absent from the inspected sources, published-finding corpus mathematical-record searches, OEIS descriptions and accessible claim history. Noncovering is based on comparing quantified mathematical statements; unindexed prior work remains a risk.",
+    "residual_risks": [
+      "Earlier historical claims beyond the accessible current-week ledger could not be checked; searched published records were used as partial coverage, not proof of uniqueness.",
+      "An unindexed, unpublished, or inaccessible exact mixed-summand conductor calculation may exist.",
+      "The related 2020 journal article was assessed using accessible summary, not full text.",
+      "Independent external mathematical audit has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact 19067 conductor; Section 4.10 is qualitative, with nonexplicit N; 32761 is for two Zumkeller numbers",
+        "evidence": "Proposition 4.8 even representation; Proposition 4.10 chooses representatives modulo 945^2 and states existence of N; preceding 32761 figure refers to two Zumkeller summands.",
+        "identifier_or_url": "arxiv:2310.14149v2; https://arxiv.org/html/2310.14149v2",
+        "material_read": "Introduction, Lemma 2.1, Remark 2.3, Lemma 4.5, Propositions 4.6–4.10 and their proofs; numerical comparison in Section 4",
+        "method": "Full accessible HTML text, inspecting mathematical statements and proofs",
+        "title": "Some Results on Zumkeller Numbers",
+        "trigger": "Same additive pair Zumkeller plus practical; plausible exact result"
+      },
+      {
+        "assessment": "Contains candidate summand data but not the mixed sumset conductor",
+        "evidence": "Lists individual Zumkeller integers; comments on the odd abundant subset below 10^6.",
+        "identifier_or_url": "https://oeis.org/A083207",
+        "material_read": "Sequence definition, initial terms and comments on odd abundant examples",
+        "method": "Public sequence entry",
+        "title": "OEIS A083207: Zumkeller or integer-perfect numbers",
+        "trigger": "Exact database possibility for odd Zumkeller numbers"
+      },
+      {
+        "assessment": "Covers practical membership, not mixed-sum conductor",
+        "evidence": "Practical numbers have 1 and even values; divisibility criterion stated.",
+        "identifier_or_url": "https://oeis.org/A005153",
+        "material_read": "Sequence definition, initial terms and cited Stewart criterion",
+        "method": "Public sequence entry",
+        "title": "OEIS A005153: Practical numbers",
+        "trigger": "Independent practical number criterion and exact table possibility"
+      },
+      {
+        "assessment": "No covering mixed additive theorem in read material; whole document not certified noncovering",
+        "evidence": "Abstract advertises Zumkeller classification by prime factors and k-layered properties; residual full-text risk recorded.",
+        "identifier_or_url": "https://doi.org/10.1016/j.jnt.2020.05.003",
+        "material_read": "Publisher abstract and available introductory statements, not full article",
+        "method": "Accessible publisher summary",
+        "title": "Some properties of Zumkeller numbers and k-layered numbers",
+        "trigger": "General Zumkeller literature with broader prime support"
+      },
+      {
+        "assessment": "Summary addresses individual Zumkeller membership for specified factorization, not an additive conductor; whole document not certified noncovering",
+        "evidence": "Record summary describes fixed-prime-support effective criterion and a=1,2,3,4 classifications.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-zumkeller-two-odd-prime-effective-criterion--7e2e978c2daf",
+        "material_read": "Search metadata title and detailed summary only; full text not retrieved",
+        "method": "Mathematical-record semantic search",
+        "title": "An effective criterion for Zumkeller numbers of the form 2^a p q",
+        "trigger": "Search retrieved source sharing Zumkeller terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7fcade42-ef04-4722-900e-ac669b37bd21",
+  "value": {
+    "rationale": "The largest omitted integer of a natural additive sumset is an exact, motivated invariant: it resolves the quantitative gap of the 2023 qualitative eventual-representability theorem. The certified sharp threshold includes a genuine nonrepresentation witness and a constructive representation of all larger integers. The finite bridge is necessary to establish sharpness, and the modular residue cover supplies an unbounded theorem; neither is an arbitrary slice or a routine restatement of the earlier existence theorem. No general theorem beyond this exact motivated invariant is needed for value.",
+    "status": "PASS"
+  }
+}
