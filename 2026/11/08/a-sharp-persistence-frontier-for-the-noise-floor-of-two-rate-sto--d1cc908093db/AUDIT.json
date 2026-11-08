@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For 0<h(1+δ)<2 the two squared multipliers are below one. A symmetric Markov joint-second-moment recursion gives a strictly positive determinant D, exactly solvable two-by-two linear system and explicit V(p). Exact algebra factors V(p)-σ²h/(2-h) by 2-t+2p(t-1), and the exact derivative has the sign of h-1. Boundary cases p=0, t=2, h=1, and p=1/2 are handled. verify.py confirmed five exact symbolic identities, five exact rational identities, and 240 independent numerical recurrences. Finite diagnostics do not serve as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen, Mou and Maguluri, arXiv:2111.06328, first 3 pages and Sections 1-2, treat constant stepsize and small-step Gaussian stationary limit",
+        "Goujaud et al., PMLR 151 (2022), Sections 2-4, treat deterministic rate and spectral-polynomial optimization, not persistent additive gradient-noise variance",
+        "Gürbüzbalaban et al., arXiv:2302.05516, Theorems 2 and 5 and Appendix B, prove tail-index statements, with stochastic linear-regression coefficients"
+      ],
+      "reasoning": "General covariance lifting for Markov switching is classical and subsumes the setup algorithmically, but the compared published theorem statements and assumptions do not directly imply the sharp two-rate additive-noise inequality without solving a different stationary moment system and studying the signs. No broader all-parameter schedule-ordering theorem was identified.",
+      "searches": [
+        "randomized cyclic gradient step sizes scalar quadratic steady mean squared error versus constant stepsize",
+        "Markov switching scalar autoregression conditional stationary variance formula two state Markov chain threshold"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2302.05516",
+      "https://proceedings.mlr.press/v151/goujaud22a/goujaud22a.pdf",
+      "https://arxiv.org/pdf/2111.06328",
+      "Related published semantic research results on stationary SGD noise, cyclic learning rates, and Markov switching"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gürbüzbalaban et al., Theorem 2 explicitly addresses tail indices under finite-state Markovian steps and assumes nontrivial stochastic Hessian conditions; the present squared multipliers are deterministically contractive so their heavy-tail theorem does not yield the finite-noise strict-variance frontier",
+        "Goujaud et al. use spectral contraction rates of cyclic heavy-ball, not stationary additive-noise covariance",
+        "Chen et al. specialize to constant steps and vanishing-step scaling rather than arbitrary two-rate persistence"
+      ],
+      "reasoning": "The prior results are related but their conclusions do not imply the exact signed difference V(p)-V0 or derivative sign merely by substituting the stated parameters. The new proof supplies both. General Markov-switching covariance identities remain understood as background rather than a new principle.",
+      "searches": [
+        "\"Cyclic and Randomized Stepsizes Invoke Heavier Tails\" variance Markovian stepsizes",
+        "\"Super-Acceleration with Cyclical Step-sizes\" noise variance",
+        "\"Stationary Behavior of Constant Stepsize SGD\" Markov stepsize"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gürbüzbalaban et al., arXiv:2302.05516, Sections 3 and Appendix B: Markov/cyclic stepsize affine recursions and tail-index results, not the noise-floor ordering for deterministic curvature",
+        "Searches for direct variance and persistence-equivalent formulations did not return the explicit strict ordering or cutoff"
+      ],
+      "reasoning": "Equivalent forms include persistence p versus switching 1-p and correlation 2p-1; the cutoff is p<(t-2)/(2(t-1)), equivalently switching 1-p>t/[2(t-1)], for t>2. Comparisons covered these aliases. No matching original statement found in inspected primary material; absence in search alone is not a novelty proof.",
+      "searches": [
+        "\"stationary variance\" \"cyclical\" \"learning rate\" scalar quadratic",
+        "\"two cycle\" SGD \"stationary\" \"variance\"",
+        "\"Markovian learning rate\" stationary covariance two-state"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact rational check at h=8/5 and δ=1/8 gives p_c=13/76; p=0 gives 2179/561, p=1/10 gives 383/97, p=1/2 gives 13/3, fixed gives 4",
+        "No exact numerical table or formula with this Markov persistence frontier was located in the queried published research records or primary sources"
+      ],
+      "reasoning": "The result is not an isolated numeric table entry; it is a complete symbolic classification for the continuous parameter domain. A known covariance matrix formula would permit recomputation, but was not found to tabulate or state these sign transitions. This absence is reported as bounded evidence, not a guarantee of uniqueness.",
+      "searches": [
+        "two-cycle stochastic gradient descent additive gradient-noise exact long-run average variance threshold geometric product steps exceeds two, iid schedule worse",
+        "scalar quadratic periodic alternating steps h1 h2 noise floor relative constant arithmetic mean step with phase averaged stationary covariance"
+      ]
+    },
+    "rationale": "The compared primary sources establish heavy-tail indices and moment regimes for varying SGD stepsizes (Gürbüzbalaban et al., 2023), deterministic spectral convergence for cyclic momentum (Goujaud et al., 2022), and constant-small-step stationary approximations (Chen et al., 2021). Neither inspected relevant result states or yields by direct parameter substitution the exact all-parameter stationary additive-noise persistence cutoff and monotonicity reversal for two fixed-curvature rates; the additional two-state conditional-moment computation and inequality classification are required. Standard Markov-modulated moment methods are prior art. Residual publication-precedence risk is acknowledged.",
+    "residual_risks": [
+      "A specialist treatment of Markov-jump autoregressions or periodic stochastic gradients may have recorded the same explicit two-rate variance frontier under different notation; search coverage is bounded",
+      "The class is scalar and fixed curvature; common general covariance-lifting methods are not themselves new",
+      "Independent scientific and publication-precedence review has not been performed"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorems concern power-law tail indices/moment thresholds under stochastic curvature rather than the exact stationary second moment and its ordering for a fixed scalar Hessian and additive gradient noise",
+        "evidence": [
+          "Theorem 2, PDF p.6, Markov tail-index claim",
+          "Theorem 5, PDF p.8, cyclic tail-index claim",
+          "Appendix B.4, PDF pp.21-22, Markovian step moment bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.05516",
+        "material_read": "Introduction and SGD model, Sections 3 (Theorems 2 and 5), Appendix B (moment and Markovian stepsize sections), plus term searches over the full 50-page PDF",
+        "method": "Inspected source PDF text and page images; searched for variance, stationary covariance and additive noise",
+        "title": "Cyclic and Randomized Stepsizes Invoke Heavier Tails in SGD than Constant Stepsize",
+        "trigger": "Same cyclic, independent and Markovian learning-rate families; plausible stronger coverage"
+      },
+      {
+        "assessment": "The deterministic convergence and spectral-rate statements do not cover the stationary error from independent gradient noise or compare schedule persistence",
+        "evidence": [
+          "Section 2 quadratic problem formulation and worst-case rate, PDF pp.1-2",
+          "Theorem 3.1 and Corollary 3.2, PDF pp.2-3"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v151/goujaud22a/goujaud22a.pdf",
+        "material_read": "PDF pages 1-4, model and main deterministic two-cycle rate results, along with full-PDF searches for noise and variance",
+        "method": "Source PDF text and page-image inspection",
+        "title": "Super-Acceleration with Cyclical Step-sizes",
+        "trigger": "Deterministic two-cycle optimization methods and possible rate dominance"
+      },
+      {
+        "assessment": "The fixed-step asymptotic Gaussian covariance and scalar baseline do not supply a two-state Markov switching persistence frontier",
+        "evidence": [
+          "Abstract and Sections 1-1.2, PDF pp.1-3, constant-step recursion and small-step limit"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2111.06328",
+        "material_read": "PDF first three pages including illustrative scalar quadratic example and stationary scaling framework",
+        "method": "Source PDF text and first-page image inspection",
+        "title": "Stationary Behavior of Constant Stepsize SGD Type Algorithms: An Asymptotic Characterization",
+        "trigger": "Stationary covariance under SGD noise might dominate the proposed exact result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d1cc9080-93db-40ac-86f0-f7accd7c2baf",
+  "value": {
+    "rationale": "The question compares a natural pair of equal-cost rate schedules with exactly the same one-step stepsize marginals and noise law. The result provides a complete sharp domain in which temporal anticorrelation turns a variance penalty into a variance reduction, an exact persistence cut-off p_c, and an independent h=1 monotonicity transition. A numerical method designer can distinguish alternating, IID and persistent schedules in a high-step stable regime. This is not an arbitrary numerical slice or a restatement of the generic covariance recursion; the parameter inequalities and ordering are the substantive result.",
+    "status": "PASS"
+  }
+}
