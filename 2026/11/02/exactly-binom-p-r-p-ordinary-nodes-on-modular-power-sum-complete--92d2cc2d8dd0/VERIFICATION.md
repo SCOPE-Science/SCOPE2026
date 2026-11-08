@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.8 or newer. The script implements modular Gaussian elimination, checks the determinant identity for the two tangent quadratic blocks for tested parameter pairs, enumerates all two-coordinate-value patterns over three prime fields, and exhaustively enumerates the projective rational points in the smallest case \((p,r)=(5,1)\) to locate six rational singularities. It prints `VERIFY_OK` upon success.
+## correctness
 
-The tests cover only primes \(5,7,11\) and selected values of \(r\), plus all \(\mathbb F_5\)-rational projective points in the smallest case. They cannot certify that there are no additional geometric points over extension fields, and do not prove the arbitrary-prime statement. Those assertions are proved by the two-value Vandermonde argument, the multiplicity divisibility bound and the nondegenerate quadratic formal normal form in `RESULT.md`.
+PASS
 
-The formula for the local completed ring and reduced Jacobian singular scheme is a characteristic-not-two mathematical argument, not a finite-check inference. An independent mathematical audit has not been performed.
+Newton identities valid for p>=5 identify first 3 power sums with elementary-symmetric regular sequence. A rank-deficient 3x n Jacobian is equivalent by Vandermonde to <=2 coordinate values; first two sum equations and 0<a,b<n<2p force exactly p copies of a nonzero value and r zeroes projectively. On an affine chart at each such point, the first two independent gradients eliminate U,V and the remaining quadratic form is nondegenerate: its two I+J blocks have determinants p-1 (nonzero mod p) and r (nonzero mod p). Formal Morse lemma in odd characteristic gives ordinary double point and reduced Jacobian singular scheme. S2 complete intersection plus finite codim>=2 singular support yields R1/normality; projective CI connectedness plus normality gives integrality. In the smallest (p,r)=(5,1), independent exhaustive P^5(F5) singular census finds six, and Hessian determinants check examples, not the general geometric proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge, scoped novelty for the exact theorem and parameter regime after checking actual primary results and Resultary; prior methods/ingredients and exact overlaps are acknowledged rather than used as evidence of novelty. No decisive stronger theorem covering this precise claim was identified; remaining priority uncertainty is explicit.
+
+## value
+
+PASS
+
+An all-primes, characteristic-dependent exact singular scheme with binomial count and A1 local types is a meaningful natural invariant of symmetric power-sum complete intersections, with a concrete nodal K3 boundary case. General radicality/dimension estimates do not make this an arbitrary tiny computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
