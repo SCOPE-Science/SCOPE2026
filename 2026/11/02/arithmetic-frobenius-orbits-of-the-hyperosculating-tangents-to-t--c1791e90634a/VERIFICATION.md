@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the characteristic-three hyperosculation orbits
 
-Run `python3 verify_klein_frob.py` using Python 3.8 or newer. No third-party packages are required. The script checks irreducibility of the chosen degree-six polynomial by all possible divisors of degrees at most three, then verifies multiplication and exponentiation in \(\mathbb F_{729}\). It independently evaluates the original equation \(X^3Y+Y^3Z+Z^3X=0\) and the local cubic tangency condition for all nonzero candidate parameters, identifies exactly 28 hyperosculations, verifies their tangent lines are pairwise distinct, classifies element orders as \((1,6,3,18)\) at orders \((1,7,13,91)\), and computes all Frobenius orbit lengths. It also checks the rational-count formula for extension degrees 1 through 12.
+# Independent mathematical audit
 
-Expected final marker: `KLEIN_CHAR3_HYPERFLEX_28_ORBITS_1_3_6_6_6_6_F729_PASS`.
+## correctness
 
-**Limits.** The finite test proves the asserted identities within \(\mathbb F_{729}\), but the mathematical proof of *all* geometric hyperosculation points uses the tangent coefficient comparison, the degree-four factorization, and the order argument; the test is not a replacement for these steps. No separate independent proof review has been performed.
+PASS
+
+For F=X^3Y+Y^3Z+Z^3X over char3, gradient (Z³,X³,Y³) is nowhere projectively zero. Taylor expansion has linear tangent and cubic term (br³+cs³+at³), no quadratic; cubic vanishes identically on tangent direction precisely when (b,c,a) proportional to (c^9,a^9,b^9). On affine X=1 this gives P_u=[1:u^10:u], u^91=1 and F(P_u)=u³(u^28+u^7+1)=0. Let v=u^7; v^4+v+1=(v-1)(v³+v²+v-1) divides v^13-1 mod3 (independently checked exact polynomial remainder 0). Three primitive-order13 roots plus v=1 have seven u preimages each, with u orders (1,7,13,91) in counts (1,6,3,18). Orders of 3 mod 7,13,91 are 6,3,6; Frobenius orbits 1,3,6,6,6,6. Coefficient u³ on tangent determines its field. No bitangents by contact >=3 twice contradicting Bezout degree4. Geometric 28 already known, not credited as novel.
+
+## originality
+
+PASS
+
+Elkies 1999 pp 79–81 proves 28 fourfold tangencies and all-point inflection on a characteristic-3 Klein model over F9. The exact F3 Frobenius decomposition for X³Y+Y³Z+Z³X is an arithmetic twist-specific refinement not found in the inspected discussion; general geometric same-model counts are fully credited.
+
+## value
+
+PASS
+
+An intrinsic special-tangent configuration over a small field has a nontrivial Frobenius cycle structure; the field-by-field rational-contact counts and degree-six splitting field are natural arithmetic-geometric invariants beyond the known total of 28.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
