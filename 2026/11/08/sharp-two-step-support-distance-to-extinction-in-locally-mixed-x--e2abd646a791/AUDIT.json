@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "A cyclic binary derivative b_i=x_(i-1) XOR x_i gives local one-step support {b_i,b_(i+1)}. Forced outputs are internal to length>=2 constant runs of b; keeping those runs and assigning singleton runs from the preceding long run constructs a reachable word with no isolated bits, which reaches zero next. One-hot inputs cannot reach zero in one update, so two is optimal. The transfer matrix with characteristic polynomial (t^2-t-1)(t^2-t+1) yields the exact census. Independence and lower probability r per free choice give the finite-time tail; the standalone checker exhaustively validates n=2..15 and independent small-n cases, not the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2405.02928, §1 equations (1.1)--(1.4): local kernels are linear in the empirical neighbor distribution and a transition matrix, unlike the XOR sitewise mixture.",
+        "Endo, JSIAM Letters 18 (2026), DOI 10.14495/jsiaml.18.29: accessible abstract addresses deterministic additive and nonlinear extinction constructions, not this local stochastic support graph.",
+        "arXiv:2602.13839v1, §IV: covers the precise mixture but only gives a larger constructive horizon."
+      ],
+      "reasoning": "General synchronization and deterministic nilpotency theories concern different update kernels and do not directly supply the exact positive-support distance profile for locally sampled rules 60 and 102. The stochastic-tail conclusion for every interior parameter is an elementary consequence of the new two-step support statement, not a claim of new finite-state Markov theory.",
+      "searches": [
+        "\"probabilistic cellular automata\" \"synchronization\" \"two steps\" XOR",
+        "\"random\" rule 60 rule 102 absorption time finite lattice",
+        "probabilistic cellular automata with local transition matrices synchronization ergodicity inference 2405.02928",
+        "extinction dynamics cellular automata additive nilpotency Endo 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.13839v1 (primary, relevant sections and proofs read)",
+      "arXiv:2405.02928 (model and main theorem summaries read)",
+      "DOI 10.14495/jsiaml.18.29 (abstract and publication metadata only)",
+      "Published mathematical-record semantic results on two-step CA reachability and related XOR automata; no matching support statement observed."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In Cirillo et al., Theorem 1 reaches zero within four steps and Theorem 2 deduces almost-sure extinction at lambda=1/2, while Lemma 3 proves the one-step admissible-to-zero implication.",
+        "The new classification states exactly d_n(x)=0,1,2 according to zero/no-isolated/other and counts those layers by tr(B^n)."
+      ],
+      "reasoning": "Four-step reachability does not imply the two-step optimum: it leaves open whether some states genuinely require three or four steps. Lemma 3 is reused with attribution; the new theorem resolves the missing global one-step extension and establishes exact sharpness by a single occupied site. For lambda in (0,1) the support graph is parameter independent, so extending qualitative absorption is already implicit in the original support argument and is not treated as an independent novelty.",
+      "searches": [
+        "arxiv:2602.13839 \"Theorem 1\" \"four\" steps reach zero",
+        "arxiv:2602.13839 \"Lemma 3\" admissible forbidden triples zero",
+        "arxiv:2405.02928 Theorem 2.7 synchronization local transition matrix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.13839v1 Section IV, Lemma 3 and Theorem 1: one-step cleaning and four-step global reachability, respectively.",
+        "Theorem in RESULT.md: the local support condition is y_i in {x_(i-1) XOR x_i, x_i XOR x_(i+1)} and the maximal positive-support distance is exactly two."
+      ],
+      "reasoning": "Aliases examined include absorbing support-graph radius, positive-probability extinction horizon, one-step admissibility/no isolated bits, locally mixed ECA 60/102, and XOR derivative run smoothing. The existing four-step reachability bound and its probabilistic absorption corollary do not logically imply a sharp two-step bound; the needed global cyclic extension is proved here.",
+      "searches": [
+        "\"rules 60 and 102\" \"two\" absorption steps stochastic cellular automata",
+        "\"diploid\" \"60\" \"102\" two-step zero state",
+        "probabilistic cellular automata maximal shortest path zero state 2 step",
+        "binary cellular automata randomized XOR left right universal two step zero configuration admissible no isolated symbols"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2602.13839v1 Table 2 and Section IV Theorems 1--2: forced local triple relations, four-stage accessibility proof and qualitative eventual absorption; no displayed two-step exact distance census.",
+        "Nearby indexed cellular-automaton records involve different rules (rule 128, reversible radius-two automata, parity automata on cube graphs), rather than this local mixture."
+      ],
+      "reasoning": "No directly matching published table or indexed record of the sharp support-distance profile was located. A search failure is not proof of global uniqueness; the closest exact model was inspected at the level of its definitions, proof, and theorems.",
+      "searches": [
+        "Cirillo Vliem Schuricht Spitoni 2602.13839 balanced diploid probabilistic cellular automata rule 60 102 arbitrary lambda sharp two step support reachability finite periodic lattice",
+        "finite probabilistic cellular automata rule 60 102 reachability extinction",
+        "\"rule 60\" \"rule 102\" \"two steps\" \"zero\""
+      ]
+    },
+    "rationale": "Cirillo et al., arXiv:2602.13839v1 Section IV Theorem 1, gives four-step positive-probability extinction at the balanced local mixture, not the exact maximal shortest support distance of two for every ring and every interior mixing probability or the distance census. Their Lemma 3 is credited as the pre-existing cleaning observation. Two-step optimality uses a new cyclic-run extension argument, and a transfer matrix gives an exact full distance classification. No accessible indexed statement was found to imply this combined theorem, while the remaining historical-priority risks are specified.",
+    "residual_risks": [
+      "An equivalent two-step reachability proof may exist under alternative language in earlier automata/control or probabilistic-CA literature not exhaustively retrieved.",
+      "The Endo 2026 full text was not inspected; only its abstract was accessible in the reviewed materials.",
+      "Finite-volume extinction for all interior parameters does not imply infinite-volume extinction; the latter is outside the claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The published model and one-step cleaning are the correct starting point. Its proved four-step accessibility and almost-sure extinction do not furnish the exact two-step classification; no such displayed classification was found in the inspected relevant sections.",
+        "evidence": [
+          "arXiv:2602.13839v1, §II Eq. (2)--(5), §III Eq. (15), §IV Lemma 3 and Theorems 1--2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.13839",
+        "material_read": "Primary HTML: abstract, model definition in §II, rule 60/102 formulas and update support in §III, §IV Lemmas 1--4 and Theorems 1--2, including the four-stage construction and absorption argument.",
+        "method": "Inspected exact formulas and logical strength of the quantitative four-step bound, then compared them with the new exact two-step support diameter and distance-count statement.",
+        "title": "Inefficiency of the block approximation in diploid Probabilistic Cellular Automata",
+        "trigger": "The exact same local rule 60/102 mixture and finite-ring extinction problem."
+      },
+      {
+        "assessment": "The studied class samples neighbors by empirical frequencies and passes through a fixed transition matrix. It is not the XOR mixture; the inspected stated synchronization theorems do not directly imply the new exact support-radius result.",
+        "evidence": [
+          "arXiv:2405.02928, §1 Eq. (1.2)--(1.4) and Theorem 2.7 summary."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.02928",
+        "material_read": "Accessible full-text rendering: abstract, §1 model equations (1.1)--(1.4), §§1.1--1.2 overview and theorem descriptions.",
+        "method": "Compared neighborhood dependence and update kernels, not merely the titles or terminology.",
+        "title": "Probabilistic cellular automata with local transition matrices: synchronization, ergodicity, and inference",
+        "trigger": "Potentially broader finite-state synchronization results on cyclic graphs."
+      },
+      {
+        "assessment": "Relevant contextual extinction literature, but the inspected material does not resolve the present exact stochastic support radius; full-text priority remains a residual risk.",
+        "evidence": [
+          "JSIAM Letters 18 (2026), 29--32, publisher abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.14495/jsiaml.18.29",
+        "material_read": "Publisher landing-page abstract, bibliographic metadata and references listing; full paper not examined.",
+        "method": "Compared stated deterministic additive-nilpotent model to the independently randomized local 60/102 support relation.",
+        "title": "Extinction dynamics in cellular automata: extensions of additive systems and nonlinear constructions",
+        "trigger": "Potentially broader extinction-time bounds for additive cellular automata."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e2abd646-a791-4659-8495-edc79e2d8e76",
+  "value": {
+    "rationale": "Exact positive-support distance to an absorbing configuration is a natural finite-ring dynamical invariant. Unlike an already-known constructive four-step bound, the theorem classifies every initial state at the optimal support distance 0,1 or 2, counts these classes in closed form for every n, and quantitatively bounds finite-volume extinction at all interior mixtures. The cyclic-run mechanism explains why a universal two-step route exists; as n grows, the count shows almost all states genuinely require two updates. No claim about thermodynamic-limit extinction is made.",
+    "status": "PASS"
+  }
+}
