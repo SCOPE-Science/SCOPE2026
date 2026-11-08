@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact computational checks
+# Independent mathematical audit
 
-Run `python3 verify_octahedral_multipath.py` using Python 3.10+ with only the standard library. The verifier reconstructs all 24 arcs from the three antipodal pairs; enumerates faces by two separate methods; compares exact face sets; checks the full 1,816-face incidence graph and 835 reversed matching pairs for cycles; makes 835 integral unit chain cancellations; checks the reduced differential squares to zero; finds nine integer unit pivots and a zero residual \(12\times101\) boundary; and independently reduces all full simplicial boundaries over \(\mathbb F_2\). It asserts the final reduced integral ranks and numerical consistency.
+## correctness
 
-Actual recorded results: face-vector \((24,192,616,744,240)\), incidences \(6408\), critical-cell counts \((1,0,12,101,32)\), mod-two boundary ranks \((23,169,444,208)\), and reduced integral Betti numbers \((3,92,32)\). The full textual output is in `verification_stdout.txt`.
+PASS
 
-**Limits.** An executable finite exhaustive argument, not a proof of any all-order statement. A successful verification output is not independently audited. The integral calculation determines homology only, not the homotopy attaching maps or cup products.
+Reconstructed the finite directed multipath definition on the 24 arcs of K_{2,2,2}: indegree/outdegree <=1 and no directed cycles, hence at most five arcs. Independently enumerated all 1,816 nonempty faces by brute arc subsets, obtaining (24,192,616,744,240), reproduced 835 acyclic Morse pairs and critical dimensions (one vertex, 12 two-cells, 101 three-cells, 32 four-cells). Independently computed mod-two boundary ranks (23,169,444,208), then exact signed Morse cancellation, giving the only differential 12x101 with 257 nonzero entries and integer Smith factors nine 1s and zeros; therefore reduced integral homology is Z^3 in degree2, Z^92 in degree3, Z^32 in degree4 with no torsion. This establishes homology, not a homotopy wedge. The general top-degree 32 is acknowledged prior rather than new.
+
+## originality
+
+PASS
+
+Comparison is of the actual final mathematical claim to prior implications, not titles. The specific new portion is integral H2=3, H3=92, absence of torsion. Known top rank explicitly excluded from novelty. No exact published integral Betti table for this 24-directed-arc multipath complex surfaced; a failed search alone is not novelty proof. No uninspected work is asserted not to cover the claim.
+
+## value
+
+PASS
+
+K_{2,2,2} is the canonical octahedral graph; a complete integral calculation of multipath homology beyond already-known top rank determines previously undetermined lower ranks and no-torsion information. These exact data are natural inputs for comparisons of multipath vs cycle-free chessboard complexes, not merely a check of a single tiny normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

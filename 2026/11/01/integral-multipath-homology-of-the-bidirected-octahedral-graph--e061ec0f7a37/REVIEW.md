@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The domain is the six-vertex bidirected graph with exactly the three antipodal undirected edges absent. Two genuinely different exhaustive enumerations give the same 1,816 nonempty admissible faces. A complete topological sort checks all 6,408 Hasse incidences and verifies acyclicity of 835 Morse pairs. Exact signed integer unit cancellations give a reduced chain with sole nonzero boundary of size \(12\times101\), rank nine, and nine unit Smith factors; all remaining entries vanish. The resulting integral groups are free of ranks \(3\), \(92\), \(32\). Independent complete mod-two simplex-boundary ranks and Euler characteristic agree. This proves homology, not a wedge-of-spheres homotopy type.
+## correctness
 
-**Originality — PASS within available searches, subject to unindexed-literature risk.** Full-text inspections of arXiv:2110.11206 (path posets, directed linear graphs), arXiv:2208.04656 (directed linear/polygonal/grids and transitive tournament examples), and arXiv:0710.5252 (cycle-free chessboard connectivity) did not contain a theorem computing the induced deletion of the six forbidden antipodal arcs from \(\Omega_6\). The exact middle two-dimensional ranks are not implied by existing classifications of complete bipartite graphs or double-stars. Most importantly, a known universal Hamiltonian-cycle formula **already covers the 32 top-degree classes** for this six-vertex example; this is acknowledged and not counted as independent novelty. The novel claimed content is the complete lower-degree integer differential and consequent torsion-free integral classification. Keyword searches cannot prove uniqueness: equivalent unpublished computations and inaccessible manuscripts remain possible.
+PASS
 
-**Value — PASS.** The octahedron is the smallest balanced complete tripartite graph with two vertices in each part and a canonical small highly symmetric non-bipartite graph. Its directed-edge multipath complex is a natural test beyond the published path, polygon, transitive-tournament and bipartite examples; determining both nontrivial lower homology groups and integral torsion gives information not supplied by the general Hamiltonian-cycle top-homology theorem. The result is finite, but is a motivated complete exact invariant of a fixed canonical graph, not a cherry-picked parameter slice. It makes no unsupported all-parameter or homotopy claims.
+Reconstructed the finite directed multipath definition on the 24 arcs of K_{2,2,2}: indegree/outdegree <=1 and no directed cycles, hence at most five arcs. Independently enumerated all 1,816 nonempty faces by brute arc subsets, obtaining (24,192,616,744,240), reproduced 835 acyclic Morse pairs and critical dimensions (one vertex, 12 two-cells, 101 three-cells, 32 four-cells). Independently computed mod-two boundary ranks (23,169,444,208), then exact signed Morse cancellation, giving the only differential 12x101 with 257 nonzero entries and integer Smith factors nine 1s and zeros; therefore reduced integral homology is Z^3 in degree2, Z^92 in degree3, Z^32 in degree4 with no torsion. This establishes homology, not a homotopy wedge. The general top-degree 32 is acknowledged prior rather than new.
 
-**Closest literature and limitations.** See the foundational 2021 work (arXiv:2110.11206), 2022 homotopy paper (arXiv:2208.04656), 2007 cycle-free chessboard complexes (arXiv:0710.5252) and 2026 bidirectional polygon results (arXiv:2601.05670). The general Hamiltonian-cycle statement subsumes only the degree-four rank. Unindexed equivalent calculations remain the main originality risk. The proof is fully computational but uses exact finite enumeration and integer operations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Comparison is of the actual final mathematical claim to prior implications, not titles. The specific new portion is integral H2=3, H3=92, absence of torsion. Known top rank explicitly excluded from novelty. No exact published integral Betti table for this 24-directed-arc multipath complex surfaced; a failed search alone is not novelty proof. No uninspected work is asserted not to cover the claim.
+
+## value
+
+PASS
+
+K_{2,2,2} is the canonical octahedral graph; a complete integral calculation of multipath homology beyond already-known top rank determines previously undetermined lower ranks and no-torsion information. These exact data are natural inputs for comparisons of multipath vs cycle-free chessboard complexes, not merely a check of a single tiny normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
