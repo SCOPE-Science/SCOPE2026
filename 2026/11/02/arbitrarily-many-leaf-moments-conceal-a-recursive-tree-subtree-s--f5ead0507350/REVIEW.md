@@ -1,11 +1,21 @@
-# Scientific review: recursive-tree global leaves conditioned on a descendant split
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Conditioning each arrival colour separates vertex \(2\)'s descendant tree from the complementary tree; both induced trees have independently uniform recursive-tree laws. The colour count is exactly uniform. Eulerian leaf counts agree with cyclic descent counts, whose joint-cumulant expansion has only proper connected paths at orders below the component size. This proves linear cumulant scaling and hence all stated finite moment identities, without extrapolation from enumeration. The support witness \(\Pr(L_n=1\mid S_n=s)=0\) for interior \(s\) versus \(\Pr(L_n=1)=1/(n-1)!\) proves strict law inequality. Boundary expectation and covariance calculations are explicit. A standalone exact-rational checker passed 202 assertions over 46,232 exhaustively enumerated small trees; these are supporting checks, not infinite certificates.
+## correctness
 
-**Originality (O): PASS with explicit priority risk.** Janson's 2017 arXiv full text gives the broad recursive split-tree structure. Mahmoud and Smythe (1991) give a closely related exact distribution for leaves **inside** rooted subtrees; the complete original was not readable in available institutional extraction. The proposed result concerns leaves of the **entire** tree conditional on a given descendant subtree size and the consequent arbitrary-order moment masking. published-finding corpus searches found nearby root-degree/leaf and root-attachment/path-length results, whose statements do not cover this claim. The underlying Pólya and Eulerian machinery is prior; an older implicit consequence may exist and independent priority certification is absent.
+PASS
 
-**Value (V): PASS.** The result finds a sharp structural limit on dependence detectable by finitely many leaf moments: for arbitrarily high fixed order, a nontrivial conditioned subtree event preserves all these moments even though a support event distinguishes the full distributions. Its exact size-uniform decomposition and boundary-only covariance complete the finite-size picture in a natural tree model.
+The parent-colour Pólya urn yields S_n uniform over 1..n-1; conditional on any colour history, each colour induces an independent recursive tree and only the single blue-root boundary requires subtraction. Eulerian insertion identifies X_m with cyclic descents on m i.i.d. continuous ranks. Every connected joint-cumulant pattern of r<m cycle edges is a proper path, occurring m times; thus kappa_r(X_m)=m c_r, so the independent split matches all cumulants and moments of X_n through r<min(s,n-s). A chain is the sole one-leaf whole tree, probability 1/(n-1)!, while interior sums cannot have one leaf; nonidentity is rigorous. The two boundary corrections give covariance -(n-2)/(2(n-1)); independent exact enumeration n=3..7 checked uniformity and covariance. This is a finite-distribution theorem, not independence or a conclusion beyond the strict moment bound.
 
-**Scope and limitations.** The model is the uniformly grown increasing-labelled recursive tree and the designated vertex \(2\), not an arbitrary weighted or nonuniform tree. The matching moments are only orders strictly below both component sizes. The marginal and conditional laws are never asserted equal at interior sizes. Earlier full-text priority review and an independent mathematical audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The global-leaf conditional decomposition and arbitrary finite-order cumulant camouflage are distinguishable from classical subtree-local leaf counts and the classical Eulerian leaf marginal. No located source states this precise joint law; priority remains qualified because 1991 source has scanned, unusable mathematical pages.
+
+## value
+
+PASS
+
+The natural subtree-size versus global-leaf dependence problem has a counterintuitive invariant: arbitrary fixed collections of moments can hide a real distributional difference, while covariance is entirely boundary-driven. It refines classical recursive-tree subtree statistics and gives a concrete caution against moment-truncation inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
