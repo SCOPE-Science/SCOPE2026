@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-With Python 3, execute `python verify.py` alongside this document. The script independently loops over all linear maps on the explicit algebra in six prime-field cases and tests the bracket-preserving identity and idempotency by direct matrix multiplication, before tallying image ranks. The exhaustive cases are \((n,q)=(2,2),(2,3),(2,5),(3,2),(3,3),(4,2)\).
+## correctness
 
-The run produced `VERIFY_OK: 6 exhaustive prime-field cases and 30 algebraic consistency cases`. The independent direct counts for \((n,q)=(4,2)\) were \([1,77,550,372,24]\) for all endomorphisms and \([1,40,44,13,1]\) for idempotents, ordered by increasing rank. For \((n,q)=(3,3)\), the respective counts were \([1,56,102,12]\) and \([1,18,4,1]\). The additional 30 checks verify polynomial totals and nonnegativity for more parameters but do **not** exhaustively enumerate matrices over extension fields.
+PASS
 
-The unrestricted theorem relies on the tensor-factorization, inclusion-exclusion, and projection-counting arguments in `RESULT.md`, not finite observations. The asymptotic uses the exact full-matrix nullity distribution and a quantified negligible-mass comparison. Exact bibliography relevance and remaining possible priority risk are given in `REVIEW.md`.
+A homomorphism has f(u)=a u; bracket preservation gives the pure-tensor condition (beta∘f)⊗(alpha∘f)=a beta⊗alpha. If a≠0 it forces f(v)=v+w0, f(W)=T(W), f(u)=a u; if a=0 the maps form two m×m linear-map strata with an r×m intersection. Inclusion-exclusion and standard Gaussian surjection counts prove the endomorphism polynomial; projection identities T²=T, ell T=ell, T w0=w0, b=ell(w0) give retractions. Comparing the two dominant q^(m²) strata to a uniform square-matrix law gives O_q(q^-m) total-variation error. Independent fresh brute checks found E_3,3=(1,56,102,12), J_3,3=(1,18,4,1) by enumerating 3^9 maps directly, also n=2 and n=3 over F2. Characteristic-two universality applies only to the explicitly defined algebra, not the cited classification theorem.
+
+## originality
+
+PASS
+
+Di Bartolo–La Rosa–Mancini identify the odd-characteristic derived-one-dimensional Leibniz algebra and compute automorphisms and derivations; the full inspected relevant classification theorem does not enumerate singular endomorphisms, idempotents or limiting corank probabilities. General Gaussian matrix rank and idempotent counts are ingredients, not claimed novelties. Kurdachenko–Subbotin–Yashchuk treat infinite-dimensional cyclic Leibniz algebras; related free metabelian orbit-preserving endomorphism work has different object. Resultary search yielded no same algebra rank polynomial; absence from indexed records is not a novelty proof.
+
+## value
+
+PASS
+
+This is a full rank- and retract-stratified endomorphism census for a naturally classified non-Lie family over all finite fields, with explicit asymptotic law. The singular two-stratum structure and square-matrix limiting behavior are not recovered from automorphism counts alone, and naturally inform semigroup structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
