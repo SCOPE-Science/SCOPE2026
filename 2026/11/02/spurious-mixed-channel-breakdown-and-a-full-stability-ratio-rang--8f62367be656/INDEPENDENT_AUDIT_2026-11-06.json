@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T17:48:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orthogonalizing A^-1v gives v2=(A^-1v-alpha v)/beta, hence A v2=(v-alpha Av)/beta and (I-P)A v2=-(alpha/beta)(I-P)Av exactly. Opposite-sign eigenweight construction with three distinct eigenvalues uses nonzero Vandermonde determinant, and necessity follows from the inverse Rayleigh quotient and Krylov minimal polynomial. Independent SymPy computation confirms determinant 36r^2, alpha=9(r^2-1)/(9+17r^2), exact gamma^2 rational expression, and endpoint constants. Continuity gives full range on 0<r<1; no approximate rounding premise.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lund–Schweitzer compares mixed/split channels for SPD matrices with no breakdown; general block rational Arnoldi covers deflation, and the 2016 two-sided process uses different bilinear structure."
+        ],
+        "reasoning": "None of the accessible formulations logically imply indefinite symmetric exact third-step identity and full positive ratio range at kappa=2. Inaccessible primary full text leaves a named risk.",
+        "searches": [
+          "arXiv:2610.21603",
+          "Elsworth Guttel The Block Rational Arnoldi Method 2019",
+          "Schweitzer 2016 two sided short recurrence extended Krylov",
+          "extended Krylov inverse leading mixed split orthogonalization zero residual indefinite symmetric nonlucky breakdown fixed condition number"
+        ]
+      },
+      "checked_sources": [
+        "Lund–Schweitzer arXiv:2610.21603 indexed abstract and source details; full text not read",
+        "Elsworth–Güttel 2019 preprint bibliographic material",
+        "Schweitzer 2016 two-sided EKS preprint bibliographic material",
+        "Resultary semantic query: extended Krylov inverse leading mixed split orthogonalization zero residual indefinite symmetric nonlucky breakdown fixed condition number",
+        "Frozen RESULT.md/verify.py; independent SymPy rational identity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The motivating source Theorem 8 assumes definite A and no breakdown, while this result requires indefinite A with an inverse-isotropic starting vector."
+        ],
+        "reasoning": "The antecedents are incompatible with the main breakdown example, so SPD ordering cannot imply the theorem; generic numerical indefinite reversals also do not give an all-positive-range proof.",
+        "searches": [
+          "arXiv:2610.21603",
+          "Elsworth Guttel The Block Rational Arnoldi Method 2019",
+          "extended Krylov inverse leading mixed split orthogonalization zero residual indefinite symmetric nonlucky breakdown fixed condition number"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The invariant alpha=v^T A^-1 v identifies the vanishing third mixed-channel residual while split residual persists."
+        ],
+        "reasoning": "Arnoldi breakdown, inverse Rayleigh isotropy and rational Krylov deflation aliases were checked; standard loss of independence does not assert the exact mixed channel spurious cancellation on a full 3D Laurent span.",
+        "searches": [
+          "extended Krylov inverse leading mixed split orthogonalization zero residual indefinite symmetric nonlucky breakdown fixed condition number",
+          "arXiv:2610.21603",
+          "inverse Rayleigh quotient isotropic cone extended Krylov breakdown"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest returned records concern MINRES iterate positivity and GMRES solution-error growth, not inverse-leading extended Krylov basis orthogonalization."
+        ],
+        "reasoning": "No exact table of fixed-A local ratios found among retrieved records; irrelevant agreement on condition number 2 is not coverage.",
+        "searches": [
+          "extended Krylov inverse leading mixed split orthogonalization zero residual indefinite symmetric nonlucky breakdown fixed condition number",
+          "Resultary: 2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731",
+          "Resultary: 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc"
+        ]
+      },
+      "rationale": "Best-of-knowledge new exact mixed-versus-split third-step cancellation condition, sharp symmetric existence iff, and fixed-condition-two complete ratio range; prior SPD residual ordering excludes the indefinite breakdown and earlier indefinite numerical experiments do not prove this exact theorem.",
+      "residual_risks": [
+        "Oxford access to the closest 2026 EKS full paper was VPN-disconnected; exact same identity may already occur in its body or appendices.",
+        "Specialized rational-Arnoldi isotropic breakdown conditions under different names might imply the criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established algorithm context and SPD result; cannot assert absence of exact indefinite identity from unread full text",
+          "evidence": "Describes mixed/split basis comparisons and orthogonalization stability; RESULT attributes Algorithms 1–2/Theorem 8.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.21603",
+          "material_read": "Public abstract and available bibliographic descriptions; full manuscript not obtainable",
+          "method": "arXiv abstract and targeted indexed search; institutional attempt blocked",
+          "title": "On the stability of basis construction in extended Krylov subspace methods",
+          "trigger": "Direct origin of mixed/split algorithm and SPD comparison"
+        },
+        {
+          "assessment": "General breakdown/deflation may explain phenomenon, but exact fixed-matrix ratio not established from inspected material",
+          "evidence": "Methodological focus on block rational Arnoldi and continuation.",
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2685/1/paper.pdf",
+          "material_read": "Bibliographic description and accessible summary, not full PDF proof",
+          "method": "scholarly search and primary-paper metadata",
+          "title": "The Block Rational Arnoldi Method",
+          "trigger": "Alternative broader rational-Arnoldi continuation"
+        },
+        {
+          "assessment": "Different two-sided biorthogonal setup; comparison remains limited",
+          "evidence": "Two-sided recurrence and rational moment matching versus one-vector Euclidean projection.",
+          "identifier_or_url": "https://imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2016/imacm_16_08.pdf",
+          "material_read": "Bibliographic descriptions; full text not obtained",
+          "method": "primary reference targeted search",
+          "title": "A two-sided short-recurrence extended Krylov subspace method",
+          "trigger": "Potential broad earlier breakdown"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Structural explanation for a genuine premature algorithmic basis breakdown with unexhausted Laurent-Krylov space, and a fixed well-conditioned counterexample to any global residual-ratio bound; this clarifies the scope of established SPD stability comparisons.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Lund–Schweitzer arXiv:2610.21603 indexed abstract and source details; full text not read",
+    "Elsworth–Güttel 2019 preprint bibliographic material",
+    "Schweitzer 2016 two-sided EKS preprint bibliographic material",
+    "Resultary semantic query: extended Krylov inverse leading mixed split orthogonalization zero residual indefinite symmetric nonlucky breakdown fixed condition number",
+    "Frozen RESULT.md/verify.py; independent SymPy rational identity"
+  ],
+  "disposition": "passed",
+  "final_claim": "For symmetric nonsingular A with unit v and independent v,A^-1 v, mixed inverse-leading third-step breakdown while split third step grows occurs exactly when v^T A^-1 v=0 and v,A^-1 v,Av are independent; some v exists iff A is indefinite with >=3 distinct eigenvalues. On fixed A=diag(-1,1,2), normalized third-step residual ratio traverses all positive reals while condition number stays 2.",
+  "limitations": [
+    "Third-step exact-real local orthogonalization residuals, not end-to-end approximation or finite-precision errors.",
+    "r->0 approaches two-dimensional input limit; full three-dimensional result only at every r>0."
+  ],
+  "residual_risks": [
+    "Oxford access to the closest 2026 EKS full paper was VPN-disconnected; exact same identity may already occur in its body or appendices.",
+    "Specialized rational-Arnoldi isotropic breakdown conditions under different names might imply the criterion."
+  ],
+  "schema_version": 1
+}

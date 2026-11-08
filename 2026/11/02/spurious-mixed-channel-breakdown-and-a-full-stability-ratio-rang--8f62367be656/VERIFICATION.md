@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claim
+# Independent mathematical audit
 
-The analytical proof uses the identity \(A(A^{-1}v-\alpha v)=v-\alpha Av\), two orthogonal projections, a spectral sign argument, the three-eigenvalue Vandermonde determinant and two endpoint limits. These establish an all-dimensional criterion and full-range behavior, not just tested cases.
+## correctness
 
-The supplied independent implementation of the Gram projector in `verify.py` uses Python's exact rational arithmetic and has no third-party dependencies. Executing `python3 verify.py` returned `EXACT_VERIFY_PASS 2317`. It evaluates the two candidate residuals independently of the closed formula, including the exact breakdown case. Exact test counts and rational computations are reproducibility evidence, not an infinite-dimensional proof.
+PASS
 
-Scope limitations: no floating-point error theorem, no performance or downstream matrix-function error analysis, and no proof of exhaustive historical uniqueness. Independent audit status: not performed.
+Orthogonalizing A^-1v gives v2=(A^-1v-alpha v)/beta, hence A v2=(v-alpha Av)/beta and (I-P)A v2=-(alpha/beta)(I-P)Av exactly. Opposite-sign eigenweight construction with three distinct eigenvalues uses nonzero Vandermonde determinant, and necessity follows from the inverse Rayleigh quotient and Krylov minimal polynomial. Independent SymPy computation confirms determinant 36r^2, alpha=9(r^2-1)/(9+17r^2), exact gamma^2 rational expression, and endpoint constants. Continuity gives full range on 0<r<1; no approximate rounding premise.
+
+## originality
+
+PASS
+
+Best-of-knowledge new exact mixed-versus-split third-step cancellation condition, sharp symmetric existence iff, and fixed-condition-two complete ratio range; prior SPD residual ordering excludes the indefinite breakdown and earlier indefinite numerical experiments do not prove this exact theorem.
+
+## value
+
+PASS
+
+Structural explanation for a genuine premature algorithmic basis breakdown with unexhausted Laurent-Krylov space, and a fixed well-conditioned counterexample to any global residual-ratio bound; this clarifies the scope of established SPD stability comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
