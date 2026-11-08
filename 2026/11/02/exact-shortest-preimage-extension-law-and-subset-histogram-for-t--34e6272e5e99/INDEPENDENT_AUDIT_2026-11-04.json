@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T19:56:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-shortest-preimage-extension-law-and-subset-histogram-for-t--34e6272e5e99/RESULT.md",
+        "2026/11/02/exact-shortest-preimage-extension-law-and-subset-histogram-for-t--34e6272e5e99/verify.py",
+        "Git tree bfe1d8c1c85d7c52fed9d486eda42d4474dc2770"
+      ],
+      "rationale": "PASS. For the explicitly labeled Cerny automaton a(q)=q+1 mod n, b(0)=1 and fixes other states, inverse b adds 0 exactly when membership at state 1 is one and 0 is zero. Inverse rotations preserve size, and a non-growing initial inverse b can be deleted by monotonicity without losing eventual growth. Therefore a shortest extending word must be ba^j for the first cyclic 0-to-1 boundary. Prefix count 1^k0^(j+1-k) gives (j+1)2^(n-j-2) subsets at j<n-1 and n-1 endpoint subsets at j=n-1; sum/mean/limit verified symbolically. Independent reverse-subset BFS through n=10 reproduced each individual length and the full histogram; uniqueness also follows from deletion plus the first-boundary rule. The claim concerns first size increase, not reset rank.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Miccinesi gives sufficient certificates and examples of hard Cerny subsets; Berlinkov–Ferens–Szykula complexity theory does not in accessible sections state the all-subset histogram."
+        ],
+        "reasoning": "A general upper-bound or decision theorem does not imply exact labeled histogram and uniqueness. Full Miccinesi manuscript inaccessible, so implication risk remains.",
+        "searches": [
+          "Miccinesi Certificates for short extending words finite automaton 2026 arxiv:2609.21603",
+          "Berlinkov Ferens Szykula Preimage problems 2017 arxiv:1704.08233"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.21603",
+        "https://doi.org/10.4230/LIPIcs.MFCS.2018.32",
+        "Resultary semantic published-record search with actual claim-specific queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two hard subsets at n=3 or some hard subsets for general n imply neither exactly n-1 nor a unique shortest word for every other subset."
+        ],
+        "reasoning": "The submitted boundary formula requires analyzing monotonicity, first b and all cyclic boundary locations, beyond the qualitative obstructions stated in available prior text.",
+        "searches": [
+          "Miccinesi 2026 Section 8.1 Cerny subsets violating n-1 extension bound",
+          "MFCS 2018 Complexity of Preimage Problems deterministic finite automata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Forward action of ba^j maps to inverse operations a^{-j}, b^{-1}; the claim is a fixed-subset shortest preimage growth, not a whole-image rank compression or avoidance."
+        ],
+        "reasoning": "The usual preimage extension decision is more general but complexity classification alone does not identify this Cerny boundary law.",
+        "searches": [
+          "Cerny automaton shortest inverse image expansion of subset unique word",
+          "Berlinkov Ferens Szykula preimage problem deterministic finite automata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches returned Cerny k-avoiding thresholds, rank-compression and C7 careful synchronization; none was the same inverse-subset first-extension histogram."
+        ],
+        "reasoning": "All 2^n-2 subsets form a natural finite distribution; no matching accessible table was located, but negative search is not priority proof.",
+        "searches": [
+          "Cerny minext subset histogram t 2^(n-t-1)",
+          "Resultary Cerny avoiding and rank compression threshold"
+        ]
+      },
+      "rationale": "PASS, best of knowledge with material access risk. Miccinesi 2026 treats extending-word certificates and specifically notes existence of hard Cerny subsets, while Berlinkov–Ferens–Szykula study preimage complexity and small examples. Their accessible statements do not imply that every subset has unique shortest ba^j, the entire histogram, or the exact endpoint family. Original Miccinesi full text could not be lawfully fetched (institutional VPN disconnected), so equivalence in its lemmas or appendix remains a substantial risk.",
+      "residual_risks": [
+        "Full Miccinesi 2026 manuscript remained inaccessible (authorized VPN disconnected); no whole-document noncoverage conclusion.",
+        "Unindexed older boundary-based computation could predate the present claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong priority risk: accessible description states hard subsets and extension certificates, not verified to exclude exact full histogram",
+          "evidence": "A full-text comparison cannot be claimed. This access gap is not itself proof of coverage or noncoverage.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.21603",
+          "material_read": "Abstract and available theorem/section descriptions; full arXiv PDF/HTML inaccessible; authorized institutional retrieval returned vpn_disconnected",
+          "method": "Available primary abstract; full paper not read",
+          "title": "Certificates for short extending words in a finite automaton",
+          "trigger": "Directly overlapping Cerny subset minext analysis"
+        },
+        {
+          "assessment": "General complexity and examples, not an explicitly inspected all-n exact histogram",
+          "evidence": "The cited results target decision complexity and illustrative automata, different quantifiers from all-subset counts.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2018.32",
+          "material_read": "Primary conference PDF/text first sections, statement and example of four-state Cerny automaton",
+          "method": "Read accessible pages/abstract",
+          "title": "Complexity of Preimage Problems for Deterministic Finite Automata",
+          "trigger": "Classical preimage decision problems and Cerny examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/exact-shortest-preimage-extension-law-and-subset-histogram-for-t--34e6272e5e99/RESULT.md",
+        "Natural mathematical quantity and limitations explicitly defined therein"
+      ],
+      "rationale": "PASS. The all-size exact distribution of a natural preimage-extension invariant refines an explicit obstruction discussed in recent synchronizing-automata research, distinguishes n hard subsets from typical bounded length, and classifies unique shortest witnesses. It does not assert a new universal reset bound.",
+      "residual_risks": [
+        "Unique shortest word is for fixed labeled states/actions and inverse-cardinality growth, not for general synchronizing automata.",
+        "Unindexed older boundary-based computation could predate the present claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Miccinesi 2026 manuscript remained inaccessible (authorized VPN disconnected); no whole-document noncoverage conclusion.",
+    "Unique shortest word is for fixed labeled states/actions and inverse-cardinality growth, not for general synchronizing automata.",
+    "Unindexed older boundary-based computation could predate the present claim."
+  ],
+  "schema_version": 1
+}

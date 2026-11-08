@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3.8 or later and the standard library. The accompanying `verification_output.txt` is the captured output of this command; a successful replay ends with `VERIFY_OK`.
+## correctness
 
-For each \(n\) from 2 through 13 the checker enumerates every nonempty proper subset and uses breadth-first search on the inverse-subset transition graph to find the shortest expansion length. Independently it calculates the first cyclic zero-to-one boundary, the predicted all-subset counts \(H_n(t)\), and the exact sets at threshold \(n\).
+PASS
 
-For each \(n\) from 2 through 8, a separate routine enumerates **forward word transformations** rather than reusing the inverse-state BFS. It verifies each shortest extending word is uniquely `b` followed by the prescribed number of `a` letters. Enumeration is finite, while the proof in RESULT.md proves the theorem for unbounded \(n\). No independent audit has been performed.
+PASS. For the explicitly labeled Cerny automaton a(q)=q+1 mod n, b(0)=1 and fixes other states, inverse b adds 0 exactly when membership at state 1 is one and 0 is zero. Inverse rotations preserve size, and a non-growing initial inverse b can be deleted by monotonicity without losing eventual growth. Therefore a shortest extending word must be ba^j for the first cyclic 0-to-1 boundary. Prefix count 1^k0^(j+1-k) gives (j+1)2^(n-j-2) subsets at j<n-1 and n-1 endpoint subsets at j=n-1; sum/mean/limit verified symbolically. Independent reverse-subset BFS through n=10 reproduced each individual length and the full histogram; uniqueness also follows from deletion plus the first-boundary rule. The claim concerns first size increase, not reset rank.
+
+## originality
+
+PASS
+
+PASS, best of knowledge with material access risk. Miccinesi 2026 treats extending-word certificates and specifically notes existence of hard Cerny subsets, while Berlinkov–Ferens–Szykula study preimage complexity and small examples. Their accessible statements do not imply that every subset has unique shortest ba^j, the entire histogram, or the exact endpoint family. Original Miccinesi full text could not be lawfully fetched (institutional VPN disconnected), so equivalence in its lemmas or appendix remains a substantial risk.
+
+## value
+
+PASS
+
+PASS. The all-size exact distribution of a natural preimage-extension invariant refines an explicit obstruction discussed in recent synchronizing-automata research, distinguishes n hard subsets from typical bounded length, and classifies unique shortest witnesses. It does not assert a new universal reset bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
