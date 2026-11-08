@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and boundaries
+# Independent mathematical audit
 
-The analytical verification is the stationary-generator calculation and the complete sign analysis of the derivative in `RESULT.md`. The standalone `verify.py` program generates the four affine jump maps in the original opinion coordinates and evaluates stationary equations for the five independent first/second moments, with exact arithmetic for 48 rational parameter triples. It checks symmetry of the resulting variances, the analytic means, nonnegative covariance determinants, the symbolic derivative factorization, and the stationary centered-coordinate moment equations.
+## correctness
 
-Reproduction: install SymPy in a Python 3 environment, then run `python verify.py` in a directory containing this file. The program printed: `PASS: symbolic derivative, stationary z/d identities, and 48 independent exact-rational generator reconstructions.`
+PASS
 
-The finite tests are not used to infer global monotonicity, the unique maximizer, or uniqueness of the invariant distribution. These follow from the explicit algebra and contraction argument. The claim is restricted to independent Poisson meetings, equal trust fractions, two regular agents, and two opposing fixed opinions; there is no independent audit or empirical validation.
+Two direct stubborn Poisson maps at rate a and two directed mutual averaging maps at rate m define bounded Feller jump process. Alternating two stubborn interactions synchronously contract both coordinate differences and occur with positive probability, proving unique invariant law even at m=0. Reconstructed the generator on x,y,x²,xy,y² and solved its symbolic linear system; the stationarity identities give EX=u/(1+2u), EY=(1+u)/(1+2u), common variance theta*u*(1+u)^2/[(1+2u)^2((2-theta)+(4-3theta)u)]. Independent symbolic derivative matches theta(1+u)[(2-theta)(1+u)-4(1-theta)u²] over positive denominator. For 0<theta<1 the quadratic has exactly one positive root; at theta=1 derivative remains positive. Mean gap is monotone and finite optimum diverges with scaling limit 1/4.
+
+## originality
+
+PASS
+
+The general stochastic gossip model with stubborn agents and invariant moment method are published; the exact four-agent partial-trust stationary variance and unique finite mixing-rate maximizer are a nontrivial parameter boundary not identified in the inspected primary source. The general moment method alone does not imply its global optimization without new substitutions and derivative sign analysis.
+
+## value
+
+PASS
+
+Natural smallest opposed-stubborn two-regular-agent stochastic motif exhibits nonmonotonic stationary variability with a sharp trust-dependent interior optimum although its mean opinion separation strictly declines, plus singular full-copying boundary. Complete parameter classification is motivated and independently useful, not mere reproduction of known moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
