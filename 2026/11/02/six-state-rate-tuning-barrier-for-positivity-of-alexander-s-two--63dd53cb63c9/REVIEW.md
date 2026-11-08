@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the method's scalar stability function from the Butcher coefficients, diagonalizes the reversible star generator into three invariant subspaces, and writes every endpoint-matrix entry explicitly. The strict decrease of \(F(x)=(1-r(x))/x\) gives positivity of all off-diagonal entries. The global lower bound \(r(x)\ge-(\sqrt2-1)/2\) establishes unconditional positivity when the rates are balanced and \(2\le m\le4\). For every \(m\ge5\), the two complementary cases \(z>3+2\sqrt2\) and \(z\le3+2\sqrt2\) give explicit negative hub or leaf diagonals. The irrational sign certificate is verified exactly. Independently implemented Runge–Kutta stages agree with the analytic expressions in the standalone verifier (2,827 assertions over symbolic identities and 420 randomized full matrix cases). The infinite quantifiers rest on analytic inequalities, not finite tests.
+PASS
 
-## Originality — PASS with bounded coverage risk
+The 0,-u,-uz spectral decomposition of the reversible star generator gives every endpoint entry as a combination of r(w),r(zw) with w=uh and z=1+mv/u. From gamma=1-1/sqrt2, exact scalar r(x) has unique global minimum -eta at w*=4+3sqrt2; F(x)=(1-r(x))/x is positive and strictly decreasing, forcing all distinct-state offdiagonal entries strictly positive. For u=v and m<=4, the lower diagonal bound (1-m*eta)/(m+1)>0. For m>=5 and z>3+2sqrt2 a hub diagonal at zw=w* is negative; for z below or equal, every leaf diagonal at w=w* is <= (297-211sqrt2)/(98m)<0. The latter radical is exact negative. Decay to rank-one strictly positive stationary projector proves return of positivity for large h. Independent SymPy exact identities and 50 ratio/dimension witness cases reproduced the signs; the unbounded quantifier relies on the inequalities.
 
-The precise claim is the smallest reversible star whose endpoint positivity cannot be made unconditional by any two homogeneous positive spoke rates, for Alexander's particular two-stage method. Horváth (1998) establishes broad positivity radii for RK/DSRK methods, but its full 18-page discussion of general dissipative problem classes and method-level radii does not give star-graph dimension/rate-tuning classification. Kocsis and Németh (2014, full 11-page preprint) optimize absolute-monotonicity radii over schemes, not within a fixed Markov generator family. Blanes, Iserles and Macnamara (2021/2022 preprint, relevant sections inspected) discuss a general positivity order barrier, not rate-dependent star endpoints. The Alexander (1977) full paper was unavailable; its accessible abstract and a documented tableau were inspected. Other integrator-specific star phenomena are not logically stronger statements for the Alexander stability function. General positivity barriers are uniform over all problems and do not negate the restricted-family existence at small \(m\). The full original 1977 text and any unindexed special-purpose analysis remain residual risks; no independent historical novelty certification is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Positivity of computed transition probabilities is a physical and probabilistic constraint that A/L-stability alone does not guarantee. The result provides a sharp six-state size obstruction *regardless of homogeneous spoke-rate tuning*, a positive all-timestep construction on every smaller star, and explicit counterexample timesteps with a strict negative margin. The proof also locates the only possible sign obstructions on the diagonal. This distinction between some-rate existence and all-rate failure is not implied by a generic Runge–Kutta SSP-radius calculation; it directly informs model-rate selection versus integrator choice.
+Alexander's actual two-stage method and standard SSP/absolute-monotonicity barriers are prior. Neither the Kocsis–Németh optimal-SDIRK comparison nor general Markov positivity theorem inspected gives the existential small-star rate tuning or universal m>=5 obstruction for THIS method; qualified historical specialty overlap remains.
 
-## Limits
+## value
 
-The classification is not for heterogeneous spokes or stagewise positivity, and it does not count all disconnected unsafe intervals. Publication overlap outside the accessible full texts is not excluded. Finite numerical tests are not substitutes for proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp five-leaf (=six-state) impossibility threshold, explicit two-case all-rate counterexample and small-star safe construction answer a natural integrator-specific Markov positivity boundary, not a routine numeric recheck of the general SSP barrier.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

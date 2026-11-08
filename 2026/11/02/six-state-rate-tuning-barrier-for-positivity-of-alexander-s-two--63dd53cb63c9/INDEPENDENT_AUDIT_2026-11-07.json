@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T06:12:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 0,-u,-uz spectral decomposition of the reversible star generator gives every endpoint entry as a combination of r(w),r(zw) with w=uh and z=1+mv/u. From gamma=1-1/sqrt2, exact scalar r(x) has unique global minimum -eta at w*=4+3sqrt2; F(x)=(1-r(x))/x is positive and strictly decreasing, forcing all distinct-state offdiagonal entries strictly positive. For u=v and m<=4, the lower diagonal bound (1-m*eta)/(m+1)>0. For m>=5 and z>3+2sqrt2 a hub diagonal at zw=w* is negative; for z below or equal, every leaf diagonal at w=w* is <= (297-211sqrt2)/(98m)<0. The latter radical is exact negative. Decay to rank-one strictly positive stationary projector proves return of positivity for large h. Independent SymPy exact identities and 50 ratio/dimension witness cases reproduced the signs; the unbounded quantifier relies on the inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kocsis–Németh, arxiv:1409.8583, exact 11-page PDF introduction and stability analyses: optimizer of SSP radii for DIRK classes.",
+          "General higher-order positivity barrier is over classes of arbitrary generators; it does not forbid positivity on special low-dimensional star generators nor identify the sharp 6-state rate-tuning obstruction."
+        ],
+        "reasoning": "A universal method positivity restriction implies nothing decisive about exception patterns on a specified reversible graph family; the star spectral problem remains a nontrivial specialization.",
+        "searches": [
+          "Kocsis Nemeth optimal second order diagonally implicit SSP Runge Kutta arxiv 1409.8583",
+          "Horvath positivity Runge Kutta 1998 DOI",
+          "Blanes Iserles Macnamara positivity preserving ODE arxiv 2102.08242"
+        ]
+      },
+      "checked_sources": [
+        "Optimal second order diagonally implicit SSP Runge–Kutta methods | https://arxiv.org/pdf/1409.8583",
+        "Diagonally Implicit Runge–Kutta Methods for Stiff O.D.E.'s | https://doi.org/10.1137/0714068",
+        "Positivity of Runge–Kutta and diagonally split Runge–Kutta methods | https://doi.org/10.1016/S0168-9274(98)00050-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Alexander paper abstract concerns order, A-stability and stiff ODEs, not homogeneous rate stars.",
+          "Kocsis–Németh compares optimal SSP radii and positivity barriers, not existential rate tuning for every timestep.",
+          "Historical Horváth 1998 specialization not proven absent because full text unavailable this run."
+        ],
+        "reasoning": "Known method-wide results do not logically dominate this family-constrained six-state cutoff; residual priority uncertainty is documented instead of fabricated exhaustive novelty.",
+        "searches": [
+          "doi:10.1137/0714068 Alexander 1977",
+          "arxiv:1409.8583",
+          "doi:10.1016/S0168-9274(98)00050-6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alexander 1977 gives the strongly S-stable 2-stage formula; stage/endpoint positivity are distinct requirements.",
+          "Scalar stability sign can be negative at large arguments, but matrix positivity for fixed star generators depends on projectors and rate ratio."
+        ],
+        "reasoning": "The same Butcher formula is prior, but translating a method-wide SSP radius into graph-family all-h endpoint positivity is invalid without the three-mode diagonal computations.",
+        "searches": [
+          "Alexander two-stage SDIRK positivity Markov star graph rate tuning five leaves unconditional positivity",
+          "Alexander SDIRK2 Markov star unconditional step positivity semigroup",
+          "doi:10.1137/0714068"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No specific 5-leaf rate-tuning threshold, explicit irrational z* or universal negative leaf certificate found in Resultary semantic query.",
+          "Direct exact scalar minimum and lower bound evaluated independently for every m class."
+        ],
+        "reasoning": "No known table was identified for the exact conditional star positivity spectrum; this search result alone is not a novelty certificate.",
+        "searches": [
+          "Alexander method reversible star positivity threshold six states rates",
+          "Alexander two-stage SDIRK positivity Markov star graph rate tuning five leaves unconditional positivity"
+        ]
+      },
+      "rationale": "Alexander's actual two-stage method and standard SSP/absolute-monotonicity barriers are prior. Neither the Kocsis–Németh optimal-SDIRK comparison nor general Markov positivity theorem inspected gives the existential small-star rate tuning or universal m>=5 obstruction for THIS method; qualified historical specialty overlap remains.",
+      "residual_risks": [
+        "Horváth 1998 and Alexander 1977 complete source text were not obtained; institutional download returned unavailable or invalid.",
+        "Earlier specialized Markov chain numerical analysis might express equivalent star positivity via rational functions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING reversible-star rate-tuning boundary",
+          "evidence": "arxiv:1409.8583v1 SSP optimization",
+          "identifier_or_url": "https://arxiv.org/pdf/1409.8583",
+          "material_read": "11-page preprint, Introduction, method definitions and SSP analysis relevant to unconditional positivity",
+          "method": "Read open-access PDF text and page screenshot",
+          "title": "Optimal second order diagonally implicit SSP Runge–Kutta methods",
+          "trigger": "Direct positivity and optimal two-stage method comparison"
+        },
+        {
+          "assessment": "FOUNDATIONAL, insufficient full text to exclude all specialized discussion",
+          "evidence": "Alexander 1977 introduces stable two-stage SDIRK",
+          "identifier_or_url": "https://doi.org/10.1137/0714068",
+          "material_read": "Publisher abstract and bibliographic record; full article inaccessible",
+          "method": "Publisher abstract after unsuccessful public/full-text search and authorized access request",
+          "title": "Diagonally Implicit Runge–Kutta Methods for Stiff O.D.E.'s",
+          "trigger": "Original method definition and stage coefficients"
+        },
+        {
+          "assessment": "RESIDUAL_RISK, not claimed full-text noncoverage",
+          "evidence": "Horváth (1998), Applied Numerical Mathematics 28, 309–326",
+          "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6",
+          "material_read": "Citation and published description; full text not obtained in this run",
+          "method": "Bibliographic and repository searches only; no content extrapolated",
+          "title": "Positivity of Runge–Kutta and diagonally split Runge–Kutta methods",
+          "trigger": "Highly relevant general Markov positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp five-leaf (=six-state) impossibility threshold, explicit two-case all-rate counterexample and small-star safe construction answer a natural integrator-specific Markov positivity boundary, not a routine numeric recheck of the general SSP barrier.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Uniform spoke rates within each direction, all endpoint matrices only; not stage positivity or arbitrary weighted stars.",
+    "The returned positivity for sufficiently small/large steps does not assert a unique intermediate negative interval."
+  ]
+}
