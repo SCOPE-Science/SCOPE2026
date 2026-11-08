@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The distribution theorem and all-moments convergence are proved in `RESULT.md` by multinomial/Poisson local convergence, uniform geometric localization at the two diametral pairs, explicit exponential-rate cancellation, exact diagonal-length detuning and uniform-integrability tail bounds.
+# Independent mathematical audit
 
-The bundled `verify.py` was executed using Python 3 (standard library only). It returned `INDEPENDENT_SURVIVAL_INTEGRALS_AND_END_POINTS_PASSED`, `LOCAL_CORNER_EXPONENTIAL_RATE_CERTIFICATES_PASSED`, `INDEPENDENT_FULL_PAIRWISE_DIAMETER_REDUCTION_PASSED 48`, `EXACT_TWO_DIAGONAL_DETUNING_DIAGNOSTICS_PASSED 24`, `INDEPENDENT_FINITE_SAMPLE_GEOMETRIC_DIAGNOSTICS_PASSED 5`, and `ALL_CHECKS_PASSED`.
+## correctness
 
-These finite checks corroborate normalization, exact geometric reductions, moments and selected finite-sample approximations; they do not substitute for a proof of weak or moment convergence. Historical priority requires independent review. No external independent audit has been performed.
+PASS
+
+The proof starts with iid boundary arclength and the eight local edge rays at four corners: multinomial cell probabilities converge jointly to independent unit-rate Poisson processes as n increases. At a right-angle endpoint, the two incident endpoint-loss slopes scaled by nd0/(2ab) yield min((a+b)E_a/b,(a+b)E_b/a), whose exponential hazard is (a+b)^(-1)(a+b)=1. Two corner losses add independently for each opposite-vertex pair; disjoint corner pairs yield independent Gamma(2,1) variables. The exact difference of the two geometric diagonals in the stated units tends to tau. Compactness/localization excludes every other pair, and the nearest sampled boundary arc bound provides uniform integrability of each fixed moment. Independent quadrature recovered first and second moments at five detunings; it does not prove the limiting process.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the COMPLETE stated claim: compared logical implications and shared objects, not just titles. Known input results and special cases are explicitly credited. No inspected decisive source establishes the full claim; residual priority risks, including incomplete primary access, remain as stated.
+
+## value
+
+PASS
+
+The sample diameter is a natural geometric extreme statistic. Exact rectangles have two competing diametral pairs; approaching a rectangle at the critical 1/n angular scale produces a genuinely new distributional interpolation with explicit moments, and the corner-rate cancellation removes the side-length ratio. This is a motivated critical transition, not a finite geometry calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
