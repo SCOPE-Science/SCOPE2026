@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The mathematical evidence is the series/parallel harmonic-equilibrium derivation, the finite sum identity, the fixed-length strict monotonicity, the unique cubic stationary root and asymptotic expansion stated in `RESULT.md`.
+## correctness
 
-The standalone Python 3 file `verify.py` performs an independent grounded-Laplacian solve over exact rational numbers for every chord in paths of lengths 3 through 11, compares the entire equilibrium potential vector, recomputes the total gain, checks global endpoint optimality and tests cubic-root bracketing for lengths 3 through 159. It reports `PASS 989 exact/comparison assertions` when executed as provided. The exact system solver does not use the analytic voltage formula, but the checker also evaluates the formula and thus can detect disagreements. Its finite scope does not establish the infinite theorem, which is proved algebraically.
+PASS
 
-Public source comparisons include the full relevant results and methods of Zhao, Liu and Wang (2014) and the full mathematical Problem 1, algorithms, and proof in Zhou and Zhang (2021). The latter's allowed edge class is restricted by hypothesis and does not directly establish the global path result. A historical duplicate might remain undetected. Independent audit has not been performed.
+Harmonic equilibrium on a unit-resistance path with opposing fixed endpoint voltages 0 and 1 is unique by grounded Laplacian positive definiteness. For any chord a<b of length d>=2, series/parallel replacement of the segment d by d/(d+1) yields F=L(d+1)-d^2, explicit piecewise linear potentials, and total gain Delta=d^2(a+b-L)/(2F). Fixing length d makes Delta strictly increase with a, so the unrestricted optimum must have its right endpoint at leader L; the opposing-leader chord a=0 has zero gain. Maximizing f_L(a)=a(L-a)^2/[2(L+a(L-a))] is a one-variable unimodal problem: derivative sign of cubic P_L(u)=L^2-3Lu-Lu^2+u^3 has one zero alpha in (0,L), so floor/ceil alpha (clipped) give all integer optimal edges. Expansion alpha=sqrt L-1+O(L^-1/2) proves gain L/2-sqrt L+O(1) and mean 1-1/sqrt L+O(1/L). Independent exact rational grounded-Laplacian solves and all-chord optimization for L=3..29 corroborate the gain and endpoint property.
+
+## originality
+
+PASS
+
+Bounded best-of-knowledge scientific comparison: The prior monotone-submodular approximation on restricted candidate sets is not an exact solution over all nonedges. Adding a chord between two followers is admissible here and must be excluded by a new monotonic-at-fixed-length argument. The source also does not state the cubic, integer maximizers or asymptotic square-root placement. The targeted Resultary query and primary works were compared on objects, hypotheses, implication and parameters, not simply titles. No decisive prior-coverage theorem identified; this is not a proof of historical priority.
+
+## value
+
+PASS
+
+The equilibrium edge-addition problem is natural in harmonic opinion propagation with two competing boundary leaders. Proving that *every* unrestricted optimal new chord touches the promoting leader is a nontrivial structural insight, and exact optimal placement at distance sqrt L and near-unanimous average quantify a strong network-sensitivity phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

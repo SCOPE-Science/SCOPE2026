@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T19:57:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Harmonic equilibrium on a unit-resistance path with opposing fixed endpoint voltages 0 and 1 is unique by grounded Laplacian positive definiteness. For any chord a<b of length d>=2, series/parallel replacement of the segment d by d/(d+1) yields F=L(d+1)-d^2, explicit piecewise linear potentials, and total gain Delta=d^2(a+b-L)/(2F). Fixing length d makes Delta strictly increase with a, so the unrestricted optimum must have its right endpoint at leader L; the opposing-leader chord a=0 has zero gain. Maximizing f_L(a)=a(L-a)^2/[2(L+a(L-a))] is a one-variable unimodal problem: derivative sign of cubic P_L(u)=L^2-3Lu-Lu^2+u^3 has one zero alpha in (0,L), so floor/ceil alpha (clipped) give all integer optimal edges. Expansion alpha=sqrt L-1+O(L^-1/2) proves gain L/2-sqrt L+O(1) and mean 1-1/sqrt L+O(1/L). Independent exact rational grounded-Laplacian solves and all-chord optimization for L=3..29 corroborate the gain and endpoint property.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2106.06128",
+          "doi:10.1038/srep05858",
+          "doi:10.2139/ssrn.1744113"
+        ],
+        "reasoning": "Zhou-Zhang 2021 fixes each candidate edge to connect a one-opinion leader with a follower *before* optimization and proves submodularity/approximation. A candidate-set restriction cannot imply that all unrestricted path chords are dominated by those leader-incident edges.",
+        "searches": [
+          "Resultary semantic query: Friedkin Johnsen DeGroot two leaders path optimal single edge addition equilibrium influence global maximize",
+          "primary literature searches: arxiv:2106.06128"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2106.06128",
+        "doi:10.1038/srep05858",
+        "doi:10.2139/ssrn.1744113",
+        "Resultary:2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:2106.06128",
+          "doi:10.1038/srep05858",
+          "doi:10.2139/ssrn.1744113"
+        ],
+        "reasoning": "The prior monotone-submodular approximation on restricted candidate sets is not an exact solution over all nonedges. Adding a chord between two followers is admissible here and must be excluded by a new monotonic-at-fixed-length argument. The source also does not state the cubic, integer maximizers or asymptotic square-root placement.",
+        "searches": [
+          "Resultary semantic query: Friedkin Johnsen DeGroot two leaders path optimal single edge addition equilibrium influence global maximize",
+          "primary literature searches: arxiv:2106.06128"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:2106.06128",
+          "doi:10.1038/srep05858",
+          "doi:10.2139/ssrn.1744113"
+        ],
+        "reasoning": "The DeGroot leader-fixed equilibrium is discrete harmonic voltage/effective resistance; a single chord admits explicit series-parallel resistance. Same objective can be expressed as Dirichlet Green-function rank-one perturbation, but the arbitrary-chord global optimum is not built into that formula.",
+        "searches": [
+          "Resultary semantic query: Friedkin Johnsen DeGroot two leaders path optimal single edge addition equilibrium influence global maximize",
+          "primary literature searches: arxiv:2106.06128"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arxiv:2106.06128",
+          "doi:10.1038/srep05858",
+          "doi:10.2139/ssrn.1744113"
+        ],
+        "reasoning": "The finite exact optimal edges and root cubic vary with every integer L; isolated example graphs/finite tables do not imply global all-L classification, or mean limit. Independent exact-rational enumeration L<=29 confirms only small instances.",
+        "searches": [
+          "Resultary semantic query: Friedkin Johnsen DeGroot two leaders path optimal single edge addition equilibrium influence global maximize",
+          "primary literature searches: arxiv:2106.06128"
+        ]
+      },
+      "rationale": "Bounded best-of-knowledge scientific comparison: The prior monotone-submodular approximation on restricted candidate sets is not an exact solution over all nonedges. Adding a chord between two followers is admissible here and must be excluded by a new monotonic-at-fixed-length argument. The source also does not state the cubic, integer maximizers or asymptotic square-root placement. The targeted Resultary query and primary works were compared on objects, hypotheses, implication and parameters, not simply titles. No decisive prior-coverage theorem identified; this is not a proof of historical priority.",
+      "residual_risks": [
+        "A separately published theorem for one added resistor in a two-boundary path could imply the unrestricted endpoint and square-root placement without using opinion terminology.",
+        "Unit conductances, exactly one new edge, strictly fixed endpoint opinions, equilibrium rather than transient or stochastic dynamics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Candidate edges fixed to leader–follower; cannot establish unrestricted global endpoint optimality; focuses on approximation guarantees not exact path rational formula",
+          "evidence": [
+            "Zhou–Zhang (2021), model definition and abstract"
+          ],
+          "identifier_or_url": "arxiv:2106.06128",
+          "material_read": "Full preprint relevant model/candidate-set statement and algorithm sections",
+          "method": "open arXiv text",
+          "title": "Maximizing Influence of Leaders in Social Networks",
+          "trigger": "Same two-opinion leader-follower equilibrium and edge-addition objective"
+        },
+        {
+          "assessment": "Introduces competing leaders and network sensitivity, not all-chord exact optimizer on a path",
+          "evidence": [
+            "Zhao-Liu-Wang (2014)"
+          ],
+          "identifier_or_url": "doi:10.1038/srep05858",
+          "material_read": "Abstract and model description",
+          "method": "open journal abstract",
+          "title": "Competitive Dynamics on Complex Networks",
+          "trigger": "Original competing fixed leaders and local averaging"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The equilibrium edge-addition problem is natural in harmonic opinion propagation with two competing boundary leaders. Proving that *every* unrestricted optimal new chord touches the promoting leader is a nontrivial structural insight, and exact optimal placement at distance sqrt L and near-unanimous average quantify a strong network-sensitivity phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen Git result blob 75f1829e12d1179905a60217d6bef1f850b4fee9",
+    "arxiv:2106.06128",
+    "doi:10.1038/srep05858",
+    "doi:10.2139/ssrn.1744113",
+    "Resultary:2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A separately published theorem for one added resistor in a two-boundary path could imply the unrestricted endpoint and square-root placement without using opinion terminology.",
+    "Unit conductances, exactly one new edge, strictly fixed endpoint opinions, equilibrium rather than transient or stochastic dynamics."
+  ],
+  "residual_risks": [
+    "A separately published theorem for one added resistor in a two-boundary path could imply the unrestricted endpoint and square-root placement without using opinion terminology.",
+    "Unit conductances, exactly one new edge, strictly fixed endpoint opinions, equilibrium rather than transient or stochastic dynamics."
+  ],
+  "schema_version": 1
+}

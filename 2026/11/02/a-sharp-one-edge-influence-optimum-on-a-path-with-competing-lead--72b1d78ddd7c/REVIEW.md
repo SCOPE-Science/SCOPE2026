@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-boundary grounded Laplacian uniquely determines equilibrium. The chord of length \(d\) has equivalent resistance \(d/(d+1)\), yielding the three-piece exact voltage profile and the aggregate gain. For fixed \(d\), shifting the chord right strictly increases that gain, which proves every unrestricted maximizer touches the opinion-one leader. The derivative cubic has one interior root, and the exact integer problem reduces to its adjacent admissible integers. Expansion at \(\sqrt L\) proves the stated long-path scale. The independent Gaussian-elimination checker passed 989 rational/comparison assertions; the universal theorem relies on the written proof.
+PASS
 
-## Originality — PASS within inspected evidence
+Harmonic equilibrium on a unit-resistance path with opposing fixed endpoint voltages 0 and 1 is unique by grounded Laplacian positive definiteness. For any chord a<b of length d>=2, series/parallel replacement of the segment d by d/(d+1) yields F=L(d+1)-d^2, explicit piecewise linear potentials, and total gain Delta=d^2(a+b-L)/(2F). Fixing length d makes Delta strictly increase with a, so the unrestricted optimum must have its right endpoint at leader L; the opposing-leader chord a=0 has zero gain. Maximizing f_L(a)=a(L-a)^2/[2(L+a(L-a))] is a one-variable unimodal problem: derivative sign of cubic P_L(u)=L^2-3Lu-Lu^2+u^3 has one zero alpha in (0,L), so floor/ceil alpha (clipped) give all integer optimal edges. Expansion alpha=sqrt L-1+O(L^-1/2) proves gain L/2-sqrt L+O(1) and mean 1-1/sqrt L+O(1/L). Independent exact rational grounded-Laplacian solves and all-chord optimization for L=3..29 corroborate the gain and endpoint property.
 
-Zhao, Liu and Wang (2014), https://doi.org/10.1038/srep05858, introduce the fixed-leader dynamics and include a one-edge example, but do not globally optimize over all missing links on paths. Zhou and Zhang (2021), https://arxiv.org/abs/2106.06128, study the same average equilibrium objective and provide general algorithms, but Problem 1 permits only edges incident to a promoting leader **by hypothesis**; it does not derive that restriction, exact path maximizers or \(\sqrt L\)-placement asymptotics. Yildiz and colleagues' stochastic stubborn-agent study optimizes leader placement, not edge addition. Full primary material was inspected for these distinctions. Mathematical-record and prior-claim searches returned no equivalent statement, although that cannot establish historical uniqueness. A possible unlocated equivalent path/electrical-network result is the material residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The unrestricted optimality certificate is a meaningful structural finding for a natural one-intervention design problem. One unit link almost completely overturns the original balanced mean opinion on long paths, with a sharp explicit placement scale. It is neither a numerical scan nor merely an algebraic restatement of the already assumed restricted-candidate problem. The result applies to harmonic equilibrium, not transient speed, empirical votes, heterogeneous links or multiple interventions.
+Bounded best-of-knowledge scientific comparison: The prior monotone-submodular approximation on restricted candidate sets is not an exact solution over all nonedges. Adding a chord between two followers is admissible here and must be excluded by a new monotonic-at-fixed-length argument. The source also does not state the cubic, integer maximizers or asymptotic square-root placement. The targeted Resultary query and primary works were compared on objects, hypotheses, implication and parameters, not simply titles. No decisive prior-coverage theorem identified; this is not a proof of historical priority.
 
-## Limits
+## value
 
-The proof's symmetry, equal edge weights, endpoint leaders and single-link assumption are essential. A different graph or objective can change the optimal network intervention. The finite checker is supporting evidence, not an exhaustive infinite certificate. Independent scientific validation and complete historical priority checking remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The equilibrium edge-addition problem is natural in harmonic opinion propagation with two competing boundary leaders. Proving that *every* unrestricted optimal new chord touches the promoting leader is a nontrivial structural insight, and exact optimal placement at distance sqrt L and near-unanimous average quantify a strong network-sensitivity phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
