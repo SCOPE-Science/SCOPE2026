@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Unique difference intervals follow from the published Type-A lemma. Intersecting two intervals for incident edges forces a common two-symbol alphabet, so the opposite edge has symmetric-difference support. The only allowed interval geometries yield one unique adjacent pivot. Its equal-symbol boundary is necessary and sufficient. Counting its ordered first-symbol pair, block split, interval location and outside context gives T exactly. Independent deletion-set enumeration and pivot checks corroborate all cases q=2 n<=11, q=3 n<=7, q=4 n<=6; the proof, not the finite checks, is all-length.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The one-read triangle paper requires only one common deletion descendant and has a different graph and formula.",
+        "The two-read edge paper handles q-ary edge enumeration but not three-vertex configurations."
+      ],
+      "reasoning": "The one-read graph strictly contains the two-read graph, but an aggregate count of its triangles does not determine the subgraph triangle count or its explicit structural classification. The known two-read edge statistic alone also cannot determine triangle incidence.",
+      "searches": [
+        "clique polynomial triangle density single deletion reconstruction graphs",
+        "clique number maximal cliques two-read single-deletion reconstruction conflict graph alternating substrings",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-triangle-count-in-the-binary-single-deletion-graph--a53aac659908"
+      ]
+    },
+    "checked_sources": [
+      "https://ieeexplore.ieee.org/document/904499/",
+      "https://arxiv.org/abs/2001.01376",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-triangle-count-in-the-binary-single-deletion-graph--a53aac659908"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cited 2001 framework defines reconstruction problems; Cai et al. give Type-A edges; the edge result counts edges; the one-read result counts triangles of a different graph."
+      ],
+      "reasoning": "A new intersection-of-intervals classification is required to pass from pairwise Type-A edges to triangles. None of the inspected statements implies the closed q-ary T formula without that additional lemma; neither contains the unique pivot and equal-junction characterization.",
+      "searches": [
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-triangle-count-in-the-binary-single-deletion-graph--a53aac659908",
+        "https://arxiv.org/abs/2001.01376",
+        "triangle enumeration Type-A confusability graph three codewords alternating adjacent blocks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cai et al. characterize each edge by alternating Type-A intervals.",
+        "The exact edge-count paper describes individual edges but not the unique-pivot gluing rule for triangles."
+      ],
+      "reasoning": "The potential dual reformulation is three mutually Type-A-confusable words. Pairwise Type-A edges alone do not state that a triangle uniquely glues two adjacent length-at-least-two swaps at an equal boundary. The full pivot theorem is stronger than pairwise characterization.",
+      "searches": [
+        "q-ary one-deletion two-read reconstruction graph triangles three mutually Type-A-confusable words exact count",
+        "triangle enumeration Type-A confusability graph three codewords alternating adjacent blocks",
+        "pairwise two-common single deletion descendants triples 2 read codes clique K3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research-record searches retrieved the exact two-read edge count and different one-read binary triangle count, but no exact q-ary two-read triangle formula or canonical classification."
+      ],
+      "reasoning": "No verified table or named graph statistic in the inspected records exactly equals the new sum or its full all-parameter structure. Search incompleteness is acknowledged and not treated as proof of priority.",
+      "searches": [
+        "q-ary one-deletion two-read reconstruction graph triangles three mutually Type-A-confusable words exact count",
+        "pairwise two-common single deletion descendants triples 2 read codes clique K3",
+        "clique polynomial triangle density single deletion reconstruction graphs"
+      ]
+    },
+    "rationale": "A same-graph exact edge theorem and a distinct one-read graph triangle theorem were inspected in full. Neither contains or immediately implies the complete two-read q-ary triangle structure, canonical pivot or formula; qualified by potential unindexed historical prior statements.",
+    "residual_risks": [
+      "The 2001 Levenshtein article was available at abstract/metadata level only, not the full original paper.",
+      "A historical triangle count under alternate synchronization terminology could be unindexed.",
+      "The underlying pairwise Type-A lemma is known, so the new contribution is the triple-intersection theorem rather than the edge definition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The pairwise characterization establishes the allowed edge intervals but does not classify triangle pivots or enumerate the triangles.",
+        "evidence": [
+          "Cai–Kiah–Nguyen–Yaakobi, arXiv:2001.01376, Type-A criterion for two distinct common single-deletion outputs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.01376",
+        "material_read": "Relevant full-text definitions and Type-A characterization, Proposition 9 and adjacent discussion; abstract and date metadata",
+        "method": "Open-access full-text reading",
+        "title": "Coding for Sequence Reconstruction for Single Edits",
+        "trigger": "Primary Type-A pairwise two-read characterization"
+      },
+      {
+        "assessment": "Counts edges and average degree at all alphabet sizes and lengths; does not count triple incidences or provide a canonical pivot.",
+        "evidence": [
+          "Published edge count is q(q-1)/2 times sum over alternating intervals; explicitly lists degree distribution and code cardinality as outside scope."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "material_read": "Complete RESULT.md, including theorem, proof, relationship and limitations",
+        "method": "Public repository scientific article full text",
+        "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+        "trigger": "Same graph, potential dominating invariant"
+      },
+      {
+        "assessment": "Edge requires at least one common descendant, not exactly two; therefore counts triangles of a different graph, not this one.",
+        "evidence": [
+          "It explicitly defines adjacency by a common length-(n-1) subsequence and derives a formula growing as 2^n n^3, distinct from current roughly 2^n n."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-triangle-count-in-the-binary-single-deletion-graph--a53aac659908",
+        "material_read": "Complete RESULT.md, including exact formula, finite-state proof and domain",
+        "method": "Public repository scientific article full text",
+        "title": "Exact triangle count in the binary single-deletion graph",
+        "trigger": "Same triangle statistic under one-read edge definition"
+      },
+      {
+        "assessment": "Historical reconstruction framework, no full-text exclusion claim; residual priority risk disclosed.",
+        "evidence": [
+          "IEEE Transactions on Information Theory 47(1), publication date 2001-01-31, DOI 10.1109/18.904499; abstract describes efficient reconstruction from noisy copies."
+        ],
+        "identifier_or_url": "https://ieeexplore.ieee.org/document/904499/",
+        "material_read": "Publisher bibliographic metadata and complete accessible abstract; original full article not inspected",
+        "method": "IEEE publisher record",
+        "title": "Efficient reconstruction of sequences",
+        "trigger": "Earliest public archival source and broad reconstruction precedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b8783699-92d7-4c89-893f-78142c168d10",
+  "value": {
+    "rationale": "The result completely classifies the minimal nontrivial three-way pairwise ambiguity patterns in the two-read single-deletion channel, for all alphabets and lengths. This yields an exact triangle spectrum with a rational generating series and an intrinsic canonical decomposition, informing structural combinatorics of reconstruction-code conflict graphs beyond previously known edge counts.",
+    "status": "PASS"
+  }
+}
