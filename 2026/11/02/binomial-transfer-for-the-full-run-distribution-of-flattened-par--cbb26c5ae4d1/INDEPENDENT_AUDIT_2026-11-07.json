@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:12:36.830446Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A parking word has t_i=#{letters<=i}>=i for all i. Group its unique weakly increasing runs as a run-by-letter multiplicity array, ordered by weakly increasing run minima. The transfer state (placed copies t, opened runs k, set S of earlier boundaries whose strict descent has been witnessed) encodes exactly these conditions. A new letter opens h nonempty runs and fulfills q old boundaries; stars-and-bars gives C(a+b,b+q+h) for k>=1, or C(a-1,h-1) when k=0. Newly opened boundaries remain unsatisfied until a later higher letter enters the preceding run. Each completed state corresponds bijectively to one flattened parking word; nonfinal runs have length>=2 so r<=ceil(n/2). Independent literal enumeration n=1..6 matched the claimed rows; infinite n follows from the bijection, not tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cruz et al. arxiv:2312.16786 classifies descent statistics for ordinary parking functions.",
+          "Barrese et al. Theorem 3.6 counts weakly flattened rankings by reduced content, but Section 3.1 leaves the run count open in its own related family."
+        ],
+        "reasoning": "Ordinary parking descents ignore the weak order of run starts; a content count summed over all possible descents does not imply the joint run-count distribution for flattened parking words.",
+        "searches": [
+          "flattened parking functions run distribution recurrence Barrese Elder Harris refined enumeration",
+          "Check general parking descent-set distributions and Fubini content formulas."
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2210.14206 original flattened parking definition and n<=8 table/open problem",
+        "arxiv:2504.06466 theorem3.6 and section3.1",
+        "arxiv:2312.16786 ordinary parking descent statistics",
+        "Resultary semantic query: flattened parking functions run distribution recurrence Barrese Elder Harris refined enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Elder et al. explicitly identify unrestricted flattened parking run enumeration as unsolved.",
+          "Barrese et al. Theorem 3.6 is a reduced-content count for related rankings and does not retain exact number of flattened parking function runs."
+        ],
+        "reasoning": "The published theorems do not force the stated binomial recurrence without the additional boundary-satisfaction/run-minimum state logic.",
+        "searches": [
+          "flattened parking functions run distribution recurrence Barrese Elder Harris refined enumeration",
+          "Compare exact run-refined target against closest published theorems."
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Elder et al. arxiv:2210.14206 defines flattened parking functions and explicitly raises the run-count problem after n<=8.",
+          "Barrese et al. arxiv:2504.06466 gives a reduced-content count for weakly flattened Fubini rankings but without run-count refinement."
+        ],
+        "reasoning": "Fubini rankings permit ties with a different content condition, and their unrefined formula cannot simply be read as the run-distribution of parking functions. The original flattened parking paper did not provide this transfer.",
+        "searches": [
+          "flattened parking functions run distribution recurrence Barrese Elder Harris refined enumeration",
+          "Search for parking-function / flat Fubini ranking refined run enumeration aliases."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Elder et al. tabulate all run distributions through n=8.",
+          "Independent direct word enumeration to n=6 matches [1], [2], [5,3], [14,32], [42,245,49], [132,1656,1149]."
+        ],
+        "reasoning": "Previously published finite n<=8 rows are acknowledged as known. The all-n transfer coefficients and precise state bijection go beyond table recomputation.",
+        "searches": [
+          "flattened parking functions run distribution recurrence Barrese Elder Harris refined enumeration",
+          "Compare original finite tables and new recurrence output."
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: exact mathematical implication comparisons favor a non-covered surviving contribution; related special cases and premises are explicitly credited, with listed residual priority risks.",
+      "residual_risks": [
+        "Potential unpublished refinement of the 2025 content formula may already provide this all-n transfer under another encoding.",
+        "The transfer grows with n; no fixed-order scalar recurrence or closed ordinary generating function is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes base definition and finite counts, explicitly raises unrestricted run enumeration as an open problem",
+          "evidence": [
+            "Abstract and main introduction; final enumerative questions; n<=8 table"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.14206",
+          "material_read": "Full open-access preprint; definitions, table through n=8, insertion subclasses and final enumeration questions",
+          "method": "Read arXiv open-access article and inspected displayed run-count table",
+          "title": "On Flattened Parking Functions",
+          "trigger": "Definition and stated enumerative open problem of identical objects"
+        },
+        {
+          "assessment": "Counts related weakly flattened Fubini rankings by content without the flattened parking run distribution; states related run refinement remains open",
+          "evidence": [
+            "Theorem 3.6; Section 3.1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.06466",
+          "material_read": "Open-access article theorem 3.6 and Section 3.1 discussion of reduced-content counts and run restrictions",
+          "method": "Read lawful arXiv full text sections and formula",
+          "title": "Enumerating Flat Fubini Rankings",
+          "trigger": "Possible stronger count formula with related weak run minima"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 2022/2023 paper explicitly asks for an unrestricted enumeration refined by weakly increasing run count and only gives data through n=8. This binomial-transfer algorithm resolves that natural stated problem for every n and every allowable r, with nonnegative explicit integer coefficients. It neither claims a small fixed-order scalar recurrence nor novelty of the original flattened notion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Integer n>=1; full run count but not a fixed-state automaton independent of n.",
+    "Finite checks through n=6 by literal definition do not prove the recurrence for unbounded n."
+  ]
+}
