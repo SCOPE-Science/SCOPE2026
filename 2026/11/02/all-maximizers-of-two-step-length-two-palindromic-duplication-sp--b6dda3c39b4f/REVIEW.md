@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The claim has exact domains \(q\ge2\), \(n\ge2\), with exactly two sequential length-two operations. A universal upper bound follows by exhaustively classifying the \(\binom n2+3n-4\) labeled shapes. Any equal original neighbors merge two shapes. For unequal neighbors, the earliest equality edge identifies the least original start, and a local case split separates every shape within that start, including the subtle \(M\)-versus-separated-original-pair comparison via its additional forced equality edge. The involution extension uses the published, explicitly cited even-length conjugacy. Separate programs enumerate actual outputs and abstract shapes as finite checks, not as replacements for the general proof.
+## correctness
 
-**Originality (O): PASS subject to residual priority uncertainty.** The nearest primary manuscript, arXiv:2609.00779, states the maximum cardinality and provides alternating two-symbol witnesses but does not classify all sources achieving equality. Its general shape count is insufficient for arbitrary-alphabet equality without the injectivity proof supplied here. The older arXiv:1712.09345 treats one error, and arXiv:2602.01151 concerns code constructions. Comparisons to related published mathematical records uncovered finite code-size results rather than the present all-length sphere-maximizer theorem. A previously unindexed derivation remains possible; no external priority certification was performed.
+PASS
 
-**Value (V): PASS.** Exact classification of equality in a sharp sphere bound is a natural refinement of the established two-error duplication geometry. It reveals an exponentially large family of additional optimizers on nonbinary alphabets, gives its exact labeled cardinality, and transfers the criterion to reverse-complement duplication without requiring a fixed-point-free involution. These properties concern the underlying channel geometry rather than an arbitrary parameter slice.
+Every two-step history maps to one of binom(n,2)+2(n-1)+(n-2) canonical source-label multiset or parent-child shapes. An equal original adjacent pair merges two distinct labels, giving strictness. For a proper source, the earliest new equality edge recovers the least original start; the local A,L,M,R,B_b cases separate the remaining shapes (the M versus distant B_b edge count is essential). Their ranges include n=2. The known even-length coordinate conjugacy carries the iff to RC. Independently enumerated all q-ary inputs at q=2,n<=9; q=3,n<=7; q=4,n<=5, both PAL and involutive RC choices. Infinite theorem rests on shape injection, not enumeration.
 
-The result does not solve optimal codebook construction or characterize longer blocks or larger numbers of errors. The scope and these limitations are explicit in `RESULT.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zabokritskiy arXiv:2609.00779v3 §5.1 Theorem 5.1 proves the same sharp maximum and alternating-source witnesses; §5.2 Lemma 5.7 supplies the canonical shapes, but explicitly says other sources MAY merge them, without classifying all equality sources. The exhaustive iff and q(q-1)^(n-1) extremizer count remain distinct best-of-knowledge results. Known conjugacy is credited rather than treated as new.
+
+## value
+
+PASS
+
+A maximal descendant-sphere invariant controls collision/combinatorial coding analysis. Classifying every optimizer over all alphabets is a natural completion beyond the known numerical maximum and exhibits many nonalternating extremizers for q>=3; the exact source enumeration is structurally meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
