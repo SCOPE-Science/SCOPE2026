@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T11:55:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Gaussian E[gg^T]=I and E[(gg^T)^2]=(d+2)I reconstruct the exact 3x3 map on (E||x_k||^2,E<x_k,x_{k-1}>,E||x_{k-1}||^2). The induced positive-semidefinite Gram map satisfies det Gnext=omega^2 det G+(d+1)alpha^2 G11^2; for omega>0, 1–2 updates move nonzero PSD to its interior, ensuring primitive-cone Perron growth and a nonzero leading coefficient for any nonzero zero-momentum initialization. For omega=0 direct scalar factor applies. P(1)=alpha[2(1-omega^2)-alpha(d(1+omega)+2)] and det M=omega^3 yield iff strict stability (omega<1, alpha below ceiling). Completing the square for P((d+1)/(d+2)) makes its sign strictly negative except at omega=0, alpha=1/(d+2), proving unique global optimal rate. Independently recomputed polynomials and 64 rational spectral boundary checks, not extrapolated as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han–Xie Theorem 4.7 gives a sufficient convergence estimate, not sharp stability necessity or global optimizer.",
+          "Minibatch-heavy-ball studies allow acceleration under sufficiently large minibatches; model differs from one fresh Gaussian sketch."
+        ],
+        "reasoning": "Neither general sufficient convergence bounds nor different-batching models dominate this exact rank-one distribution-specific classification. The general Gaussian moment identity is antecedent only.",
+        "searches": [
+          "Gaussian heavy ball Kaczmarz exact mean-square convergence optimal non-momentum rate spectral radius",
+          "https://arxiv.org/pdf/2208.05437",
+          "https://arxiv.org/pdf/1803.05591",
+          "https://arxiv.org/abs/2206.07553"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md c89ee1c17cbaa840441bc2d256d2e83d4ccc5710",
+        "Frozen verify.py 75642d158102ae47d4b8f11313b0530f13d61ffa",
+        "https://arxiv.org/pdf/2208.05437",
+        "https://arxiv.org/pdf/1803.05591",
+        "Independent symbolic moment transfer and rational eigenvalue checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kidambi et al Proposition 3 lower bound on a two-coordinate mixture does not imply the sharp Gaussian rate (d+1)/(d+2) for all d.",
+          "Han–Xie sufficient criteria cannot prove the necessity of alpha<2(1-omega^2)/[d(1+omega)+2] or uniqueness of alpha=1/(d+2),omega=0."
+        ],
+        "reasoning": "The exact 3x3 transfer, cone Perron argument and completed-square inequality are additional calculations proving a statement stronger than prior special examples on this specified distribution.",
+        "searches": [
+          "Gaussian heavy ball Kaczmarz exact mean-square convergence optimal non-momentum rate spectral radius",
+          "https://arxiv.org/pdf/2208.05437",
+          "https://arxiv.org/pdf/1803.05591",
+          "https://arxiv.org/abs/2206.07553"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Han–Xie §5.6 defines momentum block Gaussian method; the d-dimensional identity rank-one specialization is a valid special case after eta=d alpha normalization.",
+          "Kidambi et al Proposition 3 concerns anisotropic two-coordinate stochastic quadratics; its general qualitative heavy-ball obstruction is not the same exact isotropic Gaussian spectrum."
+        ],
+        "reasoning": "Compared true mean-square recurrence, not the mean of iterates. Qualitative no-acceleration on one law is not numerically identical to an exact (d,alpha,omega) Gaussian optimum.",
+        "searches": [
+          "Gaussian heavy ball Kaczmarz exact mean-square convergence optimal non-momentum rate spectral radius",
+          "https://arxiv.org/pdf/2208.05437",
+          "https://arxiv.org/pdf/1803.05591",
+          "https://arxiv.org/abs/2206.07553"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Frozen symbolic code computes det M=omega^3 and the exact P(1) frontier; independent 64 boundary spectral checks agree.",
+          "Resultary stochastic optimization search revealed separate two-row cyclic Kaczmarz, PAGE and minibatch cases, no exact Gaussian rank-one 3x3 frontier."
+        ],
+        "reasoning": "No located exact tabulation for this same parametric moment matrix; finite eigenvalue evaluations certify only checked parameters, and search absence does not imply novelty.",
+        "searches": [
+          "Gaussian heavy ball Kaczmarz exact mean-square convergence optimal non-momentum rate spectral radius",
+          "https://arxiv.org/pdf/2208.05437",
+          "https://arxiv.org/pdf/1803.05591",
+          "https://arxiv.org/abs/2206.07553"
+        ]
+      },
+      "rationale": "Compared exact statements and logical implications against primary full text where accessible, plus published mathematical record searches. The specified result is not established by the inspected prior statements; explicit inaccessible-primary and historical-priority residual risks are retained.",
+      "residual_risks": [
+        "Equivalent exact recurrence could exist in stochastic heavy-ball / random rank-one Wishart moment literature under different terms.",
+        "Only zero-initial-velocity deterministic nonzero starts, fixed alpha>0 omega>=0, exact iid Gaussian sketches, identity system.",
+        "No claims about negative momentum, minibatches, or acceleration for general matrices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides algorithm and sufficient mean-square bounds; does not state this necessary-and-sufficient isotropic rank-one region and unique global optimizer.",
+          "evidence": "Theorem 4.7 convergence criteria are sufficient; §5.6 defines momentum block Gaussian method.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.05437",
+          "material_read": "Full primary 47-page arXiv PDF, notably theorem 4.7 and §5.6, with screenshot confirmation",
+          "method": "Read primary PDF including algorithm, Gaussian normalization, and convergence conditions",
+          "title": "On pseudoinverse-free randomized methods for linear systems: Unified framework and acceleration (Han and Xie)",
+          "trigger": "Direct progenitor of momentum block Gaussian Kaczmarz"
+        },
+        {
+          "assessment": "A qualitative lower bound for a specially constructed anisotropic two-coordinate example; it does not yield an exact isotropic Gaussian (d,alpha,omega) factor.",
+          "evidence": "Proposition 3 asymptotic exponential lower bound with factor 500/kappa, not the matrix optimum here.",
+          "identifier_or_url": "https://arxiv.org/pdf/1803.05591",
+          "material_read": "Full 28-page primary PDF including Proposition 3 and Appendix A, with page screenshot",
+          "method": "Read PDF statement and proof structure of Proposition 3",
+          "title": "On the insufficiency of existing momentum schemes for stochastic optimization (Kidambi et al.)",
+          "trigger": "Strong potentially dominating no-acceleration theorem"
+        },
+        {
+          "assessment": "Large-minibatch acceleration results do not immediately cover the sharp one-rank isotropic true mean-square frontier.",
+          "evidence": "Minibatch-size conditions are separate hypotheses; risk of related second-moment derivations remains.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.07553",
+          "material_read": "Public arXiv abstract/metadata; no complete section-by-section inspection",
+          "method": "Read publicly indexed statement",
+          "title": "On the fast convergence of minibatch heavy ball momentum (Bollapragada, Chen, Ward)",
+          "trigger": "Broader minibatch acceleration could include single-sketch limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Gaussian rank-one sketches are a canonical randomized linear-system solver model and exact true mean-square behavior is practically different from norm-of-mean acceleration. The full-dimension necessary-and-sufficient stability frontier and unique sharp no-positive-momentum optimizer refine general sufficient bounds and illustrate a significant stochastic-momentum limitation; the original algorithm and known qualitative no-acceleration examples are credited.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md c89ee1c17cbaa840441bc2d256d2e83d4ccc5710",
+    "Frozen verify.py 75642d158102ae47d4b8f11313b0530f13d61ffa",
+    "https://arxiv.org/pdf/2208.05437",
+    "https://arxiv.org/pdf/1803.05591",
+    "Independent symbolic moment transfer and rational eigenvalue checks"
+  ],
+  "disposition": "passed",
+  "final_claim": "For zero-initial-momentum Gaussian rank-one heavy-ball Kaczmarz on I_d x=0, exact mean-square stability is 0<=omega<1 and 0<alpha<2(1-omega^2)/(d(1+omega)+2), with unique globally fastest factor (d+1)/(d+2) at omega=0, alpha=1/(d+2).",
+  "limitations": [
+    "Asymptotic mean-square factor, not a high-probability, wall-clock or sample-complexity optimum.",
+    "The theorem covers integer d>=1 and alpha>0, omega>=0 only."
+  ],
+  "residual_risks": [
+    "Equivalent exact recurrence could exist in stochastic heavy-ball / random rank-one Wishart moment literature under different terms.",
+    "Only zero-initial-velocity deterministic nonzero starts, fixed alpha>0 omega>=0, exact iid Gaussian sketches, identity system.",
+    "No claims about negative momentum, minibatches, or acceleration for general matrices."
+  ],
+  "schema_version": 1
+}

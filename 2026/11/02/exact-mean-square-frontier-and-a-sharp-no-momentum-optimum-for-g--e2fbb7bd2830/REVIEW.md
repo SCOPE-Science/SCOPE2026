@@ -1,17 +1,21 @@
-# Scientific review: Gaussian momentum mean-square frontier
+# Independent mathematical audit
 
-## Correctness — PASS
-Gaussian second and fourth moments give the exact transfer matrix for E||x_k||², E<x_k,x_{k-1}>, and E||x_{k-1}||². The PSD Gram determinant recurrence equals omega² times the old determinant plus (d+1)alpha² times the squared first moment, yielding a primitive positive map for omega>0 and exact Perron growth. The characteristic polynomial satisfies P(1)=alpha[2(1-omega²)-alpha(d(1+omega)+2)] and det(M)=omega³, giving the iff stability frontier. An explicit completed-square identity at r=(d+1)/(d+2) gives P(r)<0 except the stated unique optimizer. Symbolic reproduction and 60 finite rational spectral cases independently passed; they are not a substitute for the general proof.
+## correctness
 
-## Originality — PASS (qualified)
-The original 2022 paper defines mBGK and provides sufficient convergence estimates. Kidambi et al (2018) already establish qualitative heavy-ball failure on a different two-coordinate stochastic problem, using a related moment-transfer technique; this known phenomenon is not claimed as new. The assessed contribution is the dimension-uniform exact Gaussian spectral frontier and unique global mean-square optimizer. Actual semantic searches, synonyms, and implication comparisons against these and published mathematical claims did not reveal a covering theorem. An equivalent treatment in stochastic recurrence literature remains possible; independent priority review has not occurred.
+PASS
 
-The most relevant sources are Han and Xie, arXiv:2208.05437 (especially Section 5.6), Kidambi et al., arXiv:1803.05591 (Section 3 and Appendix A), and Bollapragada et al., arXiv:2206.07553. The general possibility of stochastic-heavy-ball nonacceleration is old; the exact rank-one Gaussian frontier and equality classification are the claimed new portion. Best-knowledge searching cannot establish global priority.
+PASS: Gaussian E[gg^T]=I and E[(gg^T)^2]=(d+2)I reconstruct the exact 3x3 map on (E||x_k||^2,E<x_k,x_{k-1}>,E||x_{k-1}||^2). The induced positive-semidefinite Gram map satisfies det Gnext=omega^2 det G+(d+1)alpha^2 G11^2; for omega>0, 1–2 updates move nonzero PSD to its interior, ensuring primitive-cone Perron growth and a nonzero leading coefficient for any nonzero zero-momentum initialization. For omega=0 direct scalar factor applies. P(1)=alpha[2(1-omega^2)-alpha(d(1+omega)+2)] and det M=omega^3 yield iff strict stability (omega<1, alpha below ceiling). Completing the square for P((d+1)/(d+2)) makes its sign strictly negative except at omega=0, alpha=1/(d+2), proving unique global optimal rate. Independently recomputed polynomials and 64 rational spectral boundary checks, not extrapolated as proof.
 
-## Value — PASS
-The exact region exposes an increasingly restrictive stability penalty from fixed momentum and cleanly separates fast convergence of the mean iterate from the true mean-square error. The sharp optimum and uniqueness answer a meaningful tuning question for the original rank-one Gaussian numerical method and give a reproducible benchmark in every dimension, not an arbitrary finite computation. The theorem does not assert a universal impossibility of stochastic acceleration.
+## originality
 
-## Limitations and remaining risks
-Identity systems, independent standard-Gaussian rank-one sketches, fixed nonnegative momentum and exact arithmetic only. Theoretical bounds are about expected squared error rather than expected iterate or finite-precision residuals. Equivalent prior material might exist and requires independent verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Compared exact statements and logical implications against primary full text where accessible, plus published mathematical record searches. The specified result is not established by the inspected prior statements; explicit inaccessible-primary and historical-priority residual risks are retained.
+
+## value
+
+PASS
+
+PASS: Gaussian rank-one sketches are a canonical randomized linear-system solver model and exact true mean-square behavior is practically different from norm-of-mean acceleration. The full-dimension necessary-and-sufficient stability frontier and unique sharp no-positive-momentum optimizer refine general sufficient bounds and illustrate a significant stochastic-momentum limitation; the original algorithm and known qualitative no-acceleration examples are credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

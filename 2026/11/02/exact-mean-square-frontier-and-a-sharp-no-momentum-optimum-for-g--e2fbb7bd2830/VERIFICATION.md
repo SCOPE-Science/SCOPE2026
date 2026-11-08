@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The `verify.py` script independently reconstructs the exact moment-transfer polynomial, its determinant, threshold identity, derivative at zero stepsize, and sharp completed-square certificate in symbolic arithmetic using SymPy. It evaluates the spectral radius of 60 independent rationally specified cases across five dimensions, three momentum levels, and four relative step sizes, checks the momentum-free equality case, and verifies the Gaussian fourth-moment coefficient from coordinate moments.
+# Independent mathematical audit
 
-Execute with `python verify.py` after installing the dependency listed in `requirements.txt`. The expected success marker is `VERIFY_OK`. The full asymptotic theorem relies on the analytic proof in `RESULT.md`, including the primitive positive-map argument and polynomial sign analysis; numerical spectra or finitely many moments cannot certify an infinite-horizon bound. All precision-sensitive, parameter-global claims are stated and proved symbolically; the checks only corroborate them.
+## correctness
 
-No independent scientific audit has been performed.
+PASS
+
+PASS: Gaussian E[gg^T]=I and E[(gg^T)^2]=(d+2)I reconstruct the exact 3x3 map on (E||x_k||^2,E<x_k,x_{k-1}>,E||x_{k-1}||^2). The induced positive-semidefinite Gram map satisfies det Gnext=omega^2 det G+(d+1)alpha^2 G11^2; for omega>0, 1–2 updates move nonzero PSD to its interior, ensuring primitive-cone Perron growth and a nonzero leading coefficient for any nonzero zero-momentum initialization. For omega=0 direct scalar factor applies. P(1)=alpha[2(1-omega^2)-alpha(d(1+omega)+2)] and det M=omega^3 yield iff strict stability (omega<1, alpha below ceiling). Completing the square for P((d+1)/(d+2)) makes its sign strictly negative except at omega=0, alpha=1/(d+2), proving unique global optimal rate. Independently recomputed polynomials and 64 rational spectral boundary checks, not extrapolated as proof.
+
+## originality
+
+PASS
+
+Compared exact statements and logical implications against primary full text where accessible, plus published mathematical record searches. The specified result is not established by the inspected prior statements; explicit inaccessible-primary and historical-priority residual risks are retained.
+
+## value
+
+PASS
+
+PASS: Gaussian rank-one sketches are a canonical randomized linear-system solver model and exact true mean-square behavior is practically different from norm-of-mean acceleration. The full-dimension necessary-and-sufficient stability frontier and unique sharp no-positive-momentum optimizer refine general sufficient bounds and illustrate a significant stochastic-momentum limitation; the original algorithm and known qualitative no-acceleration examples are credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
