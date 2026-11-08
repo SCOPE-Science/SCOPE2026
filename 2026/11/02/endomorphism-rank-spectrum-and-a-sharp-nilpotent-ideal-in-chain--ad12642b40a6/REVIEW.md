@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** A multiplication-preserving linear map is uniquely determined by the image of the first natural-basis element because every successive basis element is the square of its predecessor. Pairwise orthogonality forces at most one nonzero coefficient below the annihilator. This proves both directions of the complete normal form over every finite field. Nonzero leading coordinates give ranks, and every nonunit raises the natural terminal flag. The explicit shift proves sharpness of the resulting semigroup nilpotency index. Idempotent and regular-element deductions are exact. The provided standalone program verifies 19 independently enumerated finite-field configurations, including characteristic two and a nonprime field. Residual correctness risks are limited to transcription or an undetected error in the elementary, fully spelled-out deductions; computation alone is not invoked as a general proof.
+PASS
 
-## Originality
+Cross-product rigidity from e1 e_(d+1)=0 forces at most one nonterminal nonzero coordinate of f(e1), with other images fixed by squaring. Ranks follow from independent leading basis coordinates. Any nonunit raises the terminal support filtration V_r=span(e_r,...,e_n), so arbitrary products of n nonunits vanish, not merely individual powers; the shift T(e_i)=e_(i+1) has T^(n-1)≠0, proving sharp joint ideal index. Closure under composition follows from rank monotonicity in the finite-dimensional endomorphism monoid. Idempotents 0 and 1 then force regular elements exactly units and zero: f g f=f implies fg idempotent; if fg=0 then f=0, if fg=1 then f unit. Independent separate generator-image checks for n=2,3,4 over F2 and n=3 over F3 found all rank counts, only 2 idempotents and max composition nilpotency n. Universal ideal result is proved from filtration, not sampled.
 
-**PASS, subject to publication-priority risk.** The 2018 source proves descriptions of automorphisms and derivations, not the full finite-field endomorphism monoid. Its canonical chain setting is treated as pre-existing. The rank multiplicities for all singular endomorphisms, the sharp nilpotent nonunit ideal and the resulting regularity classification concern a strictly larger semigroup: knowing the automorphism subgroup alone does not imply them. The 2020 classification paper was inspected through its complete public PDF. Its Sections 3–7 study algebra isomorphism, associative enveloping algebras, derivations and their extensions, not the endomorphism monoid or rank spectrum. Broader searches for chain evolution-algebra endomorphism semigroups and equivalent rank profiles located no decisive encompassing theorem. An earlier endomorphism classification under variant terminology remains a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A canonical maximal-nilindex evolution algebra is a natural reference object in classification work; its full endomorphism monoid governs all self-maps, not just symmetries. Determining every image rank and the uniform multiplicities answers a natural quantitative algebraic question. The nilpotent two-sided ideal with a dimension-sharp index and the absence of nontrivial retractions and regular nonunits give substantive semigroup structure, making the result more than a small finite census. The conclusion holds uniformly over every finite field and arbitrary dimension, rather than at arbitrary parameter slices.
+Existing 2018 automorphism/derivation and 2020 maximal-nilindex algebra-classification papers do not state arbitrary endomorphism monoid ideal powers. However, the companion current assignment chain-endomorphism package proves exactly the same unrestricted normal form and rank counts over all fields, so those parts cannot receive independent originality credit here. The distinguished new claim is the *joint* nilpotence of the entire nonunit two-sided ideal with exact index n and regular-element spectrum; the other manuscript asserts each nonunit individually nilpotent but not the sharp semigroup ideal. This is readily derived from its support-shift structure, so the conceptual overlap must be disclosed as strong and mathematical value rests on the sharp joint index.
 
-## Closest sources and limitations
+## value
 
-Mukhamedov, Khakimov, Omirov, and Qaralleh, arXiv:1805.10285 (2018), Sections 2 and 5, supplies the original canonical model and automorphism context; its characteristic-zero structural theorem was not extrapolated to finite fields. Mukhamedov, Khakimov, and Qaralleh, DOI:10.1080/00927872.2020.1757688 (2020), is an adjacent classification study whose complete full text was inspected and does not supply a full endomorphism monoid or its rank profile. Casas, Ladra, Omirov, and Rozikov, arXiv:1208.1709 (2012), supplies older foundations for maximal nilindex. The result applies to the explicit chain table, not to all nilpotent evolution algebras. No independent validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The nilpotent ideal I of all nonunits is a canonical semigroup radical-like invariant: its uniform sharp ideal-product index n is stronger than separate nilpotency of members and controls arbitrary compositions of singular self-maps. The regular-element classification and exact index are useful structural facts for the standard maximal-nilindex chain. Rank census is already duplicated in a companion file and not assigned new standalone value here.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

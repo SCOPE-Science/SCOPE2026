@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with the Python standard library only; successful output terminates in `VERIFY_OK`. For each field and dimension, the program constructs all candidate first-vector images, recursively squares them, directly enforces all mixed-product relations, and computes the linear rank. In addition to the count and rank polynomial, it tests the set of actual idempotents by composing the full image matrices. The inspected configuration list is \(q=2\), \(2\le n\le8\); \(q=3\), \(2\le n\le6\); \(q=4\), \(2\le n\le5\); and \(q=5\), \(2\le n\le4\), a total of 19 cases. The order-four field is represented by characteristic-two arithmetic on a multiplicative group of order three.
+## correctness
 
-As sample reproducibility anchors, the program reports eight endomorphisms of \(E_4(\mathbb F_2)\), 21 of \(E_4(\mathbb F_3)\), and 52 of \(E_5(\mathbb F_4)\). Finite enumeration cannot establish a theorem for all field sizes and dimensions. The general proof is symbolic and derives all multiplication constraints, flags, and sharpness without assuming empirical extrapolation. Independent mathematical audit has not been performed.
+PASS
+
+Cross-product rigidity from e1 e_(d+1)=0 forces at most one nonterminal nonzero coordinate of f(e1), with other images fixed by squaring. Ranks follow from independent leading basis coordinates. Any nonunit raises the terminal support filtration V_r=span(e_r,...,e_n), so arbitrary products of n nonunits vanish, not merely individual powers; the shift T(e_i)=e_(i+1) has T^(n-1)≠0, proving sharp joint ideal index. Closure under composition follows from rank monotonicity in the finite-dimensional endomorphism monoid. Idempotents 0 and 1 then force regular elements exactly units and zero: f g f=f implies fg idempotent; if fg=0 then f=0, if fg=1 then f unit. Independent separate generator-image checks for n=2,3,4 over F2 and n=3 over F3 found all rank counts, only 2 idempotents and max composition nilpotency n. Universal ideal result is proved from filtration, not sampled.
+
+## originality
+
+PASS
+
+Existing 2018 automorphism/derivation and 2020 maximal-nilindex algebra-classification papers do not state arbitrary endomorphism monoid ideal powers. However, the companion current assignment chain-endomorphism package proves exactly the same unrestricted normal form and rank counts over all fields, so those parts cannot receive independent originality credit here. The distinguished new claim is the *joint* nilpotence of the entire nonunit two-sided ideal with exact index n and regular-element spectrum; the other manuscript asserts each nonunit individually nilpotent but not the sharp semigroup ideal. This is readily derived from its support-shift structure, so the conceptual overlap must be disclosed as strong and mathematical value rests on the sharp joint index.
+
+## value
+
+PASS
+
+The nilpotent ideal I of all nonunits is a canonical semigroup radical-like invariant: its uniform sharp ideal-product index n is stronger than separate nilpotency of members and controls arbitrary compositions of singular self-maps. The regular-element classification and exact index are useful structural facts for the standard maximal-nilindex chain. Rank census is already duplicated in a companion file and not assigned new standalone value here.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
