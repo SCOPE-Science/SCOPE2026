@@ -1,11 +1,21 @@
-# Scientific review of the critical-harvest prey-survival threshold
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact completed-square system gives monotone prey displacement. Every hypothetical global positive-prey trajectory must have \(u=x-K/2>0\), \(\int u^2<\infty\), and \(\int u=\infty\). The exact evolution of \(z=u^2/y\) makes the latter condition inconsistent with \(-KP'(K/2)\le2\), including equality, by a nonvanishing lower bound on an integrating factor. An inward-pointing quadratic wedge proves surviving initial conditions above the threshold. The formal proof handles first boundary contact, rational-response regularity, and all signs. The embedded exact checker independently recomputes key finite algebraic identities, without being substituted for an infinite-time proof.
+## correctness
 
-**Originality — PASS under inspected evidence.** The 2026 negative-\(b\) model paper's Theorem 3.8 classifies local nilpotent coalescence, but its analyzed claims do not furnish a global all-interior finite-time prey-collapse result, a physical survival-wedge theorem, or the exact derivative cutoff. Etoua–Rousseau's corresponding harvested generalized Gause work restricts its model analysis to \(b\ge0\). Saputra–van Veen–Quispel consider generic double-zero saddle-node/transcritical local normal forms for a different Lotka–Volterra model; these may anticipate local sector structures but do not state the new specialized global dichotomy. Searches for equivalent formulations and parameter conditions did not reveal an implied exact threshold. Unexamined general normal-form or predator-prey survival results remain a priority risk; absence from searches alone is not claimed as proof.
+PASS
 
-**Mathematical value — PASS.** The maximum-yield harvest is a natural degenerate boundary at which prey-only populations above carrying-capacity midpoint survive asymptotically, while even arbitrarily small predator perturbations can cause irreversible finite-time loss. The exact \(\alpha=2\) transition distinguishes two sharply different possibilities within the biologically meaningful group-defense response and supplies a concrete invariant region in the surviving regime. This is a natural phase-boundary theorem, not a tiny numerical improvement or a restatement of nilpotent classification.
+Shift u=x-K/2 and complete the logistic square: u'=-u^2/K-P(K/2+u)y, y'=[P(K/2+u)-P(K/2)]y. Positive y makes u strictly decreasing. If u<=0 it reaches x=0 in finite time by Riccati comparison. On a hypothetical global u>0 trajectory, u->0, ∫u² dt<=Ku(0), and ∫u dt=∞, since a finite ∫u would leave y bounded below away from zero and force a crossing. z=u²/y has exactly z'=-2P(r+u)u-[2u/K+P(r+u)-P(r)]z. For alpha<=2, the bracket is bounded below by -Cu², so its integrating factor stays positive and the integral ∫P u diverges, forcing z negative: contradiction. For alpha>2, on y=cu², c<(alpha-2)/(2KP(r)), the outward derivative is negative near u=0, while u' is between two negative multiples of u², proving a nonempty positively invariant wedge with no finite-time boundary contact. Rational derivative alpha=-4K²(bK+4)/(aK²+2bK+4)² and explicit parameter triples verified symbolically; the theorem is for all positive initial predator data on the exact critical parameter surface, not trajectories continued through negative prey densities.
 
-Scientific limitations include the exact critical-parameter surface, an unclassified global survival basin when \(\alpha>2\), and incomplete assurance of historical priority beyond inspected material.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS after searches and real statement-level primary comparisons; no source found to imply the exact final claim. Explicit historical/inaccessible-source risks remain: An unlocated general nilpotent-flow/global extinction result might imply the threshold after a nontrivial reduction; current primary comparison cannot certify historical priority.; Survival wedge is sufficient, not the whole basin; positive coexistence not claimed; exact K/4 and mortality matching are essential.
+
+## value
+
+PASS
+
+Constant harvesting at the logistic maximum sustainable yield is a canonical degenerate predator-prey threshold; arbitrarily small predator densities may either force biological prey extinction or lie in an open surviving basin. The derivative threshold 2, including its equality side and rational group-defense realization, supplies an exact phase boundary rather than a textbook local linearization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

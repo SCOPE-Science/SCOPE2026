@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T13:11:38.074875Z",
+  "axes": {
+    "correctness": {
+      "critical_checks": [
+        "Independent SymPy rederived exact z=u²/y evolution and rational-response alpha formula; separate parameter signs 16/25, 16, 2 verified from displayed rational values.",
+        "Full proof reconstructed to distinguish finite-time contact (alpha<=2) from asymptotic predator extinction within survival wedge (alpha>2)."
+      ],
+      "rationale": "Shift u=x-K/2 and complete the logistic square: u'=-u^2/K-P(K/2+u)y, y'=[P(K/2+u)-P(K/2)]y. Positive y makes u strictly decreasing. If u<=0 it reaches x=0 in finite time by Riccati comparison. On a hypothetical global u>0 trajectory, u->0, ∫u² dt<=Ku(0), and ∫u dt=∞, since a finite ∫u would leave y bounded below away from zero and force a crossing. z=u²/y has exactly z'=-2P(r+u)u-[2u/K+P(r+u)-P(r)]z. For alpha<=2, the bracket is bounded below by -Cu², so its integrating factor stays positive and the integral ∫P u diverges, forcing z negative: contradiction. For alpha>2, on y=cu², c<(alpha-2)/(2KP(r)), the outward derivative is negative near u=0, while u' is between two negative multiples of u², proving a nonempty positively invariant wedge with no finite-time boundary contact. Rational derivative alpha=-4K²(bK+4)/(aK²+2bK+4)² and explicit parameter triples verified symbolically; the theorem is for all positive initial predator data on the exact critical parameter surface, not trajectories continued through negative prey densities.",
+      "risks": [
+        "Survival wedge is sufficient, not the whole basin; positive coexistence not claimed; exact K/4 and mortality matching are essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary periodic Gause harvest ceiling controls period averages and nonexistence of cycles, not the critical constant-harvest physical extinction boundary.",
+          "Etoua Rousseau work treats b>=0; generic double-zero local normal forms are not a global positive-state collapse classification."
+        ],
+        "reasoning": "Broader models/normal forms share dynamical terminology but the quantified conclusions are different and do not dominate the claimed boundary, based on inspected statements.",
+        "searches": [
+          "Resultary critical harvesting and prey extinction query",
+          "Etoua Rousseau generalized Gause harvesting",
+          "Saputra van Veen Quispel 2010 arXiv:1002.4150"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.32306v1",
+        "https://arxiv.org/abs/1002.4150",
+        "Resultary 2026/10/11/SCOPE-a-weighted-harvest-ceiling-for-periodic-gause-dynamics--bce778b91a9c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.8 needs bh>-3/2, bh!=-1 and describes local nonhyperbolic structure; the reviewed theorem states all-positive-data prey contact for a larger P class and exact equality.",
+          "Local bifurcation classifications contain weaker/different data than global boundary-contact and invariance."
+        ],
+        "reasoning": "The new implication is not established by these inspected prior statements; an earlier global singular ODE theorem may still subsume it.",
+        "searches": [
+          "2610.32306v1 direct comparison theorem 3.8",
+          "2010 Saputra normal form comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "El Khateeb et al. Thm 3.8: local nilpotent normal form at K=4h,d=P(2h).",
+          "Source theorem uses global first contact with x=0 and exact z=u²/y integrating factor; neither is a formal restatement of local normal-form coefficients."
+        ],
+        "reasoning": "An equivalent center-manifold or parabolic sector may supply local phase portrait information, but does not by itself entail the all-positive-initial-condition finite-time prey-zero dichotomy with equality alpha=2.",
+        "searches": [
+          "arXiv:2610.32306v1 full HTML §§2-4",
+          "arXiv:1002.4150 saddle-node transcritical harvesting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact alpha=2 derivative cutoff or complete prey-survival basin boundary found in the returned published records.",
+          "The main paper gives local nilpotent bifurcations not such a table."
+        ],
+        "reasoning": "There is no applicable exact table/database that computes the threshold; absence from search is not novelty proof.",
+        "searches": [
+          "Resultary 15-hit critical harvest prey search",
+          "arXiv:2610.32306v1 equations and Theorem 3.8"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS after searches and real statement-level primary comparisons; no source found to imply the exact final claim. Explicit historical/inaccessible-source risks remain: An unlocated general nilpotent-flow/global extinction result might imply the threshold after a nontrivial reduction; current primary comparison cannot certify historical priority.; Survival wedge is sufficient, not the whole basin; positive coexistence not claimed; exact K/4 and mortality matching are essential.",
+      "residual_risks": [
+        "An unlocated general nilpotent-flow/global extinction result might imply the threshold after a nontrivial reduction; current primary comparison cannot certify historical priority.",
+        "Survival wedge is sufficient, not the whole basin; positive coexistence not claimed; exact K/4 and mortality matching are essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING inspected claimed global cutoff; local bifurcation results are prior and credited.",
+          "evidence": "Theorem 3.8 assumes K=4h,d=P(2h), gives local coordinate normal form, no sharp physical u²/y extinction criterion.",
+          "identifier_or_url": "https://arxiv.org/html/2610.32306v1",
+          "material_read": "Full HTML accessible; inspected model section, nonhyperbolic Theorem 3.8, adjoining Theorem 3.9 and discussion/limitations.",
+          "method": "primary preprint HTML section-level reading",
+          "title": "Dynamics of a Harvested Predator-Prey Model with a Generalized Holling Type III Response Capturing Group Defense",
+          "trigger": "same model, harvest/mortality equality and nilpotent saddle"
+        },
+        {
+          "assessment": "RELEVANT_BUT_NOT_DECISIVELY_INSPECTED",
+          "evidence": "Different local Lotka-Volterra setting; possible broad general reductions remain a risk.",
+          "identifier_or_url": "https://arxiv.org/abs/1002.4150",
+          "material_read": "Original model/relevance discussed in source package; limited bibliographic and abstract comparison in this audit, not full-text noncoverage claim.",
+          "method": "primary bibliographic/abstract and scientific scope comparison",
+          "title": "The saddle-node-transcritical bifurcation in a population model with constant rate harvesting",
+          "trigger": "same codimension-two population bifurcation analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "mathematical_motivation": "Natural exact threshold, structural law, or finite classification in explicitly defined scientific objects; independent of novelty/reproducibility alone.",
+      "rationale": "Constant harvesting at the logistic maximum sustainable yield is a canonical degenerate predator-prey threshold; arbitrarily small predator densities may either force biological prey extinction or lie in an open surviving basin. The derivative threshold 2, including its equality side and rational group-defense realization, supplies an exact phase boundary rather than a textbook local linearization.",
+      "residual_risks": [
+        "Survival wedge is sufficient, not the whole basin; positive coexistence not claimed; exact K/4 and mortality matching are essential."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unlocated general nilpotent-flow/global extinction result might imply the threshold after a nontrivial reduction; current primary comparison cannot certify historical priority.",
+    "Survival wedge is sufficient, not the whole basin; positive coexistence not claimed; exact K/4 and mortality matching are essential."
+  ],
+  "schema_version": 1
+}
