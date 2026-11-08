@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The enumeration from three-leaf insertion has a unique deletion inverse and generates exactly \(945\) binary unrooted seven-leaf trees. Both the edge-split predicate and the independent four-point distance predicate produce the same complete set of \(945\) binary vectors on \(105\) quartet queries. The explicit six-query witness table realizes every one of \(64\) patterns. Fixing one query for the seven-query upper search is valid because label permutations act transitively on all resolved quartet queries; exhaustive monotone extension rejects all candidate supports after \(206{,}992\) search nodes. The depth-nine online certificate gives \(512\) distinct compatible leaves, and a depth-ten certificate is impossible because \(1024>945\). The extracted artifacts were replayed.
+PASS
 
-## Originality — PASS under the accessible comparisons
+For all unrooted fully resolved trees with the seven named leaves, edge subdivision from the three-leaf star has a unique deletion inverse and gives 3·5·7·9=945 topologies. Exactly 105 Boolean quartet predicates are indexed. The certificate provides six queries (0,21,42,54,76,82) with all 64 distinct patterns; I inspected its 64 tree-witness indices and the 511 internal query indices/512 leaf witnesses for a nine-level adaptive tree. I independently constructed all 945 rooted six-leaf hierarchies with the seventh leaf attached, derived quartet predicates from four-point distances, obtained exactly 206992 search nodes and no shattered seven-query set containing index zero, and established symmetry reduction by S7 transitivity. Independent dynamic shattering recursion confirmed depth nine; depth ten is impossible since 1024>945. This is a complete finite proof for precisely seven leaves, not a claim for unbounded taxa.
 
-The 2018 Hirai–Iwamasa quartet-compatibility paper studies reconstruction for multipartite systems rather than exact binary shattering. The 2023 Avdiukhin et al. tree-learning paper analyzes Natarajan and multiclass Littlestone dimensions asymptotically for hierarchical labels, including constant tuple sizes; its results do not numerically determine the one-versus-rest seven-leaf problem. The 2026 Arvanitakis et al. quartet-reconstruction paper proves \(\Theta(n)\) Natarajan dimension (including a \(10n\) upper bound), not the claimed finite Boolean dimensions. Indexed searches for quartet displays, VC shattering, online tree shattering, aliases and the particular \(945/6/9\) parameters did not locate a statement that logically covers both equalities. Historical-priority uncertainty persists for alternate encodings or unindexed work. No negative result is inferred solely from a search failure.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A fully specified, classical phylogenetic hypothesis family has a large and mathematically motivated finite query domain, and exact static and online dimensions govern two different learning regimes. The six-query fixed shattering limit differs by three from the adaptive depth nine, which saturates the sharp concept-count bound. The result supplies a reproducible exact calibration instance for a one-versus-rest binary projection of quartet reconstruction, not merely a relabeling of rooted-triplet learning. The finite cutoff is natural because it is the entire class of seven-leaf resolved phylogenies, not an arbitrarily selected slice. It makes no unsupported extrapolation to larger orders.
+Best-of-knowledge PASS for the exact Boolean one-versus-rest values VC=6 and Littlestone=9. Earlier quartet compatibility algorithms address feasibility, while relevant tree-learning papers give multiclass Natarajan dimensions or general asymptotic bounds. Neither implies the pair of exact fixed-seven binary dimensions on its stated hypotheses. Unindexed finite shattering tables and equivalent encoding remain priority risks.
 
-## Closest sources and limits
+## value
 
-The main source comparisons are Hirai–Iwamasa (ISAAC 2018, doi:10.4230/LIPIcs.ISAAC.2018.57), Avdiukhin et al. (arXiv:2302.04492), and Arvanitakis et al. (arXiv:2604.17461). Relevant source sections were materially inspected in HTML or PDF; the 2018 work's expanded full-text manuscript was inspected in HTML. The claim concerns only exact displayed-quartet membership on seven fully resolved, unrooted trees. Remaining risk: other historical work may express the same finite invariant through quartet compatibility or one-vs-rest tree classification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The 945-concept class is the complete natural space of unrooted seven-taxon binary phylogenies; Boolean quartet membership is a standard precise query. The exactly three-level gap between fixed VC=6 and adaptive dimension nine, saturating floor(log2 945), supplies a useful calibration for static versus adaptive quartet learning without extrapolating from a tiny arbitrary subfamily.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
