@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducing the finite checks
+# Independent mathematical audit
 
-Place `verify.py` beside this file and run:
+## correctness
 
-```sh
-python3 verify.py
-```
+PASS
 
-The program uses only standard-library exact integer and rational arithmetic. It enumerates coordinate-index contractions in uniform spherical moments, then independently converts raw moments to cumulants. It checks 213 exact rational equalities in ambient dimensions 2, 3, and 4, eight finite graph families, short-cycle products up to length 7, a positively weighted triangle, and signed-weight cancellation. The accompanying `verification-output.txt` captures the actual output. These finite checks do not establish the all-graph theorem: the general proof is the leaf-elimination, cycle-integral, and joint-cumulant argument in `RESULT.md`. No separate external or independent audit was performed.
+Leaf stripping on any forest makes all edge inner-product variables mutually independent, since the conditional distribution of a leaf dot product is rotation-invariant and does not depend on other vertex spins. A simple j-cycle has product moment p^(1-j) by E[R R^T]=I/p. Proper nonempty cycle subsets are forests, so their mixed joint cumulant vanishes; cumulant multilinearity implies all lower-order mixed defects vanish, and at r=g exactly g! orderings of each shortest cycle contribute p^(1-g) times its weight product. Positivity precludes signed cancellation. For Haar qubit p=3, Bloch representation and fourth/fifth repeated-edge cumulants yield kappa_2=m/3, kappa_3=2c3/3, kappa_4=-2m/15+8c4/9, kappa_5=-8c3/3+40c5/27. Finite simple graphs, p>=2, nonzero real weights in the identity, positive weights to identify girth; no graph-isomorphism reconstruction is claimed.
+
+## originality
+
+PASS
+
+Spin O(p) model high-temperature partition expansions have long encoded cycle contributions, so the general mechanism is established, not independently novel. The inspected published subgraph expansion does not state or tabulate the first *cumulant defect against independent edges* or inverse recovery of graph girth from one scalar law, nor the explicit low-order Bloch overlap cycle enumeration. These are nontrivial evaluations and a natural inverse-statistics interpretation, rather than a mere change of name. Older linked-cluster diagrams may prove the exact same consequence; qualification is essential.
+
+## value
+
+PASS
+
+A graph-wide random spherical or qubit overlap sum reveals edge count, shortest-cycle girth, shortest-cycle multiplicity and low-order cycle counts without observing individual edges. This provides a natural structural link between graph topology and distributional dependence, at every dimension and graph size; positive weights identify the exact first defect, while signed cancellation is explicitly scoped.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T20:58:32.309686Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Leaf stripping on any forest makes all edge inner-product variables mutually independent, since the conditional distribution of a leaf dot product is rotation-invariant and does not depend on other vertex spins. A simple j-cycle has product moment p^(1-j) by E[R R^T]=I/p. Proper nonempty cycle subsets are forests, so their mixed joint cumulant vanishes; cumulant multilinearity implies all lower-order mixed defects vanish, and at r=g exactly g! orderings of each shortest cycle contribute p^(1-g) times its weight product. Positivity precludes signed cancellation. For Haar qubit p=3, Bloch representation and fourth/fifth repeated-edge cumulants yield kappa_2=m/3, kappa_3=2c3/3, kappa_4=-2m/15+8c4/9, kappa_5=-8c3/3+40c5/27. Finite simple graphs, p>=2, nonzero real weights in the identity, positive weights to identify girth; no graph-isomorphism reconstruction is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general O(n) spin high-temperature expansion on arbitrary graphs covers a broader partition function, with a generic all-subgraph expansion."
+        ],
+        "reasoning": "Broad framework can entail the coefficient through specialized expansion, so priority depends on explicit mathematical consequence; inspected sections do not state the sharp positive-weight first-defect/inverse result. Stanley full text not inspected, material historical risk.",
+        "searches": [
+          "Peled–Spinka high-temperature O(n) spin partition general finite graph",
+          "Stanley 1967 Heisenberg high-temperature spin correlation expansion"
+        ]
+      },
+      "checked_sources": [
+        "Git frozen RESULT.md, REVIEW.md, verify.py and original tree b14663f35cdc2eddc86431e35bf5526ec56755ad",
+        "Peled–Spinka arXiv:1708.00058v3, §2.4 (15)",
+        "Zhang arXiv:2610.25196v1 §6.5 Proposition 6.8",
+        "Stanley 1967 abstract",
+        "Resultary spherical cumulant search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A cycle term in high-temperature expansion is p^(1-g), consistent with target; however the first nonindependent cumulant requires subtracting all edgewise logs and ruling out every repeated/mixed support of order <g."
+        ],
+        "reasoning": "The general expansion materially anticipates the method and can be specialized with additional reasoning. The exact claimed inverse theorem is not quoted as a prior theorem, so originality is accepted only under explicit residual risk of equivalence.",
+        "searches": [
+          "Peled–Spinka Section 2.4 eq(15) graph expansion",
+          "Zhang Proposition 6.8 cyclic invariant expectation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Peled–Spinka expands the spherical-spin partition function in weighted subgraphs; Zhang computes cyclic complex Bargmann invariant moments."
+        ],
+        "reasoning": "Classical spin expansion is an exact antecedent transform but neither inspected formulation explicitly identifies the order of the first independent-edge-corrected cumulant nor its inverse girth inference from one scalar law.",
+        "searches": [
+          "Peled–Spinka arXiv:1708.00058v3 Sections 2.1 and 2.4 equations 15–17",
+          "Zhang arXiv:2610.25196v1 Section 6.5 Proposition 6.8",
+          "Resultary semantic spherical-spin cycle cumulant girth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing tables in inspected papers concern spin-model expansion or cyclic complex overlap moments, not kappa_2..kappa_5 for arbitrary unweighted graph sums."
+        ],
+        "reasoning": "No exact general simple-cycle coefficient table found in inspected works, while older linked-cluster tables might encode it indirectly.",
+        "searches": [
+          "Peled–Spinka arXiv:1708.00058v3 eq(15) subgraph weights",
+          "Zhang arXiv:2610.25196 Proposition 6.8 cyclic overlaps",
+          "Resultary graph qubit shortest-cycle cumulant search"
+        ]
+      },
+      "rationale": "Spin O(p) model high-temperature partition expansions have long encoded cycle contributions, so the general mechanism is established, not independently novel. The inspected published subgraph expansion does not state or tabulate the first *cumulant defect against independent edges* or inverse recovery of graph girth from one scalar law, nor the explicit low-order Bloch overlap cycle enumeration. These are nontrivial evaluations and a natural inverse-statistics interpretation, rather than a mere change of name. Older linked-cluster diagrams may prove the exact same consequence; qualification is essential.",
+      "residual_risks": [
+        "High-temperature cluster expansions may already imply the stated girth coefficient as a named corollary or table entry; broad methodological priority is not claimed.",
+        "Stanley 1967 complete text was not obtained; its contents are not declared non-covering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_SPIN_EXPANSION_PRECURSOR_NOT_EXPLICIT_CUMULANT_INVERSE_THEOREM",
+          "evidence": "Equation (15) encodes general partition moments and cycles but does not assert the exact independent-edge corrected first defect.",
+          "identifier_or_url": "Peled–Spinka arXiv:1708.00058v3",
+          "material_read": "Full lawful OA PDF sections 2.1 and 2.4, especially equation (15) and connected-loop expansion; actual page images inspected",
+          "method": "Author/arXiv open PDF and PDF page visuals",
+          "title": "Lectures on the Spin and Loop O(n) Models",
+          "trigger": "Direct same spin partition function and graph generality"
+        },
+        {
+          "assessment": "CYCLIC_BARGMANN_NOT_SUM_OF_PAIR_SPINS",
+          "evidence": "Product of complex overlaps is not graph-wide sum of real Bloch pair fidelities.",
+          "identifier_or_url": "Zhang arXiv:2610.25196v1",
+          "material_read": "Public scientific text Sections 4, 6.5 and Proposition 6.8 about complex cyclic Bargmann products",
+          "method": "Public arXiv full-text scientific examination",
+          "title": "Exact probability laws of random inner products: Dirichlet splines, overlaps, uncertainty, and Bargmann invariants",
+          "trigger": "Same Bloch and cyclic overlap quantum objects"
+        },
+        {
+          "assessment": "UNREAD_HISTORICAL_RISK",
+          "evidence": "Older cluster coefficients could encode precise first-defect and short-cycle formulas.",
+          "identifier_or_url": "Stanley, Phys. Rev. 158 (1967) 537–545 DOI:10.1103/PhysRev.158.537",
+          "material_read": "Accessible abstract/bibliographic material, no complete paper",
+          "method": "Public abstract; full text not obtained",
+          "title": "High-Temperature Expansions for the Classical Heisenberg Model I",
+          "trigger": "Historically plausible linked-cluster priority"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A graph-wide random spherical or qubit overlap sum reveals edge count, shortest-cycle girth, shortest-cycle multiplicity and low-order cycle counts without observing individual edges. This provides a natural structural link between graph topology and distributional dependence, at every dimension and graph size; positive weights identify the exact first defect, while signed cancellation is explicitly scoped.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git frozen RESULT.md, REVIEW.md, verify.py and original tree b14663f35cdc2eddc86431e35bf5526ec56755ad",
+    "Peled–Spinka arXiv:1708.00058v3, §2.4 (15)",
+    "Zhang arXiv:2610.25196v1 §6.5 Proposition 6.8",
+    "Stanley 1967 abstract",
+    "Resultary spherical cumulant search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific judgments concern this exact frozen claim, not unrestricted neighboring parameters or stochastic/graph cases outside the supplied scope.",
+    "Primary literature access is qualified where source_inspections identify abstracts only; a negative search is not proof of absolute novelty.",
+    "No public repository write or dispatcher closeout was attempted; this is private scientific evidence, not a certificate."
+  ],
+  "residual_risks": [
+    "High-temperature cluster expansions may already imply the stated girth coefficient as a named corollary or table entry; broad methodological priority is not claimed.",
+    "Stanley 1967 complete text was not obtained; its contents are not declared non-covering."
+  ],
+  "schema_version": 1
+}
