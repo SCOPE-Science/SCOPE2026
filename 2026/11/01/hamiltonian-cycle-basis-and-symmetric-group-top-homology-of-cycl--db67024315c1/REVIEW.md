@@ -1,11 +1,21 @@
-# Review of the Hamiltonian-cycle top-homology theorem
+# Independent mathematical audit
 
-**Correctness.** The degree-\(n-2\) chain basis consists exactly of Hamiltonian paths. Every Hamiltonian cycle supplies an integral signed missing-simplex boundary. Consecutive-path two-coface equations connect the \(n\) facets belonging to each cycle, forcing every top cycle to be an integral multiple of its primitive boundary; disjoint supports establish independence. Full stabilizers are cyclic, with generator sign \((-1)^{n-1}\), proving the induced integral representation. Frobenius reciprocity gives the quotient invariant multiplicities \((1,2)\) for odd \(n\) and \((0,1)\) for even \(n\), ordered by the full and alternating symmetry groups. The checker reconstructs the signed boundaries and representation traces for \(3\le n\le6\).
+## correctness
 
-**Originality.** The principal same-object predecessor, Vrećica–Živaljević (arXiv:0710.5252), focuses on connectivity and bottom-dimensional nonvanishing; its statements do not imply an explicit basis and integral symmetric-group representation in top degree. Caputi–Collari–Di Trani–Smith (arXiv:2208.04656, 2022-08-09) examines multipath homotopy and explicitly identifies the predecessor, but proves its family theorems for other digraph types. The 2026 bidirectional-polygon paper (arXiv:2601.05670) likewise states earlier complete-digraph connectivity rather than this top symmetry calculation. Search comparisons included the aliases *cycle-free chessboard*, *acyclic partial permutations* and *complete-digraph multipath complex*, as well as Hamiltonian-cycle module and induced representation terminology. No covering source was located, though equivalently phrased unindexed literature is a residual risk.
+PASS
 
-**Value.** The existing connectivity theory leaves the highest-dimensional integral homology and its full natural symmetry lattice unclassified in the inspected sources. A uniform explicit basis for a canonical family and a parity distinction in rational quotient homology are concrete structural information absent from ordinary connectivity or Euler characteristic results. The claim is not presented as a classification of all homology or a broad general theorem for sparse digraphs.
+PASS. A maximum cycle-free multipath face on the complete loopless bidirected graph has n−1 arcs and is exactly one directed Hamiltonian path, giving n! distinct top oriented simplices in degree n−2. Closing each path yields its unique directed Hamiltonian cycle; different cycles partition the n! facets into (n−1)! blocks of n. The oriented missing-cycle boundary z_C is an integral top cycle with primitive ±1 coefficients. For every consecutive (n−2)-arc path plus isolated vertex, exactly two top cofaces close to the same C, forcing adjacent top coefficients to have the z_C ratio; these constraints connect each block and prove all integral top cycles are sums of z_C. No chains exist one degree above. The S_n stabilizer of each directed cycle is C_n and its rotation acts by (-1)^{n−1} on the cycle boundary; induced integral module follows. Rational transfer after barycentric subdivision and Frobenius reciprocity give S_n and A_n orbit-space top dimensions 1/0 and 2/1 by n parity. Independently reconstructed the complete n=3,4,5,6 Hamiltonian facet partitions and all two-coface incidences; finite checks are not substituted for the n-parameter proof.
 
-**Limitations.** No independent audit has been performed; external equality results could still be found. The verification code checks four finite values only; correctness for every \(n\ge3\) is from the exact integer chain argument, and quotient claims are rational only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS. The original Ω_n was introduced earlier, and Vrećica–Živaljević prove connectivity bounds and low-dimensional sharpness, not this complete integral top-cycle basis or top S_n-module. Caputi et al identify the complete-digraph multipath complex with Ω_n and study other graph families. Searches for aliases such as acyclic partial permutations, cycle-free chessboard complexes, and Hamiltonian top cycles yielded no prior theorem with the full induced integral representation. Originality remains bounded by inspected sources; the elementary missing-simplex construction itself is not claimed novel.
+
+## value
+
+PASS
+
+PASS. An all-n explicit integral basis and natural S_n representation for the top homology of a classical nontrivial simplicial graph complex is a motivated structural invariant; the parity-dependent quotient-space Betti numbers follow with genuine equivariant information. This is not only a single finite calculation, graph relabeling, or a renamed homology rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
