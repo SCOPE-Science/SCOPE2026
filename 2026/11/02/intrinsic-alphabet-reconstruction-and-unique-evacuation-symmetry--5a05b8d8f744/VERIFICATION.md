@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify_stylic.py`. It constructs the transformations associated with insertion of each letter into every possible column, closes these transformations under composition, and compares their action tables directly. It uses no external modules beyond the Python standard library.
+## correctness
 
-Verified cases: ranks \(1\) through \(5\), respective sizes \(2,5,15,52,203\) and idempotent counts \(2,4,8,16,32\). For ranks \(1\) through \(4\), a complete two-sided Green-ideal calculation identifies precisely the original generator transformations as maximal proper \(\mathcal J\)-elements. For every checked rank, the idempotence orientation test is checked on all ordered generator pairs; all generator permutations are tested; and the source's reverse-letter/reverse-word anti-involution is checked against every pair in the full multiplication table. Program output ends `VERIFY_OK`.
+PASS
 
-The unlimited-rank classification is proved abstractly in RESULT.md; the finite checks only guard against implementation, order-convention, and small-boundary errors. The source theorems used as premises and global originality are not independently audited here.
+Using published support union, a nonidentity x with support containing a has x<=_J a. Conversely a<=_J y forces support(y) subset {a}, so y=1 or a; hence generators are exactly J-coatoms. For a<b, two-letter Knuth/idempotence gives aba=ba=bab, (ab)^2=ba and (ba)^2=ba. Left insertion on the empty column distinguishes ab and ba, so (ab)^2!=ab and (ba)^2=ba; therefore the intrinsic idempotence test (ab)^2=ab iff a>b recovers all pairwise comparisons. Isomorphisms must preserve the only increasing bijection, anti-isomorphisms the only decreasing bijection; existence of anti maps follows from published evacuation. Handles ranks 0 and 1 as trivial; rank-3 independent transformation enumeration recovered 15 elements and J coatoms, without being treated as the unrestricted proof.
+
+## originality
+
+PASS
+
+PASS, qualified: presentation, J-triviality, support and canonical evacuation are known from Abram–Reutenauer; abstract uniqueness and multiplication-table recovery were not asserted in inspected primary statements. Kiselman-semigroup rigidity is a close methodological antecedent, not automatically a theorem about a stylic quotient.
+
+## value
+
+PASS
+
+An exact abstract automorphism/anti-automorphism classification for all finite stylic monoids answers a natural structure problem independent of a chosen presentation, with a concrete intrinsic reconstruction algorithm, although its derivation uses known short lemmas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
