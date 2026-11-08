@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact rook-graph Ising classification
+# Independent mathematical audit
 
-The analytic argument is contained in `RESULT.md`. The accompanying script is `artifacts/verify.py`; from the extracted package root run `python3 artifacts/verify.py` with a Python 3 interpreter and NumPy installed. The expected stdout is in `artifacts/check_output.txt`.
+## correctness
 
-The direct-edge spin census independently evaluates the Hamiltonian for every spin configuration on boards of sizes 2x2, 2x3, 3x3, 3x4 and 4x4 at 335 coupling/field trials. A separate dynamic program checks fixed-magnetization minima and counts for every sector of six board sizes through 5x5, for two exchange anisotropies; an independent elementary-symmetric generating-function coefficient counter agrees with all these sector counts. Exact rational covariances are checked for 39 nontrivial sectors, and six arithmetic breakpoint counts are tested. The extraction replay of the checker matched the embedded output.
+PASS
 
-These finite experiments do not prove all-size correctness or uniqueness. The proof requires simultaneous feasibility of balanced row/column degrees, provided by integer network flow, and the covariance argument requires fixed-magnetization permutation symmetry. The field boundaries, strict positive couplings, degenerate sectors and antiferromagnetic sign conventions are included in the analytic statement. Independent scientific validation has not been performed.
+The pair-spin identity reduces energy to weighted sums of squares of row/column spins. Convexity balances the positive-spin row degrees at floor(K/m) and columns at floor(K/n), with simultaneous realizability guaranteed by integral bipartite flow (uniform fractional matrix feasible). Differences E_(K+1)−E_K give nondecreasing field thresholds that increase only at multiples of m or n. Union of breakpoints has size m+n−gcd(m,n)+1. Exact margin coefficient counts every labeled minimizer. Exchangeable balanced row/column sums and fixed total magnetization imply the three covariance identities, conditional at coexistence. Independently enumerated all 2^(mn) spin configurations for 2×2, 2×3, 3×3 and 3×4, including a 3×4 board with 4096 spins, and checked energy, all equality configurations and plateaux.
+
+## originality
+
+PASS
+
+Earlier binary-margin enumeration and line-graph antiferromagnetic partition/optimization theory are acknowledged as tools, but their statements do not directly supply the complete all-field anisotropic finite-size threshold, multiplicity and conditional covariance profile on K_m□K_n. Generic physics plateaux on lattices concern different graph families.
+
+## value
+
+PASS
+
+The rook graph is a canonical finite frustrated model with independent row/column exchange strengths. An exact all-field plateau count showing gcd commensurability together with labeled state degeneracies and spatial pair correlations is a motivated, complete finite-size classification rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
