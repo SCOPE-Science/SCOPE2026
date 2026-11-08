@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The Weyl basis gives singular values sqrt(N)|A_g| with all normalization factors accounted for. Missing cyclic differences remove entire N-frequency rows. At N=q^2+q+1 full rank with support <=q+1 forces a Singer perfect difference set. A self-contained finite-field trace construction proves Singer existence for all prime powers. The exact difference character-sum identity gives three singular levels, AM-GM bounds the minimum coefficient globally with equality only for flat amplitudes, and a deleted Singer point maximizes rank for support <=q. Direct independent numerical lifting SVD and exact combinatorial counts are supplementary checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1503.05800 proves a broad injectivity criterion and a family of difference-set examples, but not a minimax optimization for all complex coefficients or the rank bound after deleting one atom.",
+        "arXiv:2106.01509 gives a universal spectral transform but no Singer-length support-constrained sharp optimization.",
+        "arXiv:2605.31507 relaxes nonvanishing requirements in phase retrieval, a weaker pure-state identifiability problem."
+      ],
+      "reasoning": "General Gabor spectral coverage does include the underlying diagonalization; no inspected broader theorem supplies a sharp support-constrained condition-number law and complete equality classification. The present result is about matrix injectivity and cannot be inferred from weaker phase-retrieval criteria.",
+      "searches": [
+        "arxiv:1503.05800 (Sections 2.2–2.4)",
+        "arxiv:2106.01509 (Theorems 1–2)",
+        "arxiv:2605.31507 (recent motivating paper)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.31507",
+      "https://arxiv.org/abs/1503.05800",
+      "https://arxiv.org/abs/2106.01509",
+      "https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/designs/difference_family.html",
+      "Published 2026 research on positive-rational prime-cyclic Gabor projector rank (compared mathematical claims)",
+      "Published 2026 research on two-sparse multiwindow Gabor operator-span capacity (compared mathematical claims)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The older general formula fixes singular values from ambiguity but does not solve the universal optimal-support constrained design problem.",
+        "An indexed 2026 result describes support-only rank for positive-rational proper-support windows at odd-prime lengths; the present claim covers arbitrary complex coefficients, composite Singer orders, a global sharp minmax, and a sharp support-q construction.",
+        "An indexed multivariate result optimizes a number of two-sparse windows, a different support budget and collection."
+      ],
+      "reasoning": "There is substantial shared mathematical machinery with prior work. The independent content is the global extremal quantifier and complete equality condition under a minimal single-window support cap, together with the best possible rank just below that cap. No inspected stronger or equivalent claim was found; possible unindexed implicit corollaries are explicitly retained as a risk.",
+      "searches": [
+        "arxiv:1503.05800",
+        "arxiv:2106.01509",
+        "Sharp maximin least Gabor projector singular value among at most q+1 sparse windows in dimension q²+q+1 Singer cyclic perfect difference sets, only flat coefficients minimize condition q+1",
+        "Delete one point of (q²+q+1,q+1,1) Singer cyclic difference set, exact full Gabor rank N(q²-q+1) and kernel dimension 2qN"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 2 of arXiv:2106.01509 gives the general eigenvalues \\(N|A_g(u,v)|^2\\), so equivalent Weyl, projector Gramian, and matrix-lifting language were compared.",
+        "Proposition 2.2 of arXiv:1503.05800 constructs successful difference-set windows under explicit prime-factor assumptions."
+      ],
+      "reasoning": "The existing general spectrum and difference-set construction imply individual identities after additional work, but they do not themselves identify the global maximin or all extremizers over at-most-minimal-support complex windows, nor the sharp support-deficit rank. No equivalent full statement was identified in the inspected full texts.",
+      "searches": [
+        "arxiv:2106.01509 — Towards a classification of incomplete Gabor POVMs in C^d",
+        "arxiv:1503.05800 — Phase Retrieval from Gabor Measurements",
+        "\"Gabor\" \"Singer\" \"sparse\" \"stability\" \"difference set\" window"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "SageMath documents Singer cyclic sets with parameters \\((q^2+q+1,q+1,1)\\), including dimensions 13 and 21.",
+        "Four independently encoded explicit Singer supports at lengths 7, 13, 21 and 31 satisfy the exact ordered difference requirement."
+      ],
+      "reasoning": "Known difference-set repositories provide supports, not a table of optimal projector-lifting singular margins across all sparse window weights nor the sharp one-deletion rank. Numerical examples are checks only, not novelty evidence.",
+      "searches": [
+        "Singer cyclic difference set construction projective plane PG 2 q GF q3 trace zero Singer theorem (q^2+q+1,q+1,1) pdf",
+        "Sage difference_family Singer difference set q^2+q+1 q+1 projective plane"
+      ]
+    },
+    "rationale": "Actual original full-text comparisons found prior existence of difference-set windows and the complete general Weyl spectrum, but not the global sharp sparse maximin, its all-phase equality classification, or the sharp rank one support below the threshold. The distinction is in quantifiers and the support optimization, not terminology; an independently unindexed or implicit derivation remains possible.",
+    "residual_risks": [
+      "The sharply optimized Singer-window statement may have appeared as an unindexed corollary of general Weyl projector spectra and classical cyclic difference-set theory, or in an older design-theoretic quantum tomography source.",
+      "Independent human priority checking and independent mathematical audit have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state support-constrained singular-value or rank-optimality results for Singer windows",
+        "evidence": [
+          "First submitted 2026-05-29; sufficient phase-retrieval conditions allow many ambiguity zeros but do not optimize minimal-support matrix lifting."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.31507",
+        "material_read": "arXiv abstract, central objectives and the principal stated finite-dimensional phase-retrieval results",
+        "method": "Reviewed scientific abstract and main scope; compared weaker phase retrieval versus full lifted operator injectivity",
+        "title": "Uncertainty Principles as a Tool for STFT Phase Retrieval",
+        "trigger": "Recent public source motivating the sparsity and ambiguity-zero question"
+      },
+      {
+        "assessment": "Directly covers classical nonvanishing generator construction and general frame bounds; does not state sharp support-constrained minimax and one-site-deletion rank. These covered ingredients are acknowledged.",
+        "evidence": [
+          "Theorem 2.3 gives ambiguity-dependent lifting bounds; Proposition 2.2 constructs difference-set windows subject to generator cardinality/prime factors; Section 2.4 rules out windows with missing difference rows."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.05800",
+        "material_read": "Full available HTML, introduction and Sections 2.1-2.4 including Theorems 2.2-2.3 and Proposition 2.2, and results for short windows",
+        "method": "Compared exact hypotheses, lifting quantifiers, stability bounds, difference-set parameters and conclusions",
+        "title": "Phase Retrieval from Gabor Measurements",
+        "trigger": "Direct prior for Gabor ambiguity, difference-set generators, and reconstruction"
+      },
+      {
+        "assessment": "Its complete general projector spectrum is a known tool and is explicitly attributed; it does not state the present universal sparse optimum, equality cases or deletion extremum.",
+        "evidence": [
+          "Theorem 2 shows eigenvalues \\(N|A_g(u,v)|^2\\) for any window and Theorem 1 counts nonzero ambiguity entries."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.01509",
+        "material_read": "Full HTML including introduction, Theorems 1-2, Gram diagonalization in Section 2.1, relevant rank classification and conclusions",
+        "method": "Compared Gram-spectrum theorem to the requested global sparse optimization and exact rank after deleting a Singer atom",
+        "title": "Towards a classification of incomplete Gabor POVMs in \\(\\mathbb C^d\\)",
+        "trigger": "Potential stronger prior with the complete universal Gabor projector spectrum"
+      },
+      {
+        "assessment": "Supports a classical construction used in the proof; contains no stated Gabor minimax conclusion.",
+        "evidence": [
+          "A Singer difference set in PG(2,q) has v=q²+q+1, k=q+1 and lambda=1."
+        ],
+        "identifier_or_url": "https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/designs/difference_family.html",
+        "material_read": "singer_difference_set documentation and explicit example parameters",
+        "method": "Used only for verification and attribution of Singer projective plane design existence",
+        "title": "Difference families — SageMath combinatorics reference",
+        "trigger": "Classical existence of cyclic (q²+q+1,q+1,1) Singer difference sets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "197476c0-c2a4-481f-a083-9dceb7b80f23",
+  "value": {
+    "rationale": "The object is the full operator tomography map under a natural hard constraint on window localization; optimal support and best achievable conditioning are concrete design invariants. The theorem determines minimal support, sharp worst-direction stability and all equalizers, a complete singular spectrum, and the minimal rank loss when the support budget is one atom smaller. This is a sharp complete sampling classification, not a fixed tiny-table recomputation. The scope is explicitly linear matrix recovery, not a claim about all nonlinear phase-retrieval settings.",
+    "status": "PASS"
+  }
+}
