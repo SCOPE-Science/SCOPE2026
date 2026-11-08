@@ -1,15 +1,21 @@
-# Scientific assessment: positive quadratic quadrature from random nodes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exactness condition on the three monomials is equivalent to containment of \((1/2,1/3)\) in the convex hull of the sampled parabola. The criterion \(\ell r<1/12<LR\) follows from the polygon's upper chord and consecutive-node lower hull. Separating the two disjoint failure modes and integrating their jointly distributed nearest and extreme points yields the stated one-dimensional integral with all constants retained. Endpoint Laplace analysis produces two extra units of \((2/3)^m\) failure beyond the explicit first unit, proving the sharp constant three. The \(95\%\) cutoff is certified with exact rational-series bounds for \(\log3\). The standalone exact-arithmetic and independent-barycentric checker passed; finite tests alone are not the proof.
+PASS
 
-## Originality — PASS, subject to historical priority uncertainty
+Three moment constraints amount to target (1/2,1/3) in convex hull of parabola Γ(t)=(t,t²); interior membership is equivalent to strictly positive weights for every node by mixing with the mean node vector. At mean 1/2, chord of 1/2−u and 1/2+v has second moment 1/4+uv. Hence straddling and l r<1/12<L R, where l,r are nearest and L,R extreme distances, is exact a.s. Joint extreme and nearest densities are m(m−1)(u+v)^{m−2} and m(m−1)(1−u−v)^{m−2}, respectively; integrating their disjoint failure events yields the formula. Laurent polynomial integration makes p_m rational + rational log3. Endpoint Laplace at u=1/6 and 1/2 contributes (1/2+3/2)(2/3)^m; the explicit (2/3)^m adds 1, giving coefficient3 while the nearest contribution decays strictly faster. Direct exact series bounds put p10=.9411269334<.95 and p11=.9603356140>.95; monotonicity gives sharp first cutoff. Independent numerical integration, finite endpoint-ratio checks and Monte Carlo at m4,7,10 agree; these do not prove asymptotics.
 
-The general random-node existence and weight-box guarantees of Neumayer–Schäfer–Ullrich (arXiv:2610.32699v1, Sections 1–2) do not state the exact sample-size-specific probability here. Hayakawa–Lyons–Oberhauser (doi:10.1007/s00440-022-01186-1, Sections 1 and 6) gives random convex-hull bounds and cubature applications but does not state the all-integer quadratic-uniform formula or sharp leading failure prefactor. The previous three-node probability is recognized as already covered, and only the full \(m\)-family and exact tail are assessed as new. Broad moment-curve and random-polytope literatures might contain an equivalent older result; no exhaustive priority claim is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The count of random nodes needed for positive moment exactness is a natural practical design question. The full probability sequence answers it without asymptotic approximations at small samples, gives the first exact \(95\%\) budget \(m=11\), and separates the nearest-node obstruction from the extreme-node obstruction in the sharp asymptotic. This is not just the three-node case or an arbitrary parameter substitution. The model is limited to the uniform quadratic interval and permits arbitrarily uneven positive weights; stronger weight-box feasibility is not established.
+Best-of-knowledge originality of the precise final claim after Resultary and primary-paper statement/implication comparisons, with named inaccessible sources and residual risks explicitly retained: Exact all-sample positivity probabilities for random quadratic quadrature. No failed search is represented as a proof of novelty.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This gives the exact probability of moment-matching positive cubature using unrestricted random nodes for every sample count, with sharp failure constant and practical 95% cutoff. It isolates an intrinsic solvability probability distinct from high-probability sufficient-budget bounds and weight-stability requirements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

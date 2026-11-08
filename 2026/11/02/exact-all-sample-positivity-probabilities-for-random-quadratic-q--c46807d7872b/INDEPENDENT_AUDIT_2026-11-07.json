@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T07:53:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Three moment constraints amount to target (1/2,1/3) in convex hull of parabola Γ(t)=(t,t²); interior membership is equivalent to strictly positive weights for every node by mixing with the mean node vector. At mean 1/2, chord of 1/2−u and 1/2+v has second moment 1/4+uv. Hence straddling and l r<1/12<L R, where l,r are nearest and L,R extreme distances, is exact a.s. Joint extreme and nearest densities are m(m−1)(u+v)^{m−2} and m(m−1)(1−u−v)^{m−2}, respectively; integrating their disjoint failure events yields the formula. Laurent polynomial integration makes p_m rational + rational log3. Endpoint Laplace at u=1/6 and 1/2 contributes (1/2+3/2)(2/3)^m; the explicit (2/3)^m adds 1, giving coefficient3 while the nearest contribution decays strictly faster. Direct exact series bounds put p10=.9411269334<.95 and p11=.9603356140>.95; monotonicity gives sharp first cutoff. Independent numerical integration, finite endpoint-ratio checks and Monte Carlo at m4,7,10 agree; these do not prove asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General convex-hull estimates/simplicial depth methods do not themselves specify this uniform moment-curve distribution or closed p_m.",
+          "The Wendel-type Theorem 6 conditions include absolutely continuous random vectors in R^d; Γ(Y) lies on a singular parabola in R².",
+          "Near-uniform weighting is a stronger weight constraint but general probability bounds are less precise, so no implication of this exact law."
+        ],
+        "reasoning": "General existence/high probability results and singular-law mismatch prevent specialization to this exact equality; full 2026 text remained unavailable.",
+        "searches": [
+          "Hayakawa Lyons Oberhauser 2023 full Springer open access Theorem 6 and Proposition 7",
+          "Neumayer Schäfer Ullrich 2026 arXiv abstract",
+          "Tchakaloff 1957"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 actual RESULT.md and verify.py at frozen tree 3771bef71a9aee4419dfbe95fd91afbc061adc6b",
+        "Hayakawa Lyons Oberhauser (2023) DOI:10.1007/s00440-022-01186-1 full primary HTML",
+        "Neumayer Schäfer Ullrich arXiv:2610.32699 public abstract",
+        "Independent_checks.py exact/numeric integrals, Monte Carlo and tail ratios"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence of positive quadrature from sufficiently many random nodes does not imply exact success probability for each m.",
+          "Convex-hull reformulation is classical; the special integrals, tail prefactor and 95% threshold are not immediate consequences of general estimates."
+        ],
+        "reasoning": "The assessed contribution is quantitative exact probability in a natural singular two-dimensional support model, rather than novelty of moment-vector convexity.",
+        "searches": [
+          "Hayakawa Lyons Oberhauser 2023 Theorem 6 and Section 1.3",
+          "Neumayer Schäfer Ullrich 2026 abstract",
+          "Tchakaloff 1957"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Quadrature feasibility = target moment vector in convex hull of moment curve; it is a special random convex hull inclusion problem.",
+          "Known three-node probability is explicitly excluded from novelty; target is the entire p_m sequence and precise failure asymptotic."
+        ],
+        "reasoning": "Compared positive Richter–Tchakaloff nodes, random convex hull hitting probability and simplicial-depth aliases. None read shows exact all-m rational-log3 formula.",
+        "searches": [
+          "Resultary semantic: probability positive weights cubature quadratic exactness uniform random nodes parabola convex hull all sample sizes",
+          "Hayakawa–Lyons–Oberhauser DOI:10.1007/s00440-022-01186-1",
+          "Neumayer–Schäfer–Ullrich arXiv:2610.32699"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published three-node p3=(1/2)log3−1/3 is known; the package expressly excludes that case from novelty.",
+          "No inspected source furnished all-m table, rational-log3 coefficients or p11 cutoff."
+        ],
+        "reasoning": "Checked the natural exact database/table case through sample-size probabilities, not by treating finite Monte Carlo as a new table.",
+        "searches": [
+          "Resultary random quadratic quadrature exact success probability",
+          "Hayakawa–Lyons–Oberhauser random convex hull probability literature",
+          "Neumayer–Schäfer–Ullrich arXiv:2610.32699"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precise final claim after Resultary and primary-paper statement/implication comparisons, with named inaccessible sources and residual risks explicitly retained: Exact all-sample positivity probabilities for random quadratic quadrature. No failed search is represented as a proof of novelty.",
+      "residual_risks": [
+        "Directly matching 2026 positive quadrature paper full text inaccessible (Oxford VPN disconnected); may subsume some probability calculations.",
+        "Broader random convex-hull distribution formulas could imply the special integral under a change of variables."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General estimates and bounds; do not state the all-m exact uniform parabola moment success law",
+          "evidence": "Theorem 6 presumes absolutely continuous X in R^d whereas Γ(Y) is supported on a curve.",
+          "identifier_or_url": "https://doi.org/10.1007/s00440-022-01186-1",
+          "material_read": "Full lawfully accessible Springer open-access HTML: statement setup Sections 1.1–1.3, Theorem 6 Wendel-type upper bound, Proposition 7 and proof contexts",
+          "method": "Read primary full-text HTML and inspect conditions and conclusions",
+          "title": "Estimating the probability that a given vector is in the convex hull of a random sample",
+          "trigger": "Most plausible general probabilistic convex-hull predecessor"
+        },
+        {
+          "assessment": "Highly relevant broader sufficient-sample and stable weight results; exact model overlap remains explicit risk",
+          "evidence": "Abstract advertises high-probability positive cubature and near-natural weights, not a verified closed p_m formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.32699",
+          "material_read": "Public abstract and citation only; full text unavailable after open-access attempts and authorized institutional attempt (VPN disconnected)",
+          "method": "Public preprint abstract comparison, no full-text negative claim",
+          "title": "Random nodes with positive weights: Richter–Tchakaloff rules and optimal positive quadrature",
+          "trigger": "Same positive random quadrature object, first public Oct 23, 2026"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives the exact probability of moment-matching positive cubature using unrestricted random nodes for every sample count, with sharp failure constant and practical 95% cutoff. It isolates an intrinsic solvability probability distinct from high-probability sufficient-budget bounds and weight-stability requirements.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 actual RESULT.md and verify.py at frozen tree 3771bef71a9aee4419dfbe95fd91afbc061adc6b",
+    "Hayakawa Lyons Oberhauser (2023) DOI:10.1007/s00440-022-01186-1 full primary HTML",
+    "Neumayer Schäfer Ullrich arXiv:2610.32699 public abstract",
+    "Independent_checks.py exact/numeric integrals, Monte Carlo and tail ratios"
+  ],
+  "disposition": "passed",
+  "final_claim": "For m≥2 iid uniform [0,1] nodes, the exact probability of strictly positive weights on every node integrating 1,t,t² is 1−(2/3)^m+(1/3)^m−m∫_{1/6}^{1/2}[(u+1/(12u))^{m−1}+(1−u−1/(12u))^{m−1}]du; the failure probability is asymptotic to 3(2/3)^m and the first m with p_m≥.95 is 11.",
+  "limitations": [
+    "Uniform iid [0,1] nodes, quadratic monomials, unrestricted strictly positive weights only; no near-equal weight bounds or higher degree.",
+    "Tail asymptotic is analytic, not a conclusion from finite-m tail ratios."
+  ],
+  "residual_risks": [
+    "Directly matching 2026 positive quadrature paper full text inaccessible (Oxford VPN disconnected); may subsume some probability calculations.",
+    "Broader random convex-hull distribution formulas could imply the special integral under a change of variables."
+  ],
+  "schema_version": 1
+}
