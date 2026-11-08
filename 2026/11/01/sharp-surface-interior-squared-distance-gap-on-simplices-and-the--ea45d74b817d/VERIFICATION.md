@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The standalone file `check_simplex_moments.py` uses only Python's standard library. Run `python check_simplex_moments.py` to reproduce 52 numerical geometry checks at 70-digit Decimal precision (four deformation parameters in each dimension from two through fourteen), exact rational evaluations of the proposed sharp constant in dimensions two through four, and the strict negative upper-bound certificate for the explicit rational four-simplex. The checker printed `PASS: 52 dimension/scale cases, sharp constants, limiting approach, and an exact-rational four-dimensional negative-gap certificate`.
+## correctness
 
-The universal proof is independent of finite enumeration: first compute uniform-simplex and facet second moments, then use the equilibrium of outer facet normals and Hilbert Cauchy–Schwarz, then construct a nondegenerate two-cluster family approaching the sharp coefficient. The negative witness uses rational upper and lower bounds without relying on a floating-point sign. Numerical cases test the formulas only and do not certify unseen dimensions. The proof and source comparison have had self-review only; independent review is not yet performed.
+PASS
+
+Reconstructed Dirichlet barycentric second moments, facet area mixture and centroid correction. Facet normal equilibrium implies 0<p_i<1/2, and centered Cauchy-Schwarz yields sharp c_d=(-d^2+3d+2)/(d^2(d+1)(d+2)). Checked c2=1/12, c3=1/90, c4=-1/240 and exact rational d4 witness gap upper -2555833/1250000000 using t=1/100. Two-cluster facet-area limits give nonattainment and sharpness for each d. Finite diagnostics are not used as a substitute for the all-d proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge: statement-level comparison with identifiable published results does not show the exact asserted new contribution to be covered; non-access and unindexed-priority uncertainties are explicitly retained.
+
+## value
+
+PASS
+
+Sharp all-dimensional extremal simplex second-moment inequality and first reversal in d=4 answer a natural dimension-sensitive boundary-versus-interior metric question. The specified vertex-spread normalization and explicit rational witness are mathematically motivated and not a mere triangle restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

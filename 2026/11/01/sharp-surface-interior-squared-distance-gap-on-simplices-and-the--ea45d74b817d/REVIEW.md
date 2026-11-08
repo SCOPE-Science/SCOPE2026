@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The Dirichlet simplex second-moment identity reconstructs both pairwise moments. The facet-mean computation gives the exact all-simplex identity; outward-normal equilibrium bounds every facet-area weight by one half, and scalar Cauchy–Schwarz yields the strict optimal constant. An explicit two-cluster family asymptotically saturates both estimates in all dimensions, while a separate exact rational certificate gives a nondegenerate four-dimensional reversal. The attached Python checker executed successfully on 52 dimension/scale examples and the rational certificate. These computations are confirmatory, not substitutes for the proof.
+## correctness
 
-## Originality (PASS, bounded priority assessment)
-Searches of published mathematical findings and primary literature found a covering exact triangle case, special convex-order inequalities of Tokmachev, an unsquared-distance treatment by Shen, and projective-law second-moment identities by Lotnikov. The novel claim is not the triangle subcase, general second-moment algebra alone, or the known higher-dimensional counterexample phenomenon: it is the exact universal **sharp normalized simplex constant** with the all-dimensional **sign transition at four** and a simplicial rational witness. Closest work has non-equivalent distributional hypotheses, dimensional scope, or moment exponent. Shen's full paper was not read; independent historical priority cannot be certified.
+PASS
 
-## Mathematical value (PASS)
-The squared-moment surface/interior comparison is a natural geometric probability invariant attached to the recent mean-distance problem. The optimal all-simplex constant reveals a nonobvious geometry-specific threshold: every tetrahedron has a positive gap, whereas the smallest reversing simplex dimension is four. The two-cluster limiting extremizers explain the sharpness mechanism, and a rational witness makes the negative phase reproducible. This is a structural classification rather than an arbitrary one-off numerical example.
+Reconstructed Dirichlet barycentric second moments, facet area mixture and centroid correction. Facet normal equilibrium implies 0<p_i<1/2, and centered Cauchy-Schwarz yields sharp c_d=(-d^2+3d+2)/(d^2(d+1)(d+2)). Checked c2=1/12, c3=1/90, c4=-1/240 and exact rational d4 witness gap upper -2555833/1250000000 using t=1/100. Two-cluster facet-area limits give nonattainment and sharpness for each d. Finite diagnostics are not used as a substitute for the all-d proof.
 
-## Scientific limitations
-Only Euclidean squared moments of pairs of independent samples are covered. The result does not imply the original unsquared conjecture, and the infimum is attained only in degenerating limits. The literature comparison is not an external priority certificate; the original manuscript of Shen remained inaccessible for full-text comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: statement-level comparison with identifiable published results does not show the exact asserted new contribution to be covered; non-access and unindexed-priority uncertainties are explicitly retained.
+
+## value
+
+PASS
+
+Sharp all-dimensional extremal simplex second-moment inequality and first reversal in d=4 answer a natural dimension-sensitive boundary-versus-interior metric question. The specified vertex-spread normalization and explicit rational witness are mathematically motivated and not a mere triangle restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
