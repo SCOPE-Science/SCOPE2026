@@ -1,23 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-order proof derives the exact one-sweep recurrence with the correct sequential data dependency and zero-valued open boundaries. It proves the shift of every \(01\) ascent and the special case of ascent-free nonzero states. The rightmost-ascent count gives exact, disjoint time shells covering all \(2^n\) states. Direct Python and independent bitwise C++ exhaustive runs match the formulas for all states through orders 15 and 20, respectively. The code is reproducible but not an all-order proof.
+PASS
 
-## Originality — PASS (qualified)
+For every n>=2, fixed left-to-right sequential closed-neighborhood (1,3) rule with unclipped endpoint persistence, the local recurrence y_i=(y_{i-1} OR x_{i+1}) if x_i=0, else (y_{i-1} AND x_{i+1}) is exact with y_0=x_(n+1)=0. Induction gives x_(i+1)=0=>y_i=0 and y_n=0; hence the complete set of 01 ascents shifts left exactly one index each sweep. Every nonzero ascent-free 1^a0^(n-a) configuration dies in one; a rightmost ascent j survives through the correct prior sweep and dies at exactly j+1. Counting rightmost ascent words gives n states at time1 and (n-t+1)*2^(t-2) at each t=2..n, all 2^n states accounted for; mean n-2+(n+2)/2^n and exact deficit probabilities (k+1)/2^(k+2) for k<=n-2. The residual mass at t=0,1 tends to zero, giving negative-binomial limit. Independent brute-force update with a separately written mutable-bit implementation reproduced the complete 2..13 state census: 16,380 starting states, including all ascents/time shells. Not a proof of infinite n.
 
-The 2011 bi-threshold source gives a long-cycle construction on cycles and branched trees, not a path absorption-time census. The interior local update is Rule 178, so the 2026 full-text Rule-178 investigation was specifically compared; it studies periodic rings and coverings of sequential orders rather than one left-to-right open path and its transient shells. Related exact-cycle and finite-tree assertions concern different graph classes and invariants. Actual semantic database queries on both terminology systems returned no covering formula. Novelty can never be certified from unsuccessful searches alone; equivalent unindexed work remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Open-path termination is a natural missing contrast to the long-period examples at the same hysteresis thresholds. The theorem gives a complete finite-size first-absorption-time distribution, a sharp \(n\)-sweep upper bound attained by a positive fraction of all states, and a limiting negative-binomial deficit law. The structural transport of ascent interfaces explains why extinction is typical but still nearly as late as possible, rather than merely supplying a numerical table or a routine period bound.
+The (1,3) bi-threshold and its Rule-178 alias are prior; Kuhlman et al. construct long cycles on cyclic/branched graphs, and Donoso-Leiva et al. analyze Rule 178 with sequential updates on periodic rings and existential update-order coverings. Their assertions do not imply the exact fixed ascending OPEN-path absorption-shell census. Related cycle-equivalence results concern eventual cycles and do not recover absorption depth. Resultary alternatives concern other cellular rules, domains and dynamical laws. Best-knowledge novelty is the path-specific exact finite-size and limiting law.
 
-## Closest literature and limitations
+## value
 
-- Kuhlman–Mortveit–Murrugarra–Kumar, *Bifurcations in Boolean Networks*, arXiv:1108.2974: same local bi-threshold rule; periodic cycles and branched-tree examples.
-- Donoso-Leiva–Goles–Ríos-Wilson–Sené, *On the Convergence of Elementary Cellular Automata under Sequential Update Modes*, arXiv:2509.07797: Rule 178 alias and ring-order covering result; different topology and assertion.
-- Macauley–Mortveit, *Cycle Equivalence of Graph Dynamical Systems*, arXiv:0802.4412: recurrence equivalence under update-order changes, not transient distributions.
+PASS
 
-The result assumes a fixed ascending update order, open endpoints and un-clipped threshold three for persistence, and a uniform random initial state for its limit law. The novelty finding is not exhaustive or independently certified.
+The path is the canonical boundary-sensitive base graph contrasting known cycles and long periods at the SAME thresholds. A transport invariant of 01 domain walls yields a complete transient taxonomy, sharp maximal extinction n with exponentially many maximal states, and universal negative-binomial late-extinction deficit; this is structurally informative beyond a small-case enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T13:12:48.028823Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=2, fixed left-to-right sequential closed-neighborhood (1,3) rule with unclipped endpoint persistence, the local recurrence y_i=(y_{i-1} OR x_{i+1}) if x_i=0, else (y_{i-1} AND x_{i+1}) is exact with y_0=x_(n+1)=0. Induction gives x_(i+1)=0=>y_i=0 and y_n=0; hence the complete set of 01 ascents shifts left exactly one index each sweep. Every nonzero ascent-free 1^a0^(n-a) configuration dies in one; a rightmost ascent j survives through the correct prior sweep and dies at exactly j+1. Counting rightmost ascent words gives n states at time1 and (n-t+1)*2^(t-2) at each t=2..n, all 2^n states accounted for; mean n-2+(n+2)/2^n and exact deficit probabilities (k+1)/2^(k+2) for k<=n-2. The residual mass at t=0,1 tends to zero, giving negative-binomial limit. Independent brute-force update with a separately written mutable-bit implementation reproduced the complete 2..13 state census: 16,380 starting states, including all ascents/time shells. Not a proof of infinite n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2011 work proves possible periodic orbits for threshold gap2 on other graph classes; 2025 work proves existence of convergent update schedules on certain rings."
+        ],
+        "reasoning": "Neither stronger graph-class statements nor existential schedules imply universal absorption for a prescribed left-to-right open path, much less complete time-population counts.",
+        "searches": [
+          "sequential bi-threshold Boolean dynamical systems path activation threshold 1 persistence 3 extinction-time distribution Rule 178 sequential update",
+          "https://arxiv.org/abs/1108.2974",
+          "https://arxiv.org/abs/2509.07797",
+          "https://arxiv.org/abs/0802.4412"
+        ]
+      },
+      "checked_sources": [
+        "sequential bi-threshold Boolean dynamical systems path activation threshold 1 persistence 3 extinction-time distribution Rule 178 sequential update",
+        "https://arxiv.org/abs/1108.2974",
+        "https://arxiv.org/abs/2509.07797",
+        "https://arxiv.org/abs/0802.4412",
+        "Resultary:2026/10/11/SCOPE-exact-all-transient-coexistence-threshold-and-finite-size-crosso--12759fd2601b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Donoso-Leiva et al. ring Rule178 convergence is an existential covering over scan orders; Macauley–Mortveit treats cycle equivalence, not exact trajectory first-entry histograms."
+        ],
+        "reasoning": "A theorem that some scan order converges is logically weaker than this fixed-order, all-state exact extinction law; neither entails negative-binomial terminal deficit.",
+        "searches": [
+          "sequential bi-threshold Boolean dynamical systems path activation threshold 1 persistence 3 extinction-time distribution Rule 178 sequential update",
+          "https://arxiv.org/abs/2509.07797",
+          "https://arxiv.org/abs/0802.4412"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local binary neighborhood transition coincides with Rule 178 on interior triples. The same truth table on periodic rings does not fix boundary behavior or scan order."
+        ],
+        "reasoning": "Aliases were considered, but an open-ended P_n with off-path zeros and a fixed ascending sequential schedule is not the periodic-ring cellular automaton.",
+        "searches": [
+          "sequential bi-threshold Boolean dynamical systems path activation threshold 1 persistence 3 extinction-time distribution Rule 178 sequential update",
+          "https://arxiv.org/abs/1108.2974",
+          "https://arxiv.org/abs/2509.07797"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest indexed result is Rule 128 chemical-potential crossover, a different cellular rule and invariant."
+        ],
+        "reasoning": "The exact formula is a symbolic all-n 2^n-word census, not lookup in a finite existing Rule178 table. No matched shell count surfaced in those searches.",
+        "searches": [
+          "sequential bi-threshold Boolean dynamical systems path activation threshold 1 persistence 3 extinction-time distribution Rule 178 sequential update",
+          "Resultary:2026/10/11/SCOPE-exact-all-transient-coexistence-threshold-and-finite-size-crosso--12759fd2601b"
+        ]
+      },
+      "rationale": "The (1,3) bi-threshold and its Rule-178 alias are prior; Kuhlman et al. construct long cycles on cyclic/branched graphs, and Donoso-Leiva et al. analyze Rule 178 with sequential updates on periodic rings and existential update-order coverings. Their assertions do not imply the exact fixed ascending OPEN-path absorption-shell census. Related cycle-equivalence results concern eventual cycles and do not recover absorption depth. Resultary alternatives concern other cellular rules, domains and dynamical laws. Best-knowledge novelty is the path-specific exact finite-size and limiting law.",
+      "residual_risks": [
+        "Alternative naming as Rule178 with fixed boundaries or sequential threshold (1,3) may uncover an earlier exact transient formula not returned in searches.",
+        "Claim excludes periodic rings, other scan orders, and endpoint degree-clipped persistence; these cannot be transferred without proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NONCOVERING",
+          "evidence": "Explicit long-period constructions at hysteresis gap 2 are on other graph shapes, not a path extinction census.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.2974",
+          "material_read": "Full public preprint PDF, focusing on update definitions, Proposition 3.6 and Propositions 4.2–4.4 for cycles and branched trees",
+          "method": "OA PDF text and page screenshot",
+          "title": "Bifurcations in Boolean Networks",
+          "trigger": "Identical activation/persistence thresholds (1,3)"
+        },
+        {
+          "assessment": "DIFFERENT_BOUNDARY_AND_ORDER",
+          "evidence": "Periodic-ring sequential update and existential convergent orders differ from one fixed ascending open-path dynamics and give no first-arrival counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.07797",
+          "material_read": "Full public preprint PDF; examined table for Rule 178, Theorem 6 and order-coverage discussion",
+          "method": "OA PDF text plus page screenshot",
+          "title": "On the Convergence of Elementary Cellular Automata under Sequential Update Modes",
+          "trigger": "Rule 178 is an exact alias for the interior local rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The path is the canonical boundary-sensitive base graph contrasting known cycles and long periods at the SAME thresholds. A transport invariant of 01 domain walls yields a complete transient taxonomy, sharp maximal extinction n with exponentially many maximal states, and universal negative-binomial late-extinction deficit; this is structurally informative beyond a small-case enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Alternative naming as Rule178 with fixed boundaries or sequential threshold (1,3) may uncover an earlier exact transient formula not returned in searches.",
+    "Claim excludes periodic rings, other scan orders, and endpoint degree-clipped persistence; these cannot be transferred without proof.",
+    "Scientific assessment is not publication or external attestation; potential operational provenance in public metadata means publication withheld.",
+    "Finite computational checks supplement only exact all-parameter proof reconstruction."
+  ],
+  "schema_version": 1
+}
