@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on a specified fixed point makes all remaining value assignments uniformly ordered. If that index lies in the window, precisely binomial(i-1,k-1)binomial(n-i,m-k) sets of remaining values realize its ranked pattern, divided by the falling factorial. Outside the window relative orders are uniform. Summing the exact local kernel invokes the kth-order-statistic Vandermonde convolution, giving a nonnegative boundary penalty; positive witnesses at i=k and i=n-m+k prove strictness for every off-diagonal pattern rank. For cyclic starts, every rank offset traverses all n indices so the full convolution cancels. The m=3 table and changeover follow polynomial simplification. The standalone checker passed 13254 exact assertions, including direct enumeration, but the infinite claims rest on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fulman-Kim-Lee arXiv:1902.00978 treats peak counts conditional on cycle type, not the labeled-position kernel for arbitrary m",
+        "Billey-Burdzy-Sagan arXiv:1209.0693 classifies distributions of peak positions without fixed-point conditioning"
+      ],
+      "reasoning": "Cycle-type-conditioned peak generating functions could imply some aggregate peak/fixed-point special cases. They do not straightforwardly dominate the arbitrary-length position-resolved kernel, uniform unique maximizer, and all-pattern cyclic orthogonality together.",
+      "searches": [
+        "arxiv:1902.00978 fixed conjugacy class peaks fixed point location",
+        "arxiv:1209.0693 peak sets fixed points",
+        "fixed points consecutive pattern occurrence count random permutation local positional covariance via binomial coefficients"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/math/0703454",
+      "https://dmtcs.episciences.org/en/articles/3036/download",
+      "https://arxiv.org/pdf/1209.0693",
+      "https://arxiv.org/pdf/1902.00978",
+      "Published fixed-point/descent boundary-localization result (2026; exact adjacent-length case)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published fixed-point–descent covariance localization (2026) gives the length-two special case, which is explicitly excluded from the claimed novelty",
+        "Foata-Han (2007) also supplies lower-order fixed-point/descent information but not all m-pattern joint occurrences",
+        "The nearest identified published result is fixed-point/descent boundary localization; the rank-only kernel and exact cyclic conclusion require a new order-statistic argument for arbitrary m"
+      ],
+      "reasoning": "The new theorem implies existing m=2 formulas, rather than vice versa. Neither fixed-point/descent first moments nor separate consecutive-pattern counts logically determine their mixed moments at m>=3. Existing peak-in-conjugacy results may imply some m=3 aggregates but cannot alone imply all location-resolved m>=3 identities.",
+      "searches": [
+        "uniform permutation fixed-point indicator peak indicator covariance three diagonal and negative aggregate",
+        "permutation fixed points and arbitrary consecutive permutation patterns boundary covariance identity unique increasing pattern maximizer",
+        "arxiv:math/0703454v1 (exc,des,maj,fix)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Foata-Han arXiv:math/0703454v1 uses (exc,des,maj,fix), not arbitrary consecutive-pattern occurrences",
+        "Elizalde-Noy doi:10.46298/dmtcs.3036 uses the occurrence-count bivariate generating function without fixed-point refinement"
+      ],
+      "reasoning": "Rank-position indicator coupling and cyclic-wrapping cancellation are finer than any matching marginal pattern-count formula. No equivalent all-m kernel or fixed-point/cyclic-pattern covariance identity was located in these results.",
+      "searches": [
+        "\"fixed points\" \"consecutive patterns\" covariance random permutations",
+        "\"fixed points\" \"peaks\" covariance permutations",
+        "\"fixed points\" \"consecutive\" random permutation joint",
+        "permutation fixed points and arbitrary consecutive permutation patterns boundary covariance identity unique increasing pattern maximizer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Existing length-3 pattern occurrence tables distinguish reversal/complement equivalences for marginal pattern counts; they do not provide the six distinct covariance values with absolute-position fixed points",
+        "Previously available research descriptions included record/peak, fixed-point/descent, fixed-point/record and cycle/record analyses, but none stated the all-pattern joint kernel"
+      ],
+      "reasoning": "No located exact table lists the six signed fixed-point covariances or the finite-order minimum switch. An unlocated combinatorial table remains possible.",
+      "searches": [
+        "\"fixed points and 123 132 213 231 312 321 consecutive pattern counts covariance\"",
+        "\"consecutive patterns\" \"fixed points\" \"covariance\" random permutations",
+        "fixed points and 123 132 213 231 312 321 consecutive pattern counts covariance"
+      ]
+    },
+    "rationale": "Closest exact prior work on fixed points jointly with descents covers m=2, not the rank-anchored all-pattern formula, strict global extremizer, or covariance-zero cyclic theorem for every m. Foundational papers separately study fixed-point Eulerian statistics, pattern occurrence distributions, peak sets, and conjugacy-class peak distributions. Inspected relevant sections and text searches supplied no statement or dominating formula for the full new claim. This is a qualified best-knowledge judgment with explicit risks, not first-priority certification.",
+    "residual_risks": [
+      "A broad but unlocated multivariate generating function could imply some or all joint mixed moments without naming this covariance.",
+      "Full page-by-page inspection of every relevant historical publication was not possible; source assessments concern genuinely reviewed material and text searches.",
+      "The m=2 case is already covered; priority is limited to the arbitrary-m, extremal, and cyclic assertions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct coverage of fix/des variants, not a stated all-consecutive-pattern fixed-point covariance theorem",
+        "evidence": "arXiv:math/0703454v1, pages 1-2, (exc,des,maj,fix) and (lec,ides,imaj,pix)",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0703454",
+        "material_read": "PDF introduction, four-variable statistic definitions and statement of main generating polynomial, with full-text search for peak",
+        "method": "Opened original arXiv PDF, reviewed text and a page screenshot; searched its parsed text",
+        "title": "Fix-Mahonian Calculus III: A Quadruple Distribution",
+        "trigger": "Simultaneous fixed-point and permutation descent/excedance statistics"
+      },
+      {
+        "assessment": "Bivariate generating function indexes pattern occurrences and length; no fixed-point coupling variable in the inspected statements",
+        "evidence": "Pages 247-249 define P_sigma(u,z) for occurrence counts, and text search found no fixed-point terminology",
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/3036/download",
+        "material_read": "PDF pages 1-3, definitions and principal cluster generating function; searched parsed document for fixed-point language",
+        "method": "Opened publisher OA PDF, reviewed page screenshot and central paragraphs; exact text search",
+        "title": "Consecutive patterns in permutations: clusters and generating functions",
+        "trigger": "General length-m consecutive-pattern generating-function framework"
+      },
+      {
+        "assessment": "Counts peak sets; no joint fixed-point indicator in statements read. Not whole-document proof of absence.",
+        "evidence": "arXiv:1209.0693v1, Theorem 2.2, Section 7; peak-set enumeration without fix statistic",
+        "identifier_or_url": "https://arxiv.org/pdf/1209.0693",
+        "material_read": "PDF introduction, principal enumeration theorem, content headings, and peak/valley section excerpts; searched PDF for fixed-point terminology",
+        "method": "Read original arXiv PDF text and rendered page screenshot; targeted find",
+        "title": "Permutations with given peak set",
+        "trigger": "Length-three patterns and location-specific peaks"
+      },
+      {
+        "assessment": "Shows exact peak/conjugacy joint generating context and possible implicit aggregate coverage; neither an all-m consecutive-pattern position kernel nor cyclic orthogonality was located",
+        "evidence": "arXiv:1902.00978v1, pages 1-2 describe fixed conjugacy-class peaks, distinct from fixed-individual-position covariance",
+        "identifier_or_url": "https://arxiv.org/pdf/1902.00978",
+        "material_read": "Introduction, abstract, exact-generating-function discussion and targeted full-text searches for fixed points and consecutive occurrences",
+        "method": "Read original arXiv PDF passages, page screenshot, searched parsed text",
+        "title": "Central limit theorem for peaks of a random permutation in a fixed conjugacy class of S_n",
+        "trigger": "Broader conditional distribution of peaks by cycle structure, potentially implying partial aggregate claims"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5455c333-6f55-4b5e-b4ca-264da8e0e07b",
+  "value": {
+    "rationale": "A single all-length structural theorem explains how fixed absolute labels interact with relative local-order motifs. It proves a sharp unique pattern maximizer at every finite n,m and exact disappearance under cyclic boundary conditions; the complete length-three signed table has a nontrivial finite-size minimum shift. The object and statistics are standard in random permutations and pattern statistics, and the rank-boundary mechanism supplies reusable understanding beyond a routine marginal enumeration.",
+    "status": "PASS"
+  }
+}

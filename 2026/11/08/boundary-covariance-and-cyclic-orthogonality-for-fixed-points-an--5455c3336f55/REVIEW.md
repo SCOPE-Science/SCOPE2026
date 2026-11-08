@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** Conditioning on a marked fixed point gives the exact rank-position binomial probability, and exchangeability proves off-window independence. A Vandermonde identity turns the resulting linear-window sum into the nonnegative boundary correction (4); the explicit positive tail witness makes the maximizer unique. A full cyclic sweep removes both tails and forces exact covariance zero. The six length-three formulas and the minimizer transition follow algebraically. A standalone independent finite checker passed 13,254 rational/integer assertions. Its finite enumerations do not substitute for the all-order counting proof.
+
+**Originality (PASS, qualified).** Foata and Han (2007) enumerate fixed points with descents and other Eulerian statistics; Elizalde and Noy (2012) enumerate consecutive-pattern occurrences, Billey–Burdzy–Sagan (2012) enumerate peak sets, and Fulman–Kim–Lee (2019) study peaks in conjugacy classes. Material inspected in those sources does not explicitly supply the all-length, fixed-point-positioned rank kernel, boundary penalty, strict increasing-pattern maximum and exact cyclic zero-covariance conclusion. A previously published fixed-point/descent localization theorem already covers the two-letter case; no novelty is asserted for that special case. An unlocated multivariate permutation-statistic formula could imply parts of this theorem, so priority remains qualified, not independently established.
+
+**Value (PASS).** The result is a natural all-pattern classification of how absolute labels (fixed points) interact with local relative-order patterns. It identifies the precise boundary source of the dependence, proves one sharp extremizer uniformly in both sample length and motif length, and shows that circularization erases the covariance without requiring independence. The six-pattern case displays nontrivial positive, negative and zero regimes and a finite-order change in the minimizing pattern.
+
+**Limits.** Neither general-pattern minimum nor higher mixed moments is proved. The model is uniform permutations, and all covariance claims are distinct from independence claims. Priority is subject to broader historical-generating-function comparisons and external review.
+
+Self-review: passed. Independent audit: not yet performed.
