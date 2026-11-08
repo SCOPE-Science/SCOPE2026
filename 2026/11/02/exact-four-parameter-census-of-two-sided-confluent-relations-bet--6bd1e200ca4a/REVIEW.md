@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Equation (2) is a necessary-and-sufficient translation of downward/forward confluence on exactly two levels in two separately labelled carriers. Its three nonempty strata are mutually exclusive and exhaustive; formulas for each stratum follow from independent membership-pattern counts. Formula (1) is proved for all positive \(a,c,b,d\) without extrapolating finite experiments. The checker performs 36 independent exhaustive relation counts plus 625 duality checks, and returns `ALL_CHECKS_OK`.
+PASS
 
-## Originality — PASS within checked evidence
+Only lower-to-upper source comparabilities are nontrivial. For each lower row X_i⊆B,Y_i⊆D and upper row P_j⊆B,Q_j⊆D, both quantified confluence implications are exactly P_j⊆X_i, Y_i⊆Q_j, (X_i empty ⇒ Q_j⊆Y_i), (Q_j empty ⇒ X_i⊆P_j). Partition into the empty relation; all X_i and Q_j nonempty; all X_i nonempty and at least one Q_j empty; at least one X_i empty with nonempty relation. In first nonempty class, weighted subset-intersection counts give L and independent target-upper support choices give U. In second, a common nonempty X-set S and all Y empty give C. In third, a common nonempty Q-set T and all P empty give Z. Conditions are disjoint/exhaustive for arbitrary positive a,c,b,d. Independent direct enumeration of all relation masks for four small quadruples matches, including N(2,2;2,2)=1867; finite checks do not establish general formula.
 
-The 2026 primary modal Nelson source states the confluence conditions, not a four-parameter enumeration. A complete published chain endpoint theorem is limited to totally ordered single carriers; a weak-order mapping theorem counts functions, not arbitrary relations; a separate chain birelation theorem imposes different constraints. A previously documented **single-carrier coalescing-fan calculation** is reproduced only as a proper special case \(a=b,c=d=1\), and that special case is not claimed new. New material is the complete two-carrier parameter family, its structurally disjoint classes, and the closed count. Broad older relation-algebra literature may conceal equivalent coverage, so priority is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem solves a naturally parametrized complete classification and enumeration question for order-compatible modal correspondences across distinct two-level carriers. It supplies exact finite relation spaces for mixed widths, including regimes not covered by one-top self-relation formulas, and explains how emptiness in either target level controls the possibilities. It does not claim full Kripke-model, all-height or bisimulation enumeration.
+Best-of-knowledge originality for complete stated claim, after explicit same-object and strong-theorem comparisons; known ingredients and limitations credited. Historical priority is not certified.
 
-## Closest literature and limits
+## value
 
-Sedlár–Vigiani (2026), Sato (2026), Balbiani–Gao–Gencer–Olivetti (2024) and Kozicki–Kavvos (2026) motivate the constraints and relational setting. Earlier finite-chain and single-fan counts do not furnish the four-independent-width formula. The result concerns exact two-sided confluence only; other relational compatibility requirements may change the number.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The source conditions arise naturally in intuitionistic modal confluence, while two independent two-level carriers are the smallest genuinely multivalued correspondence class beyond single-top fans and chains. A complete four-parameter labelled count, including asymmetric domains, is a precise new structural combinatorics tool rather than arbitrary numerical slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

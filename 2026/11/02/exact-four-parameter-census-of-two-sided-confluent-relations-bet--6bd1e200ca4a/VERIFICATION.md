@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact correspondence census
+# Independent mathematical audit
 
-`checker.py` computes equation (1) by integer arithmetic and, independently, explicitly enumerates every binary matrix representing a relation between two two-level orders. It tests both confluence implications by quantification over comparable source pairs and actual target witnesses.
+## correctness
 
-For positive \(a,c,b,d\in\{1,2,3\}\), restricting to \(a+c\le4\) and \(b+d\le4\), the direct checker compares 36 complete finite universes with formula (1). It also checks 625 order-reversal identities for parameters in \(\{1,\ldots,5\}\), and selected asymmetric anchor values. Execute `python3 checker.py`; successful execution prints `ALL_CHECKS_OK`.
+PASS
 
-This finite computational verification does not establish any assertion for unbounded parameter values. The general quantified result is proved through the complete structural partition in RESULT.md. The checked property is two-sided order confluence, not a stronger category-theoretic bisimulation or a full modal model preservation theorem. Independent audit has not been performed.
+Only lower-to-upper source comparabilities are nontrivial. For each lower row X_i⊆B,Y_i⊆D and upper row P_j⊆B,Q_j⊆D, both quantified confluence implications are exactly P_j⊆X_i, Y_i⊆Q_j, (X_i empty ⇒ Q_j⊆Y_i), (Q_j empty ⇒ X_i⊆P_j). Partition into the empty relation; all X_i and Q_j nonempty; all X_i nonempty and at least one Q_j empty; at least one X_i empty with nonempty relation. In first nonempty class, weighted subset-intersection counts give L and independent target-upper support choices give U. In second, a common nonempty X-set S and all Y empty give C. In third, a common nonempty Q-set T and all P empty give Z. Conditions are disjoint/exhaustive for arbitrary positive a,c,b,d. Independent direct enumeration of all relation masks for four small quadruples matches, including N(2,2;2,2)=1867; finite checks do not establish general formula.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for complete stated claim, after explicit same-object and strong-theorem comparisons; known ingredients and limitations credited. Historical priority is not certified.
+
+## value
+
+PASS
+
+The source conditions arise naturally in intuitionistic modal confluence, while two independent two-level carriers are the smallest genuinely multivalued correspondence class beyond single-top fans and chains. A complete four-parameter labelled count, including asymmetric domains, is a precise new structural combinatorics tool rather than arbitrary numerical slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
