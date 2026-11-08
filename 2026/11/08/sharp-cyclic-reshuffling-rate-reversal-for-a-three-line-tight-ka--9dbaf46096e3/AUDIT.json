@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The exact characteristic polynomial and six-permutation second-moment average reconstruct from stated normal vectors and updates. Analytic derivative/discriminant arguments prove unique global minimizers on the complete interval (0,2); the Jordan formula is a real 2-by-2 nilpotent norm identity and the exact rational inequalities plus induction prove the all-k horizon reversal. The packaged SymPy verifier rechecks all nontrivial polynomial identities and root brackets, with finite two-epoch enumeration only as supplemental evidence. All quantifiers and deterministic-vs-expected metrics are defined.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Oswald and Zhou, Theorem 4, gives general 0<omega<2 shuffled SOR worst-case upper bounds; it has an even-row planar example.",
+        "Han and Xie, Theorem 3.2 and Section 3.3, give general reshuffling convergence, norm bounds and 3-by-2 examples.",
+        "Published two-row optimized cyclic Kaczmarz finite-horizon result exists in a different row geometry."
+      ],
+      "reasoning": "These results have broader matrix class but weaker guarantees for the present exact rates and do not determine the sharp optimal relaxation or crossing. Existing two-row Jordan facts share a proof device, not the exact three-row reshuffled comparison. No stronger theorem found with an implication forcing the present polynomial/root values.",
+      "searches": [
+        "random reshuffling Kaczmarz compared with fixed cyclic rate triangle equiangular frame [published-record semantic search]",
+        "fixed cyclic Kaczmarz faster than random reshuffling optimally tuned small redundant system [published-record semantic search]",
+        "randomized Gauss Seidel Markov sampling stability exact linear system [published-record semantic search]",
+        "random permutation Kaczmarz equiangular simplex frame exact mean square contraction cyclic without replacement [published-record semantic search]"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2410.01140",
+      "https://arxiv.org/html/1510.04727v2",
+      "https://doi.org/10.1007/s11075-024-01945-2",
+      "published item d549f7251aa1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ArXiv:2410.01140 proves convergence based on a fixed-epoch matrix norm and does not optimize the relaxation parameter.",
+        "ArXiv:1510.04727 supplies condition-based bounds and 2m-row planar example but no exact three-row reshuffle covariance.",
+        "A prior two-row cyclic overrelaxation result uses a defective optimum, but its two-row result does not imply the three-row RR second-moment identity."
+      ],
+      "reasoning": "A generic all-matrix bound implies qualitative convergence, not an exact contraction equality. The two-row Jordan transients and the three-row deterministic Jordan identity are analogous but independent due to different sweep polynomials. Computing all six permutations, proving scalar averaging, optimizing both rates and proving every k>=2 finite-horizon strict comparison are additional nontrivial facts.",
+      "searches": [
+        "three equiangular rows Kaczmarz projection tight frame two-dimensional exact random reshuffling mean square factor [published-record semantic search]",
+        "overrelaxed Kaczmarz 3 line frame optimal cyclic relaxation sqrt3 Jordan eigenvalue versus random reshuffling [published-record semantic search]",
+        "random reshuffling Kaczmarz compared with fixed cyclic rate triangle equiangular frame [published-record semantic search]",
+        "fixed cyclic Kaczmarz faster than random reshuffling optimally tuned small redundant system [published-record semantic search]",
+        "three row Kaczmarz equiangular 120 degree randomized reshuffling expected squared norm exact relaxation spectrum [literature search]"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A cyclic Kaczmarz sweep is a projected SOR product on the row Gram matrix (Oswald and Zhou 2016, Section 1).",
+        "The paper by Han and Xie (arXiv:2410.01140, Section 3.3) compares RRK to independent and cyclic ordering, but for omega=1 with upper bounds."
+      ],
+      "reasoning": "Searched overrelaxed Kaczmarz, SOR, equiangular tight frames, randomized reshuffling, and the exact algebraic root/rate. The equivalence to SOR was used in the comparison. An exact result requiring three rows, the specific root omega^5=16(1-omega)^2 and the all-integer-horizon reversal was not located.",
+      "searches": [
+        "three equiangular rows Kaczmarz projection tight frame two-dimensional exact random reshuffling mean square factor [published-record semantic search]",
+        "overrelaxed Kaczmarz 3 line frame optimal cyclic relaxation sqrt3 Jordan eigenvalue versus random reshuffling [published-record semantic search]",
+        "Kaczmarz 3 rows 2D equiangular random reshuffling overrelaxation spectral rate [literature search]",
+        "Kaczmarz 4 sqrt(3)-6 convergence three projections [formula search]",
+        "Kaczmarz omega^5 reshuffling tight frame [formula search]"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches by exact radical 4sqrt(3)-6, 1351-780sqrt(3), and fifth-degree root relation returned no matching published Kaczmarz formula.",
+        "Full survey and primary papers inspected did not contain an exact three-line parameter table."
+      ],
+      "reasoning": "No exact preexisting rate table or benchmark with this curve was located. Negative search evidence is not a proof of novelty, and index coverage is incomplete.",
+      "searches": [
+        "Kaczmarz 4 sqrt(3)-6 convergence three projections [formula search]",
+        "Kaczmarz omega^5 reshuffling tight frame [formula search]",
+        "Kaczmarz 1351 780 sqrt3 [formula search]",
+        "Kaczmarz cyclic vs reshuffling first epoch second epoch equiangular [literature search]"
+      ]
+    },
+    "rationale": "Inspected two directly relevant primary full texts plus a full open survey, searched exact formulas and conceptual aliases, and compared a published two-row Jordan-transient benchmark. Published general shuffled-SOR/RRK bounds, two-row optimized cyclic behavior, and the standard iid half-frame contraction do not directly imply the explicit three-line omega optimizers, exact reshuffle second moment, and reversal precisely between epoch 1 and all epochs >=2. This is a best-knowledge originality assessment, not certification of uniqueness.",
+    "residual_risks": [
+      "A precise equivalent special-case formula may occur in less-indexed Kaczmarz/SOR, cyclic projection products, tight-frame, or symmetric splitting literature.",
+      "The full published two-row finite-horizon article was not inspected, so only its recoverable statement can be compared.",
+      "Independent scholarly precedence assessment and validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its bounds imply convergence for general systems but do not imply the precise omega-dependent three-row expectation, Jordan optimum or all-horizon crossing.",
+        "evidence": [
+          "Theorem 3.2 uses an upper bound by the norm of the epoch matrix; 3.3 compares RK, RRK, SOK, IK by non-optimized upper bounds and numerical examples.",
+          "The available full text contains no exact three-line equiangular rate-optimization classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2410.01140",
+        "material_read": "Full-text HTML: abstract, Sections 1–4, especially Theorems 3.2/3.6/3.7, Section 3.3, Examples 3.8–3.9, and conclusions.",
+        "method": "Read the theorem hypotheses and their matrix-norm bounds and compared their quantifiers and error norms to the explicit three-line optimal-omega claim.",
+        "title": "A simple linear convergence analysis of the randomized reshuffling Kaczmarz method",
+        "trigger": "Directly treats reshuffling versus independent and cyclic Kaczmarz for the same broad algorithm family."
+      },
+      {
+        "assessment": "General upper bounds and an even-row planar example do not state the exact three-row optimally tuned crossover or mean-square isotropy; not known to imply it without new calculations.",
+        "evidence": [
+          "Theorem 4(a) gives a geometry-agnostic expected-error upper bound with a condition-number term.",
+          "Final example uses 2m lines and unrelaxed cyclic projections; it is not the present 3-line common-relaxation case."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1510.04727v2",
+        "material_read": "Full-text HTML: Sections 1–3, Theorems 1–4, comparisons of shuffled/preshuffled SOR and closing planar even-row example.",
+        "method": "Compared Theorem 4 general expected-error estimates with exact three-row covariance and inspected the 2m-row planar tight-frame family at paper end.",
+        "title": "Random Reordering in SOR-Type Methods",
+        "trigger": "SOR and Kaczmarz with identical 0<omega<2 and reshuffling on rows; possible stronger coverage."
+      },
+      {
+        "assessment": "Survey documents empirical performance and generic rates but not this exact equal-angle benchmark and sharp epoch crossover.",
+        "evidence": [
+          "Sections on random row selection and empirical comparisons do not state the characteristic polynomial and omega-minimizer pair."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11075-024-01945-2",
+        "material_read": "Open-access article HTML: abstract, algorithm background, random and reshuffling method sections, experiments and conclusions.",
+        "method": "Checked algorithmic scope and rate comparisons and whether a three-row analytic rate-optimized example was already tabulated.",
+        "title": "Survey of a class of iterative row-action methods: The Kaczmarz method",
+        "trigger": "Review of related cyclic, independent randomized, and without-replacement Kaczmarz."
+      },
+      {
+        "assessment": "Two-row cyclic-vs-unrelaxed benchmark does not state the present three-row comparison with independently reshuffled epochs; inaccessible full text remains a precedence risk.",
+        "evidence": [
+          "Published summary concerns two-row cyclic overrelaxation finite-horizon norm and crossover to unrelaxed cyclic, not three-row reshuffling."
+        ],
+        "identifier_or_url": "published item d549f7251aa1",
+        "material_read": "Indexed title and published summary only; full text was not confirmed accessible.",
+        "method": "Statement-level comparison of row count, competing randomized method, and finite-horizon quantifiers.",
+        "title": "Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+        "trigger": "Potential same structural mechanism: Jordan optimum and finite-time performance of cyclic overrelaxation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9dbaf460-96e3-410a-9f94-3e52a8f551c3",
+  "value": {
+    "rationale": "This is the smallest redundant planar unit-norm tight-frame Kaczmarz system with three distinct lines, so fixed cyclic and reshuffling orderings are both natural meaningful choices. The sharp result resolves the practical conflict between first-epoch mean-square performance and asymptotic convergence: with each method tuned to its long-run optimum, fresh reshuffling wins at k=1 but loses for every k>=2. The exact formula simultaneously quantifies reshuffling benefit over independent draws and an approximately 40.7-fold optimal asymptotic squared-rate gap. This is a nontrivial structural benchmark rather than a generic textbook contraction bound; it may motivate horizon-aware row scheduling and overrelaxation selection. It does not claim a general algorithmic superiority theorem.",
+    "status": "PASS"
+  }
+}
