@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The mathematical proof is given in `RESULT.md`. The supplementary source `verify.py` requires Python 3 and NumPy and performs exact rational cone-weight evaluations in 20 dimensions, plus geometric importance-sampling diagnostics for tetrahedral, four-simplex and cubic boundary samples. Use:
+## correctness
 
-```
-python verify.py
-```
+PASS
 
-Expected successful output begins `VERIFY_OK exact_dimensions=2..21 cube_dimensions=2..21 tetrahedron=8 cube3=3/4 octahedron3=1/4` and then prints finite-\(\varepsilon\) diagnostic values. Sampled diagnostics are reproducible with the fixed seed used in the source. Exact rational checks do not rely on the random generator. The code was run successfully with the included source prior to packaging. The verifier is not a theorem prover for arbitrary polytopes; its computations are corroboration for the explicit benchmark formulas. The uniform-in-\(\varepsilon\) error bound and positive cone truncation are verified analytically in the written proof.
+Every diametral pair of a compact convex polytope comprises vertices, since Euclidean squared norm is strictly convex separately in endpoints. For a fixed ordered diametral (v,w), e=(w-v)/L has positive pairing with every nonzero inward tangent direction at v; the diameter inequality yields strict positivity. Boundary facets near v are exact k=d-1 homogeneous cones, so the normalized axial deficit cap is exactly B(v,w)*t^k for small t. Two independent axial deficits convolve via a beta integral to (k!)^2/(2k)! B(v,w)B(w,v)*t^(2k). Euclidean chord deficit differs by O((norm h+norm j)^2), and strict axial positivity forces both of order epsilon, leading to O(epsilon^(2k+1)) correction. Finiteness of diametral ordered vertices permits summation and positive universal exponent 2d-2. Facet simplex cone computation yields for regular simplex d(d+1)4^(d-2)((d-1)!)²/(2d-2)! and cube 2^(d-2)d^(d-1)/(2d-2)!, with d3 constants 8 and 3/4. Independently evaluated exact factorial constants d=3,4,5 and source verify.py, which contains exact cone diagnostics and Monte Carlo importance tests. The all-polytope theorem rests on geometric cone proof, not simulations.
 
-Independent audit was not performed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison against stronger and equivalent claims, not titles alone; primary texts and known antecedents acknowledged. A general maximal interpoint distance theorem cannot produce a specific facet coefficient from its own assumption; new local cone calculation and beta convolution are needed. Unresolved historical-priority possibilities are explicitly retained; unsuccessful searches are not proof of novelty.
+
+## value
+
+PASS
+
+Near-diameter distance tails of independently surface-sampled points are natural inputs to random-sample diameter extreme-value theory, while arbitrary polytopes exhibit anisotropic vertex cones. Universal exponent and explicit ordered-diametral facet coefficient constitute an exact geometric classification usable for simplex/cube benchmarks; distinct from random line chord and interior sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

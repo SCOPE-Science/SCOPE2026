@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an asymptotic for **two independently chosen surface-area-uniform boundary points** of any fixed convex polytope in every fixed dimension \(d\ge3\). Strict convexity of squared distance localizes diametral pairs to finitely many vertex pairs. At a diameter endpoint the axial projection is strictly positive on all tangent rays, so each incident facet contributes a finite positive exactly homogeneous one-point cap measure. Beta integration of independent caps produces the factorial coefficient. Taylor expansion of Euclidean length, with uniform positive axial transversality, supplies the \(O_P(\varepsilon^{2d-1})\) error. Disjoint neighborhoods allow summation over **ordered** diametral pairs. The simplex and cube coefficients follow from explicit incident-facet integrals. All hypotheses, area normalizations, endpoint orientations, and nonuniformity of the constants have been checked. The independent exact and simulation diagnostics in `verify.py` passed. No finite computation is used as proof for arbitrary polytopes.
+PASS
 
-## Originality — PASS under accessible evidence, historical priority provisional
+Every diametral pair of a compact convex polytope comprises vertices, since Euclidean squared norm is strictly convex separately in endpoints. For a fixed ordered diametral (v,w), e=(w-v)/L has positive pairing with every nonzero inward tangent direction at v; the diameter inequality yields strict positivity. Boundary facets near v are exact k=d-1 homogeneous cones, so the normalized axial deficit cap is exactly B(v,w)*t^k for small t. Two independent axial deficits convolve via a beta integral to (k!)^2/(2k)! B(v,w)B(w,v)*t^(2k). Euclidean chord deficit differs by O((norm h+norm j)^2), and strict axial positivity forces both of order epsilon, leading to O(epsilon^(2k+1)) correction. Finiteness of diametral ordered vertices permits summation and positive universal exponent 2d-2. Facet simplex cone computation yields for regular simplex d(d+1)4^(d-2)((d-1)!)²/(2d-2)! and cube 2^(d-2)d^(d-1)/(2d-2)!, with d3 constants 8 and 3/4. Independently evaluated exact factorial constants d=3,4,5 and source verify.py, which contains exact cone diagnostics and Monte Carlo importance tests. The all-polytope theorem rests on geometric cone proof, not simulations.
 
-Full texts of Mayer--Molchanov (2006, arXiv:math/0605289), Lao (2010, Chapter 5), and Brunel (2015, arXiv:1503.01504) were examined in relevant sections. Mayer--Molchanov posit or derive two-point tails for balls and spherical models; Lao computes polygon-edge max-distance laws; Brunel studies random-hull Hausdorff errors and diameter estimation. None of the examined statements yields the exact surface-area-pair cone coefficient for arbitrary \(d\ge3\) convex polytopes. Semantic searches of published research results found related studies of near-zero polygon boundary pairs, interior-uniform samples, and motion-invariant random-line chords, all with materially different measurement distributions. The possible existence of a differently named older tangent-cone formula remains a residual priority risk; neither absence of a search result nor partition ownership proves novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The general theorem identifies a universal, sharp near-diameter exponent and a computable, nonzero coefficient depending on **all** diametral vertex neighborhoods, including polytopes with many diametral pairs and nonsimplicial facets. It gives exact all-dimensional benchmark constants for regular simplices and cubes and supplies a needed input to extreme-distance modeling, without claiming a sample-maximum limit law. This structural result is not simply evaluation of a fixed polytope integral or a parameter rescaling.
+Best-of-knowledge comparison against stronger and equivalent claims, not titles alone; primary texts and known antecedents acknowledged. A general maximal interpoint distance theorem cannot produce a specific facet coefficient from its own assumption; new local cone calculation and beta convolution are needed. Unresolved historical-priority possibilities are explicitly retained; unsuccessful searches are not proof of novelty.
 
-## Limitations
+## value
 
-Historical priority remains provisional, and independent replication or review is outstanding. The result assumes convex polytopes, surface-Hausdorff sampling, fixed dimension, fixed shape, and straight Euclidean chords. Estimates are local to the diameter and do not describe finite-sample maximum statistics.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Near-diameter distance tails of independently surface-sampled points are natural inputs to random-sample diameter extreme-value theory, while arbitrary polytopes exhibit anisotropic vertex cones. Universal exponent and explicit ordered-diametral facet coefficient constitute an exact geometric classification usable for simplex/cube benchmarks; distinct from random line chord and interior sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
