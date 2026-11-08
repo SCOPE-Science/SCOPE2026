@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T18:41:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The incidence graph is bipartite between originals A and subdivision vertices B. Every open neighborhood of A lies in B and vice versa, so relative legality and eventual coverage of an A subsequence and B subsequence are independent. An A history consists exactly of n−1 originals in any order with n! possibilities, since remaining two originals are connected by an uncovered edge until the (n−1)st choice. A B history is an ordered covering edge sequence of K_n, each edge introducing one or two unseen original vertices; the last edge introduces one new vertex in r(r−1) ways or a new pair in binom(r,2) ways, yielding the stated recurrence. All such histories have ceil(n/2)≤k≤n−1 and shuffle independently in binom(n−1+k,n−1) ways. The extreme coefficients follow ordered matchings and sequential edge introductions. Independent literal graph open-neighborhood DP gave T2=4z², T3=216z⁴, T4=1440z⁵+34560z⁶, but these finite checks are not the universal induction proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier works focus on sequence maximum/structural uniformity and complexity."
+        ],
+        "reasoning": "These general theorems constrain support endpoints, but not the full n!-weighted ordered enumeration formula.",
+        "searches": [
+          "Total Dominating Sequences in Graphs Brešar Henning Rall 2016",
+          "Total k-Uniform Graphs Bahadır Gözüpek Doğan arXiv:2010.08368"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1601.07525; Discrete Mathematics 339 (2016), 1665–1676",
+        "arXiv:2010.08368; Discrete Mathematics 344 (2021), 112492",
+        "arXiv:1608.06804",
+        "Resultary published findings semantic search: subdivision complete graph total dominating sequences full length count ordered edge coverings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2n−2 maximum and Grundy notion are earlier; all n exact coefficients and gapless support not in cited prior statements."
+        ],
+        "reasoning": "Taking Theorem 8.4 with K_n covering facts can recover only upper endpoint. It does not imply the polynomial or extreme coefficients without additional counting work.",
+        "searches": [
+          "Brešar Henning Rall 2016 Theorem 8.4",
+          "Bahadır Gözüpek Doğan uniform total dominating sequences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the incidence graph of a hypergraph, Grundy total domination maximum length equals twice the Grundy covering number."
+        ],
+        "reasoning": "That broadly covers maximum possible length; it counts neither the legal-history length polynomial nor all coefficients of ordered histories. The latter depends on interleavings and distinct label-sensitive legal edge covers.",
+        "searches": [
+          "subdivision complete graph total dominating sequences full length count ordered edge coverings",
+          "Brešar Henning Rall arXiv:1601.07525 Theorem 8.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact matching all-n ordered-sequence coefficient table was found in the Resultary retrieval or inspected cited articles."
+        ],
+        "reasoning": "Unordered edge-cover numbers do not give ordered legal histories; the recurrence and shuffle polynomial are not a known-table direct transcription. Non-detection is qualified.",
+        "searches": [
+          "subdivision complete graph total dominating sequences full length count ordered edge coverings",
+          "ordered edge cover histories complete graph generating polynomial",
+          "total dominating sequence polynomial subdivided K_n"
+        ]
+      },
+      "rationale": "Brešar–Henning–Rall (2016) general incidence-graph theorem already implies the MAXIMAL length 2n−2, which is not novel separately. Earlier total-uniform graph and Grundy covering sequence work does not state this complete exact number of ORDERED sequences at every length for S(K_n). The distribution and extreme multiplicities survive as a natural refined invariant.",
+      "residual_risks": [
+        "An older combinatorial enumeration of ordered sequential edge covers may be equivalent under a different name.",
+        "The maximum length 2n−2 is already implied by general incidence-graph theorems; scientific novelty resides in the complete length polynomial and multiplicities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers max length through Grundy covering, not full ordered polynomial",
+          "evidence": "Theorem 8.4 states total Grundy domination number of incidence graph equals twice a hypergraph covering invariant.",
+          "identifier_or_url": "arXiv:1601.07525; Discrete Mathematics 339 (2016), 1665–1676",
+          "material_read": "Full primary 20-page PDF; Section 8 and Theorem 8.4 visually inspected on PDF pages 16–17",
+          "method": "Compare maximum-length statement and whether all coefficient histories enumerated",
+          "title": "Total Dominating Sequences in Graphs",
+          "trigger": "Same legal open-neighborhood sequence model, general incidence graph"
+        },
+        {
+          "assessment": "Related framework, no proof of this generating polynomial identified from material read",
+          "evidence": "Focuses on graphs where all maximal total dominating sequences have equal lengths.",
+          "identifier_or_url": "arXiv:2010.08368; Discrete Mathematics 344 (2021), 112492",
+          "material_read": "Accessible preprint abstract and cited uniformity setup, no full appendix independently inspected",
+          "method": "Compare uniform-length classification against full labeled-history counting",
+          "title": "Total k-Uniform Graphs / On graphs all of whose total dominating sequences have the same length",
+          "trigger": "Structured total domination sequence length spectrum"
+        },
+        {
+          "assessment": "Different structural/algorithmic extremal questions, not this exact all-length polynomial",
+          "evidence": "Discusses trees/split graphs and complexity rather than S(K_n) ordered coefficient census.",
+          "identifier_or_url": "arXiv:1608.06804",
+          "material_read": "Published abstract and cited general theorem summaries, full text not independently inspected",
+          "method": "Compare supported graph families and stated result types",
+          "title": "Total dominating sequences in trees, split graphs, and under modular decomposition",
+          "trigger": "Broader total domination sequence extrema"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full legal-history generating polynomial and complete length spectrum are natural finer invariants of total domination sequence dynamics on a canonical family, extending an extremal-only theorem with exact multiplicities; not reducible to the number of unordered edge covers.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1601.07525; Discrete Mathematics 339 (2016), 1665–1676",
+    "arXiv:2010.08368; Discrete Mathematics 344 (2021), 112492",
+    "arXiv:1608.06804",
+    "Resultary published findings semantic search: subdivision complete graph total dominating sequences full length count ordered edge coverings"
+  ],
+  "disposition": "passed",
+  "final_claim": "For H_n=S(K_n), n≥2, legal completed total-dominating sequences are counted by T_n(z)=n! Σ_{k=ceil(n/2)}^{n−1} binom(n−1+k,n−1) a_{n,k} z^{n−1+k}, with a_{0,0}=1 and a_{r,k}=r(r−1)a_{r−1,k−1}+binom(r,2)a_{r−2,k−1}; support consists exactly of all lengths from n−1+ceil(n/2) to 2n−2, with explicit maximum/minimum coefficient formulas.",
+  "limitations": [
+    "An older combinatorial enumeration of ordered sequential edge covers may be equivalent under a different name.",
+    "The maximum length 2n−2 is already implied by general incidence-graph theorems; scientific novelty resides in the complete length polynomial and multiplicities.",
+    "Checks reproduce finite cases and identities, not infinite-dimensional/unbounded-domain proofs where applicable.",
+    "Public metadata contains provenance fields and is not approved for import without full sanitized replacement."
+  ],
+  "residual_risks": [
+    "An older combinatorial enumeration of ordered sequential edge covers may be equivalent under a different name.",
+    "The maximum length 2n−2 is already implied by general incidence-graph theorems; scientific novelty resides in the complete length polynomial and multiplicities."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers max length through Grundy covering, not full ordered polynomial",
+      "evidence": "Theorem 8.4 states total Grundy domination number of incidence graph equals twice a hypergraph covering invariant.",
+      "identifier_or_url": "arXiv:1601.07525; Discrete Mathematics 339 (2016), 1665–1676",
+      "material_read": "Full primary 20-page PDF; Section 8 and Theorem 8.4 visually inspected on PDF pages 16–17",
+      "method": "Compare maximum-length statement and whether all coefficient histories enumerated",
+      "title": "Total Dominating Sequences in Graphs",
+      "trigger": "Same legal open-neighborhood sequence model, general incidence graph"
+    },
+    {
+      "assessment": "Related framework, no proof of this generating polynomial identified from material read",
+      "evidence": "Focuses on graphs where all maximal total dominating sequences have equal lengths.",
+      "identifier_or_url": "arXiv:2010.08368; Discrete Mathematics 344 (2021), 112492",
+      "material_read": "Accessible preprint abstract and cited uniformity setup, no full appendix independently inspected",
+      "method": "Compare uniform-length classification against full labeled-history counting",
+      "title": "Total k-Uniform Graphs / On graphs all of whose total dominating sequences have the same length",
+      "trigger": "Structured total domination sequence length spectrum"
+    },
+    {
+      "assessment": "Different structural/algorithmic extremal questions, not this exact all-length polynomial",
+      "evidence": "Discusses trees/split graphs and complexity rather than S(K_n) ordered coefficient census.",
+      "identifier_or_url": "arXiv:1608.06804",
+      "material_read": "Published abstract and cited general theorem summaries, full text not independently inspected",
+      "method": "Compare supported graph families and stated result types",
+      "title": "Total dominating sequences in trees, split graphs, and under modular decomposition",
+      "trigger": "Broader total domination sequence extrema"
+    }
+  ]
+}

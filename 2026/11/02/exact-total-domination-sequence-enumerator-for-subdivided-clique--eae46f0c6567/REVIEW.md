@@ -1,19 +1,21 @@
-# Scientific review: total-domination histories of subdivided cliques
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof splits the open-neighborhood process into independent original-vertex and subdivision-vertex subsequences, proves there are exactly \(n!\) orders of the former, and bijectively enumerates the latter by a last-edge one-or-two-new-endpoint recurrence. It then counts order-preserving shuffles and obtains every exponent and both extreme coefficients. A standalone checker built directly from graph neighborhoods agrees at \(n=2,3,4,5\); the infinite theorem is proved, not extrapolated.
+PASS
 
-## Originality — PASS
+The incidence graph is bipartite between originals A and subdivision vertices B. Every open neighborhood of A lies in B and vice versa, so relative legality and eventual coverage of an A subsequence and B subsequence are independent. An A history consists exactly of n−1 originals in any order with n! possibilities, since remaining two originals are connected by an uncovered edge until the (n−1)st choice. A B history is an ordered covering edge sequence of K_n, each edge introducing one or two unseen original vertices; the last edge introduces one new vertex in r(r−1) ways or a new pair in binom(r,2) ways, yielding the stated recurrence. All such histories have ceil(n/2)≤k≤n−1 and shuffle independently in binom(n−1+k,n−1) ways. The extreme coefficients follow ordered matchings and sequential edge introductions. Independent literal graph open-neighborhood DP gave T2=4z², T3=216z⁴, T4=1440z⁵+34560z⁶, but these finite checks are not the universal induction proof.
 
-Brešar, Henning, and Rall (2016), Theorem 8.4, already determine the maximum sequence length of general incidence graphs in terms of an underlying Grundy covering number. Bahadır, Gözüpek, and Doğan (2020/2021) study equality of extreme lengths. These strong precedents do not supply the claimed **full ordered-histories polynomial** or its per-length coefficients, based on the inspected relevant text. Ordinary complete-graph edge-cover tables enumerate unordered edge sets and are not the same invariant. A previously unindexed coefficient formula under an alternative name remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result completely enumerates legal finished greedy histories in a canonical growing graph family. The polynomial refines minimum and maximum total domination lengths and has exact factorial coefficients at both extremes; it also demonstrates that every intermediate length occurs. This distinguishes order-sensitive greedy behavior from ordinary edge-cover cardinality counts.
+Brešar–Henning–Rall (2016) general incidence-graph theorem already implies the MAXIMAL length 2n−2, which is not novel separately. Earlier total-uniform graph and Grundy covering sequence work does not state this complete exact number of ORDERED sequences at every length for S(K_n). The distribution and extreme multiplicities survive as a natural refined invariant.
 
-## Scientific scope and limitations
+## value
 
-The theorem concerns \(S(K_n)\) for each integer \(n\ge2\), and no general subdivision theorem or asymptotic probabilistic limit is asserted. The maximum length alone is implied by known incidence-graph extremal theory. Independent publication-priority and mathematical audit are absent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full legal-history generating polynomial and complete length spectrum are natural finer invariants of total domination sequence dynamics on a canonical family, extending an extremal-only theorem with exact multiplicities; not reducible to the number of unordered edge covers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
