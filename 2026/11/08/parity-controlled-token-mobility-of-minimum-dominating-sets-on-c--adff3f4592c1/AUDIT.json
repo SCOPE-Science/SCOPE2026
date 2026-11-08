@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Every vertex has closed neighborhood size four, yielding the sharp lower bound. Explicit singleton words attain it. An incidence-excess argument excludes double columns for odd n, and perfect coverage excludes them for lengths divisible by four. Empty columns cannot be consecutive; counting gaps and forced opposite colors gives all optimal words. A complete case analysis of one-token differences gives exactly two jumps for odd n, with permutation (i,x)->(i-2,complement x), a single 2n-cycle. Row equality decides slides by n modulo four. n=3 and n divisible by four have separately proved graphs. Direct exhaustive bitmask and independent word-model checkers reproduce all claimed small instances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1401.5714 studies dominating sets of size <=k, swapping addition or deletion (not fixed cardinality)",
+        "arXiv:2601.03488 explicitly enumerates by n modulo 4, with numerical flexibility indices",
+        "General TS theory in arXiv:2102.10568 concerns computational complexity of circular-arc and circle graph classes"
+      ],
+      "reasoning": "General connectivity results for graph classes or for addition/deletion with spare tokens do not imply edges, isolates or a single C_{2n} at the minimum-cardinality boundary. Exact same-host count theorem lacks move relations.",
+      "searches": [
+        "literature-web query: minimum dominating sets prism graph token sliding reconfiguration odd prisms",
+        "literature-web query: gamma graph prism odd domination",
+        "literature-web query: circular ladder domination reconfiguration token",
+        "scientific-record semantic search: circular ladder prism graph minimum dominating configurations movable token jumps graph cycle diameter n"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1401.5714",
+      "DOI:10.7494/OpMath.2016.36.5.563",
+      "arXiv:2601.03488",
+      "DOI:10.7151/dmgt.1562",
+      "arXiv:2102.10568",
+      "2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58",
+      "2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2",
+      "2026/10/11/SCOPE-scale-two-rips-homotopy-types-of-finite-circular-ladders--ccd7a360a668",
+      "2026/9/19/SCOPE-multiset-dimension-cylinders-six-times-height--fb793a108374"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Same host count in Allagan 2026 fixes |states|=2n but cannot infer connectedness or degree",
+        "arXiv:1401.5714 changes cardinality with each move, hence no direct edge correspondence",
+        "Fricke et al. (2011) introduces TS model without retrieved prism-specific consequence"
+      ],
+      "reasoning": "The new claim requires the forced exceptional pair, proving exactly two legal token replacements and a cycle permutation of order 2n, plus determining adjacency to the host edges by modulo-four color parity. None follows from the prior count or generic reconfiguration definitions alone.",
+      "searches": [
+        "literature-web query: \"gamma graph\" prism \"odd\" domination",
+        "literature-web query: minimum dominating sets prism graph token sliding reconfiguration odd prisms",
+        "scientific-record semantic search: minimum dominating sets of odd cyclic prism C_n square K_2 token sliding token jumping reconfiguration graph C_{2n} or isolated states parity n mod 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Prism domination is equivalent to two-row column words; the count for odd lengths appears in arXiv:2601.03488, Section 3.3",
+        "Classical TS gamma-graphs are defined in DOI:10.7151/dmgt.1562"
+      ],
+      "reasoning": "Compared domination by column letters, two-rainbow cycle encodings, γ-graphs, and graph isomorphism under cycle rotations/row swaps. The known number 2n is a vertex-count result, not the graph C_{2n} under jumps or its slide parity split.",
+      "searches": [
+        "scientific-record semantic search: minimum dominating sets of odd cyclic prism C_n square K_2 token sliding token jumping reconfiguration graph C_{2n} or isolated states parity n mod 4",
+        "scientific-record semantic search: 2-rainbow domination of odd cycles minimum sets token jumps slide reconfiguration single exceptional gap",
+        "scientific-record semantic search: circular ladder prism graph minimum dominating configurations movable token jumps graph cycle diameter n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest hits 2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58 (different host)",
+        "published-finding corpus closest hits 2026/10/11/SCOPE-scale-two-rips-homotopy-types-of-finite-circular-ladders--ccd7a360a668 (different invariant)",
+        "arXiv:2601.03488 Appendix A gives minimum-set counts through n=10 but no transition graph table"
+      ],
+      "reasoning": "No exact TS/TJ transition table or component isomorphism for the prism min-dominating-set graph was identified; absent hits alone do not establish priority.",
+      "searches": [
+        "scientific-record semantic search: minimum dominating sets of odd cyclic prism C_n square K_2 token sliding token jumping reconfiguration graph C_{2n} or isolated states parity n mod 4",
+        "scientific-record semantic search: 2-rainbow domination of odd cycles minimum sets token jumps slide reconfiguration single exceptional gap",
+        "literature-web query: \"prism\" \"gamma graph\" dominating sets reconfiguration token jumping",
+        "literature-web query: \"gamma graph\" \"circular ladder\" domination"
+      ]
+    },
+    "rationale": "Novelty is the exact minimum-dominating-set TS/TJ reconfiguration isomorphism on zero/one-defect cyclic-prism regimes, not the known number of minima. Inspected same-host Allagan 2026 full text counts minima but does not classify one-token move graphs; classical 2014 work uses addition/deletion. Specific possible equivalences and general-coverage results were examined; residual unindexed-priority risk remains.",
+    "residual_risks": [
+      "The 2011 gamma-graph paper was read as extracted PDF text; page-image retrieval timed out, and an unindexed prism-specific equivalent may still exist.",
+      "The full publisher PDF of Bouchou and Blidia (2016) was not reread here; publisher abstract and subject were inspected.",
+      "The 2026 minimum-set census is not a proof of these move graphs; the present work reconstructs the needed column classification independently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides cardinalities and counts and word-based classification; does not give TS/TJ edges, components or movement distances",
+        "evidence": [
+          "Section 3.3 and Theorem 3.1 count odd minima 2n; Section 4.2 defines numerical overlap proxies, no fixed-size TS/TJ graph",
+          "Sections 2-5 and appendix inspected"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.03488",
+        "material_read": "Full HTML: definitions, local domination, main results for all congruence classes, flexibility sections, appendix and references",
+        "method": "Read rendered arXiv full text and checked reconfiguration, token, slide and movement terms",
+        "title": "Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words",
+        "trigger": "Exact same host graphs and optimal dominating sets"
+      },
+      {
+        "assessment": "Uses addition-or-deletion between sets of cardinality <=k; not the minimum fixed-size token sliding/jumping graph of a prism",
+        "evidence": [
+          "Section 2 defines adjacency by symmetric difference of size one",
+          "Abstract and Section 1: results are connectivity and diameters under addition/removal"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1401.5714",
+        "material_read": "Full rendered arXiv text including Section 2 exact adjacency definition and statements of main theorems",
+        "method": "Read full arXiv text and compared adjacency/quantifiers",
+        "title": "Reconfiguration of Dominating Sets",
+        "trigger": "Classical domination reconfiguration possibly dominating current claim"
+      },
+      {
+        "assessment": "Treats vertex/edge criticality of two-rainbow domination, not optimal-state single-token graph transitions",
+        "evidence": [
+          "Publisher abstract defines 2-rainbow domination, vertex/edge perturbation indices; online publication June 29 2016"
+        ],
+        "identifier_or_url": "https://www.opuscula.agh.edu.pl/om-vol36iss5art1",
+        "material_read": "Publisher HTML abstract, publication metadata and cited topic; full article was not inspected in this execution",
+        "method": "Publisher HTML metadata and abstract compared at object and quantified-claim level",
+        "title": "Criticality indices of 2-rainbow domination of paths and cycles",
+        "trigger": "Two-color cycle domination encodes dominating columns of prism"
+      },
+      {
+        "assessment": "Defines same token-slide adjacency; classifies paths, cycles and some grids, but not cyclic prisms; complete textual content inspected",
+        "evidence": [
+          "Abstract gives exact TS edge definition, general initiation of γ-graph study"
+        ],
+        "identifier_or_url": "https://doi.org/10.7151/dmgt.1562",
+        "material_read": "Complete searchable text of the 15-page journal PDF, including Sections 1-4 and propositions on cycles, paths, grids, tree gamma-graphs and general bounds",
+        "method": "Read journal PDF extracted text (the separate page-image rendering timed out), including complete stated results; searched full text for prism, ladder, and Cartesian-product examples",
+        "title": "γ-Graphs of Graphs",
+        "trigger": "Original same token-sliding model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "adff3f45-92c1-408b-8c15-769e3f044c47",
+  "value": {
+    "rationale": "This is a natural connectedness and motion-cost classification for optimal monitoring on a standard cubic Cartesian product. It separates 2n isolated slide configurations from a diameter-n jump cycle in one infinite residue class, and yields the same cycle under both moves in its neighboring odd class; lengths divisible by four give the zero-defect frozen comparison. Such exact motion constraints are not implied by counts of minimum sets and are useful for benchmarking domination reconfiguration.",
+    "status": "PASS"
+  }
+}
