@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproducible checks
+# Independent mathematical audit
 
-The executable `verify.py` uses only the Python standard library. The independently implemented `verify_independent.cpp` uses C++17 with no third-party libraries. Both generate all \(81\) possible source words and all \(243\) target words, calculate deletion subsequences, reduce the word sets to \(14\) and \(41\) symbol-permutation orbits, and exhaustively check all \(2380\) candidate choices with fewer than six nonconstant source orbits and all \(1716\) candidate choices with exactly six. Both report zero smaller coverings, exactly \(37\) equal-sized symmetric coverings, five reversal-fixed optima and sixteen reversal pairs, and valid coverage by the explicit \(31\)-word asymmetric witness. The recorded direct execution results are in `verification_output.txt`.
+## correctness
 
-Commands: `python3 verify.py`; `c++ -std=c++17 -O2 verify_independent.cpp -o verify_independent && ./verify_independent`.
+PASS
 
-The proof depends on complete finite enumeration within the established orbit reduction, not on extrapolation from partial enumeration. The checks do not certify a value for the unrestricted optimum or any larger blocklength. Independent external audit has not been performed.
+For length-four codewords over the labelled ternary alphabet, global S3 relabelling yields exactly 14 word orbits, one constant size-three orbit and thirteen nonconstant size-six orbits. Each of 41 target length-five orbits imposes a nonempty incidence-mask intersection on a selected source-orbit subset; constant target words force the constant source orbit. An independent from-scratch Python complete orbit enumeration counted no coverings for r=0,1,2,3,4,5 selected nonconstant orbits, and exactly 37 coverings for r=6 (total size 39). Reversal fixes five of those 37 and pairs the remaining 32, giving exactly 21 equivalence classes. It directly checked that all 243 length-five targets have a deletion yielding one of the 31 explicitly supplied unrestricted codewords, so symmetry penalty >=8, without asserting 31 unrestricted optimality. This is a finite exhaustive proof because the orbit equivalence and the 14/41 incidence parametrization are exhaustive; it is not inference from a sample. Independently computed counts agree with source Python/C++ algorithm descriptions.
+
+## originality
+
+PASS
+
+The relevant literature studies general insertion-covering bounds and asymptotics, or a shorter source length, and a use of the term symmetric for coordinate permutations rather than global alphabet relabelling. The exact length-four ternary global-S3 minimum 39, number 37 and reversal count 21 were not found in Resultary or primary texts inspected. This is a bounded best-of-knowledge priority judgment.
+
+## value
+
+PASS
+
+The finite extremum and complete 37-solution classification answer a natural symmetry-constrained error-covering problem, and the 31-word unrestricted witness demonstrates a provable cost of symmetry. The exact finite invariant is independently useful despite no claim about unrestricted global optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

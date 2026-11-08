@@ -1,19 +1,21 @@
-# Scientific review: exact symmetric ternary insertion-covering codes
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The alphabet-permutation orbits of all \(81\) four-symbol words are exhausted: one forced size-three constant orbit and thirteen size-six orbits. The covering predicate is equivalent to checking one representative from each of the \(41\) target-word orbits, since both subsequence deletion and covering commute with global symbol relabelings. All possible selections with up to five nonconstant orbits (\(2380\) subsets) fail, and exactly \(37\) of the \(1716\) six-orbit selections cover. The reversal counts and \(31\)-word witness are checked by two independently structured standalone programs. The finite proof and exact scope are stated in `RESULT.md`.
+PASS
 
-## Originality (O): PASS with residual risk
+For length-four codewords over the labelled ternary alphabet, global S3 relabelling yields exactly 14 word orbits, one constant size-three orbit and thirteen nonconstant size-six orbits. Each of 41 target length-five orbits imposes a nonempty incidence-mask intersection on a selected source-orbit subset; constant target words force the constant source orbit. An independent from-scratch Python complete orbit enumeration counted no coverings for r=0,1,2,3,4,5 selected nonconstant orbits, and exactly 37 coverings for r=6 (total size 39). Reversal fixes five of those 37 and pairs the remaining 32, giving exactly 21 equivalence classes. It directly checked that all 243 length-five targets have a deletion yielding one of the 31 explicitly supplied unrestricted codewords, so symmetry penalty >=8, without asserting 31 unrestricted optimality. This is a finite exhaustive proof because the orbit equivalence and the 14/41 incidence parametrization are exhaustive; it is not inference from a sample. Independently computed counts agree with source Python/C++ algorithm descriptions.
 
-The closest published primary works develop unrestricted insertion covering, large-alphabet bounds and asymptotic densities; Pikhurko–Verbitsky–Zhukovskii explicitly credit an exact three-symbol **source-length-three** example, which is stronger coverage for that earlier parameter but does not imply this source-length-four symmetric classification. The word *symmetric* in Pikhurko–Verbitsky–Zhukovskii refers to coordinate permutations, which is not alphabet-label invariance. Xie–Sun–Ge and Lenz–Rashtchian–Siegel–Yaakobi have no identified corresponding exact \(S_3\)-invariant length-four optimum or enumeration. Indexed mathematical-record searches for the exact parameter, the symmetry constraint, alternative terminology, and the counts were performed. An unindexed prior small-parameter computation is the principal unresolved priority risk; no claim of exhaustive world-literature certification is made.
+## originality
 
-## Value (V): PASS
+PASS
 
-The channel is invariant under relabeling the alphabet, but a code need not be; requiring a codebook to respect that natural symmetry is a meaningful design constraint. The theorem gives the exact cost (minimum \(39\)), enumerates all \(37\) optimal symmetric designs, and shows through a directly checked \(31\)-word asymmetric construction that symmetry entails a nontrivial penalty of at least eight words. It is a complete extremal classification rather than a routine substitution into a general lower bound.
+The relevant literature studies general insertion-covering bounds and asymptotics, or a shorter source length, and a use of the term symmetric for coordinate permutations rather than global alphabet relabelling. The exact length-four ternary global-S3 minimum 39, number 37 and reversal count 21 were not found in Resultary or primary texts inspected. This is a bounded best-of-knowledge priority judgment.
 
-## Limits and comparison
+## value
 
-The unconditional optimum is not determined; only the explicit upper bound \(31\) is used. No larger-alphabet or longer-block conclusions are claimed. Independent mathematical audit and definitive publication-priority verification remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite extremum and complete 37-solution classification answer a natural symmetry-constrained error-covering problem, and the 31-word unrestricted witness demonstrates a provable cost of symmetry. The exact finite invariant is independently useful despite no claim about unrestricted global optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

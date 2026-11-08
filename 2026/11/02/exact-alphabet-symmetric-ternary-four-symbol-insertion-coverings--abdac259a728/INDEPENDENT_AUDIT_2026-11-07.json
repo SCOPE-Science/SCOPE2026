@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T03:08:44.353872Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For length-four codewords over the labelled ternary alphabet, global S3 relabelling yields exactly 14 word orbits, one constant size-three orbit and thirteen nonconstant size-six orbits. Each of 41 target length-five orbits imposes a nonempty incidence-mask intersection on a selected source-orbit subset; constant target words force the constant source orbit. An independent from-scratch Python complete orbit enumeration counted no coverings for r=0,1,2,3,4,5 selected nonconstant orbits, and exactly 37 coverings for r=6 (total size 39). Reversal fixes five of those 37 and pairs the remaining 32, giving exactly 21 equivalence classes. It directly checked that all 243 length-five targets have a deletion yielding one of the 31 explicitly supplied unrestricted codewords, so symmetry penalty >=8, without asserting 31 unrestricted optimality. This is a finite exhaustive proof because the orbit equivalence and the 14/41 incidence parametrization are exhaustive; it is not inference from a sample. Independently computed counts agree with source Python/C++ algorithm descriptions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lenz et al give bounds and constructions in general, not the exact S3 orbit optimum on four symbols.",
+          "Pikhurko–Verbitsky–Zhukovskii give asymptotic/density bounds, their cited exact ternary length-three result is distinct, and their symmetric property refers to coordinate permutations."
+        ],
+        "reasoning": "Even a general size lower bound would need to reach 39 under this precise group action and classify 37 codes; no such implication was found in material read.",
+        "searches": [
+          "arxiv:1911.09944 Covering Codes using Insertions or Deletions",
+          "arxiv:2409.06425 New bounds for optimal density of covering single-insertion codes",
+          "arxiv:2606.15379 New bounds for covering codes under insertions or deletions"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2409.06425",
+        "https://arxiv.org/pdf/1911.09944",
+        "https://arxiv.org/abs/2606.15379"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Older exact 12-word covering involves ternary source length three, not four.",
+          "The claimed 39 minimum follows from 14-orbit exhaustive incidence, not a corollary of asymptotic density estimates."
+        ],
+        "reasoning": "Earlier theorems and this claim have different blocklength, symmetry group, or target invariant; no dominating implication is supported.",
+        "searches": [
+          "arxiv:2409.06425 Example 2 symmetric coordinate permutations",
+          "arxiv:1911.09944 construction and lower bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A code invariant under global symbol relabelings is a union of 14 setwise S3 orbits, unlike coordinate-permutation invariance.",
+          "The Resultary ternary four-word deletion-correcting / frameproof findings optimize packings or disjoint deletion balls, not insertion coverings of all length-five targets."
+        ],
+        "reasoning": "The source and target direction matters: target insertion covering is not a maximum deletion-error-correcting packing problem.",
+        "searches": [
+          "alphabet permutation invariant ternary four letter single insertion covering code S3 symmetric",
+          "Resultary: ternary insertion covering codes length four alphabet permutation invariant orbit enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary lists exact ternary length-four one-deletion-correcting code size 11, a different extremal question.",
+          "No cited primary table enumerates global-alphabet-invariant length-four insertion coverings."
+        ],
+        "reasoning": "A packing/correcting table does not give the 41 target-orbit hitting set or the reversal-class census.",
+        "searches": [
+          "ternary length-four insertion covering exact orbit table 39 37 21 reversal",
+          "Resultary: complete ternary length-four single deletion code census"
+        ]
+      },
+      "rationale": "The relevant literature studies general insertion-covering bounds and asymptotics, or a shorter source length, and a use of the term symmetric for coordinate permutations rather than global alphabet relabelling. The exact length-four ternary global-S3 minimum 39, number 37 and reversal count 21 were not found in Resultary or primary texts inspected. This is a bounded best-of-knowledge priority judgment.",
+      "residual_risks": [
+        "Unindexed exact computations or a 2026 general-covering appendix might contain the same finite enumeration.",
+        "The 31-word unrestricted construction does not prove an unrestricted optimum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different group action and source length; exact 39/37/21 theorem not in inspected material",
+          "evidence": "Example 2 credits earlier exact source length three; symmetry is positional.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.06425",
+          "material_read": "Example 2, discussion of symmetric coordinate permutations, and surrounding construction sections with PDF pages",
+          "method": "Read relevant primary PDF passages and inspected page image",
+          "title": "New bounds for the optimal density of covering single-insertion codes via the Turán density",
+          "trigger": "Earlier symmetric insertion covering codes and exact ternary small case"
+        },
+        {
+          "assessment": "No exact global symbol-relabelling census in inspected theorems",
+          "evidence": "General construction/bounds address unrestricted parameters.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.09944",
+          "material_read": "Definition, general covering construction and bounds, relevant sections and PDF page image",
+          "method": "Read primary PDF relevant sections",
+          "title": "Covering Codes using Insertions or Deletions",
+          "trigger": "Broader insertion covering bounds might dominate finite result"
+        },
+        {
+          "assessment": "Plausible general source not excluded; not used to assert full-document noncoverage",
+          "evidence": "General insertion/deletion bounds; full-text priority risk retained.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15379",
+          "material_read": "Bibliographic abstract and accessible indexing, full text not obtained",
+          "method": "Search/bibliographic inspection only",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "New 2026 insertion-covering bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite extremum and complete 37-solution classification answer a natural symmetry-constrained error-covering problem, and the 31-word unrestricted witness demonstrates a provable cost of symmetry. The exact finite invariant is independently useful despite no claim about unrestricted global optimum.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2409.06425",
+    "https://arxiv.org/pdf/1911.09944",
+    "https://arxiv.org/abs/2606.15379"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed exact computations or a 2026 general-covering appendix might contain the same finite enumeration.",
+    "The 31-word unrestricted construction does not prove an unrestricted optimum.",
+    "Unverified public-bound metadata provenance prevents publication; this is a transport/privacy limitation rather than a scientific rejection.",
+    "Finite independent experiments do not establish universal formulas; universal conclusions rest on the inspected symbolic proof."
+  ],
+  "schema_version": 1
+}
