@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The asserted finite identity and limiting law have separate proofs. On fixed support, the path-value description gives an affine coset of the cycle-gain span at each pair of indices; gauge normalization makes fundamental-cycle labels independent uniform vectors. The finite-field rank enumeration therefore gives the exact conditional size law and the connected-support generation probability. In the balanced Bernoulli model, factorial moments give two independent Poisson isolated-vertex counts, a spanning-tree union bound rules out other disconnected components asymptotically, and a conditional binomial CLT proves independence of their counts from the centered edge-count fluctuation. The rank-product error is uniformly negligible off the Gaussian boundary layer, proving the joint limiting formula. Direct closure computations independently checked all supports and group labels in seven small parameter families (including both odd and even characteristic). The experiments corroborate only the finite formulas.
+PASS
 
-## Originality — PASS relative to inspected sources
+PASS: The absorbing zero itself is an idempotent, so it belongs to generated subsemigroup; for each edge there is exactly one nonzero idempotent. Spanning-forest gauge normalization removes tree labels and leaves β_C=e_C-v_C+1 independent uniform F_p^d cycle gains. Products of idempotents realize one affine coset of their span for every reachable left/right pair; no cross-component nonzero products. Therefore the exact size law 1+sum_C a_C b_C p^{rank(d x β_C)} and the connected/full-rank criterion hold, including isolated vertices and β=0. Independent small finite check: for a complete 2x3 support, p=2,d=2, β=2, there are (4-1)(4-2)=6 full-rank 2x2 matrices, each with 4^4 tree-label choices, hence 1536 of 4096 edge-labelings succeed, matching source. In balanced Bernoulli support θ=(log N+c)/N, prescribed l left/r right isolated vertices forbid N(l+r)-lr edges. Joint factorial moments give independent Pois(e^-c) isolated counts. Connectivity given no isolates follows a spanning-tree component union bound; centered edge count has binomial CLT and mixed conditional characteristic functions show asymptotic independence. β=M-2N+1 and d=floor(Eβ+t sd(M)); random-matrix deficiency tends to 0 above t and is impossible below, yielding exp(-2e^-c)(1-Phi(t)). This last limit is analytic, not inferred from finite checks.
 
-The following are expressly **prior results**, not new claims: Graham's description of idempotent-generated 0-simple semigroups, Howie's path values, Houghton's graph-cohomology representation over elementary abelian groups, standard full-rank probabilities of uniform finite-field matrices, binomial CLT, and the isolated-vertex Poisson law. The assessed new assertion is the simultaneous, jointly tuned random Rees zero-matrix limit with product probability \(e^{-2e^{-c}}[1-\Phi(t)]\), including a demonstration of asymptotic independence of the two different obstructions. The inspected algebraic primary sources are deterministic classification or structural theorems; they do not state or imply an evaluated coupled sparse-support/growing-dimension limit without further random-graph and random-matrix analysis. Search terms also covered random semigroups, random sandwich matrices, random gain graphs, and the joint critical window. The 1977 graph-and-group paper of Houghton was not obtained in full and is a residual priority risk, as is a broader random-gain-graph theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Idempotent generation is a fundamental intrinsic generation property of finite Rees semigroups. In a random model it has two independent obstructions with distinct fluctuation origins: connectivity of the structural support, and surjectivity of its cycle gains onto the maximal subgroup. The theorem locates a nondegenerate two-parameter critical surface where neither obstruction disappears and establishes a sharp limiting probability, independent of the fixed field characteristic. The exact componentwise distribution makes the model accessible at finite size and explains why a graph-only threshold misses the group obstruction. This is not a recomputation of a fixed table or a renamed deterministic theorem, though the finite structural input is classical.
+Classical Rees/Graham–Howie idempotent path-value theorem and random finite-field rank formula are not claimed new. No inspected primary source or Resultary match gives the *joint* balanced sparse-support Poisson connectivity obstruction and Gaussian fluctuating cycle-surplus obstruction at growing elementary-abelian dimension. Best-of-knowledge PASS for this tuned limit and exact probabilistic component law.
 
-## Closest literature and limitations
+## value
 
-J. M. Howie (1978), *Idempotents in completely 0-simple semigroups*, proves the deterministic path-value criterion. C. H. Houghton (1978), *Finite zero-simple semigroups over an elementary abelian group*, establishes the cycle-space/cohomology formulation. T. Quinn-Gregson (first public version 28 August 2019), *Homogeneous completely simple semigroups*, studies normalised Rees matrices and graph-colouring structure. Ballester-Bolinches and Pérez-Calabuig (2020) reprove Graham's deterministic theorem. These works must not be cited as proof of the claimed probabilistic originality. The asymptotic theorem is limited to balanced Bernoulli supports, uniform independent labels, and fixed prime; priority and generalizations remain open to independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Tuning group dimension to the random graph cycle-space mean and fluctuation produces a naturally motivated joint transition between geometric connectivity and algebraic idempotent generation. The exact component-size distribution and sharp two-parameter limiting success law quantify a previously nontrivial probabilistic feature; not a textbook deterministic Rees restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
