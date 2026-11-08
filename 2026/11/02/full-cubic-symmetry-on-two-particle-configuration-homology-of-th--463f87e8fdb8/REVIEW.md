@@ -1,19 +1,21 @@
-# Review: full cubic symmetry on two-particle configuration homology
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim concerns the unordered configuration of two distinct points in the geometric cube graph. The published stable-equivalence criterion makes its compact disjoint-cell configuration complex homotopy equivalent to the continuous configuration space. The natural inclusion is equivariant, so the group representation is preserved on rational homology. The exact cellular data are \((28,72,42)\) cells and integer boundary ranks \((27,39)\); the independent mod-two computation agrees. The script checks all \(48\) group actions against both differentials, reconstructs every image of a rational top cycle, and verifies the full characters of the displayed irreducible modules. Rational finite-group transfer proves the quotient assertions. Limit: neither integral first-homology torsion nor the quotient fundamental group is classified.
+PASS
 
-## Originality (PASS against inspected literature)
+The standard graph braid subdivision criterion applies to the cubical model Q3. Reconstructed unordered disjoint-cell complex with 28 vertices,72 edges,42 squares and explicit signed boundaries; exact rational ranks 27 and39, b=(1,6,3), and boundary product zero. Independently constructed all 48 cellular signed symmetry actions and their exact action on a three-dimensional H2 cycle kernel, matching natural V; Euler-Poincare traces recover H1=wedge^2 V +(eta tensor standard_2)+det V. Full group averages vanish in H1,H2 and orientation-preserving subgroup averages yield H1 dimension1 and H2 dimension0. Finite exhaustive action on this fixed complex is a complete finite certificate for this exact one-graph claim, not a proof of other graph families.
 
-The closest foundations are Prue–Scrimshaw's cubical stable-equivalence theorem, An–Maciazek's three-connected planar braid presentations, and the subdivisional configuration chain models of An–Drummond-Cole–Knudsen. None of their inspected relevant claims gives the two complete \(B_3\)-homology modules of the three-cube. Other published equivariant two-particle calculations concern different graph objects (notably the cuboctahedron and dodecahedron), whose homology characters do not imply the cube-graph answer. A 2026 stable-representation paper lists other graph families in its abstract; its inaccessible full text remains an explicit risk. Search failure is not proof of uniqueness; unindexed equivalent work remains possible.
+## originality
 
-## Value (PASS)
+PASS
 
-The cube is a canonical three-connected planar test graph with the full signed coordinate group \(B_3\). Its two-particle second homology is the irreducible geometric coordinate module; its first homology splits into a \(3\)-dimensional, \(2\)-dimensional and orientation-character summand. The distinction between the rotational quotient retaining one rational first-homology class and the full quotient retaining none cannot be recovered from Betti numbers or non-equivariant braid presentations. This provides a motivated, natural complete classification for the first genuinely three-dimensional cube graph.
+Prue–Scrimshaw establishes the cubical deformation model and general graph-configuration sources provide chain methods and geometric presentations, but no inspected theorem supplies the full 48-element cube graph character. Published Resultary cuboctahedral configurations concern the line graph L(Q3), which has 12 instead of 8 vertices and different homology ranks; no implication by isomorphism. A 2026 stable-representations paper was accessible only at abstract level, retained risk.
 
-## Sources and limits
+## value
 
-See RESULT.md for primary citations, AUDIT.json for the actual semantic comparisons and source inspections, and check_cube.py for an independent executable finite calculation. Only rational homology representations and their rational quotient consequences are claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The three-cube is a natural graph with its full signed-coordinate symmetry. Identifying explicit rational irreducibles in two degrees and distinguishing the rotation quotient from the full symmetry quotient resolves a structural topological question not captured by Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

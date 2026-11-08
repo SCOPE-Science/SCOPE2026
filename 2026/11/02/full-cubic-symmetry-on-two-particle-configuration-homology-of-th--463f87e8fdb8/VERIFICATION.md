@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility of the rational homology representations
+# Independent mathematical audit
 
-Execute `python3 check_cube.py` with a standard Python 3 interpreter and SymPy available. No input files or network requests are required.
+## correctness
 
-The script builds the eight-vertex, twelve-edge binary cube and the complete unordered two-particle cubical chain complex, with \(28\) zero-cells, \(72\) one-cells and \(42\) two-cells. It checks the signed identity \(\partial_1\partial_2=0\) and exact rational/integer-matrix ranks \(\operatorname{rank}\partial_1=27\), \(\operatorname{rank}\partial_2=39\). A separate bit-vector elimination over \(\mathbb F_2\) finds the same ranks.
+PASS
 
-The script computes a three-element exact rational basis for \(\ker\partial_2\). For all \(48\) signed coordinate symmetries it verifies both chain-map identities, reconstructs the image of every cycle in all \(42\) coordinates, calculates the homology character and checks equality with the signed-coordinate representation. The remaining first-homology character is derived from the exact equivariant Euler identity and checked elementwise against the stated three-term decomposition. All ten signed-cycle classes, both quotient-invariant dimensions and the group-element counts are printed.
+The standard graph braid subdivision criterion applies to the cubical model Q3. Reconstructed unordered disjoint-cell complex with 28 vertices,72 edges,42 squares and explicit signed boundaries; exact rational ranks 27 and39, b=(1,6,3), and boundary product zero. Independently constructed all 48 cellular signed symmetry actions and their exact action on a three-dimensional H2 cycle kernel, matching natural V; Euler-Poincare traces recover H1=wedge^2 V +(eta tensor standard_2)+det V. Full group averages vanish in H1,H2 and orientation-preserving subgroup averages yield H1 dimension1 and H2 dimension0. Finite exhaustive action on this fixed complex is a complete finite certificate for this exact one-graph claim, not a proof of other graph families.
 
-The expected last line is `CUBE_TWO_PARTICLE_FULL_B3_EQUIVARIANT_HOMOLOGY_OK`. This is an exact finite rational representation verification. It is not an independent audit or an integral torsion computation. The transfer argument for rational homology of the quotient and the cubical approximation theorem are mathematical ingredients stated and cited in RESULT.md, not consequences of numerical rank logs alone.
+## originality
+
+PASS
+
+Prue–Scrimshaw establishes the cubical deformation model and general graph-configuration sources provide chain methods and geometric presentations, but no inspected theorem supplies the full 48-element cube graph character. Published Resultary cuboctahedral configurations concern the line graph L(Q3), which has 12 instead of 8 vertices and different homology ranks; no implication by isomorphism. A 2026 stable-representations paper was accessible only at abstract level, retained risk.
+
+## value
+
+PASS
+
+The three-cube is a natural graph with its full signed-coordinate symmetry. Identifying explicit rational irreducibles in two degrees and distinguishing the rotation quotient from the full symmetry quotient resolves a structural topological question not captured by Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
