@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T12:54:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Sums of iid Gamma(alpha,lambda) goods give independent Gamma(theta_i,lambda) bundle values, theta_i=alpha count_i; empty bundles cannot satisfy finite R. For a fixed shape pair i,j of total t, Beta–Gamma factorization makes S=Y_i+Y_j independent U=Y_i/S~Beta(theta_i,theta_j), independent of all other bundle values. Conditioning on S and others turns all ratio constraints into a symmetric central Beta interval [L,1-L], with L>=1/(1+R), independent of within-pair imbalance. The folded density of |U-1/2| is proportional (1/4-z²)^((t-2)/2)cosh(d atanh(2z)), with d=|theta_i-theta_j|. Ratios for larger d increase strictly in z, so balancing gives strict stochastic preference for every nonempty proper central interval; open positive-probability choices of other values guarantee strictly increased overall P. Finite sequence of T-transfers gives strict Schur-concavity and unique optimal integer balanced counts. Conditioning on minimum leads to integral sum_i∫f_i(x)∏(F_j((1+eps)x)-F_j(x))dx; Gamma density dominates the scaled integrand, yielding epsilon^(n-1) Γ(T)/(n^(T-1)∏Γ(theta_i)). Fresh numerical folded-beta comparisons checked 8 imbalanced pairs across R=1.2,1.5,2,5; analyticity and integrability, not finite checks, prove all-alpha/R.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Halpern–Psomas–Zhang treat strategic mechanisms/high-probability envy with constraints distinct from perfectly shared Gamma values. Garg–Narayan–Shen requires positive cross-agent valuation separation for its mechanism."
+        ],
+        "reasoning": "Strong-sounding stochastic fairness existence theorems do not imply optimal predetermined bundle sizes for every finite multiplicative R in the perfectly correlated common-value model.",
+        "searches": [
+          "arxiv:2602.12359v1 Sections 1–2 and Appendix B",
+          "arxiv:2512.10892v1",
+          "arxiv:2511.06218v1",
+          "Gamma Dirichlet shape majorization probability max min ratio balanced allocation equal gamma random variables"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen Git blob 2fea95dee3a432db93c8f4564df1de52b2be0358",
+        "verify.py frozen Git blob 5180add53a72b287921b810616979c86eab8885c",
+        "arxiv:2602.12359v1",
+        "arxiv:2512.10892v1",
+        "arxiv:2511.06218v1",
+        "DOI:10.1007/s11222-010-9174-3",
+        "Gamma Dirichlet shape majorization probability max min ratio balanced allocation equal gamma random variables"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mechanism design and large-n existence claims concern adaptive or strategic algorithms and assumptions absent here; Dirichlet-range distribution might contain precise integrals but its shape ordering is unconfirmed."
+        ],
+        "reasoning": "Existing indexed statements neither entail the strict Schur-concavity nor refute it; conditional Beta monotone-likelihood-ratio derivation is decisive for C, but historical equivalence to unread Corrado remains unresolved.",
+        "searches": [
+          "arxiv:2602.12359v1 Appendix B",
+          "arxiv:2512.10892v1 Sections 1–3",
+          "DOI:10.1007/s11222-010-9174-3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gamma normalization gives Dirichlet(shape) proportions; range and max/min ratio events can be expressed via the same Dirichlet simplex. Corrado studies Dirichlet extrema/range but full text not accessible."
+        ],
+        "reasoning": "Dirichlet formulation is equivalent for the event; no accessible primary result establishes the strict all-shape-majorization theorem. This uninspected close work is priority risk.",
+        "searches": [
+          "Gamma Dirichlet shape majorization probability max min ratio balanced allocation equal gamma random variables",
+          "Corrado 2011 DOI:10.1007/s11222-010-9174-3",
+          "arxiv:2602.12359v1 Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary Gini balancing theorem concerns Bernoulli sums, not Gamma/Dirichlet ratios. Corrado supplies range distribution methods, not visibly the parameter-order optimization."
+        ],
+        "reasoning": "A closed-form Gamma ratio probability may appear in a distribution database but an exact shape-majorization sign is a distinct assertion; full Corrado text inaccessible.",
+        "searches": [
+          "Gamma Dirichlet shape majorization probability max min ratio balanced allocation equal gamma random variables",
+          "Corrado 2011 Dirichlet range distribution",
+          "Resultary: exact pair-balancing law for Gini dispersion of Poisson-binomial sums"
+        ]
+      },
+      "rationale": "Stochastic fair-division mechanism theorems use different strategies, agents or bounded valuations, and Dirichlet-extrema/range papers may encode the event but the accessible descriptions do not establish strict shape-majorization. A plausible Corrado 2011 original paper remains unread despite OA attempts and a protected Oxford request reporting disconnected VPN; this is a specifically stated best-of-knowledge risk, not automatic scientific failure.",
+      "residual_risks": [
+        "Corrado (2011) full text not obtained; potentially equivalent Dirichlet range or shape-order statement may be there.",
+        "An unlocated general theorem about Dirichlet dispersion under majorization might imply this as a corollary.",
+        "No assertion about adaptive allocations, other distributions, or tolerance R=1 or infinity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING under compared hypotheses",
+          "evidence": "Mechanism guarantees and ordinary envy differ from fixed ex-ante perfect-correlation Gamma event.",
+          "identifier_or_url": "https://arxiv.org/html/2602.12359v1",
+          "material_read": "Full primary HTML sections 1–2, 5 and Appendix B correlation assumptions and mechanism statements",
+          "method": "OA arXiv full-text HTML",
+          "title": "Truthful Fair Division under Stochastic Valuations",
+          "trigger": "Closest recent fair-division theorem with correlated-valuation appendix"
+        },
+        {
+          "assessment": "INAPPLICABLE on perfect common values",
+          "evidence": "Cross-agent valuation separation excludes exactly identical item values across agents.",
+          "identifier_or_url": "https://arxiv.org/html/2512.10892v1",
+          "material_read": "Article accessible summary and relevant mechanism assumptions",
+          "method": "OA arXiv webpage",
+          "title": "Designing Truthful Mechanisms for Asymptotic Fair Division",
+          "trigger": "Correlated-value positive allocation guarantee"
+        },
+        {
+          "assessment": "UNINSPECTED_FULL_TEXT; substantial priority risk retained",
+          "evidence": "Accessible metadata concern range distributions; cannot rule out a hidden strict majorization theorem without reading paper.",
+          "identifier_or_url": "https://doi.org/10.1007/s11222-010-9174-3",
+          "material_read": "Indexed title and abstract; full article NOT read. Lawful arXiv/OA attempts unsuccessful; authorized institutional request returned VPN disconnected, job 9c4fe64d0307295570c214a684b992ac",
+          "method": "OA search then authorized institutional access attempt",
+          "title": "The exact distribution of the maximum, minimum and the range of Multinomial/Dirichlet and Multivariate Hypergeometric frequencies",
+          "trigger": "Same Dirichlet proportions and max/min/range functionals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For fixed pre-realization allocations this gives the exact optimal size multiset at every nontrivial tolerance independent of Gamma scale and shape, plus a sharp near-equality asymptotic and multinomial occupancy link. It resolves a motivated nontrivial fair-division probability question, not a mere Gamma CDF restatement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen Git blob 2fea95dee3a432db93c8f4564df1de52b2be0358",
+    "verify.py frozen Git blob 5180add53a72b287921b810616979c86eab8885c",
+    "arxiv:2602.12359v1",
+    "arxiv:2512.10892v1",
+    "arxiv:2511.06218v1",
+    "DOI:10.1007/s11222-010-9174-3",
+    "Gamma Dirichlet shape majorization probability max min ratio balanced allocation equal gamma random variables"
+  ],
+  "disposition": "passed",
+  "final_claim": "For ex-ante allocations of m>=n iid common-valued Gamma goods, multiplicative near-envy probability P(max Y_i<=R min Y_i) at finite R>1 is strictly Schur-concave in positive common-rate Gamma bundle-shape vector at fixed total shape; precisely balanced bundle counts uniquely maximize, with explicit epsilon^(n-1) leading coefficient at R=1+epsilon.",
+  "limitations": [
+    "Common shared item valuations across agents, iid Gamma goods with identical shape and rate, ex-ante fixed complete allocation only.",
+    "Finite R>1 and theta_i>0; small epsilon asymptotic at fixed n,m,alpha.",
+    "Corrado (2011) full text not obtained; potentially equivalent Dirichlet range or shape-order statement may be there.",
+    "An unlocated general theorem about Dirichlet dispersion under majorization might imply this as a corollary.",
+    "No assertion about adaptive allocations, other distributions, or tolerance R=1 or infinity."
+  ],
+  "schema_version": 1
+}
