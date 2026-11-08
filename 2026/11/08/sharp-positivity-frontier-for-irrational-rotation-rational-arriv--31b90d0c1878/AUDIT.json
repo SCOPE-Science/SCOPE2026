@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exact product density follows from [1, Lemma 2]. For z=exp(i phi), A=(1+i)(2-z)/(1-z), B=(1+i)/(1-z), every interior partial sum is Re(A(1-z^m)) >= alpha=Re(A)-|A| and the terminal sum is Re(A)-Re(B z^k) >= beta=Re(A)-|B|>alpha. Abel summation gives S_k>=alpha a_1+(beta-alpha)a_k>alpha for finite nonnegative delays, including the critical amplitude. Density of irrational rotation powers and a long finite final delay give inf S_k=alpha and actual negative densities for epsilon>1/(1-alpha). Substitution q=cot(phi/2) yields the stated epsilon_star. Source [1] establishes exact normalization and the non-Markovian spectral obstruction for positive epsilon. The extracted standalone checker passed 50,694 independent finite diagnostic assertions; finite sampling is not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Peralta arXiv:2603.28047v1, Proposition 4 gives a sufficient epsilon<1/(1+M), not a necessary condition.",
+        "Peralta arXiv:2603.28047v1, Theorem 9 excludes MAP realizations for its selected strictly-positive parameter range; it does not optimize that range.",
+        "Asmussen and Bladt (1999), DOI:10.1016/S0304-4149(99)00006-X, general RAP representation framework; accessible abstract only."
+      ],
+      "reasoning": "The new admissibility characterization strictly strengthens a sufficient bound for the identical model. The older RAP formalism and Perron-Frobenius obstruction do not directly give the explicit optimal epsilon; general cone-positive realization techniques remain a residual coverage risk.",
+      "searches": [
+        "sharp positivity threshold irrational rotation rational arrival process 3x3 epsilon",
+        "non-Markovian rational arrival process admissible perturbation amplitude exact critical bound"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2603.28047v1 (full primary text, sections 1–5)",
+      "https://arxiv.org/abs/2603.28047 (first-public date March 30, 2026)",
+      "https://doi.org/10.1016/S0304-4149(99)00006-X (bibliographic/abstract only)",
+      "https://doi.org/10.1007/s11134-022-09812-4 (bibliographic record only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Peralta [1] Lemma 2 supplies the explicit density; Proposition 4 bounds |W_j| by M and derives epsilon<1/(1+M).",
+        "The present proof evaluates inf W_m=Re(A)-|A| and shows W_k>=Re(A)-|B|>inf W_m, giving the endpoint and necessity.",
+        "Telek (2022), DOI:10.1007/s11134-022-09812-4, states the two-matrix setting; bibliographic record only."
+      ],
+      "reasoning": "A one-sided triangle-inequality bound does not imply the sharp cutoff or the endpoint statement. The result is mathematically derivable from the source’s explicit density by additional extremal analysis, and this dependency is credited. It is not merely the old no-MAP theorem restated with new symbols.",
+      "searches": [
+        "\"Rational arrival processes with strictly positive densities need not be Markovian\" \"epsilon\" threshold",
+        "\"rational arrival process\" \"sharp\" positivity parameter rotation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Peralta arXiv:2603.28047v1, Lemma 2 formula (9) and Proposition 4 equations (9)-(11), (intermediate/terminal partial sums).",
+        "The target is equivalently the minimum of all normalized densities e^{T_k} f_k over all k and waiting-time vectors, not merely a search for equal parameter symbols."
+      ],
+      "reasoning": "The oscillatory Abel-weights geometry reduces the general sign problem to two circles with different radii, and strict endpoint positivity uses their strict separation. The source gives ingredients but no exact sign frontier or critical inclusion. No equivalent claim was identified in the targeted comparisons.",
+      "searches": [
+        "Rational arrival processes with strictly positive densities need not be Markovian Oscar Peralta epsilon parameter positive joint densities",
+        "rational arrival process positivity condition irrational rotation perturbation cosine sharp epsilon Peralta"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full arXiv:2603.28047v1 text was inspected through sections 2–5; there is no exact epsilon_star expression or extremal table in the source.",
+        "Targeted public research-index searches returned unrelated Markov-chain positivity, renewal and rational-map results, not this family’s sharp amplitude."
+      ],
+      "reasoning": "No exact parameter table or entry implying this formula was located. The absence of an indexed match is supporting evidence only and does not constitute a proof of global priority.",
+      "searches": [
+        "Markovian arrival process irrational rotation strictly positive densities Peralta 2603.28047",
+        "\"Peralta\" \"2603.28047\" \"sharp\" positivity"
+      ]
+    },
+    "rationale": "The full primary text of Peralta [1] states only the one-sided sufficient bound epsilon<1/(1+M). The current necessary-and-sufficient range, sharp normalized-density infimum, and inclusion of its positive critical endpoint are not stated or proved there. Published and index searches for exact admissibility, aliases and all-order positivity yielded no direct covering statement, but an unlocated broader general cone criterion remains a priority risk.",
+    "residual_risks": [
+      "An uninspected broad cone-positivity or rational-arrival-process theorem could imply this exact single-family boundary indirectly, notwithstanding the absence of an exact matching statement in inspected text.",
+      "Original source’s general non-Markovian pole argument is reused; no new general representability theorem is claimed.",
+      "Numerical checks are finite; the all-orders argument depends on the standard density of irrational rotations and an exact Abel decomposition.",
+      "Independent mathematical review and complete historical-priority verification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers construction and sufficient positivity, not exact admissibility cutoff or endpoint. Non-Markovian obstruction is covered and explicitly borrowed.",
+        "evidence": [
+          "Section 2 equations (3)–(9)",
+          "Section 3 Proposition 4 and equations for W_m",
+          "Section 4 Lemma 7",
+          "Section 5 Theorem 9"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.28047v1",
+        "material_read": "Full article sections 1–5; in particular Section 2 matrices and Lemma 2, Section 3 Proposition 4 and its Abel proof, Section 4 origin-density poles, and Section 5 Theorem 9",
+        "method": "Primary full-text HTML reading and equation-by-equation implication comparison",
+        "title": "Rational arrival processes with strictly positive densities need not be Markovian",
+        "trigger": "Exact same three-state matrices and perturbation parameter; closest possible direct coverage"
+      },
+      {
+        "assessment": "Establishes general point-process framework; no assertion of absence of an implicit general theorem.",
+        "evidence": [
+          "1999 Stochastic Processes and their Applications 82, 127–142",
+          "Public abstract describes rational point processes and two fundamental matrices"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0304-4149(99)00006-X",
+        "material_read": "Public author/institution listing and abstract; full text not accessible from located result",
+        "method": "Bibliographic and abstract-level inspection, not claimed full-text coverage assessment",
+        "title": "Point processes with finite-dimensional conditional probabilities",
+        "trigger": "Foundational RAP framework, possible general representation principle"
+      },
+      {
+        "assessment": "Provides problem context, not a known exact threshold for the later particular construction; full-text implication is not certified.",
+        "evidence": [
+          "2022 Queueing Systems 100, 265–267"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11134-022-09812-4",
+        "material_read": "Bibliographic record, citation, title and page range; no full original body available",
+        "method": "Metadata inspection only",
+        "title": "The two-matrix problem",
+        "trigger": "Origin of the motivating positive-realization question"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "31b90d0c-1878-4a9a-b6b1-c26776097dbd",
+  "value": {
+    "rationale": "The maximum feasible perturbation amplitude is a canonical invariant of a recently introduced explicitly normalized non-Markovian point-process family. The prior paper proves feasibility only for sufficiently small epsilon and provides a conservative value; the result completely characterizes the feasible interval, proves the boundary itself is strictly positive in every finite order, and provides an exact normalized-density infimum. At angle pi/sqrt(2) the admissible amplitude increases from a stated sufficient bound about 0.185 to the exact 0.527. This is a motivated completeness result rather than a random parameter substitution or numerical increment.",
+    "status": "PASS"
+  }
+}
