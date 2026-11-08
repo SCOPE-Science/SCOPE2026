@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T06:51:50.337904Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The de Bruijn overlap graph has q² ordered pair vertices and q²(q-1) distinct allowed 3-gram edges, indegree=outdegree=q-1. On q-by-q matrices adjacency is A(F)=1(F1)^T-F^T. Decompose into the all-ones line (eigenvalue q-1), centered symmetric (eigenvalue -1, mult q(q-1)/2), centered skew (eigenvalue +1, mult (q-1)(q-2)/2), and q-1 two-dimensional blocks with characteristic λ²+q-1. This proves entire characteristic polynomial over complex numbers. Simple degree eigenvalue q-1 plus balance gives common positive directed Laplacian cofactors equal product of nonzero Laplacian eigenvalues /q²; use directed matrix-tree to guarantee connectivity, then BEST theorem with fixed initial *unique edge* so no accidental division by rotation length. q2 single directed 4-cycle. Independent exact determinant/spectrum/cofactor checks q=2,3,4 (rooted trees 1,108,3538944) matched closed formula; actual infinite proof is symbolic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BEST and the directed matrix-tree theorem yield a general cofactor expression but no special value for this q² graph until its eigenvalues are evaluated.",
+          "Chen–Kitaev–Sun primarily counts forbidden subsets supporting existence, not tours after simultaneous exclusion of q² palindromes."
+        ],
+        "reasoning": "Generic spectral walk generating functions may subsume adjacency decomposition, but do not directly provide the Euler-tour product or exact labeled cyclic count in inspected material.",
+        "searches": [
+          "arXiv:1711.07029",
+          "doi:10.3390/math8050778",
+          "Arrigo Grindrod Higham Noferini 2018 nonbacktracking walk generating functions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1711.07029",
+        "doi:10.3390/math8050778",
+        "doi:10.1016/j.laa.2018.07.010",
+        "Resultary semantic query: nonpalindromic length 3 universal cycles Euler tours q^2(q-1) spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gardner–Godbole existence statements do not imply number of tours for this graph.",
+          "BEST theorem cannot supply a closed evaluation of the tree count without calculating full characteristic polynomial or cofactors."
+        ],
+        "reasoning": "The explicit spectrum and cofactor are new mathematical computations relative to the inspected general methods, even if nonbacktracking identities elsewhere might reproduce them.",
+        "searches": [
+          "arXiv:1711.07029",
+          "doi:10.3390/math8050778",
+          "Ihara Hashimoto spectrum complete directed non-backtracking de Bruijn Euler"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent graph formulation fixes an initial distinct labeled edge in the nonpalindromic 3-gram Euler graph.",
+          "Gardner–Godbole deals with restricted universal-cycle existence and different word languages."
+        ],
+        "reasoning": "The equivalence to Euler circuits is standard; the evaluated q-parameter spectrum and tour count have not appeared in the actual primary passages read.",
+        "searches": [
+          "nonpalindromic length 3 universal cycles Euler tours q^2(q-1) spectrum",
+          "Universal cycles of restricted words Gardner Godbole arxiv 1711.07029",
+          "nonbacktracking walk adjacency operator q² vertices exclude immediate return"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Explicit exact counts q=2:1; q=3:108; q=4:231928233984, with all-q formula.",
+          "Published restricted-word existence and missing-word tables inspected do not list these tour counts."
+        ],
+        "reasoning": "No same-parameter enumeration in those searches; this is a bounded comparison, not a universal novelty certificate.",
+        "searches": [
+          "nonpalindromic length 3 universal cycles Euler tours q^2(q-1) spectrum",
+          "q=3 108 nonpalindromic universal cycles de Bruijn palindromes",
+          "nonpalindromic ternary 3-word universal cycles 108"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality attaches to evaluated full all-q spectrum and Euler tour product, not BEST/matrix-tree or the de Bruijn construction.",
+      "residual_risks": [
+        "An unindexed nonbacktracking/Euler spectrum theorem may yield this formula under different terminology.",
+        "The full Chen–Kitaev–Sun paper was not read in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No evaluated count for a!=c three-gram language",
+          "evidence": "Family existence results use other restrictions and do not give this polynomial characteristic factorization.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.07029",
+          "material_read": "Complete accessible author preprint, introduction, existence theorems and restricted-family classifications",
+          "method": "read full HTML preprint",
+          "title": "Universal Cycles of Restricted Words",
+          "trigger": "Same type of restricted universal cycle, possible coverage"
+        },
+        {
+          "assessment": "Cannot assert full-document noncoverage",
+          "evidence": "Study principally varies removed sets, and counts existence probabilities rather than Euler tours of the fixed nonpalindromic language.",
+          "identifier_or_url": "https://doi.org/10.3390/math8050778",
+          "material_read": "Accessible bibliographic record and abstract; direct full-text publisher request rate-limited",
+          "method": "read abstract only",
+          "title": "Lower Bounds, and Exact Enumeration in Particular Cases, for the Probability of Existence of a Universal Cycle or a Universal Word for a Set of Words",
+          "trigger": "Could dominate via universal cycle enumerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact all-alphabet enumeration of a simple natural restricted universal-cycle language, plus full graph spectral data, by an explicit decomposition linking nonbacktracking overlap dynamics to spanning trees. Not merely Euler-cycle existence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1711.07029",
+    "doi:10.3390/math8050778",
+    "doi:10.1016/j.laa.2018.07.010",
+    "Resultary semantic query: nonpalindromic length 3 universal cycles Euler tours q^2(q-1) spectrum",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-enumeration-of-nonpalindromic-three-factor-universal-cycle--4f258063228e"
+  ],
+  "disposition": "passed",
+  "final_claim": "For q labeled letters, exact number of oriented circular universal cycles of all nonpalindromic 3-grams a b c with a!=c is 1 at q=2, otherwise q^{q(q-1)/2+q-3}(q-2)^{(q-1)(q-2)/2}(q-1)^{q-1}((q-2)!)^{q²}, and full q²xq² overlap adjacency characteristic polynomial is explicit.",
+  "limitations": [
+    "Alphabet labels retained; rotation quotient only, not relabeling or reversal. Ordinary palindrome a=c, not reverse complement."
+  ],
+  "residual_risks": [
+    "An unindexed nonbacktracking/Euler spectrum theorem may yield this formula under different terminology.",
+    "The full Chen–Kitaev–Sun paper was not read in this run."
+  ],
+  "schema_version": 1
+}

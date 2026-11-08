@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Extract `verify.py` alongside this file and execute `python3 verify.py` with Python 3 standard-library modules only. The program computes directed Laplacian principal minors by integer-preserving Bareiss elimination for \(2\le q\le6\), compares them with the symbolic tree formula, and uses an independent exhaustive edge-mask traversal for \(q=2,3\). Every completed traversal is checked against its exact set of cyclic length-three windows. Successful verification ends with the line `VERIFY_OK`.
+## correctness
 
-Checks actually run: for \(q=2\), 4 vertices, 4 edges, tree count 1 and 1 Euler circuit; for \(q=3\), 9 vertices, 18 edges, tree count 108 and 108 directly enumerated circuits; for \(q=4\), 16 vertices, 48 edges, tree count 3538944; for \(q=5\), 25 vertices, 100 edges, tree count 45562500000000; for \(q=6\), 36 vertices, 180 edges, tree count 332791666011065548800000. The corresponding cycle counts for \(q=4\) and larger use the mathematical BEST factor rather than brute-force enumeration.
+PASS
 
-Finite tests cannot establish the infinite theorem. The proof depends on the exact invariant-subspace calculation and standard directed matrix-tree/BEST theorems, as supplied in RESULT.md. No independent scientific assessment has been performed.
+The de Bruijn overlap graph has q² ordered pair vertices and q²(q-1) distinct allowed 3-gram edges, indegree=outdegree=q-1. On q-by-q matrices adjacency is A(F)=1(F1)^T-F^T. Decompose into the all-ones line (eigenvalue q-1), centered symmetric (eigenvalue -1, mult q(q-1)/2), centered skew (eigenvalue +1, mult (q-1)(q-2)/2), and q-1 two-dimensional blocks with characteristic λ²+q-1. This proves entire characteristic polynomial over complex numbers. Simple degree eigenvalue q-1 plus balance gives common positive directed Laplacian cofactors equal product of nonzero Laplacian eigenvalues /q²; use directed matrix-tree to guarantee connectivity, then BEST theorem with fixed initial *unique edge* so no accidental division by rotation length. q2 single directed 4-cycle. Independent exact determinant/spectrum/cofactor checks q=2,3,4 (rooted trees 1,108,3538944) matched closed formula; actual infinite proof is symbolic.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality attaches to evaluated full all-q spectrum and Euler tour product, not BEST/matrix-tree or the de Bruijn construction.
+
+## value
+
+PASS
+
+Exact all-alphabet enumeration of a simple natural restricted universal-cycle language, plus full graph spectral data, by an explicit decomposition linking nonbacktracking overlap dynamics to spanning trees. Not merely Euler-cycle existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
