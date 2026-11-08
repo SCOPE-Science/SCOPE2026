@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Exact root decomposition; finite second moments solved from a linear ODE; disjoint root-label bins yield the covariance; monotone exponential crossing and elementary asymptotics prove the sign window. Multithreshold Laplace factorization combined with the published one-point Exp(1) theorem proves joint independence. The packaged standalone verifier independently passes 301 finite algebraic, rational-depth, asymptotic and simulation assertions; simulations do not prove infinite limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2025 paper treats size, height, depths and degrees; Theorem 2.1 gives one-p marginal Exp(1) limit",
+        "2022 Hu–Wu–Dong Theorem 2.1 treats accessible counts before varying depth cutoffs, and their Lemma 3.1 gives pair-accessibility probabilities at a fixed root label"
+      ],
+      "reasoning": "The strongest plausible prior results give a single-threshold distribution or pair probabilities conditioned on one root label, not the mixed-threshold covariance. Two-vertex pair-counting may facilitate a further derivation, but was not found to directly include the claimed mixed-threshold sign diagram.",
+      "searches": [
+        "Semantic research-record index: arxiv:2501.13044 Uniform temporal trees Atamanchuk Devroye Lugosi nary tree decreasing edge labels exact covariance e^(np) e^(nq) size",
+        "web: accessibility percolation rooted regular tree joint counts thresholds covariance",
+        "web: nested uniform temporal trees sizes covariance negative threshold 2025 2026"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2501.13044",
+      "doi:10.1002/rsa.70040",
+      "doi:10.52396/JUSTC-2022-0059",
+      "Hu–Li–Feng 2019 Journal of Applied Probability",
+      "Semantic research-record results, targeted queries as listed"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published marginal limit \\(e^{-np}T_n(p)\\Rightarrow\\operatorname{Exp}(1)\\) does not specify cross-moments or sign because joint couplings can differ",
+        "The accessible-node depth-count joint limit changes truncation depth, not the root-label threshold under the same edge labels"
+      ],
+      "reasoning": "A one-dimensional exponential limit is not enough to determine the covariance of two nested threshold counts or their sign, even though it supports the independent-exponential consequence after the new root-bin factorization. The 2022 single-root parameter pair formula does not directly state or specialize to two unequal root parameters in one shared labeling.",
+      "searches": [
+        "web: Atamanchuk Devroye Lugosi temporal trees joint threshold sizes covariance percolation p",
+        "web: Accessibility percolation on N-ary trees Hu Wu Dong full text Theorem 2.1 Lemma 3.1",
+        "Semantic research-record index: Temporally nested random n-ary trees exponential size limit threshold p q correlation sign reversal logarithmic gap"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Atamanchuk–Devroye–Lugosi, arXiv:2501.13044, Theorem 2.1 (one fixed threshold)",
+        "Hu–Wu–Dong, DOI:10.52396/JUSTC-2022-0059, fixed-root-value accessibility model and root-to-vertex path probabilities"
+      ],
+      "reasoning": "Reverse-label accessibility has an equivalent underlying descending-path event for each individual threshold, but comparing two thresholds on one shared edge-label sample is an additional bivariate observable. No direct bivariate reparametrization or existing formula was identified.",
+      "searches": [
+        "Semantic research-record index: Uniform temporal trees n-ary edge labeled decreasing paths p-percolated tree sizes at multiple thresholds exact covariance negative sign transition q-p log(n)/n",
+        "Semantic research-record index: Accessibility percolation rooted n-ary tree conditioned root label x y covariance of total accessible vertices and phase transition",
+        "web: uniform temporal tree covariance threshold p q negative covariance size overlap nested percolation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no direct matching uniform-temporal-tree result among inspected high-rank records",
+        "The primary arXiv article contains no listed multithreshold covariance theorem or exact crossing table in its results and inspected proof section"
+      ],
+      "reasoning": "This is a continuum all-n covariance identity and threshold theorem, not a numerical lookup. No exact database or tabulation was located.",
+      "searches": [
+        "Semantic research-record index: Atamanchuk Devroye Lugosi 2025 uniform temporal tree p-percolated tree size distribution multithreshold covariance q threshold",
+        "Semantic research-record index: Uniform temporal trees joint threshold profile p-percolation counts independent exponential limit multivariate asymptotic",
+        "web: uniform temporal trees second moment p n"
+      ]
+    },
+    "rationale": "The two-threshold shared-label covariance, its negative sign regime and sharp logarithmic crossing were not located in primary literature or records. The model and one-point limit are properly attributed. The earlier 2022 accessibility article has related two-vertex formulas and is a remaining priority risk; failure to find a match is not a uniqueness proof.",
+    "residual_risks": [
+      "The full 2022 n-ary accessibility paper and full separate journal version were not inspected, so an equivalent calculation in omitted material cannot be excluded.",
+      "The exact covariance can be obtained from related two-path counting methods, although an existing all-parameter sign-transition theorem was not identified.",
+      "Search coverage is incomplete; independent historical-priority verification remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Identifies mean and marginal size limits, not cross-threshold covariance or a sign switch",
+        "evidence": [
+          "arXiv HTML 2501.13044, lines 53–115, 261–307"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2501.13044",
+        "material_read": "Introduction; main Theorems 2.1–2.4; Section 4 proof including root mass decomposition and proof of Theorem 2.1",
+        "method": "Read accessible primary arXiv HTML at theorem and proof ranges",
+        "title": "Uniform temporal trees",
+        "trigger": "Exact same tree definition, root threshold p, and one-threshold size theorem"
+      },
+      {
+        "assessment": "Treats depth cutoffs and pair probabilities for fixed root value; no directly covering unequal-threshold joint covariance identified, but priority remains a concern",
+        "evidence": [
+          "JUSTC article DOI 10.52396/JUSTC-2022-0059, abstract and indexed theorem/lemma excerpts"
+        ],
+        "identifier_or_url": "https://doi.org/10.52396/JUSTC-2022-0059",
+        "material_read": "Official abstract; search-indexed introduction, definition, statement of Theorem 2.1 and Lemma 3.1 pair probabilities; complete PDF not read",
+        "method": "Official journal HTML and accessible indexed mathematical excerpts",
+        "title": "Accessibility percolation on N-ary trees",
+        "trigger": "Earlier identical n-ary geometry and related joint count results"
+      },
+      {
+        "assessment": "Abstract retains one-p size/height/degree scope; full separate journal text not read",
+        "evidence": [
+          "Random Structures & Algorithms 67 (2025), e70040, DOI 10.1002/rsa.70040"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.70040",
+        "material_read": "Publisher journal abstract, bibliographic metadata and reference list",
+        "method": "Publisher HTML abstract examination",
+        "title": "Uniform Temporal Trees (journal version)",
+        "trigger": "Check if revised journal article adds a broader statement"
+      },
+      {
+        "assessment": "Random rooted labeled-tree model with joint count of accessible leaves and vertices; different ambient graph, no two-threshold deterministic n-ary result observed",
+        "evidence": [
+          "Journal of Applied Probability (2019), Hu–Li–Feng, abstract"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/accessibility-percolation-on-random-rooted-labeled-trees/2772FF8110EF1F7DC825590979C8F4EF",
+        "material_read": "Publisher abstract, model description, bibliographic data",
+        "method": "Accessible journal abstract",
+        "title": "Accessibility percolation on random rooted labeled trees",
+        "trigger": "Check potentially dominating earlier accessible-vertex count laws"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b4af11a7-5a09-45bf-8e72-5c3bea7bf427",
+  "value": {
+    "rationale": "A natural and previously uncharacterized dependence structure for the already-studied thresholded tree sizes: nested counts can have negative covariance; a unique exact sign threshold occurs at logarithmic/n separation with a universal limit curve. This also yields microscopic exponential correlation and distinct-threshold joint independence, giving meaningful multiscale structure rather than an arbitrary cutoff.",
+    "status": "PASS"
+  }
+}
