@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The polynomial Q(hL) is positive definite for all h>=0; the determinant D_n has degree 3(n-1). A formal log/determinant recurrence and a matrix numerator recurrence prove the exact polynomial identity including its trailing degrees. Exact integer coefficients of (1+h)^{M_n}N_{ij} are all nonnegative and nonzero for every entry on P_2 through P_13 (with M values 0,1,17,66,451). P_1 is trivial. P_14 at h=5/2 has the asserted negative rational endpoint entry, independently reproduced by rational Gaussian elimination. The attached standard-library code checks 111905 coefficient/sign conditions and does not substitute sampling for a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth (Applied Numerical Mathematics 2005, DOI 10.1016/j.apnum.2004.08.026) studies general RK positivity thresholds, as established by the available abstract.",
+        "Wade et al. (DOI 10.1002/num.20039; first online 2004-09-29) develop Padé-based smoothing for parabolic problems; full text was unavailable.",
+        "The accessible full Zappavigna et al. 2010 PDF gives diagonal Padé sufficient step restrictions and positive-system counterexamples, not this graph-specific fifth-order path boundary."
+      ],
+      "reasoning": "The accessible general sufficient conditions are not an exact all-step characterization for unweighted P_n with the three-stage [2/3] completed method. Wade remains an explicit unresolved access risk rather than being declared not covering from an abstract alone.",
+      "searches": [
+        "\"On the positivity step size threshold of Runge-Kutta methods\" Horváth",
+        "\"Smoothing with positivity-preserving Padé schemes for parabolic problems with nonsmooth data\"",
+        "\"On the preservation of co-positive Lyapunov functions under Padé discretization\""
+      ]
+    },
+    "checked_sources": [
+      "Zappavigna et al., author-posted 2010 full text; Section III and conclusions",
+      "Wade et al., 2004-first-online publisher abstract and record, full-text unavailable",
+      "Horváth, 2005 published abstract and bibliographic details",
+      "Earlier path-graph calculations for two-stage Radau IIA and two-stage Gauss (scientific claim comparisons only)",
+      "Published mathematical search records concerning [2/2] Padé pure-birth and filtered Crank–Nicolson maps"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously accessible exact results for two-stage Radau IIA path positivity and two-stage Gauss path positivity concern distinct [1/2] and [2/2] rational functions.",
+        "Zappavigna et al. prove generic statements for diagonal [p/p] Padé approximants (Section III, Theorems 1–4), rather than the present [2/3] map.",
+        "The 2012 work Essentially Negative News About Positive Systems addresses limitations of Padé positivity in general, but its accessible bibliographic summary does not present an exact first-failure path-size theorem."
+      ],
+      "reasoning": "A generic failure counterexample or a lower-stage path cutoff does not imply the exact thirteen-vertex all-step positivity certificate nor the fourteen-vertex rational witness for the specific fifth-order method. Full-text access to one plausible smoothing paper was not obtained, which limits this comparison.",
+      "searches": [
+        "\"three stage Radau IIA\" positivity graph heat path",
+        "\"three stage Radau IIA\" vs two-stage Radau path positivity",
+        "\"Padé (2,3)\" positivity preservation",
+        "\"Essentially Negative News About Positive Systems\" Padé"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Three-stage Radau IIA has the [2/3] Padé stability function; the theorem is equivalently an all-timestep positivity statement for that rational matrix function on combinatorial path Laplacians. Zappavigna et al. (2010) concerns diagonal [p/p] Padé maps rather than this [2/3] map."
+      ],
+      "reasoning": "The aliases refer to one and the same rational map, not separate novelties. No located formulation gives positivity for every h on P_2 through P_13 together with a negative P_14 endpoint witness.",
+      "searches": [
+        "\"three-stage Radau IIA\" path graph positivity threshold dimension 13 14",
+        "\"Padé [2/3]\" heat operator path graph 13 14",
+        "\"fifth order subdiagonal Padé\" positivity path graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A returned published record on an eight-state [2/2] Padé Markov positivity barrier concerns a different rational map and a pure-birth chain, not the full undirected path Laplacian and [2/3] map.",
+        "Returned records on backward-Euler-filtered Crank–Nicolson positivity and first/fourth-order methods were similarly distinct."
+      ],
+      "reasoning": "The inspected titles and claim summaries provide no exact table containing the thirteen/fourteen threshold or the stated rational endpoint entry. Lack of a database hit is not proof of novelty.",
+      "searches": [
+        "Padé [2/3] positivity heat diffusion path first failure 14 vertices",
+        "Radau IIA order five 3-stage graph path 14 first negative endpoint",
+        "path graph fifth-order Radau IIA completed update unconditional nonnegativity dimension cutoff"
+      ]
+    },
+    "rationale": "An exact first-failure path-size classification for the completed fifth-order [2/3] Radau IIA update was not found among the inspected mathematical literature, relevant accessible scientific claims or returned published mathematical records. Earlier results study generic RK positivity thresholds, Padé smoothing, diagonal Padé maps or lower-stage Gauss/Radau functions. The accessible comparison is evidence of best-knowledge originality, not a universal publication search or independent priority certification.",
+    "residual_risks": [
+      "The full historical Padé-smoothing article by Wade and coauthors was not accessible, so a hidden exact graph-specific result cannot be excluded.",
+      "Unindexed books, dissertations and articles may include an equivalent path-size certificate.",
+      "No independent priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No direct coverage: primarily diagonal [p/p] Padé with sufficient steps and a two-state analysis, not three-stage [2/3] path order.",
+        "evidence": [
+          "Section III calls its target diagonal Padé approximations and treats positivity conditions; conclusion describes general sufficient conditions and special 2-by-2 systems."
+        ],
+        "identifier_or_url": "https://www.hamilton.ie/shravan/pade_MTNS10_long.pdf",
+        "material_read": "Author-posted full text, sections I–III including Theorems 1–4, examples and the concluding section; PDF first page visually inspected",
+        "method": "Accessible full-text PDF sections and page rendering",
+        "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+        "trigger": "Highly relevant published positive-systems Padé study"
+      },
+      {
+        "assessment": "UNRESOLVED full-text coverage; abstract describes positivity-preserving smoothing combined with diagonal schemes, not an explicit first-failing graph order.",
+        "evidence": [
+          "Publisher record gives exact first publication date; abstract describes different smoothing methodology and does not specify path P_13 or P_14."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/num.20039",
+        "material_read": "Publisher abstract, bibliographic details, references and published online date 2004-09-29; full article not accessible",
+        "method": "Publisher page and open-access/preprint lookup; full-text retrieval attempt did not yield the article",
+        "title": "Smoothing with positivity-preserving Padé schemes for parabolic problems with nonsmooth data",
+        "trigger": "Historical positivity-preserving Padé smoothing and source-date anchor"
+      },
+      {
+        "assessment": "General positivity step-size results do not in accessible text establish the exact completed three-stage Radau IIA finite-path cutoff; residual risk noted.",
+        "evidence": [
+          "Abstract states general positivity thresholds and invariant-set analysis for classes of IVPs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "material_read": "Publication abstract and bibliographic statement of results; full paper not inspected in this round",
+        "method": "Published bibliographic abstract",
+        "title": "On the positivity step size threshold of Runge-Kutta methods",
+        "trigger": "General RK positivity-threshold literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7c35f2e9-ad0e-4c8a-a320-be21859feec8",
+  "value": {
+    "rationale": "The smallest path-graph size permitting completed-step positivity loss for an established order-five stiff RK method is a natural all-real-step cutoff, not a chosen timestep or isolated computation. The sharp 13/14 boundary contrasts numerical stability with positivity, and the proof supplies a reusable exact polynomial positivity certificate across infinitely many timesteps. It does not require a downstream theorem to be mathematically useful.",
+    "status": "PASS"
+  }
+}
