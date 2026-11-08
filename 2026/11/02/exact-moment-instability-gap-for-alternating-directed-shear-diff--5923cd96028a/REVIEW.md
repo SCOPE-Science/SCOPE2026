@@ -1,15 +1,21 @@
-# Scientific review: Exact moment-instability gap for alternating directed shear diffusion
+# Independent mathematical audit
 
-## Correctness — PASS
-The conditional Itô generator and symmetric/antisymmetric sector decomposition yield two explicit first-moment blocks and two cubic second-moment blocks. The Routh–Hurwitz positivity tests show that the first-moment threshold is \(q_1=a^2/(b-2a)\), the second-moment threshold is \(q_2=4a^3/(b^2-4a^2)\) for \(b>2a\), and the critical second-moment forcing projects nontrivially onto the simple positive Perron mode. This proves the specified stable/linear-growth/exponential-growth trichotomy and the exact stationary covariance and critical correlation ratio \(2a/b\). Independent rational identities and finite ODE diagnostics are available in `artifacts/verify.py`; they corroborate but do not establish the universal theorem.
+## correctness
 
-## Originality — PASS (qualified)
-Ferraro et al., arXiv:2405.05183v1, already find a mean-finite/variance-divergent phase in a many-coordinate Gaussian colored annealed-interaction model (Figure 6); that qualitative separation is explicitly prior, not new. They do not treat the two-state alternating directed-shear mechanism. Ogura and Preciado, arXiv:1501.03474, give general induced-matrix spectral tests; the present explicit thresholds and covariance require nontrivial specialization and exact sector algebra and are not stated there. Sturman and Thiffeault, doi:10.1007/s00332-018-9497-3, give bounds for independent discrete shear products, not this Markov-modulated diffusion. Primary source and adjacent results were inspected at the material level noted in AUDIT.json. Remaining risk: the same exact specialization might be present elsewhere under another notation; no independent publication-priority check is claimed.
+PASS
 
-## Mathematical value — PASS
-The natural two-coordinate system displays a sharp qualitative design failure: each fixed directed interaction is stable, and ensemble mean stability remains intact, while switching faster than \(q_2\) makes the covariance diverge. The complete classification has a strict and exact interval of width \(a^2/(b+2a)\). Its closed stationary covariance supports an exact instability diagnosis rather than numerical trial and error.
+Directly reconstructing the Markov-conditioned means yields two 2x2 blocks with dominant exponent -a-q+sqrt(q(q+b)), hence q_1=a²/(b-2a) for b>2a. The symmetric second-moment block M_+ has characteristic constant 2[4a²(a+q)-b²q], strictly positive other Hurwitz conditions, and is irreducible Metzler with positive noise forcing. The antisymmetric M_- remains Hurwitz wherever M_+ is nonpositive/stable, so no hidden earlier instability for general initial states. Its positive simple zero mode at q_2 and positive forcing give linear critical divergence; above q_2 the positive mode grows exponentially. Solving the stationary affine equations gives the stated covariance; its critical ratio is 2a/b. Independent exact symbolic computation reconstructed both cubic coefficients, Hurwitz determinants, stationary u,v,w and q_1-q_2=a²/(b+2a). Numeric eigenvalue checks at a=D=1,b=3,q=.5,.8,.9 agree with stable/critical/unstable sectors. This supports but does not replace the all-positive-parameter Routh-Hurwitz and Perron arguments.
 
-## Scope and limitations
-The result concerns equal positive damping, equal positive directional shear strengths, symmetric two-state Poisson switching and additive isotropic independent Brownian noise. It does not prove almost-sure instability or rule out stationary laws with infinite variance. General moment-stability theory is credited, and precise publication priority remains subject to independent examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ogura–Preciado (2015) general matrix moment stability criterion covers the test method; Ferraro et al. (2024) already demonstrate qualitative mean finite and variance divergent in a different annealed large-N model; Sturman–Thiffeault analyze discrete products of shears. None of the inspected model/implication statements directly provides BOTH sharp thresholds, stationary covariance and critical ratio for these continuously switching common directed shears. Originality is the exact constrained phase diagram, not general moment instability or matrix criteria.
+
+## value
+
+PASS
+
+A minimal explicit two-dimensional switching model separates first- and second-moment stability and has a fully solvable phase diagram. Exact noise-driven covariance, sharp nonzero interval and subunit critical correlation reveal a structural fluctuation mechanism, not only generic instability existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
