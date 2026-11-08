@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is a one-input variation-gain theorem for synchronous majority-median filtering on finite unweighted trees, not a two-input stability assertion. For binary inputs, strict majority at a flipping vertex yields \(2b_v-\deg(v)\ge1\); summing over the flip forest proves the stronger \(J(Mx)\le2J(x)-c(F)\). The finite-order optimization uses both \(J(Mx)\le n-1\) and integer input cut sizes. Order-statistic threshold commutation and the exact coarea identity extend the result to all real signals. Explicit extremizers attain the upper bound for both parities, including separately verified small orders. Reproducible tests passed on all labeled trees through six vertices and further samples; the universal proof is analytical.
+## correctness
 
-## Originality — PASS, subject to literature risk
-The relevant 2013 and 2014 primary majority-dynamics papers concern information retention, period-two behavior, random-graph consensus, and a temporal Lyapunov functional, not the sharp one-step edge-variation ratio. The 2026 finite-tree study characterizes stabilization time, rather than the one-step variation operator's growth envelope. published-finding corpus searches for the formula, majority dynamics, tree cut amplification, and median variation found no directly covering record. These are statement-level comparisons, not novelty certification. An equivalent bound hidden in older majority/median-filter literature remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The precise object is a classical nonlinear neighborhood filter on the edge-BV seminorm, where ordinary time-step dynamics need not reduce variation. The new flip-component deficit gives a structural explanation for a universal bound; the exact order-dependent optimum and parity-specific extremal constructions quantify the maximum possible amplification. Transferring a sharp binary dynamical estimate to arbitrary real signals by coarea is operationally relevant for median filtering and produces a natural complete extremal invariant, not a sampled special case.
+For binary x, strict majority flip at every vertex of F gives sum_F(2b_v-deg(v))>=|F|. Counting edges leaving and inside F yields J(y)-J(x)=a-b<=2c-|F|<=c-c(F)<=J(x)-c(F), using the induced forest size |F|-c(F). With J(x)=k integer, also J(y)<=n-1; maximization of min(2-1/k,(n-1)/k) yields 2-1/floor(n/2). Odd-sized median commutes with thresholds, and graph coarea transfers the bound to arbitrary real f. A star on 2q vertices and a once-subdivided star on 2q+1 vertices attain it; n=2,3 have gain one. Independent all labeled trees n=2..5 and every nonconstant binary input (145 trees; 3994 signals) independently confirmed the component deficit and bound.
 
-## Scope and limitations
-No assertion is made for non-tree graphs, edge weights, asynchronous dynamics, other median definitions, or the global two-input Lipschitz modulus. Primary full texts were inspected selectively around their definitions, theorem statements, and energy arguments; source-specific limitations and unresolved historical coverage are recorded in AUDIT.json.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Synchronous majority and inertia ties are classical; the tested novelty is one-step graph edge total-variation sharp n-envelope and forest-component deficit, plus real median extension by coarea. Relevant inspected majority papers concern dynamical stability and information retention. No equivalent bound located, but historical BV median literature is not exhaustive.
+
+## value
+
+PASS
+
+The exact size-dependent amplification and forest-component deficit answer a motivated stability question for the standard median majority map; the extremal trees show why naive nonexpansivity fails and coarea extends binary behavior to signals. This is a structural sharp infinite-family result, beyond a routine relabeling or tiny computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

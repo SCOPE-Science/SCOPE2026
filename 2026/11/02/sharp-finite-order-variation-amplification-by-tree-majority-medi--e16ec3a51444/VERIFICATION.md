@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Execute `python check.py` with Python 3.10 or newer. No external dependencies are required. The test enumerates all labeled trees of orders 2 through 6 by Prüfer codes, all nonconstant binary vertex assignments on each, and independently checks the component deficit \(J_T(Mx)\le 2J_T(x)-c(F)\). Additional seeded tree samples with integer real-valued data cover orders 7 through 30; explicit constructions test attainment for orders 2 through 150.
+# Independent mathematical audit
 
-Observed run: `PASS {'binary': 84346, 'trees': 1441, 'real': 4320, 'sharp': 149}`. The equality constructions were checked by exact rational ratios, not floating-point tolerance. The checker does not certify all trees or all real inputs; generality follows from the written proof, specifically the forest edge count and coarea identity. Inertia at degree-even vertices is essential to the strict flip condition; replacing it by another tie convention requires a new proof.
+## correctness
 
-Independent scientific audit has not been performed.
+PASS
+
+For binary x, strict majority flip at every vertex of F gives sum_F(2b_v-deg(v))>=|F|. Counting edges leaving and inside F yields J(y)-J(x)=a-b<=2c-|F|<=c-c(F)<=J(x)-c(F), using the induced forest size |F|-c(F). With J(x)=k integer, also J(y)<=n-1; maximization of min(2-1/k,(n-1)/k) yields 2-1/floor(n/2). Odd-sized median commutes with thresholds, and graph coarea transfers the bound to arbitrary real f. A star on 2q vertices and a once-subdivided star on 2q+1 vertices attain it; n=2,3 have gain one. Independent all labeled trees n=2..5 and every nonconstant binary input (145 trees; 3994 signals) independently confirmed the component deficit and bound.
+
+## originality
+
+PASS
+
+Synchronous majority and inertia ties are classical; the tested novelty is one-step graph edge total-variation sharp n-envelope and forest-component deficit, plus real median extension by coarea. Relevant inspected majority papers concern dynamical stability and information retention. No equivalent bound located, but historical BV median literature is not exhaustive.
+
+## value
+
+PASS
+
+The exact size-dependent amplification and forest-component deficit answer a motivated stability question for the standard median majority map; the extremal trees show why naive nonexpansivity fails and coarea extends binary behavior to signals. This is a structural sharp infinite-family result, beyond a routine relabeling or tiny computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
