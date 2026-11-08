@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The individual-leaf covariance splits into a positive displacement term for every other earlier vertex and a negative self-leaf term for the nominated parent. Summing produces the closed local covariance, the harmonic total, and the two sharp sign classifications. The exact and asymptotic boundaries are proved for all quantified sizes. A standalone exhaustive checker passes 374 grouped assertions, but finite replay is not a proof of the infinite statements.
+## correctness
 
-**Originality — PASS (qualified).** Janson's global degree-count covariances and Bryc–Minda–Sethuraman's global leaf Markov chain do not state the birth-label mixed covariance. The closest published root-only result has no self-leaf loss and gives only the positive \(v=1\) case. The nonroot sign reversal at \(j=2v\), all-size degree covariance, and the interior limiting age threshold are not covered by those claims. However, the 1991 subtree-leaf article and the full Janson text were not fully inspectable, and an older implicit identity is a residual originality risk; a failed search is not a proof of novelty.
+PASS
 
-**Mathematical value — PASS.** A random recursive tree has deterministic total outdegree, so degrees of successive birth labels must redistribute positive and negative dependence with the global leaf count. The theorem identifies the precise competition between preserving older leaves and killing the proposed parent's own leaf status, resolving both a microscopic sign reversal and a nontrivial universal macroscopic age threshold. This is a structurally motivated dependence law, not merely a fixed numerical moment.
+Leaves Y_i have survival probability (i−1)/(n−1). At arrival j>i, the covariance between A_{v,j} and Y_i is (i−1)/[(n−1)(j−1)(j−2)] when i≠v, versus −(v−1)/[(n−1)(j−1)] at i=v≥2. Summing gives (j−2v)/[2(n−1)(j−2)], including root v=1 for j≥3. A sum over j gives the harmonic degree–leaf covariance, with deterministic P_2 excluded. Its first finite difference F_n(v+1)−F_n(v)=1/2−Σ_{k=v}^{n−2}1/k increases in v, proving the single crossing once F_n(2)>0 at n≥7; convexity and F_n(2)<0 establish negativity for 3≤n≤6. Harmonic asymptotics yield Φ(α) and its unique interior zero, while v=n has zero deterministic child count. Independent exhaustive rational enumeration across all parent sequences for n3..8 confirmed local and total finite formulas; no finite test proves asymptotic.
 
-Independent priority/correctness review has not been completed; claims are limited to the standard uniform recursive-tree model.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality of the precise joint final claim; searched published mathematical records and compared primary statements, stronger methods and equivalent formulations. The nonroot and age-threshold claims require a new conditional computation; they are not corollaries of root-only equal-share. A sufficiently general joint law in uninspected older work could still imply them. All residual priority/access risks are recorded.
+
+## value
+
+PASS
+
+The distinguished birth-label degree mixed with global leaf count is a natural local–global dependence invariant in recursive trees. Two different sharp age thresholds and an interior macroscopic transition supply genuinely new structural information beyond root statistics and global leaf Markov chains.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

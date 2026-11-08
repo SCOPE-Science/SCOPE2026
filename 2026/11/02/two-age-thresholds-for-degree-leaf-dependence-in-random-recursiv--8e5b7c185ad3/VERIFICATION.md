@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` from this directory with the standard Python library. The script enumerates all recursive-tree parent sequences with sizes three through nine, verifies every arrival-to-parent mixed covariance using rational arithmetic, verifies all vertex-degree/leaf covariances, and tests the sharp finite sign criterion through size 200. Numerical checks probe the interior asymptotic cutoff. It reports 374 exact/numerical grouped assertions passed.
+## correctness
 
-The infinite theorem is proved analytically using independent parent choices, the telescoping leaf-survival probability, and convexity of a harmonic-sum sequence. The checker is additional finite evidence, not a substitute for proof. No independent audit has been performed.
+PASS
+
+Leaves Y_i have survival probability (i−1)/(n−1). At arrival j>i, the covariance between A_{v,j} and Y_i is (i−1)/[(n−1)(j−1)(j−2)] when i≠v, versus −(v−1)/[(n−1)(j−1)] at i=v≥2. Summing gives (j−2v)/[2(n−1)(j−2)], including root v=1 for j≥3. A sum over j gives the harmonic degree–leaf covariance, with deterministic P_2 excluded. Its first finite difference F_n(v+1)−F_n(v)=1/2−Σ_{k=v}^{n−2}1/k increases in v, proving the single crossing once F_n(2)>0 at n≥7; convexity and F_n(2)<0 establish negativity for 3≤n≤6. Harmonic asymptotics yield Φ(α) and its unique interior zero, while v=n has zero deterministic child count. Independent exhaustive rational enumeration across all parent sequences for n3..8 confirmed local and total finite formulas; no finite test proves asymptotic.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality of the precise joint final claim; searched published mathematical records and compared primary statements, stronger methods and equivalent formulations. The nonroot and age-threshold claims require a new conditional computation; they are not corollaries of root-only equal-share. A sufficiently general joint law in uninspected older work could still imply them. All residual priority/access risks are recorded.
+
+## value
+
+PASS
+
+The distinguished birth-label degree mixed with global leaf count is a natural local–global dependence invariant in recursive trees. Two different sharp age thresholds and an interior macroscopic transition supply genuinely new structural information beyond root statistics and global leaf Markov chains.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
