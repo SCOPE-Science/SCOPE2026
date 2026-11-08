@@ -1,0 +1,11 @@
+# Review of coordinatewise order–chain inertia dominance
+
+**Correctness — PASS.** The order-to-chain transfer map is a piecewise triangular volume-preserving bijection. Conditioning on every coordinate except \(v\) yields two uniform distributions of identical interval length but shifted conditional means; the total-variance identity gives the exact gap \(\operatorname{Cov}(L_v,U_v)\). Uniform measure on the order polytope is MTP2 because the polytope is a sublattice. FKG proves nonnegativity. For a vertex with both a predecessor and successor, Holley's cross-lattice condition orders the conditional slices by \(X_v\), and strict Chebyshev association proves strict positivity; for boundary vertices one of the interval endpoints is constant. The exact linear-extension formula and exhaustive rational computations independently check normalization and small cases. Risk: use of established FKG/Holley principles is essential; all requisite lattice/support and monotonicity hypotheses are explicitly checked.
+
+**Originality — PASS, with historical-priority uncertainty.** The nearest inspected publications compare face vectors, unimodular equivalence, or edge lengths, not interior-volume coordinate variances. A known exact inertia expression for ordinal sums of antichains covers only a special class and therefore does not imply the arbitrary-poset result; it remains acknowledged. Search in published mathematical research records for covariance, inertia, association, equivalent predecessor/successor formulations and rank inequalities found no direct general-poset coverage. Risk: a probabilistic formulation in earlier unindexed literature may be equivalent; this search is not a mathematical proof of priority.
+
+**Mathematical value — PASS.** The result solves a natural metric comparison problem for **all** finite posets, gives strictness separately for every coordinate, characterizes the global equality class by height, and supplies an exact rational linear-extension expression. This goes beyond a routine f-vector or Ehrhart consequence because those invariants do not determine uniform Euclidean second moments.
+
+The comparison is specific to standard coordinates and uniform interior volume. Independent mathematical validation is not available.
+
+Self-review: passed. Independent audit: not yet performed.
