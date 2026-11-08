@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T18:06:50.389924Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_{p,q} with p<=q, N>=3 and s=ch, the Laplacian spectrum is 0,q (p−1),p (q−1),N. Exact projectors give diagonal F_A=1/N+(p−1)r(qs)/p+q*r(Ns)/(pN), and G_B analogously. Differentiation verifies r'<0 and φ(z)=(1−r(z))/z has φ'<0 for z>0: within-class off-diagonal entries are positive differences φ(ps)−φ(Ns) or φ(qs)−φ(Ns), cross-class entry (1−r(Ns))/N>0. Both diagonal functions strictly decrease 1 to 2/N−1 and G_B>=F_A (strict when p<q), yielding a unique cutoff from F_A=0. K_{1,1} has all entries strictly positive for finite s>0. For t=qs, F_A(t/q)−r(t) is O(1/q) uniformly for 1<=p<=q on each compact t-set; r has one simple positive zero z0≈4.644370709, so qs*=z0+O(1/q). Independently differentiated scalar identities and compared full rational Laplacian matrices in small bicliques; no extrapolation from finite tests for universal cutoff.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zappavigna–Colaneri–Kirkland–Shorten, MTNS 2010, Theorem 3, sufficient conditions for positive systems; their 2012 extended treatment.",
+          "Wade, DOI:10.1002/num.20039, abstract only."
+        ],
+        "reasoning": "The prior sufficient conditions and counterexamples do not supply necessary-and-sufficient biclique horizon or its q-scaling. Full Wade text inaccessible, so cannot rule out strong specialized implications.",
+        "searches": [
+          "Runge Kutta Pade positivity biclique [3/3] graph diffusion exact threshold"
+        ]
+      },
+      "checked_sources": [
+        "2010 MTNS original conference paper Maynooth University repository",
+        "2012 extended preprint Maynooth University repository",
+        "DOI:10.1002/num.20039 (abstract only)",
+        "Resultary: 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "Resultary: 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2010 sufficient theorem is not an equivalence for K_{p,q} or r_[3/3]; current proof uses φ monotonicity and F_A<=G_B, plus uniform zero bracketing."
+        ],
+        "reasoning": "A general sufficient lower safe step cannot imply the exact cutoff, its sharp necessity or off-diagonal strict positivity beyond it. Distinction from fourth-order methods is algebraic, not only parametric.",
+        "searches": [
+          "Runge Kutta Pade positivity biclique [3/3] graph diffusion exact threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "[3/3] Padé for exp(−chL) equals three-stage Gauss–Legendre endpoint matrix; r is the same rational map across ODE and graph-diffusion formulations."
+        ],
+        "reasoning": "Checked Padé, Gauss–Legendre and graph Markov semigroup aliases. The exact claim concerns endpoint matrix, not stage positivity or unconditional A-stability.",
+        "searches": [
+          "Sixth order Gauss Legendre Pade [3/3] graph Laplacian positivity threshold complete bipartite graphs off diagonal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary eight-state result is about [2/2] rational function, and the CN resolvent-return law concerns [1/1]; neither is a [3/3] biclique exact table."
+        ],
+        "reasoning": "Any finite numerical biclique threshold list is only a check; this proof holds all p,q and real h via projectors and scalar monotonicity.",
+        "searches": [
+          "Sixth order Gauss Legendre Pade [3/3] graph Laplacian positivity threshold complete bipartite graphs off diagonal",
+          "Resultary 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the sharp [3/3] endpoint positivity horizon on every uniform biclique, all-positive off-diagonals and uniform star-to-balanced scaling. Zappavigna et al 2010/2012 study broad sufficient positivity criteria, not exact necessary biclique cutoffs. Local published [2/2] Padé and Crank–Nicolson results concern different stability rational functions. Wade 2004/2005 entire paper was inaccessible (abstract examined, Oxford VPN disconnected), so potential relevant overlap remains a named risk, not a fabricated negative comparison.",
+      "residual_risks": [
+        "Wade 2005 full paper inaccessible; abstract alone does not establish absence of a dominating exact positivity theorem.",
+        "No claims about stage positivity, heterogeneous edges or higher-order rational maps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general sufficient conditions; not a statement of the exact K_{p,q} [3/3] endpoint horizon",
+          "evidence": "Theorem 3 is sufficient and refers to Hurwitz systems; K_{p,q} graph diffusion has conservative zero eigenvalue.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/1/SK-pade_MTNS10_long.pdf",
+          "material_read": "Accessible complete conference article, including Theorem 3 and positivity assumptions",
+          "method": "Read original PDF including theorem",
+          "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+          "trigger": "Direct general Padé positivity theorem"
+        },
+        {
+          "assessment": "Broad Padé positivity limitations rather than evaluated biclique cutoff",
+          "evidence": "No inspected statement determines uniform z0/q sharp threshold.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "Accessible full preprint; positivity and counterexample sections",
+          "method": "Read accessible PDF and compare theorem content",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Extended primary positivity discussion"
+        },
+        {
+          "assessment": "Material too limited for whole-paper negative coverage judgment; residual priority risk",
+          "evidence": "Oxford access status vpn_disconnected; no paper contents inferred from abstract.",
+          "identifier_or_url": "https://doi.org/10.1002/num.20039",
+          "material_read": "Title, abstract and bibliographic metadata only; full text not obtained",
+          "method": "Publisher abstract and attempted lawful authorized full text",
+          "title": "Smoothing with positivity-preserving Padé schemes for parabolic problems with nonsmooth data",
+          "trigger": "Close title about Padé and positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Entrywise positive graph diffusion time steppers require a usable maximum step; the proved exact sharp cutoff is stronger than generic sufficient stability bounds and remains uniform over all class proportions, including stars. Off-diagonal positivity at all steps and one specific diagonal obstruction identify a meaningful structural phase boundary for a standard sixth-order integration scheme.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Wade 2005 full paper inaccessible; abstract alone does not establish absence of a dominating exact positivity theorem.",
+    "No claims about stage positivity, heterogeneous edges or higher-order rational maps."
+  ],
+  "schema_version": 1
+}
