@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:15:04.963964Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 2^m complementary two-symbol blocks each contribute at least one greedy matched symbol to a target, and there are exactly 2^m zeros, establishing shortest absent length 2^m+1. For any orientation b of h blocks, a target of length h+1 is absent iff its i-th adjacent target pair is not the i-th full complementary pair; this greedy proof holds for every h. Counting allowed adjacent transitions uses L=[[1,0],[1,1]], R=[[1,1],[0,1]], e=(1,1), and the Thue–Morse identity T_{m+1}=T_m complement(T_m) yields P_{m+1}=(P_m J)^2. det P_m=1 and direct 2x2 multiplication give A_{m+1}=2+A_m(b+c) and D_{m+1}=D_m(A_m-D_m), with initial L. This is an induction for all m; independent brute-force absent-subsequence enumerations through m=3 and recurrence computed 3,5,12,74,2666. Source verify.py also independently implements the next-occurrence automaton. Checks do not prove the infinite result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary Fibonacci-extremal record provides maximal number over all words of given length/universality, not A_m for a particular Thue–Morse word."
+        ],
+        "reasoning": "An upper extremal envelope or general algorithm is weaker than the exact prefix-specific two-variable trace recurrence.",
+        "searches": [
+          "arXiv:2407.18599 extremal counts",
+          "Resultary: Thue Morse shortest absent scattered subsequences count quadratic recursion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: Thue Morse shortest absent scattered subsequences count quadratic recursion",
+        "arXiv:2108.13968 Theorem 3.4",
+        "arXiv:1812.07330",
+        "arXiv:2407.18599 extremal counts",
+        "arXiv:2108.13968",
+        "arXiv:2407.18599",
+        "arXiv:2108.13968 §3 SAS characterization",
+        "arXiv:2407.18599 Theorem 2 extremal law",
+        "arXiv:1812.07330 k-binomial factor statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior SAS results give generic tests or maxima; the candidate proves non-obvious matrix renormalization P_{m+1}=(P_mJ)^2 and an autonomous recursion."
+        ],
+        "reasoning": "Specializing a generic SAS characterization does not immediately imply the explicit count; the determinant-one Thue–Morse substitution trace identity is the added content.",
+        "searches": [
+          "arXiv:2108.13968 §3 SAS characterization",
+          "arXiv:2407.18599 Theorem 2 extremal law",
+          "arXiv:1812.07330 k-binomial factor statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known shortest-absent-subsequence arch theorem covers arbitrary words, while Thue–Morse k-binomial factor complexity counts different objects."
+        ],
+        "reasoning": "Generic eligibility characterization does not provide the A_m all-level numerical recurrence; factor embedding multiplicities are not missing-subsequence support counts.",
+        "searches": [
+          "Resultary: Thue Morse shortest absent scattered subsequences count quadratic recursion",
+          "arXiv:2108.13968 Theorem 3.4",
+          "arXiv:1812.07330"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly matching exact A_m table or all-level recurrence was identified among inspected database hits; 3,5,12,74 is not by itself an originality certificate."
+        ],
+        "reasoning": "A matching OEIS or automatic-word matrix entry would cover the claim, but none was verified; negative results do not establish global novelty.",
+        "searches": [
+          "Resultary: Thue Morse shortest absent scattered subsequences count quadratic recursion",
+          "arXiv:2108.13968",
+          "arXiv:2407.18599"
+        ]
+      },
+      "rationale": "General greedy/arch structural characterizations, global extremal absent-subsequence counts and Thue–Morse fixed-depth binomial factor complexity are earlier work. The all-level two-scalar trace recurrence for the specific shortest absent count is neither an extremal bound corollary nor a factor-subsequence statistic. Potential OEIS or automatic-word trace identities remain a genuine best-of-knowledge priority risk.",
+      "residual_risks": [
+        "An unindexed Thue–Morse trace/automaton formula or integer-sequence catalog may already give exactly the same recurrence.",
+        "Only dyadic T_{m+1} prefixes are classified, not arbitrary factors or all minimal absent subsequences.",
+        "Greedy and matrix proof covers every m; independent brute-force tests stop at m=3."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Arch/greedy SAS structure is prior work, not same dyadic-prefix count",
+          "evidence": [
+            "Theorem 3.4 shortest absence characterization; no Thue–Morse A_m recurrence in inspected text"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+          "material_read": "Relevant definitions, Section 3 and Theorem 3.4; primary PDF page-image inspection",
+          "method": "Full-text primary relevant-section reading",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Primary structural theory for shortest absent subsequences"
+        },
+        {
+          "assessment": "Global extremal bounds, not exact counts of fixed substitution words",
+          "evidence": [
+            "Theorem 2 extremal over words with a universality constraint"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.18599",
+          "material_read": "Introduction, Sections 3–4 and Theorem 2; relevant primary PDF page-image inspection",
+          "method": "Full-text primary relevant-section reading",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "Possible stronger universality-index extremal formula"
+        },
+        {
+          "assessment": "Fixed k-binomial complexity of factors, different invariant",
+          "evidence": [
+            "Abstract focuses on binomial equivalence and factor complexity"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.07330",
+          "material_read": "Abstract and bibliographic comparison, NOT full original paper",
+          "method": "ArXiv abstract and exact-claim comparison",
+          "title": "Computing the k-binomial complexity of the Thue–Morse word",
+          "trigger": "Same automatic word and scattered subsequence terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact counting for an exponentially long canonical morphic word from only m small polynomial steps is a meaningful natural exact invariant; it distinguishes support/absence from embedding multiplicities and yields infinitely many nontrivial exact counts. No general arbitrary-factor result is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Thue–Morse morphic prefixes T_{m+1} of length 2^(m+1), the number A_m of distinct shortest absent scattered binary subsequences, of length 2^m+1, obeys A_0=3,D_0=1,A_{m+1}=2+A_mD_m,D_{m+1}=D_m(A_m-D_m), with first terms 3,5,12,74,2666,3647090 for all m>=0.",
+  "limitations": [
+    "An unindexed Thue–Morse trace/automaton formula or integer-sequence catalog may already give exactly the same recurrence.",
+    "Only dyadic T_{m+1} prefixes are classified, not arbitrary factors or all minimal absent subsequences.",
+    "Greedy and matrix proof covers every m; independent brute-force tests stop at m=3."
+  ],
+  "schema_version": 1
+}

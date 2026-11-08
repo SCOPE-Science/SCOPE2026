@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The standalone `verify.py` uses only Python 3's standard library. Its executed output was:
+# Independent mathematical audit
 
-```
-VERIFY_OK 276 independent comparisons; exact quadratic recurrence to m=8
-```
+## correctness
 
-Direct finite checks comprise independent absent-subsequence counting by next-occurrence automata for substitution prefixes through level eight, raw enumeration at levels zero through three, and exhaustive testing of complementary-pair orientations through seven blocks. The proof of the infinite recurrence is the determinant-one matrix identity in RESULT.md; the finite checks alone do not establish an infinite assertion.
+PASS
 
-The checked scope is finite and the status of independent scientific validation is not performed.
+The 2^m complementary two-symbol blocks each contribute at least one greedy matched symbol to a target, and there are exactly 2^m zeros, establishing shortest absent length 2^m+1. For any orientation b of h blocks, a target of length h+1 is absent iff its i-th adjacent target pair is not the i-th full complementary pair; this greedy proof holds for every h. Counting allowed adjacent transitions uses L=[[1,0],[1,1]], R=[[1,1],[0,1]], e=(1,1), and the Thue–Morse identity T_{m+1}=T_m complement(T_m) yields P_{m+1}=(P_m J)^2. det P_m=1 and direct 2x2 multiplication give A_{m+1}=2+A_m(b+c) and D_{m+1}=D_m(A_m-D_m), with initial L. This is an induction for all m; independent brute-force absent-subsequence enumerations through m=3 and recurrence computed 3,5,12,74,2666. Source verify.py also independently implements the next-occurrence automaton. Checks do not prove the infinite result.
+
+## originality
+
+PASS
+
+General greedy/arch structural characterizations, global extremal absent-subsequence counts and Thue–Morse fixed-depth binomial factor complexity are earlier work. The all-level two-scalar trace recurrence for the specific shortest absent count is neither an extremal bound corollary nor a factor-subsequence statistic. Potential OEIS or automatic-word trace identities remain a genuine best-of-knowledge priority risk.
+
+## value
+
+PASS
+
+Exact counting for an exponentially long canonical morphic word from only m small polynomial steps is a meaningful natural exact invariant; it distinguishes support/absence from embedding multiplicities and yields infinitely many nontrivial exact counts. No general arbitrary-factor result is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

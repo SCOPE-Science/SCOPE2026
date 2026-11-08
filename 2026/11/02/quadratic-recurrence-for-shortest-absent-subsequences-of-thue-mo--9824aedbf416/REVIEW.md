@@ -1,19 +1,21 @@
-# Scientific review: a quadratic recurrence for Thue–Morse shortest absent subsequences
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Each Thue–Morse prefix at substitution level \(m+1\) is a concatenation of \(2^m\) complementary binary blocks, guaranteeing that every binary target of length \(2^m\) embeds, while \(0^{2^m+1}\) is absent. The greedy first-double-block argument gives the exact local forbidden-transition criterion for every target at the shortest absent length. Multiplication of two explicitly specified unimodular matrices counts the distinct absent targets, not their occurrences. The Thue–Morse complement recursion produces a square of a conjugated matrix, and its trace and all-entry sums prove the coupled recurrence for all levels. A separately implemented direct subsequence automaton, brute enumeration and matrix products agree in 276 finite comparisons. Risks: no non-dyadic-prefix extension is claimed; finite enumeration is not a substitute for the algebraic induction.
+PASS
 
-## Originality
+The 2^m complementary two-symbol blocks each contribute at least one greedy matched symbol to a target, and there are exactly 2^m zeros, establishing shortest absent length 2^m+1. For any orientation b of h blocks, a target of length h+1 is absent iff its i-th adjacent target pair is not the i-th full complementary pair; this greedy proof holds for every h. Counting allowed adjacent transitions uses L=[[1,0],[1,1]], R=[[1,1],[0,1]], e=(1,1), and the Thue–Morse identity T_{m+1}=T_m complement(T_m) yields P_{m+1}=(P_m J)^2. det P_m=1 and direct 2x2 multiplication give A_{m+1}=2+A_m(b+c) and D_{m+1}=D_m(A_m-D_m), with initial L. This is an induction for all m; independent brute-force absent-subsequence enumerations through m=3 and recurrence computed 3,5,12,74,2666. Source verify.py also independently implements the next-occurrence automaton. Checks do not prove the infinite result.
 
-PASS under inspected-source comparison, not a claim of absolute uniqueness. The primary 2021 absent-subsequence paper develops general characterizations and algorithms, but its inspected text does not contain an exact count or quadratic recursion for these specific substitution prefixes. The 2024 extremal-number paper gives broad same-universality envelopes; its proof addresses bounds and alternating permutation blocks, which neither state nor force the nonextremal dyadic-prefix sequence \(3,5,12,74,2666,\ldots\). The 2018 Thue–Morse binomial-complexity paper treats the number of equivalence classes of factors for a fixed comparison depth and multiplicity data; it does not supply the count of distinct missing strings at the growing shortest-absent length. Relevant prior published computational claims on binary Fibonacci extremals and random permutation-block absence counts have different quantifiers and cannot determine this deterministic sequence. Risks: an equivalent automatic-sequence trace-map formula outside the inspected literature may exist; a failed search is not proof of novelty.
+## originality
 
-## Value
+PASS
 
-PASS. Distinct shortest absent scattered subsequences are a canonical invariant of subsequence universality. Computing their exact cardinality on every dyadic prefix of the classical Thue–Morse word is a natural infinite-family problem, rather than an arbitrary finite census. The recurrence replaces an exponentially long input and an exponentially large set of potential missing targets by a fixed-size algebraic update and reveals a substitution renormalization invisible in extremal or expectation-only formulas. The precise hierarchy and method can serve as a baseline for other morphic words. No unsupplied downstream theorem is claimed.
+General greedy/arch structural characterizations, global extremal absent-subsequence counts and Thue–Morse fixed-depth binomial factor complexity are earlier work. The all-level two-scalar trace recurrence for the specific shortest absent count is neither an extremal bound corollary nor a factor-subsequence statistic. Potential OEIS or automatic-word trace identities remain a genuine best-of-knowledge priority risk.
 
-## Sources and limitations
+## value
 
-Primary papers and dates: Kosche et al. arXiv:2108.13968 (August 31, 2021); Adamson et al. arXiv:2407.18599 (July 26, 2024); Lejeune–Leroy–Rigo arXiv:1812.07330 (December 18, 2018). The important unsolved comparisons are unindexed exact Thue–Morse missing-subsequence enumerations and equivalent trace formulas. The scope is dyadic prefixes only; the independent scientific audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact counting for an exponentially long canonical morphic word from only m small polynomial steps is a meaningful natural exact invariant; it distinguishes support/absence from embedding multiplicities and yields infinitely many nontrivial exact counts. No general arbitrary-factor result is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
