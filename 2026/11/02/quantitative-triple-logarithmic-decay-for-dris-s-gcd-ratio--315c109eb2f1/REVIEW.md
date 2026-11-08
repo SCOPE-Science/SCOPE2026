@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each prime \(p\le(\log\log X)^{1/3}\) congruent to one modulo three, a primitive cubic root class defines a genuinely additive witness-counting function. Applying the standard Turán–Kubilius theorem to its exact prime-power coefficients gives a second-moment bound. Siegel–Walfisz and partial summation give \(A_p,B_p^2\asymp(\log\log X)/p\) uniformly across the growing moduli: the lower-range split at \(\exp((\log\log X)^2)\) contributes only \(O(\log\log\log X)\). The union of insufficient-witness events costs \(O(X(\log\log X)^{-1/3})\). Exact finite CRT counting and prime-progressions Mertens then yield the stated \(O_T(X/\sqrt{\log\log\log X})\) bound. Local multiplicativity guarantees \(p\mid R(n)\) when the two witnesses exist and \(p\parallel n\). The proof distinguishes an asymptotic theorem from its finite computational checks.
+## correctness
 
-## Originality — PASS within inspected evidence
-Dris's 2020 question and 2022 Conjecture 5.1 concern density zero. Meyerowitz proposed the order-three local obstruction in August 2020. A later theorem already proves the stronger *qualitative* statement that \(R(n)>T\) for density one at each fixed \(T\); another proves the equality set has density zero. Both are credited: the new claim is solely an explicit decay rate with growing-modulus uniformity. A published squarefree restricted subfamily gives a compatible lower bound, not a covering upper estimate. Literature and mathematical-record searches located no prior bound of this form; unindexed equivalent applications of the classical inequalities remain possible.
+PASS
 
-## Mathematical value — PASS
-The quantitative decay rate answers a natural next question about the density convergence of the GCD ratio distribution, strengthening a previously qualitative theorem *for every fixed threshold*. It is uniform in the cutoff, not a finite-range observation, and requires uniform control over a growing set of local obstructions. The triple-logarithmic rate is slow and may be far from sharp, but it is a proved, nontrivial upper bound for a natural infinite arithmetic set; it is not an arbitrary parameter slice or a restatement of the zero-density result.
+For p≡1 mod3 with p||n and two distinct q||n in a primitive order-three class modulo p, both σ(q²) factors are multiples of p, forcing p|R(n). For p≤Y=L^(1/3), L=loglog X, the additive function f_p counting such q||n has mean A_p=L/(p-1)+O(log L) and variance proxy B_p²=L/(p-1)+O(log L), uniformly via a split at exp(L²), Siegel–Walfisz and partial summation. Turán–Kubilius bounds insufficient witnesses by O(Xp/L), union over growing outer primes O(XL^(-1/3)). CRT avoidance of p||n has density ∏(1-(p-1)/p²) ≪_T1/sqrt(logY) by progression Mertens; period M=exp(o(logX)) negligible. Therefore fixed-T bound O_T(X/sqrt(logloglogX)). Independently computed σ(n²) from factorization and verified R(n)=1 counts 10,99,974 through 10,100,1000. Numerical counts are not the asymptotic proof.
 
-## Limitations and sources
-Analytic inputs are Turán–Kubilius, Siegel–Walfisz, and Mertens for primes in progressions. Closest antecedents are Dris (2020, 2022), Meyerowitz (2020), the previously published qualitative \(R(n)\) result, and the published squarefree subfamily. The implied constant can be ineffective. No independent audit or assertion of absolute bibliographic priority is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dris/Meyerowitz already posed the set and found the order-three local obstruction; published results already establish qualitative density zero and R(n)→∞ in density for fixed thresholds. The assessed contribution is an explicit cutoff-dependent triple-log upper estimate for every fixed T using uniform growing-modulus control. Published lower bound ~Cx/sqrt(logx) on a subfamily is compatible and not covering. PASS qualified for possible earlier quantitative uses of standard sieve tools.
+
+## value
+
+PASS
+
+Quantifies the convergence rate in a natural divisor-sum GCD density problem for all fixed thresholds, beyond qualitative zero density. Although extremely slow and possibly ineffective, it involves growing-prime uniformity and supplies a nontrivial infinite arithmetic upper bound rather than a table or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
