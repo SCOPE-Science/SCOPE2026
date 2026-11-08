@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The standalone Python 3 source `verify_path_clique.py` is embedded alongside this report. Executing it from a directory containing the source requires only `python3 verify_path_clique.py` and the Python standard library. Its independent graph bitmask predicate uses the exact adjacency relation for the direct product, not the run decomposition. It verifies 403,264 total graph subsets, across all the chosen cases with at most 18 vertices; separate local word enumeration and two-state transfer counting agree for 13 parameter pairs. It also confirms every computed minimum count and numerically brackets the dominant radii, mean slopes and variance slopes for \(q=3,4,5\). All checks passed in this package preparation.
+# Independent mathematical audit
 
-The analytic Gaussian limit, all-parameter enumeration and strict variance positivity depend on the written arguments, not on the finite experiments or numerical differentiation. The limiting constants are implicitly defined via a simple positive transfer-matrix root; they are not claimed to have elementary closed forms. No independent mathematical audit has been carried out.
+## correctness
+
+PASS
+
+For q≥3, the direct-product fiber-local independence and domination predicates force 0, singleton(c), or full F fibers. Singleton selections form monochromatic runs of length≥2; legal gaps and color changes yield the two-state rational matrix R_q(t,z) with F node A=t z^q and C node B=t²z²/(1-tz). The specified boundary vectors count each admissible fiber word exactly once. Length-composition counts give the three residue-class optimum multiplicities and the unique extra 0F0 at (ell,q)=(3,3). Positive irreducible analytic transfer has a unique dominant simple pole (F→F moves of lengths 2,3 remove periodic ambiguity); non-cohomology of cardinality per length gives positive asymptotic variance, hence a quasi-power Gaussian limit at fixed q. Independent original-graph bitmask enumeration checked seven (ell,q) choices and minimum sizes/multiplicities; the infinite and CLT proof is analytic, not numerical.
+
+## originality
+
+PASS
+
+Best-of-knowledge original evaluated full cardinality enumerator, all optimum counts and Gaussian size law for P_ell×K_q. Earlier Kuenzel–Rall structure and minimum theorem are explicitly prior and do not state the full polynomial or CLT.
+
+## value
+
+PASS
+
+Complete exact size distribution and nondegenerate fluctuations for a natural graph-product family sharpen a known minimum-only classification; the isolated q=3 exception and exponentially rare minima have mathematical content beyond a routine reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

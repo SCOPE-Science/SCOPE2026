@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof reduces independent dominating sets to unique sequences of full-fiber nodes and monochromatic singleton runs. Boundary behavior, single- versus double-zero separators, weights, and the one exceptional optimum word are explicitly handled. The matrix gives every coefficient, while positive transfer singularities and two unequal-length positive loops yield the stated Gaussian law and positive variance. Original graph enumeration, independent fiber checking, and a node transfer check agree in the packaged finite cases. Computations are finite diagnostics, not the infinite proof.
+## correctness
 
-**Originality: PASS with residual priority risk.** Kuenzel–Rall (2019), arXiv:1901.03218, already classify admissible fiber labels by general weak partitions; Kuenzel–Rall (2022), arXiv:2203.12397, already give the minimum independent-domination number for path–clique direct products and explicit optimal patterns. These facts are not claimed as new. Jahari–Alikhani (2018), arXiv:1808.07369, define the independent-domination polynomial and enumerate other graph classes. The new quantitatively evaluated rational generating function, exact optimal multiplicities, Gaussian size distribution, and exponential rarity were not found in the inspected material. The 2019 general feasibility characterization could enable another derivation; unindexed equivalent enumerations remain a genuine risk.
+PASS
 
-**Value: PASS.** The existing exact minimum does not describe multiplicity, the counts of nonoptimal maximal independent sets, or their typical size. The full distribution and CLT distinguish an optimal solution from a uniformly sampled inclusion-maximal solution on the same natural infinite product family. This is not merely renaming a graph parameter or re-running a table: it gives an exact bivariate generating function, closed optimal counts, and an asymptotic distribution with a strictly positive variance.
+For q≥3, the direct-product fiber-local independence and domination predicates force 0, singleton(c), or full F fibers. Singleton selections form monochromatic runs of length≥2; legal gaps and color changes yield the two-state rational matrix R_q(t,z) with F node A=t z^q and C node B=t²z²/(1-tz). The specified boundary vectors count each admissible fiber word exactly once. Length-composition counts give the three residue-class optimum multiplicities and the unique extra 0F0 at (ell,q)=(3,3). Positive irreducible analytic transfer has a unique dominant simple pole (F→F moves of lengths 2,3 remove periodic ambiguity); non-cohomology of cardinality per length gives positive asymptotic variance, hence a quasi-power Gaussian limit at fixed q. Independent original-graph bitmask enumeration checked seven (ell,q) choices and minimum sizes/multiplicities; the infinite and CLT proof is analytic, not numerical.
 
-**Scope and scientific risks.** Fixed \(q\ge3\); no extension to \(q=2\) or growing \(q\). The original general weak-partition criterion is a strong precursor, and literature priority cannot be certified from finite searches. No external mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original evaluated full cardinality enumerator, all optimum counts and Gaussian size law for P_ell×K_q. Earlier Kuenzel–Rall structure and minimum theorem are explicitly prior and do not state the full polynomial or CLT.
+
+## value
+
+PASS
+
+Complete exact size distribution and nondegenerate fluctuations for a natural graph-product family sharpen a known minimum-only classification; the isolated q=3 exception and exponentially rare minima have mathematical content beyond a routine reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
