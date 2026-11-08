@@ -1,19 +1,21 @@
-# Review: exact minimum binary two-attractors
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof works for every nonempty indexed binary word. A one-position attractor cannot cover both letter types, and a two-position attractor for a word containing all four digrams must match the four digram types into two pairs of adjacent factors. Exactly two such matchings exist. The absence of both matching witnesses yields two, and only two, explicitly parameterized alternating-interior families; each has a constructive three-position attractor. An independent incidence-mask program exhausted all 65,534 nonempty binary words of lengths at most fifteen and checked the fixed-weight totals, with the all-length derivation supplied separately from computation.
+PASS
 
-## Originality — PASS (qualified)
+For every nonempty linear binary word w, coverage of both distinct length-one and length-two factor TYPES by marked positions has gamma2=1 for constant words and >=2 for nonconstant. A mark touches at most the two adjacent digrams; all distinct-pair possibilities from length-3 windows are {00,01}, {00,10}, {01,10}, {01,11}, {10,11}; {00,11} is impossible for one mark. If all four digrams appear, two marks cover them iff both 001 and 110 occur or both 100 and 011 occur; their two central positions also cover both letters. Avoidance together with occurrence of both 00 and 11 forces precisely 0^a(10)^b1^c or its complement with a,c>=2,b>=1. Three positions cover remaining 00,11 plus both transitions, proving sufficiency. If any digram absent, explicit runs or alternating cases yield two marks. Composition constraints t=b+c, n-t=a+b give two choices of orientation and exactly 2max(0,min(t-2,n-t-2)) for each n,t. Geometric series gives the bivariate rational generating function, and summation yields N3(n)=2 floor((n-4)^2/4) for n>=6. Fresh fully independent word-to-factor incidence subset search on all 2^(1)+...+2^(12) nonempty binary words checked trichotomy and counts; finite check is corroboration only.
 
-The closest primary literature is Kempa, Policriti, Prezza and Rotenberg (2018, arXiv:1803.01695) on the general \(k\)-attractor and sharp-two algorithms; Fuchs and Whittington (2023, arXiv:2304.06523) on ordinary two-attractor NP-completeness for unrestricted alphabets; and Mantaci et al. (2021) on full attractors and specific infinite word families. None of the inspected results states or dominates the full binary cutoff-two classification plus bivariate count. The general algorithms do not themselves supply the structural classification. Targeted exact-formula and published-record searches identified no equivalent. Unindexed equivalent work remains a real priority risk, not a proven absence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The boundary between a general NP-complete covering problem and the fixed binary alphabet is mathematically natural. A complete structural solution is more informative than per-instance optimization: it shows the minimum is always at most three, identifies precisely the words for which two positions fail, gives the rational weight-enumerator and establishes exponentially rare exceptional behavior. The composition-refined result supplies finer information than a length-only table.
+Best-of-knowledge PASS for exact binary fixed-alphabet 2-attractor obstruction languages and weight refined enumerator; general algorithms, NP-completeness for unbounded alphabets and full string attractor results address genuinely different assertions.
 
-## Limitations
+## value
 
-Only linear, non-sharp two-attractors of finite binary words are classified; circular, larger-alphabet, and higher-cutoff problems are not addressed. The proof, rather than the finite checker, carries the universal quantifiers. A future independent priority review is needed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This solves a natural fixed-binary boundary of a general difficult string-indexing/hitting-set problem: a complete optimum trichotomy, two regular-language obstruction families and exact length/weight distribution for every length. Unlike a tiny computation, the universal classification and rational generating function give directly reusable statistics on all binary texts. The theorem deliberately does not address full-length, circular, or sharp attractors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

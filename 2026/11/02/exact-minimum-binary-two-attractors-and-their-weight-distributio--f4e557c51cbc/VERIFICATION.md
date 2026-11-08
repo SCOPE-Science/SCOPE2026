@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The classification follows from the structural proof in `RESULT.md`; finite tests do not substitute for the all-length argument. Execute `python3 verification/verify.py` after extraction of the files in this package. The program uses only Python standard-library modules and independently builds factor-to-position coverage masks, then solves the minimum problem by checking position pairs and triples. Exhaustive cases cover every nonempty binary word through length fifteen (65,534 instances). It checks each fixed-weight class and the total counts at every tested length, as well as 299 ordinary generating-function coefficients.
+# Independent mathematical audit
 
-Observed output terminates with `VERIFY_OK exhaustive_words=65534 coefficients_through_n=299`. The test does not inspect or make any claim about larger alphabets, circular factors, or factors longer than two. Independent audit is not performed.
+## correctness
+
+PASS
+
+For every nonempty linear binary word w, coverage of both distinct length-one and length-two factor TYPES by marked positions has gamma2=1 for constant words and >=2 for nonconstant. A mark touches at most the two adjacent digrams; all distinct-pair possibilities from length-3 windows are {00,01}, {00,10}, {01,10}, {01,11}, {10,11}; {00,11} is impossible for one mark. If all four digrams appear, two marks cover them iff both 001 and 110 occur or both 100 and 011 occur; their two central positions also cover both letters. Avoidance together with occurrence of both 00 and 11 forces precisely 0^a(10)^b1^c or its complement with a,c>=2,b>=1. Three positions cover remaining 00,11 plus both transitions, proving sufficiency. If any digram absent, explicit runs or alternating cases yield two marks. Composition constraints t=b+c, n-t=a+b give two choices of orientation and exactly 2max(0,min(t-2,n-t-2)) for each n,t. Geometric series gives the bivariate rational generating function, and summation yields N3(n)=2 floor((n-4)^2/4) for n>=6. Fresh fully independent word-to-factor incidence subset search on all 2^(1)+...+2^(12) nonempty binary words checked trichotomy and counts; finite check is corroboration only.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for exact binary fixed-alphabet 2-attractor obstruction languages and weight refined enumerator; general algorithms, NP-completeness for unbounded alphabets and full string attractor results address genuinely different assertions.
+
+## value
+
+PASS
+
+This solves a natural fixed-binary boundary of a general difficult string-indexing/hitting-set problem: a complete optimum trichotomy, two regular-language obstruction families and exact length/weight distribution for every length. Unlike a tiny computation, the universal classification and rational generating function give directly reusable statistics on all binary texts. The theorem deliberately does not address full-length, circular, or sharp attractors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
