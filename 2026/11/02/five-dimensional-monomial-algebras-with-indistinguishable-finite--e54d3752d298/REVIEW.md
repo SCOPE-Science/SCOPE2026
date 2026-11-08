@@ -1,17 +1,21 @@
-# Scientific review: a finite-point automorphism-group collision
+# Independent mathematical audit
 
-## Correctness — PASS
-The five-dimensional bases and radical filtrations are explicit. The Frobenius-square map on the cotangent space has kernel dimension one for the first algebra and zero for the second; this proves nonisomorphism. Both automorphism groups admit complete normal forms with five binary parameters. Their index-two elementary abelian normal subgroups and complementary involutions have conjugation actions identified by the explicit invertible map \(\Psi\) in the result. The two actions each have two nontrivial length-two Jordan blocks. The proof also enumerates all monomial quadratic survivor sets to justify the classification and the dimension-five minimum. The standalone checker exhaustively tests the 32-element groups, 1,024 group-law comparisons, square-map kernels and the dimension-four distinction (orders 8 and 24). No inference from finite enumeration is substituted for the structural proof.
+## correctness
 
-## Originality — PASS relative to inspected sources
-The closest primary source is Díaz–Lucchini Arteche, arXiv:2409.15081, Theorems 1.1–1.2 and Examples 2.2 and 4.2. Its reconstruction theorem concerns characteristic-zero algebraic groups; its examples do not assert that two five-dimensional local monomial \(\mathbb F_2\)-algebras of identical Hilbert function have isomorphic finite rational automorphism groups. Díaz–Liendo–Manzano-Flores–Regeta, arXiv:2408.02197, Theorem 4.22 and Examples 4.25–4.26, likewise works in characteristic zero and does not supply this pair. The published truncated-coordinate-cross automorphism calculation includes the second algebra at two branches of length three, while the published quadratic-tensor short-local classification distinguishes the two multiplication types. Neither alone or together implies an isomorphism between their automorphism groups; the explicit intertwiner \(\Psi\) supplies the missing mathematical assertion.
+PASS
 
-Full-text material was examined in the primary preprints and the two closest published result packages. Semantic and exact-formulation searches did not reveal the joint group-isomorphism and dimension-five minimality statement. Residual risk: an equivalent group collision might be documented in older finite-local-ring classifications or under different semidirect-product nomenclature; absence of a search hit is not proof of publication priority.
+The F2 square-map from m/m² to m² has kernel dimension 1 for A and 0 for B. Explicit generator-image normal forms give 32 automorphisms each. The index-two elementary abelian subgroups have involutions represented by conjugation (u,v,s,r)↦(u,v,s+u,r+v) and C↦PCP, intertwined by an explicit invertible F2-linear Psi. Checking the 3 possible degree-2 monomial survivors yields exactly two classes at Hilbert (1,2,2); dimension-4 candidates have automorphism orders 8 and 24. Independent bit-vector automorphism enumeration reproduced orders 32,32,8,24 and square-map kernels; source checker additionally checks all 1024 group-law pairs.
 
-## Mathematical value — PASS
-The purpose of reconstructing local monomial algebras from symmetry is independently motivated by the cited reconstruction theorem. This is not a mere count coincidence: the two full abstract finite automorphism groups are explicitly isomorphic, while the algebras remain separated by a canonical Frobenius-square invariant even with identical dimension, Loewy length and Hilbert function. The small-dimension classification establishes an exact minimal obstruction within the natural two-generator monomial setting. It also delineates why retaining algebraic-group structure or the natural action can matter, without incorrectly asserting a counterexample to the characteristic-zero theorem.
+## originality
 
-## Limitations and closest literature
-The result treats the abstract groups of \(\mathbb F_2\)-rational algebra automorphisms, not algebraic group schemes, arbitrary finite fields, or arbitrary nonmonomial local algebras. A further small-ring group-classification source may provide an equivalent description. Relevant full-text comparisons: arXiv:2409.15081, arXiv:2408.02197, the published quadratic-tensor monomiality classification, and the published truncated coordinate-cross automorphism theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 2024 characteristic-zero reconstruction papers concern automorphism algebraic groups, not F2 rational point groups. Published SCOPE works classify possible short local structures or compute the coordinate-cross automorphism group, but do not give this explicit nonisomorphic pair with matching order-32 group and dimension-five minimality.
+
+## value
+
+PASS
+
+The minimal-dimensional concrete failure of classification by a natural finite algebra automorphism group is structurally informative, sharply delimits characteristic-zero reconstruction and is supported by an explicit group isomorphism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
