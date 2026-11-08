@@ -1,15 +1,21 @@
-# Scientific review of the rational dodecahedral homology character
+# Independent mathematical audit
 
-## Correctness
-PASS. The claim concerns exactly the ordinary independence complex of the explicitly defined dodecahedral graph and its 120 graph automorphisms. Exact binary elimination gives the complete reduced mod-two Betti vector, which bounds the rational vector; the Euler characteristic determines the single nonzero rational group. The augmented Hopf trace formula is applied with its empty-face contribution. Exhaustive graph-automorphism enumeration checks the orientation-twisted five-set character on every element. Character equality over a finite group then proves the rational-module classification. The standalone verifier reproduces the numbers and exits successfully.
+## correctness
 
-## Originality
-PASS, with acknowledged residual uncertainty. Relevant searches compare the same graph, the five maximum independent sets, the ordinary independence complex, and the orientation-twisted rational module. An indexed same-object result computes the nonequivariant homotopy type, not the character in its available summary; Lew's thesis discusses a different threshold complex. Indexed neighboring icosahedral representations use different topological constructions. No accessed source states an equivalent module. The indexed same-object record's underlying full text was inaccessible, and independently unindexed coverage remains possible.
+PASS
 
-## Value
-PASS. A four-dimensional homology rank or wedge decomposition cannot determine the group representation. Identifying the precise irreducible \(A_5\)-module, its central inversion sign, and the geometric five-independent-set model is an intrinsic structural refinement for a canonical highly symmetric graph. The exact character formula makes these properties usable in equivariant topological calculations without repeating the chain enumeration.
+Exact enumeration of independent vertex sets gives face-cardinality counts (1,20,160,660,1510,1912,1240,320,5). The cited verifier gives mod-2 boundary ranks (19,141,519,991,921,315,5) for nontrivial boundaries. Mod-two Betti ranks bound rational Betti ranks, and reduced Euler characteristic -4 forces rational H5 rank four and vanishing elsewhere, without claiming torsion absence. The Hopf trace formula on augmented chains gives tr_H5(g)=sum_{fixed sets S}(-1)^|S|sgn(g|S). Independent reconstruction enumerated all 120 graph automorphisms and all fixed independent face sets and exactly reproduced epsilon(g)(#Fix_I(g)-1), with 60 elements of each orientation and 60 even induced permutations on the five maxima. Equality of rational finite-group characters gives the module isomorphism. This is an exhaustive finite calculation, not sampled inference.
 
-## Remaining limits
-The statement concerns rational homology, not the integral lattice, and does not assert an equivariant wedge decomposition. Computations were performed with exact finite arithmetic; no external certification or independent review was undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known wedge of four S5 determines only nonequivariant topology. Lew identifies precisely the same five maximum 8-independent sets but studies a different threshold complex I_8(D), whose H15 rank4 does not imply the ordinary independence complex H5 action. Neither gives the orientation-twisted A5xC2 rational character.
+
+## value
+
+PASS
+
+This is a complete symmetry action on a natural canonical twenty-vertex graph complex with a distinguished five-object A5-set, refining a known nonequivariant classification. The sign of inversion and vanishing global invariants are meaningful representation-theoretic information, rather than another Betti count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
