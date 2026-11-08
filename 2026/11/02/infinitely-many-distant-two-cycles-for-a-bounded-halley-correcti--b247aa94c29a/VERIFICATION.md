@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification and boundaries
+# Independent mathematical audit
 
-Run `python verify_cycles.py` with Python 3 and the standard library. The executed copy produced `PASS 142 finite tests; analytic asymptotics proved separately`. It evaluates the explicit correction function in numerically stable form, brackets sufficiently distant period-two points, performs bisection, tests their positive and negative iteration residuals, checks sample Newton contractions, and compares large-index roots against their asymptotic displacement coefficient.
+## correctness
 
-The code verifies finite floating-point examples, not the asserted existence of infinitely many orbits. That existence and the eventual unique-root claim follow from the sign comparison and uniform derivative asymptotic in `RESULT.md`. The location law follows from the written uniform asymptotic expansions. The Newton comparison follows from the global derivative bounds and mean-value theorem. No verification of general attraction/repulsion, finite precision root certification, or convergence for additional nonlinear equations is claimed.
+PASS
 
-Scientific literature evidence: arXiv:2609.08110v1 was inspected through the introduction, method construction and early theoretical section before later material became inaccessible; arXiv:2312.12305v1 was read in full. Published mathematical research records and open literature were queried for stronger coverage and related corrected-Newton periodic orbits, with residual historical-priority uncertainty. Independent auditing has not been performed.
+PASS. f_delta=x+delta sin x has f_delta prime=1+delta cos x in [1-delta,1+delta], and a unique root zero. Correction C*(z)=2/(1+A(z)R(z)) positive and <2, with A and R positive. Oddness gives T(-t)=-T(t), so Q(c)=2 precisely yields a nonzero prime two-cycle {+c,-c}. At a_n=2pi n+5pi/4, Q>2 for all sufficiently large n; at B_n=2pi n+3pi/2, Q<2; leading Q prime=2delta sin u/(1+delta cos u)^2+O_delta(1/n)<0 uniformly on each interval, giving eventual uniqueness. The expansion C*(ell)=2-1/(2ell)+O(ell^-2) and cosine boundary layer yield B_n-c=(1+1/(4delta^2))/B_n+O_delta(B_n^-2). Standard derivative-sector bound ensures Newton contraction 2delta/(1-delta)<1 for delta<1/3. Independent bisection examples at delta=.05,.2 and n=1000 matched location asymptotics and cycle residuals; no stability/attractivity claimed.
+
+## originality
+
+PASS
+
+Qualified PASS for an explicit same-equation counterexample: infinitely many exact nonzero two-cycles for Mukasa’s specified bounded Halley correction despite global Newton contraction on a uniform first-derivative sector. The positive correction, local convergence and sufficient global conditions are earlier, as are other methods’ oscillations. Original Mukasa later sections could not be fully examined; no assertion of whole-document noncoverage.
+
+## value
+
+PASS
+
+PASS. The observed method advertises positive bounded correction and strong local behavior. Constructing infinitely many prime cycles on globally monotone analytic functions arbitrarily close to linear in first derivative is a motivated rigorous stress test of what global convergence can and cannot follow from; the sharp cycle placement and Newton contrast answer a precise dynamics question. No claim about attracting cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
