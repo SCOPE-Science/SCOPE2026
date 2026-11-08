@@ -1,11 +1,21 @@
-# Self-review of the surplus-palette windmill theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** A petal vertex has degree \(r<Q-1\), so in the surplus-palette regime it can never be forced. Every successful seed therefore colours all outer vertices. The only possible blank is the hub, which is forceable if and only if the initially visible colours consist of exactly \(Q-1\) distinct labels. Choosing the unique missing label and counting the ordered injective choices within petals subject to using all remaining colours yields the displayed inclusion–exclusion formula. The size threshold follows from the exact feasibility range for surjective petal injections. The asymptotic law follows rigorously from fixed-order inclusion–exclusion terms and Bonferroni inequalities; no unproved probabilistic independence of missed colours is assumed. The standalone verifier exhaustively matches the complete original-rule polynomial in eight small cases and checks a forbidden-hub regime. Finite results are corroboration, not proof of the infinite claims.
+## correctness
 
-**Originality — PASS, qualified.** Earlier exact windmill forced-colouring results assume the *chromatic* palette \(Q=r+1\), whereas this theorem has the disjoint hypothesis \(Q\ge r+2\). The earlier formula is not valid for surplus colours, and neither its coefficient support nor hub-forceability implication covers the present two-phase result. Farr's primary introduction motivates this arbitrary-palette graph invariant but does not provide an equivalent windmill surplus-palette classification in the inspected material. Indexed results for complete multipartite graphs and graphs of maximum degree two do not imply the windmill formula. The asymptotic is explicitly identified as a classical coupon-collector application; it is not independently claimed as a novel probability theorem. Search and inspection are bounded and historical priority remains a genuine risk.
+PASS
 
-**Mathematical value — PASS.** The theorem completes the previously unaddressed, nonchromatic palette axis for an infinite clique-block family and identifies a qualitative change in the forcing mechanism: a single extra colour prevents *all* outer propagation. Its full two-coefficient polynomial yields an exact multiplicity count, a sharp second threshold when the hub degree becomes too small to force it, and a natural coverage crossover at increasing palette sizes. These structural facts are not a numerical increment of a chromatic-palette coefficient or a restatement of a generic ordinary colouring count.
+Any outer vertex has degree r<=Q-2 and can never be forced, so each successful seed colors all rm outer vertices. If hub also colored, full proper coloring count Q((Q-1)_r)^m. If blank, its neighbors must display exactly Q-1 colors, leaving a unique legal hub color; inclusion-exclusion over missing t allowed colors gives Q S_(r,m)(t). This count is positive iff r<=t<=rm by capacity and explicit covering construction; r+2<=Q gives the claimed palette threshold, including m=1 where the first regime is empty. For fixed r,j, probability that a specified j-subset of t colors is unused equals [((t-j)_r)/(t_r)]^m and tends to t^(-j)e^(-jc), so finite Bonferroni truncations squeeze to exp(-e^-c). Independently enumerated all local compulsory-colour assignments on five small r,m,Q cases and obtained exactly matching polynomials.
 
-**Limitations and risks.** The inclusion–exclusion step is classical; the contribution is the graph-local forcing classification and complete surplus-palette phase diagram. Potential unindexed block-graph applications of generic local-forcing techniques remain a priority risk. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Farr introduced the forced-colouring function and general structural properties. Earlier chromatic-palette windmill and complete multipartite formulas are not this excess-palette family; the disappearance of outer forcing is a different regime. The Gumbel-style occupancy law is classical and only the windmill reduction/exact polynomial is claimed distinctive.
+
+## value
+
+PASS
+
+Full natural graph-family seed-size enumerator and sharp palette threshold Q=rm+2, with a uniform probabilistic forcing law. The two-term polynomial and coupon-coverage reduction are useful exact instances of graph forcing and exhibit how surplus colors can eliminate forcing altogether.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:48:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-palette-driven-two-step-forcing-threshold-for-clique-windmills--b3d5092b434e/RESULT.md blob 6f7f70f326544904e7b076966333d787c8911eea",
+        "/mnt/data/scope_worker03_independent_checks_20261106.py and successful output (independent bounded calculations)"
+      ],
+      "rationale": "Any outer vertex has degree r<=Q-2 and can never be forced, so each successful seed colors all rm outer vertices. If hub also colored, full proper coloring count Q((Q-1)_r)^m. If blank, its neighbors must display exactly Q-1 colors, leaving a unique legal hub color; inclusion-exclusion over missing t allowed colors gives Q S_(r,m)(t). This count is positive iff r<=t<=rm by capacity and explicit covering construction; r+2<=Q gives the claimed palette threshold, including m=1 where the first regime is empty. For fixed r,j, probability that a specified j-subset of t colors is unused equals [((t-j)_r)/(t_r)]^m and tends to t^(-j)e^(-jc), so finite Bonferroni truncations squeeze to exp(-e^-c). Independently enumerated all local compulsory-colour assignments on five small r,m,Q cases and obtained exactly matching polynomials.",
+      "residual_risks": [
+        "Independent finite verification corroborates but cannot establish the all-parameter proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farr covers arbitrary graphs conceptually but provides no closed uniform r,m,Q windmill count in inspected text. Complete multipartite record assumes Q=chromatic number and structurally distinct graphs."
+        ],
+        "reasoning": "A general formal definition of a polynomial does not imply the exact inclusion-exclusion phase formula without solving the family; coupon limit is a known occupancy consequence not claimed novel.",
+        "searches": [
+          "arxiv:2609.17108",
+          "2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2609.17108: General forced-colouring function and sufficiently-large-palette facts prior; no windmill-specific full formula in inspected text",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655: Different graph class for m>=2 and different palette regime",
+        "prior chromatic-palette claim Q=r+1 (reported in assigned RESULT.md): Only chromatic palette; not a direct parameter substitution for Q>=r+2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known high-Q exclusion of blank vertices follows from degree, but for r+2<=Q<=rm+1 the hub can be uniquely forced exactly on all-color coverage events."
+        ],
+        "reasoning": "The intermediate palette regime and exact surjection polynomial require special hub-neighbor structure not supplied by the generic statements.",
+        "searches": [
+          "arxiv:2609.17108 Propositions 5-6",
+          "published complete multipartite chromatic palette summary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Existing full-coloring result for palette size exceeding maximum degree plus one determines the high-Q no-blank case, while the intermediate Q<=rm+1 has a new hub-only occupancy term."
+        ],
+        "reasoning": "High-Q formula is a special case of Farr general statement and acknowledged, but the whole polynomial for all Q>=r+2 is not identical to that prior coverage.",
+        "searches": [
+          "forced colouring function clique windmill surplus palette inclusion exclusion coupon",
+          "arxiv:2609.17108 Proposition 5",
+          "exact forcing colouring spectrum clique windmills chromatic palette Q=r+1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search surfaced complete multipartite chromatic cases and no same-parameter surplus windmill coefficient table."
+        ],
+        "reasoning": "The expression is an infinite family identity, not a finite database entry; no indexed hit is not proof of originality.",
+        "searches": [
+          "forced colouring function clique windmill surplus palette inclusion exclusion coupon",
+          "exact forcing colouring spectrum clique windmills chromatic palette Q=r+1"
+        ]
+      },
+      "rationale": "Farr introduced the forced-colouring function and general structural properties. Earlier chromatic-palette windmill and complete multipartite formulas are not this excess-palette family; the disappearance of outer forcing is a different regime. The Gumbel-style occupancy law is classical and only the windmill reduction/exact polynomial is claimed distinctive.",
+      "residual_risks": [
+        "An unindexed prior exact clique-windmill forcing polynomial may exist.",
+        "Generic coupon collector limiting law is classical; only model-specific reduction is asserted.",
+        "Q>=r+2, fixed r in asymptotic, and independent or proper-coloring sampling as specified, not arbitrary block graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General forced-colouring function and sufficiently-large-palette facts prior; no windmill-specific full formula in inspected text",
+          "evidence": "Proposition 5 covers part of Q>rm+1 behavior but not the intermediate range or exact windmill minimum enumeration.",
+          "identifier_or_url": "arxiv:2609.17108",
+          "material_read": "Accessible full rendered primary text, definition Section 2, Proposition 5, Proposition 6 and examples; search for windmill",
+          "method": "Full arXiv rendered primary document, inspected relevant sections",
+          "title": "The forced colouring function of a graph",
+          "trigger": "Same definition, general bounds and possible all-graph formulas"
+        },
+        {
+          "assessment": "Different graph class for m>=2 and different palette regime",
+          "evidence": "Windmill has clique petals overlapping at hub, not generally complete multipartite.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+          "material_read": "Published Resultary result summary and stated chromatic-palette hypothesis, not full text",
+          "method": "Resultary semantic published record",
+          "title": "Forced colourings of complete multipartite graphs at the chromatic palette size",
+          "trigger": "Closest published complete multipartite forcing result"
+        },
+        {
+          "assessment": "Only chromatic palette; not a direct parameter substitution for Q>=r+2",
+          "evidence": "The structural degree obstruction changes when one extra color is introduced.",
+          "identifier_or_url": "prior chromatic-palette claim Q=r+1 (reported in assigned RESULT.md)",
+          "material_read": "Assigned result relationship paragraph only; primary package not independently located",
+          "method": "Scientific claim comparison limited to stated scope",
+          "title": "Exact forcing-colouring spectrum of clique windmills",
+          "trigger": "Same graph but adjacent palette value"
+        }
+      ],
+      "source_searches": [
+        "forced colouring function clique windmill surplus palette inclusion exclusion coupon"
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/a-palette-driven-two-step-forcing-threshold-for-clique-windmills--b3d5092b434e/RESULT.md",
+        "Corresponding adjacent primary research and published-result comparisons"
+      ],
+      "rationale": "Full natural graph-family seed-size enumerator and sharp palette threshold Q=rm+2, with a uniform probabilistic forcing law. The two-term polynomial and coupon-coverage reduction are useful exact instances of graph forcing and exhibit how surplus colors can eliminate forcing altogether.",
+      "residual_risks": [
+        "Q>=r+2, fixed r in asymptotic, and independent or proper-coloring sampling as specified, not arbitrary block graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2609.17108",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+    "prior chromatic-palette claim Q=r+1 (reported in assigned RESULT.md)"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An unindexed prior exact clique-windmill forcing polynomial may exist.",
+    "Generic coupon collector limiting law is classical; only model-specific reduction is asserted.",
+    "Q>=r+2, fixed r in asymptotic, and independent or proper-coloring sampling as specified, not arbitrary block graphs."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed prior exact clique-windmill forcing polynomial may exist.",
+    "Generic coupon collector limiting law is classical; only model-specific reduction is asserted.",
+    "Q>=r+2, fixed r in asymptotic, and independent or proper-coloring sampling as specified, not arbitrary block graphs."
+  ]
+}
