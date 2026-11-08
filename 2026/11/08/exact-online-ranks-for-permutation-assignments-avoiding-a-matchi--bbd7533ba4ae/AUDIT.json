@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The universal online upper bound fixes a queried assignment edge and reduces the board order. An explicit eight-leaf tree establishes the only difficult order-four base; a two-competing-edge argument inducts through all smaller forbidden matchings and the fully forbidden diagonal. Hall's theorem independently establishes the cited VC boundary; the size-two/three/four cases were enumerated and their proof boundaries examined. verify.py checked every rank through size five, the order-six derangements, and every potentially shattered matching support through size five.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2007.03668 gives general Littlestone closure bounds under Boolean aggregation, without exact forbidden-matching formulas.",
+        "arxiv:1806.00949 relates online rank to private learning, not this finite family."
+      ],
+      "reasoning": "The generic upper bound \\(n-1\\) for a permutation-matrix subfamily is elementary, but it does not imply the lower bound when all diagonal positions are forbidden. The nontrivial base tree and two-branch induction close that gap, including exceptional orders.",
+      "searches": [
+        "online learning perfect matchings mistake bound binary edge queries",
+        "Near-tight closure bounds for Littlestone and threshold dimensions arxiv 2007.03668",
+        "Littlestone dimension of finite permutations membership tests forbidden assignment"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1806.00949",
+      "https://arxiv.org/abs/1906.05908",
+      "https://arxiv.org/abs/2007.03668",
+      "https://arxiv.org/abs/2112.01946",
+      "https://arxiv.org/abs/2209.11319"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2209.11319 concerns perfect matching enumeration and ratios, not adaptive edge-query trees.",
+        "arxiv:2112.01946 studies permutation order patterns, not Boolean matrix-edge concepts.",
+        "The known static derangement rank is \\(n-2\\), but the online result equals \\(n-1\\) for all \\(n\\ge5\\)."
+      ],
+      "reasoning": "General VC≤Littlestone would yield only a lower bound of \\(n-2\\), so it cannot imply the observed one-unit gap. Counting hypotheses provides a much weaker online upper bound. The result therefore adds the precise online quantity, rather than renaming prior static work.",
+      "searches": [
+        "Littlestone dimension fixed point free permutations edge queries",
+        "Deranged matchings proofs conjectures arxiv 2209.11319",
+        "Shattering k sets with Permutations arxiv 2112.01946"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2019 perfect-matchings/derangements paper develops permanent and overlap bounds, not mistake-tree ranks (arxiv:1906.05908).",
+        "2021 shattering-permutations paper defines complete order-pattern coverage rather than edge-membership traces (arxiv:2112.01946)."
+      ],
+      "reasoning": "The new rank is a complete binary decision-tree depth for Boolean edge membership; perfect-matching counts, derangement counts and order-pattern shattering do not determine the adaptive subtree ranks. No equivalent statement was located in these scientific texts.",
+      "searches": [
+        "Littlestone dimension derangements online learning",
+        "Littlestone dimension perfect matchings permutations edges",
+        "fixed point free permutations incidence queries Littlestone dimension n-1 for n at least 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Known rook numbers give counts of partial off-diagonal matchings; they do not directly provide adaptive decision-tree depths.",
+        "Exact finite ranks through order five and the order-six derangement case were independently computed by verify.py."
+      ],
+      "reasoning": "Previously determined derangement VC/shattered-support coefficients are explicitly excluded from novelty. No identified table supplies the complete online phase diagram across all \\(n,t\\).",
+      "searches": [
+        "VC dimension derangements permutation matrix",
+        "derangements perfect matching rook polynomial versus online Littlestone rank",
+        "shattering complexes matching rook board derangements"
+      ]
+    },
+    "rationale": "The online-rank phase diagram is neither the previously established static derangement shattering polynomial nor a formal implication of generic online learning inequalities. Full matching/derangement and permutation-order shattering texts and online closure bounds were compared by statements rather than titles. Searches found no direct covering claim; possibility of alternate terminology remains noted.",
+    "residual_risks": [
+      "Historic assignment-query game results under decision-tree or twenty-questions terminology could cover this dimension.",
+      "The broader public literature was searched by relevant aliases, not exhaustively enumerated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General online motivation; no exact perfect-matching membership rank",
+        "evidence": [
+          "Defines use of Littlestone dimension; no permutation-matrix assignment theorem in inspected sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.00949",
+        "material_read": "Abstract, introductory discussion and relevant definitions in accessible HTML full text",
+        "method": "Primary source HTML text",
+        "title": "Private PAC learning implies finite Littlestone dimension",
+        "trigger": "Central online learning parameter"
+      },
+      {
+        "assessment": "Studies matching overlap/counting and derangements on graphs; not online shattering",
+        "evidence": [
+          "Theorem 1 gives a matching intersection fraction; no Littlestone statement located."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1906.05908",
+        "material_read": "Accessible full-text introduction, theorem statements, graph/permutation equivalence, targeted term searches",
+        "method": "Primary source HTML full text",
+        "title": "Perfect matchings and derangements on graphs",
+        "trigger": "Same perfect matching and derangement objects"
+      },
+      {
+        "assessment": "General closure bounds do not specialize to exact matching-deletion phase diagram",
+        "evidence": [
+          "Theorem scope is arbitrary Boolean aggregations, with asymptotic upper bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.03668",
+        "material_read": "Abstract, introduction, precise online-dimension definition and stated closure bounds",
+        "method": "Primary source HTML full text",
+        "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+        "trigger": "Plausible stronger general online theorem"
+      },
+      {
+        "assessment": "Different definition, no implication to edge-membership online trees",
+        "evidence": [
+          "Definition 1.2 requests all order patterns on subsets, not binary assignments to matrix positions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.01946",
+        "material_read": "Abstract and Section 1 definition of permutation-order shattering, targeted term search",
+        "method": "Primary source HTML full text",
+        "title": "Shattering k-sets with Permutations",
+        "trigger": "Potential direct permutation shattering equivalent"
+      },
+      {
+        "assessment": "Counting and density theorem, not online edge-query dimension",
+        "evidence": [
+          "Equates derangements to perfect matchings in K_{n,n} minus a perfect matching; no shattering or Littlestone theorem located."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.11319",
+        "material_read": "Introduction, perfect-matching graph representation, main results and targeted term searches",
+        "method": "Primary source HTML full text",
+        "title": "Deranged matchings: proofs and conjectures",
+        "trigger": "Same crown-board derangement interpretation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bbd7533b-a4ae-4a1b-89b2-3817d6e36f43",
+  "value": {
+    "rationale": "A complete exact two-parameter online-rank classification reveals a discrete VC/Littlestone phase transition at the deletion of the final forbidden assignment position. The exceptional four-by-four witness is structurally necessary, and the induction constructs adversarial mistake trees for all larger sizes. This is an interpretable assignment-learning invariant, not a routine recount of derangements or an arbitrary finite computation.",
+    "status": "PASS"
+  }
+}
