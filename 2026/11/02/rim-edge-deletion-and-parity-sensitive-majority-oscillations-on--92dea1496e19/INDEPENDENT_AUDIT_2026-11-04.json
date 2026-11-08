@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T23:39:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Path endpoint tie retention makes each rim update under hub=0 the AND of a symmetric two-neighbor relation with endpoint loops, and under hub=1 the corresponding OR. The length-two relation is connected, eliminating nonunanimous fixed/static-hub cycles for fans. The auxiliary edges {0,1}, {i-1,i+1}, {n-2,n-1} make exactly one cycle on n sites. Solving x=DEx is equivalent to no isolated ones, while hub bit switching imposes 2a>n>2b. Cyclic run compositions count c_n(a,a-r)=n/r*C(a-r-1,r-1)*C(n-a-1,r-1) for one runs of size >=2; wheel distance-two relation is one cycle if n odd, two parity cycles if even, and its two static-hub alternating orbits give the +2. Symmetric adjacency plus half identity gives a strict two-step energy potential whenever the current state is not already 2-periodic, excluding periods >=3. Independently enumerated fan/wheel states for 3<=n<=10; odd counts matched and the sign at n=4 matched, but n=12 comparison relies on exact formula rather than this direct finite scan.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goles and Olivos prove the period-one-or-two property for finite symmetric threshold automata.",
+          "Benjamini et al study majority graph convergence and disagrement, not fan-v-wheel run coefficients in available source."
+        ],
+        "reasoning": "General eventual-period restriction is already covered; it leaves exponential numbers of possible distinct two-cycles and does not imply their exact census.",
+        "searches": [
+          "Goles Olivos 1980 periodic behaviour generalized threshold functions",
+          "Benjamini et al arxiv:1405.2486"
+        ]
+      },
+      "checked_sources": [
+        "Agur Fraenkel Klein 1988 Discrete Math 70 295-302",
+        "Goles Olivos 1980 Discrete Math 30 187-189",
+        "Benjamini et al arxiv:1405.2486",
+        "Veliz-Cuba Geiser arxiv:1609.02526"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 1988 work counts fixed configurations under a three-local-vote cycle rule; this work couples the rim to a global hub and counts temporal two-cycles.",
+          "The AND-OR chain paper studies fixed points, not the alternating-hub two-step dynamics; full text not read."
+        ],
+        "reasoning": "Known run counts are a proof ingredient but cannot directly yield odd-v-even fan/wheel edge-deletion equality without the auxiliary-cycle identification and hub-threshold inequalities.",
+        "searches": [
+          "Agur Fraenkel Klein 1988 The number of fixed points of the majority rule",
+          "Veliz-Cuba Geiser arxiv:1609.02526",
+          "Benjamini et al arxiv:1405.2486"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The tie-retention rule is equivalent to sign((A+1/2I)s) for spins.",
+          "Hub alternating states encode the AND-OR composition x=DEx on a single n-cycle."
+        ],
+        "reasoning": "Checked both symmetric-threshold automaton and AND-OR-network aliases; standard period bound does not enumerate the new fan/wheel primitive cycles.",
+        "searches": [
+          "binary synchronous majority dynamics fan wheel primitive two-cycle orbit counts parity rim edge deletion",
+          "Goles Olivos periodic symmetric threshold automata",
+          "AND OR path fan hub majority auxiliary cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Agur et al original journal article p300 tabulates stationary cyclic radius-one majority words, not hub-flipping two-cycles.",
+          "Resultary hits on parity automata concern different local update rules."
+        ],
+        "reasoning": "The cyclic fixed-point table is not the fan/wheel primitive orbit table, and no exact n4/n12 same-model counts were identified.",
+        "searches": [
+          "Resultary query: binary synchronous majority dynamics fan wheel primitive two-cycle orbit counts parity rim edge deletion",
+          "Agur Fraenkel Klein 1988 cyclic majority fixed point table"
+        ]
+      },
+      "rationale": "Classical symmetric threshold maps already have period<=2 and cyclic-majority fixed-word count formulas; those subclaims are credited. The coupled fan/wheel primitive cycle count, odd rim-deletion invariance and even examples of opposite count changes are different from static cellular-automaton fixed points and from global convergence results. Older automaton literature may cover equivalent hub-coupled counts under another term, so priority is qualified.",
+      "residual_risks": [
+        "Older synchronous-threshold automaton literature may contain equivalent fan/wheel primitive orbit counts under alternate terminology.",
+        "Full 2016 AND-OR chains article was not inspected; inaccessible full text alone is not treated as scientific failure.",
+        "Odd fan/wheel equality is an orbit-count identity, NOT transient conjugacy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers stationary binary words of majority on a cycle, not hub-alternating fan/wheel primitive cycles",
+          "evidence": [
+            "Pages 295-299 fixed-word run counts",
+            "Page 300 stationary-state table"
+          ],
+          "identifier_or_url": "https://www.imbm.org/wp-content/uploads/2020/01/AFK88.pdf; DOI 10.1016/0012-365X(88)90005-2",
+          "material_read": "Original eight-page journal article, all source pages reviewed as documented; visual PDF pages 1 and 5 reexamined for main theorem/table",
+          "method": "Primary full PDF and screenshots",
+          "title": "The number of fixed points of the majority rule",
+          "trigger": "Original cyclic-majority count may subsume two-cycle run enumeration"
+        },
+        {
+          "assessment": "Different convergence regimes; no direct same fan/wheel cycle census established",
+          "evidence": [
+            "Original abstract focuses on unimodular and random graphs"
+          ],
+          "identifier_or_url": "arxiv:1405.2486",
+          "material_read": "Accessible abstract and primary discussion of rule and convergence; full source not represented as inspected",
+          "method": "Primary arXiv summary and targeted topic search",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Same synchronous neighbor-majority update with tie retention"
+        },
+        {
+          "assessment": "Insufficient material for categorical noncoverage; historical priority risk retained",
+          "evidence": [
+            "Title and abstract target fixed points on chain topologies; exact fan/wheel coupled majority not established from material read"
+          ],
+          "identifier_or_url": "arxiv:1609.02526",
+          "material_read": "Abstract/indexed primary description only; complete article not available for inspection",
+          "method": "Open-source search and abstract access",
+          "title": "The Number of Fixed Points of AND-OR Networks with Chain Topology",
+          "trigger": "AND-OR chain composition is close algebraic model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact recurrent orbit census explains a sharp parity-dependent change under the deletion of ONE graph edge, including cases of both increases and decreases. This bridges threshold dynamics with a run-word enumeration and is a motivated graph perturbation invariant beyond fixed-point counts.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Agur Fraenkel Klein 1988 Discrete Math 70 295-302",
+    "Goles Olivos 1980 Discrete Math 30 187-189",
+    "Benjamini et al arxiv:1405.2486",
+    "Veliz-Cuba Geiser arxiv:1609.02526"
+  ],
+  "disposition": "passed",
+  "final_claim": "For synchronous binary neighbor majority with tie retention on F_n=K_1 vee P_n, every fixed state is unanimous and every primitive two-cycle flips the hub and corresponds to a no-isolated-ones word on an auxiliary cycle with 2a>n>2b, counted by c_n(a,b). For W_n=K_1 vee C_n, odd n has same orbit count as F_n and even n=2m has two additional static-hub orbits plus a two-cycle product sum; fan4=0<wheel4=2 and fan12=243>wheel12=227. Every trajectory is eventually fixed or period two.",
+  "limitations": [
+    "Older synchronous-threshold automaton literature may contain equivalent fan/wheel primitive orbit counts under alternate terminology.",
+    "Full 2016 AND-OR chains article was not inspected; inaccessible full text alone is not treated as scientific failure.",
+    "Odd fan/wheel equality is an orbit-count identity, NOT transient conjugacy.",
+    "Independent computations are finite and do not certify unbounded parameter statements; arguments in RESULT.md assessed as mathematical proof.",
+    "Scientific PASS does not imply ready-to-publish transport; public operational metadata requires sanitization."
+  ],
+  "residual_risks": [
+    "Older synchronous-threshold automaton literature may contain equivalent fan/wheel primitive orbit counts under alternate terminology.",
+    "Full 2016 AND-OR chains article was not inspected; inaccessible full text alone is not treated as scientific failure.",
+    "Odd fan/wheel equality is an orbit-count identity, NOT transient conjugacy."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers stationary binary words of majority on a cycle, not hub-alternating fan/wheel primitive cycles",
+      "evidence": [
+        "Pages 295-299 fixed-word run counts",
+        "Page 300 stationary-state table"
+      ],
+      "identifier_or_url": "https://www.imbm.org/wp-content/uploads/2020/01/AFK88.pdf; DOI 10.1016/0012-365X(88)90005-2",
+      "material_read": "Original eight-page journal article, all source pages reviewed as documented; visual PDF pages 1 and 5 reexamined for main theorem/table",
+      "method": "Primary full PDF and screenshots",
+      "title": "The number of fixed points of the majority rule",
+      "trigger": "Original cyclic-majority count may subsume two-cycle run enumeration"
+    },
+    {
+      "assessment": "Different convergence regimes; no direct same fan/wheel cycle census established",
+      "evidence": [
+        "Original abstract focuses on unimodular and random graphs"
+      ],
+      "identifier_or_url": "arxiv:1405.2486",
+      "material_read": "Accessible abstract and primary discussion of rule and convergence; full source not represented as inspected",
+      "method": "Primary arXiv summary and targeted topic search",
+      "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+      "trigger": "Same synchronous neighbor-majority update with tie retention"
+    },
+    {
+      "assessment": "Insufficient material for categorical noncoverage; historical priority risk retained",
+      "evidence": [
+        "Title and abstract target fixed points on chain topologies; exact fan/wheel coupled majority not established from material read"
+      ],
+      "identifier_or_url": "arxiv:1609.02526",
+      "material_read": "Abstract/indexed primary description only; complete article not available for inspection",
+      "method": "Open-source search and abstract access",
+      "title": "The Number of Fixed Points of AND-OR Networks with Chain Topology",
+      "trigger": "AND-OR chain composition is close algebraic model"
+    }
+  ]
+}

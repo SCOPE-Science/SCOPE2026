@@ -1,9 +1,21 @@
-# Scientific review: majority oscillations on fans and wheels
+# Independent mathematical audit
 
-**Correctness.** PASS. The proof gives the exact two-input endpoint rule, constructs the associated single auxiliary cycle, proves that no nonconsensus fixed or static-hub periodic states occur, and identifies all hub-flipping two-cycles with circular words having no isolated ones and two strict population inequalities. A run-composition argument gives each coefficient. For the wheel comparison, odd rim sizes produce one cycle while even rim sizes produce two, with two additional static-hub orbits. The bounded symmetric-threshold potential proves eventual period at most two. The embedded direct simulation agrees across every configuration at 14 fan sizes; these are only corroborating checks.
+## correctness
 
-**Originality.** PASS, with residual bibliographic risk. The inspected 1988 primary source counts fixed strings under a distinct local three-site majority rule; the available 2014 primary full text treats generic/unimodular and random graphs; the 2016 AND-OR paper concerns chain-network fixed points without a globally voting hub. The general period-two theorem from 1980 and classical circular run enumeration are acknowledged prior art. The new graph-specific reduction, full fan orbit formula, odd-rim comparison and two opposite edge-deletion examples are not implications of the stated primary results. Full access to the 2016 paper was unavailable, and further historical equivalents are possible.
+PASS
 
-**Mathematical value.** PASS. The graph perturbation is natural and minimal: one edge separates the wheel from the fan. The sharp odd-size equivalence and even-size nonmonotone change distinguish orbit counts from graph size and degree alone. The formula classifies a natural invariant for the entire infinite fan family, not an arbitrary parameter slice or recomputation of a known table.
+Path endpoint tie retention makes each rim update under hub=0 the AND of a symmetric two-neighbor relation with endpoint loops, and under hub=1 the corresponding OR. The length-two relation is connected, eliminating nonunanimous fixed/static-hub cycles for fans. The auxiliary edges {0,1}, {i-1,i+1}, {n-2,n-1} make exactly one cycle on n sites. Solving x=DEx is equivalent to no isolated ones, while hub bit switching imposes 2a>n>2b. Cyclic run compositions count c_n(a,a-r)=n/r*C(a-r-1,r-1)*C(n-a-1,r-1) for one runs of size >=2; wheel distance-two relation is one cycle if n odd, two parity cycles if even, and its two static-hub alternating orbits give the +2. Symmetric adjacency plus half identity gives a strict two-step energy potential whenever the current state is not already 2-periodic, excluding periods >=3. Independently enumerated fan/wheel states for 3<=n<=10; odd counts matched and the sign at n=4 matched, but n=12 comparison relies on exact formula rather than this direct finite scan.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Classical symmetric threshold maps already have period<=2 and cyclic-majority fixed-word count formulas; those subclaims are credited. The coupled fan/wheel primitive cycle count, odd rim-deletion invariance and even examples of opposite count changes are different from static cellular-automaton fixed points and from global convergence results. Older automaton literature may cover equivalent hub-coupled counts under another term, so priority is qualified.
+
+## value
+
+PASS
+
+The exact recurrent orbit census explains a sharp parity-dependent change under the deletion of ONE graph edge, including cases of both increases and decreases. This bridges threshold dynamics with a run-word enumeration and is a motivated graph perturbation invariant beyond fixed-point counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
