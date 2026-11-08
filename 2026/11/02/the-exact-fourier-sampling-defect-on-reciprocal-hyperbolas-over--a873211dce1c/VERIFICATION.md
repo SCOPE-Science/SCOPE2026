@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-## Checks and limitations
-The proof's coefficient-field step uses the elementary fact that \(\mathbb Q(\zeta_p)\) and \(\mathbb Q(\zeta_{p-1})\) are linearly disjoint. The fiber step checks all \(p\) phases and proves a complete if-and-only-if using the involution \(u\mapsto(b/a)u^{-1}\). The character computation establishes the precise kernel direction. Cases \(a=b=0\), exactly one zero parameter, square/non-square ratio, and \(p=3\) are explicit.
+# Independent mathematical audit
 
-Run `python verify_kloosterman.py` with NumPy installed. It performs 178 direct numerical rank tests at ten odd primes, including all degenerate parameter types. Floating point singular-value thresholds are not exact certificates. No external or independent audit has been performed.
+## correctness
+
+PASS
+
+For odd p, M(s,t)=e_p(ast+b(st)^{-1}) acts on multiplicative character vχ by inversion and scalar twisted Kloosterman sum Tχ. Over Q(ζ_{p−1}), p-th additive cyclotomic linear disjointness forces vanishing iff all phase-fiber weights are equal. For nontrivial χ their sum is zero, so every phase fiber must cancel. The quadratic fibers u,c/u (c=b/a) have singleton roots when c is square, forbidding zeros. For nonsquare c, pairwise cancellation requires χ(c)=−1 and χ²=1, uniquely χ=Legendre. Degenerate cases use nonzero Gauss sums and all-ones matrix. Thus rank1 at (0,0), p−2 precisely if ab≠0 nonsquare, p−1 otherwise, with explicit one-dimensional kernel. 178 numerical finite-field checks passed, not used as proof of all-prime statement.
+
+## originality
+
+PASS
+
+Classical quadratic Salié cancellation is prior work and expressly excluded from novelty. The claimed entire matrix rank, all-character nonvanishing and exact kernel are not stated in inspected Kelmer, Louvel, Nica or related hyperbolic Gabor database descriptions. Lin–Tu potentially relevant full text inaccessible (institutional VPN disconnected), a specific residual priority risk.
+
+## value
+
+PASS
+
+Gives a complete two-parameter exact injectivity/one-mode-defect classification for the natural Fourier sampling pairing of reciprocal hyperbolas, including explicit lost quadratic mode; directly informs exact interpolation and recoverability, not an arbitrary tiny rank table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

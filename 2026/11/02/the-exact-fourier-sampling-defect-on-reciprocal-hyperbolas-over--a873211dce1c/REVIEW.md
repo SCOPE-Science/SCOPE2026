@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Multiplicative character diagonalization identifies every matrix zero mode with one scalar twisted Kloosterman sum. Over the cyclotomic coefficient field, vanishing forces equal additive-phase fiber coefficients; because nontrivial characters have zero total, every fiber must cancel. The quadratic map fibers under \(u\mapsto (b/a)/u\) have a singleton exactly in the square case. In the nonsquare case only the quadratic character cancels every pair. The exactly-one-zero-parameter cases are nonzero Gauss sums, and the all-zero case is an all-ones matrix. This proves the full case split for all odd primes. The 178 numerical cases are corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS under bounded comparison.** The quadratic Salié-sum cancellation is previously known and excluded from the originality claim. The complete multiplicative sampling rank/nullspace classification, especially nonvanishing of every nonquadratic character eigenvalue, was not stated in the inspected primary works. Kelmer (arXiv:0801.4162) covers prime-power distribution; Louvel (arXiv:1107.5282) covers quadratic Salié moments; Nica (arXiv:1910.00165) covers Frobenius-ring character-sum moments, with main theorem for local rings that are not fields. Nearby published records concern different Gabor or Fourier measurement operators. Residual risk: an earlier field-character-sum or spectral-set reference might imply the same rank result; the Lin–Tu full text was inaccessible.
+PASS
 
-**Value — PASS.** A natural Fourier sampling problem on reciprocal hyperbolas receives a uniform exact invertibility criterion, an arithmetic one-dimensional obstruction, and its explicit lost mode. The result distinguishes full recovery from failed recovery across a complete geometric two-parameter family, not an arbitrary finite example. There is no claim of a general prime-power or conditioning theorem.
+For odd p, M(s,t)=e_p(ast+b(st)^{-1}) acts on multiplicative character vχ by inversion and scalar twisted Kloosterman sum Tχ. Over Q(ζ_{p−1}), p-th additive cyclotomic linear disjointness forces vanishing iff all phase-fiber weights are equal. For nontrivial χ their sum is zero, so every phase fiber must cancel. The quadratic fibers u,c/u (c=b/a) have singleton roots when c is square, forbidding zeros. For nonsquare c, pairwise cancellation requires χ(c)=−1 and χ²=1, uniquely χ=Legendre. Degenerate cases use nonzero Gauss sums and all-ones matrix. Thus rank1 at (0,0), p−2 precisely if ab≠0 nonsquare, p−1 otherwise, with explicit one-dimensional kernel. 178 numerical finite-field checks passed, not used as proof of all-prime statement.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Classical quadratic Salié cancellation is prior work and expressly excluded from novelty. The claimed entire matrix rank, all-character nonvanishing and exact kernel are not stated in inspected Kelmer, Louvel, Nica or related hyperbolic Gabor database descriptions. Lin–Tu potentially relevant full text inaccessible (institutional VPN disconnected), a specific residual priority risk.
+
+## value
+
+PASS
+
+Gives a complete two-parameter exact injectivity/one-mode-defect classification for the natural Fourier sampling pairing of reciprocal hyperbolas, including explicit lost quadratic mode; directly informs exact interpolation and recoverability, not an arbitrary tiny rank table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
