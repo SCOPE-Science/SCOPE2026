@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The 720-topological-order enumeration is logically exhaustive for all acyclic orientations of \(K_{2,2,2}\), and the 4096-cube-direction enumeration independently uses the exact directed-cut criterion for strong connectivity. Both complete code paths reproduce 426 states, 1152 flips and degree classes 288, 120, 18. The 15 orbit representatives and group action form an explicit compact finite certificate. Dimension five and planar-dual identification are standard structural arguments. No asymptotic or unproved extension is asserted.
+## correctness
 
-**Originality — PASS, qualified.** The total 426 is already tabulated in OEIS A338154 and follows from the classical chromatic-polynomial theory; it is not new. The exact degree polynomial, missing degree seven and 15-orbit stratification were compared against published-finding corpus searches, accessible earlier claims, and the inspected Aksoy–Horn 2015/2016 full text, which addresses expansion hypotheses rather than a fixed cubic graph's reversible-arc degrees. General acyclic-orientation flip results and 2001 shelling work do not by themselves imply the stated coefficients. Some original full texts and specialized data tables remain a plausible historical equivalence risk.
+PASS
 
-**Value — PASS.** The octahedron is the smallest three-part complete multipartite graph with nontrivial two-vertex parts, and its cube dual is a standard robust-orientation test graph. The degree enumerator measures *local robustness* of every strongly connected one-way assignment under road-direction reversal, while in the dual it identifies exactly which vertices of a canonical five-dimensional graphical zonotope are simple. The absent intermediate degree is a nontrivial complete local combinatorial classification, not just a recomputation of the known count 426. The finite orbit certificate makes the result independently reusable.
+On O=K_2,2,2 with 12 lexicographic cross-part edges, all acyclic orientations are exactly those induced by 6! topological vertex permutations, encoded as distinct 12-bit strings. Independently computed the 426 distinct orientations, and for each tested all twelve one-bit reversals for membership in that complete set. The histogram is 288 vertices of degree5, 120 of degree6 and 18 of degree8, no degree7; handshake gives 1152 flip edges. The full 48 automorphisms (three part permutations and within-part swaps) give 15 orientation orbits (pinned verify_octahedron.py independently enumerates them). A separate independently coded strong-cube cut test among 4096 orientations yields 426 strongly connected cube orientations with the same reversible-edge histogram, consistent with planar orientation duality; the octahedron graphical zonotope is five-dimensional and its simple vertices correspond to the 288 degree-5 orientations. Exact finite completeness follows from topological orders and exhaustive finite masks, not sampled orientation logs.
 
-**Closest known work and limitations.** Stanley (1973) gives orientation counts, OEIS A338154 lists 426, and Aksoy–Horn (2015/2016) gives general asymptotic strong-orientation results. The outcome is one finite graph, not a family theorem, and inaccessible specialized degree tables remain a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Stanley’s chromatic-polynomial formula already counts 426 acyclic octahedral orientations, and OEIS A338154 contains that total; neither gives the finer local degree polynomial. General acyclic flip/zonotope and planar-dual strong-orientation results establish the framework but the inspected material does not provide 288t^5+120t^6+18t^8 or missing degree seven. A relevant Fukuda–Prodon–Sakuma original full article could not be read due disconnected authorized Oxford VPN, and might contain equivalent specialized tabulations; this is an explicit historical risk, not an automatic scientific failure.
+
+## value
+
+PASS
+
+The exact reversal-degree stratification of a canonical five-dimensional graphical zonotope, its missing intermediate degree, and the dual cube strong orientation interpretation are motivated local polytope invariants beyond the known 426 count. A 15-orbit human-checkable certificate makes the finite result independently reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T09:08:04.050493Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On O=K_2,2,2 with 12 lexicographic cross-part edges, all acyclic orientations are exactly those induced by 6! topological vertex permutations, encoded as distinct 12-bit strings. Independently computed the 426 distinct orientations, and for each tested all twelve one-bit reversals for membership in that complete set. The histogram is 288 vertices of degree5, 120 of degree6 and 18 of degree8, no degree7; handshake gives 1152 flip edges. The full 48 automorphisms (three part permutations and within-part swaps) give 15 orientation orbits (pinned verify_octahedron.py independently enumerates them). A separate independently coded strong-cube cut test among 4096 orientations yields 426 strongly connected cube orientations with the same reversible-edge histogram, consistent with planar orientation duality; the octahedron graphical zonotope is five-dimensional and its simple vertices correspond to the 288 degree-5 orientations. Exact finite completeness follows from topological orders and exhaustive finite masks, not sampled orientation logs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stanley gives total via chi_G(-1), known 426; general graphical zonotope adjacency and shelling theory explain flips but do not visibly evaluate degree histogram. Aksoy–Horn counts many strong orientations asymptotically."
+        ],
+        "reasoning": "The known general statements imply the bijection and number of states, not their local reversal-degree spectrum; uninspected detailed shelling tables remain a priority risk.",
+        "searches": [
+          "Stanley 1973 acyclic orientations chromatic polynomial",
+          "Fukuda Prodon Sakuma 2001 shelling lemma",
+          "Aksoy Horn 2015 strong orientations"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, verify_octahedron.py and verify_cube.py",
+        "Stanley Discrete Mathematics 1973 chromatic orientation theorem",
+        "OEIS A338154 known 426",
+        "DOI:10.1016/S0304-3975(00)00226-7 (Fukuda–Prodon–Sakuma 2001 abstract only)",
+        "arXiv:1505.00767 (Aksoy–Horn)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general enumeration at x=-1 or strong-orientation asymptotics does not specify which 1-bit flips remain feasible; those data are genuinely separate."
+        ],
+        "reasoning": "One must evaluate each of 12 candidate reversals across orientations to obtain the degree polynomial; neither chi(-1) nor generic shelling connectivity does it without additional analysis.",
+        "searches": [
+          "arxiv:1505.00767 Aksoy Horn strong orientations",
+          "Fukuda Prodon Sakuma shelling lemma abstract",
+          "Stanley acyclic orientation chromatic polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Planar duality equates acyclic-orientation edge flips of K222 to strong-orientation flips of Q3; the independent dual enumeration matches 288/120/18."
+        ],
+        "reasoning": "Both primal zonotope-vertex degree and dual cube strong-orientation flip degree are assessed, not merely titles; no exact table accessible in checked sources.",
+        "searches": [
+          "octahedron K222 acyclic orientations reversible arc degree enumerator",
+          "cube graph strong orientations reversible edges",
+          "Fukuda Prodon Sakuma DOI:10.1016/S0304-3975(00)00226-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A338154 lists the total 426, not a 3-term degree polynomial in available record; Resultary search for octahedral zonotopes found other quantities such as circumsphere."
+        ],
+        "reasoning": "The 426 total is known and explicitly excluded from originality; the unindexed zonotope degree table possibility remains.",
+        "searches": [
+          "OEIS A338154 octahedral acyclic orientations 426",
+          "octahedron 288 t5 + 120 t6 + 18 t8 zonotope vertex degrees",
+          "Foster? cube strong orientations degree histogram"
+        ]
+      },
+      "rationale": "Stanley’s chromatic-polynomial formula already counts 426 acyclic octahedral orientations, and OEIS A338154 contains that total; neither gives the finer local degree polynomial. General acyclic flip/zonotope and planar-dual strong-orientation results establish the framework but the inspected material does not provide 288t^5+120t^6+18t^8 or missing degree seven. A relevant Fukuda–Prodon–Sakuma original full article could not be read due disconnected authorized Oxford VPN, and might contain equivalent specialized tabulations; this is an explicit historical risk, not an automatic scientific failure.",
+      "residual_risks": [
+        "Fukuda–Prodon–Sakuma 2001 full text inaccessible via authorized route (VPN disconnected); hidden exact 5D example may overlap.",
+        "OEIS A338154 and Stanley already cover the count 426; only finer local degree polynomial and symmetry refinement are assessed new.",
+        "Fixed 426-state result is not a theorem about all graphical zonotopes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "counts acyclic orientations but not shown to cover local flip degrees",
+          "evidence": "Chromatic evaluation explains 426 total, not local degree distribution.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(73)90108-8",
+          "material_read": "Theorem citation in source, bibliographic metadata; full original paper not independently read",
+          "method": "targeted older-primary bibliographic review",
+          "title": "Acyclic orientations of graphs",
+          "trigger": "Classical total-orientation enumeration"
+        },
+        {
+          "assessment": "plausible original not decisively excluded",
+          "evidence": "Cannot assert full-paper absence of an octahedral degree table.",
+          "identifier_or_url": "https://doi.org/10.1016/S0304-3975(00)00226-7",
+          "material_read": "Bibliographic abstract/indexed material only; original full text unavailable",
+          "method": "preprint and lawful OA search, then authorized Oxford tool returned vpn_disconnected job 020232e1c32e118f01fe323fcefb5432",
+          "title": "Notes on acyclic orientations and the shelling lemma",
+          "trigger": "Plausible original graph flip/zonotope source"
+        },
+        {
+          "assessment": "general asymptotics, not shown to evaluate cube local degrees",
+          "evidence": "The published title/summary concerns asymptotic abundance of strong orientations.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.00767",
+          "material_read": "Abstract and bibliographic metadata, not entire original article",
+          "method": "arXiv abstract search",
+          "title": "Graphs with many strong orientations",
+          "trigger": "Potential covering strong-cube orientation work"
+        },
+        {
+          "assessment": "different invariant: radius/circumsphere, not flip-degree polynomial",
+          "evidence": "Cubic moment of part sizes determines circumsphere and farthest orientations, not all local degrees.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-multipartite-graphical-zonotopes-have-cubic-moment-circ--2fc427ff213b",
+          "material_read": "Resultary title and published finding summary only",
+          "method": "semantic Resultary query",
+          "title": "Complete multipartite graphical zonotopes have cubic-moment circumspheres",
+          "trigger": "Published SCOPE exact zonotope results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact reversal-degree stratification of a canonical five-dimensional graphical zonotope, its missing intermediate degree, and the dual cube strong orientation interpretation are motivated local polytope invariants beyond the known 426 count. A 15-orbit human-checkable certificate makes the finite result independently reusable.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md, verify_octahedron.py and verify_cube.py",
+    "Stanley Discrete Mathematics 1973 chromatic orientation theorem",
+    "OEIS A338154 known 426",
+    "DOI:10.1016/S0304-3975(00)00226-7 (Fukuda–Prodon–Sakuma 2001 abstract only)",
+    "arXiv:1505.00767 (Aksoy–Horn)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fukuda–Prodon–Sakuma 2001 full text inaccessible via authorized route (VPN disconnected); hidden exact 5D example may overlap.",
+    "OEIS A338154 and Stanley already cover the count 426; only finer local degree polynomial and symmetry refinement are assessed new.",
+    "Fixed 426-state result is not a theorem about all graphical zonotopes."
+  ],
+  "schema_version": 1
+}
