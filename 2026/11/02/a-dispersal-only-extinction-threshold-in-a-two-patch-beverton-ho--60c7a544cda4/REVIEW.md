@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed-point reduction uses a strictly increasing sink-elimination map and yields a continuous scalar equation whose sign is negative at low source density, positive at the explicit retention maximum, and negative for large source density. The general two-equilibrium existence assertion follows by two applications of the intermediate-value theorem and \(\rho(M_0)<1\) implies extinction local stability. In the rational example, the exact polynomial elimination identity and four rational sign brackets establish exactly four simple positive algebraic roots. The explicit feasibility test admits exactly two; exact Jacobian bounds establish a hyperbolic saddle and a positive sink, while the extinction eigenvalues lie in the unit disk. The implicit-function theorem provides local parameter robustness. `verify.py` implements independent exact-rational algebra and interval inequalities. No finite enumeration is used as a substitute for an infinite-parameter proof.
+## correctness
 
-## Originality — PASS, with residual risks
-McGrane-Corrigan, Mason and de Andrade Moral, arXiv:2405.04505v1, Section 5 Theorem 5.1 proves a positive fixed point when \(\rho(M_0)>1\); Section 6.3 Example 3 provides a numerical periodic-orbit counterexample to the global extinction dichotomy when \(\rho(M_0)<1\). These conclusions do not imply an exact count of two admissible *fixed points*, their saddle/sink types, or robust bistability in the strictly concave Beverton–Holt and density-invariant survival subclass. Its Section 3 discusses the known constant-dispersal dichotomy, inapplicable to variable emigration. Knipl and Röst's 2016 mixed local-density-dependence model uses a local strong Allee effect, absent here. Silva et al. (2001) and de Godoy et al. (2023) are closely related but full specialist texts were not inspected; a hidden equivalent result cannot be excluded. Research-index comparisons returned no statement subsuming the exact result. This is a best-knowledge priority assessment, not uniqueness certification.
+PASS
 
-## Value — PASS
-A familiar local-growth condition (each Beverton–Holt map strictly increasing and concave) together with a globally fixed survival-loss budget might suggest an extinction threshold governed by the low-density spectral radius, as in established constant-dispersal theory. The result isolates a natural, structurally different failure mode: a density-responsive *allocation* alone gives a rigorous subcritical coexistence threshold. The general sufficient criterion and exact all-equilibria classification provide usable tools for persistence and intervention questions; no large theorem program is required to make the sharp, reproducible finite classification meaningful.
+For p(x)=alpha/(1+x)^2 and the positive constant-survival dispersal matrix, the sink fixed-point equation y-Ey/(1+y)=K(x) has a unique continuous y(x), uniformly bounded. The scalar source residual G(x)=H(x)+B y(x)/(1+y(x))-x has G(0)=0, G_prime(0)<0 precisely under rho(M_0)<1, G(x_star)>0 if alpha>1/3 and 2cr/(3sqrt(3alpha))>1, and G(x)->-infinity, giving two strictly positive roots. The exact rational parameters (4/5,6,1/4,1/5,9/10) lead to polynomial P(x) degree seven with Descartes <=4 positive roots, four disjoint sign-changing rational brackets, and a feasibility test 0<V(x)<1 only in first and fourth intervals. This yields exactly two positive fixed points; derivative bounds show one saddle, one stable, plus stable extinction. Hyperbolicity persists for sufficiently small parameter perturbations. Independently recomputed polynomial identity, exact rational brackets, and Jacobian interval inequalities, not just numerical roots. General conditions guarantee at least two, not exactly two throughout parameter space.
 
-## Scientific limitations and literature risk
-Only local asymptotic stability and exact fixed-point multiplicities are established. No global basin boundary or global convergence statement follows. The strongest literature comparison is based on the complete readable 2024 motivating source; older 2001 and 2023 specialist sources were accessible only as abstracts/metadata, which preserves a genuine priority risk. Independently replicated publication-priority verification has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical fixed-dispersal Beverton–Holt dichotomies and more general density-responsive dispersal studies are acknowledged. The 2024 full preprint and its 2025 journal incarnation study source-sink dynamics, provide supercritical equilibrium existence and subcritical periodic counterexamples, but the inspected primary material does not present this exact subcritical pair of positive fixed points under strictly concave recruitment and constant total dispersal survival, nor this rational bistability witness. The spectral threshold alone is not a global dichotomy in the present model. Equivalent 2001 specialist theory is a residual risk.
+
+## value
+
+PASS
+
+This is a structural and robust counterexample to global extinction from a subcritical linearization, despite both recruitment maps being strictly concave and aggregate survival fixed. Exact polynomial root-counting and hyperbolic stability make the phenomenon rigorous and robust, relevant to ecological threshold theory and dispersal design. Neither a routine plot nor a trivial tweak to Allee recruitment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

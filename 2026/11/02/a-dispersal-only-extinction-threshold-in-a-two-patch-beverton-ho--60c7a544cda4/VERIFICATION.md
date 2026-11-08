@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing this document and `verify.py`. Only Python's standard library is needed. The executable uses exact rational arithmetic for polynomial multiplication and sign tests and independently evaluates conservative Jacobian derivative bounds on the isolated-root intervals. Successful execution prints a single `PASS` line.
+## correctness
 
-The analytic argument, not the program, supplies the all-parameter positive-equilibrium existence theorem and the intermediate-value and Descartes root-exhaustion steps. The program checks every displayed rational identity and inequality needed by the specialized exact example. It does not attempt to certify uniqueness of literature priority, global basins, or arbitrary-parameter stability types.
+PASS
 
-Independent audit: not performed.
+For p(x)=alpha/(1+x)^2 and the positive constant-survival dispersal matrix, the sink fixed-point equation y-Ey/(1+y)=K(x) has a unique continuous y(x), uniformly bounded. The scalar source residual G(x)=H(x)+B y(x)/(1+y(x))-x has G(0)=0, G_prime(0)<0 precisely under rho(M_0)<1, G(x_star)>0 if alpha>1/3 and 2cr/(3sqrt(3alpha))>1, and G(x)->-infinity, giving two strictly positive roots. The exact rational parameters (4/5,6,1/4,1/5,9/10) lead to polynomial P(x) degree seven with Descartes <=4 positive roots, four disjoint sign-changing rational brackets, and a feasibility test 0<V(x)<1 only in first and fourth intervals. This yields exactly two positive fixed points; derivative bounds show one saddle, one stable, plus stable extinction. Hyperbolicity persists for sufficiently small parameter perturbations. Independently recomputed polynomial identity, exact rational brackets, and Jacobian interval inequalities, not just numerical roots. General conditions guarantee at least two, not exactly two throughout parameter space.
+
+## originality
+
+PASS
+
+Classical fixed-dispersal Beverton–Holt dichotomies and more general density-responsive dispersal studies are acknowledged. The 2024 full preprint and its 2025 journal incarnation study source-sink dynamics, provide supercritical equilibrium existence and subcritical periodic counterexamples, but the inspected primary material does not present this exact subcritical pair of positive fixed points under strictly concave recruitment and constant total dispersal survival, nor this rational bistability witness. The spectral threshold alone is not a global dichotomy in the present model. Equivalent 2001 specialist theory is a residual risk.
+
+## value
+
+PASS
+
+This is a structural and robust counterexample to global extinction from a subcritical linearization, despite both recruitment maps being strictly concave and aggregate survival fixed. Exact polynomial root-counting and hyperbolic stability make the phenomenon rigorous and robust, relevant to ecological threshold theory and dispersal design. Neither a routine plot nor a trivial tweak to Allee recruitment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
