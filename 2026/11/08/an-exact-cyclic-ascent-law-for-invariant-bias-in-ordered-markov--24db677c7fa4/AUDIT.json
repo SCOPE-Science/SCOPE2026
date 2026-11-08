@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The generator and row-stochastic factors are explicit. At a stationary sweep, conservation yields equal edge flux; the only extra pre-edge mass is predecessor flux when its edge is earlier. Solving and normalizing gives the stationary vector, and strict positive self/neighbor transitions give uniqueness. Exact TV follows from the two probability levels. A derivative proves the dimension-free hyperbolic-tangent maximum; realized cyclic ascent counts give sharpness. Averaging cyclic conjugates is circulant and doubly stochastic. More than 21,000 independent exact rational assertions replayed; they are not treated as an all-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bertazzi et al. 2023/2025: invariant-bias expansions for PDMP velocity-jump samplers, with distinct Strang structures and correction by Metropolis adjustment.",
+        "Gourgoulias et al. 2015/2016: general long-time relative-entropy/commutator analysis of lattice KMC splittings."
+      ],
+      "reasoning": "Generic error frameworks motivate the problem but neither inspected source states an explicit uniform-rate cycle model and an equality formula for every ordering. The broad matrix-tree theorem can derive stationary laws in principle, but does not establish the claimed extremal total-variation evaluation and same-cost unbiased randomization as an identified prior result.",
+      "searches": [
+        "Lie Trotter splitting directed cycle continuous time Markov chain stationary distribution sweep order edge transfers exact invariant bias",
+        "operator splitting Markov chain unidirectional cycle sequential exponential edge update stationary bias",
+        "\"operator splitting\" \"stationary distribution\" \"cycle\" Markov generator"
+      ]
+    },
+    "checked_sources": [
+      "Bertazzi, Dobson and Monmarché, arXiv:2301.02537v1 / JMLR 26 (2025), inspected selected relevant full-text sections.",
+      "Gourgoulias, Katsoulakis and Rey-Bellet, arXiv:1511.08240v1 / SIAM J. Sci. Comput. 38 (2016), inspected relevant full-text sections.",
+      "On the number of update digraphs and its relation with feedback arc sets and tournaments (2013), abstract only.",
+      "Related published research summaries on Crank–Nicolson positivity and stationary switching graph flows; compared object and implication, not only titles."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The PDMP sampling paper explicitly studies invariant bias and a one-dimensional invariant formula for a different velocity-jump process; its equations do not specialize directly to arbitrary ordered finite-cycle edge transfers.",
+        "The kinetic Monte Carlo information-metric work controls long-time splitting errors with commutators, without giving the exact stationary mass-flux law.",
+        "Relevant closest research comparisons concern Crank–Nicolson positivity, stationary circulation on other switching graph flows, and backward-Euler-filtered positivity, not ordered splitting stationary bias."
+      ],
+      "reasoning": "The new statements require a constant per-sweep edge flux conditioned on predecessor update order, an exact cyclic-ascent TV formula, a sharp maximization over all dimensions, and cyclic-conjugacy randomization. None follows as a stated special case from the materially inspected results. A future full-text specialist comparison could alter this assessment.",
+      "searches": [
+        "stationary distribution Lie Trotter operator splitting unidirectional directed cycle edge generator random ordered sweep cyclic descents",
+        "random cyclic rotation of exponential generator splitting restores stationary uniform distribution bias",
+        "arxiv:2301.02537v1",
+        "arxiv:1511.08240v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Single-edge exponential factors are Bernoulli transfers, so equivalent phrasing includes ordered transfer matrices or sequential Markov updates.",
+        "The 2013 update-digraph abstract gives schedule-equivalence labels, not invariant formulas or total-variation extrema."
+      ],
+      "reasoning": "Comparisons were made under the exact stochastic-matrix and update-schedule interpretations. No accessible matching stationary-distribution or exact sharp envelope statement was identified; update-schedule precedence is still a residual risk.",
+      "searches": [
+        "stationary distribution Lie Trotter operator splitting unidirectional directed cycle edge generator random ordered sweep cyclic descents",
+        "exact invariant distribution ordered sequential edge transfer Markov ring permutation ascent numbers total variation",
+        "\"stationary distribution\" \"sequential updates\" \"cycle\" \"permutation\" Markov"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Comparisons to public cyclic updates and finite-chain matrices yielded no published table of these exact invariant distributions or sharp order extremals.",
+        "Exact rational checks are newly produced with the supplied standalone checker rather than copied from a database."
+      ],
+      "reasoning": "The result is an all-size analytic classification, not a finite table lookup. Search incompleteness is explicitly acknowledged.",
+      "searches": [
+        "tanh h/4 sharp invariant measure splitting directed cycle ordered exponentials",
+        "exact invariant distribution ordered sequential edge transfer Markov ring permutation ascent numbers total variation",
+        "\"sequential updating\" \"Markov chain\" \"cycle\" invariant distribution"
+      ]
+    },
+    "rationale": "The exact cyclic-ascent stationary law, sharp dimension-free TV envelope, and exact random-rotation invariance are not stated or implied by the inspected closest splitting literature; public searches and available research comparisons yielded no equal or broader theorem. The generic Markov-tree formula and order-equivalence descriptions do not themselves give the explicit classification without nontrivial specialization. Specialized update-process precedence remains a specific limitation.",
+    "residual_risks": [
+      "Specialist literature on single-particle sequential exclusion updates and update digraphs may contain an equivalent stationary law under another name.",
+      "The 2013 update-schedules paper was available as an abstract/excerpt only; it cannot be asserted fully noncovering.",
+      "Search and source inspection cannot certify universal novelty; independent audit remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Nearby motivation and broader error concept, but different continuous-state PDMP and second-order sampling algorithms, not unit-rate ordered finite cycles",
+        "evidence": [
+          "PDF pp. 2–4 describe split jump generators, numerical bias and correction; pp. 22–27 describe invariant expansion and explicit one-dimensional velocity-jump invariant.",
+          "No cyclic-permutation exact directed-edge stationary distribution or TV envelope found in inspected passages."
+        ],
+        "identifier_or_url": "https://www.jmlr.org/papers/volume26/23-0036/23-0036.pdf",
+        "material_read": "Introduction and generator-splitting equations; Section 4 invariant-measure expansions, Section 4.3 one-dimensional explicit invariant, associated discussion and relevant appendices",
+        "method": "Lawful open PDF text and page-image inspection plus internal searches for cyclic ordering/permutation terminology",
+        "title": "Piecewise deterministic sampling with splitting schemes",
+        "trigger": "Exact invariant measure and long-time numerical splitting bias in a 2023 first-public source"
+      },
+      {
+        "assessment": "General Markov KMC error theory, not the present exact invariant formula and order-dependent sharp TV extremum",
+        "evidence": [
+          "arXiv v1 2015-11-25; eventual SIAM Journal on Scientific Computing 38 (2016) A3808–A3832.",
+          "The treatment is based on relative-entropy rates and commutators, rather than invariant flux on a single-particle cyclic sweep."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.08240",
+        "material_read": "Accessible full-text introduction, commutator and relative entropy rate framework, application and long-time error discussion",
+        "method": "Open full-text HTML reading with searches for cycle, permutation and ordered edge rules",
+        "title": "Information metrics for long-time errors in splitting schemes for stochastic dynamics and parallel kinetic Monte Carlo",
+        "trigger": "Directly relevant stationary long-time numerical splitting analysis for continuous-time Markov jump systems"
+      },
+      {
+        "assessment": "Provides ordering equivalence language; decisive full-text comparison remains outstanding",
+        "evidence": [
+          "Abstract describes sequential update schedules and labels of adjacent update precedence.",
+          "No exact stationary Markov edge-transfer probability statement can be excluded from the uninspected body."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2012.12.018",
+        "material_read": "Accessible abstract and definition excerpt only; not the full primary text",
+        "method": "Public indexed excerpt",
+        "title": "On the number of update digraphs and its relation with the feedback arc sets and tournaments",
+        "trigger": "Potential equivalent sequential-update schedule labels using digraphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "24db677c-7fa4-4b02-8d6f-0ebcfb0cff77",
+  "value": {
+    "rationale": "Long-run invariant bias is a central numerical question for split Markov processes. This theorem completely classifies every permutation order on a natural nonreversible cycle, gives a sharp all-dimension error envelope, and proves a same-cost exact stationary correction by group averaging. It separates stationary accuracy from finite-time weak order and creates an analytical benchmark, going beyond a routine positivity check or table entry.",
+    "status": "PASS"
+  }
+}
