@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:00:07.160499Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-eight-entity-separation-between-approval-ejr-and-payment--7ca677c2b8dc/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-eight-entity-separation-between-approval-ejr-and-payment--7ca677c2b8dc/verify.py",
+        "independent_math_checks.py"
+      ],
+      "rationale": "PASS. The unit-cost full committee with k elected candidates, n approval voters and at least one supporter per elected candidate is tested using the literal weak EJR+ up-to-one criterion n(u_i+1)>k|T| for at least one i in T subset of challengers supporters, and strong payment criterion F_i(S,x)=1_{i in Ax}/t +sum_{d in W}1_{i in A_d}/max(t,|S intersect A_d|)>k/n for some i in S, t=|S intersect Ax|>0. Verified analytically the bound F_i>=1/t+u_i/n gives no separation for k<=2; for n<=2, the complete S={1,2} payment sum is k+1, using all winners supported; for n=k=3, weak requires u_i>=t, giving F_i>=1/t+t/3>1. Therefore n+m>=8, and (n,k,m)=(3,4,5) or (4,3,4) are the only boundary regimes. Independently reconstructed exhaustive exact Fraction comparison of every elected multiset and challenger mask: 1470 and 10200 cases, respectively; exactly 18/6 separating labelled signatures, respectively 4/1 voter-permutation orbits, and 2 Pareto-efficient orbits total. The two explicit Pareto witnesses have strong scores exactly k/n, thus violate the strict > condition; proper-subset approver criterion proves efficiency for k-of-(k+1). Full finite census, unlike sampling, covers the specified boundary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Skowron 2026 proves verification in O(mn^2(k+1)) and gives a 1000-voter example; Brill/Peters 2023 formulates EJR+; Dong/Peters analyzes earlier approval axioms"
+        ],
+        "reasoning": "General polynomial verification permits calculating a finite instance but does not imply nonexistence for all n+m<8 or five boundary orbits. Older articles do not contain the later payment-strong condition.",
+        "searches": [
+          "arxiv:2610.15516 Section 3.4 polynomial verification theorem",
+          "arxiv:2302.01989 original EJR+",
+          "arxiv:2605.04612 axiomatic characterizations"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.15516 Section 3 full HTML transcription",
+        "arxiv:2302.01989 EJR+ definition",
+        "arxiv:2605.04612 axiomatic proportionality",
+        "Resultary two focused semantic queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier Example 4 has 1000 voters and 30 candidates, whereas sharp result has n+m=8 and two efficient witnesses; theorem on testing a given election is not a theorem enumerating all boundary profiles"
+        ],
+        "reasoning": "An arbitrary earlier separation witnesses nonimplication but neither lower bound nor number of minimal types. Original definitions are credited and the exact boundary is an additional theorem.",
+        "searches": [
+          "Skowron 2026 Example 4, Theorems 1 and 4",
+          "Brill Peters EJR+ 2023",
+          "Dong Peters 2026 EJR+ axiomatic work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Skowron 2026 Section 3.1 equates weak up-to-one with original approval EJR+; Section 3.2 defines the stronger payment criterion; Example 4 supplies a much larger earlier counterexample"
+        ],
+        "reasoning": "The exact specialization of the two published conditions was used; the novel statement is a sharp minimal n+m and complete classification, not invention of the criterion or of separation itself.",
+        "searches": [
+          "Resultary: approval EJR+ versus payment-based strong EJR+ up to one minimum voters candidates separation Pareto efficient election",
+          "arxiv:2610.15516 Definitions 3–4 and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching small-orbit table in targeted semantic search; independently enumerated all 11,670 boundary signatures with voter relabeling and exact integer/ratio comparisons"
+        ],
+        "reasoning": "The completed orbit census is not mechanically copied from a known table in inspected sources. An unindexed database remains possible; unsuccessful search is not proof of priority.",
+        "searches": [
+          "Resultary: exact minimum size approval EJR+ strong payment up to one eight voters candidates",
+          "web: EJR+ payment strong weak small voters candidates finite census table"
+        ]
+      },
+      "rationale": "Best-of-knowledge, theorem/implication-based comparison of relevant primary literature; a failed search by itself does not prove historical priority. Closest known published results address different parameters/objects or only more general frameworks.",
+      "residual_risks": [
+        "Possible unindexed specialized enumeration of small weak-vs-strong EJR+ elections; article comparison covers the published definitions but not all private tables.",
+        "The classification relies on allowing repeated candidate approval sets and requiring every selected candidate to have nonempty support."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_AXIOM_AND_NONMINIMAL_EXAMPLE_NOT_SHARP_CENSUS",
+          "evidence": [
+            "Example 4 gives 1000-voter separation; Eq (6) and strong/weak quantifiers match source-specific specialization; no n+m=8 minimal-orbit claim in inspected Sections 3.1–3.4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.15516",
+          "material_read": "Full readable arXiv-manuscript HTML transcription on paperpeel.com, Sections 2, 3.1–3.4, equation (6), Theorem 1, Example 4 and comparison",
+          "method": "Section-by-section article reading and exact formula comparison",
+          "title": "Robust Proportionality Axioms for Additive Utilities",
+          "trigger": "Same precise payment-strong EJR+ condition, near-certain overlap"
+        },
+        {
+          "assessment": "FOUNDATIONAL_DEFINITION_NOT_MINIMAL_STRONG_PAYMENT_CENSUS",
+          "evidence": [
+            "Brill/Peters predates the payment-strong generalization and develops original EJR+ instead of this sharp small-profile census."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.01989",
+          "material_read": "Article abstract and relevant EJR+ definition/section, not exhaustive appendix",
+          "method": "Source/definition search",
+          "title": "Robust and Verifiable Proportionality Axioms for Multiwinner Voting",
+          "trigger": "Introduces original approval EJR+ that is one side of comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arxiv:2610.15516 Section 3 full HTML transcription",
+        "arxiv:2302.01989 EJR+ definition",
+        "arxiv:2605.04612 axiomatic proportionality",
+        "Resultary two focused semantic queries"
+      ],
+      "rationale": "PASS. The natural first separating voter-plus-candidate size of two current proportional-representation axioms and all isomorphism classes at the minimum are mathematically meaningful exact finite cutoffs. Pareto-efficient witness classification answers whether the boundary persists under a major social-choice efficiency requirement, adding substance beyond a routine illustrative counterexample.",
+      "residual_risks": [
+        "Possible unindexed specialized enumeration of small weak-vs-strong EJR+ elections; article comparison covers the published definitions but not all private tables.",
+        "The classification relies on allowing repeated candidate approval sets and requiring every selected candidate to have nonempty support."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Approval utilities and unit costs, full k-seat committee, positive support for all winners, candidates may share approval sets, and strong UP-TO-ONE not stronger exact axiom."
+  ],
+  "schema_version": 1
+}
