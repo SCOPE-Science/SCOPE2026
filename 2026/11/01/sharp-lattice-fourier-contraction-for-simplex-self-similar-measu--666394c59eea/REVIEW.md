@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every dimension and integer base, the product factorization follows from independence. After removing common base factors, a nonconstant \((d+1)\)-tuple of roots of unity has at least \(d\) unequal pairs, each of squared chord length at least \(4\sin^2(\pi/b^j)\). The elementary sum-of-chords identity yields the sharp mask bound, while analysis at arbitrarily fine scales forces the exhaustive equality types. The majorant product is positive and convergent, and Fourier diagonalization gives the exact operator norm. The standalone checker independently verifies finite special cases but is not the infinite proof.
+## correctness
 
-**Originality — PASS within bounded primary-literature and database comparison.** The close 2007 full-text paper develops spectral pairs, compatibility and orthogonality of self-affine measures; its results do not imply a maximum coefficient modulus or its unique maximizing directions. Li's 2012 and Yuan's 2015 works focus on spectrality/orthogonal exponentials. Only their abstracts were accessible for direct comparison; they remain explicit residual risks rather than being labeled definitively noncovering. Broad search for simplex-digit extremal Fourier multipliers, Sierpiński gasket lattice spectral radii and equivalent Fourier-mask formulations did not expose a covering statement. A prior result on the one-dimensional middle-thirds Cantor measure concerns a different measure and cannot imply the present theorem.
+PASS
 
-**Mathematical value — PASS.** It determines a natural exact invariant of a canonical family of self-similar singular measures, classifies *every* extremizing nonzero lattice frequency across all dimensions and integral dilation bases, and proves the exact optimal mean-zero convolution mixing rate. This is more than recomputation of individual Fourier coefficients; the universal extremizer rigidity is structural.
+Independent product factorization from iid digits shows μhat(m)=Πj[1+Σ_i exp(-2πi m_i/b^j)]/(d+1); factor out common b powers to primitive q. The exact identity (d+1)^2−|Σ_{i=0}^d z_i|²=Σ_{r<s}|z_r−z_s|² forces at least d unequal N-th-root pairs and the minimum chord gap 4 sin²(π/b^j), giving each product factor and convergence. Equality for every scale and a sufficiently large N forbidding residue aliasing forces two phase classes of sizes 1,d with representatives differing exactly ±1; yields precisely listed frequencies. Fourier characters diagonalize convolution and attain power contraction. Fresh independent bounded enumeration d=2,3 and b=2,3,4 over integer boxes [-3,3]^d matched every predicted maximizing frequency, with no mask-bound violations; proof, not enumeration, establishes infinite claim.
 
-Remaining limitations: possible older equivalent formulation and inaccessible full texts of the most closely named 2012/2015 spectrality papers; the theorem says nothing about real-frequency maxima, second spectral levels, or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier Li 2007 spectral self-affine measure investigations concern existence of exponential orthogonal bases and compatible pairs (zeros of mask); the current positive nonzero coefficient maximum and its rigid equality classification is logically different. Later Li 2012 and Yuan 2015 Sierpiński spectrality abstracts likewise do not demonstrate coverage; their inaccessible full texts remain priority risks. Resultary searched for equivalence without matching positive-modulus theorem.
+
+## value
+
+PASS
+
+For a canonical simplex self-similar measure, Fourier coefficients directly determine convergence of torus convolution powers and spectral mixing rates. Exact operator contraction and all extremizing characters are a natural unknown invariant, independent of whether the measure is spectral. It is useful even without a general classification of nonextremal frequencies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
