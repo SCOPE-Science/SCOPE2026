@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks and limitations
+# Independent mathematical audit
 
-The theorem's critical nonstandard step is the reset-generator identity \(\mathbb E[X_{U_t}B_t]=\mathbb E[B_t^2]/t\) for uniform sampling from the full prior path, which determines the singular term in the closed ODE. The result then follows from the exact Laplace integral, Kummer inversion and its three distinct large-argument limits. This analytic argument is the proof; finite checks alone cannot certify it.
+## correctness
 
-Run `python -m pip install -r requirements.txt` then `python verify.py` using these exact packaged files. The checker performs 349 exact-rational, high-precision residual, Laplace-transform, asymptotic and finite simulation assertions. The approximate sampled-path simulation is deliberately a separate finite diagnostic: it cannot verify an infinite-time theorem or prove independence, and samples a time-discretized recollection protocol.
+PASS
 
-All hypotheses are positive \(D,\mu,r\), an exactly equilibrium-initialized OU process, independent Poisson resetting and recollection of a uniformly selected prior **time**. It proves unconditional second moments and convergence in \(L^2\), not a distributional central limit theorem or pathwise convergence. General memory kernels, nonlinear confining forces or non-equilibrium initial laws are not covered. Broader research-priority comparison and any independent audit remain outstanding.
+With μ,D,r>0 and X_0~N(0,D/μ), ordinary OU and resetting to a uniformly selected past time preserve the same Gaussian one-time law, but not temporal stationarity. Set A_t=∫_0^t X_u du, y=E[A_t²], c=E[X_t A_t], v=D/μ, b=μ+r: generator and history averaging give y'=2c and c'=v−bc+(r/t)y, hence y''+by'−2r y/t=2v. Conditions y(0)=y'(0)=0 and 0≤y≤vt² establish Laplace transform Y(s)=2v/[b(p−1)s²]((1+b/s)^(p−1)−1), p=2r/b; invert to confluent hypergeometric variance formula, taking a logarithmic limit at p=1. Negative-real-axis Kummer asymptotics and the critical integral yield the exact T^−1, T^−1 logT, and T^(p−2) coefficients for r<μ, =μ, >μ. All tend to zero for finite r. Independently differentiated the exact function numerically for four parameter regimes with high precision and checked ODE residual; this corroborates but does not prove the L² limit or the asymptotic.
+
+## originality
+
+PASS
+
+Qualified PASS: complete primary Boyer–Majumdar and Boyer–Evans–Majumdar works on exactly this memory mechanism derive one-time marginal relaxation and kernel extensions, not the integrated-position variance law. The earlier unconfined model measures position variance; fixed-point reset correlation papers are different renewal processes. A general non-Markov reinforcement/occupation-time theorem may imply part of this result, retained as risk.
+
+## value
+
+PASS
+
+A natural finite-time and long-time statistical efficiency question is not determined by identical equilibrium one-time Gaussians for a non-Markovian memory-reset trajectory. The sharp r=μ transition and logarithmic boundary with leading constants distinguish ordinary inverse-time averaging from slow memory-driven decay, with no unsupported central limit or almost-sure claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

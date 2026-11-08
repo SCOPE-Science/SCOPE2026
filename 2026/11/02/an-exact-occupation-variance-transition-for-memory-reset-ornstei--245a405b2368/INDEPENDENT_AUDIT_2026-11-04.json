@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T06:51:04.187072Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With μ,D,r>0 and X_0~N(0,D/μ), ordinary OU and resetting to a uniformly selected past time preserve the same Gaussian one-time law, but not temporal stationarity. Set A_t=∫_0^t X_u du, y=E[A_t²], c=E[X_t A_t], v=D/μ, b=μ+r: generator and history averaging give y'=2c and c'=v−bc+(r/t)y, hence y''+by'−2r y/t=2v. Conditions y(0)=y'(0)=0 and 0≤y≤vt² establish Laplace transform Y(s)=2v/[b(p−1)s²]((1+b/s)^(p−1)−1), p=2r/b; invert to confluent hypergeometric variance formula, taking a logarithmic limit at p=1. Negative-real-axis Kummer asymptotics and the critical integral yield the exact T^−1, T^−1 logT, and T^(p−2) coefficients for r<μ, =μ, >μ. All tend to zero for finite r. Independently differentiated the exact function numerically for four parameter regimes with high precision and checked ODE residual; this corroborates but does not prove the L² limit or the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2411.00641 handles general relocation kernels but develops one-point spectral evolution, not this additive-functional variance; 1611.06743 treats unconfined displacement width; 2107.11686 uses fixed-location reset and conventional renewal covariance; ordinary OU does not sample past path."
+        ],
+        "reasoning": "Broader statements have different observables, reset protocols or lack two-time information. They cannot simply be specialized to the claimed exact hypergeometric occupation variance; unindexed reinforcement literature remains a plausible risk.",
+        "searches": [
+          "Resultary query: memory resetting Ornstein Uhlenbeck occupation time variance additive functional Gaussian memory reset history average phase transition",
+          "Web query: memory resetting confined Ornstein Uhlenbeck time averaged variance ergodicity power law",
+          "arxiv:2405.10283",
+          "arxiv:2411.00641",
+          "arxiv:1611.06743",
+          "arxiv:2107.11686"
+        ]
+      },
+      "checked_sources": [
+        "Boyer and Majumdar 2024 complete PDF 2405.10283",
+        "Boyer Evans Majumdar 2024 full accessible HTML 2411.00641",
+        "Boyer Evans Majumdar earlier 1611.06743 relevant portions",
+        "Stojkoski et al. 2107.11686 relevant protocol and summary",
+        "Cherstvy et al. 2018 ordinary OU time averages bibliographic/abstract",
+        "Resultary OU and memory-themed research record search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-point spectral exponent μ/(r+μ) is not the current integrated-variance exponent min(1,2μ/(r+μ)); the new generator term r y(t)/t depends on the full history integral."
+        ],
+        "reasoning": "No implication from one-point relaxation to this path functional is valid; fixed-point reset instead yields different generator and renewal equation. These earlier results supply context and stationary marginal only.",
+        "searches": [
+          "Resultary query: memory resetting Ornstein Uhlenbeck occupation time variance additive functional Gaussian memory reset history average phase transition",
+          "Web query: memory resetting confined Ornstein Uhlenbeck time averaged variance ergodicity power law",
+          "arxiv:2405.10283",
+          "arxiv:2411.00641",
+          "arxiv:1611.06743",
+          "arxiv:2107.11686"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same reset rule chooses past time uniform on [0,t]; the new covariance y(t) is a two-time functional, not the one-time Fokker–Planck density."
+        ],
+        "reasoning": "Relevant aliases include integrated autocovariance, long-run variance of time mean, aging correlations and occupation integral. Primary one-time formulas cannot imply E[(∫X)^2] without joint two-time dependence.",
+        "searches": [
+          "Resultary query: memory resetting Ornstein Uhlenbeck occupation time variance additive functional Gaussian memory reset history average phase transition",
+          "Web query: memory resetting confined Ornstein Uhlenbeck time averaged variance ergodicity power law",
+          "arxiv:2405.10283",
+          "arxiv:2411.00641",
+          "arxiv:1611.06743",
+          "arxiv:2107.11686"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-particle studies tabulate one-time Gibbs density and modal power-law relaxation exponents, not second moments of integrated paths."
+        ],
+        "reasoning": "No occupied-OU time-average variance table found in examined primaries, though search absence is not proof and a broader probability source may exist.",
+        "searches": [
+          "Resultary query: memory resetting Ornstein Uhlenbeck occupation time variance additive functional Gaussian memory reset history average phase transition",
+          "Web query: memory resetting confined Ornstein Uhlenbeck time averaged variance ergodicity power law",
+          "arxiv:2405.10283",
+          "arxiv:2411.00641",
+          "arxiv:1611.06743",
+          "arxiv:2107.11686"
+        ]
+      },
+      "rationale": "Qualified PASS: complete primary Boyer–Majumdar and Boyer–Evans–Majumdar works on exactly this memory mechanism derive one-time marginal relaxation and kernel extensions, not the integrated-position variance law. The earlier unconfined model measures position variance; fixed-point reset correlation papers are different renewal processes. A general non-Markov reinforcement/occupation-time theorem may imply part of this result, retained as risk.",
+      "residual_risks": [
+        "Specialized reinforced stochastic approximation or occupation-time limit theory may imply the rate transition and remains unexcluded.",
+        "No distributional CLT, pathwise convergence, non-Gaussian initial conditions or generalized kernels covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes equilibrium Gaussian and one-time relaxation, no integrated-position variance theorem in inspected results.",
+          "evidence": [
+            "§1 uniform-past sample rule; harmonic one-time density relaxation and Gibbs limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.10283; arxiv:2405.10283",
+          "material_read": "Complete original 20-page arXiv PDF, sections defining model, confined Fokker–Planck and harmonic potential; page-2 screenshot examined.",
+          "method": "Compared one-point density equations and harmonic spectral rates with the path-integral generator computation",
+          "title": "Power-law relaxation of a confined diffusing particle subject to resetting with memory",
+          "trigger": "Exact same uniformly sampled past process with confinement"
+        },
+        {
+          "assessment": "No stated full path-integrated variance or critical r=μ trichotomy located.",
+          "evidence": [
+            "General kernel treatment is for one-time marginal relaxation, not y(t)=E[(∫X)^2]."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2411.00641v1; arxiv:2411.00641",
+          "material_read": "Accessible complete arXiv HTML with generalized memory kernels and exact one-point density study; sections and keyword search for time average, autocorrelation and integrated functionals.",
+          "method": "Compared equations and observable roles",
+          "title": "Diffusion with preferential relocation in a confining potential",
+          "trigger": "Most plausible broader same-model memory-kernel theorem"
+        },
+        {
+          "assessment": "Different process/observable: unconfined spatial variance not equilibrium-initialized OU occupation variance.",
+          "evidence": [
+            "Unconfined width grows with time; source current one-time variance is fixed."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1611.06743v1",
+          "material_read": "Accessible abstract and relevant public full-text passages on unconfined position variance (not a fresh complete full-paper scan).",
+          "method": "Distinguished spatial width from integrated position under harmonic confinement",
+          "title": "Long time scaling behaviour for diffusion with resetting and memory",
+          "trigger": "Original non-Markov memory reset model and potential limit laws"
+        },
+        {
+          "assessment": "Not direct coverage; the reset contribution is different from r y(t)/t.",
+          "evidence": [
+            "Renewal reset to a fixed position, not uniformly chosen past location."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.11686",
+          "material_read": "Accessible abstract and relevant protocol description; no complete fresh full-text review.",
+          "method": "Compared reset-to-fixed-origin vs history-sampling generator",
+          "title": "Autocorrelation functions and ergodicity in diffusion with stochastic resetting",
+          "trigger": "Plausible prior temporal covariance of reset diffusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural finite-time and long-time statistical efficiency question is not determined by identical equilibrium one-time Gaussians for a non-Markovian memory-reset trajectory. The sharp r=μ transition and logarithmic boundary with leading constants distinguish ordinary inverse-time averaging from slow memory-driven decay, with no unsupported central limit or almost-sure claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All formulas unconditional and require stationary Gaussian initialization, positive OU confinement and resetting uniformly to the entire path history.",
+    "No assertion of temporal stationarity, central limit theorem or almost-sure ergodic rate."
+  ],
+  "schema_version": 1
+}
