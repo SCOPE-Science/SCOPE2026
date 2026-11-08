@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "An exact two-copy assignment proof establishes the integer interval of admissible one-one roots, with all zero-gap boundaries; six bound comparisons reduce R≥r to four gap inequalities. The three-gap subtraction by 2(r-1) is a bijection onto the r=1 language of half-length m-3(r-1), whose independent finite sum is 1+3 binom(h,2). Tail differencing, maximal r and the limiting mixture law follow algebraically. The independent dynamic-programming checker passed all 946 gap words for m≤11, and independent direct gap enumerations through m=64. These computations corroborate rather than prove the infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grytczuk–Pawlik–Ruciński, Proposition 1, gives recognition from nest-free graphs, and Proposition 6 addresses five-run shuffle-square existence; neither specifies distinct-root counts.",
+        "Datko–Pawlik, Proposition 3, proves unbounded maxima in unrestricted binary words, but its method does not give the exact weight-two multiplicity distribution."
+      ],
+      "reasoning": "The graph-recognition theorems cover larger language classes for the binary existence predicate but do not dominate the distinct-root multiplicity claim. An unrestricted lower bound on maximal root counts is not an exact weight-two distribution, and no implication provides the r≥2 tail laws.",
+      "searches": [
+        "https://arxiv.org/abs/2503.22043 Proposition 1 Proposition 6 five runs",
+        "https://doi.org/10.3390/sym17020305 Proposition 3 roots",
+        "shuffle square root count gap triple 0^a 1 0^b 1 0^c parity lower upper roots interval"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1211.7161",
+      "https://arxiv.org/abs/2308.13882",
+      "https://doi.org/10.3390/sym17020305",
+      "https://arxiv.org/abs/2503.22043",
+      "https://oeis.org/A384705",
+      "indexed mathematical result search for weight-two shuffle-square root tails (no covering statement in returned relevant titles/abstracts)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 source gives the scalar r=1 count S(m)=1+3*C(m,2).",
+        "The 2025 forward-generation count (k+1)(m-k) supplies the first moment of the two-one root-count distribution by summing over k, but neither that moment nor the known number of positive cases fixes its full histogram.",
+        "The 2025 nest-free-graphs source characterizes shuffle-square existence on a class of runs, without assigning the number of different root words to each input."
+      ],
+      "reasoning": "The known existence count and the known forward-generation marginal imply a total number of words with ≥1 root and a sum of root multiplicities, not each individual ≥r tail. There are many abstract multiplicity distributions sharing both totals. The new r-dependent bijection supplies the missing exact fiber counts. The r=1 count itself is explicitly excluded from priority claims.",
+      "searches": [
+        "https://arxiv.org/abs/2308.13882 Corollary 1",
+        "https://doi.org/10.3390/sym17020305 Proposition 1",
+        "https://arxiv.org/abs/2503.22043 Proposition 6",
+        "exact multiplicity distribution for binary shuffle squares with two ones by number of distinct roots; 1+3 binomial(m-3(r-1),2); interleavings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grytczuk–Pawlik–Pleszczyński, Theorem 3, gives a root-existence equivalence, and Corollary 1 counts existence but does not count distinct root words per object.",
+        "Datko–Pawlik, Proposition 1, counts distinct outputs per given root; Theorem 2 gives specific unique-root classes but no complete root-multiplicity tails."
+      ],
+      "reasoning": "Root count is the cardinality of a fiber of the self-shuffle relation. Root-existence enumeration is its zero-versus-positive projection; reverse counts by input root give different marginal totals. Neither alone determines the entire fiber-size spectrum. The explicit interval and the r-dependent three-gap bijection prove the stronger statement.",
+      "searches": [
+        "\"Roots of Binary Shuffle Squares\" \"two occurrences\" distinct roots distribution",
+        "binary shuffle squares two ones number of roots count distribution two ones",
+        "https://arxiv.org/abs/2308.13882 §2.4 Theorem 3",
+        "https://doi.org/10.3390/sym17020305 §§2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 Table 4 enumerates all binary shuffle squares by Hamming weight at finite lengths, and its Corollary 1 gives the already-known weight-two total.",
+        "The 2025 root paper tabulates overall small-length root counts for binary shuffle squares; OEIS A384705 records overall uniquely rooted counts, not the weight-two full all-length spectrum."
+      ],
+      "reasoning": "The present result is an analytic all-length multiplicity distribution in a fixed-weight class, including arbitrarily growing maximum root count and a continuous scaling law. Matching the published first tail at r=1 or finite small-length tables does not supply its higher tails; no database coverage of the claimed entire range was identified.",
+      "searches": [
+        "https://oeis.org/A384705",
+        "https://arxiv.org/abs/2308.13882 Table 4",
+        "https://doi.org/10.3390/sym17020305 Tables 5–8",
+        "fixed Hamming weight two binary shuffle squares number of different halfword roots tail law asymptotic distribution"
+      ]
+    },
+    "rationale": "The closest 2023 work establishes only root existence and the first tail. The 2025 roots study establishes forward generation counts, general unbounded root multiplicity and special singleton families; those observations do not determine the full fiber-size distribution. The 2025 five-run graph work concerns recognition. No equivalent all-length root-multiplicity tail theorem was identified in cited source sections, checked public tables or indexed finding searches, with priority limitations explicitly recorded.",
+    "residual_risks": [
+      "Historical priority: an unindexed source or an unstated consequence of prior proof details might encode an equivalent full tail distribution.",
+      "The publisher full-page view of the 2025 root article returned HTTP 429, though substantive source sections were available through indexed open-access text; remaining uninspected portions are a limited comparison risk.",
+      "The claim concerns only words with exactly two ones, and must not be interpreted as a general root distribution for all binary shuffle squares."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS exact r=1 count and recognition; no all-r count of distinct self-shuffle roots in inspected full-text section",
+        "evidence": [
+          "Theorem 3 recognizes weight-two shuffle-square words by factors; Corollary 1 says their number is 1+3*binom(m,2)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.13882",
+        "material_read": "Complete accessible full-text transcription of §2.4 (Theorem 3, Corollary 1 and proof) and surrounding definitions",
+        "method": "Read lawful public author-preprint transcription at https://www.researchgate.net/publication/373451184_Variations_on_shuffle_squares",
+        "title": "Variations on shuffle squares",
+        "trigger": "Closest exact count for binary words with precisely two ones"
+      },
+      {
+        "assessment": "COVERS forward output counts for single-one root, unbounded root counts in general, and certain unique-root subfamilies; no statement of the weight-two exact all-length root-fiber spectrum found in inspected sections",
+        "evidence": [
+          "Proposition 1 gives (a+1)(b+1) distinct outputs for specified 0^a 1 0^b.",
+          "Theorem 2 lists four sufficient explicit-root families and notes a two-root example; Proposition 3 proves root counts unbounded for general words."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym17020305",
+        "material_read": "Accessible indexed open-access text of Introduction, §2 Propositions 1–2 and §3 Proposition 3, Theorem 2, examples, discussion and descriptions of Tables 5–8; direct full-page opening blocked by HTTP 429",
+        "method": "Searched and read section-level publisher-indexed text for this open-access 2025 article; checked explicit formulas and scope",
+        "title": "Roots of Binary Shuffle Squares",
+        "trigger": "Direct study of the number of different roots of binary shuffle squares"
+      },
+      {
+        "assessment": "COVERS graph-theoretic existence conditions but NOT the number of distinct root words in the two-one family",
+        "evidence": [
+          "Proposition 1 translates existence to a nest-free graph, and Proposition 6 is a five-run existence classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2503.22043",
+        "material_read": "Accessible full-text reproduction; introduction and Propositions 1,2,3,6, plus relevant run-classification discussion",
+        "method": "Read publicly accessible full text at https://www.researchgate.net/publication/390321582_Shuffle_squares_and_nest-free_graphs",
+        "title": "Shuffle squares and nest-free graphs",
+        "trigger": "Recognition of binary shuffle squares with four or five runs could include the two-one class"
+      },
+      {
+        "assessment": "Computational-complexity context only; not evidence for full-text absence of a restricted enumeration theorem",
+        "evidence": [
+          "The abstract states NP-completeness of general self-shuffle recognition via 3-Partition."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.7161",
+        "material_read": "ArXiv abstract and bibliographic entry, dated 2012-11-30",
+        "method": "Read public arXiv bibliographic abstract",
+        "title": "Unshuffling a Square is NP-Hard",
+        "trigger": "Earliest selected public source establishing the standard self-shuffle recognition setting"
+      },
+      {
+        "assessment": "Lists overall unique-root counts, not a formula for all root-count strata in the weight-two class",
+        "evidence": [
+          "The entry counts uniquely rooted binary shuffle-square words with prefix zero, with initial terms and a reference to Datko–Pawlik."
+        ],
+        "identifier_or_url": "https://oeis.org/A384705",
+        "material_read": "Sequence definition and displayed finite-length initial terms",
+        "method": "Read publicly indexed OEIS entry",
+        "title": "OEIS A384705",
+        "trigger": "Possible pre-existing exact tables of uniquely rooted binary shuffle squares"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3166b1a2-3299-4b19-86c0-94da5cca8fa0",
+  "value": {
+    "rationale": "The inverse counting of distinct roots per shuffle square is a published motivated question. A complete fiber-size distribution for a natural fixed-Hamming-weight family, with a direct gap-trimming bijection and nondegenerate limiting law, adds information not supplied by the established recognition total or forward root-generation count. The exact result holds at all lengths and can serve as a baseline for higher-Hamming-weight multiplicity questions.",
+    "status": "PASS"
+  }
+}
