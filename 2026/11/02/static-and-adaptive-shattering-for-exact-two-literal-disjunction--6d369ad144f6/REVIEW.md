@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The unrestricted static reduction follows by reading each coordinate down the query matrix; its pairwise-OR criterion is an exact equivalence. The first five static thresholds follow from two mandatory all-zero columns, all singleton columns, a triple-counting obstruction at dimension five, and explicitly checked OR-bases. A cardinality/first-pool triangular-number obstruction proves every upper adaptive bound. Five complete decision trees establish lower bounds, and an independent memoized recurrence recomputes the entire finite table through twelve coordinates. All 62 root-to-leaf witnesses were checked from the supplied package. No extrapolation is used.
+## correctness
 
-**Originality: PASS under accessible comparisons.** The reviewed group-testing literature treats recovery procedures, expected rates, and testing complexity, which do not imply complete rooted trees with all possible transcripts realized. General zero-set results apply to all nontrivial linear combinations and establish an equality not applicable to this particular exactly-two OR restriction. General union-VC set-family results and Littlestone query/compression bounds do not specify the five sharp pairwise-OR thresholds or the finite dimension table. Targeted published-record searches revealed no equivalent or stronger exact statement. Historical priority under alternative terminology remains a risk, not a demonstrated negative result.
+PASS
 
-**Mathematical value: PASS.** Exactly-two sparse Boolean OR hypotheses form a natural, well-studied testing class. The all-order reduction identifies an OR-covering problem that controls static shattering, including a first nontrivial five-query threshold requiring twelve columns. The sharp finite profile exhibits nonmonotone gaps between the static and adaptive dimensions, and two genuine failures of the concept-cardinality upper bound that arise from the discrete triangular-number sizes of response classes. These facts distinguish realizable balanced answer trees from ordinary worst-case identification tests.
+A d-query response table for two-literal OR yields pairwise coordinate-column OR; this is an iff condition. Two zero and all d unit columns are obligatory; the detailed weight-three counting excludes four extras at d=5, and a 56<64 argument excludes d=6 with n<=12. Adaptive lower bounds use 5 complete query trees with 62 distinct leaves for depths 1..5 at n=3,4,5,7,10. Each leaf answer pattern was independently re-evaluated using actual certificates.json. For n=9 and n=12, triangular zero-branch counts exclude the cardinality ceiling; otherwise cardinality upper bounds match. Independent program enumerated all 17,902 sets of <=4 extras at d=5 and validated all 62 tree leaves.
 
-**Closest literature and limitations.** Aldridge–Johnson–Scarlett (arXiv:1902.06002, adaptive group testing sections), Guingona–Kolesnikov–Nierwinski–Soucy (arXiv:2109.04805, zero-set dimensions), Cambie–Girão–Kang (arXiv:1808.02352, union VC bounds), and Chase–Freitag–Reyzin (arXiv:2310.04812, query learning and compression) were compared at the implication level. The findings are not asserted beyond \(n=12\); prior coverage by an older combinatorial pool-testing classification is not conclusively excluded. Program execution is not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This class is exactly the noiseless two-defective pooled-test answer family, but ordinary group-testing identification rates are not static shattered full binary tables or complete adaptive Littlestone trees. The prior zero-set theorem treats the larger family of nonzero linear combinations, rather than exactly-two monotone disjunctions. Resultary semantic search did not find this exact dimension table and threshold certification.
+
+## value
+
+PASS
+
+Exact finite VC/Littlestone thresholds and the first static-adaptive separations are natural combinatorial learning/group-testing invariants; full analytic upper bounds and explicit certificate trees give useful sharp benchmarks, without claiming all n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
