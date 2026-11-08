@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The physical relative-kinetic metric conjugates the multispecies drag–Lorentz generator to a strictly dissipative matrix. Exact polynomial algebra reduces the numerical fixed-point error to one rational function; a completed global left-half-plane modulus optimization gives the algebraic sharp constant. The Cayley contraction and von Neumann inequality extend the estimate without any diagonalizability or eigenvector-conditioning hypothesis. A one-species transverse stiff-branch family converges to the equality boundary. A standalone exact-rational verifier checks the identity and representative physical matrix cases; it is not substituted for the analytic argument.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The 2026 source establishes the stiff GIRK stability function and Strang fixed-point equations and reports asymptotic terminal-drift error. The inspected 2025 GIRK precursor, devoted to aerodynamic drag, and the 2026 charged extension do not establish this sharp uniform kinetic-norm constant or its stiff-regime extremizer. Searches for the exact rational transfer function and equivalent upper-bound formulations revealed no earlier identified statement. This does not prove absence of a classical or otherwise unindexed derivation; related general numerical-stability and operator-theory results remain background.
+PASS
 
-**Mathematical value — PASS.** A sharp, model-wide quantitative bias guarantee improves the prior asymptotic statement into an explicit uniform accuracy benchmark, and the dissipativity argument avoids the otherwise uncontrolled eigenvector condition-number factor for coupled multiple species. The extremal charged example shows that a smaller universal constant cannot be justified. The result is deliberately confined to constant coefficients, uniform forcing and the fixed point; it makes no transient, nonlinear or spatial stability assertion.
+The physical mass metric Q=diag(eps)-eps eps^T/(1+sum eps) is positive definite and Q M_rel has strictly negative Hermitian part -diag(eps_i alpha_i), since Q(I+1 eps^T)=diag eps. With Z=dt M/2, exact source stability function R=(1-z)/(1-2z+2z^2) gives f(z)=-z/[(2z-1)(2z^2-3z+2)]. Both quadratic denominator modulus factors increase on moving left from imaginary axis, giving |f(z)|^2<=G(|z|²)=s/[(1+4s)(4s²+s+4)]. Its derivative is proportional to 1-2s²-8s³, with unique positive root s*=0.42904716474868 and maximum C*=0.17487257559622. The Cayley transform of Q^{1/2}ZQ^{-1/2} is contractive; von Neumann inequality yields ||f(Z)||_Q<=C* despite nonnormality. The alpha->0 one-species normal case with legitimate stiff step approaches the boundary. Independent SymPy derivative check and 80 independently assembled multi-species physical-matrix examples corroborated algebra and bound. Does not cover resolved branch, nonlinear forcing or transient errors.
 
-Closest direct sources: arXiv:2610.18979v1 (full Methods and Appendices inspected) and arXiv:2511.07562v1 (full Methods and relevant stability/steady-state sections inspected). Remaining priority risk: an equivalent estimate may appear under a different rational-stability or semigroup formulation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 source specifies the GIRK fixed-point function and gives a large-step bias order; the additional sharp universal kinetic-metric rational functional-calculus constant and stiff-branch extremizer were not established by accessible primary summaries. Generic von Neumann theory is known and explicitly credited, but its application to this exact physical metric plus scalar maximization is nontrivial. Full text of the primary charged-dust paper was unavailable, leaving overlap risk.
+
+## value
+
+PASS
+
+Provides a dimension- and nonnormality-independent sharp engineering-relevant terminal-drift error tolerance for the physical stiff integrator, including a physically realizable sharpness construction. Unlike merely checking a stable eigenvalue, it controls arbitrary coupled-species kinetic-norm amplification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

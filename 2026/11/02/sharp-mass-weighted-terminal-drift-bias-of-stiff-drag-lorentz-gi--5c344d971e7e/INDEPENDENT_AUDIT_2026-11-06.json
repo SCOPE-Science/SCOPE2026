@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T08:51:44.450787Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The physical mass metric Q=diag(eps)-eps eps^T/(1+sum eps) is positive definite and Q M_rel has strictly negative Hermitian part -diag(eps_i alpha_i), since Q(I+1 eps^T)=diag eps. With Z=dt M/2, exact source stability function R=(1-z)/(1-2z+2z^2) gives f(z)=-z/[(2z-1)(2z^2-3z+2)]. Both quadratic denominator modulus factors increase on moving left from imaginary axis, giving |f(z)|^2<=G(|z|²)=s/[(1+4s)(4s²+s+4)]. Its derivative is proportional to 1-2s²-8s³, with unique positive root s*=0.42904716474868 and maximum C*=0.17487257559622. The Cayley transform of Q^{1/2}ZQ^{-1/2} is contractive; von Neumann inequality yields ||f(Z)||_Q<=C* despite nonnormality. The alpha->0 one-species normal case with legitimate stiff step approaches the boundary. Independent SymPy derivative check and 80 independently assembled multi-species physical-matrix examples corroborated algebra and bound. Does not cover resolved branch, nonlinear forcing or transient errors.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The von Neumann inequality bounds rational functions of a dissipative matrix by their half-plane supremum, but does not supply this f, Q or C*.",
+          "Earlier charged-dust paper reports large-step error order O(dt^-2), not a uniform sharp relative Q-bound in the available source description."
+        ],
+        "reasoning": "A generic operator bound becomes model-specific only after exact rational fixed-point algebra, physical dissipativity and scalar optimization; drag-only method is a different special case.",
+        "searches": [
+          "von Neumann inequality contractions rational functional calculus",
+          "arxiv:2511.07562 drag-only GIRK terminal errors",
+          "arxiv:2610.18979 charged dust GIRK spectrum"
+        ]
+      },
+      "checked_sources": [
+        "Frozen repository fcc247c8b7eb30c50d03abc79e1b79aab81f6226; assigned Git tree bd5be3581363f8a94dc4e82f70238ab00f624960; full RESULT.md blob 7e7c704fa1a86dc2d78457844b103137a76bfc79 and inspected verify.py blob 4768c940fca7daeb6be306ef55c07286c5afe8e9",
+        "Independent mathematical verification: scope_worker07_independent_20261106T0841.py and scope_worker07_independent_20261106T0841_results.json",
+        "Actual Resultary semantic search for this claim and related published mathematical records",
+        "https://arxiv.org/abs/2610.18979",
+        "https://arxiv.org/abs/2511.07562",
+        "https://en.wikipedia.org/wiki/Von_Neumann%27s_inequality"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source recurrence implies the algebraic f after calculation.",
+          "Classical functional calculus implies a norm bound if f and the kinetic dissipativity identity are established, but neither yields the cubic optimizer automatically."
+        ],
+        "reasoning": "The prior recurrence alone is not the same as a derived optimal all-species constant and sharp stiff-branch physical witness.",
+        "searches": [
+          "Chen et al 2026 Eqs 39-42 terminal velocity fixed point",
+          "von Neumann inequality H infinity left half plane contraction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source GIRK recurrence defines R(z) and W_fp but does not in inspected available description give C*.",
+          "Steady-state error is exactly a rational transfer function f(z), equivalent to an H-infinity half-plane optimization."
+        ],
+        "reasoning": "Alternative terminology (steady-state rational transfer amplification, bounded dissipative functional calculus) was checked; no equivalent exact constant for this model was identified.",
+        "searches": [
+          "Resultary: sharp universal bias mass weighted norm stiff drag Lorentz two stage GIRK terminal drift matrix",
+          "arxiv:2610.18979 terminal drift Appendix A",
+          "rational H infinity norm steady-state RK fixed point"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant exact C* table surfaced; Resultary nearest hits concerned FRB skew rotations and unrelated step-size stability.",
+          "C* is root-based optimization of the actual rational transfer function."
+        ],
+        "reasoning": "An existing coefficient table could subsume the result, but no verified table was read; no inference of priority from a failed search.",
+        "searches": [
+          "Resultary: universal 0.174872575596 stiff source charged dust terminal bias",
+          "charged Lorentz two stage GIRK table terminal drift bias constant"
+        ]
+      },
+      "rationale": "The 2026 source specifies the GIRK fixed-point function and gives a large-step bias order; the additional sharp universal kinetic-metric rational functional-calculus constant and stiff-branch extremizer were not established by accessible primary summaries. Generic von Neumann theory is known and explicitly credited, but its application to this exact physical metric plus scalar maximization is nontrivial. Full text of the primary charged-dust paper was unavailable, leaving overlap risk.",
+      "residual_risks": [
+        "Primary 2026 charged-dust full text and appendix not inspected in full; an implicit equivalent sharp specialization may be present.",
+        "The bound concerns steady fixed point, not transient stability, and strictly positive drag never attains the supremum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong method prior, but no verified sharp C* in the material actually read; source-wide NOT_COVERING is not claimed.",
+          "evidence": "Source defines stiff R=(1-z)/(1-2z+2z²) and terminal fixed point; large-step O(dt^-2) described.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.18979",
+          "material_read": "Available detailed primary-index summary of source split, equations and appendix; full arXiv HTML not obtained",
+          "method": "Read available technical summary and compared R, W_fp, and large-step estimate",
+          "title": "A Nonlinear General Implicit Runge–Kutta Integrator for Multifluid Charged Dust and Gas",
+          "trigger": "Exact same integrator/matrix/terminal fixed point"
+        },
+        {
+          "assessment": "Method precursor; possible transferable error analysis but no direct universal charged all-species claim verified",
+          "evidence": "Paper studies aerodynamic drag without arbitrary signed gyrofrequencies.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.07562",
+          "material_read": "Abstract and accessible index description; full text not inspected",
+          "method": "Compared drag-only setup with charged gyrofrequency coupling",
+          "title": "General Implicit Runge-Kutta Integrators for Multifluid Gas-Dust Aerodynamic Drag",
+          "trigger": "Predecessor algorithm"
+        },
+        {
+          "assessment": "A known proof instrument, not novelty; specific transfer function and optimum are additional",
+          "evidence": "||F(T)|| <= max_{|z|<=1}|F(z)| for a contraction T.",
+          "identifier_or_url": "https://en.wikipedia.org/wiki/Von_Neumann%27s_inequality",
+          "material_read": "Standard mathematical statement and rigorous inequality as applied within pinned RESULT.md",
+          "method": "Reconstructed Cayley contraction, rational polynomial approximation, and function bound",
+          "title": "Von Neumann contraction inequality",
+          "trigger": "Potentially dominating general analytic theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides a dimension- and nonnormality-independent sharp engineering-relevant terminal-drift error tolerance for the physical stiff integrator, including a physically realizable sharpness construction. Unlike merely checking a stable eigenvalue, it controls arbitrary coupled-species kinetic-norm amplification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen repository fcc247c8b7eb30c50d03abc79e1b79aab81f6226; assigned Git tree bd5be3581363f8a94dc4e82f70238ab00f624960; full RESULT.md blob 7e7c704fa1a86dc2d78457844b103137a76bfc79 and inspected verify.py blob 4768c940fca7daeb6be306ef55c07286c5afe8e9",
+    "Independent mathematical verification: scope_worker07_independent_20261106T0841.py and scope_worker07_independent_20261106T0841_results.json",
+    "Actual Resultary semantic search for this claim and related published mathematical records",
+    "https://arxiv.org/abs/2610.18979",
+    "https://arxiv.org/abs/2511.07562",
+    "https://en.wikipedia.org/wiki/Von_Neumann%27s_inequality"
+  ],
+  "disposition": "passed",
+  "final_claim": "For constant-coefficient stiff-branch charged-dust drag–Lorentz GIRK with exact forcing splitting, the terminal fixed-point error is <= C*=0.174872575596... times the physical Q-norm terminal velocity for all species and nonnormal couplings; the universal supremum is physically approached by one species as positive drag decreases to zero.",
+  "limitations": [
+    "Proof and cited full result confined to its stated hypotheses; independent finite tests do not establish any unrestricted result.",
+    "Primary 2026 charged-dust full text and appendix not inspected in full; an implicit equivalent sharp specialization may be present.",
+    "The bound concerns steady fixed point, not transient stability, and strictly positive drag never attains the supremum."
+  ],
+  "residual_risks": [
+    "Primary 2026 charged-dust full text and appendix not inspected in full; an implicit equivalent sharp specialization may be present.",
+    "The bound concerns steady fixed point, not transient stability, and strictly positive drag never attains the supremum."
+  ],
+  "schema_version": 1
+}
