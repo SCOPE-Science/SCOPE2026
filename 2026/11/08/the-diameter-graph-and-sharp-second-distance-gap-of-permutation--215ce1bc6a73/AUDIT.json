@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "The Birkhoff--von Neumann theorem identifies the convex image with the hull of its integer permutation X-rays. For noncentral images, mass \\(k\\) and maximum occupancy \\(k-1\\) imply \\(\\|h\\|_2^2\\le(k-1)^2+1\\). Nonnegative inner products then bound every noncentral pair below the claimed diameter. Central-to-image equality forces occupancy \\(k-1\\) on an off-central anti-diagonal; the row/column constraint gives exactly two images. Strict convexity rules out additional diametral points in the full polytope. For nonmaximal pairs with the central image, the extra \\(k-2\\) occupancy bound gives the sharp second distance, with an explicit permutation witness. The low-rank exceptions are checked. A reproducible exact-integer verifier passed 694526 assertions; unrestricted quantifiers rest on the written proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bouthat--Mashreghi--Morneau-Guérin (2024), Theorems 4.1 and 5.5: diameters of original Birkhoff matrices in operator and Schatten norms.",
+        "Published partial-permutohedron result: Euclidean diameter of a different coordinate-permutation polytope, with a support-disjointness argument.",
+        "Published transportation inradius result: ambient/intrinsic geometry of unprojected transportation polytope, not the aggregation image."
+      ],
+      "reasoning": "The linear map \\(T_k\\) collapses and aggregates matrix entries and is not an isometry for Frobenius distance. For example, the squared Frobenius diameter of the Birkhoff polytope is \\(2k\\), whereas the claimed squared Euclidean image diameter is \\(2k^2-2k+2\\). No stronger result concerning general matrix norms or partial permutohedra has a specialization covering this image metric or the classified equality cases.",
+      "searches": [
+        "Euclidean diameter of anti-diagonal X-ray vectors of permutations and Birkhoff polytope 2k squared minus 2k plus 2",
+        "Anti-diagonal X-ray polytope of doubly stochastic matrices exact Euclidean diameter diametral permutation pairs",
+        "The Euclidean diameter of partial permutohedra saturates exactly at m=2n (published result)",
+        "DOI:10.1515/spma-2023-0113"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.30058v1 (2026-10-21, primary MSC 52B12)",
+      "arXiv:2608.01442",
+      "arXiv:math/0506334",
+      "arXiv:2606.21532",
+      "DOI:10.1515/spma-2023-0113",
+      "DOI:10.1016/j.laa.2014.02.037 (abstract only)",
+      "Published result: The Euclidean diameter of partial permutohedra saturates exactly at m=2n (comparison of domain and metric)",
+      "Published result: Exact intrinsic Euclidean inradius and centers of transportation polytopes (different invariant and domain)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary source establishes polytope definition, facet criteria, superpolynomial facet growth and facet counts.",
+        "Classical source establishes X-ray degeneracy and properties but not the ambient distance maximizers.",
+        "2024 Birkhoff source establishes matrix norm diameters, including Frobenius, with a different domain/metric."
+      ],
+      "reasoning": "Same object in first source does not imply the new extremal metric statement from a facet census. Matching X-ray words or parameters in permutation-tomography literature does not imply a bound on squared distances between distinct X-rays. The stronger-looking matrix diameter is in a different normed ambient space and cannot be pushed forward without a nontrivial sharp equality and occupancy analysis. This analysis is supplied in the new proof; no cited known result subsumes its conclusion.",
+      "searches": [
+        "X-ray Birkhoff polytope of doubly stochastic matrices Euclidean minimum enclosing ball spectrum width",
+        "arXiv:2610.30058 full accessible mathematical sections",
+        "arXiv:math/0506334 full accessible text",
+        "DOI:10.1515/spma-2023-0113 full accessible theorem section"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chaudhary--Khandelwal arXiv:2610.30058 §§1--7 and appendix: identical linear-image definition, but results on facets and support.",
+        "Bebeacua--Mansour--Postnikov--Severini arXiv:math/0506334 §§2--4: X-ray counting and degeneracy, not a metric distance theorem.",
+        "Li--Liu--Yao arXiv:2608.01442: binary X-ray feasibility, not Euclidean extremal pairs."
+      ],
+      "reasoning": "Diagonal versus anti-diagonal conventions differ by reversing a matrix index, an orthogonal coordinate reordering on the X-ray vector; thus both conventions were compared. The equivalent probabilistic formulation is an L2 maximal separation of output laws of sums of dependent uniform marginals; the related source studies feasibility and tail facets. No inspected statement implies the exact diameter-graph equality cases or the second discrete distance.",
+      "searches": [
+        "anti-diagonal sums of permutation matrices X-ray polytope complete Euclidean diametral vertex pairs second distance gap",
+        "Xray permutation anti diagonal histogram largest L2 distance concentrated anti identity transposition",
+        "X-ray of permutations maximum Euclidean distance histograms",
+        "arXiv:2610.30058, arXiv:2608.01442, arXiv:math/0506334"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chaudhary--Khandelwal list facet counts, not Euclidean diameter or runner-up distances.",
+        "An additional related geometric result treats in-/circumspheres of unprojected matching polytopes; not an X-ray image.",
+        "Bebeacua et al. count distinct X-rays and permutations by degeneracy, not pairwise metric distances."
+      ],
+      "reasoning": "The finite permutation sets could be enumerated for small sizes, but the cited existing tables record facet counts or number/dependency of X-rays rather than complete Euclidean diametral pairs, and no general formula for all k was located. The finite verifier checks instances; it is not a known-table recomputation of the infinite equality classification.",
+      "searches": [
+        "arXiv:2610.30058 facet count table for k=2,...,12",
+        "Permutations convolution diagonal sums maximum L2 separation anti diagonal Xray polytope",
+        "Permutation X-rays and Birkhoff polytope Euclidean diameter comparison"
+      ]
+    },
+    "rationale": "The motivating primary paper defines the same image and studies its facets, but contains no Euclidean diameter graph or finite-image second-distance classification. Related permutation X-ray papers study enumerations, degeneracies and feasibility. The closest Birkhoff diameter theorem measures original matrices in Schatten/operator metrics, not anti-diagonal sums, so it does not imply this formula. Targeted scientific search queries and comparisons with accessible published mathematical statements showed no covering result. One old Hankel/Toeplitz paper was not readable in full; priority remains provisional.",
+    "residual_risks": [
+      "Historical novelty cannot be certified by failed searches or a research partition.",
+      "Brualdi--Fritscher (2014) on Hankel/Toeplitz X-rays could not be inspected beyond abstract; unlikely from accessible topic description but unresolved as a minor priority risk.",
+      "The distinction between the full polytope diameter and runner-up distance only among distinct finite permutation images must be retained."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the X-ray image, gives facet and support theorems, no covered metric diameter graph.",
+        "evidence": [
+          "arXiv:2610.30058 §1.2 and §2; Theorems 3.1--3.9, 4.2--4.13, 5.6--5.19, 6.5--6.8; Appendix A."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.30058",
+        "material_read": "Full accessible HTML main sections 1--7 and appendix, including stated theorems and results catalogue.",
+        "method": "Read primary HTML mathematics and searched content for diameter and Euclidean.",
+        "title": "Facets of the X-ray polytope of doubly stochastic matrices",
+        "trigger": "Exact motivating image and most plausible source of a covering result."
+      },
+      {
+        "assessment": "Characterizes binary feasibility; no implications for norm-distance maxima.",
+        "evidence": [
+          "arXiv:2608.01442 abstract and main results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.01442",
+        "material_read": "Accessible complete arXiv HTML main theorem, examples and proof sections.",
+        "method": "Read primary HTML and searched for metric diameter.",
+        "title": "Binary X-rays of doubly stochastic matrices",
+        "trigger": "Same X-ray image/feasibility in reflected diagonal convention."
+      },
+      {
+        "assessment": "Counts X-rays and studies degeneracy; not a covering Euclidean distance result.",
+        "evidence": [
+          "arXiv:math/0506334 §§2--4, Proposition 1--3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0506334",
+        "material_read": "Full accessible HTML text, including counting, degeneracy and binary sections.",
+        "method": "Read primary text and compared statements to equality/second-distance claims.",
+        "title": "On the X-rays of permutations",
+        "trigger": "Original permutation X-ray combinatorics and aliases."
+      },
+      {
+        "assessment": "Original matrix polytope, operator/Schatten distances; anti-diagonal X-ray projection is non-isometric.",
+        "evidence": [
+          "Bouthat--Mashreghi--Morneau-Guérin (2024), §§2,4,5, Theorems 4.1 and 5.5."
+        ],
+        "identifier_or_url": "https://doi.org/10.1515/spma-2023-0113",
+        "material_read": "Full accessible journal HTML, including norm definitions and diameter theorems.",
+        "method": "Read theorem statements, domain, Schatten normalization and formula.",
+        "title": "The diameter of the Birkhoff polytope",
+        "trigger": "Most plausible stronger metric theorem on the underlying Birkhoff source."
+      },
+      {
+        "assessment": "Relates combinatorial X-rays and tournaments; no distance-maximizer classification.",
+        "evidence": [
+          "Davis--Schroeder, arXiv:2606.21532."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.21532",
+        "material_read": "Accessible full-text HTML main results on X-ray/tournament relations.",
+        "method": "Read mathematical result sections and checked Euclidean-distance coverage.",
+        "title": "Relating tournaments and permutations with xrays",
+        "trigger": "Recent work on the same combinatorial X-ray vectors."
+      },
+      {
+        "assessment": "Cannot exclude a hidden metric corollary from inaccessible full text; residual literature-priority risk.",
+        "evidence": [
+          "Brualdi--Fritscher (2014) citation and abstract; no page-level conclusion."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2014.02.037",
+        "material_read": "Bibliographic description and abstract only; full text inaccessible after OA/arXiv attempts and authorized institutional access not connected.",
+        "method": "Identified publication and attempted lawful primary-source retrieval.",
+        "title": "Hankel and Toeplitz X-rays of permutations",
+        "trigger": "Same underlying permutation anti-diagonals; plausible covering source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "215ce1bc-6a73-48cc-97b7-92db77bc23ff",
+  "value": {
+    "rationale": "This is a complete natural infinite-family metric classification of an image whose facets grow superpolynomially in the matrix order. It determines every extreme distance segment (only one/two pairs), and a sharp second-highest distance with an explicit witness, rather than just substituting into a known norm formula. The gap \\(2(k-3)\\) is a structural quantitative separation for discrete anti-diagonal tomographic configurations; the same vectors encode distributions of a sum under arbitrary couplings of finite uniform marginals. The result distinguishes the projected metric sharply from the familiar Frobenius metric on the Birkhoff polytope. It neither relies on a narrow arbitrary parameter slice nor claims an unsupported external application.",
+    "status": "PASS"
+  }
+}
