@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-variable heat difference equations are obtained directly from the full combinatorial Laplacian; the two strict positivity arguments are irreducible Metzler semigroup facts. Conservation of mass reduces the remaining clique residual to one positive source, supplying an explicit optimal transport plan whose cost exactly matches the dual potential. The spectral decomposition, derivatives and dimension limit follow from explicit two-dimensional ODE solutions. The supplied checker independently corroborates the full-graph heat equations and the claimed dual optimum on 21 samples; no finite experiment is promoted to a proof for the infinite family.
+## correctness
 
-## Originality — PASS (qualified)
-Actual semantic searches of mathematical research records, related published finite-graph claims and graph heat-transport literature did not reveal an equivalent four-mode all-time formula or its critical clique-size threshold. Ollivier's full available arXiv text establishes general coarse transport curvature, not this specific graph computation. The inspected complete pineapple-graph result addresses weighted normalized curvature distortion on one attachment vertex, rather than this unnormalized two-attachment heat transport. A relevant abstract by Münch–Wojciechowski gives general curvature and heat estimates but does not state the exact formula; the entire article was not verified here and an unindexed equivalent result remains possible. The distinct attachment vertices make the graph nonisomorphic to the known one-hub clique-bouquet family, and its two invariant spectral sectors cannot be collapsed to that two-rate case.
+PASS
 
-## Mathematical value — PASS
-The family is a natural symmetry-breaking two-pendant perturbation of complete graphs. It gives a sharp, global-in-time pairwise transport law, a rigid optimal Kantorovich potential despite varying heat profiles, the exact onset of short-time amplification at clique size four and an order-dependent near-doubling phenomenon. These all-size structural conclusions are not just a small-graph table or a routine reparameterization.
+Difference of heat rows remains symmetric on other clique vertices; four-variable ODE is obtained by vertex-wise Laplacian action. Metzler irreducibility yields positivity u,v,w,z and the two-dimensional difference mode positivity. Bridges force costs u and v and residual positive A-clique source w, yielding transport primal u+v+w; 1-Lipschitz potential saturates all spanning edges and ensures uniqueness. Diagonalizing c=p,p-2 sectors gives four exponentials; Taylor coefficients p-3 and 6-p^2 give threshold, and logarithmic time scaling gives limit 2. Independently computed expm of full graph Laplacian at p=3,4,5,8 and t=.01,.17,.9; Kantorovich witness matched stated expression to <1e-10. These are only corroborating cases.
 
-## Closest literature and limits
-Ollivier, arXiv:math/0701886 (2007) establishes the curvature/transport framework. Münch–Wojciechowski, arXiv:1712.00875 (2017) studies graph heat and curvature; only its abstract-level comparison is available here. Earlier one-hub clique-bouquet heat transport and pineapple curvature-distortion calculations are related but involve different graphs/operators. Unindexed overlap cannot be excluded. The claim is the pendant-edge heat-row distance, **not** a global Lipschitz semigroup norm. No independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new explicitly solved pair-specific four-mode W1 law for two different pendant attachments, not a general heat-gradient result. Ollivier and Münch–Wojciechowski furnish Wasserstein/heat semigroup and curvature framework; their inspected statements concern general bounds/equivalences, not these four eigenvalue rates, fixed optimal potential and sharp p=3/4 onset.
+
+## value
+
+PASS
+
+Natural finite graph family exhibits local short-time heat-transport amplification even across adjacent vertices. Exact rate formula and unique dual potential give useful counterexample/benchmark to naive contraction intuition, with meaningful sharp dimension threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

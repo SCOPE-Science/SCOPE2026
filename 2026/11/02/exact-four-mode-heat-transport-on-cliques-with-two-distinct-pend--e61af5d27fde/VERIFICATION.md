@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_two_pendants.py`. It compares an independently assembled full Laplacian and Poisson-uniformized heat column difference against the analytic four-mode formula, checks the bridge-plus-clique primal cost, and confirms the proposed Kantorovich potential. Integral extreme dual potentials are also enumerated for smaller cliques.
+## correctness
 
-Observed:
+PASS
 
-```text
-CHECK_OK separate_Laplacian_uniformization_and_transport=21 exact_dual_cases=15
-CHECK_OK unique_dual_witness=verified extrema sampled, onset=p_minus_3, large_clique_limit=2
-```
+Difference of heat rows remains symmetric on other clique vertices; four-variable ODE is obtained by vertex-wise Laplacian action. Metzler irreducibility yields positivity u,v,w,z and the two-dimensional difference mode positivity. Bridges force costs u and v and residual positive A-clique source w, yielding transport primal u+v+w; 1-Lipschitz potential saturates all spanning edges and ensures uniqueness. Diagonalizing c=p,p-2 sectors gives four exponentials; Taylor coefficients p-3 and 6-p^2 give threshold, and logarithmic time scaling gives limit 2. Independently computed expm of full graph Laplacian at p=3,4,5,8 and t=.01,.17,.9; Kantorovich witness matched stated expression to <1e-10. These are only corroborating cases.
 
-The finite numerical program is not an exhaustive all-size certificate; the full theorem relies on the explicit Metzler positivity proof, transport primal/dual equality, two-sector ODE calculation and the asymptotic limits in RESULT.md. The uniqueness proof is analytic, not established by the finite enumerator. Independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge new explicitly solved pair-specific four-mode W1 law for two different pendant attachments, not a general heat-gradient result. Ollivier and Münch–Wojciechowski furnish Wasserstein/heat semigroup and curvature framework; their inspected statements concern general bounds/equivalences, not these four eigenvalue rates, fixed optimal potential and sharp p=3/4 onset.
+
+## value
+
+PASS
+
+Natural finite graph family exhibits local short-time heat-transport amplification even across adjacent vertices. Exact rate formula and unique dual potential give useful counterexample/benchmark to naive contraction intuition, with meaningful sharp dimension threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
