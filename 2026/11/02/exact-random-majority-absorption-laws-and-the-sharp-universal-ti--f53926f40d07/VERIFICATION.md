@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Mathematical verification record
+# Independent mathematical audit
 
-The result uses synchronous independent fair-tie majority updating, on the entire range \(a,b\ge1\). Its proof reduces the full chain to sign persistence at two-step times, derives three exact probability-generating functions from first-step conditioning, solves their expectations, and bounds all even-size cases using central-binomial monotonicity. Only nine unordered even-size pairs remain for exact-rational comparison; the unique maximizer is \(K_{2,6}\) with value \(79/27\). The result explicitly separates entrance into any closed class from eventual consensus.
+## correctness
 
-## Standalone calculation
+PASS
 
-Run `python3 verify_bipartite_rmm.py` from the directory containing this file and the verifier. No network access or nonstandard Python packages are used. The verifier constructs the count-process transition law independently of the three-state formulas and tests the Bellman equations for expected first entrance and each of three absorbing-class probabilities. It reports 144 graph pairs, 7524 transient states, and 18024 exact-rational transitions; it checks nine finite extremal pairs and central-binomial monotonicity for the first forty steps. All checks passed when executed on the packaged source.
+For every a,b>=1, count-chain next states are independent binomial/monochrome given current majority signs. The two-step sign channel fixes strict signs and preserves a tie with probability q_a q_b<=1/4; two eventual strict signs are independent fair resolutions of initial ties. It follows there are just two monochromatic fixed points and one opposing period-two class. Conditioning one update by pure/mixed/tied probabilities yields the three given PGF equations and X,Y,Z expectations. G(q_a,q_b) is increasing; decreasing even central-binomial probabilities reduce global sharp 79/27 to nine explicit finite even pairs, attained only K_(2,6) with both parts tied. Fresh exact rational Bellman checks for 36 size pairs verified transient equations; those finite checks supplement the all-size argument.
 
-## Scope of verification
+## originality
 
-These finite exact-arithmetic checks detect algebraic and normalization mistakes within the tested range, but cannot prove universal statements by enumeration. The analytic mathematical proof establishes the all-size bound. Absolute literature priority has not been certified. No independent audit or external mathematical validation has been performed.
+PASS
+
+Random-majority under independently fair synchronous tie coins is an existing studied model. Zehmakan previously derived C4=K2,2 random-cycle outcome statistics, a covered boundary case, but his general exponential stabilization and even-cycle results do not give the all-biclique exact distribution or 79/27 global maximum. Deterministic tie-resolution majority is a different Markov kernel.
+
+## value
+
+PASS
+
+Exact probabilities, full finite-time law through rational PGFs, and a sharp universal expected absorption time for all nontrivial complete bipartite networks are natural stochastic-dynamics observables; precise attainment at K2,6 is a structural bound, not a routine reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

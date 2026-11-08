@@ -1,24 +1,21 @@
-# Review of exact random-majority absorption on complete bipartite networks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every finite, loopless \(K_{a,b}\), synchronous independent fair ties give independent binomial updates on its two vertex classes. At two-step intervals each strict majority sign is preserved, while a tie persists with probability \(q_aq_b\le1/4\). This proves almost-sure entry into one of exactly three closed classes, and proves the independent terminal-sign product formula, without extrapolating from finite experiments. Conditioning on the first update gives three explicit probability-generating-function recurrences and, by differentiation, the stated rational expectations \(X_{a,b}\), \(Y_{a,b}\), and \(Z_{a,b}\). The monotone upper envelope for \(Z\), central-binomial monotonicity, and nine exact-rational boundary comparisons establish the uniform bound \(79/27\) and its unique equality case \(K_{2,6}\) with both parts tied. A standalone verifier checks exact Bellman identities for all blue-count states on \(144\) part-size pairs; those finite computations corroborate the proof rather than establishing the universal quantifier.
+PASS
 
-## Originality — PASS, subject to residual priority risk
+For every a,b>=1, count-chain next states are independent binomial/monochrome given current majority signs. The two-step sign channel fixes strict signs and preserves a tie with probability q_a q_b<=1/4; two eventual strict signs are independent fair resolutions of initial ties. It follows there are just two monochromatic fixed points and one opposing period-two class. Conditioning one update by pure/mixed/tied probabilities yields the three given PGF equations and X,Y,Z expectations. G(q_a,q_b) is increasing; decreasing even central-binomial probabilities reduce global sharp 79/27 to nine explicit finite even pairs, attained only K_(2,6) with both parts tied. Fresh exact rational Bellman checks for 36 size pairs verified transient equations; those finite checks supplement the all-size argument.
 
-The originating paper on independently fair-tied random majority (Zehmakan, arXiv:2302.06760v1, 2023-02-14; revised journal publication 2024) includes cycle-graph results. Its \(C_4=K_{2,2}\) random-initialization terminal probabilities are **already covered** and are credited. Examination of its model definitions, cycle results and appendices did not identify a general complete-biclique first-entry-time law or the sharp universal bound. The related majority-dynamics works of Mossel–Neeman–Tamuz (arXiv:1207.0893) and Benjamini–Chan–O'Donnell–Tamuz–Tan (arXiv:1405.2486) use fundamentally different deterministic tie rules; their period-two results do not imply these stochastic finite-time formulas. Comparisons with published mathematical literature and closely related models found no covering statement; models with asynchronous clocks, clique edges, and multipartite parts are not equivalent by an automatic parameter substitution. Specialist work not indexed or read could still contain an equivalent result. No absolute-priority claim is made.
+## originality
 
-## Value — PASS
+PASS
 
-For a core opinion-diffusion model, the result gives all-size exact outcome probabilities and exact first-entry distributions on a natural dense bipartite family. The sharp uniform \(79/27\) expected-time law is mathematically informative: a network can be arbitrarily large while its expected entrance time remains uniformly bounded, and the worst case is neither the smallest nor a growing graph. The theorem also separates unanimous agreement from perpetual alternating disagreement and quantifies their likelihood from independently biased initial opinions. This is a structural classification and sharp global extremum, not a routine special case or an empirical census.
+Random-majority under independently fair synchronous tie coins is an existing studied model. Zehmakan previously derived C4=K2,2 random-cycle outcome statistics, a covered boundary case, but his general exponential stabilization and even-cycle results do not give the all-biclique exact distribution or 79/27 global maximum. Deterministic tie-resolution majority is a different Markov kernel.
 
-## Closest literature and limitations
+## value
 
-- A. N. Zehmakan, *Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes*, arXiv:2302.06760v1 (2023-02-14), https://arxiv.org/html/2302.06760v1. The \(C_4\) Bernoulli terminal-probability instance is previously known.
-- A. N. Zehmakan, *Majority opinion diffusion: when tie-breaking rule matters*, Autonomous Agents and Multi-Agent Systems (2024), https://doi.org/10.1007/s10458-024-09651-y. General and cycle-specific analysis, not the all-biclique sharp hitting-time constant found here.
-- E. Mossel, J. Neeman and O. Tamuz, *Majority Dynamics and Aggregation of Information in Social Networks* (2012), https://arxiv.org/abs/1207.0893. Different tie convention and objectives.
-- I. Benjamini, S.-O. Chan, R. O'Donnell, O. Tamuz and L.-Y. Tan, *Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs* (2014), https://arxiv.org/html/1405.2486v1. Deterministic tie behavior.
+PASS
 
-The result does not cover incomplete bipartite graphs, biased or dependent tie coins, asynchronous clocks, or more than two opinions. The general existence of uninspected publications creates a remaining priority uncertainty. There is no independent audit or external certification.
+Exact probabilities, full finite-time law through rational PGFs, and a sharp universal expected absorption time for all nontrivial complete bipartite networks are natural stochastic-dynamics observables; precise attainment at K2,6 is a structural bound, not a routine reformulation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
