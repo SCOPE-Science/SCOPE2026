@@ -1,0 +1,11 @@
+# Scientific review: an attracting-triangle window
+
+**Correctness (PASS).** The cancellation of the coupling-dependent onsite terms in the co-rotating frame is exact. Both reflected complex triangles have squared moduli \(1,2,3\) and zero mean. The full real Jacobian has one symmetry eigenvalue and an exactly computed quintic transverse factor. Five exact Routh–Hurwitz minors reduce strict stability to three polynomial signs; rational Sturm root counts certify their ordering and the two sextic thresholds. Exact symbolic replay and an explicit interior witness were checked. The conclusion concerns orbital exponential stability, not nonlinear endpoint bifurcation type.
+
+**Originality (PASS within inspected literature).** Zhao–Uchida (arXiv:2610.08239v1, Secs. 2 and 5) provide the zero-order-parameter polygonal family and numerical transverse-stability sampling in an eight-node slice. They do not give the three-node shape-preserving family, explicit sixth-degree stability boundary, or exact two-transition classification. Older higher-order phase-reduction literature and existing public results on engineered three-oscillator coupling involve different equations and do not imply this calculation. A preexisting five-active polygon-shape topology result likewise does not compute this full spectral boundary. Priority remains provisional against uninspected specialized global-coupling literature.
+
+**Mathematical value (PASS).** A three-vertex polygon is the minimal nondegenerate mean-zero configuration. Showing that both chiral triangles can be genuine local attractors, and that varying the reactive/dissipative coupling along a geometry-preserving path makes them lose, gain, and lose attraction at two exact algebraic thresholds, resolves a structurally meaningful small-network question left open by sampled stability maps. The result separates coupling-induced spectral changes from changes in the underlying polygon shape.
+
+**Limits and risk.** Only local full-state stability of these two explicit periodic branches is proved. No comprehensive classification of other attractors or global basins, and no nonlinear Hopf analysis, is asserted. A broader past theorem covering the same full spectral slice could affect historical novelty; no independent scientific audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
