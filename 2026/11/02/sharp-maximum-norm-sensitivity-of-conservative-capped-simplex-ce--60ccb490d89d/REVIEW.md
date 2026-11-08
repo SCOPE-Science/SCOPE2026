@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The convex KKT projection formula is established in the standard capped-simplex literature; the new proof computes each restricted active-set derivative on the sum-zero hyperplane, finds its exact cube norm, maximizes over every possible face size, and builds exact equality witnesses for every interior mass. The generic-segment argument upgrades local bounds to a global one. The independently implemented projection checker and exact-rational vertex tests support the calculation, but finite tests do not replace the proof. Endpoint masses and unequal-volume cells are excluded.
+## correctness
 
-**Originality — PASS (best-knowledge; priority risk remains).** The October 24, 2026 Lee–Lee–Liu paper proves Hilbert \(L^2\) nonexpansiveness for the same type of limiter, not fixed-mass \(\ell_\infty\) two-input sensitivity. The 2015 Wang–Lu capped-simplex paper proves the common-shift KKT formula and algorithm, but not the optimized norm constant. Gomez–Wang–Tang (2026) give Euclidean Lipschitz control of hypersimplex projection, while Amos–Koltun–Kolter (2019) use an entropy-regularized projection on the same constraint body. Published mathematical-result searches produced sharp-norm results for different projection bodies, notably cross-polytopes, but no statement covering the present fixed-mass cube-slice formula. An unindexed equivalent general sensitivity result could still subsume the classification, and the relevant published cross-polytope full text was inaccessible.
+PASS
 
-**Value — PASS.** The exact full-dimension frontier is directly motivated by stability of a conservative, bound-enforcing limiter. It shows that the readily available \(L^2\) bound does not settle pairwise maximum-norm robustness: four equal cells already allow a sharp \(4/3\) perturbation amplification, approaching two in large dimension. The theorem applies to equally mass-conserving, potentially infeasible intermediate vectors; it does not claim maximum-norm amplification of errors relative to a feasible reference, nor a full DG solver instability.
+On a strict projection active face with k free and b=N-k clipped coordinates, KKT gives Q_s(x)_i=[x_i-lambda]_0^1. Tangent input perturbations v have sum zero and derivative v_i+sum_B v_j/k on free indices; clipped derivatives vanish. The restricted cube section bound with v_i=1 gives the exact face modulus 1+min(b,k-2)/k for k>=2, zero for k=1. Explicit zero-sum sign vectors attain both branches. Maximizing over k gives 2-2/(floor(N/2)+1); piecewise affine segment integration gives global upper bound. For each interior mass s, either s<k or s>b allows an active face with all b bound outputs equal 0 or 1, and a strict-face tangent witness attains the bound. For N=2 the feasible interior identity achieves 1. Independent exact vertex enumeration over 36 (N,k) cases N=2..9 and the explicit N=4 s=2 witness factor 4/3 corroborate the unrestricted argument.
 
-**Closest literature and limits.** Lee–Lee–Liu (2026), arXiv:2610.33449v1, Section 3; Wang–Lu (2015), arXiv:1503.01002v1, Sections 1–3; Gomez–Wang–Tang (2026), arXiv:2602.23336v1, Section 4; Amos–Koltun–Kolter (2019), arXiv:1906.08707v3, Section 3. Equal cell volumes, common unit bounds and fixed mass are essential. An independent mathematical priority or correctness assessment has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 limiter paper derives Euclidean metric nonexpansiveness; the 2015 capped-simplex paper supplies KKT and computational projection, both acknowledged. The exact l-infinity modulus restricted to equal-mass tangent hyperplane requires a distinct active-face operator-norm optimization and every-mass equality construction. Resultary sharp projection results on cross-polytopes or Euclidean balls use distinct domains and do not dominate this claim. A general older polyhedral-projector sensitivity theorem might supply this by specialization.
+
+## value
+
+PASS
+
+Gives the first exact dimensional frontier for maximum-norm amplification by a conservative limiter, distinguishing Hilbert nonexpansiveness from maximum-norm sensitivity and identifying the smallest expansive four-cell example. A sharp optimizer for every mass is a natural complete quantitative classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

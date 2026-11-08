@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T08:51:44.450797Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a strict projection active face with k free and b=N-k clipped coordinates, KKT gives Q_s(x)_i=[x_i-lambda]_0^1. Tangent input perturbations v have sum zero and derivative v_i+sum_B v_j/k on free indices; clipped derivatives vanish. The restricted cube section bound with v_i=1 gives the exact face modulus 1+min(b,k-2)/k for k>=2, zero for k=1. Explicit zero-sum sign vectors attain both branches. Maximizing over k gives 2-2/(floor(N/2)+1); piecewise affine segment integration gives global upper bound. For each interior mass s, either s<k or s>b allows an active face with all b bound outputs equal 0 or 1, and a strict-face tangent witness attains the bound. For N=2 the feasible interior identity achieves 1. Independent exact vertex enumeration over 36 (N,k) cases N=2..9 and the explicit N=4 s=2 witness factor 4/3 corroborate the unrestricted argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hilbert nonexpansiveness only gives ||P(x)-P(y)||_2 <= ||x-y||_2; it does not fix the sharp infinity modulus.",
+          "The cross-polytope and weighted ball projector problems have different feasible sets and tangent spaces."
+        ],
+        "reasoning": "Those results do not directly imply an exact fixed-mass supnorm factor or equality for every interior mass; general unrestricted projector estimates may be weaker.",
+        "searches": [
+          "arxiv:2610.33449 L2 nonexpansiveness",
+          "Resultary 2026/10/11 exponent invariant cross polytope projections",
+          "arxiv:2602.23336 differentiable zero one hypersimplex projection"
+        ]
+      },
+      "checked_sources": [
+        "Frozen repository fcc247c8b7eb30c50d03abc79e1b79aab81f6226; assigned Git tree 597e92a43ccd682c7facaf7479345322747e64a0; full RESULT.md blob ff383f5452d2285d2bb3f8a567181d36bfccb89d and inspected verify_limiter.py blob 8241578e76eb5ab081aaca78bb2d9a088f092ad4",
+        "Independent mathematical verification: scope_worker07_independent_20261106T0841.py and scope_worker07_independent_20261106T0841_results.json",
+        "Actual Resultary semantic search for this claim and related published mathematical records",
+        "https://arxiv.org/abs/2610.33449",
+        "https://arxiv.org/abs/1503.01002",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The KKT projector formula is a known premise.",
+          "Restricting perturbations to H_0 changes the optimum from unrestricted l-infinity Jacobian bounds, and equality requires strict face realization for every mass."
+        ],
+        "reasoning": "Known L2 inequalities and algorithmic formulas do not logically yield the sharp H_s-to-l-infinity Lipschitz modulus without new norm optimization.",
+        "searches": [
+          "Lee Lee Liu 2026 Theorem 6 Euclidean limiter nonexpansiveness",
+          "Wang Lu 2015 KKT active set capped simplex",
+          "Gomez Wang Tang 2026 hypersimplex Euclidean derivatives"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same projection is the KKT water-filling hypersimplex projector; its derivative is an active-coordinate centering matrix restricted to 1^T v=0.",
+          "Earlier capped-simplex algorithm supplies the clipping map but not the exact fixed-mass restricted supnorm."
+        ],
+        "reasoning": "Equivalent active-set and conservative-limiter formulations identified; exact restricted 1+min(b,k-2)/k norm is the additional claim.",
+        "searches": [
+          "Resultary: sharp infinity norm Lipschitz projection fixed mass capped simplex hypersimplex sensitivity",
+          "arxiv:1503.01002 projection onto capped simplex",
+          "arxiv:2610.33449 cell-average metric projections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary sharp projection listings concern cross-polytope/Euclidean-ball restrictions; no relevant table was inspected.",
+          "The 4-cell 4/3 and all-N factor follow from constrained zero-sum tangent-cube geometry."
+        ],
+        "reasoning": "No verified indexed table overlaps the exact all-N formula; absence of such a table is not a priority proof.",
+        "searches": [
+          "Resultary exact capped simplex projection maximum norm Lipschitz coefficient by N",
+          "hypersimplex projector active set infinity norm tabulated 2-2/(floor(N/2)+1)"
+        ]
+      },
+      "rationale": "The 2026 limiter paper derives Euclidean metric nonexpansiveness; the 2015 capped-simplex paper supplies KKT and computational projection, both acknowledged. The exact l-infinity modulus restricted to equal-mass tangent hyperplane requires a distinct active-face operator-norm optimization and every-mass equality construction. Resultary sharp projection results on cross-polytopes or Euclidean balls use distinct domains and do not dominate this claim. A general older polyhedral-projector sensitivity theorem might supply this by specialization.",
+      "residual_risks": [
+        "A general unlocated theorem about l-infinity norms of Euclidean projections onto box-constrained hyperplanes could subsume the active-set calculation.",
+        "No unequal cell volumes, unequal masses, full DG timestep, or feasible-reference error inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model predecessor; only L2 contractivity established in accessible excerpt, possible full-text extension remains a risk",
+          "evidence": "Metric projection in L2 is nonexpansive, not enough for 4/3 l-infinity expansion.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.33449",
+          "material_read": "Accessible abstract/index and theorem synopsis, not complete paper",
+          "method": "Compared L2 contractivity statement with fixed-mass two-input infinity norm",
+          "title": "Optimization-based Cell Average Limiters as Metric Projections",
+          "trigger": "Same limiting operation and conservation constraints"
+        },
+        {
+          "assessment": "Known KKT and algorithmic map explicitly credited; no inspected sharp restricted infinity modulus",
+          "evidence": "Water-level clipping is the same projector, not by itself its sharp tangent modulus.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.01002",
+          "material_read": "Accessible abstract and description of active-set algorithm",
+          "method": "Compared projection characterization and output vs input metric",
+          "title": "Projection onto the capped simplex",
+          "trigger": "Same geometric feasible set and KKT water filling"
+        },
+        {
+          "assessment": "Different l1 ball, not capped simplex equal-mass hyperplane; no direct implication",
+          "evidence": "Published theorem varies l_p exponent and l1-ball projection; distinct constraint geometry.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41",
+          "material_read": "Resultary published full mathematical summary, not entire paper",
+          "method": "Compared shape of convex set and input norm",
+          "title": "Exponent-invariant cross-polytope projection and sharp Lipschitz threshold",
+          "trigger": "Potential broad sharp projection theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives the first exact dimensional frontier for maximum-norm amplification by a conservative limiter, distinguishing Hilbert nonexpansiveness from maximum-norm sensitivity and identifying the smallest expansive four-cell example. A sharp optimizer for every mass is a natural complete quantitative classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen repository fcc247c8b7eb30c50d03abc79e1b79aab81f6226; assigned Git tree 597e92a43ccd682c7facaf7479345322747e64a0; full RESULT.md blob ff383f5452d2285d2bb3f8a567181d36bfccb89d and inspected verify_limiter.py blob 8241578e76eb5ab081aaca78bb2d9a088f092ad4",
+    "Independent mathematical verification: scope_worker07_independent_20261106T0841.py and scope_worker07_independent_20261106T0841_results.json",
+    "Actual Resultary semantic search for this claim and related published mathematical records",
+    "https://arxiv.org/abs/2610.33449",
+    "https://arxiv.org/abs/1503.01002",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41"
+  ],
+  "disposition": "passed",
+  "final_claim": "The sharp fixed-mass l-infinity Lipschitz modulus of Euclidean projection of H_s={x:sum x_i=s} onto C_s=H_s intersect [0,1]^N is 2-2/(floor(N/2)+1) for every N>=2 and 0<s<N; nonexpansive exactly for N=2,3 and sharp expansive for N>=4.",
+  "limitations": [
+    "Proof and cited full result confined to its stated hypotheses; independent finite tests do not establish any unrestricted result.",
+    "A general unlocated theorem about l-infinity norms of Euclidean projections onto box-constrained hyperplanes could subsume the active-set calculation.",
+    "No unequal cell volumes, unequal masses, full DG timestep, or feasible-reference error inference."
+  ],
+  "residual_risks": [
+    "A general unlocated theorem about l-infinity norms of Euclidean projections onto box-constrained hyperplanes could subsume the active-set calculation.",
+    "No unequal cell volumes, unequal masses, full DG timestep, or feasible-reference error inference."
+  ],
+  "schema_version": 1
+}
