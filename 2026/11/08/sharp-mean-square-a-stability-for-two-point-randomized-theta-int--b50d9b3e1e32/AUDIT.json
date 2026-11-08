@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For independent stages the mean-square factor is F(z)^N. Exact gain identity (1) is verified. The two-point imaginary-axis numerator is affine in y²; its highest coefficient B changes sign exactly at p_*(a,b). For p≤p_* both imaginary-axis boundary and the high-frequency limit are bounded by one, while subharmonic maximum principle and strict interior small-step contraction give F<1 over the open left half-plane. For p>p_* an imaginary-axis instability persists inside by continuity. A strict monotone covariance identity proves failure of centered nonconstant laws; analytic expansion and implicit-function theorem yield kappa y⁴/2. A standalone stdlib verifier passes 396 rational assertions and does not purport to prove infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 randomized SDIRK method has every realization algebraically stable and a different two-stage tableau.",
+        "2021 randomized operator-equation one-step methods perturb outputs by additive noise.",
+        "2024 work explicitly analyzes fixed uniform stage parameters and not arbitrary two-atom probabilities."
+      ],
+      "reasoning": "The cited classes do not establish the necessary and sufficient low-implicitness probability cutoff. A-stability for another integrator cannot dominate a sharp classification for this particular random one-stage rule.",
+      "searches": [
+        "random two-point implicit theta coefficient Bernoulli law A-stability probability cutoff p characteristic stability of randomized theta ODE",
+        "arxiv:2607.18928 sections 1 and 5",
+        "arxiv:2103.16506"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2404.19059v1",
+      "arxiv:2006.12131v1",
+      "arxiv:2103.16506",
+      "arxiv:2607.18928",
+      "DOI:10.1137/S003614299834736X (abstract and SDE-specific model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In the 2024 paper the uniform method is not mean-square A-stable; it is a particular centered nonconstant law, already covered by prior work.",
+        "2020 paper uses explicit randomized RK amplification 1+z+Uz², not rational R(z,theta).",
+        "The accessible uniform-law boundary x~y^4/12 is a special case and is not asserted to be novel."
+      ],
+      "reasoning": "The new claim is restricted to two-atom exact A-stability cutoff and arbitrary centered-law obstruction/coefficient. Known uniform-case non-A-stability and global region are explicitly excluded from novelty. Neither fixed-uniform statement implies a closed-form threshold permitting *some* nonconstant two-atom laws to retain full mean-square A-stability.",
+      "searches": [
+        "arxiv:2404.19059v1 §3.2",
+        "arxiv:2006.12131v1 §5.1",
+        "randomized implicit midpoint theta linear test equation stable region random coefficient quadrature",
+        "mean preserving randomized implicit theta destroys mean square A stability nonconstant distribution fourth order imaginary axis"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2024 arxiv:2404.19059v1, §1.2 S2 uses R(z,U)=1+z/(1-Uz) for U uniform on [0,1].",
+        "2024 §3.2 gives mean-square non-A-stability for uniform U; the coefficient law is fixed, whereas here p,a,b vary."
+      ],
+      "reasoning": "The new two-point law has atoms at a,b, not the continuous uniform distribution; no algebraic equivalence between its distribution-dependent quadratic gain and the published uniform integral was found. The same amplification function alone does not imply equivalent laws or conclusions.",
+      "searches": [
+        "randomized theta method random implicitness coefficient mean square A stability complex scalar test equation midpoint random parameter",
+        "randomized implicit midpoint theta linear test equation stable region random coefficient quadrature",
+        "randomized implicit theta coefficient mean-square A stability",
+        "arxiv:2404.19059v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary literature evaluates an integral for the uniform law and a real-axis threshold; no two-point cutoff p_*(a,b) appears in inspected §3.2.",
+        "Semantic mathematical-record search returned unrelated KGSM stability work, which analyzes a different iteration."
+      ],
+      "reasoning": "No located exact table matches the p_*(a,b) law. Nonretrieval is not uniqueness proof and leaves publication-precedence uncertainty.",
+      "searches": [
+        "randomized theta method random implicitness coefficient mean square A stability complex scalar test equation midpoint random parameter",
+        "random two-point implicit theta coefficient Bernoulli law A-stability probability cutoff p characteristic stability of randomized theta ODE",
+        "mean preserving randomized implicit theta destroys mean square A stability nonconstant distribution fourth order imaginary axis",
+        "arxiv:2404.19059v1 formula for Uniform[0,1]"
+      ]
+    },
+    "rationale": "The 2024 primary full text treats the law Uniform[0,1] and proves failure of mean-square A-stability for that fixed law. The new exact two-atom probability cutoff, including its stable endpoint, does not follow from that uniform-specific conclusion; a universal obstruction for every nonconstant centered law and its distribution-dependent fourth-order coefficient are additionally proved. The earlier accessible local record 933cbee0-4d10-4d06-8c4d-3a655827d88b covers the uniform-law global boundary only and is not claimed as new. The source laws and implications were compared, not titles alone. Specialist publication precedence remains a residual risk.",
+    "residual_risks": [
+      "An unlocated analysis of random two-atom theta coefficients or equivalent resolvent mixtures could already contain the phase boundary.",
+      "The classic stochastic theta-method SDE paper was examined at the abstract/model level, not full text; its model has multiplicative SDE noise and fixed theta.",
+      "A semantic database search returning no matching result does not prove originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "S2 matches scalar amplification but imposes Uniform[0,1] stage law and establishes only that law’s bounded mean-square stability region; no arbitrary Bernoulli probability threshold",
+        "evidence": [
+          "§1.2 S2: V^j=V^(j-1)+h f(theta_j,(1-tau_j)V^(j-1)+tau_j V^j)",
+          "§3.2: E|1+z/(1-z tau_1)|² and proof of bounded region for uniform tau"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.19059",
+        "material_read": "Full-text HTML introduction, §1.2 equations S1/S2, and §3.2 mean-square stability analysis, facts 2–6",
+        "method": "Read arXiv open full text, including scheme definition and formula for expected squared gain",
+        "title": "Convergence and stability of randomized implicit two-stage Runge-Kutta schemes",
+        "trigger": "Exact same random implicit theta amplification and plausible direct coverage"
+      },
+      {
+        "assessment": "An explicit two-stage scheme R=1+z+tau z²; distinct denominator and different A-stability question",
+        "evidence": [
+          "§2 definition of explicit randomized RK with uniform tau",
+          "§5.1 equation (73) expected amplification polynomial"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2006.12131v1",
+        "material_read": "Full-text HTML sections 1,2,5.1, including explicit stage scheme and mean-square polynomial",
+        "method": "Read original arXiv HTML full text",
+        "title": "Randomized Runge–Kutta method—stability and convergence under inexact information",
+        "trigger": "Early randomized ODE stability source, possible stronger treatment of random stages"
+      },
+      {
+        "assessment": "Randomizes approximation errors by additive perturbations, without a two-atom random theta phase boundary",
+        "evidence": [
+          "§1 form psi(h,U_k)+xi_k(h) and Orlicz strong-error guarantees"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.16506",
+        "material_read": "Full-text opening, introduction, §1.2 and stated strong error claims",
+        "method": "Read lawful arXiv full text",
+        "title": "Randomised one-step time integration methods for deterministic operator differential equations",
+        "trigger": "Random time stepping general class could imply stability"
+      },
+      {
+        "assessment": "Different SDIRK tableau whose every realization is A-stable; does not address sharp two-point law for the theta rule",
+        "evidence": [
+          "Introduction identifies uniform-random theta predecessor and contrasts a distinct SDIRK whose realizations are A-stable"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.18928",
+        "material_read": "Full-text introduction and stated algebraic-stability comparison in sections 1 and 5",
+        "method": "Read arXiv full text",
+        "title": "Error Bound and Stability Analysis for a Randomized Singly Diagonally Implicit Runge–Kutta Method",
+        "trigger": "Contemporary potentially stronger randomized implicit A-stability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b50d9b3e-1e32-426b-ad8e-0a8d46802d07",
+  "value": {
+    "rationale": "The exact two-atom threshold is a complete nontrivial design classification for random implicitness in a canonical stiffness test: it separates distributions that retain full mean-square A-stability from those that do not and includes the sharp borderline. It shows the stability cost of preserving the midpoint mean and quantifies the fourth-order weak-damping notch for any centered law. The result is materially more informative than the known uniform-only failure and has clear limits to scalar iid test equations.",
+    "status": "PASS"
+  }
+}
