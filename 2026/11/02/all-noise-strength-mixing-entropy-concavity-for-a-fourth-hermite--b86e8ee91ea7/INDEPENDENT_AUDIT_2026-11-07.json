@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:34:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Hermite convolution gives exact output density phi(1+epsilon S He4+epsilon^2 z^2 He8), epsilon=aq^2, z=t(1-t), S=1-2z. Conditional-Gaussian product and input positivity bound output factor R>=(1-6epsilon)^2. Differentiating D=E_phi RlogR yields F_tt=2D_z-(1-4z)D_zz. Exact moments of He4 and He8 together with four strict Cauchy upper bounds show D_z/(epsilon^2 S)<-7 and D_zz/epsilon^2>34 uniformly epsilon<=0.01; therefore F_tt<-14epsilon^2 S<=-7epsilon^2. Independently recomputed all displayed Gaussian integer moments, absolute-moment squared ceilings and rational margin inequalities; the infinite claim follows from analytic estimates, not this finite arithmetic check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A nontrivial Gaussian variance mixture has nonzero He8 coefficient if it has nonzero He4 coefficient, unlike the input p_a.",
+          "Ball–Nayar–Tkocz broader log-concavity discussion is a conjectural/general question, not a published covering theorem for this family."
+        ],
+        "reasoning": "The known Gaussian mixture entropy concavity setting has incompatible structural hypotheses; no verified stronger theorem implies the tested positive Hermite4 model through epsilon=0.01.",
+        "searches": [
+          "arxiv:2308.15997 Gaussian mixtures entropy power inequality",
+          "arxiv:1509.05926 Ball Nayar Tkocz entropy conjecture",
+          "arxiv:2609.11418 Luo symmetric entropy mixing"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.22386v1, Section 8, Theorem 8.1",
+        "arxiv:2308.15997",
+        "arxiv:2609.11418",
+        "arxiv:1509.05926",
+        "Resultary query: fourth Hermite Gaussian perturbation entropy concavity mixing Ornstein Uhlenbeck unsmoothed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previous source implies concavity for effective epsilon<=1/256 only; it does not prove the present larger range.",
+          "Input p_a has positive fourth Hermite chaos and zero eighth-order chaos; a Gaussian variance mixture cannot have those two features unless degenerate."
+        ],
+        "reasoning": "Neither an apparent unsmoothed q=1 formulation at tiny epsilon nor broad Gaussian-mixture result covers the full new amplitude. The quantitative new proof supplies a distinct uniform certificate.",
+        "searches": [
+          "arxiv:2610.22386 Theorem 8.1 parameter q rescale a",
+          "arxiv:2308.15997 Gaussian scale mixture Hermite8 coefficient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Section 8 works with exactly p_a=phi(1+a He4), same mixing entropy after OU smoothing.",
+          "New mixed density is parameterized by epsilon=aq^2; old q<=5/8, a<=.01 implies epsilon<=1/256."
+        ],
+        "reasoning": "The equivalent effective-amplitude parameter prevents falsely claiming all q>5/8 as new; only epsilon>1/256 is not implied by the known theorem.",
+        "searches": [
+          "fourth Hermite Gaussian perturbation entropy concavity mixing Ornstein Uhlenbeck unsmoothed",
+          "arxiv:2610.22386 Hermite fourth q 5/8 theorem 8.1",
+          "Gaussian variance mixture Hermite fourth mode entropy concavity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previous numerical/symbolic Section 8 bound stops at q=5/8 and smaller curvature guarantee; independent exact moments here certify stronger new sector."
+        ],
+        "reasoning": "No exact preexisting coefficient/amplitude table for the 1/256 to 1/100 interval was found; a hidden equivalent analytic bound is a residual risk.",
+        "searches": [
+          "arxiv:2610.22386 effective epsilon sharp interval",
+          "fourth Hermite Gaussian perturbation entropy concavity mixing Ornstein Uhlenbeck unsmoothed",
+          "He4 Gaussian entropy mixing 1/100 curvature 7"
+        ]
+      },
+      "rationale": "Abu-Ajamieh (arxiv:2610.22386v1), Section 8, gives the same fourth-Hermite family for q<=5/8. Because the output depends only on epsilon=aq^2, that prior result already covers every effective epsilon<=1/256 including q=1 at small amplitude; novelty is the genuinely larger sector 1/256<epsilon<=1/100, and the stronger explicit curvature certificate, not all cases labeled q>5/8. Eskenazis–Gavalakis Gaussian variance-mixture theorem does not include this density, which has positive He4 coefficient but zero He8 coefficient at input.",
+      "residual_risks": [
+        "The original same-family theorem covers ALL effective epsilon<=1/256 after reparametrization, even at q=1; no novelty claimed there.",
+        "An unindexed stronger near-Gaussian entropy theorem might cover epsilon>1/256, but not identified.",
+        "No general entropy concavity for arbitrary symmetric distributions is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS strong-smoothing/effective epsilon<=1/256; NOT new sector epsilon>1/256",
+          "evidence": "Theorem 8.1 assumes q<=5/8; the present effective amplitude after that equivalence extends to 1/100.",
+          "identifier_or_url": "arxiv:2610.22386v1",
+          "material_read": "Primary full PDF Section 8, rendered pages 13–15, especially Theorem 8.1 and proof with q<=5/8",
+          "method": "PDF extracted text and page screenshots",
+          "title": "Noise-Induced Restoration of Entropy Concavity Near Gaussian Equilibrium",
+          "trigger": "identical p_a family, q smoothing and functional F"
+        },
+        {
+          "assessment": "INAPPLICABLE class by Hermite coefficient obstruction",
+          "evidence": "A positive He4 but zero He8 coefficient is incompatible with a nonconstant centered Gaussian variance mixture.",
+          "identifier_or_url": "arxiv:2308.15997",
+          "material_read": "Primary abstract and theorem-hypothesis discussions, no exhaustive full paper exclusion",
+          "method": "primary textual context",
+          "title": "Entropy power inequalities for Gaussian mixtures",
+          "trigger": "potentially stronger broad covering class"
+        },
+        {
+          "assessment": "CONTEXT, no covering theorem verified",
+          "evidence": "General symmetric mixing-concavity remains a distinct broader question.",
+          "identifier_or_url": "arxiv:1509.05926",
+          "material_read": "Abstract and stated conjectural framing, not full-document read",
+          "method": "primary contextual literature",
+          "title": "A reverse entropy power inequality for log-concave random vectors",
+          "trigger": "related entropy concavity conjectures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The new amplitude region includes unsmoothed non-Gaussian laws, a meaningful sharp qualitative extension of an established entropy-mixing curvature problem. A fully uniform explicit negative curvature bound gives a robust analytic barrier independent of OU bath time, not a routine numerical inequality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2610.22386v1, Section 8, Theorem 8.1",
+    "arxiv:2308.15997",
+    "arxiv:2609.11418",
+    "arxiv:1509.05926",
+    "Resultary query: fourth Hermite Gaussian perturbation entropy concavity mixing Ornstein Uhlenbeck unsmoothed"
+  ],
+  "disposition": "passed",
+  "final_claim": "For independent Gaussian-smoothed fourth-Hermite densities phi(1+a He4), 0<a<=1/100, 0<q<=1, mixing parameter 0<t<1, strict Shannon entropy curvature F''_{a,q}(t)<=-7a^2 q^4 including unsmoothed q=1.",
+  "limitations": [
+    "Source package Git object contents were actually fetched and inspected at the frozen commit; full directory tree not independently recomputed.",
+    "Bibliographic novelty is best-of-knowledge and not global priority certification; material-access/reading limits appear in each source_inspections entry.",
+    "Finite checking has the exact stated bounds and does not substitute for proofs of parameter-universal assertions."
+  ],
+  "residual_risks": [
+    "The original same-family theorem covers ALL effective epsilon<=1/256 after reparametrization, even at q=1; no novelty claimed there.",
+    "An unindexed stronger near-Gaussian entropy theorem might cover epsilon>1/256, but not identified.",
+    "No general entropy concavity for arbitrary symmetric distributions is claimed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS strong-smoothing/effective epsilon<=1/256; NOT new sector epsilon>1/256",
+      "evidence": "Theorem 8.1 assumes q<=5/8; the present effective amplitude after that equivalence extends to 1/100.",
+      "identifier_or_url": "arxiv:2610.22386v1",
+      "material_read": "Primary full PDF Section 8, rendered pages 13–15, especially Theorem 8.1 and proof with q<=5/8",
+      "method": "PDF extracted text and page screenshots",
+      "title": "Noise-Induced Restoration of Entropy Concavity Near Gaussian Equilibrium",
+      "trigger": "identical p_a family, q smoothing and functional F"
+    },
+    {
+      "assessment": "INAPPLICABLE class by Hermite coefficient obstruction",
+      "evidence": "A positive He4 but zero He8 coefficient is incompatible with a nonconstant centered Gaussian variance mixture.",
+      "identifier_or_url": "arxiv:2308.15997",
+      "material_read": "Primary abstract and theorem-hypothesis discussions, no exhaustive full paper exclusion",
+      "method": "primary textual context",
+      "title": "Entropy power inequalities for Gaussian mixtures",
+      "trigger": "potentially stronger broad covering class"
+    },
+    {
+      "assessment": "CONTEXT, no covering theorem verified",
+      "evidence": "General symmetric mixing-concavity remains a distinct broader question.",
+      "identifier_or_url": "arxiv:1509.05926",
+      "material_read": "Abstract and stated conjectural framing, not full-document read",
+      "method": "primary contextual literature",
+      "title": "A reverse entropy power inequality for log-concave random vectors",
+      "trigger": "related entropy concavity conjectures"
+    }
+  ]
+}
