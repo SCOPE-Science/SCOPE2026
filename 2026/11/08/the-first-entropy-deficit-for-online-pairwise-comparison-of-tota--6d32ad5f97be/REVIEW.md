@@ -1,0 +1,9 @@
+# Mathematical review
+
+**Correctness (PASS).** The exact finite branching recurrence is justified by the definition of a shattered full binary decision tree, and the only pruning test, \(|V|\ge2^d\), is necessary. A permutation-bitmask algorithm and a transitively-closed-poset/linear-extension algorithm independently give depth 11 attainable and depth 12 impossible for the full seven-element class, and rank 10 but not 11 after one fixed comparison. An explicit 2,047-internal-query tree has 2,048 independently verified nonempty leaves. These finite exhaustive computations prove the stated finite theorem, not a general formula.
+
+**Originality (PASS, qualified).** The previous finite total-order comparison calculation established the exact cardinality ceiling through six labels, explicitly excluding seven. Feng et al., Section 5.2, formulate the same comparison model and provide general and asymptotic bounds, not the exact seven-element depth; Goldman--Rivest--Schapire provide algorithms and mistake guarantees but no matching seven-label statement in the accessible abstract. Two-chain interleaving classes and other permutation invariants are not stronger results covering the unrestricted seven-order concept. A full-text check of the 1993 publisher version was not possible, leaving historical priority risk; accessible thesis material and current searches did not show a covering claim.
+
+**Value (PASS).** The first strict deficit from the obvious information-theoretic bound marks a qualitative structural obstruction for adaptive comparison shattering, not a routine continuation of a table. Both the optimal finite depth and a complete lower-bound witness are determined for the smallest possible counterexample after the six earlier equality cases. The finding is sharply scoped; a general theorem is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
