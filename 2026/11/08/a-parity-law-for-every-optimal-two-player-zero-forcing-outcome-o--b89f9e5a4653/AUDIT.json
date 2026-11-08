@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "The force-target criteria follow directly from the two vertex-neighbourhood types. At least two white universal vertices preclude all forces, making the 72-state recurrence F_w=Phi(F_(w-1)) independent of w for w>=2. The finite identity F3=F5 is verified across every one of the 72 states against the explicit certificate; induction yields period two for all w>=3. The computed root entries at w=2,3,4 yield precisely the claimed ordered seed outcomes after subtracting force counts from the two players' fixed turn counts. A distinct vertex-level backward induction matches n=3..10. No extrapolation of small-n enumeration replaces the transfer induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Annor--Howerton explicitly proves formulas on complete graphs and complete bipartite graphs, and studies general graph bounds.",
+        "An edge-deleted complete graph is neither a complete graph nor complete bipartite when its order is at least five."
+      ],
+      "reasoning": "General lower bounds constrain only the minimum total seed count and do not determine the surviving outcome pairs. The cited family formulas and bounded-order computation do not imply the infinite ordered-outcome theorem.",
+      "searches": [
+        "game zero forcing number complete split graphs 2026",
+        "game zero forcing number complete multipartite graphs 2026",
+        "zero forcing game number complete split graph clique plus two nonadjacent vertices optimal play"
+      ]
+    },
+    "checked_sources": [
+      "Annor and Howerton, arXiv:2608.04579 (full accessible primary text).",
+      "Classical zero forcing reference: AIM Minimum Rank--Special Graphs Work Group, Linear Algebra Appl. 428 (2008), 1628-1648 (distinct one-player parameter).",
+      "Public mathematical research record search for complete split graph game and K_n-e all-order outcomes (no statement with stronger coverage identified).",
+      "Published finite exact-solver census of connected graphs through order nine, as reported by Annor and Howerton."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Example 4 covers both outcomes at n=5.",
+        "Proposition 23 covers a scalar value at n=4.",
+        "Theorem 19 covers complete bipartite graphs and Proposition 11 covers complete graphs; Section 5 has a finite census."
+      ],
+      "reasoning": "The earlier small cases are proper special cases of the current theorem, not novelties. The later parity alternation for unbounded n, the exact outcomes at every order, and the finite-state transfer proof do not follow from those isolated examples, family formulas or finite census.",
+      "searches": [
+        "arxiv:2608.04579 Example 4 and Proposition 23",
+        "Two-player zero forcing game Annor Howerton 2026 complete split graphs join of clique and independent set, set-valued backward induction, optimal outcomes, number of seeds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Annor--Howerton (arXiv:2608.04579), Sections 2, 3 and 5, fixes the two-colour competitive game and its tie convention.",
+        "The classical one-colour and oracle q-zero-forcing games have distinct move and optimization rules."
+      ],
+      "reasoning": "The 72-state force-count formulation is equivalent to the published two-player definition because the number of turns for each player is fixed. Neither the one-player zero-forcing number nor other games imply the full ordered optimal correspondence.",
+      "searches": [
+        "Annor Howerton A Two-Player Zero Forcing Game K_n minus edge complete graph minus single edge optimal seed count outcomes",
+        "Competitive two-color zero forcing game on complete split graphs K_n-e set-valued backward induction parity optimal outcomes",
+        "Game zero forcing number edge deleted complete graphs clique with two independent vertices two-person force preservation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Annor--Howerton Section 5.1 reports exact backward induction for 273192 connected unlabeled graphs through order 9, covering small edge-deleted cliques.",
+        "The paper lists K5-e as Example 4 and K4-e in Proposition 23."
+      ],
+      "reasoning": "All instances n<=9 count as pre-existing computational coverage. The theorem covers every order n>=10 as well, with a proof from F3=F5 and a transfer induction; a finite database through n=9 cannot establish these infinite cases.",
+      "searches": [
+        "Annor Howerton two player zero forcing game complete graph with one edge removed K_n-e all n outcome pairs",
+        "arxiv:2608.04579 Section 5.1, 273192 connected graphs through order 9"
+      ]
+    },
+    "rationale": "The motivating primary paper gives K5 minus one edge as its Example 4, K4 minus one edge as an edge-deletion demonstration, and finite computer outcomes for every connected graph through order nine. Hence those instances are acknowledged as covered. It does not give an all-order theorem or the 72-state period-two transfer. Exact all-order ordered outcome sets, with two different optimal totals at every odd order, go beyond the published statements and finite computation. Searches of indexed related records did not reveal stronger coverage; priority remains provisional.",
+    "residual_risks": [
+      "An unpublished, unindexed or later equivalent all-orders formula may exist.",
+      "The authors' finite computational archive was acknowledged as covering n<=9; the archive itself was not exhaustively compared row by row, because the claimed novelty concerns n>=10.",
+      "The finite 72-state certificate is software-checked and remains subject to independent review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS explicit n=4,5 and the all-connected finite census through n=9; no general formula for all K_n-e or all-order optimal-outcome correspondence.",
+        "evidence": [
+          "Section 2 lines 24-66 (rules, force preservation and set-valued minimization).",
+          "Example 4 lines 80-87 (K5-e).",
+          "Proposition 23 lines 362-374 (K4-e).",
+          "Section 5.1 lines 400-421 (all connected graphs through order nine).",
+          "Section 5.2 lines 424-449 (general questions, not the new infinite classification)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.04579",
+        "material_read": "Accessible full 461-line HTML/text rendering: game rules and solution convention, Examples and Propositions, bipartite-family theorem, structural theorems, computational methods, concluding questions and reference list.",
+        "method": "Direct primary-source examination and comparison of the mathematical statements, not title/abstract matching alone.",
+        "title": "A Two-Player Zero Forcing Game",
+        "trigger": "Exact same game, explicit K5-e example, K4-e proposition and general computational census."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b89f9e5a-4653-48f8-9fd5-cf88bb7e5a91",
+  "value": {
+    "rationale": "The newly introduced game exhibits nonunique optimal total costs on K5-e, a central motivating example of the primary paper. Establishing a complete infinite parity classification for the one-edge-deleted cliques is a substantive natural continuation: it proves the tie effect occurs at every odd order and vanishes at every even order, while identifying the exact scalar invariant. Full ordered outcome sets are not determined by a single game number, and the uniform 72-state periodic transfer gives a reusable structural explanation rather than a table of isolated computations. The result does not claim arbitrary edge-deletion or all split-graph coverage.",
+    "status": "PASS"
+  }
+}
