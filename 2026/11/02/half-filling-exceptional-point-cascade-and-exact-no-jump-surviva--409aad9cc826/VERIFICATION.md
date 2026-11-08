@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the exact finite-time and exceptional-point theorem
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, NumPy, SciPy and SymPy installed. The script constructs the entire Johnson adjacency matrix directly from all \(k\)-subsets rather than trusting a precomputed spectrum. It reconstructs the monitored occupation projector and independently compares numerical eigenvalue multisets and direct complex matrix exponentials against the formula in `RESULT.md` for all tested \(4\le n\le10\) and \(1\le k\le\min(4,\lfloor n/2\rfloor)\). It then verifies six exact symbolic characteristic polynomials and five exact exceptional-point algebraic/geometric multiplicity pairs. The recorded successful invocation returned `VERIFY_OK checks=121`.
+## correctness
 
-The finite tests do not prove an infinite classification. The general proof is the exact up/down commutator and the all-parameter harmonic decomposition in `RESULT.md`, followed by a direct two-dimensional discriminant calculation. The coverage is \(n\ge2k\), \(k\ge2\), \(J>0\), \(\gamma>0\). In particular, the verification does not concern Liouvillian exceptional points, off-sector state dynamics, an arbitrary initial density, or rates varying by configuration.
+PASS
+
+Boolean lattice incidence commutator D_{r+1}U_r-U_{r-1}D_r=(n-1-2r)I gives harmonic string decomposition, eigenvalues a_j,c_j and positive couplings b_j=sqrt[(k-j)(n-k-j)], with multiplicity h_j and h_k dark states; total dimensions sum to binom(n,k). Discriminant J²(n-2j)²-gamma²+2iJgamma(n-2k) excludes defective blocks unless n=2k, then yields gamma=2J(k-j), nonzero b_j forcing size-two Jordan blocks. W_j²=omega_j²I implies trace-of-semigroup survival; Frobenius cross term vanishes because tr W_j=0; omega_j=0 gives analytic polynomial limit, t=0 gives S=1 and t=infinity gives h_k/binom(n,k). Own direct full-matrix exponential check against explicit blocks in 14 parameter/time cases up to n=8 including exceptional rates, max discrepancy under 2e-10.
+
+## originality
+
+PASS
+
+Compared actual quantified final claim, its hypotheses and all four possible prior-implication routes against named published research and relevant primary texts. Related results do not establish the entire result on inspected evidence; inaccessible or potential aliases are kept as explicit residual risks. Known dark-state dimensions and general non-Hermitian optics are distinguished from complete positive-loss Johnson Jordan spectra.
+
+## value
+
+PASS
+
+Exact finite-time capture and exceptional-point/Jordan structure for a physically natural lossy hard-core complete-graph model. The half-filling-only cascade sharply separates dark-state existence from actual non-Hermitian defectiveness and quantifies decay in all particle sectors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

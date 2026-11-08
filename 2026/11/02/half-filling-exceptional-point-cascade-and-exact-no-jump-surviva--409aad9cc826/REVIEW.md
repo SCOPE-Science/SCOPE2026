@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact graph and no-jump loss convention are fixed in `RESULT.md`. A Boolean up/down incidence identity gives the full orthogonal harmonic-string decomposition, not just an empirical rank. Its positive singular values produce all \(2\times2\) non-Hermitian blocks and their multiplicities; the remaining down-map kernel is an exact one-eigenvalue dark sector. The discriminant is explicitly computed, the imaginary part rules out positive-real-loss defects away from half filling, and the nonzero off-diagonal entry proves a genuine size-two Jordan block at every listed half-filling critical rate. The matrix-exponential trace gives the normalized first-jump survival formula with the required Jordan limiting convention. `verify.py` independently reconstructs occupation graphs, complex eigenvalues, exact characteristic polynomials and Jordan nullities, and all-time survival values; it passed 121 checks. Mathematical limits: no statements for bond disorder, interactions beyond hard-core exclusion or extra sinks.
+PASS
 
-## Originality — PASS on examined evidence
+Boolean lattice incidence commutator D_{r+1}U_r-U_{r-1}D_r=(n-1-2r)I gives harmonic string decomposition, eigenvalues a_j,c_j and positive couplings b_j=sqrt[(k-j)(n-k-j)], with multiplicity h_j and h_k dark states; total dimensions sum to binom(n,k). Discriminant J²(n-2j)²-gamma²+2iJgamma(n-2k) excludes defective blocks unless n=2k, then yields gamma=2J(k-j), nonzero b_j forcing size-two Jordan blocks. W_j²=omega_j²I implies trace-of-semigroup survival; Frobenius cross term vanishes because tr W_j=0; omega_j=0 gives analytic polynomial limit, t=0 gives S=1 and t=infinity gives h_k/binom(n,k). Own direct full-matrix exponential check against explicit blocks in 14 parameter/time cases up to n=8 including exceptional rates, max discrepancy under 2e-10.
 
-The previously established complete-graph hard-core one-site capture theorem already determines the dark-space dimension \(\binom{n-1}{k}-\binom{n-1}{k-1}\) and its infinite-time probability. Those statements are explicitly excluded from the claimed addition. Neither the recoverable claim of that antecedent nor its dark-rank calculation specifies the finite-loss complex eigenvalues, all-time survival, the positive-loss Jordan classification or the multiplicity cascade; these require an additional simultaneous harmonic-block reduction. Wong's complete arXiv main text treats a Hermitian one-*vertex* search oracle on Johnson graphs, rather than one physical occupation site's absorptive projector. Le et al.'s accessible HTML discusses general dark eigenspaces and noise-assisted transport, not these Johnson loss blocks. Tschernig et al.'s open full text addresses non-hard-core multi-photon waveguide exceptional-point branching, not fixed-occupancy complete-graph hard-core loss. Published-record searches found a Johnson harmonic face-concentration result about a two-coordinate *bandlimiting* operator, not this no-jump Hamiltonian. Such comparison is evidence of no identified coverage, not a proof of absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finite-time law is a genuinely additional transport observable beyond the known ultimate capture fraction, and the resulting exactly \(k\) critical rates classify the change from oscillatory to overdamped decay within every harmonic channel at half filling. The abrupt disappearance of real-loss exceptional points outside half filling, despite a persistent exact dark sector, is a substantive boundary between different non-Hermitian dynamical regimes. The all-particle-number proof supplies exact Jordan multiplicities, including macroscopically degenerate second-order exceptional points, with an explicit reproducibility route. The result does not depend for its value on asserting that a routine new notation or the previously known dark dimension is original.
+Compared actual quantified final claim, its hypotheses and all four possible prior-implication routes against named published research and relevant primary texts. Related results do not establish the entire result on inspected evidence; inaccessible or potential aliases are kept as explicit residual risks. Known dark-state dimensions and general non-Hermitian optics are distinguished from complete positive-loss Johnson Jordan spectra.
 
-## Closest sources and residual risks
+## value
 
-The central antecedent is the earlier complete-network hard-core one-site loss capture theorem, which is strictly weaker in the all-time and spectral dimensions but covers the infinite-time limit. Wong (2016), Le et al. (2017), and Tschernig et al. (2022) were materially examined in accessible main text. A public Johnson face-concentration record was available only in summarized form and remains a possible indirect-harmonic-implication risk, although its stated operator and two-coordinate domain differ. More specialized many-body exceptional-point classifications could affect historical priority. The mathematical review is not an independent publication or independent expert audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact finite-time capture and exceptional-point/Jordan structure for a physically natural lossy hard-core complete-graph model. The half-filling-only cascade sharply separates dark-state existence from actual non-Hermitian defectiveness and quantifies decay in all particle sectors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
