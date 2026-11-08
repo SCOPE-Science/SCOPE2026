@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T21:39:57.292902Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md proof and actual seven Git blobs at frozen commit; source tree 72b9554a2b9136967b06273c310384fb6093c606",
+        "Independent SymPy product of exact 2x2 matrices and simplification; 27 low-residue exhaustive enumerations and exact geometric tail; boundary substitutions"
+      ],
+      "rationale": "For every a,b,c>=1 with binary t=1^c 0 1^b 0 1^a and w=a+b+c, digitwise addition gives s_2(n+t)-s_2(n)=w-K where K counts all outgoing carries, including above t. With independent fair binary n digits, the weighted two-state matrices M_1(u)=[[1/2,u/2],[0,u]] and M_0(u)=[[1,0],[1/2,u/2]] give (P,R)=(1,0)M_1(u)^a M_0(u)M_1(u)^b M_0(u)M_1(u)^c; an outgoing high carry adds geometric pgf 1/(2-u). R has degree at most w+2, and its leading coefficient is exactly 1/8 because all carries require starting a carry at the lowest one-bit and surviving the two zero separators (three independent probability-1/2 events). Ending the final one-bit with no carry forces its incoming carry zero, giving deg(P)<=w. Therefore Pr(K>w)=R(2)/2^(w+1)-1/8 and c_t=9/8-R(2)/2^(w+1). Evaluating M_1(2)^a=[[2^-a,(2/3)(2^a-2^-a)],[0,2^a]], M_0(2)=[[1,0],[1/2,1]] and multiplying yields (27*2^(a+b+c)/2)*R(2)=16X²Y²Z²-4X²Y²-X²Z²-2X²-4Y²Z²+Y²-2Z²-4 (X=2^a,Y=2^b,Z=2^c), verified independently with symbolic exact algebra. This gives c_t=(115+32A+8B+32C+16AB-8AC+16BC+32ABC)/216 with A=4^-a,B=4^-b,C=4^-c. The three derivatives of the numerator w.r.t A,B,C are 32+16B-8C+32BC, 8+16A+16C+32AC, and 32+16B-8A+32AB, strictly positive on [0,1/4]^3. Hence strict decrease with each integer length, infimum 115/216 attained only in the joint limit a,b,c→∞. Exact independent brute enumeration of 2^(a+b+c+2) low residues with analytically integrated infinite high-bit carry tail matched all 27 triples 1<=a,b,c<=3; a=b=c=1 gives 5/8 and 2 gives 567/1024. Finite checks are corroborative, algebra supplies the infinite proof.",
+      "residual_risks": [
+        "No claim for nonunit zero gaps, more than three one-blocks, other bases or strict digit-sum increase.",
+        "Enumeration is finite and does not certify the infinite theorem; the exact carry/matrix proof does."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sobolewski–Spiegelhofer §5.3 equation (38) proves c_t>5/9 only for <=2 one-runs; §6.1 Conjecture 13 posits c_t>=c_tN for arbitrary N-block words, not a theorem.",
+          "Proposition 16 (PDF page 24) explicitly computes the limiting 3-block constant c_t3=115/216.",
+          "Cheng published claim is c_t>=1/2+2^(-2s_2(t)-1), not a uniform 115/216 bound."
+        ],
+        "reasoning": "A proof of Conjecture 13 would dominate the claimed lower bound, but the inspected paper labels it a conjecture. Cheng covers >1/2 but not the stronger uniform lower bound, and the at-most-two-block result excludes three one-runs. No inspected broader theorem proves the exact polynomial or strict three-variable monotonicity.",
+        "searches": [
+          "Resultary: Conjecture 13 Sobolewski Spiegelhofer three-block shifts minimal gaps finite 3 block lower bound 115/216 arithmetic carry",
+          "arxiv:2411.07779 §5.3 (two-block) and §6.1 (Conjecture 13)",
+          "arxiv:2606.23398 Theorem 1.1 (abstract and theorem statement)",
+          "arxiv:1509.08623 Theorems 1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "Drmota–Kauers–Spiegelhofer, arXiv:1509.08623v2, introduction and Theorems 1.1/1.2; Lemma 2.1 (PDF pages 1–3), https://arxiv.org/pdf/1509.08623",
+        "Sobolewski–Spiegelhofer, arXiv:2411.07779v2, §5.2–5.3, §6.1, Conjecture 13, Proposition 16 (PDF pages 21, 23–24, 26), https://arxiv.org/pdf/2411.07779",
+        "Cheng, arXiv:2606.23398, published theorem/abstract and secondary summary; complete PDF inaccessible in this run, https://arxiv.org/abs/2606.23398",
+        "Resultary published-finding searches (three actual semantic queries listed in originality checks); none of top 12 hits for any query states an equivalent density formula.",
+        "GitHub code search of SCOPE-Science/SCOPE2026 for Cusick, 115/216 and digit-sum density: no results returned (index incompleteness is a residual risk)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2024 source states 3-block sharp inequality as part of Conjecture 13, computes its infinite-block value separately, and expressly notes counterexamples to unqualified length-monotonicity.",
+          "2016 source solves almost-all t and an alternating-word family; 2026 source proves universal >1/2 plus Hamming-weight-dependent margin."
+        ],
+        "reasoning": "The 2024 infinite limit 115/216 and 2026 >1/2 cannot imply every finite unit-gap 3-block case exceeds 115/216. The proposed proof adds the rational correction with all three independent length variables, whose derivatives are provably positive. Its limit number is credited and does not constitute a new separate claim.",
+        "searches": [
+          "arxiv:2411.07779 Conjecture 13 eq. (39), Proposition 16 eq. (43), §6.1 pages 23–27",
+          "arxiv:2606.23398 Theorem 1.1 abstract",
+          "arxiv:1509.08623 Theorem 1.2 and §2 recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:2411.07779 page 2 gives s(n)-s(n+t)=v_2(binomial(n+t,t))-s(t), and §2 gives characteristic function/2-state transfer matrices; arxiv:1509.08623 Lemma 2.1 gives recurrence.",
+          "Resultary top 12 hits for searches 1 and 3 were about unrelated invariants, with no matching three-run formula."
+        ],
+        "reasoning": "Binary carries, valuation of binomial coefficients, digit-sum correlation measures, and reversed binary words are equivalent descriptions of the same c_t, not independent new invariants. The submitted identity is a specialization of known transfer methods, but the explicit all-a,b,c polynomial and strict monotonic extremal conclusion are not stated by those theorems. Mere method availability does not logically imply their sharp inequality without additional computation.",
+        "searches": [
+          "Resultary: Cusick binary digit sum density c_t t=1^a 0 1^b 0 1^c exact formula 115/216 single zero gap monotonic three blocks",
+          "Resultary: binary sum of digits comparison n+t >= n three runs correlation density transfer matrix finite sharp bounds 2025 2026",
+          "arxiv:1509.08623 §2 Lemma 2.1",
+          "arxiv:2411.07779 §2 and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned 12 hits for each of three queries with no matching 3-run identity; SCOPE file search returned no matching files.",
+          "Sobolewski–Spiegelhofer Conjecture 13 says they numerically checked t<2^20; this is a finite table, not a proof for all unbounded lengths."
+        ],
+        "reasoning": "The exact density of a fixed t is algorithmically computable from prior matrices, and finite tables may contain individual values; neither finite tables nor known 115/216 limiting value supplies the claimed all-parameter polynomial and strict inequalities. Negative searches do not certify absence of an unindexed exact formula.",
+        "searches": [
+          "Resultary: Cusick binary digit sum density c_t t=1^a 0 1^b 0 1^c exact formula 115/216 single zero gap monotonic three blocks",
+          "Resultary: Conjecture 13 Sobolewski Spiegelhofer three-block shifts minimal gaps finite 3 block lower bound 115/216 arithmetic carry",
+          "GitHub SCOPE-Science/SCOPE2026 code search: Cusick; 115/216; digit-sum density",
+          "public web query: 2026 Cusick 115/216 1^a 0 1^b 0 1^c three block digit sum densities single gaps"
+        ]
+      },
+      "rationale": "The precise three-parameter formula and sharp finite-block inequality for the canonical unit-zero-gap three-block family are not stated in the inspected primary results. The carry-state transfer framework, reverse-digit symmetry, and limiting constant 115/216 are prior work. Sobolewski–Spiegelhofer prove the two-block threshold >5/9 (their §5.3), explicitly formulate general N-block lower bound as Conjecture 13 and evaluate its N=3 infinite-block constant in Proposition 16; their §6.1 says unrestricted block monotonicity can fail and gives cases. Cheng’s 2026 all-t bound c_t>=1/2+2^(-2s_2(t)-1) is strictly weaker than 115/216 for large total block lengths and does not explicitly identify this finite-parameter formula. No dominating theorem located by 3 independent Resultary searches, targeted public web and SCOPE file search. This is best-of-knowledge, not historical priority certification; inability to read all of Cheng is documented.",
+      "residual_risks": [
+        "Published full text of Cheng 2026 unavailable through public access and institutional VPN disconnected; cannot exclude appendical stronger result.",
+        "An unindexed exact specialization of 2024 general transfer formula or stronger later 3-block theorem could cover this; fail-to-find is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The limiting N=3 constant and carry transfer are already in the literature. Finite all-triples sharp inequality and strict unit-gap 3-block monotonicity are not asserted as proved; Conjecture 13 remains explicit.",
+          "evidence": [
+            "Conjecture 13 equation (39) on printed p.23, Proposition 16 equation (43) on printed p.24, two-block equation (38) on printed p.21, monotonicity caveat on printed p.26"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2411.07779",
+          "material_read": "Primary full-text §2 carry recurrence, §3 decomposition and reverse symmetry, §5.2–5.3 two-block proof, §6.1 Conjecture 13, Proposition 16 and discussion through p.27; rendered PDF pages 21,23,24,26 checked.",
+          "method": "arXiv open-access v2 PDF text and rendered page screenshots",
+          "title": "Decomposing the sum-of-digits correlation measure",
+          "trigger": "Closest prior two-block theorem, proposed exact three-block extremum, and possible stronger general transfer formula"
+        },
+        {
+          "assessment": "Proves c_t>1/2 for almost all shifts and explicit alternating patterns, not the claimed finite three-block sharp constant.",
+          "evidence": [
+            "Theorem 1.1, Theorem 1.2 and Lemma 2.1, printed pp.2–3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.08623",
+          "material_read": "Original primary PDF abstract/introduction, Theorems 1.1 and 1.2, Lemma 2.1 and the exact recurrence (printed pp.1–3); page 2 visually inspected.",
+          "method": "arXiv v2 PDF text and screenshot",
+          "title": "On a Conjecture of Cusick Concerning the Sum of Digits of n and n + t",
+          "trigger": "Original density and recurrence source; possible complete general coverage"
+        },
+        {
+          "assessment": "Stated general lower bound is weaker for large Hamming weight; full text unavailable so potential hidden special-case coverage is residual historical risk, not declared absent.",
+          "evidence": [
+            "arxiv:2606.23398 published abstract and theorem summary (June 2026); no accessible body text"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.23398",
+          "material_read": "Public abstract and the stated main bound c_t>=1/2+2^(-2s_2(t)-1); full-text retrieval attempts failed. No complete-body assessment claimed.",
+          "method": "arXiv PDF and HTML attempts (blocked), lawful OA mirrors/metadata search (abstract only); authorized Oxford paper retrieval returned vpn_disconnected",
+          "title": "A first-exit proof of Cusick’s sum-of-digits conjecture",
+          "trigger": "2026 all-t result might imply or dominate finite 3-block lower bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sobolewski–Spiegelhofer arXiv:2411.07779 §5.3 and §6.1; assigned RESULT.md"
+      ],
+      "rationale": "The three one-block family with both zero gaps of minimal possible positive length is the canonical natural slice of Sobolewski–Spiegelhofer’s Conjecture 13. The exact 115/216 limiting value was already known, but proving it is the sharp infimum for every finite positive a,b,c on that slice settles an infinite family of genuinely proposed inequalities; proving strict monotonicity in each block is meaningful because unrestricted length-monotonicity fails for other block patterns (2024 §6.1). The full correction polynomial quantifies the approach along independent lengths and reveals c_(2,2,2)=567/1024<5/9, so two-block sharp bounds do not persist after adding one one-block. This is a narrowly scoped, intrinsically motivated exact theorem, not an arbitrary finite check or claim to settle general three-block shifts.",
+      "residual_risks": [
+        "Only shortest two zero gaps treated; no full N=3 Conjecture 13 or arbitrary zero-gap conclusion.",
+        "Computing a known transfer-matrix specialization is elementary once the parameter pattern is fixed; value derives from the sharp structural extremal conclusion rather than from transfer technology alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unit zero gaps only; all lengths positive; weak not strict sum-of-digits increase; no claim for arbitrary three-block patterns, other bases or all-t sharp margin.",
+    "Full Cheng 2026 text inaccessible via available lawful routes; originality qualified, no whole-document noncoverage asserted.",
+    "Resultary/GitHub search has index limits and cannot prove historical novelty; exact finite tests support but do not prove universal quantifiers.",
+    "Prior audit source says independent audit not yet performed; server-derived status transition awaits importer, no certification or repository change by this review."
+  ],
+  "schema_version": 1
+}
