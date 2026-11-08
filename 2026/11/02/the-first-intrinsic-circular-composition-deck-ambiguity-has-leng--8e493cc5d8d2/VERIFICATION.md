@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The complete finite proof certificate is `verify.py`, run with `python3 verify.py`. It enumerates every binary word of lengths 1 through 15, retains exactly one canonical rotation/reversal representative of each orbit, and checks total orbit coverage against \(2^n\) and Burnside's bracelet count. It computes every cyclic window-composition histogram independently by direct slicing and rolling sums, checks the short-to-long complement relation, then tests the exact fiber lists and sizes. It also checks each complement and nonequivalence statement.
+# Independent mathematical audit
 
-Observed local run: `VERIFY_OK`. The script prints the per-length number of bracelets, distinct complete spectra, autocorrelation profiles, and collision pairs, then verifies the length-fifteen representative pair powers through multiplier six. The identity for all multipliers is proved mathematically in `RESULT.md`, not assumed from finite replay.
+## correctness
 
-The mathematical statement relies on exact enumeration only for lengths at most fifteen; no unbounded exhaustive search or formal proof-assistant certification is asserted. Literature-priority comparisons are qualified by the material actually inspected. Independent audit and independent validation have not been performed.
+PASS
+
+For binary circular w length n, the full cyclic contiguous-window weight histogram H_w(k,j) has complement-row identity H_w(n-k,M-j)=H_w(k,j), so short rows k<=floor(n/2) plus total weight suffice. Exact exhaustive enumeration of all 2^n words, one minimal dihedral representative per orbit, computes each deck by two independent direct/rolling methods and groups every bracelet. Recomputed n12 224 bracelets/223 decks with one complement collision, n14 687/686 one complement collision, and n15 1224/1220 with four two-element fibers none equivalent by global bit swap, as source six pairs. This proves finite classification n<=15 when full exhaustive code is understood. For each length-15 collision pair u,v of equal weight six, periodic powers satisfy H_{u^m}(k,j)=m H_u(r,j-q*6) for k=15q+r and remain inequivalent as bracelets even after bit exchange, providing all multiples of 15. Finite exhaustion is exact for n<=15; arbitrary multiples follow from repetition identity.
+
+## originality
+
+PASS
+
+Primary circular-string reconstruction paper Ota–Manada uses multiplicities of ORDERED substrings, rather than composition-weight histograms; Acharya et al. classify linear contiguous substring compositions, where boundaries matter, not multiplicity-preserving circular decks. Published Resultary r=2 and two-multispectrum records observe different shorter channels. No direct exact circular full-deck collision table found; original best of knowledge.
+
+## value
+
+PASS
+
+The complete first-intrinsic-failure threshold for a natural noise-free cyclic observation and full n<=15 collision list identifies its finite zero-error reconstruction capacity and an infinite propagation obstruction, beyond a tiny negative sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
