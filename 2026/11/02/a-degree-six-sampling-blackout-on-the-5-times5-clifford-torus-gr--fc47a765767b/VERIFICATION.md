@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 check.py` (Python 3.9+, standard library only). The checker uses exact quadratic-field rational arithmetic for all 25 Fourier eigenvalues in each degree \(0\le\ell\le47\), tests exact nonnegative signs, confirms the rank list and checks the unique constant-character null direction at degree six. Explicit degree-five and degree-six rational spectral multisets are also verified. It was executed successfully on the delivered source file.
+## correctness
 
-This computation does not assert an infinite enumeration. For \(\ell\ge48\), use \(U_\ell(1)=\ell+1\ge49\), at most 24 off-diagonal entries, and the strictly smaller-than-two bound for each off-diagonal entry derived from the inner-product bound \(|t|\le(1+\sqrt5)/4<\sqrt3/2\). Strict diagonal dominance then proves full rank. The public proof specifies this deduction and the positive normalization of the spherical harmonic Gram matrix.
+PASS
 
-Originality was assessed by primary-literature comparison and bounded semantic searches. An equivalent result hidden in unindexed literature cannot be excluded. Independent verification has not been performed.
+The dimension-four addition formula gives a 25-by-25 C5xC5-circulant Chebyshev U_ell Gram matrix. Fourier diagonalization yields the exact rank sequence 1,4,8,16,21,25,24 at ell=0..6, unique degree-six zero eigenvalue at (0,0), and rank 25 for ell=7..47. The package exact Q(sqrt 5) arithmetic and an independent Fourier matrix/rank calculation corroborate the finite range. For all ell>=48, every off-diagonal |U_ell(dot)|<2 because |dot|<sqrt(3)/2; 24 off-diagonal entries have total abs sum<48, whereas diagonal ell+1>=49. Strict diagonal dominance proves invertibility on the infinite tail, not merely extrapolation of finite testing. The harmonic character average and Legendre P_3(0)=0 identify the exact degree-six mean-zero image.
+
+## originality
+
+PASS
+
+Best-of-knowledge original complete exact-degree rank classification for the fixed 25-node Clifford grid and isolated nonmonotone degree-six mean-zero defect. Earlier bandlimited sampling and hyperspherical expansion results involve different spaces or provide ingredients without this exact rank theorem.
+
+## value
+
+PASS
+
+Exact-degree interpolation on symmetric torus grids is a natural spectral sampling problem. A 25-node canonical grid unexpectedly interpolates all data at degree five but loses one constant mode at degree six, despite rising harmonic dimension, before recovering for every ell>=7; the exact rank/all-degree classification and obstruction are substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

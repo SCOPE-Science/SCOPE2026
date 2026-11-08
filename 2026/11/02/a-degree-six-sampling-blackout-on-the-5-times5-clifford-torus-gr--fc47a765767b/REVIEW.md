@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Chebyshev addition kernel on the round three-sphere has a positive scalar multiple of the evaluation Gram matrix, and the \((\mathbb Z/5\mathbb Z)^2\) Fourier transform diagonalizes it exactly. All 25 eigenvalues are evaluated and tested in \(\mathbb Q(\sqrt5)\) at all degrees 0 through 47. The unique degree-six zero eigenvalue is the constant character; an independent Hopf-mode argument explains the zero-sum obstruction. The strictly off-diagonal bound \(|U_\ell(t)|<2\) gives diagonal dominance for every \(\ell\ge48\), establishing the infinite claim. The source checker was executed successfully, and low-degree numerical Gram rank was separately compared without being used as proof.
+PASS
 
-## Originality — PASS, bounded evidence
+The dimension-four addition formula gives a 25-by-25 C5xC5-circulant Chebyshev U_ell Gram matrix. Fourier diagonalization yields the exact rank sequence 1,4,8,16,21,25,24 at ell=0..6, unique degree-six zero eigenvalue at (0,0), and rank 25 for ell=7..47. The package exact Q(sqrt 5) arithmetic and an independent Fourier matrix/rank calculation corroborate the finite range. For all ell>=48, every off-diagonal |U_ell(dot)|<2 because |dot|<sqrt(3)/2; 24 off-diagonal entries have total abs sum<48, whereas diagonal ell+1>=49. Strict diagonal dominance proves invertibility on the infinite tail, not merely extrapolation of finite testing. The harmonic character average and Legendre P_3(0)=0 identify the exact degree-six mean-zero image.
 
-The closest checked primary research concerns general cumulative-degree sphere sampling (Marzo–Pridhnani 2013), hyperspherical harmonic expansions (Cohl–Palmer 2014), and bandlimited rotation-group sampling (McEwen et al. 2015). Their inspected statements do not entail the exact-degree 25-node rank sequence or isolated sixth-degree defect. Archival semantic searches for Clifford-torus, periodic-grid, Jacobi zero and 25-node variants returned no direct rank result. A general addition formula alone is an ingredient rather than the claimed classification. It is nevertheless possible that older separation-of-variables work already implies this specialization; this residual risk merits independent literature verification.
+## originality
 
-## Value — PASS
+PASS
 
-A symmetric, natural product grid reaches full exact-degree interpolation at degree five yet loses a one-dimensional data mode in degree six, contrary to the naive dimension-count monotonicity intuition. The complete rank sequence and permanent degree-seven recovery distinguish a structured sampling obstruction from an underdetermined low-degree evaluation map. The explicit zero-sum identity is a concrete characterization of the anomalous image, suitable for constructing and diagnosing exact-degree interpolation schemes on Hopf-torus grids.
+Best-of-knowledge original complete exact-degree rank classification for the fixed 25-node Clifford grid and isolated nonmonotone degree-six mean-zero defect. Earlier bandlimited sampling and hyperspherical expansion results involve different spaces or provide ingredients without this exact rank theorem.
 
-## Scope and residual limitations
+## value
 
-The result establishes ranks and the degree-six obstruction for only the specified fifth-root Clifford grid, not arbitrary tori, grids or numerical stability constants. The finite checks are exhaustive over the stated integer range only; the remaining degrees rely on the separately proved analytic bound. No independent mathematical review or validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact-degree interpolation on symmetric torus grids is a natural spectral sampling problem. A 25-node canonical grid unexpectedly interpolates all data at degree five but loses one constant mode at degree six, despite rising harmonic dimension, before recovering for every ell>=7; the exact rank/all-degree classification and obstruction are substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

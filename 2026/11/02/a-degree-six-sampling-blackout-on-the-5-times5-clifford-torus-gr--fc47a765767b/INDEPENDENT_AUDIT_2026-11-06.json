@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T14:07:33.186377Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The dimension-four addition formula gives a 25-by-25 C5xC5-circulant Chebyshev U_ell Gram matrix. Fourier diagonalization yields the exact rank sequence 1,4,8,16,21,25,24 at ell=0..6, unique degree-six zero eigenvalue at (0,0), and rank 25 for ell=7..47. The package exact Q(sqrt 5) arithmetic and an independent Fourier matrix/rank calculation corroborate the finite range. For all ell>=48, every off-diagonal |U_ell(dot)|<2 because |dot|<sqrt(3)/2; 24 off-diagonal entries have total abs sum<48, whereas diagonal ell+1>=49. Strict diagonal dominance proves invertibility on the infinite tail, not merely extrapolation of finite testing. The harmonic character average and Legendre P_3(0)=0 identify the exact degree-six mean-zero image.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical spherical harmonic addition theorem and hyperspherical Fourier decomposition yield the correct Gram method, but no claimed all-degree nonmonotone rank sequence for these nodes.",
+          "Bandlimited SO(3) sampling in McEwen et al. uses different node geometry and transform space."
+        ],
+        "reasoning": "The candidate more-general papers use these hypotheses and conclusions: Classical spherical harmonic addition theorem and hyperspherical Fourier decomposition yield the correct Gram method, but no claimed all-degree nonmonotone rank sequence for these nodes. An apparent general theme is not assumed to imply the specialized exact claim.",
+        "searches": [
+          "Resultary: spherical harmonics degree 6 Clifford torus 5 x 5 point evaluation rank blackout",
+          "arXiv 1302.6730 spherical sampling and interpolation Marzo Pridhnani",
+          "arXiv 1405.4847 hyperspherical Fourier Gegenbauer Cohl Palmer",
+          "arXiv 1508.03101 bandlimited SO3 sampling"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and check.py at actual Git tree 9b0786070366cc0c6ce13326a117c5a78e21488a",
+        "Independent 25 Fourier character computation degrees 0..47 and analytic diagonal dominance",
+        "arXiv:1302.6730",
+        "arXiv:1405.4847",
+        "arXiv:1508.03101",
+        "Resultary semantic search: Clifford torus degree-six Fourier rank"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A cumulative-degree interpolation guarantee does not force surjectivity for each exact degree: indeed this package is full rank at degree 5 and deficient at degree 6. No inspected source gives the harmonic restriction eigenspectrum sufficient to imply the whole finite table."
+        ],
+        "reasoning": "The mathematical implication test compared assumptions and actually supplied conclusions, including known special cases and dominating parameters.",
+        "searches": [
+          "Resultary: spherical harmonics degree 6 Clifford torus 5 x 5 point evaluation rank blackout",
+          "arXiv 1302.6730 spherical sampling and interpolation Marzo Pridhnani",
+          "arXiv 1405.4847 hyperspherical Fourier Gegenbauer Cohl Palmer",
+          "arXiv 1508.03101 bandlimited SO3 sampling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Marzo–Pridhnani 2013 treats cumulative harmonic spaces and separated/dense samples, not rank of one fixed H_ell evaluation on a Clifford grid.",
+          "No inspected exact-degree Fourier-character table for this 5x5 Clifford torus reproduces the degree-six loss."
+        ],
+        "reasoning": "The precise claimed equivalence/alias was compared with published formulations: Marzo–Pridhnani 2013 treats cumulative harmonic spaces and separated/dense samples, not rank of one fixed H_ell evaluation on a Clifford grid.",
+        "searches": [
+          "Resultary: spherical harmonics degree 6 Clifford torus 5 x 5 point evaluation rank blackout",
+          "arXiv 1302.6730 spherical sampling and interpolation Marzo Pridhnani",
+          "arXiv 1405.4847 hyperspherical Fourier Gegenbauer Cohl Palmer",
+          "arXiv 1508.03101 bandlimited SO3 sampling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Q(sqrt5) eigenvalue table and rank list in source are derivable from explicit Gram calculation; no identical table in sampled Resultary findings or the cited primary sampling articles."
+        ],
+        "reasoning": "Any already-known exact special cases were separated from the claimed new all-case or different invariant result; failed search alone is not novelty proof.",
+        "searches": [
+          "Resultary: spherical harmonics degree 6 Clifford torus 5 x 5 point evaluation rank blackout",
+          "arXiv 1302.6730 spherical sampling and interpolation Marzo Pridhnani",
+          "arXiv 1405.4847 hyperspherical Fourier Gegenbauer Cohl Palmer",
+          "arXiv 1508.03101 bandlimited SO3 sampling"
+        ]
+      },
+      "rationale": "Best-of-knowledge original complete exact-degree rank classification for the fixed 25-node Clifford grid and isolated nonmonotone degree-six mean-zero defect. Earlier bandlimited sampling and hyperspherical expansion results involve different spaces or provide ingredients without this exact rank theorem.",
+      "residual_risks": [
+        "Related unpublished harmonic restriction or equal-radius torus interpolation tables may contain equivalent ranks.",
+        "Only 25 specified Clifford nodes, exact-degree complex harmonics and linear-algebraic interpolation; not cumulative bands or stability under perturbation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_SPACE_NOT_COVERING_SPECIFIC_CLAIM",
+          "evidence": [
+            "Cumulative spherical polynomial sampling with density/separation hypotheses does not assert the 5x5 exact-degree Gram ranks."
+          ],
+          "identifier_or_url": "arXiv:1302.6730",
+          "material_read": "Abstract, main sampling/interpolation definitions and theorem statements about spaces of polynomials of degree <=L; selected proof passages",
+          "method": "arXiv lawful PDF text and rendered page",
+          "title": "Sufficient conditions for sampling and interpolation on the sphere",
+          "trigger": "Same spherical sampling and interpolation vocabulary"
+        },
+        {
+          "assessment": "BACKGROUND_TOOL_ONLY",
+          "evidence": [
+            "No identified rank statement for fixed finite Clifford-torus evaluation grid."
+          ],
+          "identifier_or_url": "arXiv:1405.4847",
+          "material_read": "Title, abstract, and relevant expansion descriptions",
+          "method": "lawful arXiv abstract/text",
+          "title": "Fourier and Gegenbauer expansions for a fundamental solution of Laplace’s equation in hyperspherical geometry",
+          "trigger": "Provides hyperspherical harmonic machinery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact-degree interpolation on symmetric torus grids is a natural spectral sampling problem. A 25-node canonical grid unexpectedly interpolates all data at degree five but loses one constant mode at degree six, despite rising harmonic dimension, before recovering for every ell>=7; the exact rank/all-degree classification and obstruction are substantive.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and check.py at actual Git tree 9b0786070366cc0c6ce13326a117c5a78e21488a",
+    "Independent 25 Fourier character computation degrees 0..47 and analytic diagonal dominance",
+    "arXiv:1302.6730",
+    "arXiv:1405.4847",
+    "arXiv:1508.03101",
+    "Resultary semantic search: Clifford torus degree-six Fourier rank"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Related unpublished harmonic restriction or equal-radius torus interpolation tables may contain equivalent ranks.",
+    "Only 25 specified Clifford nodes, exact-degree complex harmonics and linear-algebraic interpolation; not cumulative bands or stability under perturbation."
+  ],
+  "schema_version": 1
+}
