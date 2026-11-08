@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 using only the standard library. The checked source code is embedded with this record and requires no external data or files. The script confirms the two-cluster reduction against the original finite-population oscillator update for four unequal partitions and four intermediate lags; verifies 40,916 finite numerical diagnostic conditions including the unique threshold, confinement at threshold, the interior fixed-point derivative, postcritical one-step crossing, square-root width and cusp behavior. It printed `VERIFIED 40916 finite diagnostics; Kcrit(pi/4, 1/2)= 1.29948735520175` during the local run. These finite computations cannot establish universal quantifiers.
+## correctness
 
-The universal claim is justified by the explicit mathematical proof in RESULT.md: monotone trigonometric minimization, upper/lower endpoint inequalities, monotonicity and convergence of all no-slip orbits, positive second derivative at the unique critical tangency, and Taylor analysis. The phase-wrap convention is explicit, and all asserted asymptotics concern fixed cluster imbalance with the stated admissible parameters. No independent audit has been performed.
+PASS
+
+Direct subtraction of the full N-oscillator map gives F(x)=x-A sin x+B(1-cos x). F(x)>0 for all x>0 exactly when A<=1, while upper confinement is the global minimization H_A(t)=(t-A sin t)/(1-cos t); derivative sign follows from decreasing t cot(t/2) on (0,pi) and positivity on (pi,2pi), giving one minimizer and Bc(1)=0. Bc strictly falls as A grows, producing unique Kc on each physical positive-lag ray. F(x)-x has the unique repelling root 2 arctan(A/B); monotone orbits converge to a synchronizing endpoint. G(t,K) has G=Gy=0, Gyy=(A-cos t)/sin t>0 and Gk=-t/K<0, yielding the stated sqrt(K-Kc) interval. Expansion at A=1 gives sqrt(8/3)*sqrt(1-A) and Kc=1+(1/2-3d²/8)beta²+O(beta⁴). Direct independent root/calibration at d=1/2,beta=pi/4 yields Kc=1.29948735520175. The analysis is confined to exactly invariant two-cluster data; it makes no transverse stability assertion.
+
+## originality
+
+PASS
+
+Best-of-knowledge: Determines a physically distinguished global no-cut-crossing boundary in a finite discrete synchronization model, not merely a local linear stability threshold. Its curved parameter boundary, exact motion dichotomy around an interior repeller, and square-root onset distinguish the strict intermediate-lag regime from the previously known quadrature parabolic relaxation. These are natural dynamical boundaries and motivated invariant-subspace facts. Prior-art comparison is based on distinct theorem implications. See four structured checks and material source inspections; not exhaustive historical priority.
+
+## value
+
+PASS
+
+Determines a physically distinguished global no-cut-crossing boundary in a finite discrete synchronization model, not merely a local linear stability threshold. Its curved parameter boundary, exact motion dichotomy around an interior repeller, and square-root onset distinguish the strict intermediate-lag regime from the previously known quadrature parabolic relaxation. These are natural dynamical boundaries and motivated invariant-subspace facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
