@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The square-zero equations follow by direct multiplication in characteristic two. The four disjoint cases \(v\ne0\), \(v=0\) with \((u,w)\ne0\), the nonzero \((s,t)\) axis, and the center exhaust the involution set. The critical rank-one incidence count \(2q^2-q\) follows from the union of equal-row-space and equal-column-space families. Reconstructing each restricted centralizer gives four distinct sizes and multiplicities, whose weighted sum is the stated number of commuting ordered pairs. Actual matrix multiplication independently verifies all members at \(q=2,4\) and all strata at \(q=8\). The unrestricted theorem does not rely on extrapolating the finite checks.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Fuchs–Kirillov count Jordan types of triangular nilpotents, not commuting pairs within their square-zero locus. Bhunia concerns upper triangular group centralizers in characteristic unlike two. Gargate–Gargate concern different involution notions and odd characteristic. Majeed–Ramkumar (2026) study the exact \(UT_4\) ambient commuting graph and explicitly tabulate the centralizers within the **whole group**; full-text checking found no square-one subset centralizer spectrum or restricted commuting probability. Related published results on the full matrix square-zero commuting locus, full-group class-size spectra, and pairwise noncommuting extremal sets do not directly enumerate the present restricted fibers. Mathematical equivalences may remain under other terminology, so publication priority is not certified.
+PASS
 
-## Mathematical value — PASS
-The result determines a complete natural centralizer-size distribution on the order-two locus of the first unitriangular dimension exhibiting a three-step interaction. The induced commuting graph degree census and sharp \(1/4\) asymptotic follow uniformly across infinitely many even fields. It is not merely a recomputation of the total involution count or a specialization of full-group centralizer orders.
+For g=I+N over characteristic two, N²=0 iff uv=0,vw=0,ut+sw=0. The central z is free. With v=0, X=((u,s),(w,t)) is rank ≤1 and counts S=q³+q²−q matrices. A fixed nonzero rank-one X commutes under the middle commutator constraint exactly with rank-one X' sharing its row line or column line, giving q²+q²−q matrices. Classify by v≠0, v=0 and (u,w)≠0, v=u=w=0 with (s,t)≠0, and central z-only. The four c_I sizes and multiplicities follow and sum to |I|=2q⁴−q²; weighted sum q⁸+2q⁷−2q⁵ and probability tending 1/4. Independent full centralizer recomputation over F2 and F4 from fresh multiplication formulas confirmed all members (28 and 496 involutions) and four strata, not merely representatives.
 
-## Limitations and closest coverage
-The theorem is specific to matrix dimension four and fields of characteristic two. The 2026 full-group graph paper is particularly close but has a different object being counted; the relation is resolved by its inspected centralizer table and chapter scope. Searches cannot rule out unpublished or differently named results. A later independent mathematical audit is desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The underlying Jordan square-zero count and ambient UT4 commutation equations are prior. This contribution explicitly classifies cardinalities of centralizers INTERSECTED WITH the square-one locus (which is not a subgroup), including four value multiplicities, ordered commuting involution pairs, and the limiting probability 1/4. Majeed–Ramkumar is a very close UT4 ambient-centralizer source but its complete paper was inaccessible in this execution; the known full-group spectrum cannot simply be substituted for restricted counts. Best-of-knowledge O PASS carries significant priority risk.
+
+## value
+
+PASS
+
+The complete distribution of centralizer intersections with the involution locus, and exact resulting commuting probability for every even prime power, are natural invariants of a nontrivial 2-group family. The four strata capture rank-one incidence not determined by the total involution count or by ordinary centralizer sizes. The sharp 1/4 limit and degree census are reusable structural data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
