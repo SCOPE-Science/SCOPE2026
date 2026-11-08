@@ -1,0 +1,182 @@
+{
+  "correctness": {
+    "rationale": "The Pappus LCF graph is independently identified in mathematical graph references. For k=1..9, every mask is tested via two exact independent-subset recurrences; the verifier builds each full augmented face poset and all covering incidences. Every matching is exhaustively shown acyclic by topological sorting; precisely b_k=(1,10,55,202,481,688,460,64,1) unmatched cells remain, each of dimension 18-2k. Removing the augmented empty/singleton pair yields one critical vertex and b_k higher cells (two vertices for k=9), forcing the claimed integral sphere wedges by Forman. Reduced Euler checks agree at every level. Completeness is finite, and k>9 is excluded by independence number 9.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bayer et al., arXiv:2209.13503, Section 4 treats complete bipartite graphs, cycles and other specified classes; an 18-vertex cubic Pappus Levi graph is neither complete bipartite nor a cycle.",
+        "Carnero Bravo, arXiv:2602.21427, Sections 5.1–5.4 cover disconnected graphs, complete multipartite graphs, cycles/powers and specified Cartesian products; no general theorem for the full filtration of a connected cubic Levi graph is claimed.",
+        "Indexed bipartite three-robust theorem has only the k=3 consequence; specific total-three-cut sphere wedges for Heawood and Möbius–Kantor are different graphs and a different level."
+      ],
+      "reasoning": "Potentially stronger family statements were inspected for logical inclusion, not just matching titles. The Pappus graph is connected 3-regular bipartite with girth six, so the complete bipartite/multipartite and cycle-power classifications do not apply. The stronger k=3 result is explicitly subtracted from novelty. No identified general statement dominates k=4 through k=8.",
+      "searches": [
+        "total k cut complexes Pappus generalized Petersen graph all levels even sphere dimensions",
+        "three robust clique complexes general bipartite graph higher robust levels 4 robust spheres",
+        "cubic bipartite girth six total 3 cut complex sphere count m+2 choose 2 full general theorem",
+        "total k-cut complex hypercube cube graph crosspolytope",
+        "total cut complexes bipartite graph Alexander dual independent triples homotopy"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2209.13503 relevant full text",
+      "arxiv:2602.21427 relevant full text",
+      "MathWorld PappusGraph entry",
+      "SageMath PappusGraph reference",
+      "published-finding corpus:2026/10/11/SCOPE-a-three-sphere-wedge-theorem-for-robust-clique-complexes-of-all--8d06720b1a2b",
+      "published-finding corpus:2026/10/4/SCOPE-the-total-3-cut-complex-of-the-heawood-graph-is-a-wedge-of-36-ei--0c003a069433",
+      "published-finding corpus:2026/10/11/SCOPE-the-total-3-cut-complex-of-the-m-bius-kantor-graph-is-bigvee-45--4936eeabcd8f",
+      "published-finding corpus:2026/10/11/SCOPE-the-total-3-cut-complex-of-the-4-cube-a-129-sphere-wedge-and-its--ccb644c2e2a2",
+      "own-ledger:1b9ce34e-6c8b-408b-b319-d21abf566aaf (dedup only)",
+      "own-ledger:435c5a81-58e5-4f52-be85-b47a7977ab4e (dedup only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Current accessible own ledger finding 1b9ce34e-6c8b-408b-b319-d21abf566aaf proves the ordinary Pappus five-cut type; ordinary disconnecting sets are not the independent subsets used here.",
+        "The indexed k=3 bipartite three-robust theorem accounts for 55 twelve-spheres. k=1 (boundary) and k=2 (cycle-rank topology) are likewise not claimed as novel.",
+        "Neither the indexed total-three-cut examples nor the source classifications logically yield the five distinct new integral homotopy types at k=4,5,6,7,8."
+      ],
+      "reasoning": "The full nine-stage classification is a single finite assertion whose substantive additional content is levels k=4..8. The k=5 ordinary five-cut complex uses all disconnected five-sets, whereas the total five-cut complex includes only independent five-sets; they are different simplicial complexes with different homotopy results. No other source checked has a theorem forcing every one of the five new critical-cell dimensions and counts.",
+      "searches": [
+        "Pappus graph total k cut complexes all k homotopy filtration 1 10 55 202 481 688 460 64 1",
+        "total k cut complexes Pappus generalized Petersen graph all levels even sphere dimensions",
+        "three robust clique complexes general bipartite graph higher robust levels 4 robust spheres",
+        "total 3 cut complex Levi graph Pappus Aut 216 homology invariant incidence reversal",
+        "total 3 cut complex Pappus graph 18 vertices 3 independent sets topology"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The total k-cut complex is Alexander dual to the bounded-independence complex of subsets with independence number at most k-1 (arXiv:2602.21427, introductory definitions).",
+        "The indexed three-robust clique-complex wedge theorem for connected bipartite graphs implies the level k=3 homotopy rank for this graph (b=10, c4=0, giving 55); that level is acknowledged as prior.",
+        "No searched indexed statement gives the five k=4..8 homotopy equivalences for the Pappus graph."
+      ],
+      "reasoning": "The parameter k is not cosmetic: 3-robust/independence-number-at-most-two controls k=3, not k=4..8. Alexander duality does not turn one fixed robust level into classifications at larger independence thresholds. The new five interior levels use fresh independent-set face predicates and separate exhaustive acyclic matchings.",
+      "searches": [
+        "Pappus graph Alexander dual r independence complex robust clique filtrations 4 5 6 7 8 9 spheres",
+        "Pappus graph noncover complex independence triples Alexander dual homotopy symmetry",
+        "three robust clique complexes connected bipartite graphs Alexander dual total cut complexes independent triple noncover",
+        "\"Pappus graph\" \"bounded independence\" complexes homology",
+        "\"Pappus graph\" \"total k-cut\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted exact-multiplicity and all-level Pappus queries returned no exact sequence 202,481,688,460,64 in published indexed results.",
+        "The closest indexed total-cut entries were restricted to k=3 and other graphs.",
+        "The SageMath PappusGraph entry verifies the LCF model; it provides graph data rather than topology of total-cut filtrations."
+      ],
+      "reasoning": "The LCF model and independent-set counts are not new. The searched published record lacks the exhaustive all-level exact integral homotopy table. An unsuccessful search is not a proof of novelty, and unindexed work remains a residual risk.",
+      "searches": [
+        "Pappus graph total k cut complexes all k homotopy filtration 1 10 55 202 481 688 460 64 1",
+        "Pappus graph Alexander dual r independence complex robust clique filtrations 4 5 6 7 8 9 spheres",
+        "\"Pappus\" \"202\" \"688\" \"460\" cut complex",
+        "\"Pappus\" \"total cut\" \"481\" homotopy",
+        "total 3-cut complex Pappus graph 18 vertices 3 independent sets topology"
+      ]
+    },
+    "rationale": "The integral full-filtration classification adds five nontrivial stages k=4..8 not implied by inspected primary source theorems or indexed records. k=1,2 and the k=3 consequence of the stronger bipartite robust-clique theorem are explicitly credited as prior and included only to state a complete nine-level classification. The own Pappus ordinary five-cut finding is for a different face predicate. No indexed exact table or broader theorem covers the five new homotopy types, subject to unindexed equivalents.",
+    "residual_risks": [
+      "Equivalent full nine-level Pappus computations could be in unindexed literature or unpublished software tables.",
+      "Some pertinent indexed research records were searchable only by title and summary, not the full source.",
+      "The first three levels are covered or elementary; no independent novelty is asserted for these subclaims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact invariant; known complete-bipartite and other named families do not include the Pappus graph full filtration.",
+        "evidence": [
+          "Definition 2.3 supplies complement-of-independent-k-set face rule.",
+          "Proposition 4.6 treats K_{m,n} and not the cubic Levi graph.",
+          "Earliest arXiv public timestamp 2022-09-27."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2209.13503",
+        "material_read": "PDF abstract, introduction, Definitions 2.1–2.3, basic properties and Section 4 including the complete-bipartite calculation; full-text indexed search for Pappus.",
+        "method": "Read primary arXiv PDF text in the relevant sections and inspect rendered first page.",
+        "title": "Total Cut Complexes of Graphs",
+        "trigger": "Primary first-public source defining the invariant and classifying related families."
+      },
+      {
+        "assessment": "Relevant duality/connectivity tools, but family homotopy calculations do not cover the connected cubic Pappus graph for all k.",
+        "evidence": [
+          "Introduction defines bounded-independence complex as the Alexander dual family and names targeted classes.",
+          "Section 5.2 multipartite; Section 5.3 cycle powers; Section 5.4 Cartesian products for total 2-cut.",
+          "No Pappus text match in full-text search."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2602.21427",
+        "material_read": "PDF abstract and introduction, source table of contents, Section 5 headings, complete multipartite and cycle-power theorems, exact full-text search for Pappus; inspected rendered PDF page 2.",
+        "method": "Read primary arXiv PDF text for hypotheses and inspect rendered page.",
+        "title": "Total cut complexes and their duals",
+        "trigger": "Later broader result which might imply the candidate through Alexander duality."
+      },
+      {
+        "assessment": "Implied known k=3 rank and homotopy, so it is treated as prior; nothing in the indexed statement extends the classification to k=4..8.",
+        "evidence": [
+          "Indexed summary: three-robust complex has wedge of binomial(b+1,2)-c4 three-spheres for every connected bipartite graph.",
+          "For Pappus, b=27-18+1=10 and c4=0, so binomial(11,2)=55.",
+          "Risk: full source text not accessible through inspected route; no claim of full-document negative coverage."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-three-sphere-wedge-theorem-for-robust-clique-complexes-of-all--8d06720b1a2b",
+        "material_read": "Indexed research title and full available summary, not source full text.",
+        "method": "Semantic database search with explicit robust-clique, bipartite and total-cut aliases.",
+        "title": "A three-sphere wedge theorem for robust clique complexes of all connected bipartite graphs",
+        "trigger": "Closest logically stronger result for the k=3 stage."
+      },
+      {
+        "assessment": "Same k=3 invariant on a different 14-vertex graph; does not cover Pappus stages k=4..8.",
+        "evidence": [
+          "Indexed result fixes one Heawood three-cut homotopy type, not a Pappus all-k table."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-the-total-3-cut-complex-of-the-heawood-graph-is-a-wedge-of-36-ei--0c003a069433",
+        "material_read": "Indexed result title and scientific summary only.",
+        "method": "published-finding corpus semantic comparison.",
+        "title": "The total 3-cut complex of the Heawood graph is a wedge of 36 eight-spheres",
+        "trigger": "Related incidence graph and same invariant at k=3."
+      },
+      {
+        "assessment": "Different 16-vertex graph and k=3 only; no statement covering levels 4..8 for the 18-vertex Pappus graph.",
+        "evidence": [
+          "Indexed result gives 45 ten-spheres at k=3 in Möbius–Kantor."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-the-total-3-cut-complex-of-the-m-bius-kantor-graph-is-bigvee-45--4936eeabcd8f",
+        "material_read": "Indexed result title and scientific summary only.",
+        "method": "published-finding corpus semantic comparison.",
+        "title": "The total 3-cut complex of the Möbius–Kantor graph is a wedge of 45 ten-spheres",
+        "trigger": "Closest symmetric cubic incidence-graph analogue."
+      },
+      {
+        "assessment": "Graph identity and incidence motivation established; no total-cut homotopy classification in this source.",
+        "evidence": [
+          "LCF [5,7,-7,7,-7,-5]^3 is listed as Pappus graph."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/PappusGraph.html",
+        "material_read": "Pappus graph entry including canonical LCF offsets, cubic and girth-six properties.",
+        "method": "Read public mathematical reference text.",
+        "title": "Pappus Graph",
+        "trigger": "Validate the exact input graph and its standard LCF model."
+      },
+      {
+        "assessment": "Confirms graph identification only.",
+        "evidence": [
+          "Documented isomorphism returns True."
+        ],
+        "identifier_or_url": "https://sagemath.gitlab.io/documentation/html/en/reference/graphs/sage/graphs/graph_generators.html",
+        "material_read": "PappusGraph constructor paragraph with explicit isomorphism example to LCFGraph(18,[5,7,-7,7,-7,-5],3).",
+        "method": "Read public technical reference text.",
+        "title": "PappusGraph in SageMath Graph Theory Reference",
+        "trigger": "Independent support that the labeled graph is Pappus."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "761840bb-7a71-4fd4-8fe7-5c0a584d0c40",
+  "value": {
+    "rationale": "A complete exact integral homotopy classification of all nine stages for the canonical eighteen-vertex Pappus incidence graph is a natural finite topology census. It reveals five genuinely additional consecutive interior levels with ranks 202,481,688,460,64 and sphere degrees 10,8,6,4,2; the uniform degree-drop and nonshellability for every k>=2 provide structural information not determined by general 3-robust coverage. No universal graph-family statement, integral equivariant classification or downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
