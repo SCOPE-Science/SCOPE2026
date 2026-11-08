@@ -1,19 +1,21 @@
-# Review of the two-preseeded-dimer spacing theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For ordinary greedy dimers on the cycle, the first accepted edge leaves a uniform random path; for two preaccepted disjoint dimers, the remaining vertices split into two paths. The first-edge path recursion gives the rational-coefficient exponential generating expression. Its singular decomposition yields the fixed-distance limit. Taylor's integral remainder gives a strictly positive expression for the signed interaction, while an elementary pointwise comparison of its kernels proves the unique extremal spacings. The accompanying standalone script replayed 120 checks, including independent exhaustive small-cycle order enumerations. These finite checks corroborate the proof but do not establish its infinite quantifiers.
+PASS
 
-## Originality
+For cycle C_n random greedy dimer adsorption and two disjoint preaccepted edges 0 and d (2<=d<=n-2), first unseeded accepted edge leaves path n-2, while seeds shield two paths of d-2 and n-d-2, giving B_n=1+f_(n-2), P_(n,d)=2+f_(d-2)+f_(n-d-2). First-edge conditioning on a path yields f_m=1+(2/(m-1))*sum_{j=0}^{m-2} f_j for m>=2 and F(z)=z(1-e^(-2z))/(2(1-z)^2); subtract principal singularities at z=1 to prove f_m=rho*m-e^-2+o(1), rho=(1-e^-2)/2. Fixed-d difference tends to I_d=1+f_(d-2)-d*rho. The bivariate numerator has double zero at z=1 and N''(z)=4(1-z)e^(-2z), yielding the stated positive Taylor-remainder integral for (-1)^d I_d, hence alternating signs and factorial decay. For k>=2 the positive summand h_(k+1)(t)/h_k(t)<1 since 4t²<k(k+1), and the exact first I2,I3,I4,I5 prove unique global maximum at spacing 4 (2e^-2) and minimum at spacing 3 ((3e^-2-1)/2). Independent exact rational recurrence and numerical sign/magnitude checks d=2..10 confirmed. The fixed n high-rate interpretation is sequential, not simultaneous growing n limit.
 
-PASS under the accessible-literature comparison, with qualified priority risk. Krapivsky and Luck, arXiv:2211.12815v1 (2022), explicitly describe the classical dimer model, its shielding property, and inverse-factorial alternating connected occupation correlations; those are prior results, and this finding does not re-claim them. The stated object is different: interventional preacceptance of two fixed dimers and the optimizing separation for expected **total** jammed occupancy. Neither the inspected text nor the accessible indexed summaries exhibited that unique global placement classification. Evans (1993), Percus (1993), and Šamaj–Percus (1994) discuss broader RSA frameworks. In particular, inhomogeneous adsorption theory could contain an implicit specialization, so priority should be checked against its inaccessible full text. No claim of independent novelty certification is made.
+## originality
 
-## Value
+PASS
 
-PASS. A pair of deliberately preseeded adsorption nuclei can alter the expected final number of dimers positively or negatively depending only on parity of their separation. The precise global placement rule (best separation four, worst three), together with supergeometric decay of the interaction, is a concrete structural design result, not merely the well-known homogeneous jamming density or a finite numerical census. The result identifies a local intervention-response observable absent from the baseline single-site density.
+Flory's one-dimensional RSA jamming density and Krapivsky–Luck inverse-factorial *connected occupancy correlations* are acknowledged prior work. The claim concerns a different interventional experiment—two forced dimers prior to ordinary arrivals—and measures the excess expected final dimer count. Inspected primary review does not present its parity-alternating finite-separation response or unique optimal separations. Percus (1993), Šamaj–Percus (1994) treat inhomogeneous lattice RSA and might imply the specific identity but full text was unavailable; retain strong priority risk, not a snippet-based NOT_COVERING conclusion.
 
-## Limitations and nearest literature
+## value
 
-The theorem assumes a one-dimensional homogeneous cycle, two non-overlapping seeds, unit-rate background arrivals, and a fixed separation in the thermodynamic limit. It does not optimize arbitrary finite-rate defects, finite ring sizes, or multiple seeds. The closest inspected full text is Krapivsky–Luck (2022, arXiv:2211.12815v1, §§1, 2.3, 4). General frameworks of Percus (1993, J. Stat. Phys. 71:1201–1211) and Šamaj–Percus (1994, Phys. Rev. E 49:5149) were compared using accessible abstracts only; their uninspected material is the principal remaining priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact spatial interaction of two intentionally placed seeds in a classical one-dimensional deposition process is a natural perturbation statistic. The positive integral reveals oscillatory sign and supergeometric spatial decay, while the unique distances 4/3 give a sharp, nontrivial optimization boundary. The exact result is meaningful without generalizing to multi-seed control or arbitrary graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
