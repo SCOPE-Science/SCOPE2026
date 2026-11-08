@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "An exact edge-count argument identifies precisely one intact path and one deleted edge on each other path. The leaf polynomial accounts for all endpoint cuts with an explicit terminal correction. For a transfer p,q -> p-1,q+1, direct algebra yields an exact positive convex mixture with auxiliary H. An explicit coupling shows H >= old leaf count for all configurations, with a strictly positive event of strict increase. Elementary majorization transfers give the global extrema. A separate enumerative Python script tested the polynomial against exhaustive small-graph spanning-tree enumeration and 3272 exact assertions; this test is not substituted for the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2312.14992v1 Theorem 3.7: general finite-graph degree distributions",
+        "https://arxiv.org/abs/2011.08833 Theorem 1.1: high-degree regular local limits",
+        "https://escholarship.org/uc/item/4gc8v9f6 introduction and Proposition 5: random-walk UST construction and general leaf bounds"
+      ],
+      "reasoning": "Rapoport has broader graph-domain coverage but does not give an order comparing two different graphs under edge subdivision. Nachmias-Peres has broad asymptotic coverage only for high-degree graph sequences, unlike fixed k with paths of degree two. Aldous gives general bounds and a sampling construction, not this sharp ordering.",
+      "searches": [
+        "spanning tree leaf count generalized theta graph banana subdivision stochastic dominance lengths",
+        "Rapoport 2023 fermionic uniform spanning tree joint degree distribution arbitrary graph",
+        "Nachmias Peres 2020 uniform spanning tree local limit regular graphs"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2312.14992v1",
+      "https://arxiv.org/abs/2312.13674",
+      "https://arxiv.org/abs/2011.08833",
+      "https://escholarship.org/uc/item/4gc8v9f6",
+      "published theta-graph algebraic gnarledness work (not a random spanning-tree statistic)",
+      "published ladder rung transfer-kernel work (not a theta leaf statistic)",
+      "published random-walk path stability work (not a UST leaf statistic)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2312.14992v1 Sections 3-4 give an all-graph method for degree events but contain no transformation comparison",
+        "https://arxiv.org/abs/2312.13674 Theorem: the set of feasible leaf counts is contiguous",
+        "https://arxiv.org/abs/2011.08833 Theorem 1.1 is a regular-graph scaling limit"
+      ],
+      "reasoning": "Neither degree-event evaluation in a single fixed graph nor support contiguity compares uniform measures on different graphs. The new conclusion uses the non-obvious identity L_bal = mixture(L_old,H) together with a coupling H >= L_old for every k>=3 and all allowed lengths. Therefore these inspected statements do not imply the balancing theorem without additional mathematical work. A source explicitly proving stochastic Schur-concavity would cover it, but none was identified.",
+      "searches": [
+        "uniform spanning tree on multi-theta graph k internally-disjoint paths leaf count distribution stochastic majorization arm lengths balancing",
+        "spanning tree leaf count generalized theta graph banana subdivision stochastic dominance lengths",
+        "spanning trees theta graphs degree sequence leaf polynomial extremal balanced lengths",
+        "Schur-convex stochastic domination spanning tree leaves generalized theta graph, internally disjoint paths",
+        "multi-path theta UST leaf polynomial stochastic ordering under equalizing path lengths",
+        "leaf counts of spanning trees in theta graphs balanced lengths",
+        "2023 Rapoport theta leaves stochastic order",
+        "2023 Noguchi Zamfirescu leaf support versus probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2312.14992v1 sections 3.1-3.2 and intro: arbitrary graph edge/degree probability formulas; no theta or balancing terminology in this version",
+        "https://arxiv.org/abs/2312.13674 Sections 1-2: connected-graph leaf support is contiguous"
+      ],
+      "reasoning": "A cross-graph first-order stochastic order is equivalent to every tail probability inequality and to all increasing-test-function expectation inequalities. An exact PGF for one graph alone is not the same statement; general degree-field formulas permit a computation but do not establish monotonicity under changing the underlying graph. No published source located stating the all-k balance order.",
+      "searches": [
+        "uniform spanning tree on multi-theta graph k internally-disjoint paths leaf count distribution stochastic majorization arm lengths balancing",
+        "Schur-convex stochastic domination spanning tree leaves generalized theta graph, internally disjoint paths",
+        "theta graph UST leaf-count majorization and Schur concavity",
+        "spanning tree leaf number distribution theta graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/2312.13674 possible leaf counts, without tree-count weights",
+        "Published mathematical record: published ladder rung transfer-kernel work (not a theta leaf statistic) (ladder rung kernel)",
+        "Published mathematical record: published theta-graph algebraic gnarledness work (not a random spanning-tree statistic) (unrelated algebraic invariant)"
+      ],
+      "reasoning": "The retrieved tables and exact graph-family findings have other graphs or other invariants. No directly matching probability table, generalized-theta leaf PGF, or complete majorization classification was found; absence of a hit is only supporting search evidence.",
+      "searches": [
+        "spanning trees theta graphs degree sequence leaf polynomial extremal balanced lengths",
+        "multi-path theta UST leaf polynomial stochastic ordering under equalizing path lengths",
+        "theta graph uniform spanning tree number of leaves polynomial table",
+        "theta leaf count spanning tree k disjoint paths"
+      ]
+    },
+    "rationale": "The contribution is the explicit generalized-theta leaf generating polynomial plus a strict first-order stochastic comparison for all integer path-length-balancing transfers and its global extremizers. Rapoport gives general finite-graph degree probabilities that may be evaluated on the family, but a generic formula does not state or imply by an immediate parameter substitution the cross-graph stochastic monotonicity; the latter follows from an explicit new convex-mixture identity and a monotone coupling. Noguchi and Zamfirescu determine possible leaf-count supports, not comparative laws. Relevant published record and accessible own claims have been compared semantically; historical priority remains uncertain.",
+    "residual_risks": [
+      "Unindexed or non-English exact leaf enumeration for theta subdivisions may exist; historical priority cannot be certified from searches.",
+      "General all-graph UST degree formulas mathematically encode the new finite distribution and might make the enumerator itself a special case; the claimed contribution is the cross-graph stochastic ordering and its strict extremizers.",
+      "A previously published graph-subdivision coupling theorem could imply this result without matching terminology; no such source was located in the inspected material."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BROADER_GENERAL_FRAMEWORK_NOT_COVERING_STOCHASTIC_ORDER",
+        "evidence": "Theorem 3.7 expresses degree-field probabilities for fixed graphs; no theta-specific balance theorem or length comparison stated.",
+        "identifier_or_url": "https://arxiv.org/html/2312.14992v1",
+        "material_read": "HTML v1 introduction, statements of Proposition 3.6 and Theorem 3.7 and sections 3.1-3.2; full-text searches for theta and leaf",
+        "method": "Direct open and section/location search of the primary HTML version",
+        "title": "Correlations in uniform spanning trees: a fermionic approach",
+        "trigger": "General theorem on exact joint UST vertex degrees might subsume a leaf polynomial"
+      },
+      {
+        "assessment": "DISTINCT_UNWEIGHTED_SUPPORT_RESULT",
+        "evidence": "The theorem gives contiguous possible leaf counts for any connected graph; it does not assign uniform probabilities or compare two path-length vectors.",
+        "identifier_or_url": "https://arxiv.org/abs/2312.13674",
+        "material_read": "arXiv text Introduction and Sections 2 Results and main leaf-contiguity proof",
+        "method": "Direct open of source text with theorem and proof inspection",
+        "title": "Spanning trees for many different numbers of leaves",
+        "trigger": "Strong statement concerning the support of all spanning-tree leaf counts"
+      },
+      {
+        "assessment": "DIFFERENT_HIGH_DEGREE_ASYMPTOTIC_REGIME",
+        "evidence": "Assumes regular degrees tending to infinity, whereas fixed multi-theta graphs have internal vertices of degree two.",
+        "identifier_or_url": "https://arxiv.org/abs/2011.08833",
+        "material_read": "arXiv text introduction and statements of Theorems 1.1 and 1.2, leaf-density comments",
+        "method": "Direct open of primary source text",
+        "title": "The local limit of uniform spanning trees",
+        "trigger": "Potentially dominating probability theorem about leaf counts"
+      },
+      {
+        "assessment": "GENERAL_BOUNDS_NO_BALANCING_CLASSIFICATION_OBSERVED",
+        "evidence": "Provides the UST random-walk construction and leaf-probability bounds, but the examined portions do not give distributional comparison across theta subdivisions.",
+        "identifier_or_url": "https://escholarship.org/uc/item/4gc8v9f6",
+        "material_read": "Accessible introduction and Proposition 5 excerpt on leaf probability bounds",
+        "method": "Publicly extracted article text; only excerpts inspected",
+        "title": "The random walk construction of uniform spanning trees and uniform labelled trees",
+        "trigger": "Foundational UST result containing leaf-probability estimates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a2b78ff2-1819-4546-93b3-94bba5104c88",
+  "value": {
+    "rationale": "This is a complete natural stochastic optimization problem on the simplest noncactus series-parallel networks, generalized to arbitrarily many internally disjoint paths. Strict stochastic dominance simultaneously controls every increasing leaf-count observable; the mixture coupling provides a structural explanation and global extremizers for fixed total length. The order is not a numerical or single-parameter gain and is not a trivial restatement of a graph-invariant enumeration.",
+    "status": "PASS"
+  }
+}
