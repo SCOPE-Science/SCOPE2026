@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For exact-Pareto \\(T\\) with \\(\\alpha>2\\), the complete-cycle reward \\(R=2DT^2J\\) has \\(\\mathbb ER=D\\mathbb ET^2\\) and \\(\\mathbb ER^2=(7/3)D^2\\mathbb ET^4\\). The centered reward \\(Y=R-\\mu T\\) has positive tail index \\(\\beta=\\alpha/2\\) with coefficient \\(c=\\mathbb E(2DJ)^\\beta\\) and negligible negative tail, proving a stable weak limit when \\(2<\\alpha<4\\). At \\(\\alpha=4\\), the truncated variance is asymptotic to \\(2c_4\\log z\\) with \\(c_4=7D^2/3\\), giving limiting Gaussian variance \\(c_4/m=7D^2/4\\); \\(\\alpha>4\\) gives the finite-variance Gaussian CLT. Tightness of the terminal age and incomplete reward, plus i.i.d. functional random-index convergence, justify the full occupation integral. The standalone checker passed 36 tests after extraction from the package. Finite checks are not substituted for the analytic limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zamparo Thm 3.2 and Lemma 4.1 cover normal fluctuations for polynomial observables when their cycle rewards have finite second moments; \\(\\alpha>4\\) is covered.",
+        "The 2025 paper contains general transform and first-two-moment results; Section V specializes to half-occupation."
+      ],
+      "reasoning": "The first of these genuinely dominates the finite-moment portion and is credited. It does not assert stable or logarithmic critical weak limits with these parameters. The newer general expression is not itself an explicit proved critical/stable distribution result in this model; priority risk is nonetheless recorded.",
+      "searches": [
+        "Brownian resetting time averaged squared position cycle reward variance E[T^4] fourth waiting time moment stable law",
+        "Regenerative Brownian integrated squared displacement renewal reward functional fluctuations alpha/2 stable",
+        "arxiv:2207.07521 Sections 3.1, 4",
+        "arxiv:2507.05955 Section IV"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2207.07521 (first public 2022-07-15)",
+      "arxiv:2306.13621 (first public 2023-06-23)",
+      "arxiv:2507.05955 (first public 2025-07-08; comparison only)",
+      "arxiv:1801.09909",
+      "Published-index searches for quadratic reset occupation and stable reward fluctuations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 theorem implies the \\(\\alpha>4\\) CLT provided E T^4 finite; this is openly distinguished.",
+        "Barkai et al. derive ergodic properties and finite/infinite invariant densities but not a centered quadratic sampling law.",
+        "The 2025 generic functional moment scalings and explicit half-occupation distributions do not imply the specified distributional stable constants without additional Brownian T²J analysis."
+      ],
+      "reasoning": "If classical regenerative attraction plus regular variation is applied to the explicit Brownian reward, it can prove the new result; such classic tools are cited, not asserted new. The new theorem resolves the remaining \\(\\alpha<=4\\) physically important threshold and coefficients rather than disguising a covered Gaussian specialization.",
+      "searches": [
+        "arxiv:2207.07521 Thm 3.2 and Lemma 4.1",
+        "arxiv:2306.13621 ergodic invariant-density results",
+        "arxiv:2507.05955 Sec III-V",
+        "Regenerative Brownian integrated squared displacement renewal reward functional fluctuations alpha/2 stable"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zamparo 2022 Thm 3.2 gives a finite-reward-second-moment CLT and notes that infinite-variance stable limits are possible in renewal reward theory.",
+        "Méndez and Flaquer-Galmés 2025 focus on generic functional moments and half-occupation time."
+      ],
+      "reasoning": "The Y=R-mu T cycle-reward formulation is the precise probabilistic equivalent; classical stable attraction supplies the theorem template. Neither inspected source provides the exact T² J Brownian-tail constant, critical logarithmic amplitude and 2<\\(\\alpha<4\\) centered weak limit for this observable.",
+      "searches": [
+        "Brownian motion renewal resetting stationary time averaged quadratic displacement integral X(t)^2 power law resets fourth moment threshold Gaussian CLT stable fluctuations",
+        "Regenerative Brownian integrated squared displacement renewal reward functional fluctuations alpha/2 stable",
+        "arxiv:2207.07521 Sec 3.1",
+        "arxiv:2507.05955 Sec IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The queried published-findings index results returned no directly matching quadratic-occupation Gaussian/logarithmic/stable three-regime theorem; closest items involved stationary renewal age/residual powers and different diffusion observables.",
+        "No known table was used as a substitute for the Pareto/Brownian computation."
+      ],
+      "reasoning": "The queried index is a semantic search rather than an exhaustive theorem database. The recorded closest results are not equivalent by their objects, random variables, or claimed limiting law. No uniqueness is inferred.",
+      "searches": [
+        "Brownian motion renewal resetting stationary time averaged quadratic displacement integral X(t)^2 power law resets fourth moment threshold Gaussian CLT stable fluctuations",
+        "Brownian resetting time averaged squared position cycle reward variance E[T^4] fourth waiting time moment stable law",
+        "Regenerative Brownian integrated squared displacement renewal reward functional fluctuations alpha/2 stable"
+      ]
+    },
+    "rationale": "Prior renewal-reward theorems cover the \\(\\alpha>4\\) Gaussian regime and are explicitly credited; the inspected results do not state the \\(2<\\alpha<4\\) stable and \\(\\alpha=4\\) log-critical weak-limit laws for this Brownian quadratic observable, with the exact tail and Gaussian constants. Other compared resetting studies analyze invariant measures, half-occupation functionals, or area observables. Originality concerns this explicit physical-observable classification, not renewal or stable-tail machinery itself.",
+    "residual_risks": [
+      "The established generic regenerative stable-domain theorem, together with Brownian scaling, may be regarded as a known immediate specialization in literature not encountered; mathematical priority remains provisional.",
+      "The 2025 general-functional transform could be further specialized by a separate derivation; it does not explicitly state the candidate weak limit in inspected relevant sections.",
+      "The exact one-unit Pareto cutoff, complete resetting and independence cannot be silently generalized."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS finite-moment Gaussian regime, does not explicitly give this infinite-variance centered stable and logarithmic quadratic law",
+        "evidence": [
+          "Theorem 3.2 states normal CLT under E M_1² finite.",
+          "Lemma 4.1 yields E T⁴ sufficient for f(x)=x²; Section 4 examples are positive occupation and area/absolute area."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.07521v2",
+        "material_read": "HTML abstract, Sections 1 and 3.1, Brownian polynomial-observable setup and Lemma 4.1 in Section 4; relevant proof theorem statements",
+        "method": "Direct full-text HTML reading, theorem/condition and application checks",
+        "title": "Statistical fluctuations under resetting: rigorous results",
+        "trigger": "General cumulative-functional CLT could dominate candidate"
+      },
+      {
+        "assessment": "NOT_COVERING the centered quadratic occupation weak-limit laws within inspected relevant text",
+        "evidence": [
+          "First public post June 23, 2023.",
+          "Focus on stationary/infinite invariant density transitions and ergodic behavior, not Gaussian/log/stable quadratic time-average fluctuations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.13621",
+        "material_read": "HTML full-text introduction, invariant-density/ergodicity sections and relevant concluding material",
+        "method": "Direct accessible arXiv rendered full-text reading and text search",
+        "title": "Ergodic properties of Brownian motion under stochastic resetting",
+        "trigger": "Same Brownian system and nonexponential renewal resetting"
+      },
+      {
+        "assessment": "NOT_COVERING specific centered quadratic-occupation critical and stable weak limits in inspected results",
+        "evidence": [
+          "Sections III-IV give general characteristic and first-two-moment scaling.",
+          "Section V specializes to half occupation; searches did not find quadratic centered stable theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2507.05955",
+        "material_read": "HTML abstract, Sections III-IV on generating functions and moments, Section V half occupation, references",
+        "method": "Direct arXiv HTML section inspection and searches for quadratic, stable, central limit",
+        "title": "Statistical properties of stochastic functionals under general resetting",
+        "trigger": "Later potentially dominating functional analysis"
+      },
+      {
+        "assessment": "Poisson resetting and different functional examples; not the exact Pareto quadratic-centered critical theorem",
+        "evidence": [
+          "Poisson reset mechanism; examples include occupation and area/absolute-area rather than exact Pareto quadratic time-average stable law."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.09909",
+        "material_read": "Relevant full text introduction, statements, and area/occupation examples",
+        "method": "Accessible text inspection",
+        "title": "Properties of additive functionals of Brownian motion with resetting",
+        "trigger": "Preexisting rigorous Brownian functional fluctuation work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ae147207-556c-4d46-8748-f838129ff01f",
+  "value": {
+    "rationale": "Quadratic trajectory exposure is an intrinsic displacement-energy observable in resetting diffusion. Its deterministic mean exists for every \\(\\alpha>2\\), but Gaussian root-time sampling uncertainty holds only for \\(\\alpha>4\\); the exact logarithmic and spectrally positive stable regimes exhibit a sharp failure of conventional Gaussian error bars. The threshold follows structurally from Brownian cycle reward scaling as \\(T^2\\), rather than an arbitrary finite computation.",
+    "status": "PASS"
+  }
+}
