@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,5 +19,24 @@
 }
 ---
 
-# Reproduction
-Run `python3 verify.py` with Python 3.8 or later. It uses only the standard library. The output is `VERIFY_OK: C/E/D counts n=1..6, functional equation and three elliptic factors`. The script enumerates every nonzero field element over the explicitly constructed fields for degrees one to six, applies exact binary trace tests, checks six point counts for each of the three quotient curves, and tests the six-degree zeta factorization and Jacobian order. A separate mathematical argument establishes genus and uniqueness of the zeta polynomial from initial counts; finite tests are not used to infer a general classification for larger exponents. Independent audit was not performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Two wild poles of order 3 give genus three by Artin–Schreier Riemann–Hurwitz. The Klein four involutions yield genus-one quotient y²+y=t³+t and genus-two complementary quotient z²+z=t³+t+t^(-1), with rational full quotient, so Kani–Rosen character idempotents split the Jacobian isogeny. The F2, F4, F8 trace counts (N1,N2,N3)=(4,8,4) determine the first three Hasse–Weil coefficients via Newton identities; the genus-three functional equation determines the remaining coefficients, factoring into (1+2T+2T²)(1-2T+2T²)(1+T+2T²). The corresponding elliptic Frobenius traces -2,+2,-1 are valid by explicit elliptic models and Tate. Verified independently via finite-field bit arithmetic and polynomial multiplication; supplemental n=4..6 counts in package are consistency checks, not infinite sampling.
+
+## originality
+
+PASS
+
+Best-of-knowledge exact arithmetic Frobenius decomposition at the canonical first m=3, c=1 characteristic-two wild-boundary model is additional to published genus/geometric action classification. The latest Kazemifard–Tafazolian preprint was accessible at abstract/metadata level only; an equivalent zeta-table or alternate Artin–Schreier form remains a real priority risk.
+
+## value
+
+PASS
+
+For the first genus-three member of a geometrically classified two-wild-pole C6 family, determining all Frobenius factors and ordinary/supersingular composition is a natural arithmetic invariant not implied by genus or geometric cyclic action. The exact rational isogeny type and group order provide a reproducible benchmark for later higher-exponent work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

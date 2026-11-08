@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The genus-three Riemann--Hurwitz calculation accounts for both wild poles. Explicit involutions and invariant functions give rational and genus-one/genus-two quotients. The exhaustive exact trace enumeration in degrees one, two, and three together with the genus-three Weil functional equation uniquely determines the full degree-six numerator; additional degrees four through six check the result. Three elliptic Frobenius quadratics and Tate's criterion establish the isogeny type. The finite search is exhaustive for the finite extension fields explicitly used; no claim of an infinite exhaustive search is needed.
+## correctness
 
-## Originality
-**PASS, qualified.** The principal source, arXiv:2610.04702v1, §5.1 Proposition 5.3, proves the wild cyclic-action and genus classification but does not determine the arithmetic zeta numerator or trace-labeled rational elliptic decomposition. Standard Klein-four quotient theory implies a coarse splitting into genus-one and genus-two factors, not the asserted three elliptic factors with exact traces. Searches for exact equations, reciprocal polynomial aliases, genus-three characteristic-two zeta tables, and more general coverage yielded no decisive dominating result. This is provisional historical priority; an unindexed census or alternative coordinate model remains a substantive residual risk.
+PASS
 
-## Mathematical value
-**PASS.** The smallest \(m=3\) member and unique nonzero \(\mathbb F_2\) coefficient of a recently classified wild cyclic boundary family is a canonical arithmetic test case, not an arbitrary parameter selection. Its previously unspecified Frobenius spectrum is fully determined, including split elliptic isogeny factors of both supersingular and ordinary types. The explicit factorization illustrates arithmetic geometry inaccessible from the known genus and geometric cyclic action and provides benchmark data for larger odd exponents and rational models.
+Two wild poles of order 3 give genus three by Artin–Schreier Riemann–Hurwitz. The Klein four involutions yield genus-one quotient y²+y=t³+t and genus-two complementary quotient z²+z=t³+t+t^(-1), with rational full quotient, so Kani–Rosen character idempotents split the Jacobian isogeny. The F2, F4, F8 trace counts (N1,N2,N3)=(4,8,4) determine the first three Hasse–Weil coefficients via Newton identities; the genus-three functional equation determines the remaining coefficients, factoring into (1+2T+2T²)(1-2T+2T²)(1+T+2T²). The corresponding elliptic Frobenius traces -2,+2,-1 are valid by explicit elliptic models and Tate. Verified independently via finite-field bit arithmetic and polynomial multiplication; supplemental n=4..6 counts in package are consistency checks, not infinite sampling.
 
-## Scope and risks
-The theorem concerns this \(\mathbb F_2\)-model only. Unindexed genus-three tables or coordinate-transformed equations could contain prior equivalent values. It does not describe integral Jacobian groups, polarizations or higher-family parameter distributions. The mathematical proof and finite computations received self-review only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact arithmetic Frobenius decomposition at the canonical first m=3, c=1 characteristic-two wild-boundary model is additional to published genus/geometric action classification. The latest Kazemifard–Tafazolian preprint was accessible at abstract/metadata level only; an equivalent zeta-table or alternate Artin–Schreier form remains a real priority risk.
+
+## value
+
+PASS
+
+For the first genus-three member of a geometrically classified two-wild-pole C6 family, determining all Frobenius factors and ordinary/supersingular composition is a natural arithmetic invariant not implied by genus or geometric cyclic action. The exact rational isogeny type and group order provide a reproducible benchmark for later higher-exponent work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
