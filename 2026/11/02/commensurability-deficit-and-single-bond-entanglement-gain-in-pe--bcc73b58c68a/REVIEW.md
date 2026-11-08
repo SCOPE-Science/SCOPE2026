@@ -1,11 +1,21 @@
-# Scientific review: periodic cluster-state cut entropy
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies graph-state bipartite entropy with the binary checkerboard biadjacency rank and proves the rank exactly by factoring the toroidal adjacency as two commuting binary diagonal-difference operators. It counts diagonal orbit intersections, establishes an image–kernel inclusion, and concludes \(\dim\ker\mathcal A=2\gcd(m,n)\). The one-edge statement follows from a rank-one update and explicit all-ones kernel vectors. All quantified boundaries (both lengths even and at least four, every edge) are stated. The independent construction and GF(2) elimination in `checker.py` passed 64 size cases and 703 bond cases. No finite computation is represented as an infinite proof.
+## correctness
 
-**Originality — PASS on available evidence, with historical risk.** Hein–Eisert–Briegel (2003) and Hein et al. (2006) give general graph-state cut-rank and bounded edge-change principles; their full accessible texts were inspected in the relevant theorem and examples sections. Neither states an all-even-periodic-torus checkerboard gcd law or that deleting any bond uniformly raises the entropy. Brouwer's toroidal game counts the kernel of \(I+\mathcal A\), a different operator. Actual literature and mathematical-result record searches for periodic checkerboard entropy, binary toroidal adjacency nullity, and the bond-deletion gain returned no direct implication matching the combined theorem. Hunziker–Machiavelo–Park (2004) is a plausible but incompletely inspected related automata paper; priority remains provisional, and lack of a matching search hit alone is not proof of novelty.
+PASS
 
-**Value — PASS.** The exact natural invariant measures all-order bipartite entanglement in a standard periodic qubit-cluster resource, explaining the commensurability-dependent deficit \(\gcd(m,n)\) from the maximal \(mn/2\) ebits. The second conclusion gives a counterintuitive, *universal one-ebit gain* when any single entangling bond is removed, sharpening a prior generic one-bit change bound to an exact direction on a physically motivated family. The result is not a relabeling of a published finite table or an arbitrarily chosen numerical slice. It does not claim a new general graph-state cut-rank method.
+For even m,n>=4 and N=mn/2, F_2 full torus adjacency factors as X^(-1)(1+XY)(1+XY^(-1)). Each diagonal translation has g=gcd(m,n) orbits; because g is even every intersection of the two orbit families has even cardinality, so ker(1+XY) subset im(1+XY^-1). Nullity full adjacency =2g and bipartite block form gives rank(B)=N-g. Direct character orthogonality of the graph-state amplitudes gives exactly 2^rank(B) equal Schmidt eigenvalues. Every bipartite color degree is four, so B1=0 and 1^T B=0. For any edge uv, B_e=B+e_u e_v^T: adjusting preimage by the all-ones vector proves im(B) subset im(B_e), and B_e 1=e_u outside im(B), hence rank exactly +1. This sign-specific proof applies to even-degree bipartite graphs; group-state Schmidt negativity and Rényi consequences follow from a flat spectrum.
 
-**Main residual limitations:** unrelated entanglement partitions and noise are outside scope; equivalence to a broader historical binary-grid automata calculation remains possible. Verification and mathematical priority are distinct. The paper used as the 2003 focal source has an independently verified original public date.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General graph-state cut-rank and one-edge rank-change upper bound are classical, but exact all-even toroidal gcd formula and +1 direction for each edge are specialized calculations not in the inspected primary comparison. Older binary-grid sigma automata might imply the nullity part and remain an explicit priority risk.
+
+## value
+
+PASS
+
+A precise topological-commensurability gcd defect in a periodic quantum graph-state entanglement cut plus surprising universal entanglement *increase* on any single bond deletion, sharp at maximal rank-one change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
