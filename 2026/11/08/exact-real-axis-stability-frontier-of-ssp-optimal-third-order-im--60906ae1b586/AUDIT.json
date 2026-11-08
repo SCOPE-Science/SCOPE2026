@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md Proof §§1–5, exact stage equations and thresholds.",
+      "verify.py, 864 high-precision finite checks."
+    ],
+    "rationale": "For all integers s≥2, exact forward elimination in (I−zA)y=e gives R_s(-x)=1−c_s+c_s t_s(x)^s. Strictly decreasing t_s maps [0,∞) onto (−q_s,1]. Even s yield positivity and stability exactly |t|≤1; odd s yield a strictly decreasing multiplier crossing −1 exactly once since 1−c_s(1+q_s^s)<−1. The algebra yields positive exact threshold formulas and strict endpoint signs; q_s^s→e and c_s→1 give alternating stiff limits. The independent finite numerical checker returned VERIFY_OK 864, corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yu–Zhu–Weng / Weng–Yu–Zhu (arXiv:2610.37425v1) Theorem 5.2: optimum radius of absolute monotonicity, not whole real-axis absolute stability.",
+        "Ketcheson–Macdonald–Gottlieb (2008) §2.2: radius of absolute monotonicity of a function differs from modulus-one stability."
+      ],
+      "reasoning": "An SSP-radius optimality theorem does not imply |R(-x)|≤1 precisely to an endpoint of order 4s²; SSP radius scales only linearly. Generic A-stability failure alone is strictly weaker than the sharp parity-dependent frontier and alternating stiff multiplier.",
+      "searches": [
+        "SSP optimal third order implicit RK stiff limit growth e stage count no A stability",
+        "third order strong stability preserving implicit Runge Kutta exact stiff amplification alternating e as s grows"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.37425v1, Theorem 5.2, https://arxiv.org/abs/2610.37425",
+      "Ferracina & Spijker, 2007 report, eq. (3.2), https://math.leidenuniv.nl/reports/files/2007-11.pdf",
+      "Ketcheson, Macdonald & Gottlieb, 2008 author postprint / 2009 article, §§2–3, https://www.davidketcheson.info/assets/papers/implicit_ssp_postprint.pdf",
+      "Fekete & Horváth, 2019, §2.2 Fig. 2, https://imrefekete.web.elte.hu/files/2019_FH_ECMI.pdf",
+      "Semantic mathematical research-record queries for exact SSPIRK(s,3) negative-real boundaries and stiff limits"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2007 report eq. (3.2) provides coefficients and conjectured optimality; the 2026 theorem proves optimality but adds no corresponding real-spectrum stability classification.",
+        "Fekete–Horváth (2019) Fig. 2 is the closest observed plotted stability result; no general exact interval.",
+        "The familiar SSP-SDIRK2(2) endpoint positivity problem is a different method class and stability property, and does not imply this order-three result."
+      ],
+      "reasoning": "This is a genuine new analytical consequence of the tableau, not a reparameterization of SSP-radius optimality. The preceding results do not state stronger stability intervals which would subsume the exact odd-even formula. The same underlying tableau may make the calculation accessible, so residual unindexed classical derivation remains a priority risk.",
+      "searches": [
+        "Ferracina Spijker optimal SSPIRK(s,3) negative real-axis stability interval stage parity |R_s(-x)| 4s^2",
+        "s stage optimal SSP SDIRK3 real axis stability boundary 2sqrt(s^2-1)(s+sqrt(s^2-1))"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ferracina–Spijker (2007) equation (3.2): same tableau under SDIRK terminology.",
+        "Ketcheson–Macdonald–Gottlieb (2008 postprint) equation (11): general stability-function identity."
+      ],
+      "reasoning": "The claim was normalized to the original SSPIRK(s,3) tableau rather than a renamed method. The generic transfer identity or tableau alone does not explicitly establish the exact stage-uniform absolute-stability boundary and parity-dependent e limit.",
+      "searches": [
+        "Ferracina Spijker third order SDIRK stability function at negative infinity tends e alternating sign s",
+        "optimal SSP implicit Runge Kutta order 3 stiffness amplification limit e parity s stages lack A stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fekete–Horváth (2019) Figure 2: graphical four-stage region and discussion of stability region measurements, not analytic table for all s.",
+        "Semantic research-record query results were unrelated to exact SSPIRK(s,3) negative-real absolute stability."
+      ],
+      "reasoning": "The known s=4 plot gives a numerical special case and is compatible with the new theorem, but the claimed exact every-stage formula and odd-stage threshold are not tabulated in the inspected data.",
+      "searches": [
+        "Fekete Horvath absolute stability region s4 SSPIRK(4,3) exact leftmost point",
+        "s stage optimal SSP SDIRK3 real axis stability boundary 2sqrt(s^2-1)(s+sqrt(s^2-1))"
+      ]
+    },
+    "rationale": "The 2026 optimality theorem and antecedents supply the all-stage coefficient family; the inspected sources do not provide a general closed all-stage real-decay stability boundary, sign at that boundary, or alternating ±e stiff asymptotic. The only directly observed plotted all-stage-family stability data are for s=4. Targeted literature and semantic research-record queries did not find a covering result. The comparison concerns exact mathematical implications, not wording; historical-priority risk remains.",
+    "residual_risks": [
+      "An older or unindexed exact all-stage rational-function analysis might already derive the same stability frontier or ±e asymptotic.",
+      "A 2019 four-stage plotted stability region is a partial prior result; the result claimed here is the exact stage-general classification, not the existence or a numerical depiction of a finite stability region.",
+      "The 2009 literature supplies all coefficient data needed to derive this theorem; novelty attaches to the proved sharp spectrum/frontier, not to inventing the RK method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes optimal SSP radius and unique tableau for all stages; does not derive an exact all-stage scalar negative-real stability interval or large-stiffness parity limit.",
+        "evidence": [
+          "arXiv v1 dated 2026-10-27; Theorem 5.2 and equations (5.5)–(5.6); MSC 65L06."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.37425",
+        "material_read": "Full HTML text with Sections 1, 2, 5 and conclusion; PDF first page and page 19 with equations (5.5)–(5.6).",
+        "method": "Read primary arXiv HTML and PDF content, compared the exact matrix entries and theorems.",
+        "title": "Phase-type representations for Strong Stability Preserving Runge–Kutta methods",
+        "trigger": "Theorem 5.2 identifies the unique SSP-optimal third-order family in the target publication window."
+      },
+      {
+        "assessment": "Gives the coefficient family and an SSP optimality conjecture, not the proved all-stage scalar-stability endpoint or stiff parity law.",
+        "evidence": [
+          "Ferracina–Spijker report, equation (3.2), Conjecture 3.2, 2007."
+        ],
+        "identifier_or_url": "https://math.leidenuniv.nl/reports/files/2007-11.pdf",
+        "material_read": "Introduction and §3.3 (coefficient formula (3.2), Conjecture 3.2), plus the summary §3.6.",
+        "method": "Read primary report text and theorem/formula sections.",
+        "title": "Strong Stability of Singly-Diagonally-Implicit Runge-Kutta Methods",
+        "trigger": "Original Ferracina–Spijker formula is the antecedent of the recently proved optimal tableau."
+      },
+      {
+        "assessment": "Its generic function formula and numerical optimality results do not state or settle the exact negative-real stable frontier for every stage count, nor the alternating e stiff limit.",
+        "evidence": [
+          "Equation (11) is generic Runge–Kutta stability; equation (18) gives SSP family, with an SSP optimality conjecture."
+        ],
+        "identifier_or_url": "https://www.davidketcheson.info/assets/papers/implicit_ssp_postprint.pdf",
+        "material_read": "2008 author-postprint introduction, §2.2 (generic linear stability function), §2.3 and §3.2 (SSP-optimal third-order family and Conjecture 2); PDF page 17.",
+        "method": "Inspected complete relevant primary sections including page image.",
+        "title": "Optimal Implicit Strong Stability Preserving Runge–Kutta Methods",
+        "trigger": "Classical analysis of the same optimal SSP implicit tableau, potentially dominating the new stability claim."
+      },
+      {
+        "assessment": "The four-stage region visibly reaches approximately -61, compatible with the derived exact -60.9839..., but no all-stage exact threshold/odd-even formulas or stiff amplification limits are given.",
+        "evidence": [
+          "Section 2.2 and Figure 2 plot the s=4 region; the text calls them absolute stability region measurements."
+        ],
+        "identifier_or_url": "https://imrefekete.web.elte.hu/files/2019_FH_ECMI.pdf",
+        "material_read": "Primary text §§1–2.2 and Figure 2 on PDF page 6, including the four-stage stability-region plots.",
+        "method": "Read primary source and inspected full page image of the stability plots.",
+        "title": "Some Embedded Pairs for Optimal Implicit Strong Stability Preserving Runge–Kutta Methods",
+        "trigger": "Paper explicitly analyzes absolute-stability regions of the optimal third-order implicit SSP family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "60906ae1-b586-4ea9-a9a1-b28f617c8035",
+  "value": {
+    "evidence": [
+      "2026 source Theorem 5.2 provides the motivated optimal family.",
+      "Fekete–Horváth 2019 Fig. 2 treats spectral absolute stability experimentally.",
+      "RESULT.md Theorem and Proof §§2–5 show sharpness and all-s asymptotic."
+    ],
+    "rationale": "For this recently established uniquely SSP-optimal implicit third-order family, determining the maximal spectral-step interval is a natural nontrivial numerical-analysis invariant for dissipative semidiscretizations. Exact all-stage parity-dependent endpoints scale like 4s² while extreme stiff-amplification tends to ±e; this is a structural order/SSP-versus-absolute-stability trade-off not captured by the previously established SSP coefficient. It supplies a sharp scalar/normal-spectral benchmark rather than an unsupported general-PDE assertion.",
+    "status": "PASS"
+  }
+}
