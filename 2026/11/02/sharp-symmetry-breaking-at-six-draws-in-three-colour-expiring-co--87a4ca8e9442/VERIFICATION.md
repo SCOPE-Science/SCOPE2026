@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific scope
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3.10+ with SymPy 1.12 or newer. The program checks stationary entry events via a second, independent enumeration of all \(3^{M+1}\) words for \(M=3,4,5,6\) (rather than simply substituting the displayed entry formula), then checks the exact elementary-symmetric identities and derivatives, the uniform Hessian coefficient for lengths three through nineteen, and the algebraic optimizer conditions at six. Recorded stdout is in `verification_output.txt`.
+## correctness
 
-The proof's statements for infinitely many window lengths do not follow from enumeration; they follow from the positive recurrence for \(Q_M\). Strict Schur-concavity is proved by explicit bounds on pair-transfer derivatives. Completeness of the six-draw optimizer list follows from compactness, an interior stationary-point reduction, strict convexity of the critical quartic, and a transverse instability calculation. Numerical root approximations have no role in establishing existence, uniqueness or optimality.
+PASS
 
-The present analysis does not claim independent mathematical auditing or historical-priority certification.
+The newly complete window requires the old common length-(M−1) block to contain exactly the other two symbols. Inclusion-exclusion proves exact flux μ_M=Σp_i(1−p_i)[(1−p_i)^(M−1)−p_j^(M−1)−p_k^(M−1)]. Its symmetric e2,e3 forms for M≤6 permit a strict Schur-transfer certificate M3..5. At uniform, the second-order coefficient Q_M/(2⋅3^M) times Σh_i² is positive for M≥6: Q_6=90 and Q_{M+1}−2Q_M=3⋅2^M(M−2)+12M²−66M+48>0. For M6, Fe2=5e3(4e2−5)<0 excludes all-distinct interior critical points; quartic convexity leaves a* and a+ besides uniform. The a+ solution is increased by splitting the equal coordinates, excluding it as global maximum; boundary zero. Independently enumerated every 3-colour word for M3..6, and symbolically verified the Hessian at M=6,7,10,40 and root locations. Infinite M statement follows from recurrence, not sampling.
+
+## originality
+
+PASS
+
+Long derives uniform-probability expiring-window stationary entry flux; that value cannot determine optimization over the two-dimensional nonuniform simplex. Closest asymptotic nonuniform statement concerns large windows and does not establish first transition at M6 or all global maximizers there.
+
+## value
+
+PASS
+
+The precise first broken-symmetry window is a natural finite threshold for stationary new-completion frequencies. A complete asymmetric optimizer census is useful even though global optimizers for M≥7 remain open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
