@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Complete nonplane full-binary root-split recurrence generates exactly 1,1,2,3,6,11,23,46 shapes at two through nine leaves, matching OEIS A001190. Equality of mean curves is equivalent to equality of clade-size counts by polynomial coefficient comparison. Exhaustive 46-shape exact check finds precisely one two-member class; both nine-leaf trees share size spectrum (nine 1, three 2, one 3, two 4, one 5). Nested-edge covariance counts differ only by a (5,2) versus (5,3) pair, proving Var(B)-Var(A)=2p(1-p)^7 for all p in (0,1). Independent 512-subset exact rational calculation at p=1/2 reproduces means 335/32 and variances 6483/1024 and 6491/1024. Code path check_pd_fingerprints.py was executed and produced VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Faller–Pardi–Steel (2007/2008) developed the full future-PD distribution, normal-limit theorem and distribution algorithm; only abstract/method description could be retrieved.",
+        "Nipperess–Matsen (2013), full article, treats fixed-count rarefaction, and explicitly contrasts it with Faller independent extinction (discussion).",
+        "Matsen–Evans (2012), full article, concerns spectra of adjacency, Laplacian and distance matrices, not clade-size mean-PD curves."
+      ],
+      "reasoning": "General PD distribution algorithms are broader computational tools, but their existence does not logically imply a nine-tip first-collision theorem without the complete finite classification. The uninspected Faller paper could conceivably discuss such examples: this is the material residual-priority risk, not a claimed proof of absence.",
+      "searches": [
+        "phylogenetic diversity under homogeneous independent extinction two distinct rooted binary tree shapes same expected phylogenetic diversity polynomial but different variance smallest nine leaves",
+        "phylogenetic diversity variance distinguishes trees same expected phylogenetic diversity",
+        "phylogenetic diversity tree reconstruction expected PD variance random extinction clade sizes",
+        "Faller Pardi Steel 2007 variance phylogenetic diversity independent extinction",
+        "Matsen Evans 2012 binary trees identical spectra"
+      ]
+    },
+    "checked_sources": [
+      "Steel, Mimoto, Mooers (2007), Hedging Our Bets, https://doi.org/10.1177/117693430700300024",
+      "Faller, Pardi, Steel (2007 preprint), arXiv:0708.0425, https://doi.org/10.1016/j.jtbi.2007.11.034",
+      "Nipperess, Matsen (2013), The mean and variance of phylogenetic diversity under rarefaction, https://doi.org/10.1111/2041-210X.12042",
+      "Matsen, Evans (2012), Ubiquity of synonymity, https://doi.org/10.1186/1748-7188-7-14",
+      "OEIS A001190, https://oeis.org/A001190"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Steel–Mimoto–Mooers 2007 gives rooted independent-extinction edge expectation, which yields the polynomial but not the minimum collision size.",
+        "Nipperess–Matsen 2013 provides variance formula under without-replacement sampling, with a different dependence law.",
+        "Matsen–Evans 2012 uses matrix spectra; equality of mean PD is neither equality of adjacency spectra nor a stated corollary.",
+        "Closest own files reviewed for claim-level overlap: 6de692b6-0411-4276-bfb1-6562e691180f (optimal protection switching), dc795447-ff47-48ea-a8c3-9c3efde35bd1 (variance peak count), a82a9350-34a3-4460-8c3a-2b455b6456f4 (dependence-order intervention rankings).",
+        "Final exact-claim published-finding corpus search returned 2026/9/8/SCOPE045 (graph matrix generalized spectra), 2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269 (geometric widths), and ecology-independent results; none contains PD mean/variance fingerprints."
+      ],
+      "reasoning": "Prior formulas permit calculation, but the first noninjective size and unique mean-collision shape pair do not follow without a finite complete census; the strictly positive variance difference requires a nested-clade comparison. Existing own findings address optimization or peak shape rather than identifying unlabeled topology from the mean response.",
+      "searches": [
+        "phylogenetic diversity under homogeneous independent extinction two distinct rooted binary tree shapes same expected phylogenetic diversity polynomial but different variance smallest nine leaves",
+        "phylogenetic diversity subtree-size multiset identical tree shapes nine leaf variance",
+        "rooted binary tree shape reconstruction from clade sizes subtree size sequence collision nine",
+        "Faller Pardi Steel random extinction phylogenetic diversity distribution",
+        "phylogenetic diversity expected curve not uniquely identify tree shape clade count variance",
+        "phylogenetic diversity same mean different variance extinction trees",
+        "nine leaf rooted nonplane full binary phylogenetic trees same independent extinction expected phylogenetic diversity curves different variance all survival probabilities minimal shape identifiability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact algebra: mean PD polynomial coefficients are the multiset counts of descendant clade sizes, so the statement is equivalent to the first clade-size-multiset collision in full-binary shapes.",
+        "Steel–Mimoto–Mooers (2007) rooted edge indicators; https://doi.org/10.1177/117693430700300024",
+        "OEIS A001190 gives shape counts, not collisions of descendant-size multisets."
+      ],
+      "reasoning": "Translation to clade-size profiles was searched directly alongside phylogenetic mean-response aliases. A coincident Sackin or Colless scalar would not imply equality of every clade-size count; matrix cospectrality likewise does not imply this fingerprint. No inspected source states the nine-leaf equivalence class or its all-p variance distinction.",
+      "searches": [
+        "phylogenetic diversity under homogeneous independent extinction two distinct rooted binary tree shapes same expected phylogenetic diversity polynomial but different variance smallest nine leaves",
+        "phylogenetic diversity subtree-size multiset identical tree shapes nine leaf variance",
+        "phylogenetic diversity mean curve same clade size spectrum nine-leaf shapes",
+        "binary rooted trees same multiset subtree sizes distinct tree shapes phylogenetic diversity identifiability",
+        "tree shape same distribution clade sizes 9 rooted binary trees mean phylogenetic diversity variance",
+        "phylogenetic diversity expected curve not uniquely identify tree shape clade count variance",
+        "nine leaf rooted nonplane full binary phylogenetic trees same independent extinction expected phylogenetic diversity curves different variance all survival probabilities minimal shape identifiability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001190: shape counts for 2..9 tips are 1,1,2,3,6,11,23,46.",
+        "published-finding corpus closest returned 2026/9/8/SCOPE045, an adjacency/complement spectral collision at 12 graph vertices, not PD clade counts.",
+        "Full recurrence checker gives 46 shapes, 45 distinct clade-size multisets at nine and 46/46 distinct (mean,variance) pairs."
+      ],
+      "reasoning": "The public OEIS table counts shapes only; it does not tabulate the proposed fingerprints, collision classes or second moments. Searches did not reveal an exact preexisting nine-tip clade-spectrum table. The complete recurrence and pair-count proof independently establish the new finite certificate.",
+      "searches": [
+        "OEIS Wedderburn Etherington rooted binary trees 1 1 2 3 6 11 23 46 sequence",
+        "rooted binary tree clade size spectrum multiset phylogenetic diversity expected value 9",
+        "rooted binary tree shape reconstruction from clade sizes subtree size sequence collision nine",
+        "phylogenetic tree clade-size multiset nine leaves"
+      ]
+    },
+    "rationale": "The exact question is the first noninjectivity of the complete independent-extinction mean-PD curve on unlabeled unit-edge full-binary shapes and restoration of injectivity by variance at nine leaves. Inspected primary papers establish indicator calculations, PD variance under different sampling regimes, and nonidentification by matrix spectra, but no inspected result implies the enumerated nine-leaf threshold, unique collision, and exact variance separation. Earlier methods can compute individual cases; they do not alone state the classification. Historical priority is explicitly provisional because Faller–Pardi–Steel full text was unavailable.",
+    "residual_risks": [
+      "Faller–Pardi–Steel 2007 preprint / 2008 journal full text remained inaccessible despite arXiv/OA and institution-access attempts; hidden nine-leaf shape examples cannot be excluded.",
+      "A highly specialized unindexed tree-shape profile catalogue might contain the same first-collision census, despite the listed alias and table searches.",
+      "No independent historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes rooted-PD and edge-survival expectation method, not the enumerated first equality of mean curves across nine-leaf shapes in inspected text.",
+        "evidence": [
+          "Publisher full HTML at https://journals.sagepub.com/doi/10.1177/117693430700300024, definitions and proof appendix."
+        ],
+        "identifier_or_url": "https://doi.org/10.1177/117693430700300024",
+        "material_read": "Full HTML: abstract, introduction, definitions, theorem descriptions, proof appendix and references",
+        "method": "read publisher full-text HTML",
+        "title": "Hedging Our Bets: The Expected Contribution of Species to Future Phylogenetic Diversity",
+        "trigger": "Foundational same extinction and rooted-PD construction"
+      },
+      {
+        "assessment": "Provides an exact distribution algorithm and moment theory; cannot rule out the same finite classification because full material was not accessible. This is an explicit residual priority risk.",
+        "evidence": [
+          "https://arxiv.org/abs/0708.0425 (public preprint dated 2007-08-02)",
+          "https://pubmed.ncbi.nlm.nih.gov/18199459/ (journal abstract)"
+        ],
+        "identifier_or_url": "arXiv:0708.0425; https://doi.org/10.1016/j.jtbi.2007.11.034",
+        "material_read": "ArXiv bibliographic record and PubMed/OpenAlex abstracts only; full preprint/publisher text inaccessible",
+        "method": "Attempted arXiv/OA routes; institutional access source unavailable; read accessible abstract and bibliographic records",
+        "title": "Distribution of phylogenetic diversity under random extinction",
+        "trigger": "Most closely matching independent-extinction distribution and variance setting"
+      },
+      {
+        "assessment": "Different fixed-count rarefaction model; explicitly distinguishes independent extinction treated by Faller et al. Does not state a nine-leaf identifiability cutoff in inspected content.",
+        "evidence": [
+          "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12042, methods and discussion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.12042",
+        "material_read": "Full public HTML including abstract, definitions, covariance derivation, applications and discussion",
+        "method": "read publisher open full-text HTML",
+        "title": "The mean and variance of phylogenetic diversity under rarefaction",
+        "trigger": "Same mean/variance observables and possible tree-shape sensitivity"
+      },
+      {
+        "assessment": "Distinguishes nonisomorphic shapes by matrix eigenvalue spectra and immanantal polynomials rather than the probabilistic PD mean clade-size fingerprint; no direct implication for nine leaves.",
+        "evidence": [
+          "https://link.springer.com/article/10.1186/1748-7188-7-14"
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/1748-7188-7-14",
+        "material_read": "Full open HTML: abstract, background, matrix definitions, exchange property and results framing",
+        "method": "read Springer OA primary article HTML",
+        "title": "Ubiquity of synonymity: almost all large binary trees are not uniquely identified by their spectra or their immanantal polynomials",
+        "trigger": "Potential dominant binary-tree shape nonidentifiability results"
+      },
+      {
+        "assessment": "Confirms number of tree shapes (46 at nine leaves) but does not provide clade-size profile collision table.",
+        "evidence": [
+          "https://oeis.org/A001190"
+        ],
+        "identifier_or_url": "https://oeis.org/A001190",
+        "material_read": "Sequence definition and initial values",
+        "method": "read OEIS public table",
+        "title": "A001190 Wedderburn–Etherington numbers",
+        "trigger": "Check complete rooted nonplane binary-shape counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d6c62a70-e7a7-48e9-b302-3835ba1d3e16",
+  "value": {
+    "rationale": "The complete independent-extinction expected rooted-PD response curve is a natural conservation-risk observable encoding a tree shape only through its clade-size multiset. The sharp first ambiguity at nine taxa and its universal variance resolution identify the exact limit of mean-only structural discrimination within a standard equal-branch idealization. This is a motivated minimal finite identifiability boundary with a complete classification, not an arbitrary numerical point or straightforward restatement of the generic moment formula.",
+    "status": "PASS"
+  }
+}
