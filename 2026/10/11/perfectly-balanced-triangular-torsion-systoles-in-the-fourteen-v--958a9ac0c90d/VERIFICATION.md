@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`verify.py` embeds all seventy-two tetrahedra and uses only the Python standard library.
+# Independent mathematical audit
 
-After contracting a spanning tree, the graph-cycle group is \(\mathbb Z^{73}\). A fixed \(73\times73\) facial-relation minor has determinant \(5\), while the full relation matrix has rank \(72\) modulo \(5\). These two facts together force the integral quotient to be exactly \(\mathbb Z/5\).
+## correctness
 
-The verifier constructs the unique nonzero cocycle line over \(\mathbf F_5\), enumerates all \(308\) graph triangles, and checks that the \(164\) nonfacial triangles have no zero homology values. The oriented values occur as \(41,44,38,41\) in classes \(1,2,3,4\), giving the intrinsic \(82/82\) split up to orientation.
+PASS
 
-For automorphisms, a vertex invariant partitions the vertices into cells of sizes \(2,4,4,4\). Exhausting all \(27{,}648\) cell-preserving permutations finds exactly four simplicial automorphisms, with element orders \(1,2,4,4\). Their induced homology multipliers are exactly \(1,2,3,4\).
+From all 72 assigned tetrahedra the independently programmed reconstruction gives exactly f=(14,86,144,72), 86 edges, 308 graph triangles and 144 facial triangles. Contracting a different spanning tree gives Z^73 and integral 144x73 facial relation matrix; an exact integral Hermite normal form calculation yields finite quotient order 5, while independent F5 reduction has rank 72. Every one of 164 nonfacial triangles evaluates in F5^* under a nonzero kernel cocycle, with oriented counts 41,44,38,41 and inverse-pair multiplicities 82/82. Exhaustive graph-degree/facet signature cell-preserving automorphisms give group order 4 with induced homology multipliers 1,2,3,4 and carrier orbit sizes 39x4 plus 4x2. These exact finite checks reconstruct the proof for this single explicitly given triangulation. The graph-cycle and minimal-simple-cycle conclusions follow from definitions; no unbounded claim is inferred.
 
-Exact successful output:
+## originality
 
-`VERIFY_OK f=14,86,144,72 H1_Z=Z/5 det_minor=5 rank_mod5=72 graph_triangles=308 facial3=144 empty3=164 all_empty3_generators=yes unoriented_class_counts=82,82 aut=C4 aut_H1_units=1,2,3,4 carrier_orbits=39x4+4x2`
+PASS
+
+The earliest exact-object primary sources identify the 72 tetrahedra, face vector and Z/5 homology but do not imply or state the 164 nonfacial triangular generator census, its 82/82 unoriented partition or the four-element simplicial symmetry acting as every Z/5 unit. Independent Resultary search returned the same present claim as its own published mirror, not an earlier independent proof, and neighboring results for different lens spaces; semantic and exact-parameter literature searches and primary full-text inspections found no stronger coverage. Best-of-knowledge originality, with unindexed calculations as residual risk.
+
+## value
+
+PASS
+
+The natural smallest-known 14-vertex triangulation of L(5,2) has H1=Z/5 with two distinct unoriented generator classes. The exact 164-carrier classification of the minimal simple-cycle layer, unexpected 82/82 balance, and full C4 realization of all units together form a complete motivated finite homological/symmetry invariant of a standard small lens-space complex; they do not mechanically follow from ambient homology or face vector. Such exact shortest-loop and symmetry data are independently useful for combinatorial topology comparisons even without a generalization to other triangulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

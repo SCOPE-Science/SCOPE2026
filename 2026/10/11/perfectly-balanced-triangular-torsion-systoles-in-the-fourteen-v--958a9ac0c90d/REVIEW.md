@@ -1,15 +1,13 @@
-# Same-model review
+# Mathematical assessment of the fourteen-vertex \(L(5,2)\) triangulation
 
 ## Correctness
-PASS. The exact seventy-two-tetrahedron presentation reconstructs \(f=(14,86,144,72)\). An integral maximal-minor certificate and the independent mod-five rank drop force \(H_1\cong\mathbb Z/5\). Exhaustion of every three-vertex clique proves all \(164\) nonfacial triangles are generators and gives the intrinsic \(82/82\) split. Exhaustive symmetry search proves the full group is \(C_4\) and its homology action is the full unit group.
+The published 72-tetrahedron complex has face vector \((14,86,144,72)\). Its 73-dimensional contracted integral graph-cycle presentation has a maximal minor of absolute determinant 5 and rank 72 modulo 5, giving \(H_1\cong\mathbb Z/5\). Exactly 308 vertex triples are graph cliques, and 144 of these are triangular faces. The 164 remaining triangles all pair nontrivially with a generator of mod-five cohomology, so each represents an integral homology generator. Their orientation-independent class counts are 82 and 82. An exhaustive search over vertex-color signatures identifies four simplicial automorphisms. They act as all four units on first homology; the 164 carriers form 39 four-element and four two-element orbits.
 
-## Originality
-PASS. The exact-object literature gives the manifold, face vector, tetrahedra, and ambient homology but not the triangular-generator spectrum, balanced class multiplicities, or symmetry action. Five published-finding corpus searches and both owned ledgers were checked. The closest owned result is the distinct \(L(4,1)\) torsion-systole calculation and does not imply the present \(\mathbb Z/5\) structure. Residual risk remains from unindexed historical computations.
+## Originality and relationship to established data
+Lutz's public facet and homology tables identify the exact complex and its first homology. Lutz, Sulanke and Swartz, *f-Vectors of 3-Manifolds* (2009), Table 3, report its face vector. Venturello, *Balanced triangulations on few vertices and an implementation of cross-flips* (2019), Table 4, also records that known face vector in a study of different triangulation properties. None of those inspected passages gives the homology-class spectrum of the nonfacial triangles or the full simplicial automorphism action. A published related calculation concerns Lutz's different 14-vertex \(L(4,1)\) complex with \(H_1\cong\mathbb Z/4\), and does not imply this \(L(5,2)\) statement. Unindexed prior finite calculations remain a priority risk.
 
-## Value
-PASS. The result completely resolves the first possible simple-cycle layer of a small lens-space triangulation. The exact balance between the two unoriented generator classes and the realization of all units by simplicial symmetry are structural facts invisible from the known face vector and homology group alone.
+## Mathematical value
+The finding classifies the complete shortest simple-cycle homology layer of a natural small lens-space triangulation, not just the ambient homology group. In particular, equality of the two inverse-pair class multiplicities and surjectivity of the simplicial symmetry action to \((\mathbb Z/5)^\times\) are exact structural properties of this labelled complex.
 
-## Closest literature and limitations
-Lutz--Sulanke--Swartz supply the small \(L(5,2)\) face vector; Lutz's Manifold Page supplies the exact complex and homology; Lutz's earlier survey supplies lens-space context. The theorem is specific to this triangulation and does not compare other \(L(5,2)\) triangulations.
-
-Same-model review: passed. Independent audit: not yet performed.
+## Scope and limitations
+The claim concerns this specific labelled fourteen-vertex triangulation. It neither classifies all triangulations of \(L(5,2)\) nor asserts a metric/geodesic systole. The ordered mod-five cocycle counts depend on generator and orientation conventions; the unoriented class split and group action do not.
