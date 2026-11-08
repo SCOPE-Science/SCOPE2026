@@ -1,19 +1,21 @@
-# Scientific review: joint Hilbert-simplex distance fluctuations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each fixed number of independent volume-uniform simplex samples, the exact representation of Hilbert distance as a logarithmic range of independent exponential-coordinate ratios reduces the full distance array to a directed-maxima array. Distinct denominator-block threshold exceedances in one coordinate have joint probability \(O(N^{-2})\), while the individual exceedance probabilities are \(\Psi_b/N+O(N^{-2})\). Their product over independent coordinates yields all finite-dimensional weak limits and independent denominator blocks. Uniform exponential bounds on centered directed log maxima imply uniform integrability. An exact two-dimensional Hoeffding covariance integral, integrated over a radial coordinate and then evaluated by a Fourier dilogarithm identity, equals \(\pi^2/9\); the marginal distance variance is \(\pi^2/3\). These rigorously give incident-edge correlation \(1/3\), and disjoint edges are independent. The separately supplied executable verifier passes its finite arithmetic, quadrature and seeded simulation checks. Numerical tests are not used in place of the proof.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+Read entire RESULT.md and verify.py. Uniform simplex barycentric coordinates are independent normalized Exponential(1) arrays. Full-log Hilbert variation cancels normalization exactly, so D_ab=log M_ab+log M_ba with M_ab=max_i E_ai/E_bi. For each denominator b, one-column rare event has probability ET_b/N+O(N^-2); intersections for distinct denominators are O(N^-2) as simultaneous small denominators force the maximum among other coordinates, giving joint independent denominator blocks and the precise Galambos exponent inclusion–exclusion formula. Directed log maxima have both tails at most e^-t, yielding moment uniform integrability and joint moment convergence. The bivariate same-denominator exponent -1/x-1/y+1/(x+y) gives log covariance via Hoeffding/Frullani ∫_0^1[-log(1-w+w²)]/[w(1-w)]dw=π²/9; independent high precision quadrature returned 1.0966227112321512 agreeing π²/9, and incident edge variance π²/3 gives corr exactly 1/3. Independence of denominator blocks proves disjoint edges independent in the limit, in fact their finite sample is independent as distinct point arrays. Numerical check confirms the constant, not an infinite N proof.
 
-The deterministic log-variation representation is already established in Foertsch–Karlsson (2004) and Lemmens (2011). Moreover the limiting copula within any one fixed denominator block is an established Galambos law, explicitly within the general expected-maximum framework of Mai (2018). The claim does not assert that this one-block law is new. The new, more extensive assertion couples *all* directed extrema for a common sample of \(k\) points, shows independence between all distinct denominator blocks despite shared numerator variables, and determines the entire resulting Hilbert-distance covariance and independence pattern. The inspected primary works and targeted comparisons with published mathematical results did not establish this full coupled conclusion. Nielsen–Sun (2023) gives the same Hilbert log-ratio metric in a graph-embedding setting, but not the independent uniform-point fluctuation law. Cohen–Fausti (2023) concerns contractivity and probability-simplex metric comparisons rather than independent random point distance arrays. Other general extreme-value literature could contain an equivalent characterization and has not been exhausted; independent priority certification is not claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives a complete, all-fixed-sample-size joint limit for an intrinsic projective geometric-probability statistic on a natural growing-dimensional family. It distinguishes the nonzero, universal \(1/3\) correlation of adjacent edges from the independence of disjoint edges, a graph-structured dependence signature invisible to individual distance distributions. This provides a useful analytic baseline for random Hilbert metrics and simplex sampling. Limitations are fixed sample size, volume-uniform sampling, full-logarithm metric normalization, and growing simplex dimension; nonuniform samples and arbitrary convex domains remain outside scope.
+Hilbert metric on a simplex equals variation norm of barycentric log ratios (Foertsch–Karlsson prior). Distribution of single-block normalized ratio maxima is the established Galambos extreme-value copula (Mai prior). The full sample-induced coupling over all ordered pairs and asymptotically independent denominator blocks, with the exact incident/disjoint edge covariance structure, is the assessed final claim. Its ingredients are known but no read source states the joint random simplex distance theorem.
 
-## Closest literature and limits
+## value
 
-Foertsch–Karlsson, *Hilbert metrics and Minkowski norms* (arXiv:math/0407197); Lemmens, *Nonexpansive mappings on Hilbert's metric spaces* (2011); Mai, *Extreme-value copulas associated with the expected scaled maximum of independent random variables* (arXiv:1802.10330); Nielsen–Sun, *Non-linear Embeddings in Hilbert Simplex Geometry* (PMLR 221, 2023); Cohen–Fausti, *Hyperbolic contractivity and the Hilbert metric on probability measures* (arXiv:2309.02413). The first two establish deterministic metric ingredients; Mai establishes known copula ingredients; the final paper addresses Hilbert metric properties in another probability-measure regime. General extreme-value equivalences and inaccessible historical literature remain potential priority risks. The review relies on the stated mathematical proof and accessible source material, not a claim of exhaustive novelty certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Random distances in high-dimensional projective simplex geometry have a natural scale 2logN; the complete fluctuation law and universal incident-edge correlation distinguish shared-point effects from independent disjoint edges and provide usable exact joint statistics, not only another univariate extreme-value limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

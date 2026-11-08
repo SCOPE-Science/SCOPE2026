@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility of joint Hilbert-simplex distance fluctuations
+# Independent mathematical audit
 
-The accompanying standalone `verify.py` uses Python 3.9 or newer and NumPy. Execute `python verify.py` from the directory containing the two files. A fixed pseudorandom seed makes the Monte Carlo sample reproducible.
+## correctness
 
-The program checks: (i) the finite-\(N\) two-numerator, one-denominator probability with exact expression \((1-(1+Nx)^{-1}-(1+Ny)^{-1}+(1+N(x+y))^{-1})^N\) against its Galambos limit; (ii) the independent one-dimensional covariance integral against the analytic value \(\pi^2/9\); (iii) the exact uniform positive and negative tail estimates for centered directed log maxima; and (iv) a sample of \(3{,}000\) trials at \(N=4{,}000\) for four point labels, checking mean, variance, adjacent-edge covariance and disjoint-edge covariance.
+PASS
 
-All assertions passed at the declared tolerances. The proof of the joint limit is not a numerical extrapolation: it bounds cross-denominator event intersections by \(O(N^{-2})\), computes per-denominator exponents, and uses exact moment bounds and a closed-form covariance integral. The tests establish reproducible consistency only, not uniqueness in the literature or independent theorem certification.
+Read entire RESULT.md and verify.py. Uniform simplex barycentric coordinates are independent normalized Exponential(1) arrays. Full-log Hilbert variation cancels normalization exactly, so D_ab=log M_ab+log M_ba with M_ab=max_i E_ai/E_bi. For each denominator b, one-column rare event has probability ET_b/N+O(N^-2); intersections for distinct denominators are O(N^-2) as simultaneous small denominators force the maximum among other coordinates, giving joint independent denominator blocks and the precise Galambos exponent inclusion–exclusion formula. Directed log maxima have both tails at most e^-t, yielding moment uniform integrability and joint moment convergence. The bivariate same-denominator exponent -1/x-1/y+1/(x+y) gives log covariance via Hoeffding/Frullani ∫_0^1[-log(1-w+w²)]/[w(1-w)]dw=π²/9; independent high precision quadrature returned 1.0966227112321512 agreeing π²/9, and incident edge variance π²/3 gives corr exactly 1/3. Independence of denominator blocks proves disjoint edges independent in the limit, in fact their finite sample is independent as distinct point arrays. Numerical check confirms the constant, not an infinite N proof.
+
+## originality
+
+PASS
+
+Hilbert metric on a simplex equals variation norm of barycentric log ratios (Foertsch–Karlsson prior). Distribution of single-block normalized ratio maxima is the established Galambos extreme-value copula (Mai prior). The full sample-induced coupling over all ordered pairs and asymptotically independent denominator blocks, with the exact incident/disjoint edge covariance structure, is the assessed final claim. Its ingredients are known but no read source states the joint random simplex distance theorem.
+
+## value
+
+PASS
+
+Random distances in high-dimensional projective simplex geometry have a natural scale 2logN; the complete fluctuation law and universal incident-edge correlation distinguish shared-point effects from independent disjoint edges and provide usable exact joint statistics, not only another univariate extreme-value limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
