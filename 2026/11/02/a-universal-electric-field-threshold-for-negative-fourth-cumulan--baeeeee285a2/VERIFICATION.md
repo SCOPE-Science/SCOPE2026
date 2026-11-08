@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.10 or later, NumPy and SciPy. It tests the closed variance and fourth-cumulant rates for 10 parameter sets against a separately implemented Taylor eigenvector recursion for the eleven-separation tilted generator. It also tests strict large-field positivity across rate and hopping grids, the unique subcritical crossing for 15 parameter combinations, and independently evolves a finite-volume density matrix to check the opposite signs on either side of the threshold.
+## correctness
 
-Result on the supplied code: `PASS 251 deterministic independent numerical checks`. Example finite-time fourth cumulants from the separate density-matrix propagation at time 10 with pure-dephasing rate 0.6, each-direction incoherent hop rate 0.2, and coherent hopping strength 1.2: about −60.4480 for zero field and +9.45746 for field 2.5. The program also checks normalization and negligible sampled finite-chain boundary mass.
+PASS
 
-The long-time infinite-chain theorem is proved in `RESULT.md`: the decisive steps are the isolated analytic branch, exact four-step Schur expansion in coherence separation, and the sign argument for the dimensionless quartic. Numerical checks are finite and do not replace this proof. The program requires standard scientific Python packages and does not access the internet.
+For A=gamma+2w>0 the central coherence of the spatially tilted infinite-chain Lindbladian has a simple isolated analytic eigenvalue at k=0. Schur complementation through four tilt powers visits only coherence separations ±1 and ±2; the resolvent terms give the stated exact K2 and K4. Writing z=(E/A)^2,s=w/A,y=(c/A)^2 yields K4/A=2s+B(z,s)y-C(z)y^2 with C=3(1+10z-3z^2)/((1+z)^3(1+4z)). C changes sign at z*=(5+2sqrt(7))/3. For z>=z*, B>0, K4>0; below, the concave quadratic has one positive root even when s=0. The equality z=z* and E=0 boundaries are included. Independent rational tilted-jet recursion at sample parameters returned K2=419/582 and K4=2426358037/1489482336, matching closed expressions; tests do not establish the infinite-chain spectrum by themselves.
+
+## originality
+
+PASS
+
+Avnit--Cohen derives a zero-gradient exact dispersion and a field-dependent effective rate only perturbatively; the zero-field fourth cumulant is already implied by its dispersion and is not counted as original. The finite-field E fourth cumulant and the universal sign-threshold in coherent hopping are the narrower surviving statement. Model-specific jump/field hypotheses and no thermodynamic claim are explicit. Full-text inspected prior paper showed no theorem giving this sign boundary.
+
+## value
+
+PASS
+
+A sharp universal E/A boundary separates sign-changing and uniformly positive asymptotic fourth cumulants for a physically motivated quantum stochastic walk. This is a nontrivial exact spectral fourth-order classification, distinct from the textbook diffusion constant or a mere code test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
