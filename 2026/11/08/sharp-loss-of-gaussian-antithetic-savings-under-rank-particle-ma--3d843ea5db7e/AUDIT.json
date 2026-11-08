@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Gaussian indicator-covariance integration yields exactly G_pi=m^2/4 sum h_sigma; h_sigma is positive, decreasing, with maximum (2-sqrt2)sigma sqrt(2/pi); independent integrated variance is Nm^2 sigma/(2sqrt pi). The upper ratio sqrt2-1 follows algebraically, and shifted-grid uniqueness follows from a complete coincidence count. The h-second-derivative sign switch is explicit. Standalone numerical tests passed; no finite computation is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1806.11026 develops a general coupling/optimal transport approach for long-time sampler asymptotic variance, including mirror couplings but not the present finite-stage cumulative-field objective.",
+        "arXiv:1102.1558 sections 1-2 require nonnegative concave distance costs for its structural matching theory; h_sigma(0)-h_sigma(d) changes curvature."
+      ],
+      "reasoning": "The general coupling framework and matching algorithms do not imply the new sharp Gaussian constant or shifted-grid failure as a listed result. The concave-cost matching special theory does not apply because the Gaussian cost is convex near zero and concave away from zero.",
+      "searches": [
+        "Sign-switched antithetic coupling in gradient random-walk methods for convection diffusion equations Abkin Daripa 2026 October 2610.01120 variance assignment",
+        "Constructing sampling schemes via coupling Markov semigroups optimal transport Nuesken Pavliotis 2018",
+        "minimum-weight perfect matching for non-intrinsic distances on the line Delon Salomon Sobolevski 2011"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01120v1 (2026-10-01), v2 HTML sections 3-4",
+      "arXiv:1806.11026 (full HTML, introduction and coupling sections)",
+      "arXiv:1102.1558 (full HTML, distance assumptions and matching theory)",
+      "indexed mathematical records indexed semantic queries on antithetic pairing, Gaussian assignment, exact h kernel",
+      "Prior published claim statements on related mathematical subjects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves rank matching minimizes sum of |a_i-b_pi(i)|, whereas its variance reward is a nonlinear kernel of each distance. The second derivative of that kernel changes sign.",
+        "The present rank failure follows from matching N-1 shared lattice locations, a fact not contained in the source fixed-matching sign optimality theorem."
+      ],
+      "reasoning": "Source Corollary 4.8 supplies a per-pair identity but neither the globally optimized permutation nor a dominance of the rank permutation; its cost is not Monge for separated inputs. The new quantitative comparison and sharp fraction are not a corollary of rank distance minimization.",
+      "searches": [
+        "Optimal permutation matching antithetic particle pairs for heat equation, non Monge cost Gaussian kernel and rearrangement, unbounded gain compared to rank sorted matching",
+        "reflection coupled Gaussian indicator field pair mean integrated variance h_sigma(d)=E|d+2sigma Z|-E|d+sqrt(2)sigma Z| non-Monge one dimensional matching sorted pairings variance reduction sharp sqrt(2)-1",
+        "arXiv:2610.01120v2 Remark 4.7 Corollary 4.8; arXiv:1806.11026 full text; arXiv:1102.1558 full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source arXiv:2610.01120v2, Corollary 4.8 gives exactly a per-matched-pair Gaussian absolute-distance gain; no theorem there optimizes the matching permutation.",
+        "indexed mathematical records closest: 2026/10/4/record-exact-calibration-boundary-for-inverse-cdf-antithetic-monte-carl--83577981ce52 concerns Monte Carlo p-value calibration, not Gaussian particle matching."
+      ],
+      "reasoning": "The equivalent kernel form is a maximum-weight bipartite assignment with weights h_sigma(a_i-b_j). General assignment is known; the claimed exact curvature, sharp numerical variance ceiling, and shift-lattice loss require a distinct specialized proof.",
+      "searches": [
+        "For Gaussian antithetic coupling of signed particle Monte Carlo diffusion, rank matching can be arbitrarily suboptimal for integrated conditional variance reduction compared with crossed matching; exact Gaussian variance kernel has unique inflection threshold",
+        "Optimal permutation matching antithetic particle pairs for heat equation, non Monge cost Gaussian kernel and rearrangement, unbounded gain compared to rank sorted matching",
+        "reflection coupled Gaussian indicator field pair mean integrated variance h_sigma(d)=E|d+2sigma Z|-E|d+sqrt(2)sigma Z| non-Monge one dimensional matching sorted pairings variance reduction sharp sqrt(2)-1",
+        "web: Gaussian RBF kernel non-Monge assignment maximum matching 1d sorted counterexample",
+        "web: antithetic variates particle matching rank Gaussian pairing minimum variance optimal matching permutation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Prior published claim statements had no equivalent Gaussian diffusion assignment law.",
+        "indexed mathematical records searches did not return the exact shifted-grid problem or the constant sqrt(2)-1 in the closest hits."
+      ],
+      "reasoning": "The exact finite-stage Gaussian reflected-particle assignment problem does not appear as an indexed result in accessible searches. Index absence is not a uniqueness or novelty proof.",
+      "searches": [
+        "For Gaussian antithetic coupling of signed particle Monte Carlo diffusion, rank matching can be arbitrarily suboptimal for integrated conditional variance reduction compared with crossed matching; exact Gaussian variance kernel has unique inflection threshold",
+        "Sign-switched antithetic coupling in gradient random-walk methods for convection diffusion equations Abkin Daripa 2026 October 2610.01120 variance assignment",
+        "previous published claims for antithetic; rank matching; gaussian diffusion; matching; variance reduction",
+        "indexed mathematical records source and alias queries; max 15 hits each"
+      ]
+    },
+    "rationale": "The new claim optimizes the matched-particle permutation and gives a sharp nonvanishing loss for rank matching, unlike the source fixed-pair sign theorem and rank total-distance inequality. General coupling and concave-cost matching literature does not supply this kernel-specific sharp statement; unindexed implication remains possible.",
+    "residual_risks": [
+      "Other algorithms for non-Monge bipartite matching may contain an equivalent small shifted-lattice example.",
+      "Source gain kernel supplies the main ingredient; the assessed novelty is solely global matching contrast and universal sharp savings fraction, not per-pair optimality.",
+      "An older unindexed special Gaussian antithetic permutation analysis might dominate the result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Per-pair reflection and variance gain already known; no global best permutation or shifted-lattice counterexample in inspected relevant material",
+        "evidence": [
+          "Proposition 3.1 says optimality for fixed matching; Remark 4.7 proves rank minimizes total absolute distance; Corollary 4.8 gives the Gaussian gain h_sigma(d)/4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01120v2",
+        "material_read": "Introduction, Proposition 3.1 proof, Definition 3.2, Section 4.2, Remark 4.7, Corollary 4.8 proof, discussion and references; arXiv abstract v1 for first date",
+        "method": "Readable full-text HTML, relevant proofs and matching statements directly examined",
+        "title": "Sign-switched antithetic coupling in gradient random-walk methods for convection-diffusion equations",
+        "trigger": "Same signed-particle Gaussian diffusion and rank matching rule"
+      },
+      {
+        "assessment": "Broad optimal-transport framework and asymptotic-variance control, different observation and time horizon; no directly covering finite-stage rank/cyclic theorem",
+        "evidence": [
+          "Sections 4-5 treat asymptotic MCMC variance, optimal-transport relaxations, and scalar coupling coefficient, rather than a finite Gaussian cumulative-indicator assignment."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.11026",
+        "material_read": "Full-text HTML Introduction, Section 4 optimal transport, Section 5 one-dimensional mirror couplings and permutation discussion",
+        "method": "ArXiv HTML full-text sections, keyword search for matching and permutation",
+        "title": "Constructing sampling schemes via coupling: Markov semigroups and optimal transport",
+        "trigger": "Broader coupling optimization and mirrored Gaussian couplings"
+      },
+      {
+        "assessment": "Concave distance costs do not cover the changing-convexity Gaussian reward; generic assignment methods nonetheless remain known",
+        "evidence": [
+          "Introduction and Section 2 explicitly define concave distance costs; c_sigma(d)=h_sigma(0)-h_sigma(d) changes sign of second derivative."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1102.1558",
+        "material_read": "ArXiv HTML full introduction, metric hypotheses and matching structure sections",
+        "method": "Full-text HTML material read and compared against curvature and bipartite objective",
+        "title": "Minimum-weight perfect matching for non-intrinsic distances on the line",
+        "trigger": "Potential stronger general one-dimensional matching theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3d843ea5-db7e-426b-8277-927c1b918574",
+  "value": {
+    "rationale": "Recent numerical particle solvers choose rank matching because it minimizes partner distance. The new construction proves their choice can lose essentially all variance savings even though another legal matching preserves a fixed, asymptotically sharp 41.42 percent share of independent variance; the explicit uniqueness condition permits an algorithmic alternative. It does not claim full nonlinear simulation improvement.",
+    "status": "PASS"
+  }
+}
