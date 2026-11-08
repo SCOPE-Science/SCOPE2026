@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+The scope includes every fixed full-rank Euclidean lattice and every integer \(m\ge3\). The probability formula follows by a product-Haar change of variables and one additional symmetric Voronoi convolution; the deck representative of the closing edge must be reduced modulo the same lattice. The covariance proof uses independence of the modular sum from each increment, which requires at least two increments. The local limit is controlled by a centered even characteristic function with positive covariance; its square-integrability and strict decay away from the origin justify Fourier inversion and a uniform absolute \(O(m^{-d/2-1})\) error. In the square/hexagonal comparison, the cell areas and polar moments were recomputed. Exact rational checks for \(3\le m\le13\), plus independent direct-geodesic simulations on two distinct lattices, corroborate the statements. No sample count replaces the proof.
+
+## Originality
+Glorieux–Yarmola (arXiv:2003.08190, 2020) is the closest relevant primary source: it already treats the \(m=3\) null-class probability on every two-torus, including the square and hexagonal examples. Those cases are explicitly credited. The published 2008 and 2010 spline papers provide Eulerian evaluations and Gaussian limits for uniform sums, and are explicitly credited as such. Cantarella–Deguchi–Shonkwiler (arXiv:1206.3161, 2012) studies a different measure on Euclidean closed polygons. The accessible full-text sections and specialized database comparisons did not reveal a complete all-length, lattice-valued torus geodesic-polygon law with the exact \(m\Sigma\) covariance and the two nonorthogonal local-limit constants. The main priority risk is that these formulas could be implicit in general results on torus-valued random walks or lattice rounding, despite their apparent absence from the inspected geodesic-polygon literature. Novelty is therefore provisional, not an independence or worldwide-priority certification.
+
+## Value
+The object is a natural geometric-probability inverse and homotopy statistic: shortest-geodesic loops formed from uniformly sampled torus vertices. The complete homotopy law for all numbers of vertices, including its dependence on the Voronoi geometry, is more informative than the previously studied random triangle null probability. The exact covariance supplies a finite-length geometric invariant, and the different square/hexagonal large-polygon constants demonstrate a persistent shape distinction that disappears on all orthogonal products. Standard spline results are used rather than presented as independent contributions. No global lattice extremal theorem or finite-sample reconstruction guarantee is asserted.
+
+## Limits and follow-up
+Fixed lattice and dimension; Haar-independent vertices; shortest-geodesic tie sets of measure zero. The local limit does not give uniform control over degenerating lattices. Historical priority and mathematical correctness still need independent examination.
+
+Self-review: passed. Independent audit: not yet performed.
