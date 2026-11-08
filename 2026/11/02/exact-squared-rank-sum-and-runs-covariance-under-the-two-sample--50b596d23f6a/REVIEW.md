@@ -1,15 +1,21 @@
-# Scientific review: Exact squared-rank-sum and runs covariance under the two-sample permutation null
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact null model, normalization and all integer ranges are explicit. Local transition conditioning gives an independent fair orientation and a hypergeometric sum over remaining ranks; the mean, variance, and centered rank-square cancellation are exact. The \(N=3\) boundary is handled separately. The embedded exact-rational enumerator verified all compositions through \(N=11\) and every local transition through \(N=10\).
+## correctness
 
-## Originality — PASS, with priority uncertainty
-Actual published-record queries considered binary-word inversion/area aliases, Wilcoxon rank sum, Wald–Wolfowitz runs, and joint generating functions. Accessible earlier scientific results on runs versus bridge energy and squared rank sum versus bridge energy have different observable pairings. Bhattacharya's arXiv:1508.07530 treats both classes of tests asymptotically but the inspected relevant sections do not present this exact finite-sample mixed covariance. An older area–runs bivariate generating function could nevertheless imply the claim; exhaustive priority is not established.
+PASS
 
-## Mathematical value — PASS
-The result separates symmetry-forced vanishing linear covariance from the strictly negative dependence of the two-sided statistic. The exact magnitude works for every finite positive sample-size pair, and the position-resolved contribution profile identifies cancellation mechanisms hidden in aggregated statistics. It supplies a concrete dependence fact for canonical nonparametric tests. It does not prove significance-calibration improvements or power superiority.
+Rank reversal maps W→−W and R→R, proving Cov(W,R)=0 without independence. Conditioning J_t=1 selects one of the adjacent two ranks with probability 1/2 and leaves a uniformly random (a−1)-subset among N−2 others; finite-population variance of this subset plus independent pair orientation yields exactly the displayed local quadratic correction in (t−N/2)². The exact identity sum_{t=1}^{N−1}(t−N/2)²=(N−1)N(N−2)/12 cancels the local correction, leaving −ab(ab−1)/(3N). The case N=3 is checked by direct three-word enumeration, with −2/9. Since ab>=2 for N>=3, strict negative sign holds. Independently enumerated every composition N=3..11 with exact rational arithmetic (54 composition cases) and all J_t local profiles N=4..11; all match. Finite enumeration is corroboration only.
 
-## Verification and limitations
-The analytic conditional-expectation proof covers arbitrary sample sizes. Exact enumeration is only a finite verification and cannot replace it. No independent audit, alternative-law theorem, or exhaustive historical search has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for the *exact finite null mixed covariance of squared rank sum with number of runs plus complete location-resolved J_t profile*, not the individual Wilcoxon and Wald–Wolfowitz tests. The closest published two-sample paper analyzes asymptotic comparisons and marginal covariance structures, not this finite mixed second-moment formula in material read. An older joint generating function for ranks and runs may imply it and remains a concrete risk.
+
+## value
+
+PASS
+
+The exact dependence of two widely used distribution-free two-sample statistics under the shared permutation null is a natural finite-sample calibration fact. Despite zero linear covariance, the squared rank departure has strictly negative runs association and a nontrivial position-dependent local cancellation; this distinguishes joint test behavior and may guide combined diagnostics without claiming optimal power.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
