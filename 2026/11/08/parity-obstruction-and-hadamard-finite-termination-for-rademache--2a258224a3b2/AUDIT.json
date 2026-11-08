@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The two-point difference is exactly (u·x)u on the quadratic. For eta=1/d its update is the orthogonal projector I-uu^T/d. Second-moment contraction is 1-1/d. For odd d, integral numerator products reduce modulo 2 to the nonzero idempotent (I+J)e_i. Hadamard rows give a zero projector product; repeated independent blocks imply almost-sure finite stopping with the given tail. Rank-drop equality in d steps forces orthogonality of all d sign directions. verify.py passed 659 exact rational/integer package checks before acceptance.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "M. Song et al., arXiv:2604.14669v2, sec. 4 Theorem 1 and Appendix B.2, pages 4 and 32, PDF read in current review.",
+        "T. Strohmer and R. Vershynin (2009), exponential expected convergence",
+        "Bai and Wu (2023), review of randomized row projections"
+      ],
+      "reasoning": "General random Kaczmarz convergence results cover exponential expectation rates, but the specific modular invariant and Hadamard word criterion are sharper pathwise and not implied by expectation. Primary source covers Gaussian and general fourth-moment covariance dynamics, not discrete stopping time.",
+      "searches": [
+        "Randomized Kaczmarz Rademacher sign vector exact finite time almost surely Hadamard d and impossibility odd d",
+        "Zeroth order Rademacher directional descent Hadamard finite-time exact randomized gradient parity odd dimension",
+        "Randomized Kaczmarz Hadamard rows finite convergence exact finite termination (web)",
+        "Kaczmarz Bernoulli sign directions orthogonal Hadamard finite time odd dimension parity obstruction (web)",
+        "randomized Kaczmarz finite convergence sign frames (web)"
+      ]
+    },
+    "checked_sources": [
+      "Song et al. arXiv:2604.14669v1/v2 (relevant theorem and Appendix B.2)",
+      "Bai–Wu 2023 randomized Kaczmarz survey abstract",
+      "Jiao–Jin–Lu 2017 preasymptotic RK abstract",
+      "Strohmer–Vershynin 2009 expected-rate theorem",
+      "Published Hadamard-sketch heavy-tail coefficient law, scientifically different objects",
+      "Published mathematical record of Haar sparse subspace descent expectations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "M. Song et al., arXiv:2604.14669v2, sec. 4 Theorem 1 and Appendix B.2, pages 4 and 32, PDF read in current review.",
+        "Strohmer–Vershynin (2009) expected contraction is weaker than pathwise dichotomy",
+        "Hadamard matrix orthogonal row structure is classical, and explicitly credited"
+      ],
+      "reasoning": "Neither a mean-square stability theorem nor the existence of orthogonal sign bases implies that odd-dimensional sign projector products cannot kill coordinate vectors. That obstruction follows from a new-to-this-comparison mod-2 idempotence calculation; a possible previously published projector-product classification remains residual uncertainty.",
+      "searches": [
+        "Rademacher projection product finite termination odd dimension parity obstruction Hadamard matrix randomized Kaczmarz",
+        "Randomized Kaczmarz Rademacher sign vector exact finite time almost surely Hadamard d and impossibility odd d",
+        "site:arxiv.org/abs/2604.14669 Zeroth-Order Optimization at the Edge of Stability",
+        "randomized Kaczmarz Hadamard rows finite convergence exact finite termination (web)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "M. Song et al., arXiv:2604.14669v2, sec. 4 Theorem 1 and Appendix B.2, pages 4 and 32, PDF read in current review.",
+        "published-finding corpus closest: 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248",
+        "Bai and Wu (2023) RK survey: general expected convergence"
+      ],
+      "reasoning": "The update is exactly a randomized Kaczmarz projection for the all-signs frame, so the same theorem under Kaczmarz/orthogonal projector vocabulary was compared. The general expected contraction does not imply exact finite termination or parity obstruction; a Hadamard row-basis can give annihilation, but does not by itself establish the odd-dimensional parity invariant.",
+      "searches": [
+        "Rademacher projection product finite termination odd dimension parity obstruction Hadamard matrix randomized Kaczmarz",
+        "Randomized Kaczmarz Rademacher sign vector exact finite time almost surely Hadamard d and impossibility odd d",
+        "Zeroth order Rademacher directional descent Hadamard finite-time exact randomized gradient parity odd dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published searchable mathematical record SCOPE-exact-haar-moments-sparse-ssd concerns Haar subspace descent expectations, not exact termination.",
+        "A distinct published analysis of Gaussian-diagonal Hadamard-sketch least squares concerns heavy-tail coefficient laws rather than random-sign projector stopping."
+      ],
+      "reasoning": "No directly covering indexed mathematical statement was identified from the actual searches. The finite-dimensional arithmetic claim is not a lookup of a known finite table. Published Hadamard-sketch laws concern different numerical estimators.",
+      "searches": [
+        "Rademacher projection product finite termination odd dimension parity obstruction Hadamard matrix randomized Kaczmarz",
+        "Randomized Kaczmarz Rademacher sign vector exact finite time almost surely Hadamard d and impossibility odd d",
+        "Zeroth order Rademacher directional descent Hadamard finite-time exact randomized gradient parity odd dimension"
+      ]
+    },
+    "rationale": "The primary Song et al. source analyzes Gaussian ZO mean-square spectral stability and states the general covariance recursion for non-Gaussian probes in Appendix B.2, but the inspected material does not give arithmetic finite stopping-time classifications. Classical Kaczmarz literature establishes stochastic linear rates and Hadamard matrices are classical; the claim instead combines a dimension-parity obstruction for every sign path with almost-sure finite-time Hadamard annihilation and a minimal-length equivalence. published-finding corpus queries and accessible own claims had no matching implication. Historic unindexed finite-projection literature remains a live priority risk.",
+    "residual_risks": [
+      "Unindexed finite-product projection theory or a full-text Kaczmarz survey may already imply an equivalent theorem.",
+      "Some specialty historical articles were accessed through abstracts rather than full text; no blanket NOT_COVERING inference from them.",
+      "No claim that the almost-sure stopping result extends beyond exact isotropic quadratics or Hadamard dimensions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Inspected sections derive moment stability for Gaussian and allow other probing laws but do not state pathwise finite stopping/odd-modular obstruction",
+        "evidence": [
+          "arxiv:2604.14669 PDF pp.4-5 and 32-33, Eq. B.2 covariance operator"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2604.14669",
+        "material_read": "Arxiv abstract and PDF main theorem text/description on pages 1-5, non-Gaussian estimator Appendix B.2 pages 32-33; screenshot of PDF first page",
+        "method": "Direct web PDF text and page screenshot",
+        "title": "Zeroth-Order Optimization at the Edge of Stability",
+        "trigger": "Main contemporary source for two-point ZO gradient covariance and distributional variations"
+      },
+      {
+        "assessment": "General algorithm and convergence coverage; full text not examined, so unexcluded equivalent finite-stopping result remains risk",
+        "evidence": [
+          "2023 journal abstract, Bai and Wu"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s13160-023-00586-7",
+        "material_read": "Publicly accessible journal abstract and high-level survey description",
+        "method": "Web journal abstract",
+        "title": "Randomized Kaczmarz iteration methods: Algorithmic extensions and convergence theory",
+        "trigger": "General alternative formulation under randomized projections"
+      },
+      {
+        "assessment": "Focuses on expected rate and preasymptotic phenomena; insufficient material to rule out appendix-level overlap",
+        "evidence": [
+          "2017 Jiao, Jin, Lu abstract"
+        ],
+        "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/1575724/",
+        "material_read": "Repository abstract",
+        "method": "Web repository abstract",
+        "title": "Preasymptotic convergence of randomized Kaczmarz method",
+        "trigger": "Known convergence results in same projection method family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2a258224-a3b2-451f-b8f1-3580313d70c6",
+  "value": {
+    "rationale": "The theorem identifies a qualitative, exact arithmetic algorithmic distinction invisible to the identical mean-square rate across dimensions: odd dimensions cannot terminate from coordinate starts at all, while Hadamard dimensions terminate in finite random time almost surely. It supplies a stopping-time benchmark and structural criterion for finite-support randomized directional solvers, not an isolated constant or routine numerical gain.",
+    "status": "PASS"
+  }
+}
