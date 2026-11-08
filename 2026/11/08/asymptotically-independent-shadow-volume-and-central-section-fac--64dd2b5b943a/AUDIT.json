@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The exact Pandis projection formula and elementary simplex crossing-face identity are used with consistent dimensions. Centering N iid Gaussians produces the Haar normal; first-order expansion of the studentized absolute deviation and empirical sign imbalance gives explicitly centered even and odd influence functions. Their exact variances are \\(1-3/\\pi\\) and \\(1-2/\\pi\\) and covariance zero. Multivariate CLT and fixed-degree binomial expansion prove the joint independent Gaussian/chi-square limit for all fixed ranks. Spherical Gaussian moments prove the two exact finite mean formulas. A standalone verifier passed 387 finite tests as supplementary evidence, not as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Prochno–Thäle–Tuchel arXiv:2412.16054v1, Theorem A fixes the projected subspace dimension m as ambient N tends to infinity, and concerns ell-p balls.",
+        "Baci et al. arXiv:2005.04911v1, introductory theorem studies ell-q norms of a point uniformly sampled in the simplex.",
+        "Dirksen arXiv:1509.06408v2, Theorems 1–4 concern volumes and extrema of simplex sections rather than the joint combinatorial/orthogonal-shadow statistic."
+      ],
+      "reasoning": "The ambient body, projection codimension, randomness, or target statistic differs in each theorem. These results provide techniques and context, but their theorem statements do not dominate the current joint distribution.",
+      "searches": [
+        "Limit Theorems for the Volume of Random Projections and Sections of ell_p^N-balls arxiv 2412.16054",
+        "Limit theorems for random points in a simplex arxiv 2005.04911",
+        "Sections of the regular simplex Volume formulas and estimates Dirksen"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.18436v1",
+      "arxiv:2412.16054v1",
+      "arxiv:2005.04911v1",
+      "arxiv:1509.06408v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pandis (2026) yields the geometric normalized volume identity; it does not calculate its random fluctuations.",
+        "Central simplex section sign-class combinatorics supplies the face-count formula and marginal chi-square limit.",
+        "The direct computations derive \\(U(g)=|g|-\\mu-(\\mu/2)(g^2-1)\\) and \\(W(g)=\\operatorname{sgn}(g)-\\mu g\\), with zero covariance by parity."
+      ],
+      "reasoning": "Published shadow-volume extrema plus a published section marginal do not imply asymptotic independence of two statistics on the same random hyperplane. The new joint multivariate asymptotic calculation is essential. A possible general theorem under another alias remains a residual historical risk.",
+      "searches": [
+        "random projection simplex volume central limit variance 1-3/pi",
+        "randomly shifted hyperplane section of cube vertex count nonconcentration Gaussian limit",
+        "random projection simplex volume l1 Gaussian norm central limit variance 1-3/pi"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pandis arXiv:2601.18436v1, Theorem 1.2 expresses hyperplane shadow volume by an ell-one norm.",
+        "The normalized shadow is a studentized mean absolute centered normal residual; the central section face vector is a polynomial in the sign imbalance.",
+        "The joint law depends on independent even and odd Gaussian influence functions, not merely on their marginals."
+      ],
+      "reasoning": "Checked the direct formulation and the statistical alias using standardized mean absolute deviation and centered empirical sign imbalance. The known projection norm identity is a premise, not an equivalent probability limit. Neither it nor the section marginal alone supplies the asserted joint independence.",
+      "searches": [
+        "joint central section vertex count projection volume regular simplex independence Gaussian chi-square",
+        "Haar random hyperplane projection regular simplex central limit theorem volume fluctuations l1 norm",
+        "random projection simplex volume l1 Gaussian norm central limit variance 1-3/pi"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant central-section sign-imbalance findings provide face marginals but no corresponding normalized projection-volume component.",
+        "The exact moment formulas and limiting Gaussian/chi-square independence involve continuum distributions rather than an existing finite table."
+      ],
+      "reasoning": "There is no identified exact joint table or previously indexed corresponding statistic. Negative search results do not establish global uniqueness; the no-match conclusion is restricted to the accessible published/indexed evidence.",
+      "searches": [
+        "simplex section vertex count projection volume asymptotically independent",
+        "joint central section vertex count projection volume regular simplex independence Gaussian chi-square"
+      ]
+    },
+    "rationale": "The joint product limit for the same randomly oriented simplex hyperplane and the exact normalized-shadow moments are not given by the inspected sources. The recent projection identity and previously known section fluctuation marginal are acknowledged; the new calculation establishes the joint Gaussian influence functions, their zero covariance, independence, and simultaneous fixed-rank chi-square limits. No equivalent joint theorem or stronger applicable statement was found in targeted checks. The remaining risk is an unlocated independent derivation.",
+    "residual_risks": [
+      "An unlocated preprint or statistical theorem could imply the joint result under a different formulation.",
+      "Priority is not independently certified; the recently identified projection identity is correctly treated as an input."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPLIES_EXACT_PROJECTION_PREMISE, NOT_JOINT_DISTRIBUTION",
+        "evidence": [
+          "Theorem 1.2 gives sqrt(n+1)/(2(n-1)!) times ell-one normal norm.",
+          "The discussed conclusions identify extremal directions, not distributions jointly with central-section face numbers."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.18436",
+        "material_read": "Abstract, section 1.1, Theorem 1.2 (formula 1.2), proof in section 3",
+        "method": "arXiv full HTML, including theorem statement and proof passages",
+        "title": "On Extremal Volume Projections of the Simplex and the Cube",
+        "trigger": "Same regular simplex and exact volume of codimension-one projection"
+      },
+      {
+        "assessment": "NOT_COVERING_THIS_REGIME",
+        "evidence": [
+          "Theorem A fixes m and concerns ell-p balls; here the projection dimension is N-2 and the body is a simplex.",
+          "No section face-count joint distribution appears in the inspected stated theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2412.16054",
+        "material_read": "Abstract, introduction and Theorem A with fixed m, PDF pages 1,4–5",
+        "method": "arXiv full-text PDF, extracted pages and inspected page screenshots",
+        "title": "Limit Theorems for the Volume of Random Projections and Sections of ell_p^N-balls",
+        "trigger": "Broad title might dominate projection-volume fluctuation limit"
+      },
+      {
+        "assessment": "DIFFERENT_SAMPLING_MODEL",
+        "evidence": [
+          "Theorem A concerns ell-q norm of a uniformly sampled point inside the simplex.",
+          "Haar-unit-normal directions are not uniformly sampled simplex points."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2005.04911",
+        "material_read": "Abstract, introduction, definition of uniform simplex point from exponential spacings and Theorem A, PDF pages 1–2",
+        "method": "arXiv PDF text and page screenshot",
+        "title": "Limit theorems for random points in a simplex",
+        "trigger": "The same regular simplex might admit a broader Gaussian norm limit"
+      },
+      {
+        "assessment": "NOT_COVERING_JOINT_STATISTIC",
+        "evidence": [
+          "The theorems concern integral section-volume formulas and extremizers.",
+          "No normalized shadow volume/section face-count joint independence theorem is stated in the inspected main results."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1509.06408",
+        "material_read": "Abstract, introduction and main Theorems 1–4, PDF pages 1–3",
+        "method": "arXiv PDF text and page screenshots",
+        "title": "Sections of the regular simplex — Volume formulas and estimates",
+        "trigger": "Same simplex and central sections, plausible dominating result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "64dd2b5b-943a-4777-ae37-f0f12b1b8966",
+  "value": {
+    "rationale": "Orthogonal-shadow volume and central section face counts of the very same random hyperplane are coupled nonlinearly at finite dimension. Their asymptotic independence is a structural decoupling that neither marginal result establishes. Explicit unequal fluctuation laws, variances, and finite shadow moments calibrate stochastic geometric simulations and distinguish metric from combinatorial section complexity; the object and normalizations are canonical.",
+    "status": "PASS"
+  }
+}
