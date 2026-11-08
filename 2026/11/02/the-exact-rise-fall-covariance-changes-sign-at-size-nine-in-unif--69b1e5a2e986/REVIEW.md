@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every marked rise–fall pair is partitioned into a peak triple, a valley triple, or two disjoint ordered marked pairs. The generating functions in the proof distinguish the non-equivalent peak and valley contributions. Exact partial-fraction coefficient extraction yields the covariance and the all-size sign classification, with positive lower bound after size eight. The standalone checker independently reconstitutes rational-series coefficients, enumerates each small composition and verifies the displayed finite inequalities. Limitation: numerical checks alone do not certify an infinite statement; the analytic monotonic error bound does.
+PASS
 
-## Originality — PASS (historical priority qualified)
+Marking a rise and fall splits into disjoint marked blocks or overlapping triples (peaks versus valleys). The exact rational GFs P=x^3/((1+x)(1-2x)^2) and Q=x^4(1+x^2-2x^3-2x^4)/((1-x)(1+x)^2(1-2x)^3(1+x+x^2)) yield the covariance formula by coefficient extraction. A monotonically increasing positive linear term dominates a decreasing exponentially small error at n=9, proving all n>=9; direct fractions prove the n=1..8 boundary. Independent enumeration of all compositions n<=13 matched moments and signs.
 
-Heubach–Mansour's published multivariate generating function is substantially more general and already determines all mixed moments. The claimed contribution is not the existence of the joint distribution or the fact that a mixed moment can be differentiated from its generating function. The separately proved, exact strict sign transition at size nine and its uniform-for-all-sizes inequality were not found in the closely inspected source sections. The 2005 broad central limit theorem gives linear-scale covariances but not this finite-size boundary; Brennan–Knopfmacher treats individual ascent moments rather than rise–fall covariance. Residual risk: an older specialization could already record the sign classification, especially in earlier composition moment-product studies; the assessment remains non-independent.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Both rises and falls are canonical local statistics of integer compositions. Their signs of dependence reverse from finite-size competition to positive large-size cofluctuation, despite each being individually increasing on average with size. This theorem determines the complete sign boundary, exact finite-size strength and asymptotic coefficient with a self-contained explanation via three local pattern types; it is more than a marginal mean or a small numerical example.
+Heubach–Mansour (2003) has the full multivariate rise/level/drop composition generating function and explicitly implies that mixed moments can be extracted; no general joint enumerator is claimed here. The sharp all-size sign transition and its uniform strict-positivity inequality, requiring nontrivial coefficient extraction and a global error bound, were not stated in inspected primary sections. An older exact mixed-moment specialization could dominate this special-case claim: substantial residual coverage risk, with best-of-knowledge PASS only for the sign theorem, not for basic GF identities.
 
-## Limits and nearest literature
+## value
 
-The 2003 full joint generating function is the closest dominating *enumerative* source. The 2005 multivariate limit theorem and 2009 single-ascent variance work are related but do not state the strict size-nine threshold. The result is not asserted to be independent of general enumerative methods, only not found explicitly proved in the inspected primary texts. Independent historical-priority verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Correlation between natural strict ascent and descent statistics changes qualitative sign as total composition size grows. The sharp n=9 transition and an all-size controlled formula provide a precise finite-size dependence phenomenon beyond a generic limit theorem; derivation from a broad joint GF alone does not make the sign inequality automatic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

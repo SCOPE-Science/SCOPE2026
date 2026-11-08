@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the rise–fall covariance sign boundary
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no external packages. The test program checks exact integer coefficient recurrences of two independent rational generating functions through size 240, the derived moment and covariance formulas through size 240, exhaustive enumeration of all 4096 compositions at size 13 (and every smaller size), and strict positivity of the analytic error-bound margin from size 9. A direct run returned `PASS 1218 exact assertions cov(n=8)= -49/16384 cov(n=9)= 335/65536`.
+## correctness
 
-The proof's unbounded step uses a monotone positive linear term dominating a decreasing exponential envelope, with strict verified rational inequality already at size 9. Finite enumeration serves as an implementation check, not a proof for arbitrary sizes. The program does not audit historical priority or independently validate publication claims.
+PASS
+
+Marking a rise and fall splits into disjoint marked blocks or overlapping triples (peaks versus valleys). The exact rational GFs P=x^3/((1+x)(1-2x)^2) and Q=x^4(1+x^2-2x^3-2x^4)/((1-x)(1+x)^2(1-2x)^3(1+x+x^2)) yield the covariance formula by coefficient extraction. A monotonically increasing positive linear term dominates a decreasing exponentially small error at n=9, proving all n>=9; direct fractions prove the n=1..8 boundary. Independent enumeration of all compositions n<=13 matched moments and signs.
+
+## originality
+
+PASS
+
+Heubach–Mansour (2003) has the full multivariate rise/level/drop composition generating function and explicitly implies that mixed moments can be extracted; no general joint enumerator is claimed here. The sharp all-size sign transition and its uniform strict-positivity inequality, requiring nontrivial coefficient extraction and a global error bound, were not stated in inspected primary sections. An older exact mixed-moment specialization could dominate this special-case claim: substantial residual coverage risk, with best-of-knowledge PASS only for the sign theorem, not for basic GF identities.
+
+## value
+
+PASS
+
+Correlation between natural strict ascent and descent statistics changes qualitative sign as total composition size grows. The sharp n=9 transition and an all-size controlled formula provide a precise finite-size dependence phenomenon beyond a generic limit theorem; derivation from a broad joint GF alone does not make the sign inequality automatic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

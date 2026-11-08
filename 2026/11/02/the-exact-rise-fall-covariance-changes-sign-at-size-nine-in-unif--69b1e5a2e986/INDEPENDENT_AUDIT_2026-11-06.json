@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T14:45:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Marking a rise and fall splits into disjoint marked blocks or overlapping triples (peaks versus valleys). The exact rational GFs P=x^3/((1+x)(1-2x)^2) and Q=x^4(1+x^2-2x^3-2x^4)/((1-x)(1+x)^2(1-2x)^3(1+x+x^2)) yield the covariance formula by coefficient extraction. A monotonically increasing positive linear term dominates a decreasing exponentially small error at n=9, proving all n>=9; direct fractions prove the n=1..8 boundary. Independent enumeration of all compositions n<=13 matched moments and signs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A full joint GF strictly dominates moment encoding; asymptotic normality gives linear covariance framework."
+        ],
+        "reasoning": "No explicit proof of negative n3..8 then positive all n>=9 appeared in read primary sections. It is nonetheless a computational/inequality corollary of broader GF, so high O risk.",
+        "searches": [
+          "arXiv:math/0310197 Theorem 2.1, section 3.1",
+          "Bender–Canfield 2005 CLT"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: uniform integer compositions covariance rise fall adjacent parts sign changes at n=9 exact generating function Heubach Mansour",
+        "SCOPE GitHub code-search exact phrase (no match; not novelty proof)",
+        "SCOPE2026 frozen RESULT.md, REVIEW.md, AUDIT.json, VERIFICATION.md, METADATA.json and verifier source",
+        "https://arxiv.org/abs/math/0310197",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v12i1r57",
+        "https://dmtcs.episciences.org/en/articles/462"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiating Theorem 2.1 yields all finite covariances, but its theorem statement does not itself assert sign monotonicity nor certify n>=9 bound."
+        ],
+        "reasoning": "The special-case covariance formula is implied by prior joint enumeration; the distinct substantive asserted result is a quantified sharp all-n sign threshold with independent analytic inequality, rather than an original joint enumerator.",
+        "searches": [
+          "arXiv:math/0310197 full text",
+          "arXiv:2405.01748 related random-sequence runs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The joint rise/fall/level GF determines ∂_r∂_d at r=d=1 and therefore the same covariance after finite-size coefficient extraction."
+        ],
+        "reasoning": "Known multivariate joint enumeration includes the required mixed moment in implicit form; the novelty claim is restricted to the evaluated all-n sign theorem, not that joint GF.",
+        "searches": [
+          "arXiv:math/0310197 Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned distinct composition maximum/part-count covariance and binary runs transitions, not this statistic.",
+          "Exact endpoints -49/16384 at n8, 335/65536 at n9."
+        ],
+        "reasoning": "No matching exact sign-boundary table located. General GF can always generate it, hence absence not priority proof.",
+        "searches": [
+          "Resultary: uniform integer compositions covariance rise fall adjacent parts sign changes at n=9 exact generating function Heubach Mansour",
+          "SCOPE-Science/SCOPE2026 code search: rise fall covariance uniform compositions"
+        ]
+      },
+      "rationale": "Heubach–Mansour (2003) has the full multivariate rise/level/drop composition generating function and explicitly implies that mixed moments can be extracted; no general joint enumerator is claimed here. The sharp all-size sign transition and its uniform strict-positivity inequality, requiring nontrivial coefficient extraction and a global error bound, were not stated in inspected primary sections. An older exact mixed-moment specialization could dominate this special-case claim: substantial residual coverage risk, with best-of-knowledge PASS only for the sign theorem, not for basic GF identities.",
+      "residual_risks": [
+        "Heubach–Mansour 2003 general generating function entails all mixed moments, making this a specialization; an existing corollary might explicitly give the sign boundary.",
+        "Older Chinn–Grimaldi–Heubach mixed moment work not inspected in full.",
+        "Sharp inequality requires analytic n>=9 bound beyond enumerated n<=13."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "strong mathematical precursor; sign boundary not found stated",
+          "evidence": "All mixed moments obtainable from multivariate GF; marginal rise GF matches x^3/((1+x)(1-2x)^2)",
+          "identifier_or_url": "https://arxiv.org/abs/math/0310197",
+          "material_read": "Full accessible 22-page original PDF, especially Theorem 2.1, section 3.1 and Corollary 3.1",
+          "method": "direct primary PDF page/text inspection, screenshot",
+          "title": "Counting rises, levels, and drops in compositions",
+          "trigger": "same exact statistics and powerful joint enumerator"
+        },
+        {
+          "assessment": "asymptotic prior art",
+          "evidence": "General CLT for locally restricted compositions gives linear-scale covariance framework",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v12i1r57",
+          "material_read": "Bibliographic/result-level description only, no full body",
+          "method": "abstract/review",
+          "title": "Locally Restricted Compositions I. Restricted Adjacent Differences",
+          "trigger": "asymptotic joint covariance background"
+        },
+        {
+          "assessment": "overlapping marginal only",
+          "evidence": "Ascents do not by themselves determine mixed rise-fall covariance",
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/462",
+          "material_read": "title and abstract/result-level description",
+          "method": "abstract/review",
+          "title": "The distribution of ascents of size d or more in compositions",
+          "trigger": "specific rise marginal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Correlation between natural strict ascent and descent statistics changes qualitative sign as total composition size grows. The sharp n=9 transition and an all-size controlled formula provide a precise finite-size dependence phenomenon beyond a generic limit theorem; derivation from a broad joint GF alone does not make the sign inequality automatic.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: uniform integer compositions covariance rise fall adjacent parts sign changes at n=9 exact generating function Heubach Mansour",
+    "SCOPE GitHub code-search exact phrase (no match; not novelty proof)",
+    "SCOPE2026 frozen RESULT.md, REVIEW.md, AUDIT.json, VERIFICATION.md, METADATA.json and verifier source",
+    "https://arxiv.org/abs/math/0310197",
+    "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v12i1r57",
+    "https://dmtcs.episciences.org/en/articles/462"
+  ],
+  "disposition": "passed",
+  "final_claim": "For uniformly sampled ordinary compositions of n, strict-rise and strict-fall count covariance is 0 for n=1,2, negative n=3..8 and positive for every n>=9, with explicit rational-periodic formula.",
+  "limitations": [
+    "Heubach–Mansour 2003 general generating function entails all mixed moments, making this a specialization; an existing corollary might explicitly give the sign boundary.",
+    "No public metadata modification or publication performed."
+  ],
+  "residual_risks": [
+    "Heubach–Mansour 2003 general generating function entails all mixed moments, making this a specialization; an existing corollary might explicitly give the sign boundary.",
+    "Older Chinn–Grimaldi–Heubach mixed moment work not inspected in full.",
+    "Sharp inequality requires analytic n>=9 bound beyond enumerated n<=13."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "strong mathematical precursor; sign boundary not found stated",
+      "evidence": "All mixed moments obtainable from multivariate GF; marginal rise GF matches x^3/((1+x)(1-2x)^2)",
+      "identifier_or_url": "https://arxiv.org/abs/math/0310197",
+      "material_read": "Full accessible 22-page original PDF, especially Theorem 2.1, section 3.1 and Corollary 3.1",
+      "method": "direct primary PDF page/text inspection, screenshot",
+      "title": "Counting rises, levels, and drops in compositions",
+      "trigger": "same exact statistics and powerful joint enumerator"
+    },
+    {
+      "assessment": "asymptotic prior art",
+      "evidence": "General CLT for locally restricted compositions gives linear-scale covariance framework",
+      "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v12i1r57",
+      "material_read": "Bibliographic/result-level description only, no full body",
+      "method": "abstract/review",
+      "title": "Locally Restricted Compositions I. Restricted Adjacent Differences",
+      "trigger": "asymptotic joint covariance background"
+    },
+    {
+      "assessment": "overlapping marginal only",
+      "evidence": "Ascents do not by themselves determine mixed rise-fall covariance",
+      "identifier_or_url": "https://dmtcs.episciences.org/en/articles/462",
+      "material_read": "title and abstract/result-level description",
+      "method": "abstract/review",
+      "title": "The distribution of ascents of size d or more in compositions",
+      "trigger": "specific rise marginal"
+    }
+  ]
+}
