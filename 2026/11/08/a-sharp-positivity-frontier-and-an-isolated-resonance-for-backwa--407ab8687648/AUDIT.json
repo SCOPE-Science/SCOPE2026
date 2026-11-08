@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact cubic discriminant; Vieta real-versus-complex modulus threshold r=15/16; positive real-residue dominance via independent rational algebra identities and a degree-12 Bernstein certificate on [2/5,1]; spectral oscillation argument; unique pure-eigenmode cancellation at r=3. Standalone exact Python checker returned VERIFY_OK and checked finite rational witnesses. All index quantifiers and boundaries are included; finite computations are not substituted for the analytic argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hundsdorfer, Ruuth & Spiteri, Monotonicity-preserving linear multistep methods, CWI MAS-R0210 (2002)",
+        "The 2002 monotonicity results concern general SSP/method-wide conditions and older illustrative formulas; 2026 source covers A/L-stability, a weaker property for sign preservation."
+      ],
+      "reasoning": "Method-wide monotonicity for all nonnegative data would be stronger, but the specific BDFL32 recurrence has a negative coefficient and the cited older general results were not found to contain a full finite-start scalar threshold. A negative universal SSP guarantee neither proves the positive interval nor excludes the isolated start-aligned resonance.",
+      "searches": [
+        "two-step optimized backward difference 3-step time levels positive sequence stiff decay oscillatory parasitic spectral root dominance",
+        "sharp positivity frontier 3-step L-stable order two multistep BDFL32",
+        "monotonicity preserving linear multistep 2002 Hundsdorfer Ruuth Spiteri positivity",
+        "2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+      ]
+    },
+    "checked_sources": [
+      "Jensen, Lóczi & Ketcheson, Optimized linear multistep methods for stiff problems, arXiv:2610.22685v1 (Oct 15, 2026)",
+      "Vatsa, Carpenter & Lockard, Re-evaluation of an Optimized Second Order Backward Difference Scheme, AIAA 2010-0122",
+      "Hundsdorfer, Ruuth & Spiteri, Monotonicity-preserving linear multistep methods, CWI MAS-R0210 (2002)",
+      "published-finding corpus: 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+      "published-finding corpus: 2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jensen, Lóczi & Ketcheson, Optimized linear multistep methods for stiff problems, arXiv:2610.22685v1 (Oct 15, 2026)",
+        "Vatsa, Carpenter & Lockard, Re-evaluation of an Optimized Second Order Backward Difference Scheme, AIAA 2010-0122",
+        "Hundsdorfer, Ruuth & Spiteri, Monotonicity-preserving linear multistep methods, CWI MAS-R0210 (2002)",
+        "published-finding corpus BDF2 delayed sign-loss concerns a different degree-two recurrence.",
+        "A previously documented result concerns variable-step BDFL32 zero-stability and solvability, not fixed-step scalar positivity."
+      ],
+      "reasoning": "Absolute/L-stability only constrains the root disk, not the sign of startup-dependent solutions. Variable-step zero-stability likewise does not imply the exact r interval or isolated cancellation. The prior BDF2 sign theorem cannot specialize to a degree-three recurrence. No broader theorem identified with all needed hypotheses and the claimed sharp conclusion.",
+      "searches": [
+        "optimal three-step A-stable BDFL32 BDF2OPT4 positive scalar decay negative iterates exact CFL 15/16",
+        "sharp positivity frontier 3-step L-stable order two multistep BDFL32",
+        "2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jensen, Lóczi & Ketcheson, Optimized linear multistep methods for stiff problems, arXiv:2610.22685v1 (Oct 15, 2026)",
+        "Vatsa, Carpenter & Lockard, Re-evaluation of an Optimized Second Order Backward Difference Scheme, AIAA 2010-0122",
+        "The 2010 source uses the older BDF2OPT(4) name for the same three-step scheme; the method itself is not novel."
+      ],
+      "reasoning": "Compared the same numerical recurrence, startup, scalar decay parameter and all-index sign statements, not only titles. The earlier sources concern stability/error and do not yield an exact positive trajectory classification with r=3 cancellation in material inspected.",
+      "searches": [
+        "optimal three-step A-stable BDFL32 BDF2OPT4 positive scalar decay negative iterates exact CFL 15/16",
+        "three-step L-stable BDF2OPT(4) scalar y'= -lambda y sign change positivity threshold",
+        "BDFL32 positivity nonnegative decay scalar",
+        "BDF2OPT(4) positivity sign oscillations",
+        "2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus results include a BDF2 delayed-sign analysis, but no BDFL32/BDF2OPT(4) all-index sign table.",
+        "The rational certificate is constructed independently and is not presented as an extracted table."
+      ],
+      "reasoning": "No exact prior table of threshold 15/16 plus exceptional r=3 was located; this absence is only evidence of bounded search, not a uniqueness proof.",
+      "searches": [
+        "\"15/16\" \"BDF2OPT\" positivity",
+        "\"0.9375\" \"BDF2OPT\" positivity",
+        "optimal three-step A-stable BDFL32 BDF2OPT4 positive scalar decay negative iterates exact CFL 15/16"
+      ]
+    },
+    "rationale": "Same BDFL32/BDF2OPT(4) recurrence is acknowledged as old. Focused comparisons of 2026 and 2010 primary numerical method papers, 2002 general monotonicity theory, published-finding corpus findings and related documented prior results located no stronger applicable exact all-index BE-started sign threshold plus isolated r=3 resonance. General A/L-stability and prior two-step BDF2 delay do not imply this result. Residual historical-priority risk is explicit.",
+    "residual_risks": [
+      "Some older recurrence-positivity literature may contain an equivalent three-step startup law not recovered in bounded searches.",
+      "Not all legacy monographs and unpublished sources could be exhaustively examined."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same recurrence and numerical context; no same fixed-step, two-backward-Euler-started all-index positivity theorem located",
+        "evidence": [
+          "arXiv v1 2026-10-15; recurrence 3/2, -3/5, 1/10 and implicit coefficient 3/5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.22685",
+        "material_read": "Full PDF accessible; BDFL32 recurrence/table and method/stability discussion, with search of document for positivity/monotonicity",
+        "method": "Read source PDF and inspect page image for the displayed recurrence (page index 11); compare the actual coefficient formula",
+        "title": "Optimized linear multistep methods for stiff problems",
+        "trigger": "Primary new method analysis with BDFL32 recurrence, stiff stability"
+      },
+      {
+        "assessment": "Establishes method predates 2026, not the exact all-index positivity classification under the given starting procedure",
+        "evidence": [
+          "AIAA 2010-0122; BDF2OPT-family time formula"
+        ],
+        "identifier_or_url": "https://ntrs.nasa.gov/api/citations/20100002944/downloads/20100002944.pdf?attachment=true",
+        "material_read": "Full NASA PDF accessible; relevant method formulas and stability discussion on image of page index 3",
+        "method": "Inspected source PDF/page image and compared equivalent BDF2OPT(4) formula",
+        "title": "Re-evaluation of an Optimized Second Order Backward Difference (BDF2OPT) Scheme for Unsteady Flow Applications",
+        "trigger": "Older equivalent recurrence BDF2OPT(4)"
+      },
+      {
+        "assessment": "No applicable source statement found specifying the exact BDFL32 cutoff and r=3 cancellation",
+        "evidence": [
+          "CWI report MAS-R0210, April 2002"
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/4231/04231D.pdf",
+        "material_read": "Relevant theory and tabulated examples, including page images indices 4, 8 and 12; full PDF available",
+        "method": "Read relevant page images and compared general monotonicity assumptions to the specific fixed-start scalar decay trajectory",
+        "title": "Monotonicity-preserving linear multistep methods",
+        "trigger": "Potential stronger general monotonicity result that could imply sign guarantee"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "407ab868-7648-4a1a-8be0-230dcb0d5d6b",
+  "value": {
+    "rationale": "Positivity for scalar stiff decay is a natural numerical invariant distinct from A/L-stability. The complete classification at every iterate, the sharp r=15/16 boundary, and the isolated r=3 exact-eigenmode cancellation make a meaningful diagnostic for the specific BDFL32 method. Not a routine single-step or finite-horizon sign test. Limitations to fixed steps and startup are explicit.",
+    "status": "PASS"
+  }
+}
