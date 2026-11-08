@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For n>=3 all edge-coordinate projections onto ker(B) have squared norm (n-2)/n because BB^T=nI-J. The telescoping prefix conservation identities force the bound t <= min_k beta_k/[k(n-k)]; an explicit constant t plus nonnegative adjacent-edge residual flow attains it. All and only the minimizing cuts force zero residual crossing edges. Each complementary block admits a strictly positive interior flow, so the exact incenter locus is a product of full-dimensional block flow polytopes with dimensions (d-1)(d-2)/2. Unit-source/sink parity and asymptotics follow. The separate exact-rational, numerical SVD, rank, and LP checker passed 63 general cases; analytical proof is independently reconstructed in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Transportation-polytope inradius results concern all matrices with given margins, not the intrinsic inradius of the lower-dimensional Chan–Robbins–Yuen face in edge-flow coordinates.",
+        "Graphical-zonotope inradius is determined by cuts of a Minkowski sum of edge segments; the present flow polytope is a nonnegative affine incidence slice."
+      ],
+      "reasoning": "Neither stronger-looking family contains this embedded polytope with the same metric and its optimal-center constraint system. Standard max-min flow/cut theorems are relevant ingredients and pose an implicit-coverage risk, but do not by themselves state the Euclidean normal projection and full optimal-center product/dimension theorem.",
+      "searches": [
+        "\"flow polytope\" \"inradius\" complete graph",
+        "\"flow polytope\" \"insphere\"",
+        "\"flow polytope\" \"incenter\"",
+        "general exact Euclidean inradius of positive-margin transportation polytopes",
+        "Euclidean inradius of weighted graphical zonotopes cut expansion"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1612.00102",
+      "arxiv:1409.8566",
+      "arxiv:2212.11423",
+      "arxiv:2409.15519",
+      "Dugan (2025), DOI:10.4153/S0008414X2510151X",
+      "published result on transportation-polytope Euclidean inradii",
+      "published result on graphical-zonotope Euclidean cut inradii"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A product formula for normalized volume does not determine the intrinsic inradius or its center locus.",
+        "Normal-fan equivalence under deformation does not preserve Euclidean radius or describe the maximum-inscribed-ball locus.",
+        "Facet counts alone do not imply the active central cuts or the metric incenter dimension."
+      ],
+      "reasoning": "The new theorem uses a cut-conservation lower bound plus the constant projected coordinate-normal norm and then proves a product decomposition of the entire optimal-center face. Each step is needed: the listed prior volume/face/deformation theorems do not imply the metric statement by restriction or relabeling.",
+      "searches": [
+        "arxiv:1612.00102",
+        "arxiv:2212.11423",
+        "arxiv:2409.15519",
+        "arxiv:1409.8566",
+        "\"flow polytope\" \"inradius\" complete graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The flow/Tesler identification in Mészáros–Morales–Rhoades (arxiv:1409.8566, Section 1.2) is by coordinate permutation, but its theorems cover face structure and volume.",
+        "Lee–Liu (arxiv:2212.11423, Theorems 1.1 and 3.9) classify deformation cones and normal equivalence rather than metric incenters."
+      ],
+      "reasoning": "Tesler matrix coordinates are orthogonally permuted flow coordinates, so a matching Tesler inball theorem would be equivalent; the inspected face/deformation theorems do not supply one. Searches for insphere, Chebyshev center and inradius under these aliases did not identify a covering result; this is not proof of uniqueness.",
+      "searches": [
+        "\"Chan Robbins Yuen\" \"inradius\"",
+        "\"Chan-Robbins-Yuen\" \"inscribed\" \"ball\"",
+        "\"flow polytope\" \"Chebyshev center\" complete graph",
+        "arxiv:1409.8566",
+        "arxiv:2212.11423"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Dugan (arxiv:2409.15519, Sections 4–5) enumerates face vectors and vertices, not Euclidean ball radii.",
+        "Corteel–Kim–Mészáros (arxiv:1612.00102, Theorems 1.1–1.3) give normalized volume products, not incenter tables."
+      ],
+      "reasoning": "No exact previously tabulated all-dimension radius or center-dimension values were identified. Generic LP computation of a finite case or f-vector table cannot by itself cover the closed formula for all positive-prefix real netflows. Search incompleteness remains a priority risk.",
+      "searches": [
+        "\"Chan Robbins Yuen\" \"inradius\"",
+        "\"Chan Robbins Yuen\" \"Chebyshev\"",
+        "\"flow polytope\" \"inscribed ball\"",
+        "arxiv:2409.15519",
+        "arxiv:1612.00102"
+      ]
+    },
+    "rationale": "Inspected same-object primary papers provide normalized volume (arxiv:1612.00102), flow/Tesler face structure (arxiv:1409.8566), deformation cones (arxiv:2212.11423), and CRY f-vector formulas (arxiv:2409.15519), but none gives the claimed edge-metric Euclidean inradius and complete factorization/dimension of all optimal ball centers. Established lower-bounded-flow feasibility and graph-effective-resistance ingredients are not claimed as inventions. A possible equivalent formulation in older max-min network-flow or Chebyshev-center literature is an explicitly retained priority risk.",
+    "residual_risks": [
+      "Classical max-min fair flow theory may encode the exact optimal common edge floor as a standard specialization.",
+      "A complete literature survey of older Chebyshev-center and intrinsic flow-polytope metrics has not been carried out.",
+      "Different embeddings of integrally equivalent polytopes need not preserve inradii; the claim intentionally fixes edge-flow coordinates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives volume product identities and some vertex counts, not inradius or full incenter set",
+        "evidence": [
+          "arxiv:1612.00102, Sections 1–2, Theorems 1.1–1.3, Section 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1612.00102",
+        "material_read": "Introduction; Section 2 flow-space definitions; main theorem statements; Sections 4–6 scope and face discussion",
+        "method": "Inspected accessible primary full-text HTML sections and searched for metric radius terminology",
+        "title": "Flow polytopes with Catalan volumes",
+        "trigger": "Original public geometric flow family and CRY volume formulas"
+      },
+      {
+        "assessment": "Describes deformations and normal fans, not the exact intrinsic Euclidean ball or center locus",
+        "evidence": [
+          "arxiv:2212.11423, Theorems 1.1, 3.9; Section 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.11423",
+        "material_read": "Introduction and Theorem 1.1; Sections 3–5, particularly deformation equivalence and the flow-polytope definition",
+        "method": "Inspected accessible primary HTML theorem statements, proofs and late-section flow characterization",
+        "title": "Deformation cones of Tesler polytopes",
+        "trigger": "Same generalized complete-graph flow objects, possible dominating structural theorem"
+      },
+      {
+        "assessment": "Provides all face numbers and flow combinatorics but not metric inballs or center-dimensional stratification",
+        "evidence": [
+          "Dugan, Canadian Journal of Mathematics (2025), Propositions 5.1–5.2 and Theorem 4.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2409.15519",
+        "material_read": "Open-access journal full-text HTML introduction, Sections 2, 4, 5, and final remarks",
+        "method": "Inspected primary journal HTML mathematical statements and enumerative results, checking for inradius/metric claims",
+        "title": "On the f-vectors of flow polytopes for the complete graph",
+        "trigger": "Closest modern primary investigation of full Chan–Robbins–Yuen face structure"
+      },
+      {
+        "assessment": "The flow identification is a coordinate permutation, but the studied invariants are face enumeration, simplicity and volume",
+        "evidence": [
+          "arxiv:1409.8566, Lemma 1.2 and Section 1.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1409.8566",
+        "material_read": "Sections 1.1–1.2, Lemma 1.2, overview of Sections 2–4",
+        "method": "Inspected primary arXiv full-text HTML for equivalences and metric coverage",
+        "title": "The polytope of Tesler matrices",
+        "trigger": "Earlier potentially equivalent coordinate realization and face structure"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4e6becfd-056c-43ce-899c-26fe685f1a4d",
+  "value": {
+    "rationale": "The result resolves a natural exact Euclidean invariant for a classical flow-polytope family and supplies a complete phase-stratified locus of all inball centers, including an explicit product decomposition at bottleneck cuts. In the unit-source/unit-sink case, the inradius has sharp 4/n^2 decay and centers occupy asymptotically half of the intrinsic polytope dimension, with a nonuniqueness threshold n=6. This geometric information is not a routine restatement of the established Catalan volume or face-count formulas; it also works for arbitrary strictly positive-prefix real netflows.",
+    "status": "PASS"
+  }
+}
