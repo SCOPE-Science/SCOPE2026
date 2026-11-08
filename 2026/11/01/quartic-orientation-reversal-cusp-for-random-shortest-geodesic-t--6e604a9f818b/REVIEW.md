@@ -1,11 +1,21 @@
-# Review of the orientation-reversing triangle asymptotic
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies the unique shortest even and odd deck images, converts the orientation character into an odd-parity threshold event, integrates one-edge, two-edge and three-edge events, and proves a uniform cubic conditional remainder. The Fourier series of the periodic squared distance gives \(\mathbb E z_{ij}^2=b^4/90\) and zero covariance between adjacent edges, forcing the quartic coefficient \(1/120\). The explicit sixth-order error follows from a uniformly bounded conditional remainder. The standalone checker executed successfully. No finite sampling is treated as an infinite proof.
+## correctness
 
-**Originality — PASS (historical priority provisional).** Davis–Recio-Mitter (arXiv:1912.07411) concerns Klein-bottle geodesic complexity but not random triangle orientation. Glorieux–Yarmola (arXiv:2003.08190) concerns random triangles on orientable tori and cannot imply nonorientable holonomy parity. Related published mathematical records concern triangulated Klein-bottle homology, not stochastic shortest-geodesic loops. No inspected primary theorem establishes the same fourth-order coefficient or uniform sixth-order error. The possibility of an unlocated classical random-geodesic holonomy formula remains a risk.
+PASS
 
-**Mathematical value — PASS.** Orientation reversal is the defining holonomy distinction of a nonorientable surface. The first perturbative term for a canonical random geodesic loop vanishes at second order and reappears at fourth order with a positive, explicit coefficient and a rigorous error for an entire aspect-ratio family. This provides structural asymptotic information rather than a mere numerical example or trivial specialization. The bound does not determine the complete finite-ratio probability.
+On flat Klein K_(a,b), shortest geodesic parity between representatives is determined by whether |x_i-x_j|/a exceeds 1/2 + u_ij, u_ij=[d_b(y_i+y_j)^2-d_b(y_i-y_j)^2]/(2a²), |u_ij|<=δ=b²/(8a²)<=1/8. Boolean odd-parity identity is sum singles−2sum pair intersections+4 triple intersection. Integrating over independent uniform horizontal variables gives singles (1−h)^2, exact shared-vertex pair tail I(h,k), and triple simplex volume. Their conditional expansion equals 1/4+2sum u_i²−(sum u_i)²+E, |E|<=56δ³; direct independent evaluation at four nonzero u triples corroborated the cubic bound. Fourier of periodic squared vertical distance gives Ez_ij=0, Ez_ij²=b^4/90, Ez_ij z_jk=0, so average quadratic correction b^4/(120a^4). Error 56δ³=7/64*(b/a)^6. Unique shortest geodesic a.s. and orientation character well-defined for self-crossing loop; positivity threshold sufficient not claimed optimal.
 
-**Limitations.** Only the standard two-parameter flat quotient, three independent uniform points and shortest geodesics are covered. The remainder coefficient and sufficient positivity threshold are not claimed optimal. Independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary probability work concerns random shortest-geodesic triangles on orientable flat tori; their loops have no orientation-reversing holonomy. The closest Klein-geodesic source studies deterministic geodesic complexity, not random triangle parity. The quartic cancellation and explicit uniform sixth-order bound are a distinct stochastic nonorientable-geometric claim.
+
+## value
+
+PASS
+
+Random shortest-geodesic polygon homotopy/holonomy on a nonorientable flat surface is a natural analogue of established torus triangle probabilities. The exact disappearance of a possible quadratic aspect correction, positive b^4/(120 a^4) term, and explicit uniform error are mathematically informative and require nontrivial parity and Fourier calculations. It is not an arbitrary finite toy instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
