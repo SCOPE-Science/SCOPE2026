@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing this file. Python 3's standard library suffices; no installed mathematical packages and no network connection are required. The edge and vertex labeling, both complete pivot orders, and the finite assertions are embedded in the script. Successful output must reproduce `verification_output.txt` exactly and conclude `VERIFY_OK`.
+## correctness
 
-The program performs independent hereditary insertion and exhaustive cardinality-bounded subset tests for the induced-matching condition, confirms that no seven-edge induced matching exists, verifies the antipodal Petersen quotients including multiplicities, and checks complete directed-Hasse acyclicity for the stated sequential-toggling pairs. It computes independent mod-two simplicial boundary ranks. Counts of faces, matched pairs, remaining critical-cell sizes, Hasse incidences and mod-two Betti vectors are checked by explicit assertions. These computations are exact and exhaustive for the two graphs; the integral homotopy statement uses the mathematical discrete-Morse collapse-to-CW argument rather than a mod-two calculation. The work makes no general inference about all generalized Petersen graphs or arbitrary double covers.
+PASS
+
+Rebuilt each 30-edge graph and induced-matching face family independently from the vertex/edge definition, obtaining f by cardinality including empty (1,30,255,620,315,30,5) for GP(10,2) and (1,30,255,700,615,42,5) for GP(10,3). Fresh toggle matching verification produced 576 and 772 augmented matched pairs respectively, 104 unmatched 3-element faces or 104 unmatched 4-element faces, and acyclic directed Hasse diagrams covering all 3840 and 5340 incidences. Removing the empty-singleton pair leaves a critical 0-cell and precisely 104 cells in dimension 2 or 3 and no other critical cells. Forman Morse theory therefore gives integral wedge104 S2 and wedge104 S3, not merely mod-two Betti coincidence. The graph definition and source verifier also prove no induced seven-edge matching via independent cardinality-seven face test; the quotient graph edge fibers are twofold Petersen covers.
+
+## originality
+
+PASS
+
+Primary-theorem/parameter/complex comparison and semantic Resultary query ('induced matching complex dodecahedral Desargues graph GP(10,2) GP(10,3) wedge spheres') found no examined theorem that implies the precise claim. Matching graph names, smaller parameters, different simplicial constructions and broad hypotheses were compared by mathematical implication; failed retrieval is not absolute novelty proof. See four structured comparisons and residual risks.
+
+## value
+
+PASS
+
+The canonical pair of Petersen double covers supplies a controlled comparison of strong matching topology: same number (104) of spheres and same induced-matching maximum but different integral homotopy dimensions. This is a motivated structural exact invariant rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

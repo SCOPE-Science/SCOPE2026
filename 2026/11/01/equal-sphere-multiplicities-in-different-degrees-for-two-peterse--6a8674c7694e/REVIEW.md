@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-Both complexes are defined by explicit graph edges and the condition that all chosen edges form an induced matching. The attached standard-library verifier reconstructs each graph, checks the twofold Petersen quotient, and enumerates all permitted simplices twice using independent tests. The zero seven-face count proves the enumeration exhaustive. It implements the fully specified pivot permutations, counts 576 and 772 pairs, and checks the directed Hasse graph for acyclicity over all 3,840 and 5,340 incidences. After removing the augmented empty-face pair there are exactly a critical vertex and 104 dimension-two, respectively dimension-three, cells. Discrete-Morse theory therefore yields the integral sphere wedges. Independent mod-two simplicial boundary ranks agree. No inference from finite sampling to an infinite family is made.
+## correctness
 
-## Originality (PASS, with specified residual risks)
-The original 2013-12-04 induced-matching paper by Joos, Rautenbach and Sasse was read in relevant sections; its size bounds do not compute induced-matching-complex homotopy. Published dodecahedral and Desargues **ordinary matching** homotopy proofs were read for precise assumptions, and both use endpoint-disjoint matchings, not induced matchings. An indexed Heawood strong-matching result concerns a different graph. Equivalent squared-line-graph terminology, numerical sphere counts, generalized Petersen aliases, and stronger coverage were searched. No result implying either exact strong-matching sphere wedge was located. Risk remains from inaccessible or unindexed full-text treatments, and negative search is not a mathematical novelty proof.
+PASS
 
-## Value (PASS)
-The two canonical cubic double covers of the Petersen graph share order, regularity, strong-matching number six, and a 104-sphere count, yet exhibit a one-degree shift in their complete integral homotopy types. This is a motivated structural comparison in the historically studied induced-matching setting, not an arbitrary numerical slice. Exact homotopy types are not determined by extremal matching size, ordinary matching-complex homotopy, or cover cardinality alone. The theorem concerns a natural finite pair; no general covering-family theorem is claimed.
+Rebuilt each 30-edge graph and induced-matching face family independently from the vertex/edge definition, obtaining f by cardinality including empty (1,30,255,620,315,30,5) for GP(10,2) and (1,30,255,700,615,42,5) for GP(10,3). Fresh toggle matching verification produced 576 and 772 augmented matched pairs respectively, 104 unmatched 3-element faces or 104 unmatched 4-element faces, and acyclic directed Hasse diagrams covering all 3840 and 5340 incidences. Removing the empty-singleton pair leaves a critical 0-cell and precisely 104 cells in dimension 2 or 3 and no other critical cells. Forman Morse theory therefore gives integral wedge104 S2 and wedge104 S3, not merely mod-two Betti coincidence. The graph definition and source verifier also prove no induced seven-edge matching via independent cardinality-seven face test; the quotient graph edge fibers are twofold Petersen covers.
 
-## Limits
-The matchings certify nonequivariant integral homotopy types only. Independent validation has not been performed; unindexed equivalent prior coverage remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Primary-theorem/parameter/complex comparison and semantic Resultary query ('induced matching complex dodecahedral Desargues graph GP(10,2) GP(10,3) wedge spheres') found no examined theorem that implies the precise claim. Matching graph names, smaller parameters, different simplicial constructions and broad hypotheses were compared by mathematical implication; failed retrieval is not absolute novelty proof. See four structured comparisons and residual risks.
+
+## value
+
+PASS
+
+The canonical pair of Petersen double covers supplies a controlled comparison of strong matching topology: same number (104) of spheres and same induced-matching maximum but different integral homotopy dimensions. This is a motivated structural exact invariant rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
