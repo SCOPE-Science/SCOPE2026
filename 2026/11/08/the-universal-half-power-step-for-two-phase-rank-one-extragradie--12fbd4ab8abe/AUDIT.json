@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The explicit 3-by-3 extragradient matrix has singular squares k,k,1 for a unit payoff row, with k=1-h²+h⁴. For a period, the squared product is a rank-two positive update of k²I and its Gram trace/determinant give the three stated singular values. The exact derivative difference 4(1-c²) proves unique minimization at h=1/sqrt(2) for c<1; h>1 is excluded via the minimum singular value bound. Endpoints, c=1, c=0 and angular asymptotic are proven. A standalone verifier passed 16131 checks, including exact symbolic and rational identities. Finite samples are supplementary, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Feng et al. cover arbitrary periodic bilinear games and exponential convergence for suitable steps.",
+        "Zhang–Yu give exact fixed-game convergence conditions and optimal asymptotic exponents."
+      ],
+      "reasoning": "Feng et al. imply convergence when the common fixed subspace is trivial, and its normality lemma is used in the proof here. Convergence and Floquet spectral-radius bounds alone do not provide sharp singular values of a nonnormal period product or the minimizer of its one-period worst-case norm; the stronger general setting does not entail this quantitative result.",
+      "searches": [
+        "arxiv:2310.02604v1 Theorem 3.1 and Appendix B",
+        "arxiv:1908.05699v4 optimal exponents of convergence",
+        "arxiv:1906.05945v5 extragradient fixed-game rates",
+        "extragradient periodic alternating two rank-one bilinear games orthogonal row vectors exact Floquet spectral radius optimal step size"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2310.02604",
+      "https://arxiv.org/html/1908.05699v4",
+      "https://arxiv.org/html/1906.05945v5",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=65K10"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 theorem controls long-run period Floquet multipliers and does not optimize a finite-horizon operator norm.",
+        "The static-game works use a single payoff matrix, so their factors do not handle the alternating row-angle dependence."
+      ],
+      "reasoning": "The published normality identity is acknowledged as prior; it is a crucial premise but is insufficient by itself to determine a product of noncommuting updates. The new Gram trace and determinant quantify the missing orientation dependence and lead to a sharp universal one-period step. No conclusion about asymptotically optimal Floquet tuning is claimed.",
+      "searches": [
+        "arxiv:2310.02604v1 Theorem 3.1",
+        "arxiv:2310.02604v1 Appendix B Lemmas B.1 and B.2",
+        "arxiv:1908.05699v4 Section 4 optimal rates",
+        "bilinear minmax rank one orthogonal alternating extra gradient full period worst case Euclidean contraction angle cos singular values"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A period of equal-step EG is the product of two scaled rotations fixing different 1-dimensional axes; the exact singular spectrum reduces to a rank-two Gram problem.",
+        "arxiv:2310.02604v1 Appendix B uses product Jordan spectral analysis and does not present the three closed singular values."
+      ],
+      "reasoning": "Algebraic restatements as products of normal contractions, two-plane scaled rotations, or principal-angle Gram matrices were explicitly considered. These are proof techniques, but the relevant primary material did not identify the specific angular formula and sharp minimizer as a recorded conclusion.",
+      "searches": [
+        "extragradient periodic alternating two rank-one bilinear games orthogonal row vectors exact Floquet spectral radius optimal step size",
+        "periodic extragradient two payoff rows at angle theta sharp 2 step operator norm singular values universal step h 1/sqrt2",
+        "bilinear minmax rank one orthogonal alternating extra gradient full period worst case Euclidean contraction angle cos singular values",
+        "cyclic extragradient rank one time varying game product normal matrices one-cycle minimal contraction",
+        "arxiv:2310.02604v1 Appendix B normality and Floquet product",
+        "arxiv:1908.05699v4 Sections 2–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No direct source carrying the exact closed-form factor or a two-stage angular singular-value table was returned by these searches.",
+        "The relevant publications discuss convergence and rate formulas for different exact objects."
+      ],
+      "reasoning": "The target is an exact continuous two-parameter singular spectrum, not a finite database enumeration. No matching exact tabulation was identified; a failed search is not proof of priority.",
+      "searches": [
+        "\"sqrt(48+c^2)\" \"extragradient\"",
+        "\"extragradient\" \"rank-one\" \"singular values\" periodic game",
+        "periodic extragradient two payoff rows at angle theta sharp 2 step operator norm singular values universal step h 1/sqrt2"
+      ]
+    },
+    "rationale": "The most relevant 2023 periodic-extragradient theorem proves convergence using normal stage matrices and Floquet multipliers, but the inspected statement and Appendix B do not give an exact periodwise singular spectrum or its angle-independent optimal common step. Two other key full texts optimize fixed-game convergence, not noncommuting payoff-period products. Targeted mathematical-record and primary literature comparisons did not reveal a dominating equivalent. Precedence risk from classical rank-two matrix product identities remains.",
+    "residual_risks": [
+      "A specialist statement on products of scaled plane rotations may already imply the formula algebraically, even without extragradient terminology.",
+      "No independent expert precedent review has been performed.",
+      "The exact result is one-period Euclidean norm tuning, not the asymptotic Floquet rate or all periodic games."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3.1 proves periodic convergence via spectral multipliers and normality; no sharp two-step singular-value multiset, absolute overlap angular law, or universally optimal one-period common step was found in the examined proof and formulas.",
+        "evidence": [
+          "Theorem 3.1 assumes equal steps below reciprocal largest singular value and uses the period product spectrum.",
+          "Appendix B Lemma B.1 proves stage normality, Lemma B.2 bounds stage norms, and the convergence proof uses Jordan blocks and spectral radius rather than periodwise Euclidean singular values."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.02604",
+        "material_read": "Full-text rendered arXiv version: introduction and model, Sec. 3.1 update matrix, Sec. 3.2 Theorem 3.1, Appendix B normality and Floquet proof, and targeted searches for rank-one, periodic rates and explicit norms.",
+        "method": "Primary preprint full-text inspection",
+        "title": "On the Last-iterate Convergence in Time-varying Zero-sum Games: Extra Gradient Succeeds where Optimism Fails",
+        "trigger": "Most directly matching prior theorem for periodic time-dependent bilinear extragradient"
+      },
+      {
+        "assessment": "The exact parameter/rate analysis is for autonomous (fixed-payoff) bilinear games; its fixed singular-mode factorization does not yield the singular spectrum of a noncommuting two-payoff product.",
+        "evidence": [
+          "Sec. 2 uses a single fixed payoff matrix for its bilinear analysis and defines generalized EG.",
+          "Sections 3–4 optimize asymptotic convergence exponents, rather than a two-phase single-period worst-case Euclidean norm."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1908.05699v4",
+        "material_read": "Primary arXiv full-text HTML, Sec. 1 contributions, Sec. 2 extragradient update and fixed payoff definition, Sec. 3 exact stability, Sec. 4 optimal exponents, with full-document searches for time-varying and periodic.",
+        "method": "Primary preprint full-text inspection",
+        "title": "Convergence of Gradient Methods on Bilinear Zero-Sum Games",
+        "trigger": "Possible stronger exact optimization of extragradient steps in bilinear games"
+      },
+      {
+        "assessment": "Tight general fixed-game spectral convergence work, not the present alternating 1-by-2 payoff matrices and full period singular-value classification.",
+        "evidence": [
+          "Paper explicitly studies static differentiable games via local/global rate analysis.",
+          "No periodic time-varying model was identified in targeted full-text searches."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1906.05945v5",
+        "material_read": "Primary full-text HTML: abstract, introductory methodology, extragradient discussions, and targeted full-document searches for time-varying and periodic models.",
+        "method": "Primary preprint targeted text inspection",
+        "title": "A Tight and Unified Analysis of Gradient-Based Methods for a Whole Spectrum of Games",
+        "trigger": "Potential dominating normal-operator convergence guarantees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "12fbd4ab-8abe-44f3-bbd3-0907607d1dcb",
+  "value": {
+    "rationale": "Two distinct rank-one bilinear games form the minimal periodic setting with rotating neutral subspaces. Exact singular values and the sharp angle-independent h=1/sqrt(2) choice answer a robust two-update stepsize question not resolved by qualitative convergence. The sharp angular degeneration theta²/14 quantifies loss of effective excitation. This provides a self-contained structural test case and exact tuning guarantee, without claiming asymptotic or runtime gains.",
+    "status": "PASS"
+  }
+}
