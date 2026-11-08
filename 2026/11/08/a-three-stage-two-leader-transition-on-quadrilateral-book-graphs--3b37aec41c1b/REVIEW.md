@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The claim specifies exactly which graph, leader count, follower principal submatrix and inverse-trace convention are used. The proof derives the two-terminal grounded Green formula from the resistance-energy quadratic form, obtains all five resistance types by exact network reductions, evaluates all six leader classes, and gives rational inequalities proving strict optimality for each integer page count. The standalone exact-rational verifier independently computes 708 grounded inverse traces and 30 two-terminal resistances. The finite replay is a consistency check rather than a proof of the all-size result.
+
+**Originality — PASS on the checked evidence, with residual risk.** Full-text primary papers by Lin–Fardad–Jovanović (arXiv:1302.0450), Fitch–Leonard (arXiv:1407.1569), and Patterson–McGlohon–Dyagilev (arXiv:1412.6595) were inspected in relevant substantive sections. The first establishes the general objective; the second characterizes two leaders through joint centrality and explicitly solves paths/cycles, without the six book-graph cases; the third concerns paths/rings. Relevant indexed book-graph results concern matching complexes or dual general position, not grounded inverse traces. Existing closely related leader-placement classifications concern other network families and do not imply the strict two-threshold book pattern by simple identification. Search coverage cannot exclude unindexed prior coverage, and the general joint-centrality identity is acknowledged as a conceptual antecedent.
+
+**Value — PASS.** The quadrilateral book is the natural Cartesian product of a star with a single edge and represents multiple short parallel routes sharing a core edge. The exact two-leader budget is a basic sensor/leader placement problem; the complete classification reveals a genuine three-stage *change of geometric type* as pages are added, not just a numerical performance bound. All six symmetrically distinct placements are evaluated, all optimal sets counted, and explicit rational comparisons establish the sharp breakpoints.
+
+Scientific limitations include unit conductances, exact two-leader grounding and the inverse-trace measure; other objectives and budgets remain unaddressed. No independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
