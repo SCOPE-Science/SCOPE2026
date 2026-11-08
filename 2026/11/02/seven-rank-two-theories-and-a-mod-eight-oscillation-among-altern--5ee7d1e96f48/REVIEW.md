@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-pebble extension lemma exhausts all multiplication atoms on a pair together with the named identity; its nine pointed categories yield both directions of the EF equivalence. The alternating-root parity criterion, even involution criterion in a centralizer of 3-cycles, and explicit stable witnesses establish every entry of the all-parameter category table. The infinite mod-eight claim is proved symbolically. Independent direct atomic calculations for degrees 5–8, an independently compressed direct enumeration through 9, and even-cycle partition checks through 40 agree with the theorem. These are limited supporting computations rather than an unbounded numerical proof.
+## correctness
 
-**Originality — PASS, with priority risk.** The closest checked works concern finite abelian-group logical complexity (Gomaa 2010), adjoining square roots to groups (Baranov–Klyachko 2011), and solutions to selected alternating-group power equations (Mahmood–Rajah 2011 issue). The first does not cover nonabelian alternating groups, the second does not classify bounded-rank theories, and the inspected material from the third has restrictions on conjugacy types not encompassing the rank-two theorem. Result-index searches for alternating-group EF equivalence, involution square roots, residue-eight alternation, and relational multiplication found no covering result. Nevertheless, some full text and unindexed literature remain unchecked; no assertion of absolute priority is made.
+PASS
 
-**Mathematical value — PASS.** This is a complete classification for a canonical infinite family of finite nonabelian simple groups, not an arbitrary numerical parameter slice. It gives a sharp seven-class list with a nonconsecutive coincidence at degrees 7 and 9 and an unexpected *infinite failure of rank-two stabilization*: parity of alternating square roots makes a degree-mod-eight property first-order visible at depth two. The distinction persists in unbounded degree despite a fixed quantifier budget.
+An EF two-round game examines atomic multiplication among e,x,y; the possible y collisions with e,x,x^-1,x^2 and square root give nine pointed categories E,I±,T±,F±,X±. Existence of each category is rank<=2 definable and matching types gives a Duplicator reply for every Spoiler first move. Even square roots of permutations require even counts of even cycles, with parity controlled by half-count and pairable equal odd cycles (including fixed points). The centralizer involution criterion yields T- at 5,6,7,9,10; I- exactly when degree ≡4 or5 mod8. Remaining thresholds give the seven classes, proven by symbolic cycle constructions for all n. Independent cycle-partition census n=5..32 and exact small alternating-permutation multiplication/square checks n<=8 are corroboration, not extrapolated proofs.
 
-The conclusion does not extend to the functional group language. Priority and third-party validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard rank-two EF framework, finite abelian groups, and permutation power equations are prior art; combination into all alternating rank-two theories and infinite residue-8 oscillation is not implied by inspected restricted sources, with material-priority limitations.
+
+## value
+
+PASS
+
+A complete low-quantifier classification of a canonical infinite simple-group sequence, including unexpected A7~A9 and infinite residual mod-eight nonstabilization. Language-sensitive but naturally motivated as an EF-definability invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

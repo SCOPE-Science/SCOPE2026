@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run with a standard Python 3 interpreter in a directory containing all three `.py` files:
+## correctness
 
-```
-python alt_rank2_types.py > alt_partition_table.tsv
-python alt_rank2_fast.py 5 6 7 8 9 > alt_fast_output.txt
-python alt_rank2_direct.py 5 6 7 8 > alt_direct_output.txt
-```
+PASS
 
-`alt_rank2_types.py` enumerates cycle partitions, decides permutation parity, the existence of an even square root, and the order-three centralizer condition. This produces the stated category profile for degrees 3–40 and exactly seven signatures in degrees 5–40. The proof of the infinite formula is symbolic in RESULT.md; checking 40 parameters alone would not prove it.
+An EF two-round game examines atomic multiplication among e,x,y; the possible y collisions with e,x,x^-1,x^2 and square root give nine pointed categories E,I±,T±,F±,X±. Existence of each category is rank<=2 definable and matching types gives a Duplicator reply for every Spoiler first move. Even square roots of permutations require even counts of even cycles, with parity controlled by half-count and pairable equal odd cycles (including fixed points). The centralizer involution criterion yields T- at 5,6,7,9,10; I- exactly when degree ≡4 or5 mod8. Remaining thresholds give the seven classes, proven by symbolic cycle constructions for all n. Independent cycle-partition census n=5..32 and exact small alternating-permutation multiplication/square checks n<=8 are corroboration, not extrapolated proofs.
 
-`alt_rank2_fast.py` explicitly enumerates every even permutation for the degrees 5–9, groups first moves by symmetric-cycle conjugacy (valid since conjugation by any symmetric permutation induces an automorphism of the alternating group), and independently tests second-move multiplication patterns for each first move. The last recorded run reports `PASS` for each of those five degrees and a size-7 pointed-type spectrum at degree 9. `alt_rank2_direct.py` independently enumerates all 27 multiplication atoms on the three named elements (identity and two selected group elements) for degrees 5–8. Its results agree exactly with the nine-category reduction wherever those types occur.
+## originality
 
-The direct computations use no precomputed database, package downloads or external network data. They verify finite cases only; the complete rank-two classification follows from the mathematical group and game lemmas, not from extrapolation. Higher-rank fragments, nonstandard signatures, full external source comparison, and independent validation are not verified.
+PASS
+
+The standard rank-two EF framework, finite abelian groups, and permutation power equations are prior art; combination into all alternating rank-two theories and infinite residue-8 oscillation is not implied by inspected restricted sources, with material-priority limitations.
+
+## value
+
+PASS
+
+A complete low-quantifier classification of a canonical infinite simple-group sequence, including unexpected A7~A9 and infinite residual mod-eight nonstabilization. Language-sensitive but naturally motivated as an EF-definability invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
