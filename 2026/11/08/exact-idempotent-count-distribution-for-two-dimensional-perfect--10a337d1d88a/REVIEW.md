@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** Every invertible dimension-two structure matrix is bijective to a matrix \(N\) whose binary cubic has one rational projective root per nonzero idempotent. The linear four-coefficient matrix–cubic correspondence, the count of irreducible cubics, and the rank-one factorization give the full histogram, including the characteristic-two boundary and \(q=2\). Exact enumeration over eight finite fields independently matches the formulas. These finite checks are corroboration only; the symbolic argument covers all prime powers.
+
+**Originality (PASS; bounded historical risk).** The October 2026 survey proves only the average one of the idempotent count and an existence result; the four-level probabilities are not consequences of either. The 2023 Wei–Zou paper enumerates isomorphism classes, not idempotent-root distributions among invertible matrices (Theorem 4.1 inspected). The 2023 Cabrera Casado–Martín Barquero–Martín González open-access article classifies two-dimensional perfect algebras through moduli, with a different invariant and sampling measure. Searches of prior research records for the exact histogram, cubic and projective aliases produced the related finite-field idempotent-free existence result but no dominating numerical distribution. A previously unpublished or implicit arithmetic-counting statement remains a plausible residual risk; priority is not certified.
+
+**Mathematical value (PASS).** The literature explicitly singles out the mean number of idempotents for random perfect evolution algebras and the existence of idempotent-free cases. The new result upgrades both to the *entire* finite-field probability law for a natural complete dimension-two family, showing a universal one-third idempotent-free density and a sharp parity effect. This is a structural classification of an exact natural invariant, not an arbitrary small-table increment.
+
+**Limits.** Only uniformly chosen invertible matrices in a fixed natural basis are counted, not isomorphism classes. No formula in dimension three or higher is asserted. The closest literature and elementary binary-cubic methods leave a genuine historical-coverage risk.
+
+Self-review: passed. Independent audit: not yet performed.
