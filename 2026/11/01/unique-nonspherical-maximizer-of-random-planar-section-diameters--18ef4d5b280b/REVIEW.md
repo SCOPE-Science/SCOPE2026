@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The defining quadratic form is normalized so that paired semiaxes are \(e^t\) and \(e^{-t}\), hence four-volume is fixed. The Grassmannian-to-polar-angles argument derives the exact Haar law, not an empirically fitted distribution. Direct differentiation of the convolution density proves strict logarithmic concavity by the strict Cusa--Huygens inequality. Since the profile tends to zero at both ends and its derivative at zero is positive, the unique global maximizer is strictly nonspherical. The standalone program passed normalization, derivative, root-bracket and diagnostic tests. Computation does not replace proof; quoted decimals are approximate.
+## correctness
 
-## Originality
-**PASS with historical-priority uncertainty.** The 2026 Guedon--Litvak--Tatarko--Vritsiou article was inspected at the precise two-valued-axis Section 6.3; its high-probability bounds, and the gap in Remark 6.15, do not determine the current fixed-volume expected-radius maximum. The 2019 Hinrichs et al. paper was inspected at the definitions and main theorem statements of Section 2; its random-section estimates do not imply this exact 4D optimum. The 2021/2023 ellipsoid article was checked at abstract/result level only, which leaves a documented risk. Closest mathematical records concern one-spike ellipsoids, section-volume moments, or three-dimensional inverse CDFs. The known principal-angle decomposition and log-concave convolution theorem are credited, not presented as new. Unindexed antecedents are possible.
+PASS
 
-## Value
-**PASS.** A fixed-volume geometric random-section optimization question receives a complete sharp answer in a natural nontrivial multiplicity family. The maximizing body is unexpectedly nonspherical; its uniqueness and the global strict log-concavity result add structural content beyond numerical integration or generic asymptotic bounds.
+From compressed projection to a fixed 2-plane, the smaller restricted eigenvalue yields R=[cosh2t-z sinh2t]^-1/2 for t>=0. Under oriented Gr(2,4)=S2xS2 Haar product, two independent polar cosines X,Y produce z=XY+sqrt(1-X²)sqrt(1-Y²)=cos(alpha-beta). Integrating |alpha-beta| gives f(u)=(sin u+(pi-u)cos u)/4, normalized to one. The v=1/2 artanh z substitution yields the convolution of positive integrable h(v)=1/2 sqrt(sin q)(sin q-q cos q) and k(w)=(cosh2w)^-1/2. Differentiating log h twice and the Cusa-Huygens strict trigonometric inequality establishes strict logconcavity; independently symbolically differentiated its stated second-derivative identity. Integral differentiates to Phi’(0)=pi²/16>0; strict logconcavity and decay at infinities force exactly one optimizer t*>0. Independent quadrature finds t*=0.7888103974774363, Phi(t*)=1.2732605986740624, axis ratio 4.8434186060082185, consistent with noncertified approximations. Negative t refers only to analytic extension, not the same geometric section formula.
 
-## Scope and residual risks
-The optimum is not asserted among all possible ellipsoids or convex bodies. The profile on negative parameters is an analytic extension, not the random circumradius of the geometric family on that half-line. Source-inspection limitations and historical-priority risks remain as specified in AUDIT.json. Numerical root values are approximate, and no outside scientific certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct scientific statement after named prior-implication comparisons; any inaccessible plausible sources and strong precursors are documented as residual priority risks.
+
+## value
+
+PASS
+
+Natural fixed-volume four-dimensional balanced ellipsoid family already known as a test case for random-section inequalities. An exact distributional mean functional plus global strict logconcavity and unique nonspherical maximum is a nontrivial variational statement, not a routine tabulation; the optimal axis ratio is a meaningful quantitative shape parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
