@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model, initial conditions, reset kernel, and all parameter quantifiers are explicit. Conditional Gaussianity gives the exact fourth-cumulant identity \(\kappa_4(X_t)=3\operatorname{Var}(A_t)\); strict convexity of the excursion variance proves it is positive at each finite time. A stopped-martingale proof, including the straddling-reset remainder and its uniform second-moment bound, establishes both long-time cumulant rates. Exponential integrals and a separate tilted-generator moment recurrence produce identical rational formulas. An exact derivative factorization and Descartes' rule establish a unique positive optimum with an exact rational root bracket. The executable verifier tests the independent derivations and numerical quadrature but is not used as a substitute for the analytic proof.
+PASS
 
-## Originality — PASS (qualified)
+For dX=Vdt, dV=-gamma Vdt+sqrt(2D)dW with velocity-only Poisson resets, conditional Brownian increments over each reset interval give a Gaussian X_t with random variance A_t=sum q(T_j)+q(age), q(s)=2D/gamma^2[s-2(1-e^-gamma s)/gamma+(1-e^-2gamma s)/(2gamma)]. Hence kappa_4(X_t)=3 Var(A_t)>0 for t>0: no-reset and exactly-one-reset histories have positive probability and distinct A_t by strict convexity/superadditivity of q. For exponential inter-arrival T, centered reward q(T)-cT with c=r E q(T), the stopped-martingale/renewal argument yields Var(A_t)/t -> r E(q(T)-cT)^2; straddling-interval L2 remains bounded, so its variance contribution is o(t). Exact exponential integrals yield the stated K4 rate, c=4D/[(r+gamma)(r+2gamma)], and H(r/gamma). Differentiation gives H’=-6P/prod(beta+j)^2, P=7 beta^6+56 beta^5+116 beta^4-160 beta^3-959 beta^2-1344 beta-648. Descartes one sign change, P(0)<0 and P(infty)>0 prove exactly one positive maximizer; rational bracket (2.556536,2.556537), endpoint limits 0. Separately computed exact exponential reward integrals at gamma=D=1 and reset ratios 1/2,1,3, the normalized ratio, derivative and bracket; checks agree. No finite calculation was used to extrapolate the universal theorem.
 
-The model, Fourier–Laplace propagator, all-moment recurrence, and effective diffusivity are available in Olsen and Löwen (2024); these are not new. Meylahn, Sabhapandit and Touchette (2015) give an implicit scaled-cumulant-generating-function formula for precisely this reset Ornstein–Uhlenbeck area model, which can in principle yield cumulants. The claimed gap is narrower: an explicit rational fourth-cumulant growth coefficient and, especially, the exact unique globally optimal dimensionless reset rate for the long-time standardized fourth-cumulant correction. Full-text scientific comparisons and semantic mathematical-record searches identified no explicit equivalent maximization result. The general SCGF is a substantive residual subsumption risk; publication priority is not independently certified. An earlier calculation for Gaussian equilibrium velocity replacement differs in its reset kernel and in its target identifiability statement.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-At long times the ordinary diffusivity decreases with reset frequency, but non-Gaussian departure from the Gaussian limit has a nontrivial and unique peak. That peak is a natural protocol-design invariant across all positive noise and friction strengths, with exact polynomial characterization and two vanishing endpoint regimes. This is stronger than an isolated asymptotic coefficient or a routine differentiated special case: the global root count and universal non-Gaussian tradeoff are proven over all positive rates.
+The reset OU area is the same stochastic process as the observable integrated Ornstein-Uhlenbeck state in Meylahn–Sabhapandit–Touchette (2015); their general SCGF/renewal pole formulation already implies access to asymptotic cumulants by formal differentiation. Olsen–Löwen (2024) give the velocity-only reset propagator, recursive moments and diffusivity. Accordingly neither the model, renewal identity, nor implicit moment-generating information is new. The assessed final claim is the explicitly evaluated dimensionless fourth-cumulant coefficient, finite-time strict positivity, and especially the unique all-rate non-Gaussian correction optimum characterized by the degree-six polynomial. The inspected earlier source sections did not state an optimal-kurtosis reset ratio. This is a qualified O pass for a sharp optimized consequence, not priority for the underlying SCGF.
 
-## Residual scientific limits
+## value
 
-The coefficient is an asymptotic observation-time statement; neither full-distribution order nor finite-time optimal resetting rates are asserted. Some general earlier transform relations algebraically contain the fourth-cumulant information, so the novelty claim is about the evaluated universal optimum rather than a new large-deviation framework. Independent scientific audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The normalized fourth cumulant quantifies how velocity resetting changes finite-observation non-Gaussianity while diffusivity remains asymptotically linear. Its exact dependence on r/gamma and a single global optimal rate furnish a natural transport tradeoff across all D,gamma>0. The positive finite-time cumulant and both vanishing extreme-rate limits make the sharp optimizer mathematically informative; the result is not a numerical optimum of an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
