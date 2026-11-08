@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four simple rational poles give genus six and exactly four rational points above the branch locus. The translation-orbit argument proves the extension-count identity for every integer \(n>0\) coprime to three. Complete degree-\(1\) through degree-\(6\) finite-field enumeration and independently implemented Artin–Schreier image/trace counts supply the six exact power sums. The genus-six Weil functional equation uniquely determines the other six coefficients; explicit polynomial multiplication and an irreducibility argument give the full simple-factor decomposition. The embedded checker independently cross-checks degrees \(7\)–\(9\) and alternate field presentations at degrees \(3\) and \(6\). The proof does not infer infinite claims from finite tests. Critical assumptions: the chosen smooth projective \(\mathbb F_3\)-form, the four simple poles, and standard Weil/finite-field isogeny theorems.
+## correctness
 
-## Originality — PASS (with historical-priority qualification)
-The full relevant construction in Tafazolian, arXiv:2610.05539, Propositions 8.7–8.8, establishes genus and automorphisms but does not state a zeta numerator, finite-extension point counts, or the \(\mathbb F_3\) Jacobian's simple isogeny factors. Giulietti–Korchmáros, arXiv:1507.03737, concerns different large-group and genus-\(p-1\) constructions and does not contain the present arithmetic statement. Exact-formula and alias queries against accessible mathematical research records found no equivalent or dominating statement; two superficially related archived genus-six claims describe unrelated curves. The principal residual risk is unindexed arithmetic calculation under a birationally different model or in specialized tables. Search absence is not proof of worldwide uniqueness.
+PASS
 
-## Mathematical value — PASS
-The source identifies this characteristic-three genus-six curve as an exceptional equality-case family with unusually large automorphisms; genus and automorphisms alone do not determine its zeta polynomial. The computed full Weil numerator is a natural and previously unspecified arithmetic invariant: it determines all extension-field point counts and the rational Jacobian order. The factorization identifies the dimensions and multiplicities of simple \(\mathbb F_3\)-isogeny components, while the uniform trace-orbit identity gives structural control of infinitely many extensions without relying on isolated numerical data. The sharply scoped prime-field invariant is thus intrinsically motivated rather than an arbitrary coordinate slice.
+The four simple rational poles x=0,±1,infinity have Artin–Schreier different exponent4, so 2g-2=3(-2)+4(4)=10 and g=6. For any 3∤n, translation x->x+t changes f(x) by t, hence exactly one of three translated field elements has trace zero; with four rational branch points this proves #X(F_{3^n})=3^n+1 for every such n. Independently constructed GF(3^n) polynomial fields, checked irreducibility and exhaustively counted all x and y-solutions (using trace criterion) for n1–6: N=[4,10,76,82,244,670]. The resulting S=[0,0,-48,0,0,60], Newton identities produce first half coefficients 1,0,0,16,0,0,118; genus-six Weil functional symmetry gives complete L. Direct integer multiplication verifies (1-T+3T²)²(1+T-2T²+3T³+9T⁴)², L(1)=1296. Quartic Weil reciprocal is irreducible over Q by integer quadratic-factor comparison; nonzero ordinary middle coefficient yields simple ordinary surface and F3 isogeny decomposition.
 
-## Limitations and closest sources
-Source [1] is the directly inspected construction; source [2] is an earlier related but non-covering classification. The result does not address non-prime-field coefficients, twist classes, polarizations, or integral endomorphism rings. An independent check and exhaustive historical-priority determination remain to be performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared actual quantified final claim, its hypotheses and all four possible prior-implication routes against named published research and relevant primary texts. Related results do not establish the entire result on inspected evidence; inaccessible or potential aliases are kept as explicit residual risks. The originating full primary paper establishes the geometric curve but not its F3 Hasse–Weil polynomial.
+
+## value
+
+PASS
+
+The curve is a distinguished genus-six characteristic-three automorphism-extremal family member, whose genus and symmetry do not fix its Frobenius eigenvalues. Its exact Weil numerator, isogeny factorization, Jacobian order and all coprime-degree point counts supply a natural complete arithmetic invariant of the specified F3-form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
