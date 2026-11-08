@@ -1,19 +1,21 @@
-# Scientific review: bounded monotone Lipschitz stratified integration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns independent one-point-per-cell uniform stratification, a globally nondecreasing function in \([0,1]\), and a global Lipschitz ceiling \(L>0\). The fixed-endpoint-increment local variance bound is derived from a mandatory uniform component in the pushforward law; a centered saturated ramp attains its equality conditions. Independent cells reduce the error to a sum of the exact local bounds. Pairwise exchange in the resulting cubic allocation problem proves that an equal-positive-coordinate maximizer exists, and maximization over its integer support proves the formula for every \(n\ge1\), \(L>0\). The endpoints and large-sample regimes follow algebraically. The standalone verifier passed 4,816 exact-rational assertions; separately, numerical continuous-optimization stress tests found no counterexample. Neither finite computation is substituted for the general analytical proof.
+PASS
 
-## Originality — PASS, with residual historical risk
+The independent equal-width stratum samples make Q_n unbiased, with variance the sum of cell variances divided by n². Fix a cell increment Δ and normalized t=Δ/(L H), H=1/n. Every monotone L-Lipschitz path pushes uniform cell sampling to a probability law containing t·Uniform[0,1]; since y²≤y, the remaining law yields Var≤Δ²(1/4−t/6), with equality for a centered slope-L ramp and equal endpoint plateaux. Set t_i=nΔ_i/L∈[0,1], Σt_i≤s=n min(1,L)/L. The exact cubic h(t)=t²(3−2t)/12 and h(x)+h(y)=h(x+y)+(x+y−1)xy/2 imply a global maximizing vector with k equal positive entries s/k and zeros otherwise. Thus the exact maximum is (L²/n4) max_{ceil(s)≤k≤n}[s²/(4k)−s³/(6k²)]. Differentiate continuous k to get nearest feasible integer 4s/3; L≤1, 1≤L≤4/3, fixed L>4/3, and L≥n boundary formulas follow. Independently checked exact cubic identity and exact optimizer fractions n=1,2,5,11,12,15 with L fractions. The proof supplies the infinite-dimensional bound, not numerical optimization.
 
-Basak, Bect and Vazquez, arXiv:2203.00423, Theorem 4.1, compute the sharp variance over all bounded nondecreasing functions. Their extremizer is a discontinuous single step and their bound does not give the finite-\(L\) envelope. The new claim changes the admissible function class in a mathematically substantive way, and obtains the exact local transition law, global allocation, support-size quantization, and \(L=4/3\) asymptotic transition. Kunsch, arXiv:2309.09059, concerns Sobolev confidence error and stratified control variates; Pettersson and Krumscheid, arXiv:2107.01355, concern adaptive strata and hybrid sample allocation. Their checked material does not imply the sharp variance identity for this fixed estimator and joint shape/range constraint. Prior sharp Lipschitz-variance inequalities, especially Bobkov–Houdré (1996), may cover a local ingredient and were not fully accessible; that is the main residual historical-priority risk, not evidence of complete claim coverage. The submitted claim does not attribute invention of stratification, Popoviciu's inequality, the bathtub principle, or pairwise equalization.
+## originality
 
-## Value — PASS
+PASS
 
-This is the natural intersection of two standard complexity classes: bounded monotone functions (whose extremal errors are controlled by jumps) and Lipschitz functions (whose smoothness controls randomized integration rates). Instead of only interpolating two upper bounds, the theorem exactly determines the worst-case mean-squared risk at every sample count and smoothness budget, identifies the extremal function geometry, and shows a non-obvious switch from all active cells to sparsely concentrated three-quarter-width ramps. The finite support optimization and continuous-to-step limit are reusable test cases for randomized quadrature and shape-constrained risk estimation. No claim is made of a rate improvement over general optimal quadrature methods.
+Basak–Bect–Vazquez Theorem 4.1 settles unrestricted bounded monotone one-sample-per-stratum maximum 1/(4n²), attained by a discontinuous midpoint step. It does not quantify a finite global Lipschitz constraint or the k-cell ramp allocation. Existing general Lipschitz-function variance bounds might overlap the local inequality but do not supply this constrained multi-stratum exact finite-n envelope in the inspected sources.
 
-## Closest literature, limitations and risks
+## value
 
-The unrestricted-monotone theorem of Basak–Bect–Vazquez is the closest result, but it cannot recover the exact \(n,L\)-dependent constant. Kunsch's Sobolev framework also gives a different objective and admissible class. The result requires one-dimensional equal strata, one independent uniform sample per stratum, a single shared nondecreasing integrand, global range at most one and bounded global slope. Higher-dimensional partial monotonicity, optimized partitions, correlated samples, and other risk criteria remain unproved. A literature search is not a proof of global uniqueness; a future independent priority review may locate a stronger old variance inequality or a special-purpose stratified-integration theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The mathematical gap is an exact non-asymptotic worst-case risk for a standard unbiased Monte Carlo estimator under natural simultaneous monotonicity, boundedness and finite-slope constraints. It quantifies the finite-L penalty, active-stratum support and the L=4/3 phase transition, which the known unrestricted monotone theorem cannot resolve.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
