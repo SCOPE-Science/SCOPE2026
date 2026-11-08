@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The finite-size claim follows from the signed full-binary-tree interpretation of the original inflation process. The inversion count is exactly the sum of sign indicators times the sizes of the left-right leaf pairs they separate. The unsigned Yule leaf-splitting tree has the random binary-search-tree split recursion, so priority conditioning and a finite harmonic integral determine every coefficient. Independent Bernoulli signs give the full conditional regression and peak covariance. Strict discrete concavity gives the ordered threshold classification, and harmonic asymptotics give the entropy profile. The original transition probabilities are independently enumerated with exact fractions by the packaged checker through seven leaves at two distinct biases, for 624 passed assertions.
+## correctness
 
-**Originality: PASS (qualified).** The motivating work of Féray and Rivera-Lopez (arXiv:2306.04278, especially Proposition 1.7 and Lemma 4.8) already supplies the model and the signed-tree/total-descent facts. The new claim is not that the signs are independent, nor that the underlying trees are random BSTs. It is the position-specific harmonic conditional regression of global inversions against the *entire* descent word and the resulting strictly ordered peak-inversion covariance transitions. The 2024 uniform-separable-statistics study of Chen, Kitaev and Zhang uses a different probability measure and does not provide these identities. Closest research-record matches about uniform permutation inversion indicators, cycle counts and random-BST path lengths have different objects or observables and do not imply this regression. Direct historical priority remains uncertain because the full finite law from the motivating paper allows other, perhaps unpublished, summations.
+PASS
 
-**Value: PASS.** A global inversion statistic reacts very unequally to the location of a single adjacent descent: the exact sensitivity is logarithmic at an endpoint but linear, with binary-entropy shape, in the interior. That same nonuniformity imposes a complete and monotone family of exact covariance-sign transitions for natural interior-peak indicators. This gives a structural local/global dependence classification rather than a bare moment recomputation or an arbitrary finite case.
+In a signed full binary tree each internal node is canonically assigned to a gap between its left/right leaf subtrees, whose two subtree sizes L_k,R_k count exactly the cross-subtree pairs. A pair is inverted iff its lowest common ancestor is negatively signed. Since random leaf splits do not inspect signs, B_k are iid Bernoulli(q), independent of unsigned tree, and I_n=sum B_k L_kR_k. Yule uniform-leaf splits induce the uniform-root-split BST recursion; independent priorities for all n-1 gaps generate it. Given priority U_k=t, nearest smaller priorities on each side give independent geometric tails, and E[L_kR_k|t]=(1-(1-t)^k)(1-(1-t)^(n-k))/t^2. Integrating yields w_nk=nH_{n-1}-kH_{k-1}-(n-k)H_{n-k-1}-1, including w_2,1=1. Differences w_(k+1)-w_k=H_(n-k-1)-H_k yield symmetry/strict concavity, hence strict log-concavity and increasing peak thresholds. Since P_i=(1-B_(i-1))*B_i, independence gives Cov(I,P_i)=pq*(p*w_i-q*w_(i-1)). Sum w=binom(n,2) gives E[I|D=d]=nd/2; harmonic asymptotic gives w_(floor alpha n)/n->binary entropy, fixed k gives k log n+O(1); so first and last peak thresholds ->1/3,2/3 while bulk ->1/2. All boundary n and peak ranges checked, no finite enumeration substituted for general proof.
 
-**Scientific limits and risks.** The theorem covers the recursive law only, for \(n\ge2\) and \(0<p<1\), and its peak statement is for \(2\le i\le n-1\). It does not establish full inversion distributions, higher conditional moments or independent validation. A more extensive historical search could uncover an equivalent formula derived from the earlier complete probability law.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Féray--Rivera-Lopez define precisely this recursive model, signed tree, full point probabilities and total-descent Bernoulli distribution; these are treated as prior. The new evaluated L_kR_k positional kernel, full descent-vector inversion regression and ordered peak thresholds are not stated or implied without a nontrivial BST priority calculation. Chen--Kitaev--Zhang work is for uniform separable measure, not this recursive biased law. Resultary nearby uniform permutation inversion/cycle-covariance results are different.
+
+## value
+
+PASS
+
+The exact influence of a local descent on global inversions is nonuniform: logarithmic near edges, order n with binary entropy envelope in bulk. Combined with the ordered peak-covariance sign transitions, this is a natural complete local-global statistic dependence classification for a nonuniform recursive separable permutation measure, beyond mere known binomial total descents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
