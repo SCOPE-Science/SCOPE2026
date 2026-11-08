@@ -1,0 +1,185 @@
+{
+  "correctness": {
+    "rationale": "The QR range projector identity reduces residual squared Frobenius norm to d-k plus (kappa^2-1)/(1+kappa^(4q+2) gamma), with gamma the inverse-Gaussian-Gram quadratic form. Gaussian invariance and Schur complementation give gamma=U/V in distribution with independent chi-square degrees k,d-k. Integrating the resulting beta law yields the exact expectation; endpoint-integral asymptotics give explicit coefficients for k=1, k=2 and k>=3, including q=0 and q>=1. Hypotheses, rank boundaries, kappa=1, and d=2 were checked. 460 direct QR, integral, special-case and asymptotic test assertions passed in the current delivered package; proof rather than samples establishes infinite conclusions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Halko-Martinsson-Tropp provide expected Frobenius bounds with Gaussian oversampling rather than equality or sharp k=2 critical logarithm.",
+        "Witten-Candes Theorem 1.5 states a general upper bound with oversampling; its q-power Algorithm 3 discusses bounds, not the exact strong-spike constants.",
+        "Diouane et al. extend Gaussian expectation bounds to nonstandard mean/covariance and explicitly require additional columns in their principal inequalities.",
+        "https://arxiv.org/abs/0909.4061",
+        "https://candes.su.domains/publications/downloads/RandomizedNLA.pdf",
+        "https://arxiv.org/abs/2206.08793",
+        "Saibaba (2018), Theorem 6, assumes Gaussian oversampling rho>=2 and a target-rank spectral gap gamma_k<1; our one-spike matrix has gamma_k=1 for k>=2, so that theorem cannot imply the critical two- and three-column cases."
+      ],
+      "reasoning": "The general inequalities cover existence of bounded error for sufficiently oversampled sketches and one-column failure qualitatively but do not logically imply the exact beta law or leading constants, especially k=2 without sufficient oversampling. The theorem does not claim better general bounds or new range-finding algorithms.",
+      "searches": [
+        "sharp asymptotic power iteration Gaussian sketch spike κ strong k=1 k=2 k>=3",
+        "Gaussian randomized range finder spiked diagonal matrix expected Frobenius residual error rare sketch misses one column two columns logarithmic divergence oversampling",
+        "Gaussian randomized subspace iteration power scheme spiked spectrum oversampling asymptotic error phase transition k 1 2 log k",
+        "Gaussian SVD sketch with one dominant singular value one, two, three sketch vectors expected squared residual kappa linear logarithmic finite and power iteration q",
+        "Halko-Martinsson-Tropp 2011 Theorems 10.5/10.6",
+        "Diouane et al. arXiv:2206.08793 Sections 3-4",
+        "Witten-Candes 2013/2014 Theorem 1.5",
+        "Saibaba arxiv:1804.02614 Theorem 6 and Assumption 1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2308.05814",
+      "https://arxiv.org/abs/0909.4061",
+      "https://candes.su.domains/publications/downloads/RandomizedNLA.pdf",
+      "https://arxiv.org/abs/2206.08793",
+      "https://ar5iv.labs.arxiv.org/html/2206.08793",
+      "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+      "2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80",
+      "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248",
+      "https://arxiv.org/abs/1804.02614"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Witten-Candes explicit diag(t,1) with one column proves a weaker qualitative failure; for q=0,d=2,k=1 the new expected squared residual exactly equals t, not merely diverges.",
+        "Theorem 1.5 of Witten-Candes and Theorem 10.5 of Halko-Martinsson-Tropp give upper bounds with oversampling; those do not yield equality or all critical dimensions and powers.",
+        "Saibaba-Miedlar and Diouane et al. give class-specific upper bounds that do not exhibit this exact chi-square-ratio law.",
+        "https://candes.su.domains/publications/downloads/RandomizedNLA.pdf",
+        "https://arxiv.org/abs/0909.4061",
+        "https://arxiv.org/abs/2308.05814",
+        "https://arxiv.org/abs/2206.08793",
+        "The one-column beta-overlap factor is not individually claimed new: a prior trace-estimation calculation on the same spiked matrix used it to obtain the same leading k=1, q=0 coefficient, while the mean squared Frobenius residual, k>=2 regimes and all q>=1 were not covered."
+      ],
+      "reasoning": "Parts of the phenomenon are already known: Gaussian range finding, spike blow-up and oversampling control. The specific new claim is their unified *exact squared error distribution* and three sharp asymptotic rates, including k=2 and q>=1. General bounds cannot be inverted to establish the claimed equalities. The proof itself uses standard Gaussian regression facts, but the integrated sharp parameter-domain classification is not a substitution corollary of the compared statements.",
+      "searches": [
+        "Witten-Candes 2013/2014 Section 1.1, Theorems 1.2 and 1.5, Algorithms 1 and 3",
+        "Halko-Martinsson-Tropp 2011 Theorem 10.5",
+        "Saibaba-Miedlar 2023 Sections 2-4",
+        "Diouane et al. 2022 Sections 3 and 4",
+        "sharp asymptotic power iteration Gaussian sketch spike κ strong k=1 k=2 k>=3",
+        "ratio chi-squared beta prime inverse Wishart exact rank one spike randomized range finder risk",
+        "Saibaba arxiv:1804.02614 Assumption 1 and Theorem 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact new normalized excess is V/(V+tU), with independent chi-square variables and a Beta(k/2,(d-k)/2) ratio.",
+        "Witten-Candes (2013/2014) demonstrate divergence for diag(t,1) using one Gaussian sketch, but their claims are spectral random-variable comparisons and general Frobenius inequalities, not the exact all-(d,k,q) beta distribution.",
+        "Saibaba-Miedlar (2023) describes covariance-based and distribution-class bounds for subspace iteration, requiring oversampling in its Gaussian bound; no matching beta law identified in the inspected sections.",
+        "https://candes.su.domains/publications/downloads/RandomizedNLA.pdf",
+        "https://arxiv.org/abs/2308.05814"
+      ],
+      "reasoning": "The chi-square/beta law is not simply a renamed bound or a restatement of the known two-dimensional example: it identifies finite-dimensional entire loss distributions for all widths and power counts and determines previously unreported k=2 logarithmic scale. A full matching specialized beta result would cover this claim even if phrased as a Jacobi angle or F distribution; no such covering statement appeared in the sources checked.",
+      "searches": [
+        "exact expected Frobenius loss Gaussian range finder on diag(kappa,1,...,1) chi-square beta mixture sketch width one two logarithmic growth",
+        "rank k projector Gaussian subspace iteration single spike residual squared error hypergeometric and oversampling threshold 2",
+        "randomized low rank approximation single large singular value expected squared error Gaussian sketch dimension k one two three chi-square beta prime Wishart",
+        "ratio chi-squared beta prime inverse Wishart exact rank one spike randomized range finder risk",
+        "Witten-Candes PDF: Section 1.1 and Theorems 1.2, 1.5, power-sketch Algorithm 3",
+        "Saibaba-Miedlar arXiv:2308.05814: Sections 2-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee concerns adaptive column-subset pivoting and products of worst-case errors, not Gaussian range-projection.",
+        "2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80 concerns cross approximation with stale deflation weights, not independent Gaussian sketches.",
+        "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 concerns orthogonal random directions in subspace descent, not squared Frobenius matrix range-finder residual.",
+        "Accessible own scientific finding claims/titles examined included Gaussian Hutch++ trace estimation, which estimates trace rather than a low-rank residual and has no implication for this exact law."
+      ],
+      "reasoning": "Neither the queried mathematical record titles and summaries nor the accessible private claim history supplied an exact (d,k,q)-indexed beta table or an equivalent spike-error classification. Semantic search is incomplete; this observation is not a uniqueness proof.",
+      "searches": [
+        "exact expected Frobenius loss Gaussian range finder on diag(kappa,1,...,1) chi-square beta mixture sketch width one two logarithmic growth",
+        "rank k projector Gaussian subspace iteration single spike residual squared error hypergeometric and oversampling threshold 2",
+        "Gaussian randomized range finder spiked diagonal matrix expected Frobenius residual error rare sketch misses one column two columns logarithmic divergence oversampling",
+        "randomized low rank approximation single large singular value expected squared error Gaussian sketch dimension k one two three chi-square beta prime Wishart",
+        "Gaussian SVD sketch with one dominant singular value one, two, three sketch vectors expected squared residual kappa linear logarithmic finite and power iteration q",
+        "published-finding corpus semantic records for Gaussian sketch rare misses and low-rank spectral spikes",
+        "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80",
+        "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248"
+      ]
+    },
+    "rationale": "The exactly specified one-spike squared-Frobenius distribution, its all-fixed-(d,k,q) beta integral, and all three sharp spike-asymptotic constants are not implied by the inspected general bounds or the prior qualitative two-dimensional spike example. Earlier range finding, Gaussian power iteration, the one-column obstruction and oversampled Frobenius inequalities are acknowledged as prior work. Similar exact beta formulas in less visible specialist work remain a real precedence risk, so this is a qualified same-model assessment, not a uniqueness certificate. The accessible prior work also contains a Gaussian trace-sketch one-column overlap distribution and its linear spike coefficient; those overlapping subfacts are excluded from any claim of independent novelty. Novelty is assessed for the unified matrix approximation result including the k=2 logarithm, the k>=3 exact constants and every q power rate.",
+    "residual_risks": [
+      "Gaussian principal-angle and Wishart literature may contain an equivalent beta-prime computation under another name, outside the inspected source corpus.",
+      "Embedding-based mathematical-record search does not prove novelty or exhaust unpublished and specialist sources.",
+      "An inaccessible or unindexed part of a broad review might contain an equivalent exact one-spike expectation; no conflicting covering statement was discovered.",
+      "The theorem applies only to the stated single-spike family and fixed-parameter asymptotic, not to arbitrary matrices.",
+      "A separately derived one-column beta-overlap factor and leading coefficient already exists in Gaussian trace-sketch analysis; the independent substantive contribution must be the combined k>=2 critical width and q-power regime theorem, not that isolated base subcase."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General distributional-class and covariance-concentration bounds, without the precise one-spike chi-square distribution or three sharp moment regimes. Earliest public date verified as August 10, 2023; journal release is later.",
+        "evidence": [
+          "https://arxiv.org/abs/2308.05814",
+          "arxiv:2308.05814 v1 August 10 2023",
+          "SIAM DOI:10.1137/23M1593255; published MSC list begins 65F15"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.05814",
+        "material_read": "Accessible arXiv preprint source text: introduction, algorithm setup, Lemma 2.3, Sections 3.1-3.5 including theorem statements, proof descriptions and main contributions",
+        "method": "Read arXiv full-text rendering and compared random-matrix input, oversampling assumptions, risk quantities and strength of assertions",
+        "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+        "trigger": "Earliest middle-cohort motivating primary-MSC65F15 publication on randomized subspace iteration and sketch distributions"
+      },
+      {
+        "assessment": "Upper bounds with oversampling; do not supply the exact spike-law expression or sharp critical width-two logarithm.",
+        "evidence": [
+          "https://arxiv.org/abs/0909.4061",
+          "Theorems 10.5-10.6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0909.4061",
+        "material_read": "Full-text paper Theorem 10.5 and Theorem 10.6 region, associated assumptions and introductory algorithm",
+        "method": "Read arXiv PDF theorem page and inspected original page rendering",
+        "title": "Finding structure with randomness: probabilistic algorithms for constructing approximate matrix decompositions",
+        "trigger": "Foundational Gaussian range finder and Frobenius moment upper bounds"
+      },
+      {
+        "assessment": "Explicitly precedes qualitative spike divergence and general Frobenius upper bounds. No exact all-(d,k,q) beta-distribution phase diagram in inspected pertinent sections. Strongest remaining specialist precedence risk.",
+        "evidence": [
+          "https://candes.su.domains/publications/downloads/RandomizedNLA.pdf",
+          "2013 preprint, revised 2014",
+          "Theorem 1.5 general Frobenius inequality"
+        ],
+        "identifier_or_url": "https://candes.su.domains/publications/downloads/RandomizedNLA.pdf",
+        "material_read": "PDF abstract, Section 1.1 (explicit 2x2 spike), Theorems 1.2 and 1.5, Algorithms 1 and 3, bounds and key proof discussion",
+        "method": "Read original author-hosted PDF text and inspected rendered page 2",
+        "title": "Randomized Algorithms for Low-Rank Matrix Factorizations: Sharp Performance Bounds",
+        "trigger": "Plausible strongest precedent including exactly a two-dimensional spike and sharp bounds"
+      },
+      {
+        "assessment": "Develops inequalities for Gaussian, including nonstandard means and covariance; no equivalence to exact beta-mixture law for each sketch width including one and two.",
+        "evidence": [
+          "https://arxiv.org/abs/2206.08793",
+          "arxiv:2206.08793",
+          "Proposition 16 and later Gaussian error bounds"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2206.08793",
+        "material_read": "Accessible full-text HTML: introduction, Sections 2-4 with the main Frobenius expectation propositions and their hypotheses, including Section 3.2",
+        "method": "Compared objects, bound directions, Gaussian covariance assumptions and extra-column requirements",
+        "title": "A general error analysis for randomized low-rank approximation methods",
+        "trigger": "General Gaussian expectation bounds potentially subsuming the spike distribution"
+      },
+      {
+        "assessment": "The Gaussian theorem requires oversampling rho>=2 and spectral gap gamma_k<1; for k>=2 our target-rank gap is 1, and its theorem bounds do not state exact chi-square risk.",
+        "evidence": [
+          "https://arxiv.org/abs/1804.02614",
+          "Theorem 6, Section 3.4; Assumption 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.02614",
+        "material_read": "Accessible full source text: algorithm, Assumption 1, canonical-angle theorems and proof discussion, Theorem 6 Gaussian bounds and low-rank error sections",
+        "method": "Compared spectral gap and oversampling hypotheses and theorem quantities against one-spike d,k,q risk",
+        "title": "Randomized subspace iteration: Analysis of canonical angles and unitarily invariant norms",
+        "trigger": "Strong specialist prior analysis of Gaussian subspace-power iteration and singular-value accuracy"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f67f8a25-6b4c-4d86-904f-a2c141f0b658",
+  "value": {
+    "rationale": "The concrete optimization question is how sketch width and subspace-power filtering interact when a single singular direction dominates a matrix. The transition in expected squared Frobenius excess from linear blow-up (one Gaussian column) through logarithmic blow-up (two) to boundedness (three or more) reflects sharp inverse-Wishart integrability, and the exact power-dependent rates reveal how additional matrix passes control the rare-miss tail. The result is a natural all-fixed-dimension benchmark, not an arbitrary numerical slice or already-tabulated parameter, and no general matrix-wide theorem is asserted.",
+    "status": "PASS"
+  }
+}
