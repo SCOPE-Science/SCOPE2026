@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The polynomial generator of the single-wall state closes at degrees two (six monomials) and four (15 monomials). Exact elimination gives the displayed stationary variance and rational fourth cumulant; independence halves the normalized cumulant for the two-wall oscillator. Differentiating the rational expression produces an explicit degree-14 polynomial with two Descartes sign changes at every positive stiffness, and an everywhere-negative witness at the normalized mechanical frequency. This proves exactly two simple stationary points, not merely observed numerical peaks. The packaged verifier checks generator moment systems at exact rational points and the full symbolic derivative/witness identities. General polynomial elimination and its arithmetic, rather than those sample tests, support the all-parameter claim.
+## correctness
 
-## Originality — PASS (priority qualified)
-The closest full-text prior work, Sarkar and Roy (2023), arXiv:2307.06127v3, Sections 2–4 and appendices, derives force covariance and studies finite-chain kurtosis numerically; it does not give the exact minimal two-wall oscillator rational kurtosis curve or a universal two-turning-point theorem. Related active-bath harmonic-chain papers use different driving mechanisms. Earlier accessible local claims concern covariance twins of telegraph/OU switching, rather than reset-wall velocity kurtosis with two universal extrema. Semantic published-record queries showed no matching result; this alone does not establish priority. A broad unpublished or differently worded moment theorem could subsume the specialization.
+PASS
 
-## Mathematical value — PASS
-A published finite-chain non-Gaussian observable is resolved in the smallest physically meaningful two-wall system. The result proves a global, all-mechanical-parameter reentrance in the reset-rate response, not an arbitrary numerical parameter slice. It also gives an exact three-to-one limitation of single-kurtosis inference. The result does not extrapolate the extremum pattern to multi-oscillator chains.
+The normalized one-wall polynomial generator has drift v d_u+(-a u-v+z)d_v, unit diffusion d_zz and reset r(f(u,v,0)-f); its closed degree-2/4 moment systems yield Var(v)=2/(a+r+r²) and the one-wall excess 6N/((4a+3)Q). Independence of the equal walls halves the standardized fourth cumulant, producing the claimed 3N/((4a+3)Q). Differentiating gives -3P/((4a+3)Q²), P=NQ_r-QN_r degree 14. The coefficient sign blocks have exactly two variations for every a>0 (the exceptional c11<0 implies a<3 and c10<0); P(a,0)>0, P(a,sqrt(a))<0 via an explicit all-positive H, and positive leading coefficient give exactly two SIMPLE positive roots on either side of sqrt(a). Thus the inverse three-value assertion is restricted to the open interval between the local minimum and maximum; all constants/rates strictly positive. Rebuilt independent 6/15 stationary moment solves at a=5/4,r=7/3 and checked the symbolic derivative/Descartes witnesses at five values, rather than relying on saved VERIFY_OK. The finite tests corroborate but are not the global two-root proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact all-stiffness two-critical-rate and threefold inverse-statistic law goes beyond primary numerical kurtosis-versus-chain-size results for the same reset-driven source. This is qualified best-of-knowledge priority, not a guarantee against more general exact moment theorems.
+
+## value
+
+PASS
+
+The model has an observable fourth-order response with exactly three inverse resetting-rate solutions; the universal two-turning-point proof supplies a structural identifiability boundary rather than just a numerical example or a routine covariance formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
