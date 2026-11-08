@@ -1,15 +1,21 @@
-# Scientific review — critical Zipf quorum fluctuations
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact finite-time mean and variance follow from independence of the Poisson arrival clocks. The key infinite harmonic-sum asymptotic is obtained by splitting at the scaled index and controlling two bounded-variation Riemann sums. Its finite cutoff tail gives the explicit first correction to the deterministic mean root. A triangular-array Lindeberg argument handles rare early indices separately from small later summands, and time inversion at fixed offsets gives the central limit theorem. The shift exponent \(3\theta/2-1\) determines the stated two-thirds threshold. The exact proof is in RESULT.md. The accompanying computational checks support finite formulae and normalized constants, but cannot certify an asymptotic limit.
+## correctness
 
-## Originality
-PASS, subject to the stated residual historical-priority risk. Müller and Šebek (arXiv:2607.08551v1, especially Lemma 6.2 and Theorem 6.3) already prove the first-order critical Zipf quorum constant; this contribution does not claim that constant. The new claim adds a hitting-time central limit theorem at the exact mean root and identifies the nontrivial finite-population bias and its sharp two-thirds phase transition. Chebunin and Zuyev's 2020/2022 infinite-urn functional CLT uses a fixed summable sequence of frequencies and does not, as stated, cover triangular harmonic normalization or the finite-cutoff shift. Baake and Baake's 2026 multiple-coupon paper concerns Markov-generator embeddability. Actual semantic-record and literature comparisons did not reveal an equivalent or stronger covering statement; negative search results alone do not establish priority.
+PASS
 
-## Mathematical value
-PASS. The source's leading-order law does not determine uncertainty at the hitting-time scale. This theorem identifies the exact Gaussian standard deviation and proves a sharp boundary at which a natural published leading-order centering ceases to be suitable for uncertainty quantification. The positive deterministic bias is caused specifically by the upper cutoff of the critical Zipf frequency profile, a structural effect rather than a numerical improvement. The exact-root formulation remains valid on both sides of the boundary.
+At critical aligned Zipf weights, the deterministic mean discovered mass is S_N(A)/H_N, with S_N(A)=sum_i(1-e^-A/i)/i. Splitting the infinite harmonic sum and subtracting i>N gives S_N(A)=log A+2gamma-A/N+O(1/A+A/N^2+A^2/N^2). Consequently its exact root is A_N=c_theta N^theta+c_theta^2 N^(2theta-1)+O_theta(1+N^(3theta-2)). The variance of the unnormalized discovered sum satisfies A V_N(A)->1/2 and A S_N'(A)->1; the triangular-array Lindeberg bound comes from isolating i<=A^(2/3), which are discovered with overwhelming probability, while all remaining scaled summands vanish. Threshold-event inversion yields (T_N/H_N-A_N)/sqrt(A_N)=>N(0,1/2), and replacing the exact root by first-order centering creates the theta=2/3 transition. Independent high-precision finite sums and root finding for N=5000,20000,80000 and theta=1/2,2/3,0.8 checked slope and variance convergence and the positive second correction.
 
-## Closest prior literature and limitations
-Müller–Šebek (2026) is the direct antecedent. Chebunin–Zuyev (published online 2020) supplies relevant but not directly applicable missing-mass CLTs; Baake–Baake (2026) gives adjacent coupon-sampling structures. The result is limited to fixed \(\theta\in(0,1)\), independent exponential first arrivals, and critical harmonic aligned frequencies. It does not prove an all-threshold functional limit, convergence rate, or analogous de-Poissonized theorem. Broader unpublished or older inversion theorems could affect historical priority and have not been exhaustively ruled out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Müller–Šebek 2026 establishes the exact first-order critical Zipf scale and c_theta constant, which are credited. The precise Poissonized first-arrival hitting-time CLT and second-order finite-cutoff center shift are distinguished; related infinite occupancy CLTs use a fixed summable frequency law, not the finite N harmonic triangular array. The direct 2026 paper full text was unavailable by arXiv/OA and authorized institutional access returned vpn_disconnected: this limits originality confidence but is not a correctness refutation or automatic O failure.
+
+## value
+
+PASS
+
+A sharp uncertainty law and finite-population bias threshold answer a natural question left by a first-order quorum-time theorem. The two-thirds boundary determines when a commonly used leading center gives wrong Gaussian uncertainty quantification, and is not a tiny numerical constant improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
