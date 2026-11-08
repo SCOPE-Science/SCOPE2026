@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite verification and proof limits
+# Independent mathematical audit
 
-Run `python verify_direct.py` and `python verify_structural.py` from the folder containing the extracted artifacts. Both scripts use the standard Python library only. The first enumerates assignments and all legal one-vertex changes; the second builds the hypercube-plus-ear model directly and checks its neighbour lists against the graph constraints. Their assertions establish the enumerated cases and no larger range. The proof of the theorem for arbitrary positive integers \(m,n\ge2\) is the mathematical argument in `RESULT.md`.
+## correctness
 
-The complete theorem is about exact distances in an unweighted proper three-colouring graph. It does not claim a statement for four colours, multiple deleted original edges, or stars. Relevant historical literature is partially available only as indexed text; bibliographic coverage and independent validation are not certified.
+PASS
+
+Classified complete-biclique 3-colorings into three Q_m plus three Q_n cubes arranged at six junctions. Missing-edge colorings have one repeated color only on removed-edge endpoints, and other two colors fixed on opposite remaining shores: exactly six extra states, each two neighbors adjacent to a junction through a same-length square ear. Ear detours are removable so old-old distances persist. Contract each cube between opposite junctions to alternating m,n arc-lengths on a circle of length 3(m+n); distances between distinct cubes are circle distances, same-cube distances Hamming. Opposite positions witness D=floor(circumference/2) for all states, including ears via neighboring portals. Nontrivial cross-block cycles must traverse ring giving odd girth when length odd. Independently enumerated all named proper coloring assignments, recoloring edges, BFS distances, old-old isometry for (2,2),(2,3),(3,3), not used as all-parameter proof.
+
+## originality
+
+PASS
+
+Celaya et al. 2016 classify Hamiltonicity/Gray-code number of the complete biclique recoloring graph, establishing the original cube pieces but not the one-edge deletion perturbation or isometric insertion of six square ears in the accessible text. Broader 3-recoloring work studies connectivity/complexity, not this exact perturbation theorem. Full 2016 PDF was not retrieved; qualify claim accordingly.
+
+## value
+
+PASS
+
+A sharp, natural robustness theorem: deleting one constraint creates six configurations yet provably leaves all original shortest reconfiguration paths, radius, diameter and eccentricities unchanged; the odd-girth transition is a structural consequence, not merely a restatement of connectivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
