@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification of the bridge-barbell negative-type classification
+# Independent mathematical audit
 
-The standalone verifier is `verify_bridge_barbells.py`. Run with Python 3 and installed NumPy and SciPy:
+## correctness
 
-`python verify_bridge_barbells.py`
+PASS
 
-The script constructs the unit graph shortest-path matrix directly for each pair of clique sizes; it does not use a saved distance table. It compares the full zero-sum quadratic form to the proof's reduction using exact rational arithmetic for 525 tests. It then compares the two-by-two threshold root with the eigenvalues of the separately centered powered-distance Gram matrix for 100 pairs and checks critical rank and near-endpoint signs. It evaluates 81 strict-monotonicity comparisons and five two-parameter asymptotic cases.
+Rebuilt the zero-sum powered-distance expansion on bridge endpoints and uniform ordinary-vertex sums: the within-clique fluctuations yield −∑e_i²−∑f_j², optimizing the bridge mass S completes square −2(S+(2^p−2)(X−Y)/2)², leaving −(X,Y)M_qr(p)(X,Y)^T with the displayed real symmetric 2×2 Schur matrix. All parameters (X,Y,S) can be independently realized by a zero-sum vector, so p-negative type iff M_qr PSD. Its least eigenvalue is γ−β−sqrt(δ²+z²). On (1,2), z<0 because 2·3^p−4^p−2>0, and β′−z′=3^p ln3−2·2^p ln2>0. Thus β+sqrt(δ²+z²) increases strictly and crosses γ once between p=1 and p=2 (at 2 iff q=r=1). For p>2, β>2 makes both diagonal entries negative. Li–Weston propagation gives strict negative type below 1. Kernel dimensions then give Euclidean rank q+r at a nonexceptional threshold and 1 for the four-vertex path; below it the rank is q+r+1. Size monotonicity follows by decrementing the relevant diagonal entry and using a kernel vector with nonzero coordinates, asymptotic via implicit differentiation at p∞=ln2/ln(3/2). Independent all-vertex shortest path matrices yielded endpoint centered Gram ranks for (q,r)=(1,1),(1,2),(2,2),(3,4), confirming the exception and sample roots.
 
-Observed successful output:
+## originality
 
-```
-EXACT_QUADRATIC_FORM_OK 525
-CRITICAL_INERTIA_OK 100
-STRICT_MONOTONICITY_CHECK_OK 81
-ASYMPTOTIC_CHECK_OK limit= 1.709511291351 coefficient= 0.188526473848
-ALL_BRIDGE_BARBELL_CHECKS_OK
-```
+PASS
 
-The exact form checks use integer exponents \(1,2,3\), not arbitrary real exponents. Floating-point spectral comparisons test finite instances, not universal signs or rigorous root error bounds. The analytic argument in `RESULT.md` proves the universal real-exponent classification, monotonicity, and asymptotic law; the verifier is corroboration only.
+Aalipour et al. Section 5 studies the exact generalized barbell two-clique graph family, but gives ordinary p=1 distance-matrix determinants and inertia, not sharp powers p or conditional negative definiteness. Sánchez gives a criterion applicable in principle to any finite metric plus an evaluated complete-bipartite case; Li–Weston proves interval/strictness, not these evaluated two-clique thresholds. Resultary R6 retrieves same bridge-barbell graph with zero-forcing polynomial, a different invariant. No verified stronger exact threshold theorem surfaced; novelty is best-of-knowledge, not absolute priority.
+
+## value
+
+PASS
+
+Two cliques joined by a bridge are a familiar graph metric family already studied spectrally, but their maximal negative-type exponent and Euclidean snowflake embedding rank are distinct intrinsic questions. The complete two-size threshold, strict response to growing either clique, endpoint geometry, and nontrivial large-clique limit are useful exact natural invariants; they are not obtained merely by renaming the known p=1 distance determinant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
