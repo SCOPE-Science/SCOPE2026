@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:54:53.317966Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 16-bit feedback masks parameterize exactly the successor permutations of binary order-five de Bruijn cycles via paired conjugate five-bit states, with no rotational overcount because every Hamiltonian cycle can be rooted at state 0. One valid cross-join changes exactly two distinct feedback bits, splitting and then rejoining the 32-cycle; valid neighboring masks are recognized by an exhaustive criterion. An independently written verifier exhaustively tested all 65,536 feedback masks (2048 valid), formed all 120 double-bit changes per valid mask and BFS from each of 2048 vertices in the resulting undirected graph. It independently obtained 38,704 edges, distance counts (38,704,305,376,758,800,710,976,254,800,27,104,368) at distances 1..7, eccentricities 48,1264,736 for values 5,6,7, diameter 7 and radius 5. The proof is finite and exhaustive, not sampled; the earlier degree table is treated only as a prior checksum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alhakim treats graphs at general orders but establishes connectivity, Hamiltonian paths and degree information; such coverage does not specify order-five diameter or all-pairs metric.",
+          "Dąbrowski–Rachwalik–Szmidt 2026 presents a broader cross-joint generation method; full text access was rate-limited."
+        ],
+        "reasoning": "A general connectivity theorem is strictly weaker than exact diameter and enumerator; the 2026 generation result remains a limited historical risk rather than claimed ruled out.",
+        "searches": [
+          "arXiv:1805.12059 Section 4",
+          "doi:10.3390/math14091424"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1805.12059",
+        "eprint:2013/760",
+        "doi:10.1007/s10623-020-00759-2",
+        "doi:10.3390/math14091424",
+        "frozen RESULT.md tree e77711b163b4c5eb69d7795c6088a3d888d3bdd2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A graph can be connected and Hamiltonian with many different diameters and distance distributions, so existing qualitative graph theorems cannot imply the exact metrics.",
+          "An interleaving criterion identifies edges, but does not supply complete 2048-source BFS results absent further exhaustive calculation."
+        ],
+        "reasoning": "The order-five metric relies on new exhaustive classification beyond published connectivity/degree claims as inspected; future inspection of limited full text may alter priority.",
+        "searches": [
+          "eprint:2013/760",
+          "arXiv:1805.12059",
+          "doi:10.1007/s10623-020-00759-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mykkeltveit–Szmidt and Alhakim use cross-join transformations to establish connectivity/Hamiltonicity, not the enumerated shortest-path graph metric.",
+          "Resultary search returned other Hamming/code graph distances, not this same graph."
+        ],
+        "reasoning": "Cross-join pair span and longest common-prefix based metrics are not graph-theoretic shortest paths through intermediate de Bruijn cycles; names alone do not make them equivalent.",
+        "searches": [
+          "arXiv:1805.12059",
+          "eprint:2013/760",
+          "Resultary: de Bruijn sequence order 5 cross join graph clique distance 2048 vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published order-five degree distribution matches the independent graph and is acknowledged as known, but degrees do not determine all-pairs shortest-path distances.",
+          "Jiang–Lin title concerns longest shared subsequences and cross-join pair positional diameter, not demonstrated graph-metric table."
+        ],
+        "reasoning": "The new purported exact table is all-pairs shortest-path distances and vertex eccentricities; it is logically distinct from prior graph degree counts or positional metrics.",
+        "searches": [
+          "arXiv:1805.12059 Table 1",
+          "doi:10.1007/s10623-020-00759-2"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of statements rather than titles: close primary results supply tools, partial parameter regimes or weaker scalar/qualitative conclusions but do not directly cover this particular exact claim. Inaccessible plausible broader results are named and retained as specific historical-priority risks, not treated as automatic failure.",
+      "residual_risks": [
+        "Full source texts of Jiang–Lin (2020) and Dąbrowski et al. (2026) unavailable, so cannot exclude an equivalent distance census by those authors.",
+        "Only binary de Bruijn order five and exactly the single-cross-join graph; no arbitrary-order diameter claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong original primary precursor; no matching shortest-path graph metric histogram/diameter identified in inspected text.",
+          "evidence": [
+            "Alhakim (2018), Table 1; Sections 2 and 4–6, arXiv:1805.12059."
+          ],
+          "identifier_or_url": "arXiv:1805.12059",
+          "material_read": "Accessible complete arXiv PDF: definitions, connectivity/Hamiltonicity statements, Table 1 order-five degree census and a distinct prefix-based distance in Section 4; PDF page image of table examined.",
+          "method": "arXiv full PDF with visual page verification",
+          "title": "Hamiltonicity of the Cross-Join Graph of de Bruijn Sequences",
+          "trigger": "same graph and fixed order-five degree table"
+        },
+        {
+          "assessment": "Source of cross-join operation and graph reachability, not the full distance census.",
+          "evidence": [
+            "Mykkeltveit & Szmidt (2013), ePrint 2013/760, cross-join definitions and connectivity."
+          ],
+          "identifier_or_url": "https://eprint.iacr.org/2013/760",
+          "material_read": "Primary 11-page ePrint PDF: Section 2 feedback function representation and cross-join equivalence, Theorem 2.4 and Theorem 3.1 connectivity proof; those pages were read.",
+          "method": "full ePrint PDF relevant theorem pages; visual screenshot was unavailable (403), parsed PDF text checked against equations",
+          "title": "On cross joining de Bruijn sequences",
+          "trigger": "two-switch structural equivalence and connectivity"
+        },
+        {
+          "assessment": "Potential related computational coverage, left as explicit historical-priority risk; whole-document noncoverage not asserted.",
+          "evidence": [
+            "Mathematics 14 (2026), article 1424, doi:10.3390/math14091424."
+          ],
+          "identifier_or_url": "doi:10.3390/math14091424",
+          "material_read": "Publisher abstract/extract only; full page retrieval rate-limited; complete theorem and appendices not inspected.",
+          "method": "publisher accessible extract / abstract",
+          "title": "The Cross-Joint Method and Generation of De Bruijn Sequences",
+          "trigger": "2026 same-object generation paper might include exact order-five graph data"
+        },
+        {
+          "assessment": "Studies positional/shared-sequence distances; incomplete full-text comparison remains priority risk.",
+          "evidence": [
+            "Jiang & Lin (2020), Designs Codes Cryptography 88, 1463–1475."
+          ],
+          "identifier_or_url": "doi:10.1007/s10623-020-00759-2",
+          "material_read": "Abstract and publisher preview only.",
+          "method": "publisher preview",
+          "title": "Longest subsequences shared by two de Bruijn sequences",
+          "trigger": "term diameter for cross-join might be mistaken for graph distance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cross-join connectivity of de Bruijn cycles is known, but the number of *validity-preserving single cross-join operations* needed between two cycles is a directly motivated natural graph metric. The 2048-vertex order-five graph has a complete quantitative metric census and exact seven-step worst case, 48 central cycles, and distribution of all unordered pair distances. This is a substantial complete finite graph classification, not an unmotivated fragment of a larger census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full source texts of Jiang–Lin (2020) and Dąbrowski et al. (2026) unavailable, so cannot exclude an equivalent distance census by those authors.",
+    "Only binary de Bruijn order five and exactly the single-cross-join graph; no arbitrary-order diameter claimed."
+  ],
+  "schema_version": 1
+}
