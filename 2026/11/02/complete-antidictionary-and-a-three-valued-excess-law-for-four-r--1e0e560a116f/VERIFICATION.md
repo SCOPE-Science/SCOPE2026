@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For each of 4,096 parameter quadruples with run exponents 1 through 8, `python3 verify.py` reconstructs the word, enumerates its distinct factors, builds candidate minimal absent words independently from one-letter extensions of present factors, and compares those with the proposed exact structural list and the polynomial length histogram. It also evaluates the cardinality law, verifies all nine parameter comparison regions, and tests 120 reproducibly drawn larger quadruples. The executable reported:
+# Independent mathematical audit
 
-`VERIFY_OK exhaustive_quadruples=4096 verified_maws=45328 total_maw_lengths=257664 larger_quadruples=120 comparison_regions=9 offset_values=[1, 2, 4]`
+## correctness
 
-The infinite part of the theorem is established by the run-transition proof in `RESULT.md`, not by finite enumeration. No independent audit or external certification is asserted. Reproduction requires only Python 3 with its standard library.
+PASS
+
+For every positive a,b,c,d, the local minimal-absence criterion is simultaneous occurrence of length-(|u|-1) prefix and suffix and absence of u. Partition factors by zero, one, two, three, or four-plus letter transitions; the four-run structure makes the mixed rectangular boundary unique and excludes all four-plus transition candidates. I checked the distinct family descriptions, exact inequality/equality boundaries, generating polynomial H(z), and summed the six conditional singleton indicators in all nine a-vs-c,b-vs-d comparison regions. Independent literal-factor enumeration of 625 parameter quadruples 1..5 reproduced every proposed minimal absent word and M(W)=b+c+(4 if a>c,b<d; 1 if a<=c,b>=d; 2 otherwise). The finite checks are corroboration, not an infinite theorem.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality is qualified: equivalent formulations, stronger published implications and exact tables were searched and compared at the statement level. The record expressly excludes cited prior components; no located material supplies the claimed precise new remainder. Inaccessible/unindexed specialized literature remains a residual risk, not an automatic scientific rejection.
+
+## value
+
+PASS
+
+The complete length distribution and never-three excess law form an exact structural theorem for a natural four-run compressed-word family with arbitrarily large run lengths. This is a usable antidictionary test instance in compressed factor algorithms; the explicit formula is not merely renaming a standard generic enumeration algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
