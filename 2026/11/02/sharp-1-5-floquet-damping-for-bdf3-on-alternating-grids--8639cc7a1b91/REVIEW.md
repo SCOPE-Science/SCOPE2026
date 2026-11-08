@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The four-node cubic interpolation construction uniquely determines two coefficient triples. Direct multiplication yields the reduced quadratic factor of the two-step monodromy. Three strict Schur--Jury inequalities reduce to polynomials with positive coefficients, establishing \(|z|<1/5\) for every \(r>0\), not merely enumerated ratios. Both singular endpoint limits are \(\{0,-1/5\}\) and prove optimality of the constant. The reciprocal discriminant identity and Descartes' rule prove the mode transition and its uniqueness. The exact symbolic checker reproduces the critical identities from interpolation data. Zero-stability follows from power boundedness of one fixed three-dimensional monodromy and boundedness of its one-step phases for each fixed \(r\).
+PASS
 
-## Originality
+Recomputed the BDF3 coefficients directly from four-node cubic Lagrange interpolation, the two companion matrices, and their reduced quadratic z^2-T(r)z+E(r). The three scaled Schur-Jury expressions equal strictly positive coefficient polynomials divided by Delta(r) for every r>0; endpoint limits give the unattained optimal 1/5 parasitic two-step radius. The discriminant is r^4 F(r+1/r)/Delta^2 with F(u)=u^4-22u^3-173u^2-390u-279, one root u>2 by Descartes and endpoint signs; it yields reciprocal mode-transition ratios. The eigenvalue 1 is simple, while both parasitic eigenvalues are strictly damped, implying uniform-in-step-number homogeneous zero stability for each FIXED positive alternating r. Independently recreated exact symbolic identities in independent_checks.py; finite example ratios are not the all-r proof.
 
-**PASS on inspected material, with residual risk.** The closest relevant published spectral-radius paper is Guglielmi--Zennaro (online 2000), whose available abstract describes a general ratio-bound approach. Its full text was inaccessible, which leaves a specific possible undocumented periodic-grid comparison. Li--Liao's accessible 2022 theorem addresses ratios bounded by approximately \(2.553\) almost everywhere, and Söderlind--Fekete--Faragó (2018) analyze smooth grids with ratios approaching one. None of the material inspected states or implies the sharp all-positive-ratio two-periodic \(1/5\) disk, or the discriminant transition. Absence from searched indexes is not a uniqueness certificate.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Alternating ratios are a natural stress test for variable-step multistep methods. The theorem proves an unexpectedly stable entire unbounded-ratio family beyond available general sufficient ratio conditions, giving the exact optimal parasitic damping constant and a nontrivial real/complex spectral phase transition. It reveals why unrestricted one-step jump size alone is not a necessary instability criterion. Its scope is explicitly limited to homogeneous zero stability, not full perturbed stability.
+Compared the exact two-periodic Floquet spectrum and all-positive-r stability, not simply variable-step BDF3 titles, against the joint-spectral-radius general-step work and modern ratio-restricted/smooth-grid stability theorems. The exact sharp 1/5 radius and reciprocal real/complex transition are not implied by inspected ratio-bound results. Guglielmi-Zennaro full text was unavailable and an equivalent periodic calculation cannot be ruled out.
 
-## Closest literature and limitations
+## value
 
-See Guglielmi--Zennaro (2000/2001), Li--Liao (2022), and Söderlind--Fekete--Faragó (2018) in `RESULT.md`. The inaccessible full text of Guglielmi--Zennaro is the leading originality risk. Uniform-in-r transient bounds, arbitrary switching, A-stability, and inhomogeneous stability are outside the result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Arbitrarily large alternating adjacent-step jumps constitute a natural test family for the fragile zero stability of higher BDF methods. The unrestricted r>0 exact damped spectrum and mode-transition threshold isolate a precise structural phenomenon beyond smooth grids or one-off numerical examples. It gives a useful sharp benchmark, without asserting global variable-step or forced-equation stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
