@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For k>=3 the complete squares split disjointly into odd squares congruent to 1 (mod 8) and four times squares of depth k-2. The extra transform is supported on exactly eight frequencies; its even and odd classes have values c_k and d_k before adding the eighth-root phases. Summing their absolute differences gives the two-step radical recurrence, including k=4 and explicit depths 1,2,3. A convolution-kernel norm identity proves sharpness. The limiting ratios c_k/h_k->1/3 and d_k/h_k->-1/6 give the radical constant; a 2-Lipschitz bound gives |Delta_k-C|<=80/(3*2^k) and parity-dependent convergent offsets with explicit tails. The separate FFT checker passes all Fourier coefficients and Parseval at k=1..12; finite tests are supportive only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Green–Sanders Theorem 1.3 gives a coset decomposition from an assumed spectral norm bound and does not compute the norm.",
+        "Malikiosis 2022 Theorems 1.4–1.5 concern tiling and spectral status of cyclic subsets, not ℓ1 norms.",
+        "A previously documented odd-prime full-square formula assumes odd p and explicitly excludes characteristic two."
+      ],
+      "reasoning": "A universal bound or an odd-prime formula cannot algebraically yield the exact characteristic-two recurrence and constants as stated. The dyadic support coset and eighth-root phase cancellation are different premises, evaluated in the present proof.",
+      "searches": [
+        "published-finding corpus: dyadic square residues subset convolution 2-adic square set Fourier coefficients sharp l1 endpoint operator norm",
+        "web: Fourier algebra norm squares 2-adic",
+        "arxiv:math/0611286v2 search words quadratic and squares"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0611286v1 (dated 2006-11-09); v2 primary PDF inspected",
+      "Malikiosis, doi:10.1017/fms.2022.14 (full text relevant statements inspected)",
+      "Stangl, doi:10.1080/0025570X.1996.11996456 (metadata; original paper inaccessible)",
+      "MathWorld Square Number (Stangl counting formula)",
+      "published-finding corpus closest 2026/10/11/SCOPE-parity-sharp-fourth-moments-of-the-dyadic-quadratic-graph--417e488b0292",
+      "published-finding corpus closest 2026/10/11/SCOPE-exact-endpoint-norms-and-residue-law-for-consecutive-cyclic-four--8f1466cba7af"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Green–Sanders, Theorem 1.3 (finite abelian group idempotent algebra bound), is conditional on a given bound and supplies no exact square-mask computation.",
+        "c42daa36-0e08-4fbd-8d54-dcee6d93752c treats each odd prime and explicitly states that it makes no characteristic-two claim.",
+        "published-finding corpus closest dyadic quadratic graph record 2026/10/11/SCOPE-parity-sharp-fourth-moments-of-the-dyadic-quadratic-graph--417e488b0292 concerns sharp fourth moments of curve extension rather than endpoint ℓ1 multiplier norm on square residues."
+      ],
+      "reasoning": "The new claim is neither a case of the odd-prime theorem nor a corollary of the general structural idempotent theorem. Quadratic-graph fourth moments control a different operator and cannot imply the exact Fourier-mask ℓ1 norm without additional work.",
+      "searches": [
+        "published-finding corpus: Green Sanders quantitative idempotent theorem 2006 quadratic residues dyadic",
+        "published-finding corpus: exact Fourier algebra Wiener norm cyclic group Z/2^k of all quadratic residues squares including zero projection norm logarithmic k parity even odd",
+        "own ledger title/claim: c42daa36-0e08-4fbd-8d54-dcee6d93752c"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Green–Sanders arXiv:math/0611286v2, pp. 2–3 defines algebra norm and proves general subgroup-coset decomposition, not the square-set evaluation.",
+        "The exact operator norm is also the Wiener norm of the indicator 1_{Q_k}; no searched equivalent statement evaluated the dyadic eight-phase sums."
+      ],
+      "reasoning": "The Fourier-projection ℓ1 and ℓinfty norms are identical to the normalized Fourier ℓ1 norm of the square indicator by convolution; this equivalence was included in both searches and proof. Generic norm theorems for the Fourier transform do not determine the norm of one arithmetic mask.",
+      "searches": [
+        "published-finding corpus: exact Fourier algebra Wiener norm cyclic group Z/2^k of all quadratic residues squares including zero projection norm logarithmic k parity even odd",
+        "web: spectral norm characteristic function squares modulo 2^n quadratic residues finite cyclic group",
+        "web: Wiener algebra norm indicator set quadratic residues prime power"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Stangl 1996 cardinality: |Q_k|=(2^{k-1}+4)/3 for even k and (2^{k-1}+5)/3 for odd k, quoted by MathWorld and checked independently.",
+        "published-finding corpus closest relevant returned general projection norm and dyadic quadratic-graph fourth-moment records, not the claimed all-depth square-indicator Wiener norm."
+      ],
+      "reasoning": "Exact cardinality is a zeroth Fourier coefficient and does not specify absolute sums of all character coefficients; the theorem derives eight further phase contributions. No examined table lists the claimed norm or the two limiting offsets.",
+      "searches": [
+        "published-finding corpus: Fourier algebra norm exact of full square residues modulo powers of two, dyadic square set Wiener norm linear depth",
+        "web: Stangl Counting Squares in Z_n 1996",
+        "web: Wiener norm of quadratic residues mod 2^n Fourier Lebesgue constant"
+      ]
+    },
+    "rationale": "Bounded source-by-source implication comparison found no complete dyadic square-residue Fourier-algebra norm or two-phase asymptotic formula. Green–Sanders gives general idempotent/coset structure rather than these sharp values; Stangl is a counting source whose full original text was inaccessible; Malikiosis treats spectral/tiling and vanishing sums, not the absolute Fourier norm. The known odd-prime complete-square norm has p odd explicitly and no dyadic eighth-root sector. Exact historical uniqueness is not asserted.",
+    "residual_risks": [
+      "Stangl 1996 original full text was inaccessible, so no whole-paper originality exclusion is claimed.",
+      "An unlocated older source on exact Wiener norms of 2-adic quadratic-residue indicators or a sufficiently strong general coset-union norm formula may subsume the claim.",
+      "All-depth correctness and historical priority have not received independent external evaluation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General quantitative coset decomposition, NOT_COVERING the claimed exact dyadic norm; does not state special squares.",
+        "evidence": [
+          "Theorem 1.3 upper bounds subgroup-coset decomposition length in terms of an assumed algebra norm.",
+          "Section 2 defines the normalized Fourier ℓ1 algebra norm used here.",
+          "Text searches quadratic and squares found no occurrences."
+        ],
+        "identifier_or_url": "arxiv:math/0611286v2; https://arxiv.org/pdf/math/0611286",
+        "material_read": "Theorem 1.2 and 1.3, full Introduction and Section 2 normalization, beginning proof, and document-level searches for quadratic and squares; PDF pp. 2–3 visually checked.",
+        "method": "Primary preprint full document searched and relevant passages/pages inspected",
+        "title": "A quantitative version of the idempotent theorem in harmonic analysis",
+        "trigger": "Original motivation and strongest general finite abelian group norm theorem"
+      },
+      {
+        "assessment": "NOT_COVERING; describes cyclic spectral/tiling implications and cyclotomic vanishing, not square-residue Wiener norm.",
+        "evidence": [
+          "Theorems 1.4/1.5 concern spectral sets and translational tiles for specified cyclic orders.",
+          "No quadratic or norm text matches."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/fms.2022.14",
+        "material_read": "Open-access full HTML article: abstract, Theorems 1.4 and 1.5, mask-polynomial definitions, and searched occurrences of quadratic and norm.",
+        "method": "Primary full-text article sections and article-wide text searches",
+        "title": "On the structure of spectral and tiling subsets of cyclic groups",
+        "trigger": "General cyclotomic mask and exact Fourier-zero results potentially dominating the arithmetic subset"
+      },
+      {
+        "assessment": "COUNTING_COVERAGE for |Q_k|; no justified full-paper NOT_COVERING conclusion.",
+        "evidence": [
+          "MathWorld reproduces Stangl’s even/odd dyadic cardinality formulas.",
+          "Original JSTOR page returned no readable manuscript text."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/0025570X.1996.11996456",
+        "material_read": "Original JSTOR landing page only; full original text inaccessible. Count formula inspected through MathWorld, not attributed to a complete primary inspection.",
+        "method": "Bibliographic record and secondary mathematical exposition; bounded primary access attempt",
+        "title": "Counting Squares in Z_n",
+        "trigger": "Classical exact cardinality of the same square sets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0719daa2-2b4d-4878-b3e7-aa9e333e09ab",
+  "value": {
+    "rationale": "The complete square residue indicator is a canonical arithmetic idempotent Fourier multiplier; its ℓ1/ℓinfty operator norm is a natural sharp amplification invariant. In characteristic two odd squares form an additive coset modulo eight; a nonobvious eight-frequency cancellation produces a new explicit nested-radical slope, exact two-depth increments, and distinct parity-offset limits with effective error. This completes the missing dyadic case rather than merely computing a small table or renaming a known odd-prime formula. Stangl count alone does not determine the norm.",
+    "status": "PASS"
+  }
+}
