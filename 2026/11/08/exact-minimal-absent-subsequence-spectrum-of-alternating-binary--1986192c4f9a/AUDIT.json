@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes the exact final-match index v_last+2D, the exhaustive single-deletion loss classification, the boundary conditions and forbidden 010/101 patterns, and a four-state exact GF. The univariate recurrence and dominant singularity follow algebraically. Direct matching/deletion tests and a separate state DP corroborate finite coefficients; finite verification is not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kosche et al. 2021 full PDF, Section 3 Proposition 3.6 expressly assumes even sigma>=4 and k a restricted multiple to produce an exponential family, rather than binary sigma=2 exact counting.",
+        "Adamson et al. 2024 introduction and Section 3 target counts of all absent words of a specified length under universality constraints, not minimal absent antichains.",
+        "Manea et al. 2025 introduction and main contribution target optimal enumeration algorithms for arbitrary input strings, not explicit generating functions for one prescribed family."
+      ],
+      "reasoning": "The general-purpose MAS testing/enumeration algorithms could compute each finite count by exhaustive output, but neither state nor algebraically imply this rational formula, local forbidden-triple description, or explicit binary growth constant. The published high-alphabet lower bound is inapplicable at alphabet size two. Existing binary SAS and universality counts are different invariants.",
+      "searches": [
+        "weak descent statistic and deletion minimality enumeration of minimal absent subsequences of periodic words",
+        "number of minimal excluded subwords of a piecewise testable language alternating word",
+        "Kosche Koss Manea Siemer Absent Subsequences in Words arxiv 2108.13968 Proposition 3.6 even alphabets minimal absent subsequences alternating B_k binary",
+        "arXiv:2108.13968 Proposition 3.6",
+        "arXiv:2407.18599",
+        "arXiv:2504.21471"
+      ]
+    },
+    "checked_sources": [
+      "Kosche et al., arXiv:2108.13968 (first public 2021-08-31; original family and MAS definition)",
+      "Adamson et al., arXiv:2407.18599 (first public 2024-07-26; length-specific AS bounds)",
+      "Manea et al., arXiv:2504.21471 (first public 2025-04-30; MAS enumeration algorithms)",
+      "Published mathematical records on binary shortest-absent extremals, universality and alternating-word string attractors, compared by statement and implication."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prop 3.6 gives polynomial SAS versus exponential MAS only on the alphabet range sigma>=4 (even) under the explicit chosen parameters; it has no statement for sigma=2.",
+        "Adamson et al. count AS rather than MAS, so fixed-length AS values alone do not recover counts of minimal elements in the absence upper set.",
+        "Manea et al. describe algorithmic enumeration for all input words; general algorithms do not supply the exact all-k rational GF."
+      ],
+      "reasoning": "The claimed statement is a complete binary B_k classification, not a corollary of a known high-alphabet witness, and is not subsumed by an enumeration algorithm or the stronger-sounding generality of all-input counting techniques. The strongest overlap is the motivation/underlying family in Kosche et al., explicitly distinguished. Publication-level uniqueness cannot be guaranteed.",
+      "searches": [
+        "arXiv:2108.13968 §3 Prop 3.6",
+        "arXiv:2407.18599 §3",
+        "arXiv:2504.21471 introduction",
+        "minimal absent scattered subsequences of alternating binary words (01)^k exact exponential growth recurrence 1-2z+z^2-z^3",
+        "minimal forbidden subsequences under subword ordering of alternating binary word (01)^k; exact count generating function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2108.13968 Section 3 defines MAS and the periodic B_k=(1...sigma)^k family; for sigma=2 it becomes (01)^k after relabeling.",
+        "Published research-index record on Fibonacci extremals for shortest absent subsequences of binary words counts *shortest* absent witnesses of arbitrary binary words, not all minimal absent witnesses of a fixed family."
+      ],
+      "reasoning": "Aliases searched include minimal forbidden subwords, scattered subsequence antidictionary, periodic B_k and alternating binary patterns. A statement about shortest absent subsequences does not imply this full minimal-absence spectrum: minimal absent witnesses may be longer than the shortest absent ones. No tested equivalence yielded the bivariate identity.",
+      "searches": [
+        "minimal absent scattered subsequences of alternating binary words (01)^k exact exponential growth recurrence 1-2z+z^2-z^3",
+        "periodic increasing alphabet word B_k = (1 2 ... sigma)^k count of minimal absent subsequences binary sigma=2",
+        "minimal absent subsequences alternating word (01)^k exact count generating function binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The sequence 3,5,9,16,28,49,86,151 was searched as integer data alongside explicit object names; no source assigning these values to minimal absent scattered subsequences of (01)^k was verified.",
+        "Direct OEIS search endpoint was inaccessible; the general OEIS home page was accessible."
+      ],
+      "reasoning": "Sequence coincidences in other word-count problems do not entail a previously published identification of the MAS invariant or the bivariate coefficient law. We do not claim an exhaustive database search; an existing entry with a different interpretation may encode the same recurrence and remains a stated risk.",
+      "searches": [
+        "OEIS 3 5 9 16 28 49 86 151 binary words recurrence",
+        "OEIS exact sequence query 3,5,9,16,28,49,86,151 (site access failed)",
+        "rational generating function counting minimal absent subsequences of alternating finite words"
+      ]
+    },
+    "rationale": "Comparison by implication: Kosche et al. (arXiv:2108.13968, Section 3, Proposition 3.6) discuss the same periodic family but prove only an exponential lower bound for fixed even alphabets of size at least four; their argument expressly assumes sigma>=4. The new exact binary minimum-alphabet all-length MAS spectrum, local weak-descent characterization and growth constant are not obtained by that result. Adamson et al. 2024 treat counts of all absent (not necessarily minimal absent) words in a fixed length, and Manea et al. 2025 treat general enumeration algorithms. Targeted published-literature comparisons found no equivalent, including the nearest SAS extremal and universality-index results. Unindexed equivalents remain possible.",
+    "residual_risks": [
+      "An unindexed or differently phrased pre-existing binary B_k MAS formula may exist.",
+      "The exact integer sequence may appear in OEIS or other enumeration tables under different combinatorial interpretations; the OEIS targeted endpoint was not accessible.",
+      "The later primary papers were inspected for relevant scope and contributions but not all pages and appendices; a hidden relevant observation remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers sigma>=4 even only for the exponential MAS theorem; does not state the binary exact generating function",
+        "evidence": [
+          "Section 3 begins with assumption even sigma>=4 (PDF page 6); Proposition 3.6, pp.205–207 proves high-alphabet exponential MAS via a special subfamily."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+        "material_read": "Introduction, definitions, Section 3 pp.204–212 including Proposition 3.6 proof and comparison to SAS; inspected PDF text and rendered page 206",
+        "method": "Public arXiv full-text PDF passage-by-passage and relevant page image",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Original paper defines same invariant and same periodic B_k family"
+      },
+      {
+        "assessment": "Counts all absent strings of specified length, not the globally minimal absent subsequence antichain for the exact alternating family; later-body coverage remains a limited risk",
+        "evidence": [
+          "Introduction and Section 3 define the fixed-length absent-word min/max counting problem."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.18599",
+        "material_read": "Abstract, introduction, definitions, start of Section 3 and contribution scope, first four pages; complete relevant framing but not every later appendix",
+        "method": "Public arXiv full-text PDF text and rendered page 4",
+        "title": "Tight Bounds for the Number of Absent Subsequences",
+        "trigger": "Potential domination by bounds and precise counting in same word universality area"
+      },
+      {
+        "assessment": "Algorithmic output-delay and longest-MAS results; no specific (01)^k count or rational GF in material inspected",
+        "evidence": [
+          "Introduction describes optimal MAS/SAS enumeration and longest MAS algorithms."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2504.21471",
+        "material_read": "Abstract, introduction and stated contributions on pp.1–3; remaining proofs were not exhaustively read",
+        "method": "Public arXiv full-text PDF textual inspection",
+        "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+        "trigger": "Same invariant and later improved algorithms, possible exact family discussion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1986192c-4f9a-4ee8-bc72-4436940c8b17",
+  "value": {
+    "rationale": "Kosche et al. establish exponential MAS growth for this periodic family only at even alphabet sizes >=4 and polynomial SAS counts. The exact binary MAS antichain spectrum fills a naturally motivated smallest-alphabet gap, gives a structural forbidden-pattern classification and sharp growth rate, and quantifies output size for canonical MAS enumeration instances. It is neither a textbook renaming nor a table recomputation.",
+    "status": "PASS"
+  }
+}
