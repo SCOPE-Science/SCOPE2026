@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-A complete finite enumeration of all 4,368 initial five-sets and 8,008 initial six-sets proves the optimum cardinality six and precisely 1,704 feasible minima. A face-incidence construction and a separately implemented bit-toggling construction give the same 16,560 exchange edges. All-source shortest-path searches in both implementations establish the exact distance enumerator, eccentricities, degree profile and Johnson excess. These are exhaustive finite computations; the supplied source files are needed to replay their certificates. No infinite parameter statement is made.
+## correctness
 
-## Originality — PASS (best-knowledge, with residual risk)
-The 2007 zero-forcing source defines the initial-set feasibility problem but not its exchange graph. Alameda et al. (2018) and Rashidi et al. (2020) address the generalized Petersen family primarily via zero-forcing numbers and maximum nullity. Geneson–Haas–Hogben (2020) establish the general single-swap zero forcing graph and results on paths, cycles, complete graphs, forests and constructed disconnected examples; its stated theorems do not imply this 1,704-state graph's exact metric. A 2026 generalized Petersen correction focuses on zero-forcing numbers rather than a reconfiguration metric; its full text was not accessible for decisive section-by-section examination. Searches for the graph's alternate names, ambient Johnson distance, minimum forcing sets, and published mathematical records revealed no exact covering theorem. This is not proof of novelty: the 2026 full-text access gap and unindexed equivalent computations remain risks.
+PASS
 
-## Value — PASS
-The Möbius–Kantor graph is a canonical sixteen-vertex cubic symmetric graph, not an arbitrary selected input. Its local feasibility-preserving exchange problem is natural in the reconfiguration of minimum graph forcing sets. The complete metric of 1,704 configurations shows that a nonregular connected exchange graph can nevertheless be self-centered, and isolates exactly 24 maximally obstructed pairs whose exchange distance exceeds Johnson distance by two. Such a complete finite classification is a useful benchmark and obstruction instance for general reconfiguration methods, beyond recounting a known zero-forcing number.
+Rebuilt from the frozen GP(8,3) vertex/edge rule and independently ran a complete 16-bit exhaustive Python program (not a repository log): zero among C(16,5)=4,368 five-subsets is zero forcing, exactly 1,704 among C(16,6)=8,008 six-subsets force all vertices, so monotonicity proves Z=6. Constructed all legal 1-for-1 exchanges: exactly 16,560 undirected edges, degree histogram 16:240,17:96,18:336,19:192,20:288,21:192,22:240,24:120. Independently BFSed from all 1,704 vertices: every eccentricity is six; unordered distance counts at j=1..6 are 16,560,127,008,417,720,565,488,276,792,47,388, Wiener sum 5,453,976. Every one of 1,450,956 pairs checked against Johnson distance: excess 0/1/2 counts 1,441,284/9,648/24; the 24 excess-2 pairs have 48 distinct degree-16 endpoints. Finite enumeration IS complete proof for this finite object, not a sample. One sentence in RESULT.md says 'find zero forcing five-subsets', contrary to the next sentence and actual check: this is an evident missing-negation editorial error, not an unverified five-subset claim.
 
-## Scientific limits and comparison risk
-The result is finite, with no claim about generalized Petersen families beyond the specified graph. The proof is a complete enumeration rather than a short uniform structural proof. The accessible primary full texts establish the underlying notions and results for other families, but an inaccessible plausible 2026 source and unindexed literature leave a bounded residual originality risk. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the exact all-pairs distance, eccentricity, degree and Johnson-excess classification, excluding the established ordinary zero-forcing rule, graph GP(8,3), and general reconfiguration graph definition. No identified primary result implies the 1,704-state metric. The inaccessible plausible 2026 Petersen correction and unindexed graph tables remain genuine risks.
+
+## value
+
+PASS
+
+PASS: GP(8,3) is a canonical sixteen-vertex cubic symmetric graph; reconfiguring minimum forcing sets by a legal one-swap is a natural discrete optimization object. This complete exact 1,704-state metric distinguishes nonregularity from self-centeredness and isolates a small sharp Johnson-distance obstruction, a usable finite benchmark beyond recomputing a known Z-number. No general-family claim is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
