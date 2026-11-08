@@ -1,19 +1,21 @@
-# Review of the affine-projection norm theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The normalized affine reproducing kernel is reconstructed from exact diagonal covariance. Symmetric-variable convexity identifies the maximum, and the full support of the independent uniform factors gives a strict maximizer classification. The Irwin–Hall inclusion–exclusion identity and a beta-coordinate marginal yield the finite exact formula; an independent ball-coordinate central limit argument gives the sharp mixed-dimensional asymptotic. The included `verification.py` compared two independent integral representations at 24 parameter pairs, 24 rational instances, and the explicit disk-cylinder value. Finite checks support, but do not replace, the proof.
+PASS
 
-## Originality
+Reconstructed the diagonal covariance and kernel 1+(d+2)x.y+3 sum t_i s_i. Independent symmetric ball and interval coordinates yield even convex amplitude dependence; support-crossing on sets of positive probability makes the maximum strict at radius one and all interval endpoints. Conditional Irwin-Hall inclusion-exclusion for sum of k uniforms gives the stated finite H_{d,k+1} formula, including k=0 degenerate case. For d odd the beta weight and c_d are rational polynomials at rational endpoints. The independent cylinder integration at d=2,k=1 is 2.302385560455208 versus 17/9+3sqrt(3)/(4pi)=2.302385560455233. The CLT follows from asymptotically Gaussian scaled ball coordinate and independent cube sum, with uniform integrability via unit second moments, including subsequences in which only one dimension diverges.
 
-**PASS with stated priority risk.** The closest inspected original paper on cylinder polynomial expansions is Wade (arXiv:0906.2408), but that paper uses a Chebyshev axial weight and a discrete Radon-data reconstruction operator whose bound has a growing polynomial-degree parameter. Li–Xu (arXiv:1310.2283) treats ball polynomial and Sobolev estimates. A published exact simplex affine projector and prior exact cube, cross-polytope, and simplex-product results concern geometrically different bodies. The pure-cube boundary family and classical ball facts are not separately claimed as new. No inspected source proves or implies the mixed ball–cube formula or asymptotic continuum. Some older equivalent formulation under total-degree-one Lebesgue constants could still exist.
+## originality
 
-## Value
+PASS
 
-**PASS.** Exact worst-case amplification and the corresponding sharp positivity defect are directly interpretable in uniform-stability estimates for low-order polynomial least squares on disk/cylinder/box product domains. The closed finite-beta evaluation replaces a multidimensional optimization, determines all maximizing locations, gives a symbolic disk-cylinder benchmark, and identifies a sharp continuous geometry-dependent high-dimensional coefficient. These features involve the full infinite family and are not merely a renamed special case of the pure cube or simplex formulas.
+Existing pure simplex/cube/ball and weighted cylinder projection literature does not provide the mixed uniform-volume affine endpoint norm or its full d,k crossover in inspected sources. A more general formula for product-domain kernel distributions may implicitly specialize to it; residual risk recorded.
 
-## Scientific limits
+## value
 
-The norm is for the specified uniform-volume real orthogonal projector, not a minimum over all projectors. There is no higher-degree extension, no claim for arbitrary weights, and no independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Canonical sharp amplification of a degree-one least-squares projector across the fundamental mixed smooth/cubical convex-body family, with complete extremizer locations and a dimensionally sharp continuum crossover sqrt(2(1+2theta)/pi). Such exact constants are meaningful for approximation stability; this is not a routine isolated parameter instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the affine-projection norm theorem
+# Independent mathematical audit
 
-The proof is analytic. All sampled comparisons are supplementary.
+## correctness
 
-`python3 verification.py` checks the finite Irwin–Hall positive-part expression against separately integrated absolute kernels for \(1\le d\le6\) and \(0\le k\le3\), an exact rational-polynomial evaluation for \(d\in\{1,3,5,7\}\) and \(0\le k\le5\), the exact circular-cylinder value \(17/9+3\sqrt3/(4\pi)\), and four illustrative monotonicity comparisons. The program completed with a passing summary: 24 raw-integral comparisons, 24 rational comparisons, one symbolic benchmark, and four numerical sanity checks.
+PASS
 
-The program does not prove strictness for arbitrary parameters, the infinite-dimensional asymptotic, or historical priority. Those are handled by the printed arguments and literature comparisons. The input extremizer is an ordinary kernel-sign function; no numerical search is necessary to establish attainment. Independent audit: not performed.
+Reconstructed the diagonal covariance and kernel 1+(d+2)x.y+3 sum t_i s_i. Independent symmetric ball and interval coordinates yield even convex amplitude dependence; support-crossing on sets of positive probability makes the maximum strict at radius one and all interval endpoints. Conditional Irwin-Hall inclusion-exclusion for sum of k uniforms gives the stated finite H_{d,k+1} formula, including k=0 degenerate case. For d odd the beta weight and c_d are rational polynomials at rational endpoints. The independent cylinder integration at d=2,k=1 is 2.302385560455208 versus 17/9+3sqrt(3)/(4pi)=2.302385560455233. The CLT follows from asymptotically Gaussian scaled ball coordinate and independent cube sum, with uniform integrability via unit second moments, including subsequences in which only one dimension diverges.
+
+## originality
+
+PASS
+
+Existing pure simplex/cube/ball and weighted cylinder projection literature does not provide the mixed uniform-volume affine endpoint norm or its full d,k crossover in inspected sources. A more general formula for product-domain kernel distributions may implicitly specialize to it; residual risk recorded.
+
+## value
+
+PASS
+
+Canonical sharp amplification of a degree-one least-squares projector across the fundamental mixed smooth/cubical convex-body family, with complete extremizer locations and a dimensionally sharp continuum crossover sqrt(2(1+2theta)/pi). Such exact constants are meaningful for approximation stability; this is not a routine isolated parameter instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
