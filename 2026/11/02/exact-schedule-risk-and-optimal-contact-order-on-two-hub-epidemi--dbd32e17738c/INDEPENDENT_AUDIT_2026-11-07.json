@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T12:51:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: On a one-shot-contact tree the unique u-to-v path transmits from a uniformly random initial seed iff contact times along that oriented path strictly increase, giving conditional probability q^distance. Every edge contributes two directed length-one routes and every two-edge path one increasing direction irrespective of timing. On D_{a,b}, the only three-edge paths are opposite-side leaf pairs; exactly M=x(b-y)+(a-x)y of their routes are chronological if x left and y right contacts precede the bridge. Thus R=C_{a,b}(q)+(q³/(a+b+2))M, with exact extrema 0,ab from the two nonnegative decompositions and equality cases. Uniform edge permutations yield binomial-select/factorial joint law for (X,Y); for pair indicators straddling bridge, mean 1/3, covariance 1/18 if one shared leaf, 1/45 if none, leading to Var[M]=ab(a+b+2)/18+ab(a-1)(b-1)/45. Independent fresh complete enumeration of edge permutations for five (a,b) cases reproduced distribution, extremal counts, exact mean and variance. Explicitly distinguish variance of conditional mean across calendars from variance of realized infection count; q=0 excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Silva et al. prove longest-path estimates for edge-ordered hypercubes/random graphs, not the count of all bridge-straddling length-three paths on double stars.",
+          "Deligkas–Potapov optimize reachability by delaying/merging temporal labels, a different control class."
+        ],
+        "reasoning": "Greater graph generality or larger epidemic simulation class does not imply the exact ordered-pair weighted expectation and factorial calendar distribution in this special family; the P4 slice is explicitly credited.",
+        "searches": [
+          "temporal edge-ordered graph double-star epidemic one contact per edge infection outbreak expected size schedule optimization",
+          "arxiv:1502.03146",
+          "DOI 10.1016/j.ic.2022.104890"
+        ]
+      },
+      "checked_sources": [
+        "De Silva et al. arxiv:1502.03146 full relevant PDF",
+        "Holme–Masuda arxiv:1407.6598 abstract and contextual public account",
+        "Deligkas–Potapov DOI 10.1016/j.ic.2022.104890 partial indexed public text",
+        "Resultary temporal edge-ordered graph double-star epidemic one contact per edge infection outbreak expected size schedule optimization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A longest monotone path theorem controls maximal length rather than aggregate count of chronological paths and its variance.",
+          "Earlier P4 special case agrees when a=b=1 but does not determine dependence on both independent leaf counts."
+        ],
+        "reasoning": "The full sharp worst/best calendar classification and exact two-parameter distribution/variance are not immediate corollaries of empirical temporal epidemic or longest increasing path statements. They follow a distinct pairwise-straddling enumeration.",
+        "searches": [
+          "temporal edge-ordered graph double-star epidemic one contact per edge infection outbreak expected size schedule optimization",
+          "arxiv:1502.03146",
+          "arxiv:1407.6598",
+          "DOI 10.1016/j.ic.2022.104890"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Increasing paths in edge-ordered graphs are the combinatorial paths along which infection can travel; their lengths alone do not give weighted total counts.",
+          "The a=b=1 double star is a four-vertex path, matching earlier one-contact path boundary."
+        ],
+        "reasoning": "The theorem can be restated as a complete distribution of length-three increasing oriented paths on a double-star under uniformly random distinct edge labels. General increasing-path maximum-length results and empirical epidemic simulations do not give this count distribution.",
+        "searches": [
+          "temporal edge-ordered graph double-star epidemic one contact per edge infection outbreak expected size schedule optimization",
+          "arxiv:1502.03146",
+          "Holme Masuda arxiv:1407.6598"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hits involved SEIR/SIRS threshold studies and temporal zero forcing on paths, not this double-star one-shot calendar histogram.",
+          "The exact joint (X,Y) factorial law yields all a,b and no matching numerical table was identified."
+        ],
+        "reasoning": "As an infinite family the contribution is primarily a formula, not a new finite lookup table; negative searches do not establish priority and older edge-ordering combinatorics may contain equivalent counts.",
+        "searches": [
+          "temporal edge-ordered graph double-star epidemic one contact per edge infection outbreak expected size schedule optimization",
+          "Resultary temporal edge-ordered graph double-star epidemic one contact per edge infection outbreak expected size schedule optimization",
+          "double star random edge ordering monotone path count distribution variance"
+        ]
+      },
+      "rationale": "PASS (qualified): A one-contact path result contains the a=b=1 P4 boundary but not the all-double-star branching classification. De Silva et al. work on longest increasing edge-ordered paths, not the probability-weighted count of all seed-target increasing paths or the random-calendar variance. Holme–Masuda's temporal network epidemic background and Deligkas–Potapov reachability optimization use different objective/model controls. A classical exact covariance count of centrally straddled pairs might exist, so originality is best of knowledge, but the complete two-parameter epidemic-calendar risk distribution is not shown to be covered by inspected work.",
+      "residual_risks": [
+        "An older random edge-ordering enumeration may already contain M and its distribution or variance implicitly.",
+        "The full Deligkas–Potapov paper was not inspected; inability to inspect alone is not a fail.",
+        "The theorem uses irreversible one-shot contacts and uniform single-seed/no-recovery, not all temporal contagion models."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT DIRECT COVERAGE: longest increasing-path length, not full double-star weighted count law",
+          "evidence": [
+            "Its target quantity is maximum monotone path length under edge orderings in hypercubes/random graphs, mathematically different from the sum of all increasing paths in a two-hub tree."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.03146",
+          "material_read": "Full public primary PDF relevant definitions, introductory theorems and proof techniques",
+          "method": "Read accessible PDF and visually inspected relevant pages",
+          "title": "Increasing paths in edge-ordered graphs: the hypercube and random graph",
+          "trigger": "Potential general edge-ordering dominance"
+        },
+        {
+          "assessment": "Background contextual, no whole-document negative coverage claim",
+          "evidence": [
+            "The paper studies epidemic outcome predictability in temporal networks; distinct from the one-contact homogeneous double-star complete permutation law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.6598",
+          "material_read": "Public paper abstract/contextual published statements rather than every empirical dataset/appendix",
+          "method": "Compared epidemic outcome and temporal contact assumptions",
+          "title": "The basic reproduction number as a predictor for epidemic outbreaks in temporal networks",
+          "trigger": "Temporal epidemic transmission order closest contextual prior"
+        },
+        {
+          "assessment": "Different optimization mechanism, possible unseen combinatorial special case",
+          "evidence": [
+            "Its admissible operation moves/delays contact labels and reachability objective differs from averaging seeded stochastic outbreaks."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ic.2022.104890",
+          "material_read": "Accessible indexed introduction and descriptions; complete text not established",
+          "method": "Compared permitted delaying operations with arbitrary permutations",
+          "title": "Optimizing reachability sets in temporal graphs by delaying",
+          "trigger": "Temporal reachability under schedule operations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Temporal contact-order dependence in epidemic models is a natural practical/mathematical invariant, and this result classifies its full law, exact sharp best/worst schedules, optimal-order multiplicities and calendar-to-calendar conditional-mean variance for every positive pair of hub degrees. The distinction between contact timing uncertainty and infection randomness is substantive. The exact diameter-three tree case is motivated rather than an arbitrary single small graph; no claim for arbitrary temporal networks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older random edge-ordering enumeration may already contain M and its distribution or variance implicitly.",
+    "The full Deligkas–Potapov paper was not inspected; inability to inspect alone is not a fail.",
+    "The theorem uses irreversible one-shot contacts and uniform single-seed/no-recovery, not all temporal contagion models."
+  ],
+  "schema_version": 1
+}
