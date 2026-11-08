@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T19:06:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For r redundant identical fields sigma_j=r^-1/2 ∂theta on circle, the exact p-Ret angular step is sqrt(rh)U with U first coordinate of uniform S^{r-1}, same covariance generator 1/2 ∂theta². Fourier characteristic function rho_{r,k}=E cos(k sqrt(rh)U) has the stated Bessel integral, including cos(k sqrt h) at r=1, J0(k sqrt(2h)) at r=2 and sinc(k sqrt(3h)) at r=3. For r>=2, U has an interval density, so |rho_{r,k}|<1 for each nonzero k and rho->0 by Riemann–Lebesgue; supremum q<1 is achieved and ||P^n−Π||=q^n. Bessel decay O(|k|^{-(r−1)/2}) makes the two-step point-start density L² (sum |rho|^4<∞), yielding exponential total variation convergence and bounded inverse of I−P on mean-zero L². At r=1 cos multipliers have supremum modulus 1 by rational resonance or irrational Kronecker density, point-start laws atomic hence TV=1, rational cases nonergodic and irrational cases strong L² but no norm mixing; small divisors exhibit continuous mean-zero forcing with no L² Poisson solution. Inspected actual check.py; independent reasoning verified the sphere-coordinate moment E U²=1/r and r1/r3 special multipliers. The r=1 fair sign is a mathematical edge case, not an assertion of paper sampler implementation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Su 1998 and Berkes–Borda 2023 analyze irrational circle random walks, and He et al. develop weak p-Ret schemes with finite-horizon approximations."
+        ],
+        "reasoning": "Classical r=1 behavior and general RQMC weak estimates cover components, not the full fixed-h comparison with r>=2 norm gap and Poisson inverse.",
+        "searches": [
+          "Resultary: circle random walk spherical coordinate projection same Brownian generator rank r p-Ret RQMC; p-Ret manifold numerical scheme circle sphere sampling driving noise dimension mixing Poisson equation Fourier",
+          "https://arxiv.org/abs/2610.23341",
+          "https://doi.org/10.1090/S0002-9947-98-02152-7"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.23341",
+        "https://doi.org/10.1090/S0002-9947-98-02152-7",
+        "https://doi.org/10.1112/jlms.12749"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "He et al.'s accessible abstract states local weak accuracy and sampling variance, not any claim that would force long-time fixed-step norm mixing."
+        ],
+        "reasoning": "Finite-horizon weak convergence as h→0 cannot imply a fixed-h uniform Fourier gap; explicitly r=1 demonstrates failure.",
+        "searches": [
+          "Resultary: circle random walk spherical coordinate projection same Brownian generator rank r p-Ret RQMC; p-Ret manifold numerical scheme circle sphere sampling driving noise dimension mixing Poisson equation Fourier",
+          "https://arxiv.org/abs/2610.23341",
+          "https://doi.org/10.1090/S0002-9947-98-02152-7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Circle Fourier multipliers for absolutely continuous walks and irrational ±angle walks are classical, but the indexed p-Ret discrete scheme with r adjustable and same generator is the explicit new comparison."
+        ],
+        "reasoning": "Same scalar covariance of continuous SDEs does not make the spherical sampled one-step laws equal for different r; discrete Fourier multipliers vary.",
+        "searches": [
+          "Resultary: circle random walk spherical coordinate projection same Brownian generator rank r p-Ret RQMC; p-Ret manifold numerical scheme circle sphere sampling driving noise dimension mixing Poisson equation Fourier",
+          "https://arxiv.org/abs/2610.23341",
+          "https://doi.org/10.1090/S0002-9947-98-02152-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches for p-Ret, sphere-coordinate and circle mixing yielded no matching dimensional threshold or Fourier multiplier table."
+        ],
+        "reasoning": "Bessel/sinc expressions are standard special functions and not themselves claimed as novel tables; combined operator classification is the claim.",
+        "searches": [
+          "Resultary: circle random walk spherical coordinate projection same Brownian generator rank r p-Ret RQMC; p-Ret manifold numerical scheme circle sphere sampling driving noise dimension mixing Poisson equation Fourier",
+          "https://arxiv.org/abs/2610.23341",
+          "https://doi.org/10.1090/S0002-9947-98-02152-7"
+        ]
+      },
+      "rationale": "Qualified PASS for the new cross-factorization comparison of the same generator under the p-Ret *discrete* scheme, not for classical circle random-walk Fourier facts alone. Original He et al. paper establishes p-Ret and finite-time weak/RQMC error; its accessible abstract does not claim the sharp fixed-step r=1 vs r>=2 ergodic/Poisson threshold. Full original manuscript inaccessible through arXiv HTML in this run; an implicit long-time observation remains a priority risk.",
+      "residual_risks": [
+        "Full text of He et al. arXiv:2610.23341v1 could not be read: arxiv.org/html returned DisabledError; long-time consequences embedded in the original would affect originality.",
+        "General compact-group Fourier theory may express the result under other terms; no arbitrary manifold or nonhomogeneous factorizations asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POSSIBLE_PRIOR_RISK",
+          "evidence": "Abstract establishes local weak consistency and finite-time sampling variance, not a long-time noise-dimension threshold; inaccessible body could contain it.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.23341",
+          "material_read": "Full abstract and metadata read; attempts to load arXiv HTML original returned DisabledError; no complete full text was read.",
+          "method": "Primary preprint metadata/abstract comparison, not whole-paper exclusion.",
+          "title": "Quasi-Monte Carlo based meshfree methods for parabolic equations on parameterized Riemannian manifolds",
+          "trigger": "Exact p-Ret source with the same spherical-increment construction"
+        },
+        {
+          "assessment": "COVERING_CLASSICAL_COMPONENT",
+          "evidence": "Irrational rotation random-walk convergence is established; novelty is limited to comparing r=1 and redundant r>=2 p-Ret noise dimensions.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-98-02152-7",
+          "material_read": "Abstract/reference and frozen comparison; full article not read here.",
+          "method": "Reference-level comparison",
+          "title": "Convergence of random walks on the circle generated by an irrational rotation",
+          "trigger": "Classical r=1 random sign walk"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp qualitative non-invariance of long-time mixing under redundant noise factorization despite exactly equal limiting heat generators: threshold at two driving coordinates, with norm mixing, total variation and discrete Poisson solvability consequences. It is a motivated numerical-analysis warning, not a restatement of isolated irrational rotations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.23341",
+    "https://doi.org/10.1090/S0002-9947-98-02152-7",
+    "https://doi.org/10.1112/jlms.12749"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full text of He et al. arXiv:2610.23341v1 could not be read: arxiv.org/html returned DisabledError; long-time consequences embedded in the original would affect originality.",
+    "General compact-group Fourier theory may express the result under other terms; no arbitrary manifold or nonhomogeneous factorizations asserted."
+  ],
+  "residual_risks": [
+    "Full text of He et al. arXiv:2610.23341v1 could not be read: arxiv.org/html returned DisabledError; long-time consequences embedded in the original would affect originality.",
+    "General compact-group Fourier theory may express the result under other terms; no arbitrary manifold or nonhomogeneous factorizations asserted."
+  ],
+  "schema_version": 1
+}

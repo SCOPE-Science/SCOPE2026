@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim tested.** The exact noise-dimension threshold at \(r=2\) for the scalar circle p-Ret operator, its Fourier contraction, point-started mixing, and mean-zero discrete Poisson inversion, all with fixed positive step and the same diffusion tensor.
+## correctness
 
-## Correctness: PASS
+PASS
 
-The calculation of the transition from the published p-Ret definition was reconstructed in the circle parameterization: metric one, zero Christoffel symbol, zero drift, \(r\) identical fields with covariance one, and a projected uniform-sphere increment. The sphere density and Bessel Fourier multipliers follow from a beta integral. For \(r\ge2\), absolute continuity, strict characteristic-function inequality and Fourier decay force a strict spectral gap and a bounded Poisson inverse. The Bessel asymptotic guarantees an \(L^2\) two-step density and hence geometric total-variation mixing. For \(r=1\), elementary Fourier arithmetic proves the exact operator norm; a continuous forcing with an unsquare-summable Poisson solution is constructed using distinct near-resonant frequencies. The verifier passed 377 supplementary checks. It is not used as a proof of infinite-frequency statements.
+For r redundant identical fields sigma_j=r^-1/2 ∂theta on circle, the exact p-Ret angular step is sqrt(rh)U with U first coordinate of uniform S^{r-1}, same covariance generator 1/2 ∂theta². Fourier characteristic function rho_{r,k}=E cos(k sqrt(rh)U) has the stated Bessel integral, including cos(k sqrt h) at r=1, J0(k sqrt(2h)) at r=2 and sinc(k sqrt(3h)) at r=3. For r>=2, U has an interval density, so |rho_{r,k}|<1 for each nonzero k and rho->0 by Riemann–Lebesgue; supremum q<1 is achieved and ||P^n−Π||=q^n. Bessel decay O(|k|^{-(r−1)/2}) makes the two-step point-start density L² (sum |rho|^4<∞), yielding exponential total variation convergence and bounded inverse of I−P on mean-zero L². At r=1 cos multipliers have supremum modulus 1 by rational resonance or irrational Kronecker density, point-start laws atomic hence TV=1, rational cases nonergodic and irrational cases strong L² but no norm mixing; small divisors exhibit continuous mean-zero forcing with no L² Poisson solution. Inspected actual check.py; independent reasoning verified the sphere-coordinate moment E U²=1/r and r1/r3 special multipliers. The r=1 fair sign is a mathematical edge case, not an assertion of paper sampler implementation.
 
-## Originality: PASS with specified limitations
+## originality
 
-The 2026 p-Ret paper supplies the transition and finite-time weak analysis, not the long-time threshold or the same-generator noise-dimension comparison. Older Su (1998) and Berkes–Borda (2023) study the classical two-point circle walk, so that part is explicitly treated as antecedent, not claimed independently novel. General Fourier theory also underlies the proof. The new classification concerns the factorization-sensitive p-Ret discrete Poisson problem and transition from atomic arithmetic obstructions to geometric mixing while the continuum diffusion tensor is held fixed. indexed mathematical-record and accessible own-history queries found no direct covering result. Risk: more general compact-group convolution results may imply parts of the classification, and complete older full texts were inaccessible.
+PASS
 
-## Mathematical value: PASS
+Qualified PASS for the new cross-factorization comparison of the same generator under the p-Ret *discrete* scheme, not for classical circle random-walk Fourier facts alone. Original He et al. paper establishes p-Ret and finite-time weak/RQMC error; its accessible abstract does not claim the sharp fixed-step r=1 vs r>=2 ergodic/Poisson threshold. Full original manuscript inaccessible through arXiv HTML in this run; an implicit long-time observation remains a priority risk.
 
-The diffusion factorization is not merely a notational choice in the numerical scheme: adding one redundant driving coordinate changes long-time numerical ergodicity and invertibility of the discrete Poisson operator even though the local heat generator is identical. This gives a motivated sharp design boundary for stochastic geometric solvers and for using fixed-step walks to compute stationary Poisson responses; it is not a toy unmotivated coefficient calculation. It does not assert an improvement in finite-horizon RQMC error or universal behavior on other manifolds.
+## value
 
-## Literature and limits
+PASS
 
-Main source: He et al., arXiv:2610.23341v1, full HTML Sections 2.1–3. Closest classical references: Su, *Trans. AMS* 1998; Berkes–Borda, *JLMS* 2023. Their accessible abstracts and bibliographic records were inspected; primary full texts could not be retrieved in this execution. Broad Fourier antecedents and any specialized older p-Ret ergodicity analysis remain residual historical risks.
+Sharp qualitative non-invariance of long-time mixing under redundant noise factorization despite exactly equal limiting heat generators: threshold at two driving coordinates, with norm mixing, total variation and discrete Poisson solvability consequences. It is a motivated numerical-analysis warning, not a restatement of isolated irrational rotations.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
