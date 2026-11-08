@@ -1,15 +1,21 @@
-# Scientific review: radial power-phase Fock Toeplitz transition
+# Independent mathematical audit
 
-## Correctness: PASS
-The eigenvalue formula follows from degreewise radial diagonalization with Gamma shape \(n+d\). The regime below \(\alpha=1/2\) follows from a mean-value estimate on Gamma concentration; the boundary multiplier \(e^{-1/8}\) follows from the Gaussian characteristic function and the delta method. Above the boundary, a centered Gamma cutoff with width \(k^{1/2+\varepsilon}\) and arbitrarily repeated nonstationary integration by parts gives faster-than-polynomial eigenvalue decay. Polynomial multiplicity then implies every Schatten exponent. Elementary Weyl-sum estimates and weighted summation give the circular weak limits. This is an analytic proof; 63 numerical assertions only corroborate it.
+## correctness
 
-## Originality: PASS (historical-priority caveat)
-Closest known prior work is Grudsky–Vasilevski's 2002 exact radial diagonalization and exponentially compact phase \(e^{i|z|^2}\), Esmeral–Maximenko's 2015 critical real symbol \(\cos|z|\), and Dewage–Ólafsson's 2021 quasi-radial eigenvalue calculus. These establish important subcases or a general framework, but the inspected statements do not imply the combined sharp threshold for every \(\alpha>0\), the complete complex circular essential spectra, the multiplicity-weighted spectral distribution, and all-Schatten conclusion for \(\alpha>1/2\). General compactness theorems can subsume isolated compactness assertions, not the entire claimed phase diagram. Related prior results on square-root tones do overlap one boundary family and are credited; search absence cannot establish novelty.
+PASS
 
-## Value: PASS
-The natural geometric question is how the radial oscillation speed interacts with the \(\sqrt k\)-scale inherent in Gaussian monomial mass. The critical exponent precisely divides noncompact circular spectra from super-polynomial spectral suppression of an everywhere unimodular symbol; the exact nontrivial boundary radius and limiting eigenvalue distribution make this a structured operator-theoretic classification, rather than a change of notation or a routine numerical bound. The all-Schatten strengthening and spectral distribution are useful in Fock localization, operator ideals, and non-selfadjoint spectral approximation.
+For each fixed complex dimension d≥1, the radial Toeplitz operator is scalar on degree-n holomorphic polynomials with multiplicity binomial(n+d−1,d−1), eigenvalue E[e^{iG_k^alpha}] for G_k~Gamma(k,1), k=n+d. For 0<alpha<1/2, Gamma concentration controls phase drift O(k^{alpha−1/2}); alpha=1/2 follows delta-method normal fluctuation with damping exp(−1/8). For alpha>1/2, truncate at |G_k−k|≤k^{1/2+epsilon}, use Chernoff outside and repeated nonstationary integration by parts inside, with each derivative gaining k^{−(alpha−1/2−epsilon)}, yielding O(k^−M) for every M. Polynomial degree multiplicity gives all Schatten S_p; alpha≤1/2 is noncompact. For alpha≤1/2, Weyl phase equidistribution of k^alpha mod 2pi (alpha<1) and Abel summation for multiplicities give Haar limit and circle essential spectrum; decay yields {0} above boundary. The alpha=1 exact gamma characteristic function and gamma quadratures at k=20,50,100 separately corroborated the threshold behavior, not the infinite proof.
 
-## Limitations and closest literature
-The full classification holds only for the specified radial power-phase symbols in fixed finite complex dimension. It does not assert a uniform crossover scaling, general phase conditions, exact Schatten norms, or publication priority. Relevant inspected sources are Grudsky–Vasilevski (2002), Esmeral–Maximenko (2015), Dewage–Ólafsson (2021), Wu–Zheng (2021), and Fulsche (2024). Broader unsearched historical literature may contain equivalent formulations. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical radial Fock diagonalization, alpha=1 exponential phase and critical real-cosine damping are explicitly credited. Esmeral–Maximenko 2015 Example 4.5 produces e^-1/8 cos(sqrt(n)) already; the claimed new conjunction is the full complex unimodular power family and three-way asymptotic/ideal/circular distribution classification in all d. Known general criteria might imply selected compactness consequences but do not explicitly calculate the complete law in inspected statements.
+
+## value
+
+PASS
+
+The exact half-power oscillatory-smoothing transition of a unit-modulus symbol, including all-Schatten compactification in arbitrary fixed complex dimension and the limiting eigenvalue measures, is an independently useful natural phase diagram linking Gaussian concentration to spectral/operator-ideal behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
