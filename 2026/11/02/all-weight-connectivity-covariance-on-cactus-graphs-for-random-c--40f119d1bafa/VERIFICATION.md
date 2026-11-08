@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_cactus.py` using Python 3 standard library. Expected output:
+## correctness
 
-```
-PASS polynomial coefficients: 21 nonnegative; nonnegative cross-spanning H
-PASS exact rational covariance inequalities: 13560
-PASS graphs: 7 ; weight patterns: 2; models: forest, q=1/3,2/3,2
-```
+PASS
 
-The code independently expands the exact four-cell polynomial and checks its 21 nonzero coefficients, checks the nonnegative cross-spanning polynomial, and enumerates all edge configurations for seven cactus graphs under two nonuniform rational weight patterns for the forest and three random-cluster parameters. It uses exact fractions and verifies every vertex-pair indicator covariance numerator, totaling 13,560 finite exact inequalities. General finite cactus graphs are proved by the analytic independent-block reduction and the displayed polynomial identities, not by exhaustive finite tests. Independent mathematical audit has not been performed.
+For each cycle, dividing configuration weights by the all-open product gives independent closed-edge activities rho_e=w_e^-1 (forest) or q/w_e (FK), with empty-support bonus kappa=0 or q. For two vertex-pair arc partitions, the numerator of support-containment covariance equals SU-RC+kappa(U+S-R-C), with x,y,z,w four nonnegative cell activities. I independently expanded the displayed polynomial identities with SymPy and obtained zero differences and nonnegative coefficients. Cyclomatic identity k(F)=|V|-|F|+c(F) on a cactus exactly separates bridge/cycle block factors, so the two global pair events decompose as products of local connectivity requirements along unique block-cut routes. Independent blocks and local covariance inequality imply global covariance >=0 for all q>0 (including 0<q<1), forest law and arbitrary positive weights. Bridge-only, empty route and repeated vertices are harmless. This is a structural proof, not finite-case extrapolation.
+
+## originality
+
+PASS
+
+Qualified PASS: arbitrary positive-weight cactus cycles and tree attachments for forest and 0<q<1 random cluster are a natural infinite graph class of the vertex-connectivity positive-correlation conjectures. The q>=1 portion is classical FKG and is not novel. The cited conjecture paper handles only limited high-fugacity cases. Broader block graph/series-parallel inequalities from uninspected historical graph-polynomial literature remain a priority risk.
+
+## value
+
+PASS
+
+Provides a complete all-weight proof over unbounded cactus graphs for a non-FKG range of a recognized open two-connectivity-correlation problem. Cactus cycles are a natural maximal edge-disjoint-cycle class; the four-cell lemma plus block factorization yields an independently reusable inequality and is not an isolated finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
