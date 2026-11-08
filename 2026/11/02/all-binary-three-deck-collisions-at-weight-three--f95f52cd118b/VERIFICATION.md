@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later and no third-party packages. The verifier directly calculates every length-three scattered-subsequence vector by a dynamic program, enumerates all length-\(z+3\) words with exactly three \(1\)'s for every integer \(0\le z\le15\), and compares the resulting classes to the asserted parameterized involution and generating-function coefficients. Actual checked output:
+## correctness
 
-```
-VERIFY_OK zeros=0..15 words=3876 classes=3590 doubletons=286 signature_class_partner_and_gf=TRUE
-```
+PASS
 
-All 3,876 words and 3,590 corresponding classes are examined, with every class size tested to be at most two. The coefficient check uses a direct sum over the nonnegative integer parameters and compares it to actual class counts. The infinite proof is mathematical, not inferred from these finite checks. Published claims of higher-weight equivalence classification or independent external validation are **not** made.
+Full 3-deck compresses to four invariants (z,U,V,Q). Equal z,U,V implies zero-gap difference (-t,3t,-3t,t) and Q equality forces c-b=3t, giving unique involutive collision partner and no classes of size above two. Orienting b<c counts one pair for each t≥1,u,b,d≥0, z=4t+u+2b+d, proving generating function x^4/((1-x)^2(1-x^2)(1-x^4)). Independent literal subsequence counting for z=0..9 reproduced Pz=0,0,0,0,1,2,4,6,10,14. Infinite result follows algebraically.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after primary-literature and published-record comparison; limited access and substantive priority risks explicitly recorded. 
+
+## value
+
+PASS
+
+Exact all-length fiber classification and a rational collision enumerator for a canonical constant-weight slice of the reconstruction problem; known finite collisions and general compression do not mechanically give these fibers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
