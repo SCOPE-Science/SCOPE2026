@@ -1,0 +1,19 @@
+# Scientific assessment: paired squeezed-Gaussian ambiguity design
+
+## Correctness — PASS
+
+The analytic proof starts from the unit-normalized Gaussian ambiguity identity and its fractional-Fourier covariance, which together reduce the entire disk infimum to a one-variable angular infimum on the boundary. The two-bump polarization lemma proves global sharpness and strict equality rigidity even with unequal positive amplitudes and unequal exponential-cosine strengths. The clipped stationary point gives every boundary case. The unequal-squeeze corollary follows by direct symbolic simplification and exhibits one genuine radius threshold, with no unclassified angular branches. The standalone numerical checker recomputes the original Gaussian expression at 16 parameter/radius combinations and compares 64 nonperpendicular orientations; it is supporting evidence, not a substitute for the proof.
+
+## Originality — PASS, with bibliographic limits
+
+The principal antecedent, Alaifari and Yang (arXiv:2410.05486, 2024), explicitly introduces the sum of rotated squeezed-Gaussian ambiguity functions as a denominator in a multi-window inversion formula. Its Section 2.1 and Remark 2.1 present equally spaced rotations of *the same squeeze* and calculate a geometric disk covered by unions of equal-level ellipses; Section 3 gives stability estimates conditional on a denominator threshold. It does not provide the exact two-window weighted **sum-minimum** maximization, orientation uniqueness, or unequal-squeeze angular bifurcation. Hardin–Kendall–Saff (arXiv:1208.5261, Theorem 1) proves circle polarization optimality for an identical convex geodesic kernel at every center; the exponential-cosine kernels here differ and are not geodesically convex. Grohs–Liehr–Rathmair (arXiv:2207.10620) concerns phaseless lattice uniqueness with four windows, not this sharp disk denominator invariant. The related three-window squared-ambiguity design model assumes fixed equal spacing and a different optimized quantity, so its claimed scope does not imply the present two-window result. Targeted database and literature searches found no direct statement, but unlocated specialist optical-design/polarization literature is a residual risk. No stronger prior theorem was identified that implies the complete present claim.
+
+## Mathematical value — PASS
+
+For the positive-ambiguity direct-inversion approach, the minimum weighted denominator over an observation disk is the natural worst-direction quantity controlling the allowed division threshold. The theorem determines its optimum *exactly*, rigorously rules out every nonperpendicular alternative for any fixed positive weights and nonisotropic Gaussian squeezings, and describes a nontrivial radius-driven transition in which one worst direction splits into two. The threshold has a closed formula in the actual window parameters, so it distinguishes small-observation and large-observation geometry rather than merely supplying a numerical improvement. This does not prove that two windows ensure sampled phase-retrieval uniqueness or globally minimize every noise model; those claims are explicitly excluded.
+
+## Restrictions and remaining risks
+
+The result is for two normalized squeezed Gaussians with fixed dilation and positive weights, and optimizes the weighted *absolute* ambiguity sum on a centered disk. Isotropic endpoints, arbitrary covariance matrices, varying weights, more than two windows, sampled reconstruction, and nonlinear global inverse stability are outside its proved scope. Specialist literature may contain an equivalent weighted two-kernel circle polarization lemma or optical-design formulation not located by the searches. An independent mathematical audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
