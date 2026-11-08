@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic steps proving the all-patch claim appear in `RESULT.md`; the finite executable verifies only an exact example and diagnostic convergence rates. All hypotheses and normalized Perron vectors are explicit.
+## correctness
 
-Run `python3 verify_critical_metapopulation.py` in a Python 3 installation with no third-party dependencies. Exact `Fraction` arithmetic verifies the two-patch Perron equations, left/right normalizations, eigenvalue-one matrix, nonpositive quadratic coefficients, positive curvature \(75/49\), critical limiting vector \((28/75,7/25)\), and the separate effect of nonconstant dispersal. Direct iteration with \(200000\) updates checks the numerical trend (not an infinite-time proof). The program was run on the embedded source before release and prints `PASS`.
+PASS
 
-For the general result, the proof does **not** presume that the nonlinear map is monotone in population density: only the pointwise inequality \(F(x)<Mx\) on nonzero vectors is required. It does not assert any error bound uniform over all initial populations or patch dimensions. Bibliographic coverage of some plausible general spectral-threshold sources remains abstract-level only; this is an originality limitation, not a proof step.
+For every nonzero x, strict g decrease and d nonincrease give 0<F(x)<Mx on each row, so Perron weight s_t=w^T x_t strictly decreases; boundedness and compactness exclude a positive limit. Taylor expansion F=Mx+B(x_j^2)+o(||x||^2) has B_ij<0 and kappa>0. Positivity/primitive M makes contraction on w-orthogonal complement; z_t/s_t->0. Therefore s_{t+1}-s_t=-kappa s_t^2+o(s_t^2) and reciprocal increments converge to kappa, proving t*x_t->v/kappa. Independently verified the two-patch example kappa=75/49 and target (28/75,7/25); at t=100000 the scaled coordinates were (0.3733219764,0.2799920423), consistent with but not proving the rate.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinction based on actual statement/implication comparisons: generic techniques or marginals are credited, and the explicit theorem-specific conclusions were not found as covered by the primary material inspected; no claim of exhaustively proven historical novelty. Every nonzero nonnegative orbit of a finite strictly positive, density-suppressed dispersal/recruitment map with primitive Perron root rho(M)=1 converges globally to zero at the universal vector rate t*x(t)->v/kappa with explicit positive quadratic curvature kappa.
+
+## value
+
+PASS
+
+A sharp global extinction profile at the invasion-neutral spectral boundary closes the natural missing equality case for this metapopulation model. Its Perron amplitude identifies separately the first density derivatives of reproduction and dispersal, information not supplied by a threshold dichotomy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
