@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces coefficient valuations by invertible local changes of variables and separates exactly three valuation-pattern cases. The key nonstandard step, surjectivity of a nonsplit binary cubic on all local units for \(p\equiv1\pmod3\), is proved from the smooth genus-one Hasse bound: the projective curve has a rational point and no rational point at infinity; Hensel then lifts an affine point to each prescribed local unit. The additional third summand supplies a second valuation class, and ratios yield all three. The split case follows from a simple local zero. The distinct case follows from a unique lowest-valuation summand and a finite cubic-coset difference calculation. All quantifiers include \(p=2\), and explicitly exclude \(p=3\). The checker verifies 47,232 modular pair instances and all 27 coset patterns, but finite checks do not replace the proof.
+## correctness
 
-## Originality — PASS, subject to bibliographic uncertainty
-The closest directly inspected source is Antony--Barman--Miska (arXiv:2201.04372v1, Theorems 1.1, 1.3, 1.5 and Corollary 1.6). Their three-matching-valuation and binary split cases are prior-covered and not separately claimed new. Their distinct-residue result assumes \(\gcd(3,p(p-1))=1\), excluding the crucial primes \(p\equiv1\pmod3\). The genuinely new comparison is the mixed case with precisely two matching valuation residues and a nonsplit binary subform: the known binary criterion alone gives non-density, whereas the three-variable form is proved dense. The complementary exact distinct-residue closure is independently rederived for completeness but is acknowledged as already covered by a previous general local-coset statement. The 2023 integral-forms preprint gives broad almost-all-prime results, not the stated all-coefficient local classification. Targeted mathematical searches identified no exact covering theorem. Absolute priority is not certified; a later or unindexed equivalent result remains possible.
+PASS
 
-## Mathematical value — PASS
-This theorem completes the natural ternary diagonal-cubic local-density classification for every prime away from the degree, resolving the exactly-two-equal residue configuration not addressed by the main 2022 sufficient condition. The nonsplit witness \(X^3+2Y^3+7Z^3\) is mathematically instructive: the first two terms alone do not have dense value quotients, but a third term of a different valuation class produces density. The Hasse-based unit-surjectivity lemma explains the mechanism beyond a finite parameter calculation. No conclusion for \(p=3\) or nondiagonal forms is claimed.
+Local variable scaling normalizes valuations mod3. If the repeated pair is split, a simple binary zero yields an open ball of represented values and all local quotients. If nonsplit and p=1 mod3, the smooth genus-one curve alpha X^3+beta Y^3=tZ^3 has an F_p-point by Hasse, no points at infinity because -beta/alpha is not a cube, so a nonsingular affine point lifts by Hensel to every p-adic unit t. Binary values represent all unit parts in valuation 0 mod3, while the third term at exponent k=1 or2 enables all quotient valuation residues 0,k,-k. When all valuations agree the ternary smooth-zero lemma gives local quotients; when distinct the minimum summand is unique, higher terms lie in 1+pZ_p=(Z_p×)^3 for p!=3, so value cosets and pairwise ratios have the exact group-difference geometry. p=2 is covered since all units are cubes. Integer vectors approximate local vectors and continuity of nonzero denominators gives density. Independent finite checks exhaust nonsplit pairs at seven p=1 mod3 primes <=61 and all 27 F3² quotient-coset configurations.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Antony–Barman–Miska (arXiv:2201.04372) Theorem 1.1 covers binary split, Theorem 1.5/Corr 1.6 cover three matching valuations, and Theorem 1.3 assumes gcd(3,p(p−1))=1, so does not cover exactly-two-equal at p=1 mod3. Their distinct-valuation case and a general coset result are prior-covered. The present nonsplit mixed-valuation density is not an implication of those printed theorems. A later integral-forms paper treats broad almost-all-prime criteria rather than this uniform valuation-residue iff statement.
+
+## value
+
+PASS
+
+This is a complete natural density/non-density criterion for ternary diagonal cubic value quotients at every fixed p≠3, including a genuinely nontrivial mixed case in which a non-dense binary quotient becomes dense after adding one differently valued cubic term. The genus-one unit-surjectivity mechanism and exact coset closure are reusable local arithmetic tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
