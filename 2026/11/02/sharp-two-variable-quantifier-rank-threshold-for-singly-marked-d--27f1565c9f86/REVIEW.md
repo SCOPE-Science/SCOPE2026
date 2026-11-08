@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof reduces all two-variable rank types to exact unary color-support refinement, proves the uniform palette by induction, and separates the boundary cases through a three-way nonneighbor-support test for a far block of length two, three, or at least four. The complete rank recursion and an independent unary recurrence agree on all 3,872 finite comparisons at ranks one through eight; enumeration is corroboration, not the infinite proof.
+## correctness
 
-**Originality: PASS, qualified.** The inspected complete text of Weis–Immerman proves characterizations for ordered linear words, including successor, but not the exact pointed directed-cycle, successor-only cutoff. Kufleitner–Lauser's available abstract concerns alternation over ordered words. The closest published neighboring exact results concern directed paths or one-red linear orders, with different objects and logical signatures, and their retrieved statements do not imply this cycle result. A generic but unidentified two-variable-type theorem could subsume this classification; historical priority is not independently certified.
+PASS
 
-**Mathematical value: PASS.** This is an all-rank exact classification of a natural deterministic finite-model family, with a sharp linear stabilization threshold and an exact least distinguishing quantifier rank. It gives a concrete bounded-variable expressive-power benchmark for successor dynamics with a unique designated state, beyond individual small-rank examples.
+Two-variable rank-r pair types reduce to unary rank-r types at endpoints plus atomic equality, forward and reverse successor relations. Existential quantification records only support, not neighbor counts; hence unary colors refine by (old color, set of atomic-relation/old-color pairs). Inductively for n≥2r+3 there are one marked, r forward, r reverse, and one far class; far block lengths 2,3,≥4 at next step separate the two border cases from stable range by existence of nonadjacent same-far-color vertex. Therefore rank-q sentence palettes distinguish exactly 3..2q individually and stabilize at 2q+1. Independently canonicalized unary support types across all n=3..24 and checked every pair/rank for q=1..8; full all-q proof is structural induction.
 
-The result does not extend as stated to counting, order, additional markers, or function-symbol successor. Finite tests are not substituted for the induction.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for exact pointed directed-cycle relational-FO² rank spectrum. Older structure theorems concern linear ordered words with < available and successor, not un-ordered cyclic relational successor. Neighboring path/marked-linear-order thresholds do not entail this result; a more general finite-model two-variable-cycle theorem is an admitted priority risk.
+
+## value
+
+PASS
+
+Exact quantifier-rank collapse for a natural finite-model class gives a reusable expressive-power benchmark and a sharp linear cutoff; it is a full all-rank classification, not a tiny-instance or reparametrized textbook example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
