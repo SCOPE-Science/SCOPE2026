@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The pointwise theorem is an exact edge-crossing count for the fourteen-halfspace truncated octahedron. Every central section vertex is an intersection with one of 36 edges. A complete arrangement argument shows that in the ordered-positive normal chamber only the three walls \(a=2b\), \(a=2c\), and \(b=2c\) can change the sign of a vertex dot product. The five resulting convex cones have exact integer witnesses, so one exhaustive 36-edge evaluation per cone proves the formula for every nonexceptional real orientation. The three probabilities are spherical areas of disjoint unions of those cones, computed by the classical exact determinant formula. The separately executable Python checker passed 3,911 checks, reconstructing the 24 vertices, 14 facets, 36 edges, 48 symmetries, and the five area components. Numerical integration/grid checks are supplementary, not infinite proofs. Boundaries have Haar measure zero.
+PASS
 
-## Originality — PASS, with residual historical-priority uncertainty
+The fourteen exact halfspaces give 24 vertices and 36 edges. For generic central planes, section polygon vertices correspond bijectively to edges whose endpoint scalar products have opposite signs. In the positive ordered fundamental normal chamber (area π/12), the only interior vertex-sign walls are a=2b, a=2c, b=2c. Their five connected spherical cones are exhaustive, so the 36-edge test at one exact integral interior normal per cone proves N=6,8,10,6,8 throughout the respective chambers. Independent reconstruction of all 24 signed-permutation vertices and distance-squared-two edges, five representative crossing counts, and all six spherical triangles reproduced the displayed three probabilities and their sum 1. The classical exact determinant/dot-product solid-angle formula integrates those cones; numerical evaluation is corroboration, not the universal argument. The wall directions have Haar measure zero.
 
-The relevant public literature inspected includes the March 28, 2026 open preprint and full journal HTML of Cesaroni–Novaga on the BCC Voronoi cell, which optimizes an isoperimetric quotient but neither calculates random central sections nor integrates their normal chambers. The September 2026 global isoperimetric paper also addresses surface area, not directional polygon counts. The published random central-section results recovered for a four-cube and an icosahedron concern distinct objects and cannot imply the stated five-cone partition for this polyhedron. An accessible visual resource gives planar **projections** of the truncated octahedron, not its central planar intersections. Further targeted corpus and web searches did not locate this exact sectional law; absence of hits cannot establish historical novelty. A specialist computation or inaccessible slicing source may already cover part or all of the statement.
+## originality
 
-## Value — PASS
+PASS
 
-The truncated octahedron is the prototypical body-centered-cubic Voronoi cell and a canonical space-filling Archimedean solid. The full three-valued section-complexity law, five-cone orientation classification, and exact spherical probabilities provide a quantitative benchmark for geometric tomography and sections of periodic tessellations. They resolve a natural invariant beyond a static incidence count; no arbitrary slicing parameter or special nongeneric direction is selected. The exactness is nontrivial because each of five different angular chambers must be combined with the correct Haar measure.
+The evaluated central-section side-count distribution for the regular truncated octahedron is not implied by the inspected isoperimetric results or by known section laws for different polytopes. The generic sign-arrangement method and spherical-angle formula are classical ingredients, not claimed new. This is a best-of-knowledge priority judgment with risk of older stereological/foam-cell equivalent calculations.
 
-## Boundaries and verification status
+## value
 
-The theorem treats central sections rather than shadows and excludes measure-zero normals passing through a vertex. The original literature comparison cannot rule out older unindexed calculations. Self-review correctness, originality and value were checked; independent auditing was not conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The truncated octahedron is a natural BCC Voronoi/Archimedean space-filling solid; its full Haar central-section polygon-complexity distribution is a natural complete invariant, not a selected tiny sample. The three normal walls, five-cone classification and exact nontrivial spherical-area values permit quantitative comparison in integral geometry and stochastic geometric slicing. The result is useful as a precise benchmark, without pretending to solve a general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

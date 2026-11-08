@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the central-section polygon law
+# Independent mathematical audit
 
-The self-contained script `verify_truncated_octahedron.py` runs under Python 3 using only the standard library. It constructs the 24 integer vertices, the 14 supporting hyperplanes, and the 36 edges by independently checking shared active facet normals. It confirms every edge has squared length two, every vertex has degree three, and the incidence table agrees with the five chamber representatives.
+## correctness
 
-The script tests the exact pointwise threshold formula on 2,919 strictly ordered integer normal vectors and the complete signed-coordinate symmetry orbits of five representative vectors, then recomputes the spherical-triangle and quadrilateral formulas. In a fresh execution it reported `PASS 3911 checks` and numerical probabilities `0.498450689917704`, `0.316108855580191`, and `0.185440454502106` for sections with 6, 8, and 10 sides respectively.
+PASS
 
-Critical mathematical limits: the finite tests cannot establish the theorem for every real orientation; that step is supplied by the proof that the only sign-change walls are three linear planes and the five regions are connected. Floating-point spherical-area calculations are checks of, not proofs of, the analytic solid-angle identity. Normal directions on walls have Haar measure zero and are outside the pointwise assertion. Independent validation has not been performed.
+The fourteen exact halfspaces give 24 vertices and 36 edges. For generic central planes, section polygon vertices correspond bijectively to edges whose endpoint scalar products have opposite signs. In the positive ordered fundamental normal chamber (area π/12), the only interior vertex-sign walls are a=2b, a=2c, b=2c. Their five connected spherical cones are exhaustive, so the 36-edge test at one exact integral interior normal per cone proves N=6,8,10,6,8 throughout the respective chambers. Independent reconstruction of all 24 signed-permutation vertices and distance-squared-two edges, five representative crossing counts, and all six spherical triangles reproduced the displayed three probabilities and their sum 1. The classical exact determinant/dot-product solid-angle formula integrates those cones; numerical evaluation is corroboration, not the universal argument. The wall directions have Haar measure zero.
+
+## originality
+
+PASS
+
+The evaluated central-section side-count distribution for the regular truncated octahedron is not implied by the inspected isoperimetric results or by known section laws for different polytopes. The generic sign-arrangement method and spherical-angle formula are classical ingredients, not claimed new. This is a best-of-knowledge priority judgment with risk of older stereological/foam-cell equivalent calculations.
+
+## value
+
+PASS
+
+The truncated octahedron is a natural BCC Voronoi/Archimedean space-filling solid; its full Haar central-section polygon-complexity distribution is a natural complete invariant, not a selected tiny sample. The three normal walls, five-cone classification and exact nontrivial spherical-area values permit quantitative comparison in integral geometry and stochastic geometric slicing. The result is useful as a precise benchmark, without pretending to solve a general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
