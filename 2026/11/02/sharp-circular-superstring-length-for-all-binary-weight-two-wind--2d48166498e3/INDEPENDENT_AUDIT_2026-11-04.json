@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T21:48:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read entire RESULT.md at frozen blob 7b607ba36acbcb6bd34ca311f4efa52b3270ba29. Required weight-two de Bruijn edges form disjoint directed rotation necklace circuits, each with one incoming and outgoing required edge at every incident (k-1)-word. Adding the cycle induced by 10^(k-2) has length k-1 and passes through all single-marker (k-1)-words; each required necklace touches one, hence the union is balanced and connected and Eulerian. For the lower bound, subtract one copy of each mandatory edge. Any fewer than k-1 additional edges decompose into short periodic circuits. A short circuit meeting the adjacent-pair necklace cannot meet another weight-two necklace; Fine–Wilf forces any two meeting short circuits to have identical primitive vertex support. Thus short extras cannot connect the required distinct necklaces. Fresh independent Euler constructions checked literal windows for k=4..17; exhaustive shorter cyclic binary words were checked at k=4,5. These are finite corroborations of the all-k Fine–Wilf proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Euler-augmentation theorem supplies an optimization framework, not an exact minimum k-1 without this specific necklace-connectivity and short-period obstruction; recent bounded-weight de Bruijn sequences encode different sets of allowed weights.",
+          "Ruskey–Sawada–Williams SIAM J Discrete Math (2012)",
+          "Sawada–Williams (2021) fixed-content universal cycles"
+        ],
+        "reasoning": "General Euler-augmentation theorem supplies an optimization framework, not an exact minimum k-1 without this specific necklace-connectivity and short-period obstruction; recent bounded-weight de Bruijn sequences encode different sets of allowed weights.",
+        "searches": [
+          "Resultary semantic query: shortest cyclic binary superstring covering every weight-2 length-k binary window de Bruijn augmentation",
+          "Ruskey–Sawada–Williams SIAM J Discrete Math (2012)",
+          "Sawada–Williams (2021) fixed-content universal cycles",
+          "Blanca–Godbole arXiv:1008.2251",
+          "Gabric et al arXiv:2603.11934"
+        ]
+      },
+      "checked_sources": [
+        "Ruskey–Sawada–Williams SIAM J Discrete Math (2012)",
+        "Sawada–Williams (2021) fixed-content universal cycles",
+        "Blanca–Godbole arXiv:1008.2251",
+        "Gabric et al arXiv:2603.11934"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing binom(k,2) shorthand lower/upper length does not imply an actual literal cover of that length; the current result proves the minimal excess k-1 necessary to connect otherwise disjoint necklaces.",
+          "Ruskey–Sawada–Williams SIAM J Discrete Math (2012)",
+          "Sawada–Williams (2021) fixed-content universal cycles"
+        ],
+        "reasoning": "The existing binom(k,2) shorthand lower/upper length does not imply an actual literal cover of that length; the current result proves the minimal excess k-1 necessary to connect otherwise disjoint necklaces.",
+        "searches": [
+          "Resultary semantic query: shortest cyclic binary superstring covering every weight-2 length-k binary window de Bruijn augmentation",
+          "Ruskey–Sawada–Williams SIAM J Discrete Math (2012)",
+          "Sawada–Williams (2021) fixed-content universal cycles",
+          "Blanca–Godbole arXiv:1008.2251",
+          "Gabric et al arXiv:2603.11934"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest alternative representation is an Eulerian augmentation/Chinese-postman tour of the de Bruijn subgraph of weight-two windows. Shorthand fixed-weight universal cycles represent edges through shorter windows and are not an equivalent literal circular word.",
+          "Ruskey–Sawada–Williams SIAM J Discrete Math (2012)",
+          "Sawada–Williams (2021) fixed-content universal cycles"
+        ],
+        "reasoning": "The closest alternative representation is an Eulerian augmentation/Chinese-postman tour of the de Bruijn subgraph of weight-two windows. Shorthand fixed-weight universal cycles represent edges through shorter windows and are not an equivalent literal circular word.",
+        "searches": [
+          "Resultary semantic query: shortest cyclic binary superstring covering every weight-2 length-k binary window de Bruijn augmentation",
+          "Ruskey–Sawada–Williams SIAM J Discrete Math (2012)",
+          "Sawada–Williams (2021) fixed-content universal cycles",
+          "Blanca–Godbole arXiv:1008.2251",
+          "Gabric et al arXiv:2603.11934"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A semantic Resultary search for all literal weight-two k-mer circular superstrings returned unrelated binary attractors, codes, and subsequence properties, not a known L(k)=binom(k,2)+k-1 table.",
+          "Ruskey–Sawada–Williams SIAM J Discrete Math (2012)",
+          "Sawada–Williams (2021) fixed-content universal cycles"
+        ],
+        "reasoning": "A semantic Resultary search for all literal weight-two k-mer circular superstrings returned unrelated binary attractors, codes, and subsequence properties, not a known L(k)=binom(k,2)+k-1 table.",
+        "searches": [
+          "Resultary semantic query: shortest cyclic binary superstring covering every weight-2 length-k binary window de Bruijn augmentation",
+          "Ruskey–Sawada–Williams SIAM J Discrete Math (2012)",
+          "Sawada–Williams (2021) fixed-content universal cycles",
+          "Blanca–Godbole arXiv:1008.2251",
+          "Gabric et al arXiv:2603.11934"
+        ]
+      },
+      "rationale": "Ruskey–Sawada–Williams (2012) explicitly use a shorthand fixed-weight universal cycle, a cyclic encoding through (k-1)-windows, not a literal covering of all k-length weight-two windows. Consequently their binom(k,2) length does not settle the additional connector cost k-1. Published universal-cycle and bounded-weight de Bruijn constructions were compared but no direct sharp literal-cover implication identified.",
+      "residual_risks": [
+        "Other shortest-common-superstring/necklace-joining results may use an equivalent formulation not located.",
+        "Exhaustive computational confirmation was restricted to small k; the general lower bound rests on the supplied and independently checked periodicity argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SHORTHAND_CYCLE_DIFFERENT_FROM_LITERAL_WINDOW_COVER",
+          "evidence": "The paper defines a fixed-weight cyclic code from shifted weight-one/two (k-1)-windows and a length binom(k,2) universal shorthand cycle; it does not require every weight-two length-k factor of the literal cyclic word.",
+          "identifier_or_url": "https://doi.org/10.1137/100808782",
+          "material_read": "Full accessible author manuscript, definitions, shorthand encoding, main construction and theorem",
+          "method": "primary author manuscript full-text comparison",
+          "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+          "trigger": "exact same target weight-two binary windows and purported universal cycles"
+        },
+        {
+          "assessment": "FIXED_CONTENT_SHORTHAND_ENCODING_NO_EXACT_LITERAL_AUGMENTATION",
+          "evidence": "Its universal cycle coding objective is distinct from full length-k oriented factors with permitted additional windows.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-030-83508-8_43",
+          "material_read": "Accessible short author manuscript and theorem descriptions",
+          "method": "author manuscript comparison",
+          "title": "A Universal Cycle for Strings with Fixed-Content",
+          "trigger": "generalization to fixed-content universal cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact optimal circular host length for all binary weight-two k-mers is a natural string assembly and covering invariant. It quantifies unavoidable necklace-connector overhead and supplies a constructive optimum for every k, not a single arbitrary computational instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ruskey–Sawada–Williams SIAM J Discrete Math (2012)",
+    "Sawada–Williams (2021) fixed-content universal cycles",
+    "Blanca–Godbole arXiv:1008.2251",
+    "Gabric et al arXiv:2603.11934"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every k>=4, the shortest nonempty circular binary word containing all oriented length-k weight-two words as literal cyclic factors has length binom(k,2)+k-1, with k=3 exceptional length 3.",
+  "limitations": [
+    "Other shortest-common-superstring/necklace-joining results may use an equivalent formulation not located.",
+    "Exhaustive computational confirmation was restricted to small k; the general lower bound rests on the supplied and independently checked periodicity argument."
+  ],
+  "residual_risks": [
+    "Other shortest-common-superstring/necklace-joining results may use an equivalent formulation not located.",
+    "Exhaustive computational confirmation was restricted to small k; the general lower bound rests on the supplied and independently checked periodicity argument."
+  ],
+  "schema_version": 1
+}

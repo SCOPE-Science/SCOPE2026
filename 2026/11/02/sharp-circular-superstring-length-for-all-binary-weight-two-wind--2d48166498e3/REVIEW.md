@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the literal full-window de Bruijn graph, verifies that required edges are disjoint balanced rotation circuits, and constructs a connected Eulerian augmentation of exactly \(k-1\) edges. For the lower bound, subtracting one required edge per word leaves an integral circulation. The Fine–Wilf overlap step is valid because any two added circuits have total length at most \(k-2\), strictly less than the shared vertex factor length \(k-1\). Periodic circuits shorter than \(k-1\) meeting the adjacent-pair necklace cannot meet another required orbit. The connectedness contradiction proves the lower bound for all \(k\ge4\). Boundary \(k=3\) is treated separately. Independently checked literal Eulerian constructions up to \(k=19\) and exhaustive all-shorter-word tests up to \(k=6\).
+## correctness
 
-## Originality — PASS, with residual risk
-Ruskey–Sawada–Williams (2012) and Sawada–Williams (2021) construct shorthand cycles; they explicitly distinguish shorthand from full length-\(k\) weight-two windows, so their statements do not imply the claimed minimal length. Blanca–Godbole give an asymptotic subset-cover result. Nellore–Ward treat near-balanced factor frequencies rather than an exact specified-weight covering requirement. Related 2026 bounded-weight results do not explicitly assert this sharp fixed-weight full-window optimum in available material. Searches of published mathematical records and relevant previous findings found no equivalent claim. The possibility of a disguised older covering-cycle construction remains, particularly in work not available in complete text.
+PASS
 
-## Value — PASS
-The quantity is a natural exact shortest circular superstring invariant for all words of one fixed composition, not an arbitrary finite or parameter-selected slice. The result gives an all-length sharp formula and an optimal constructive Eulerian route, resolving the extra cost imposed by disconnected weight-two necklaces. It distinguishes three often conflated concepts: exact full-window universal cycles, shorthand fixed-content cycles, and full-window covers allowing extra factors.
+Read entire RESULT.md at frozen blob 7b607ba36acbcb6bd34ca311f4efa52b3270ba29. Required weight-two de Bruijn edges form disjoint directed rotation necklace circuits, each with one incoming and outgoing required edge at every incident (k-1)-word. Adding the cycle induced by 10^(k-2) has length k-1 and passes through all single-marker (k-1)-words; each required necklace touches one, hence the union is balanced and connected and Eulerian. For the lower bound, subtract one copy of each mandatory edge. Any fewer than k-1 additional edges decompose into short periodic circuits. A short circuit meeting the adjacent-pair necklace cannot meet another weight-two necklace; Fine–Wilf forces any two meeting short circuits to have identical primitive vertex support. Thus short extras cannot connect the required distinct necklaces. Fresh independent Euler constructions checked literal windows for k=4..17; exhaustive shorter cyclic binary words were checked at k=4,5. These are finite corroborations of the all-k Fine–Wilf proof.
 
-## Limitations
-No uniqueness of optimal covers or results for other fixed weights are claimed. Finite computation is only corroborative. Independent assessment is not yet performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ruskey–Sawada–Williams (2012) explicitly use a shorthand fixed-weight universal cycle, a cyclic encoding through (k-1)-windows, not a literal covering of all k-length weight-two windows. Consequently their binom(k,2) length does not settle the additional connector cost k-1. Published universal-cycle and bounded-weight de Bruijn constructions were compared but no direct sharp literal-cover implication identified.
+
+## value
+
+PASS
+
+The exact optimal circular host length for all binary weight-two k-mers is a natural string assembly and covering invariant. It quantifies unavoidable necklace-connector overhead and supplies a constructive optimum for every k, not a single arbitrary computational instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
