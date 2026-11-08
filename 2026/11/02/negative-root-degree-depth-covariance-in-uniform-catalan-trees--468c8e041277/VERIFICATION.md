@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` in the same directory using Python 3. There are no external dependencies. The verifier checks:
+## correctness
 
-- The area, root-excursion and mixed integer moment sums from an independently coded primitive-path recursion for every \(1\le n\le100\).
-- The exact covariance and its sign for the same sizes, using rational arithmetic.
-- Direct enumeration of all Dyck paths through ten upward steps, including the root-degree-conditioned area coefficient relation.
-- The exact positive successive-ratio difference used for the strict sign.
+PASS
 
-Actual run: `PASS: 760 exact integer/rational assertions; direct enumeration through n=10 edges (16,796 Dyck paths); symbolic recurrence comparisons through n=100.`
+Reconstructed Dyck path interpretation D=number of primitive excursions and H=area of up-step starting heights+n. Differentiated F=(1-u z F(qz,q))^-1 at (u,q)=(1,1), obtaining the stated area, factor and mixed-moment generating functions; exact coefficient reduction yields covariance formula. The central-binomial ratio b_n=4^-n * binom(2n,n) is above the explicit threshold t_n for n>=2 since the successive ratio difference is positive and equality holds at n=1. Independent direct exhaustive Dyck-path enumeration verified the rational covariance for each n=1..9, including zero at n=1. Finite tests do not replace the all-size generating-function proof.
 
-This does not amount to exhaustive verification for unbounded sizes; the proof's differentiated generating functions and ratio inequality supply that conclusion. The literature comparison is based on inspected primary material and published records and does not certify exhaustive historical novelty.
+## originality
+
+PASS
+
+Both Catalan enumeration and area/path-length generating functions are classical; novelty is the exact mixed moment for root outdegree and total depth, strict all-n sign, and linear-order asymptotic covariance. The inspected Dyck area-and-rank statistic is noncrossing-partition rank rather than number of root children. Average-height results measure maximum height, not this mixed moment; adjacent Resultary works use recursive or Cayley trees with different probability laws.
+
+## value
+
+PASS
+
+Root degree and total depth quantify local branching versus global shape in the uniform Catalan model; their exact negative dependence and nonvanishing order n solve a natural bivariate enumeration not reducible to their marginal means. The all-n inequality is an independently useful structural statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

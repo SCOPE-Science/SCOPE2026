@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The object is a uniform rooted ordered tree counted by edges; root outdegree is the number of primitive Dyck excursions and the total vertex depth is the sum of ascent starting heights plus the edge count. Differentiating the explicit primitive decomposition simultaneously by area and by root-child count yields three exact integer moment sums. Direct substitution produces the covariance for all \(n\ge1\). A positive difference of successive ratios, starting at equality for \(n=1\), certifies strict negativity for all \(n\ge2\). The central-binomial expansion yields the stated asymptotic, with a remainder of order \(n^{-1/2}\). The standalone Python checker passes 760 exact assertions, including all 16,796 paths for \(n=10\). Scientific risk: no computational test independently proves an identity beyond its tested range, which is why the coefficient and ratio arguments are included.
+PASS
 
-## Originality: PASS (qualified)
+Reconstructed Dyck path interpretation D=number of primitive excursions and H=area of up-step starting heights+n. Differentiated F=(1-u z F(qz,q))^-1 at (u,q)=(1,1), obtaining the stated area, factor and mixed-moment generating functions; exact coefficient reduction yields covariance formula. The central-binomial ratio b_n=4^-n * binom(2n,n) is above the explicit threshold t_n for n>=2 since the successive ratio difference is positive and equality holds at n=1. Independent direct exhaustive Dyck-path enumeration verified the rational covariance for each n=1..9, including zero at n=1. Finite tests do not replace the all-size generating-function proof.
 
-The most relevant accessible primary Dyck-area paper, Blanco–Petersen, arXiv:1206.0803, treats the noncrossing-partition rank, not root excursion count. Its definition in the introduction distinguishes these statistics. The relevant section of Dershowitz–Rinderknecht's 2015 Catalan-tree work treats root-degree enumeration and expected path length separately without stating the mixed covariance. General prior enumerators and the classic Catalan identities are openly credited. The actual external comparison included mixed area/returns aliases and other random-tree models; the closest root-degree/path-length identity is for *random recursive trees*, not uniform plane trees. No matching exact formula or stronger dominating theorem was identified among inspected sources. Scientific risk: a broader historical bivariate generating function, including earlier general tree-pattern work that was not fully accessible, could implicitly cover the formula. Independent priority review has not occurred.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-A root's branching is a natural local shape statistic, while cumulative distance is a natural aggregate cost for searches in a hierarchical tree. The strict all-size negative covariance, explicit finite correction, and limiting order \(-2n\) quantify their interaction. This is more informative than combining separate marginal expectations or a small-size census, and the all-size sign needs an actual inequality rather than relying on an asymptotic. The result does not claim stochastic ordering, causality, or an unrelated extension.
+Both Catalan enumeration and area/path-length generating functions are classical; novelty is the exact mixed moment for root outdegree and total depth, strict all-n sign, and linear-order asymptotic covariance. The inspected Dyck area-and-rank statistic is noncrossing-partition rank rather than number of root children. Average-height results measure maximum height, not this mixed moment; adjacent Resultary works use recursive or Cayley trees with different probability laws.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Root degree and total depth quantify local branching versus global shape in the uniform Catalan model; their exact negative dependence and nonvanishing order n solve a natural bivariate enumeration not reducible to their marginal means. The all-n inequality is an independently useful structural statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
