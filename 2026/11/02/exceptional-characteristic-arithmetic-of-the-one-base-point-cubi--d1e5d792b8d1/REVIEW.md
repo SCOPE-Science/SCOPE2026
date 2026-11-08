@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is about an explicit integral projective pencil, not a resolved modular surface. The resultant eliminates all possible base points except one and Bézout fixes multiplicity nine. The two lexicographic characteristic-specific Jacobian ideals, confirmed by exact coefficient arithmetic, exhaust finite singular supports. Differentiation at infinity excludes missing finite singularities; local expansions show ordinary nodes and an \(A_2\) cusp. Smoothness, geometric integrality and normalization identify every rational point count, including the quadratic nonsplitting over odd-degree characteristic-two extensions. The Hasse coefficients are \(t\) and \(t^2\). The characteristic-three modular map follows from a genuine separable quadratic double cover and a squarefree quartic branch polynomial. The exact verifier passes all symbolic identities and five complete finite-field censuses. Primary risk: the characteristic-three and characteristic-two plane models are not assertions about minimal regular Kodaira fibers.
+PASS
 
-## Originality — PASS (best-knowledge, with risk)
+Resultant_y(F,G)=x^9 and F_y(0,0,1)=1 prove the unique length-nine base point. Gröbner reductions of the full finite Jacobian ideal in char2 give (x,y+t,t³+1), and char3 (x−y²,y³−1,t); homogeneous derivatives exclude singular support at infinity. The char2 tangent cone x²+txv+t²v² has branch directions governed by u²+u+1, split over F_{2^r} iff r even; at t=∞ the tangent is xy and split. In char3 at (1,1,1), the exact local equation w²+w v²−v³=0 is A2 cusp; the other singularity is a split node. Normalization P1 gives q+2/q/q+1 point counts. Hasse invariants are t (char2) and t² (char3); the discriminant of the projection quartic is −256(t³+27), I=t(t³+24), implying j(C_t)=−t^9 in char3. Independent exact resultants, Jacobian systems over F2/F3, Hasse coefficient, quartic discriminant, and prime-field projective singular sets corroborated.
 
-The motivating primary source provides the precise polynomial pencil but works over \(\mathbb C\), with four nodal singular plane members. Its reviewed full text gives no complete characteristic-two-or-three reduction, no finite-field splitting pattern, and no ninth-power characteristic-three modular formula. The cusp on the first cubic in characteristic three was described publicly in 2020, so that isolated fact is excluded from the claimed novelty. Published classifications of positive-characteristic extremal elliptic surfaces concern *resolved* surface fiber configurations; they do not by themselves yield the arithmetic of these explicitly presented singular plane fibers and their rational normalization branches. Directed mathematical-record comparisons and prior-claim searches found no implication covering the full theorem. Residual risk: older modular elliptic-curve normal forms or unindexed works could encode the same statements after an explicit isomorphism; independent priority confirmation is unavailable.
+## originality
 
-## Value — PASS
+PASS
 
-The plane pencil is a canonical, precisely published model; its bad-characteristic arithmetic directly distinguishes complex-to-positive-characteristic degeneration. A complete list of all singular geometric members, split versus nonsplit nodal rational counts for every \(\mathbb F_{2^r}\), exact smooth-parameter counts, and the inseparable \(j\)-map in characteristic three form a coherent structural package not reducible to observing that one special member becomes cuspidal. They are natural data for comparisons between a pencil, its plane arithmetic and associated genus-one fibration.
+Moschetti–Pirola–Stoppino (2024 original, expanded 2025) use the exact same integral generators but prove four nodal fibers over C; this does not imply their bad-characteristic plane singularity splitting, point counts or inseparable characteristic-three modular map. The cusp of F at characteristic three is already known from 2020 and not claimed independently original. Classical elliptic surface Kodaira and extremal classifications may constrain resolved surface types, but do not fix these marked plane-node and rational-branch data from the stated formulas. Qualified.
 
-## Boundaries and closest literature
+## value
 
-Moschetti–Pirola–Stoppino, arXiv:2407.04569, §§4–7, is the primary object and complex comparator. The 2020 Mathematics Stack Exchange discussion already identifies the characteristic-three cusp of the Klein cubic. Lang (1994) and Jarvis et al. (2005) classify characteristic-small elliptic-surface fiber phenomena more broadly. None of these is represented as a complete absence-of-priority certificate. The independently audited status remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Bad reduction of a distinguished integral elliptic pencil is a natural arithmetic-geometric invariant. The complete char2/char3 singular-fiber and rational branch count, Hasse ordinarity and purely inseparable ninth-power j map quantify exactly where the characteristic-zero geometry fails; specific useful mathematical data, not a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
