@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:12:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob d90dbea8ccb9a3c57ffd080998f88cf24c083c42",
+        "source verifier blob a4a06b18380f52a6dbadd98a4140721162103ae3",
+        "actual Git tree b6dd9c6e124b1f101fa4ada9b8d0d3e71c943178",
+        "independent reconstruction: Independent integer-only canonical directed-cycle enumeration and component bitmask DP from the inspected theorem checked all six n. Simple cycle counts 3,5,19,41,697,10377; component counts 2,2,4,4,8,10; independent optimizer returned L_n=4,7,16,24,46,82. Inspected the explicit circular witness JSON and the source verifier/crosscheck scripts; the local independent code did not run the packaged scripts.",
+        "Independent exhaustive 2^16 circle scan: 384 length16 even-parity covers, 128 with only 14 distinct windows; witness 1111001101010000 excludes indexed factors 0010 and 1011."
+      ],
+      "rationale": "A binary length-n even-parity arc is the unique mandatory outgoing and incoming arc at every (n−1)-bit de Bruijn state, so the required subdigraph is a union of permutation cycles. Every circular cover is a connected Eulerian arc multiset; subtract the mandatory arcs to obtain balanced augmentation decomposable into simple cycles. The mandatory-component incidence hypergraph must be connected, and any chosen connected family yields an Euler cover. Given a witness augmentation of cost B_n, no optimum simple augmentation cycle has length >B_n. Canonical simple-cycle enumeration by least vertex and a strictly expanding bitmask recurrence therefore prove exhaustive lower bounds for each n=2..7; explicit 2^{n−1}+B_n witness words supply upper bounds. Outputs (4,7,16,24,46,82); odd-only restricted augmentation costs lead to 26 and 85 at n=5,7 versus 24 and 82. No n≥8 claim. SCIENTIFIC COUNTEREXAMPLE TO A SEPARATE EXPLICIT FINDING SENTENCE: The original RESULT.md asserts that an order-four optimal cover \"requires all 16 possible windows,\" and REVIEW.md/AUDIT.json say it must be a complete de Bruijn cycle. This is false. The length-16 indexed circle s=1111001101010000 contains every even-parity binary 4-gram 0000,0011,0101,0110,1001,1010,1100,1111, but its 16 cyclic windows contain only 14 DISTINCT four-grams, omitting 0010 and 1011. Independent exhaustive enumeration of all 65536 binary indexed circles of length16 found 384 valid parity covers, of which 128 are NOT length-four de Bruijn cycles, and the least distinct-window count is 14. Thus the exact length L_4=16 remains correct, as do the verified finite length minima, but the additional asserted necessity of every binary word is false. Original final claim C=FAIL unless complete scientific files are repaired; no audit disclaimer is a repair.",
+      "residual_risks": [
+        "Only circular indexed binary covers for n=2,...,7; no formula for larger orders.",
+        "Odd-only optimality relies on source algorithm enumeration; local independent run checked unrestricted optimum and source restrictions by inspection.",
+        "A relevant university thesis could only be inspected through its abstract; equivalent unindexed covering work remains possible.",
+        "A complete true revised claim could retain L_4=16 but must remove false complete-de-Bruijn necessity from RESULT.md, REVIEW.md, and AUDIT.json."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sawada–Williams–Wong, IWOCA 2013: consecutive Hamming-weight intervals [c,d] admit universal cycles; Burstein–Kitaev: pattern-equivalence/unavoidability"
+        ],
+        "reasoning": "Consecutive Hamming-weight intervals do not include alternating even weights for n≥4. Pattern-equivalence universal cycles are not inclusion of every distinct indexed parity n-gram with arbitrary extra windows. Thus their parameter-general results do not imply these lengths.",
+        "searches": [
+          "cyclic shortest superstring even parity binary n-gram de Bruijn digraph connected Euler tour parity windows",
+          "Sawada Williams Wong universal cycles weight-range strings",
+          "Burstein Kitaev unavoidable word patterns"
+        ]
+      },
+      "checked_sources": [
+        "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+        "https://arxiv.org/abs/math/0311399",
+        "https://dc.etsu.edu/etd/1130/",
+        "Resultary query: cyclic shortest superstring even parity binary n-gram de Bruijn digraph connected Euler tour parity windows"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited gluing/Eulerian method produces universal cycles for allowed contiguous weight subgraphs; the mandatory even-parity subgraph here has multiple connected components"
+        ],
+        "reasoning": "Additional optimal augmentation cost minimization (with duplicated even windows permitted) is necessary. No identified general theorem hypothesis covers this nonconsecutive parity family with exact optimum.",
+        "searches": [
+          "Sawada Williams Wong 2013 PDF Theorems 2–3",
+          "https://dc.etsu.edu/etd/1130/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Required even parity arcs form disjoint permutation cycles; shortest connected Eulerian augmentation equals a graph routing / cycle-hypergraph optimization"
+        ],
+        "reasoning": "The reduction identifies a general graph-optimization formulation, but the new claim is its exact evaluated minima and optimal witnesses through n=7. A general Euler algorithm does not itself tabulate these optima.",
+        "searches": [
+          "cyclic shortest superstring even parity binary n-gram de Bruijn digraph connected Euler tour parity windows",
+          "shortest cyclic superstring parity even weight binary words de Bruijn Euler connected augmentation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits were parity automata and cyclic-code records on different objects; Campbell thesis abstract advertises contiguous weight ranges"
+        ],
+        "reasoning": "No actual exact length table (4,7,16,24,46,82) or equivalent parity-gram covering census was located in inspected material. This is not evidence of global novelty.",
+        "searches": [
+          "cyclic shortest superstring even parity binary n-gram de Bruijn digraph connected Euler tour parity windows",
+          "Resultary semantic parity de Bruijn coverage search",
+          "Campbell 2013 cyclic universality thesis"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is a statement/implication comparison, not a title-match test. The exact established object, parameters, finite tables and known stronger results were cross-checked against published Resultary findings and primary literature; no decisive prior coverage of the final claim was established. Highly plausible inaccessible sources and indirect possible corollaries are disclosed in residual_risks. Searches alone are not novel proof.",
+      "residual_risks": [
+        "A relevant university thesis could only be inspected through its abstract; equivalent unindexed covering work remains possible.",
+        "No exhaustive global literature priority or expert certification is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_DIRECT_PARITY_COVERAGE",
+          "evidence": [
+            "Allowed weights are consecutive [c,d]; parity weight set is nonconsecutive, and this is a shortest supercover with extra windows."
+          ],
+          "identifier_or_url": "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+          "material_read": "Full 15-page author PDF inspected, including Theorems 2–3 on consecutive weight ranges and proof of cycle gluing",
+          "method": "Read PDF text and visually inspected pages 1 and 6",
+          "title": "Universal cycles for weight-range binary strings",
+          "trigger": "Strong graph-overlap prior on subsets by Hamming weight"
+        },
+        {
+          "assessment": "RELATED_PATTERNS_NOT_DIRECTLY_IDENTICAL",
+          "evidence": [
+            "Patterns are considered up to pattern equivalence, unlike individually indexed even-parity windows."
+          ],
+          "identifier_or_url": "arXiv:math/0311399",
+          "material_read": "Abstract, introductory summary and bibliographic scope; not claimed entire full text",
+          "method": "Accessible arXiv abstract and study synopsis",
+          "title": "On unavoidable sets of word patterns",
+          "trigger": "Universal cycles and word patterns as potential alias"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT_PLAUSIBLE_PRIORITY_RISK",
+          "evidence": [
+            "Abstract addresses selected weight ranges; cannot assert whole-document exclusion of parity supercovers."
+          ],
+          "identifier_or_url": "https://dc.etsu.edu/etd/1130/",
+          "material_read": "Repository abstract/title/description; full PDF institution link denied access",
+          "method": "Read repository abstract and attempted full institutional PDF",
+          "title": "Universal Cycles for Some Combinatorial Objects",
+          "trigger": "2013 thesis potentially closest broad classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+        "https://arxiv.org/abs/math/0311399",
+        "https://dc.etsu.edu/etd/1130/"
+      ],
+      "rationale": "Even-parity n-grams are a natural disconnected spanning permutation of a de Bruijn graph. The first six exact cyclic covering minima, notably the n=5 and n=7 mixed-parity advantage and n=4 full de Bruijn boundary, provide meaningful small-order exact data and a reusable complete augmentation reduction, not an arbitrary window slice.",
+      "residual_risks": [
+        "Correctness, novelty and reproducing code alone are not treated as value; motivation is the natural object and specific new exact invariant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only circular indexed binary covers for n=2,...,7; no formula for larger orders.",
+    "Odd-only optimality relies on source algorithm enumeration; local independent run checked unrestricted optimum and source restrictions by inspection.",
+    "A relevant university thesis could only be inspected through its abstract; equivalent unindexed covering work remains possible.",
+    "Explicit false auxiliary assertion: n=4 optimum does not force 16 distinct binary 4-gram types; only the minimum 16 indexed window positions is correct."
+  ]
+}
