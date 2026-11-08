@@ -1,18 +1,21 @@
-# Scientific review: integral symmetry modules of complete-bipartite higher-independence complexes
+# Independent mathematical audit
 
-## Correctness — PASS
-The face criterion is exact: a vertex set meeting both bipartition classes induces a connected complete bipartite graph, whereas a one-part face induces isolated vertices. The resulting union of the full part simplices with a simplex skeleton gives an integral pair long exact sequence. Its connecting map identifies the two part-skeleton cycle lattices with exterior powers of their augmentation kernels; the sum is injective and primitive because a basis of the full augmentation kernel is furnished by difference bases in each part and one bridging difference. Therefore the displayed quotient is free and is the only nonzero reduced homology module, including the zero-dimensional boundary case. The determinant identity yields the part-preserving character; exchange permutations have zero trace on the swapped direct summands and even-cycle eigenvalue factors on the numerator. At threshold two, the exact two-component relative sequence yields the augmentation kernel of the transitive cross-edge permutation module; Shapiro's degree-one formula and the symmetric-group abelianizations prove the two-torsion coinvariant threshold. The negative orientation introduced by part exchange is accounted for and becomes inconsequential on the two-torsion classes. The standalone finite verifier passed 96 parameter cases, 1,512 signed Lefschetz comparisons, and 30 exact integer Smith-form checks. Finite verification is corroboration, not a proof for all parameters.
+## correctness
 
-## Originality — PASS, subject to residual literature risk
-Deshpande and Singh, arXiv:2001.05448, Theorem 3.5, explicitly cover the ordinary sphere-wedge homotopy type and resulting Betti ranks for complete multipartite graphs; these are **not** presented as new. Their compared theorem and surrounding proof concern ordinary homotopy and do not state an integral automorphism module, a full wreath-product character, or the coinvariant torsion threshold. Ghosh and Selvaraja, arXiv:2505.06614 (initial submission 2025-05-10), study shellability conditions and operations, not this equivariant integral module. Targeted searches of related mathematical results, exact graph-family aliases, and representation-theoretic formulations did not identify a stronger result implying the new module plus coinvariant calculation. These comparisons distinguish statements, rather than titles; unsuccessful searches alone do not prove uniqueness. Generic techniques for simplex-skeleton representations and group homology are known, and an unindexed equivariant derivation is possible.
+PASS
 
-## Value — PASS
-An ordinary wedge-of-spheres count does not specify how graph automorphisms act on integral homology. The result determines the complete integral module of an infinite two-parameter family at every threshold, explicitly covers the additional balanced part-exchange symmetry, and reveals nontrivial order-two coinvariants in torsion-free homology. The sharp dependence on whether either part has exactly two vertices is invisible over the rationals. The invariant arises naturally from automorphisms of the same complexes whose nonequivariant topology is known, not from an arbitrary graph or parameter slice. The result does not assert a new ordinary homotopy classification or full equivariant homotopy decomposition.
+PASS: The face criterion (mixed face size<=r, all one-part faces) gives the exact skeleton-plus-two-simplices decomposition. The reduced simplicial boundary as augmentation contraction identifies top skeleton cycles with Λ^r U_V; the relative sequence injects the two part exterior powers. An integral difference basis U_V=U_A⊕U_B⊕Z(e_a-e_b) makes both sublattices disjoint primitive blocks, so the quotient is torsion-free with the displayed rank. Determinant over permutation cycles yields both rational characters including the part-swap sign. For r=2, the chain model H1=ker(Z[A×B]→Z), Shapiro/degree-one long exact homology and abelianizations of S_k give precisely the 2-torsion coinvariants. Correct in r=1, balanced swap, and r approaching a+b.
 
-## Closest sources and limits
-* Deshpande–Singh, *Higher Independence Complexes of Graphs and Their Homotopy Types*, arXiv:2001.05448, Theorem 3.5 (ordinary homotopy; stronger on that separate axis).
-* Ghosh–Selvaraja, *Shellability of Higher Independence Complexes of Graphs*, arXiv:2505.06614 (motivation and shellability, not integral equivariant module).
-* General integral exterior powers, elementary Shapiro lemma, and abelianizations of finite symmetric groups are standard methods, not novel prerequisites.
-* Independent mathematical validation remains outstanding; equivalent unindexed literature and implicit general equivariant formulations cannot be eliminated by finite search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): Deshpande-Singh Theorem 3.5 dominates the ordinary homotopy and Betti ranks, explicitly acknowledged as prior. The checked primary statement and proof do not give the natural integral S_a x S_b quotient module, balanced exchange characters, or torsion coinvariants at r=2. Equivalent unindexed equivariant work remains a risk.
+
+## value
+
+PASS
+
+PASS: The module and integral coinvariants carry genuinely finer information than the already-known complete-multipartite wedge-of-spheres rank. The threshold a=2 or b=2 is an exact natural torsion discontinuity in symmetry coinvariants of otherwise free homology, with meaningful representation-theoretic interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

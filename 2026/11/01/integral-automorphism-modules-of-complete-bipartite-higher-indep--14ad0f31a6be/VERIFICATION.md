@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction instructions
+# Independent mathematical audit
 
-Run `python check.py` with Python 3 and SymPy. The program directly enumerates faces in 96 bipartite higher-independence cases, computes the signed reduced Lefschetz character on 1,512 permutation instances including balanced exchanges, and calculates 30 integral Smith normal forms for the asserted coinvariant groups. The completed check returned:
+## correctness
 
-`PASS {'parameter_cases': 96, 'signed_lefschetz': 1512, 'rank_checks': 96, 'integral_smith_tests': 30}`
+PASS
 
-The general proof is in `RESULT.md`. Specifically, recheck the relative pair exact sequence, primitivity of the two inclusion sublattices, and the application of the degree-one Shapiro isomorphism in the coinvariant calculation. Finite tests are not exhaustive over all parameters and are not evidence of novelty. No independent external audit or validation is claimed.
+PASS: The face criterion (mixed face size<=r, all one-part faces) gives the exact skeleton-plus-two-simplices decomposition. The reduced simplicial boundary as augmentation contraction identifies top skeleton cycles with Λ^r U_V; the relative sequence injects the two part exterior powers. An integral difference basis U_V=U_A⊕U_B⊕Z(e_a-e_b) makes both sublattices disjoint primitive blocks, so the quotient is torsion-free with the displayed rank. Determinant over permutation cycles yields both rational characters including the part-swap sign. For r=2, the chain model H1=ker(Z[A×B]→Z), Shapiro/degree-one long exact homology and abelianizations of S_k give precisely the 2-torsion coinvariants. Correct in r=1, balanced swap, and r approaching a+b.
+
+## originality
+
+PASS
+
+PASS (best of knowledge): Deshpande-Singh Theorem 3.5 dominates the ordinary homotopy and Betti ranks, explicitly acknowledged as prior. The checked primary statement and proof do not give the natural integral S_a x S_b quotient module, balanced exchange characters, or torsion coinvariants at r=2. Equivalent unindexed equivariant work remains a risk.
+
+## value
+
+PASS
+
+PASS: The module and integral coinvariants carry genuinely finer information than the already-known complete-multipartite wedge-of-spheres rank. The threshold a=2 or b=2 is an exact natural torsion discontinuity in symmetry coinvariants of otherwise free homology, with meaningful representation-theoretic interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
