@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rJR group condition is equivalent to the strict candidate-wise unrepresented-support inequality. If a top-quality pair fails, the violating candidate has quality at least \(n/[2(n-d)]\), and replacing the lower-quality top choice covers strictly more than half the electorate. This makes further blocking impossible. The quality-ratio inequality, both half-electorate cases, and the exact three-candidate extremizers follow without numerical assumptions. The exact checker exercises finite cases and parametric extremizers, not general proof by enumeration.
+## correctness
 
-**Originality — PASS within identified evidence, with residual risk.** The primary 2026 manuscript supplies the reciprocal axiom and an asymptotic \(3/4\) guarantee. The earlier finite-electorate two-seat special case with exactly one minimum supporter is acknowledged as covered, not relabeled as a new result. The new item is the complete support-degree frontier with \(d\ge2\), exact lossless half-electorate transition, and single-replacement guarantee. Searches comparing these statements and parameters to available mathematical records and the primary manuscript did not identify prior exact \(d\)-dependent coverage. Publication-priority uncertainty remains for unindexed work.
+PASS
 
-**Value — PASS.** Minimum candidate support is a natural election-density parameter and operationally limits disenfranchisement. The theorem quantifies the quality price throughout its range, pinpoints where the price vanishes, and gives a direct constructive repair. The gain is structural rather than a routine fixed-size recomputation.
+From the strict rJR criterion 2*h_c*|N(c) intersect U(W)|<n, failure of a maximum-quality pair {a,b} gives a third candidate c with at least n/(2h_c) uncovered supporters. Since s<=n-d, h_c>=n/[2(n-d)]. Replacing b with c covers s+d>n/2 and is rJR; the ratio is >=(1+n/[2(n-d)])/2. At 2d=n the repair has identical maximum quality; when 2d>n no maximum pair can fail. The sharp example with disjoint T,S, supports T,T,S and qualities 1,1,n/[2(n-d)] attains the ratio. Integer boundaries and strict tie handled. Independent integer-grid enumeration covers 630342 3-candidate cases for n=4,5, not an all-instance proof.
 
-**Closest sources and limitations.** Boehmer–Dong–Kreisel–Utke, arXiv:2609.08830v1, establishes the axiom and general bound. The earlier finite-two-seat record is the exact \(d=1\) boundary. New proof is for two seats only; no independence or external audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The quantity is the quality price of reciprocal justified representation for two committee seats under minimum candidate support d>=2, not classical unweighted JR. The 2026 Boehmer et al. general 3/4 bound and an already-established finite-electorate d=1 exact frontier cover baseline only. The novel claim is support-dependent sharp curve and sharp lossless half-electorate boundary; no dominating parameter theorem was established from the literature accessible this run. Full principal arXiv text unavailable and authorized institutional access blocked, so historical novelty remains qualified.
+
+## value
+
+PASS
+
+Candidate minimum approval degree is a meaningful parameter for representation-cost design. The exact support-dependent retained-quality ratio, tight three-candidate family, single-swap repair and half-electorate threshold constitute a natural full frontier rather than a routine substitution of the d=1 result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
