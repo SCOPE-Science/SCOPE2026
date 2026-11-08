@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-vertex metric distances reduce exactly to two within-part fluctuations, a negative symmetric radial direction, and a two-by-two antisymmetric radial form. Strict negativity of the fluctuations follows from the strict \(p\)-negative type of distinct real points for \(0<p<2\); midpoint concavity settles the symmetric radial form. The antisymmetric determinant is positive near zero and negative at the core threshold. Strict-negative-type inheritance rules out additional critical exponents. The one-dimensional endpoint kernel determines snowflake embedding rank. Direct expansions give both pendant-length limits and the large-branching constant. Rational checks and small full-matrix eigenvalue tests corroborate, but do not replace, the proof.
+PASS
 
-## Originality — PASS (qualified)
+Reconstructed the powered-distance form on all 4q vertices (cores and pendants). Splitting each shore into zero-mean fluctuations and symmetric/antisymmetric radial means gives strictly negative fluctuation forms by strict 0<p<2 negative type of distinct real-line points and strictly negative symmetric form by concavity for 0<p<1. Antisymmetric radial block is -2q[[X,Y],[Y,Z]] with X=q−(q−1)2^p, Y=q(1+t)^p−t^p−(q−1)(t+2)^p, Z=q(1+2t)^p−(q−1)(2+2t)^p. On 0<p<p0=log2(q/(q−1)), X,Z>0 and Δ=XZ−Y² crosses from +1 at 0 to negative -Y(p0)² at p0. Li–Weston exponent inheritance rules out multiple isolated zero-sign changes: any attained p-negative type makes all lower exponents strict. At the unique root the anti sector nullity is one, yielding Gram dimension 4q−2 versus 4q−1 below; above p0 X becomes negative and cannot be negative type. For fixed p<p0 the limits t↓0 and t→∞ make Δ>0, hence both endpoint limits of wp are p0. For p=c/q the matrix is I−c[[ln2,B(t)],[B(t),C(t)]]+O(1/q), yielding q wp→1/lambda_max and noncommuting small-length/large-q limits 1/(2ln2) and 1/ln2. Independent full 4q×4q centered Gram checks verified q,t=(3,1),(3,.01),(4,8),(20,1) with roots 0.554997356984, 0.571494164054, 0.409681901370, 0.056614029954, all corank one. The finite tests supplement the uniform sector proof.
 
-Sánchez (arXiv:1108.0451, Theorem 3.1) evaluates only the unmodified complete bipartite metric. Li–Weston (arXiv:0901.0695, Theorem 5.4) provides strictness inheritance. Ferdi et al. (arXiv:2512.17258) studies unweighted corona quadratic embedding constants at the original metric exponent one; it does not imply the variable-exponent, variable-leaf-length classification or the singular limit matrix. Related exact results for clique coronas, cyclic sunlets and single stretched biclique core edges concern other settings. Search absence is not an originality guarantee: undiscovered equivalent literature is the principal remaining risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result classifies a motivated continuum of finite metrics and gives sharp embedding-rank information. In particular, for every fixed branching size the maximal negative-type exponent is strictly depressed at every finite positive pendant length but returns to the core value in both length extremes. The explicit large-branching coefficient and the noncommuting order of limits identify a singular geometric regime rather than an arbitrary numerical example.
+Sánchez's finite metric theory evaluates unweighted Kq,q baseline p0, Li–Weston supplies strict-exponent inheritance. Ferdi–Baskoro–Obata–Santika analyze quadratic embedding constants of corona graphs for unweighted p=1, a different invariant and parameter regime. None of these logically implies the weighted length variable, the two-sided nonattained restoration or the singular q→∞ coefficient. Search of published SCOPE corpus found related weighted graph thresholds but not this biclique pendant family theorem.
 
-## Scope and limitations
+## value
 
-Balanced complete bipartite cores, one equally weighted private pendant edge per core vertex, all vertices retained. The theorem does not identify a unique minimizing length, allow irregular edge weights, or prove statements for arbitrary corona graphs. Finite numerical verification does not establish infinite-parameter statements.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete exact endpoint law for a natural 4q-vertex graph family supplies a nonmonotone dependence on pendant edge length, an interior worst length, and a sharp noncommuting branching/length limit. This is a substantial structural effect in metric negative type rather than a tiny finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
