@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:10:41.238978Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For K_{n,n} with exactly n red+n blue agents and both agents strictly improving across a swap, same-color or within-shore swaps cannot make both better. Every available opposite-color cross-shore swap changes x by ±1. Closed-neighborhood own-color fractions are complementary x/(n+1) and 1−x/(n+1) (or the analogous (x+1)/(n+1)); admissible utility is strictly monotone transform of q_Λ(s)=min{s/Λ,(1−s)/(1−Λ)}. Therefore preference comparison sign is (1/2−Λ)(1/2−s); low peak drifts from midpoint toward x∈{0,n}, high peak toward midpoint, Λ=1/2 gives complete indifference, and every profitable move decreases explicit T_nΛ(x) by one, proving every maximal strict path same length. Stable-coloring counts 2, binomial C(2n,n), and sum_{j=floor n/2}^{ceil n/2} C(n,j)^2 follow. Direct Vandermonde hypergeometric X and telescoping x² C(n,x)² yield exact D_n expected |X−n/2| and Stirling sqrt(n/(4π)). Independently checked actual swaps and T clocks on all colorings n=2..5 at three rational peaks, including odd/even boundary, and exact D_n for n 2..15. Assumes full occupancy, two equal parts and common peak, not asynchronous attempts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bilò et al. Theorem 1: finite improvement for almost regular graphs for Λ≤1/2; Theorem 4 independent-set sufficient stable placements; Corollary1 equilibrium existence for Λ=1/2 bipartite graphs.",
+          "Friedrich et al. considers jumps with vacancies, changing feasible deviations."
+        ],
+        "reasoning": "Generic finite improvement, existence and potential do not specify all K_{n,n} sinks, path-choice independence, or exact number of swaps; different jump protocol not stronger coverage.",
+        "searches": [
+          "arXiv:2204.12599",
+          "arXiv:2302.12107"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2204.12599",
+        "https://arxiv.org/abs/2302.12107",
+        "https://doi.org/10.1016/j.artint.2021.103576",
+        "Resultary: single peaked Schelling swaps balanced complete bipartite graph equilibrium convergence exact swaps",
+        "frozen RESULT.md and independent verifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence of a potential only says every strict path terminates; it does not guarantee all choices have identical length.",
+          "Bipartite equilibrium existence for Λ=1/2 does not imply *every* balanced coloring is an equilibrium; the latter uses complement symmetry."
+        ],
+        "reasoning": "The exact scalar x transition structure plus the binomial telescoping result are additional conclusions beyond general prior theorems.",
+        "searches": [
+          "arXiv:2204.12599",
+          "arXiv:2302.12107"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same Bilò–Bilò–Lenzner–Molitor closed-neighborhood, single-peaked bilateral swap game, specialized to K_{n,n} with balanced color counts.",
+          "Same-color swaps or intrashore opposite-color exchanges do not produce the same state transitions as permitted opposite-color cross-shore swap."
+        ],
+        "reasoning": "This is genuinely the same model restricted to a concrete graph, so the earlier general results require careful implication comparison; the exact census and clock are not quoted as known from the paper.",
+        "searches": [
+          "Resultary: single peaked Schelling swaps balanced complete bipartite graph equilibrium convergence exact swaps",
+          "arXiv:2204.12599",
+          "doi:10.24963/ijcai.2022/12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact balanced K_{n,n} all-Λ equilibrium-count and expected-time table in inspected source results.",
+          "Published network games have different monotone preferences or occupancy rules, so their tables are not equivalent."
+        ],
+        "reasoning": "Negative database retrieval is not a novelty proof; elementary specializations may be present in pedagogy or specialist follow-up papers.",
+        "searches": [
+          "Resultary: single peaked Schelling swaps balanced complete bipartite graph equilibrium convergence exact swaps",
+          "arXiv:2204.12599",
+          "doi:10.1016/j.artint.2021.103576"
+        ]
+      },
+      "rationale": "PASS at best knowledge for the balanced complete-bipartite all-peaks equilibrium spectrum, choice-independent exact strict-swap clock and random-initialization expectation; the Schelling game model and generic equilibrium existence/FIP theorems are acknowledged prior work.",
+      "residual_risks": [
+        "A specialist paper may state the K_{n,n} graph specialization and exact path clock without title matching.",
+        "Claims depend on strict bilateral gains, inclusion of agent self in neighborhood and equal total colors; no extensions should be inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS model, finite improvement and general existence results, no exact balanced K_n,n all-peaks trajectory counts in inspected relevant sections",
+          "evidence": "Theorem 1 guarantees convergence for Λ≤1/2; it does not give path length or its distribution. At Λ=1/2 the published existence result is weaker than every coloring stable.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.12599",
+          "material_read": "Full accessible primary preprint, definitions of closed-neighborhood utility, Theorems 1 and 4, Corollary 1 and game contexts",
+          "method": "Primary arXiv PDF plus page-image inspection",
+          "title": "Tolerance is Necessary for Stability: Single-Peaked Swap Schelling Games",
+          "trigger": "Exact game introduced and potential dominating theorem"
+        },
+        {
+          "assessment": "DIFFERENT deviation protocol allowing jumps to empty vertices; no whole-paper noncoverage claim",
+          "evidence": "The balanced occupied K_n,n has no empty vertices, hence jump-game dynamics are not the bilateral swap game.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.12107",
+          "material_read": "Accessible abstract and model description; full text not fully inspected",
+          "method": "ArXiv primary paper metadata and precise model comparison",
+          "title": "Single-Peaked Jump Schelling Games",
+          "trigger": "Potential stronger single-peaked dynamics results"
+        },
+        {
+          "assessment": "DIFFERENT monotone-utility setting, not a covering statement for all single-peaked Λ",
+          "evidence": "The preference sign reverses at Λ=1/2; monotone utility cannot represent this continuum.",
+          "identifier_or_url": "https://doi.org/10.1016/j.artint.2021.103576",
+          "material_read": "Abstract and model-scope evidence of monotone preference game, not full text",
+          "method": "Primary bibliographic and abstract comparison only",
+          "title": "Schelling Games on Graphs",
+          "trigger": "Nearby graph Schelling equilibria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A natural concrete Schelling game achieves a complete equilibrium census plus strong path-length invariance under arbitrary improvement choices and exact expected convergence counts; the critical all-coloring degeneracy and Θ(sqrt n) vs Θ(n) clock scales give useful, interpretable finite-to-asymptotic dynamics beyond existence theorems.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A specialist paper may state the K_{n,n} graph specialization and exact path clock without title matching.",
+    "Claims depend on strict bilateral gains, inclusion of agent self in neighborhood and equal total colors; no extensions should be inferred.",
+    "Scientific priority is best-of-knowledge; no certification of exhaustive historical literature coverage. Source is self-reviewed before this independent assessment."
+  ],
+  "schema_version": 1
+}
