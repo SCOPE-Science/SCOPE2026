@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with any current Python 3 interpreter and its standard library. It uses `fractions.Fraction` and factorial/binomial arithmetic throughout. The checker evaluates exact winner events by constructing every strict ranking for sizes two through six, and does not rely on the proof's cyclic-block decomposition to evaluate those cases.
+## correctness
 
-The first set of tests compares exhaustive exact probabilities in each of the zero-, one- and two-impartial strata to the all-size expressions. The second set directly weights every triple of rankings under the contaminated mixture for \(n=2,3,4\) and four rational values of \(\varepsilon\), then compares to the interpolation polynomial. The final set checks the strict positivity of the directional perturbation coefficient for sizes three through one hundred.
+PASS
 
-The script returned `PASS: 125 exact independent probability identities or inequalities`. This exact finite replay is supplementary to, not a proof of, the general all-size combinatorial identities. The asymptotic \(Q_n\sim\pi^{3/2}/(2\sqrt n)\) is a published theorem of May and Sauermann; the script does not independently certify this infinite limit. No independent external audit has been performed.
+Three cyclic rotations yield a winner iff at least two rotations coincide, giving A_n=(3n-2)/n². With exactly one uniform ballot and two rotations, only leaders of two opposing blocks can win; mutually exclusive probabilities are 1/(j+1) and 1/(n-j+1), summing to B_n=(2H_n-1)/n. Two impartial ballots and one fixed ranking have same winner chance Q_n as three impartial by relabeling. Conditional winner sets higher-ranked under each ballot are independent uniform subsets; pairwise disjointness yields exact Q_n triple sum. Binomial mixture gives polynomial, May/Sauermann Q_n~(pi^1.5/2)n^-1/2 supplies n^-1/4 balance. Exhaustive exact profile enumeration independent for n=3,4, all mixture eps in {0,1/4,1/2,1}.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact mathematical implications, including stronger prior results and aliases. The reviewed additional conclusion is not established by the primary/public mathematical results actually inspected; stated access and historical risks are retained.
+
+## value
+
+PASS
+
+The extremal cyclic culture is a motivated benchmark for near-minimization of Condorcet-winner probability. The exact harmonic conditional term and sharp whole-ranking contamination crossover quantify a natural perturbative stability question, not a mere restatement of the known extremal and impartial endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
