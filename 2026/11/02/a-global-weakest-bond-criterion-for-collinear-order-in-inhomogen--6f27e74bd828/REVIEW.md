@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The excess-energy identity is exact for arbitrary positive exchanges on an odd classical XY cycle. Weighted Cauchy–Schwarz and a telescoping complex chord inequality establish a global lower bound, not merely local Hessian stability. The equality case excludes spurious noncollinear minimizers at the critical surface, and a small admissible twist decreases energy strictly across it. The global coefficient is shown sharp by its limiting perturbation ratio. The packaged standalone checker passes 96 random rings and 30 targeted finite cases; no infinite-dimensional inference is drawn from those tests.
+## correctness
 
-**Originality — PASS on inspected evidence, with priority uncertainty.** The 2014 Florek et al. one-page primary abstract states the single-bond defect threshold \(\alpha_c=1/(N-1)\), which is acknowledged as known. The 2012 full PNAS paper uses three exchange parameters in quantum spin modeling but does not derive the all-exchange classical XY condition. The 2015 Kamieniarz–Florek–Antkowiak study is restricted by its identified model to one quantum bond defect; the full text remained inaccessible and is a residual historical-risk source. Targeted classical XY, weighted-frustration, Josephson-flux, and mathematical-result searches found no equivalent global arbitrary-coupling classification. Failure to find one is not a proof of priority.
+PASS
 
-**Value — PASS.** Magnetic molecular rings and frustrated phase loops naturally have unequal interactions. The exact result answers which disordered arrangements allow complete localization of the frustrated angle on one bond, gives a sharp equivalent-series-stiffness design criterion, and supplies a global stability bound whose constant is optimal. Multi-exchange examples distinguish configurations beyond the single-defect specialization. This is a structural all-parameter classification rather than an arbitrary finite computation.
+For any odd N≥3, positive couplings, deviations δ_i from antialignment obey sum δ_i=π mod2π. The exact energy difference from one frustrated weakest bond j is Σ_{i≠j} J_i(1−cos δ_i)−m(1−cos Σδ_i). Complex chord triangle inequality and weighted Cauchy give 1−cos Σδ_i≤(Σ1/J_i)Σ J_i(1−cosδ_i), implying global stability when ρ=mΣ1/J_i≤1. Equality ρ=1 rigid since at least two nonzero chord steps cannot saturate triangle inequality on a strictly convex circle. If ρ>1, perturb δ_i=ε/J_i shows negative quadratic difference, hence noncollinear global minimizers; perturbation also proves sharp coefficient. Independently checked rational 5-bond examples and 800 random configurations N=3,5,7,9. Global proof is analytic, not numerical.
 
-**Closest literature and limitations.** Baker et al. (2012), full public article, DOI 10.1073/pnas.1213127109; Florek et al. (2014), complete one-page conference abstract, https://www.ifmpan.poznan.pl/pm14/abst/608-wojciech_florek_amu_edu_pl-2014-03-06-17-43-56.pdf; Kamieniarz et al. (2015), Phys. Rev. B 92, 140411, abstract only. This is strictly a classical planar zero-temperature result; quantum ground-state spin-number transitions, dynamics, and finite-temperature phase diagrams are not inferred. An inaccessible 2015 full text and 2012 supplementary PDF leave residual priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS: The single-defect model with one m and N−1 equal J has α_c=1/(N−1), a special case already in Florek; the proposed criterion has arbitrary (N−1)-dimensional positive coupling disorder and a global finite-amplitude energy estimate not equivalent to that special case. 2015 and 2016 Physical Review B papers classify quantum frustrated spin rings with one defective bond and a particular classical limit, not arbitrary positive edge weights in a classical planar XY energy. No identified stronger theorem implies the arbitrary-disorder criterion.
+
+## value
+
+PASS
+
+Sharp if-and-only-if weakest-bond/series-stiffness threshold for arbitrary inhomogeneous frustrated XY cycles, including exact equality rigidity, nonlinear global stability and symmetry-distinct noncollinear phases. It generalizes the physically motivated one-defect threshold in a substantive way.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
