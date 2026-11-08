@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T18:55:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Legal permutations have determinant sign sum det(J-I-P), where J is all ones and P a cyclic shift. The constant-vector eigenvalue is n-2; nontrivial Fourier eigenvalues -1-zeta^k. The product vanishes for even n and yields n-2 for odd n. A legal transposition flips sign, so a bipartite Hamilton path requires parity-class difference <=1, excluding odd n>=5. For n=6 the certificate of 80 distinct indices into the exact lexicographic legal set was fetched from the frozen Git blob. Independent recomputation verifies each cyclic consecutive pair (including last-to-first) is one transposition, all 80 vertices are visited, 207 undirected edges and exhaustive all-source BFS gives eccentricity 5 for 48 vertices and 6 for 32. Exact enumeration also verified parity n=3..9; no finite extrapolation is used for unbounded odd n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonamy et al arXiv:1904.06184 main results",
+          "Shevelev–Moses arXiv:1101.5321 count formulas"
+        ],
+        "reasoning": "The generic perfect-matching reconfiguration problem studies sequences of 4-cycle flips on graph classes and complexity, not a cyclic Hamiltonian listing of the particular 80-state J-I-P matching graph. General transposition Gray codes for S_n allow forbidden placements, so do not imply this restricted code.",
+        "searches": [
+          "Resultary semantic query: menage permutations transposition Gray code Hamiltonian cycle six couples parity signed determinant forbidden positions; primary sources: Bonamy et al arXiv:1904.06184 main results, Shevelev–Moses arXiv:1101.5321 count formulas"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Gray RESULT.md, hamiltonian_cycle.txt, verify_menage.py and verify_menage_alt.cpp; independent 80-state BFS",
+        "Shevelev and Moses arXiv:1101.5321",
+        "Bonamy et al arXiv:1904.06184",
+        "OEIS A000179",
+        "Resultary query: menage permutations transposition Gray code Hamiltonian cycle six couples parity signed determinant forbidden positions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:1101.5321 and arXiv:1904.06184"
+        ],
+        "reasoning": "The usual ménage permanent does not determine signed parity imbalance or adjacency Hamiltonicity; the determinant supplies a separate obstruction. Existing four-cycle-flip connectivity results do not imply that these 80 matchings admit one Hamiltonian cycle. The theorem explicitly avoids inferring cyclic codes for all even n.",
+        "searches": [
+          "Resultary semantic query: menage permutations transposition Gray code Hamiltonian cycle six couples parity signed determinant forbidden positions; primary sources: arXiv:1101.5321 and arXiv:1904.06184"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shevelev–Moses arXiv:1101.5321 Section 2; Bonamy et al arXiv:1904.06184 introduction"
+        ],
+        "reasoning": "Valid ménage/Tait permutations are perfect matchings in a bipartite graph with adjacency J-I-P; the even-minus-odd count is the determinant, not the permanent. A single swap corresponds to exchanging two matched columns, a four-cycle flip where legal.",
+        "searches": [
+          "Resultary semantic query: menage permutations transposition Gray code Hamiltonian cycle six couples parity signed determinant forbidden positions; primary sources: Shevelev–Moses arXiv:1101.5321 Section 2; Bonamy et al arXiv:1904.06184 introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A000179; Shevelev–Moses arXiv:1101.5321 p.2",
+          "hamiltonian_cycle.txt Git blob at frozen snapshot"
+        ],
+        "reasoning": "OEIS A000179 lists the classical scalar counts 13 and 80; those are not claimed original. The new exact graph edges/diameter/Gray cycle were independently computed from actual 80-index finite witness rather than read from a table; an unindexed restricted Gray-code table remains possible.",
+        "searches": [
+          "Resultary semantic query: menage permutations transposition Gray code Hamiltonian cycle six couples parity signed determinant forbidden positions; primary sources: OEIS A000179; Shevelev–Moses arXiv:1101.5321 p.2, hamiltonian_cycle.txt Git blob at frozen snapshot"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precise final result is retained after direct scope/implication comparisons and meaningful reading, with identified prior machinery and explicit inaccessible-source risks. No failed search is treated as a novelty proof.",
+      "residual_risks": [
+        "Some combinatorial Gray-code catalogue or older matching-reconfiguration article may list the same n=6 restricted cycle.",
+        "Finite 80-cycle witness does not imply any positive claim for n>6 even."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical permanent and scalar ménage count covered; no transposition Gray Hamiltonicity theorem identified in inspected sections",
+          "evidence": [
+            "arXiv:1101.5321 p.2, Section 2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1101.5321",
+          "material_read": "Full-text PDF first sections including matrix J-I-P and enumeration U5=13, U6=80, later count formulas",
+          "method": "web PDF text and page-2 screenshot",
+          "title": "The ménage problem with a fixed couple",
+          "trigger": "Exact old J-I-P forbidden-position model and known counts"
+        },
+        {
+          "assessment": "General flip/reachability problem not an exact cyclic listing on fixed J-I-P instances",
+          "evidence": [
+            "arXiv:1904.06184, abstract and main theorems"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.06184",
+          "material_read": "PDF abstract, introduction and main graph-class complexity results examined",
+          "method": "web PDF text and title-page screenshot",
+          "title": "The Perfect Matching Reconfiguration Problem",
+          "trigger": "General equivalence between restricted permutations and perfect-matching flips"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The negative parity obstruction gives a complete infinite Hamilton-path impossibility mechanism for every odd size, while the positive n=6 explicit cyclic Gray code is a nontrivial reconfiguration witness at the first larger even instance. Exact finite graph diameter and boundary cases characterize a natural restricted permutation graph.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Gray RESULT.md, hamiltonian_cycle.txt, verify_menage.py and verify_menage_alt.cpp; independent 80-state BFS",
+    "Shevelev and Moses arXiv:1101.5321",
+    "Bonamy et al arXiv:1904.06184",
+    "OEIS A000179",
+    "Resultary query: menage permutations transposition Gray code Hamiltonian cycle six couples parity signed determinant forbidden positions"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the legal ménage permutation transposition graph T_n, the even-minus-odd vertex count is n-2 for odd n and 0 for even n; thus no Hamiltonian path for odd n>=5. For n=6, an explicit cyclic 80-vertex Gray code exists and the graph has 207 edges, radius 5 and diameter 6; n=4,5 boundary components are determined.",
+  "limitations": [
+    "Legal moves swap any two positions, not adjacent-position swaps; labels are not quotient by symmetry.",
+    "Odd-n parity theorem for all odd n>=5; Ham cycle only proven n=6; no connectivity inference for odd n."
+  ],
+  "residual_risks": [
+    "Some combinatorial Gray-code catalogue or older matching-reconfiguration article may list the same n=6 restricted cycle.",
+    "Finite 80-cycle witness does not imply any positive claim for n>6 even."
+  ],
+  "schema_version": 1
+}

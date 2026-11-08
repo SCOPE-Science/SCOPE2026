@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify_menage.py` and then `g++ -std=c++17 -O2 verify_menage_alt.cpp -o verify_menage_alt && ./verify_menage_alt` with `hamiltonian_cycle.txt` in the same directory. The Python checker exhausts the valid permutations for 3 through 6 and checks components, edge counts, all-source distances, and all 80 cyclic certificate transitions. The C++ checker independently enumerates all 3-through-9 permutations to compare even/odd counts, then constructs the six-permutation graph by direct pair comparisons, checks the Hamiltonian certificate, and computes all-source distances. Output seen: `CYCLIC_MENAGE_GRAY_CODE_OK` and `ALTERNATE_HAMILTON_CYCLE_OK vertices=80 edges=207 eccentricities=5:48,6:32`.
+## correctness
 
-The symbolic all-order parity proof in `RESULT.md` uses the eigenvalues of \(J_n-I_n-P_n\), so verification for finitely many \(n\) is confirmatory only. The certificate uses zero-based indices into lexicographically sorted valid six-permutations. It does not prove a Hamiltonian cycle at any other size.
+PASS
+
+Legal permutations have determinant sign sum det(J-I-P), where J is all ones and P a cyclic shift. The constant-vector eigenvalue is n-2; nontrivial Fourier eigenvalues -1-zeta^k. The product vanishes for even n and yields n-2 for odd n. A legal transposition flips sign, so a bipartite Hamilton path requires parity-class difference <=1, excluding odd n>=5. For n=6 the certificate of 80 distinct indices into the exact lexicographic legal set was fetched from the frozen Git blob. Independent recomputation verifies each cyclic consecutive pair (including last-to-first) is one transposition, all 80 vertices are visited, 207 undirected edges and exhaustive all-source BFS gives eccentricity 5 for 48 vertices and 6 for 32. Exact enumeration also verified parity n=3..9; no finite extrapolation is used for unbounded odd n.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precise final result is retained after direct scope/implication comparisons and meaningful reading, with identified prior machinery and explicit inaccessible-source risks. No failed search is treated as a novelty proof.
+
+## value
+
+PASS
+
+The negative parity obstruction gives a complete infinite Hamilton-path impossibility mechanism for every odd size, while the positive n=6 explicit cyclic Gray code is a nontrivial reconfiguration witness at the first larger even instance. Exact finite graph diameter and boundary cases characterize a natural restricted permutation graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
