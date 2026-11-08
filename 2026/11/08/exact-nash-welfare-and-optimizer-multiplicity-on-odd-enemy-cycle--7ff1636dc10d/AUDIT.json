@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Proof reduces IR coalitions to independent sets, then applies a valid convex majorization bound on all positive-product sizes, constructs an attaining (k,k-1,2) partition for every odd cycle n>=7, and counts all optimizers with explicit k=3 double-count correction. The n=3,5 zero boundary follows from nonbipartiteness and coalition-size lower bounds. Independent C++ and Python exact enumerations reproduce products/counts through 13/11 vertices respectively. Finite data are support, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 6.1 solves the at-most-two-coalitions case, which covers even but not odd enemy cycles.",
+        "Theorem 3.1 proves general computational hardness; Lemma 2 gives a positive-product criterion through a {K2,K3}-factor, but not the exact magnitude or count of maximizers."
+      ],
+      "reasoning": "The relevant broad results do not determine the optimum product, unique size multiset or multiplicity for the three-coalition odd-cycle family. The known even-cycle consequence is excluded from the final claim.",
+      "searches": [
+        "arxiv:2605.19030#Theorems-3.1-3.3",
+        "arxiv:2605.19030#Theorems-6.1-6.4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.19030",
+      "arxiv:2512.20261",
+      "IJCAI-2015-71"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lemma 2 implies the positive-vs-zero criterion once the corresponding friendship complement has a {K2,K3}-factor, but offers no Nash product formula or number of optimizers.",
+        "Theorem 6.1 uses bipartiteness for at most two coalitions; odd cycles are nonbipartite.",
+        "The 2025 paper maximizes minimum utility rather than geometric mean."
+      ],
+      "reasoning": "The strongest prior results imply selected preliminary properties, but not the full odd-cycle classification or multiplicity. The new statement is neither a direct corollary of a two-coalition theorem nor a change of objective from a known exact result.",
+      "searches": [
+        "arxiv:2605.19030#Lemma-2",
+        "arxiv:2605.19030#Theorem-6.1",
+        "arxiv:2512.20261#Egalitarian-objective"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Individually rational AEG coalitions are cliques of the mutual-friendship graph; here they are independent sets of the complement enemy cycle.",
+        "The objective here is the product of coalition-size-minus-one powers, and not egalitarian minimum utility."
+      ],
+      "reasoning": "Reformulating as proper independent-set colorings with no singleton yields an exact weighted coloring extremal problem; no inspected equivalent odd-cycle formula or optimizer enumeration was identified.",
+      "searches": [
+        "arxiv:2605.19030#Sections-2-3-6",
+        "arxiv:2512.20261#Sections-2-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible published comparisons contain no odd-cycle Nash optimum sequence or optimizer-count table.",
+        "The exact C7, C9, C11, C13 data were computed independently by the attached verifier, not copied from a prior table."
+      ],
+      "reasoning": "An exact match was not found in the accessible research-record results or inspected scientific tables. This is negative search evidence only; it cannot establish uniqueness against unindexed work.",
+      "searches": [
+        "arxiv:2605.19030#Appendix-Section-3",
+        "arxiv:2512.20261#Section-3",
+        "IJCAI-2015-71"
+      ]
+    },
+    "rationale": "Odd-cycle exact Nash-product formula, all optimizer size vectors and optimizer counts are not implied by the inspected general aversion-to-enemies positivity, hardness, approximation or at-most-two-coalitions results. The even-cycle case is intentionally excluded because it is already within the source's bipartite two-coalition theory. No matching cycle-specific record was found; the absence of a match alone is not treated as proof of priority.",
+    "residual_risks": [
+      "Semantic research-record searches may miss an unindexed or differently titled exact odd-cycle statement.",
+      "Some external related papers were only compared by relevant accessible passages rather than fully indexed coverage; no source is claimed to prove global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general positive-welfare criterion, hardness, approximation and two-coalition/bipartite cases; no odd-cycle exact optimum or count located",
+        "evidence": [
+          "Lemma 1: individually rational coalitions are mutual-friendship cliques.",
+          "Lemma 2: positivity iff a {K2,K3}-factor exists.",
+          "Theorem 6.1 and Appendix: at most two coalitions corresponds to bipartite enemy graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.19030",
+        "material_read": "Full accessible main text Sections 2, 3, 6, 8 and relevant appendix proofs, especially Lemmas 1–2, Theorems 3.1–3.3, 6.1–6.4",
+        "method": "Read primary open-access full-text page and its appended proofs; compared same valuation model, graph restrictions, objective and theorems",
+        "title": "Nash Welfare in Additively Separable Hedonic Games",
+        "trigger": "2026 primary source defining the exact game and Nash objective"
+      },
+      {
+        "assessment": "Objective differs; the accessible results do not imply an odd-cycle Nash optimizer formula",
+        "evidence": [
+          "Section 2 defines egalitarian objective; Section 3 treats enemy aversion and positive-minimum welfare."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2512.20261",
+        "material_read": "Accessible full-text Introduction, Model/Preliminaries and Section 3 definitions and main results",
+        "method": "Compared model and objective, specifically minimum utility versus product of all agents' utilities",
+        "title": "Maximizing the Egalitarian Welfare in Friends and Enemies Games",
+        "trigger": "Related exact welfare and friend-enemy preference model"
+      },
+      {
+        "assessment": "Different utility normalization; no directly covering odd-cycle additive Nash product was identified",
+        "evidence": [
+          "Fractional hedonic utilities use averaged values, unlike the additive sum considered here."
+        ],
+        "identifier_or_url": "https://ijcai.org/proceedings/2015/71",
+        "material_read": "Accessible conference article overview and model/objective description; relevant excerpt",
+        "method": "Compared fractional coalition-averaged utilities against additive nonaveraged utilities",
+        "title": "Welfare Maximization in Fractional Hedonic Games",
+        "trigger": "Related Nash product in a distinct hedonic utility model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7ff1636d-c10d-4c5f-ae30-531e369d69f2",
+  "value": {
+    "rationale": "A complete exact classification of the canonical sparse nonbipartite enemy graph family resolves both welfare magnitude and multiplicity, with a sharp distinction between C5 (3-colorable but zero Nash welfare) and C7 (positive), and an explicit linear-time construction of maximizers. The full optimizer count grows quadratically in odd cycle size, a structural conclusion unavailable from the general existence/hardness results. This is an intrinsic exact extremal problem, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}

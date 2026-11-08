@@ -1,0 +1,11 @@
+# Scientific review — odd-cycle Nash welfare
+
+**Correctness: PASS.** The valuation and individual-rationality reduction is exact. An analytic majorization bound, independent-set construction, and maximum-independent-set counting argument prove the infinite formula and optimizer multiplicity; no finite search is invoked as an infinite proof. The C++ verifier enumerates every proper independent-set partition through 13 vertices and a separate Python implementation checks through 11 vertices. The exceptional zero cases and the equal-size double count at seven vertices were treated separately.
+
+**Originality: PASS, qualified.** Pagano and Schlenga (arXiv:2605.19030, Sections 2–3 and 6 and their appendix proofs) provide the AEG framework, positivity criterion, general hardness/approximation results and a bipartite two-coalition algorithm. Even-cycle claims are deliberately not included: they are covered by that two-coalition treatment. For odd cycles, its positive-welfare criterion does not imply the exact product or multiplicity. Elkind, Flammini and Varricchio (arXiv:2512.20261) address egalitarian welfare, a different objective; fractional-hedonic Nash welfare uses average valuations. Accessible research-record comparisons did not identify an equivalent odd-cycle formula. This does not certify worldwide novelty; unindexed work remains a risk.
+
+**Mathematical value: PASS.** Odd enemy cycles are the smallest canonical family requiring at least three colors. The result gives the all-size Nash optimum, a sharp zero-to-positive boundary (five to seven vertices), rigidity of the maximizing size distribution, and a closed count of every maximizing labeled-agent partition. All quantities are motivated by the nonbipartite obstruction and coalition welfare objective.
+
+**Limitations.** The theorem is confined to single simple odd cycles, symmetric additive valuations \(+1/-n\), individually rational allocations, and unweighted agents. No results are claimed for general graphs or zero-optimum optimizer counts. Exact computations are reproducibility checks, not a proof substitute; no external independent validation has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
