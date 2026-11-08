@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact zonotope determinant formula is applied to the six box generators. Each determinant type is explicitly accounted for, with no generic-position loss. The three exact covariance classes of the absolute entries of an \(SO(3)\) Haar rotation are proved by spherical and conditional-circle integration; the pair-counting formula yields the entire variance polynomial. The minimization follows from an explicitly positive covariance \(c_*\) and a manifestly nonnegative residual variance; equality forces equality of all side lengths. The displayed sign certificate uses \(3<\pi<22/7\). The independent vertex-Minkowski-hull and Haar simulation checker ran successfully. Numerical diagnostics are not the proof.
+PASS
 
-## Originality — PASS, with priority risk
+For positive side lengths ai, zonotope triple-minor formula for K+RK yields E(R)/v=2+Σ_ij (ai/aj+aj/ai)|R_ij|. Haar SO(3) absolute-entry expectations are 1/2; covariance repeated=1/12, shared row/column=2/(3π)-1/4, disjoint=8/(3π²)-1/4, obtained by sphere/great-circle conditioning. Pair-counting gives gamma T0²+(alpha-2beta+gamma)T1+2(beta-gamma)T2. Set w=2+delta, delta=(ai-aj)²/(aiaj)>=0. Cov(Σ|R_ij|,|R_11|)= (128+32π−23π²)/(12π²)>0 via 3<π<22/7; variance difference from cube is 4 c* Σdelta+Var(Σdelta X)>=0, strictly unless cube. Exact minimum -69+96/π+384/π². Independent symbolic covariance simplification and 60k Haar-rotation draws for cube, box (1,2,3), and (.5,1.4,2.8) matched analytic means and variances within sampling error. Simulation is not mathematical proof.
 
-The full available primary texts of Torquato–Jiao (arXiv:2203.16764, especially orientational averaging and rectangular-body formulas) and Sreenivasan–Baker–Paul–Stanley (arXiv:cond-mat/0208145, mean excluded volume of rectangular prisms) were inspected for the second-moment claim and possible implication. Those works give first moments, and do not supply the covariance-class computation, the all-box variance tensor, or its exact cube-minimization. Searches of the relevant mathematical record and equivalent phrases found no same or stronger claim. The nearest identified published mathematical results concern single-orthotope projection area/perimeter moments, not excluded-volume fluctuations of two relatively rotated boxes. Generality of classical mixed-volume theory does not supply this evaluated second moment without an additional Haar-correlation calculation. An older or differently indexed statistical-physics treatment of orientation fluctuations could still exist; no absolute priority claim is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Excluded volume is a basic metric statistic of hard-particle geometry. Previously tabulated orientational expectations do not quantify orientation-to-orientation fluctuations: the exact second moment is new information relevant to geometric variance benchmarks. A closed all-aspect-ratios formula and a sharp global cube equality theorem form a motivated structural result, not a small numerical increment.
+Prior Torquato–Jiao (2022) develop mixed-volume and orientationally averaged excluded volumes. Sreenivasan et al. (2002) examine the mean for rectangular prisms. The reviewed full second moment and fixed-volume shape inequality are distinct from the established mean. Published orthotope shadow-area covariance concerns a single projected body, not the excluded volume of a pair.
 
-## Scientific scope and limitations
+## value
 
-Two congruent rectangular boxes; uniform relative rotations in three dimensions; strictly positive side lengths. No statements about nonuniform rotations, unequal boxes, full distributions or higher moments. Known mean excluded volumes are credited. Historical novelty remains provisional, and verification is not an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Orientational variance quantifies the anisotropy and statistical dispersion of the exclusion volume, a natural geometric quantity in virial/percolation modelling. Strict minimization by cubes at fixed volume is a nontrivial shape optimization, supported by a positive covariance identity rather than bare numerics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

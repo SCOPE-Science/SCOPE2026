@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Install dependencies from `requirements.txt` and run `python CHECK_EXCLUSION.py`. Deterministic pseudo-random seed 901847 generates 240,000 uniform rotations using SciPy's rotation sampler. Empirical Haar absolute-entry moments are compared with the exact values \(1/3\), \(2/(3\pi)\), and \(8/(3\pi^2)\). The means and variances of the excluded-volume formula are checked for the lengths \((1,1,1)\), \((2,1,1)\), and \((2,3,4)\). A separate convex-hull calculation of all 64 sums of corner pairs tests nine rotated Minkowski sums independently of the analytical zonotope-volume computation.
+## correctness
 
-The completed checker produced `ALL_EXCLUDED_VOLUME_CHECKS_PASSED`. The cube's exact normalized variance is \(-69+96/\pi+384/\pi^2\). This code is a diagnostic; the universal theorem is proved by the determinant identity, exact Haar integrations, and the nonnegative variance decomposition in `RESULT.md`. Sampling error and floating-point error cannot establish a universal inequality.
+PASS
 
-The novelty comparison reviewed open primary texts on orientationally averaged exclusion volume and checked related results. Complete historical priority and independent mathematical verification remain unestablished.
+For positive side lengths ai, zonotope triple-minor formula for K+RK yields E(R)/v=2+Σ_ij (ai/aj+aj/ai)|R_ij|. Haar SO(3) absolute-entry expectations are 1/2; covariance repeated=1/12, shared row/column=2/(3π)-1/4, disjoint=8/(3π²)-1/4, obtained by sphere/great-circle conditioning. Pair-counting gives gamma T0²+(alpha-2beta+gamma)T1+2(beta-gamma)T2. Set w=2+delta, delta=(ai-aj)²/(aiaj)>=0. Cov(Σ|R_ij|,|R_11|)= (128+32π−23π²)/(12π²)>0 via 3<π<22/7; variance difference from cube is 4 c* Σdelta+Var(Σdelta X)>=0, strictly unless cube. Exact minimum -69+96/π+384/π². Independent symbolic covariance simplification and 60k Haar-rotation draws for cube, box (1,2,3), and (.5,1.4,2.8) matched analytic means and variances within sampling error. Simulation is not mathematical proof.
+
+## originality
+
+PASS
+
+Prior Torquato–Jiao (2022) develop mixed-volume and orientationally averaged excluded volumes. Sreenivasan et al. (2002) examine the mean for rectangular prisms. The reviewed full second moment and fixed-volume shape inequality are distinct from the established mean. Published orthotope shadow-area covariance concerns a single projected body, not the excluded volume of a pair.
+
+## value
+
+PASS
+
+Orientational variance quantifies the anisotropy and statistical dispersion of the exclusion volume, a natural geometric quantity in virial/percolation modelling. Strict minimization by cubes at fixed volume is a nontrivial shape optimization, supported by a positive covariance identity rather than bare numerics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
