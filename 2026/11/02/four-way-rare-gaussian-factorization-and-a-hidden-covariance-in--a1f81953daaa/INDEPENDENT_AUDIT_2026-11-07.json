@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T21:42:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on K=k distinct selected cards gives a uniform k-set and independent uniform permutation of the selected labels as the prefix, with sorted unselected suffix; J has exact tail-maximum hypergeometric law and U falling factorial moments (|S∩[k]|)_ell/(k)_ell. For k/n→alpha these give independent Poi(alpha) and Geom(alpha) uniformly in central k. Uniform-permutation Eulerian descents obey CLT with variance k/12; forcing ell fixed positions and deleting/relabeling them changes descents by at most 3ell, yielding mixed factorial-characteristic-factorization independent of rare counts. The occupancy conditional bivariate local CLT produces independent H with tau²=e^-c-(1+c)e^-2c; A=(K-1)/2+√n G+o_P(√n), D=A+boundary with |boundary|<=1. Unscaled covariance requires a different calculation: E[F|K=k]=k/n+(n-k)/(k+1), Cov(U,A|K=k)=(1-k)/(n(n-1)), Cov(J,A|K=k)=0; bounded endpoint term covariance tends 0 by geometric/UI bounds; delta method gives 1/2 tau²(1-alpha^-2). Independent exhaustive finite selected-set checker for n=3..7 validated conditional covariance and boundary identities; these checks are not the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Clay Theorems 4.1/4.2 establish separate limits; Athanasiadis–Diaconis studies hyperplane-walk/descent-set functions."
+        ],
+        "reasoning": "The full joint law could follow from a general stable convergence theorem only after verification of uniform conditioning by selected fixed positions; the inspected sources do not supply that step or order-one covariance.",
+        "searches": [
+          "arXiv:2603.09008",
+          "arXiv:0912.1686",
+          "random-to-top shuffles joint fixed points descents covariance linear time Clay 2026"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.09008",
+        "arXiv:0912.1686",
+        "arXiv:1006.1321",
+        "Resultary 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+        "Resultary semantic query random-to-top shuffles joint fixed points descents covariance linear time Clay 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same separate Poisson–geometric and descent normal marginals can coexist with arbitrary cross dependence; exact endpoint conditional covariance feeds into a new delta method term."
+        ],
+        "reasoning": "Clay marginals do not determine cross-correlation or joint weak convergence; the original coupling is prerequisite, but new mixed-factorial/deletion argument and exact covariance algebra are needed.",
+        "searches": [
+          "arXiv:2603.09008 Theorems 4.1 and 4.2",
+          "arXiv:0912.1686 Section 5",
+          "random-to-top shuffles joint fixed points descents covariance linear time Clay 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clay derives individual fixed-point and descent limits with uniform-prefix coupling; the Resultary record gives Cov(F,D)=-1/n for a stationary uniform permutation, not the linear-time shuffled deck."
+        ],
+        "reasoning": "A Tsetlin-library/random-to-top word model and uniform permutation have different time regimes; separate weak limits are not a joint independence or raw covariance theorem.",
+        "searches": [
+          "random-to-top shuffles joint fixed points descents covariance linear time Clay 2026",
+          "arXiv:2603.09008 Sections 3-6",
+          "Resultary 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact finite conditional covariance identities held n=3..7; old Resultary fixed point/descent covariance is -1/n for stationary random permutation."
+        ],
+        "reasoning": "No direct time-c covariance table found. Finite conditional tables are not proof of global novelty; central asymptotic calculation and direct literature comparison are decisive.",
+        "searches": [
+          "random-to-top shuffles joint fixed points descents covariance linear time Clay 2026",
+          "fixed point descent raw covariance random to top occupancy cn shuffle numerical sequence",
+          "Resultary 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+        ]
+      },
+      "rationale": "Clay 2026 already supplies uniform-prefix coupling, marginal fixed-point Poisson–geometric limit, marginal Eulerian/occupancy Gaussian central limits; these must not be claimed original. The joint four-variable asymptotic independence and nonzero negative order-one unnormalized covariance are additional dependence statements not implied by marginals or uniform-stationary permutation endpoint covariance. Accessible original paper did not state either joint result.",
+      "residual_risks": [
+        "A joint stable-convergence argument might be implicit in uninspected later shuffle literature even though Clay states marginals separately.",
+        "The occupancy CLT uses conditional Poisson lattice span and uniform exponential tail controls; limiting covariance cannot be inferred from marginal convergence alone.",
+        "All results assume fixed c>0 and uniform random-to-top selection; c tending to 0 or infinity is outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers marginal Poisson–geometric and Gaussian laws, not the displayed four-way factorization or raw covariance limit",
+          "evidence": "Theorems and Sections 3–6 separate marginal statistics; new conditional dependence analysis is distinct.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.09008",
+          "material_read": "Substantial accessible primary manuscript text including uniform-prefix construction and separate fixed-point/descent sections",
+          "method": "read accessible arXiv manuscript",
+          "title": "On the statistics of random-to-top shuffles",
+          "trigger": "Exact deck dynamics, fixed-point and descent distributions at linear time"
+        },
+        {
+          "assessment": "Discusses descent-set behavior and mixing, not fixed positions jointly with occupancy fluctuations",
+          "evidence": "Observables and joint regime differ.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.1686",
+          "material_read": "Accessible introduction and Section 5 on descent-set chains and mixing",
+          "method": "read relevant primary sections",
+          "title": "Functions of random walks on hyperplane arrangements",
+          "trigger": "Plausible broader random-to-top descent-set walk framework"
+        },
+        {
+          "assessment": "The -1/n stationary covariance does not imply the nonzero c-dependent random-to-top limit; whole-document noncoverage not asserted",
+          "evidence": "Different distribution and asymptotic regime.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+          "material_read": "Published Resultary summary of exact stationary uniform permutation covariance, not full Git record",
+          "method": "semantic search summary only",
+          "title": "Boundary localization of fixed-point–descent dependence in a uniform permutation",
+          "trigger": "Potential exact stationary covariance prior result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fully joint local-time shuffle theorem distinguishes asymptotic independence at sqrt(n) scales from a persistent order-one negative covariance at unscaled scales; the exact covariance constant is a natural dependence invariant invisible from the already known separate limit laws.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2603.09008",
+    "arXiv:0912.1686",
+    "arXiv:1006.1321",
+    "Resultary 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+    "Resultary semantic query random-to-top shuffles joint fixed points descents covariance linear time Clay 2026"
+  ],
+  "disposition": "passed",
+  "final_claim": "At r_n=floor(c n) uniform random-to-top moves, with c>0, prefix fixed count U, untouched fixed suffix J, centered normalized prefix descents and occupied-card fluctuation converge jointly to four mutually independent Poi(alpha), Geom(alpha), N(0,alpha/12), N(0,tau²), alpha=1-e^-c, tau²=e^-c-(1+c)e^-2c. The normalized total descent/occupied-card Gaussian pair has covariance tau²/2, while the unscaled Cov(total fixed points,total descents) tends to (tau²/2)(1-alpha^-2)<0.",
+  "limitations": [
+    "A joint stable-convergence argument might be implicit in uninspected later shuffle literature even though Clay states marginals separately.",
+    "The occupancy CLT uses conditional Poisson lattice span and uniform exponential tail controls; limiting covariance cannot be inferred from marginal convergence alone.",
+    "All results assume fixed c>0 and uniform random-to-top selection; c tending to 0 or infinity is outside scope."
+  ],
+  "residual_risks": [
+    "A joint stable-convergence argument might be implicit in uninspected later shuffle literature even though Clay states marginals separately.",
+    "The occupancy CLT uses conditional Poisson lattice span and uniform exponential tail controls; limiting covariance cannot be inferred from marginal convergence alone.",
+    "All results assume fixed c>0 and uniform random-to-top selection; c tending to 0 or infinity is outside scope."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers marginal Poisson–geometric and Gaussian laws, not the displayed four-way factorization or raw covariance limit",
+      "evidence": "Theorems and Sections 3–6 separate marginal statistics; new conditional dependence analysis is distinct.",
+      "identifier_or_url": "https://arxiv.org/abs/2603.09008",
+      "material_read": "Substantial accessible primary manuscript text including uniform-prefix construction and separate fixed-point/descent sections",
+      "method": "read accessible arXiv manuscript",
+      "title": "On the statistics of random-to-top shuffles",
+      "trigger": "Exact deck dynamics, fixed-point and descent distributions at linear time"
+    },
+    {
+      "assessment": "Discusses descent-set behavior and mixing, not fixed positions jointly with occupancy fluctuations",
+      "evidence": "Observables and joint regime differ.",
+      "identifier_or_url": "https://arxiv.org/abs/0912.1686",
+      "material_read": "Accessible introduction and Section 5 on descent-set chains and mixing",
+      "method": "read relevant primary sections",
+      "title": "Functions of random walks on hyperplane arrangements",
+      "trigger": "Plausible broader random-to-top descent-set walk framework"
+    },
+    {
+      "assessment": "The -1/n stationary covariance does not imply the nonzero c-dependent random-to-top limit; whole-document noncoverage not asserted",
+      "evidence": "Different distribution and asymptotic regime.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+      "material_read": "Published Resultary summary of exact stationary uniform permutation covariance, not full Git record",
+      "method": "semantic search summary only",
+      "title": "Boundary localization of fixed-point–descent dependence in a uniform permutation",
+      "trigger": "Potential exact stationary covariance prior result"
+    }
+  ]
+}
