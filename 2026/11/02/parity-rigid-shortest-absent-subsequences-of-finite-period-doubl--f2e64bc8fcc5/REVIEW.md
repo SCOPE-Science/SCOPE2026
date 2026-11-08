@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof supplies a complete universal-subsequence witness at each parity, uses the exact one-count recurrence and the final eight substituted symbols, and proves the two witnesses' missing-word languages by a direct greedy argument and simultaneous induction. In particular, the odd case checks the two terminal-zero obstructions independently of finite experiments, and rank one is treated separately. The packaged executable confirms exhaustive target sets at ranks 1–5, finite canonical witness languages, and independent greedy-DP counts through rank 11. Correctness pertains to the stated dyadic complete iterates only.
+PASS
 
-## Originality — PASS, with historical-priority risk
+PASS: The substitution mu(0)=01,mu(1)=00 gives q_{k+1}=2^k-q_k ones and q_k=(2^k-(-1)^k)/3. Each one has a disjoint preceding zero, so (01)^q_k embeds, proving q_k-universality. There are only q_k ones, giving the opposing nonuniversality bound. For even k the last zero appends the witness U_q=(01)^q0, whose only missing (q+1)-word is 1^(q+1). For odd k>=3 the last-eight suffix 01000101 embeds V_q=(01)^(q-2)00101, whose shortest absent set is established by simultaneous induction with universal S_q=1V_q. The 3 exceptional candidates also fail in P_k from the last-one and penultimate-one suffix constraints. The rank-one P1=01 case is separate. Independent exhaustive greedy subsequence enumeration for ranks1..5 confirms missing counts 3,1,3,1,3, and exact words. Infinite statement rests on the substitution/induction, not finite checks.
 
-A focused comparison with the complete accessible historical claim list and several searches of published mathematical findings found no exact period-doubling shortest-absent scattered-subsequence language. The most directly relevant older source is Parreau–Rigo–Rowland–Vandomme (arXiv:1405.3532), which treats contiguous-factor abelian and 2-abelian complexity, not subsequence absence. The later general foundation, Kosche–Koß–Manea–Siemer (arXiv:2108.13968), gives generic SAS structure and algorithms, not the explicit dyadic rank parity and missing-word family in the inspected sections. General results can be specialized computationally, so unseen specializations or stronger uninspected literature remain a historical-priority risk; a negative search result is not a novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-This is the full shortest-absent *language*, not only a count, for every rank in a classical automatic family. It exposes a stable, surprisingly small output spectrum (one versus three) despite exponential word growth, and shows a sharp parity switch in exactly which losses of subsequence universality occur. The canonical witness method explains the phenomenon and provides a reusable criterion for other sparse-one substitution words. It is not a claim of broad algorithms or of a new general universal-subsequence theorem.
+PASS best-of-knowledge: Kosche–Koß–Manea–Siemer provide general SAS/arch-factorization definitions and polynomial-delay enumeration for arbitrary words (Theorem 4.19), but that does not state or mechanically imply a fixed substitution family has exactly one versus three SAS and these explicit word forms at all ranks. Parreau et al. study contiguous 2-Abelian complexity of period-doubling, a different invariant. Published Resultary general binary SAS extremal results concern maxima across all length-n words, not the particular P_k language.
 
-## Scope and remaining checks
+## value
 
-Primary MSC2020: `68R15`. Both full-text primary works and selected related published records were compared at the statement/implication level. Independent mathematical audit and comprehensive priority search remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The precise universality index and complete shortest-absent language of all period-doubling iterates are natural substitution-word invariants. A parity-rigid tiny SAS set despite exponentially growing universality index is structurally informative and reusable in subsequence universality and automatic word research. This is a complete all-rank classification, not a single finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
