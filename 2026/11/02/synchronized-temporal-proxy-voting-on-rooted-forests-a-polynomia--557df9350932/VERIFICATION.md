@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Execute `python3 VERIFY.py` using Python 3 and its standard library. The checker provides an exact-integer recursive optimizer with an interval-heap implementation, reconstructs selected proxy actions, and independently enumerates all possible time-stamped directed approval choices (including wrong-way choices) for small inputs. It verifies feasibility, rootedness, parent-action trust-horizon inequalities and objective equality.
+## correctness
 
-A deterministic random seed generates 3,900 exact small-instance comparisons, with 2,510 feasible cases. Instances range over \(2\leq n\leq6\), \(2\leq L\leq4\), heterogeneous arbitrary trust horizon entries and variable positive integer welfare weights. The fixed four-voter all-final-round-approval obstruction passes its separate feasibility checks. The reproduced output is:
+PASS
 
-```
-PASS: minimal four-voter obstruction; 3900 independent exact-enumeration tests, 2510 feasible
-```
+On each rooted tree, a successful directed path must choose the unique edge toward the caster. Conditional on a parent action date t, different child subtrees separate; induction gives F_v(t)=a_v(t)+sum_c max_{s: s-h_c(s)≤t≤s} F_c(s), with -infinity signaling infeasibility. The caster may be cited at any time >=σ because its casting commitment persists; independently maximize immediate child F_c(s) over s≥σ. Interval-stabbing maxima by left-endpoint buckets and expiring max heap yield O(M+nL log(L+1)) time and O(nL+M) space, including backpointers. At four vertices a,b→v→r with zero horizons, a can only meet v at time1, b only at time2; v’s time3 outgoing action points backward, so individually each has a route but jointly no common action. Direct independent brute-force confirms no joint action; at <=3 voters any rooted tree is a star/path where individual feasible paths assemble. Finite tests are corroboration only.
 
-The proof is analytic; this finite verification does not certify behavior for unbounded numbers of voters or rounds. The implementation's exact maximum over integer scores uses no floating-point approximations. The general bound is an operation count for integer-word arithmetic. Full prior-literature completeness and independent mathematical validation are not established.
+## originality
+
+PASS
+
+Temporal confluence and time-conscious delegated voting are prior (Markakis and Papasotiropoulos, full paper read). This theorem imposes one globally shared dated action per delegator, arbitrary per-date trust horizons, a unique persistent caster per tree, proving a near-input-time dynamic program and minimal local obstruction not supplied by the inspected temporal voting or single-path waiting-time results.
+
+## value
+
+PASS
+
+A tractable, well-defined joint-action semantics for temporal delegation on forest networks with a polynomial optimizer and sharp smallest inconsistent example isolates precisely why individual paths may not jointly compose. It is a meaningful algorithmic boundary rather than generic tree-DP nomenclature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
