@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T05:00:54.378563Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/every-ternary-prime-power-residue-occurs-infinitely-often-among--e192d1d063ac/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/every-ternary-prime-power-residue-occurs-infinitely-often-among--e192d1d063ac/VERIFICATION.md"
+      ],
+      "rationale": "For k≥1, L=k+2, sparse ternary digits indexed n_{k;v,t}=Σ_{i=1}^v 2⋅3^{Li}+Σ_{i=v+1}^{v+t}3^{Li} are widely separated. A factorial-unit recurrence modulo 3^k splits into disjoint length-k digit windows; doubling has exactly v carries, so ν_3(binomial(2n,n))=v and its unit is d_k^v c_k^t. Since n≡0 mod3^k, the Catalan denominator n+1 is unit≡1, yielding C_n≡3^v d_k^v c_k^t mod3^k. Direct binomial product gives c_k≡2 mod9 (k≥2), and LTE implies c_k has unit-group order 2⋅3^{k−1}; d_k is unit by one-carry count. Hence all nonzero valuations v<k and zero v≥k are attained and infinitely repeated by increasing t through full orders. Independent integer binomial tests computed c,d and exact order for k=1..4; source finite verifier was inspected but not treated as universal proof.",
+      "residual_risks": [
+        "Explicit witness indices very large, does not establish positive occurrence density or claims for other primes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burns (2017) theorem: prime moduli p≥5, not 3^k",
+          "Krattenthaler–Müller (2013) Section 12: specific fixed powers of three",
+          "Chen–Jiang (2013) C_{p^j−a} eventually stabilizes"
+        ],
+        "reasoning": "Coverage modulo other primes or individual fixed k does not logically imply uniformly all 3-adic levels. A stronger all-prime-powers theorem was not identified in inspected primary statements.",
+        "searches": [
+          "Resultary search: Catalan number residues every class powers of three factorial unit digits",
+          "Catalan all residues powers of prime 3 Krattenthaler Müller 2013 Burns 2017"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1310.8635",
+        "https://arxiv.org/abs/1308.2856",
+        "https://arxiv.org/abs/1703.02705",
+        "https://arxiv.org/abs/1611.03705",
+        "https://math.colgate.edu/~integers/n36/n36.pdf",
+        "Resultary search: Catalan number residues every class powers of three factorial unit digits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rowland–Yassawi question explicitly concerns powers of 3 and was not answered in that paper",
+          "Source primitive 3-adic binomial unit c_k and sparse digit block factorization"
+        ],
+        "reasoning": "A theorem for p≥5 or modulo 3 does not solve the general case of 3^k. The new uniform construction and primitive-unit lifting prove a genuinely stronger statement than prior indexed results.",
+        "searches": [
+          "Resultary search: Catalan number residues every class powers of three factorial unit digits",
+          "Rowland Yassawi Open question 3.6 Catalan forbidden 3 powers",
+          "Burns Catalan no forbidden residues modulo primes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rowland–Yassawi arXiv:1310.8635 Open Question 3.6 asks forbidden Catalan residue mod powers 3",
+          "The exact claim is equivalent to 3-adic density of the Catalan value set, with stronger infinite repeated witnesses"
+        ],
+        "reasoning": "The original question identifies the same modular-surjectivity invariant, but poses it as open; a known automaton/3-adic density proof would cover the present claim even under different wording.",
+        "searches": [
+          "Resultary search: Catalan number residues every class powers of three factorial unit digits",
+          "Catalan numbers p-adic dense Z3 all residues modulo powers 3",
+          "Catalan sequence surjectivity mod 3^k forbidden residue automatic congruence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite automata algorithms for each fixed modulus and tables at 9,27",
+          "Explicit n_{k;v,t} witnesses work for arbitrary unbounded k and all classes"
+        ],
+        "reasoning": "Finite congruence tables verify only chosen exponents; a uniform automaton structural theorem, if found, could imply the result, but none was found in the inspected texts.",
+        "searches": [
+          "Resultary search: Catalan number residues every class powers of three factorial unit digits",
+          "Catalan 3-adic residue automata modulo 9 27 table complete forbidden residues",
+          "Deutsch Sagan Catalan modulo three"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the final exact statement, with actual published-result comparisons rather than title matching; no inspected source mathematically implies the full stated result. Inaccessible closely related texts are explicitly retained as priority risks; failed search is not novelty proof.",
+      "residual_risks": [
+        "Priority search cannot certify no newer unindexed full 3-adic surjectivity result; some specialized earlier modular formulas were not read completely in this run.",
+        "Explicit witness indices very large, does not establish positive occurrence density or claims for other primes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Asks whether any residue mod powers of 3 is missing; does not prove uniform coverage there",
+          "evidence": "Open Question 3.6 is precisely whether some forbidden residue mod 3^α exists.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.8635",
+          "material_read": "Full relevant Section 3.1 and Open Question 3.6, including PDF page-image inspection",
+          "method": "Primary mathematical PDF text and page comparison",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "Direct same Catalan forbidden-residue question"
+        },
+        {
+          "assessment": "Fixed-k expansions do not alone establish all-level surjectivity; cannot rule out separate uninspected corollary",
+          "evidence": "Relevant section gives explicit formulae modulo 9 and 27 and algorithmic recursion.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.2856",
+          "material_read": "Accessible description of Section 12 and its fixed-power congruence statements; full appendix not newly inspected",
+          "method": "Source-section comparison, with bounded material disclosure",
+          "title": "A method for determining the mod-3^k behaviour of recursive sequences",
+          "trigger": "Same modulus family and Catalan generating functions"
+        },
+        {
+          "assessment": "Not covering 3-adic prime powers",
+          "evidence": "The conclusion is modulo primes p≥5, with infinite occurrence, not modulus 3^k.",
+          "identifier_or_url": "https://arxiv.org/abs/1703.02705",
+          "material_read": "Primary abstract and theorem statement identifying modulus p≥5",
+          "method": "Primary theorem statement comparison",
+          "title": "The Catalan numbers have no forbidden residue modulo primes",
+          "trigger": "Directly analogous no-forbidden-residue title"
+        },
+        {
+          "assessment": "Modulo three and powers of two, not all powers of three",
+          "evidence": "Title and abstract expressly separate modulus 3 from powers 2.",
+          "identifier_or_url": "https://arxiv.org/abs/1611.03705",
+          "material_read": "Primary abstract, modulus scope",
+          "method": "Abstract and published problem-scope comparison",
+          "title": "Asymptotic density of Catalan numbers modulo 3 and powers of 2",
+          "trigger": "Same Catalan 3-adic distributions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1310.8635",
+        "https://arxiv.org/abs/1308.2856",
+        "https://arxiv.org/abs/1703.02705",
+        "https://arxiv.org/abs/1611.03705",
+        "https://math.colgate.edu/~integers/n36/n36.pdf",
+        "Resultary search: Catalan number residues every class powers of three factorial unit digits"
+      ],
+      "rationale": "Constructive uniform resolution of Rowland–Yassawi’s explicitly posed forbidden-residue question for every 3^k, with infinitely many witness indices. Natural 3-adic density statement is stronger than isolated fixed-modulus tables and gives a reusable factorial-unit sparse-digit technique.",
+      "residual_risks": [
+        "Priority search cannot certify no newer unindexed full 3-adic surjectivity result; some specialized earlier modular formulas were not read completely in this run.",
+        "Explicit witness indices very large, does not establish positive occurrence density or claims for other primes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1310.8635",
+    "https://arxiv.org/abs/1308.2856",
+    "https://arxiv.org/abs/1703.02705",
+    "https://arxiv.org/abs/1611.03705",
+    "https://math.colgate.edu/~integers/n36/n36.pdf",
+    "Resultary search: Catalan number residues every class powers of three factorial unit digits",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/every-ternary-prime-power-residue-occurs-infinitely-often-among--e192d1d063ac/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/every-ternary-prime-power-residue-occurs-infinitely-often-among--e192d1d063ac/REVIEW.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/every-ternary-prime-power-residue-occurs-infinitely-often-among--e192d1d063ac/METADATA.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/every-ternary-prime-power-residue-occurs-infinitely-often-among--e192d1d063ac/AUDIT.json"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Priority search cannot certify no newer unindexed full 3-adic surjectivity result; some specialized earlier modular formulas were not read completely in this run.",
+    "Explicit witness indices very large, does not establish positive occurrence density or claims for other primes."
+  ],
+  "residual_risks": [
+    "Priority search cannot certify no newer unindexed full 3-adic surjectivity result; some specialized earlier modular formulas were not read completely in this run.",
+    "Explicit witness indices very large, does not establish positive occurrence density or claims for other primes."
+  ],
+  "schema_version": 1
+}
