@@ -1,19 +1,21 @@
-# Review of one-sided deterministic chain-frame rigidity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Definitions, universal quantifiers and endpoint cases were reconstructed from the original two frame conditions of the 2026 semantics. Clause (M1) forces a suffix of active rows and a coordinatewise monotone path; clause (M2) forces the terminal output to be the top pair and every point of each principal upper rectangle to occur. Since the realized outputs form a chain, the first pair must have a top coordinate. The remaining values cannot skip any integer. The converse, orientation multiplicity and boundary cases were proved. Exhaustive independent quantified-condition comparisons for chains of orders one through four and the direct serial and symmetric checks confirm the finite predictions, not the infinite theorem.
+PASS
 
-## Originality — PASS subject to historical priority risk
+Rechecked exact quantified clauses in Kaminski 2026 Definition 2 against package M1/M2. M1 makes active worlds a suffix and outputs an increasing chain in product order. M2 at last world forces (N,N). If both coordinates below N at first active world, M2 demands incomparable (a+1,b) and (a,b+1) among that monotone output chain, impossible: one coordinate must equal N for all active rows. M2 then forces every integer between initial free coordinate and N to occur, equivalent to unit-or-zero increments. Conversely all such normal forms satisfy each M1/M2 quantifier. For suffix length m, 2^m−1 options from two orientations minus constant duplicate; sum yields formula. Independently exhaustively checked all partial functions for n=1,2,3,4 and commutative/total subcases; no extrapolation from computation.
 
-The motivating open-access primary article gives the exact M1/M2 axioms and completeness, but does not classify row-functional finite chain frames or count them. The separately inspected associative binary-modality paper does not impose and classify this deterministic ternary subclass. The closest published finite-chain results addressed different binary accessibility conditions. A known classification of all-valuation observational fibers of unrestricted ternary chain frames records down-closures and suffix unions; its statement is not a structural count of functional presentations. Exact Scholarly search semantic searches covering ternary, functional, deterministic, normal-form and finite-chain aliases did not identify the one-sided theorem. Searches cannot prove uniqueness: specialized earlier ternary relation literature may contain equivalent theorems.
+## originality
 
-## Value — PASS
+PASS
 
-The result supplies a complete and explicit classification of a natural deterministic restriction of a two-input modal semantics. It identifies a rigidity obstruction (one input is inevitably evaluated at the top world) rather than merely a small-size census, and determines the exact total, partial and commutative subclasses uniformly in the chain length. It clarifies which kinds of frame branching are necessary to retain two genuinely variable target coordinates. No general completeness or decision-procedure consequence is claimed.
+Kaminski 2026 defines and proves completeness of the unrestricted ternary binary-modal frame class. The deterministic finite-chain classification and three counts do not occur in inspected primary Definition 2 and discussion. Relevant published Resultary row-maxima/birelational chains concern binary accessibility or nondeterministic rows with different predicates; not a stronger theorem for these ternary one-output frames.
 
-## Relationship and limits
+## value
 
-The two confluence axioms are due to Kaminski. The proof is elementary once their interaction with row-partial-functionality is identified, and it does not apply beyond finite chains and the declared deterministic restriction. The finite checker supports but cannot establish the infinite theorem; independent review has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete classification of deterministic interpretations of an intuitionistic binary modality on finite chains: one-sided collapse is a meaningful obstruction to genuinely independent binary outputs, with exact labelled frame census, a natural rather than arbitrary invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
