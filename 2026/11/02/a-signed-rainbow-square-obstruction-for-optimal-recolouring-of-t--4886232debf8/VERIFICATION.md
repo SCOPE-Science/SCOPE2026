@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and scope of verification
+# Independent mathematical audit
 
-Run `python3 chvatal_verifier_a.py` and `python3 chvatal_verifier_b.py` on Python 3.9 or later; both use only the Python standard library. They specify the full 24-edge graph from scratch and do not require external data, historical files, any network service, or scientific packages.
+## correctness
 
-The first program enumerates all proper named four-colourings by induction over the vertex order, rejecting every improper partial assignment, and additionally rejects all three-colour assignments. It generates every one-vertex recolouring, verifies that all 64,320 edges preserve the signed 11-cycle invariant and that exactly two connected 9,012-vertex sectors occur. The eight displayed symmetry maps are independently verified, and shortest-path eccentricity calculations from all 108 joint symmetry orbits establish the exact radius, diameter, and eccentricity distribution.
+PASS
 
-The second program enumerates ordered independent-set partitions (a fundamentally different completion algorithm), assembles legal recolourings via coordinate-deletion buckets rather than neighbour scans, independently finds both sectors, and enumerates all proper Hamming-distance-two crossing pairs. It verifies 11,616 crossing pairs and one explicit proper pair; this proves two-vertex reachability when combined with within-sector connectedness.
+Enumerated all proper states with an independently implemented backtracking routine from the 24-edge graph: 18,024 colourings and 64,320 Hamming-one edges. Independent adjacency traversal found two connected sectors of 9,012; evaluating the 11 oriented signed rainbow squares at all states gave exactly ±3 and no crossing Hamming-one edges. Enumerating cross-sector Hamming-distance-2 pairs gave 11,616 supported on 20 graph edges. Inspected chvatal_verifier_a.py and chvatal_verifier_b.py at exact Git blobs: program A checks graph automorphisms, 108 colour-symmetry orbits and representative BFS eccentricities (16..20), and B independently enumerates partitions and crossing pairs. Their exhaustive finite coverage is a proof method for this fixed finite graph, although the eccentricity aggregation was not independently rerun in this execution. 5-colour connectivity follows from the published Δ+1 theorem and impossibility of frozen 5-colourings because 5 does not divide 12. Domain is this specific fixed labelled finite graph, not all 4-chromatic graphs.
 
-The programs were actually executed and all assertions passed in their exact packaged form. This is a finite exhaustive verification, not proof of a universal theorem about all graphs. Five-colour connectivity follows from the cited published theorem, not from an unperformed exhaustive enumeration of five-colour states. Independent scholarly validation has not been performed.
+## originality
+
+PASS
+
+The new claim is the explicit signed 11-square invariant, exact two sectors, distances and minimal simultaneous crossing; the prior 18,024 count and Δ+1 connectivity are excluded as prior art. Relevant primary recolouring literature addresses generic graphs/three-colour winding obstructions, not this exact four-colour Chvátal partition in the inspected material.
+
+## value
+
+PASS
+
+This smallest triangle-free 4-regular 4-chromatic benchmark has a mathematically natural recolouring configuration space. The exact disconnected-sector certificate, complete finite metric and sharp two-vertex escape inform concrete reconfiguration behavior; these results are more than recomputing a known chromatic polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
