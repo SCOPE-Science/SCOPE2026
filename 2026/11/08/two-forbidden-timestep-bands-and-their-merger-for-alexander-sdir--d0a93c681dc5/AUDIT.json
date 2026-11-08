@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed Alexander tableau and stability function; computed all spectral-projector entries for each unit star. Proved nonnegativity of every offdiagonal entry using a polynomial with positive coefficients, so exact positivity reduces to two diagonal scalar functions. Minimum of the scalar stability function gives sharp leaf-count four cutoff; hub quadratic has exactly two positive roots from count five onward; the leaf quartic has exactly two positive roots by a proved coefficient-sign pattern, a negative exact witness, and positive endpoint limits. Exact inequalities at steps 7/2 and 17/5 give the disjoint-versus-overlap cutoff nine/ten. Supplemental stdlib verifier replays algebraic checks. No inference from finite experiments to all m.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Quezada de Luna and Ketcheson, arXiv:2109.08272v1, introduction, sections on flux correction and stages, and conclusions: maximum principles are enforced by additional limiting that modifies the numerical scheme.",
+        "Higueras et al., DOI 10.1016/j.cam.2014.05.011, inspectable introduction, scheme-construction discussion and conclusions: optimized SSP IMEX schemes are constructed and compared by stability and positivity criteria, not an all-star classification.",
+        "Gao and Wu, DOI 10.1137/140972470: nonlinear spatial flux approximation on general meshes, not the unmodified Alexander end-step map."
+      ],
+      "reasoning": "General modified-scheme maximum-principle theorems do not imply positivity of the unmodified two-stage Alexander map. SSP coefficients impose sufficient small-step conditions but not the exact graph-dependent union of two forbidden intermediate timestep bands or their merger. Spatial discretization positivity is not a result on this temporal integrator.",
+      "searches": [
+        "nonnegative graph diffusion SSP SDIRK two-stage symmetric Markov chain six vertices",
+        "Alexander DIRK2 stage gamma 1-1/sqrt2 positivity preserving nonnegative graph heat equation",
+        "Maximum principle preserving space and time flux limiting for Diagonally Implicit Runge-Kutta discretizations of scalar convection-diffusion equations"
+      ]
+    },
+    "checked_sources": [
+      "10.1137/0714068 (original scheme, abstract and dates)",
+      "10.1016/j.cam.2014.05.011 (exposed article sections)",
+      "arXiv:2109.08272v1 (primary HTML sections and conclusions)",
+      "10.1137/140972470 (publisher abstract and MSC)",
+      "https://openpronghorn.inl.gov/source/timeintegrators/LStableDirk2.html (method coefficients)",
+      "published result summary: Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2), identifier 46bf11cc19c7",
+      "published result summary: Eight-state barrier for Markov positivity of the [2/2] Padé map, identifier 4aad2a3f58ab"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alexander (1977), DOI 10.1137/0714068, original method construction; the first-public electronic record is 2006-07-14.",
+        "Higueras et al. (2014), DOI 10.1016/j.cam.2014.05.011, scheme-design article states the need to consider negative-axis stability-function nonnegativity and alternative three-stage methods.",
+        "The 2021 flux-limiting article explicitly combines a low-order MPP method with a high-order method to obtain an MPP modified scheme; its theorem does not assert the unmodified Alexander step is positive."
+      ],
+      "reasoning": "From the known stability function and the elementary star spectrum one can derive the 4-entry formula, but prior results inspected do not carry out the global two-quadratic/quartic diagonal phase analysis or the exact integer transition at m=10. Previous theorems neither dominate nor contradict the new end-step classification. Residual publication-priority uncertainty remains.",
+      "searches": [
+        "SSP SDIRK2(2) positivity CTMC three-state pure birth",
+        "2014 IMEX SSP L stability positivity scalar Runge Kutta",
+        "1977 Alexander stiff ODE two-stage L-stable Runge Kutta"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The known stability function is the Alexander two-stage L-stable DIRK rational map; the result concerns its entrywise action on the star graph, not only scalar absolute stability.",
+        "Published record titled “Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2)” concerns a different Runge–Kutta tableau and Markov generator family; its reported three-state pure-birth threshold is not a star-Laplacian implication.",
+        "Published record titled “Eight-state barrier for Markov positivity of the [2/2] Padé map” studies the fourth-order Gauss–Legendre/Padé rational map rather than the Alexander rational map."
+      ],
+      "reasoning": "The same order, L-stability, positivity terminology, or use of an implicit RK method does not imply equivalence of rational stability functions. The two closest published records concern different rational functions or generator classes; none states or entails the degree-ten merger for the unmodified Alexander map on unit stars.",
+      "searches": [
+        "Alexander 1977 two-stage L-stable SDIRK star K1,m Laplacian positivity exact forbidden step-size bands",
+        "two-stage second-order L-stable singly diagonally implicit Runge-Kutta negative diagonal complete graph K6",
+        "graph star heat diffusion L-stable SDIRK2 positive semigroup center leaf negativity two intervals degree five"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches for star-specific endpoint positivity quartics and the numerical leaf-count cutoffs returned no matching exact table in the inspected research-record database.",
+        "The star projector calculation and polynomial root counts are furnished in the current proof, and are not copied from a reported graph table."
+      ],
+      "reasoning": "A negative database search cannot certify uniqueness, but no inspected exact census or table contains these root intervals. The object is a complete infinite-family phase diagram, not a finite table reconstruction.",
+      "searches": [
+        "two-step DIRK discrete maximum principle star Laplacian step size exact return to positivity",
+        "diagonally implicit Runge Kutta unconditional positivity five-vertex star six-vertex threshold",
+        "star graph L-stable SDIRK Alexander positivity forbidden timestep bands polynomial quartic"
+      ]
+    },
+    "rationale": "Searches of published mathematical records, accessible existing mathematical ledger claims and published primary literature did not reveal a statement implying the exact unmodified Alexander star-graph phase diagram or the degree-ten merger. Method coefficients and generic positivity theory are explicitly credited; nearby schemes use different rational maps or nonlinear limiters. This is a qualified same-model assessment with acknowledged specialist coverage risk.",
+    "residual_risks": [
+      "Alexander 1977 original full paper not accessible, so only publisher abstract and independently available tableau were materially inspected; possibility of an unobserved appendix note remains.",
+      "Higueras 2014 article text was exposed through indexed primary text, but its OA repository PDF could not be retrieved for material inspection.",
+      "Gao–Wu 2015 was available only as a publisher abstract and is not claimed fully inspected.",
+      "An unindexed specialized graph-time-integrator source could already imply the specific two-band star result; absence from search is not uniqueness proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes method antecedent, not evidence of the star band classification; no whole-document not-covering claim made",
+        "evidence": [
+          "SIAM journal states two-stage second-order stiff DIRK derived in 1977; posted online 2006-07-14.",
+          "Independent method documentation explicitly gives the diagonal coefficient 1−1/√2 and stability function."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0714068",
+        "material_read": "Publisher abstract, publication history and bibliographic record; full original not accessible",
+        "method": "Publisher HTML and separate full method tableau and stability-function documentation at https://openpronghorn.inl.gov/source/timeintegrators/LStableDirk2.html",
+        "title": "Diagonally Implicit Runge–Kutta Methods for Stiff O.D.E.’s",
+        "trigger": "Original source of the exact two-stage L-stable DIRK tableau"
+      },
+      {
+        "assessment": "Optimizes different IMEX tableaux and scalar stability criteria, not the unmodified Alexander matrix on stars; relevant broad mathematical context",
+        "evidence": [
+          "Introduction identifies the tradeoff between second-order two-stage L-stability and scalar nonnegative stability functions.",
+          "The paper constructs three-stage IMEX methods and compares stability/positivity regions, with no star network matrix theorem in the inspected material."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2014.05.011",
+        "material_read": "Publicly exposed article text: introduction; scheme-design constraints; sections 2–3; conclusions; Appendix A headings and discussion",
+        "method": "ScienceDirect primary article text in search retrieval; repository OA listing noted but not downloadable",
+        "title": "Optimized strong stability preserving IMEX Runge–Kutta methods",
+        "trigger": "Direct antecedent on positivity and L-stability of implicit RK schemes"
+      },
+      {
+        "assessment": "Unconditional MPP obtained through a nonlinear limiter combining low- and high-order schemes; not a positivity claim for the unmodified Alexander matrix",
+        "evidence": [
+          "Introduction explicitly says a low-order backward Euler method is combined with high-order flux corrections to impose MPP.",
+          "Section 7 distinguishes intermediate-stage MPP from end-step MPP; conclusions emphasize limited schemes."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2109.08272v1",
+        "material_read": "Full public HTML introduction, §§2 and 7, conclusions and appendix/table of contents context; direct relevant proof/claims",
+        "method": "arXiv HTML v1 (2021-09-17), no PDF required",
+        "title": "Maximum principle preserving space and time flux limiting for Diagonally Implicit Runge-Kutta discretizations of scalar convection-diffusion equations",
+        "trigger": "Plausible stronger maximum-principle theorem for arbitrary timesteps"
+      },
+      {
+        "assessment": "Nonlinear spatial two-point flux construction rather than an unmodified temporal DIRK step, so directly different operator; abstract-only access is explicitly qualified",
+        "evidence": [
+          "Abstract specifies nonlinear two-point flux on polygonal meshes and auxiliary vertex interpolation.",
+          "Publisher shows online date 2015-02-12."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/140972470",
+        "material_read": "Publisher abstract, primary MSC and bibliographic history, not full text",
+        "method": "SIAM publisher HTML abstract",
+        "title": "A Second-Order Positivity-Preserving Finite Volume Scheme for Diffusion Equations on General Meshes",
+        "trigger": "Potential broader second-order diffusion positivity result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d0a93c68-1dc5-4f1b-8494-16ded68fc425",
+  "value": {
+    "rationale": "Unweighted stars are a natural diffusion test family with a high-degree junction. The two independent diagonal-sign obstructions and exact merger at ten leaves identify when an L-stable second-order integrator violates a discrete maximum principle despite mass conservation and eventual end-step positivity; these are structural all-degree phase boundaries, not a routine isolated counterexample. Exact root formulas give implementable timestep exclusion intervals and distinguish stiffness damping from positivity. No broader graph or stagewise claim is made.",
+    "status": "PASS"
+  }
+}
