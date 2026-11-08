@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the covariance-positive band theorem
+# Independent mathematical audit
 
-The exact argument in `RESULT.md` proves all integer sizes and frequency pairs without relying on a finite computation. Its essential checks are: normalization of uniform weak-composition probabilities; exact one- and two-coordinate stars-and-bars probabilities; the separate two-category boundary; factorial simplification; the derivative identity and strict monotonicity of its auxiliary function; the strictly subunit limit; and conversion of a one-peaked real curve to a single integer superlevel interval.
+## correctness
 
-The standalone Python 3 script `check.py` independently generates weak compositions and compares all three moments and the normalized ratio against the closed formulas for \(3\le n\le10\) and \(2\le k\le7\), for every admissible distinct positive pair \(r<s\). It also checks the discrete one-peaked and superlevel interval properties for \(3\le n\le50\), with category counts through \(40\), and the six exact values at \((n,r,s)=(10,1,6)\).
+PASS
 
-Reproduction: execute `python3 check.py` in the directory containing this file. The run returned `PASS 21041 exact assertions` using standard-library rational arithmetic. These tests are finite corroboration, not independent confirmation of originality or a substitute for the symbolic proof. No external independent scientific audit has been performed.
+Uniform weak compositions yield exact one- and two-part marked stars-and-bars probabilities and a positive normalized cross-moment R for 1<=r<s, r+s<=n, k>=2. For k>2, the logarithmic derivative has sign 2-(s+1)T(k), with T a strictly increasing sum of x/(x+A_j)*(x-2)/(x+B_j), A_j>0 and B_j>=-2. At n=r+s it decreases throughout (the limit at 2 gives equality at the derivative endpoint), otherwise R rises once and falls once; its large-k limit (n-r)_s/(n)_s<1 yields one finite consecutive positive covariance band. Direct separate weak-composition enumeration and exact fractions reproduced n=10,r=1,s=6: k=2..7 ratios 0,22/25,26/25,26/25,1,20/21. This is an all-n,r,s proof; finite checks corroborate only bounded examples.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the varying-category unimodality/covariance-positive interval, not for the known occupancy factorial moments. Huillet–Martínez gives general mixed factorial moments; specializing these moments does not without a further nontrivial inequality state the sign-band theorem. Huillet–Paroissin gives Dirichlet(1) sampling, not the shape theorem. Related published SCOPE findings concern iid occupancy richness-versus-count and a uniform-composition maximum, not this two-frequency covariance under growing k.
+
+## value
+
+PASS
+
+Pairwise covariance of two abundance frequency classes is a natural statistic for species occupancy under Dirichlet-multinomial sampling. An exact one-band sign law prevents multiple correlations changing sign as category count increases and the explicit two-reversal witness demonstrates content beyond routine moment computation. It is an all-parameter structural shape theorem with a potentially useful parameter threshold, not merely one small experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

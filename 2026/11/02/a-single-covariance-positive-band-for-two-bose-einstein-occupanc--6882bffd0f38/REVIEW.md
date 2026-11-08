@@ -1,19 +1,21 @@
-# Review of the covariance-positive band theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The probability law is exactly uniform over \(\binom{n+k-1}{k-1}\) weak compositions. Marking one and two unequal occupancy frequencies gives exact expectations and a mixed moment. Factorial cancellation yields the normalized cross-moment; the exceptional \(k=2\) boundary is counted separately. The nonstandard critical step is an explicit logarithmic derivative with a strictly increasing auxiliary function, proving the global one-maximum classification for every allowed parameter. The limit of the normalized ratio is below one, completing the integer covariance-sign theorem. The independent exhaustive and rational checker completed 21,041 exact assertions. The proof, not this finite test, establishes unbounded parameter ranges.
+PASS
 
-## Originality — PASS, qualified
+Uniform weak compositions yield exact one- and two-part marked stars-and-bars probabilities and a positive normalized cross-moment R for 1<=r<s, r+s<=n, k>=2. For k>2, the logarithmic derivative has sign 2-(s+1)T(k), with T a strictly increasing sum of x/(x+A_j)*(x-2)/(x+B_j), A_j>0 and B_j>=-2. At n=r+s it decreases throughout (the limit at 2 gives equality at the derivative endpoint), otherwise R rises once and falls once; its large-k limit (n-r)_s/(n)_s<1 yields one finite consecutive positive covariance band. Direct separate weak-composition enumeration and exact fractions reproduced n=10,r=1,s=6: k=2..7 ratios 0,22/25,26/25,26/25,1,20/21. This is an all-n,r,s proof; finite checks corroborate only bounded examples.
 
-The symmetric-Dirichlet and Bose–Einstein sampling model and the factorial moments of frequency counts are established in Huillet–Paroissin (2008) and Huillet–Martínez (2013); the latter is the closest potential source of a more general implicit formula. The checked portions, including the general mixed-factorial-moment section, do not explicitly state the global single-positive-band classification as the number of categories changes. The independent categorical urn setting of Ben-Hamou–Boucheron–Ohannessian (2014) is distinct. The novelty assessment concerns the strict derivative-sign theorem and its global covariance consequence, not the classical moments. Historical implicit-coverage risk remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Frequency-class counts are standard abundance and occupancy summaries. A complete sign-band theorem explains when two different abundance classes coexist positively under a symmetric Dirichlet mixture, and proves that positive association cannot return at larger category counts. The exact two-reversal example establishes that the result cannot be replaced by a naive monotonicity assertion. This is a structural qualitative classification beyond tabulating mixed moments; it does not require a new general sampling model or asymptotic limit.
+Best-of-knowledge PASS for the varying-category unimodality/covariance-positive interval, not for the known occupancy factorial moments. Huillet–Martínez gives general mixed factorial moments; specializing these moments does not without a further nontrivial inequality state the sign-band theorem. Huillet–Paroissin gives Dirichlet(1) sampling, not the shape theorem. Related published SCOPE findings concern iid occupancy richness-versus-count and a uniform-composition maximum, not this two-frequency covariance under growing k.
 
-## Scope and independent validation
+## value
 
-The theorem is limited to distinct positive frequencies and symmetric concentration-one Dirichlet mixture sampling. General multivariate moments already existed, and an equivalent undocumented inequality in earlier literature is a remaining priority risk. Independent assessment has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pairwise covariance of two abundance frequency classes is a natural statistic for species occupancy under Dirichlet-multinomial sampling. An exact one-band sign law prevents multiple correlations changing sign as category count increases and the explicit two-reversal witness demonstrates content beyond routine moment computation. It is an all-parameter structural shape theorem with a potentially useful parameter threshold, not merely one small experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T18:06:50.389905Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform weak compositions yield exact one- and two-part marked stars-and-bars probabilities and a positive normalized cross-moment R for 1<=r<s, r+s<=n, k>=2. For k>2, the logarithmic derivative has sign 2-(s+1)T(k), with T a strictly increasing sum of x/(x+A_j)*(x-2)/(x+B_j), A_j>0 and B_j>=-2. At n=r+s it decreases throughout (the limit at 2 gives equality at the derivative endpoint), otherwise R rises once and falls once; its large-k limit (n-r)_s/(n)_s<1 yields one finite consecutive positive covariance band. Direct separate weak-composition enumeration and exact fractions reproduced n=10,r=1,s=6: k=2..7 ratios 0,22/25,26/25,26/25,1,20/21. This is an all-n,r,s proof; finite checks corroborate only bounded examples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huillet–Martínez arXiv:1307.3000, Proposition 5, broader factorial moment framework.",
+          "Ben-Hamou–Boucheron–Ohannessian arXiv:1412.8652 concerns iid urn draws with fixed proportions."
+        ],
+        "reasoning": "A broader generating moment identity is not a stronger monotonicity theorem; iid multinomial urn sampling is a different distribution from integrated Dirichlet(1).",
+        "searches": [
+          "Dirichlet multinomial symmetric weak composition two distinct frequency classes cross covariance number of categories unimodal sign interval"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0809.4181",
+        "arXiv:1307.3000",
+        "arXiv:1412.8652",
+        "Resultary: 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Huillet–Martínez (2013) supplies moments; the new proof requires strict monotonicity of T(k) from a derived logarithmic derivative."
+        ],
+        "reasoning": "The known moments allow algebraic construction of R, but they do not by themselves logically provide one strict maximum or a single covariance-positive band without proving the rational inequality; novelty is limited to that extra shape claim.",
+        "searches": [
+          "Dirichlet multinomial symmetric weak composition two distinct frequency classes cross covariance number of categories unimodal sign interval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huillet–Paroissin 2008, arXiv:0809.4181: symmetric Dirichlet(1) sampling realizes uniform weak compositions.",
+          "Huillet–Martínez 2013, arXiv:1307.3000: Gibbs–Poisson frequency-of-frequencies mixed factorial moments."
+        ],
+        "reasoning": "Reexpressed the same weak-composition law as Dirichlet-multinomial; prior mixed moments specialize to the first algebraic ratio, but no inspected result gives the global unimodality or consecutive k-sign band.",
+        "searches": [
+          "Uniform weak composition Bose Einstein occupancy frequencies covariance positive interval in number of boxes k unimodality cross moments Dirichlet multinomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published SCOPE record computes richness-count sign switch for iid uniform occupancy, not two distinct N_r,N_s under uniform compositions; checked finite example (10,1,6) is not derived from a known table."
+        ],
+        "reasoning": "The numerical six-ratio witness is supplementary; a finite table cannot cover the all-parameter derivative theorem. No inspected exact database includes this uniform-composition k-band theorem.",
+        "searches": [
+          "Uniform weak composition Bose Einstein occupancy frequencies covariance positive interval in number of boxes k unimodality cross moments Dirichlet multinomial",
+          "Resultary record 2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the varying-category unimodality/covariance-positive interval, not for the known occupancy factorial moments. Huillet–Martínez gives general mixed factorial moments; specializing these moments does not without a further nontrivial inequality state the sign-band theorem. Huillet–Paroissin gives Dirichlet(1) sampling, not the shape theorem. Related published SCOPE findings concern iid occupancy richness-versus-count and a uniform-composition maximum, not this two-frequency covariance under growing k.",
+      "residual_risks": [
+        "Prior general mixed-factorial moment formulas may encode an unnoticed equivalent rational sign inequality; no exhaustive historical priority certification.",
+        "Unequal Dirichlet parameters, repeated frequencies, or covariance magnitude unimodality are not covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers mixed-moment machinery; not evidence for an already evaluated all-k shape law",
+          "evidence": "Proposition 5 general mixed factorial moments; derivative monotonicity not supplied in inspected sections.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.3000",
+          "material_read": "Accessible full primary text: the factorial-moment framework and Proposition 5, Dirichlet-specialization discussion",
+          "method": "Read accessible arXiv full text and compare equations",
+          "title": "Occupancy distributions arising in sampling from Gibbs-Poisson abundance models",
+          "trigger": "Directly matching factorial moments for frequencies of frequencies"
+        },
+        {
+          "assessment": "Relevant prior law/normalization, not a pair-frequency covariance interval classification",
+          "evidence": "Dirichlet(1) integrated multinomial yields equally likely weak compositions.",
+          "identifier_or_url": "https://arxiv.org/abs/0809.4181",
+          "material_read": "Accessible full primary text: model and Dirichlet-to-composition relation",
+          "method": "Read arXiv full text",
+          "title": "Sampling from Dirichlet populations: estimating the number of species",
+          "trigger": "Exact uniform-composition probabilistic equivalence"
+        },
+        {
+          "assessment": "Not a dominating claim due to iid fixed probabilities rather than Dirichlet mixture",
+          "evidence": "Independent urn sampling is not the stated Bose–Einstein law.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.8652",
+          "material_read": "Abstract/model and independent fixed-probability occupancy setting",
+          "method": "Read accessible primary source introduction and model",
+          "title": "Concentration inequalities in the infinite urn scheme for occupancy counts and the missing mass, with applications",
+          "trigger": "Possible broader occupancy covariance result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Pairwise covariance of two abundance frequency classes is a natural statistic for species occupancy under Dirichlet-multinomial sampling. An exact one-band sign law prevents multiple correlations changing sign as category count increases and the explicit two-reversal witness demonstrates content beyond routine moment computation. It is an all-parameter structural shape theorem with a potentially useful parameter threshold, not merely one small experiment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Prior general mixed-factorial moment formulas may encode an unnoticed equivalent rational sign inequality; no exhaustive historical priority certification.",
+    "Unequal Dirichlet parameters, repeated frequencies, or covariance magnitude unimodality are not covered."
+  ],
+  "schema_version": 1
+}
