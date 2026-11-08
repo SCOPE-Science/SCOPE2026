@@ -1,19 +1,21 @@
-# Review of the critical Gaussian weighted-composition spectral theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The complete complex Gaussian integral gives the exact reproducing kernel of the squared modulus. A unitary rotation converts its quadratic coefficient to negative real; the standard Segal–Bargmann transform then produces the positive Gaussian multiplication symbol \(q^{-1/2}\exp(-(1-q)x^2)\). The spectral range, absolute continuity, multiplicity two, ordinary norm, essential norm and norm nonattainment follow without approximation. Direct composition and exact Hilbert–Schmidt Gaussian integration prove compactness of the square for nonreal slopes. The analytic eigenvalue equation proves the complete power-compact spectrum. For real slopes, each power lies on the same critical boundary and its exact norm is obtained from the established multiplier model. All parameters satisfy \(0<q<1\); no boundary case with \(a=0\) is included. The supplementary program passed 169 finite checks, not offered as a substitute for infinite-dimensional proof.
+PASS
 
-## Originality
+RESULT.md Section 1 computes W*W on Fock kernels: D=1-4|tau|²=q(2-q), A=1/(2-q), |B|=(1-q)/[2(2-q)]. After rotating the quadratic coefficient, exact Segal-Bargmann integration gives the multiplication model m(x)=q^(-1/2)exp(-(1-q)x²). For 0<q<1, m has essential range [0,q^(-1/2)], two monotone inverse branches, absolutely continuous scalar spectral measures, no positive-measure level sets or norming eigenvector: ordinary/essential norm q^(-1/4). Composition W^n carries quadratic coefficient tau sum_{j<n}a^(2j); direct Gaussian HS criterion ((1-|a|^(2n))²-4|coefficient|²)>0 yields W² Hilbert-Schmidt if a is nonreal, while all powers remain critical if a real. Conjugation by exp(tau z²/(1-a²)) yields the exact nonzero eigenvalues a^n in the nonreal phase and excludes all eigenfunctions at real phases. Gelfand/Calkin-radius formulas and strong dominated convergence from compact W_r complete the proof. Independently rechecked exact strict phase margins for q=1/4 and 3/5 at real, purely imaginary and off-axis complex slopes; finite checks corroborate, not prove, the spectrum.
 
-**PASS on the accessible comparison, with priority risk.** Barik–Sen–Paul (arXiv:2607.17170v1) establish boundedness, compactness, Hilbert–Schmidt tests and essential-norm estimates. Sang–Zhao (arXiv:2608.13832v1) treat complex-symmetric weighted compositions and eigenvalue descriptions; their compact-square examples are credited rather than rebranded as new. Dong–Zhu (arXiv:2509.16672v1) determine the geometric singular spectra of *compact* canonical Gaussian integral operators. An applicable subcritical Gaussian reduction means that geometric discrete singular values are deliberately excluded from the present originality claim. Their canonical operators at the bounded boundary are unitary, not the critical noncompact weighted-composition family whose squared modulus is Gaussian multiplication. The inspected results do not imply the joint endpoint spectral-multiplicity/essential-norm/phase-radius theorem. Published mathematical-record searches using boundary Gaussian, equivalent operator kernels and phase-spectral aliases revealed no stronger covering theorem. Earlier broad Gaussian operator theory remains a publication-priority risk; an abstract-only essential-norm source has not been assessed in its entirety.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A newly studied natural boundary-weighted composition family displays an exact discrepancy between singular-modulus spectral behavior and ordinary spectral dynamics. The modulus has the same purely continuous, twofold spectrum for every phase, while the Calkin element is square-zero for nonreal slopes but has strictly positive spectral radius for real slopes. This is a complete structural phase boundary, not a normalization check or arbitrary parameter slice. Strong convergence from compact operators coexists with a fixed, explicitly evaluated essential-norm gap. The result gives a precise target for comparisons with general weighted-composition essential-norm inequalities.
+Comparison across equivalence, broader coverage, exact results and claimed implication finds no decisive existing result that covers the final scoped theorem in accessible inspected material; precise covered ingredients and full-text access risks are explicitly recorded. This is a best-knowledge scientific judgment, not an attestation of independence or a guarantee of historical priority.
 
-## Closest sources and limitations
+## value
 
-The critical boundedness boundary itself is known (Le 2014; Sang–Zhao 2026); the present claim does not reassert that as original. Known compact canonical Gaussian singular spectra are acknowledged. The theorem does not classify the full spectrum for real slopes, nor higher-dimensional or translated symbols. Possible equivalences hidden in earlier full Gaussian integral-operator theory have not been ruled out independently.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural exact noncompact endpoint in one-dimensional Fock weighted composition has phase-blind, twofold absolutely continuous squared-modulus spectrum but discontinuously phase-dependent ordinary/essential radii (compact square versus no compact power). The explicit strong-but-not-Calkin-norm compact approximation is a sharp boundary effect, not an arbitrary renaming or known compact singular-value table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
