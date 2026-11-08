@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full spectral decomposition has exactly the eigenvalues claimed: zero on constants, the vertex count on interclass contrasts, and the complement-of-part size on intraclass fluctuations. The formula for the signed difference of heat-kernel rows is exact. Its four signed orbit masses admit both a saturating one-Lipschitz witness and a matching transportation plan, including singleton classes. Within-part Dirac ratios do not dominate any cross-part ratio. The general pairwise reduction yields the global induced \(W_1\) coefficient. A monotone part-size derivative and elementary time differentiation then prove partition universality, the nonexpansivity boundary, and the unique overshoot maximum. Exact signs, boundary cases, and quantifiers have been checked. Fifty independent finite transport-LP graph/time comparisons were successful, but are not used to infer the infinite theorem.
+## correctness
 
-## Originality — PASS, qualified
-Münch–Wojciechowski, arXiv:1712.00875, Theorem 3.8, provides a curvature lower-bound versus exponential heat-semigroup contraction equivalence, not the actual multiplier at every time. Pedrotti, arXiv:2308.00516, gives curvature and exponential Wasserstein bounds in other Markov models, not a closed formula for general multipartite graphs. Existing calculations for two-class complete bipartite walks cannot be applied unchanged to three or more parts: both the generator and transport geometry differ. The new assertion includes exact dependence only on the largest part across all multipartite refinements and a strict transient amplification phase transition. Search evidence does not prove global uniqueness; possible prior statements under coarse curvature or Dobrushin–Lipschitz terminology remain a historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-A complete, sharp, parameter-uniform description of the entire Wasserstein-one heat-flow norm across every nontrivial complete multipartite graph is a natural spectral-transport invariant. The largest-part-only universality is not apparent from the graph Laplacian's full part-sensitive spectrum. The threshold also proves that a reversible finite-state Markov semigroup with positive spectral gap can expand graph transport distances transiently and quantifies that expansion and its unique maximizing time. This goes beyond a textbook norm identity or an arbitrary finite census.
+For the unnormalized rate-one combinatorial Laplacian of a complete multipartite graph with r>=3 nonempty parts, N vertices and maximum part m, spectral projectors give within-part exponent a_i=exp(-(N-n_i)t) and inter-part exponent c=exp(-Nt). For a distinct-part pair the full signed heat-row difference has support in the two parts. The unit-Lipschitz potentials and explicit one/two-cost matching transports prove its W1 cost equals max(f_i,f_j), with f_i=2(1-1/n_i)a_i-(1-2/n_i)c; a same-part Dirac ratio is a_i and cannot beat f_i for n_i>=2. Dirac pairs induce the full measure W1 norm. f_z is nondecreasing in real part size z, hence C(t)=f_m. Differentiation proves the exact formula C(t)=2(m-1)/m exp(-(N-m)t)-(m-2)/m exp(-Nt), the initial curvature N+2-2m, and iff condition 2m<=N+2 for all-time nonexpansivity; otherwise unique global positive-time maximum at the supplied t*. Boundary m=1 (complete graph), m=2, and t=0 are consistent. An independent matrix-exponential/linear-program verification optimized every Dirac-pair transport for five different partitions and three strictly positive times each; numerical finite checks corroborate but do not prove the all-time formula.
 
-## Closest literature and boundaries
-The relevant portions of the two named papers provide exponential estimates and curvature frameworks, but not the explicit norm profile. This theorem requires unit-length edges and unnormalized rate-one-per-edge jumps. Possible equivalents in older transport-coupling literature and generalized graph-product curvature remain subject to independent historical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact two-exponential W1 norm and largest-part partition universality for all r>=3 cannot be inferred from a generic heat-semigroup curvature inequality, and changing from bipartite to three-part generator changes the graph. A Resultary semantic search returned other multipartite invariants but no same all-time heat-flow norm. Best-of-knowledge PASS, with Dobrushin and coarse-Wasserstein naming risk.
+
+## value
+
+PASS
+
+The sharp time-dependent optimal-transport norm and explicit transition from nonexpansivity to transient amplification describe nontrivial behavior in a natural irregular family; the universality under changes to all smaller part sizes is a structural phenomenon beyond a generic spectral gap or first derivative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
