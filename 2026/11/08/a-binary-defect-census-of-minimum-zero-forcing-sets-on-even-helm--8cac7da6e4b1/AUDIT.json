@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Forcing chains yield leaf necessity and a unique center force; seeded components of zero rim sites are characterized exactly by successive 00 defect edges; an unseeded component needs the unique hub force and hence must be a singleton arising from a physical 000. The unique 111 permits center activation. A marked defect-11 pair and odd intervening gaps count all cyclic words without overcount, producing 2k sum_{r>=2}(r-1) binom(k-2,2r-3), which equals k^2*2^(k-4) for k>=4, with k=3 checked separately. Full independent finite verification by Python/C++17 checks all balanced leaf candidates through n=20.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barioli et al. prove P(G)<=Z(G), not the even-helm count.",
+        "Geneson–Haas–Hogben define the unrestricted one-element replacement zero forcing graph; its inspected text contains no helm calculation.",
+        "Results concerning fan graphs (a hub joined to a path) do not cover helms with a pendant leaf attached to each rim vertex."
+      ],
+      "reasoning": "The 2023 result is the strongest close precursor: it determines min cardinality and some selected-run constraints; those are explicitly not new. No broader published theorem inspected determines the exact balanced-leaf success list.",
+      "searches": [
+        "arxiv:1003.2028v1 Section 2 path-cover lower bound",
+        "arxiv:2310.18513v1 Section 3 helm graphs",
+        "arxiv:2009.00220v1 zero forcing reconfiguration",
+        "\"zero forcing polynomial of fan graphs\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1003.2028v1",
+      "arxiv:2310.18513v1",
+      "arxiv:2009.00220v1",
+      "Zero forcing polynomial of friendship graphs (different graph family)",
+      "Zero forcing polynomial of fan graphs (different graph family)",
+      "All minimal zero forcing sets of spider trees (different graph family)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known: Z(H_2k)=k and every minimum set must contain exactly one triple of consecutive selected leaves, from Anderton et al.",
+        "Known: maximal forcing chains cover vertices and each chain starts at a seed, Barioli et al.",
+        "New: the full 00/11 defect placement restrictions plus their odd-gap enumeration, giving k^2*2^(k-4)."
+      ],
+      "reasoning": "Leaf-only and isolated slide status follow quickly from existing forcing-chain reasoning and are explicitly marked as subordinate. Neither a known minimum cardinality nor a one-triple restriction suffices to count successful balanced cyclic words: many such words fail because their 00 defect components are too large. This paper supplies the missing necessary-and-sufficient criterion and its count.",
+      "searches": [
+        "arxiv:2310.18513 Theorem 3.5 Lemma 3.7 Observation 3.6",
+        "arxiv:2009.00220 Section 2 and helm text search",
+        "arxiv:1003.2028 Proposition 2.10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Anderton et al. arXiv:2310.18513 Section 3 Theorem 3.5 reports Z(H_m)=ceil(m/2) and Lemma 3.7 constrains selected triples, but the full minimum-set count does not appear in the inspected section.",
+        "Published comparisons concerning friendship-graph zero forcing enumerate a different host graph and do not imply a helm census."
+      ],
+      "reasoning": "The equivalent enumeration would count all minimum forcing sets or classify balanced leaf words under forcing. Prior size/propagation-time or chain-based necessary lemmas alone do not yield the defect criterion or closed count.",
+      "searches": [
+        "\"helm graph\" \"number of minimum zero forcing sets\"",
+        "\"helm graphs\" \"zero forcing polynomial\"",
+        "even helm graph minimum zero forcing sets exact count k squared times 2 power k minus 4 necklace cyclic binary defect runs 000 111",
+        "arxiv:2310.18513 Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2023 helm preprint contains no table of all minimum forcing subsets and no k-squared exponential formula.",
+        "Searches for the formula and binary-defect variants found no matching helm census, which is not by itself proof of priority."
+      ],
+      "reasoning": "Sequence 6,16,50,144,392,1024,2592,6400 was independently derived from the definitions using exhaustive programs; the sequence is not presented as a known database table. Search non-detection alone is not a uniqueness proof.",
+      "searches": [
+        "counting all minimum zero forcing sets of helm graphs 2k 4k squared exponential formula",
+        "\"helm graph\" \"minimum zero forcing\" \"count\"",
+        "\"helm graph\" reconfiguration zero forcing"
+      ]
+    },
+    "rationale": "The substantive count k^2*2^(k-4) and full binary-defect membership theorem are not implied by the known zero forcing number or unique three-leaf-run condition. The close 2023 helm treatment was compared in full Section 3; its theorems concern size and time. 2020 unrestricted jumps do not classify the size of the minimum set family under slides. Residual risk from unindexed independent enumeration remains.",
+    "residual_risks": [
+      "An equivalent enumeration may exist outside the accessible and indexed literature.",
+      "The named 2023 helm preprint contains necessary constraints used in the proof, so the newness is restricted to complete defect classification and exact enumeration, not basic leaf rigidity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_ONLY",
+        "evidence": [
+          "Proposition 2.10: path-cover number is at most zero forcing number; no even-helm enumeration."
+        ],
+        "identifier_or_url": "arxiv:1003.2028v1 / https://arxiv.org/html/1003.2028v1",
+        "material_read": "Section 2 definitions of forcing chains and Proposition 2.10, plus abstract and bibliography",
+        "method": "lawful public arXiv HTML text",
+        "title": "Zero forcing parameters and minimum rank problems",
+        "trigger": "Primary archive-era forcing-chain foundation and MSC05C50 ownership"
+      },
+      {
+        "assessment": "STRONG_PARTIAL_COVERAGE_NOT_CENSUS",
+        "evidence": [
+          "Theorem 3.5 Z(H_m)=ceil(m/2); Lemma 3.7 a unique run of three selected leaves for even m; Section 3 treats propagation times and no exact minimum-set census formula."
+        ],
+        "identifier_or_url": "arxiv:2310.18513v1 / https://arxiv.org/abs/2310.18513",
+        "material_read": "Full HTML-text Section 3 lines 144-310, especially Theorems 3.5, 3.9, Lemma 3.7 and Observation 3.6",
+        "method": "lawful arXiv HTML extraction exposed in source page",
+        "title": "The zero forcing numbers and propagation times of gear graphs and helm graphs",
+        "trigger": "Exact same helm host graph and zero forcing parameter"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_MOVE",
+        "evidence": [
+          "Defines unrestricted token jumping of minimum zero forcing sets, no helm host graph found in text search."
+        ],
+        "identifier_or_url": "arxiv:2009.00220v1 / https://arxiv.org/html/2009.00220v1",
+        "material_read": "Full-text search for helm and sliding, abstract, Sections 1-2 and overview of later sections",
+        "method": "public arXiv HTML full-text search and substantive sections",
+        "title": "Reconfiguration graphs of zero forcing sets",
+        "trigger": "Possible stronger reconfiguration coverage of zero forcing minima"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8cac7da6-e4b1-476b-8552-2012c28743fc",
+  "value": {
+    "rationale": "The exact cardinality of the natural family of minimum zero forcing configurations on even helms, previously studied for optimum size and propagation time, is a motivated missing invariant. A complete binary local obstruction criterion gives direct membership testing and a simple exact exponential census; optimum configurations are numerous yet local token slides cannot connect any, illustrating a substantive configuration/mobility contrast. This is not just a restatement of the known optimum size.",
+    "status": "PASS"
+  }
+}
