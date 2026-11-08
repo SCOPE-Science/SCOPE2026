@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** All claims are restricted to the explicitly defined golden-ratio map and its displayed stationary absolutely continuous measure. The four-cell Markov image table and positive invariant step density satisfy the exact transfer equation. On centered antisymmetric piecewise-affine densities the explicitly computed four-dimensional transfer matrix satisfies \(N^3v=\beta^{-3}v\) for \(v=hf\), and the first two nonzero lag functionals vanish. This proves every covariance identity by induction in the residue class, not merely by finite numerical checking. Absolute summability licenses the stationary variance limit. The embedded exact-arithmetic checker verifies these algebraic premises. It does not claim a central limit theorem.
+PASS
 
-## Originality
+For golden ratio β, explicit four-cell Markov partition and density h with outer/inner values 1/2+sqrt5/10,1/2+3sqrt5/10 satisfy the Frobenius–Perron eigenvector and normalization. Reconstructed antisymmetric piecewise-affine transfer operator N, the key exact identity N³(h(x)(x−1/2))=β⁻³h(x)(x−1/2), and evaluation Λ(v)=(5−sqrt5)/40, Λ(Nv)=Λ(N²v)=0. From transfer identity C_n=Λ(N^n v), all n follow with zeros at n≡1,2 mod3 and β⁻n magnitude at n≡0. Independent eight-coefficient inverse-branch transfer construction and exact symbolic integrations checked lags 0..9. Covariance absolute summability gives GK variance sqrt5/20 directly, without a CLT.
 
-**PASS within inspected evidence.** The 2023 fixed-point-free construction and earlier intermediate beta-map literature already cover the map as an object and supply finite-type/invariant-density techniques. The new proposition is strictly the exact stationary coordinate-covariance sequence, its three-step resonance and associated closed-form long-run variance. The examined full texts of Lawnik--Moysis--Volos (2023) and Li--Sahlsten--Samuel (2014) do not provide this claim. General invariant-density results are not claimed as new. Semantically compared research-index records concern different maps or observables. Residual risk remains from older broad beta-transfer-operator calculations and from relevant literature accessible only via abstract.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The coordinate autocovariance is a natural dynamical statistic for a published map family motivated in part by pseudorandom output. The exact result detects a nontrivial period-three correlation hidden behind zero first and second lags, and computes its complete infinite-lag contribution to normalized accumulated variance. It is therefore a substantive, sharply characterized invariant rather than a routine finite sample or a cosmetic parameter change.
+Best-of-knowledge originality from statement-level comparison of actual primary sources and published mathematical-record search; no inspected accessible stronger theorem states or directly implies the same complete claim. Source-access and historical alias risks retained; nonhits do not establish priority. The calculation N³v=β⁻³v plus Λ(Nv)=Λ(N²v)=0 supplies a special observable identity not contained in general existence of an ACIP
 
-## Sources and limits
+## value
 
-The exact 2023 map-construction equations, the 2014 beta symbolic finite-type arguments and the 2023 symmetric-golden-map comparison were examined in available full-text form. The 2020 periodic-expansion and 2007 invariant-density articles were compared through available statements, with further text-access limitations recorded in the structured audit. Proof checking and publication-priority checks remain limited to this review, without independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicit stationary-coordinate lag-three-only covariance pattern is a sharp natural observable invariant for a fixed-point-free expanding map; it quantifies decorrelation and Green–Kubo variance beyond knowing an invariant density. It is a meaningful exact structural phenomenon, even though it is for one special parameter and one observable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

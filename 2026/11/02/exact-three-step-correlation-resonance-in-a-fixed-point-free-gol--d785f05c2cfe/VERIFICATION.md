@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python check.py` using Python 3 and SymPy. The executable reads no external data and constructs every mathematical constant and matrix directly in the algebraic field \(\mathbb Q(\sqrt5)\). It verifies the displayed transfer equation for the step density, its integral and mean, the cubic eigenvector relation for the four-dimensional transfer restriction, seven consecutive exact autocovariance values, and the closed-form Green--Kubo limit. The general \(n\)-lag statement follows analytically from the exact cubic eigenvector relation together with the first three functional values; testing only seven values is not presented as exhaustive enumeration. No independent audit or external proof certification has been carried out.
+## correctness
+
+PASS
+
+For golden ratio β, explicit four-cell Markov partition and density h with outer/inner values 1/2+sqrt5/10,1/2+3sqrt5/10 satisfy the Frobenius–Perron eigenvector and normalization. Reconstructed antisymmetric piecewise-affine transfer operator N, the key exact identity N³(h(x)(x−1/2))=β⁻³h(x)(x−1/2), and evaluation Λ(v)=(5−sqrt5)/40, Λ(Nv)=Λ(N²v)=0. From transfer identity C_n=Λ(N^n v), all n follow with zeros at n≡1,2 mod3 and β⁻n magnitude at n≡0. Independent eight-coefficient inverse-branch transfer construction and exact symbolic integrations checked lags 0..9. Covariance absolute summability gives GK variance sqrt5/20 directly, without a CLT.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality from statement-level comparison of actual primary sources and published mathematical-record search; no inspected accessible stronger theorem states or directly implies the same complete claim. Source-access and historical alias risks retained; nonhits do not establish priority. The calculation N³v=β⁻³v plus Λ(Nv)=Λ(N²v)=0 supplies a special observable identity not contained in general existence of an ACIP
+
+## value
+
+PASS
+
+The explicit stationary-coordinate lag-three-only covariance pattern is a sharp natural observable invariant for a fixed-point-free expanding map; it quantifies decorrelation and Green–Kubo variance beyond knowing an invariant density. It is a meaningful exact structural phenomenon, even though it is for one special parameter and one observable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
