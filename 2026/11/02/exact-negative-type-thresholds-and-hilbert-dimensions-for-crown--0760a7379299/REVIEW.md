@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every pairwise distance for \(\operatorname{Cr}_n\) follows from the edge definition for \(n\ge3\). The full \(2n\)-by-\(2n\) powered-distance matrix is given explicitly; the all-ones direction and all three irreducible zero-sum eigenspaces account for the entire dimension, including multiplicities. The sign analysis covers \(0\le p\le1\), \(p>1\), the small orders, uniqueness of the root, and every boundary case. The centered-Gram rank argument supplies both necessary and sufficient Hilbert embedding dimensions. Analytic implicit-function expansion proves the second-order asymptotic. A 178-assertion checker provides only bounded corroboration.
+## correctness
 
-**Originality — PASS, qualified by historical-priority risk.** Sánchez (2011) proves a general finite-metric criterion and the complete-bipartite exponent. Murugan (2011, Theorem 3.1) proves a determinant and nullspace criterion covering all vertex-transitive graphs and is the strongest methodological overlap. Robertson (2020) simplifies determinant tests, and Robertson (2023, Section 4.1) treats complete bipartite graphs and cubes. MathWorld gives the ordinary \(p=1\) crown distance characteristic polynomial. These premises imply that the crown calculation is in principle accessible but do not state the claimed all-order \(p\)-threshold, sharp jump in endpoint dimensions, or matching-deletion gain. Relevant published-result queries identified crown claims concerning different invariants (edge metric bases and b-spectra), not negative type. Broader unpublished equivalent formulas cannot be excluded.
+PASS
 
-**Mathematical value — PASS.** Crown graphs form a canonical distance-transitive family between sparse cubes and dense complete bipartite graphs. The theorem gives a complete sharp negative-type and Hilbert-embeddability classification and a meaningful cutoff: \(n=3,4\) retain exponent one, whereas every larger crown loses it. A precise second-order gain quantifies the perturbation from the known complete-bipartite threshold; the endpoint rank distinguishes the exceptional small orders.
+PASS: Independently reconstructed the actual 2n-by-2n powered distance matrix from graph distances 1,2,3 and decomposed its zero-sum space into (w,w), (w,-w), and side-difference modes. Eigenvalues are 3^p-2^p-1 (n-1 times), 1-2^p-3^p (n-1), and (n-1)(2^p-1)-3^p (once). Concavity/convexity and monotonicity of 3^p/(2^p-1) give the exact threshold 1 for n=3,4 and unique interior root for n>=5, with no missed later regime. Gram rank -HD_pH/2 yields endpoint affine dimensions 3 (n=3,4) and 2n-2 otherwise and nullities 2,4,1; analytic implicit expansion gives gain log(3)/[log(2)^2(n-1)^2]. Independent BFS distance/eigenvalue checks passed 60 sampled comparisons. Finite checks are not proof of the infinite-n claims.
 
-**Scope and residual limitations.** The result does not address weighted or nonperfect matching deletions. Previously known general spectral criteria and \(p=1\) spectra remain prior art. Numerical examples are not an infinite proof. The priority assessment is self-review only, not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS, qualified: the exact all-order crown graph p-negative-type spectrum and Hilbert endpoint rank are not stated by inspected generic finite-metric negative-type criteria or the known complete-bipartite formula. n=3 (C6), n=4 (Q3), complete-bipartite exponents, and general determinant/embedding correspondence are prior, not new. Unindexed distance-spectral or vertex-transitive treatments might implicitly yield the crown eigenbranch; no negative search is treated as priority certification.
+
+## value
+
+PASS
+
+PASS: The crown is a natural matching-deleted complete bipartite family. It has an exact sharp embedding threshold, critical dimension jump and a computable second-order deletion benefit, not merely a scalar substitution of K_n,n. The eigenmode classification can be used directly in generalized-roundness and Hilbert snowflake work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

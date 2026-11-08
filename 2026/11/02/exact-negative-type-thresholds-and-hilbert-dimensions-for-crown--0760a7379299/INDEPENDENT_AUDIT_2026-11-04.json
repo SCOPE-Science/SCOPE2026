@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T13:10:45.100871Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Independently reconstructed the actual 2n-by-2n powered distance matrix from graph distances 1,2,3 and decomposed its zero-sum space into (w,w), (w,-w), and side-difference modes. Eigenvalues are 3^p-2^p-1 (n-1 times), 1-2^p-3^p (n-1), and (n-1)(2^p-1)-3^p (once). Concavity/convexity and monotonicity of 3^p/(2^p-1) give the exact threshold 1 for n=3,4 and unique interior root for n>=5, with no missed later regime. Gram rank -HD_pH/2 yields endpoint affine dimensions 3 (n=3,4) and 2n-2 otherwise and nullities 2,4,1; analytic implicit expansion gives gain log(3)/[log(2)^2(n-1)^2]. Independent BFS distance/eigenvalue checks passed 60 sampled comparisons. Finite checks are not proof of the infinite-n claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Crown is vertex transitive and generic determinant criterion applies.",
+          "Sánchez computes K_{n,n} threshold log_2(n/(n-1)), not the 3^p crown matching contribution."
+        ],
+        "reasoning": "A general algorithmic criterion could in principle generate finite instances but does not by itself supply the all-n root, critical ranks, or asymptotic coefficient. A stronger unlocated explicit crown computation remains a risk.",
+        "searches": [
+          "Murugan vertex-transitive generalized roundness arXiv:1112.5657",
+          "Robertson arXiv:2004.10923; arXiv:2309.16070",
+          "Sánchez arXiv:1108.0451 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Sánchez arXiv:1108.0451 full relevant PDF sections",
+        "Murugan arXiv:1112.5657 theorem/search metadata",
+        "Robertson arXiv:2004.10923 and arXiv:2309.16070 relevant sections/abstracts",
+        "MathWorld Crown Graph and Distance Polynomial",
+        "Resultary semantic search: supremal p negative type generalized roundness crown graph K n n minus perfect matching exact embedding dimension powered distance eigenvalues"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete bipartite formula log_2(n/(n-1)) and crown formula root (n-1)(2^p-1)=3^p differ.",
+          "At n=3,4 the six-cycle/cube endpoint is already structurally known."
+        ],
+        "reasoning": "No inspected explicit prior theorem implies the full all-n crown critical Hilbert dimensions without the powered-distance decomposition; the known n=3,4 facts are fully excluded from novelty.",
+        "searches": [
+          "Sánchez 2011 Section 3 complete-bipartite p-negative type",
+          "Murugan 2011 generalized-roundness determinant",
+          "Robertson 2023 Section 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Crown has matched cross pairs at distance 3 while K_{n,n} has them at distance 1; powered eigenvalue λ_s=(n-1)(2^p-1)-3^p.",
+          "Robertson arXiv:2309.16070 Section 4.1 addresses complete bipartite graphs and cubes."
+        ],
+        "reasoning": "The equivalent finite-metric problem is generalized roundness/p-negative type; generic determinant zero can characterize a threshold but evaluating all three powered crown eigenbranches and their multiplicities is additional work. The families cannot be identified simply by relabeling.",
+        "searches": [
+          "supremal p negative type generalized roundness crown graph K n n minus perfect matching exact embedding dimension powered distance eigenvalues",
+          "Sánchez arXiv:1108.0451 §3; Murugan arXiv:1112.5657 Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld records unpowered p=1 distance spectrum; Resultary nearby crown entries concern edge metric dimension, b-spectra and symmetric-edge polytope inradius, not p-negative type."
+        ],
+        "reasoning": "The p=1 characteristic polynomial does not determine signs of powered p in (0,1), and nearby tables do not tabulate this natural invariant. Search absence proves no historical-priority claim.",
+        "searches": [
+          "MathWorld Crown Graph Distance Polynomial; ordinary distance characteristic spectrum",
+          "supremal p negative type generalized roundness crown graph K n n minus perfect matching exact embedding dimension powered distance eigenvalues",
+          "Resultary negative type crown metric exact Hilbert snowflake"
+        ]
+      },
+      "rationale": "Best-knowledge PASS, qualified: the exact all-order crown graph p-negative-type spectrum and Hilbert endpoint rank are not stated by inspected generic finite-metric negative-type criteria or the known complete-bipartite formula. n=3 (C6), n=4 (Q3), complete-bipartite exponents, and general determinant/embedding correspondence are prior, not new. Unindexed distance-spectral or vertex-transitive treatments might implicitly yield the crown eigenbranch; no negative search is treated as priority certification.",
+      "residual_risks": [
+        "An early exact distance-spectrum computation for crown graphs or generalized-roundness results for vertex-transitive graphs could already imply the formula by substitution.",
+        "The n=3,4 six-cycle/cube cases and generic Gram theorem are expressly prior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GENERAL_NOT_EXACT_CROWN",
+          "evidence": "Section 3 supplies K_{m,n} exponent; does not assert crown matching-deletion powered spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.0451",
+          "material_read": "Full accessible PDF theorem/example sections, particularly finite metric determinant conditions and §3 K_{m,n} formula",
+          "method": "PDF text and screenshot of original theorem page",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "Direct generic and complete-bipartite predecessor"
+        },
+        {
+          "assessment": "PRIOR_P1_TABLE_ONLY",
+          "evidence": "Unpowered p=1 table cannot give p in (0,1) eigenbranch, although cases C6 and Q3 are prior.",
+          "identifier_or_url": "https://mathworld.wolfram.com/CrownGraph.html",
+          "material_read": "Crown-graph identity and ordinary distance-spectrum reference sections",
+          "method": "web page reading",
+          "title": "Crown Graph and Distance Polynomial",
+          "trigger": "Matching-deleted graph identity and distance table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The crown is a natural matching-deleted complete bipartite family. It has an exact sharp embedding threshold, critical dimension jump and a computable second-order deletion benefit, not merely a scalar substitution of K_n,n. The eigenmode classification can be used directly in generalized-roundness and Hilbert snowflake work.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An early exact distance-spectrum computation for crown graphs or generalized-roundness results for vertex-transitive graphs could already imply the formula by substitution.",
+    "The n=3,4 six-cycle/cube cases and generic Gram theorem are expressly prior.",
+    "Finite checks cannot prove an infinite theorem, literature novelty or value; analytical proofs and statement-level comparison were separately assessed.",
+    "Original research result files are not modified; scientific acceptance is distinct from publication/import readiness."
+  ],
+  "schema_version": 1
+}
