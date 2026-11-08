@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Every length at most 15 factors through exactly 64 residue/high-bit states, with each state weight \\(1/64\\) proved using the odd-part valuation density. A complete 960-case checker yields all 28 palindrome factors and exact state multiplicities, and absence at lengths 14 and 15 rules out all longer lengths via centered subfactors. Direct checks of 786432 windows are supplementary, not the infinite proof. The exact occurrence rule follows from the same state construction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burns (arxiv:2210.14719) studies the appearance function, the first appearance of all length-n factors, not their frequency.",
+        "Fici–Shallit–Simpson (arxiv:2407.10564), §5.4, count palindromic periodicities, not occurrence frequencies for individual ordinary paperfolding palindromes.",
+        "An indexed 2026 research record on finite prefix string attractors for Rudin–Shapiro and regular-paperfolding words concerns a distinct invariant."
+      ],
+      "reasoning": "A theorem determining frequencies of every factor of the same automatic word would dominate this result, but the inspected appearance and periodicity results measure different quantities; the returned string-attractor record also cannot imply the table. Neither known longest-palindrome bound nor overall palindromic complexity determines individual natural occurrence frequencies.",
+      "searches": [
+        "arxiv:2210.14719",
+        "arxiv:2407.10564",
+        "Paperfolding word exact natural density of each individual palindromic factor; identical frequency for all palindromes of a given length; modulo 32 paperfolding occurrence residue classification",
+        "Regular paperfolding binary word palindromic factor occurrence frequency table 1/16 1/32 length 13, palindromic complexity"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2009.02934, section 4.1 (primary full text)",
+      "arxiv:math/0106121, section 4.1 (primary full text)",
+      "arxiv:2210.14719, appearance-function definitions (primary full text)",
+      "arxiv:2407.10564, section 5.4 (primary full text)",
+      "Indexed record: Unbounded prefix-normal defect of the ordinary paperfolding word (search abstract only)",
+      "Indexed record: Exact minimal string attractors for Rudin–Shapiro and regular-paperfolding dyadic prefixes (search abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior result “no palindromic factors longer than 13” gives a length cutoff, but not which words have positive frequency or equal frequencies.",
+        "The Rudin–Shapiro equal-palindrome-frequency record concerns a different automatic word and has no implication for paperfolding.",
+        "A prefix palindromic-length function and an appearance function are not occurrence-frequency laws."
+      ],
+      "reasoning": "The new claim is strictly stronger in per-word data than the prior cutoff and logically incomparable to prefix palindromic length, appearance and palindromic periodicity counts. The same-word published sources inspected contain no general frequency law from which the new 64-state formula follows by specialization.",
+      "searches": [
+        "arxiv:math/0106121 §4.1",
+        "arxiv:2009.02934 §4.1",
+        "arxiv:2210.14719",
+        "arxiv:2407.10564 §5.4",
+        "Rudin Shapiro paperfolding word exact balance complexity palindrome distribution",
+        "previously documented Rudin–Shapiro equal-palindrome-frequency finding"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Allouche–Baake–Cassaigne–Damanik (arxiv:math/0106121), §4.1, prove only the longest-palindrome bound for paperfolding, not wordwise frequencies.",
+        "Frid–Laborde–Peltomäki (arxiv:2009.02934), §4.1, study prefix palindromic length, not frequency of every ordinary palindrome."
+      ],
+      "reasoning": "Equivalent formulations could state frequency of palindrome occurrence, uniform recurrence weights, or an automatic index-set rule. The relevant full-text sections do not contain the 64-state, individual-density, or exact starting-position result. Searches did not identify an equivalent statement; this is best-knowledge originality, not a claim of exhaustive uniqueness.",
+      "searches": [
+        "Uniform palindrome occurrence densities in the regular paperfolding word: exactly 28 palindrome factors, individual density 1/64 for length 13, and complete 32-residue two-adic occurrence table",
+        "\"paperfolding\" \"frequency\" \"palindromic factors\"",
+        "\"regular paperfolding\" \"palindrome\" \"density\" factors",
+        "arxiv:2009.02934",
+        "arxiv:math/0106121"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The palindrome-complexity theorem for paperfolding has zero counts at lengths at least 14 but no frequencies per word.",
+        "No identified OEIS or published table supplied the ten-row per-word densities or the complete 64-state weighted table."
+      ],
+      "reasoning": "The exact new data are individual densities and occurrence rules, not merely the length spectrum. Count tables for palindromic factors fail to determine their individual frequencies. Database searches returned no identical table; absence from a search alone is not a novelty proof.",
+      "searches": [
+        "site:oeis.org paperfolding palindrome densities",
+        "\"paperfolding\" \"palindrome\" \"frequency\" \"density\"",
+        "Paperfolding word palindrome occurrence positions explicit modulus 16 and automatic boundary bit",
+        "arxiv:math/0106121"
+      ]
+    },
+    "rationale": "Full relevant primary passages on paperfolding palindrome length, prefix palindromic length, appearance and palindromic periodicities were compared by mathematical implication. The earlier all-length cutoff is explicitly credited. None of the compared statements determines the 64-state per-palindrome frequency and occurrence theorem. Mathematical-record searches and comparisons of accessible prior scientific claims revealed no identical statement; summary-only records were not treated as inspected full texts. A possible unindexed equivalent remains a residual risk.",
+    "residual_risks": [
+      "A source not indexed by consulted searches might already tabulate these same per-palindrome occurrence densities.",
+      "Some mathematical-record index results were available only as indexed summaries, not full-text inspections; none of those summaries claimed the same statement.",
+      "The theorem is limited to regular binary folding instructions, not all paperfolding sequences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in the inspected relevant section: the theorem is prefix palindromic length, not the occurrence density of each palindrome.",
+        "evidence": "Section 4.1 discusses prefix palindromic-length differences and maximal length 13, but does not determine 64 residue-state frequencies.",
+        "identifier_or_url": "https://arxiv.org/pdf/2009.02934",
+        "material_read": "Section 4.1, including the derivation for paperfolding and its citation to previously known longest palindrome.",
+        "method": "Opened complete open-access PDF and inspected the relevant section and rendered page.",
+        "title": "On prefix palindromic length of automatic words",
+        "trigger": "The regular paperfolding word is examined explicitly and has known longest-palindrome length 13."
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: the cutoff was known and is credited; the new exact individual occurrence densities and index sets are absent from the inspected theorem.",
+        "evidence": "Paperfolding palindromic-complexity theorem bounds length and counts factors but gives no per-word frequencies.",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0106121",
+        "material_read": "Section 4.1, especially the theorem stating absence of palindromes of length 14 and above.",
+        "method": "Opened full open-access PDF and inspected the rendered relevant page.",
+        "title": "Palindrome complexity",
+        "trigger": "Primary original theorem establishing the palindrome-length cutoff for paperfolding words."
+      },
+      {
+        "assessment": "NOT_COVERING the claimed density table: earliest appearance time is not natural occurrence frequency.",
+        "evidence": "The defined S_f(n) is the shortest prefix in which all length-n factors have occurred.",
+        "identifier_or_url": "https://arxiv.org/pdf/2210.14719",
+        "material_read": "Definitions and opening results for appearance of all factors.",
+        "method": "Opened open-access PDF and inspected the rendered first substantive page.",
+        "title": "The appearance function for paper-folding words",
+        "trigger": "A plausible same-word frequency/occurrence-related analysis."
+      },
+      {
+        "assessment": "NOT_COVERING the exact ordinary-palindrome density classification; investigates palindromic periodicities and totals.",
+        "evidence": "Section 5.4 counts a different class of factors, not natural frequency for each palindrome word.",
+        "identifier_or_url": "https://arxiv.org/pdf/2407.10564",
+        "material_read": "Section 5.4 on palindromic periodicities of the paperfolding word.",
+        "method": "Opened open-access PDF and inspected the rendered relevant page.",
+        "title": "Some Remarks on Palindromic Periodicities",
+        "trigger": "A paperfolding-specific section on a related palindrome invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b58a7d3d-aaa1-4a4c-a10f-4b81a238fef4",
+  "value": {
+    "rationale": "The regular paperfolding word is a canonical automatic sequence; its palindrome factor counts and length cutoff do not supply individual occurrence probabilities. The result gives exact frequencies for all 28 individual palindromes, proves uniformity within each length and gives a position-level automatic 64-state rule. This is a complete natural invariant classification with potential use in factor-frequency and automata analyses, not an arbitrary finite window or routine restatement of the known length cutoff.",
+    "status": "PASS"
+  }
+}
