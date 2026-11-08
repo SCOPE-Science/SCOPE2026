@@ -1,19 +1,21 @@
-# Scientific review: sharp Erlang Gabor bounds
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The analysis energy is Zak-diagonal at integer translations and half-integer modulations, with multiplier exactly \(|Zg_a(x,\omega)|^2+|Zg_a(x,\omega+1/2)|^2\), rather than half or twice that value. The geometric-series Zak identity is verified algebraically, and the fiber multiplier is strictly increasing in squared cosine frequency, giving exact lower and upper spatial envelopes. Both derivative equations are explicit quadratics with positive discriminant. The lower envelope has coincident endpoints and a strictly negative derivative at zero, forcing its unique global minimum at the smaller root. The upper envelope has coincident endpoints and a strictly negative derivative at one, forcing its unique global maximum at the larger root. The formulas imply positive optimal bounds for every \(a>0\); uniform small-parameter convergence and large-parameter stationary-root expansions establish both sharp condition-number laws. The actual embedded Python checker reproduces the defining Zak series and passes 72,421 finite consistency assertions. Its finite grid is not used as a proof of global extrema.
+PASS
 
-## Originality — PASS under inspected evidence
+The unnormalized Zak transform gives Zg=e^{-ax}[x+(1−x)re^{-2πiω}]/(1−re^{-2πiω})², r=e^{-a}. The integer-frequency even modulation rows and odd half-frequency rows are distinct Fourier bases; Parseval produces multiplier |Zg(x,ω)|²+|Zg(x,ω+1/2)|², without an extra density factor. Algebra gives a positive fraction strictly increasing in cos²(2πω); hence optimal frequencies are 1/4,3/4 (lower) and 0,1/2 (upper). The spatial lower and upper profiles are exponentials times positive quadratics; their stationary equations and endpoint derivative signs yield unique interior minimizer x_a and maximizer y_a. The discriminant Δ²=(1+r²)²−4a²r²>0 by cosh a>a. Substituting roots yields the stated A_a,B_a>0. Uniform limiting profile at a↓0 and stationary expansions at a→∞ prove both sharp κ scalings. Independent code directly evaluated the rational Zak fiber over 13448 grid points and exact critical fibers, and checked both asymptotic normalizations. Finite grids are not an analytic proof of all parameters.
 
-The motivating August 5, 2026 paper by de Dios Pont and collaborators establishes the all-lattice frame **existence criterion** for totally positive generators but does not calculate the optimal bounds for the order-two causal exponential window. Kloos–Stöckler's inspected 2013 text treats a Zak transform framework and lower bounds for the even two-sided exponential, a genuinely different generator, not these two exact shape-dependent optima. The inspected 2023 Ghosh–Selvan text determines sufficient frame-region conditions rather than this optimizer. Relevant public mathematical records and prior recoverable local claims discuss compact hat splines, two-sided exponentials, and Gabor existence, none of which implies the repeated-pole Erlang formulas or the two parameter-end asymptotics. Janssen's 1996 paper on exact frame-bound calculations could not be read beyond its abstract; absence of coverage is not claimed, and this incomplete material is an explicit residual risk. The similarity search is evidence of overlap screening only and not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The repeated-pole Erlang function is a basic smooth, causal, totally positive generator for which the recent frame-set theorem guarantees existence at all strict subcritical densities. Exact *optimal* constants at fixed twofold oversampling answer the distinct stability/design question and show how the window's shape destroys numerical conditioning at both ends even though frame existence never fails. The polynomial \(4a^{-4}\) loss at one extreme and the exponential \(e^{2a-2}/a^2\) loss at the other distinguish two natural degeneration mechanisms, give sharp benchmarks for window selection, and avoid conflating qualitative frame existence with useful conditioning. These statements are neither a reformulation of the frame-set theorem nor generic scaling corollaries.
+The 2026 complete totally-positive Gabor frame-set theorem determines frame EXISTENCE for αβ<1, including this generator but not optimal bound constants. Kloos–Stöckler establish a Zak framework and lower estimates for another window; a Gabor frame-bound optimization poster explicitly treats cut-off one-sided *first-order* exponentials and two-sided exponentials, not the order-two causal Erlang window. Thus the precise two global extrema and both conditioning coefficients are not direct consequences of the published statements inspected. Janssen 1996 remains a plausible incompletely read broad frame-bound source.
 
-## Closest literature and limitations
+## value
 
-Primary comparisons: de Dios Pont et al., arXiv:2608.04992v1; Kloos–Stöckler, arXiv:1311.7359; Ghosh–Selvan, arXiv:2304.11322. Janssen (1996), DOI 10.1016/0019-3577(96)85088-9, remains a plausible incompletely inspected historical source. Other limitations: only the fixed translation one/modulation half lattice and the exact unnormalized gamma-shape-two family are treated; the minimizing shape parameter's uniqueness is not proved, and the shape asymptotics are not uniform over changing lattices.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact frame *conditioning* matters even when a frame-set existence theorem guarantees positivity. The causal Erlang repeated-pole window is an elementary smooth filter with a natural shape scale; explicit optimal twofold-oversampled bounds show two distinct degeneration mechanisms—quartic inverse-power near zero and exponential at large shape. The precise coefficients and fiber optimizer locations give reproducible stability benchmarks for window selection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

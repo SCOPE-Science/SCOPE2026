@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T16:10:17.906827Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md formulas and erlang_gabor_check.py",
+        "Independent rational Zak fiber evaluation, optimal point checks, asymptotic normalization"
+      ],
+      "rationale": "The unnormalized Zak transform gives Zg=e^{-ax}[x+(1−x)re^{-2πiω}]/(1−re^{-2πiω})², r=e^{-a}. The integer-frequency even modulation rows and odd half-frequency rows are distinct Fourier bases; Parseval produces multiplier |Zg(x,ω)|²+|Zg(x,ω+1/2)|², without an extra density factor. Algebra gives a positive fraction strictly increasing in cos²(2πω); hence optimal frequencies are 1/4,3/4 (lower) and 0,1/2 (upper). The spatial lower and upper profiles are exponentials times positive quadratics; their stationary equations and endpoint derivative signs yield unique interior minimizer x_a and maximizer y_a. The discriminant Δ²=(1+r²)²−4a²r²>0 by cosh a>a. Substituting roots yields the stated A_a,B_a>0. Uniform limiting profile at a↓0 and stationary expansions at a→∞ prove both sharp κ scalings. Independent code directly evaluated the rational Zak fiber over 13448 grid points and exact critical fibers, and checked both asymptotic normalizations. Finite grids are not an analytic proof of all parameters.",
+      "residual_risks": [
+        "No claim for arbitrary gamma orders or non-rectangular lattices.",
+        "The uniqueness of the shape parameter that minimizes condition number was explicitly not proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "de Dios Pont et al. (2026) prove g continuous integrable totally positive generates a frame iff αβ<1, so positivity for lattice (1,1/2) is covered.",
+          "Kloos–Stöckler (2013) compute lower bounds for even two-sided exponential, not these exact upper/lower Erlang constants."
+        ],
+        "reasoning": "Broader existence and sufficient lower estimates do not imply exact A,B or κ endpoint coefficients. The new theorem does not claim new existence criterion.",
+        "searches": [
+          "arxiv:2608.04992v1 Theorem 1.1 totally positive frame set",
+          "arxiv:1311.7359 lower Gabor bounds order 2",
+          "Gabor frame bound optimizations Shafkulovska Faulhuber poster"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2608.04992 PDF main theorem and introduction",
+        "Shafkulovska/Faulhuber Gabor frame bound optimizations single-page poster, full rendered",
+        "arxiv:1311.7359 abstract and same-class context",
+        "Janssen 1996 DOI bibliographic-only",
+        "Resultary prior sharp frame-bound records for distinct windows"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frame existence does not yield κ_a~4a^{-4} or κ_a~e^{2a−2}/a².",
+          "The first-order and symmetric exponential formulas use different Zak pole structure."
+        ],
+        "reasoning": "An abstract exact frame-bound methodology is not an explicit special-case sharp value; the new algebra supplies both optimal spatial coordinates and both endpoint regimes.",
+        "searches": [
+          "de Dios Pont et al 2026 main theorem if and only if alpha beta less than 1",
+          "Faulhuber Shafkulovska Gabor frame bound optimizations poster equations 4 9 10",
+          "Janssen 1996 Weyl Heisenberg calculations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The order-two causal window has a double pole (1−z)^{-2}; a single-sided first-order exponential has simple pole and different fiber profile.",
+          "At half-integer modulation the frame problem reduces to two Zak fibers, also a standard Zibulski–Zeevi rational oversampling representation."
+        ],
+        "reasoning": "The transformation to Zak fibers is prior standard theory, but the two shape-dependent *extremal* positions and resulting exact constants require new optimization for this generator.",
+        "searches": [
+          "Gabor frame optimal bounds order 2 one-sided exponential Erlang Zak twofold oversampling",
+          "Erlang Gabor t e^-a t redundancy 2 exact Zak spectrum",
+          "arxiv:1311.7359"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Public exact-optimization poster has explicit one-sided first-order and two-sided exponential formulas, but no t e^{-at} second-order formula.",
+          "Resultary hat-spline and two-sided exponential frame-bound records have different windows and parameter regimes."
+        ],
+        "reasoning": "Window class and fixed lattice must match for table coverage. The accessible tables fail that comparison; Janssen full text remains a real risk.",
+        "searches": [
+          "Janssen 1996 Some Weyl-Heisenberg frame bound calculations gamma Erlang",
+          "Gabor frame bound optimizations cut off exponential single sided double pole",
+          "Resultary published sharp Gabor tent spline and asymmetric two sided exponential"
+        ]
+      },
+      "rationale": "The 2026 complete totally-positive Gabor frame-set theorem determines frame EXISTENCE for αβ<1, including this generator but not optimal bound constants. Kloos–Stöckler establish a Zak framework and lower estimates for another window; a Gabor frame-bound optimization poster explicitly treats cut-off one-sided *first-order* exponentials and two-sided exponentials, not the order-two causal Erlang window. Thus the precise two global extrema and both conditioning coefficients are not direct consequences of the published statements inspected. Janssen 1996 remains a plausible incompletely read broad frame-bound source.",
+      "residual_risks": [
+        "Janssen 1996 exact bounds paper full text not read and might contain a mathematically equivalent Erlang specialization.",
+        "General exact rational Zak extremization for repeated poles could be present in less directly titled older literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "proves existence at αβ=1/2, not an explicit bound/condition-number profile",
+          "evidence": "arXiv:2608.04992, Theorem 1.1 iff αβ<1",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.04992",
+          "material_read": "Abstract, introduction, Theorem 1.1 and statements of frame criterion; rendered first page and inspected main statements",
+          "method": "arXiv full PDF text + page screenshot",
+          "title": "Gabor Frames of Totally Positive Functions: A Complete Characterization",
+          "trigger": "strong covering theorem on exactly the window class"
+        },
+        {
+          "assessment": "not an equivalent double-pole causal Erlang calculation",
+          "evidence": "Poster sections One-sided exponential; Two-sided exponential; cut-off exponentials",
+          "identifier_or_url": "https://homepage.univie.ac.at/irina.shafkulovska/wp-content/uploads/2022/07/Strobl-Shafkulovska.pdf",
+          "material_read": "Entire one-page poster rendered and read: one-sided first-order exponential and two-sided exponential formulas, plus cut-off windows",
+          "method": "web PDF text and screenshot of page 1",
+          "title": "Gabor frame bound optimizations",
+          "trigger": "highly relevant paper/poster containing explicit optimal bounds"
+        },
+        {
+          "assessment": "order-two *even two-sided* exponential lower frame bounds, not full causal Erlang upper/lower optimizing fibers",
+          "evidence": "arxiv:1311.7359 abstract: lower bounds for even two-sided exponentials",
+          "identifier_or_url": "https://arxiv.org/abs/1311.7359",
+          "material_read": "Public abstract and source-described Zak-transform/lower-bound results; full article not read in current run",
+          "method": "arXiv abstract plus targeted literature search",
+          "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+          "trigger": "same TP class and order-two window"
+        },
+        {
+          "assessment": "UNKNOWN full-document overlap; named risk",
+          "evidence": "Janssen 1996, Indagationes Mathematicae 7, 165–183",
+          "identifier_or_url": "https://doi.org/10.1016/0019-3577(96)85088-9",
+          "material_read": "Bibliographic title and abstract-level information only; full paper not obtained",
+          "method": "web bibliographic search",
+          "title": "Some Weyl–Heisenberg frame bound calculations",
+          "trigger": "early exact frame-bound paper possibly dominating"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact Zak fiber and global extrema in the source proof",
+        "de Dios Pont et al 2026 existence criterion and exact-bound comparator poster"
+      ],
+      "rationale": "Exact frame *conditioning* matters even when a frame-set existence theorem guarantees positivity. The causal Erlang repeated-pole window is an elementary smooth filter with a natural shape scale; explicit optimal twofold-oversampled bounds show two distinct degeneration mechanisms—quartic inverse-power near zero and exponential at large shape. The precise coefficients and fiber optimizer locations give reproducible stability benchmarks for window selection.",
+      "residual_risks": [
+        "The statement does not optimize the lattice or prove uniqueness of an overall best shape."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Translation spacing 1, modulation spacing 1/2, unnormalized causal t exp(-at), a>0 only.",
+    "Earlier Janssen frame-bound paper full text not inspected."
+  ],
+  "schema_version": 1
+}
