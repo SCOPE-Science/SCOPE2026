@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For fixed W, JR iff every candidate has fewer than q unrepresented supporters. Distinct equal-sized members of a laminar support family are disjoint; each quota class must therefore contribute an elected candidate. Consequently all valid DR committees cover the same U, and feasibility is exactly the residual test plus M>=k (r<=floor(n/q)<=k). Counting independent nonempty selections from classes gives [z^k] product_i((1+z)^w_i-1). Stirling proves the sampling asymptotic. Exact comparison to independently enumerated committees passed 134760 finite tests; none is used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2108.12949, Theorem 4.4: polynomial-time *minimum unrestricted JR group* under tree representation; algorithm does not count quota-exact committees",
+        "arXiv:2609.29332v2, Theorem 28: NP-completeness on arbitrary approvals; Proposition 30: local-search surrogate",
+        "Proportional justified representation, Definition 7: distinct recursive laminar election definition"
+      ],
+      "reasoning": "A stronger general result computing every DR committee or their number on all tree/voter-interval profiles would subsume this theorem; the checked papers establish only unrestricted JR optimization or a different local DR task, neither of which yields the exact labeled committee count or coverage rigidity.",
+      "searches": [
+        "approval based committee election laminar candidate support exact quota seats distinctiveness representation all quota blocks mandatory",
+        "Justifying Groups in Multiwinner Approval Voting Elkind Faliszewski Igarashi tree representation minimum justifying group",
+        "\"Justified Representation\" \"laminar\" approvals election",
+        "\"laminar\" \"approval\" \"committee\" \"count\" representation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.29332v2",
+      "https://arxiv.org/abs/2108.12949",
+      "https://arxiv.org/abs/1407.8269",
+      "https://doi.org/10.1016/j.artint.2026.104503"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.29332v2 defines DR and general hardness but does not establish laminar counting",
+        "arXiv:2108.12949 permits arbitrary JR candidate sizes and optimizes justifying groups under a different tree representation",
+        "Explicit overlapping size-2 supports {1,2},{2,3},{3,4} violate coverage rigidity; laminarity has logical content"
+      ],
+      "reasoning": "General JR existence and general DR NP-hardness do not imply all laminar DR committees share voter coverage or the product count. Restricting the earlier tree JR algorithm to quota-eligible candidates would remove ineligible candidates from the JR constraints, so it cannot directly decide DR. The claimed formula requires comparing every original candidate against the union of mandatory disjoint quota classes, a different statement.",
+      "searches": [
+        "Distinctive Representation DR justified representation laminar approval supporter sets exact quota size candidate committees counting polynomial generating function",
+        "Diverse Representation in Approval-Based Committee Voting Chingoma Grossi Lindeboom Maly Definition 25 quota exact support JR",
+        "Justifying Groups in Multiwinner Approval Voting Elkind Faliszewski Igarashi tree representation minimum justifying group",
+        "distinctive representation laminar support sets number of JR committees exact 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.29332v2, Definition 25 and Section 6: exact DR condition but no laminar counting/rigidity theorem",
+        "arXiv:2108.12949, Sections 2 and 4: JR-justifying groups; permits arbitrary candidate support sizes"
+      ],
+      "reasoning": "The claim can be equivalently expressed as forced intersection of every distinct size-q candidate support class, coupled with the JR residual test on their union. This reduction uses disjointness of equal-sized laminar sets. Neither relevant primary source formulates this joint equivalence; standard JR alone does not imply the forced-class condition without laminarity.",
+      "searches": [
+        "Distinctive Representation DR justified representation laminar approval supporter sets exact quota size candidate committees counting polynomial generating function",
+        "Distinctive Representation voter interval candidate supporter inclusion laminar set family unique coverage JR exact counts",
+        "Diverse Representation in Approval-Based Committee Voting Chingoma Grossi Lindeboom Maly Definition 25 quota exact support JR",
+        "\"Distinctive Representation\" \"laminar\" committee voting 2026",
+        "\"DR\" \"laminar\" \"Chingoma\" \"Lindeboom\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic research-record searches returned voting-rule boundary census entries rather than any DR/laminar exact counts",
+        "arXiv:2108.12949, Section 3 reports JR committee count bounds and examples, not the DR generating polynomial"
+      ],
+      "reasoning": "The object is an infinite-family structural classification and generating polynomial, not a known finite entry in a census/table. The searches identified no exact table containing these labeled DR counts; absence from the searchable corpus does not certify global novelty.",
+      "searches": [
+        "exact counting of distinctive representation committees with hierarchical laminar candidate voter support sets",
+        "\"Distinctive Representation\" \"counting\" committees 2026",
+        "counting justified representation committees laminar support sets generating function"
+      ]
+    },
+    "rationale": "Relevant primary full-text sections of the paper defining DR, a prior tree-domain JR optimization paper, and the foundational JR paper were compared by claims/implications. No equivalence or broader theorem for exact quota-sized laminar DR feasibility, coverage rigidity, and count was identified. An elementary independent observation or unindexed parallel result remains a genuine priority risk.",
+    "residual_risks": [
+      "The construction is elementary and may have been independently observed without indexed publication.",
+      "Unindexed or not-yet-accessible preprints may contain a substantially equivalent quota-exact laminar-support classification.",
+      "The earliest arXiv version was not separately inspected; the date is verified from the public submission history and the substantive DR definition was inspected in v2."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces quota-size DR and proves general NP-completeness; does not state a laminar-support classification, coverage invariance or exact counting polynomial.",
+        "evidence": [
+          "Definition 25: all selected supporters have exactly ceil(n/k); Theorem 28 and Appendix D: general DR is NP-complete",
+          "Definition 29 and Proposition 30: Local DR, not exact DR enumeration",
+          "Observation 26: restricted domains may lack DR, but no laminar support feasibility theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.29332v2",
+        "material_read": "Introduction, section 2 definitions, sections 6 and 7, Appendices D and E; relevant primary full-text HTML, including source definitions, hardness proof and local search",
+        "method": "Examined the full-text HTML relevant theorem statements, definitions, proofs and supplementary sections",
+        "title": "Diverse Representation in Approval-Based Committee Voting",
+        "trigger": "Original primary definition, directly plausible same objects and complexity claims"
+      },
+      {
+        "assessment": "Computes a smallest unrestricted JR-justifying group for candidate-tree representable voter approvals. It does not restrict elected candidates to exactly q supporters, establish mandatory quota-sized supporter classes, determine invariant covered voters, or count DR committees.",
+        "evidence": [
+          "Definition 1 characterizes JR by cohesive voters",
+          "Theorem 3.2 gives a general lower bound on JR committee counts",
+          "Theorem 4.4 computes a smallest JR-justifying group under a tree representation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.12949",
+        "material_read": "Sections 1–4, including definitions, worst-case JR committee counts, Section 4.2 greedy approximation and Section 4.3 Theorem 4.4 proof for tree representations; accessible full HTML text",
+        "method": "Compared quantifiers and computational objective directly from full primary text",
+        "title": "Justifying Groups in Multiwinner Approval Voting",
+        "trigger": "Prior JR-justifying groups and tree-domain exact optimization might subsume an exact subclass algorithm"
+      },
+      {
+        "assessment": "General existence and behavior of JR; DR was introduced much later, and this source cannot state the proposed quota-exact laminar classification.",
+        "evidence": [
+          "Introduces JR and EJR without the later distinctive-support condition"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.8269",
+        "material_read": "Abstract and journal record of the original JR paper; complete source proof was not needed for a competing DR classification",
+        "method": "Inspected the primary publication description for JR definition and general guarantees",
+        "title": "Justified Representation in Approval-Based Committee Voting",
+        "trigger": "Foundational JR literature provides the baseline residual condition"
+      },
+      {
+        "assessment": "The recursive election-domain notion of laminar proportionality is not the same as the pairwise inclusion/disjointness condition for candidate voter-support sets.",
+        "evidence": [
+          "Definition 7 gives recursive UP/UC/LD conditions for laminar proportionality",
+          "Theorem 8 relates that different notion to fractional proportional representation"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.artint.2026.104503",
+        "material_read": "Accessible detailed sections defining JR/PJR and recursive laminar proportionality",
+        "method": "Compared the definition of laminar election and the present structural hypothesis on candidate supporter sets",
+        "title": "Proportional justified representation",
+        "trigger": "Potential equivalence with existing laminar proportionality axioms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ddd40242-7ad2-4d90-887b-5f7b5e285f25",
+  "value": {
+    "rationale": "Natural exact classification of an emerging voting axiom on hierarchical support families. The result gives a full existence criterion and count in polynomial time, an invariant represented population across all feasible committees, and an exact exponentially small uniform-sampling success probability on a motivated family. This contrasts with general DR decision hardness and improves actionable interpretation of quota-exact diversity beyond one-off examples. The overlap counterexample delineates structural scope.",
+    "status": "PASS"
+  }
+}
