@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:15:04.963958Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The input operator-norm variational identity and existence of an interior maximizer for alpha>3/2 are explicitly imported from Cui–Lin–Lu–Ye Theorem 1.1. The source decomposition of P_alpha splits D into M_alpha/[2(alpha-1)]+d_alpha J_alpha-R_alpha. The transformed regular M and endpoint-rescaled R have uniform first derivatives at h=0, with coefficients K_{3/2}=pi and R_{3/2} linear coefficient pi; J_alpha~2^alpha h^(alpha-1) and d_{3/2+epsilon}~pi epsilon. Thus D(1-h)-D(1)=2^alpha d_alpha h^(alpha-1)-c_alpha h+smaller terms, c_alpha->2pi, uniformly with derivative. Strict boundary optimality at 3/2 and continuity localize every optimizer h->0. Stationarity gives h~epsilon²/2 and substitution gives pi epsilon² excess. Independently recomputed the two beta coefficients numerically/high-precision and gamma-ratio leading constant; source CHECK.py was examined. Finite tests do not establish the uniform differentiability; analytic majorants are essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Related Hilbert norm estimates and the exact fixed-alpha variational formula do not state the uniform two-parameter derivative or sharp near-critical optimizer asymptotic."
+        ],
+        "reasoning": "Broader norm estimates lack the needed linear boundary correction, so no inspected stronger theorem supplies 1/2 and pi.",
+        "searches": [
+          "arXiv:2609.27812v3 Proposition 3.7",
+          "arXiv:2410.16598",
+          "arXiv:2510.23314"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: Hilbert matrix operator alpha Bloch 3/2 optimizer interior radius scaling norm asymptotic",
+        "Cui–Lin–Lu–Ye arXiv:2609.27812v3 Theorem 1.1 and Proposition 3.7",
+        "arXiv:2609.27812v3 Proposition 3.7",
+        "arXiv:2410.16598",
+        "arXiv:2510.23314",
+        "arXiv:2609.27812v3 formula tables",
+        "arXiv:2609.27812v3 Lemma 3.3, Theorem 1.1 and Proposition 3.7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary Proposition 3.7 retains o(h^(alpha-1)) at each fixed alpha; new proof obtains uniform o(h) and derivative control when alpha approaches 1.5."
+        ],
+        "reasoning": "The known fixed-parameter result is insufficient to determine a simultaneous critical maximizing radius. The new beta linear coefficient is genuine mathematical work, not just parameter substitution.",
+        "searches": [
+          "arXiv:2609.27812v3 Lemma 3.3, Theorem 1.1 and Proposition 3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary paper states fixed-alpha boundary h^(alpha-1) asymptotic and existence of r_alpha<1, but no coupled critical radius limit."
+        ],
+        "reasoning": "Fixed-alpha asymptotics cannot be applied with alpha varying toward 3/2 because d_alpha vanishes and the omitted O(h) becomes leading.",
+        "searches": [
+          "Resultary: Hilbert matrix operator alpha Bloch 3/2 optimizer interior radius scaling norm asymptotic",
+          "Cui–Lin–Lu–Ye arXiv:2609.27812v3 Theorem 1.1 and Proposition 3.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No verified exact optimizer table or matching double-scaling law in the primary paper or nearest indexed Hilbert norm records."
+        ],
+        "reasoning": "Numeric optimizer approximations are checks, not an exact database or independent priority claim; no located table subsumes both limits.",
+        "searches": [
+          "Resultary: Hilbert matrix operator alpha Bloch 3/2 optimizer interior radius scaling norm asymptotic",
+          "arXiv:2609.27812v3 formula tables"
+        ]
+      },
+      "rationale": "The closely related primary paper proves interior maximizer existence for alpha>3/2 and a fixed-alpha h^(alpha-1) boundary term, but that term has coefficient tending to zero as alpha->3/2 and does not imply the coupled optimizer scale. The new uniform linear regular term and simultaneous limit answer a different question. Unindexed singular-perturbation asymptotics remain possible.",
+      "residual_risks": [
+        "Uniform differentiated remainder bounds near alpha=3/2 are central and were reviewed from the analytic claimed proof, not mechanized by numerical experiment.",
+        "Older or inaccessible near-critical asymptotics may overlap historically.",
+        "Local epsilon->0 result only; no uniqueness of maximizer at arbitrary alpha>3/2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides variational identity and fixed-alpha asymptotic, not inspected coupled critical scaling",
+          "evidence": [
+            "Theorem 1.1 exact norm; Lemma 3.3 decomposition; Proposition 3.7 fixed-alpha o(h^(alpha-1))"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.27812",
+          "material_read": "Primary PDF Theorem 1.1, Lemma 3.3, relevant equation derivations and Proposition 3.7 (including page images)",
+          "method": "Primary paper relevant sections and page-image reading",
+          "title": "Norms of the Hilbert Matrix Operator on Some Analytic Function Spaces",
+          "trigger": "Exact same operator alpha-Bloch and threshold"
+        },
+        {
+          "assessment": "No verified equivalent theorem in inspected material; full-paper uncertainty retained",
+          "evidence": [
+            "Abstract norm estimates; 2026 primary introduction reference"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.16598",
+          "material_read": "Abstract and comparisons within 2026 primary paper introduction, NOT full article",
+          "method": "Abstract and in-source bibliographic comparison",
+          "title": "Norm of the Hilbert matrix operator between some spaces of analytic functions",
+          "trigger": "Possible broader norm inequality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical exponent already marks a known norm-attainment transition; precise quadratic displacement and the pi coefficient quantify a mathematically natural singular bifurcation and answer the previously nonquantitative optimizer problem. The claim does not require a global alpha norm closed form.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Hilbert-matrix H on analytic alpha-Bloch spaces, alpha=3/2+epsilon down to the critical exponent, every global interior maximizer r_alpha of the exact norm variational function satisfies (1-r_alpha)/epsilon²->1/2; norm excess beyond C_alpha+pi/sin(pi(alpha-1)) is pi epsilon²+o(epsilon²), with D_{3/2}(1-h)=pi-2pi h+o(h).",
+  "limitations": [
+    "Uniform differentiated remainder bounds near alpha=3/2 are central and were reviewed from the analytic claimed proof, not mechanized by numerical experiment.",
+    "Older or inaccessible near-critical asymptotics may overlap historically.",
+    "Local epsilon->0 result only; no uniqueness of maximizer at arbitrary alpha>3/2."
+  ],
+  "schema_version": 1
+}

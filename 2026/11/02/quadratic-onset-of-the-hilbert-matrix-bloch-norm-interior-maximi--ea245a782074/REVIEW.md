@@ -1,19 +1,21 @@
-# Review of the quadratic Bloch-Hilbert transition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finding uses the source's exact Hilbert-matrix norm representation, verifies the decompositions, and supplies a uniform differentiated boundary expansion. Both regular beta coefficients are exactly \(\pi\) at the transition, whereas the singular coefficient is \(\pi\varepsilon+O(\varepsilon^2)\). The stationary equation gives the claimed \(\varepsilon^2/2\) radius scale and \(\pi\varepsilon^2\) excess. The independent one-dimensional quadrature implementation is supplementary. The proof assumes no uniqueness of a maximizer.
+PASS
 
-## Originality — PASS (best knowledge)
+The input operator-norm variational identity and existence of an interior maximizer for alpha>3/2 are explicitly imported from Cui–Lin–Lu–Ye Theorem 1.1. The source decomposition of P_alpha splits D into M_alpha/[2(alpha-1)]+d_alpha J_alpha-R_alpha. The transformed regular M and endpoint-rescaled R have uniform first derivatives at h=0, with coefficients K_{3/2}=pi and R_{3/2} linear coefficient pi; J_alpha~2^alpha h^(alpha-1) and d_{3/2+epsilon}~pi epsilon. Thus D(1-h)-D(1)=2^alpha d_alpha h^(alpha-1)-c_alpha h+smaller terms, c_alpha->2pi, uniformly with derivative. Strict boundary optimality at 3/2 and continuity localize every optimizer h->0. Stationarity gives h~epsilon²/2 and substitution gives pi epsilon² excess. Independently recomputed the two beta coefficients numerically/high-precision and gamma-ratio leading constant; source CHECK.py was examined. Finite tests do not establish the uniform differentiability; analytic majorants are essential.
 
-Cui--Lin--Lu--Ye, arXiv:2609.27812v3, prove the exact variational norm, the phase boundary and a fixed-parameter endpoint expansion. They do not derive a uniform coupled limit where their leading singular coefficient vanishes. The critical regular linear term and the resulting optimizer/excess asymptotics are newly derived here. Actual semantic-record and public literature comparisons found no equivalent claim, but unindexed or inaccessible literature remains a priority risk. The earlier Hilbert-matrix works are credited rather than treated as novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result quantitatively describes the birth of interior norming radii at a natural operator-norm transition, including sharp exponents and constants for both location and norm excess. It turns a qualitative change of maximizer location into a stable asymptotic classification.
+The closely related primary paper proves interior maximizer existence for alpha>3/2 and a fixed-alpha h^(alpha-1) boundary term, but that term has coefficient tending to zero as alpha->3/2 and does not imply the coupled optimizer scale. The new uniform linear regular term and simultaneous limit answer a different question. Unindexed singular-perturbation asymptotics remain possible.
 
-## Limitations and closest literature
+## value
 
-The statement is local as \(\alpha\downarrow3/2\) from above. A global number-of-maximizers assertion is not proved. The closest source is arXiv:2609.27812 (Theorem 1.1 and Proposition 3.7); earlier arXiv:2410.16598 and arXiv:2510.23314 concern related norms. Scientific publication priority is not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The critical exponent already marks a known norm-attainment transition; precise quadratic displacement and the pi coefficient quantify a mathematically natural singular bifurcation and answer the previously nonquantitative optimizer problem. The claim does not require a global alpha norm closed form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
