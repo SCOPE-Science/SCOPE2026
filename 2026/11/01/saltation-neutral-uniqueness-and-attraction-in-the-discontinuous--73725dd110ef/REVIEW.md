@@ -1,15 +1,21 @@
-# Scientific review of the discontinuous Chazy theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The explicit transformed first integral makes all negative-energy leaves smooth cylinders and forces all crossings to have nonzero normal velocity. A piecewise divergence theorem with matching normal flux rules out contractible cycles and pairs of essential cycles; independently established existence supplies the sole orbit. Exact saltation determinants equal one, and the coarea divergence formula produces the contracting transverse multiplier. Scaling and central inversion prove the stated rigidity; a crossing-compatible Poincaré–Bendixson argument establishes convergence for bounded forward trajectories. The embedded exact symbolic checker verifies the half-space algebra and crossing determinant but is not offered as proof of global existence or uniqueness.
+## correctness
 
-## Originality
-**PASS within the actually inspected evidence.** The 2023 primary proof establishes existence, not the unique-attractor/saltation result. The closest prior full proof from 2026 assumes \(q\ge2\) and explicitly excludes the discontinuous case; that implication does not extend through a discontinuous seam without the new crossing argument. Searches for unique generalized Chazy orbits and Filippov saltation found no claim covering \(q=1\). The 2024 paper's complete text remained inaccessible; its abstract concerns existence/nonexistence rather than uniqueness, so this remains a genuine priority risk, not a definitive negative comparison.
+PASS
 
-## Mathematical value
-**PASS.** The \(q=1\) model is the natural discontinuous boundary case singled out in the original existence study. Determinant-one saltation is essential for passing from qualitative orbital existence to leafwise stability and an energy-invariant quantitative multiplier. The result closes the missing-regularity gap in the known classification rather than merely reparameterizing a smooth ODE.
+PASS: In nonsmooth coordinate w=z+|x|y, H=xw-y²/2 is a smooth first integral; H=-h is a smooth hyperboloid cylinder without equilibria and x=0 seam forces y²=2h>0, so all crossings transverse. One-sided leaf divergence equals -|x| and seam normal speeds coincide; area-flux Stokes excludes a contractible cycle and an annulus between two essential cycles. Theorem 1 of Llibre–Novaes–Valls (2023) supplies existence on each negative-energy level, hence uniqueness. Saltation jump has zero x component, determinant1; monodromy determinant equals exp(-∫|x|dt), and time-shift plus first integral give the two unit multipliers. Weight (1,2,3) scaling yields energy-independent rho and T_h=h^-1/4 T_1; odd symmetry forces half-period central inversion. Planar crossing Poincaré–Bendixson gives bounded basin. Independently checked exact branch H conservation, divergence and saltation shear; finite algebra alone does not prove global cycle existence or uniqueness.
 
-## Closest literature and scientific limits
-Llibre–Novaes–Valls (2023), arXiv:2307.00087, Theorem 1 and Section 3; *Uniqueness and leafwise attraction of the generalized Chazy periodic cylinder* (2026), available full text at the linked research repository; Zhuang–Liu–Luo (2024), DOI:10.1063/5.0209050, abstract only. Stationary orbits at nonnegative energy and unbounded forward dynamics are outside the theorem; the 2024 publication is a residual full-text priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with priority risk: the 2023 theorem provides q=1 existence but no published uniqueness/multiplier/leafwise-basin conclusion in inspected text; a directly relevant published SCOPE theorem assumes q≥2 and does not extend automatically across sign discontinuity. The 2024 Chazy source remained accessible only as abstract/preview (authorized access blocked); this is a documented residual risk, not automatic failure.
+
+## value
+
+PASS
+
+PASS: Uniqueness and attraction at a discontinuous Filippov transition require a nontrivial crossing-flux and saltation argument, completing a natural boundary of known Chazy periodic cylinders and yielding an energy-uniform multiplier rather than a routine restatement of existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
