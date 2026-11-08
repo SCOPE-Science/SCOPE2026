@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof supplies an explicit deterministic discrete sign-drift tracking bound, a Lindeberg central limit theorem for the early weighted Rademacher sum, a maximal-martingale inequality showing late stochastic fluctuations vanish, and a uniform-integrability bound for expectations. Gaussian integration and monotonicity of an exact integral prove the coefficient and unique tuning. The standalone finite checks corroborate, without substituting for, these infinite-parameter arguments. Assumptions and quantifiers are specified in RESULT.md.
+## correctness
 
-## Originality
-PASS under accessible-source comparison, subject to specialist historical priority. The full motivating July 2026 paper was inspected, including the complete proof of its expected-rate lower bound; it does not state the proposed weak soft-threshold distribution, limiting zero atom, coefficient, or unique within-family optimum. Other publicly described analyses consider fixed-horizon constant steps, not this anytime schedule. Comparisons against accessible mathematical research records about absolute-value objectives, scalar stochastic approximation, and last-iterate bounds did not expose a covering distribution theorem. One plausible related full text was inaccessible; its distinct abstract setting and the residual priority risk are documented in AUDIT.json. Nonidentification in a database is not a proof of global novelty.
+PASS
 
-## Value
-PASS. The existing sharp logarithmic expected-error rate leaves open whether the lower-bound phenomenon arises in rare catastrophes or is present at ordinary fluctuation scales. The exact weak law, its positive limiting zero mass and full exceedance curve answer that reliability question. The sharp leading expectation coefficient and optimal tuning also provide a natural benchmark for lower-bound constructions, without claiming an unrestricted minimax optimum.
+For horizon n objective epsilon_n|x| with epsilon_n=theta b sqrt(H_n)/S_n, sign(0)=0, eta_t=gamma/sqrt(t), and iid bounded Rademacher noise (b-epsilon_n)xi_t, early normalized noise up to m_n=floor(n/(log n)^4) has CLT variance H_m/H_n->1 while early drift epsilon_n S_m/(b sqrt(H_n))=theta S_m/S_n->0. Late drift has total normalized mass ->theta, late noise supremum variance O((H_n-H_m)/H_n)->0 by Doob. A deterministic bounded-disturbance tracking estimate then gives normalized last iterate convergence to -soft_theta(Z), not a Gaussian itself. Normalized objective ->gamma b² theta/2 (|Z|-theta)_+, with mean gamma b² theta[phi(theta)-theta barPhi(theta)] from uniform L2 moments. Root uniqueness follows theta barPhi(theta)/phi(theta) increasing 0->1 and crossing 1/2. Independent 100,000 random finite bounded-disturbance trajectories satisfied the claimed 3delta+h tracking bound; numerical unique theta*=0.612003180962481, coefficient 0.10122824509401235. The finite checks corroborate but do not prove the triangular-array CLT/limit.
 
-## Boundaries
-Only one-dimensional, horizon-dependent absolute-value objectives, independently sampled bounded symmetric noise, the anytime \(\gamma/\sqrt t\) schedule, and exact arithmetic are covered. The weak-limit atom does not imply an atom at zero for any finite horizon. Independent audit and exhaustive historical-priority confirmation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Beretta–Cesari–Colomboni arxiv:2610.30143v1 Theorem 2 uses the same scalar absolute-value bounded-iid-noise construction to prove an expected logarithmic last-iterate lower bound, choosing epsilon via mean absolute Rademacher sum. Their complete Section 2 (read) does not derive a weak limit, nonlinear Gaussian soft threshold, atom or exact optimized leading coefficient. Their rate is prior work and explicitly credited. The new claim uses a theta-dependent horizon-tuned scaling and computes a distributional refinement beyond a rate.
+
+## value
+
+PASS
+
+The Gaussian-to-soft-threshold transition yields a point mass at the minimizer, explicit exceedance curve, exact expected error and unique optimal within-family tuning. It refines an established lower bound in a mathematically natural way and quantifies stochastic subgradient dynamics, not just another big-O rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

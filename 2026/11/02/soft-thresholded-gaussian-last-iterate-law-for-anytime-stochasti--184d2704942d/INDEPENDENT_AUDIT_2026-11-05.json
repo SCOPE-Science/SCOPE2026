@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:52:16.948341Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/soft-thresholded-gaussian-last-iterate-law-for-anytime-stochasti--184d2704942d/RESULT.md",
+        "Git blob d1276ab9eae11231145d01b31211058bf12bebbe",
+        "Git tree 670a0f59c24d951bd2ae385a61824c82e703e737",
+        "independent_checks.py SGD_TRACK 100000 and optimum numerical independent"
+      ],
+      "rationale": "For horizon n objective epsilon_n|x| with epsilon_n=theta b sqrt(H_n)/S_n, sign(0)=0, eta_t=gamma/sqrt(t), and iid bounded Rademacher noise (b-epsilon_n)xi_t, early normalized noise up to m_n=floor(n/(log n)^4) has CLT variance H_m/H_n->1 while early drift epsilon_n S_m/(b sqrt(H_n))=theta S_m/S_n->0. Late drift has total normalized mass ->theta, late noise supremum variance O((H_n-H_m)/H_n)->0 by Doob. A deterministic bounded-disturbance tracking estimate then gives normalized last iterate convergence to -soft_theta(Z), not a Gaussian itself. Normalized objective ->gamma b² theta/2 (|Z|-theta)_+, with mean gamma b² theta[phi(theta)-theta barPhi(theta)] from uniform L2 moments. Root uniqueness follows theta barPhi(theta)/phi(theta) increasing 0->1 and crossing 1/2. Independent 100,000 random finite bounded-disturbance trajectories satisfied the claimed 3delta+h tracking bound; numerical unique theta*=0.612003180962481, coefficient 0.10122824509401235. The finite checks corroborate but do not prove the triangular-array CLT/limit.",
+      "residual_risks": [
+        "Objective and independent oracle distribution vary with horizon n; this is not one fixed objective weak limit.",
+        "The zero atom is a weak-limit mass, not asserted as a finite-n exact atom."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beretta et al. 2026 establish sharp anytime last-iterate rate; their 2606 paper covers fixed-horizon constant steps, and Zamani–Glineur 2025 gives deterministic last-iterate rate bounds."
+        ],
+        "reasoning": "These stronger bound statements constrain size of expectation, not probability limit law; none of inspected material directly dominates the non-Gaussian weak limit.",
+        "searches": [
+          "arxiv:2610.30143",
+          "arxiv:2606.24879",
+          "doi:10.1137/24M1717762"
+        ]
+      },
+      "checked_sources": [
+        "Git blob d1276ab9eae11231145d01b31211058bf12bebbe",
+        "Git tree 670a0f59c24d951bd2ae385a61824c82e703e737",
+        "independent_checks.py SGD_TRACK 100000 and optimum numerical independent",
+        "arxiv:2610.30143v1 complete HTML",
+        "arxiv:2606.24879 abstract",
+        "Resultary SGD search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source Theorem 2 lower bound is gamma b²/24 times (log n)/sqrt(n) for a chosen family; it gives no non-Gaussian distributional convergence or optimized theta coefficient."
+        ],
+        "reasoning": "The original rate alone cannot yield the atom, exceedance probability, exact expectation constant or unique within-family tuning; these need the early/late noise split.",
+        "searches": [
+          "arxiv:2610.30143v1 Theorem 2",
+          "arxiv:2606.24879"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Beretta et al. arxiv:2610.30143 Theorem 2 and proof explicitly choose epsilon|x| and (b-epsilon) Rademacher noise with eta_t=gamma/sqrt(t)."
+        ],
+        "reasoning": "Exact objective/oracle template overlaps strongly, but a lower rate inequality does not state the normalized soft-thresholded Gaussian limit or exact atom.",
+        "searches": [
+          "anytime stochastic subgradient last iterate soft threshold Gaussian weak limit harmonic noise convex absolute value",
+          "stochastic subgradient scalar sign drift soft threshold Gaussian limit at last iterate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The numeric optimum root phi(theta)=2theta barPhi(theta) and corresponding 0.101228245... are computed from the explicit limiting mean, not found in Resultary / relevant source tables."
+        ],
+        "reasoning": "Potential prior Gaussian soft threshold risk remains; no exact table identified.",
+        "searches": [
+          "anytime stochastic subgradient last iterate soft threshold Gaussian weak limit harmonic noise convex absolute value",
+          "Resultary soft threshold stochastic SGD search"
+        ]
+      },
+      "rationale": "Beretta–Cesari–Colomboni arxiv:2610.30143v1 Theorem 2 uses the same scalar absolute-value bounded-iid-noise construction to prove an expected logarithmic last-iterate lower bound, choosing epsilon via mean absolute Rademacher sum. Their complete Section 2 (read) does not derive a weak limit, nonlinear Gaussian soft threshold, atom or exact optimized leading coefficient. Their rate is prior work and explicitly credited. The new claim uses a theta-dependent horizon-tuned scaling and computes a distributional refinement beyond a rate.",
+      "residual_risks": [
+        "Stochastic approximation literature may contain a general soft-threshold diffusion limit automatically covering this special horizon-tuned construction.",
+        "The source article 2606.24879 was compared at abstract/step-size level, not read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same objective/noise family and worst-case rate are explicitly prior; no distributional soft-threshold theorem in complete original manuscript",
+          "evidence": [
+            "turn821338view0",
+            "turn222175view0",
+            "turn222175view1"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.30143v1",
+          "material_read": "entire article HTML lines 20–149, Theorem 2, complete proof and bibliography",
+          "method": "full arXiv HTML",
+          "title": "The Last Iterate of the Projected Stochastic Subgradient Method Pays a Logarithm, Even in Dimension One",
+          "trigger": "identical anytime schedule and Rademacher absolute-value mechanism"
+        },
+        {
+          "assessment": "Fixed eta=Theta(n^-1/2), not anytime eta_t=gamma/sqrt(t); no whole-document exclusion",
+          "evidence": [
+            "turn583633academia60"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.24879",
+          "material_read": "full abstract and stated step-size regime, not article body",
+          "method": "arXiv abstract",
+          "title": "New Bounds for the Last Iterate of the Stochastic subGradient Method",
+          "trigger": "closest fixed-horizon alternative"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/soft-thresholded-gaussian-last-iterate-law-for-anytime-stochasti--184d2704942d/RESULT.md",
+        "arxiv:2606.24879 abstract",
+        "Resultary SGD search"
+      ],
+      "rationale": "The Gaussian-to-soft-threshold transition yields a point mass at the minimizer, explicit exceedance curve, exact expected error and unique optimal within-family tuning. It refines an established lower bound in a mathematically natural way and quantifies stochastic subgradient dynamics, not just another big-O rate.",
+      "residual_risks": [
+        "The theorem is restricted to a tuned family; the optimum is not a global minimax optimum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Scalar absolute value with horizon-dependent curvature and noise, asymptotic n->infinity.",
+    "No finite-n atom, no general convex objectives or global minimax assertion."
+  ]
+}
