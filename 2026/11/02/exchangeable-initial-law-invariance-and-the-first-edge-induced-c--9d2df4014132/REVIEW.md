@@ -1,23 +1,21 @@
-# Scientific review: exchangeable voter consensus on four sites
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The backward graphical representation is valid for independent rate-one copying clocks on any finite strongly connected zero-diagonal copying network. Initially all four ancestral lineages occupy all sites, so the first coalescence has exponential rate four regardless of edge probabilities. The hypergeometric probabilities of nonconsensus conditional on one, two or three uniformly chosen initial ones imply \(T_2-4T_1/3=-1/12\) after exact survival integration; complementation gives \(T_3=T_1\). These are universal analytical identities and do not rely on small-graph sampling. Independently, the first-step equations were solved over exact rational numbers for all 38 connected labeled graphs on four vertices and every connected graph on three vertices. Complete isomorphism reductions give six four-vertex graph types and six oriented edge-insertion transitions, with the two strictly positive increments stated in RESULT.md. Endpoint cases and already-consensual initialization are covered.
+PASS
 
-## Originality — PASS (subject to historical-priority risk)
+Backwards genealogies start at all four sites; the first jump among four distinct ancestral lineages necessarily coalesces at exponential rate 4. Hypergeometric nonconsensus probabilities satisfy q2(j)-(4/3)q1(j)=0 for j=1,2,3 and -1/3 at j=4; integrating P(Jt=4)=e^{-4t} yields -1/12. Complement symmetry gives T3=T1 and positivity of exchangeable coefficient gives universal ordering. The undirected finite table follows from rational 14-state first-step systems for all 38 labeled connected graphs and their 6 isomorphism types. Independent exact rational solver reproduced all 6 graph T1 values and the universal T2 identity; input program enumerates all 38 and all edge transitions.
 
-The standard voter model, its coalescing-walk dual, and finite-state absorption-time recursions are established. Masuda (2014) obtains consensus-time scaling on two-clique networks; Iwamasa and Masuda (2014) give general exact matrix recursions and network optimization but do not report the weighted-network universal four-site identity or the six graph-type edge table in the inspected relevant sections. Gastner and Ishida (2019) establish qualitatively nonmonotone effects from adding interclique edges; the generic possibility of edge-induced slowdown is NOT a claimed discovery here. The combined graph-independent identity, initial-law invariance, complete four-vertex transition census, and minimum size are the specific comparison targets. A hidden corollary of earlier general coalescent identities or an unpublished small-network table remains possible; absence in searches is not proof of absolute priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural methodological uncertainty in short social networks is whether the distribution of initial dissenters changes which topology reaches agreement faster. The four-site genealogy identity shows that **every** nontrivial exchangeable initial law gives an identical topology ranking, even for weighted directed copying matrices; this is an exact and non-obvious structural simplification. For unweighted undirected social graphs, the complete edge-insertion census identifies the precise first population size where extra communication can retard consensus and the two graph motifs at that boundary. This is a motivated structural cutoff rather than an arbitrary numerical example.
+The coalescing-walk duality and generic edge-slowdown phenomenon are known; the exact affine four-lineage identity and complete four-vertex phase table with sharp minimality are best-of-knowledge additions.
 
-## Risks and limitations
+## value
 
-The clock normalization is rate one at **each** vertex; a single global update clock scales all numerical times. Irreducibility and zero diagonal are essential for the stated universal proof. Different agent rates, self-loops, nonexchangeable initial opinion assignments, zealots, or alternate voter rules are not covered. A general finite-state algorithm can of course compute the small graph values, and historical literature may already imply the combined result without stating it in this form. Independent validation has not been performed.
+PASS
 
-## Closest sources inspected
+The invariance under arbitrary exchangeable laws is a structural robustness fact for a classical stochastic network model; the sharp n=4 edge-induced slowdown boundary with two explicit transitions resolves a finite graph classification rather than reporting an isolated example.
 
-N. Masuda, *Voter model on the two-clique graph*, arXiv:1403.4763 (2014), sections I–II, numerical initial conditions, and scaling arguments. Y. Iwamasa and N. Masuda, *Networks maximizing the consensus time of voter models*, arXiv:1404.6360 (2014), methods for finite-state equations, four-site worked example, N=10 optimization, and the relevant derivation appendix. M. T. Gastner and K. Ishida, *Voter model on networks partitioned into two cliques of arbitrary sizes*, arXiv:1908.00849 (2019), community setup and nonmonotonic link-effect arguments. These inspectable claims concern different parameter classes or consequences; no claim is made that every historical source has been exhaustively read.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

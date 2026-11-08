@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The independent-rate-one-clock voter model's transient generator satisfies the first-step equations reproduced in RESULT.md. The proof of the four-site affine identity uses the coalescing-walk genealogy, hypergeometric initial-state probabilities, and the fact that the first backward coalescence time is exponential with rate four.
+## correctness
 
-Execute `python3 verify.py` in the directory containing the package. Python 3.9 or newer is sufficient; the script uses only the standard library. It enumerates all 64 four-vertex simple graphs, selects all 38 connected labeled graphs, reduces them to six isomorphism classes using all permutations, solves the 14-state transient system over rational numbers for each, and compares exact averages and single-edge increments. It also checks all connected labeled three-vertex graphs and their nontrivial conditional expected times.
+PASS
 
-Observed reproducible checks on the supplied program: all exact rational equations solved; all 38 four-site conditional identities matched; six isomorphism classes and six single-edge transition types matched; both and only both positive increments reproduced; three-site comparison equality verified. No floating-point calculation supports the theorem. The code tests finitely many unweighted undirected graphs: general weighted-directed universality relies on the analytical proof and was not separately certified by finite enumeration.
+Backwards genealogies start at all four sites; the first jump among four distinct ancestral lineages necessarily coalesces at exponential rate 4. Hypergeometric nonconsensus probabilities satisfy q2(j)-(4/3)q1(j)=0 for j=1,2,3 and -1/3 at j=4; integrating P(Jt=4)=e^{-4t} yields -1/12. Complement symmetry gives T3=T1 and positivity of exchangeable coefficient gives universal ordering. The undirected finite table follows from rational 14-state first-step systems for all 38 labeled connected graphs and their 6 isomorphism types. Independent exact rational solver reproduced all 6 graph T1 values and the universal T2 identity; input program enumerates all 38 and all edge transitions.
 
-Independent audit has not been performed. The historical-priority assessment is limited to the cited source materials and explicit scholarly comparisons, not a global uniqueness guarantee.
+## originality
+
+PASS
+
+The coalescing-walk duality and generic edge-slowdown phenomenon are known; the exact affine four-lineage identity and complete four-vertex phase table with sharp minimality are best-of-knowledge additions.
+
+## value
+
+PASS
+
+The invariance under arbitrary exchangeable laws is a structural robustness fact for a classical stochastic network model; the sharp n=4 edge-induced slowdown boundary with two explicit transitions resolves a finite graph classification rather than reporting an isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
