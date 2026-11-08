@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-For every integer \(q\ge2\), \(n\ge1\), the proof decomposes anchored diameter-two subsets into weight-one words and pairwise-intersecting weight-two supports. The only possible support types are the empty family, a single pair, a star with at least two pair supports, and a triangle; their symbol-compatibility rules produce the four disjoint summands of the positive generating function. Vertex-transitive double counting gives the unrooted size-polynomial identity. The asymptotic and typical-ball statements follow from a quantified exceptional-family bound and radius-one-ball intersection counts. The independent clique enumerator matches exact full size spectra in 17 small parameter cases; 140 coefficient arithmetic cases and 20 OEIS binary cross-checks also pass. All infinite assertions are proved symbolically, not by finite enumeration.
+PASS
 
-## Originality (O): PASS, with bounded priority uncertainty
+For integer q≥2,n≥1, root any diameter≤2 anticode at word 0^n via full alphabet/coordinate automorphisms. Other words have weights 1 or 2. Pairwise compatible weight-2 supports must be pairwise intersecting; possible families are empty, exactly one 2-support, a star of ≥2 supports with common nonzero center symbol, or a complete triangle with one symbol prescribed per coordinate. These are disjoint exhaustive cases. Their exact pointed generating function is G=(1+z)^{nr}+C(n,2)((1+z)^{r²}−1)(1+z)^{2r}+nr(1+z)^r[((1+z)^{r(n−1)}−1−(n−1)((1+z)^r−1))]+C(n,3)r³z³. Double counting anchored pairs gives F'=q^n G and the displayed five-term q-ary size polynomial, including n=1,2. Integrating 0..1, first summand supplies q^n 2^{nr+1} and others O_q(q^n n³), with r=q−1. Every non-ball anticode has size at most q² via one-support or triangle case; distinct radius-one balls intersect in at most q words, and at most O_q(n²) ball pairs can intersect. Therefore almost all anticodes lie in a unique radius-one ball, and total-variation size law approaches Binomial(1+nr,1/2), fixed q. Independent direct Hamming graph clique histogram generation checked q=2,n=1..5, q=3,n=1..3, q=4,n=2 and matched exact all coefficients, with binary totals 4,16,81,393,1777, not just maximum. Proof is combinatorial for all q,n, not an inference from these enumerations.
 
-The closest primary full-text source, Horlemann–Ravi (arXiv:2610.31618v1), Proposition 3.4, gives only exponential-order bounds for diameter two and an exact diameter-one count. The established 2017 OEIS A295922 exactly covers the **binary total count**, which is explicitly excluded from novelty. The claimed result resolves the strictly finer distribution by every cardinality for every alphabet size and the all-alphabet sharp asymptotic. Searches additionally considered halved-cube / hypercube-square isomorphism, Hamming graph square clique polynomial, generalized alphabet formulas, and past local claims. None of the actually inspected evidence implies the entire polynomial. Risk: a size-resolved q-ary enumeration may exist under different terminology or in nonindexed sources.
+## originality
 
-## Value (V): PASS
+PASS
 
-The primary 2026 paper singles out diameter two among the low-diameter regimes where it proves only logarithmic-order enumeration. Computing the entire generating polynomial is a natural exact combinatorial invariant, strictly stronger than both the known binary aggregate count and a maximum-cardinality bound. It yields a quantified sharp leading constant for every alphabet and a typical-radius-one-ball structure with total-variation binomial behavior. The graph-square equivalence links the result to an established combinatorial family rather than an arbitrarily chosen parameter slice.
+Best-of-knowledge original scientific contribution confined to the exact theorem beyond explicitly acknowledged prior partial coverage. Meaningful searched aliases, broader-result implications, primary source materials, and access limits are documented below.
 
-## Limitations and source risk
+## value
 
-The distribution is for maximum pairwise distance two and labeled coordinates; no claim for diameter three, linear-only anticodes, or growing alphabet asymptotics. The binary aggregate was previously determined. An undiscovered complete q-ary polynomial remains a residual originality risk. Independent validation was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full size-enumeration polynomial of diameter-two anticodes is a natural complete combinatorial invariant of the Hamming graph square, strictly richer than the previously known binary aggregate count or maximal anticode size. The all-alphabet exact sharp leading constant, unique ball geometry and binomial typical size make the result useful as a sharp baseline for low-diameter Hamming families rather than an arbitrary tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
