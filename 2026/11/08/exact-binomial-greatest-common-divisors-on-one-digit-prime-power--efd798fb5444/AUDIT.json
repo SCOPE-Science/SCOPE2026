@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "A (k+1)th finite difference of the degree-\\(k\\) polynomial \\(F(q)=\\binom{qk}{k}\\) gives \\(D(k)\\mid k+1\\). The complete Kummer carry decomposition for \\(q-1=up^a+r\\) proves at least a carries for every multiplier, \\(r>0\\) and \\(r=0\\) handled separately. Published Guo et al. Lemma 9 excludes cofactor primes because \\(m<p\\). These establish \\(D(mp^a-1)=p^a\\). All assumptions checked; 78,683 exact multiplier valuations, 2,779 carry comparisons and 80 full gcds replayed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guo et al., arXiv:2606.22997, Introduction explicitly distinguish their varying-upper-index family from the Pascal-region gcd families of Joris, Oestreicher and Steinig (1985) and from McTague and Hong’s varying-lower-index problems.",
+        "The 2026 source was read through its main theorem, Lemma 9, proof, and final formal statement; none asserts the full p-adic equality on the one-digit cofactor ray.",
+        "1985 Joris–Oestreicher–Steinig: publisher DOI 10.1016/0022-314X(85)90013-7; bibliographic metadata retrieved but full text unavailable."
+      ],
+      "reasoning": "Known broader gcd methods concern other indexing sets or determine prime support; their conclusions cannot be substituted for the exact fixed-lower-index \\(p^a\\) equality. The inaccessible 1985 text remains a genuine but nondispositive historical-priority risk because an accessible source studying the exact current object explicitly identifies that older family as different.",
+      "searches": [
+        "Joris Oestreicher Steinig 1985 greatest common divisor certain sets binomial coefficients full text pdf",
+        "10.1016/0022-314X(85)90013-7 open access pdf",
+        "binomial gcd gcd of binom(mk,k) m 2 to k+1 prime powers exact formula",
+        "strengthening Guo Qiu Cao Feng Gao prime power component exact gcd larger than one"
+      ]
+    },
+    "checked_sources": [
+      "OEIS A080170 complete entry (2003) https://oeis.org/A080170",
+      "Guo, Qiu, Cao, Feng and Gao, arXiv:2606.22997 (2026) introduction and §§2–3.4",
+      "Joris, Oestreicher and Steinig, J. Number Theory 21 (1985) 101–119, bibliographic metadata only",
+      "Kummer carry theorem (1852), standard theorem statement",
+      "Public mathematical-result index searches for same-object valuations, aliases, full gcd and stronger coverage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guo et al. §2 Lemma 4 yields only prime support (the proof here refines the same finite differences to \\(D(k)\\mid k+1\\)).",
+        "Guo et al. §2 Lemma 9 yields whether each prime ell divides \\(D(k)\\); it supplies the exclusion of cofactor primes, but not the exact exponent of p.",
+        "A new blockwise carry analysis proves at least a base-p carries for every q in the entire gcd, which combined with \\(D(k)\\mid mp^a\\) forces exact equality."
+      ],
+      "reasoning": "The new conclusion implies the earlier prime-support claim on the stated ray, but the earlier implication is not reversible: p|D alone allows any exponent 1 through a. Neither the general D=1 criterion nor fixed-coefficient congruences control the minimum carry count over all q. The original proof section has been compared at statement and implication level.",
+      "searches": [
+        "exact greatest common divisor binomial coefficients binom(qk,k) for k+1=m p^a with 1<=m<p, valuation equals a and full gcd p^a",
+        "all binomial coefficients C(q(m p^a -1),m p^a -1) divisible by p^a for q 2 through m p^a",
+        "full value fixed lower index binomial coefficients gcd binom(qk,k) exact valuations Kummer all q"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A080170 (first entered 2003-01-31) records only the indices for which \\(D(k)=1\\) and Ralf Stephan’s 2004 parameter reformulation.",
+        "Guo–Qiu–Cao–Feng–Gao arXiv:2606.22997 §2 proves \\(D(k)=1\\) iff a prime-power inequality and establishes \\(p\\mid D(k)\\) iff a cofactor inequality.",
+        "The derived formula \\(D(mp^a-1)=p^a\\) specifies all valuations and the exact gcd rather than just whether one prime divides it."
+      ],
+      "reasoning": "The established equivalence between nontrivial gcd and a prime-power size obstruction does not entail the exponent a. Algebraic reversal of the gcd definition does not produce the a-carry count; the present argument supplies a uniform quantitative Kummer lemma. The definitions match exactly, and the implications have been compared rather than their titles.",
+      "searches": [
+        "OEIS A080170 binomial gcd entire p-adic valuation equals p^a for n=m p^a m less than p not merely gcd equals one",
+        "full value fixed lower index binomial coefficients gcd binom(qk,k) exact valuations Kummer all q",
+        "A080170 exact gcd terms divisor k+1 formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A080170 entry (https://oeis.org/A080170) contains values of k with gcd one, a finite table, program computing a Boolean equality, and a comment pointing to Guo et al.",
+        "The numerical verifier checks but does not claim novelty from bounded values; the proof establishes every allowed prime and exponent."
+      ],
+      "reasoning": "The database classifies the zero/nonzero gcd boundary, not the positive gcd value. No exact-value table or equivalent full infinite classification for D(m\\(p^a\\)−1) was found in the inspected record. Finite computational agreement is not an originality certificate.",
+      "searches": [
+        "OEIS A080170 date created Ralf Stephan gcd binomial coefficient",
+        "A080170 exact gcd terms divisor k+1 formula",
+        "OEIS A080170 binomial gcd entire p-adic valuation equals p^a for n=m p^a m less than p not merely gcd equals one"
+      ]
+    },
+    "rationale": "OEIS and Guo et al. address the gcd-one predicate and first-power prime support, not the exact p-adic positive gcd. Source-level proof comparison finds no quantitative carry bound implying full \\(p^a\\). Relevant published research and indexed historical claims were contrasted by implication; earlier Joris et al. 1985 full text remained unavailable and is disclosed as a residual historical-priority risk.",
+    "residual_risks": [
+      "Unlocated later equivalent proof or broader exact-gcd theorem remains possible.",
+      "Joris–Oestreicher–Steinig (1985) not inspected in full because full text could not be accessed; its known Pascal-region indexing differs from the current object."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_BACKGROUND; does not state exact positive gcd or exponent",
+        "evidence": [
+          "Definition is a Boolean GCD=1 test; author entry Benoit Cloitre, 2003-01-31; 2004 Stephan conjecture comment."
+        ],
+        "identifier_or_url": "https://oeis.org/A080170",
+        "material_read": "Complete public entry, definition, comments, code descriptions, citations, and original author-date field",
+        "method": "Read web HTML text",
+        "title": "OEIS A080170 — Numbers k such that the fixed-lower-index binomial gcd is one",
+        "trigger": "Exact original arithmetic object and archival earliest date"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: D=1 and ell|D determined, but higher p-adic gcd values not determined",
+        "evidence": [
+          "Theorem 1 is \\(D(k)=1\\) equivalence; Lemma 9 gives \\(\\ell\\mid D\\iff n/\\ell^b\\le\\ell^b\\); §3.4 formalizes only this first-power criterion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.22997",
+        "material_read": "Full accessible HTML text: Introduction, Sections 2.1–2.6 including full proofs of Lemmas 4 and 9, and the formal statement in §3.4",
+        "method": "Read web HTML (no PDF needed)",
+        "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+        "trigger": "Exact same binomial family and previously proved prime-support criterion"
+      },
+      {
+        "assessment": "UNRESOLVED_HISTORICAL_SOURCE, residual risk; distinct Pascal-region indexing according to the 2026 same-object paper",
+        "evidence": [
+          "Guo et al. Introduction differentiates this older work as finite regions of Pascal triangle, not their fixed lower entry and upper multiple indexing."
+        ],
+        "identifier_or_url": "10.1016/0022-314X(85)90013-7",
+        "material_read": "Bibliographic record, authors, 1985 Journal of Number Theory date and classification; full text not obtained",
+        "method": "Searched arXiv and lawful open-access sources; full text could not be obtained",
+        "title": "The greatest common divisor of certain sets of binomial coefficients",
+        "trigger": "Title plausibly broader than the exact family; cited by the same-object 2026 paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "efd798fb-5444-4bff-b296-73bc05a5362d",
+  "value": {
+    "rationale": "The complete positive gcd and its full p-adic exponent are natural arithmetic refinements of the solved OEIS A080170 zero/nonzero criterion. The cofactor \\(m<p\\) is a structural single-base-p-digit domain that makes the carry saturation exact; the result covers infinitely many values and gives maximal prime-power divisibility for every exponent, beyond finite tabulation or a one-prime sign check. Arbitrary cofactors remain open.",
+    "status": "PASS"
+  }
+}
