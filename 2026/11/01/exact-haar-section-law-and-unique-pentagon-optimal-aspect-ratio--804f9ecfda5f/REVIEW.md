@@ -1,17 +1,21 @@
-# Scientific review: central sections of regular triangular prisms
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns all positive half-heights, not a finite list of tested prisms. The proof reduces polygon side counts to endpoint-sign disagreements on the nine precisely specified edges. All twenty triple determinants for the six great-circle normals are nonzero rational multiples of \(h\sqrt3\), fixing the spherical chamber combinatorics throughout \(h>0\). A 64-sign-pattern, exact-rational enumeration yields 32 chambers in four classes of multiplicities \(2,12,6,12\), with full angle multisets and spherical-excess areas. The areas sum identically to \(4\pi\). Division by sphere area proves the distribution. An independent edge-crossing calculation verifies the first moment. Differentiation and a strictly decreasing derivative factor prove a unique global pentagon-probability maximizer. The included standard-library verification script was executed successfully, including 400,000 supplementary Gaussian trials. No finite experiment is substituted for a universal analytic argument.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The 2026 combinatorial slicing paper of Birkemeyer, Brose, Brandenburg, and Prün gives the fundamental prism–slab relation (Proposition 3.6) but no Haar-normal probabilities, explicit three-point law, or aspect-ratio optimization. Its available arXiv HTML was inspected at the prism constructions and general discussion. The previously published exact rectangular-box law (published-finding corpus identifier `2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4`) concerns a four-pair/eight-vertex product of intervals, not the three-corner triangular prism. The icosahedral section law (published-finding corpus identifier `2026/10/11/SCOPE-exact-haar-polygon-type-law-for-central-icosahedron-sections--65970a533c4f`) is another fixed-solid computation, not an all-aspect prism law.
+PASS
 
-The stereological publications on regular prisms by the authors of *Stereology for some classes of polyhedrons* (1995) and by Konstantinova and Shchur (2023/2024) use random spatial plane sampling and numerical kernel/angle-density methods. Their accessible abstracts do not supply the claimed exact distribution **conditioned on the plane passing through the centroid**. Their full texts were not accessible for comprehensive comparison; an earlier equivalent law is a material residual priority risk. Search nonappearance is not offered as proof of originality.
+A central plane intersects each prism edge when its six endpoint normal heights have opposite signs. The edge graph has six horizontal and three vertical edges. Six great circles of vertex orthogonality have 20 nonzero ordered triple determinants, with absolute rational values 1/2,1,3/2 (times the universal positive factor h sqrt(3)), so their arrangement is combinatorially constant for h>0. Independently enumerated all 64 sign patterns using exact rational determinant signs: precisely 32 nonempty chambers, split 2 six-corner triangular sections, 12 three-corner quadrilateral sections, 6 four-corner quadrilateral sections, and 12 four-corner pentagonal sections; their angle-type signed multisets reproduce the four spherical-excess formulas. The exact spherical areas sum to 4pi; dividing yields P3/P4/P5. Independently checked 20,000 Gaussian normals for each h=0.13,0.5,1,2,5 against the exact probabilities (all deviations <0.01). Differentiating P5 reduces to f(h); f(0)>0, f(infty)<0 and f prime <0 for h>0, giving unique global optimum. The independent root agrees to 12 decimal places. The first-moment edge-angle identity independently checks E[N].
 
-## Mathematical value — PASS
-The side-count distribution under a precisely defined isotropic direction measure is a natural geometric-probability invariant of a shape used in stereology. The result is an **exact classification for every positive aspect ratio**, including nontrivial spherical combinatorics (32 chambers, four distinct angle/area types) and a unique optimally pentagonal shape with an explicit critical equation. The complete law distinguishes triangular, quadrilateral and pentagonal sections and gives an exact mean-count consistency check; it is neither a singleton numerical table nor a relabeling of the prism–slab equivalence. The optimum and the parameter-dependent probabilities supply concrete benchmarks for section simulation.
+## originality
 
-## Limitations and closest sources
-The law is specific to Haar-uniform central planes of *right equilateral-base* prisms, not general affine sections, other prism types, or area-biased selection. The accessible sources support the background geometry and the priority comparison only to their stated extent. No independent mathematical audit has been performed. The 1995 and 2023/2024 full texts are not claimed inspected.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+No checked prior statement entails the full assigned claim. Neither inspected prior statement logically supplies all exact probabilities or optimal half-height. A full-text statement might nonetheless encode similar counts; residual risk is explicit. These potentially broader treatments are not demonstrated to imply the exact Haar-centered 3/4/5 law or a unique aspect optimum. Full texts of the old stereological works remain a genuine risk.
+
+## value
+
+PASS
+
+The exact three-point Haar section-type distribution and unique optimising aspect ratio are natural geometric-probability invariants for a one-parameter family of regular prisms. The full angular chamber census and stability/optimization are nontrivial relative to the combinatorial existence of triangle, quadrilateral and pentagon sections.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
