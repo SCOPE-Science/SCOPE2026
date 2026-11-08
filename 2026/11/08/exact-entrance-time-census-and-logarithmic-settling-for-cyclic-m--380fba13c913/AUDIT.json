@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "All cyclic-ring and first-entry quantifiers are explicit. Equal bonds are permanent; every finite disagreement-bond gap shrinks at both ends until length <=1, yielding exact time floor(maxgap/2). Parity of number of different bonds controls existence and gives exactly two vertex lifts. The transfer trace counts each permitted bond word twice via parity-coordinate closure, and the two all-different exceptions are added separately. Sharp extremal count 2n follows from minimum equal bonds of each parity. Standard independent-block and union-bound estimates prove typical T/log2(n)->1/2. The actual packaged simulation checks 524280 states n=3..18 against independently computed gap times and transfer traces; finite checks are corroboration, not the infinity proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fuks (1997) bounds Rule 232 behavior after a separate traffic preprocessing stage; no unrestricted time-layer count.",
+        "Tosic (2016) efficiently counts fixed configurations, which only covers a proper temporal slice.",
+        "Inokuchi and Sato (2000) analyze fixed boundaries, which are not periodic."
+      ],
+      "reasoning": "The strongest closely matched literature covers different invariants (fixed-state counts, recurrent classification) or different boundary conditions. These do not logically determine the exact finite-time inverse-image counts, 2n sharp maximizers and typical logarithmic settling from their statements alone. Already known t=0 facts are explicitly excluded from the novelty argument.",
+      "searches": [
+        "Exact first-periodic-entry time distribution of elementary cellular automaton Rule 232 binary majority on periodic rings, via equal-neighbor bond runs transfer matrices and even parity, 2n maximizers",
+        "Transfer matrix trace for number of radius-one majority cellular automaton states settling in t steps; logarithmic random typical transient",
+        "web: majority cellular automata rule 232 convergence time distribution alternating runs",
+        "web: On Enumerating Stable Configurations of Cellular Automata MAJORITY update rule",
+        "arxiv:comp-gas/9703001",
+        "doi:10.5109/13492"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:comp-gas/9703001v1",
+      "doi:10.5109/13492",
+      "doi:10.1007/978-3-540-30479-1_89",
+      "researchgate:310515639",
+      "arxiv:2205.08972",
+      "Ed Powley, thesis rule-232 n=10 transition table (finite table only)",
+      "published-finding corpus semantic published-results search, four actual queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General eventual-period-one-or-two theorem cannot determine numbers of trajectories entering periodic behavior at each time.",
+        "A fixed-point enumeration describes the t=0 fixed term but does not count its backward preimages by depth.",
+        "The present bond-gap dynamics and transfer with a zero-parity state supply the missing implication steps."
+      ],
+      "reasoning": "The proposed finite-time layers are a strictly more resolved statistic than eventual orbit type and cannot be obtained by mere substitution of a known theorem. The worst-case bound may be derived from earlier special-case analyses and is not presented alone as the new result.",
+      "searches": [
+        "Exact first-periodic-entry time distribution of elementary cellular automaton Rule 232 binary majority on periodic rings, via equal-neighbor bond runs transfer matrices and even parity, 2n maximizers",
+        "Threshold majority cellular automaton 232 length n periodic boundary exact transient histogram distribution and 2n maximum",
+        "arxiv:comp-gas/9703001, Section III",
+        "arxiv:2205.08972, Sections 1 and 3",
+        "Tosic 2016 Section 5",
+        "doi:10.5109/13492 Section 3.38"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A bond word with 0 indicating disagreement is a cyclic binary string with even zero parity, rather than a new dynamical rule.",
+        "Nakar and Ron (2022) classify stable/period-two configurations, not time-indexed preimage cardinalities; no equivalent exact temporal census found."
+      ],
+      "reasoning": "The trace formula is an exact enumeration for every t and n, not merely an orbit-type classification or equivalent state recoding. The parity restriction and the exceptional all-disagreement two-cycle make the count intrinsically cyclic.",
+      "searches": [
+        "Exact first-periodic-entry time distribution of elementary cellular automaton Rule 232 binary majority on periodic rings, via equal-neighbor bond runs transfer matrices and even parity, 2n maximizers",
+        "On cyclic binary majority radius-one rule 232, longest alternating gaps shrink two bonds per round; max transient floor((n-1)/2) attained by exactly 2n strings",
+        "web: \"rule 232\" \"convergence time\" exact distribution",
+        "web: \"rule 232\" \"transient\" maximum cycle length",
+        "arxiv:2205.08972"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published thesis table lists a maximal Rule-232 transient for a single ring size (n=10), compatible with the known upper-bound behavior; this finite table does not supply the general exact-layer census.",
+        "published-finding corpus closest results cover rule-128 transient thresholds, binary parity CA, and quadratic reversible rules, not radius-one cyclic majority exact temporal histogram."
+      ],
+      "reasoning": "Matching one finite bound or a previously counted fixed-state sequence is not a duplicate of the all-n/all-t transfer formula. No exact database/table covering the claimed temporal distribution or 2n family-wide maximizer count was identified in the actual searches.",
+      "searches": [
+        "On cyclic binary majority radius-one rule 232, longest alternating gaps shrink two bonds per round; max transient floor((n-1)/2) attained by exactly 2n strings",
+        "Threshold majority cellular automaton 232 length n periodic boundary exact transient histogram distribution and 2n maximum",
+        "web: \"rule 232\" cyclic transient time \"2n\"",
+        "web: majority rule 232 periodic boundary longest transient histogram",
+        "web: Ed Powley thesis rule 232 max transient n10"
+      ]
+    },
+    "rationale": "Published primary work handles Rule 232 special initial classes, recurrent structure, and fixed-point counting. The checked statements do not give the all-initial-state exact first-entry distribution, the exact 2n maximizing configurations, and logarithmic random first-entry time on periodic rings. This originality judgment is best knowledge, with known t=0 and known qualitative bounds excluded.",
+    "residual_risks": [
+      "An unindexed or differently named exact cyclic Rule-232 transient census could predate this work.",
+      "The local erosion observation is elementary and partly implicit in earlier papers; originality concerns the complete time-stratified counts and their two asymptotic/extremal consequences, not a claim of a new local rule.",
+      "The 2016 manuscript was inspected as accessible full text; no exhaustive priority search over private/unindexed theses was possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers rule 232, special no-11 or no-00 starting classes, and upper bound after rule 184 preprocessing; not an all-initial-state first-entry-time census, 2n extremal population or random log-time theorem.",
+        "evidence": [
+          "Section III, Proposition 3 characterizes alternating preimages in the no-11 subspace; Proposition 4 concerns the composition F232^m(F184^n(s))."
+        ],
+        "identifier_or_url": "arxiv:comp-gas/9703001v1; https://arxiv.org/pdf/comp-gas/9703001",
+        "material_read": "Five-page open preprint, especially Sections I, III, IV; exact March 7, 1997 arXiv date on page 1; full five-page text available.",
+        "method": "Read primary PDF text and visually inspected first page; checked Section III rule-232 preimage proposition and timing conclusion.",
+        "title": "Solution of the Density Classification Problem with Two Cellular Automata Rules",
+        "trigger": "Same exact elementary rule 232 and finite cyclic ring; potential domination by exact preimage result."
+      },
+      {
+        "assessment": "Entire analysis explicitly assumes fixed boundary cells; Theorem 3.90 concerns fixed-end rule-232 and does not imply cyclic all-time census.",
+        "evidence": [
+          "Introduction identifies fixed boundary conditions; Section 3.38 treats CA-232 with fixed boundary parameters; Theorem 3.90 gives corresponding transient lengths."
+        ],
+        "identifier_or_url": "doi:10.5109/13492; https://catalog.lib.kyushu-u.ac.jp/opac_download_md/13492/p023.pdf",
+        "material_read": "Accessible primary PDF introduction, Section 3.38 and Theorem 3.90, with first-page visual inspection.",
+        "method": "Read specified primary full-text theorem and boundary definitions; compared fixed-end and cyclic settings.",
+        "title": "On Limit Cycles and Transient Lengths of Cellular Automata with Threshold Rules",
+        "trigger": "Explicit rule-232 transient-length theorem; must check its spatial boundary conditions."
+      },
+      {
+        "assessment": "Describes fixed and recurrent configurations, two-cycles and qualitative predominance of transient configurations; no indexed all-time transition histogram or typical-settling asymptotic was identified in relevant sections.",
+        "evidence": [
+          "Abstract and section on finite/infinite majority CA address kinds of configurations and generic transience; no matching first-entry counting theorem in those sections."
+        ],
+        "identifier_or_url": "doi:10.1007/978-3-540-30479-1_89; https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+        "material_read": "Accessible primary conference-paper PDF, abstract, introductory claims, majority section and concluding results; inspected first page image.",
+        "method": "Checked whether configuration-space classification included an index by exact first-entry time or exact preimage multiplicities.",
+        "title": "Characterizing Configuration Spaces of Simple Threshold Cellular Automata",
+        "trigger": "General statement of complete majority configuration-space classification could subsume the proposed census."
+      },
+      {
+        "assessment": "Clearly covers fixed-point enumeration in much more general radii and boundaries; our time-zero fixed-point part is not claimed as original. Results do not determine exact counts for all transient entrance times or the extremal population.",
+        "evidence": [
+          "Section 5 titled Counting Fixed Points in 1-D Majority CA; Theorem 5.1 states exponentially many fixed points; Theorem 5.2 states computationally efficient exact fixed count."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/310515639_On_Enumerating_Stable_Configurations_of_Cellular_Automata_with_the_MAJORITY_update_rule",
+        "material_read": "Public full manuscript text including Section 5, Theorems 5.1–5.2 and Conclusions.",
+        "method": "Compared theorem quantifiers and output invariant (number of fixed points) with count for each first-entry time.",
+        "title": "On Enumerating Stable Configurations of Cellular Automata with the MAJORITY update rule",
+        "trigger": "Directly counts recurrent majority fixed points; may dominate the time-zero specialization."
+      },
+      {
+        "assessment": "General radius-r results on recurrent spatial structure and period <=2 do cover eventual orbit types, but no exact finite-size first-entry-time counting matrix, 2n maximizer census, or logarithmic typical first-entry law was identified in inspected theorem/proof sections.",
+        "evidence": [
+          "Section 1 and Theorem 1 focus on spatial structure of temporally periodic configurations; Section 3 Claim 4 re-proves periods <=2 by a Lyapunov potential; Observation 7 asserts eventual stabilization without exact first-entry counts."
+        ],
+        "identifier_or_url": "arxiv:2205.08972; https://arxiv.org/pdf/2205.08972",
+        "material_read": "Primary 31-page arXiv PDF introduction, definitions, Theorem 1 scope, periodicity proof (Claim 4), stability observations, contents and conclusion headings; image inspected on page 4.",
+        "method": "Compared structural classification of eventual configurations and stability with exact counts stratified by initial transient time.",
+        "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+        "trigger": "Cyclic majority on the exact same class of rings, potentially stronger for all radii."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "380fba13-c913-4d98-b22e-7fb741018a8d",
+  "value": {
+    "rationale": "A natural classical nonlinear one-dimensional CA has a full finite-size distribution of settling times, not only an endpoint structure. The exact formula computes any temporal layer with a finite transfer matrix; the extremal class has only 2n configurations even though the worst transient is linear, while typical settling is logarithmic. The contrast between labelled worst and uniform-random initial states, plus the parity-induced exceptional 2-cycle, addresses meaningful dynamical quantities. This is not a numerical table or arbitrary slice.",
+    "status": "PASS"
+  }
+}
