@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T09:48:10.927436Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For standard Gaussian surface measure of fixed axis-aligned finite-dimensional orthotope, facet Fubini factorization gives G(t)=C[φ(t-a)+φ(t+a)+Λ(Φ(t+a)-Φ(t-a))] with C=∏q_j and Λ=Σ(2φ(b_j)/q_j), q_j=2Φ(b_j)-1>0. Differentiate: Gʹ(t)=2Cφ(a)e^{-t²/2}cosh(at)[(a-Λ)tanh(at)-t]. If a−Λ≤0 bracket negative for t>0; otherwise its fʹ(0)=δ=a(a−Λ)−1 and fʺ(t)<0 for every t>0. Therefore δ≤0 gives unique centered global max and δ>0 exactly two global maxima ±t*, with t* unique positive root in (0,a−Λ); decay at infinity excludes others. Threshold a_c=(Λ+sqrt(Λ²+4))/2. Taylor expansion of tanh gives t*²=3δ/a_c²+O(δ²), positive gain 3Cφ(a_c)δ²/(2a_c²)+O(δ³), and critical negative quartic coefficient −Cφ(a_c)a_c²/6. Independently checked direct numerical derivative and local phase for multiple widths/dimensions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Csató–Giovagnoli study general radial weighted perimeter continuity/monotonicity, with increasing radial weight for monotonicity; Gaussian density decreases. Nadimpalli–Pascale optimize over variable convex sets, not a fixed orthotope translation orbit."
+        ],
+        "reasoning": "Neither general class of results contains the exact fixed-box double-maximizer classification as a theorem or corollary under matched hypotheses.",
+        "searches": [
+          "arxiv:2610.11677v1, Theorems 1.2–1.3",
+          "arxiv:2508.20079v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic: Gaussian weighted surface area perimeter shifted rectangle box symmetry breaking translation tanh threshold",
+        "arxiv:2610.11677v1",
+        "arxiv:2508.20079v1",
+        "arxiv:1805.03161"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published increasing-weight inclusion monotonicity does not govern decreasing Gaussian weights or translation of a fixed box; unrestricted maximal Gaussian area magnitude does not specify one-coordinate extremizers."
+        ],
+        "reasoning": "General bounds and monotonicity statements do not entail the a_c threshold, pair ±t* or its critical expansion.",
+        "searches": [
+          "arxiv:2610.11677v1, Sections 1–4",
+          "arxiv:2508.20079v1, Introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaussian perimeter of a translated box equals a factorizable sum over facets; as a function of one translation it has an equivalent Gaussian-tail critical equation."
+        ],
+        "reasoning": "Checked fixed-body orbit, radial-weight and Gaussian surface area terminology; prior comparable sources optimize different objects/weights.",
+        "searches": [
+          "arxiv:2610.11677v1",
+          "arxiv:2508.20079v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Gaussian Santaló and width–brightness results concern other functionals; no matching fixed-box Gaussian perimeter transition table retrieved."
+        ],
+        "reasoning": "The function can be expressed using error functions and hyperbolic tangent, but no exact published global phase table was confirmed; search gaps remain a risk.",
+        "searches": [
+          "Resultary semantic: Gaussian weighted surface area perimeter shifted rectangle box symmetry breaking translation tanh threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after comparing the exact claim with its closest known general theorem and special cases. Novelty refers only to the stated full result, not common definitions, known subcases or routine ingredients.",
+      "residual_risks": [
+        "An earlier Gaussian probability/translated-rectangle note may encode this exact hyperbolic-tangent threshold under another name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inclusion monotonicity assumes suitable increasing weights, not Gaussian decreased profile at fixed translation",
+          "evidence": "Theorem 1.2 continuity; Theorem 1.3 inclusion monotonicity with different weight condition",
+          "identifier_or_url": "https://arxiv.org/abs/2610.11677",
+          "material_read": "Primary PDF abstract, Theorems 1.2–1.3, assumptions, counterexample discussion in Sections 1–4",
+          "method": "Read pertinent source mathematical statements and hypotheses in PDF",
+          "title": "Continuity and monotonicity of weighted perimeters of convex bodies",
+          "trigger": "Potential broader result about radial weighted perimeters"
+        },
+        {
+          "assessment": "Investigates global over all convex sets, not translation of a prescribed orthotope",
+          "evidence": "Definition 1 Gaussian surface area, global Γ(n)=sup over convex K",
+          "identifier_or_url": "https://arxiv.org/abs/2508.20079",
+          "material_read": "Primary PDF first-page Gaussian perimeter definition, introduction, maximal-over-convex-set optimization",
+          "method": "Read abstract, introduction and function definition from full PDF",
+          "title": "On the Maximal Gaussian Perimeter of Convex Sets, Revisited",
+          "trigger": "Same perimeter functional and possible extremal theorem"
+        },
+        {
+          "assessment": "Different constrained Gaussian isoperimetry with barycenter term; no whole-paper noncoverage claimed",
+          "evidence": "Mass-constrained isoperimetry vs fixed-box translation orbit",
+          "identifier_or_url": "https://arxiv.org/abs/1805.03161",
+          "material_read": "Abstract and bibliographic context",
+          "method": "Read accessible abstract-level description only",
+          "title": "Symmetry of minimizers of a Gaussian isoperimetric problem",
+          "trigger": "Gaussian symmetry breaking might be the same phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact all-dimensional translation phase diagram for a standard Gaussian geometric functional on a natural rigid family. It identifies when central symmetry of shape fails to produce centered perimeter maximizers, gives a sharp transverse-width threshold, uniqueness, square-root bifurcation and quartic critical flatness. Unlike broad order-of-magnitude maxima over arbitrary convex sets, this is a precise, motivated extremal classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed orthotope translated only along one coordinate, d>=2; no simultaneous translations, rotations, general convex bodies or arbitrary radial densities.",
+    "Unindexed one-variable Gaussian tail extremum classifications may contain an older equivalent."
+  ],
+  "schema_version": 1
+}
