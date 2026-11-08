@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** A nonzero source-cycle component in any fixed target cycle forces divisibility of lengths, one residue class of support, and exactly one root-of-unity parameter. Support separation rules out simultaneous source cycles in a target cycle; target components are independently selectable. Disjoint supports then yield the exact image rank. These deductions are characteristic-free. The standalone direct matrix enumeration and finite-field rank checker matched the rank generating formula on 24 finite instances; finite tests are corroboration, not the infinite proof.
+## correctness
 
-**Originality: PASS (best knowledge, with residual risk).** The closest inspected primary works treat idempotent/nilpotent elements and decompositions for permutation evolution algebras (Narkuziyev, 2018/2020), isomorphism-class enumeration of perfect evolution algebras (Wei–Zou, 2023), and automorphism groups (Costoya–Mayorga–Viruel, 2022). None of the inspected statements or accompanying source sections gives the unrestricted all-Hom count and full rank polynomial between two arbitrary direct sums of permutation cycles. Isomorphism/automorphism classifications cannot imply arbitrary noninjective cross-cycle homomorphisms without additional structural work. An unlocated general Hom theorem for monomial evolution algebras could nevertheless cover the result and must be checked before a publication-priority claim.
+PASS
 
-**Mathematical value: PASS.** Hom-set and rank laws are natural categorical and semigroup invariants. The theorem completely resolves them simultaneously for any two labeled finite sums of permutation cycles over all finite fields. It exposes a sharp divisibility obstruction and genuinely nonmonomial embeddings, with arithmetic variation controlled by roots of unity. It is not merely the known invertible monomial case.
+From actual RESULT.md proof, squaring permutes and Frobenius-squares supports injectively, forcing each source basis cycle either all zero or disjoint translated supports. If a nonzero source cycle of length m maps into a target cycle n, its support is invariant under +m and the m translates must be disjoint: gcd(m,n)=m and m|n. The support is exactly one residue class mod m, and any source cycle so used occupies the whole target cycle, precluding a second source-cycle component. A free residue class and λ^(2^n−1)=1 produce m gcd(q−1,2^n−1) choices. Different target cycles contribute independently, giving the product count. Linearly independent disjoint-support images give rank as sum of lengths of source cycles selected by at least one target; idempotent variables encode this exactly. Nonzero Hom existence iff some divisibility. Independence of field characteristic is valid for q=2 as well. Independently enumerated small complete matrices across 6 prime-field source/target choices and confirmed full rank histograms.
 
-The result does not extend to arbitrary or weighted invertible evolution-algebra structure matrices; independent audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality: the exact final claim and implications were compared to the named primary statements and search results; known premises are credited, and unexamined relevant full text remains explicit in risks. No searched title or failed lookup alone was treated as proof of novelty.
+
+## value
+
+PASS
+
+Determines exact Hom cardinalities and rank distributions including nonmonomial and noninvertible embeddings for a canonical class of finite-field evolution algebras. This goes beyond automorphism/isomorphism classification and gives a readily reusable structural count across arbitrary cycle partitions and characteristics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

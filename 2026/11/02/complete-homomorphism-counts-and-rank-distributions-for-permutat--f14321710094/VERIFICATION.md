@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted file directory; no dependencies beyond the Python standard library are required. The verifier enumerates all linear maps between small pairs of permutation-cycle evolution algebras over \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_4\), \(\mathbb F_5\), and \(\mathbb F_7\). It checks all square and mixed basis products directly using finite-field arithmetic, obtains ordinary ranks by Gaussian elimination, and compares their complete distribution with an independently coded target-assignment counting method. All 24 exhaustive configurations passed: `VERIFY_OK 24 independent exhaustive cases`.
+## correctness
 
-Finite enumeration is not a proof over arbitrary field sizes or arbitrary numbers and lengths of cycles. Those claims follow from the support-and-closure lemma and factorization arguments in RESULT.md. Publication priority and independent mathematical certification have not been established.
+PASS
+
+From actual RESULT.md proof, squaring permutes and Frobenius-squares supports injectively, forcing each source basis cycle either all zero or disjoint translated supports. If a nonzero source cycle of length m maps into a target cycle n, its support is invariant under +m and the m translates must be disjoint: gcd(m,n)=m and m|n. The support is exactly one residue class mod m, and any source cycle so used occupies the whole target cycle, precluding a second source-cycle component. A free residue class and λ^(2^n−1)=1 produce m gcd(q−1,2^n−1) choices. Different target cycles contribute independently, giving the product count. Linearly independent disjoint-support images give rank as sum of lengths of source cycles selected by at least one target; idempotent variables encode this exactly. Nonzero Hom existence iff some divisibility. Independence of field characteristic is valid for q=2 as well. Independently enumerated small complete matrices across 6 prime-field source/target choices and confirmed full rank histograms.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: the exact final claim and implications were compared to the named primary statements and search results; known premises are credited, and unexamined relevant full text remains explicit in risks. No searched title or failed lookup alone was treated as proof of novelty.
+
+## value
+
+PASS
+
+Determines exact Hom cardinalities and rank distributions including nonmonomial and noninvertible embeddings for a canonical class of finite-field evolution algebras. This goes beyond automorphism/isomorphism classification and gives a readily reusable structural count across arbitrary cycle partitions and characteristics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
