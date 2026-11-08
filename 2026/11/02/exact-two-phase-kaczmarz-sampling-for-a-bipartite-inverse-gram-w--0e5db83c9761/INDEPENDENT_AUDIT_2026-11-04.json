@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:52:31.053909Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For square invertible unit-row A, gamma(pi)=lambda_min(A^T diag(pi) A) and positive gamma equivalent to diagonal majorant diag(d)>=C=(AA^T)^(-1) under congruence. Dual PSD correlation matrices with all diagonals1 have maximum tr C+2[wq(p-2+2z)-v(2z^2-1)], z=min(1,wq/(2v)), by triangle inequality and strict concavity. Explicit diagonal entries are d_s=d_t=C_ii+wq z-v(2z²-1), d_otherU=C_ii+wq, d_V=C_ii+w(p-2+2z); the quadratic forms in the proof decompose into SOS for v<=wq/2 and v>=wq/2, respectively, and satisfy SX=0, giving primal/dual equality and optimality. For any other optimal diagonal majorant D', complementarity S'X=0 and X_ii=1 force every d_i unique. Independently constructed sample positive definite C, exact certificate complementarity and minimum eigenvalues across 4 contrasting p,q,v settings; checked sharp gamma=1/T, including boundary. The theorem concerns feasible normalized-row systems, not every arbitrary C diagonal.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Kaczmarz framework offers SDP or convergence bound; signed graph Laplacian effective-resistance bound explains subcritical PSD threshold; Agaskar paper studies exact MSE/sampling but different multistep objective."
+        ],
+        "reasoning": "A general SDP characterization can imply equality of optimal value abstractly, not a given closed form by simple parameter substitution; a specialized stronger theorem in inaccessible material remains possible.",
+        "searches": [
+          "Gower Richtarik Randomized Iterative Methods for Linear Systems Sec 5",
+          "Agaskar Wang Lu 2014 Exact MSE analysis and optimal sampling probabilities",
+          "Zelazo Burger On the Definiteness of the Weighted Laplacian"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1506.03296",
+        "https://arxiv.org/abs/1408.2187",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The low-ratio Laplacian PSD threshold v<=wq/2 follows from effective resistance, but not the high-ratio optimal value T or all entries d_i; inverse-positive theorem assumes no negative C_st."
+        ],
+        "reasoning": "The present conclusion is stronger in explicit attainable solution and uniqueness for signed C, while explicitly crediting primal SDP and effective-resistance foundations.",
+        "searches": [
+          "Gower Richtarik arXiv:1506.03296",
+          "Zelazo Burger arXiv:1408.2187 Theorem III.3",
+          "Resultary inverse-positive optimal coordinate sampling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general optimization equivalence to a diagonal-majorant SDP is standard; sign-balanced and inverse-positive coordinate-sampling results do not cover this signed inverse-Gram pair without additional analysis."
+        ],
+        "reasoning": "Equivalent semidefinite programming formulations explain why there is a primal-dual certificate but not the explicit two-regime solution, especially the rank-two high-v case.",
+        "searches": [
+          "Resultary: randomized Kaczmarz optimal sampling diagonal majorant inverse Gram signed complete bipartite negative edge rank two",
+          "Gower Richtarik randomized iterative methods arXiv:1506.03296",
+          "Zelazo Burger signed Laplacian arXiv:1408.2187"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned all-nonnegative inverse-positive SPD coordinate sampling, a different sign class; no two-parameter signed bipartite optimal probability table in inspected sources."
+        ],
+        "reasoning": "Finite tables cannot prove the all-p,q formula; none examined duplicates its sharp transition.",
+        "searches": [
+          "Resultary: randomized Kaczmarz optimal sampling diagonal majorant inverse Gram signed complete bipartite negative edge rank two",
+          "rank two optimal Kaczmarz signed inverse Gram p q",
+          "Strohmer Vershynin 2007 random Kaczmarz"
+        ]
+      },
+      "rationale": "The general Kaczmarz sampling SDP is prior work; signed-Laplacian effective resistance supplies an underlying critical positivity threshold. Neither inspected statement computes this all-size supercritical rank-two-optimal sampling vector and unique optimum for one negative within-part inverse-Gram pair. Closely relevant broad Gower–Richtárik full text unavailable (Oxford VPN disconnected); best-of-knowledge PASS with explicit priority risk rather than whole-document dismissal.",
+      "residual_risks": [
+        "Full general Kaczmarz SDP paper not accessible; VPN disconnected. It might contain a specialized calculation not visible in abstract/theorem index.",
+        "Finite PSD eigenvalue tests are numerical; global optimality rests on exact sum-of-squares/complementarity for all feasible normalized matrices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIORITY_RISK_UNINSPECTED_FULL_TEXT",
+          "evidence": "General eigenvalue SDP is known, possible specialized formula in full material cannot be ruled out, no whole-paper NOT_COVERING judgment.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+          "material_read": "Public preprint abstract and indexed Section 5 description; arXiv HTML/PDF and other lawful OA full text unavailable; authorized Oxford attempt returned vpn_disconnected, job 673471524da286225823878016290fb5",
+          "method": "arXiv/OA source attempts followed by authorized Oxford access (blocked); no complete-paper reading",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Direct general SDP optimal randomized Kaczmarz sampling, potentially stronger corollary"
+        },
+        {
+          "assessment": "PARTIAL_SUBCRITICAL_COVERAGE",
+          "evidence": "Effective-resistance PSD condition explains v<=wq/2 for graph K_{p,q} negative s,t edge, but not supercritical optimum over diagonal majorants.",
+          "identifier_or_url": "https://arxiv.org/abs/1408.2187",
+          "material_read": "Primary bibliographic theorem statement and effective-resistance condition, not complete paper text",
+          "method": "Accessible public abstract/theorem-index inspection",
+          "title": "On the Definiteness of the Weighted Laplacian and its Connection to Effective Resistance",
+          "trigger": "Signed Laplacian rank transition could subsume this critical v threshold"
+        },
+        {
+          "assessment": "DIFFERENT_SIGN_DOMAIN",
+          "evidence": "All-nonnegative inverse hypothesis is violated by negative st off-diagonal, hence no direct implication of rank-two signed result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+          "material_read": "Published Resultary title, summary and hypotheses, not proof source",
+          "method": "Semantic published-record search",
+          "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+          "trigger": "Published same optimization type with inverse positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A closed, unique global sampling law and nontrivial rank-one/rank-two phase transition v/w=q/2 (independent of p) for a natural antagonistically coupled inverse-Gram family are useful exact optimal design facts not numerically solved by citing a generic SDP.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1506.03296",
+    "https://arxiv.org/abs/1408.2187",
+    "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+  ],
+  "disposition": "passed",
+  "limitations": "Only one-step fixed independent single-row projection on square invertible real unit-row systems; diagonal C must correspond to an actual normalized A.",
+  "residual_risks": [
+    "Full general Kaczmarz SDP paper not accessible; VPN disconnected. It might contain a specialized calculation not visible in abstract/theorem index.",
+    "Finite PSD eigenvalue tests are numerical; global optimality rests on exact sum-of-squares/complementarity for all feasible normalized matrices."
+  ],
+  "schema_version": 1
+}
