@@ -1,0 +1,11 @@
+# Review of stable-range cohomology and Brauer vanishing
+
+**Correctness — PASS.** Integral Lefschetz identifies primitive hyperplane generators of the complete intersection in all degrees below its complex dimension. The free-involution Cartan–Leray second page is concentrated in even total degrees there; the multiplicative extension is resolved explicitly by the descended hyperplane bundle and the character bundle of the cover. Holomorphic Lefschetz identifies that character bundle with the canonical bundle. Exponential-sequence arguments yield the Picard and Brauer conclusions. The finite table verifier checked its own second-page enumeration, and the general proof does not depend on finite tests.
+
+**Originality — PASS, with a standard-machinery risk.** The motivating 2026 paper computes rational Betti and Hodge invariants, but not the complete integral low-degree ring. The 2024 construction introduces the quotient family without this ring. The 2026 Frassineti–Rizzo–Tufo–Verni article computes Brauer groups for hyper-Kähler-covered examples and develops Cartan–Leray machinery, but does not present the integral stable-range ring for these Calabi–Yau-covered complete intersections. The general spectral sequence is classical; an unlocated prior application could imply the exact answer, so historical priority is qualified rather than certified.
+
+**Value — PASS.** The family was recently compared with other Enriques-manifold constructions via its second Betti number, which discards torsion. The exact ring records a growing sequence of naturally defined order-two cohomology classes, including nonvanishing powers of the canonical Chern class, and determines the zero Brauer group despite the nonzero canonical torsion. These invariants have intrinsic meaning in topology, line-bundle theory, and Brauer theory, and the range is the canonical Lefschetz range rather than an arbitrary numerical slice.
+
+**Closest literature and boundaries.** See Billi–Palomino–Sarti (arXiv:2610.21752), Boissière–Camere–Sarti (arXiv:2409.09160), and Frassineti–Rizzo–Tufo–Verni (arXiv:2605.05450). This result does not compute the middle or upper integral cohomology, and has not received independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
