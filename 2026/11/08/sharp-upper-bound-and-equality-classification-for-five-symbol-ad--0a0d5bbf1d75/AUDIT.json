@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The total output weight is exactly q²(q+2)/3; every source deletion set has weight≥1 by the complete palindromic/no-palindrome dichotomy. Disjoint code shadows thus give the upper bound. Equality requires single-output period-two parents for every palindromic triple and three-output words xbybz for other triples; these are exactly q independent directed triple systems. The known DTS existence theorem establishes the claimed infinite equality range. The packaged standard-library checker verifies explicit perfect partitions for q=3,4,6,7,9 and the local weight inequality for all q≤6; none is substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ye–Ge 2026 deals with k-substring edits and asymptotic redundancy for fixed q,t, not exact size or extremizers for n=5.",
+        "Schoeny et al. 2016 restrict to binary and principally n divisible by b.",
+        "Chee–Li–Zhang (2015) obtains spectrum inclusions and minimum for even alphabets; no universal upper for (5,2) is stated."
+      ],
+      "reasoning": "General models that include the channel only supply weaker or different asymptotic bounds; no inspected stronger code-size theorem specializes to equality with this classification.",
+      "searches": [
+        "qary burst deletion correcting codes length 5 perfect design",
+        "2026 rank-two finite alphabet linear coding exact distortion Hamming equivalent"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.05696",
+      "https://arxiv.org/abs/1907.11186",
+      "https://arxiv.org/html/1602.06820v2",
+      "https://doi.org/10.1109/ISIT.2015.7282792"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DTS existence (arXiv:1907.11186) supplies only combinatorial systems, with no upper bound on coding.",
+        "General burst code redundancy in arXiv:2610.05696 does not fix an exact n=5 optimum.",
+        "The shadow and its equality conditions use specific length-five identities not provided by the cited papers.",
+        "Chee–Li–Zhang (ISIT 2015), Section III-B: already lifts perfect (3,1) deletion codes to perfect (5,2) burst codes of size q|D|, with spectrum inclusion rather than maximality theorem."
+      ],
+      "reasoning": "The 2015 paper covers the code construction and codeword count as a lower bound; these are not claimed as novel. Its proven spectrum inclusion is not an upper bound on all codes and does not force all equality codes to have one of these forms. The new weighted shadow and its equality implications establish the missing global optimality and exhaustive classification.",
+      "searches": [
+        "\"perfect\" \"burst deletion\" \"transitive triple\"",
+        "\"directed triple systems\" \"burst-deletion\" codes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact-five-symbol burst output is {cde, ade, abe, abc}; directed triangle correspondence is constructed and proved rather than quoted.",
+        "Kreher–Stinson–Veitch 2019, Introduction and Corollary 2.2, concerns the design only.",
+        "Chee–Li–Zhang 2015, Section III-B: the design-lifted construction is an equivalent existing formulation of the matching example, but not of the global upper bound/equality classification."
+      ],
+      "reasoning": "Considered perfect exact-two-burst codes, directed-arc packings, nonconstant deletion-ball sizes, and transitive triple decompositions; the inspected sources do not identify a coding equivalence.",
+      "searches": [
+        "directed triple systems perfect five-symbol codes correcting one burst of exactly two adjacent deletions q squared q plus two over three",
+        "transitive triple decomposition code length five burst deletion perfect q alphabet",
+        "qary single burst deletion length five q^2(q+2)/3 sharp upper bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Finite code sizes for q=3,4,6,7,9 are checked independently from constructed DTS certificates.",
+        "No inspected relevant source gives an exact complete table for the same length/channel/alphabet family."
+      ],
+      "reasoning": "A finite instance is not counted as novel independently of the infinite theorem. The comparison includes equivalent burst deletion and perfect packing terminology.",
+      "searches": [
+        "five symbol burst two deletion codes maximum size alphabet size three four five",
+        "\"length 5\" \"2-burst\" \"deletion\" code q-ary"
+      ]
+    },
+    "rationale": "Chee–Li–Zhang (2015) already give the matching length-five burst code construction and achievable size, and it is explicitly credited. The new claims are universal sharpness against every length-five burst code and classification/count of all equality codes. Their Section III-B proves an inclusion in the spectrum of perfect code sizes, not global maximality or equality rigidity. The positive-weight upper bound and forced-DTS classification are proved independently here; no inspected prior theorem implies those upgrades. Unindexed historical priority remains a risk.",
+    "residual_risks": [
+      "Unindexed literature might have previously connected directed triple systems to exact length-five adjacent-burst deletion correction.",
+      "The 2016 paper is binary and the 2026 paper asymptotic, but a different design-theoretic coding reference could state the same equivalence.",
+      "No independent external priority or correctness audit was performed.",
+      "A separate historical source on perfect burst deletion codes may already prove the global maximum or classify every extremizer; available 2015 PDF parsed text explicitly covers the construction, not these further conclusions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General asymptotically near-optimal redundancy, not the exact length-five packing bound or classification.",
+        "evidence": [
+          "Sections I-A/I-B and II on burst models and asymptotic constructions, arXiv:2610.05696"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.05696",
+        "material_read": "Accessible full-text HTML (1381 lines total): inspected abstract, introduction, related-channel survey, main construction statements, relevant definitions, and text searches for exact length-five parameters and design equivalents; not every page/line was read.",
+        "method": "Read full-text HTML and search for candidate parameter and design terminology.",
+        "title": "Substring Edit Correcting Codes and Optimal Single Burst-Deletion Correcting Codes",
+        "trigger": "Recent full-alphabet burst-deletion results share the channel type."
+      },
+      {
+        "assessment": "Establishes the design existence premise, but gives no deletion-output shadow, code optimality or classification.",
+        "evidence": [
+          "Definitions in Introduction; Corollary 2.2 and proof, arXiv:1907.11186"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1907.11186",
+        "material_read": "Full HTML introduction and Section 2.1 including definition, examples, PBD closure and Corollary 2.2.",
+        "method": "Direct primary full-text inspection of definition and existence proof.",
+        "title": "Block-avoiding point sequencings of directed triple systems",
+        "trigger": "A directed triple system is the necessary combinatorial construction ingredient."
+      },
+      {
+        "assessment": "Analyzes binary burst deletion codes and principally lengths divisible by burst size; its construction and upper bound do not state the arbitrary-alphabet length-five exact result.",
+        "evidence": [
+          "Section II-A restricts to binary and assumes b divides n; Section IV Theorem 4 bounds binary code size via a different fractional transversal."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1602.06820v2",
+        "material_read": "Accessible full-text HTML (864 lines total): inspected abstract, Introduction, Section II-A definitions and model restrictions, and Section IV nonasymptotic binary fractional-transversal bound (including Theorem 4); not every page/line was read.",
+        "method": "Primary full-text inspection, with emphasis on field restriction and length assumptions.",
+        "title": "Codes Correcting a Burst of Deletions or Insertions",
+        "trigger": "Earlier burst deletion code bounds could cover this case."
+      },
+      {
+        "assessment": "DEFINITIVELY COVERS the proposed matching construction and size as an attainable lower bound; does not state/prove upper bound for all length-five codes or characterize every optimizer. New statement restricted to universal sharp upper and complete equality classification.",
+        "evidence": [
+          "Theorem summary and Section III-B lines on SpecB(q,5,2) ⊇ q Spec(q,3,1) and x=(a,d,b,d,c) mapping, Chee–Li–Zhang 2015."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ISIT.2015.7282792",
+        "material_read": "Parsed accessible full conference manuscript, specifically first page summary and Section III-B on SpecB(q,5,2), its exact code lift, and size-spectrum inclusion. PDF image screenshot was unavailable (403), but the relevant parsed text was inspected.",
+        "method": "Primary text comparison of the source deletion-ball mapping and the precise inclusion/equality strength.",
+        "title": "Spectrum of sizes for perfect burst deletion-correcting codes",
+        "trigger": "Directly matching prior research on perfect length-five adjacent-burst deletion codes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0a0d5bbf-1d75-45f6-bc31-074d066f8eae",
+  "value": {
+    "rationale": "The substantial new contribution is to make a known infinite-family construction provably *globally* maximal in the original code space and to classify all codes meeting the sharp bound; a positive fractional packing certificate and equality analysis force independent DTS structure, producing a precise extremizer count. The construction itself is prior work and not valued as new.",
+    "status": "PASS"
+  }
+}
