@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite and limiting probability spaces are explicitly defined. The critical input is the multivariate marked-isolate law for two independent thinnings of the same base graph, derived by finite-vertex factorial moments and the shared-edge error bound. Joint connectivity follows because, for each marginal Erdős–Rényi graph at its connectivity window, disconnectedness without isolated vertices is negligible; the component union bound is reproduced in RESULT.md. A second-moment identity then proves conditional profile concentration, and an isolate-variance/Chebyshev bound controls the whole reliability integral in \(L^2\). All normalization factors and the exponential-integral constant are traced through an explicit substitution. The exact checker passed 226 assertions; those checks support, but do not replace, the infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+At fixed x and p_n=(log n+x)/n, the original isolates are asymptotically Poisson(lambda=e^-x). For two independently thinned replicas at retention 1-s/log n and 1-t/log n, mixed factorial moments of vertices isolated in both/one-only give independent Poisson mark intensities lambda, lambda(e^s-1), lambda(e^t-1); the common-mark probability tends to the original-isolate probability. The connectivity-without-isolates union bound controls non-isolate disconnections. The joint connectivity limit exp[-lambda(e^s+e^t-1)] gives E(F_n(s)^2) and, after subtracting Z_n*h_x(s), pointwise L2 concentration. Monotonicity and a finite mesh yield uniform compact profile convergence. The annealed isolate variance yields E F_n(s) <= O_x(e^-s+log n/n) uniformly up to s=log n; integrating F_n(s)F_n(t)<=F_n(max{s,t}) controls the squared full tail, proving E|log(n)A(G_n)-C_x Z_n|^2 ->0. This yields a Bernoulli two-atom limit with mean E1(lambda) and variance C_x^2 e^-lambda(1-e^-lambda). Independent rational graph enumeration checked two-retention expectation identities at n=3,4 (27/400, 822771/16000000 for the chosen rational probabilities). Numerical and finite checks are not a proof of the limit.
 
-The motivating 2024 paper poses the Erdős–Rényi average reliability question, and its general edge-deletion identity alone does not imply the two-replica quenched law. The classical connectivity theorem gives the annealed mean asymptotic by integrating a marginal connectivity probability; this simpler consequence is explicitly treated as prior implied material. The distinctive claim is the conditional profile and \(L^2\) asymptotic two-atom law. No covering statement was identified in the inspected primary text or the recorded mathematical-database comparisons. Broader joint-isolate process results and the restricted-access 2014 full text remain historical-priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The result answers a precise scaling-window version of an explicitly motivated 2024 network reliability problem. It distinguishes average behavior across random networks from reproducible reliability conditional on the connectivity state, providing the full asymptotic shape, exact mass at zero, conditional nonzero constant, and limiting variance. These are substantial network-robustness facts not obtained merely by changing notation or applying a fixed-graph formula.
+Brown–Cox–Ehrenborg define mean graph reliability; Brown–Kolokolnikov–Kooij 2024 study its approximations and ask ER average reliability. The annealed first moment is classical connectivity plus integration and is not novel. Inspected work does not state the random quenched two-replica L2 law or nonzero two-atom asymptotic variance. Best-of-knowledge PASS, not historical-priority certification.
 
-## Scientific limitations
+## value
 
-Only fixed-offset critical \(G(n,p)\), independent bond retention and first-order asymptotic laws are covered. No explicit rates, general degree distributions or independent validation are provided. The first-moment limit is not independently novel; the conditional quenched limit is the asserted contribution. The early fixed-graph literature was only partially accessible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The probability that a critical random network is connected stays bounded between zero and one, so fixed-network reliability has a natural persistent random component. Establishing a quenched L2 profile and non-self-averaging two-atom area limit resolves a genuinely probabilistic refinement of average all-terminal reliability, beyond its easy annealed connectivity integral. The precise limiting conditional constant and variance are natural network-reliability statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T05:47:32.348165Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed x and p_n=(log n+x)/n, the original isolates are asymptotically Poisson(lambda=e^-x). For two independently thinned replicas at retention 1-s/log n and 1-t/log n, mixed factorial moments of vertices isolated in both/one-only give independent Poisson mark intensities lambda, lambda(e^s-1), lambda(e^t-1); the common-mark probability tends to the original-isolate probability. The connectivity-without-isolates union bound controls non-isolate disconnections. The joint connectivity limit exp[-lambda(e^s+e^t-1)] gives E(F_n(s)^2) and, after subtracting Z_n*h_x(s), pointwise L2 concentration. Monotonicity and a finite mesh yield uniform compact profile convergence. The annealed isolate variance yields E F_n(s) <= O_x(e^-s+log n/n) uniformly up to s=log n; integrating F_n(s)F_n(t)<=F_n(max{s,t}) controls the squared full tail, proving E|log(n)A(G_n)-C_x Z_n|^2 ->0. This yields a Bernoulli two-atom limit with mean E1(lambda) and variance C_x^2 e^-lambda(1-e^-lambda). Independent rational graph enumeration checked two-retention expectation identities at n=3,4 (27/400, 822771/16000000 for the chosen rational probabilities). Numerical and finite checks are not a proof of the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 article has integral representations, fixed-network approximations and an Erdős–Rényi average-reliability question; the classical isolated-vertex Poisson law gives the mean."
+        ],
+        "reasoning": "A broader random-graph connectivity theorem covers marginal connectivity probabilities and, with marking arguments, some ingredients; no inspected stronger theorem was found to imply the conditional reliability profile L2 theorem by itself.",
+        "searches": [
+          "Brown Kolokolnikov Kooij 2024 New approximations for network reliability Sections 2–3,6",
+          "Brown Cox Ehrenborg 2014 The average reliability of a graph"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1002/net.22215",
+        "https://doi.org/10.1016/j.dam.2014.05.048"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For one thinning, P(G(n,pt) connected) has the usual exp[-lambda e^s] limit; for two replicas the shared-base-edge covariance survives through common isolated vertices."
+        ],
+        "reasoning": "Neither old single-thinning connectivity nor a deterministic-network approximation implies the joint probability exp[-lambda(e^s+e^t-1)] needed for conditional L2 convergence; the first annealed-moment formula is explicitly credited to prior theory.",
+        "searches": [
+          "Brown Kolokolnikov Kooij 2024 Open Question 2 Erdős–Rényi average reliability",
+          "ER connectivity window Poisson isolated vertices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All-terminal reliability is an edge-thinning connectivity probability; its annealed first moment is the integrated connectivity probability of G(n,p t)."
+        ],
+        "reasoning": "Equivalent formulations via graph-thinning, graph connectivity windows and fixed-graph reliability were compared. Mean annealed convergence alone cannot recover quenched L2 concentration or a two-atom area distribution.",
+        "searches": [
+          "Resultary semantic query: Erdos Renyi connectivity critical window average reliability quenched two replica isolate all-terminal",
+          "web: critical Erdős–Rényi quenched all-terminal reliability two-replica random graph no isolates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest published hits concern bunkbed percolation, connectivity-triangle covariance and other observables, not this conditional quenched average-reliability distribution."
+        ],
+        "reasoning": "An exact table of fixed small-graph reliability is not an asymptotic quenched distribution. No matching large-n two-replica table was identified; absence does not prove priority.",
+        "searches": [
+          "Resultary semantic query: Erdos Renyi connectivity critical window average reliability quenched two replica isolate all-terminal",
+          "web: critical random network average reliability probability mixture variance"
+        ]
+      },
+      "rationale": "Brown–Cox–Ehrenborg define mean graph reliability; Brown–Kolokolnikov–Kooij 2024 study its approximations and ask ER average reliability. The annealed first moment is classical connectivity plus integration and is not novel. Inspected work does not state the random quenched two-replica L2 law or nonzero two-atom asymptotic variance. Best-of-knowledge PASS, not historical-priority certification.",
+      "residual_risks": [
+        "Potential old random-graph reliability or marked-Poisson point-process theorem could imply more than the inspected papers; no proof of exhaustive historical novelty.",
+        "Fixed x only; no uniform rates, other sparsity regimes, or dependent failures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR",
+          "evidence": "Includes integral and approximation formulation; no matching two-replica quenched L2 theorem in inspected sections.",
+          "identifier_or_url": "https://doi.org/10.1002/net.22215",
+          "material_read": "Open full primary HTML, Sections 2–3 for network reliability identities and Section 6 Open Question 2; checked scope of statements",
+          "method": "primary full HTML and section-level reading",
+          "title": "New approximations for network reliability",
+          "trigger": "Same all-terminal average reliability invariant and stated Erdős–Rényi open question"
+        },
+        {
+          "assessment": "PARTIAL_PRIOR_ACCESS_LIMIT",
+          "evidence": "Establishes prior definition and fixed-graph study, not evidence of whole-document noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.05.048",
+          "material_read": "Bibliographic record and abstract; no full-text examination",
+          "method": "abstract-level published record",
+          "title": "The average reliability of a graph",
+          "trigger": "Definition and bounds of the exact graph-average invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The probability that a critical random network is connected stays bounded between zero and one, so fixed-network reliability has a natural persistent random component. Establishing a quenched L2 profile and non-self-averaging two-atom area limit resolves a genuinely probabilistic refinement of average all-terminal reliability, beyond its easy annealed connectivity integral. The precise limiting conditional constant and variance are natural network-reliability statistics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No uniform rate in x; only the fixed connectivity window and asymptotic L2 law.",
+    "Some early fixed-graph reliability paper full text not inspected; possible earlier quenched results under another title."
+  ],
+  "schema_version": 1
+}
