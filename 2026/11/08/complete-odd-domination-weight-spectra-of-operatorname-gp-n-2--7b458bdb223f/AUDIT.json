@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "Exact graph definition and closed-neighborhood GF2 equations. Eliminating inner variables gives period-five first differences, hence period-ten outer sequence. Cyclic boundary forces four parameter cases; the thirty-two five-bit motifs have rigorously exhausted weights 3,5,7 with multiplicities 10,12,10, and the additional thirty-two twisted ten-bit configurations all have half the vertices. Direct GF2 Gauss-Jordan for all 5<=n<=60 and independent ten-periodic-pattern enumeration for all 5<=n<=100, each with original-equation checks, reproduce all cardinality histograms. Finite computation is supplementary to the algebraic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Caro and Klostermeyer (2003), JCMCC 44 pp.65–83, provides explicit results for complements of cycle powers and grids plus general bounds.",
+        "Wang and Zhang (2026), arXiv:2603.20722, Theorems 1.1–1.2 classify exactly-one closed/open neighborhood codes on GP(n,k); for k=2 their perfect-code criterion is false.",
+        "Hatzl and Wagner (2007) provide algorithms for bounded-treewidth parity constraint instances, without a universal closed form for this family.",
+        "Torrence and Torrence (2016), DOI 10.2140/involve.2016.9.721, Table 1 lists nullities of the homogeneous Lights Out transition matrix for finite Petersen examples; general counts 2^nullity of strategies per solvable game do not encode weights of those strategies."
+      ],
+      "reasoning": "General existence and generic elimination algorithms do not supply the order-by-order closed-neighborhood solution weight spectrum. Exactly-one perfect codes form a constrained subclass of odd solutions and its classification cannot enumerate the relaxed parity sets; in particular the cited criterion has no GP(n,2) perfect codes. Earlier same-family homogeneous code spectrum is directly related but not stronger coverage of the all-ones coset weight spectrum.",
+      "searches": [
+        "\"Combinatorial properties of a general domination problem with parity constraints\" Hatzl Wagner",
+        "\"The Odd Domination Number of a Graph\" Caro Klostermeyer",
+        "\"Classification of perfect and total perfect codes in generalized Petersen graphs\"",
+        "\"Parameterized Complexity of Odd Domination and its Generalization\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.7151/dmgt.1137",
+      "https://combinatorialpress.com/jcmcc-articles/volume-044/the-odd-domination-number-of-a-graph/",
+      "https://math.sun.ac.za/swagner/genparity.pdf",
+      "https://arxiv.org/html/2603.20722v1",
+      "https://doi.org/10.1080/09728600.2024.2342310",
+      "doi:10.31801/cfsuasmas.1051208",
+      "doi:10.2140/involve.2016.9.721"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Caro et al. 2001 studies complements of powers of cycles, grids, and k-exclusive graphs; a GP(n,2) has two distinct rings plus spokes, so these theorems do not apply to it verbatim.",
+        "A 2024 DOI 10.1080/09728600.2024.2342310 search-exposed Observation 7 gives an induced matching dimension 3n/5 when 5 divides n, measuring a matching of EDGES not a parity solution set of VERTICES; access to the full article was refused (403).",
+        "Wang–Zhang 2026 describes perfect/total-perfect codes and not odd domination; its Theorem 1.1 excludes k even.",
+        "A previous precise GP(n,2)/GP(n,3) homogeneous-kernel weight enumerator supplies the counts and some structural information for ker(I+A), not the specific inhomogeneous equation (I+A)s=1. The present solution-space cardinalities agree with those already implied by nullity; only the affine coset weight spectrum and its exact extrema are claimed new."
+      ],
+      "reasoning": "The numeric 3n/5 coincidence with dominating induced matchings is not an implication: the definitions select different kinds of objects and the old result supplies no bijection or weight enumerator. The abstract and exposed statement alone are not evidence that the full inaccessible source is noncovering; an access-related residual risk remains. All standard general parity theorems would require the present family-specific algebra and weight count to obtain the stated result. Distinguishing a fixed affine coset from its homogeneous difference code is logically essential: rank-nullity establishes the number of strategies given solvability, not their Hamming weights or minimum cardinality.",
+      "searches": [
+        "\"Odd and residue domination numbers of a graph\" full text",
+        "\"Dominating induced matchings and other graph parameters\" GP(n,2) 3n/5",
+        "\"Classification of perfect and total perfect codes in generalized Petersen graphs\" GP(n,2)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Caro, Klostermeyer, Goldwasser (2001), DOI 10.7151/dmgt.1137, establishes parity closed-neighborhood definitions for other graph classes.",
+        "Hatzl and Wagner (2007), https://math.sun.ac.za/swagner/genparity.pdf, formulates general open/closed parity equations but not the GP(n,2) weight enumerator.",
+        "Torrence and Torrence, “An iterative strategy for Lights Out on Petersen graphs” (2016), discusses homogeneous closed-neighborhood kernels and the count of strategies for solvable games, but not the weight distribution of the all-on game."
+      ],
+      "reasoning": "The same condition is alternatively a binary affine code coset (I+A)s=1, a Lights Out all-ones solution, or a closed-neighborhood odd dominating set. Those aliases were searched. Broad linear algebra gives solution-space form but does not imply the concrete period-10 structure or its weight distribution without the present specialization. The previously derived homogeneous kernel ordinary weight enumerator is not the enumerator of a fixed nonzero-syndrome affine coset; distinct cosets of a code generally have different weight distributions.",
+      "searches": [
+        "\"generalized Petersen\" \"odd dominating\" \"GP(n,2)\"",
+        "\"Petersen graph\" \"odd domination number\"",
+        "odd domination polynomial of the generalized Petersen graphs GP(n,2), modulo 5 with 32 or 64 odd dominating sets and minimum weight 3n/5",
+        "\"binary closed neighborhood\" \"GP(n,2)\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches found ordinary domination and other Petersen-graph invariants, but no labelled odd-solution histogram matching the four-case formula.",
+        "The directly computed base cases give 32 solutions at n=5 and 64 at n=10; these counts are not claimed as database evidence.",
+        "The homogeneous GP(n,2) quiet-strategy code has a prior exact weight table. Its entries count vectors in ker(I+A); the present table counts (I+A)^{-1}1, a disjoint affine coset."
+      ],
+      "reasoning": "No exact record or table with the four-case labelled weight spectra was retrieved. Negative searches are not treated as a novelty proof; these comparisons are supplemented by material reading and explicit mathematical non-implication. In particular, no nonzero-syndrome all-on coset weight table was seen in the inspected records; a homogeneous weight table is not a table of affine coset weights.",
+      "searches": [
+        "\"Petersen\" \"odd domination\" weight enumerator",
+        "\"dodecahedral\" \"odd domination\" counts",
+        "\"generalized Petersen\" \"parity domination\" \"closed neighborhood\"",
+        "\"Petersen dodecahedral closed-neighborhood parity code weight enumerator odd dominating sets 10 minimum solutions\""
+      ]
+    },
+    "rationale": "The same-family homogeneous closed-neighborhood kernel and its weight spectrum were obtained in earlier related work, and Torrence–Torrence (2016) gave nullity information. The present exact polynomial is for the inhomogeneous all-ones syndrome coset (odd dominating sets), which is not determined by the ordinary kernel weight enumerator alone. Primary Caro 2001 and 2003 sources, Hatzl–Wagner 2007 and Wang–Zhang 2026 were compared; none states or implies this specific labelled affine coset weight spectrum. Complete all-on minimal-press patterns and weight counts require a separate recurrence/weight analysis. Residual unindexed historical risk and incomplete 2024 induced-matching full-text access are noted.",
+    "residual_risks": [
+      "An indexed or unindexed equivalent formula may exist outside searched literature; no independent priority certification.",
+      "Full 2024 induced-matching study inaccessible; its exposed invariant is distinct, but its complete text cannot be labelled noncovering.",
+      "The earlier 2001 primary is dated by year only, so its exact public calendar day is unknown.",
+      "A prior exact homogeneous GP(n,2) weight spectrum for quiet strategies overlaps the graph/matrix framework and dimension counts. A separate all-on coset distribution is not formally entailed, but its derivation is near related work; mathematical added value is the minimum and all-weights classification for the naturally distinguished all-on game."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines invariant and proves results for complements of cycle powers, grids, residue domination; does not explicitly supply GP(n,2) size spectrum",
+        "evidence": [
+          "Theorems 1–6 and introduction; section 2 concerns complements of powers of cycles, not two-ring spoke graphs."
+        ],
+        "identifier_or_url": "https://www.dmgt.uz.zgora.pl/publish/pdf.php?doi=1137",
+        "material_read": "Publisher PDF extracted text, full 18-page scope and mathematical statements; targeted Petersen search gave no match",
+        "method": "Lawful OA PDF text via web reader; page-image retrieval attempted but failed",
+        "title": "Odd and residue domination numbers of a graph",
+        "trigger": "Earliest foundational odd-domination primary, 2001"
+      },
+      {
+        "assessment": "General bounds, stability and explicit other graph classes; no GP(n,2) enumeration",
+        "evidence": [
+          "Publisher date 2003-02-28; sections on complements of cycle powers, grid graphs, edge deletion, open problems."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-044/the-odd-domination-number-of-a-graph/",
+        "material_read": "All 19 pages (pages 65–83) as publisher PDF screenshots plus publisher publication metadata",
+        "method": "Lawful OA PDF page-image inspection; date read from publisher page",
+        "title": "The Odd Domination Number of a Graph",
+        "trigger": "Canonical 2003 primary on odd domination, fully day-dated public page"
+      },
+      {
+        "assessment": "Counts solvable general parity-constraint instances and studies paths, cycles, complete graphs and trees, not GP(n,2) odd-solution weight spectra",
+        "evidence": [
+          "Equation (1) expresses generalized systems; Propositions 5–6 cover other graphs; search for Petersen returned no match."
+        ],
+        "identifier_or_url": "https://math.sun.ac.za/swagner/genparity.pdf",
+        "material_read": "Full 2007 public preprint as extracted PDF text, including formulations, propositions and special graph examples",
+        "method": "Lawful OA PDF text inspection; preprint dated 2007-03-23",
+        "title": "Combinatorial properties of a general domination problem with parity constraints",
+        "trigger": "Likely dominating generic framework for binary parity conditions"
+      },
+      {
+        "assessment": "Exact-one closed/open neighbor code conditions, not odd-neighborhood cardinality; for step k=2 no perfect codes",
+        "evidence": [
+          "Theorem 1.1 requires odd k and n divisible by 4; Theorem 1.2 classifies open total perfect codes."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.20722v1",
+        "material_read": "Full arXiv HTML text and Theorems 1.1–1.2 with main proof sections",
+        "method": "Lawful open-access HTML, version posted 2026-03-21",
+        "title": "Classification of perfect and total perfect codes in generalized Petersen graphs",
+        "trigger": "Same graph class and potentially stronger domination conclusions"
+      },
+      {
+        "assessment": "Different object (dominating induced matching edges), not evidence of odd-vertex weight enumerator; complete noncoverage cannot be certified without full material",
+        "evidence": [
+          "Search result text: dim(P(n,2))=3n/5 for n divisible by 5; published full text not accessible."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/09728600.2024.2342310",
+        "material_read": "Search-exposed Observation 7 statement only, indicating dominating induced matching invariant; full DOI article inaccessible (403)",
+        "method": "Web scholarly result preview and direct DOI attempt",
+        "title": "Dominating induced matchings and other graph parameters",
+        "trigger": "Numerically identical 3n/5 result on GP(n,2)"
+      },
+      {
+        "assessment": "Establishes general homogeneous nullity and count-of-solutions relations, and finitely tabulates kernel nullities; does not give full all-on affine coset weight enumerator nor the sharp odd-dominating minimizer count",
+        "evidence": [
+          "Lemmas 9–13 concern homogeneous nullity and parity; pp. 729–730, Table 1 gives nullities and comments precise value subtle."
+        ],
+        "identifier_or_url": "https://msp.org/involve/2016/9-5/involve-v9-n5-p01-p.pdf",
+        "material_read": "Entire publisher PDF parsed text; relevant Lemma 9, Corollary 10, Theorem 11, Table 1 and discussion of strategy cosets",
+        "method": "Lawful open-access PDF text; screenshot attempted but viewer returned unavailable",
+        "title": "An iterative strategy for Lights Out on Petersen graphs",
+        "trigger": "Direct same-graph Lights Out study and likely overlap in closed-neighborhood kernel"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7b458bdb-223f-4c46-9de4-a11fec180f88",
+  "value": {
+    "rationale": "The classical all-on Lights Out game asks for a minimum-cardinality solution to (I+A)s=1. For the standard generalized Petersen cubic family, the result identifies a sharp five-divisibility transition, exactly ten optimal strategies when five divides n, and the complete all-on press-count distribution for every n>=5. Even knowledge of the homogeneous quiet-strategy weight enumerator and nullity does not determine this specific affine coset enumerator. The finding provides an exact, natural optimization/strategy benchmark rather than an arbitrary numeric slice.",
+    "status": "PASS"
+  }
+}
