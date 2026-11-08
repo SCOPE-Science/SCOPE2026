@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact conditional recurrence is derived by testing a free element of the interval of order ideals, with the yes/no branches represented by the two ideal-boundary updates. The free set strictly contracts, validating induction. The ideal-count bound controls the dynamic program, while an explicit independent-product subfamily of the two-row grid supplies an online tree of depth \(2k\). The entire class has fewer than \(2^{2k+1}\) hypotheses and at least \(2^{2k}\), giving the matching upper bound. Direct checking reproduces the recurrence on all labeled posets through order four and verifies 30 grid ranks. There is no unproved infinite extension from enumeration.
+
+**Originality — PASS within inspected coverage.** The 2021 zero-set theorem concerns linear-functional zero sets; the 2021 closure theorem concerns Boolean compositions and gives bounds, not exact ranks of order-ideal classes. Poset ideal enumerators do not automatically evaluate Littlestone mistake-tree ranks. A single finite chain-interleaving rank or rooted-tree ideal census does not imply the uniform bounded-width algorithm or the infinite two-row dyadic equality. Searches for 'Ferrers', 'Young diagrams', 'ordered two thresholds', 'monotone staircase', and 'poset ideals' with Littlestone terminology did not identify exact coverage. Absence from search is not conclusive; an unpublished or differently phrased priority remains possible.
+
+**Value — PASS.** The claim provides an algorithmic consequence for an entire parameterized family of finite hypothesis classes rather than a selected numerical rank. The width-bounded dynamic program replaces a priori exponentially many residual subsets by polynomially many order-ideal intervals. The dyadic family gives an exact and unbounded separation between VC and online rank at fixed width, with information-bound saturation and all-parameter proof, furnishing sharp adversarial-learning benchmarks. The generic recursion, threshold binary search, and finite enumerations alone are not claimed as the contribution.
+
+Residual limitations: XP rather than FPT complexity; no exact closed formula for arbitrary two-row lengths; possible prior coverage under different terminology. The available review is not independent.
+
+Self-review: passed. Independent audit: not yet performed.
