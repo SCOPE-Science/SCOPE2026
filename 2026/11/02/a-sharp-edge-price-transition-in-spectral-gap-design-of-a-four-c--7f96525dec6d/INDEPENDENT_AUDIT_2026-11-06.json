@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:00:07.160484Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-edge-price-transition-in-spectral-gap-design-of-a-four-c--7f96525dec6d/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-edge-price-transition-in-spectral-gap-design-of-a-four-c--7f96525dec6d/verify.py",
+        "independent_math_checks.py"
+      ],
+      "rationale": "PASS. Reconstructed the unnormalized Laplacian on 01,12,23,30, unit-priced first three edges and closing price tau>0, nonnegative independent weights and total price B>0. Reflection concavity reduces maximum Fiedler value to weights (a,b,a,c); zero-sum symmetry gives even eigenvalue 2a and the odd 2x2 block [[a+2c,-a],[-a,a+2b]]. At unit gap the PSD constraints a>=1/2, U=a+2b-1>0, V=a+2c-1>0, UV>=a^2, yield cost >=(1+tau+(3-tau+2sqrt(tau))a)/2 by AM-GM. If tau<=9 the minimum at a=1/2 gives gap 4B/(5+tau+2sqrt(tau)), unique among reflection-fixed allocations when tau<9. If tau=9, equality yields the claimed interval 1/2<=a<=3/2, b=a+1/2, c=1/2-a/3 at unit gap. If tau>=9, unrestricted Rayleigh vector (-3/2,-1/2,1/2,3/2) has squared jumps 1,1,1,9 and norm^2 5; hence lambda_2<=B/5 with equality at path weights (3B/10,2B/5,3B/10,0), unique for tau>9. Closing-edge positivity for tau<9 follows strict gap increase above B/5. Independent numpy eigenspectrum and price comparisons checked 9 regimes; numerical tests only corroborate the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh-Boyd general connectivity upper-bound SDP; Fiedler tree work is not four-edge ring design; Goring-Helmberg-Reiss studies different spectral width"
+        ],
+        "reasoning": "General semidefinite formulation and optimal tree connection results neither exhibit a four-cycle exceptional-price formula nor imply the equality transition without a nontrivial extra computation; specialized earlier solutions remain a priority risk.",
+        "searches": [
+          "Resultary: optimal weighted algebraic connectivity four cycle threshold closing edge price 9",
+          "web: Fiedler 1990 absolute algebraic connectivity trees; Goring Helmberg Reiss spectral-width Laplacian"
+        ]
+      },
+      "checked_sources": [
+        "https://stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+        "https://www.tu-chemnitz.de/mathematik/preprint/2011/PREPRINT_04.pdf",
+        "https://doi.org/10.1080/03081089008817967",
+        "Resultary two targeted queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general variational characterization of lambda_2 allows but does not itself compute the C4 exceptional-price optimizer; path-only source cannot establish when a fourth edge is worth paying for"
+        ],
+        "reasoning": "The old SDP and tree optimization supply premises/methods, not the asserted iff phase diagram and critical family; the manuscript proves these independently. A broader hidden theorem would supersede, and is retained as risk.",
+        "searches": [
+          "Ghosh Boyd 2006 full article, eigenvalue bounds and SDP",
+          "Fiedler 1990 absolute algebraic connectivity of trees"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh and Boyd 2006, Sections 2-3: minimum Rayleigh quotient and SDP relaxation; record proof derives explicit unit-gap cost minimizer"
+        ],
+        "reasoning": "Optimizing lambda_2 on a priced ring is equivalent by homogeneity to minimizing cost at a prescribed gap. The earlier SDP formulation represents the optimization but does not in the inspected sections provide its solved parameter-dependent threshold or optimizer face.",
+        "searches": [
+          "Resultary: weighted algebraic connectivity Fiedler value optimal conductances four-cycle ring one expensive edge budget spectral gap critical price boundary",
+          "web: algebraic connectivity weighted C4 shortcut critical conductance price tau 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hits concerned other weighted cycles, geometric weighted shifts, Kuramoto cycles, not the same four-cycle price-constrained Fiedler invariant"
+        ],
+        "reasoning": "This is a continuous all-parameter optimization phase diagram, not a lookup from a finite graph table. No exact table supplying the price boundary was found, which alone is not a novelty proof.",
+        "searches": [
+          "Resultary: weighted algebraic connectivity four cycle optimal edge prices",
+          "web: C4 four-cycle weighted Fiedler eigenvalue optimal exceptional price exact table"
+        ]
+      },
+      "rationale": "Best-of-knowledge, theorem/implication-based comparison of relevant primary literature; a failed search by itself does not prove historical priority. Closest known published results address different parameters/objects or only more general frameworks.",
+      "residual_risks": [
+        "Specialized Fiedler-value optimal conductance literature or a worked four-cycle SDP could already contain equivalent phase boundary; 1990 Fiedler full primary was not available.",
+        "The result does not classify all asymmetric optimizers when tau<=9."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_DIRECTLY_COVERING",
+          "evidence": [
+            "Ghosh-Boyd 2006 considers general upper bounds for algebraic connectivity via SDP, not this explicit C4 priced-threshold solution."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+          "material_read": "Primary 15-page PDF: Introduction, spectral variational bounds, convex SDP setup and representative symmetry examples; other sections not exhaustively reread",
+          "method": "PDF text and direct screenshot of representative pages",
+          "title": "Upper bounds on algebraic connectivity via convex optimization",
+          "trigger": "Same algebraic-connectivity objective and SDP design"
+        },
+        {
+          "assessment": "PRIORITY_RISK_INACCESSIBLE_FULL_TEXT",
+          "evidence": [
+            "Tree-only results may yield path weights but do not directly specify mixed ring-edge price transition from accessible material."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081089008817967",
+          "material_read": "Bibliographic/abstract material only; complete original source not retrieved",
+          "method": "Bibliographic search; no whole-document noncoverage judgment",
+          "title": "Absolute algebraic connectivity of trees",
+          "trigger": "Possible optimal weighted path theorem that could dominate high-price regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+        "https://www.tu-chemnitz.de/mathematik/preprint/2011/PREPRINT_04.pdf",
+        "https://doi.org/10.1080/03081089008817967",
+        "Resultary two targeted queries"
+      ],
+      "rationale": "PASS. Exact one-exceptional-edge C4 conductance allocation is a natural graph-design boundary problem, and the nontrivial edge-retention/deletion price threshold 9 plus critical optimizer face is an independently useful network design fact. It is not merely naming a general semidefinite program or tabulating one arbitrary graph: the sharp all-price transition and unrestricted uniqueness supply a structural threshold.",
+      "residual_risks": [
+        "Specialized Fiedler-value optimal conductance literature or a worked four-cycle SDP could already contain equivalent phase boundary; 1990 Fiedler full primary was not available.",
+        "The result does not classify all asymmetric optimizers when tau<=9."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly four labeled vertices, one exceptional edge price, unnormalized Laplacian; no all-asymmetric equality-face classification for tau<=9."
+  ],
+  "schema_version": 1
+}
