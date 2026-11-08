@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For an achiral perfect word, the start-index reflection is i -> C-i, C=c-k+1, and takes k-factors to reversed k-factors. Exactly q^ceil(k/2) palindromic factor types occur once in each residue modulo n; any fixed residue of the induced reflection lifts uniquely to a fixed position modulo L. Therefore q^ceil(k/2) f_n(C)<=f_L(C)<=2. Odd n implies q=2 and k=1 or 2; their constructions (01)^n and (0011)^n are perfect by gcd(step,n)=1 and achiral. Even n forces C odd because otherwise 2 fixed residues per palindrome would require >=4 fixed starts while the global reflection has only 2. Reversal pairs all remaining classes. The embedded independent finite enumerator tested 92,219 words across 14 parameter triples; these tests are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Álvarez et al. (2016) count rotation classes and show reversal closure; their results do not assign fixed orbit counts.",
+        "Becher–Tropea (2024) construct lexicographically greatest perfect necklaces, not reversal fixed classes.",
+        "Chang–Wang (2024) recapitulate classical pure reversal inequivalence only for de Bruijn multiplicity one, and construct reverse-complement sequences, a different property."
+      ],
+      "reasoning": "A general necklace formula does not imply a half-count for bracelets without proving the reversal-fixed set is empty. The classical n=1 subcase does not imply the claim for all odd n>1. No inspected broader symmetry theorem for generalized perfect necklaces subsumes the claim.",
+      "searches": [
+        "web: \"perfect necklaces\" \"bracelets\" \"achiral\"",
+        "web: \"perfect necklaces\" \"reflection\" combinatorics",
+        "arxiv:1601.07975 full text Definition 1, Proposition 7, Theorem 20",
+        "arxiv:2405.17812 full text introduction and searchable body",
+        "arxiv:2408.01794 full text introduction"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1601.07975; full-text sections relevant to definitions/reversal/counting.",
+      "arxiv:2405.17812; full-text introduction and search for relevant symmetry terms.",
+      "arxiv:2408.01794; full-text introduction, classical reversal vs reverse/complement distinction.",
+      "DOI:10.1017/S0004972713000701; abstract and bibliographic record only.",
+      "Published studies of odd-weight and fixed-content bracelet orbit profiles in other combinatorial contexts (scientifically different objects).",
+      "A published result about symbol-permutation stabilizers of de Bruijn necklaces, distinct from reversal."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Reversal closure is a prerequisite for an action, but it does not determine whether the action has fixed points.",
+        "Etzion–Lempel as described in Chang–Wang (2024) proves pure reversal inequivalence of binary de Bruijn sequences, which means multiplicity n=1 and not all odd n.",
+        "Zelenyuk–Zelenyuk (2013) count symmetric bracelets over arbitrary colors and lengths without constrained residue-balanced windows."
+      ],
+      "reasoning": "The claim is not a renamed no-reversal fact for de Bruijn sequences: it classifies all alphabets and odd multiplicities, supplies all exceptional witnesses, proves an even-multiplicity axis parity obstruction, and derives a free-reversal bracelet count when appropriate. The proof needs the palindromic k-factor residue uniqueness property absent from generic bracelet enumeration.",
+      "searches": [
+        "arxiv:1601.07975 Proposition 7 and Theorem 20",
+        "arxiv:2408.01794 §1 and cited Etzion–Lempel (1984)",
+        "DOI:10.1017/S0004972713000701 abstract and bibliographic record"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1601.07975 Proposition 7 proves reversal preserves perfection but does not characterize the fixed-point set.",
+        "arxiv:2408.01794 §1 explicitly distinguishes pure reversal (inequivalent for binary de Bruijn sequences) from combined reverse/complement (which can fix de Bruijn classes).",
+        "Closest located research claims concern generic bracelet or dihedral orbits, not n-residue-perfect windows."
+      ],
+      "reasoning": "The exact equivalent formulation is whether reversal has fixed orbits on the set of (k,n)-perfect necklaces. It cannot be conflated with symbol-complemented reversal, with ordinary unconstrained bracelets, or with the n=1 de Bruijn subcase. The new theorem gives the exact odd-n fixed-orbit existence criterion and a parity constraint at even n.",
+      "searches": [
+        "reflection symmetric perfect necklaces odd multiplicity palindromic blocks (k,n) no reversible perfect necklaces",
+        "reversible perfect necklace reflection fixed palindromic factors odd n exact bracelet count",
+        "web: \"perfect necklaces\" \"reflection\" \"fixed\" \"odd\"",
+        "web: \"de Bruijn\" \"reversal\" \"palindromes\" \"symmetric\" bracelet",
+        "arxiv:1601.07975 §§2-3; arxiv:2408.01794 §1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The located studies of odd-weight bracelets in set-homogeneous hypergraphs and fixed-content bracelets in model-theoretic quotients concern different spaces and do not impose perfect-necklace window constraints.",
+        "A related study of de Bruijn necklace stabilizers under symbol permutations does not cover reversal-fixed (k,n)-perfect necklaces.",
+        "Generic OEIS results on palindromic necklaces such as A185333 do not impose uniform residue occurrence of all k-factors."
+      ],
+      "reasoning": "Located research claims concern different objects, involutions, or constraints. Searches did not identify an exact published class/count table for the asserted all-odd-multiplicity dichotomy. Absence of a hit is not used as a proof of novelty.",
+      "searches": [
+        "(k,n)-perfect necklace dihedral orbit size reversal odd multiplicity",
+        "de Bruijn necklaces fixed under reversal without complement",
+        "odd multiplicity de Bruijn necklace palindromic symmetry",
+        "web: site:oeis.org \"perfect necklaces\" \"reversal\"",
+        "web: site:oeis.org \"perfect necklaces\" \"bracelets\"",
+        "published necklace and bracelet research title/claim search"
+      ]
+    },
+    "rationale": "The 2016 foundational perfect-necklace full text gives reversal closure and the number of rotation necklaces, but no fixed-point classification. The known pure-reversal inequivalence for de Bruijn sequences only establishes the multiplicity-one binary subcase. The new palindromic-factor residue argument covers every odd multiplicity and alphabet, supplies the exact binary low-order exceptions and an even-multiplicity axis obstruction. Relevant published-finding corpus/own history searches show no covering claim; the residual risks below remain.",
+    "residual_risks": [
+      "Older unindexed work on generalized perfect-necklace reversal fixed points or even-multiplicity astute graph symmetries could contain the odd-multiplicity result.",
+      "Full text of the general symmetric-bracelet paper was not examined; its published abstract states only unconstrained enumeration.",
+      "The known 1984 pure-reversal de Bruijn result was compared through the 2024 authorial exposition rather than a line-by-line reading of the original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines perfection and establishes reversal closure and the necklace count; no fixed-point or achiral existence classification found.",
+        "evidence": [
+          "Definition 1: one occurrence at each residue modulo n for each k-factor.",
+          "Proposition 7: reflection preserves perfection.",
+          "Theorem 20: enumeration of rotation necklaces."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1601.07975",
+        "material_read": "Searchable full text: Definition 1, §2 including Proposition 7, §3 including Theorem 20, and term searches for palindrome, reflection and bracelet.",
+        "method": "Full-text HTML read and within-document searches; legal open-access preprint.",
+        "title": "Perfect Necklaces",
+        "trigger": "Defines the exact objects and previously counts their rotation classes."
+      },
+      {
+        "assessment": "Construction of lexicographically greatest (n,k)-perfect representatives under divisibility conditions, not a reflection-fixed orbit theorem.",
+        "evidence": [
+          "Introduction and abstract characterize lexicographic constructions; searches returned no occurrence of reversal, symmetric or bracelet."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.17812",
+        "material_read": "Full-text introduction, objects and theorem scope; searched full searchable body for reversal, symmetric and bracelet.",
+        "method": "Open-access full-text HTML.",
+        "title": "Lyndon pairs and the lexicographically greatest perfect necklace",
+        "trigger": "Modern later paper on the same objects; possible stronger coverage."
+      },
+      {
+        "assessment": "States old nonexistence of pure-reversal-fixed de Bruijn sequences, and studies combined reverse/complement; does not extend to arbitrary odd multiplicity perfect necklaces.",
+        "evidence": [
+          "Section 1 distinguishes r(s) from c(s) and cr(s), and cites Etzion–Lempel 1984 for r(s) inequivalence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.01794",
+        "material_read": "Full-text introduction, definitions of reverse and complement, classical results and scope of CR-sequences.",
+        "method": "Open-access full-text HTML.",
+        "title": "Efficient generation of odd order de Bruijn sequence with the same complement and reverse sequences",
+        "trigger": "Closely related reversal symmetries and explicit reference to classical binary de Bruijn pure reversal theorem."
+      },
+      {
+        "assessment": "Counts reversal-invariant unconstrained q-color necklaces; no k-factor residue-perfect constraints in stated result. Limited access to proof is a residual risk.",
+        "evidence": [
+          "Abstract counts all symmetric r-ary necklaces as a function of length and alphabet size."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0004972713000701",
+        "material_read": "Abstract and bibliographic/subject record only; full paper not inspected.",
+        "method": "Cambridge Core open abstract and journal metadata.",
+        "title": "Counting Symmetric Bracelets",
+        "trigger": "General necklace/bracelet fixed-point enumeration could theoretically dominate the specialization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "523cc0cb-2a96-47e0-a491-674719d0d1fe",
+  "value": {
+    "rationale": "This settles the natural dihedral fixed-point question for the entire odd-multiplicity perfect-necklace family, over every finite alphabet. It gives the exact exceptional existence cases, converts a previously known rotation-class count to the complete bracelet count whenever odd multiplicity and the nonexceptional parameters apply, and identifies which reflection axes can occur at even multiplicity. Such a structural boundary is motivated by reversal ambiguity of universal cycles; it is not just a finite census or a re-expression of the already known necklace formula.",
+    "status": "PASS"
+  }
+}
