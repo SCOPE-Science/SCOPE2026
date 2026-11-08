@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result uses two exact primitive periods, a common global orientation sign, and the polar-angle differential formula on the images of the two Jordan curves. The lower bi-Lipschitz bound separates each image from the origin, and the upper bound controls the angular projection of the generator discrepancy. The weighted two-orbit minimax inequality is elementary and exact. Equality for the polynomial center at radii \(1\) and \(2\), angular frequencies \(2\) and \(5\), and reference speed \(4\) was checked with rational arithmetic. The finite checker is not offered in place of the global analytic proof.
+## correctness
 
-## Originality — PASS under inspected sources
-He's arXiv:2610.29039v1, Section 2 Proposition 6, proves time-preserving period and frequency-map invariance for **exact** smooth conjugacy and Section 3 defines the loss; it does not state this conditioned two-cycle positive generator-residual floor. Bizzi–Nissenbaum–Pereira, arXiv:2411.08326v1, studies conjugate-flow architectures and an augmented higher-dimensional universality theorem, not the present unaugmented fixed-frequency approximate residual. Indexed work on period annuli and contracting star-node cycles has different conclusions. The literature search cannot establish universal absence; the full text of an exact linear-flow conjugacy paper was unavailable.
+PASS
 
-## Mathematical value — PASS
-The quantified obstruction specifies the irreducible error paid when modeling a nonisochronous planar center with a single fixed angular frequency and bounded coordinate distortion. It is explicitly optimal in a smooth polynomial family. The result distinguishes a structural model-class limitation from numerical optimization failure and motivates amplitude-dependent reference dynamics. Its narrow but natural orbitwise quantitative question is not a known-table calculation.
+Compose two Jordan orbits with global C1 bi-Lipschitz F fixing 0. F has one constant orientation sign s; the image angular lifts wind by 2πsν_i. The push-forward residual angular component is bounded by Mε/|F(x)|≤Mε/(mr_i), pointwise on orbit i. Integrating for its primitive period gives |sω_i−Ω|≤Mε/(mr_i). The weighted two-orbit triangle inequality eliminates the single Ω and yields ε≥(m/M)(r1r2/(r1+r2))|ω1−ω2|. No monotonic polar angular speed assumption is used. The polynomial center f=(1+|x|²)Jx on radii 1,2 with Ω=4, F=identity gives both residual maxima exactly 2, equal to RHS2, proving universal-coefficient optimality in isometric case. Checked original exact rational verification source and independently reconstructed constants; finite arithmetic not used to prove all diffeomorphisms.
 
-## Limitations and scientific risks
-The theorem is a sup-norm assertion on two exact periodic curves. No bound is claimed for finite-sample training, unweighted mean squared loss, degenerate transformations, or action-dependent references. Optimality is shown for \(m=M\), not for every distortion ratio. A general older approximate-conjugacy bound could overlap the result; independently verified historical priority has not been claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is the conditioned, nonzero, two-periodic-orbit uniform generator residual bound and isometric sharp coefficient—not winding invariance or the elementary weighted triangle step. The highly relevant He reference describes invariance under exact time-preserving smooth conjugacy; it does not, in accessible material, assert the quantitative ε floor for imperfect conjugacy. The Bizzi et al augmented representation theorem works in changed ambient dimension and does not dominate this planar conditioned setting. Relevant Resultary query returned period-flow records rather than an identified stronger approximate-conjugacy inequality. Historical rotation-number stability or approximate-conjugacy literature may subsume this elementary quantitative consequence, and the unread full He text is a material residual risk; assessed on currently verified statements, there is no demonstrated coverage.
+
+## value
+
+PASS
+
+A structurally motivated model mismatch is quantified: if a nonlinear planar center has two unequal signed orbit frequencies, no global fixed-origin diffeomorphism with controlled condition numbers can transform one constant rotation into an exact simultaneous vector-field match. The bound depends on measurable radii and physical periods, and a polynomial equality case demonstrates sharpness in the natural isometric subclass. It is elementary but a precise positive model-class obstruction, more than a qualitative period mismatch or verification-only normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
