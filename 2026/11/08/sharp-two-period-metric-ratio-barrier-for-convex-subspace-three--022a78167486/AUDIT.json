@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "An exact calculation of the two weighted coordinate prox maps yields T_s. The two-period matrix has trace 2p^2-p(1-p)(q+1/q), determinant p^2. The quadratic Schur criterion yields an iff; equality gives eigenvalue -1 and a strict violation gives an eigenvalue <-1. The algebraic identity K(p)=6+(3p-1)^2/[p(1-p)] gives the sharp uniform contrast. Symbolic and rational certificates are attached; finite samples are not invoked as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.38935v1 Algorithm 1 compares proposed metrics by shrinking factor d_k; this candidate violates that hypothesis",
+        "arxiv:1801.03765 addresses summable increments rather than a fixed nonvanishing two-cycle",
+        "arxiv:1804.02339 addresses an adaptive method with its own acceptance and growth conditions"
+      ],
+      "reasoning": "The scope of the published convergence theorems differs in a decisive hypothesis. None of these bounds implies convergence for arbitrary periodic scale jumps, or supplies the exact two-dimensional divergence boundary.",
+      "searches": [
+        "\"variable metric\" \"alternating\" \"projection\" \"spectral radius\" convex",
+        "Variable Metric Three Operator Splitting Suh Isaac 2026 step metric jump two-period scalar scale projection onto perpendicular lines and penalty instability",
+        "variable penalty parameter ADMM divergence alternating penalties counterexample 2 cycle"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.38935v1",
+      "arxiv:1801.03765",
+      "arxiv:1804.02339",
+      "arxiv:1309.4709",
+      "https://arxiv.org/abs/1605.07246"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Suh--Isaac offers convergence under vanishing proposal increments, not for unconstrained alternating metrics",
+        "Lorenz--Tran-Dinh offers convergence under summable stepsize increments, not a classification of nonsummable periodic scales",
+        "Bauschke et al. derive convergence of stationary Douglas-Rachford on subspaces, which does not bound all products of different iterations"
+      ],
+      "reasoning": "The exact two-period trace and determinant create a sharp classification on a family outside the named sufficient theorems. Generic claims of convergence for one fixed operator do not imply convergence of alternating products. The result does not extend or claim to extend source theorems to their safeguard-admissible sequences.",
+      "searches": [
+        "Variable metric three operator splitting Douglas Rachford two orthogonal subspaces alternating scalar penalty periodic divergence threshold 3+2 sqrt2 eigenvalues",
+        "site:arxiv.org/abs/2610. \"optimization\" \"adaptive\" \"preconditioner\" spectral numerical 2026",
+        "\"alternating\" \"ADMM penalty\" \"divergence\" \"subspaces\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1801.03765 explicitly notes stationary and nonstationary DR formulations may be inequivalent; our update is specified directly via the primal-dual variables",
+        "Our scalar penalty scale changes even though both weighted indicator prox maps are independently scale-invariant; the retained unscaled dual produces T_s dependence"
+      ],
+      "reasoning": "Equivalent formulations were tested at the level of the actual two-step operator rather than method names. A constant-metric DR subspace contraction cannot dominate a switched product; nonstationary versions in the 2018 paper require summable parameter increments. No exact equivalent periodic formula was found.",
+      "searches": [
+        "\"alternating stepsizes\" \"Douglas Rachford\" divergent",
+        "\"Douglas Rachford\" \"periodic step sizes\" divergent",
+        "alternating penalty ADMM two dimensional orthogonal subspaces divergence sharp product spectral radius",
+        "two-cycle variable metric Douglas Rachford splitting with bounded positive definite metrics failing convergence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published records included a scalar residual-balancing ADMM penalty two-cycle, a constant-penalty symmetric three-block ADMM damping threshold, and a constant-parameter two-variable Douglas-Rachford transient; their hypotheses and conclusions differ",
+        "Inspected primary literature contains no table of two-period spectral thresholds for these coordinate-subspace update matrices"
+      ],
+      "reasoning": "Searches did not locate the particular polynomial or universal contrast bound. Search nonhits are treated only as limited evidence, not a proof of novelty.",
+      "searches": [
+        "Variable metric three operator splitting Douglas Rachford two orthogonal subspaces alternating scalar penalty periodic divergence threshold 3+2 sqrt2 eigenvalues",
+        "alternating penalty ADMM two dimensional orthogonal subspaces divergence sharp product spectral radius",
+        "two-cycle variable metric Douglas Rachford splitting with bounded positive definite metrics failing convergence",
+        "Variable Metric Three Operator Splitting Suh Isaac 2026 step metric jump two-period scalar scale projection onto perpendicular lines and penalty instability",
+        "\"3+2√2\" \"penalty parameter\" \"splitting\"",
+        "\"alternating\" \"metric\" \"three operator splitting\" \"two-cycle\""
+      ]
+    },
+    "rationale": "The inspected primary literature studies safeguarded metric proposal changes or fixed metrics. The candidate deliberately concerns periodic unsafeguarded scalar metric changes on two orthogonal subspaces and proves their exact sharp spectral transition, which is not implied by the cited sufficient-convergence or constant-operator results. Priority remains provisional because not all historical exact-special-case literature is indexed.",
+    "residual_risks": [
+      "Earlier literature might contain an equivalent two-period penalty ADMM linear-subspace calculation under a different dual coordinate system.",
+      "Full text of some adaptive-splitting sources was not inspected; the reviewed primary sections and relevant search comparisons support only a best-knowledge priority judgment.",
+      "The sharp number applies only to this specified two-dimensional two-period model; no general multi-operator metric-switching threshold is established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source enforces the adjacent metric-proposal condition and proves a convergence bound for safeguarded proposals. It does not state the unguarded alternating two-scale periodic spectral criterion in the examined sections. Our sequence deliberately violates the safeguard and hence does not contradict the source theorem.",
+        "evidence": [
+          "Algorithm 1 line 15: consecutive metrics are comparable by d_{k+1}=1+rho/((k+1)(1+log(k+1)))",
+          "Theorem 3.5 controls cumulative metric equivalence, whereas the candidate uses a nonvanishing scale ratio at every step",
+          "Theorem 3.6 assumes the published algorithm; its proof cannot be applied to the unguarded periodic iteration"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.38935v1",
+        "material_read": "Algorithm 1 lines 70-98; comparison with ATOS and prior variable metric ADMM in Introduction lines 99-120; convergence results and metric-equivalence argument in Section 3, lines 234-299; BB metric selection and source results in Section 4, lines 376-405; appendix Section A.3 lines 535-585; related citations and conclusion lines 455-487",
+        "method": "Open-access HTML primary full text, including mathematical statements and relevant proofs",
+        "title": "Variable Metric Three Operator Splitting",
+        "trigger": "Exact proximal update and the source metric proposal safeguard could imply or preclude the candidate classification"
+      },
+      {
+        "assessment": "The cited convergence theorem assumes a convergent positive stepsize sequence with summable increments. Alternating unequal scales do not meet it. Linear spectral examples use fixed steps and do not give the proposed universal two-period ratio.",
+        "evidence": [
+          "Theorem 3.1 and §4 demand summable stepsize increments",
+          "§5 treats nonstationary ADMM with a controlled adaptive stepsize",
+          "No periodic-parameter spectral classification appears in inspected results"
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2018/01/6421.pdf",
+        "material_read": "Open-access PDF abstract, Introduction and §1.1, linear spectral analysis §2, convergence argument §§3-4, and ADMM formulation §5, including the step-variation hypothesis",
+        "method": "Publisher-author-hosted primary PDF text and first-page visual verification",
+        "title": "Non-stationary Douglas-Rachford and alternating direction method of multipliers: adaptive stepsizes and convergence",
+        "trigger": "Nonstationary DR/ADMM may cover the periodic metric switching behavior via an equivalent formulation"
+      },
+      {
+        "assessment": "Gives safeguarded adaptive step-size convergence theory, not a published two-period instability formula in the available abstract. Full text was not read, leaving residual priority risk.",
+        "evidence": [
+          "The paper establishes convergence for its own adaptive step-size variants",
+          "No assertion can be made about the full paper beyond sections inspected"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v80/pedregosa18a.html",
+        "material_read": "Primary proceedings abstract, method overview and bibliographic details; complete paper not inspected",
+        "method": "Primary proceedings HTML with limited material read",
+        "title": "Adaptive Three Operator Splitting",
+        "trigger": "Potential stronger existing variable-step three-operator theorem"
+      },
+      {
+        "assessment": "The fixed-map theorem does not imply the spectral behavior of a product of two distinct proximal-dual update maps. The candidate agrees with convergence of either stationary map.",
+        "evidence": [
+          "The published statement addresses one fixed Douglas-Rachford operator",
+          "Each stationary map has determinant rho squared and both eigenvalues of modulus |rho|"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1309.4709",
+        "material_read": "Primary abstract and description; full mathematical text not inspected",
+        "method": "arXiv primary abstract",
+        "title": "The rate of linear convergence of the Douglas-Rachford algorithm for subspaces is the cosine of the Friedrichs angle",
+        "trigger": "Fixed-metric convergence on linear subspaces may be broader than the candidate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "022a7816-7486-4e93-9567-d79dbc612a5a",
+  "value": {
+    "rationale": "The recent variable-metric proximal method explicitly needs controls on metric variation. The result provides a sharp and optimally small switching contrast that defeats the otherwise convergent stationary iteration even when all metrics remain bounded SPD and the local decrease test is automatically met. It distinguishes safeguarded global convergence from a concrete unsafeguarded instability on the smallest nontrivial convex feasibility problem.",
+    "status": "PASS"
+  }
+}
