@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Both independent finite verifiers use only the Python 3 standard library:
+## correctness
 
-```
-python3 verify_spheres.py
-python3 verify_graphs.py
-```
+PASS
 
-`verify_spheres.py` represents each radius-two sphere as an arbitrary-precision integer bitset. For every unordered quartet of distinct weight-two error words at each length \(5\) through \(9\), it checks that the intersection contains only the zero source, and it tallies the count and the exceptional length-five stars. This is a direct implementation of the original distance definition, without relying on graph classification.
+After translating the true source to zero, every other candidate differs on a nonempty D and must satisfy |D cap e|=|D|/2 for each four size-two error support. This forces |D|=2 (every edge crossing an exact 2-vertex transversal) or |D|=4 (all used vertices contained in D). For n>=5, the latter happens exactly when <=4 coordinates are incident. Classifying four-edge graphs with >=5 incident vertices by odd-cycle component or forest component-count and minimum bipartition class yields four named motifs plus the five-vertex star only when no isolate is present. Exact labeled counts give A_n. Only triangle+edge and exceptional star lack a uniquely reconstructing 3-read subset; other surviving motifs have three pairwise disjoint edges. An independent brute-force four-edge graph enumeration checking all 2-sets D confirmed motif-stratified totals 15,240,1785,8225,28665 for n5..9. Distinctness and exactly-two rather than at-most-two errors are indispensable.
 
-`verify_graphs.py` independently enumerates all unordered quartets of graph edges. It checks the necessary-and-sufficient structural criterion from the proof (at least five active vertices and no exact two-vertex transversal), and verifies both the closed-form counts and their decomposition by incident-vertex cardinality.
+## originality
 
-Both outputs are preserved as `verification_spheres.txt` and `verification_graphs.txt`. Their numerical counts for lengths \(5,6,7,8,9\) are \(15,240,1785,8225,28665\). These tests establish the stated finite cases exhaustively; the all-length claim is supported by the separate combinatorial proof and not by a finite extrapolation.
+PASS
 
-The published exact-error and at-most-error sources concern related but different reconstruction conditions. They do not constitute independent mathematical validation of the new classification. Independent audit is not yet performed.
+Prior fixed-weight substitution results address worst-case number of reads and majority-vote thresholds, not the exact set of reconstructible quadruples. Wang–Yaakobi–Zhang establish 3-read uniqueness in the at-most error model; that sufficient matching case is explicitly acknowledged, and it does not cover the new irreducible triangle+edge or five-star. A Hamming-ball intersection algorithm can be specialized to evaluate instances but does not state this closed all-n motif enumeration for exact spheres. An older combinatorial transversal-graph formulation might contain equivalent classification, which remains a priority risk.
+
+## value
+
+PASS
+
+Source reconstruction under a fixed exact corruption budget is a natural coding-theoretic question. The graph classification gives a complete natural four-read exact-weight invariant, tight labeled enumeration, and the first genuinely four-read patterns. The length-five star is particularly informative: correct unique decoding despite systematically wrong majority at the center. The result does not claim a new worst-case reconstruction threshold and limits itself to four distinct binary radius-two reads.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
