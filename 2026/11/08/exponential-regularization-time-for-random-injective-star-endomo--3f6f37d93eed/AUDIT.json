@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The source regularity criterion is verified in Theorem 2.3 of arXiv:2401.11741v1. Conditioning on center absent from domain gives rank-deficiency weights binom(m,j)(m+1)!/(j+1)! and ratio (m-j)/((j+1)(j+2)), whence J/sqrt(m) tends to one with exponentially small fixed-relative tails. Uniform conditional predecessor enumeration yields the exact L>=r product k/(m+1) times products (k-i)/(m+1-i), whose log tends to -x for r=floor(x sqrt(m)). An acyclic partial-injection Lah-number count gives conditional no-cycle probability (j+1)/(m+1), hence o(1). When cycles exist, the center lies in the image of f^t exactly for t<=L and a leaf does so for every t, proving T=L+1 by the source criterion. The independent exhaustive checker confirms all finite identities through n=6 and outputs VERIFY_OK. Finite cases alone would not establish the limit. The exact finite-size survival formula further counts all maps with the hub in the image of the t-th power using the conditional tail product, then subtracts maps whose t-th power has image exactly {hub}. Such exceptional maps have a hub-terminal chain of exactly t arrows and a forest of other ordered paths with at most t vertices; their count is m! times [z^(m-t)] exp(sum_{s=1}^t z^s). The independent checker verifies the resulting complete survival distribution through n=6.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dimitrova-Fernandes-Koppitz Theorem 2.3 classifies when one given element is regular, with no quantitative first-regular-power limit law.",
+        "The presentation paper supplies defining relations, not stochastic powers."
+      ],
+      "reasoning": "The relevant parent monoid and the exact regularity criterion are prior. Neither inspected source provides a general power-regularization distribution that subsumes the asserted limit. A broader theorem outside inspected sources cannot be excluded.",
+      "searches": [
+        "\"star graph partial endomorphisms powers become regular index iterate semigroup\"",
+        "\"Regularity index or regularization exponent of powers in finite star graph partial endomorphism monoids\"",
+        "arXiv:2401.11741v1, Sections 1-3",
+        "arXiv:2410.21084v1, abstract and presentation statements"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.11741v1: Propositions 1.10-1.11, Theorem 2.3, and enumeration sections",
+      "arXiv:2410.21084v1: abstract, introduction and presentation statements",
+      "arXiv:math/0511431v1: chain/orbit counts, nilpotent counts, deficiency asymptotics",
+      "Janson-Mazorchuk 2005: symmetric inverse semigroup asymptotics, deficiency and order distributions",
+      "Laradji-Umar 2013: finite bounded-path nilpotent generating functions and tables"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 star theorem implies a deterministic criterion for regularity of every fixed power but does not itself yield a random limit law.",
+        "The 2005 inverse semigroup paper includes orbit counts and square-root defect concentration, which are nontrivial prior ingredients."
+      ],
+      "reasoning": "The new assertion is not the known regularity criterion or a count of monoid elements. Its substantive new quantifier is a limit over uniformly random full star-endomorphism monoids at the first regular power; reconstructing it requires combining prior structures with a conditional chain law and proving that acyclic exceptions are negligible. The prior general theory is the principal overlap risk. The explicit correction for cycle-free maps with t-th power of rank one is not the published static monoid cardinality or a direct table lookup. The bounded-path forest coefficient as a standalone generating function is previously established by Laradji-Umar and is credited; the proposed new statement is its appearance as an exact subtraction in a first-regular-power law.",
+      "searches": [
+        "\"Injective partial endomorphism monoid of star graph, least positive power becoming regular, random elements, exponential limit with square-root scale.\"",
+        "arXiv:2401.11741v1, Proposition 1.11 and Theorem 2.3",
+        "arXiv:math/0511431v1, Theorem 4, Lemmas 3-5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ganyushkin-Mazorchuk Theorem 4 gives exact forward orbit-length counts in the unrestricted symmetric inverse semigroup, not the first semigroup-regular power of an injective star partial endomorphism.",
+        "Own derived exact predecessor-chain tail is conditioned on center absent from domain and on rank; the center has no outgoing arrow.",
+        "Janson-Mazorchuk gives exact and asymptotic symmetric-inverse-semigroup deficiency statistics, not first regular powers in a star-endomorphism monoid.",
+        "Laradji-Umar establishes the bounded path/nilpotent generating-function kernel already used as the correction coefficient; the kernel is prior work."
+      ],
+      "reasoning": "Backward-path length under a conditioned partial injection is equivalent by inversion to a terminal forward chain, so prior orbit-distribution technology is highly relevant. However the reported theorem has a different observable (the first regular power, not merely orbit length) and combines star-specific regularity with a persistent-cycle argument and rank-mixed exponential asymptotics. Potential implicit coverage through a stronger general asymptotic is a residual risk.",
+      "searches": [
+        "\"random partial injections path length distribution exponential sqrt n\"",
+        "\"distribution chain containing specified vertex random partial injections sqrt n exponential\"",
+        "arXiv:math/0511431v1, Theorems 3-5",
+        "Janson-Mazorchuk, Some remarks on the combinatorics of ISn, Sections 2 and 5",
+        "Laradji-Umar, On the number of subpermutations with fixed orbit size, Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2024 source lists exact monoid counts; the 2005 source enumerates nilpotent partial injections and general orbit lengths.",
+        "The claim is an infinite limiting distribution for an iterated-power observable, not an isolated finite table entry.",
+        "Laradji-Umar (2013), Section 2, tabulates bounded-orbit and nilpotent partial-injection counts; these are not asserted new."
+      ],
+      "reasoning": "Existing tables of counts and Lah numbers do not themselves state the star regularization-time limit; the conditional asymptotic and the cycle persistence need to be supplied. They are acknowledged, rather than treated as new enumeration.",
+      "searches": [
+        "\"Among all partial endomorphisms of a star graph, exact number of regular elements, asymptotic density\"",
+        "\"random partial injections nilpotent cycle-free count and orbit path length asymptotic distribution\"",
+        "arXiv:math/0511431v1, Section 4"
+      ]
+    },
+    "rationale": "The star-endomorphism source proves regularity of a single element, cardinalities and ranks, but not the first power becoming regular for a uniformly sampled element. The follow-up develops presentations. Ganyushkin-Mazorchuk provides relevant general partial-injection orbit and deficiency formulas and requires explicit acknowledgement: it does not state the star-specific first-regular-power exponential law in the inspected sections. The claim combines the source regularity obstruction, a new rank-conditioned terminal-chain survival product and a high-probability cycle argument to obtain the complete corrected finite-size survival formula and its nondegenerate limiting law. Search cannot prove priority; a general partial-injection hitting-time theorem remains a publication-priority risk. Janson-Mazorchuk (2005) already establishes sharp cardinality/defect distributions, and Laradji-Umar (2013) gives the bounded-path nilpotent generating function used in the finite correction; neither ingredient alone is claimed original.",
+    "residual_risks": [
+      "A general partial-injection orbit-length asymptotic or power-regularity theorem could imply the result after specialization; complete publication priority is not established.",
+      "Search indexes and accessible full text do not cover every historical semigroup reference.",
+      "The bounded-path-forest correction is built from already-known nilpotent generating functions; only the combined first-regular-power distribution can be considered new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers definitions, algebraic regularity, and counts, but no limit theorem for first regular powers",
+        "evidence": [
+          "Proposition 1.11; Theorem 2.3, page 6; arXiv:2401.11741v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2401.11741",
+        "material_read": "Full-text introduction, Section 1 classification/cardinalities, Section 2 regularity theorem and proof, Section 3 aims and rank results",
+        "method": "Read open full-text preprint and inspected rendered pages including Proposition 1.11 and Theorem 2.3",
+        "title": "On partial endomorphisms of a star graph",
+        "trigger": "Same monoid, regularity criterion and exact counts"
+      },
+      {
+        "assessment": "Concerns presentations, not quantitative regularization powers",
+        "evidence": [
+          "arXiv:2410.21084v1; presentation aim in abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2410.21084",
+        "material_read": "Abstract, introduction, descriptions of presentation results",
+        "method": "Inspected openly available preprint sections and rendered page material",
+        "title": "Presentations for monoids of partial endomorphisms of a star graph",
+        "trigger": "Later paper on exactly the same semigroups"
+      },
+      {
+        "assessment": "Provides major general antecedents, especially orbit-length counts and square-root deficiency but does not state a star-semigroup first-regular-power Exp(1) law",
+        "evidence": [
+          "arXiv:math/0511431v1; Theorems 3-5; Lemmas 3-5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0511431",
+        "material_read": "Full-text Sections 2-5 (chains/cycles, orbits, nilpotents and asymptotic defect lemmas), with detailed inspection of Theorems 3-5 and Lemmas 3-5",
+        "method": "Read open-access full-text preprint and rendered pages 9, 10 and 14",
+        "title": "Combinatorics and distributions of partial injections",
+        "trigger": "Plausible more general distribution for partial-injection chains and defects"
+      },
+      {
+        "assessment": "Strong general prior asymptotics for symmetric inverse semigroups, but no star-endomorphism first-regular-power survival law",
+        "evidence": [
+          "Janson-Mazorchuk 2005, Sections 2, 5 and 6"
+        ],
+        "identifier_or_url": "https://www2.math.uu.se/~svantejs/papers/sj168.pdf",
+        "material_read": "Introduction, Section 2 asymptotic rank concentration, Section 5 distributions of defect, stable rank, cycles and order, Section 6 generating functions",
+        "method": "Read text extracted from the full open PDF and relevant mathematical statements; rendered image fetch returned an external 502 error",
+        "title": "Some remarks on the combinatorics of ISn",
+        "trigger": "Potential broad asymptotic theorem on defect, cycles and order of random partial injections"
+      },
+      {
+        "assessment": "Already provides bounded nilpotent path exponential generating functions; this ingredient is credited, but not their appearance in the new regularization-time distribution",
+        "evidence": [
+          "Laradji-Umar 2013, Section 2 and Tables 2.3–2.4"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20109/volume-109-paper-34.pdf",
+        "material_read": "Full-text abstract, introduction, Section 2 propositions on orbit-size bounds and nilpotent enumeration, tables and Section 3 asymptotic statements",
+        "method": "Read complete open-access paper text and inspected a rendered page including Proposition 2.3",
+        "title": "On the number of subpermutations with fixed orbit size",
+        "trigger": "Exact bounded-path forest generating function used in the exceptional term"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3f6f37d9-3eed-4a19-8ad2-a346273f78c6",
+  "value": {
+    "rationale": "The first positive power entering the regular part is a canonical dynamical semigroup statistic motivated directly by the exceptional nonregular elements identified by Dimitrova-Fernandes-Koppitz. Its order-sqrt(n) scale and nondegenerate Exp(1) fluctuations quantify a distinct phenomenon from known static regular-element counts and deterministic rank characterizations. The exact conditional predecessor-tail and cycle-free formula explain the stochastic mechanism and support possible comparison with other graph-endomorphism monoids. The all-dimensions exact formula determines every finite regularization-time multiplicity and isolates a nontrivial bounded-chain forest correction, strengthening the value beyond asymptotic order alone.",
+    "status": "PASS"
+  }
+}
