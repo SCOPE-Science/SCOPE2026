@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For any independent nonnegative weights, two-step rotational averaging yields a two-rate optimum by concavity. Bloch diagonalization gives the exact band minimum. The positive variables U,V satisfy UV=cos^2(pi/m); AM-GM with strictly positive prices uniquely solves the two-rate problem. A complex two-dimensional Fiedler vector has squared adjacent chord lengths proportional to the two price classes, giving a global Rayleigh upper bound for all independent weights. Equality forces its real and imaginary parts to remain eigenvectors, and noncollinear adjacent unit-circle chord pairs force every weight to match the candidate. m=2 is treated separately by a circular eigenvector with tunable phase. The stdlib exact verifier checked 48 rational cases and 1872 principal minors; finite tests supplement rather than replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. explicitly allows arbitrary positive edge costs and convex SDP optimization in Section 1.2 but states in Section 5.3 that arbitrary-cost cycle optimization is more complicated, establishing only a dimension bound (Result 6).",
+        "Göring et al. gives a general primal-dual framework with the KKT relations, without a two-periodic-price cycle classification.",
+        "Ghosh--Boyd, Upper Bounds on Algebraic Connectivity via Convex Optimization (2006), proposes graph symmetry reduction, a framework rather than an evaluated two-cost cycle theorem."
+      ],
+      "reasoning": "The general positive-price SDP includes the proposed problem as a special instance, but does not state or by a cited closed-form theorem imply its optimizer or uniqueness. The new step is the analytic two-band minimization plus a global two-dimensional Fiedler certificate that rules out nonperiodic optima; a generic SDP solver/formulation is not equivalent to these evaluated conclusions.",
+      "searches": [
+        "web: \"alternating\" \"algebraic connectivity\" \"edge costs\" cycle",
+        "web: \"alternating\" \"cycle\" \"fastest mixing Markov process\" weights costs",
+        "https://optimization-online.org/2005/09/1202/",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://optimization-online.org/2005/09/1202/ (public 2005-09-02)",
+      "https://www-user.tu-chemnitz.de/~helmberg/GoeHelWap_R07_SIOPT.pdf (Sections 1-2)",
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf (Section 1.2 and Section 5.3)",
+      "https://stanford.edu/~boyd/papers/eigbounds_laplacian.html (abstract)",
+      "published-finding corpus semantic search results: 2026/10/11/SCOPE-weighted-odd-cycle-fourth-power-edge-converges-to-an-antiperiodi--9299e65764af; 2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818",
+      "accessible local claims abdb85ed-29f4-4742-9411-9dff79e8c301 and 535ad0e8-3640-4801-8d93-ab738dedc3c0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun Section 5.3 solves the equicost cycle and proves cycle optimal embedding dimension at most 2 for general costs, but does not solve the alternating cost allocation.",
+        "Göring Sections 2 and introduction describe general eigenvalue/SDP duality, not the closed-form period-two cycle allocation.",
+        "Own one-exceptional-edge C4 conclusion allows edge deletion in a price regime; the proposed theorem has two alternating price classes and all conductances positive; the claims are not specializations of one another except the equal-price trivial intersection."
+      ],
+      "reasoning": "Known equal-price cycle rates follow as the c0=c1 specialization, and the general SDP permits formal computation of the optimum, but neither gives the claimed evaluated cost-dependent optimum and its uniqueness over the full 2m-dimensional feasible cone. Four-cycle one-defect rate design, vertex-mass stationary Markov SLEM and star cost design have different constraint sets/objectives and do not imply the present arbitrary-even-size classification.",
+      "searches": [
+        "Sun--Boyd--Xiao--Diaconis 2006 pdf Section 5.3 Result 6",
+        "Göring--Helmberg--Wappler 2005 pdf Section 2 dual embedding and KKT",
+        "own existing finding ids abdb85ed-29f4-4742-9411-9dff79e8c301; 535ad0e8-3640-4801-8d93-ab738dedc3c0; c1d4e46c-6551-4c86-a7e2-cf566194b54f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al., SIAM Review 48 (2006), Section 1.2, gives symmetric continuous-time Markov rates and positive edge-specific linear costs; Section 5.3 studies cycles, uniform prices explicitly, arbitrary prices only a two-dimensionality result.",
+        "Göring et al., publicly posted 2005-09-02, Sections 1-2 develops absolute algebraic connectivity and embedding duality for uniform total edge weight."
+      ],
+      "reasoning": "Maximizing the combinatorial Laplacian second eigenvalue is precisely maximizing the continuous-time symmetric Markov relaxation exponent. The dual constrained-embedding description is equivalent as an optimization formulation, not an evaluation: no inspected prior source derives the exact two-price cosine/square-root optimum or proves global uniqueness over all independently weighted edges.",
+      "searches": [
+        "alternating conductance edge-weighted cycle C_2m maximize algebraic connectivity spectral gap with alternating edge prices optimal formula cosine square roots",
+        "weighted periodic cycle two alternating edge classes edge conductances budget Fiedler eigenvalue optimize spectral gap",
+        "web: \"fastest mixing Markov process on a graph\" cycle weights explicit",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf (Section 1.2, Sections 4-5.3)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed semantic search results returned cycle spectral analyses on different invariants, not an algebraic-connectivity budget allocation table.",
+        "Closest accessible prior local records: abdb85ed-29f4-4742-9411-9dff79e8c301 (one exceptional edge price on a four-cycle), 535ad0e8-3640-4801-8d93-ab738dedc3c0 (alternating vertex masses, discrete-time reversible stochastic SLEM)."
+      ],
+      "reasoning": "No inspected indexed result provides the two-price all-even-cycle formula, exact unique optimizer or size-two exception. The checked four-cycle price defect covers only one exceptional edge, not an alternating pair on C4; the SLEM/mass model constrains a different Markov objective. Failure to find a table does not prove global novelty.",
+      "searches": [
+        "maximal algebraic connectivity alternating-cost even cycle unique optimal conductances square-root prices cos(pi/m) spectral gap",
+        "fastest mixing Markov process on even cycle periodic two edge prices stationary uniform unique optimal rates",
+        "optimal two-periodic ring Laplacian spectral gap under global linear cost budget, C4 to C6 threshold",
+        "web: weighted cycle alternating edge prices spectral gap optimal conductance",
+        "published-finding corpus top candidates 2026/10/11/SCOPE-weighted-odd-cycle-fourth-power-edge-converges-to-an-antiperiodi--9299e65764af; 2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818"
+      ]
+    },
+    "rationale": "The inspected Sun et al. primary full text explicitly covers general positive-cost continuous-time spectral design but does not evaluate the alternating-price even-cycle case; its cycle section solves only equal prices and gives a two-dimensional embedding bound for arbitrary costs. Göring et al. supplies an earlier unpriced embedding framework, not the evaluated two-price theorem. Published indexed searches, published-finding corpus semantic results and accessible local claims reveal no dominating exact classification. The present claim includes global uniqueness over all 2m independent edge weights, beyond symmetry existence. Residual unindexed/equivalent literature risks remain.",
+    "residual_risks": [
+      "Unindexed or unpublished equivalent alternating-price cycle formula may exist.",
+      "The Ghosh--Boyd full article was not fully inspected; its primary abstract describes symmetry reduction but not this family.",
+      "The one-exceptional-price C4 and alternating stationary-mass cycle results require care when comparing model changes; no reduction to the present all-even-cycle claim was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General priced problem and equal-price cycle case are prior; Section 5.3 provides two-dimensionality, not evaluated alternating-price allocation or its uniqueness.",
+        "evidence": [
+          "Section 1.2 equation (1) permits arbitrary positive squared edge-distance costs",
+          "Section 5.3 states the general cost cycle is more complicated, evaluates only equal-edge-cost optimum, then proves Result 6 that optimal cycle embeddings have dimension 2"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Abstract and Section 1.2 on edge-price budget; Section 5.2 on paths; all of Section 5.3 on cycles (equal-price formulas and Result 6), with references.",
+        "method": "Full author PDF text viewed and page image inspected",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same positive edge-price Laplacian eigenvalue optimization, with explicit cycle section"
+      },
+      {
+        "assessment": "General uniform-budget framework; no found evaluated alternating-cost cycle law.",
+        "evidence": [
+          "Section 2 fixes the unpriced simplex constraint sum of nonnegative weights equal to 1",
+          "Section 2 develops embedding dual and KKT conditions rather than explicit two-price cycles"
+        ],
+        "identifier_or_url": "https://www-user.tu-chemnitz.de/~helmberg/GoeHelWap_R07_SIOPT.pdf",
+        "material_read": "Abstract; Introduction; Section 2 primal, dual embedding, equations (1)-(4), and KKT/physical interpretation. Searched primary text for evaluated cycle treatments.",
+        "method": "Author full PDF text and page image inspected",
+        "title": "Embedded in the Shadow of the Separator",
+        "trigger": "Potentially dominating absolute algebraic connectivity SDP and embedding theorem"
+      },
+      {
+        "assessment": "Describes symmetry-based SDP, relevant broad prior; insufficient body access to rule out all special examples.",
+        "evidence": [
+          "Author description says symmetry reduction may yield analytical solutions for sufficiently symmetric graph families."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/eigbounds_laplacian.html",
+        "material_read": "Author-hosted paper description and abstract only; complete body not inspected.",
+        "method": "Primary author webpage with publication summary",
+        "title": "Upper Bounds on Algebraic Connectivity via Convex Optimization",
+        "trigger": "Graph symmetry optimization might imply a two-edge-class rate reduction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cb4124bf-98d2-4610-a9bc-a7f7d332169b",
+  "value": {
+    "rationale": "A natural cost-asymmetric ring diffusion problem receives an exact full-dimensional optimal design, unique positive rates and a closed-form spectral gap across all sizes. The exceptional C4 case equalizes rates despite unequal prices; for every longer even cycle the cheaper class receives strictly larger rates, and the asymptotic square-root cost ratio follows. Unlike a mere SDP formulation, this gives direct implementable cost-sensitive rate design and a sharp structural size boundary.",
+    "status": "PASS"
+  }
+}
