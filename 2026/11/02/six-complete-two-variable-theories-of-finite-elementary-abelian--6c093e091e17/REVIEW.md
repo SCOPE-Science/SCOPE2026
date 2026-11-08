@@ -1,11 +1,21 @@
-# Scientific review: six unbounded-depth two-variable group theories
+# Independent mathematical audit
 
-**Correctness — PASS.** Complete two-variable quantifier-free pair diagrams in the signature \((0,R_+)\) are determined, for odd primes at least five, by the five scalar slopes \(0,1,-1,2,1/2\) and the generic case. In dimensions at least two the independent-vector case realizes the generic diagram; for \(p\ge7\) a generic scalar slope exists already in dimension one. Each six-way class has exactly the same pair-diagram and one-variable-replacement repertoires. Matching current pair diagrams gives an explicit two-pebble back-and-forth through arbitrarily many rounds, so unbounded logical depth is actually proved. Distinct classes have different pair diagrams and are separated by rank-two existential sentences. Exact direct finite checks reproduce all six classes and the representative bound.
+## correctness
 
-**Originality — PASS, qualified.** Prior prime-cyclic and elementary-abelian results classify *unrestricted quantifier-rank-three* sentence theories and do not imply the complete two-variable theories at unbounded quantifier depth. Gomaa's work establishes general quantitative EF-game bounds, not the six-class \(\mathrm{FO}^2\) collapse. Scott uses a different, scalar-rich language. Direct literature and indexed research searches for two-variable, two-pebble, finite elementary abelian, and ternary addition classifications found no statement implying this theorem. Historical priority is not exhaustively established; full access to Gomaa's 2010 article was unavailable.
+PASS
 
-**Mathematical value — PASS.** The result determines a natural complete finite-variable logical invariant of a fundamental two-parameter family, with no bound on formula depth. It exhibits a sharp expressive-power separation: ordinary rank-three logic has thirteen classes, but even arbitrarily deep \(\mathrm{FO}^2\) has only six. The equivalence of groups of orders 25 and 7 and the sharp nine-element bound are nontrivial consequences of the precise atomic type geometry, not routine substitutions of a finite-rank theorem.
+For every pair (x,y) the atomic equality/addition diagram over {0,x,y} depends on five exceptional scalar slopes {0,1,−1,2,1/2} for p≥5 plus a generic case. For p=2 or 3 these coalesce; a generic pair is available for p=5 only if d≥2, and for any p≥7 already in dimension 1. For any fixed zero/nonzero survivor, the spectrum of pair diagrams after reassigning either variable depends solely on this six-way class. This gives an invariant 2-pebble back-and-forth relation for arbitrarily many moves, proving every FO² sentence agreement, not just bounded rank. Six distinct spectra have existential rank-two separators, and smallest class reps have orders 2,4,3,9,5,7, establishing max 9. Independent literal enumeration of all zero/equality/ternary-addition atoms and one-coordinate replacement repertoires for 9 prime/dimension examples agrees.
 
-**Limitations.** The theorem does not cover other languages, groups with nonprime exponent, counting logic, or formulas with three variables. Independent validation is still pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General finite abelian group EF-game quantitative bounds (Gomaa) and scalar-enriched vector space EF frameworks (Scott) are prior. They do not directly imply this unbounded-rank two-variable classification in the weak zero + ternary relation vocabulary. A related Resultary result on signed-binary prime-cyclic EF-depth also controls a different rank/resource. Full 2010 Gomaa journal paper not read, leaving priority risk. Best-of-knowledge distinct completed FO² partition.
+
+## value
+
+PASS
+
+Finite-variable expressive power of elementary abelian prime groups is a natural, complete model-theoretic invariant. The all-depth six-theory collapse, equality of F5² with F7 despite different size/characteristic, and exact smallest representatives are informative; finite-rank classical classifications do not automatically give this.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
