@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The proof certificate is `symbolic_checker.py`, a pure Python exhaustive enumerator of 80 admissible linear extensions and 56 pairs of threshold cuts. It validates the precise identity and last-transient criterion on all 4,480 formal comparison types and includes all tie-boundary possibilities by linear extension. It does not use finite-size sampling.
+# Independent mathematical audit
 
-`direct_checker.cpp` implements the original closed-neighborhood vertex update independently, without symbolic population labels. For all shores of orders 1 through 7, all thresholds from 1 through the maximum shore order plus 2, and every labelled initial bit string, it checks the global identity, the individual-state last-transient criterion and the binomial counting formula. It covers 2,632 parameterized graphs and 4,884,036 initial states.
+## correctness
 
-Run with `python3 symbolic_checker.py` and `g++ -std=c++17 -O2 -o direct_checker direct_checker.cpp && ./direct_checker`. The recorded outputs are bundled as `symbolic_output.txt` and `direct_output.txt`.
+PASS
 
-The exact universal theorem depends on the reduction to 7 comparands and the completeness of the ordering/threshold cut argument. No heterogeneous-threshold or asynchronous claim is made. An independent external mathematical audit has not been conducted.
+The shore update is exactly zero/one/retain/complement, with symbolic labels that distinguish complementary patterns of equal cardinality. Every real configuration induces one of 80 compatible orders of (a,i,a-i,b,j,b-j), two threshold cuts from 7 and 8 positions. I separately implemented this comparison quotient: all 4480 formal cases satisfy F^6=F^4 and the stated T=4 predicate, with exactly 16 exceptional cases. Independently implemented synchronous labelled-state evolution on 29892 sampled exhaustive-small parameter/state instances found no discrepancy. The quotient, including tied-order overcoverage, is a finite exact proof of all actual order types, not an enumeration cutoff. Summing binomial multiplicities of the two disjoint orientations gives N_4.
+
+## originality
+
+PASS
+
+Earlier synchronous bi-threshold literature gives eventual period at most two, not this uniform bound on the first periodic entry or the labelled T=4 binomial census. Unlike parity automata, the update has state-dependent hysteretic thresholds; unlike majority network results, the two thresholds are arbitrary. Searched Resultary plus primary Boolean network literature by mathematical content. Priority qualified for unindexed biclique-specific analyses.
+
+## value
+
+PASS
+
+A universal relaxation-time cutoff despite unbounded graph size and threshold values, together with the precise structural imbalance criterion and last-transient basin count, is a natural nontrivial strengthening of eventual-period theorems for network hysteresis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

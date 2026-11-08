@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T01:40:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The shore update is exactly zero/one/retain/complement, with symbolic labels that distinguish complementary patterns of equal cardinality. Every real configuration induces one of 80 compatible orders of (a,i,a-i,b,j,b-j), two threshold cuts from 7 and 8 positions. I separately implemented this comparison quotient: all 4480 formal cases satisfy F^6=F^4 and the stated T=4 predicate, with exactly 16 exceptional cases. Independently implemented synchronous labelled-state evolution on 29892 sampled exhaustive-small parameter/state instances found no discrepancy. The quotient, including tied-order overcoverage, is a finite exact proof of all actual order types, not an enumeration cutoff. Summing binomial multiplicities of the two disjoint orientations gives N_4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1: period <=2 without uniform transient bound; Resultary parity update uses linear XOR, not 2-threshold hysteresis."
+        ],
+        "reasoning": "Neither a generic eventual-period theorem nor the parity automaton classification dominates the current entrance-time/census formula.",
+        "searches": [
+          "arxiv:1108.2974",
+          "Resultary: sharp period-four complete multipartite parity automata"
+        ]
+      },
+      "checked_sources": [
+        "actual assigned RESULT.md and symbolic_checker.py with Git blob identities recorded",
+        "arXiv:1108.2974 Sections 3.1, 4",
+        "Resultary semantic search: closed-neighborhood bipartite bi-threshold synchronous Boolean network exact transient four steps last transient basin counts",
+        "independent_checks.py lines 4step_symbolic_quotient and 4step_direct_small"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "F^6=F^4 implies eventual period <=2 but the converse permits arbitrarily long transient; a general period-2 theorem therefore cannot imply the submitted 4-step cutoff."
+        ],
+        "reasoning": "Claim strictly strengthens prior eventual periodicity on this graph family; no same-rule stronger bound found.",
+        "searches": [
+          "arxiv:1108.2974 section 3.1",
+          "closed-neighborhood bipartite bi-threshold synchronous Boolean network exact transient four steps last transient basin counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kuhlman et al. Theorem 3.1 bounds eventual synchronous periods, not the preperiod length or labelled last layer."
+        ],
+        "reasoning": "The alternative terms Boolean bi-threshold, hysteresis, synchronous convergence and biclique consensus lead to the same dynamical question; inspected period result lacks these two sharpenings.",
+        "searches": [
+          "closed-neighborhood bipartite bi-threshold synchronous Boolean network exact transient four steps last transient basin counts",
+          "arxiv:1108.2974"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct 4480-case order quotient and exact N4 are new computations, not a tabular lookup in inspected 2011 source; Fedrigo uses a different protocol game."
+        ],
+        "reasoning": "This is a parametric all-size formula and not an extract from a fixed numerical graph table.",
+        "searches": [
+          "closed-neighborhood bipartite bi-threshold synchronous Boolean network exact transient four steps last transient basin counts",
+          "Games 15 (2024) Fedrigo complete bipartite protocol game"
+        ]
+      },
+      "rationale": "Earlier synchronous bi-threshold literature gives eventual period at most two, not this uniform bound on the first periodic entry or the labelled T=4 binomial census. Unlike parity automata, the update has state-dependent hysteretic thresholds; unlike majority network results, the two thresholds are arbitrary. Searched Resultary plus primary Boolean network literature by mathematical content. Priority qualified for unindexed biclique-specific analyses.",
+      "residual_risks": [
+        "An older unpublished or poorly indexed exact convergence-time study for synchronous biclique bi-threshold maps could duplicate the formula.",
+        "No claim about heterogeneous thresholds, arbitrary graphs or all shorter transient layers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: period restriction is prior, but no uniform four-step labelled census in inspected passages",
+          "evidence": [
+            "Theorem 3.1 period at most two for synchronous rule; Section 4 primarily asynchronous tree constructions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1108.2974",
+          "material_read": "Full accessible preprint: update convention, Section 3.1 Theorem 3.1, Section 4 graph examples",
+          "method": "web PDF text and first theorem screenshot",
+          "title": "Bifurcations in Boolean Networks",
+          "trigger": "same synchronous bi-threshold rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A universal relaxation-time cutoff despite unbounded graph size and threshold values, together with the precise structural imbalance criterion and last-transient basin count, is a natural nontrivial strengthening of eventual-period theorems for network hysteresis.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "actual assigned RESULT.md and symbolic_checker.py with Git blob identities recorded",
+    "arXiv:1108.2974 Sections 3.1, 4",
+    "Resultary semantic search: closed-neighborhood bipartite bi-threshold synchronous Boolean network exact transient four steps last transient basin counts",
+    "independent_checks.py lines 4step_symbolic_quotient and 4step_direct_small"
+  ],
+  "disposition": "passed",
+  "final_claim": "For simultaneous, uniform positive-integer up/down thresholds with closed neighborhoods on every labelled K_{a,b}, F^6=F^4; T=4 exists iff both shores contain at least two vertices and their sizes differ by at least two. An exact individual-state two-orientation criterion and a binomial last-transient layer formula hold for all a,b,u,d.",
+  "limitations": [
+    "Closed-neighborhood synchronous uniform thresholds and K_{a,b} only.",
+    "Finite direct graph experiments only corroborate the exact quotient proof."
+  ],
+  "residual_risks": [
+    "An older unpublished or poorly indexed exact convergence-time study for synchronous biclique bi-threshold maps could duplicate the formula.",
+    "No claim about heterogeneous thresholds, arbitrary graphs or all shorter transient layers."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIAL_COVERAGE: period restriction is prior, but no uniform four-step labelled census in inspected passages",
+      "evidence": [
+        "Theorem 3.1 period at most two for synchronous rule; Section 4 primarily asynchronous tree constructions"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1108.2974",
+      "material_read": "Full accessible preprint: update convention, Section 3.1 Theorem 3.1, Section 4 graph examples",
+      "method": "web PDF text and first theorem screenshot",
+      "title": "Bifurcations in Boolean Networks",
+      "trigger": "same synchronous bi-threshold rule"
+    }
+  ]
+}
