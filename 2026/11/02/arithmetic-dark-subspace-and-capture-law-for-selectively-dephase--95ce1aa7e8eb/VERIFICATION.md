@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python checker.py` in a Python 3 environment with NumPy and SciPy, and run `python verify_arithmetic.py` with the Python standard library. It directly forms the trace-decreasing Lindblad matrix in the site outer-product basis, evaluates the regularized zero-frequency resolvent for each localized source, and compares the resulting retained mass with the exact gcd prediction. The script was executed with 151 cases passing a tolerance of \(1.5\times10^{-4}\) at regularizer \(10^{-8}\). The regularizer produces finite numerical bias, so the comparison is not an exact-infinite-time numerical certificate.
+## correctness
 
-An additional independent finite check iterated path sizes \(2\le N\le79\), all possible single sink positions, selected one-site noise masks (including the empty set), and sample source vertices, verifying 37,908 exact integer-index relationships and floating-point trigonometric sums. The all-length theorem is proved separately in RESULT.md.
+PASS
 
-The key mathematical steps to review are spectral nondegeneracy, the implication from a nonzero limiting trace to a positive stationary Cesàro limit, the Hilbert–Schmidt dephasing identity, the argument forcing each noisy-site stationary population to zero through the first path mode, and the root-of-unity sum. No independent audit has yet been performed.
+Simple path eigenvalues 2Jcos(pi k/(N+1)) and sine eigenvectors vanish at site x iff N+1 divides kx. The modes invisible simultaneously to sink c and every dephased vertex form K_g of dimension g-1. To exclude further persistent density, Cesaro averaging of any positive surviving trace gives stationary PSD sigma; tracing its generator implies zero at sink and the Hilbert-Schmidt dissipation identity forces sigma to commute with each selected P_j. Commutation with H then diagonalizes sigma in the simple path eigenbasis; overlap with the strictly positive ground sine eigenvector forces zero weight at every dephased site. Thus all stationary support lies in K_g, contradiction on its complement. Root-of-unity sine sum gives captured site fraction 1 or 1-g/(N+1). Positive rates but no bulk loss essential. This is a rigorous invariant-space result, not just the finite checker log.
+
+## originality
+
+PASS
+
+The path sinusoidal nodal rule, dark space and dephasing benefit are established. The joint gcd over sink and an arbitrary subset of noisy vertices and all-density-matrix, rate-independent infinite-time projection were not stated in the primary portions inspected; they require a stationary-kernel exhaustion argument. Qualified due to possible existing general quantum Markov fixed-point structural theorem.
+
+## value
+
+PASS
+
+Exact identification of which dephaser placements completely destroy a trapping obstruction is a natural design problem. A single gcd provides the sharp all-initial-state criterion and exact surviving mass rather than a qualitative statement that dephasing helps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
