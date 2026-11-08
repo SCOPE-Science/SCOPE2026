@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The invariant follows because a forbidden value cannot cross its own coordinate via adjacent swaps without landing on it. All signatures are realized by the ordered-block canonical words. Each bubble-sort inversion is checked separately across blocks and within both constrained blocks, establishing a legal path of length at most \(\binom n2\) to a representative and the component bound. Two independently implemented exact finite checks cover all forbidden masks through \(n=7\) and \(n=8\), respectively. The proof, rather than these finite enumerations, establishes the unbounded parameter claim.
+## correctness
 
-## Originality — PASS, with residual risk
-Compared the exact constraint and allowed transitions with Baril–Vajnovszki (2004), Vajnovszki (2010), and Clark (2013), as well as related full-permutahedron and crown-graph formulations. Earlier Gray codes allow nonadjacent transpositions or rotation operations, unlike the present adjacent-swap induced graph; graph derangements concern existence, not this metric. No inspected source implies the general component formula. Residual risk: an older theorem on permutations with forbidden positions or adjacent swaps may already imply it, perhaps under a poset/linear-extension formulation. A failed search is not a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-The exact exponential disconnection law holds for every subset of forbidden diagonal positions, describes all components by an explicit invariant, and supplies constructive paths and a uniform diameter bound. It explains structurally why generating derangements with a more permissive swap operation differs from feasible adjacent exchanges, not merely furnishing a small numeric example.
+For each forbidden value j, an adjacent exchange cannot change whether j is left or right of prohibited position j without temporarily placing j at position j. Endpoints have forced side. Given any choices for internal forbidden labels, the sorted blocks L increasing, unrestricted U increasing and R increasing form a feasible representative because j in L occupies <=j-1 and j in R occupies >=j+1. Sorting a feasible word by target block order swaps only adjacent inversions: L entries move left, R entries move right, U is unrestricted; within L and R the inequality from feasibility ensures exchanges remain legal. At most binom(n,2) such swaps to canonical representative; component diameter <=n(n-1). Independently generated every F subset and feasible permutation for n=2..7, 252 masks and 421830 feasible graph vertices, confirming exact 2^|F internal| component count.
 
-## Limits
-The general upper bound is not asserted sharp and the individual component size distributions are not determined. Independent external scientific review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Adjacent transposition Gray codes in derangement literature usually allow different exchanges (unrestricted transpositions or 3-cycles); Clark’s graph derangements concern a different graph-mapping property. None of their inspected statements gives the precise induced permutahedron component classification for arbitrary forbidden-position subsets F.
+
+## value
+
+PASS
+
+An all-parameter exact connected-component invariant and constructive bounded-length paths solve a natural constrained-adjacent-swap reconfiguration problem and sharply distinguish adjacent swaps from broader permutation generation; not a finite or cosmetic special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

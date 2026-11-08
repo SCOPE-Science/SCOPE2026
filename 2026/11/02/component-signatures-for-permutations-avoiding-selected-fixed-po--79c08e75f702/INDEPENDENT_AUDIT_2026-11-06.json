@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T21:17:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md; verify_primary.py; verify_alt.cpp; Git tree 358a0cea0c1b796e4b798c2332c5dbc02ea00375",
+        "Independent full enumeration of all n=2..7 and all forbidden subsets (252 masks, 421830 graph vertices), connected-component BFS and signature partition equality."
+      ],
+      "rationale": "For each forbidden value j, an adjacent exchange cannot change whether j is left or right of prohibited position j without temporarily placing j at position j. Endpoints have forced side. Given any choices for internal forbidden labels, the sorted blocks L increasing, unrestricted U increasing and R increasing form a feasible representative because j in L occupies <=j-1 and j in R occupies >=j+1. Sorting a feasible word by target block order swaps only adjacent inversions: L entries move left, R entries move right, U is unrestricted; within L and R the inequality from feasibility ensures exchanges remain legal. At most binom(n,2) such swaps to canonical representative; component diameter <=n(n-1). Independently generated every F subset and feasible permutation for n=2..7, 252 masks and 421830 feasible graph vertices, confirming exact 2^|F internal| component count.",
+      "residual_risks": [
+        "Upper diameter is not asserted sharp and no exact component sizes are obtained."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Graph Derangements (https://arxiv.org/abs/1306.6436): Does not concern connectivity of an induced subgraph of the Cayley graph of S_n under adjacent positional swaps.",
+          "Gray code for derangements (https://doi.org/10.1016/j.dam.2003.06.002): Generation employs wider transpositions and 3-cycles; cannot infer feasible adjacent swaps.",
+          "Generating involutions, derangements, and relatives by ECO (https://doi.org/10.46298/dmtcs.479): Constructive ECO generation is different from legal adjacent-value exchange in a fixed permutation length."
+        ],
+        "reasoning": "An unrestricted-transposition Hamilton path between derangements is not a path of legal adjacent swaps and does not imply this component count.",
+        "searches": [
+          "permutations avoiding fixed points adjacent transpositions connected components derangements permutahedron",
+          "Gray code for derangements Baril Vajnovszki adjacent transpositions connected components",
+          "permutations forbidden diagonal adjacent exchanges components induction",
+          "https://arxiv.org/abs/1306.6436",
+          "https://doi.org/10.1016/j.dam.2003.06.002"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1306.6436",
+        "https://doi.org/10.1016/j.dam.2003.06.002",
+        "https://doi.org/10.46298/dmtcs.479",
+        "Resultary published-result search: permutations avoiding fixed points adjacent transpositions connected components derangements permutahedron"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Graph Derangements (https://arxiv.org/abs/1306.6436): Does not concern connectivity of an induced subgraph of the Cayley graph of S_n under adjacent positional swaps.",
+          "Gray code for derangements (https://doi.org/10.1016/j.dam.2003.06.002): Generation employs wider transpositions and 3-cycles; cannot infer feasible adjacent swaps.",
+          "Generating involutions, derangements, and relatives by ECO (https://doi.org/10.46298/dmtcs.479): Constructive ECO generation is different from legal adjacent-value exchange in a fixed permutation length."
+        ],
+        "reasoning": "A canonical bubble-sort path exists for each invariant side signature; the prior broad generators cannot change the exact connectivity obstruction into the claimed all-F classification.",
+        "searches": [
+          "permutations avoiding fixed points adjacent transpositions connected components derangements permutahedron",
+          "Gray code for derangements Baril Vajnovszki adjacent transpositions connected components",
+          "permutations forbidden diagonal adjacent exchanges components induction",
+          "https://arxiv.org/abs/1306.6436",
+          "https://doi.org/10.1016/j.dam.2003.06.002"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Graph Derangements (https://arxiv.org/abs/1306.6436): Does not concern connectivity of an induced subgraph of the Cayley graph of S_n under adjacent positional swaps.",
+          "Gray code for derangements (https://doi.org/10.1016/j.dam.2003.06.002): Generation employs wider transpositions and 3-cycles; cannot infer feasible adjacent swaps.",
+          "Generating involutions, derangements, and relatives by ECO (https://doi.org/10.46298/dmtcs.479): Constructive ECO generation is different from legal adjacent-value exchange in a fixed permutation length."
+        ],
+        "reasoning": "Inversion-sort permutahedron with forbidden diagonal cells is distinct from unrestricted Gray codes, even if the word derangement coincides.",
+        "searches": [
+          "permutations avoiding fixed points adjacent transpositions connected components derangements permutahedron",
+          "Gray code for derangements Baril Vajnovszki adjacent transpositions connected components",
+          "permutations forbidden diagonal adjacent exchanges components induction",
+          "https://arxiv.org/abs/1306.6436",
+          "https://doi.org/10.1016/j.dam.2003.06.002"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Graph Derangements (https://arxiv.org/abs/1306.6436): Does not concern connectivity of an induced subgraph of the Cayley graph of S_n under adjacent positional swaps.",
+          "Gray code for derangements (https://doi.org/10.1016/j.dam.2003.06.002): Generation employs wider transpositions and 3-cycles; cannot infer feasible adjacent swaps.",
+          "Generating involutions, derangements, and relatives by ECO (https://doi.org/10.46298/dmtcs.479): Constructive ECO generation is different from legal adjacent-value exchange in a fixed permutation length."
+        ],
+        "reasoning": "No exact catalogued 2^(n-2) adjacent-swap derangement component sequence located in queried papers or nearby published SCOPE records; possible older permutation-poset theorem is noted.",
+        "searches": [
+          "permutations avoiding fixed points adjacent transpositions connected components derangements permutahedron",
+          "Gray code for derangements Baril Vajnovszki adjacent transpositions connected components",
+          "permutations forbidden diagonal adjacent exchanges components induction",
+          "https://arxiv.org/abs/1306.6436",
+          "https://doi.org/10.1016/j.dam.2003.06.002"
+        ]
+      },
+      "rationale": "Adjacent transposition Gray codes in derangement literature usually allow different exchanges (unrestricted transpositions or 3-cycles); Clark’s graph derangements concern a different graph-mapping property. None of their inspected statements gives the precise induced permutahedron component classification for arbitrary forbidden-position subsets F.",
+      "residual_risks": [
+        "Older permutation-poset or constrained adjacent-interchange thesis might contain equivalent classification; inaccessible plausible sources remain.",
+        "Upper diameter is not asserted sharp and no exact component sizes are obtained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT OBJECT: maps vertices to adjacent vertices in arbitrary graphs",
+          "evidence": "Does not concern connectivity of an induced subgraph of the Cayley graph of S_n under adjacent positional swaps.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.6436",
+          "material_read": "Definitions, abstract and sections on existence and graph derangement cycle types",
+          "method": "ArXiv full PDF, relevant definitions and results",
+          "title": "Graph Derangements",
+          "trigger": "Same keyword derangements; test definitional equivalence"
+        },
+        {
+          "assessment": "POSSIBLE GRAY-CODE OVERLAP, no demonstrated stronger connectivity theorem",
+          "evidence": "Generation employs wider transpositions and 3-cycles; cannot infer feasible adjacent swaps.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2003.06.002",
+          "material_read": "Bibliographic record and move descriptions cited in underlying result; no all-page inspection",
+          "method": "Available publisher abstract/bibliographic references",
+          "title": "Gray code for derangements",
+          "trigger": "Plausible permutation generation precedence"
+        },
+        {
+          "assessment": "RELATED GENERATION, not matched rule",
+          "evidence": "Constructive ECO generation is different from legal adjacent-value exchange in a fixed permutation length.",
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.479",
+          "material_read": "Abstract and scope of ECO moves",
+          "method": "Journal summary/abstract",
+          "title": "Generating involutions, derangements, and relatives by ECO",
+          "trigger": "Related explicit generating algorithms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702/RESULT.md",
+        "https://arxiv.org/abs/1306.6436",
+        "https://doi.org/10.1016/j.dam.2003.06.002"
+      ],
+      "rationale": "An all-parameter exact connected-component invariant and constructive bounded-length paths solve a natural constrained-adjacent-swap reconfiguration problem and sharply distinguish adjacent swaps from broader permutation generation; not a finite or cosmetic special case.",
+      "residual_risks": [
+        "Upper diameter is not asserted sharp and no exact component sizes are obtained."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older permutation-poset or constrained adjacent-interchange thesis might contain equivalent classification; inaccessible plausible sources remain.",
+    "Upper diameter is not asserted sharp and no exact component sizes are obtained."
+  ],
+  "schema_version": 1
+}
