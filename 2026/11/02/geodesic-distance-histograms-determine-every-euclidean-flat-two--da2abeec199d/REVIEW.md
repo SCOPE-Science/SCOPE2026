@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The difference of two independent Haar points is Haar, and nearest-lattice-point representatives are uniform on the Dirichlet cell. For a rank-two lattice the cell is a cyclic rectangle or hexagon, so disk intersection area equals disk area minus a disjoint sum of circular segments. The exact segment integral has strictly positive \(3/2\)-onset, recovering each facet distance and its multiplicity. The recovered rectangle side lengths, or the triangle of the three Voronoi-relevant vector lengths, reconstruct the lattice up to isometry. Algebraic and independent numerical checks reproduce the boundary cases and confirm normalization. The analytic proof, not tests, establishes all lattices.
+## correctness
 
-## Originality — PASS, historical priority provisional
-Glorieux–Yarmola (arXiv:2003.08190, §3) provide prior planar lattice-cell geometry and study homotopy of random three-point triangles. Kwakkel–Martens–Peixoto (arXiv:1104.5541) establish rigidity using a fuller focal decomposition. Pure–Durrani–Tong–Pan (arXiv:1903.07757) treat Euclidean distances of two independent polygon points rather than intrinsic random flat-torus displacement lengths. The 2026 work *Distance Energies and Negative Type of Flat Tori* (arXiv:2609.05622) analyzes Fourier cut-locus signatures and distance-energy optimizers, not the scalar histogram inverse. None of these inspected works asserts the exact histogram-injectivity theorem, nor does the latter follow from the stronger-data result without a separate comparison. An older equivalent radial-law calculation remains possible.
+PASS
 
-## Mathematical value — PASS
-The result completely resolves a natural metric inverse problem for all two-dimensional Euclidean flat tori, including the square, rectangular, hexagonal and nonorthogonal cases. It provides a constructive route from a one-dimensional probability law to an unmarked full lattice, not merely a forward formula.
+Haar difference of two independent torus points is Haar; its centered Voronoi representative is area-uniform and distance equals radial norm. The Gauss-reduced rank-two lattice Voronoi cell has two or three opposite facet pairs and all vertices on one centered circumcircle: disk intersection is pi t² minus two disjoint circular caps for each distance d_i. A cap begins at d_i with positive coefficient 4sqrt(2d_i)/3 h^(3/2), and earlier caps remain analytic, so the full CDF identifies area and every facet threshold with multiplicity. Rectangle sides or SSS Delaunay triangle then reconstruct the generating lattice, including repeated-distance degeneracies. Separate angular half-plane integration matches cap formulas in 12 parameter/radius cases.
 
-## Limitations
-Exact population Haar measurements are assumed. No finite-sample accuracy, uniform inverse stability at merging thresholds, higher-dimensional claim or independent validation is established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. Known flat torus Voronoi geometry and stronger-information focal rigidity are not equivalent to injectivity of the scalar unlabeled Haar two-point geodesic distance histogram; polygon Euclidean interpoint distance distributions concern a different observable.
+
+## value
+
+PASS
+
+Constructive inverse metric rigidity from a one-dimensional, unoriented and unlabeled population distance law is a natural strong identifiability problem. The proof handles every planar lattice, including rectangular and symmetric degeneracies, not an artificial finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

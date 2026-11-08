@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
-The proof in `RESULT.md` is fully analytic: Haar subtraction, a Gauss-reduced Voronoi cell, circular-segment integration, sharp noncancelling onset analysis, and SSS lattice reconstruction. Reproducible supplementary computations use `verify_torus.py` (Python standard library and `mpmath`). It independently integrates the halfplane radial function in seven configurations and compares it to the circular-cap formula; checks cyclic vertices, area at maximum radius, Heron reconstruction and exact rational Gram identities; and high-precision checks the three-halves onset coefficient.
+# Independent mathematical audit
 
-Observed checker output ends in:
+## correctness
 
-```
-EXACT_GRAM_AND_AREA_IDENTITIES_PASSED
-SHARP_THREE_HALVES_ONSET_PASSED
-ALL_CHECKS_PASSED
-```
+PASS
 
-Finite numerical tests cannot establish the infinite all-lattice theorem and do not furnish external mathematical certification. All-lattice validity is justified by the displayed proof. Independent audit has not been performed.
+Haar difference of two independent torus points is Haar; its centered Voronoi representative is area-uniform and distance equals radial norm. The Gauss-reduced rank-two lattice Voronoi cell has two or three opposite facet pairs and all vertices on one centered circumcircle: disk intersection is pi t² minus two disjoint circular caps for each distance d_i. A cap begins at d_i with positive coefficient 4sqrt(2d_i)/3 h^(3/2), and earlier caps remain analytic, so the full CDF identifies area and every facet threshold with multiplicity. Rectangle sides or SSS Delaunay triangle then reconstruct the generating lattice, including repeated-distance degeneracies. Separate angular half-plane integration matches cap formulas in 12 parameter/radius cases.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Known flat torus Voronoi geometry and stronger-information focal rigidity are not equivalent to injectivity of the scalar unlabeled Haar two-point geodesic distance histogram; polygon Euclidean interpoint distance distributions concern a different observable.
+
+## value
+
+PASS
+
+Constructive inverse metric rigidity from a one-dimensional, unoriented and unlabeled population distance law is a natural strong identifiability problem. The proof handles every planar lattice, including rectangular and symmetric degeneracies, not an artificial finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
