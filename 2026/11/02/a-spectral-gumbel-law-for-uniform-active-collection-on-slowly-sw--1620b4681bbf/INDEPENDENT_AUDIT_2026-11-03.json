@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T21:48:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Stationary ON-edge count is Binomial(n,pi) at each fixed time. On O(n log n) horizon, integer-time Hoeffding and domination of unit-interval flips by a bounded-mean Poisson variable give uniform M(t)/n=pi+O(n^-1/3) with exceptional probability superpolynomially small. A single independent Poisson marked process per leaf realizes rate-one uniform-active selection and sandwiches contact times by independent gated clocks with mark rates c_n±/n. An ON/OFF killed chain has Q=[[-a,a],[b,-b-c]], survival A_c exp(-gamma_c t/n)+(1-A_c)exp(-Gamma_c t/n); at c=1/pi, A_c=(Gamma-1)/(Gamma-gamma)=C. IID extrema and smooth c_n±=c+o(1/log n) establish the full Gumbel center. Global mark intensity 1/n while ON dominates T_n and controls exceptional-event expectation; maxima have E=(n/gamma_c)(log(n A_c)+Euler)+o(n) uniformly. Differentiation of gamma²-(s+1/pi)gamma+s=0 gives gamma_prime>0. Independently cross-checked killed-generator survival by matrix exponential for five different a,b values. Analytical uniform tails rather than finite simulation justify the order-n expectation constant.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2006.10589: random walks on evolving graphs with mobile walker.",
+          "https://arxiv.org/abs/1702.05412: mobile walker and finite-state cover time method.",
+          "https://doi.org/10.1137/090756053: edge-Markovian flooding via parallel transmissions."
+        ],
+        "reasoning": "General finite-state expectation recursions do not mechanically yield spectral coefficient, sharp Gumbel centering and order-n constant for a serialized hub with replacement.",
+        "searches": [
+          "persistent Markov on off active coupons star uniform active contact coupon collector spectral Gumbel full cover time",
+          "edge Markovian evolving graph star cover time exact Gumbel"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2006.10589",
+        "https://arxiv.org/abs/1702.05412",
+        "https://arxiv.org/abs/2304.01145",
+        "https://doi.org/10.1137/090756053",
+        "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2304.01145: fixed-size availability subset swaps differ from independent two-state links.",
+          "https://arxiv.org/abs/2006.10589: walker changes position.",
+          "https://doi.org/10.1137/090756053: broadcasts to multiple neighbors rather than one active choice."
+        ],
+        "reasoning": "Earlier process-level statements do not directly imply this chosen hub-contact law; inaccessible entire flooding work remains explicitly a risk.",
+        "searches": [
+          "https://arxiv.org/abs/2006.10589",
+          "https://arxiv.org/abs/1702.05412",
+          "https://arxiv.org/abs/2304.01145",
+          "https://doi.org/10.1137/090756053",
+          "persistent Markov on off active coupons star uniform active contact coupon collector spectral Gumbel full cover time"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2304.01145: fixed-cardinality Markov subset swaps or group coupons, not independent ON/OFF gates.",
+          "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed: reset collection introduces resets rather than intermittent gate availability."
+        ],
+        "reasoning": "Equivalent as a phase-type gated coupon maximum after sandwich, but not a specialization of published reset or fixed-size coupon models without new coupling/asymptotics.",
+        "searches": [
+          "persistent Markov on off active coupons star uniform active contact coupon collector spectral Gumbel full cover time",
+          "Markov modulated coupon gating star one contact Gumbel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed: published reset-coupon profile is a different rare-event mechanism.",
+          "No matching indexed exact spectral rate or table was retrieved."
+        ],
+        "reasoning": "This is an all-n asymptotic theorem for two gate rates, not a known static star cover-time tabulation; search negatives cannot establish priority.",
+        "searches": [
+          "persistent Markov on off active coupons star uniform active contact coupon collector spectral Gumbel full cover time",
+          "markov gated coupon collector spectral star mean constant table"
+        ]
+      },
+      "rationale": "Closest inspected evolving-graph walker, flooding, and dependent coupon theorems have different contact rules or available-set dynamics; no retrieved statement supplies this fixed-positive-parameter exact spectral Gumbel law and order-n expectation. Full older flooding text unavailable; historical priority remains qualified.",
+      "residual_risks": [
+        "Older complete Markov-modulated coupon collector theorem may dominate this specialization.",
+        "The 2010 flooding article technical sections were inaccessible and were not read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-cardinality subset swaps and group samples do not represent n independent continuous-time slow gates",
+          "evidence": [
+            "Definitions and model assumptions attached to Theorems 2.3, 2.5."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.01145",
+          "material_read": "Accessible complete primary article including model, Theorems 2.3 and 2.5 and dependent-case proof",
+          "method": "Read full open article via publisher HTML and preprint context",
+          "title": "On a generalisation of the coupon collector problem",
+          "trigger": "Most directly analogous dependent-coupon Gumbel asymptotics"
+        },
+        {
+          "assessment": "Moving random walk instead of fixed hub repeatedly selecting one active neighbor",
+          "evidence": [
+            "Main results concern mixing of a moving walk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.10589",
+          "material_read": "Accessible primary open PDF, model setup, mixing statements and conclusions",
+          "method": "Read principal sections and primary statements",
+          "title": "Random walks on randomly evolving graphs",
+          "trigger": "Independent evolving-edge dynamics potentially covering the star"
+        },
+        {
+          "assessment": "Their moving walker and edge-uniform model do not state this exact full coverage spectral asymptotic",
+          "evidence": [
+            "Finite-state algorithm and walker cover-time bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1702.05412",
+          "material_read": "Accessible primary PDF model and finite-state method, main cover time statements",
+          "method": "Read relevant model, theorem and finite-state sections",
+          "title": "Cover Time in Edge-Uniform Stochastically-Evolving Graphs",
+          "trigger": "Possible general cover-time theorem"
+        },
+        {
+          "assessment": "Parallel flooding differs but whole-paper noncoverage is not claimed",
+          "evidence": [
+            "Abstract concerns synchronous flooding of edge-Markovian networks."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/090756053",
+          "material_read": "Abstract and bibliographic records only, no complete text",
+          "method": "Publisher abstract comparison; not full inspection",
+          "title": "Flooding Time of Edge-Markovian Evolving Graphs",
+          "trigger": "Older edge-Markovian completion bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed stationary availability can coexist with arbitrarily high serial contact-cover penalty due to persistence. The exact spectral gamma, nontrivial Gumbel center C and order-n mean refinement answer natural coverage deadline questions for hub collection with temporal ON/OFF gates, beyond generic n log n estimates.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2006.10589",
+    "https://arxiv.org/abs/1702.05412",
+    "https://arxiv.org/abs/2304.01145",
+    "https://doi.org/10.1137/090756053",
+    "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed"
+  ],
+  "disposition": "passed",
+  "final_claim": "Under stationary independent slow ON/OFF edge switching at rates a/n,b/n on an n-leaf star, a unit-rate hub makes one uniformly active contact (with replacement) per event. The exact killed-gate principal exponent gamma and coefficient C give gamma*T_n/n-log(n C) => Gumbel and E T_n=(n/gamma)(log n+log C+Euler constant)+o(n); at fixed uptime, gamma increases strictly with switching speed.",
+  "limitations": [
+    "Stationary independent links, rates a/n b/n with a,b fixed positive, rate-one serial hub contact with replacement; no general network or nonstationary/joint limit."
+  ],
+  "residual_risks": [
+    "Older complete Markov-modulated coupon collector theorem may dominate this specialization.",
+    "The 2010 flooding article technical sections were inaccessible and were not read."
+  ],
+  "schema_version": 1
+}

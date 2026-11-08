@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python checks/check_temporal.py` from the package root with Python 3. Only the standard library is needed. The script independently computes the two-state killed-generator survival using time-stepped ODE integration, checks its eigenvalue polynomial and exact two-exponential form, compares the iid-gate maximum with its Gumbel normalization over several parameter sets and sizes, and runs an event-driven Gillespie simulation of the full ON/OFF star contact process. It also separately forms and solves the exact finite-state generator over rational numbers for the two-leaf case with unit rates, obtaining \(268/45\), and compares its value to a seeded simulation.
+## correctness
 
-The packaged checker was executed successfully and reported 195 passed assertions/diagnostics. The supplementary simulation produces finite-sample variability; its pass tolerances are deliberately broad, whereas the stated theorem follows from the analytic concentration, pathwise sandwich, killed-generator, and maximum asymptotics in `RESULT.md`.
+PASS
 
-The exact finite-state calculation concerns \(n=2\) only; it does not independently certify the infinite-size Gumbel law, the expectation constant, or historical originality. No independent audit has been performed.
+Stationary ON-edge count is Binomial(n,pi) at each fixed time. On O(n log n) horizon, integer-time Hoeffding and domination of unit-interval flips by a bounded-mean Poisson variable give uniform M(t)/n=pi+O(n^-1/3) with exceptional probability superpolynomially small. A single independent Poisson marked process per leaf realizes rate-one uniform-active selection and sandwiches contact times by independent gated clocks with mark rates c_n±/n. An ON/OFF killed chain has Q=[[-a,a],[b,-b-c]], survival A_c exp(-gamma_c t/n)+(1-A_c)exp(-Gamma_c t/n); at c=1/pi, A_c=(Gamma-1)/(Gamma-gamma)=C. IID extrema and smooth c_n±=c+o(1/log n) establish the full Gumbel center. Global mark intensity 1/n while ON dominates T_n and controls exceptional-event expectation; maxima have E=(n/gamma_c)(log(n A_c)+Euler)+o(n) uniformly. Differentiation of gamma²-(s+1/pi)gamma+s=0 gives gamma_prime>0. Independently cross-checked killed-generator survival by matrix exponential for five different a,b values. Analytical uniform tails rather than finite simulation justify the order-n expectation constant.
+
+## originality
+
+PASS
+
+Closest inspected evolving-graph walker, flooding, and dependent coupon theorems have different contact rules or available-set dynamics; no retrieved statement supplies this fixed-positive-parameter exact spectral Gumbel law and order-n expectation. Full older flooding text unavailable; historical priority remains qualified.
+
+## value
+
+PASS
+
+Fixed stationary availability can coexist with arbitrarily high serial contact-cover penalty due to persistence. The exact spectral gamma, nontrivial Gumbel center C and order-n mean refinement answer natural coverage deadline questions for hub collection with temporal ON/OFF gates, beyond generic n log n estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

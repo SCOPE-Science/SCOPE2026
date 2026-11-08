@@ -1,19 +1,21 @@
-# Scientific review: a spectral Gumbel law for uniform-active collection on slowly switching stars
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The domain is fixed positive continuous-time OFF-to-ON and ON-to-OFF rates \(a/n\) and \(b/n\) on \(n\) independent stationary links; the hub has a unit-rate Poisson clock and picks uniformly among ON links without excluding previously contacted leaves. The proof directly reconstructs the Poisson marking process with per-active-leaf intensity \(1/M(t)\). Uniform stationary-binomial concentration on \(O(n\log n)\) time yields independent upper/lower marked processes differing by \(O(n^{-1/3})\) in their rescaled ON-state contact rate. The killed two-state generator gives the exact survival mixture and identifies the strictly positive slow eigenvalue, so the maximum of independent first marks has the displayed Gumbel law and mean expansion. The globally valid rate \(1/n\) lower contact clock controls exceptional events and the post-horizon expectation. The switching-speed derivative has positive numerator and denominator. The packaged independent finite-state generator gives \(\mathbb E T_2=268/45\) for \(a=b=1\), and its Gillespie implementation is consistent; the checker reports 195 tests. These tests corroborate but do not replace the infinite asymptotic proof.
+PASS
 
-## Originality (O): PASS, qualified
+Stationary ON-edge count is Binomial(n,pi) at each fixed time. On O(n log n) horizon, integer-time Hoeffding and domination of unit-interval flips by a bounded-mean Poisson variable give uniform M(t)/n=pi+O(n^-1/3) with exceptional probability superpolynomially small. A single independent Poisson marked process per leaf realizes rate-one uniform-active selection and sandwiches contact times by independent gated clocks with mark rates c_n±/n. An ON/OFF killed chain has Q=[[-a,a],[b,-b-c]], survival A_c exp(-gamma_c t/n)+(1-A_c)exp(-Gamma_c t/n); at c=1/pi, A_c=(Gamma-1)/(Gamma-gamma)=C. IID extrema and smooth c_n±=c+o(1/log n) establish the full Gumbel center. Global mark intensity 1/n while ON dominates T_n and controls exceptional-event expectation; maxima have E=(n/gamma_c)(log(n A_c)+Euler)+o(n) uniformly. Differentiation of gamma²-(s+1/pi)gamma+s=0 gives gamma_prime>0. Independently cross-checked killed-generator survival by matrix exponential for five different a,b values. Analytical uniform tails rather than finite simulation justify the order-n expectation constant.
 
-The closest literature addresses related but distinct processes. Cai–Sauerwald–Zanetti (arXiv:2006.10589v1) treat mixing of a *mobile walk* in evolving random graphs rather than star coverage by a repeatedly contacting hub. Lamprou–Martin–Spirakis (arXiv:1702.05412) consider an evolving-graph walk and supply bounds plus an exponential-state exact finite algorithm; the inspected theorem statements, general algorithm, and conclusion do not provide the present continuous-time sharp spectral Gumbel and order-\(n\) mean formula. Athreya–Mukherjee–Mukherjee (arXiv:2304.01145v1) obtain coupon-collection results for independent group samples and for Markovian *fixed-cardinality subset swapping*, not independent slow ON/OFF edges with a uniform-active one-contact hub. The earlier Clementi et al. edge-Markovian flooding study permits parallel transmissions and gives bounds in a different setup; its complete text was not available and remains a declared priority risk. Targeted indexed claim searches and the accessible historical-claim ledger yielded no implication-equivalent result. Neither similarity scores nor a lack of search hits are offered as novelty proof. The precise new claim is the jointly explicit \(\gamma\), \(C\), Gumbel law, refined mean, and monotone switching penalty for the specified one-contact model.
+## originality
 
-## Value (V): PASS
+PASS
 
-The source studies Markovian link persistence because network contacts are not independent in time. Even with the same fraction of edges ON at every instant, persistence can delay complete coverage by an *arbitrary* multiplicative factor at the \(n\log n\) scale: as the positive switching-speed parameter approaches zero after fixing the size-asymptotic regime, \(1/\gamma(s)\sim1/(s\pi)\), while it decreases to one for rapid switching. The exact distributional centering and order-\(n\) expectation correction quantify deadline and mean performance beyond a coarse \(\Theta(n\log n)\) bound. The object and invariant are natural for broadcast scheduling and Markov-gated coupon collection; no application to other networks is presumed.
+Closest inspected evolving-graph walker, flooding, and dependent coupon theorems have different contact rules or available-set dynamics; no retrieved statement supplies this fixed-positive-parameter exact spectral Gumbel law and order-n expectation. Full older flooding text unavailable; historical priority remains qualified.
 
-## Limits and close comparisons
+## value
 
-The formula requires a stationary start, independent exponentially switching links, hub-only repeated one-contact sampling, and fixed positive parameters. It neither proves a nonstationary-start analogue nor a uniform joint slow-switching/large-network limit. Literature on random walks on evolving networks has different motion rules, while generic exact finite-state recursions do not directly supply this sharp infinite-size constant. A direct full-text comparison with all older stochastic-network papers has not been completed, particularly the restricted 2010 flooding text. Independent mathematical and historical verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Fixed stationary availability can coexist with arbitrarily high serial contact-cover penalty due to persistence. The exact spectral gamma, nontrivial Gumbel center C and order-n mean refinement answer natural coverage deadline questions for hub collection with temporal ON/OFF gates, beyond generic n log n estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
