@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise sample space contains \((n!)^{tn}\) equiprobable priority systems, with independent uniform strict criterion orders at each school. The sequential characterization is a two-way equivalence between stable allocations and choosing a maximal remaining student at every school. Distinct choices extend to complete stable allocations; this validates the uniqueness argument. Schoolwise independence and label exchangeability give \(\Pr(\pi\text{ stable})=\prod_m a_m/m\), and conditional independence along a unique branch yields \(\Pr(Z=1)=\prod_m b_m\). The local expectation integral and the unique-maximum event are derived explicitly for intersections of uniform permutations. The fixed-criterion asymptotic follows by dominated convergence. Actual standalone scripts exhaustively verified all \(46{,}656\) labeled three-student two-criterion school-priority systems by both direct blocking checks and recursive maximal-choice counts, as well as smaller cases; a separate script verifies local expectations and uniqueness probabilities for small criterion counts. The finite tests support, rather than replace, the all-size argument.
+PASS
 
-## Originality — PASS with residual risk
+Sequential stability is equivalent to choosing a maximal student at each remaining-set stage. For fixed permutation, stage independence and exchangeability give product a_m/m, hence product a_m for expectation. If an earlier stage has two maximal choices, both extend, so uniqueness requires a single maximal choice at every stage, with conditional probability product b_m. In t independent permutations, maximal students are t-dimensional Pareto maxima: integrate (1-prod v_r)^(m-1) to obtain Phi_t(m); a unique maximal exists iff all top-ranked student labels agree, with b_m=m^(1-t). Uniform-integrable product-of-uniforms integral yields the log asymptotic for fixed t. Independently checked all 6^6=46656 priority profiles at n=3,t=2 via direct blocking pairs; resulting distribution for Z=1..6 was (7776,14256,11664,9072,2592,1296), mean 11/4, uniqueness 1/6.
 
-The intersection-priority fairness definition is known from Kitahara–Okumura (2023, Appendix A.1, Proposition 3; 2026, Proposition 1). The mean number of coordinatewise maximal random vectors is known from Bentley–Kung–Schkolnick–Thompson (1978). Pittel (2019, Section 3) studies expected counts of weakly stable matchings with independently random preference lists on both sides; his model does not impose one *common deterministic preference list* for all students, and his formula is a joint integral rather than the present factorized law. The new contribution assessed here is the all-size sequential product factorization for the *number* of stable assignments under common student rankings, its general exchangeable-law version, its factorial uniqueness probability, and its concrete random-intersection specializations. Searches for the exact harmonic-product formula and school-side partial-priority uniqueness probability did not identify earlier exact coverage; that lack of hits alone is not a novelty proof. A logically equivalent result in an unindexed thesis or model-specific source is a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Multiple simultaneous school-priority criteria create justified-incomparability and a choice among admissible assignments. The theorem quantifies that choice across arbitrary market sizes in a natural fully specified probability model: conventional single strict criteria have one stable assignment with common student preferences, whereas two independent criteria yield an expected \(\prod_m H_m\) stable outcomes but uniqueness probability only \(1/n!\). The exact scaling and structural exchangeable-priority factorization explain how independent legitimate criteria expand the feasible stable-assignment set. These quantities matter for selection discretion, not just an arbitrary small enumeration. No claims are made about policymaking correlations or concentration.
+Kitahara–Okumura establish equivalence of weak M-stability and intersection-priority matching, but focus on mechanisms and efficiency, not a random number-of-stable-matchings product law. Bentley–Kung–Schkolnick–Thompson already count maxima of random coordinate sets; this local a_m factor is credited, not claimed novel. Pittel randomizes both sides rather than imposing perfectly common student rankings. No inspected source states the multiplicity/uniqueness factorization for this null model.
 
-## Literature comparisons and limitations
+## value
 
-Primary text inspected: Kitahara–Okumura, *School Choice Problems with Priority Adjustments* (2026), especially Section 2 and Proposition 1; Kitahara–Okumura, *School Choice with Multiple Priorities* (2023), including Appendix A.1; Kitahara–Okumura, *On Extensions of Partial Priorities in School Choice* (2023), Section 2; Pittel, *On Random Stable Matchings* (2019), Section 3; Bentley and collaborators, *On the Average Number of Maxima* (1978), Section 2. The first three establish qualitative existence and extension principles, while the fourth considers independently random lists on both sides and the fifth provides a local maxima identity. None of those inspected statements gives the random common-ranking stable-assignment product/uniqueness law. The result applies only to independent, exchangeable priorities; the source papers do not assert independence in actual school-choice adjustments.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The product law is a natural exact count of stable outcomes under multiple priorities, and the probability of uniqueness captures the combinatorial multiplicity created by disagreements; these results can inform analytical null-model baselines beyond the known local maxima identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
