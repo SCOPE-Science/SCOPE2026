@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For \\(m\\ge3\\), \\(q\\ge1\\), the exact invariant-spectrum decomposition gives the transverse two-by-two block \\(M(a,b)\\) and the uniform/leaf-difference modes. The fixed positive vector \\( (1,\\sqrt q(1+s)) \\) proves \\(\\mu\\ge1-s^2/[1+q(1+s)^2]\\) for every invariant feasible chain; convex group averaging transfers this lower bound to all symmetric stochastic matrices on the graph. At \\(a=s(1+s)/T\\), \\(b=(1-qa)/(m-1)\\), the vector is an exact top eigenvector; trace and scalar inequalities bound all other modes. Equality forces b maximal and uniquely determines a within the invariant class. The edge-ordering identity and limits are algebraic. Symbolic identities and 49 full matrices/294 competitors passed in the attached verifier; finite tests are supporting, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. (2004), §§1–4: convex SDP and four-vertex examples.",
+        "Boyd et al. (2007), §§2–5: general orbit reduction and explicit results for different graph classes, no clique-corona family.",
+        "Olesker-Taylor–Zanetti (2021), available abstract: general bounds rather than exact SLEM."
+      ],
+      "reasoning": "The general SDP and symmetry theorems contain a method applicable to every graph, but no reported theorem supplies the parameterized value and edge weights without new spectral reduction and a sharp Rayleigh certificate. This is a distinction between an algorithmic framework and a stronger statement already implying the answer.",
+      "searches": [
+        "doi:10.1137/S0036144503423264",
+        "arxiv:0709.0955",
+        "\"pendant\" \"fastest mixing\" \"clique\" Markov",
+        "\"complete graph corona\" \"fastest mixing\""
+      ]
+    },
+    "checked_sources": [
+      "Boyd–Diaconis–Xiao, Fastest Mixing Markov Chain on a Graph, SIAM Review 46 (2004), DOI 10.1137/S0036144503423264 (full text inspected).",
+      "Boyd–Diaconis–Parrilo–Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, arXiv:0709.0955 (full text inspected).",
+      "Olesker-Taylor–Zanetti, Geometric Bounds on the Fastest Mixing Markov Chain, arXiv:2111.05816 (abstract only).",
+      "Targeted mathematical research records on corona graphs, mixing chains, spiders, and spectral-radius minimization (search result abstracts and titles)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd et al. (2007) symmetry averaging is used as a lemma, not incorrectly claimed as new.",
+        "Published mathematical record \"Strict log-concavity for complete-graph coronas\" has the same q=1 graph object but analyzes general-position polynomials, not stochastic spectral optimization.",
+        "Published mathematical record \"Explicit coupling-tail mixing concentration for lazy simple random walk on balanced spiders\" treats a different walk and graph.",
+        "Prior exact results on fastest mixing of wheel, Hamming, Johnson and cycle-type networks address nonisomorphic supports and do not impose the corona result."
+      ],
+      "reasoning": "Neither graph-polynomial identities nor upper/lower bounds on fixed lazy spider walks imply the optimal Markov SLEM here. Earlier own graph-specific optimization statements involve different supports, symmetry block structures, and feasibility parameters; no known implication or graph reduction yields the same two-parameter formula.",
+      "searches": [
+        "\"corona\" \"fastest mixing Markov chain\" graph",
+        "\"pendant\" \"fastest mixing\" \"clique\" Markov",
+        "clique corona fastest mixing SLEM 1 - m / ((m-1)+q*(sqrt m + sqrt(m-1))^2), optimal core holding zero",
+        "symmetric consensus optimal convergence rate complete clique with q hanging leaves per vertex, fastest mixing",
+        "fastest mixing Markov chain windmill friendship graph optimal transition probabilities eigenvalues"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd et al. (2007), §1: SLEM equals the spectral norm of \\(P-J/N\\), so fastest symmetric consensus contraction is the same problem.",
+        "No returned exact stochastic/consensus result described the clique-corona family or its radical optimum."
+      ],
+      "reasoning": "The FMMC/consensus/spectral-norm formulations are equivalent, but general algorithmic formulations are not themselves an explicit evaluation of the corona-family optimum. The claim is invariant under these aliases and no equivalent formula was identified.",
+      "searches": [
+        "fastest mixing Markov chain corona product of complete graph edgeless graph pendant vertices explicit formula",
+        "\"corona\" \"fastest mixing Markov chain\" graph",
+        "symmetric consensus optimal convergence rate complete clique with q hanging leaves per vertex, fastest mixing",
+        "arxiv:0709.0955"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2004 primary Table 1 contains the known four-vertex path K_2∘K_1 and its √2/2 optimum; this case is excluded by \\(m\\ge3\\).",
+        "Searchable mathematical records contain an exact graph-polynomial result for \\(K_m\\circ K_1\\) but no stochastic spectral optimum for \\(K_m\\circ\\overline{K_q}\\)."
+      ],
+      "reasoning": "The known four-vertex path value is an overlap boundary, not a table covering the \\(m\\ge3\\), \\(q\\ge1\\) exact classification. No exact database entry for the stated SLEM/weights appeared in the actual targeted searches; unindexed tables remain a residual risk.",
+      "searches": [
+        "fastest mixing Markov chain corona product of complete graph edgeless graph pendant vertices explicit formula",
+        "\"K_n\" \"corona\" \"fastest mixing\" eigenvalue stochastic",
+        "clique corona fastest mixing SLEM 1 - m / ((m-1)+q*(sqrt m + sqrt(m-1))^2), optimal core holding zero",
+        "\"clique with pendant\" \"fastest mixing\"",
+        "\"complete graph corona\" \"fastest mixing\""
+      ]
+    },
+    "rationale": "The inspected primary full texts establish general FMMC SDP and symmetry tools but no explicit minimum SLEM, unique invariant edge weights, or exact \\(q=m-1\\) weight-ordering transition for the \\(m\\ge3\\) clique-with-q-pendant-clusters family. The four-vertex-path case, which is prior art, is outside the new \\(m\\ge3\\) range. Targeted research-index and literature searches did not produce a dominating exact theorem. This is a qualified best-knowledge conclusion with specialist literature risk, not a proof that no publication exists.",
+    "residual_risks": [
+      "Unindexed or inaccessible specialist articles or tables could state an equivalent exact clique-corona result.",
+      "The full text of arXiv:2111.05816 was not inspected; its available abstract is not decisive evidence of noncoverage.",
+      "Uniqueness of every nonsymmetric-by-orbits optimal transition matrix has not been proved and is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General SDP and a four-vertex-path exact example; no exact two-parameter clique-corona family or edge-ordering transition found in inspected material. The path case falls outside the stated \\(m\\ge3\\) range.",
+        "evidence": [
+          "§1.1 defines SLEM and admissible symmetric stochastic matrices; §3.1 Table 1 gives a four-vertex path optimum; no corona or pendant occurrence in the PDF text search."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0036144503423264",
+        "material_read": "Lawfully available full-text PDF, §§1–4, especially the stochastic formulation, section 3 examples, Figure 1, Table 1, and dual conditions; full-text terms corona and pendant checked.",
+        "method": "direct examination of the accessible primary PDF with targeted full-text searching and displayed page images",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Original general FMMC formulation and exact small-graph examples might cover the smallest corona case."
+      },
+      {
+        "assessment": "The graph-averaging argument applies directly and is credited; inspected examples cover cycles, Hamming graphs, complete multipartite graphs, wheels and trees, not the present leaf-cluster corona or its all-parameter radical optimum.",
+        "evidence": [
+          "§2 proves convex automorphism averaging; §3 discusses edge/distance transitive families; §§4–5 include complete multipartite, wheel and tree examples; full-text searches yielded no corona or pendant occurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+        "material_read": "Accessible full-text HTML and published PDF; formulation, averaging theorem in §2, listed exact graph families in §§3–5, conclusions, and searched mentions of corona/pendant.",
+        "method": "read original full-text sections and targeted query over complete text plus PDF page images",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Automorphism-based SDP reduction is an apparent general covering theorem."
+      },
+      {
+        "assessment": "Describes Cheeger-type mixing-time bounds rather than the exact SLEM and optimal weights. No whole-document noncoverage claim is made.",
+        "evidence": [
+          "Public abstract states bounds via vertex conductance and does not assert an exact corona-family FMMC classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.05816",
+        "material_read": "Abstract and research index description only; full text was not accessible in this inspection.",
+        "method": "public abstract comparison, not full-document certification",
+        "title": "Geometric Bounds on the Fastest Mixing Markov Chain",
+        "trigger": "Broadest plausible general FMMC mixing-time bound might dominate special-family mixing claims."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2a148a4a-1936-404c-959f-a2bbc6af6a5f",
+  "value": {
+    "rationale": "Clique-corona networks model dense backbone communication with local pendant bottlenecks, and their exact optimal stochastic averaging rate is a natural two-parameter graph-design invariant. The theorem gives a global optimum over all symmetric chains, a constructive unique invariant design, a positive dual Rayleigh witness, mandatory zero holding on cores, a sharp transition at \\(q=m-1\\) between optimal core versus pendant edge weights, and two scaling limits. These solve the precise spectral allocation problem rather than recomputing a known graph spectrum.",
+    "status": "PASS"
+  }
+}
