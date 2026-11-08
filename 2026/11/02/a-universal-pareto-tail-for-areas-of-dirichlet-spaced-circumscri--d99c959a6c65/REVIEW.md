@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The polygon exists as a bounded convex intersection exactly when every cyclic angular gap is smaller than half a circle. Each tangent-side construction yields the area/semiperimeter identity \(A=\sum_i\tan(\pi Y_i)\), independently checked by the geometric checker. Dirichlet beta marginals give a continuous, positive density at the critical half-gap. Conditioning on boundedness is asymptotically negligible in a single half-gap boundary layer. The probability of two simultaneous nearly semicircular gaps has order \(O(t^{-1-(n-2)\alpha})\), which is negligible for all \(n\ge3\), \(\alpha>0\). A one-large-gap squeeze gives the stated sharp conditional coefficient, and the layer-cake formula gives the exact moment threshold. The proof covers all claimed parameters, including \(\alpha<1\), and does not infer asymptotics from the simulation. Remaining correctness risk: standard finite-dimensional Dirichlet density and geometric half-plane facts must be interpreted with the stated continuous-measure boundary conventions.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Besau–Rosen–Thäle (2020, arXiv:2005.10502) treat the geometric setting of inscribed and polar/circumscribing random polytopes, and their paper's normal-approximation assertions are not finite-size upper tails. Wang–Li–Xu (2023, DOI:10.33993/jnaat522-1360) examine the same symmetric-Dirichlet tangent polygon and large-side-number extrapolations, but not a fixed-number-of-sides exact Pareto tail coefficient or a strict finite-moment boundary. Xu (2015, DOI:10.1016/j.spl.2015.06.026) introduced uniform random circumscribing polygons and explicitly recognized unbounded areas. The full Xu text was not accessible through OA or authorized institutional retrieval, so it remains a material priority risk; no conclusion about its entire contents is inferred from an abstract. Independent published records of the same tail coefficient may exist. Actual published-finding corpus semantic searches did not identify an equivalent or stronger statement; search absence is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-An exact tail coefficient for all fixed polygon sizes and all positive symmetric-Dirichlet gap parameters identifies the geometric rare-event mechanism (one nearly semicircular angular gap) and resolves the entire conditional moment-existence range, which is important for interpreting random polygon area statistics. It isolates a regime orthogonal to large-\(n\) Gaussian approximation: geometric almost-sure approximation and Gaussian fluctuations can coexist with nonintegrable fixed-\(n\) areas. This is a natural statistic of a standard random tangent-polygon model, not an arbitrary parameter slice. The result does not claim a paper-sized general random-polytope theory.
+For fixed n>=3 and alpha>0, the tangent polygon is bounded iff every Dirichlet angular gap Yi<1/2; area=perimeter/2=sum_i tan(pi Yi). The beta density at 1/2 is positive finite, giving each large tangent gap probability ~f(1/2)/(pi t). Integrating the Dirichlet corners proves two simultaneously large gaps are o(t^-1), and a one-big-gap squeeze yields P(A>t|bounded)~c/t, c=n*2^(2-n alpha)/(pi Beta(alpha,(n-1)alpha)*p), p=1-n Pr(Y1>=1/2). Thus E[A^r|bounded]<infinity iff r<1. Independently recomputed beta edge masses and constants for n=3,4,5 and several alpha; at n=3 alpha=1 the coefficient equals 12/pi. Finite checks support but do not replace the asymptotic corner/squeeze proof.
 
-## Verification and limitations
-The standalone checker evaluates independent polygon areas by shoelace, beta-edge asymptotics and reproducible simulations at several parameter values. It supports finite identities and numerics only; the analytic corner bound and squeeze prove the asymptotic. The exact result is for bounded tangent polygons, unit circle, fixed \(n\ge3\), symmetric Dirichlet \(\alpha>0\), and \(t\to\infty\). Other densities and simultaneous limits are unproved. Historical priority remains provisional because Xu's 2015 paper was inaccessible in full.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the final exact mathematical statement against identified primary literature and published research records. Xu 2015 studies the exact same iid-uniform tangency model alpha=1; its full text was inaccessible, so priority of the sharp tail coefficient cannot be certified. No inspected accessible primary text establishes the complete final theorem; the source-inspection limits and priority risks are explicit.
+
+## value
+
+PASS
+
+Areas of randomly circumscribed polygons are natural stochastic-geometry observables. Fixed-size Dirichlet angular gaps, including iid uniform tangencies, make the explicit first-order Pareto coefficient and infinite conditional mean mathematically significant; they distinguish rare near-semicircle singularity from the separate large-number-of-sides Gaussian approximation regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
