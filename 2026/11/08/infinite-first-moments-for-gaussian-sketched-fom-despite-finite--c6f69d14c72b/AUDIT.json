@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Orthogonal Gaussian regression gives the reciprocal FOM coefficient exactly as a normal/chi ratio with continuous positive density at zero; the integral of |h|^{-p} near zero diverges exactly for p>=1. Regressing Sb on SAb gives direct normal/chi for the GMRES coefficient with Student tail threshold p<s. Almost-sure denominator existence, sharp t^-1 constant, negative sign probability, and finite GMRES residual formula follow explicitly. Finite checker supports the derived constants; the proof establishes infinite moments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Timsit–Grigori–Balabanov derive embedding-conditioned quasi-optimality bounds for sketched Krylov solvers.",
+        "Burke–Güttel–Soodhalter section 4.6 derives a general sketched GMRES/FOM MR/OR pairing.",
+        "Balabanov–Nouy use random sketches with high-probability model-reduction error bounds."
+      ],
+      "reasoning": "High-probability or embedding-conditioned bounds do not imply finite unconditional moments; a fixed bad-sketch tail can have arbitrarily small probability and still diverge. The general MR/OR structural relation does not give these Gaussian moment thresholds.",
+      "searches": [
+        "arxiv:2302.07466",
+        "arxiv:2311.14206",
+        "arxiv:1803.02602",
+        "arxiv:2302.07466v3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2208.11447v3 full accessible HTML",
+      "arxiv:2302.07466v3 full accessible HTML",
+      "arxiv:2311.14206v2 full accessible HTML",
+      "arxiv:1803.02602 accessible introductory material"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Güttel–Schweitzer observe nonpositive sketched Ritz values and irregular approximation norms.",
+        "Timsit–Grigori–Balabanov document severe small-Ritz error spikes but not their unconditional moment order.",
+        "Burke–Güttel–Soodhalter derive the algorithmic MR/OR connection."
+      ],
+      "reasoning": "The existence of instability does not logically imply a universal infinite first moment at every finite s, an exact t^{-1} coefficient, or the finite second-moment criterion for the matched sketched GMRES. These assertions require the normal/chi ratio distributions and endpoint integration proved here; conversely the new theorem does not replace the source general convergence analysis.",
+      "searches": [
+        "arxiv:2208.11447:section2.3",
+        "arxiv:2302.07466:section5",
+        "arxiv:2311.14206:section4.6",
+        "arxiv:2208.11447v3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Güttel–Schweitzer sFOM equation (5) and section 2.3; positive-real input may have negative sketched Ritz values.",
+        "Timsit–Grigori–Balabanov section 3 and numerical section discuss randomized Petrov–Galerkin projection and occasional spikes."
+      ],
+      "reasoning": "The same one-dimensional Petrov–Galerkin coefficient is present algebraically in the source method, but the sources do not identify its reciprocal Student distribution, all finite-height moment thresholds, or exact probability and tail constant. Gaussian-regression Student laws themselves are elementary and not claimed original.",
+      "searches": [
+        "arxiv:2208.11447",
+        "arxiv:2302.07466",
+        "arxiv:2311.14206",
+        "arxiv:2208.11447v3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant Krylov references contain sketched solver definitions, norm bounds, projected spectral behavior and numerical tests, but no cited finite-sketch exact distribution table for this pair of coefficient estimators."
+      ],
+      "reasoning": "The claim is a continuous all-moment statement, not a numerical table lookup or previously tabulated special value. Explicit elementary s=3 constants serve as witnesses, not the main novelty.",
+      "searches": [
+        "arxiv:2208.11447",
+        "arxiv:2302.07466",
+        "arxiv:2311.14206",
+        "arxiv:2311.14206v2"
+      ]
+    },
+    "rationale": "Full-text comparisons locate preexisting sketched projection formulas, negative Ritz outliers, high-probability quasi-optimality, and MR/OR pairing, but not the exact Gaussian one-step reciprocal Student law, sharp all-moment failure for FOM and finite-variance GMRES contrast. The elementary Student-regression mechanism is credited as classical; precedence may survive in less-visible specialist literature.",
+    "residual_risks": [
+      "Elementary Gaussian-ratio and randomized Galerkin specialist literature might contain equivalent all-moment results under different terminology.",
+      "The comparator source arxiv:1803.02602 was not independently material-read in its full text during this review.",
+      "Semantic/indexed searches do not prove global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers Galerkin coefficient definition, possible negative projected values, and non-smooth convergence; not the exact distribution or unconditional moment thresholds",
+        "evidence": [
+          "Projected formula in section 2 equation (5).",
+          "Section 2.3 notes right-half-plane Ritz failure on positive-real matrices.",
+          "Numerical discussion links large spikes to near-critical projected Ritz values."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2208.11447v3",
+        "material_read": "Sections 1, 2 (especially equations 5, section 2.3), 3 and numerical section 5, with reference scan",
+        "method": "Open-access arXiv full HTML, targeted equations, lemmas and observed Ritz-error discussion",
+        "title": "Randomized sketching for Krylov approximations of large-scale matrix functions",
+        "trigger": "Originating exact sketched FOM and GMRES formulas and potential instability"
+      },
+      {
+        "assessment": "High-probability bounds and numerical qualitative instabilities, not sharp Gaussian one-step inverse moments",
+        "evidence": [
+          "Introduction identifies sketched FOM for linear systems.",
+          "Section 5 observes small/negative/complex Ritz outliers near spikes."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.07466v3",
+        "material_read": "Introduction, randomized projection and quasi-optimality section 3, numerical section 5 including Ritz-outlier observations",
+        "method": "Open-access arXiv full HTML with section/claim comparison",
+        "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+        "trigger": "General SPD randomized Petrov–Galerkin quasi-optimality and small Ritz-value spikes"
+      },
+      {
+        "assessment": "Gives MR/OR pairing and residual estimates, but not the precise Gaussian coefficient distributions or unconditional moment cutoffs",
+        "evidence": [
+          "Section 4.6 discusses the sketched GMRES/FOM pairing.",
+          "Section 4 gives projected residual/subspace analysis."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2311.14206v2",
+        "material_read": "Abstract and introduction; sections 4 and 4.6 on sketched GMRES projectors and FOM relation, including comparison of asserted results",
+        "method": "Open-access arXiv full HTML, projected method claims and equations",
+        "title": "GMRES with randomized sketching and deflated restarting",
+        "trigger": "General sketched GMRES/FOM relationship potentially dominating the contrast"
+      },
+      {
+        "assessment": "Related high-probability randomized Galerkin estimates; a residual specialist precedence risk remains",
+        "evidence": [
+          "Galerkian approximation and probabilistic error estimation studied in general settings."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1803.02602",
+        "material_read": "Abstract, introduction and problem/guarantee statements available from open-access source",
+        "method": "Open-access abstract and introductory analysis; not a line-by-line full text comparison",
+        "title": "Randomized linear algebra for model reduction. Part I: Galerkin methods and error estimation",
+        "trigger": "Broad earlier randomized Galerkin error analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c6f69d14-c72b-4b60-880a-022ca9df6a3b",
+  "value": {
+    "rationale": "An exact universal risk classification distinguishes two widely used one-step sketched Krylov methods on any nontrivial SPD input; rare bad sketches cause unbounded unconditional first moment despite arbitrarily large finite oversampling, while the matched residual-minimizing method has finite variance for s>2. It gives an exact negative-Ritz failure probability and a tail constant, motivating true residual checks/regularization rather than relying on typical convergence plots.",
+    "status": "PASS"
+  }
+}
