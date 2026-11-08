@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T11:43:45.997933Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://www.math.ucdavis.edu/~deloera/MISC/LA-BIBLIO/trunk/Billera/BilleraSarangtsp.pdf",
+        "https://doi.org/10.1007/s42519-021-00215-x",
+        "assigned RESULT.md at Git blob 005899737618d0d4a4fd8a98cde1931a23a4b150"
+      ],
+      "rationale": "For every n>=3 and every full-support tour law, the uniform moment calculation p=1/(n-1), q=1/((n-1)(n-2)) yields C=(p+q)I-q(B^TB+transpose)+(q-p^2)J. The crown-graph incidence kernel has dimension 2n-1 and nonzero symmetric/skew eigenvalues 1/(n-1), n/((n-1)(n-2)); full support fixes that nullspace for arbitrary positive weights. Extending a selected kernel vector by zero on F=E\\S identifies its freedom with c(F)-1 alternating component potentials, including isolated vertices. Complementary orthogonal minors and incidence total unimodularity yield identical 4^d pdet(C)/tau determinants precisely for crown spanning-tree complements; the crown Laplacian gives tau=(n-1)n^(n-2)(n-2)^(n-1). Independently reconstructed exact rational spectra for n=3,4,5 and all 792 n=4 maximal principal minors: 384 positive equal 1/11664, 408 zero. Finite tests do not establish all n or all positive laws; the incidence/kernel proof does.",
+      "residual_risks": [
+        "Equal determinant says nothing about individual selected condition numbers; all weights must be strictly positive; title theorem excludes undirected and looped tours."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Billera–Sarangarajan 1994 Theorem 2.1 discusses faces of permutation/Birkhoff polytope via elementary bipartite subgraphs; Fischetti 1991 abstract addresses facets of the asymmetric TSP polytope. Neither inspected material states the two positive covariance eigenlevels or the all-positive-measure equal-volume property."
+        ],
+        "reasoning": "General polytope face/affine hull theory may imply the rank and row/column constraints, and thus some kernel ingredients. It does not directly dominate the stochastic covariance pseudo-determinant or equal maximal Walsh volumes.",
+        "searches": [
+          "https://www.math.ucdavis.edu/~deloera/MISC/LA-BIBLIO/trunk/Billera/BilleraSarangtsp.pdf",
+          "https://doi.org/10.1287/moor.16.1.42",
+          "Rank and covariance eigenvalues arc indicators on uniform random n-cycle permutation"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s42519-021-00215-x",
+        "https://www.math.ucdavis.edu/~deloera/MISC/LA-BIBLIO/trunk/Billera/BilleraSarangtsp.pdf",
+        "https://doi.org/10.1287/moor.16.1.42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bailey–Sajjad Theorem 3 relates optimal incomplete-block designs to spanning tree counts; the paper has a distinct design matrix and objective. Billera–Sarangarajan establishes elementary-graph face constraints of permutation polytopes, not the asserted tour-law determinant equality."
+        ],
+        "reasoning": "The common determinant follows after proving that the full-support Hamiltonian tour covariance has exactly the crown cut-space kernel; generic incidence TU yields equal minors only for a PSD operator whose kernel is established. No inspected prior theorem states that combined tour property.",
+        "searches": [
+          "https://doi.org/10.1007/s42519-021-00215-x",
+          "https://www.math.ucdavis.edu/~deloera/MISC/LA-BIBLIO/trunk/Billera/BilleraSarangtsp.pdf",
+          "https://doi.org/10.1287/moor.16.1.42",
+          "Hamiltonian n-cycle arc incidence covariance cographic matroid"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The network/simplex matroid dual says maximal arc-coordinate independence corresponds to spanning-tree complements; Bailey–Sajjad proves graph-theoretic D-optimal incomplete-block design statements, not this arbitrary tour-law covariance spectrum."
+        ],
+        "reasoning": "Translated Walsh coordinates into centered arc-indicator vectors, crown incidence/cographic bases and D-optimal determinant questions. General matroid bases identify which minors can be nonzero but not the common value for a given random Hamiltonian tour ensemble without showing its exact kernel.",
+        "searches": [
+          "Resultary: Hamiltonian directed tours arc covariance Walsh Gram spanning tree crown graph determinant all measures D optimal",
+          "https://doi.org/10.1007/s42519-021-00215-x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact spanning-tree count tau is classical from the crown graph Laplacian, which is part of the proof rather than independent novelty. Exhaustive n=4 minors validate the proposed all-law basis pattern only at that size."
+        ],
+        "reasoning": "A graph table of spanning-tree counts could cover tau alone, but not arbitrary S nullity c(F)-1 or the probability-normalized Gram determinant for every full-support tour law.",
+        "searches": [
+          "Resultary: Hamiltonian directed tours arc covariance Walsh Gram spanning tree crown graph determinant all measures D optimal",
+          "Crown graph spanning trees (n-1)n^(n-2)(n-2)^(n-1)"
+        ]
+      },
+      "rationale": "Qualified PASS for the combined tour-specific covariance-kernel formula, uniform two-level spectrum and all-full-support-law equal-volume D-optimal saturation. General graphic/cographic incidence and spanning-tree optimal design techniques are explicitly known; no novelty is attributed to Kirchhoff, total unimodularity or the crown spanning-tree count alone.",
+      "residual_risks": [
+        "1991 Fischetti primary body not materially read; possible older stochastic-tour sampling or optimal design formulation.",
+        "Equal-volume theorem is derived from general incidence matroid technology, so priority could depend on an old equivalent cut-space covariance statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior determinant–spanning-tree method for block designs; no tour-coordinate law in examined material",
+          "evidence": [
+            "Theorem 3 and Theorem 12 distinguish graph design matrices from tour covariance"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s42519-021-00215-x",
+          "material_read": "Accessible full HTML; theorem statements for graph designs including Theorems 3 and 12 and their design setting",
+          "method": "Primary publication text read",
+          "title": "Optimal Incomplete-Block Designs with Low Replication: A Unified Approach Using Graphs",
+          "trigger": "Potential stronger D-optimal spanning-tree theorem"
+        },
+        {
+          "assessment": "Supports classical permutation-polytope background; did not verify any all-tour covariance D-optimal equality",
+          "evidence": [
+            "Theorem 2.1: elementary subgraph face lattice of B_n; Cornell report dated Feb 1994"
+          ],
+          "identifier_or_url": "https://www.math.ucdavis.edu/~deloera/MISC/LA-BIBLIO/trunk/Billera/BilleraSarangtsp.pdf",
+          "material_read": "Public 18-page scan; cover and page 5 visually inspected, including Theorem 2.1 and the Birkhoff-face discussion",
+          "method": "Original PDF screenshots",
+          "title": "All 0–1 Polytopes are Traveling Salesman Polytopes",
+          "trigger": "Hamiltonian tour polytope affine-hull and face structure"
+        },
+        {
+          "assessment": "Plausible priority source not cleared; neither the accessible abstract nor inspected material establishes covered covariance theorem",
+          "evidence": [
+            "DOI 10.1287/moor.16.1.42"
+          ],
+          "identifier_or_url": "https://doi.org/10.1287/moor.16.1.42",
+          "material_read": "Bibliographic record and abstract only; full body not obtained",
+          "method": "Public metadata and publisher abstract",
+          "title": "Facets of the Asymmetric Traveling Salesman Polytope",
+          "trigger": "Same directed TSP object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.1007/s42519-021-00215-x",
+        "assigned RESULT.md"
+      ],
+      "rationale": "A natural, distribution-robust exact classification of maximal independent arc Walsh-coordinate observations on Hamiltonian tours: it supplies all sizes, all maximal designs, their count, their exact common determinant, and their positive spectrum; researchers designing first-order tour measurements can need these precise values. Not credit for a routine tree enumeration alone.",
+      "residual_risks": [
+        "A generalized graphical-design theorem using the same cut-space could partially subsume the claimed contribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All-n and arbitrary full-support measure claims rely on proof, not finite checks.",
+    "Fischetti (1991) not inspected in full."
+  ],
+  "schema_version": 1
+}

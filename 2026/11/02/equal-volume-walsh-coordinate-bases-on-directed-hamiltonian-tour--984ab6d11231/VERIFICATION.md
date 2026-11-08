@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 checker.py` with a standard Python 3 interpreter. The script checks exact rational one-arc and two-arc probabilities on the complete labelled directed-tour supports for orders \(3\) through \(7\) (\(3244\) individual edge-pair moment comparisons), and it checks predicted eigenvalue equations for symmetric and skew fundamental-cycle vectors of the incidence kernel. For orders \(3\) and \(4\), every maximal selected feature set is tested for complementary spanning-tree connectivity and its exact determinant. In order \(4\), all \(384\) positive determinants coincide out of \(792\) possible saturated coordinate sets, under both uniform and the strictly positive asymmetric tour weights \((1,2,3,4,5,9)\). It also checks \(120\) deterministic larger selections in order \(5\).
+## correctness
 
-The universal arbitrary-law, all-order theorem is proved in RESULT.md by the covariance-kernel identification, the complementary-minor identity, and the matrix-tree theorem. Enumeration is a finite consistency test, not a proof for unbounded order. Historical equivalence and complete external proof validation remain open.
+PASS
+
+For every n>=3 and every full-support tour law, the uniform moment calculation p=1/(n-1), q=1/((n-1)(n-2)) yields C=(p+q)I-q(B^TB+transpose)+(q-p^2)J. The crown-graph incidence kernel has dimension 2n-1 and nonzero symmetric/skew eigenvalues 1/(n-1), n/((n-1)(n-2)); full support fixes that nullspace for arbitrary positive weights. Extending a selected kernel vector by zero on F=E\S identifies its freedom with c(F)-1 alternating component potentials, including isolated vertices. Complementary orthogonal minors and incidence total unimodularity yield identical 4^d pdet(C)/tau determinants precisely for crown spanning-tree complements; the crown Laplacian gives tau=(n-1)n^(n-2)(n-2)^(n-1). Independently reconstructed exact rational spectra for n=3,4,5 and all 792 n=4 maximal principal minors: 384 positive equal 1/11664, 408 zero. Finite tests do not establish all n or all positive laws; the incidence/kernel proof does.
+
+## originality
+
+PASS
+
+Qualified PASS for the combined tour-specific covariance-kernel formula, uniform two-level spectrum and all-full-support-law equal-volume D-optimal saturation. General graphic/cographic incidence and spanning-tree optimal design techniques are explicitly known; no novelty is attributed to Kirchhoff, total unimodularity or the crown spanning-tree count alone.
+
+## value
+
+PASS
+
+A natural, distribution-robust exact classification of maximal independent arc Walsh-coordinate observations on Hamiltonian tours: it supplies all sizes, all maximal designs, their count, their exact common determinant, and their positive spectrum; researchers designing first-order tour measurements can need these precise values. Not credit for a routine tree enumeration alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
