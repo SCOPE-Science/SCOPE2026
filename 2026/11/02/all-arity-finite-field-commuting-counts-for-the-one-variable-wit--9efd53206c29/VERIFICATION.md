@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` in a directory containing the standalone program from this package. The program uses only the Python standard library. It constructs multiplication in prime and quadratic-extension fields, builds each adjoint matrix from the actual Lie brackets, computes centralizer kernels by full finite-field row reduction, enumerates all commuting ordered pairs from these kernels, and counts commuting ordered triples by computing the common centralizer of each pair. It does not use the closed formula when constructing its matrix kernels. Its separately computed totals are compared with the claimed formula.
+## correctness
 
-Observed complete counts:
+PASS
 
-| Field | Ordered commuting pairs | Ordered commuting triples |
-|---|---:|---:|
-| \(\mathbb F_2\) | 10 | 22 |
-| \(\mathbb F_4\) | 76 | 316 |
-| \(\mathbb F_3\) | 105 | 339 |
-| \(\mathbb F_9\) | 7281 | 66249 |
-| \(\mathbb F_5\) | 21625 | 186125 |
+The original high-valuation centralizer equality Z=H_(p-r+1) fails for p=2,r=1: Z(t d/dt)=H1, not H2. Complete replacement RESULT.md corrects the exception and proves the SAME all-arity and filtered formulas by low-r normalized common-centralizer lines and high-r abelian H_r strata. Independently enumerated F2 pair/triple=(10,22) and F3=(105,339); finite tests corroborate the all-arity proof, not replace it. Repaired theorem covers p=2 and all prime powers; m=0 separately one.
 
-Expected marker: `WITT_ALL_ARITY_POINT_COUNT_OK`.
+## originality
 
-The computation establishes only these finite instances and the direct single-element adjoint-nullity spectra checked along the way. The proof in `RESULT.md` supplies the infinite-field-family and arbitrary-arity argument. No independent audit has been performed.
+PASS
+
+Best-of-knowledge originality after primary-literature and published-record comparison; limited access and substantive priority risks explicitly recorded. Original claim has a corrected boundary lemma; originality is reassessed on the repaired final theorem.
+
+## value
+
+PASS
+
+Exact all-arity F_q point counts are natural arithmetic invariants of commuting Witt tuples, with filtered families; disjoint normalized strata yield information not supplied by known geometric component dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
