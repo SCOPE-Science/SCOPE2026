@@ -1,0 +1,15 @@
+# Mathematical review: cross-hyperbola Fourier sampling
+
+## Correctness — PASS
+The theorem is finite-field and local-arithmetic, with complete definitions of the sampling matrix and the valuation ring. An invertible multiplicative-character change of basis reduces the matrix to the twisted Kloosterman diagonal. Reduction of the cyclotomic binomial coefficients modulo the prime gives the first nonzero term for every nonquadratic character, while an exact involution kills precisely the quadratic character in the nonsquare case. The proof checks all odd primes including the boundary prime three, and computes the determinant valuation and finite Smith factors from these diagonal entries. The standalone verification code additionally checks exact modular coefficients, exact character cancellation, numerical ranks, and proposed null vectors at ten primes. It does not purport to prove the infinite case computationally.
+
+## Originality — PASS, bounded literature comparison
+Classical Salié theory already explains the quadratic-twist zero for nonsquare parameters; that zero alone is not new. Kelmer's 2008 preprint gives the same general twisted Kloosterman sums but primarily studies distributions and explicit evaluation for higher prime powers; its full arXiv HTML text does not present the local Smith list of the prime-field square cross-sampling transform. Gurak's 2009 abstract sets higher-prime-power hypotheses, so it does not on its face give this classification; only its abstract and references were materially checked. Related general character-convolution invertibility arguments do not determine the full local exponents or identify the exact nonsquare one-dimensional defect. Published search results did not locate an identical theorem, but negative searches cannot prove priority. Residual risk: the exact valuation formula may be implicit in older twisted-Kloosterman p-adic literature, including sources whose complete text was unavailable.
+
+## Mathematical value — PASS
+This is a natural critical Fourier sampling operator between two finite-field multiplicative hyperbolas. Its rank can lose exactly one mode solely from a quadratic square-class mismatch; the complete Smith sequence describes the stronger arithmetic obstruction, not just nonvanishing. The exact kernel gives a geometrically interpretable unrecoverable signal, and the theorem supplies a uniform classification for every odd prime and every pair of nonzero hyperbola parameters. The result is intentionally narrower than general Kloosterman theory but gives concrete reconstruction information not established merely by an individual twisted-sum evaluation.
+
+## Boundaries
+The result is local at the cyclotomic prime above the finite-field characteristic. No claim is made about global integer Smith forms, complex conditioning, extension fields, or all minors. It is not certified to be first in historical priority, and no outside review has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
