@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The standard truncated-tetrahedral graph is given by the twelve ordered half-edges of a tetrahedron. A complete check of all 4096 vertex subsets finds 864 augmented two-independence faces; a deterministic acyclic matching on all 3432 Hasse relations leaves exactly one ordinary vertex, three three-cells and three four-cells. Its exact signed three-by-three Morse boundary is zero. Hurewicz identifies the four-cell attaching maps as nullhomotopic, yielding the asserted integral wedge. The independent mod-two boundary ranks provide a separate check, not a replacement for the integer calculation.
+## correctness
 
-**Originality — PASS against accessible evidence.** The Deshpande–Singh classification addresses different families; later chordal results are inapplicable to the induced six-cycle. Full-text comparison with exact truncated-tetrahedral ordinary matching and three-cut calculations finds different face conditions and no implication of the present two-independence homotopy type. Searches under higher independence, dissociation, degree-one induced subgraphs, tetrahedral truncation, and numerical wedge parameters located no covering result. Unindexed equivalent calculations remain possible.
+PASS
 
-**Value — PASS.** The graph is the twelve-vertex Archimedean truncated tetrahedron; its degree-one induced-vertex-set complex is a canonical higher-independence invariant. The mixed integral sphere-wedge type is not inferred from the established equidimensional examples, and the mismatch between the dimension-four homology and the facet dimensions three and five establishes a structural obstruction to nonpure shellability. This is an exact finite classification, without an unwarranted infinite-family claim.
+The standard truncated-tetrahedral graph has twelve ordered-pair vertices (a,b), each degree three, 18 edges from four triangles and six reversal edges. Exhausting all 4096 vertex masks independently reproduced 864 augmented Ind_2 faces, f-vector (12,66,192,303,228,62), facets exactly three 3-faces plus 62 5-faces. Reconstructing the explicit toggle order gave 429 augmented pairs; the complete 3432 ordinary Hasse covers are acyclic by topological sorting of all 863 nonempty faces. The three critical 3-cells and three critical 4-cells have an exact signed 3x3 zero boundary. Their 3-sphere wedge is 2-connected, so pi3~H3 and the zero attaching degrees give 3 S3 + 3 S4 integrally. Nonpure shellability is obstructed by H4 nonzero in a nonfacet dimension; no all-polyhedra claim follows.
 
-The closest literature includes Deshpande–Singh (2020), Abdelmalek et al. (2021), graph-theoretic dissociation-number bounds (2023), and the publicly available ordinary matching and three-cut computations on the same graph. The major residual risk is an unindexed exact two-independence computation. The result does not classify other cutoffs or graphs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS after full nearby Resultary ordinary edge-matching and primary higher-independence comparisons. Ind_2 uses 12 vertex-subset indices, whereas ordinary matching uses 18 graph-edge indices; the same-graph Rips/Cech and three-cut are also different simplex conditions. No established parameter family among the read higher-independence primary text covers the truncated tetrahedral graph. Residual risk from unindexed dissociation complexes remains.
+
+## value
+
+PASS
+
+The truncated tetrahedron is a canonical Archimedean cubic graph with triangles and induced 6-cycles, outside chordal higher-independence homotopy theorems. The exact dissociation-complex wedge, dimension-gap facet structure, and nonpure shellability obstruction are natural new structural data beyond maximum dissociation-set size, ordinary matching, and metric complexes. Finite specificity is mathematically motivated by the graph's geometry and a nontrivial integer Morse boundary computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
