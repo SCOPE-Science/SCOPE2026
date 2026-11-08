@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T22:54:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: On the flat quotient (R/2aZ)x[0,h] with a=pi R, the shortest geodesic between two sampled points has length sqrt(X^2+Y^2), where X is uniform on [0,a] by wrapped angular difference and Y=|H_1-H_2| is independent with density 2(h-y)/h^2. Integrating the triangular conditional probability over X and splitting at B=min(a,sqrt((r^2-h^2)_+)) proves the displayed elementary CDF. The angular cutoff at r=a removes an integral of sqrt(delta-s), producing -4sqrt(2)/(3h sqrt(a)) delta^(3/2); the height cutoff at r=h adds a squared-overrun integral with coefficient +8sqrt(2)/(15 a h^(3/2)) delta^(5/2). At L=sqrt(a^2+h^2), small deficits a-X and h-Y produce triangular tail L^3 eps^3/(3a^2 h^4). Independence gives E[D^2]=a^2/3+h^2/6, E[D^4]=a^4/5+a^2 h^2/9+h^4/15; (L,E[D^2]) reconstruct a,h. The coefficient formulas are local and account for coincident cutoffs a=h. Fresh independent numerical integration for five aspect ratios checked CDF and moments; finite numerical checks do not certify the real-parameter singular expansions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen and Chen examine periodic-surface geodesic computations; published summary does not state a random-pair law.",
+          "Tu–Fischbach 2002 explicitly derive distance distributions in spherical objects rather than flat cylindrical quotients."
+        ],
+        "reasoning": "General distance-distribution machinery could specialize, but the cited sources state different geometry/metrics; no stronger directly covering formula was verified from available material. Full-body coverage by numerical-geodesic papers is not ruled out on abstract alone.",
+        "searches": [
+          "arXiv:1011.5320 Chen Chen periodic parametric geodesics",
+          "Tu Fischbach 2002 random distance spherical objects",
+          "intrinsic geodesic distance distribution two random points circular cylinder lateral surface"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob e4fa579ab365eaab54f9958ef4b02603e4e139d6",
+        "verify.py blob 488a058d6edb190cd431eee223dd705b304e1c9e",
+        "arXiv:1011.5320",
+        "doi:10.1088/0305-4470/35/31/303",
+        "Sheng 1985 and Marsaglia/Narasimhan/Zaman 1990 planar distance methods"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The wrapped angular coordinate changes the pair-separation density from a planar difference law to a uniform law.",
+          "Exact cusp exponents depend on distinct angular and height cutoffs, and tail exponent uses vanishing triangular density at maximum vertical separation."
+        ],
+        "reasoning": "The formulas are derivable from elementary integration once the quotient reduction is made, but are not identical to a planar-rectangle law. The complete smoothness classification and inverse metric identification are independently specified and checked.",
+        "searches": [
+          "intrinsic geodesic distance distribution two random points circular cylinder lateral surface",
+          "Sheng 1985 random distances planar regions",
+          "Marsaglia Narasimhan Zaman 1990 random distances rectangles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unrolling the lateral cylinder identifies its intrinsic metric with a flat periodic strip; wrapped horizontal difference is uniform, vertical difference triangular.",
+          "Euclidean rectangle-distance formulas have a triangular horizontal difference rather than the uniform wrapped one."
+        ],
+        "reasoning": "The closest equivalent formulation is the radial norm of a uniform and an independent triangular variable on [0,a]x[0,h]; the audit explicitly compares this rather than relying on cylindrical terminology.",
+        "searches": [
+          "intrinsic geodesic distance distribution two random points circular cylinder lateral surface",
+          "geodesic distance between two random points on finite cylinder surface distribution pdf intrinsic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Research-index search returned cylinder shadow mixed moments, planar random-distance coefficients and unrelated section geometry, rather than a lateral-surface intrinsic pair-distance table.",
+          "The source proof computes all moments from E[X^(2j)]=a^(2j)/(2j+1) and triangular Y moments, so no precomputed table is assumed."
+        ],
+        "reasoning": "An existing tabulation for the periodic strip would be directly relevant even if it called the surface a flat quotient; none identified in the checked indexed records, which is not itself proof of absence.",
+        "searches": [
+          "intrinsic geodesic distance distribution two random points circular cylinder lateral surface",
+          "random distance distribution finite cylindrical surface intrinsic pdf"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: nearby geodesic work provides shortest-path algorithms on periodic surfaces, and random-distance papers treat planar Euclidean domains, spherical bodies or chord distances. No inspected source provides the same exact intrinsically wrapped lateral-cylinder law with its two differing internal singular orders, cubic endpoint tail and inverse recovery; a general formula for flat quotient strips or preexisting geometric-probability tables remains possible priority risk.",
+      "residual_risks": [
+        "Equivalently parameterized finite flat-cylinder or rectangular-torus statistics may be indexed under geometric probability terminology not found by current searches.",
+        "Abstract-level sources were not read as full-paper noncoverage evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "METHOD_NOT_EXACT_LAW_ON_AVAILABLE_MATERIAL",
+          "evidence": "Discusses periodic parametric geodesic computation rather than explicitly stating two-point surface-area sampling CDF in accessible material; whole-document noncoverage NOT claimed.",
+          "identifier_or_url": "arXiv:1011.5320 (Chen and Chen, 2010)",
+          "material_read": "Accessible abstract and source citation; full text not read",
+          "method": "Web abstract and source-package literature comparison",
+          "title": "Geodesic-distance computation on periodic parametric surfaces",
+          "trigger": "Periodic quotient geometry"
+        },
+        {
+          "assessment": "SPHERICAL_EUCLIDEAN_SETTING",
+          "evidence": "Analytic PDFs for n-balls and spheres; intrinsically wrapped finite cylinder not established by the read abstract.",
+          "identifier_or_url": "doi:10.1088/0305-4470/35/31/303",
+          "material_read": "Published abstract and description, not full paper",
+          "method": "Publisher landing-page abstract inspection",
+          "title": "Random distance distribution for spherical objects: general theory and applications",
+          "trigger": "Potentially general random-distance formula"
+        },
+        {
+          "assessment": "INTERNAL_PROOF_RECONSTRUCTED",
+          "evidence": "Covering-space reduction and cutoff integrals were reconstructed from actual package text, not prior self-review status.",
+          "identifier_or_url": "assigned RESULT.md Git blob e4fa579ab365eaab54f9958ef4b02603e4e139d6",
+          "material_read": "Complete finding, assumptions, proof, and reference discussion",
+          "method": "Exact source-blob reading and independent derivation",
+          "title": "Full intrinsic pair-distance law on a finite circular cylinder",
+          "trigger": "Primary auditable theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The complete random intrinsic-distance distribution is a natural observable of a compact, boundary-bearing Riemannian quotient, with distinct C^1/not-C^2 and C^2/not-C^3 threshold behavior, sharp cubic extremal tail and exact recovery of radius/height from the law. Those geometric invariants go beyond a routine shortest-path formula and can support sampling/identification problems.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For independent area-uniform points on the lateral surface of any positive-radius, positive-height circular cylinder, the full intrinsic geodesic distance CDF, its internal fractional-power singularities, endpoint tail, even moments and parameter identifiability are explicit.",
+  "limitations": [
+    "Only lateral surface and intrinsic shortest path; no end disks, solid-cylinder shortcuts or Euclidean chord distances.",
+    "Numerical experiments sample finite aspect ratios and do not prove singular exponents.",
+    "Prior flat-quotient distance-law equivalence remains a search risk; public metadata not sanitized."
+  ],
+  "schema_version": 1
+}
