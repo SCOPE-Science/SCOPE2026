@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:50:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The exact prior A and B sharp frame bounds for the normalized two-sided exponential were checked directly against Faulhuber–Shafkulovska Eq.(8.1), and uniqueness/localization against Theorem 2.7. Algebraic factorization κ=cosh(x)coth²(η/2)(1+u/b)/(1-u/a) with x=η/q is correct. On the known η~log q optimizer interval, uniform elementary expansions give logκ=η²/(2q²)+4(1+η)e^-η+controlled smaller terms and derivative η/q²−4ηe^-η+smaller terms. Solving the exact stationarity equation gives e^-η=(4q²)^−1(1+O(log²q/q²)), hence the claimed position and three coefficients. Independently optimized exact analytic formulas for q up to 2048 corroborate the rate. Finite numerical tests do not prove uniform remainders; that follows from the stated controlled elementary expansions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Faulhuber–Shafkulovska Theorem 2.7 proves unique optimizer located between acosh(q) and 4 acosh(q), a much broader interval than the new O(log²q/q²) displacement.",
+          "de Dios Pont et al. discuss qualitative frame existence for totally positive windows, not sharp conditioning of this high-density rectangular optimizer."
+        ],
+        "reasoning": "Broader frame existence and finite-parameter optimization coverage must be credited, but do not logically settle the specific uniform logarithmic expansion.",
+        "searches": [
+          "arXiv:2204.02917 Theorem 2.7 Eq 8.1",
+          "arXiv:2608.04992 totally positive Gabor frame sets",
+          "two-sided exponential Gabor frame bounds optimal condition number integer redundancy high-density asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 185b60f231b283ee3e534581c2a671d68c209585, tree cf1bdb2e323039a39f343500ecf42f5743b7fb0f",
+        "Faulhuber–Shafkulovska arXiv:2204.02917 actual formula (8.1) and Theorem 2.7",
+        "Independent exact-function optimization and expansion check q=8 through 2048",
+        "Resultary query two-sided exponential Gabor frame bounds optimal condition number integer redundancy high-density asymptotic",
+        "de Dios Pont et al. arXiv:2608.04992 relevant context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.7 supplies existence, uniqueness and η~log q bounds; the first-order stationary balance η/q²≈4ηe^-η must still be derived uniformly.",
+          "Expanding the exact expression at the moving stationary point yields (2L²+2L+1)/q²; evaluating at an arbitrary lattice does not prove minimization."
+        ],
+        "reasoning": "The claim is a nontrivial asymptotic consequence of known formulas, not a new independent frame-existence theorem. The prior formulas alone do not explicitly assert it.",
+        "searches": [
+          "arXiv:2204.02917 Eq. (8.1), Theorem 2.7",
+          "two-sided exponential Gabor frame bounds optimal condition number integer redundancy high-density asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact window and lattice parametrization of Eq.(8.1) match after normalizing g=e^{-|t|} of L² norm one and identifying paper density n=q.",
+          "The original finite-density functions and optimizer are known, but the new formula is a moving q→∞ optimal-parameter expansion."
+        ],
+        "reasoning": "Potential equivalence under sample spacing a=η/q and modulation b=1/η was accounted for. Exact implicit optimizer formulas alone do not provide the new expansion without estimating their stationary solution.",
+        "searches": [
+          "two-sided exponential Gabor frame bounds optimal condition number integer redundancy high-density asymptotic",
+          "arXiv:2204.02917 Section 8 asymptotics two-sided exponential eta_n",
+          "Janssen Weyl Heisenberg frame bound exponential asymptotic 1996"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published section 8 plots finite density q=2,3,4 and exact bound curves, not a symbolic q→∞ three-term coefficient table.",
+          "Independent high-precision q=8,32,128,512,2048 exact-function minimizations show the centering error decreases strongly as q increases."
+        ],
+        "reasoning": "Numerical figures and finite-ratio tables cannot establish the uniform all-large-integer asymptotic coefficient and error order.",
+        "searches": [
+          "Gabor exponential q optimizer numerical table asymptotic log 2q",
+          "Faulhuber Shafkulovska 2023 Figure 9 two-sided exponential",
+          "two-sided exponential Gabor frame bounds optimal condition number integer redundancy high-density asymptotic"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Faulhuber–Shafkulovska 2023 already provide the exact finite-redundancy sharp bounds, unique condition-number optimizer and coarse interval; these are acknowledged. Their relevant two-sided exponential section and theorem do not state the moving-optimizer asymptotic ηq=2log(2q)+o(1) and the three logarithmic condition-excess terms in inspected text. The high-redundancy expansion is not an automatic fixed-η substitution; controlling the derivative is needed. Earlier Janssen and unindexed follow-up analyses may contain equivalent expansions.",
+      "residual_risks": [
+        "Janssen 1996 and less-indexed quantitative Gabor frame literature could include equivalent high-density asymptotics; historical priority cannot be guaranteed.",
+        "Uniform remainder proof relies on elementary differentiated expansions on the prior interval; finite numerical evidence alone is not a proof.",
+        "Only integer rectangular redundancy and normalized two-sided exponential, not general windows or nonrectangular lattices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_EXACT_BOUNDS_AND_UNIQUENESS_BUT_NOT_FOUND_ASYMPTOTICS",
+          "evidence": "Equation (8.1) gives A and B exactly; Theorem 2.7 proves unique minimum and coarse interval; reported result adds explicit high-density optimizer and excess expansion.",
+          "identifier_or_url": "arXiv:2204.02917; https://arxiv.org/pdf/2204.02917",
+          "material_read": "Full primary PDF acquired; relevant introduction, Theorem 2.7 on PDF page 5, Section 8 Eq.(8.1) on PDF page 21, and related optimizer discussion inspected",
+          "method": "Searchable text and page screenshots, exact mathematical formula comparison",
+          "title": "Gabor Frame Bound Optimizations",
+          "trigger": "Same window, density, condition-number optimizer"
+        },
+        {
+          "assessment": "GENERAL_FRAME_SET_NOT_SHARP_OPTIMIZER",
+          "evidence": "It concerns existence/frame sets for totally positive windows; qualitative coverage alone cannot provide an optimized finite-density condition-number asymptotic.",
+          "identifier_or_url": "arXiv:2608.04992",
+          "material_read": "Abstract and theorem framing, not a complete full-text examination",
+          "method": "Search metadata and relevant available preprint summary",
+          "title": "Gabor Frames of Totally Positive Functions: A Complete Characterization",
+          "trigger": "Recent stronger qualitative frame-set coverage"
+        },
+        {
+          "assessment": "OLDER_QUANTITATIVE_PRIORITY_RISK",
+          "evidence": "Any earlier unpublished/less-indexed asymptotic extraction remains possible; the old sharp frame bound identities themselves are conceded as prior work.",
+          "identifier_or_url": "Janssen, Indag. Math. 7 (1996), 165–183",
+          "material_read": "Citation/credit through Faulhuber–Shafkulovska; original full article not obtained",
+          "method": "Secondary exact-formula credit, no claim of direct full-text inspection",
+          "title": "Some Weyl–Heisenberg Frame Bound Calculations",
+          "trigger": "Original exact two-sided exponential bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Optimal frame stability at high redundancy is a natural nontrivial quantity for a standard totally positive window. The logarithmic displacement of the optimal rectangular sampling lattice and its sharp excess condition number quantify conditioning and distinguish optimal from naive choices; they are stronger than simply recomputing known finite-q formulas.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For normalized g(t)=exp(-|t|) with integer rectangular Gabor redundancy q→∞, the unique condition-number-minimizing lattice side satisfies ηq=2 log(2q)+O(log(q)^2/q^2), and the optimal condition number equals 1+[2 log²(2q)+2 log(2q)+1]/q²+O(log^4(q)/q^4).",
+  "limitations": [
+    "Janssen 1996 and less-indexed quantitative Gabor frame literature could include equivalent high-density asymptotics; historical priority cannot be guaranteed.",
+    "Uniform remainder proof relies on elementary differentiated expansions on the prior interval; finite numerical evidence alone is not a proof.",
+    "Only integer rectangular redundancy and normalized two-sided exponential, not general windows or nonrectangular lattices."
+  ],
+  "schema_version": 1
+}

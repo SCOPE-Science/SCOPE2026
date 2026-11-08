@@ -1,27 +1,21 @@
-# Scientific assessment: high-density exponential Gabor optimization
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The mathematical object is the standard rectangular Gabor system of the \(L^2\)-normalized window \(e^{-|t|}\), with integer density \(q\ge2\). The previously proved sharp frame-bound identities and unique optimizer are fully identified as inputs (Faulhuber–Shafkulovska, Equation (8.1), Theorem 2.7). Their theorem places the optimum in the logarithmic window needed for all subsequent expansions. The exact condition-number factorization is algebraically reconstructed, including positive denominator. A differentiated uniform expansion proves the optimizer scale \(e^{-\eta_q}\sim1/(4q^2)\), then the quantified remainder \(O((\log q)^2/q^2)\) in its location. Substitution proves all three displayed conditioning coefficients and the fourth-order denominator remainder. A high-precision checker of the exact equation supplies numerical corroboration, not the infinite proof.
+PASS
 
-## Originality: PASS with residual risk
+PASS: The exact prior A and B sharp frame bounds for the normalized two-sided exponential were checked directly against Faulhuber–Shafkulovska Eq.(8.1), and uniqueness/localization against Theorem 2.7. Algebraic factorization κ=cosh(x)coth²(η/2)(1+u/b)/(1-u/a) with x=η/q is correct. On the known η~log q optimizer interval, uniform elementary expansions give logκ=η²/(2q²)+4(1+η)e^-η+controlled smaller terms and derivative η/q²−4ηe^-η+smaller terms. Solving the exact stationarity equation gives e^-η=(4q²)^−1(1+O(log²q/q²)), hence the claimed position and three coefficients. Independently optimized exact analytic formulas for q up to 2048 corroborate the rate. Finite numerical tests do not prove uniform remainders; that follows from the stated controlled elementary expansions.
 
-The mathematically closest prior source is Faulhuber–Shafkulovska (arXiv:2204.02917), not merely a Gabor title match: it treats exactly the same normalized two-sided exponential, rectangular integer-density lattice, and sharp condition number. It already proves finite-\(q\) uniqueness and gives the full sharp bound formulas. These earlier results are excluded from the novel claim. Its stated optimizer localization is only \(\eta_q\in(\operatorname{arcosh}q,4\operatorname{arcosh}q)\), while its exact functions do not explicitly provide either the additive-sharp logarithmic center or the three-term high-density condition-number expansion. Deducing those requires a moving-optimum derivative analysis, not just evaluating a fixed prescribed lattice.
+## originality
 
-The 2026-08-05 totally-positive Gabor frame-set theorem gives qualitative existence for the entire window class but does not quantify this minimizing lattice. Other checked related sources concern different windows (Poisson, tent spline, Hermite), translation sampling rather than Gabor spectral conditioning, or different finite Fourier objects. The specialized 1996 Janssen source and incompletely indexed follow-up literature leave a small residual possibility of a prior unstated equivalent asymptotic.
+PASS
 
-## Value: PASS
+PASS best-of-knowledge: Faulhuber–Shafkulovska 2023 already provide the exact finite-redundancy sharp bounds, unique condition-number optimizer and coarse interval; these are acknowledged. Their relevant two-sided exponential section and theorem do not state the moving-optimizer asymptotic ηq=2log(2q)+o(1) and the three logarithmic condition-excess terms in inspected text. The high-redundancy expansion is not an automatic fixed-η substitution; controlling the derivative is needed. Earlier Janssen and unindexed follow-up analyses may contain equivalent expansions.
 
-When redundant sampling increases, choosing an optimal lattice aspect ratio is a concrete frame-design question, and knowing the correct vanishing condition-number excess quantifies how rapidly the frame becomes tight. The new additive optimizer localization is far stronger than the original order-of-magnitude interval. The full \(q^{-2}\) coefficient, including its logarithmic and constant pieces, distinguishes the optimal design from merely near-optimal choices and captures the balance of the lattice-frequency distortion and exponentially decaying tail. The result is an exact asymptotic structural characterization along the natural unbounded family of integer densities, not an arbitrary finite-parameter table or a minor numerical improvement.
+## value
 
-## Limits and sources
+PASS
 
-The theorem uses, rather than reproves, sharp frame bounds and global uniqueness; it does not extend to general totally positive windows, nonrectangular lattices, or finite-sample approximations. Directly compared primary sources are:
+PASS: Optimal frame stability at high redundancy is a natural nontrivial quantity for a standard totally positive window. The logarithmic displacement of the optimal rectangular sampling lattice and its sharp excess condition number quantify conditioning and distinguish optimal from naive choices; they are stronger than simply recomputing known finite-q formulas.
 
-- J. de Dios Pont et al., *Gabor Frames of Totally Positive Functions: A Complete Characterization*, arXiv:2608.04992 (2026-08-05), relevant framing and Theorem 1.1.
-- M. Faulhuber and I. Shafkulovska, *Gabor Frame Bound Optimizations*, arXiv:2204.02917, particularly Section 2.4 and Section 8 (including exact Equation (8.1), Theorem 2.7, and condition-number analysis).
-- T. Kloos and J. Stöckler, *Zak Transforms and Gabor Frames of Totally Positive Functions and Exponential B-Splines*, arXiv:1311.7359 (methodological predecessor).
-
-Residual risks: a mathematically equivalent expansion might exist in an older unindexed appendix, supplement, or later work; these were not exhaustively ruled out. No external mathematical certification has been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

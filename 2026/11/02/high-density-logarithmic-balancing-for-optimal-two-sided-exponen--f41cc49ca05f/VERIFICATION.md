@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the high-density exponential Gabor asymptotics
+# Independent mathematical audit
 
-The exact input is the already-published pair of frame-bound formulas and the global uniqueness/localization theorem from Faulhuber–Shafkulovska, *Gabor Frame Bound Optimizations*, Equation (8.1), Theorem 2.7. These are explicitly prior results, not assertions verified anew by the numerical checker.
+## correctness
 
-The new proof is by explicit factorization of the frame condition number, uniform expansions for \(\eta\asymp\log q\), and an asymptotic derivative balance. The key nonstandard calculation is the cancellation of the \(e^{-\eta}\) term under differentiation: differentiating \(4(1+\eta)e^{-\eta}\) produces \(-4\eta e^{-\eta}\). The positive \(\eta/q^2\) contribution competes with this negative term, giving \(e^{-\eta}=1/(4q^2)(1+O((\log q)^2/q^2))\).
+PASS
 
-The independent algebraic identity \(b(x)/a(x)=\cosh x\) and the exact formula for the derivative of the logarithm of the frame-condition number are documented in the proof. Replacing the optimized parameter then yields the coefficients of \(\log^2(2q)\), \(\log(2q)\), and the constant term with a total error \(O((\log q)^4/q^4)\).
+PASS: The exact prior A and B sharp frame bounds for the normalized two-sided exponential were checked directly against Faulhuber–Shafkulovska Eq.(8.1), and uniqueness/localization against Theorem 2.7. Algebraic factorization κ=cosh(x)coth²(η/2)(1+u/b)/(1-u/a) with x=η/q is correct. On the known η~log q optimizer interval, uniform elementary expansions give logκ=η²/(2q²)+4(1+η)e^-η+controlled smaller terms and derivative η/q²−4ηe^-η+smaller terms. Solving the exact stationarity equation gives e^-η=(4q²)^−1(1+O(log²q/q²)), hence the claimed position and three coefficients. Independently optimized exact analytic formulas for q up to 2048 corroborate the rate. Finite numerical tests do not prove uniform remainders; that follows from the stated controlled elementary expansions.
 
-Run `python check_asymptotic.py` to reproduce high-precision stationary-point comparisons for thirteen integer redundancies from 2 through 16384. It tests the exact critical equation and reports the signed residual in the three-term asymptotic. These computations are supplementary; checking thirteen values does not certify a limit over all integers.
+## originality
 
-Scope: fixed normalized real window \(e^{-|t|}\), rectangular Gabor lattices, integer redundancy \(q\to\infty\). No statement on nonrectangular lattice optimizers, arbitrary totally positive windows, or finite-density closed forms is intended. The earlier uniqueness theorem is an explicit input. Independent mathematical audit: not performed.
+PASS
+
+PASS best-of-knowledge: Faulhuber–Shafkulovska 2023 already provide the exact finite-redundancy sharp bounds, unique condition-number optimizer and coarse interval; these are acknowledged. Their relevant two-sided exponential section and theorem do not state the moving-optimizer asymptotic ηq=2log(2q)+o(1) and the three logarithmic condition-excess terms in inspected text. The high-redundancy expansion is not an automatic fixed-η substitution; controlling the derivative is needed. Earlier Janssen and unindexed follow-up analyses may contain equivalent expansions.
+
+## value
+
+PASS
+
+PASS: Optimal frame stability at high redundancy is a natural nontrivial quantity for a standard totally positive window. The logarithmic displacement of the optimal rectangular sampling lattice and its sharp excess condition number quantify conditioning and distinguish optimal from naive choices; they are stronger than simply recomputing known finite-q formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
