@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T21:11:36.683456Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 02881f88da4044660c21f86f320b765c6ba25826 exact angle reduction and asymptotics",
+        "DLMF §19.12 equations (19.12.1)–(19.12.3)",
+        "Independent mpmath-based equality and cusp calculations in private independent_scope05_checks_20261102.py"
+      ],
+      "rationale": "Exact antipodal angle variables theta1=phi-v/2, theta2=phi+pi+v/2 give D=2a cos(v/2)sqrt(1-delta sin^2(phi)) with Jacobian one and product arclength density. For fixed 0<delta<1 the two nondegenerate maxima yield F ~ pi(1-delta)epsilon/(4a E(delta)^2 sqrt(delta)); for the circle, the exact arccos law has sqrt epsilon tail. For delta/(epsilon/a)->lambda finite, dominated convergence after v=2sqrt(epsilon/a)u gives H(lambda)=pi^-2 integral sqrt((1-lambda sin^2 phi)_+)dphi. Piecewise complete elliptic formula and DLMF endpoint series give pi^2 H(1+h)=4+h log|h|+(1-log16)h+O(h^2|log h|). Independently checked both branches of H with high-precision quadrature and two-sided cusp coefficients. The large-lambda asymptotic is not falsely used as a uniform theorem for delta/epsilon->infinity.",
+      "residual_risks": [
+        "The fixed delta coefficient is not uniform toward the circle.",
+        "Independent product arclength sampling differs from interior-uniform points and random-line chords."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schrempp 2015 states an ambient two-dimensional Lebesgue-density hypothesis for sample-max distance, excluding singular arclength laws.",
+          "DLMF elliptic expansions describe E,K alone, not stochastic two-angle sampling and scaled geometry."
+        ],
+        "reasoning": "Broader fixed-shape maximal-distance results do not dominate a singular boundary-supported one-pair joint eccentricity-deficit limit.",
+        "searches": [
+          "arXiv:1505.01597",
+          "arXiv:math/0605289",
+          "NIST DLMF 19.12"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1505.01597",
+        "https://dlmf.nist.gov/19.12",
+        "https://doi.org/10.15388/LMJ.1966.19722",
+        "Resultary semantic search: ellipse boundary independent arclength endpoints distance near diameter tail near circle eccentricity logarithmic critical crossover elliptic E K",
+        "Resultary semantic search: two independent arclength uniform points ellipse maximal chord distance asymptotic circle eccentricity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A maximum among n iid interior-supported points is a different statistic and sample law.",
+          "The limiting H follows an exact two-angle integral plus moving delta, not just substituting a parameter in fixed-delta asymptotics."
+        ],
+        "reasoning": "The circle special case and DLMF expansions do not imply the noncircular linear coefficient with joint crossover by a fixed-parameter limit; the two noncommuting limits are separately proved.",
+        "searches": [
+          "arXiv:1505.01597",
+          "arXiv:math/0605289",
+          "NIST DLMF §19.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gečiauskas 1966 studies interior oval distance, 1967 random-direction chord length rather than two independent boundary arclength endpoints.",
+          "Mayer–Molchanov 2006 treats radial sample maximal distances on ball/sphere."
+        ],
+        "reasoning": "Models share the phrase interpoint distance but not the same probability measure or double-scaling; they do not supply an equivalent formula for the claimed product-arclength law.",
+        "searches": [
+          "Resultary semantic search: ellipse boundary independent arclength endpoints distance near diameter tail near circle eccentricity logarithmic critical crossover elliptic E K",
+          "Resultary semantic search: two independent arclength uniform points ellipse maximal chord distance asymptotic circle eccentricity",
+          "DOI:10.15388/LMJ.1966.19722",
+          "DOI:10.15388/LMJ.1967.19983"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The circular arccos tail and elliptic endpoint expansions are known and conceded; exact H(lambda) is not in returned published Resultary records.",
+          "No exact database/table for this arclength-double-scaling H observed."
+        ],
+        "reasoning": "Known circle and special-function tables explain the elementary components; a new stochastic scaling reduction is needed to reach the full H.",
+        "searches": [
+          "Resultary semantic search: ellipse boundary independent arclength endpoints distance near diameter tail near circle eccentricity logarithmic critical crossover elliptic E K",
+          "Resultary semantic search: two independent arclength uniform points ellipse maximal chord distance asymptotic circle eccentricity",
+          "web: independent arclength ellipse boundary chord distance probability distribution diameter"
+        ]
+      },
+      "rationale": "Distinguishes arclength-independent endpoints from established oval-interior and random-line chord sampling. Schrempp (2015) assumes a two-dimensional density, ruling out this boundary-law specialization; Mayer–Molchanov (2006) have rotation-invariant circular boundary model, not the noncircular or moving-eccentricity regime. The jointly scaled shape-tail law and nonanalytic H cusp go beyond the established circle law and DLMF function expansions. No inspected source states an equivalent simultaneous two-parameter boundary law; historical priority not proven.",
+      "residual_risks": [
+        "Older oval chord formula could have an unstated boundary specialization in a different parameterization.",
+        "Historical priority and uniform crossover equivalence not exhaustively established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_MEASURE_AND_STATISTIC",
+          "evidence": [
+            "Uses planar Lebesgue densities and largest sample distance; singular boundary arclength product law excluded by hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1505.01597",
+          "material_read": "Full arXiv PDF opened; abstract, Section 2 hypotheses, density and principal theorem statements inspected, including explicit two-dimensional Lebesgue-density condition",
+          "method": "arXiv PDF text and first-page screenshot",
+          "title": "The limit distribution of the largest interpoint distance for distributions supported by an ellipse and generalizations",
+          "trigger": "Closest geometry: elliptical support and diameter"
+        },
+        {
+          "assessment": "PRIOR_STANDARD_ANALYTIC_INGREDIENT",
+          "evidence": [
+            "Logarithmic expansion of E,K is classical; it is used to evaluate a separately derived stochastic integral."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/19.12",
+          "material_read": "Online primary formulas 19.12.1–19.12.3 inspected, including endpoint expansion forms",
+          "method": "NIST DLMF HTML",
+          "title": "Asymptotic Approximations for Legendre Elliptic Integrals",
+          "trigger": "Source of logarithmic singularity series for E and K"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_COMPARISON_RISK",
+          "evidence": [
+            "Published model concerns random points of an oval interior rather than confirmed product boundary arclength; exact broader conclusions not certified."
+          ],
+          "identifier_or_url": "https://doi.org/10.15388/LMJ.1966.19722",
+          "material_read": "Publisher title, bibliographic details and available model description; no whole-document exclusion based only on snippets",
+          "method": "publisher metadata and model summary",
+          "title": "Distribution function of a distance between two random points in an oval",
+          "trigger": "Potential earlier ellipse distance law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary semantic search: ellipse boundary independent arclength endpoints distance near diameter tail near circle eccentricity logarithmic critical crossover elliptic E K",
+        "Resultary semantic search: two independent arclength uniform points ellipse maximal chord distance asymptotic circle eccentricity",
+        "https://arxiv.org/abs/1505.01597",
+        "https://dlmf.nist.gov/19.12",
+        "https://doi.org/10.15388/LMJ.1966.19722"
+      ],
+      "rationale": "The distance deficit of independent boundary points changes universality class from linear for an ellipse to square-root for a circle. Its natural near-circle scaling has an explicit one-parameter law and a sharp logarithmic derivative singularity at lambda=1, a geometric transition in the dimension of maximizer sets rather than an arbitrary integral value.",
+      "residual_risks": [
+        "A single-pair theorem, not an n-point extreme-value law or a statement for arbitrary convex boundaries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The fixed delta coefficient is not uniform toward the circle.",
+    "Independent product arclength sampling differs from interior-uniform points and random-line chords.",
+    "Older oval chord formula could have an unstated boundary specialization in a different parameterization.",
+    "Historical priority and uniform crossover equivalence not exhaustively established.",
+    "A single-pair theorem, not an n-point extreme-value law or a statement for arbitrary convex boundaries."
+  ],
+  "schema_version": 1
+}
