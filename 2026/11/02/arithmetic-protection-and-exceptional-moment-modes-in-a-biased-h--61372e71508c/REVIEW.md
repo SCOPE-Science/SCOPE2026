@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** With positive rates and strictly finite polynomial degree, the generator is triangular in the degree filtration. A directly solved two-component first-order eigenfunction system yields the explicit derivative `F'(u)=C u^A(1-u)^(B-1)` at the first collision, and hence the exact positive-integer-split criterion. Differentiation and corrected integration propagate the characterization to every higher collision. The exact rational checks independently verify the low-degree recurrences and time-polynomial witnesses. This does not establish a complete spectrum beyond polynomial observables.
+## correctness
 
-**Originality: PASS (qualified best knowledge).** The main 2026 paper covers symmetric orientation redraw and general conditional moments, and its formulas already imply symmetric coincident poles. The older finite-tumble paper supplies general moment recursions; the 2018 lattice paper gives a distinct exceptional-point phenomenon. The present asymmetric orientation-switching rate and positive-integer protection classification, including all polynomial degrees, are not stated in the inspected texts. A general Markov-modulated filter operator theory may still subsume the result; independent priority checking remains necessary.
+PASS
 
-**Value: PASS.** The classification supplies an exact sharp boundary between true moment exceptional points and protected degeneracies, including the unexpected failure of even-resonance protection under biased switching and its restoration only at quantized splits. These conditions control whether experimentally measurable moment relaxations include time-multiplied exponentials, and they apply uniformly to all polynomial orders, rather than a single engineered example.
+On the invariant polynomial observables P_N, the generator is triangular in degree with eigenvalues -j*kappa and -(j*kappa+a+b), j=0..N. At a+b=m*kappa, elimination at the lowest resonance gives F'(u)=C*u^(a/kappa)*(1-u)^(b/kappa-1); analyticity of a nonconstant polynomial forces both scaled positive rates to be integers, and their integrality constructs a second eigenfunction. The derivative commutator and polynomial-primitive lifting propagate semisimplicity/nonsemisimplicity to every later collision; each algebraic double eigenvalue without the second vector has exactly one 2x2 Jordan block. Direct rational moment-matrix checks corroborated protected and defective cases; no infinite-dimensional spectrum is asserted.
 
-The claim is confined to positive parameters, athermal linear confinement and two-state Poisson orientation switching. Its relation to the symmetric published all-moment formula is explicitly disclosed. There is no claim of complete infinite-dimensional spectral classification or independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closest harmonic-trap RTP studies give symmetric moment poles or finite-tumble dynamics, and ring-lattice work has exceptional points, but inspected results do not establish the exact all-degree unequal flip-rate positive-integer split iff criterion. Qualified originality, not priority certification.
+
+## value
+
+PASS
+
+An exact all-degree exceptional-point/protected-resonance criterion for a physically natural biased two-orientation harmonic trap, including biased even-resonance and symmetric odd-resonance witnesses, is a nonroutine structural invariant of the moment dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
