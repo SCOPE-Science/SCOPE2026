@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The included `verify.py` is standard-library Python 3 code. Run `python3 verify.py` in the directory containing this document and the script. It constructs the state set, creates both sparse integer transition matrices, checks the entire matrix equality \(A^8=A^2\), and computes the exact polynomials \(Q_0,Q_1,Q_2\) from the rational resolvent, comparing all nonzero coefficients against the claimed finite certificate.
+## correctness
 
-The program then checks the closed optimal-count formulas against the *exact coefficient sequences* for the first \(97\) prism lengths and performs an independent uncoloured-support enumeration for the \(30\) combinations of lengths \(3\) through \(12\) and defect levels \(0\), \(1\), \(2\). Backtracking uses the neighbour rainbow constraints directly, not the matrix transfers.
+PASS
 
-Successful execution ends with `VERIFY_OK matrix_dimension=225 A8_eq_A2=True exact_numerators=3 symbolic_residue_classes=6 full_label_lengths=3..5 independent_support_checks=30 lengths=3..12`.
+PASS. An all-zero rung is impossible. The 15 allowed rung labels and 225 ordered pair states give an exact bijection between cyclic prism assignments and closed walks weighted by fully coloured rungs. Independent reconstruction of the integer A,B transfer matrices established A^8=A^2 entrywise and independently derived all coefficients of Q0 and Q1 and the relevant Q2 residue coefficients; in particular Q0=225-213 t^6 and Q1=9t+36t^3+60t^5+216t^6+66t^7+36t^9+12t^11-3t^13. Formal resolvent denominators (1-t^6)^(h+1) and binomial extraction establish universal minima and multiplicities, not merely finite samples. A separate direct pair-state dynamic-programming implementation checked m=3..12 (10 cases); these bounded checks corroborate, do not replace, the exact matrix certificate.
 
-The infinite theorem relies on the finite matrix identities and the formal trace generating function; checking finitely many graph orders by itself is insufficient. The matrix arithmetic is integer exact, and the entire verifier is included rather than only a prior log. No independently authored mathematical assessment has been performed.
+## originality
+
+PASS
+
+PASS, best of knowledge. Prior prism/cylinder sources give singleton minimum weights, not the labelled named-colour multiplicity polynomial in the inspected statements; the 2019/20 set-valued rainbow invariant differs from singleton rainbow domination. No direct formula was found in Resultary semantic results. A relevant 2026 cylindrical-graph paper was not available in complete text, so its possible enumeration and a stronger universal transfer theorem remain serious residual priority risks, not proof of noncoverage.
+
+## value
+
+PASS
+
+PASS. The optimum weight for these cubic cycle prisms was already known; counting all optimal assignments is the natural nontrivial next invariant. The exact counts have constant, linear and two quadratic residue-class regimes, exposing a structural six-periodic solution-space phase diagram across an infinite graph family, rather than merely recomputing known optimum values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

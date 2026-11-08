@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:54:45.131749Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. An all-zero rung is impossible. The 15 allowed rung labels and 225 ordered pair states give an exact bijection between cyclic prism assignments and closed walks weighted by fully coloured rungs. Independent reconstruction of the integer A,B transfer matrices established A^8=A^2 entrywise and independently derived all coefficients of Q0 and Q1 and the relevant Q2 residue coefficients; in particular Q0=225-213 t^6 and Q1=9t+36t^3+60t^5+216t^6+66t^7+36t^9+12t^11-3t^13. Formal resolvent denominators (1-t^6)^(h+1) and binomial extraction establish universal minima and multiplicities, not merely finite samples. A separate direct pair-state dynamic-programming implementation checked m=3..12 (10 cases); these bounded checks corroborate, do not replace, the exact matrix certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lange determines exact minimum singleton three-rainbow domination values on prisms, without number of minimizers in inspected sections.",
+          "Kuzman concerns set-valued rainbow domination, where vertices may receive more than one colour."
+        ],
+        "reasoning": "Knowledge of minimum weights does not imply how many labelled named-colour assignments attain them; the set-valued variant is a different feasible space.",
+        "searches": [
+          "Lange arXiv:2610.06906 Theorem 19 and Appendix B",
+          "Kuzman arXiv:1907.08430 Theorem 4.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md c50268944a8bb590ad0ce82a3bb684f56aa4fa21",
+        "Frozen verify.py c76af31af897ab9dc442ed2d35025d2eb1248208",
+        "Independent exact 225-state A^8=A^2 and polynomial certificate in scope_worker07_transfer_20261106T0341.py",
+        "Independent 10 small prism DP tests in scope_worker07_independent_20261106T0341_results.json",
+        "Žerovnik DOI 10.3390/math14162917",
+        "Lange arxiv:2610.06906",
+        "Kuzman arxiv:1907.08430",
+        "Resultary query on singleton prism multiplicities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same-object weighted minima known, but they constrain only the least weight.",
+          "Exact transfer numerator identities are an additional counting certificate for the number of attaining colourings."
+        ],
+        "reasoning": "Neither a value bound nor a result in a larger feasible assignment model implies the optimal labelled singleton counts without an optimizer classification.",
+        "searches": [
+          "Žerovnik 2026 cylindrical singleton rainbow",
+          "Lange 2026 rainbow regular graph minima",
+          "Kuzman 2019/2020 set-valued rainbow"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned Roman {3}-domination of complete prisms K_n square K_2, not singleton assignments on C_m square K_2.",
+          "Žerovnik: same singleton invariant on P_s square C_m and potentially stronger/cylinder formulation."
+        ],
+        "reasoning": "No inspected statement supplies the all-m named-colour optimal-multiplicity formula; Roman k-domination on complete prisms is not equivalent. Complete inspection of Žerovnik was blocked, so equivalent formulation remains a real risk.",
+        "searches": [
+          "Resultary semantic search: singleton 3 rainbow domination cycle prisms optimal assignment multiplicities counting cylindrical graphs",
+          "Žerovnik 2026 DOI 10.3390/math14162917"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Accessible primary excerpts address optimal weights on cylindrical graphs rather than the four-residue multiplicity table.",
+          "No matching six-residue named-colour count table appeared in the returned published-finding results."
+        ],
+        "reasoning": "An unknown appendix or computation could list the multiplicities; the inaccessible complete paper prevents eliminating that possibility.",
+        "searches": [
+          "Žerovnik 2026 10.3390/math14162917 prism cylinder minimum tables",
+          "Resultary semantic search prism singleton rainbow counts"
+        ]
+      },
+      "rationale": "PASS, best of knowledge. Prior prism/cylinder sources give singleton minimum weights, not the labelled named-colour multiplicity polynomial in the inspected statements; the 2019/20 set-valued rainbow invariant differs from singleton rainbow domination. No direct formula was found in Resultary semantic results. A relevant 2026 cylindrical-graph paper was not available in complete text, so its possible enumeration and a stronger universal transfer theorem remain serious residual priority risks, not proof of noncoverage.",
+      "residual_risks": [
+        "Žerovnik same-object article full text was not inspected; it may imply or state the multiplicity formulas.",
+        "Exact transfer identity verified mathematically by finite exact matrix arithmetic, not by a formal theorem prover.",
+        "Counts exclude colour/graph orbit quotients and higher-weight assignments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible same-object prior work; no whole-paper noncoverage assertion",
+          "evidence": [
+            "2026 publication date 2026-08-12; source studies the same invariant on cylinders, so may contain extra counts in inaccessible sections."
+          ],
+          "identifier_or_url": "doi:10.3390/math14162917",
+          "material_read": "Publisher metadata and accessible excerpts only; complete article could not be read because the publisher access limit blocked full text",
+          "method": "Publisher/search-result text and DOI bibliographic inspection",
+          "title": "On Singleton 3-Rainbow Domination of Cylindrical Graphs",
+          "trigger": "Same singleton 3-rainbow domination of P_s square C_m, including s=2"
+        },
+        {
+          "assessment": "Minimum-weight predecessor, optimizer multiplicity not established by inspected material",
+          "evidence": [
+            "The reported theorem gives prism minimum weight, not the number of attaining singleton assignments."
+          ],
+          "identifier_or_url": "arxiv:2610.06906",
+          "material_read": "Accessible arXiv abstract and research package references to Theorem 19/Appendix B; whole source not available for independent full reading",
+          "method": "ArXiv abstract plus assigned package statement and bibliographic comparison",
+          "title": "Complexity, Bounds, and Exact Algorithms for Rainbow k-Domination in Regular Graphs",
+          "trigger": "Same graph family; exact prism optimum weight"
+        },
+        {
+          "assessment": "Different set-valued definition; not directly a matching enumeration",
+          "evidence": [
+            "The set-valued model allows multisets/subsets at a vertex unlike this 0-or-single-colour model."
+          ],
+          "identifier_or_url": "arxiv:1907.08430",
+          "material_read": "Abstract/reference statements and assigned source mathematical comparison",
+          "method": "Bibliographic and formulation comparison",
+          "title": "On k-rainbow domination in regular graphs",
+          "trigger": "Rainbow domination on regular graphs; possible stronger k-rainbow notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The optimum weight for these cubic cycle prisms was already known; counting all optimal assignments is the natural nontrivial next invariant. The exact counts have constant, linear and two quadratic residue-class regimes, exposing a structural six-periodic solution-space phase diagram across an infinite graph family, rather than merely recomputing known optimum values.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md c50268944a8bb590ad0ce82a3bb684f56aa4fa21",
+    "Frozen verify.py c76af31af897ab9dc442ed2d35025d2eb1248208",
+    "Independent exact 225-state A^8=A^2 and polynomial certificate in scope_worker07_transfer_20261106T0341.py",
+    "Independent 10 small prism DP tests in scope_worker07_independent_20261106T0341_results.json",
+    "Žerovnik DOI 10.3390/math14162917",
+    "Lange arxiv:2610.06906",
+    "Kuzman arxiv:1907.08430",
+    "Resultary query on singleton prism multiplicities"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all m>=3, singleton three-rainbow domination assignments on the labelled cycle prism C_m square K_2 have minimum weight and count (m,12) for 6|m; (m+1,12m) for m odd; (m+2,18m(3m-5)) for m=2 mod 6; (m+2,18m(3m-1)) for m=4 mod 6; names of colours and all vertex labels are retained.",
+  "limitations": [
+    "Žerovnik same-object article full text was not inspected; it may imply or state the multiplicity formulas.",
+    "Exact transfer identity verified mathematically by finite exact matrix arithmetic, not by a formal theorem prover.",
+    "Counts exclude colour/graph orbit quotients and higher-weight assignments.",
+    "This is a bounded best-of-knowledge originality assessment, not a guarantee that no unlocated prior theorem applies.",
+    "Finite tests are corroboration; universal reasoning is the mathematical proof and exact finite certificates where applicable."
+  ],
+  "schema_version": 1
+}

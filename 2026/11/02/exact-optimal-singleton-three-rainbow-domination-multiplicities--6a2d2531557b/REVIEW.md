@@ -1,11 +1,21 @@
-# Scientific review — optimal singleton three-rainbow domination multiplicities of cycle prisms
+# Independent mathematical audit
 
-**Correctness — PASS.** The cyclic pair-state transfer bijection accounts for every singleton assignment exactly once, including wraparound. A rung cannot contain two uncoloured vertices. The full \(225\)-state matrices are defined entrywise, and a reproducible exact-integer calculation verifies the nontrivial identity \(A^8=A^2\) and the complete numerator coefficients used to extract the optimal counts. The coefficient formulas then follow from elementary formal-power-series operations, not extrapolation. A second support-based enumeration checks \(30\) small-graph cases independently.
+## correctness
 
-**Originality — PASS (qualified).** The closest relevant full text, Lange (2026), Theorem 19 and Appendix B, gives the minimum weight on prisms, not the cardinality of the minimum solution space. Kuzman (2019/2020), Theorem 4.2, gives values for set-valued rainbow domination and is not an enumeration of singleton optima. Žerovnik (2026) studies singleton three-rainbow domination on cylindrical graphs; a publisher access limit prevented full-text inspection, making it a recorded priority risk rather than a claim of noncoverage. Targeted searches under prism, cylinder, singleton, rainbow, optimal multiplicity, and generating-polynomial formulations, including published mathematical-record searches, did not locate the formula. A broader earlier enumerator might imply it; independent priority determination remains open.
+PASS
 
-**Mathematical value — PASS.** The minimum singleton three-rainbow domination number for prisms is established, but the multiplicity of attaining assignments is a different, natural counting invariant. The closed forms distinguish three structurally different growth regimes (constant, linear, quadratic) in a standard infinite cubic-graph family, refining minimum-weight information into a quantitative solution-space law. It is not a mere renaming or isolated small instance.
+PASS. An all-zero rung is impossible. The 15 allowed rung labels and 225 ordered pair states give an exact bijection between cyclic prism assignments and closed walks weighted by fully coloured rungs. Independent reconstruction of the integer A,B transfer matrices established A^8=A^2 entrywise and independently derived all coefficients of Q0 and Q1 and the relevant Q2 residue coefficients; in particular Q0=225-213 t^6 and Q1=9t+36t^3+60t^5+216t^6+66t^7+36t^9+12t^11-3t^13. Formal resolvent denominators (1-t^6)^(h+1) and binomial extraction establish universal minima and multiplicities, not merely finite samples. A separate direct pair-state dynamic-programming implementation checked m=3..12 (10 cases); these bounded checks corroborate, do not replace, the exact matrix certificate.
 
-The proof does not count higher-weight assignments, the larger family of cylinders, or functions up to symmetry. Exact symbolic transfer calculations are computationally reproducible but are not an independent mathematical audit. The only unresolved source inspection is an access-limited plausible predecessor; no discovered stronger result implies the claimed all-order enumeration.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge. Prior prism/cylinder sources give singleton minimum weights, not the labelled named-colour multiplicity polynomial in the inspected statements; the 2019/20 set-valued rainbow invariant differs from singleton rainbow domination. No direct formula was found in Resultary semantic results. A relevant 2026 cylindrical-graph paper was not available in complete text, so its possible enumeration and a stronger universal transfer theorem remain serious residual priority risks, not proof of noncoverage.
+
+## value
+
+PASS
+
+PASS. The optimum weight for these cubic cycle prisms was already known; counting all optimal assignments is the natural nontrivial next invariant. The exact counts have constant, linear and two quadratic residue-class regimes, exposing a structural six-periodic solution-space phase diagram across an infinite graph family, rather than merely recomputing known optimum values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
