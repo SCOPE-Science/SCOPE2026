@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Differentiation gives a nonzero Hessian sextic in characteristic \(7\). The displayed Gröbner basis establishes all affine intersection points and their total multiplicity; chart analysis establishes the remaining two projective points. Fourteen exact truncated local colengths calculate the intrinsic noncurvilinear Hilbert function and sum to \(21\). Tangent substitutions show exactly three ordinary flexes at the smooth Hessian points. The reproducible verifier recomputes the necessary polynomial identities and finite-length certificates.
+## correctness
 
-## Originality
-PASS with stated access risk. Dolgachev--Kanev published the same Hessian sextic in characteristic zero, so the sextic equation is excluded from novelty. Martin--Stadlmayr had already classified the unique \(A_6\) point; its presence is deliberately not claimed. Neither their examined section nor Iadarola--Ritzenthaler's Example 1.1 gives the Hessian intersection scheme or the local \(21\)-length Artin Hilbert function. Semantic searches of prior published research for the singular Klein model, Hessian and contact stratification produced no covering statement; this is evidence of lack of discovered coverage, not a proof of literature-wide uniqueness. Elkies's historical chapter was inaccessible at full-text level; this residual risk deserves independent scrutiny.
+PASS
 
-## Mathematical value
-PASS. The classical Hessian intersection has length \(24\) by Bézout, but in this well-motivated exceptional reduction \(21\) units of that length concentrate at the known singular point. The intrinsic Hilbert function detects a noncurvilinear infinitesimal structure not visible from the cusp's mere location or the set of smooth flexes. This is a full exact classification of a natural osculatory scheme, not an arbitrary bounded enumeration.
+For k algebraically closed of char 7, independent symbolic differentiation from F=X³Y+Y³Z+Z³X reproduced det Hess(F)=-54(X⁵Z-5X²Y²Z²+XY⁵+YZ⁵), nonzero multiplier in k. Independent lex Groebner ideal on X=1 has leading monomials y²,yz⁷,z¹⁵ and eliminant z(z-4)^14, giving 22 standard monomials and only (y,z)=(0,0),(2,4) even over algebraic closure. Q_X is transverse of length1; remaining local length 21 at P. Independently rebuilt local truncated ideals in u=y-2,v=z-4 using grevlex rather than the source script lex: lengths for powers m=1..14 are 1,3,5,7,9,11,13,15,16,17,18,19,20,21; differences (1,2,2,2,2,2,2,2,1,1,1,1,1,1). Coordinate Y=1/Z=1 charts each contribute one reduced transverse point. Total degree 24 agrees with 4*6 Bezout; line restrictions to coordinate tangents give exactly three ordinary 3-contact flexes. The singular locus beyond P is excluded from the gradient equations in the proof, not just a finite F7 point search. Evidence is exact algebra plus a direct finite-scheme certificate; it is not an infinite-domain extrapolation.
 
-## Scope and limitations
-The finite scheme is the ordinary Hessian intersection of the specified singular quartic in characteristic \(7\). The theorem does not describe positive-characteristic Hasse-Wronskians or limits of smooth-family flex schemes. A specialized historical source might contain the same scheme calculation. Independent specialist audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement-level comparison establishes that the Hessian sextic, the singular Klein special fiber, and its A6 cusp were already known; the independently verified precise four-point Hessian intersection, local length 21 and intrinsic fourteen-term Hilbert vector do not follow directly from their displayed statements without a new local ideal computation. Best-of-knowledge assessment after actual primary-source reading and published finding search, not a claim of exhaustive priority.
+
+## value
+
+PASS
+
+The Klein quartic is a distinguished genus-three plane quartic, and its bad characteristic-seven plane model has a well-motivated 24-length classical Hessian intersection. The local 21-of-24 collision and intrinsic noncurvilinear Hilbert sequence reveal actual scheme structure not specified by the known A6 singularity or generic 24-count; exact information is useful to subsequent studies of modular flexes, polar schemes and special-fiber osculation. This is a complete natural finite algebraic classification rather than a random isolated test, despite no general family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
