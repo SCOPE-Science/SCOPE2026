@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness: PASS
+The Hausdorff-to-language equivalence uses the discrete coordinate ultrametric and two-sided Hausdorff quantifiers. The largest permitted \(m\)-step SFT contains the periodic orbit and shares its exact length-\(m\) language. For \(m<q\), this is precisely the gap-\(m\) SFT; at \(m=q\), subtracting consecutive exact-one-marker window sums forces period \(q\). The characteristic polynomial and determinant of the primitive \(m\)-state graph produce entropy and the dynamical zeta, respectively. Full support of the unique maximal-entropy measure gives uniqueness across all proper subshifts. The coordinate-metric discretization yields the smallest positive Hausdorff distance. An independently executed exhaustive finite script supports the proof. Risks: conventions for symbolic radii must be maintained; finite checks alone do not prove infinite assertions.
+
+## Originality: PASS under inspected evidence
+Flores-Concha (arXiv:2610.40438v1), relevant full text Sections 2–4, establishes finite-step SFT approximation, qualitative isolation, and generic entropy properties, but not this explicit periodic-family hyperspace radius/entropy/zeta profile. Pavlov–Schmieding (arXiv:2203.15159), relevant full-text Sections 2–3, establishes qualitative isolation via Rauzy graphs. Ramirez–Somers (arXiv:2501.08438), Sections 1–5, explicitly records the classical gap-shift entropy equation. That equation, the underlying SFT construction, and strict inclusion monotonicity of entropy for mixing SFTs are prior work: the combined sharp metric-radius classification and unique extremal envelope are the specific assessed contribution. Residual risk: an unlocated earlier exact periodic-orbit hyperspace calculation or a published general quantitative radius theorem could subsume the combination.
+
+## Mathematical value: PASS
+This is a natural exact finite-resolution invariant for an isolated subsystem point: it gives for every marker period \(q\) the minimum distinguishing observation length, maximum possible entropy at every coarser observation scale, the unique extremal system, and its entire periodic orbit zeta function. It quantifies how a periodic subsystem can be indistinguishable at finite resolution from a mixing positive-entropy system just before exact isolation, with nonuniform \(W(q)/q\) entropy scaling. These facts are useful as calibrated test cases for hyperspace perturbation and finite-language reconstruction; this does not purport to yield a global Smale-space theorem. Risk: much of the derivation uses elementary known SFT facts; the value resides in the complete sharp combined classification rather than a new general technique.
+
+## Literature and scope
+The cited source arXiv versions and relevant arguments were inspected; no statement of global historical priority is made. No independent validation has been completed. The result does not cover other periodic words or arbitrary entropy values in the ball.
+
+Self-review: passed. Independent audit: not yet performed.
