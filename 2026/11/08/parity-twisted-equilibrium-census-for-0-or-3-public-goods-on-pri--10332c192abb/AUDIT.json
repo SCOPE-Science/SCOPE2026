@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, steps 1-5",
+      "verify.py direct profile and matrix tests, VERIFY_OK",
+      "Klimm--Stahlberg arXiv:2301.11849 Sec. 2 definitions"
+    ],
+    "rationale": "The degree-three strict best response is exactly activation at zero or three active neighbors. A full-active rung forces the all-active network. In every other equilibrium, the three rung symbols \\(0,U,D\\) obey locally necessary and sufficient restrictions. Zeros partition the ring into length-two and length-three gaps, and a length-two gap flips the subsequent first active layer while a length-three gap preserves it; closure is possible iff the length-two gap count is even. The labeled cyclic-composition factor \\(n/(q+r)\\) times \\(\\binom{q+r}{q}\\) and two layer choices yield the exact count. The signed generating function gives the rational denominator, verified independently by the explicit six-state primitive transfer matrix. Perron--Frobenius proves the asymptotic coefficient one, and 3/4 coin-composition establishes the uniqueness exception \\(n=5\\). The standalone script checked 349504 direct action profiles, 100 trace comparisons and \\(B^6-2B^3-B^2+I=0\\). These finite checks support rather than replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klimm--Stahlberg, arXiv:2301.11849, Sec. 5, Theorem 5.11, arbitrary-graph existence NP-completeness",
+        "Gilboa, arXiv:2301.11580, Theorem in introduction and Sec. 4 for finite nonmonotone hardness"
+      ],
+      "reasoning": "Arbitrary-graph equilibrium decision complexity does not supply the exact number of equilibria on a fixed cubic prism, nor the parity obstruction or asymptotic abundance. Generic bounded-treewidth dynamic programming could count a particular n but does not imply the derived closed form and sharp \\(n=5\\) exception without further analysis.",
+      "searches": [
+        "arxiv:2301.11849 Theorem 5.11 picky pattern 10^k10*",
+        "arxiv:2301.11580 non-monotone finite best response patterns NP-complete",
+        "\"prism graphs\" \"best response\" active neighbor 0 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2301.11849",
+      "arxiv:2301.11580",
+      "Search queries for circular ladder/prism best-response enumeration and numeric sequence aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5.11 answers the NP-completeness decision problem for the same broad response pattern",
+        "Gilboa answers all finite nonmonotone existence-complexity questions",
+        "Parity-response automata have activation at even neighbor count and thus differ on cubic graphs"
+      ],
+      "reasoning": "An NP-completeness statement about unrestricted input graphs neither counts profiles on \\(C_n\\square K_2\\) nor rules out a simple closed solution on that subclass. A 0-or-2 parity-rule equilibrium statement is not stronger coverage because the local best-response maps differ at neighbor counts two and three. Classical cyclic tiling counts cover the auxiliary enumeration only after the new game-to-tiling equivalence has been supplied.",
+      "searches": [
+        "arxiv:2301.11849 Sections 2,5 and Theorem 5.11",
+        "arxiv:2301.11580 Sections 1-4",
+        "\"binary public goods game homogeneous picky pattern 10100 cycles ladders cubic graph exact equilibrium count transfer matrix\"",
+        "\"network public goods games equilibrium multiplicity graph classes zero-one cellular automata fixed points\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2301.11849 model and response-pattern semantics",
+        "arXiv:2301.11580 finite-pattern classification",
+        "No direct result matching the prism/0-or-3 joint specification was located in the listed targeted searches"
+      ],
+      "reasoning": "Equivalent descriptions include fixed configurations of the all-neighbors-equal Boolean rule on \\(C_n\\square K_2\\), 0-or-3-neighbors best-response equilibria, and even-parity cyclic 2/3 gap tilings. The inspected prior theorems do not identify such a bijection or census. Search absence alone is not a novelty proof.",
+      "searches": [
+        "\"prism graph\" \"binary public goods\" equilibrium",
+        "\"circular ladder\" \"binary public goods\" equilibrium",
+        "\"prism\" \"public goods\" \"Nash equilibria\" graph",
+        "\"circular ladder\" \"0 or 3\" neighbors Nash",
+        "\"x^6-2x^3-x^2+1\" graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted sequence/generating-function searches did not yield a directly matching equilibrium table",
+        "Direct OEIS search endpoint could not be inspected"
+      ],
+      "reasoning": "The integer sequence may appear under another combinatorial interpretation. Since the primary claim includes the game-to-tiling structural equivalence rather than merely the sequence, a numeric match alone would require an implication comparison. Direct OEIS coverage remains a residual risk rather than a negative certification.",
+      "searches": [
+        "\"7, 5, 1, 7, 15, 5, 7, 31\" sequence",
+        "\"6,4,0,6,14,4,6,30\" OEIS",
+        "\"1-2x^3-x^4+x^6\" graph",
+        "OEIS sequence query for 7,5,1,7,15,5,7,31 (direct endpoint inaccessible)"
+      ]
+    },
+    "rationale": "Available primary full-text sources establish the response-pattern model and general existence-complexity theorems, but do not state or imply the all-size circular-ladder exact count, parity-twisted rung characterization, unique \\(n=5\\) multiplicity threshold, or entropy constant. Searches for prism equilibria, 0-or-3-neighbor response aliases, and matching cyclic generating functions found no source covering the theorem. Related parity dynamics use a distinct 0-or-2-neighbor rule. The exact special-graph correspondence, not the plastic constant or general transfer-matrix method, is the originality claim. Remaining indexing/database risk is explicitly acknowledged.",
+    "residual_risks": [
+      "Unindexed equivalent special-prism result or reduction to an existing graph-counting invariant cannot be excluded.",
+      "Direct OEIS database search could not be completed, so a matching tabulated sequence is possible.",
+      "No independent specialist literature-priority certification was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXISTENCE_COMPLEXITY_ONLY_NOT_COUNT_COVERAGE",
+        "evidence": [
+          "Definition 2.2 formal best-response game",
+          "Sec. 5 introductory picky response",
+          "Theorem 5.11 proves NP-completeness on unrestricted graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.11849",
+        "material_read": "Full-text HTML rendering: abstract, introduction and related work, formal game definitions in Sec. 2, Sec. 5.1 picky model/gadgets and Sec. 5.5 theorem and reduction; no prism or circular ladder term in the accessible full text.",
+        "method": "Scientific reading and term search in openly available full-text HTML",
+        "title": "Complexity of equilibria in binary public goods games on undirected graphs",
+        "trigger": "Exact same strict response-pattern model, and picky patterns include 10010*"
+      },
+      {
+        "assessment": "GENERAL_COMPLEXITY_NOT_SPECIFIC_CENSUS",
+        "evidence": [
+          "Introduction general finite-pattern NP-completeness theorem",
+          "Sec. 2 exact strict best-response definitions",
+          "Sec. 3 discusses 0-or-2 rule (distinct from 0-or-3)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.11580",
+        "material_read": "Full-text HTML rendering: introduction, model definitions, Sec. 3 0-or-2-neighbor examples/hardness, statements and summaries of remaining finite-pattern hardness classes; full-text searches for prism and ladder yielded no match.",
+        "method": "Scientific reading and within-document term searches",
+        "title": "A Characterization of Complexity in Public Goods Games",
+        "trigger": "Concurrent general hardness results for finite non-monotone response patterns"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "10332c19-2abb-4279-a5b0-e61aae760478",
+  "value": {
+    "evidence": [
+      "Klimm--Stahlberg arXiv:2301.11849 introduction and Theorem 5.11 motivate the nonmonotone case",
+      "RESULT.md structural classification and sharp \\(n=5\\) boundary",
+      "RESULT.md generating function and exact asymptotic rate"
+    ],
+    "rationale": "The canonical cubic prism tests how many equilibria exist inside a graph family for which the unrestricted 0-or-3 public-goods response-pattern problem falls in a hard general class. The theorem gives a complete all-n structural classification, a genuinely restrictive parity condition, the unique ring-length \\(n=5\\) with no non-all-active equilibrium, and an exact sharp exponential prevalence law. These invariants allow reproducible equilibrium-sampling benchmarks and distinguish guaranteed existence from equilibrium abundance. The result is not a renaming of a precomputed table or arbitrary finite slice: the ring length is unrestricted and the classification provides the mechanism for the formula.",
+    "status": "PASS"
+  }
+}
