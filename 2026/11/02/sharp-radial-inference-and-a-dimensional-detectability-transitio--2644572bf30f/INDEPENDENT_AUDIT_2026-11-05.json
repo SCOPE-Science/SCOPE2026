@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:07:51.232028Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary on/off switching model uses a single common Markov switch and Brownian coordinates with dimensionless Z=sqrt(k/D)X. Conditional on past switch path, Z is N_d(0,(1+V)I), with V governed by −V in the on state and +1 in off; its joint stationary densities obey p_off(v)=v p_on(v), with p_on proportional to v^(a−1)exp(−bv), a=q_on/(2k), b=q_off/(2k). Thus the exact posterior odds R_d(r)=E[V| ||Z||=r] compare integrated Gaussian kernels including stationary priors. Covariance differentiation with −1/[2(1+V)] proves strict radial increase for r>0; covariance with log(1+V) proves R_d(0) strictly decreases in real d. Its d=0 value a/b and d→∞ value 0 give the unique critical d_c if a>b and the all-d radial crossing if a<=b. A large-r Laplace saddle makes R_d→∞. At r²=2d+c+h/d, v=1+z/sqrt d, saddle Gaussian z~N(0,8); direct symbolic expansion yields R−1=[8(a−b)+c]/d +[16(a−b)+h−16]/d²+O(d^-3) after c=8(b−a). Hence threshold r_d²=2d+8(b−a)+16(1+b−a)/d+O(d^-2). An independent SymPy expansion and Gaussian-moment evaluation confirmed these algebraic coefficients; independent SciPy quadrature at d=100,300,800 and multiple (a,b) corroborated thresholds (finite diagnostics only). Conditional LLN ||Z||²/d→1+V then gives the positive gamma-mixture Bayes-error limit, including (1−e^-1)/2 at a=b=1. There is no assertion of full temporal-path inference or rates growing with dimension.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frydel arXiv:2407.12213 full PDF",
+          "Frydel arXiv:2607.05173 public summary",
+          "General Gaussian scale mixtures"
+        ],
+        "reasoning": "Stationary switching-trap theory and monotone likelihood-ratio principles are strictly broader frameworks. Their consequences do not in the inspected work evaluate the unique d_c, universal threshold corrections or limiting error for this specific common-scale state discrimination.",
+        "searches": [
+          "Resultary: intermittent harmonic trap Bayesian inference hidden state radial",
+          "Frydel, arXiv:2407.12213, 2024 full preprint",
+          "Santra–Das–Nath, arXiv:2104.00609",
+          "Frydel, arXiv:2607.05173, 2026 public abstract; full text access restricted"
+        ]
+      },
+      "checked_sources": [
+        "Frydel arXiv:2407.12213 (full primary PDF)",
+        "Santra–Das–Nath arXiv:2104.00609 (public source description)",
+        "Frydel arXiv:2607.05173 (abstract only; full text inaccessible)",
+        "Resultary published semantic query above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frydel 2024 mixture law",
+          "Pinned RESULT.md covariance and Laplace expansion and SYMBOLIC.py independent coefficients"
+        ],
+        "reasoning": "Known Gamma state-conditioned variance distributions imply the posterior mixture form, but deriving a strict dimension/radius phase transition and the 1/d coefficient in r_d² requires nontrivial covariance and saddle analysis. No inspected prior theorem states these consequences.",
+        "searches": [
+          "Resultary: intermittent harmonic trap Bayesian inference hidden state radial",
+          "Frydel, arXiv:2407.12213, 2024 full preprint",
+          "Santra–Das–Nath, arXiv:2104.00609",
+          "Frydel, arXiv:2607.05173, 2026 public abstract; full text access restricted"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frydel 2024, stationary variance mixture treatment",
+          "pinned RESULT.md posterior R_d ratio and strict covariance derivative"
+        ],
+        "reasoning": "Aliases include scale-mixture classification, hidden Markov-state detection, Gaussian-Gamma likelihood ratio and radial posterior regression. Earlier trap work produces mixture densities, not the Bayes decision transition or sharp r_d² coefficients.",
+        "searches": [
+          "Resultary: intermittent harmonic trap Bayesian inference hidden state radial",
+          "Frydel, arXiv:2407.12213, 2024 full preprint",
+          "Santra–Das–Nath, arXiv:2104.00609",
+          "Frydel, arXiv:2607.05173, 2026 public abstract; full text access restricted"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits: quadratic-reset hybrid oscillator, Langford radial invariant and harmonic sampling bias unrelated to state classification"
+        ],
+        "reasoning": "No exact high-dimensional Bayes-threshold/error table under this simultaneous-snapshot observation rule appeared in Resultary results, which concern unrelated harmonic oscillators and invariant measures. The claim concerns an analytic continuum, not an exhaustive computed table.",
+        "searches": [
+          "Resultary: intermittent harmonic trap Bayesian inference hidden state radial",
+          "Frydel, arXiv:2407.12213, 2024 full preprint",
+          "Santra–Das–Nath, arXiv:2104.00609",
+          "Frydel, arXiv:2607.05173, 2026 public abstract; full text access restricted"
+        ]
+      },
+      "rationale": "Stationary fluctuating-trap Gaussian/gamma-mixture laws are known from Frydel and Santra–Das–Nath; they are not presented as original here. The new claim concerns the optimal decision about the current latent switch from one d-vector snapshot, exact threshold transition in d, two correction coefficients and nonzero high-dimensional Bayes error. Inspected primary literature did not identify these inference formulas. The highly relevant July 2026 Frydel age-structured manuscript was found but its complete full text could not be accessed through lawful open routes and authorized institutional access; its possible implicit coverage remains material risk, not automatic failure.",
+      "residual_risks": [
+        "The July 2026 Frydel age-structured manuscript was inaccessible in full, so implicit high-dimensional inference or formulas in its appendices cannot be ruled out.",
+        "A general mixture-model posterior monotonicity theorem may imply strict one-crossing after identifying this special scale family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides stationary mixture mechanism, not a theorem classifying hidden-state Bayes inference from high-dimensional position",
+          "evidence": [
+            "Stationary oscillator and variance-mixture analysis are prior ingredients explicitly credited in the finding."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.12213",
+          "material_read": "Full accessible 12-page original preprint including stationary distribution treatment, with PDF screenshot",
+          "method": "Public arXiv primary full PDF and visual page check",
+          "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+          "trigger": "Same physical switching process, state-dependent stationary variance representation"
+        },
+        {
+          "assessment": "No whole-document NOT_COVERING judgment; unknown whether full text contains equivalent high-d inference",
+          "evidence": [
+            "Public summary discusses age-structured mixture/Gamma-like variance laws; full content remains unverified."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.05173",
+          "material_read": "Public abstract and bibliographic summaries; full paper was not obtained through arXiv/OA or authorized institution",
+          "method": "Public abstract only; separately attempted authorized institutional retrieval, which was unavailable",
+          "title": "Semi-Markovian switching in a fluctuating harmonic trap: An age-structured formulation",
+          "trigger": "Very recent same-object conditional variance laws; could contain inference implications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated inference problem: high d nearly identifies a common random variance but never fully resolves which hidden switching state generated that variance. The monotone likelihood ratio and a critical dimension classify every finite d, while the two-correction threshold and exact positive error floor explain a sharp detectability limitation. The object, parameters and asymptotic invariant have natural probabilistic meaning; the stationary mixture alone is not the asserted contribution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frydel arXiv:2407.12213 (full primary PDF)",
+    "Santra–Das–Nath arXiv:2104.00609 (public source description)",
+    "Frydel arXiv:2607.05173 (abstract only; full text inaccessible)",
+    "Resultary published semantic query above"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Same global binary exponential switch across all coordinates, harmonic isotropic on trap, stationary joint law, equal misclassification costs and one positional snapshot.",
+    "Large-dimensional error and threshold require fixed positive rates; no trajectory data or varying-rate uniform expansion.",
+    "A closely relevant 2026 paper was not accessible in full; this is a priority risk, not a scientific failure."
+  ],
+  "schema_version": 1
+}
