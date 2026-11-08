@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Acyclicity is blockwise because each simple cycle lies in one C4. Independent edge-direction enumeration yields the peripheral-sink table (3,10,1) and hub-sink table (3,1); the hub correction yields S_r=(z^2+10z+3)^r+(z-1)(z+3)^r. At the pole z=-3 the polynomial is nonzero. For other real roots, R=T/B strictly increases, and positive and negative R branches intersect the appropriate root of 1-z exactly once in specified intervals. The even-r derivative bound is positive for all z<0, including the pole-adjacent domain. Therefore all real roots are simple and their counts exactly 2 (odd r) or 4 (even r). Degree 2r is checked separately for r=1 and r>=2. The standalone checker independently builds and enumerates edge orientations for r=1..4 and checks coefficients and endpoint identities for r=1..100. The proof, not finite enumeration, establishes all r.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alexandersson and Maia Leite, arXiv:2610.41502v1, Section 3.1 theorem, Section 3.4, Proposition 3.21, Section 5.1.",
+        "Hwang et al., arXiv:1910.10920, Sections 1, 2, 4 and 5.",
+        "Theorem 3.1 of arXiv:2610.41502v1 requires both chordal and claw-free; Theorem 4.3 concerns all orientations, not acyclic orientations."
+      ],
+      "reasoning": "Every Q_r contains an induced chordless C4, so the chordal hypothesis fails. For r>=2, the hub has an independent triple of neighbors, so claw-free also fails. The known all-orientation statement is not about S_r. General deletion-contraction is a computational framework, not an explicit real-root classification; applying it still requires the new analysis.",
+      "searches": [
+        "\"cactus\" \"acyclic sink polynomial\" real-rooted 2026",
+        "arxiv \"real-rootedness of acyclic sink polynomials\" \"chordal claw-free\" 2026",
+        "https://arxiv.org/html/2610.41502v1",
+        "https://arxiv.org/abs/1910.10920"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.41502v1; first public 2026-10-30",
+      "arxiv:1910.10920; first public 2019-10-24",
+      "searched mathematical research records on C4-bouquet sink counts and root-count aliases",
+      "compared known exact clique-bouquet theorem by statement and graph assumptions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Alexandersson and Maia Leite, arXiv:2610.41502v1, Section 3.1 theorem, Section 3.4, Proposition 3.21, Section 5.1.",
+        "Hwang et al., arXiv:1910.10920, Sections 1, 2, 4 and 5.",
+        "The known clique-bouquet sink polynomial has linear local factors and exactly one or two real zeros according to the parity of its number of blocks; the C4-bouquet has a quadratic local factor and exactly two or four."
+      ],
+      "reasoning": "Neither the general chordal-claw-free theorem nor the single-cycle root statement applies to Q_r with r>=2; the 2026 line-graph counterexample is a different graph and only establishes existence of nonreal roots. The earlier clique-bouquet theorem concerns complete-graph blocks, while C4 is not complete and the rational R has an extra pole/negative-sign interval. The four-real-root even case, sharp real-rootedness cutoff at r=2, and exact real-root location intervals are new logical content.",
+      "searches": [
+        "acyclic sink polynomial of flower graph made of 4-cycles sharing a common vertex, root count is 2 for odd number of petals, 4 for even; real-rooted only for one or two petals",
+        "acyclic orientation sinks cactus cycles cycle bouquet 4 cycles acyclic sink polynomial non-real-rooted parity",
+        "https://arxiv.org/html/2610.41502v1",
+        "https://arxiv.org/abs/1910.10920"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alexandersson and Maia Leite, arXiv:2610.41502v1, Section 3.1 theorem, Section 3.4, Proposition 3.21, Section 5.1.",
+        "Hwang et al., arXiv:1910.10920, Sections 1, 2, 4 and 5.",
+        "In the 2026 paper Proposition 3.21, the cycle polynomial is S_Cn=2 sum_{k>=1} binom(n,2k) z^k."
+      ],
+      "reasoning": "The single-cycle C4 case is the r=1 endpoint, but the r>=2 wedge has extra hub interactions. Neither a single-cycle count nor a general formal recurrence determines how many roots remain real after repeated wedge gluing. Search results concerning cactus root polytopes and particle sink configurations use different invariants.",
+      "searches": [
+        "\"bouquet of squares\" \"sink polynomial\" \"acyclic\"",
+        "\"wedge of cycles\" \"acyclic orientation\" \"sinks\"",
+        "cycle bouquets cactus sink polynomial real rootedness log concavity polynomial acyclic orientations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Proposition 3.21 gives a known table for one cycle, not r>=2.",
+        "Proposition 5.1 provides separate formulas for paths, cliques, double-star line graphs, and friendship-graph line graphs; no C4-bouquet entry."
+      ],
+      "reasoning": "The already known C4 row counts orientations for a single petal, and does not provide r>=2 root classification. Finite computed coefficient rows are reproducibility checks, not an unsearched prior table. No matching formula or parity-count table was found in the searches performed.",
+      "searches": [
+        "\"wedge of squares\" \"acyclic sink\"",
+        "\"friendship graph\" \"4-cycle\" \"sink polynomial\" real rooted",
+        "wedge of squares C4 bouquet acyclic sink polynomial (x^2+10x+3)^r+(x-1)(x+3)^r",
+        "https://arxiv.org/html/2610.41502v1"
+      ]
+    },
+    "rationale": "The cited 2026 work proves real-rootedness for a single cycle and chordal claw-free graphs, and gives a different unicyclic line-graph counterexample. The one-hub C4 wedges are nonchordal, and for r>=2 also induced-claw containing. The 2019 general deletion-contraction framework does not state the root count or its sharp two-petal threshold. Prior exact results for clique bouquets have different blocks and imply neither the C4 local quadratic polynomial nor the four-real-root even-parity phenomenon. Actual database, primary-text and exact-phrase literature searches found no covering theorem; priority is provisional.",
+    "residual_risks": [
+      "Unindexed historical graph-polynomial work may give an equivalent C4-bouquet root count.",
+      "The 2019 general recurrence can compute the polynomial but does not directly provide the monotonic root classification; a highly specialized unpublished use of it could overlap.",
+      "No independent mathematical audit or global novelty certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly motivating but not a theorem covering C4 bouquets or their parity-dependent number of real roots.",
+        "evidence": "Theorem 3.1 uses chordal claw-free graphs; Proposition 3.21 handles C_n individually; Section 5.1 handles other explicitly listed families; Theorem 4.3 is all-orientations. arXiv v1 date 2026-10-30.",
+        "identifier_or_url": "https://arxiv.org/html/2610.41502v1",
+        "material_read": "Full-text HTML portions: introduction, definitions and sink-set expansion, chordal-claw-free Theorem 3.1, Section 3.4 including Proposition 3.21 and proof, Section 4 comparison, and Section 5.1 formula families.",
+        "method": "Read the publicly accessible arXiv full-text HTML and checked named theorems and the cycle and other graph examples.",
+        "title": "Sink Polynomials of Line Graphs and Weighted Matching Polynomials",
+        "trigger": "2026 recent research explicitly studies real-rootedness of acyclic sink polynomials and cycle examples"
+      },
+      {
+        "assessment": "Provides general machinery and interpretation, not the claimed C4-bouquet root count.",
+        "evidence": "Definition 2.1 counts sinks over acyclic orientations; Theorem 2.3 supplies general deletion-contraction; Theorem 4.5 relates sink numbers to chromatic symmetric functions; no bouquet parity theorem in the inspected material.",
+        "identifier_or_url": "https://arxiv.org/abs/1910.10920",
+        "material_read": "Accessible parsed full-text portions: introduction, Section 2 definition and deletion-contraction, Theorem 4.5 on sink coefficients, and opening of Section 5 on distinguishing graphs.",
+        "method": "Read publicly accessible arXiv text and assessed the scope of stated general results.",
+        "title": "Acyclic orientation polynomials and the sink theorem for chromatic symmetric functions",
+        "trigger": "General acyclic sink polynomial theory may dominate a family-specific expression or root analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fecde89f-20dd-4c92-a65a-ed94ba26f9fc",
+  "value": {
+    "rationale": "Acyclic sink real-rootedness is an active structural question (arxiv:2610.41502v1). This exact infinite cactus family, outside the positive theorem hypotheses, has a sharp root-behavior transition: r=1,2 real-rooted but all r>=3 not. The real-zero count remains bounded by four while degree increases linearly, with a nontrivial parity dichotomy and exact separating intervals. This is a motivated structural boundary and complete classification, not a generic numeric substitution or isolated small graph.",
+    "status": "PASS"
+  }
+}
