@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:47:05.022525Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A 3-cycle of a nonconstant binary triple swaps the unique minority bit with another of the two positions, equivalent exactly to exchanging unequal bits at distance 1 or 2; every such edge can be realized by some length-three window even at n=3. Thus the move graph is the k-token graph of the squared path. For any connected base graph, token-slide distance equals min-cost integral transshipment: a directed acyclic optimum has an occupied→unoccupied positive-flow arc whenever the current set differs from target, and this reduces divergence and flow cost by 1. Integral LP duality gives max signed sum of integer edge-1-Lipschitz potentials. Removing any one vertex from P_n^2 leaves it connected, so sorted potential gaps δ_i∈{0,1} cannot have adjacent ones. Summing k windows of m=n-k gaps gives <=ceil(km/2); integer potentials floor((j-1)/2),ceil((j-1)/2) attain it for extreme initial/final blocks. Independent BFS and min-matching tests confirmed all 66,174 ordered word pairs n=3..9; this is evidence, not proof for arbitrary n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General diameter bounds k(delta-k+1)..kdelta; Gray-code/Hamiltonicity"
+        ],
+        "reasoning": "Those broad bounds do not specialize to the sharp ceil(k(n-k)/2) expression for P_n^2; Hamiltonicity also gives no optimal all-pair distance.",
+        "searches": [
+          "token graph k-token graph square of path P_n^2 diameter exact ceil(k(n-k)/2) binary triple cyclic burst",
+          "arxiv:0910.4774v1 Theorem 1",
+          "arxiv:2101.01855"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/0910.4774v1",
+        "https://arxiv.org/abs/2101.01855",
+        "https://arxiv.org/abs/2610.15701",
+        "Git RESULT.md and verify_transport.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published general diameter bounds and graph identification precede this proof"
+        ],
+        "reasoning": "A generic kδ upper bound and graph-isomorphism recognition do not imply the exact quadratic composition-dependent diameter; the new transport-potential extremality argument is needed.",
+        "searches": [
+          "token graph k-token graph square of path P_n^2 diameter exact ceil(k(n-k)/2) binary triple cyclic burst",
+          "arxiv:0910.4774v1 Section 3",
+          "arxiv:2101.01855 Gray-code appendix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fabila-Monroy et al. define F_k(G); Adame et al. identify squared-path token graph; Chen–Milenkovic local triple rotations"
+        ],
+        "reasoning": "The exact graph equivalence is known/implicit; the claimed new statement is its sharp diameter, not redefinition of a token graph or a single-burst error model.",
+        "searches": [
+          "token graph k-token graph square of path P_n^2 diameter exact ceil(k(n-k)/2) binary triple cyclic burst",
+          "arxiv:0910.4774v1",
+          "arxiv:2101.01855 Gray-code appendix",
+          "arxiv:2610.15701v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact diameter table for all n,k found in returned mathematical finding corpus; 66,174 finite ordered-pair independent tests match formula"
+        ],
+        "reasoning": "The claim is a universal closed formula, not a finite table. Missing a table in searches cannot certify historical priority; another name for identical token graph may conceal coverage.",
+        "searches": [
+          "token graph k-token graph square of path P_n^2 diameter exact ceil(k(n-k)/2) binary triple cyclic burst",
+          "Resultary token graph squared path metric searches",
+          "arxiv:0910.4774v1"
+        ]
+      },
+      "rationale": "The original 2009 token-graph paper introduces exactly the graph formalism and diameter inequalities k(delta-k+1)<=diam<=k delta, but not this specific P_n^2 formula in its inspected Section 3. The 2021 Gray-code appendix identifies the SAME squared-path token graph for adjacent-distance-one-or-two swaps but addresses Hamiltonian Gray code, not metric diameter. The 2026 cyclic burst paper studies one-error correction, not arbitrary sequential distance. Generic transport duality is classical; combining it with squared-path two-vertex-connectivity yields a new exact formula as far as checked.",
+      "residual_risks": [
+        "Older token-graph shortest-distance or transportation literature may contain exact P_n^2 diameter under a different name.",
+        "Full-text 2026 burst-channel source and 2021 Gray-code appendix were not completely read; accessible fragments cannot rule out embedded formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general F_k(G) theory and diameter inequalities, not an exhibited exact squared-path diameter calculation",
+          "evidence": "Theorem 1 k(delta-k+1)<=diam(F_k(G))<=k delta",
+          "identifier_or_url": "https://arxiv.org/html/0910.4774v1",
+          "material_read": "Full accessible arXiv HTML Sections 1–3 including formal token definition and Theorem 1 diameter bounds",
+          "method": "arXiv full-text HTML read",
+          "title": "Token Graphs",
+          "trigger": "Same graph F_k(P_n^2) and possibly dominating diameter theorem"
+        },
+        {
+          "assessment": "Prior recognition of exact graph is credited; Hamiltonian cycle does not imply metric diameter",
+          "evidence": "Gray-code equivalence F_k(P_n^2) is a substantive overlap",
+          "identifier_or_url": "https://arxiv.org/abs/2101.01855",
+          "material_read": "Accessible mathematical abstract/intro and appendix description cited in original source; not full appendix independently read",
+          "method": "Published article/abstract and mathematical reference description",
+          "title": "Hamiltonicity of Token Graphs of some Join Graphs",
+          "trigger": "Explicit same squared-path token graph in Gray-code appendix"
+        },
+        {
+          "assessment": "Only one-burst error-correction framework could be checked; possible full-text overlap preserved as risk",
+          "evidence": "No verified all-sequential-move diameter theorem in accessible abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2610.15701",
+          "material_read": "Public arXiv abstract and cited Proposition 3 description; HTML full text not accessible",
+          "method": "arXiv abstract and source citation",
+          "title": "Correcting Burst Errors with Applications to DNA-Based Data Storage",
+          "trigger": "Same local three-position rotation/burst channel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact diameter is the natural worst-case number of sequential length-three cyclic-permutation bursts at fixed binary composition, with an explicit diametral pair and a transport proof. This addresses global reachability/metric complexity of a previously motivated burst channel, not a re-run of single-burst code tables.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/0910.4774v1",
+    "https://arxiv.org/abs/2101.01855",
+    "https://arxiv.org/abs/2610.15701",
+    "Git RESULT.md and verify_transport.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every binary word length n>=3 and nontrivial weight 1<=k<n, the graph under sequential rotations of contiguous length-three windows is F_k(P_n^2), connected, with exact diameter ceil(k(n-k)/2), attained by 1^k0^(n-k) and its reversal.",
+  "limitations": [
+    "Binary fixed-weight words, n>=3, sequential rotations of contiguous triples with no wraparound; no code-size result, no longer windows, no nonbinary channel.",
+    "BFS through n=9 is finite corroboration only; min-flow dual and sorted-potential upper bound prove unrestricted formula."
+  ],
+  "residual_risks": [
+    "Older token-graph shortest-distance or transportation literature may contain exact P_n^2 diameter under a different name.",
+    "Full-text 2026 burst-channel source and 2021 Gray-code appendix were not completely read; accessible fragments cannot rule out embedded formulas."
+  ],
+  "schema_version": 1
+}
