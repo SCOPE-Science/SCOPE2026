@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise complex is the independence complex of disjointness among the \(35\) triples of a fixed seven-point set. For every permutation, invariant simplices are exactly unions of admissible triple-orbits with pairwise compatibility; orientation signs give reduced Lefschetz number minus the independence polynomial of the orbit-conflict graph at \(-1\). Exhaustive enumeration (including \(1{,}278{,}686\) identity-invariant faces) and an independent exact deletion recurrence agree on all fifteen conjugacy classes. A rim-hook character calculation produces precisely five nonzero virtual Specht coefficients, and the published rational Betti ranks force the two negative terms to exhaust degree-nine homology. The proof uses semisimplicity over \(\mathbb Q\); no integral conclusion is inferred.
+## correctness
 
-## Originality — PASS, with residual risks
-The full text of Feng's 2026 theorem and its open questions establishes Betti numbers and discusses possible embedded generators, but does not give the \(S_7\) character or irreducible decomposition. The accessible 2024 Feng–Wang description concerns generators, rank estimates and propagation. Targeted published searches and indexed mathematical records returned related character calculations for Kneser neighborhood complexes on six points and stable Kneser graph variants, which are different spaces. None of the compared statements implies this seven-point disjointness-complex character table. A full-text comparison of the 2024 preprint was unavailable; implicit or unindexed equivalent coverage is a residual risk and the searches are not a uniqueness proof.
+PASS
 
-## Value — PASS
-The seven-point case is the first triple-Kneser independence complex with homology in both degrees six and nine. Its known Betti numbers fail to distinguish the representations, whereas the new result identifies a trivial rational line in degree six, two fourteen-dimensional constituents, and an orientation-twisted permutation action in degree nine. Determining all irreducible constituents of the natural full symmetry action is a well-motivated complete finite classification rather than an arbitrary statistic.
+The graph KG(7,3) has 35 vertices indexed by triples of seven points and disjointness edges; Ind(KG(7,3)) simplices are intersecting triple-families. For each of 15 S7 cycle types, an invariant simplex is exactly a union of permutation cycles of triples that are internally and mutually intersecting. Signed oriented simplex traces simplify to -sum_{independent orbit subsets}(-1)^number_orbits; an independently reconstructed exact recursion reproduces all 15 Lefschetz values (22,6,-5,2,4,3,-3,2,0,4,2,-1,1,1,1). The inspected source CHECKS implements Murnaghan–Nakayama for all Specht characters; the virtual representation has +1 each for (7),(4,3),(2,2,2,1), and -1 each for (1^7),(2,1^5), zero otherwise. Feng 2026 supplies independently published rational Betti ranks H6=29, H9=7 and vanishing elsewhere. The -1 terms must be in H9 and dimensions 1+6 exhaust it, forcing H6 to be the positive three Specht summands of dimensions 1+14+14. No unproved integral or higher-parameter claim is inferred.
 
-## Boundaries
-Only rational homology at the seven-point case is classified. No torsion, larger-parameter, integral equivariant, explicit basis, or equivariant homotopy claim is made. All calculations are reproducible from the two embedded checkers; independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Feng arXiv:2610.17394v1 supplies broad triple-Kneser Betti numbers but no natural S7 character, and Feng–Wang arXiv:2404.10566 full inspected HTML discusses cycles, generators and dimensions rather than graded Specht modules. KG(3,1) in Feng parameterization is this same seven-point KG(7,3), so exact-object normalization is not overlooked. Stable Kneser and Kneser neighborhood-complex symmetry results use distinct graphs or simplicial constructions. No direct dominating equivariant theorem was located; unindexed implicit calculation remains a risk.
+
+## value
+
+PASS
+
+The first mixed-degree seven-point triple-Kneser independence complex is a natural symmetric-group object. Its full graded Specht decomposition, not deducible from the recently computed nonequivariant Betti dimensions, is a complete and potentially reusable representation-theoretic invariant that identifies the invariant line and sign-twisted top degree. It is a motivated exact finite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T23:15:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md@4d8f4dcca37d4b081cb448b1d6cc35691ab853d4",
+        "CHECKS/verify_character.py@07ca50f4bd821dfb229fd4601e266a0c8d7c7695",
+        "CHECKS/verify_faces.py@ed8615d7d51e95c3e355bb7e4d2e6ca76afb9538",
+        "METADATA.json@a40aee84711565f18709a7a29677269cb0c2c813",
+        "AUDIT.json@c2982e39c403293504e2fce64f6c8bccb71da6ef",
+        "VERIFICATION.md@6a7cb87c8c111fa2e5fe5f8b2c921c11b7cb4141",
+        "Reconstructed triple-permutation orbit-conflict graphs for all partitions of seven",
+        "Verified exact 15 reduced Lefschetz values with independent recursion",
+        "Checked algebraic virtual-character and dimensions against complete pinned Specht checker"
+      ],
+      "rationale": "The graph KG(7,3) has 35 vertices indexed by triples of seven points and disjointness edges; Ind(KG(7,3)) simplices are intersecting triple-families. For each of 15 S7 cycle types, an invariant simplex is exactly a union of permutation cycles of triples that are internally and mutually intersecting. Signed oriented simplex traces simplify to -sum_{independent orbit subsets}(-1)^number_orbits; an independently reconstructed exact recursion reproduces all 15 Lefschetz values (22,6,-5,2,4,3,-3,2,0,4,2,-1,1,1,1). The inspected source CHECKS implements Murnaghan–Nakayama for all Specht characters; the virtual representation has +1 each for (7),(4,3),(2,2,2,1), and -1 each for (1^7),(2,1^5), zero otherwise. Feng 2026 supplies independently published rational Betti ranks H6=29, H9=7 and vanishing elsewhere. The -1 terms must be in H9 and dimensions 1+6 exhaust it, forcing H6 to be the positive three Specht summands of dimensions 1+14+14. No unproved integral or higher-parameter claim is inferred.",
+      "residual_risks": [
+        "Uses published Feng 2026 H6/H9 rank theorem; own finite character check does not independently prove that rank theorem.",
+        "Case KG(7,3) only, rational representations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feng theorem handles a family of triple-Kneser independence Betti ranks but not S7 characters.",
+          "Related stable Kneser equivariant homology and KG(6,2) neighborhood Specht results are distinct simplicial complexes."
+        ],
+        "reasoning": "Family-wide Betti information is broader for ordinary ranks yet does not contain the graded group modules claimed here.",
+        "searches": [
+          "arXiv:2610.17394v1 Theorem 18",
+          "arXiv:2404.10566 full HTML",
+          "Seven element triples Kneser graph independence complex S7 action on rational H6 H9 Specht decomposition"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, CHECKS/verify_character.py, CHECKS/verify_faces.py, METADATA.json, AUDIT.json, VERIFICATION.md",
+        "Independent exact 15-cycle-type orbit incompatibility calculation",
+        "Feng arXiv:2610.17394v1 full HTML text",
+        "Feng–Wang arXiv:2404.10566 full HTML text",
+        "Resultary semantic query: Seven element triples Kneser graph independence complex S7 action on rational H6 H9 Specht decomposition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior H6 rank29 and H9 rank7 do not specify a unique S7-module; the fifteen new Lefschetz traces and semisimplicity are necessary to determine modules.",
+          "Feng–Wang discusses homology generators and cannot be read as an S7 module statement without a natural equivariant basis."
+        ],
+        "reasoning": "The virtual character computation supplies genuinely new information beyond broader rank theorems and published generator descriptions.",
+        "searches": [
+          "arXiv:2610.17394v1 Theorem 18",
+          "arXiv:2404.10566",
+          "Seven element triples Kneser graph independence complex S7 action on rational H6 H9 Specht decomposition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Feng KG(3,1) parameterization denotes disjoint triples of seven points, exactly KG(7,3) under conventional Kneser convention.",
+          "Its theorem states ranks in H6,H9, not Specht modules."
+        ],
+        "reasoning": "The exact alias is normalized to the same object; comparison separates nonequivariant dimensions from full 15-class graded representations.",
+        "searches": [
+          "Seven element triples Kneser graph independence complex S7 action on rational H6 H9 Specht decomposition",
+          "Feng KG(3,1) independence graph triples seven vertices",
+          "arXiv:2610.17394v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search retrieved neighborhood-complex KG(6,2) and stable Kneser symmetry results; no exact 15-class KG(7,3) Specht table was returned."
+        ],
+        "reasoning": "Database misses cannot establish novelty; objects and homological functors of nearest hits differ.",
+        "searches": [
+          "Seven element triples Kneser graph independence complex S7 action on rational H6 H9 Specht decomposition",
+          "KG(7,3) Specht independence complex S7 H6 H9",
+          "Resultary KG(6,2) neighborhood character"
+        ]
+      },
+      "rationale": "Feng arXiv:2610.17394v1 supplies broad triple-Kneser Betti numbers but no natural S7 character, and Feng–Wang arXiv:2404.10566 full inspected HTML discusses cycles, generators and dimensions rather than graded Specht modules. KG(3,1) in Feng parameterization is this same seven-point KG(7,3), so exact-object normalization is not overlooked. Stable Kneser and Kneser neighborhood-complex symmetry results use distinct graphs or simplicial constructions. No direct dominating equivariant theorem was located; unindexed implicit calculation remains a risk.",
+      "residual_risks": [
+        "The full natural S7 module is constrained by Feng 2026 rational Betti theorem; if that input changed, the degree allocation would need re-review.",
+        "An unindexed implicit Specht character in other primary literature cannot be ruled out.",
+        "No integral torsion, explicit equivariant basis, or larger-parameter classification is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS homology ranks 29 and 7 only; not the new graded Specht modules",
+          "evidence": [
+            "Theorem 18 assigns the mixed-degree H6/H9 rational Betti ranks for the appropriate parameter case."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.17394v1",
+          "material_read": "Full lawful HTML text via an openly accessible mirror including introduction, main theorem, proof framework, open questions",
+          "method": "Compare normalization, theorem ranks and sections for S7 action/Specht characters",
+          "title": "The rational homology of independence complexes of Kneser graphs on triples",
+          "trigger": "Exact seven-point triple-Kneser object and necessary Betti input"
+        },
+        {
+          "assessment": "NO explicit full natural S7 graded representation in inspected text",
+          "evidence": [
+            "Describes explicit homology constructions and propagation, not a 15-class S7 character table."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2404.10566",
+          "material_read": "Full HTML including theorem statements, generators and later sections, searched for representation/Specht",
+          "method": "Read same-object definitions, rank/generator conclusions, and compare their implications",
+          "title": "Exploring Homological Properties of Independent Complexes of Kneser Graphs",
+          "trigger": "Earlier thesis-like exact Kneser homology source with plausible implicit group action"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md, CHECKS/verify_character.py, CHECKS/verify_faces.py, METADATA.json, AUDIT.json, VERIFICATION.md",
+        "Independent exact 15-cycle-type orbit incompatibility calculation",
+        "Feng arXiv:2610.17394v1 full HTML text",
+        "Feng–Wang arXiv:2404.10566 full HTML text",
+        "Resultary semantic query: Seven element triples Kneser graph independence complex S7 action on rational H6 H9 Specht decomposition"
+      ],
+      "rationale": "The first mixed-degree seven-point triple-Kneser independence complex is a natural symmetric-group object. Its full graded Specht decomposition, not deducible from the recently computed nonequivariant Betti dimensions, is a complete and potentially reusable representation-theoretic invariant that identifies the invariant line and sign-twisted top degree. It is a motivated exact finite case.",
+      "residual_risks": [
+        "The full natural S7 module is constrained by Feng 2026 rational Betti theorem; if that input changed, the degree allocation would need re-review.",
+        "An unindexed implicit Specht character in other primary literature cannot be ruled out.",
+        "No integral torsion, explicit equivariant basis, or larger-parameter classification is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uses published Feng 2026 H6/H9 rank theorem; own finite character check does not independently prove that rank theorem.",
+    "Case KG(7,3) only, rational representations."
+  ],
+  "schema_version": 1
+}
