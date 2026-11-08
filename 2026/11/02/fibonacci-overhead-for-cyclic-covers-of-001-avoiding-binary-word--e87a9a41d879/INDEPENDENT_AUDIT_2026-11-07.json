@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T07:49:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The required set comprises all FINITE length-n binary words without factor 001, not merely periodically admissible words. Counting no-00 words and terminal-zero suffix cases gives F_{n+3}−1 requirements. In the required-edge binary de Bruijn graph each of exactly F_{n−1} vertices starting 01 without 00 has excess outdegree one; matching deficit vertices end 00. Any augmenting flow for a circular covering walk decomposes into these many paths from deficits to surpluses; an overlap of ≥2 suffix/prefix bits is impossible because '00' cannot prefix a no-00 target. Thus each path needs n−2 edges. The last bit of each deficit is 0 and each surplus begins 0, so exactly n−2-edge connecting paths exist; the augmented balanced graph is strongly connected through 1^{n−1} and 0^{n−1} and hence Eulerian. This proves L_n=F_{n+3}−1+(n−2)F_{n−1} for all n≥3. Independent Euler constructions and coverage checks n=3..13 agree, and finite brute tests at n=3,4 corroborate minimality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moreno–Matamala focus on irreducible periodic languages; Bernardini et al algorithms solve equal factor sets and generic directed postman reductions."
+        ],
+        "reasoning": "A generic postman algorithm can evaluate a fixed instance but does not imply the uniform Fibonacci minimum over all n, and exact-set constraints differ.",
+        "searches": [
+          "Moreno Matamala 2007 minimum de Bruijn sequence forbidden substrings",
+          "Bernardini Conte Gabory Grossi Loukides Pissis Punzi Sweering CPM 2022 same length k substrings"
+        ]
+      },
+      "checked_sources": [
+        "Moreno–Matamala arXiv:0711.1695",
+        "Bernardini et al DOI:10.4230/LIPIcs.CPM.2022.16",
+        "Resultary semantic search: shortest circular superstring covering all finite 001-avoiding binary words minimal length"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The required edge graph has nonzero F_{n−1} source/sink imbalance, unlike the balanced periodic-language exact-once graph studied by Moreno–Matamala."
+        ],
+        "reasoning": "The old periodic theorem cannot cover all finite words; a generic exact-factor-set algorithm neither allows extra forbidden windows nor provides this explicit all-order optimum.",
+        "searches": [
+          "arxiv:0711.1695",
+          "DOI:10.4230/LIPIcs.CPM.2022.16",
+          "shortest cyclic cover all finite binary words avoiding 001 circular superstring de Bruijn Chinese postman Fibonacci"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moreno–Matamala arXiv:0711.1695 requires periodic admissibility and exact-once cycles; finite word 1000 is allowed here even though its periodic repetition has 001."
+        ],
+        "reasoning": "The cover may include forbidden extra factors and repeats, so it is not a constrained Eulerian de Bruijn sequence or a shortest exact-factor-set string.",
+        "searches": [
+          "shortest circular superstring covering all finite 001-avoiding binary words minimal length",
+          "shortest cyclic cover all finite binary words avoiding 001 circular superstring de Bruijn Chinese postman Fibonacci"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published indexed Resultary table matching length sequence 8,16,29,53,94 was returned by the focused searches; independent constructions corroborated initial instances."
+        ],
+        "reasoning": "Non-retrieval is not evidence of priority; an unindexed specialized universal-cycle enumeration remains possible.",
+        "searches": [
+          "shortest circular superstring covering all finite 001-avoiding binary words minimal length",
+          "Fibonacci overhead forbidden 001 cyclic cover 8 16 29 53 94"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison for Fibonacci overhead for cyclic covers of 001-avoiding binary words: four checks below distinguish exact claims from published stronger claims, related definitions, alternative expressions and available tables. No checked statement entails the entire result; inaccessible or unindexed possible coverage remains recorded, rather than being claimed disproved.",
+      "residual_risks": [
+        "An unindexed treatment of cyclic superset coverage for a single forbidden factor may coincide with the formula.",
+        "The theorem excludes the other symmetry classes of forbidden length-three patterns and n<3."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its periodic extendibility/exact-one-window model differs from the finite superset cover; no asserted theorem implication",
+          "evidence": [
+            "Definition of admissibility uses infinite periodic repetitions; exact-once Eulerian sequences are a different optimization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0711.1695",
+          "material_read": "Public preprint title, definitions and Sections 2–3 on periodic language and exact-once de Bruijn cycles",
+          "method": "Original PDF text and screenshot of first page",
+          "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+          "trigger": "Closest historical forbidden-language universal cycles"
+        },
+        {
+          "assessment": "Exact equality of factor sets and generic algorithms do not state all-n cyclic superset-cover optimum",
+          "evidence": [
+            "The stated problem is factor-set equality rather than containing a specified finite language as subset."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2022.16",
+          "material_read": "Abstract and accessible problem statement on exact factor-set equivalence; no complete-text coverage claimed",
+          "method": "Public research search",
+          "title": "On Strings Having the Same Length-k Substrings",
+          "trigger": "Closest general shortest factor-cover algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact unavoidable linear-in-n cover overhead settles a natural finite-versus-periodic language distinction. The optimum is a concrete all-n invariant of a familiar forbidden-factor family and a tight directed-postman overlap bound useful in universal-cover and cyclic-superstring constructions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Mathematical originality assessment is best-of-knowledge and not historical certification or formal verification.",
+    "Finite calculation checks are not a proof for unrestricted quantifiers; infinite claims rely on checked proof arguments.",
+    "Potentially public metadata is not sanitized; publication plan not_ready.",
+    "An unindexed treatment of cyclic superset coverage for a single forbidden factor may coincide with the formula.",
+    "The theorem excludes the other symmetry classes of forbidden length-three patterns and n<3."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification instructions
+# Independent mathematical audit
 
-Run `python3 verify.py` using only the standard Python library. The script creates the required de Bruijn edge set for each integer order from three to eighteen, independently tallies vertex imbalances, constructs the canonical lexicographic source–sink augmentation, checks balance, runs an Euler tour and verifies that every required length-\(n\) word occurs as a cyclic window. It asserts the Fibonacci formula at each order and reports `VERIFY_OK` if all tests pass. It also enumerates all circular binary candidates below the asserted bound at orders three and four; these small brute-force tests are not a proof for arbitrary orders.
+## correctness
 
-Expected rows for \(n=3,4,5,6,7,8,9,10\) have optimum lengths \(8,16,29,53,94,166,290,504\). Further rows cover orders eleven through eighteen. The proof for all orders is the imbalance/overlap argument in `RESULT.md`. Finite execution neither establishes priority nor independently certifies the infinite theorem.
+PASS
+
+The required set comprises all FINITE length-n binary words without factor 001, not merely periodically admissible words. Counting no-00 words and terminal-zero suffix cases gives F_{n+3}−1 requirements. In the required-edge binary de Bruijn graph each of exactly F_{n−1} vertices starting 01 without 00 has excess outdegree one; matching deficit vertices end 00. Any augmenting flow for a circular covering walk decomposes into these many paths from deficits to surpluses; an overlap of ≥2 suffix/prefix bits is impossible because '00' cannot prefix a no-00 target. Thus each path needs n−2 edges. The last bit of each deficit is 0 and each surplus begins 0, so exactly n−2-edge connecting paths exist; the augmented balanced graph is strongly connected through 1^{n−1} and 0^{n−1} and hence Eulerian. This proves L_n=F_{n+3}−1+(n−2)F_{n−1} for all n≥3. Independent Euler constructions and coverage checks n=3..13 agree, and finite brute tests at n=3,4 corroborate minimality.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison for Fibonacci overhead for cyclic covers of 001-avoiding binary words: four checks below distinguish exact claims from published stronger claims, related definitions, alternative expressions and available tables. No checked statement entails the entire result; inaccessible or unindexed possible coverage remains recorded, rather than being claimed disproved.
+
+## value
+
+PASS
+
+The exact unavoidable linear-in-n cover overhead settles a natural finite-versus-periodic language distinction. The optimum is a concrete all-n invariant of a familiar forbidden-factor family and a tight directed-postman overlap bound useful in universal-cover and cyclic-superstring constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
