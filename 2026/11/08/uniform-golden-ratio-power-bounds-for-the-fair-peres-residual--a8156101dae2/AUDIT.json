@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The exact all-input recurrence \\(a_{2n+\\rho}=a_n+\\mathbb E a_B+\\rho\\) follows from the uniform-pair split. For \\(\\alpha=\\log_2\\varphi\\), \\(2^\\alpha=1+2^{-\\alpha}\\). The global inequality \\(z^\\alpha\\ge1+\\alpha(z-1)-(z-1)^2\\) proves a binomial Jensen deficit at most \\((n/2)^{\\alpha-1}/2\\), which is <=Pr(B>0) for n>=2; n=1 is direct. Strong induction with lower (m^alpha+1)/2 and upper 2m^alpha−1 gives both even and odd cases, using \\(2((2n+1)^\\alpha-(2n)^\\alpha)\\ge2^{-n}\\). Exact rational recurrence and independent exhaustive transform check match for all n<=12, and finite inequalities checked to n=150. Numeric checks are corroboration, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Garivier 2026 Theorem 9 and §8 concern deterministic bounds for residual ones, not the expected total residual length.",
+        "Prasitsupparote–Konno–Shikata 2018, §1.2 and §3 discuss finite-iteration redundancy and heuristic maximum redundancy rather than this exact fair-input mean power."
+      ],
+      "reasoning": "A bound on worst-case residual ones does not directly dominate a bound on expected residual length: the residual can contain zeros, and the worst-case/mean quantifiers differ. Neither the 2018 nor the 2026 statements inspected provide the all-N golden-ratio mean envelope.",
+      "searches": [
+        "Garivier exhaustive Peres transform expectation residual mean lower bound Theta N^0.6942",
+        "Garivier 2026 exhaustive Peres residual expected length Θ(N^{log2 golden ratio}) rigorous upper lower constants",
+        "https://xsci.com/preprint/doi/10.66977/xsci.2610.002f.pdf",
+        "doi:10.3390/e20100729"
+      ]
+    },
+    "checked_sources": [
+      "Garivier (2026), arxiv:2610.26396, open PDF §8 and method passages",
+      "Lim–Liao–Yao (2020), DOI 10.1017/S0269964820000510, full author manuscript, especially Proposition 2 and §4",
+      "Prasitsupparote–Konno–Shikata (2018), DOI 10.3390/e20100729, indexed main sections and abstract",
+      "Publicly indexed mathematical research records queried for residual means, Peres extraction cost, equivalent recurrences and the golden-ratio order"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lim–Liao–Yao 2020 Proposition 2(ii): log g(N)/log N tends to alpha, with no upper/lower constants.",
+        "Garivier 2026 §8: a_(2n+rho)=a_n+E a_B+rho, with heuristic alpha for the mean."
+      ],
+      "reasoning": "The new inequality implies the earlier log-exponent limit, but the reverse implication is false as a logical implication (e.g. alpha-power times log N has the same log-exponent). The recurrence is shared and separately rederived here, while the universal binomial concavity-deficit lemma plus induction supplies the missing uniform estimates. The independent numerical 2018 and worst-case 2026 bounds are not stronger statements covering this claim.",
+      "searches": [
+        "exhaustive Peres transform mean residual length expected Bernoulli one half theta constant log golden ratio alpha exponent 0.6942 rigorous theta N^alpha",
+        "Peres randomness extractor remaining bits expected length asymptotic golden ratio power 0.694",
+        "Lim Liao Yao 2020 Peres algorithm cost O(n^0.69424) Omega(n^0.69424) tight powers",
+        "doi:10.1017/S0269964820000510"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lim–Liao–Yao 2020, Proposition 2 and §4: fair Peres expected-cost g(N)=N−b(N,1/2) has the same recurrence and log-exponent limit, not the stated uniform order.",
+        "Garivier 2026, §8 pp. 29–30: expected residual a_N obeys the same recurrence."
+      ],
+      "reasoning": "The proposed mean residual theorem is equivalent to a two-sided nonasymptotic bound for the 2020 fair extraction cost. It is not independent of their recurrence, but the 2020 theorem log(g(N))/log(N)→alpha does not imply positive finite uniform upper/lower multipliers; the latter could diverge/subside subpolynomially.",
+      "searches": [
+        "exhaustive Peres transform mean residual length expected Bernoulli one half theta constant log golden ratio alpha exponent 0.6942 rigorous theta N^alpha",
+        "Peres randomness extractor remaining bits expected length asymptotic golden ratio power 0.694",
+        "Lim Liao Yao 2020 Peres algorithm cost O(n^0.69424) Omega(n^0.69424) tight powers",
+        "doi:10.1017/S0269964820000510"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic searches in a published mathematical-record index returned no directly equivalent claim; the nearest displayed results concerned unrelated combinatorial and information-theoretic objects.",
+        "Lim–Liao–Yao 2020 §3 reports numerical g(N)/N^alpha through N=16384, not a table or certificate implying all-N constants."
+      ],
+      "reasoning": "Exact finite tables through a cutoff cannot entail the all-positive-integer bounds. The index search provides negative retrieval evidence only; it is not an exhaustive novelty guarantee.",
+      "searches": [
+        "Peres 1992 extraction expected unextracted bits Bernoulli half 0.5 (n^log2 phi +1)/2 ≤ cost ≤2 n^log2 phi−1 nonasymptotic",
+        "binomial divide and conquer recurrence a_2n=a_n+E a_B B binomial n half bound logarithm golden ratio constant factor",
+        "Lim Liao Yao 2020 Peres algorithm cost O(n^0.69424) Omega(n^0.69424) tight powers"
+      ]
+    },
+    "rationale": "The 2020 Lim–Liao–Yao full manuscript proves only the logarithmic exponent limit for the identical expected-cost recurrence, not constant-factor bounds; its Section 4 explicitly calls refined behavior open. Garivier 2026 Section 8 writes the same mean recurrence and treats the exponent heuristically, while discussing a different worst-case residual-one quantity. The 2018 non-asymptotic paper focuses on numerical finite-length extraction and heuristic maximal redundancy. No searched index result or accessible previously recorded claim supplied this two-sided all-length theorem. Relative-priority risk persists.",
+    "residual_risks": [
+      "An unindexed or overlooked independent proof of constant-factor bounds might predate this statement.",
+      "The 2018 paper was inspected through indexed publisher passages rather than a complete locally available full text; indexed passages suggest a different object, but this is a minor access limitation.",
+      "The 2020 result and 2026 preprint supply the exact recurrence and exponent, so originality lies entirely in the proved global two-sided power constants, not the exponent or algorithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SHARED_RECURRENCE_NOT_COVERING_THE_TWOSIDED_MEAN_BOUND",
+        "evidence": "§8 gives a_(2n+rho)=a_n+E a_B+rho and heuristically alpha=log2 phi; the conjecture nearby concerns maximum residual one count, not mean length.",
+        "identifier_or_url": "arxiv:2610.26396; https://xsci.com/preprint/doi/10.66977/xsci.2610.002f.pdf",
+        "material_read": "Full-text passages defining the transform and §8 open problems on pages 29–30, plus abstract, theorem statements and the distinction between residual weight and length",
+        "method": "Open-access PDF full-text extraction, visual page inspection and passage comparison",
+        "title": "The Exhaustive Peres Transform: Extraction and Universal Coding",
+        "trigger": "Exact same residual object and its mean recurrence; first public date 2026-10-19"
+      },
+      {
+        "assessment": "SAME_RECURRENCE_AND_LOG_EXPONENT_ONLY_NOT_CONSTANT_FACTOR",
+        "evidence": "§4 eq. (4.1) establishes lim log g(N)/log N=alpha, and describes normalized g(N)/N^alpha convergence and regular variation as unresolved.",
+        "identifier_or_url": "doi:10.1017/S0269964820000510; https://staff.stat.sinica.edu.tw/yao/file/manuscript_rO8dvd2dHxCS4O0TbsiCioz2.pdf",
+        "material_read": "Complete manuscript mathematical recurrence Proposition 2, Lemmas 3–5 and Section 4 conclusions; pages 5–16 checked for bounds and stronger implications",
+        "method": "Author-hosted full-text PDF text examination and page image inspection",
+        "title": "Asymptotic Analysis of Peres' Algorithm for Random Number Generation",
+        "trigger": "Most decisive earlier claim about the same fair-coin expected residual cost and same exponent"
+      },
+      {
+        "assessment": "DIFFERENT_FINITE_ITERATION_MAX_REDUNDANCY; NO_EXACT_THETA_ORDER_FOUND_IN_READ_MATERIAL",
+        "evidence": "§3 analyzes a heuristic lower bound for maximum redundancy; numerical comparisons concern finite iteration and source bias.",
+        "identifier_or_url": "doi:10.3390/e20100729; https://www.mdpi.com/1099-4300/20/10/729",
+        "material_read": "Indexed primary HTML text of abstract, §1.2 contributions and §3 on heuristic maximum redundancy; PDF/full HTML navigation not fully accessible",
+        "method": "Publisher HTML search-index passages and PubMed bibliographic abstract",
+        "title": "Numerical and Non-Asymptotic Analysis of Elias's and Peres's Extractors with Finite Input Sequences",
+        "trigger": "Relevant finite-sample nonasymptotic efficiency study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a8156101-dae2-4d8c-8768-d8ac6c8c4325",
+  "value": {
+    "rationale": "The exact fair-input residual cost is a natural, central efficiency invariant of Peres extraction. Replacing an \\(N^{\\alpha+o(1)}\\) logarithmic-exponent theorem with explicit universal multiples of \\(N^\\alpha\\) removes the possibility of unbounded subpower corrections and provides a finite-length guarantee for every N. It complements, without conflating with, current worst-case residual sparsity research. The point is a structural, infinite all-N order classification, not a small numerical improvement or arbitrary slice.",
+    "status": "PASS"
+  }
+}
