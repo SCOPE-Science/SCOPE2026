@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T02:45:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-lattice-stationarity-log-periodic-tails-and-uniform-mixing--a4969aa82224/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-lattice-stationarity-log-periodic-tails-and-uniform-mixing--a4969aa82224/verify.py",
+        "independent_checks.py; independent_checks_output.txt; tree_check_output.txt"
+      ],
+      "rationale": "For the actual integer walk N_{t+1}=N_t±s(N_t), s(n)=1 for |n|<=1 and |n|+1 otherwise, the closed communicating class C={0,±1,±(3*2^(k-1)-1)} is the unique recurrent class: outside it, geometric chance of an inward jump to ±1 gives eventual entry. Balance equations give π(0)=π(±1)=1/5 and π(±a_k)=1/(5·2^k). Exact geometric-shell survival S(z)=2/(5·2^k) for a_k<=z<a_(k+1) yields S(2z+1)=S(z)/2 and liminf/limsup zS(z)=3/5,6/5; p-th moments finite precisely 0<p<1. Explicit all-start 4-step routes yield P^4(n,0)>=1/16, equality at ±1; Doeblin contraction gives uniform TV distance <=(15/16)^floor(t/4). Fresh rational path distribution calculation across all starting states -200..200 exactly recovered P4 values (±1:1/16, 0:3/8, other:1/4) and arm recurrences for 49 levels. Infinite uniqueness/tail/mixing proved analytically, not by the finite check.",
+      "residual_risks": [
+        "Finite tests cannot prove all-parameter claim; proof reconstruction establishes stated scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior continuum model predicts heavy-tailed density; general log-periodic map theory covers mechanisms but does not provide exact lattice atom masses or a global four-step minorization for this transition graph."
+        ],
+        "reasoning": "Uniform Doeblin mixing for an unbounded-state walk does not follow from a continuum stationary-density calculation or generic DSI. The atom and four-step routes are special to l=r=1.",
+        "searches": [
+          "Lima Curado 2026 PRE 114 034114 discrete random walk diffusion approximation",
+          "Resultary: accelerated random walk Lima Curado discrete l=r=1 stationary law 0 ±1 powers of two log-periodic tail uniform ergodicity",
+          "Jogi Sornette Blank affine random maps power-law log-periodic"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: accelerated random walk Lima Curado discrete l=r=1 stationary law 0 ±1 powers of two log-periodic tail uniform ergodicity",
+        "https://arxiv.org/pdf/2605.22933",
+        "https://arxiv.org/abs/cond-mat/9708220"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source specifies N_{t+1}=N_t±f(N_t), and analyzes continuous density with inverse-square envelope; proof here isolates a closed countable ladder and proves P4 minorization."
+        ],
+        "reasoning": "A continuous inverse-square envelope does not determine the oscillating coefficient 3/5 to 6/5 or uniform TV rates. The exact claims require new balance/renewal-path arguments, which were reconstructed.",
+        "searches": [
+          "Lima and Curado 2026 equations 1-2 and continuum equations 8-14",
+          "Resultary: accelerated random walk Lima Curado discrete l=r=1 stationary law 0 ±1 powers of two log-periodic tail uniform ergodicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original source uses the same integer step function; Jogi et al. discuss log-periodicity for affine random maps but not this Markov transition kernel."
+        ],
+        "reasoning": "The original discrete kernel matches exactly, whereas the derived invariant measure is not the continuum Lorentz-like density. Generic multiplicative intermittency is a broader analogy, not an equivalent explicit theorem for this kernel.",
+        "searches": [
+          "Resultary: accelerated random walk Lima Curado discrete l=r=1 stationary law 0 ±1 powers of two log-periodic tail uniform ergodicity",
+          "https://arxiv.org/pdf/2605.22933 equations (1)-(2)",
+          "https://arxiv.org/pdf/cond-mat/9708220"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Discrete exact π masses and their sharp liminf and limsup contrast the original paper’s plotted continuous approximation."
+        ],
+        "reasoning": "No table of this exact discrete stationary measure or all-start P4 minimum located. Search nonappearance alone does not establish novelty.",
+        "searches": [
+          "Resultary: accelerated random walk Lima Curado discrete l=r=1 stationary law 0 ±1 powers of two log-periodic tail uniform ergodicity",
+          "web: Lima Curado stationary integer distribution l=1 r=1 1/5 1/5 powers two"
+        ]
+      },
+      "rationale": "Lima and Curado introduced precisely this discrete kernel and studied its continuous diffusion surrogate with inverse-square envelope, not the sparse exact stationary lattice law, log-periodic coefficient and uniform Doeblin bound at l=r=1. Log-periodicity generally is old (Jogi–Sornette–Blank), so only this sharp kernel-specific characterization is assessed.",
+      "residual_risks": [
+        "Precise invariant law only l=r=1, not perturbations or other thresholds.",
+        "A more general random-map theorem could derive related log-periodic behavior; not a claim to discover DSI as a phenomenon.",
+        "Total-variation bound is an explicit guarantee, not claimed optimal spectral exponent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source kernel is same; it focuses on diffusion approximation and does not present exact l=r=1 atomic invariant law or global 4-step minorization in inspected text",
+          "evidence": [
+            "Model’s discrete rule and continuous Lorentz-like stationary density are distinguished by original authors"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.22933",
+          "material_read": "Model transition equations (1)-(2), parameter definitions, continuous approximation equations (8)-(14), stationary-density discussion and numerical context",
+          "method": "primary full PDF text with page screenshots",
+          "title": "Emergent heavy-tailed distributions from a Markovian random walk",
+          "trigger": "Identical original discrete lattice random-walk model and parameters"
+        },
+        {
+          "assessment": "Covers general DSI mechanism; no whole-document negative claim about special walk",
+          "evidence": [
+            "Prior work explicitly identifies log-periodic structures over power laws"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9708220",
+          "material_read": "Abstract and indexed introduction to intermittent amplifying random maps; full text not examined this run",
+          "method": "primary abstract plus indexed source metadata",
+          "title": "Fine structure and complex exponents in power-law distributions from random maps",
+          "trigger": "Generic log-periodic power-law corrections may be prior art"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-lattice-stationarity-log-periodic-tails-and-uniform-mixing--a4969aa82224/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-lattice-stationarity-log-periodic-tails-and-uniform-mixing--a4969aa82224/verify.py",
+        "independent_checks.py; independent_checks_output.txt; tree_check_output.txt"
+      ],
+      "rationale": "The discrete-versus-continuum discrepancy is mathematically meaningful: an invariant distribution supported on a lacunary set has no limiting 1/z coefficient yet enjoys uniform geometric mixing despite infinite stationary first absolute moment. Full exact stationarity and regeneration give a benchmark against which continuum approximations can be tested.",
+      "residual_risks": [
+        "Value assessment is for the specific proved structural/natural exact invariant, not broader unproved generalizations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Precise invariant law only l=r=1, not perturbations or other thresholds.",
+    "A more general random-map theorem could derive related log-periodic behavior; not a claim to discover DSI as a phenomenon.",
+    "Total-variation bound is an explicit guarantee, not claimed optimal spectral exponent.",
+    "Original source unchanged and publication not authorized before privacy scrub."
+  ],
+  "schema_version": 1
+}
