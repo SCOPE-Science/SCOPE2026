@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T18:48:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read RESULT.md blob cbb49a92c755325bbf57d07adbb2a583fb7a0e35 and complete artifacts/verify_attractors.py blob 680a9c804a5bce0cccfd3bc181c94a89c216c037. Each distinct factor gives the exact union-of-occurrence-spans mask; every attractor is a hitting set for these masks, no implication gap. Inclusion-minimal masks preserve all hitting sets: 48 among 7008 distinct factors at n=128, 64 among 28128 at n=256. Supplied witnesses hit all original masks. A separately implemented exact recursive branch search with memoized no-solution states proved no hitting set of size ≤9 and ≤10, respectively, returning 243 and 3710 nodes (the source uses a different deterministic branch order with 243 and 3703). No timeout or sampled factors. This is a complete finite proof at these two sizes, not an extrapolation to all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schaeffer–Shallit general results do not give these finite optima; Béal et al. algorithms can solve hitting sets but do not state these specific values."
+        ],
+        "reasoning": "A general decision/search algorithm is not itself a published exact result for an uncomputed case; prior certified inequalities leave multiple possible integer values.",
+        "searches": [
+          "Rudin Shapiro word dyadic prefixes 128 256 minimum string attractor optimum hitting set exact values",
+          "https://github.com/Resultary/2026/blob/main/2026/9/8/SCOPE079/RESULT.md",
+          "https://arxiv.org/pdf/2509.08503",
+          "https://arxiv.org/pdf/2012.06840"
+        ]
+      },
+      "checked_sources": [
+        {
+          "assessment": "Known exact Rudin–Shapiro minima stop at n64; at n128/256 only lower8 and upper12/13 were claimed",
+          "source": "https://github.com/Resultary/2026/blob/main/2026/9/8/SCOPE079/RESULT.md"
+        },
+        {
+          "assessment": "Algorithms are prior work; inspected experiments do not list the two Rudin–Shapiro optimum values",
+          "source": "https://arxiv.org/pdf/2509.08503"
+        },
+        {
+          "assessment": "No exact Rudin–Shapiro n128/256 values in the inspected text",
+          "source": "https://arxiv.org/pdf/2012.06840"
+        },
+        {
+          "assessment": "Related published entries were compared for stronger coverage and aliases, without presuming database exhaustiveness.",
+          "query": "Rudin Shapiro word dyadic prefixes 128 256 minimum string attractor optimum hitting set exact values",
+          "source": "Resultary_Search semantic published findings"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior bounds imply only 8≤γ(R128)≤12 and 8≤γ(R256)≤13; neither logically implies 10 or 11."
+        ],
+        "reasoning": "The new complete hitting-set exact lower bounds exclude 9 and 10, while explicit verified witnesses establish the matching upper bounds.",
+        "searches": [
+          "Rudin Shapiro word dyadic prefixes 128 256 minimum string attractor optimum hitting set exact values",
+          "https://github.com/Resultary/2026/blob/main/2026/9/8/SCOPE079/RESULT.md",
+          "https://arxiv.org/pdf/2509.08503",
+          "https://arxiv.org/pdf/2012.06840"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Rudin–Shapiro indexing and alphabet agree exactly with SCOPE079; its values n128 and n256 are only certified bounds, not exact."
+        ],
+        "reasoning": "Same object and same invariant compared directly. No synonym/variant makes the old 12/13 upper bounds exact; candidate gives complete matching upper and lower values 10/11.",
+        "searches": [
+          "Rudin Shapiro word dyadic prefixes 128 256 minimum string attractor optimum hitting set exact values",
+          "Resultary 2026/9/8/SCOPE079/RESULT.md",
+          "Béal–Crochemore–Romana arXiv:2509.08503",
+          "Resultary semantic Rudin–Shapiro 128/256 query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published SCOPE079 n128 RS 12/7/8 (UB/disjoint/per-length LB) and n256 13/7/8.",
+          "Candidate n128=10 and n256=11 with independently exhaustive lower-bound search."
+        ],
+        "reasoning": "The exact database-or-table check is decisive: same-source same-parameter table does not already provide these values; two new finite optima are established by complete exhaustive certificates, not repackaging known table cells.",
+        "searches": [
+          "Rudin Shapiro word dyadic prefixes 128 256 minimum string attractor optimum hitting set exact values",
+          "https://github.com/Resultary/2026/blob/main/2026/9/8/SCOPE079/RESULT.md",
+          "https://arxiv.org/pdf/2509.08503",
+          "https://arxiv.org/pdf/2012.06840"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority based on comparison of actual statements and implication directions: Same object and same invariant compared directly. No synonym/variant makes the old 12/13 upper bounds exact; candidate gives complete matching upper and lower values 10/11. A general decision/search algorithm is not itself a published exact result for an uncomputed case; prior certified inequalities leave multiple possible integer values. Residual overlap risk retained; search absence alone is not evidence of novelty.",
+      "residual_risks": [
+        "An independent unpublished/poorly indexed exact computational table might already list these two optima.",
+        "This does not classify every dyadic length or all minimizing position sets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known exact Rudin–Shapiro minima stop at n64; at n128/256 only lower8 and upper12/13 were claimed",
+          "evidence": [
+            "At n=128, RS listed upper12 / disjoint lower7 / per-length lower8; at n=256 upper13 / disjoint lower7 / per-length lower8, all explicitly nonoptimal upper bounds."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/8/SCOPE079/RESULT.md",
+          "material_read": "Complete primary RESULT.md including definitions, dyadic table, bounds for n128/256 and verifier limitations",
+          "method": "GitHub frozen readable primary file, exact table compared with candidate",
+          "title": "Exact minimal string attractors for Rudin-Shapiro and regular-paperfolding dyadic prefixes (n<=64) with certified bounds to n=1024",
+          "trigger": "Published same-word same-prefix lengths and potential prior exact table"
+        },
+        {
+          "assessment": "Algorithms are prior work; inspected experiments do not list the two Rudin–Shapiro optimum values",
+          "evidence": [
+            "The experimental data describe unrelated named word families; no RS 128/256 exact pair is in the inspected tables."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.08503",
+          "material_read": "Primary PDF problem definition, algorithmic sections and experimental tables; page image of experiments checked",
+          "method": "Lawful arXiv PDF text and page-image inspection",
+          "title": "Checking and producing word attractors",
+          "trigger": "Closest published algorithms and finite tables for word-attractor optima"
+        },
+        {
+          "assessment": "No exact Rudin–Shapiro n128/256 values in the inspected text",
+          "evidence": [
+            "General automatic-word attractor results do not provide the specialized finite optima here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.06840",
+          "material_read": "Main result/automatic-sequence examples and relevant attractor discussion",
+          "method": "Primary arXiv PDF with page-image inspection",
+          "title": "String Attractors for Automatic Sequences",
+          "trigger": "General automatic-word attractor theory potentially supplying closed formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Computes two previously unknown exact natural attractor invariants for the next Rudin–Shapiro dyadic prefixes after the established ≤64 exact census. The result improves prior certified upper bounds 12 and 13 and lower bound 8 at both n=128 and n=256 to exact optima 10 and 11, information a future finite-automatic-word study or solver benchmark can directly use; no paper-sized general theorem is required.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "assessment": "Full final scientific proof and hypotheses read.",
+      "blob_sha": "cbb49a92c755325bbf57d07adbb2a583fb7a0e35",
+      "kind": "frozen_science",
+      "url": "https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/exact-minimum-string-attractors-for-two-rudin-shapiro-dyadic-pre--5f322b03d12d/RESULT.md"
+    },
+    {
+      "assessment": "Known exact Rudin–Shapiro minima stop at n64; at n128/256 only lower8 and upper12/13 were claimed",
+      "identifier": "https://github.com/Resultary/2026/blob/main/2026/9/8/SCOPE079/RESULT.md",
+      "kind": "primary_literature",
+      "material_read": "Complete primary RESULT.md including definitions, dyadic table, bounds for n128/256 and verifier limitations",
+      "title": "Exact minimal string attractors for Rudin-Shapiro and regular-paperfolding dyadic prefixes (n<=64) with certified bounds to n=1024"
+    },
+    {
+      "assessment": "Algorithms are prior work; inspected experiments do not list the two Rudin–Shapiro optimum values",
+      "identifier": "https://arxiv.org/pdf/2509.08503",
+      "kind": "primary_literature",
+      "material_read": "Primary PDF problem definition, algorithmic sections and experimental tables; page image of experiments checked",
+      "title": "Checking and producing word attractors"
+    },
+    {
+      "assessment": "No exact Rudin–Shapiro n128/256 values in the inspected text",
+      "identifier": "https://arxiv.org/pdf/2012.06840",
+      "kind": "primary_literature",
+      "material_read": "Main result/automatic-sequence examples and relevant attractor discussion",
+      "title": "String Attractors for Automatic Sequences"
+    },
+    {
+      "kind": "independent_test",
+      "path": "independent_checks.py",
+      "scope": "Bounded computations or exact finite certificate as specified in correctness rationale; not proof of all infinite quantifiers."
+    }
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An independent unpublished/poorly indexed exact computational table might already list these two optima.",
+    "This does not classify every dyadic length or all minimizing position sets."
+  ],
+  "schema_version": 1
+}
