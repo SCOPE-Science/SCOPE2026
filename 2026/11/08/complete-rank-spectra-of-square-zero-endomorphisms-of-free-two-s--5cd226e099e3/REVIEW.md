@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The unique degree-one/quadratic block form follows from the free algebra's multiplication. The composition-square equation is equivalent to \(T^2=0\) and the intertwiner equation. Explicit Jordan-module Hom dimensions, a surjective induced-map restriction, and independent Gaussian counting give every rank coefficient. Exhaustive original-algebra tests at \(m=2\) and finite linear-system dimension checks at \(m=2,3\) corroborate the formula. The proof is characteristic-free; field-dependent counts are for arbitrary finite fields.
+
+**Originality — PASS, subject to historical priority risk.** The strongest overlapping source inspected is Lipyanski's 2005 full-text treatment of symmetries of the endomorphism semigroup for the same nilpotent free algebra. Its Theorem B classifies automorphisms of the semigroup itself, not individual composition-square-zero endomorphisms or their linear ranks, so it does not imply the formula. The underlying-algebra classifications of de Graaf and the nilpotency-degree results of Lopatin–Shestakov similarly do not cover the parameter-counting claim. Primary literature and published mathematical-record searches revealed no decisive stronger coverage. A broader published endomorphism-monoid enumeration could still imply this formula, so independent priority confirmation is outstanding.
+
+**Value — PASS.** This is an exact all-dimension and all-finite-field invariant of a canonical class of nilpotent associative algebras. The polynomial exposes a genuine obstruction to naïvely lifting square-zero linear maps: each quadratic correction is governed by a module-intertwiner relation, which creates nontrivial rank gaps. It refines the square-zero count by complete operator rank and distinguishes the endomorphism semigroup from unrestricted square-zero matrices.
+
+**Limitations.** Unitalizations, higher truncation lengths, higher nilpotency orders, automorphism-conjugacy orbits, and nonreduced equation schemes are not classified. Computational checks are finite; the stated theorem relies on the algebraic proof. Independently checked historical priority is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
