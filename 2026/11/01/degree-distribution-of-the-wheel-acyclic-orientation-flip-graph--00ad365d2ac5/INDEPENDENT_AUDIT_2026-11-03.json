@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T15:52:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The explicit orientation parametrization partitions cases by constant versus mixed hub-spoke direction. Mixed runs have forced unflippable boundary edges and every within-run rim edge is individually reversible; source/sink counts of oriented paths have P_l(z)=sum_s C(l,2s-1)z^s and B(x,z)=zx/(1-2x+(1-z)x^2). Cyclic run compositions contribute (2m/k)z^(m-k)[x^m]B^k, and uniform spokes require the one-wrong-way-edge correction. Extracting the coefficient at z^m yields the Lucas identity via logarithms. Independently enumerated every directed-edge orientation and legal flip for m=3..6, matching all four claimed histograms. The unrestricted result relies on the run proof, not the finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grujic 2016 Theorem 1.1 gives all global face numbers of a graphical zonotope via chromatic symmetric function specialization."
+        ],
+        "reasoning": "A global f-vector gives the number of vertices and edges and hence sum of local degrees, but it does not fix the full degree histogram or simple vertices.",
+        "searches": [
+          "degree distribution of acyclic orientations edge flip graph of wheel W_n graphical zonotope vertex degrees Lucas numbers",
+          "Savage Squire West Gray Code Results for Acyclic Orientations wheel degree graph 1993 pdf",
+          "Grujic Counting faces of graphical zonotopes 2016 degree vertex wheel graph",
+          "https://dwest.web.illinois.edu/pubs/aograph.pdf",
+          "https://arxiv.org/pdf/1604.06931"
+        ]
+      },
+      "checked_sources": [
+        "Savage–Squire–West (1993), author-hosted full PDF",
+        "Grujic arXiv:1604.06931 full primary PDF",
+        "Resultary semantic search for wheel AO degree histogram and related zonotopes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Savage, Squire and West wheel count 3^m-3 and forced boundary edges are premises. Grujic total one-skeleton edge count matches the new polynomial derivative at z=1."
+        ],
+        "reasoning": "Neither prior premise implies the coefficient z^m, Lucas closed form, or maximum-degree multiplicities without the new run/source enumeration.",
+        "searches": [
+          "degree distribution of acyclic orientations edge flip graph of wheel W_n graphical zonotope vertex degrees Lucas numbers",
+          "Savage Squire West Gray Code Results for Acyclic Orientations wheel degree graph 1993 pdf",
+          "Grujic Counting faces of graphical zonotopes 2016 degree vertex wheel graph",
+          "https://dwest.web.illinois.edu/pubs/aograph.pdf",
+          "https://arxiv.org/pdf/1604.06931"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Savage--Squire--West 1993 define AO(G) and explicitly describe wheel spoke/rim constraints; Grujic relates AO(G) to graphical zonotope vertex adjacency and graphic arrangement chambers."
+        ],
+        "reasoning": "AO(W), the zonotope one-skeleton and graphic-arrangement chamber graph are the same local adjacency structure. The asserted full degree multiset is not the 1993 Gray-code/Hamiltonicity statement.",
+        "searches": [
+          "degree distribution of acyclic orientations edge flip graph of wheel W_n graphical zonotope vertex degrees Lucas numbers",
+          "Savage Squire West Gray Code Results for Acyclic Orientations wheel degree graph 1993 pdf",
+          "Grujic Counting faces of graphical zonotopes 2016 degree vertex wheel graph",
+          "https://dwest.web.illinois.edu/pubs/aograph.pdf",
+          "https://arxiv.org/pdf/1604.06931"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned geometric wheel and other local-degree papers, but no wheel AO(W) degree table. The 1993 wheel sections were examined for exact formulas."
+        ],
+        "reasoning": "No directly covering table identified; negative search is not proof of absence in unindexed sources.",
+        "searches": [
+          "degree distribution of acyclic orientations edge flip graph of wheel W_n graphical zonotope vertex degrees Lucas numbers",
+          "Savage Squire West Gray Code Results for Acyclic Orientations wheel degree graph 1993 pdf",
+          "Grujic Counting faces of graphical zonotopes 2016 degree vertex wheel graph",
+          "https://dwest.web.illinois.edu/pubs/aograph.pdf",
+          "https://arxiv.org/pdf/1604.06931"
+        ]
+      },
+      "rationale": "The wheel-local vertex degree enumerator and its Lucas simplicial-vertex specialization are finer than the already-known acyclic orientation count, edge count and global graphical-zonotope face vector. Comparison of identical AO(W) objects in the full original Gray-code paper and the general f-vector theorem found no covering local-degree statement. Best-of-knowledge priority, not a novelty certificate.",
+      "residual_risks": [
+        "Unindexed chamber-count or other graphical-zonotope literature could contain the same degree polynomial.",
+        "Finite checks stop at m=6 independently and at m<=12 in supplied source scripts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model/count/Hamiltonicity, not full wheel local degree polynomial",
+          "evidence": [
+            "AO(G) definition in Introduction; wheel analysis in Section 4.3; inspected primary source PDF"
+          ],
+          "identifier_or_url": "https://dwest.web.illinois.edu/pubs/aograph.pdf",
+          "material_read": "Original full PDF, abstract, introduction, wheel non-Hamiltonicity and gray-code sections, wheel orientation count and local constraints",
+          "method": "PDF extracted text plus rendered pages",
+          "title": "Gray Code Results for Acyclic Orientations",
+          "trigger": "Original AO(W) object and wheel spoke encoding"
+        },
+        {
+          "assessment": "Aggregate face polynomial, not full local vertex-degree distribution",
+          "evidence": [
+            "Theorem 1.1 f(Z_G,q)=(-1)^|V| χ_{-q}(G,-1)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.06931",
+          "material_read": "Complete 9-page PDF including Theorem 1.1, Sections 1–5",
+          "method": "PDF extracted text and rendered Theorem 1.1 page",
+          "title": "Counting faces of graphical zonotopes",
+          "trigger": "Stronger general graphical zonotope face formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete local degree distribution for a standard natural orientation graph and its graphical zonotope (number of simplicial vertices), with an exact Lucas law and sharp maximum multiplicity, is a structurally useful invariant strictly finer than known total counts; not just an arbitrary fixed-size instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Savage–Squire–West (1993), author-hosted full PDF",
+    "Grujic arXiv:1604.06931 full primary PDF",
+    "Resultary semantic search for wheel AO degree histogram and related zonotopes"
+  ],
+  "disposition": "passed",
+  "final_claim": "For m>=3, a rational coefficient formula for the entire wheel acyclic-orientation single-edge flip degree polynomial; min degree m with count L_(2m)+4m-4+2cos(mπ/3), sharp max degrees and multiplicities.",
+  "limitations": [
+    "For m>=3, a rational coefficient formula for the entire wheel acyclic-orientation single-edge flip degree polynomial; min degree m with count L_(2m)+4m-4+2cos(mπ/3), sharp max degrees and multiplicities.",
+    "No scientific use of VERIFY_OK alone to certify premises or novelty; no external attestation claimed."
+  ],
+  "residual_risks": [
+    "Full global historical priority remains unproved.",
+    "Independent direct verification covers m=3..6; source checks further m values but do not prove unbounded formula."
+  ],
+  "schema_version": 1
+}
