@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and scope of checks
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 standard library. The verifier uses scaled integer averaging matrices, exact fraction-free determinant elimination and Sylvester positive-definiteness tests. It checks all 18, 36 and 72 ball-selection matrices for the three-, four- and five-vertex cases. The strict/exceptional breakdown is respectively 17/1, 35/1 and 69/3. For the five-vertex case, the strict threshold is exactly \(7/5\). It checks the full characteristic polynomial by exact determinant interpolation and isolates the unique relevant root in \( (1.416,1.417) \) using rational arithmetic.
+## correctness
 
-The root interval also provides rational strict inequalities for the averaging-row choices and positivity of the proposed extremizer. The polynomial identity for the eigenvector is written explicitly in `RESULT.md`. Finite checks do not prove the all-size assertion; Steps 1–4 in `RESULT.md` supply the infinite-parameter argument. Verification is an ordinary self-review, not independent certification.
+PASS
+
+For every integer m>=1, the exact ball averages on G_m=K_(m+2) minus uv make the centered nonlinear maximal map the pointwise maximum of finitely many nonnegative row-stochastic selections; operator norm equals the largest singular norm of a selection. The K_N maximizing vector has high singleton and low whole-ball rows, with at least two low vertices; placing deficient u,v among low entries strictly boosts their neighborhood averages, proving ||M_G||_2>||M_K_N||_2. Any extremizer has u,v below the universal-vertex mean, ruling out their singleton rows. Permuting universal rows gives k singleton and m-k whole-ball groups; their normalized group-constant subspace yields the stated <=4x4 T and contrasts have squared eigenvalues <=1. For m=3, independent complete enumeration of 72 matrices gives 69 below 7/5 and exactly three maximizing permutations with largest squared singular value 1.4163423965462847. The exact determinant factorization of the 5x5 representative verifies cubic 400λ³-655λ²+126λ-1. At m=1,2 there is a unique winning unsplit universal-row pattern. The finite enumeration establishes first symmetry-breaking case, not all-m compression, which follows analytically.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for exact O(m) low-rank spectral reduction for K_(m+2) minus an edge and the m=3 nonuniform universal-clique extremizer classification. Known full Hilbert norms for K_n and S_n are credited, including m=1 star case. The same deleted-edge family has not been covered in the inspected strong norm theorems; residual unindexed computations remain possible.
+
+## value
+
+PASS
+
+A single missing edge is the canonical perturbation of K_n for maximal averaging operators. The theorem proves strict norm sensitivity for every n, transforms exponential row-selection enumeration into O(n) blocks of bounded dimension, and identifies the first broken universal-clique extremizer symmetry with sharp algebraic norm and equality rays. This has intrinsic harmonic-analytic and graph-structural meaning independent of computing a small cubic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
