@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Lucas's theorem produces every output digit as a finite product in the input digits. The output digit at index \(p^j\) is exactly the input digit at position \(j\), while output digits at smaller indices depend only on earlier input digits. This proves the exact valuation equation for every pair, the unique continuous extension, and recovery of the source digits. An injection on \(p^{J_p(N)}\) input prefixes gives the exact number of output residues, uniform cylinder weights and zero-dimensionality. Precise boundary cases \(N=1\), distinct inputs with initial differing digit \(j=0\), and arbitrary \(p\)-adic tails are handled in the proof. The supplied checker passed 12,960 valuation checks, 9,800 digit checks and 42 exhaustive finite-level residue profiles.
+## correctness
 
-**Originality — PASS within inspected evidence.** The 2022 source defines the sequences and gives Lucas identities, but its inspected main statements concern row recursions, generalized products, and automatic/regular sequences. It does not state the exact \(p\)-adic distance formula, inverse-digit characterization, residue-profile count, zero-dimensionality or uniform cylinder law. OEIS A001317 and A173019 record the sequences and formulas but not those complete topological conclusions. Closest search hits concern different arithmetic objects (2-adic cyclotomic roots; binomial supercongruences). The 1992 Pascal-divisibility fractal article concerns two-dimensional patterns, although the full article could not be read; implicit prior coverage remains a residual risk. The theorem is a novel *claim relative to the evidence inspected*, not a certified claim of global priority.
+PASS
 
-**Mathematical value — PASS.** This solves a complete and intrinsic topological-arithmetic classification for a previously studied integer sequence, including exact ultrametric distortion, a digit-defined closed image, finite-level counting, and a zero-dimensional uncountable compactum. The unusual change from input separation depth \(j\) to output depth \(p^j\) explains a strong sparse-image phenomenon and gives a natural probability law for its residue classes. These are properties of the whole infinite sequence, not an arbitrary small numerical cutoff.
+PASS. For each prime p and n>=0, Lucas digit factorization yields output digit d_i(x)=prod_j binom(x_j,i_j) mod p; the digit at output index p^j equals input digit x_j. For two different inputs with first mismatch j, all earlier output digits i<p^j agree and digit i=p^j differs; therefore the exact difference valuation is p^j, including j=0 and noninteger p-adic arguments by continuity. This gives injectivity, inverse digit recovery, compact closed image, and exactly p^J(N) output residues mod p^N with J(N)=min{j:p^j>=N} (N=1 gives 1). Each residue has Haar pushforward probability p^-J; covering by at most pN radius-p^-N balls gives Hausdorff and box dimension zero; image is uncountable, perfect, nowhere dense and Haar-null. Independently reconstructed 780 input-pair mismatches for each p=2,3,5; finite cases do not prove the all-p statement.
 
-**Closest literature and limitations.** Mathematical identity of the underlying integer sequences and Lucas congruence are prior work and are not claimed as discoveries. Abstract-only comparison with von Haeseler–Peitgen–Skordev (1992) leaves a bibliography uncertainty; priority would benefit from specialist confirmation. Finite checks are not substitutes for infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with explicit Lucas-theorem and sequence-priority attribution. Mathonet–Rigo–Stipulanti–Zénaïdi 2022 define exactly t_p(n) and prove/illustrate Lucas-digit product relations; those facts are known. Their accessible full preprint concentrates on digit recurrences, regular sequences, Fermat/Roberts numbers and Gray/Nim patterns; it does not state the exact p-adic input/output valuation, topological closure, residue spectra, Haar law and zero-dimensionality. The present theorem logically derives stronger topological invariants. Possible implicit p-adic descriptions in older Pascal-attractor work remain an access risk.
+
+## value
+
+PASS
+
+PASS. The exact ultrametric embedding distortion and zero-dimensional closed image of a naturally studied Pascal-row integer sequence explain a surprising gap between uncountability and vanishing p-adic dimension. Its full cylinder count and canonical probability law are intrinsic all-precision facts, useful independently of any larger theorem. No novelty is attributed to Lucas or the sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

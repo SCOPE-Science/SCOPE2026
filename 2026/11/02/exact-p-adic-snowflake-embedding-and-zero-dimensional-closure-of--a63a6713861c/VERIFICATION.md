@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone Python program `verify_pascal_closure.py` uses only the standard library, reconstructs Pascal-row integers by exact binomial calculations rather than invoking the result under test, and verifies:
+# Independent mathematical audit
 
-1. For each prime \(p\in\{2,3,5,7\}\), every distinct pair of indices in \(\{0,\ldots,80\}\): the exact \(p\)-adic valuation of the difference equals the indicated power of \(p\). Total 12,960 checks.
-2. For the same four primes, 70 row indices and 35 coefficient-digit positions: independent Lucas products agree with the base-\(p\) digits of the row integers. Total 9,800 checks.
-3. For \(p\in\{2,3,5\}\) and \(1\le N\le14\), enumeration of all parameter prefixes: the number of residue classes is exactly \(p^{J_p(N)}\) and the digits at positions \(p^j<N\) recover the parameter prefix. Total 42 complete finite cases.
+## correctness
 
-The program printed a PASS line for these counts. The infinite valuation, extension, characterization and dimension claims follow from the proof in `RESULT.md` and are not inferred from these samples. There is no external or independent audit result.
+PASS
+
+PASS. For each prime p and n>=0, Lucas digit factorization yields output digit d_i(x)=prod_j binom(x_j,i_j) mod p; the digit at output index p^j equals input digit x_j. For two different inputs with first mismatch j, all earlier output digits i<p^j agree and digit i=p^j differs; therefore the exact difference valuation is p^j, including j=0 and noninteger p-adic arguments by continuity. This gives injectivity, inverse digit recovery, compact closed image, and exactly p^J(N) output residues mod p^N with J(N)=min{j:p^j>=N} (N=1 gives 1). Each residue has Haar pushforward probability p^-J; covering by at most pN radius-p^-N balls gives Hausdorff and box dimension zero; image is uncountable, perfect, nowhere dense and Haar-null. Independently reconstructed 780 input-pair mismatches for each p=2,3,5; finite cases do not prove the all-p statement.
+
+## originality
+
+PASS
+
+PASS with explicit Lucas-theorem and sequence-priority attribution. Mathonet–Rigo–Stipulanti–Zénaïdi 2022 define exactly t_p(n) and prove/illustrate Lucas-digit product relations; those facts are known. Their accessible full preprint concentrates on digit recurrences, regular sequences, Fermat/Roberts numbers and Gray/Nim patterns; it does not state the exact p-adic input/output valuation, topological closure, residue spectra, Haar law and zero-dimensionality. The present theorem logically derives stronger topological invariants. Possible implicit p-adic descriptions in older Pascal-attractor work remain an access risk.
+
+## value
+
+PASS
+
+PASS. The exact ultrametric embedding distortion and zero-dimensional closed image of a naturally studied Pascal-row integer sequence explain a surprising gap between uncountability and vanishing p-adic dimension. Its full cylinder count and canonical probability law are intrinsic all-precision facts, useful independently of any larger theorem. No novelty is attributed to Lucas or the sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
