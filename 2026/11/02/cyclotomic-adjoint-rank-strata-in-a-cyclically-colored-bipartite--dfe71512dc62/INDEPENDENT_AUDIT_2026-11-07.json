@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T09:43:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Decompose L=U+V+Z with V=Z=F_q[T]/(T^n-1). For x=a u0+b u1+w+z, im(ad_x)=(a+bT)R+span{w,Tw}. With zero pencil, rank of (w,Tw) is 0,1,2, and cyclic shift has g one-dimensional eigenspaces over F_q, even if char divides n. Nonzero unit pencil gives rank n; exactly g(q-1) nonunit linear pencils have image codim1, raised to n iff w outside ideal, counting q^{n-1} rank n-1 vectors per pencil. Multiply all counts by q^n central choices; ranks distinct when n>=4, sum q^{2n+2}. At n4 evaluate q=3^k odd/even k to get gcd 2/4, excluding any single rational polynomial. Independent direct bracket-matrix Gaussian elimination checked small finite fields/ranges, including n4 q2,3,5 and n5,6; the unbounded formula rests on cyclic-module proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rossmann (2022) Theorem A polynomial over q-1 for each graph in independent-edge central-bracket model; full open Wiley text inspected.",
+          "Godoy Molina–Lagos (2023/24) full preprint derives graded derivation dimensions under extreme labelings, not ad rank counts in the quotient."
+        ],
+        "reasoning": "Neither theorem directly dominates repeated labels; claim’s explicit n4 gcd(4,q-1) oscillation contradicts extending distinct-edge polynomiality to this label-identified graph, so a prior theorem with polynomiality cannot cover the same family without modifying hypotheses.",
+        "searches": [
+          "web: Rossmann Enumerating conjugacy classes of graphical groups full text theorem A",
+          "web: Godoy Molina Lagos 2308.00272 section 5",
+          "Resultary semantic: cyclically edge colored bipartite graph Lie algebra adjoint rank polynomiality gcd n q-1 finite fields"
+        ]
+      },
+      "checked_sources": [
+        "Complete RESULT.md and assigned actual Git tree/metadata",
+        "Resultary semantic query: cyclically edge colored bipartite graph Lie algebra adjoint rank polynomiality gcd n q-1 finite fields",
+        "Rossmann (2022) open access full article DOI 10.1112/blms.12665",
+        "Godoy Molina–Lagos (2023) full author preprint arxiv:2308.00272",
+        "Payne–Schroeder arxiv:1603.00803",
+        "Published related Resultary graph class-count findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Distinct-edge graph model has 2n independent central basis variables; target model has n labels each representing two edges, a nontrivial quotient of the centre.",
+          "The adjoint image calculation via (a+bT)R and cyclic eigenlines computes the nonpolynomial coefficient explicitly."
+        ],
+        "reasoning": "Neither derivative dimensions nor distinct-edge group class polynomials algebraically imply these quotient-stratum counts. The cyclotomic factor T^n-1 over F_q produces root count gcd(n,q-1), a structural ingredient absent from the compared statements.",
+        "searches": [
+          "web: Rossmann Theorem A polynomial class-size graph groups",
+          "web: Godoy Molina Lagos derivative Section 5.1 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a class-two group, conjugacy size can reflect ad rank, but Rossmann has an independent central basis for every edge; cyclic paired-label quotient changes the actual commutator matrix.",
+          "Godoy Molina–Lagos full preprint section 5.1–5.2 treats derivations of K_m,n with one label and with mn distinct labels, not n cyclic paired labels."
+        ],
+        "reasoning": "Adjoint ranks translate to a class-count type invariant in suitable characteristic, but neither compared theorem evaluates the rank counts of the central quotient actually defined here.",
+        "searches": [
+          "Resultary semantic: cyclically edge colored bipartite graph Lie algebra adjoint rank polynomiality gcd n q-1 finite fields",
+          "web: Rossmann graphical groups conjugacy class size adjoint rank enumerator",
+          "web: Godoy Molina Lagos labeled directed graphs 2308.00272"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant published Resultary cycle/tree graphical groups enumerate character degrees with independently labeled graph edges, not fixed cyclic matching coloring.",
+          "No matching universal table of ranks 0,1,2,n-1,n with gcd coefficients found."
+        ],
+        "reasoning": "The theorem covers unbounded n and every q, not a small numerical table. No matching database was found but this is only conditional originality evidence.",
+        "searches": [
+          "Resultary semantic: cyclically edge colored bipartite graph Lie algebra adjoint rank polynomiality gcd n q-1 finite fields",
+          "web: cyclic pencil adjoint rank finite field gcd(n,q-1) table",
+          "web: graphical group character degree cycle graph polynomial"
+        ]
+      },
+      "rationale": "Qualified PASS for an exact all-n cyclotomic rank enumeration and nonpolynomial 8-dimensional Lie-family specialization. Rossmann graphical groups use distinct central edge generators, unlike repeated cyclic labels; Godoy Molina–Lagos original full preprint classifies graded derivations for all-one/all-distinct bipartite edge labels, not this intermediate coloring or adjoint ranks. Older general cyclic pencil enumerators could subsume it; residual risk stated.",
+      "residual_risks": [
+        "An earlier more general matrix-pencil or class-two colored-graph rank enumeration could imply the formula even without identical title.",
+        "The original associated graph Lie construction is prior work; novelty only the exact cyclic-label rank distribution and arithmetic nonpolynomiality.",
+        "Finite direct rank tests corroborate but do not prove arbitrary n or arbitrary extension fields."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING cyclic repeated-edge-label quotient",
+          "evidence": "The group attached to a simple graph has distinct z_jk generator per edge; colored graph collapses paired generators and rank polynomiality breaks.",
+          "identifier_or_url": "Tobias Rossmann, Bull. London Math. Soc. 54 (2022), DOI:10.1112/blms.12665",
+          "material_read": "Full open Wiley HTML article, especially sections 1.1, 1.4, Theorem A/Corollary C, Section 4 and graphical-group central basis definitions",
+          "method": "Publisher lawful open-access full HTML",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "Strongest possible more general polynomiality theorem for graph-associated class-two groups"
+        },
+        {
+          "assessment": "NOT_COVERING new cyclic labeling / rank invariant",
+          "evidence": "Studies graded derivations and two extreme complete-bipartite labelings, not adjoint-rank strata for n proper cyclic labels.",
+          "identifier_or_url": "Mauricio Godoy Molina and Diego Lagos, arxiv:2308.00272, 2023 preprint",
+          "material_read": "Full author CC BY preprint transcribed in ResearchGate HTML, Section 2 bracket and Sections 5.1,5.2 (one label; mn labels), conclusion",
+          "method": "Public full text preprint via ResearchGate",
+          "title": "Lie algebras associated with labeled directed graphs",
+          "trigger": "Exact construction and K_m,n labels coincide as broader family"
+        },
+        {
+          "assessment": "regularity excludes n>2 K_2,n but possible related methods",
+          "evidence": "Different regular colored-graph setup; the target underlying K_2,n nonregular when n>=4.",
+          "identifier_or_url": "Payne and Schroeder, arxiv:1603.00803",
+          "material_read": "Bibliographic abstract and regularity hypotheses from scholarly search/actual source references, full text not read",
+          "method": "Open bibliographic search",
+          "title": "Uniform Lie algebras and uniformly colored graphs",
+          "trigger": "Potential coverage of proper colored graph Lie algebra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Adjoint-rank distribution controls centralizer dimensions and related finite Lie group commuting class data. This is a natural proper n-coloring of K_{2,n} between one-label and every-edge-distinct extremes; the gcd(n,q-1) parameter exhibits a structural arithmetic failure of expected polynomiality in a complete infinite-field family.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Complete RESULT.md and assigned actual Git tree/metadata",
+    "Resultary semantic query: cyclically edge colored bipartite graph Lie algebra adjoint rank polynomiality gcd n q-1 finite fields",
+    "Rossmann (2022) open access full article DOI 10.1112/blms.12665",
+    "Godoy Molina–Lagos (2023) full author preprint arxiv:2308.00272",
+    "Payne–Schroeder arxiv:1603.00803",
+    "Published related Resultary graph class-count findings"
+  ],
+  "disposition": "passed",
+  "final_claim": "For n>=4 any finite field F_q, the specified 2n+2-dimensional class-two Lie algebra with brackets [u0,vj]=zj and [u1,vj]=zj+1 has full adjoint rank enumerator q^n[1+g(q-1)t+(q^n-1-g(q-1))t^2+g(q-1)q^{n-1}t^{n-1}+((q^2-1)q^n-g(q-1)q^{n-1})t^n], g=gcd(n,q-1), with n=4 rank-three count q^7(q-1)gcd(4,q-1) nonpolynomial over prime powers.",
+  "limitations": [
+    "An earlier more general matrix-pencil or class-two colored-graph rank enumeration could imply the formula even without identical title.",
+    "The original associated graph Lie construction is prior work; novelty only the exact cyclic-label rank distribution and arithmetic nonpolynomiality.",
+    "Finite direct rank tests corroborate but do not prove arbitrary n or arbitrary extension fields.",
+    "Publication plan not_ready is a public-file privacy/transport blocker, not a scientific rejection.",
+    "Signed continuation checkpoint is sequencing evidence, not scientific certification."
+  ],
+  "residual_risks": [
+    "An earlier more general matrix-pencil or class-two colored-graph rank enumeration could imply the formula even without identical title.",
+    "The original associated graph Lie construction is prior work; novelty only the exact cyclic-label rank distribution and arithmetic nonpolynomiality.",
+    "Finite direct rank tests corroborate but do not prove arbitrary n or arbitrary extension fields."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING cyclic repeated-edge-label quotient",
+      "evidence": "The group attached to a simple graph has distinct z_jk generator per edge; colored graph collapses paired generators and rank polynomiality breaks.",
+      "identifier_or_url": "Tobias Rossmann, Bull. London Math. Soc. 54 (2022), DOI:10.1112/blms.12665",
+      "material_read": "Full open Wiley HTML article, especially sections 1.1, 1.4, Theorem A/Corollary C, Section 4 and graphical-group central basis definitions",
+      "method": "Publisher lawful open-access full HTML",
+      "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+      "trigger": "Strongest possible more general polynomiality theorem for graph-associated class-two groups"
+    },
+    {
+      "assessment": "NOT_COVERING new cyclic labeling / rank invariant",
+      "evidence": "Studies graded derivations and two extreme complete-bipartite labelings, not adjoint-rank strata for n proper cyclic labels.",
+      "identifier_or_url": "Mauricio Godoy Molina and Diego Lagos, arxiv:2308.00272, 2023 preprint",
+      "material_read": "Full author CC BY preprint transcribed in ResearchGate HTML, Section 2 bracket and Sections 5.1,5.2 (one label; mn labels), conclusion",
+      "method": "Public full text preprint via ResearchGate",
+      "title": "Lie algebras associated with labeled directed graphs",
+      "trigger": "Exact construction and K_m,n labels coincide as broader family"
+    },
+    {
+      "assessment": "regularity excludes n>2 K_2,n but possible related methods",
+      "evidence": "Different regular colored-graph setup; the target underlying K_2,n nonregular when n>=4.",
+      "identifier_or_url": "Payne and Schroeder, arxiv:1603.00803",
+      "material_read": "Bibliographic abstract and regularity hypotheses from scholarly search/actual source references, full text not read",
+      "method": "Open bibliographic search",
+      "title": "Uniform Lie algebras and uniformly colored graphs",
+      "trigger": "Potential coverage of proper colored graph Lie algebra"
+    }
+  ]
+}
