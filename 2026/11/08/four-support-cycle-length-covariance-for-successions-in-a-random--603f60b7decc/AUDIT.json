@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The forced image-adjacency event is partitioned into one double-fixed-loop case, c_i chain cases and n-2-c_i disjoint-path cases, each with probability 1/[n(n-1)]. Contraction is bijective to uniform permutations on n-2 blocks. Marked cycle means 1/m and (h-1)/[m(m-1)] yield explicit conditional cycle-generating polynomials, whose coefficients give the stated local law and hence its aggregate. The standalone exact checker passed 2688 comparisons, including exhaustive n=4,...,9 enumeration; the unrestricted n proof is algebraic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mansour–Shattuck explicitly counts the number of cycles jointly with cycle-notation d-successions (§3, Corollary 3.5), but explicitly notes different joint laws for one-line successions with other statistics (§2, paragraph before Proposition 2.5).",
+        "Reilly–Tanny (1980) accessible abstract concerns rises, generalized successions and runs, not original-permutation cycle-length counts (https://doi.org/10.1016/0012-365X(80)90101-6)."
+      ],
+      "reasoning": "The published total-cycle enumerators do not specify the full cycle-length vector or the location-dependent B_i covariances; even knowing Cov(S,sum_j C_j) leaves n-1 independent contrasts undetermined. The more general cycle-notation statistics are not the same joint random variables.",
+      "searches": [
+        "Counting permutations by the number of successions within cycles Mansour Shattuck full text 2016",
+        "Counting permutations by successions and other figures Reilly Tanny 1980 abstract",
+        "On the joint distributions of succession and Eulerian statistics"
+      ]
+    },
+    "checked_sources": [
+      "https://statistics.berkeley.edu/tech-reports/822",
+      "https://statistics.berkeley.edu/sites/default/files/tech-reports/unseparated_pairs.pdf",
+      "https://doi.org/10.1016/j.disc.2015.12.004",
+      "https://www.researchgate.net/publication/301752905_Counting_permutations_by_the_number_of_successions_within_cycles",
+      "https://doi.org/10.1016/0012-365X(80)90101-6",
+      "https://arxiv.org/abs/2404.00607",
+      "https://www.aimsciences.org/article/doi/10.3934/fcnt.2026014"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior local fixed-point covariance implies Cov(B_i,C_1) = c_i/[n(n-1)(n-2)].",
+        "Diaconis–Evans–Graham controls the succession set marginally; Mansour–Shattuck controls a Foata-related succession count jointly with total cycles, not C_j of the original permutation."
+      ],
+      "reasoning": "The old j=1 identity is literally included but is not the contribution. Neither it nor the published marginal/count-only theorems implies the j=2, n-1, n coefficients, the all-interior cancellation or the complete B_i-by-C_j matrix; their proofs must inspect interaction with the same permutation cycles, which the path-contraction argument supplies.",
+      "searches": [
+        "Unseparated pairs and fixed points in random permutations Diaconis Evans Graham 2013",
+        "Mansour Shattuck 2016 cycle successions total number cycles",
+        "fixed-point succession covariance length-1 coefficient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Diaconis–Evans–Graham, Theorem 1.1: marginal succession-position set has the law of a restricted fixed-point set (https://statistics.berkeley.edu/sites/default/files/tech-reports/unseparated_pairs.pdf).",
+        "Mansour–Shattuck, §2: the Foata-type re-expression preserves the succession-count distribution, not its joint distribution with all original cycle lengths (https://www.researchgate.net/publication/301752905_Counting_permutations_by_the_number_of_successions_within_cycles)."
+      ],
+      "reasoning": "A distribution-preserving re-expression of successions does not preserve the original permutation cycle-type vector. In particular, the positive n-cycle covariance contrasts with the negative fixed-point/n-cycle covariance, so equality of marginal succession and fixed-point laws cannot imply the present theorem.",
+      "searches": [
+        "successions permutation cycle lengths covariance fixed length",
+        "unseparated pairs random permutation cycle structure covariance fixed points",
+        "four-support covariance between successions and length-j cycle counts in random permutations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-result searches returned a cycle-count/inversion covariance, a fixed-point/descent boundary result and unrelated permutation statistics, without the present four-length formula.",
+        "Accessible existing fixed-point/succession calculation yields Cov(B_i,C_1), agreeing with the first term of the theorem; no existing checked exact table lists the remaining B_i by C_j matrix."
+      ],
+      "reasoning": "One positionwise coefficient is previously available and is acknowledged. The displayed remaining three coefficients and the all-interior zero are an exact law across arbitrary n, not a recomputation of any identified existing table. Search incompleteness is not evidence of novelty by itself.",
+      "searches": [
+        "joint number of cycles and number of successions in uniform random permutations",
+        "unseparated pair count and individual cycle length counts covariance, conditional successive images",
+        "succession cycle type exact covariance"
+      ]
+    },
+    "rationale": "No inspected primary source or matching published mathematical claim covers the complete positionwise and cycle-length-resolved covariance. The marginal-equidistribution theorem of Diaconis–Evans–Graham cannot transfer cycle structure; the Mansour–Shattuck joint theorem counts cycle-notation successions and the total cycle number, and explicitly warns that its joint distributions with other statistics differ from those of one-line successions. An earlier fixed-point/succession covariance calculation exactly covers the j=1 positionwise coefficient, which is excluded from the claimed novel contribution. The j=2, n-1, n coefficients and the exact vanishing for all intermediate lengths remain unimplicated by inspected sources. Historical cycle-index coverage is a residual risk, not an assertion of proven global uniqueness.",
+    "residual_risks": [
+      "General multivariate cycle-index formulas for successions may imply the identity implicitly in less readily searchable historical literature, including older combinatorial enumerations.",
+      "The full Reilly–Tanny 1980 source was not inspected; comparison is limited to accessible abstract and citations.",
+      "No independent expert priority or mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not determine cycle-length covariances of the same permutation; proves marginal succession-set equivalence",
+        "evidence": [
+          "Theorem 1.1 equates the distribution of the succession-position set with that of restricted fixed points, without a same-permutation joint cycle-type assertion.",
+          "2013 Berkeley technical-report record supplies publicly verifiable date August 1, 2013."
+        ],
+        "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/unseparated_pairs.pdf",
+        "material_read": "Technical-report abstract, introduction, Theorem 1.1, remarks 1.2–1.4 and indications of subsequent enumeration and commutator sections",
+        "method": "Read hosted 20-page PDF text, checked displayed statement and inspected its second page image",
+        "title": "Unseparated pairs and fixed points in random permutations",
+        "trigger": "Same definition of ordinary increasing successions and a strong marginal equidistribution theorem"
+      },
+      {
+        "assessment": "Contains joint total-cycle counts for cycle-notation successions; not a joint cycle-length covariance for ordinary one-line successions of the same permutation",
+        "evidence": [
+          "Section 2 expressly observes that cycle d-successions can have different joint distributions with other statistics than ordinary d-successions.",
+          "Section 3 tracks number of cycles rather than individual cycle counts C_j."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/301752905_Counting_permutations_by_the_number_of_successions_within_cycles",
+        "material_read": "Author-uploaded full-text transcription: abstract, introduction, principal formula and Section 3; Section 2 distinction between cycle and one-line successions; Section 4 conclusion",
+        "method": "Examined hosted author text and its definitions, main formulas, transformation warning and scope",
+        "title": "Counting permutations by the number of successions within cycles",
+        "trigger": "Close joint enumeration by successions and number of cycles"
+      },
+      {
+        "assessment": "No cycle-length covariance identified from accessible material; unresolved historical source limitation",
+        "evidence": [
+          "Abstract describes the joint numbers of rises and successions and counting more general figures, with no explicit cycle structure."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90101-6",
+        "material_read": "Bibliographic record and accessible abstract reproduced in scholarly discovery result; primary complete text not inspected",
+        "method": "Compared abstract description of rises, p-successions and p-runs with present original-cycle statistics",
+        "title": "Counting permutations by successions and other figures",
+        "trigger": "Classical predecessor that might give broader multivariate counts"
+      },
+      {
+        "assessment": "Addresses non-adjacent successions, predecessors, excedances and drops; no original-cycle profile claim inspected",
+        "evidence": [
+          "Published April 7, 2026 abstract expressly lists the refined statistics."
+        ],
+        "identifier_or_url": "https://www.aimsciences.org/article/doi/10.3934/fcnt.2026014",
+        "material_read": "Abstract, displayed comparison table and bibliography on the publisher page",
+        "method": "Compared stated refined statistics with cycle-length counts",
+        "title": "A refinement of the Diaconis-Evans-Graham theorem",
+        "trigger": "Later refinement of the same bijection"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "603f60b7-decc-485e-b958-7f72d23e9f8e",
+  "value": {
+    "rationale": "The pair of statistics is natural: increasing successions are a local shuffle diagnostic, and cycle lengths record global orbit structure. The all-n identity completely identifies its linear coupling with the full cycle-type vector, giving exact orthogonality to every intermediate length j=3,...,n-2 and a sharp endpoint/interior mechanism; even the total cycle covariance is 1/n^2 from cancellation of larger terms. The new remaining length coefficients are not inferred from the prior fixed-point calculation and may guide joint shuffling/structural diagnostics. No downstream theorem is required for the motivation of this complete natural classification.",
+    "status": "PASS"
+  }
+}
