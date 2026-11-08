@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T06:58:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=3, classify cuts by (a,b) where a=0,1,2,3 in the three-vertex part and b=0..n in the other part. Their average distances are U=a(3-a)/3, V=2b(n-b)/(n(n-1)), W=[a(n-b)+b(3-a)]/(3n). In a=1 case (W−V/2)/U equals convex F_n(b)=[n(n−1)−(2n+1)b+3b²]/[2n(n−1)] with minimizing integer k=floor((n+1)/3). a=2 is its complement; a=0,3 yield nonnegative remainders. This proves W>=alpha U+V/2 for every cut and hence every L1 distance. After noncontracting normalization U,V>=2, W<=D gives D>=2alpha+1. A constructive nonnegative metric 3Delta_(1,k)+tDelta_(0,1), t=n−3k(n−k)/(n−1)>=0, has U=V=2, W=2alpha+1, giving equality and the mod-three staircase. Since alpha>0, equality in averages forces every individual same-part distance 2 and every cross distance D (rigidity). Independent exact rational checks cover all a,b n=3..60 and mixture, 7540 inequalities. Finite checks only corroborate the all-n cut proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abraham–Filtser–Gupta–Neiman arXiv:1708.04073 proves general shortest-path-decomposition distortion bounds, not this sharp formula.",
+          "The full published Hilbert transportation-space result computes Euclidean Banach–Mazur distance sqrt(m+n−1), a distinct invariant."
+        ],
+        "reasoning": "General graph-metric embedding and Lipschitz-free results do not supply the exact cut cone optimum or equality rigidity for these finite fixed metrics.",
+        "searches": [
+          "exact l1 distortion complete bipartite K3 n unit edge graph metric cut optimal embeddings",
+          "arxiv:1708.04073",
+          "Resultary:2026/10/11/SCOPE-maximal-hilbert-distortion-for-complete-bipartite-transportation--203c5ca21810"
+        ]
+      },
+      "checked_sources": [
+        "Pinned SCOPE2026 RESULT.md Git blob 5c682009ef9d0b2b0197e775c273ce9a8d84c34b; VERIFICATION.md and verify_k3n.py inventory",
+        "Mori arXiv:2602.23745 primary full HTML",
+        "Abraham et al. arXiv:1708.04073 primary relevant sections",
+        "Resultary published 2026/9/11/SCOPE004 full RESULT.md",
+        "Resultary published 2026/10/11/SCOPE-maximal-hilbert-distortion-for-complete-bipartite-transportation--203c5ca21810 full RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mori theorem covers a different bipartition cardinality and supremum over weights.",
+          "Full Hilbert transportation paper addresses linear space Euclidean distortion, not vertex metric L1 embedding."
+        ],
+        "reasoning": "Neither prior bound nor a different invariant implies the parameter-dependent cut inequality, matched cut construction and rigidity. The implication comparison is mathematical, not a title match.",
+        "searches": [
+          "exact l1 distortion complete bipartite K3 n unit edge graph metric cut optimal embeddings",
+          "arxiv:2602.23745",
+          "arxiv:1708.04073"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mori arXiv:2602.23745 Theorem 2 evaluates worst positive-edge-weight distortion of K_(2,n), not fixed K_(3,n)."
+        ],
+        "reasoning": "A graph metric on K_(3,n) has a third within-small-part pair orbit absent from the K_(2,n) model; no formula follows by merely renaming n or swapping the two parts. Cut-metric LP aliases were considered.",
+        "searches": [
+          "exact l1 distortion complete bipartite K3 n unit edge graph metric cut optimal embeddings",
+          "complete bipartite shortest path metrics c_1 cut-cone L1 embedding",
+          "arxiv:2602.23745"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full SCOPE004 RESULT.md tabulates six cubic-symmetric graph metrics, no K_(3,n).",
+          "Snowflaked-bipartite record concerns free-space facet counts, not L1 distortions."
+        ],
+        "reasoning": "No indexed full table or record covering the all-n unit-biclique distortion was identified. This is not evidence of absolute novelty.",
+        "searches": [
+          "exact l1 distortion complete bipartite K3 n unit edge graph metric cut optimal embeddings",
+          "Resultary:2026/9/11/SCOPE004",
+          "Resultary:2026/10/11/SCOPE-sharp-facet-count-transitions-for-snowflaked-complete-bipartite--e855a74da4ce"
+        ]
+      },
+      "rationale": "The novel assertion is the sharp fixed-unit-edge K_(3,n) L1 metric distortion 2−k(2n+1−3k)/(n(n−1)) and the rigidity of all optimal distance matrices, not any weighted K_(2,n) supremum or Hilbert Banach–Mazur invariant. Searches and inspected primary/published mathematical results found no implication; conditional best-of-knowledge, not priority proof.",
+      "residual_risks": [
+        "Only fixed unit-edge K_(3,n) and n>=3; not arbitrary K_(m,n) or weighted-edge supremum or minimum embedding dimension.",
+        "A less-indexed classical cut-cone solution of this exact biclique metric may exist.",
+        "Finite independent exact checks n<=60 do not prove infinite n; unrestricted case analysis does."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: two-vertex side and worst-edge-weight supremum",
+          "evidence": "Theorem 2 states invariant of K_(2,n), different graph and normalization.",
+          "identifier_or_url": "arxiv:2602.23745",
+          "material_read": "full accessible HTML, main theorem and definitions",
+          "method": "web primary full HTML review",
+          "title": "The exact value of c_1(K_(2,n))",
+          "trigger": "nearest exact biclique L1 distortion"
+        },
+        {
+          "assessment": "NOT_COVERING exact fixed K_(3,n) optimal value",
+          "evidence": "General shortest path decomposition upper bounds, no orbit sharp cut certificate.",
+          "identifier_or_url": "arxiv:1708.04073",
+          "material_read": "accessible primary abstract, introduction and central results",
+          "method": "web primary accessible sections",
+          "title": "Metric Embedding via Shortest Path Decompositions",
+          "trigger": "general graph-metric L1 bounds"
+        },
+        {
+          "assessment": "NOT_COVERING; different Banach-Mazur Hilbertian space invariant",
+          "evidence": "Result sqrt(m+n−1) for Lipschitz-free space, not least L1 distortion of vertex distances.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-maximal-hilbert-distortion-for-complete-bipartite-transportation--203c5ca21810",
+          "material_read": "full RESULT.md proof and scope",
+          "method": "connected GitHub file read",
+          "title": "Maximal Hilbert distortion for complete-bipartite transportation spaces",
+          "trigger": "same complete bipartite finite metric and geometry"
+        },
+        {
+          "assessment": "NOT_COVERING K_(3,n)",
+          "evidence": "Graphs Petersen, Heawood, Moebius-Kantor, Pappus, Desargues, Dodecahedron only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/11/SCOPE004",
+          "material_read": "full RESULT.md including six graph list and certificates",
+          "method": "connected GitHub file read",
+          "title": "Exact L1-distortion census for six small cubic-symmetric graphs",
+          "trigger": "published small-graph cut-cone benchmark"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete natural family K_(3,n) has a nontrivial mod-three staircase approaching 5/3; optimal cut geometry is rigid. An exact metric-embedding invariant, all-parameter classification and extremizing cut ensemble are independently useful beyond small graphs or generic estimates.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned SCOPE2026 RESULT.md Git blob 5c682009ef9d0b2b0197e775c273ce9a8d84c34b; VERIFICATION.md and verify_k3n.py inventory",
+    "Mori arXiv:2602.23745 primary full HTML",
+    "Abraham et al. arXiv:1708.04073 primary relevant sections",
+    "Resultary published 2026/9/11/SCOPE004 full RESULT.md",
+    "Resultary published 2026/10/11/SCOPE-maximal-hilbert-distortion-for-complete-bipartite-transportation--203c5ca21810 full RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed unit-edge K_(3,n) and n>=3; not arbitrary K_(m,n) or weighted-edge supremum or minimum embedding dimension.",
+    "A less-indexed classical cut-cone solution of this exact biclique metric may exist.",
+    "Finite independent exact checks n<=60 do not prove infinite n; unrestricted case analysis does."
+  ],
+  "residual_risks": [
+    "Only fixed unit-edge K_(3,n) and n>=3; not arbitrary K_(m,n) or weighted-edge supremum or minimum embedding dimension.",
+    "A less-indexed classical cut-cone solution of this exact biclique metric may exist.",
+    "Finite independent exact checks n<=60 do not prove infinite n; unrestricted case analysis does."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING: two-vertex side and worst-edge-weight supremum",
+      "evidence": "Theorem 2 states invariant of K_(2,n), different graph and normalization.",
+      "identifier_or_url": "arxiv:2602.23745",
+      "material_read": "full accessible HTML, main theorem and definitions",
+      "method": "web primary full HTML review",
+      "title": "The exact value of c_1(K_(2,n))",
+      "trigger": "nearest exact biclique L1 distortion"
+    },
+    {
+      "assessment": "NOT_COVERING exact fixed K_(3,n) optimal value",
+      "evidence": "General shortest path decomposition upper bounds, no orbit sharp cut certificate.",
+      "identifier_or_url": "arxiv:1708.04073",
+      "material_read": "accessible primary abstract, introduction and central results",
+      "method": "web primary accessible sections",
+      "title": "Metric Embedding via Shortest Path Decompositions",
+      "trigger": "general graph-metric L1 bounds"
+    },
+    {
+      "assessment": "NOT_COVERING; different Banach-Mazur Hilbertian space invariant",
+      "evidence": "Result sqrt(m+n−1) for Lipschitz-free space, not least L1 distortion of vertex distances.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-maximal-hilbert-distortion-for-complete-bipartite-transportation--203c5ca21810",
+      "material_read": "full RESULT.md proof and scope",
+      "method": "connected GitHub file read",
+      "title": "Maximal Hilbert distortion for complete-bipartite transportation spaces",
+      "trigger": "same complete bipartite finite metric and geometry"
+    },
+    {
+      "assessment": "NOT_COVERING K_(3,n)",
+      "evidence": "Graphs Petersen, Heawood, Moebius-Kantor, Pappus, Desargues, Dodecahedron only.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/11/SCOPE004",
+      "material_read": "full RESULT.md including six graph list and certificates",
+      "method": "connected GitHub file read",
+      "title": "Exact L1-distortion census for six small cubic-symmetric graphs",
+      "trigger": "published small-graph cut-cone benchmark"
+    }
+  ]
+}
