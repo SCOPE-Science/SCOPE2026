@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The quadratic-form expansion into pair-pattern Walsh characters is exact because each sign squared equals one. Their orthogonality gives the displayed sum of squared coefficients. Every nonempty pattern has its own disjoint set of upper-triangular entries, proving independence and the closed-form rank and kernel dimension. Groupwise Euclidean projections with doubled symmetric Frobenius weights give the exact distance identity and sharp constants. The explicit signed-cross PSD witnesses square to the identity. General analytical arguments, rather than the 247 finite rational assertions, establish all dimensions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Meyer-Avron provide general k-dimensional tensor-probe variance upper bounds, tight for Gaussian probes only; no Rademacher equality.",
+        "Ahle et al. arXiv:1909.01410 study tensor sketch maps rather than a fixed symmetric operator quadratic trace sample.",
+        "Bujanović-Kressner analyze rank-one probe trace estimation but state probability inequalities and unbiasedness."
+      ],
+      "reasoning": "Broader dimensionality and more general probe families in prior bounds do not imply the precise per-matrix Rademacher equality or its nullspace. Source-matched comparison covers the same object (trace quadratic form), while distinguishing Gaussian and tensor Rademacher fourth moments. A stronger exact tensor-sign identity elsewhere is a residual risk.",
+      "searches": [
+        "arxiv:2309.04952 Theorem 1 and Theorem 2 and §3",
+        "arxiv:2004.06433 Theorem 3.1 and §2.4",
+        "arxiv:1909.01410 tensor sketch second moment section",
+        "Kronecker Rademacher probes variance zero non-diagonal positive semidefinite matrices trace estimator tensor"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2004.06433v2",
+      "https://arxiv.org/abs/2309.04952",
+      "https://arxiv.org/abs/1909.01410",
+      "Avron and Toledo, JACM 2011 independent-coordinate trace estimator (classical comparator)",
+      "published-finding corpus semantic search for exact tensor Rademacher pattern variance and full sign-noise nullspace: closest Walsh Fourier findings concern different function and sampling classes; no direct same-claim match in returned hits."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A concentration inequality bounds a tail or variance but does not force all Walsh coefficient sums to vanish exactly.",
+        "The Gaussian equality in Meyer-Avron cannot simply be specialized to discrete signs; their Rademacher statement is only a bound.",
+        "The classical independent-sign estimator sees nonzero variance 8t² on both four-coordinate witnesses, while the tensor estimator gives 0 and 16t²."
+      ],
+      "reasoning": "The existing results establish estimation methods, worst-case bounds, and Gaussian exact statistics. None directly implies the proposed exact Rademacher sum-of-squares, full rank of its coefficients, and distance-to-kernel theorem. The explicit positive-definite witness families exhibit cancellation information absent from the earlier inequalities.",
+      "searches": [
+        "arxiv:2004.06433 sections 2.4 and 3",
+        "arxiv:2309.04952 Theorem 1, Corollary 5, section 3",
+        "arxiv:1909.01410 sections 3-5",
+        "tensor product Rademacher trace estimator exact variance formula block partial trace off diagonal cancellation Walsh"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Meyer-Avron arXiv:2309.04952 Theorem 1: exact equality for Gaussian Kronecker probes; Rademacher version is an upper bound.",
+        "Bujanović-Kressner arXiv:2004.06433 §3: moment and concentration arguments, no exact Walsh-character kernel.",
+        "Classical independent-coordinate Rademacher variance equals four times the sum of squared upper off-diagonal entries and omits coefficient collisions arising from tensor dependence."
+      ],
+      "reasoning": "Tensor sign characters are the algebraic equivalents of pair-index fourth-moment contractions. A Gaussian partial-transpose upper bound is not an equality for Rademacher probes: the diagonal fourth-cumulant cancellations are essential. A general fourth-moment tensor identity might be reformulated into the result, but none of the inspected primary statements supplies the zero-variance kernel, its dimension, or the distance formula.",
+      "searches": [
+        "tensor product Rademacher trace estimator exact variance formula block partial trace off diagonal cancellation Walsh",
+        "rank one Rademacher Hutchinson variance formula tensor cross terms",
+        "Kronecker Hutchinson rademacher exact variance Walsh coefficients zero variance characterization",
+        "arxiv:2309.04952 §3 The Exact Variance of Kronecker-Hutchinson Estimator",
+        "arxiv:2004.06433 §3 Large-sample estimation of the trace"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary papers arXiv:2004.06433 and arXiv:2309.04952 have no matrix-by-matrix table of the full exact sign-variance kernel.",
+        "Accessible numerical-analysis precedents concern unmodified Hadamard trace-probe variance, Gaussian Hutch++ on spiked matrices, and Gaussian range sketch errors, not the tensor-sign Walsh kernel."
+      ],
+      "reasoning": "The result concerns all real symmetric matrix entries in an arbitrary factorization, not a small finite table. No exact matching catalog was located; the absence of a search result alone is not proof of novelty and is not relied upon in place of theorem comparisons.",
+      "searches": [
+        "rank-one Rademacher Hutchinson zero variance off diagonal cancellation trace tensor product",
+        "Exact variance of trace estimator with Kronecker product Rademacher probes, rank-one sign vectors, Walsh degree 2, zero-variance offdiagonal positive semidefinite",
+        "Kronecker Hutchinson trace estimation Walsh invisible matrix subspace partial trace dimension PSD Rademacher",
+        "tensor product rademacher hutchinson zero variance off diagonal cancellation trace estimator",
+        "own accessible current-week ledger claim/title comparison for trace estimators",
+        "Exact tensor Rademacher Hutchinson trace variance Walsh Fourier pair-pattern cancellation complete zero-variance kernel dimension Frobenius distance",
+        "Kronecker structured Rademacher trace estimator matrix-specific variance equality sum grouped offdiagonal entries positive definite zero variance"
+      ]
+    },
+    "rationale": "For tensor-product Rademacher probes, the exact per-matrix Walsh variance, the full zero-variance kernel with its dimension, and the sharp Frobenius-distance formula were not implied by the located primary theorems. Bujanović-Kressner establish rank-one probe unbiasedness and concentration; Meyer-Avron prove exact Gaussian variance but only an inequality for Rademacher variance. Classical Hutchinson is an independent-coordinate model. No prior theorem found in the accessible primary sections supplies the complete sign-dependent cancellation classification. Equivalence through less-obvious tensor-chaos identities remains a scientific precedence risk.",
+    "residual_risks": [
+      "The Walsh-character variance identity can be inferred by elementary Fourier expansion; equivalent prior identities in other tensor-chaos or partial-transpose notation may be unindexed.",
+      "Novelty comparison is literature-based rather than independently verified; searches cannot establish uniqueness.",
+      "General practical value depends on whether Kronecker quadratic-form evaluation is cheaper for the operator being estimated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS rank-one probe unbiasedness and large-sample inequalities, NOT the stated exact Rademacher Walsh kernel/dimension/distance formula",
+        "evidence": [
+          "Lemma 2.1 unbiasedness",
+          "Section 2.4 Rademacher behavior",
+          "Section 3 Theorem 3.1 concentration inequality"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2004.06433v2",
+        "material_read": "Abstract, Introduction, Sections 2.4 and 3 including Theorem 3.1 and adjacent moment reasoning",
+        "method": "arXiv lawful HTML full text with relevant sections and statement comparison",
+        "title": "Norm and trace estimation with random rank-one vectors",
+        "trigger": "Same rank-one Rademacher trace estimators; primary motivating source"
+      },
+      {
+        "assessment": "COVERS Gaussian exact variance and a Rademacher upper bound, not exact Rademacher equality with kernel classification or sharp Frobenius distance",
+        "evidence": [
+          "Theorem 1 explicitly states equality for all Gaussian factors only",
+          "Theorem 2 is a bound",
+          "Section 3 proof uses inequalities for Rademacher fourth moments"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.04952",
+        "material_read": "Full-text arXiv HTML Introduction, Theorems 1-2, Corollary 5, and Section 3 proof including Rademacher inequalities",
+        "method": "arXiv lawful full-text HTML, compared precise equality clauses to proposed formula",
+        "title": "Hutchinson's Estimator is Bad at Kronecker-Trace-Estimation",
+        "trigger": "Direct closest exact variance theorem on the same tensor trace-estimator"
+      },
+      {
+        "assessment": "Studies different sketch maps and upper bounds for embeddings; does not supply the fixed-operator exact tensor quadratic trace variance/kernel",
+        "evidence": [
+          "TensorSRHT definition in Section 3",
+          "Section 4 second-moment inequalities",
+          "No Hutchinson trace estimator in searched text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1909.01410",
+        "material_read": "Full-text arXiv HTML Introduction, sketch construction definitions, Section 4 second-moment material, and searches for Rademacher, variance, and Hutchinson",
+        "method": "arXiv lawful HTML, inspected relevant tensor sketch and second-moment statements",
+        "title": "Oblivious Sketching of High-Degree Polynomial Kernels",
+        "trigger": "Cited for tensor Rademacher moment and sketching bounds by the closest source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5d3610a2-7f37-4913-9d88-bfab971efb30",
+  "value": {
+    "rationale": "Structured Kronecker sign probes are an established method for implicit trace estimation; the exact per-operator variance and full invisible subspace are natural algorithmic invariants previously obscured by generic concentration bounds. The theorem gives a diagnostic for which entries cancel, quantifies exactly the distance controlling variance, and exhibits both strictly beneficial and strictly harmful PSD instances relative to full independent signs. This is a structural classification with practical benchmarking relevance, not a mere reparametrization or an arbitrary table.",
+    "status": "PASS"
+  }
+}

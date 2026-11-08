@@ -1,0 +1,26 @@
+# Scientific review — tensor-sign trace variance and invisible directions
+
+## Correctness — PASS
+
+The claim is an exact identity for arbitrary real symmetric operators in a fixed finite product-coordinate basis. Expansion of \(v^{\mathsf T}Av\) groups each off-diagonal coefficient by the unique nonempty pattern of unequal tensor-factor coordinates. Different patterns produce different Walsh characters on independent signs, hence are orthogonal. This establishes an exact sum-of-squares variance, not a concentration bound. Every pattern is realized by an entry pair, and disjoint pattern groups make the associated coefficient functionals independent. Group cardinality is exactly \(2^{r-1}\) times the product of inactive dimensions for \(r\) active factors. Orthogonal projection within each off-diagonal group gives the stated Frobenius distance, with the factor two required by symmetry. The two explicit positive-definite examples obey \(K^2=I_4\) and contrast with the independent-coordinate Rademacher variance \(4\sum_{i<j}A_{ij}^2\). The standalone checker passed 247 exact assertions on several shapes, including a three-factor instance; these finite checks are ancillary to the general proof. No hidden limit or unproved infinite-dimensional extension is asserted.
+
+## Originality — PASS, with precedence qualification
+
+Bujanović and Kressner, *Norm and trace estimation with random rank-one vectors*, arXiv:2004.06433, treat tensor Rademacher and Gaussian vectors and prove unbiasedness and concentration bounds. Their rank-one Rademacher section and trace-estimation section do not give the exact matrix-specific sign-variance functional or its full zero-variance space. Meyer and Avron, *Hutchinson's Estimator is Bad at Kronecker-Trace-Estimation*, arXiv:2309.04952, establish an exact partial-trace/transposition formula for Gaussian tensor probes, while their theorem for Rademacher probes is explicitly an inequality. An upper bound and an exact Gaussian formula do not determine all cancellations among the nonconstant Rademacher Walsh coefficients, nor the exact dimension and distance to their kernel. Ahle and collaborators, arXiv:1909.01410, analyze tensor sketches and their second-moment performance rather than a fixed-operator exact Rademacher trace-noise kernel. The classical independent-sign formula lacks tensor dependence. Searches of published mathematical findings and accessible preceding numerical-analysis claims did not show an implication covering this theorem. Related tensor-chaos or implicit partial-transpose identities could nevertheless supply unlocated precedence; this is not an independent literature certification.
+
+The independently original content assessed here is the **combined exact tensor-Rademacher variance, complete nullspace rank/dimension, and sharp Frobenius-distance characterization**, with non-diagonal positive-definite opposite-variance witnesses. Mere unbiasedness, Gaussian tensor variance, general tail bounds and the ordinary Hutchinson formula are established prior facts and are not claimed as new.
+
+## Value — PASS
+
+Tensor-product sign vectors are natural when an implicit operator admits inexpensive Kronecker-vector application. Worst-case bounds alone cannot tell whether the estimator actually fluctuates for a particular operator. This theorem supplies a complete algebraic criterion for zero stochastic trace error, exact variance for all other matrices, and an optimal quantitative measure of distance from the zero-variance family. The positive-definite examples show that tensor dependence is not invariably harmful: it can cancel non-diagonal trace noise entirely, or amplify it by a factor of two, compared with ordinary independent probes. The dimension formula establishes that these cancellations form a large structured subspace rather than an isolated four-dimensional curiosity. The result is mathematically useful for structured-probe diagnosis and benchmarking; it does not prove a universal computational advantage or optimize an algorithm over all possible probe distributions.
+
+## Closest literature and limitations
+
+- Bujanović and Kressner, arXiv:2004.06433 (2020), sections 2.4 and 3: rank-one probe unbiasedness and probabilistic guarantees; not an exact Rademacher Walsh variance/nullspace formula.
+- Meyer and Avron, arXiv:2309.04952 (2023), main theorem and section 3: exact Gaussian formula and Rademacher upper bound. Some parts of the moment proof conceptually overlap, but the Rademacher equality/kernel/distance are not supplied.
+- Ahle and collaborators, arXiv:1909.01410 (2019), construction and second-moment sections: tensor embedding estimates on a different sampling operator.
+- Ordinary independent-coordinate Hutchinson (Avron and Toledo, 2011): exact classical variance; it does not cover factor-correlated signs.
+
+Remaining risks are unindexed tensor/Walsh literature and re-expression of the same statement through partial-transpose and projection operators. The result is finite-dimensional and basis-sensitive. Computing the variance from explicit matrix entries may cost more than the intended implicit trace estimator, and practical cost comparisons require additional operator-specific assumptions. Independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
