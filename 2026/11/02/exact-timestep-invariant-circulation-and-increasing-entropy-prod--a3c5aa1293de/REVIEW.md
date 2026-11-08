@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-step transition kernel is derived from unbiased coordinatewise rounding. Its double stochasticity, common oriented cycle rates, invariant probability, entropy production, strict monotonicity and exact mean contraction follow by explicit algebra for the entire declared parameter domain. The independent rational finite-state verifier tested 532 parameter pairs but does not substitute for the general proof.
+## correctness
 
-**Originality — PASS, qualified.** The primary stochastic-rounding source (El Arar et al., arXiv:2207.03837v1, sections 2–3), shaken dynamics (Apollonio et al., arXiv:1904.06257, sections 2–4), and Han et al. (Phys. Rev. Research 6, 023162, two-spin switching rates/current) were compared at the level of actual transition processes. Han's known continuous-time asymmetric two-spin law **does cover the limiting spin current**, so that limit is not an originality claim. The assessed finite-step all-\(h\) preservation of current per physical time and strictly increasing entropy production involve simultaneous-flip transitions not specified by Han's rate model, and no covering result was identified in the available sources or targeted mathematical research records. Residual risk: prior finite-step probabilistic cellular automaton and lattice-rounding papers may already derive the same specialized identity; no independent priority certification.
+PASS
 
-**Value — PASS.** The exact timestep-invariant current and contrasting strict entropy dissipation change at an unchanged stationary law expose a substantive long-time numerical effect not visible in unbiased error or mean-stability checks. This benchmark helps separate deterministic contraction, stochastic stationary error, probability circulation, and thermodynamic dissipation under discretization. It is deliberately narrow: a complete natural finite-state classification, not a general performance guarantee for arbitrary floating-point solvers.
+At s,t∈{±1}² coordinatewise Bernoulli rounding gives P_h(s,t)=((1+t1(as1+bs2))(1+t2(-bs1+as2)))/4 with a=1-h,b=hc. Summation over the four source spins cancels the cross term, yielding double stochasticity and π=1/4. The four clockwise neighbor probabilities equal p+=h(1+c)(2-h(1-c))/4 and reverse p-=h(1-c)(2-h(1+c))/4; p+-p-=hc. Opposite-corner transition pairs are symmetric. Entropy is (p+-p-) log(p+/p-), derivative of rate is +4c²/((2-h(1-c))(2-h(1+c)))>0. |a±ib|<1 gives convergent mean; all corners lie at squared distance 1/2. Direct 841 rational (h,c) pairs reproduce full P, stochasticity, neighbor flux, positivity. Valid for stated four initial corners and fresh coordinate rounding, not generic floating-point computation.
 
-**Scientific limits.** Integer lattice, four corner states, independent end-of-step rounding, \(0<c<1\), \(0<h<1/(1+c)\). No claims of experimental or independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The finite-step simultaneous-coordinate-flip kernel, with exactly step-invariant flux rate and step-increasing entropy production, is not identified in the inspected published stochastic-rounding or asymmetric-spin treatments. Nonzero circulation and its h→0 generator are explicitly prior results, not independently original.
+
+## value
+
+PASS
+
+Numerical discretization can preserve correct first moments yet exhibit persistent irreversibility and a nonvanishing error floor. The exact h dependence separates stochastic-rounding geometry, stationary physical-time current, and entropy production in a canonical analytically solvable numerical-integration benchmark; it is more than a trivial parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T18:41:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At s,t∈{±1}² coordinatewise Bernoulli rounding gives P_h(s,t)=((1+t1(as1+bs2))(1+t2(-bs1+as2)))/4 with a=1-h,b=hc. Summation over the four source spins cancels the cross term, yielding double stochasticity and π=1/4. The four clockwise neighbor probabilities equal p+=h(1+c)(2-h(1-c))/4 and reverse p-=h(1-c)(2-h(1+c))/4; p+-p-=hc. Opposite-corner transition pairs are symmetric. Entropy is (p+-p-) log(p+/p-), derivative of rate is +4c²/((2-h(1-c))(2-h(1+c)))>0. |a±ib|<1 gives convergent mean; all corners lie at squared distance 1/2. Direct 841 rational (h,c) pairs reproduce full P, stochasticity, neighbor flux, positivity. Valid for stated four initial corners and fresh coordinate rounding, not generic floating-point computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stochastic-nearest unbiased expectation estimates, and two-spin asymmetric-spin flux formulas, are published."
+        ],
+        "reasoning": "General unbiased-rounding bounds do not determine this four-state finite-step stationary distribution; a CT stationary flux does not imply the displayed finite-step entropy dependence.",
+        "searches": [
+          "El Arar Sohier de Oliveira Castro Petit arXiv:2207.03837",
+          "Han et al. Phys Rev Research 6 023162"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.03837v1",
+        "DOI:10.1103/PhysRevResearch.6.023162",
+        "Resultary published findings semantic search: stochastic rounding Euler numerical rotation stationary irreversible currents entropy production discrete four spin updates"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Han supplies the limiting current for the same two-spin rates but not h² simultaneous transitions."
+        ],
+        "reasoning": "The earlier continuous-time result implies the limiting flux, NOT equality for every positive Euler step or strict h-monotonic entropy; the latter is the surviving final claim.",
+        "searches": [
+          "El Arar arXiv:2207.03837 sections 2-3",
+          "Han et al. 2024 current formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Han et al. construct an asymmetric interacting two-spin continuous-time Markov chain and derive its nonzero stationary current."
+        ],
+        "reasoning": "The h→0 limit reduces to Han’s generator with K12=atanh(c), K21=-atanh(c), whereas positive h includes simultaneous flips and a nonlinear h-dependent entropy rate; equivalent CT nonzero current is conceded covered.",
+        "searches": [
+          "stochastic rounding Euler numerical rotation stationary irreversible currents entropy production discrete four spin updates",
+          "Han Wang Zhang Dykman Chan 2024 DOI:10.1103/PhysRevResearch.6.023162"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identical four-state finite-h transition/entropy table found in inspected primary work or returned Resultary results."
+        ],
+        "reasoning": "The exact finite-step rates p±, physical-time rate c/4 and derivative formula were not located as a prior table; failed discovery is not a priority proof.",
+        "searches": [
+          "stochastic rounding Euler numerical rotation stationary irreversible currents entropy production discrete four spin updates",
+          "stochastic rounding finite-state entropy production numerical spin update"
+        ]
+      },
+      "rationale": "The finite-step simultaneous-coordinate-flip kernel, with exactly step-invariant flux rate and step-increasing entropy production, is not identified in the inspected published stochastic-rounding or asymmetric-spin treatments. Nonzero circulation and its h→0 generator are explicitly prior results, not independently original.",
+      "residual_risks": [
+        "Unindexed earlier probabilistic-cellular-automaton finite-time kernel could yield the same entropy identity.",
+        "Four-corner fixed-unit-grid mechanism does not generalize to IEEE floating-point or arbitrary initial states."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related foundation, not the four-corner stationary flux/entropy theorem",
+          "evidence": "Unbiased stochastic-nearest rounding is developed, with expectation error results rather than stationary irreversibility.",
+          "identifier_or_url": "arXiv:2207.03837v1",
+          "material_read": "Full accessible primary PDF introduction and §§2–3, including unbiasedness and error accumulation; first PDF page visually inspected",
+          "method": "PDF text reading and equation comparison",
+          "title": "The Positive Effects of Stochastic Rounding in Numerical Algorithms",
+          "trigger": "Primary stochastic nearest rounding and Euler error model"
+        },
+        {
+          "assessment": "Covers nonzero two-spin circulation and limiting coefficient, not identified as finite-step simultaneous flips and entropy derivative",
+          "evidence": "CT only one-spin flips; matching rates from K12=atanh(c), K21=-atanh(c).",
+          "identifier_or_url": "DOI:10.1103/PhysRevResearch.6.023162",
+          "material_read": "Accessible full author-hosted PDF, switching-rate model and current equations including PDF p. 5 visually inspected",
+          "method": "Compare CT generator and spin-flip transition types",
+          "title": "Coupled parametric oscillators: From disorder-induced current to asymmetric Ising model",
+          "trigger": "Exact earlier two-spin current with same limiting generator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Numerical discretization can preserve correct first moments yet exhibit persistent irreversibility and a nonvanishing error floor. The exact h dependence separates stochastic-rounding geometry, stationary physical-time current, and entropy production in a canonical analytically solvable numerical-integration benchmark; it is more than a trivial parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2207.03837v1",
+    "DOI:10.1103/PhysRevResearch.6.023162",
+    "Resultary published findings semantic search: stochastic rounding Euler numerical rotation stationary irreversible currents entropy production discrete four spin updates"
+  ],
+  "disposition": "passed",
+  "final_claim": "For 0<c<1 and 0<h<1/(1+c), a completed-Euler-proposal four-corner independently rounded planar rotation has π=uniform, physical-time edge current c/4, entropy production rate c log(((1+c)(2-h(1-c)))/((1-c)(2-h(1+c)))) strictly increasing in h, while its expectation converges to the ODE equilibrium with squared positional error exactly 1/2.",
+  "limitations": [
+    "Unindexed earlier probabilistic-cellular-automaton finite-time kernel could yield the same entropy identity.",
+    "Four-corner fixed-unit-grid mechanism does not generalize to IEEE floating-point or arbitrary initial states.",
+    "Checks reproduce finite cases and identities, not infinite-dimensional/unbounded-domain proofs where applicable.",
+    "Public metadata contains provenance fields and is not approved for import without full sanitized replacement."
+  ],
+  "residual_risks": [
+    "Unindexed earlier probabilistic-cellular-automaton finite-time kernel could yield the same entropy identity.",
+    "Four-corner fixed-unit-grid mechanism does not generalize to IEEE floating-point or arbitrary initial states."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Related foundation, not the four-corner stationary flux/entropy theorem",
+      "evidence": "Unbiased stochastic-nearest rounding is developed, with expectation error results rather than stationary irreversibility.",
+      "identifier_or_url": "arXiv:2207.03837v1",
+      "material_read": "Full accessible primary PDF introduction and §§2–3, including unbiasedness and error accumulation; first PDF page visually inspected",
+      "method": "PDF text reading and equation comparison",
+      "title": "The Positive Effects of Stochastic Rounding in Numerical Algorithms",
+      "trigger": "Primary stochastic nearest rounding and Euler error model"
+    },
+    {
+      "assessment": "Covers nonzero two-spin circulation and limiting coefficient, not identified as finite-step simultaneous flips and entropy derivative",
+      "evidence": "CT only one-spin flips; matching rates from K12=atanh(c), K21=-atanh(c).",
+      "identifier_or_url": "DOI:10.1103/PhysRevResearch.6.023162",
+      "material_read": "Accessible full author-hosted PDF, switching-rate model and current equations including PDF p. 5 visually inspected",
+      "method": "Compare CT generator and spin-flip transition types",
+      "title": "Coupled parametric oscillators: From disorder-induced current to asymmetric Ising model",
+      "trigger": "Exact earlier two-spin current with same limiting generator"
+    }
+  ]
+}
