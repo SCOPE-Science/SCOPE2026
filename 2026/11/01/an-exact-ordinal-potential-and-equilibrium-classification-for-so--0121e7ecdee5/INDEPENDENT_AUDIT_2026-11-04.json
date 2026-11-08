@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T07:10:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any finite connected simple cactus H, a connected spanning subgraph retains every host bridge and omits at most one edge from each cycle. The block-cut tree has a unique itinerary between any two vertices, so distances satisfy d_G(x,y)-d_H(x,y)=sum_(e omitted)[d_(H-e)(x,y)-d_H(x,y)], even for articulation-shared cycles. If e={a,b} is deleted, each endpoint's utility shift equals q_endpoint(e)-alpha; it is profitable unilaterally exactly when tau_e=max(q_a,q_b)>alpha. Conversely bilateral addition profits for both exactly when alpha>tau_e. Hence Phi=sum_C(alpha for intact C, tau_e for deleted e) is a strict ordinal potential. Cycle-independent stable choices are intact for alpha>=max_e tau_e and broken at e for alpha<=tau_e, proving the exact product enumeration and nonempty factors at equality. Summing the same distance increments over ordered vertex pairs gives W(G)=W(H)+sum_(omitted e)(Q_e-2alpha), which yields cyclewise polynomial-time optimal/best-stable/worst-stable welfare. In the triangle with k-1 leaves at each of two vertices, tau_e=k and the ab deletion improves welfare by 2(k²-alpha), so for k<alpha<k² the intact state is uniquely stable but not optimal; at k=5,alpha=10 welfares are 450 and 480, with PoS approaching 8/7 along alpha=k+1/2. Read the frozen RESULT, supporting source, verification script, and source tree. Finite script tests are supporting rather than all-cactus proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Their Theorem 4 gives an improving-response cycle for unrestricted hosts; Theorem 9 covers parameter ranges in arbitrary hosts; neither is an all-alpha cactus potential theorem."
+        ],
+        "reasoning": "General parameter bounds and existence theorems do not imply exact cactus factorization; unrestricted negative examples do not preclude the restricted subclass.",
+        "searches": [
+          "Resultary semantic query: social distancing network creation game connected spanning cactus host strict unilateral edge deletion bilateral edge addition exact ordinal potential equilibrium classification factor by cycles",
+          "Friedrich et al. Algorithmica 2023 Theorems 4, 9, 10, 14 and 15"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.10423 (Friedrich et al. 2022)",
+        "DOI:10.1007/s00453-022-01089-6 (Friedrich et al. 2023)",
+        "Resultary semantic search for cactus inverse-network game"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known cycle inefficiency is a special case; Theorems 9 and 10 give sufficient stability bounds only.",
+          "The new statement asserts *every* improving move increases an explicit potential for *every* cactus and alpha; general-host results do not yield this."
+        ],
+        "reasoning": "Cactus block-cut distance additivity is an additional lemma needed to derive the exact thresholds; a single-cycle example cannot imply the full statement.",
+        "searches": [
+          "Friedrich et al. Algorithmica 2023 original model and cycle examples",
+          "Resultary semantic query: social distancing network creation game connected spanning cactus host strict unilateral edge deletion bilateral edge addition exact ordinal potential equilibrium classification factor by cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same unilateral deletion and bilateral addition distance-plus-degree utility is defined in Friedrich et al.; possible aliases include inverse network creation and pairwise stable graph creation.",
+          "Cactus block-cut additive distance decomposition is a separate assertion not supplied by the game definition."
+        ],
+        "reasoning": "A matching game name is not coverage: complete cyclewise threshold/all-equilibria characterization and a strict ordinal potential are not present in the inspected source results.",
+        "searches": [
+          "Resultary semantic query: social distancing network creation game connected spanning cactus host strict unilateral edge deletion bilateral edge addition exact ordinal potential equilibrium classification factor by cycles",
+          "https://arxiv.org/html/2204.10423",
+          "https://doi.org/10.1007/s00453-022-01089-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant Resultary cactus hits concern different graph invariants, not social-distancing equilibria.",
+          "The source provides isolated cycle-host examples rather than the complete cartesian product count."
+        ],
+        "reasoning": "No matching table covers the specific game equilibrium product in the inspected data; absence of a match is not proof of global novelty.",
+        "searches": [
+          "Resultary semantic query: social distancing network creation game connected spanning cactus host strict unilateral edge deletion bilateral edge addition exact ordinal potential equilibrium classification factor by cycles",
+          "https://arxiv.org/abs/2204.10423"
+        ]
+      },
+      "rationale": "The source model and a one-cycle inefficiency example are prior art from Friedrich et al. The complete all-alpha cactus-specific exact ordinal potential, equilibrium product and welfare decomposition were not found in inspected stronger general-host theorems or indexed findings. Distinguish prior cycle examples and general parameter-range bounds from an exact every-cactus classification; unindexed specialist overlap remains possible.",
+      "residual_risks": [
+        "A specialized unindexed cactus-host pairwise-stability theorem may cover parts of the result; literature is not exhaustively searched.",
+        "Unrestricted-host results are not a proof of newness on cactus hosts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model, general bounds and cycle special cases, not the inspected all-cactus complete classification",
+          "evidence": [
+            "arXiv:2204.10423 Sections model and stable networks; Theorems 4,9,10 and related cycle examples"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2204.10423",
+          "material_read": "Full accessible arXiv HTML model, equilibrium statements, Theorem 4 improving cycle, Theorem 9 range, cycle-host inefficiency discussion",
+          "method": "Read primary full-text HTML with theorem and hypotheses comparison",
+          "title": "Social Distancing Network Creation",
+          "trigger": "Exact same utility model and potentially dominating results"
+        },
+        {
+          "assessment": "Does not change the logical distinction between sufficient global bounds and exact cactus factorization",
+          "evidence": [
+            "Algorithmica 85 (2023), 2087-2130"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00453-022-01089-6",
+          "material_read": "Relevant accessible publisher/primary theorem statements and original abstract/model comparisons",
+          "method": "Original primary source comparison via accessible HTML",
+          "title": "Social Distancing Network Creation",
+          "trigger": "Expanded 2023 journal version"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cactus graphs form a natural maximal block structure on which shortest-path distance increments decouple, sharply contrasting with improving-response cycles on unrestricted host graphs. The exact all-parameter potential, equilibrium count, and welfare optimization solve structural, algorithmic and price-of-stability questions beyond a textbook substitution. The earlier one-cycle inefficiency observation is not counted as the contribution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2204.10423 (Friedrich et al. 2022)",
+    "DOI:10.1007/s00453-022-01089-6 (Friedrich et al. 2023)",
+    "Resultary semantic search for cactus inverse-network game"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only finite connected simple cactus hosts, connected spanning states, strict one-edge permitted moves, alpha>0.",
+    "No theorem for arbitrary host graphs, coalitional changes or weighted edges."
+  ],
+  "residual_risks": [
+    "A specialized unindexed cactus-host pairwise-stability theorem may cover parts of the result; literature is not exhaustively searched.",
+    "Unrestricted-host results are not a proof of newness on cactus hosts."
+  ],
+  "schema_version": 1
+}

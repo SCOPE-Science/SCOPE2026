@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verification/cactus_check.py` using Python 3.10 or later, without third-party dependencies. The deterministic script constructs cactus hosts, enumerates their cycle-deletion states, and compares all legal unilateral deletions and bilateral additions against exact threshold calculations. It also checks the welfare additivity identity, optimal welfare, stable-state counts, strict potential increase for every profitable move, and connected-subgraph completeness for small hosts.
+## correctness
 
-Recorded run: `PASS: 1093 cactus/parameter instances, 26710 states, exact pairwise moves, welfare and potential`; `Connected-state exhaustive equality: 1526 states checked via every edge subset`; `Eleven-vertex example: host welfare 450, optimum 480`.
+PASS
 
-All model payoffs and comparisons in this script are evaluated using integers or exact rational fractions. This is finite reproducibility, not a proof for all finite cactus graphs. The universal proof is in RESULT.md, Sections 1–5. No external independent validation has been performed.
+For any finite connected simple cactus H, a connected spanning subgraph retains every host bridge and omits at most one edge from each cycle. The block-cut tree has a unique itinerary between any two vertices, so distances satisfy d_G(x,y)-d_H(x,y)=sum_(e omitted)[d_(H-e)(x,y)-d_H(x,y)], even for articulation-shared cycles. If e={a,b} is deleted, each endpoint's utility shift equals q_endpoint(e)-alpha; it is profitable unilaterally exactly when tau_e=max(q_a,q_b)>alpha. Conversely bilateral addition profits for both exactly when alpha>tau_e. Hence Phi=sum_C(alpha for intact C, tau_e for deleted e) is a strict ordinal potential. Cycle-independent stable choices are intact for alpha>=max_e tau_e and broken at e for alpha<=tau_e, proving the exact product enumeration and nonempty factors at equality. Summing the same distance increments over ordered vertex pairs gives W(G)=W(H)+sum_(omitted e)(Q_e-2alpha), which yields cyclewise polynomial-time optimal/best-stable/worst-stable welfare. In the triangle with k-1 leaves at each of two vertices, tau_e=k and the ab deletion improves welfare by 2(k²-alpha), so for k<alpha<k² the intact state is uniquely stable but not optimal; at k=5,alpha=10 welfares are 450 and 480, with PoS approaching 8/7 along alpha=k+1/2. Read the frozen RESULT, supporting source, verification script, and source tree. Finite script tests are supporting rather than all-cactus proof.
+
+## originality
+
+PASS
+
+The source model and a one-cycle inefficiency example are prior art from Friedrich et al. The complete all-alpha cactus-specific exact ordinal potential, equilibrium product and welfare decomposition were not found in inspected stronger general-host theorems or indexed findings. Distinguish prior cycle examples and general parameter-range bounds from an exact every-cactus classification; unindexed specialist overlap remains possible.
+
+## value
+
+PASS
+
+Cactus graphs form a natural maximal block structure on which shortest-path distance increments decouple, sharply contrasting with improving-response cycles on unrestricted host graphs. The exact all-parameter potential, equilibrium count, and welfare optimization solve structural, algorithmic and price-of-stability questions beyond a textbook substitution. The earlier one-cycle inefficiency observation is not counted as the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The scope is restricted to finite connected simple cactus hosts and connected spanning states. In each cactus cycle at most one edge may be removed; the block-cut tree makes shortest-path increments from different removed cycle edges exactly additive, including at shared articulation vertices. The actual payoff changes at the two endpoints are the full-host distance shocks minus/plus the degree reward. These establish the proposed ordinal potential and the strict, tie-aware equilibrium tests. The same distance identity proves the welfare decomposition. The attachment-star family follows by direct finite distance counts. A deterministic executable has verified 1,093 parameterized instances and 26,710 state-level checks, with a separate exhaustive connected-state comparison of 1,526 small cases. Finite computation is supplemental, not substituted for the proof.
+PASS
 
-## Originality
+For any finite connected simple cactus H, a connected spanning subgraph retains every host bridge and omits at most one edge from each cycle. The block-cut tree has a unique itinerary between any two vertices, so distances satisfy d_G(x,y)-d_H(x,y)=sum_(e omitted)[d_(H-e)(x,y)-d_H(x,y)], even for articulation-shared cycles. If e={a,b} is deleted, each endpoint's utility shift equals q_endpoint(e)-alpha; it is profitable unilaterally exactly when tau_e=max(q_a,q_b)>alpha. Conversely bilateral addition profits for both exactly when alpha>tau_e. Hence Phi=sum_C(alpha for intact C, tau_e for deleted e) is a strict ordinal potential. Cycle-independent stable choices are intact for alpha>=max_e tau_e and broken at e for alpha<=tau_e, proving the exact product enumeration and nonempty factors at equality. Summing the same distance increments over ordered vertex pairs gives W(G)=W(H)+sum_(omitted e)(Q_e-2alpha), which yields cyclewise polynomial-time optimal/best-stable/worst-stable welfare. In the triangle with k-1 leaves at each of two vertices, tau_e=k and the ab deletion improves welfare by 2(k²-alpha), so for k<alpha<k² the intact state is uniquely stable but not optimal; at k=5,alpha=10 welfares are 450 and 480, with PoS approaching 8/7 along alpha=k+1/2. Read the frozen RESULT, supporting source, verification script, and source tree. Finite script tests are supporting rather than all-cactus proof.
 
-**PASS, best-knowledge with residual bibliographic risk.** The primary 2022 source gives the game definition, general sufficient equilibrium regimes, some inefficiency examples and an improving-response cycle for the unrestricted model. It does not give an all-incentive cactus-host ordinal potential or the product classification of *all* equilibria. Searches for the exact source, cactus-host variants, potential formulations and equivalent distance/block decomposition formulations in published mathematical records and in accessible related research returned no stronger claim covering this one. The previously published isolated-cycle inefficiency is explicitly excluded from the new contribution. Unindexed or otherwise inaccessible specialized results remain a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This identifies a natural structural boundary where the general game can cycle but the cactus-restricted game always converges. The explicit threshold product answers existence, counting, equilibrium selection and exact welfare optimization for every finite cactus and every incentive value. This goes beyond a small numerical example and supplies a complete polynomially computable classification with nonvanishing inefficiency witnesses.
+The source model and a one-cycle inefficiency example are prior art from Friedrich et al. The complete all-alpha cactus-specific exact ordinal potential, equilibrium product and welfare decomposition were not found in inspected stronger general-host theorems or indexed findings. Distinguish prior cycle examples and general parameter-range bounds from an exact every-cactus classification; unindexed specialist overlap remains possible.
 
-## Limits and relation to prior work
+## value
 
-The theorem assumes an undirected simple cactus host, one-edge unilateral deletion, strictly mutually beneficial single-edge addition, and connected spanning states. It does not address arbitrary host graphs or coalitional edge changes. Closest primary source: Friedrich et al., *Social Distancing Network Creation*, arXiv:2204.10423v1 (2022-04-21), ICALP 2022, and *Algorithmica* 85 (2023), particularly Theorems 4, 7, 9, 10 and 14–15. Their cycle-only special cases and general sufficient parameter bounds neither contradict nor imply this cactus-wide classification. No independent audit is reported.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cactus graphs form a natural maximal block structure on which shortest-path distance increments decouple, sharply contrasting with improving-response cycles on unrestricted host graphs. The exact all-parameter potential, equilibrium count, and welfare optimization solve structural, algorithmic and price-of-stability questions beyond a textbook substitution. The earlier one-cycle inefficiency observation is not counted as the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
