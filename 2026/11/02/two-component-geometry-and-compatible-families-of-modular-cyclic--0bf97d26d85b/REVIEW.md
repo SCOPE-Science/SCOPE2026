@@ -1,15 +1,21 @@
-# Self-review: modular cyclic-four Rota–Baxter operators
+# Independent mathematical audit
 
-## Correctness — PASS
-The normal form follows from the Rota–Baxter identity in characteristic two: diagonal substitution forces every output into the square-zero ideal \((t^2)\); basis pairs then force the coefficient vanishings and leave precisely \(cf=0\). All remaining basis-pair identities were proved, not inferred from experiments. Linear compatibility follows by polarizing this equation and distinguishing whether any coefficient \(c_i\) is nonzero. Each component is an affine four-space, and its rank generating polynomial is obtained by independent finite-field matrix counts; the intersection is subtracted once. The complete proof specifies all field, tuple-length, rank and reduced-variety assumptions. The standard-library checker independently tests the original bilinear identity on every binary linear map and on all forced-image quaternary maps, plus every binary compatible pair and triple.
+## correctness
 
-## Originality — PASS, provisional
-The 2014 Guo–Rosenkranz–Zheng arXiv text treats monomial and injective Rota–Baxter operators on the untruncated polynomial algebra under characteristic-zero assumptions, with compatibility in its general definitions. The 2019 Zheng–Guo–Rosenkranz article explicitly classifies group/semigroup algebras only of orders two and three, and explicitly proposes exploring order four. Earlier rank-one formulas for truncated polynomial algebras already cover the rank-one specialization here; that part is not claimed new. An earlier characteristic-two index-three construction concerns a different square-zero-radical local algebra. An earlier modular unit-value result constrains \(P(1)\) but does not classify the full operator or all compatible families. The published four-dimensional exterior-algebra census is on a nonisomorphic algebra with two-dimensional cotangent space, not on the cyclic-four group algebra with one-dimensional cotangent space. Actual index and accessible historical-claim searches revealed no exact or dominating formula. No search proves uniqueness, and a broader unlocated classification could still cover some findings.
+PASS
 
-## Mathematical value — PASS
-Rota–Baxter operators on low-dimensional group algebras are an explicitly motivated classification problem in the 2019 primary paper. The characteristic-two cyclic group algebra of order four is the first cyclic two-power example beyond the already-classified smaller group algebras. The complete normal form distinguishes two maximal linearly compatible operator spaces, their reducible parameter geometry, the entire all-arity joint rank distribution, and exact nilpotency-index-three locus. These are structural invariants not recoverable from the known rank-one count or the known unit-value restriction. The result is a finite-dimensional complete classification, not a dimensionless substitution of a textbook identity.
+PASS: Characteristic-two RB identity with x=y forces all outputs square-zero and hence in (t^2) of k[t]/(t^4). Basis pairs force P(t^3)=0, t^2 coefficient of P(t^2)=0, and sole remaining cf=0. Conversely all 10 unordered pairs satisfy the original identity. Hyperplanes c=0 and f=0 give complete reduced geometry; pairwise sums force each compatible family into one common hyperplane. Direct independent examination of all 2^16 F2 endomorphisms gave exactly 24 and ranks (1,13,10), compatible F2 pairs 448 and triples 7680. Matrix rank counting proves all q=2^e formulas.
 
-## Literature and limitations
-Primary sources: Guo, Rosenkranz and Zheng, arXiv:1407.5306v1 (20 July 2014), full HTML Sections 1–4 examined; Zheng, Guo and Rosenkranz, *Communications in Algebra* 47 (2019), 3094–3116, DOI:10.1080/00927872.2018.1552278, indexed full-text material including abstract, introduction, general equations and conclusion examined. Farooq, arXiv:2605.15670v1, addresses characteristic-zero square-zero-radical quotients. The original full text of every possible priority source was not exhaustively inspected. The theorem does not certify the scheme-theoretic nilpotent structure or conjugacy classes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: published characteristic-zero semigroup orders 2/3, radical-square-zero and untruncated polynomial classifications do not imply this characteristic-two cyclic-four quotient and all-length compatible families. Earlier rank-one formulas are explicitly credited; finite-field full-operator and compatibility geometry is the surviving candidate.
+
+## value
+
+PASS
+
+PASS: complete classification of all weight-zero maps on the smallest nontrivial modular cyclic-four group algebra, including its two maximal compatible linear spaces and exact rank/tuple count; naturally motivated modular representation and Rota–Baxter compatibility invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

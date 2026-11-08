@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the finite-field checks
+# Independent mathematical audit
 
-The reproducible, standard-library-only command is `python3 verify.py`. `verification_output.txt` records its exact output.
+## correctness
 
-The checker represents the algebra using the original multiplication table of \(k[t]/(t^4)\) and tests the original Rota–Baxter identity on all sixteen ordered pairs of basis elements. In \(\mathbb F_2\), it exhausts every one of the \(2^{16}=65536\) linear endomorphisms without presupposing the normal form, accepting 24; the rank distribution is \((1,13,10)\), and four operators have index three. It tests all 576 ordered pairs of accepted operators, finding 448 compatible ones, and all 13824 ordered triples, finding 7680 compatible ones.
+PASS
 
-For \(\mathbb F_4\), the checker independently implements extension-field multiplication using the irreducible polynomial \(z^2+z+1\). It exhaustively tests all \(4^8=65536\) linear maps whose images belong to the proven forced square-zero ideal; 448 satisfy the defining identity, with rank distribution \((1,123,324)\) and 144 index-three operators. The rank and compatibility comparisons use the explicit theoretical formulas. Finite checks do not replace the proof over all characteristic-two fields and all tuple lengths.
+PASS: Characteristic-two RB identity with x=y forces all outputs square-zero and hence in (t^2) of k[t]/(t^4). Basis pairs force P(t^3)=0, t^2 coefficient of P(t^2)=0, and sole remaining cf=0. Conversely all 10 unordered pairs satisfy the original identity. Hyperplanes c=0 and f=0 give complete reduced geometry; pairwise sums force each compatible family into one common hyperplane. Direct independent examination of all 2^16 F2 endomorphisms gave exactly 24 and ranks (1,13,10), compatible F2 pairs 448 and triples 7680. Matrix rank counting proves all q=2^e formulas.
 
-The source and recorded output are complete files contained in the same package. No external certification, independent mathematical audit or formal proof assistant validation was performed.
+## originality
+
+PASS
+
+PASS qualified: published characteristic-zero semigroup orders 2/3, radical-square-zero and untruncated polynomial classifications do not imply this characteristic-two cyclic-four quotient and all-length compatible families. Earlier rank-one formulas are explicitly credited; finite-field full-operator and compatibility geometry is the surviving candidate.
+
+## value
+
+PASS
+
+PASS: complete classification of all weight-zero maps on the smallest nontrivial modular cyclic-four group algebra, including its two maximal compatible linear spaces and exact rank/tuple count; naturally motivated modular representation and Rota–Baxter compatibility invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
