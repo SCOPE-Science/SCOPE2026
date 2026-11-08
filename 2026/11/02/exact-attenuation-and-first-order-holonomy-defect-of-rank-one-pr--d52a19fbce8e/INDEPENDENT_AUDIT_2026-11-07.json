@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T11:44:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frobenius normal n(t)=u_perp u_perp^T and the chosen two orthonormal symmetric tangent frame vectors plus skew A yield continuous coefficient ODE a′=sqrt(2)b,b′=−sqrt(2)a. Next-plane projections give B_N with trace (1+3cosδ)/2 and determinant (1+cosδ)/2=cos²(pi/N); discriminant (cosδ−1)(9cosδ+7)/4 is negative for N>=3. Cayley–Hamilton supplies B_N^N and determinant-one scaled singular values; no common nonzero symmetric vector lies in all tangent planes, so strict contraction follows. Taylor expansions rho^N=1−pi²/(2N)+O(N^-2), Ntheta=sqrt(2)pi+O(N^-2), v/omega=pi/(2sqrt(2)N)+O(N^-3) lead to the exact norm coefficient. Independent matrix computation checked spectrum, singular values and asymptotic limit over small/large meshes. N=3 handled; no nonhomogeneous equation asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carrel–Vanzan prove first-order accuracy under general assumptions; other texts explain projection as vector transport or continuous manifold transport."
+        ],
+        "reasoning": "Qualitative O(1/N) coverage is prior, but does not determine the exact finite-N singular spectrum nor sharp coefficient of this path.",
+        "searches": [
+          "arXiv:2610.29554 Section 5.2.1",
+          "Boumal manifold vector transport",
+          "arXiv:2408.06054"
+        ]
+      },
+      "checked_sources": [
+        "Carrel & Vanzan, Dynamical low-rank approximations for the optimal control of matrix ODEs, arXiv:2610.29554, §5.2.1",
+        "Boumal, An Introduction to Optimization on Smooth Manifolds, public book manuscript",
+        "Nguyen & Sommer, Parallel transport on matrix manifolds and Exponential Action, arXiv:2408.06054",
+        "Louis et al., A Fanning Scheme for the Parallel Transport along Geodesics on Riemannian Manifolds, DOI:10.1137/17M1130617",
+        "Resultary semantic search: product moving tangent orthogonal projections rank one matrix manifold closed loop monodromy holonomy spectral attenuation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior general bound gives norm error O(1/N) only; full loop computation yields limit N||error||=pi²/2+pi|sin(sqrt2 pi)|/(2sqrt2)."
+        ],
+        "reasoning": "The sharp nonzero coefficient and attenuation involve computing 2x2 transfer discriminant and nonnormal singular values, not a direct restatement of the convergence-order theorem.",
+        "searches": [
+          "Carrel Vanzan first order projected Euler theorem",
+          "Nguyen Sommer continuous parallel transport"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The projected step is a product of orthogonal tangent projectors, equivalently successive frame overlap B_N and a singular vector transport."
+        ],
+        "reasoning": "Generic products-of-projections formulas may simplify in this 2x2 periodic case; specific closed power and sharp error constant require additional analysis.",
+        "searches": [
+          "product moving tangent orthogonal projections rank one matrix manifold closed loop monodromy holonomy spectral attenuation",
+          "rotating projection product rank one tangent loops"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches concerned other rank-one operator norms rather than this monodromy; the result gives explicit N-dependent matrix and singular values."
+        ],
+        "reasoning": "A prior exact rotating-projection table could cover the present benchmark; no same table was retrieved.",
+        "searches": [
+          "rank one projector closed loop monodromy singular values finite N",
+          "product moving tangent orthogonal projections rank one matrix manifold closed loop monodromy holonomy spectral attenuation"
+        ]
+      },
+      "rationale": "Qualified PASS: Carrel–Vanzan 2026 Section 5.2.1 develops the very same projected Euler method and generic O(h) error, but not the explicit 2x2 periodic transfer, finite-step singular values or leading constant for this closed loop. Earlier rotating-projector product literature may have equivalent exact spectra.",
+      "residual_risks": [
+        "Classical rotating-projector product formulas may already encode the same exact loop spectrum.",
+        "Benchmark is fixed rank-one 2x2 and homogeneous transport only.",
+        "Finite numerical convergence tests are not interval certificates for the infinite-grid limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Projected step and first-order global accuracy prior; explicit circular rank-one holonomy spectrum/constant not stated in inspected section.",
+          "evidence": "A special benchmark elsewhere in work not inspected is a minor risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.29554",
+          "material_read": "Open full arXiv primary HTML with Section 5.2.1 and adjacent analytical accuracy discussion",
+          "method": "Read accessible primary HTML mathematical method and comparison of transport accuracies",
+          "title": "Dynamical low-rank approximations for the optimal control of matrix ODEs",
+          "trigger": "Same projected-Euler covariant transport integrator in motivating model"
+        },
+        {
+          "assessment": "Continuous transport on other matrix manifolds; no whole-document negative priority conclusion.",
+          "evidence": "Possible older exact continuous holonomy calculations.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.06054",
+          "material_read": "Abstract and primary bibliographic metadata; full text not inspected",
+          "method": "Open search and bibliography",
+          "title": "Parallel transport on matrix manifolds and Exponential Action",
+          "trigger": "Potential general exact matrix-manifold holonomy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A closed-form finite-grid spectral damping and sharp error constant for a canonical rank-one projector loop are useful benchmark invariants for vector transport; the distinction between eigenvalue and operator-norm damping is mathematically substantive, without claiming general error analysis.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Carrel & Vanzan, Dynamical low-rank approximations for the optimal control of matrix ODEs, arXiv:2610.29554, §5.2.1",
+    "Boumal, An Introduction to Optimization on Smooth Manifolds, public book manuscript",
+    "Nguyen & Sommer, Parallel transport on matrix manifolds and Exponential Action, arXiv:2408.06054",
+    "Louis et al., A Fanning Scheme for the Parallel Transport along Geodesics on Riemannian Manifolds, DOI:10.1137/17M1130617",
+    "Resultary semantic search: product moving tangent orthogonal projections rank one matrix manifold closed loop monodromy holonomy spectral attenuation"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a closed rank-one real 2x2 matrix curve Y(t)=u(t)u(t)^T, 0<=t<=pi, the N>=3 projected tangent transport loop has explicit B_N^N monodromy on the symmetric tangent plane and fixes skew mode. Its eigenvalue modulus is cos(pi/N)^N, all finite-grid symmetric singular values are <1, and N times loop error tends to pi²/2+pi|sin(sqrt(2)pi)|/(2sqrt(2)).",
+  "limitations": [
+    "Classical rotating-projector product formulas may already encode the same exact loop spectrum.",
+    "Benchmark is fixed rank-one 2x2 and homogeneous transport only.",
+    "Finite numerical convergence tests are not interval certificates for the infinite-grid limit.",
+    "Full assigned Git directory-tree SHA not independently recomputed; exact individual source blob SHA identifiers verified for five files.",
+    "No GitHub writes or published certificate produced; privacy release not ready."
+  ],
+  "residual_risks": [
+    "Classical rotating-projector product formulas may already encode the same exact loop spectrum.",
+    "Benchmark is fixed rank-one 2x2 and homogeneous transport only.",
+    "Finite numerical convergence tests are not interval certificates for the infinite-grid limit."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Projected step and first-order global accuracy prior; explicit circular rank-one holonomy spectrum/constant not stated in inspected section.",
+      "evidence": "A special benchmark elsewhere in work not inspected is a minor risk.",
+      "identifier_or_url": "https://arxiv.org/abs/2610.29554",
+      "material_read": "Open full arXiv primary HTML with Section 5.2.1 and adjacent analytical accuracy discussion",
+      "method": "Read accessible primary HTML mathematical method and comparison of transport accuracies",
+      "title": "Dynamical low-rank approximations for the optimal control of matrix ODEs",
+      "trigger": "Same projected-Euler covariant transport integrator in motivating model"
+    },
+    {
+      "assessment": "Continuous transport on other matrix manifolds; no whole-document negative priority conclusion.",
+      "evidence": "Possible older exact continuous holonomy calculations.",
+      "identifier_or_url": "https://arxiv.org/abs/2408.06054",
+      "material_read": "Abstract and primary bibliographic metadata; full text not inspected",
+      "method": "Open search and bibliography",
+      "title": "Parallel transport on matrix manifolds and Exponential Action",
+      "trigger": "Potential general exact matrix-manifold holonomy"
+    }
+  ]
+}
