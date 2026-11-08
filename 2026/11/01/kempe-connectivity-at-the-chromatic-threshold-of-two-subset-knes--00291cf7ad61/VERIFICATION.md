@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_bruteforce.py`, `python3 verify_components.py`, and `python3 verify_kempe.py` with Python 3.10 or later and no third-party dependencies. The direct search checks all canonically named optimum colourings for \(n=4,5,6,7\); the separate full labelled graph search checks component sizes at \(n=4,5,6\); the Kempe checker independently builds induced two-colour components and explores the complete Kempe graph at \(n=4,5,6\). All returned PASS on saved files. Finite runs do not certify the all-parameter statement, which follows from the constructive proof in `RESULT.md`. Independent audit has not been performed.
+## correctness
+
+PASS
+
+The normal form of a minimum labelled n−2-colouring of KG(n,2) comprises exactly one triangle colour class on Q and one star class per S=[n]\Q; center-center edges independently choose an endpoint class. For any s,t∈S, recolouring {s,t} is an isolated Kempe component. A 6-spoke connected bichromatic component transposes center colours. Making a center a sink permits three two-vertex Kempe components to move one Q vertex into S. The constructed round trip then interchanges the triangle colour with any center colour while restoring Q, so Johnson connectivity and palette transpositions imply one Kempe class for n≥5; n=4 is three disjoint K2. Single-site moves only toggle center-center assignments; exact cube count C(n,3)(n−2)! with dimension C(n−3,2). Independently enumerated 8,120,3840 labelled optimal colourings for n=4,5,6 and computed actual Kempe component BFS, reaching all states; these finite cases only corroborate all-n constructive proof.
+
+## originality
+
+PASS
+
+The published static triangle/star classification is credited, and Bonamy–Bousquet–Feghali–Johnson general cubic graph Kempe theorem covers Petersen n=5 but not the unbounded KG(n,2) family with growing palette/degree. Search found no all-n Kempe connectedness and exact single-site cube classification. Priority risk remains for a general theorem on complete-graph edge intersection colourings.
+
+## value
+
+PASS
+
+Gives complete Kempe reachability for every chromatic optimum labelled 2-subset Kneser colouring, with exact contrast to exponentially many components under single-site dynamics; a natural all-n structural reconfiguration theorem beyond trivial recolouring.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

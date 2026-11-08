@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T19:10:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normal form of a minimum labelled n−2-colouring of KG(n,2) comprises exactly one triangle colour class on Q and one star class per S=[n]\\Q; center-center edges independently choose an endpoint class. For any s,t∈S, recolouring {s,t} is an isolated Kempe component. A 6-spoke connected bichromatic component transposes center colours. Making a center a sink permits three two-vertex Kempe components to move one Q vertex into S. The constructed round trip then interchanges the triangle colour with any center colour while restoring Q, so Johnson connectivity and palette transpositions imply one Kempe class for n≥5; n=4 is three disjoint K2. Single-site moves only toggle center-center assignments; exact cube count C(n,3)(n−2)! with dimension C(n−3,2). Independently enumerated 8,120,3840 labelled optimal colourings for n=4,5,6 and computed actual Kempe component BFS, reaching all states; these finite cases only corroborate all-n constructive proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cubic result covers Petersen n=5 (KG(5,2) 3-regular, 3-colour) but for n>=6 KG(n,2) has degree C(n−2,2), palette n−2, not cubic/3-color.",
+          "2023 result supplies static normal form only."
+        ],
+        "reasoning": "No found stronger Kempe connectivity theorem for arbitrarily high n that implies this optimal-palette family.",
+        "searches": [
+          "Bonamy Bousquet Feghali Johnson Kempe equivalence colourings cubic graphs 2017",
+          "Jalilolghadra Behtoei optimal KG(n,2) colourings 2023"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md f34dcd748599fdf44b71fd428f18457e1f954e45; verify_kempe.py 1256bb6fb3ec087bbee367c124ad5346947a9c09",
+        "Independent full labeled n4,5,6 Kempe BFS, plus direct proof review",
+        "Bonamy et al Eur J Comb 59 (2017) main theorem",
+        "Jalilolghadra–Behtoei (2023) Theorem2.2",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Triangle/star classification counts states but contains no reconfiguration paths; six-spoke and triangle-replacement chains supply constructive reachability.",
+          "Petersen n=5 special case does not imply n>=6."
+        ],
+        "reasoning": "Claim is not a mere renaming or numerical substitution into the cubic result; proof uses new family-specific chain moves.",
+        "searches": [
+          "static normal form of KG(n,2) chromatic colorings",
+          "2017 cubic Kempe theorem Petersen"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Colour classes are pairwise-intersecting edge sets in K_n, hence stars or triangles; the theorem equivalently asserts connectivity of their labelled optimal partitions under bichromatic component swaps."
+        ],
+        "reasoning": "Static intersecting-edge partition classifications do not automatically determine connectivity under moves.",
+        "searches": [
+          "Kempe equivalence minimum colorings Kneser graph KG(n,2) chromatic number n minus 2 recoloring components",
+          "edge colouring complete graph by intersecting edge families Kempe chains triangular star classes",
+          "Kneser KG(n,2) minimum coloring reconfiguration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent small exact BFS gives n=4:8, n=5:120, n=6:3840 all in one Kempe component.",
+          "Resultary indexed graph coloring claims are about crown/multipartite graphs, not this Kempe family."
+        ],
+        "reasoning": "Small-case enumeration not a prior infinite-family table and does not by itself establish all-n connectivity.",
+        "searches": [
+          "Kempe equivalence minimum colorings Kneser graph KG(n,2) chromatic number n minus 2 recoloring components",
+          "Resultary Kempe Kneser KG(n,2) connectivity",
+          "KG(4,2) KG(5,2) KG(6,2) minimum coloring Kempe graph"
+        ]
+      },
+      "rationale": "The published static triangle/star classification is credited, and Bonamy–Bousquet–Feghali–Johnson general cubic graph Kempe theorem covers Petersen n=5 but not the unbounded KG(n,2) family with growing palette/degree. Search found no all-n Kempe connectedness and exact single-site cube classification. Priority risk remains for a general theorem on complete-graph edge intersection colourings.",
+      "residual_risks": [
+        "A non-indexed general Kempe result for edge-intersection partitions could subsume the proof.",
+        "No independent exhaustive verification for all n; constructive proof handles arbitrary n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers only bounded degree cubic graph three-colourings; Petersen instance, not n>=6 KG(n,2)",
+          "evidence": "Main theorem on 3-colourings of cubic graphs",
+          "identifier_or_url": "Bonamy–Bousquet–Feghali–Johnson, Eur J Comb 59 (2017), doi:10.1016/j.ejc.2016.06.008",
+          "material_read": "Full accessible HTML: introductory definitions, main cubic three-colour theorem and exceptions",
+          "method": "open journal/preprint text",
+          "title": "Kempe equivalence of colourings of cubic graphs",
+          "trigger": "Closest Kempe connectedness theorem"
+        },
+        {
+          "assessment": "prior static classification, does not itself give Kempe connectivity",
+          "evidence": "Theorem 2.2 as cited in RESULT.md",
+          "identifier_or_url": "Jalilolghadra–Behtoei 2023 doi:10.1080/09728600.2023.2170299",
+          "material_read": "Available result/theorem description of Theorem2.2 quoted in frozen source, no full proof read this run",
+          "method": "open title/abstract and frozen theorem citation",
+          "title": "Total dominator chromatic number of Kneser graphs",
+          "trigger": "Exact optimal-colouring normal form"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives complete Kempe reachability for every chromatic optimum labelled 2-subset Kneser colouring, with exact contrast to exponentially many components under single-site dynamics; a natural all-n structural reconfiguration theorem beyond trivial recolouring.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md f34dcd748599fdf44b71fd428f18457e1f954e45; verify_kempe.py 1256bb6fb3ec087bbee367c124ad5346947a9c09",
+    "Independent full labeled n4,5,6 Kempe BFS, plus direct proof review",
+    "Bonamy et al Eur J Comb 59 (2017) main theorem",
+    "Jalilolghadra–Behtoei (2023) Theorem2.2",
+    "Resultary semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Minimum named palette n−2 only; no Kempe diameter or mixing-time statement."
+  ],
+  "schema_version": 1
+}
