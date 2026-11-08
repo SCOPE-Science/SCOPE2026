@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T10:51:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/a-five-pair-variance-threshold-for-reused-gaussian-quadratic-con--e31f3f81d896/RESULT.md at Git blob 416e2919b2115d027e403d3aa5bbb8a8c92fe914, tree ba2221307eea6c6bf4023b41235281b6c5324856",
+        "2026/11/02/a-five-pair-variance-threshold-for-reused-gaussian-quadratic-con--e31f3f81d896/verify.py at blob 6b4eb03a2451eb430bb903ea824c27cb980c7bd1",
+        "independent_checks.py symbolic inverse-moment identity"
+      ],
+      "rationale": "For Y_i=Z_i², decompose first n terms as T W_i with T~chi²_n and W~Dirichlet(1/2,...,1/2) independent. Then S=T² V_n and Δ=(q/m)(T/n−T′/q), with T′ independent chi²_q; conditionally beta_hat-beta=σG/(T sqrt(V_n)). T negative moments are finite iff exponent<n/2, and V_n^-r/2 near the interior barycenter iff r<n−1; this yields slope exponent r<n/2 and the n>=3 sharp tail constant. Conditional unbiasedness holds for n>=3, while T^-1 divergence destroys integrability for n=2 and T^-2 gives variance cutoff n>=5 (V^-1 also finite then). Total variance gives stated formula; independent sympy verifies rational simplification 2(n²+nq+4q)/[n²q(n−2)(n−4)] and corresponding gain threshold. The exact all-integer assertion follows from factorization and polar integrability, not MC checks.",
+      "residual_risks": [
+        "Neither independent exact symbolic algebra nor finite Monte Carlo replaces reasoning at singular T=0 and W barycenter; those are explicitly addressed analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rex–Qian optimum multifidelity allocations use stable/population coefficients; Yang–Ding derive asymptotic regression properties, not the finite-pilot negative moments."
+        ],
+        "reasoning": "Asymptotic CLTs and generic pilot warnings cannot imply sharp n=2 nonintegrability, n=3 unbiasedness and n=5 finite-variance boundary, absent distribution-specific inverse-moment calculations.",
+        "searches": [
+          "Resultary: nested multifidelity two-phase regression estimator quadratic Gaussian pilot reuse infinite variance 5 samples",
+          "Yang and Ding, Two-phase rejective sampling and its asymptotic properties, arXiv:2403.01477v3, https://arxiv.org/html/2403.01477v3",
+          "Rex and Qian, Analytically Optimal Sample Allocations for Nested Multivariate Multifidelity Control Variate Estimators, arXiv:2610.19371",
+          "Dai, Tchelepi, Tartakovsky, Multifidelity Monte Carlo Estimator for High-Dimensional Quantities of Interest, arXiv:2610.25016",
+          "Pham and Gorodetsky, Ensemble Approximate Control Variate Estimators, arXiv:2101.02786",
+          "Sitter, Variance Estimation for the Regression Estimator in Two-Phase Sampling, JASA 92 (1997)"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/02/a-five-pair-variance-threshold-for-reused-gaussian-quadratic-con--e31f3f81d896/RESULT.md at Git blob 416e2919b2115d027e403d3aa5bbb8a8c92fe914, tree ba2221307eea6c6bf4023b41235281b6c5324856",
+        "Yang and Ding, Two-phase rejective sampling and its asymptotic properties, arXiv:2403.01477v3, https://arxiv.org/html/2403.01477v3",
+        "Rex and Qian, Analytically Optimal Sample Allocations for Nested Multivariate Multifidelity Control Variate Estimators, arXiv:2610.19371",
+        "Dai, Tchelepi, Tartakovsky, Multifidelity Monte Carlo Estimator for High-Dimensional Quantities of Interest, arXiv:2610.25016",
+        "Pham and Gorodetsky, Ensemble Approximate Control Variate Estimators, arXiv:2101.02786",
+        "Sitter, Variance Estimation for the Regression Estimator in Two-Phase Sampling, JASA 92 (1997)",
+        "Independent inverse-moment and gain-threshold symbolic checks in independent_checks.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gamma–Dirichlet factorization converts S_n=T² V_n with T~chi²_n; conditional variance includes E[T^-2]E[V^-1]."
+        ],
+        "reasoning": "Classical gamma algebra supplies ingredients, but no inspected prior theorem performs the exact repeated-pilot Gaussian-square calculation or yields the gain threshold as an immediate corollary.",
+        "searches": [
+          "Resultary: nested multifidelity two-phase regression estimator quadratic Gaussian pilot reuse infinite variance 5 samples",
+          "Yang and Ding, Two-phase rejective sampling and its asymptotic properties, arXiv:2403.01477v3, https://arxiv.org/html/2403.01477v3",
+          "Rex and Qian, Analytically Optimal Sample Allocations for Nested Multivariate Multifidelity Control Variate Estimators, arXiv:2610.19371",
+          "Dai, Tchelepi, Tartakovsky, Multifidelity Monte Carlo Estimator for High-Dimensional Quantities of Interest, arXiv:2610.25016",
+          "Pham and Gorodetsky, Ensemble Approximate Control Variate Estimators, arXiv:2101.02786",
+          "Sitter, Variance Estimation for the Regression Estimator in Two-Phase Sampling, JASA 92 (1997)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-phase regression adjustment ybarII − (xbarII−xbarI)beta_hatII is precisely the same estimator structure; auxiliary inputs are shifted Z^2 and superpopulation random, not fixed finite-population covariates."
+        ],
+        "reasoning": "Novelty does not lie in writing the two-phase regression estimator. It lies in the exact finite-sample distributional phase transition and variance formula under the quadratic-Gaussian response.",
+        "searches": [
+          "Resultary: nested multifidelity two-phase regression estimator quadratic Gaussian pilot reuse infinite variance 5 samples",
+          "Yang and Ding, Two-phase rejective sampling and its asymptotic properties, arXiv:2403.01477v3, https://arxiv.org/html/2403.01477v3",
+          "Rex and Qian, Analytically Optimal Sample Allocations for Nested Multivariate Multifidelity Control Variate Estimators, arXiv:2610.19371",
+          "Dai, Tchelepi, Tartakovsky, Multifidelity Monte Carlo Estimator for High-Dimensional Quantities of Interest, arXiv:2610.25016",
+          "Pham and Gorodetsky, Ensemble Approximate Control Variate Estimators, arXiv:2101.02786",
+          "Sitter, Variance Estimation for the Regression Estimator in Two-Phase Sampling, JASA 92 (1997)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cutoff is for all integers m>n>=2; K_n is an exact Dirichlet simplex integral, not a tabulated finite set."
+        ],
+        "reasoning": "A few numerical pilot sizes or Monte Carlo estimates would not certify the exact all-n moment boundary and gain inequality.",
+        "searches": [
+          "Resultary: nested multifidelity two-phase regression estimator quadratic Gaussian pilot reuse infinite variance 5 samples",
+          "Yang and Ding, Two-phase rejective sampling and its asymptotic properties, arXiv:2403.01477v3, https://arxiv.org/html/2403.01477v3",
+          "Rex and Qian, Analytically Optimal Sample Allocations for Nested Multivariate Multifidelity Control Variate Estimators, arXiv:2610.19371",
+          "Dai, Tchelepi, Tartakovsky, Multifidelity Monte Carlo Estimator for High-Dimensional Quantities of Interest, arXiv:2610.25016",
+          "Pham and Gorodetsky, Ensemble Approximate Control Variate Estimators, arXiv:2101.02786",
+          "Sitter, Variance Estimation for the Regression Estimator in Two-Phase Sampling, JASA 92 (1997)"
+        ]
+      },
+      "rationale": "The two-phase regression estimator itself is classical (Yang–Ding eq. 1); the assessed candidate is its exact heavy-tail, moment and MSE law when the same fitted slope is reused with chi-square-one auxiliary response. Earlier nested MFMC papers give optimal population coefficients or warnings about fitted variance but not the inspected exact cutoff n=5 and K_n criterion. Best-of-knowledge with explicit prior regression-literature risk.",
+      "residual_risks": [
+        "Older two-phase sampling literature, including Sitter 1997, may contain an equivalent exact Gaussian-auxiliary specialization not visible from accessible abstract.",
+        "The n>=5 cutoff is for shifted Gaussian squares with same-sample unregularized slope, not universal regression or multifidelity estimators."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Eq. (1) uses fitted second-phase coefficient and full first-phase auxiliary mean; theory is finite-population asymptotic sampling, not same exact shifted-chi-square superpopulation n=5 inverse-moment transition.",
+          "evidence": "Section 2.2 eq. (1) and Sections 3-5 focus on large-sample theory.",
+          "identifier_or_url": "https://arxiv.org/html/2403.01477v3",
+          "material_read": "Full accessible HTML mathematical text including Section 2.2 exact sample-regression formula and asymptotic theorems, supplementary proofs",
+          "method": "arXiv full HTML theorem, estimator and proof comparison",
+          "title": "Two-phase rejective sampling and its asymptotic properties",
+          "trigger": "Same two-phase fitted regression estimator structure"
+        },
+        {
+          "assessment": "Discusses optimal coefficients under population covariances and pilot regularization; does not present this exact unregularized superpopulation finite-pilot moment law.",
+          "evidence": "Section 3.3 on pilot-estimated covariance instability and coefficient selection.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.19371",
+          "material_read": "Full 25-page lawful OA PDF; Section 3.3 pilot coefficient ill-conditioning and population covariance-optimal allocations; page 7 visually inspected",
+          "method": "arXiv PDF scientific theorem and section reading, visual PDF screenshot",
+          "title": "Analytically Optimal Sample Allocations for Nested Multivariate Multifidelity Control Variate Estimators",
+          "trigger": "Contemporary directly named nested multifidelity study"
+        },
+        {
+          "assessment": "Cannot exclude a specialized finite-sample expression from a mere abstract; substantive unresolved historical coverage risk retained.",
+          "evidence": "Abstract on variance estimation of regression estimator.",
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1997.10474031",
+          "material_read": "Only abstract available; full 1997 paper not accessed",
+          "method": "Article abstract reading; no full-text conclusion",
+          "title": "Variance Estimation for the Regression Estimator in Two-Phase Sampling",
+          "trigger": "Historically plausible broad variance treatment of two-phase regression estimators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/a-five-pair-variance-threshold-for-reused-gaussian-quadratic-con--e31f3f81d896/RESULT.md at Git blob 416e2919b2115d027e403d3aa5bbb8a8c92fe914, tree ba2221307eea6c6bf4023b41235281b6c5324856",
+        "Yang and Ding, Two-phase rejective sampling and its asymptotic properties, arXiv:2403.01477v3, https://arxiv.org/html/2403.01477v3",
+        "Rex and Qian, Analytically Optimal Sample Allocations for Nested Multivariate Multifidelity Control Variate Estimators, arXiv:2610.19371"
+      ],
+      "rationale": "A precise small-pilot failure mode for a natural noisy quadratic auxiliary variable: exact unbiasedness can coexist with infinite variance, and the exact five-pair cutoff and fit-correction gain criterion are practical finite-sample invariants of a standard two-phase regression construction. The example is motivated by pilot reuse and ill-conditioned slope estimates, not an arbitrary distributional slice.",
+      "residual_risks": [
+        "No general theorem for nonquadratic or non-Gaussian covariates or all pilot-reuse algorithms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/11/02/a-five-pair-variance-threshold-for-reused-gaussian-quadratic-con--e31f3f81d896/RESULT.md at Git blob 416e2919b2115d027e403d3aa5bbb8a8c92fe914, tree ba2221307eea6c6bf4023b41235281b6c5324856",
+    "2026/11/02/a-five-pair-variance-threshold-for-reused-gaussian-quadratic-con--e31f3f81d896/verify.py at blob 6b4eb03a2451eb430bb903ea824c27cb980c7bd1",
+    "independent_checks.py symbolic inverse-moment identity",
+    "Yang and Ding, Two-phase rejective sampling and its asymptotic properties, arXiv:2403.01477v3, https://arxiv.org/html/2403.01477v3",
+    "Rex and Qian, Analytically Optimal Sample Allocations for Nested Multivariate Multifidelity Control Variate Estimators, arXiv:2610.19371",
+    "Dai, Tchelepi, Tartakovsky, Multifidelity Monte Carlo Estimator for High-Dimensional Quantities of Interest, arXiv:2610.25016",
+    "Pham and Gorodetsky, Ensemble Approximate Control Variate Estimators, arXiv:2101.02786",
+    "Sitter, Variance Estimation for the Regression Estimator in Two-Phase Sampling, JASA 92 (1997)",
+    "Independent inverse-moment and gain-threshold symbolic checks in independent_checks.py"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Neither independent exact symbolic algebra nor finite Monte Carlo replaces reasoning at singular T=0 and W barycenter; those are explicitly addressed analytically.",
+    "Older two-phase sampling literature, including Sitter 1997, may contain an equivalent exact Gaussian-auxiliary specialization not visible from accessible abstract.",
+    "The n>=5 cutoff is for shifted Gaussian squares with same-sample unregularized slope, not universal regression or multifidelity estimators.",
+    "No general theorem for nonquadratic or non-Gaussian covariates or all pilot-reuse algorithms."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Older two-phase sampling literature, including Sitter 1997, may contain an equivalent exact Gaussian-auxiliary specialization not visible from accessible abstract.",
+    "The n>=5 cutoff is for shifted Gaussian squares with same-sample unregularized slope, not universal regression or multifidelity estimators."
+  ]
+}

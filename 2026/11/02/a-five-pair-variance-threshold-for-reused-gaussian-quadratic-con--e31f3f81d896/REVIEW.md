@@ -1,15 +1,21 @@
-# Review of the five-pair multifidelity variance threshold
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The theorem is restricted to independent shifted \(\chi^2_1\) low-fidelity variables and an exact additive Gaussian conditional regression, with \(m>n\ge2\) and \(\sigma>0\). The crucial sample identities are \(S_n=T^2V_n\), \(\Delta=(q/m)(T/n-T'/q)\), and \(\widehat\beta-\beta=\sigma G/(T\sqrt{V_n})\), with mutually independent \(T\sim\chi_n^2\), \(T'\sim\chi_q^2\), Dirichlet weights and \(G\sim N(0,1)\). These yield the exact moment and regular-variation assertions. Conditional Gaussian orthogonality establishes the unbiasedness boundary; the inverse second moment of \(T\) establishes the finite-variance cutoff. The exact finite-variance identity and improvement inequality follow by a rational chi-square-moment calculation. The bundled verifier's 2,748 checks passed from the package source, but finite checks are not the proofs of the infinite-family statements.
+PASS
 
-## Originality (PASS, subject to historical priority risk)
+For Y_i=Z_i², decompose first n terms as T W_i with T~chi²_n and W~Dirichlet(1/2,...,1/2) independent. Then S=T² V_n and Δ=(q/m)(T/n−T′/q), with T′ independent chi²_q; conditionally beta_hat-beta=σG/(T sqrt(V_n)). T negative moments are finite iff exponent<n/2, and V_n^-r/2 near the interior barycenter iff r<n−1; this yields slope exponent r<n/2 and the n>=3 sharp tail constant. Conditional unbiasedness holds for n>=3, while T^-1 divergence destroys integrability for n=2 and T^-2 gives variance cutoff n>=5 (V^-1 also finite then). Total variance gives stated formula; independent sympy verifies rational simplification 2(n²+nq+4q)/[n²q(n−2)(n−4)] and corresponding gain threshold. The exact all-integer assertion follows from factorization and polar integrability, not MC checks.
 
-The regression-adjusted two-phase estimator is classical, not claimed as an invention: Yang and Ding, arXiv:2403.01477, Section 2.2, give its form and asymptotic design analysis. Rex and Qian, arXiv:2610.19371, Sections 3.1–3.3, give nested multifidelity coefficient and allocation formulas using population covariance; their practical subsection notes badly conditioned pilot-estimated covariance. Dai, Tchelepi and Tartakovsky, arXiv:2610.25016, Sections 3.7 and 4.4, analyze coefficient estimation and pilot reuse, noting that reuse is generally biased. Neither checked full text states this Gaussian-quadratic pilot moment spectrum, its special conditional unbiasedness, its exact non-Gaussian finite-size variance, or the accompanying strict gain criterion. Pham and Gorodetsky, arXiv:2101.02786, address coefficient uncertainty and variance-reduction guarantees at a different level of generality; only their abstract was inspected. Stanley et al., arXiv:2605.23016, study robustness to estimated pilot correlations, but their complete text was not inspected. Sitter (1997), DOI 10.1080/01621459.1997.10474031, directly concerns variance estimation for two-phase regression; only its abstract was available, leaving a further historical-priority risk. Relevant mathematical research records cover separate Gaussian finite-sample phenomena, not this same statement or a stronger theorem that clearly implies it. Exact historical priority is not guaranteed: older survey-sampling or regression theory could hide an equivalent specialized evaluation.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The main obstacle is a **moment failure**, not an optimization of a routine asymptotic coefficient. It exhibits a genuine phenomenon that population-level variance-reduction calculations and generic pilot-dimension rank conditions cannot detect: in a one-dimensional control family with arbitrarily many cheap observations, three and four expensive paired evaluations produce an unbiased but infinite-variance estimate. The \(n\ge5\) risk identity then gives an exact, interpretable threshold in the signal-to-noise ratio for when fitting the correction actually helps. This can inform pilot allocation, finite-sample regularization and stress testing of multifidelity software. The result is deliberately limited to this quadratic-Gaussian family, uses an unsimplified but explicitly defined Dirichlet constant, and makes no claim about general optimal allocation or independent external validation.
+The two-phase regression estimator itself is classical (Yang–Ding eq. 1); the assessed candidate is its exact heavy-tail, moment and MSE law when the same fitted slope is reused with chi-square-one auxiliary response. Earlier nested MFMC papers give optimal population coefficients or warnings about fitted variance but not the inspected exact cutoff n=5 and K_n criterion. Best-of-knowledge with explicit prior regression-literature risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A precise small-pilot failure mode for a natural noisy quadratic auxiliary variable: exact unbiasedness can coexist with infinite variance, and the exact five-pair cutoff and fit-correction gain criterion are practical finite-sample invariants of a standard two-phase regression construction. The example is motivated by pilot reuse and ill-conditioned slope estimates, not an arbitrary distributional slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
