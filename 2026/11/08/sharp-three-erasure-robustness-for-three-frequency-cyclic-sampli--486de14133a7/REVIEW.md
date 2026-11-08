@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The claim is an exact minimax smallest-singular-value inequality for every integer \(N\ge6\), exactly three deleted nodes and three consecutive active Fourier characters. The retained Gram equals identity minus the erased Gram scaled by \(1/N\). The erased Gram is unitary-conjugate to a three-by-three real Dirichlet-kernel matrix. Its consecutive spectrum is calculated explicitly; two distinct comparison arguments rigorously exclude all nonconsecutive masks. For \(N\ge8\) entrywise absolute-kernel domination and strict Perron monotonicity suffice, while \(N=6,7\) follow from a separate analytic two-level off-diagonal bound. The eigenvalue is simple, giving the equality class. Direct complex-matrix calculations for \(6\le N\le40\) support but do not prove the infinite claim. The asymptotic Taylor expansion and Vandermonde positivity were checked separately.
+
+## Originality — PASS, qualified
+The 1985 Delsarte–Janssen–de Vries burst-error article and the 1984 Xu–Chamzas prolate article are plausible but were accessible only by abstracts, with the university PDF returning access denial. Their complete contents cannot be declared noncovering. However the fully accessible 2017 periodic prolate article (Theorem 1, Corollary 1, Sections II–III) addresses eigenvalue distributions for fixed consecutive windows; the fully accessible 2022 Fourier-submatrix paper (Sections 1–3) addresses singular vectors/values for fixed contiguous Fourier submatrices. Neither makes the uniform arbitrary-three-erasure comparison. A relevant public three-node Riesz-ratio theorem optimizes a different objective (condition number) in the same matrix family, and a two-frequency erasure theorem has a smaller spectral band; neither entails the claim. No exact counterpart was located in semantic research searches or accessible earlier local claims. This is best-knowledge novelty, not a proof of independent uniqueness.
+
+## Mathematical value — PASS
+Burst erasures are a natural failure mode in bandlimited interpolation, and three deletions is the first nontrivial regime beyond the classical two-row correlation comparison. An exact universal comparison against **all** nonburst masks is substantively stronger than computing the singular values of a chosen consecutive submatrix. The theorem gives the precise worst noise-amplification constant, a strict classification of all worst masks, a one-line equality signal, and a meaningful minimal-redundancy endpoint. It is a complete sharp result for this natural sampling operator class rather than an arbitrary numeric example.
+
+## Remaining limitations
+The primary 1984 and 1985 full texts and the 2003 lead full text could not be examined in entirety; an earlier equivalent specialized result remains possible. The theorem does not cover more than three erasures, different active frequencies, or weighted sampling. No independent verification was performed.
+
+Self-review: passed. Independent audit: not yet performed.
