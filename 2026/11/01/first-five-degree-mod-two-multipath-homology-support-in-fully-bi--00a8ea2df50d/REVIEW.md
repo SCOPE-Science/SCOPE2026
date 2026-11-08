@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces every directed multipath to an acyclic directed arc set with indegree and outdegree at most one. A second enumerator, using undirected path forests with both consistent orientations per component, agrees on all faces for each rim length. The complete simplicial boundary matrices over \(\mathbb F_2\) are reduced by exact XOR elimination; their dimensions and ranks determine every stated Betti number, including vanishing outside the listed degrees. For the ten-rim wheel, the face count is \(220395\) including empty and the verified degrees \(5,6,7,8,9\) have ranks \(49,40,40,42,20\). No finite result is extrapolated to later wheels.
+## correctness
 
-**Originality — PASS under inspected evidence.** The foundational oriented-path/polygon and transitive-tournament classifications [1] do not cover the fully bidirected wheel. The later full-text polygon computation [2] omits the hub and its spokes and cannot imply the wheel chain dimensions or lower homology ranks. Closely related results for bidirected double stars concern acyclic underlying trees, and for wheel discrete-Morse complexes concern different faces. An earlier universal multipath top-homology theorem already implies the top rank \(2r\); that known piece is explicitly excluded from the new contribution. Searches of exact Betti ranks, equivalent wheel terminology, bidirected-polygon and cycle-free-chessboard terminology, and published results yielded no covering statement. Risk: unindexed finite computations could exist.
+PASS
 
-**Value — PASS.** The wheel is the simplest natural operation adjoining one universal hub to a cycle, so comparing its fully bidirected multipath complex with the recently computed bidirectional-polygon complexes is mathematically motivated. The complete eight-case calculation locates the first occurrence of *five distinct nonzero homological degrees* and identifies four lower homology ranks not entailed by the known top-cycle theorem. The result exposes new support complexity in a natural small graph family without claiming a general conjecture or falsely treating a finite census as an infinite classification.
+PASS: The claimed finite domain is exactly simple wheels C_r*K_1 for 3≤r≤10 with both orientations of each undirected edge, no loops and F2 reduced simplicial homology. A face is exactly an indegree/outdegree ≤1 acyclic selected arc subset: directed paths cannot branch or cycle; conversely such a finite directed graph decomposes into disjoint directed paths. The source checker uses complete inclusion/exclusion through all 4r arc labels and an independent orientation of undirected degree≤2 acyclic path forests; both enumerate all faces. A freshly written independent third implementation used undirected path-forest union-find enumeration and consistent two-way orientations, then formed every simplicial boundary column and reduced by exact bitwise F2 Gaussian elimination for each r=3..10. All face counts, chain dimensions, ranks, connectedness and Euler–Poincaré identities matched the source log and claims; at r=10: 220395 faces including empty, chain dimensions (40,610,4660,19720,47964,67160,52900,22360,4620,360), positive boundary ranks (39,571,4089,15631,32333,34778,18082,4238,340). β_d=dim C_d−rank ∂_d−rank ∂_{d+1}, with β_0=1, yields reduced F2 ranks 49,40,40,42,20 at degrees 5..9 and zero elsewhere. Previous seven r have at most four nonzero reduced degrees. These are exhaustive finite computations within the declared domain, not extrapolations to r>10, integral torsion or homotopy.
 
-**Closest literature and limitations.** References [1] and [2] are identified in `RESULT.md`. The primary results give different graph classes; the literature may contain an unindexed calculation. Coefficients are only mod two; homotopy and integral torsion remain unknown. Review of the new work is not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS. Actual primary literature and published mathematical results were compared by definitions and theorem implications, not titles. Known bidirectional-polygon homology treats a rim lacking the hub; the all-parameter bidirected double-star theorem concerns trees; same-wheel discrete-Morse results compute a different complex; general cone/quiver statements do not give the F2 ranks. The known top-degree wheel rank 2r is not claimed as new. The exact eight-wheel F2 table and first five-support threshold have not been found already stated or implied. Unindexed equivalent computations remain a real risk, not an automatic failure.
+
+## value
+
+PASS
+
+PASS: The wheel C_r*K_1 is the canonical first hub augmentation of a polygon, and the multipath complex measures topology of disjoint directed path selections. The exact eight-case homology census, including the first case with five separate nonzero degrees, supplies reproducible and potentially useful benchmark data for understanding spoke-induced homology; its four lower ranks at r=10 are not mechanically determined by the known top-rank theorem or the polygon result. The full 220395-face computation is substantial, not a tiny check. This is a motivated finite cutoff for a natural family, without falsely asserting an all-wheel classification, infinite monotonicity, integral torsion or a new top-rank result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
