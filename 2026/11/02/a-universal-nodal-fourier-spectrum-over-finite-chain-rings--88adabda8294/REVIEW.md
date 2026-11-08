@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-All quantifiers are specified for arbitrary finite commutative chain rings, residue size at least two and length at least one. An additive character extending a nontrivial socle character yields the full frequency parametrization. Orthogonality on ideals proves every multiplier in the displayed piecewise formula; shell-size counts then prove the complete multiplicities and exact rank. The only zero created by cancellation in the nonzero-frequency sector solves \((q-1)j=1\), forcing \(q=2\), \(j=1\). Exact cyclotomic checker replay confirms the finite cases, including nonisomorphic rings with equal residue size and length. There is no infinite extrapolation from finite tests.
+PASS
 
-## Originality: PASS under bounded review
+For every finite commutative chain ring R of residue cardinality q and nilpotency length k, the proof constructs a generating additive character from the socle and uses exact ideal orthogonality. For a=nu(u), b=nu(v), the unnormalized Fourier multiplier of 1_{xy=0} follows by summing valuation shells; counting each shell gives all multiplicities, q=2 extra null antidiagonal and the only negative level -q^(k-1). The resulting rank is q^k(1+k(q-1)) for q>2, and for q=2 subtract (k-1)2^(k-2) when k>=2. An independent exact cyclotomic/discrete Fourier enumeration for Z/4,Z/8,Z/9 verified ranks 11,28,45 and negative counts 4,12,24. Those examples supplement, not replace, the all-ring shell proof.
 
-The closest inspected paper is Suntornpoch–Meemark (2016), which determines spectra of valuation-shell graphs over a *single* finite chain ring and spectra/energies of certain separable gcd-graph tensor products. It does not state the nonrectangular zero-product connection set, the complete family of multiplier values/multiplicities, or the residue-field-two cancellation wall. Its structural digit/valuation methods are foundational, and the present spectrum is potentially derivable from an appropriately extended association-scheme treatment. Cai–Chen–Lipton–Lu (2010) establish efficient quadratic exponential-sum evaluation, not this explicit all-chain-ring rank. Iosevich–Koh (2008) concerns different finite-field quadratic surfaces and restriction estimates. Searches for matching statements, valuation aliases, and exact formulas yielded no dominating theorem in the accessible material. A general spectral formula from historical association-scheme/gcd-graph literature remains the central residual originality risk.
+## originality
 
-## Value: PASS
+PASS
 
-This is a natural complete spectral classification for the canonical nodal singularity \(xy=0\) over every finite commutative chain ring, not a chosen small instance. It gives the exact Fourier nullspace and negative inertia, identifies an unusual cancellation boundary controlled by the *size* of the residue field rather than characteristic, and shows strong spectral universality across rings with different additive groups. The formula specifies precisely where translation spans fail to be dense on each finite ring, a natural discrete analogue of spectral synthesis. These structural statements motivate the calculation beyond a bare character-sum example.
+Best-of-knowledge comparison of the final exact mathematical statement against identified primary literature and published research records. An earlier association-scheme computation may implicitly recover the same nodal convolution spectrum across chain rings; the highly relevant finite-chain-ring Cayley paper was not inspected in full. No inspected accessible primary text establishes the complete final theorem; the source-inspection limits and priority risks are explicit.
 
-## Scope and residual risks
+## value
 
-No claim is made for general local rings, different algebraic varieties, or independent validation. An older general treatment of nonseparable unions of product valuation shells could imply the theorem. The publicly accessible 2016 chain-ring paper is especially close; its precise applicability was compared at the level of connection sets and theorem hypotheses, not just titles.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The zero-product locus xy=0 is a natural singular algebraic relation; the entire additive-convolution spectrum, inertia, multiplicities and rank give useful exact harmonic-analysis invariants. The universal dependence only on (q,k), including an exceptional q=2 cancellation across rings of different characteristic, is structural rather than a routine one-dimensional Ramanujan sum table. Its exact classification could be used as benchmark for chain-ring convolution and related Cayley operators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

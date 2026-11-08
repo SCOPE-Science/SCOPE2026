@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof computes all additive Fourier multipliers using exact ideal character orthogonality, then counts valuation shells. The independent finite checks in `verify.py` test all frequencies using cyclotomic reduction in the cyclic prime-power cases, and using additive characters in noncyclic examples. This is finite evidence supporting the algebraic derivation, **not** a substitute for the proof for arbitrary ring size and length.
+## correctness
 
-The program was executed with Python 3 and terminated with `NODAL_FOURIER_EXACT_CERTIFICATE_OK` and `CHAIN_RING_SPECTRUM_UNIVERSALITY_OK`. It checks the trace, rank, unique negative level and concrete modulus cases. Some mathematical sources were inspected at their original primary texts, but comprehensive historical completeness and independent validation are not certified.
+PASS
+
+For every finite commutative chain ring R of residue cardinality q and nilpotency length k, the proof constructs a generating additive character from the socle and uses exact ideal orthogonality. For a=nu(u), b=nu(v), the unnormalized Fourier multiplier of 1_{xy=0} follows by summing valuation shells; counting each shell gives all multiplicities, q=2 extra null antidiagonal and the only negative level -q^(k-1). The resulting rank is q^k(1+k(q-1)) for q>2, and for q=2 subtract (k-1)2^(k-2) when k>=2. An independent exact cyclotomic/discrete Fourier enumeration for Z/4,Z/8,Z/9 verified ranks 11,28,45 and negative counts 4,12,24. Those examples supplement, not replace, the all-ring shell proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the final exact mathematical statement against identified primary literature and published research records. An earlier association-scheme computation may implicitly recover the same nodal convolution spectrum across chain rings; the highly relevant finite-chain-ring Cayley paper was not inspected in full. No inspected accessible primary text establishes the complete final theorem; the source-inspection limits and priority risks are explicit.
+
+## value
+
+PASS
+
+The zero-product locus xy=0 is a natural singular algebraic relation; the entire additive-convolution spectrum, inertia, multiplicities and rank give useful exact harmonic-analysis invariants. The universal dependence only on (q,k), including an exceptional q=2 cancellation across rings of different characteristic, is structural rather than a routine one-dimensional Ramanujan sum table. Its exact classification could be used as benchmark for chain-ring convolution and related Cayley operators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
