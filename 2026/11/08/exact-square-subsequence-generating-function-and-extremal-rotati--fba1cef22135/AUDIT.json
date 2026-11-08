@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, Proof steps 1–3",
+      "verify.py and the printed PASS output reproduced in VERIFICATION.md"
+    ],
+    "rationale": "The greedy matcher on a power of a permutation needs exactly 1+2d(V)+b(V) copies to embed VV, with d counting internal weak descents and b the closing weak descent. A weighted trace gives the square-root enumerator. The rank-one determinant identity and all-ones resolvent simplify the trace to the stated rational function. A cyclic-weak-descent lower bound plus per-letter parity proves the exact q-or-1 extremal classification. Independent direct position-subsequence sets matched 85 rational coefficients across 19 configurations, with 11992 additional criterion tests. Formal proof, not finite experiments, supports unbounded parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2202.07189, Theorems 3.2, 4.2, 4.3, general optimum-length algorithms",
+        "DOI:10.4230/LIPIcs.CPM.2018.15, matching-rectangle algorithm and length optimization"
+      ],
+      "reasoning": "Although the generic algorithms apply to any input including P^k, they do not state the parametric counts S_q(k,m), rational bivariate series, or number of distinct maximizers. Computing one optimal subsequence does not logically provide the entire distribution. There is no claim of a faster general algorithm.",
+      "searches": [
+        "Square subsequence spectrum longest square words, subsequence counting in permutations",
+        "\"count\" \"square subsequences\" \"periodic\" word",
+        "scattered square subsequences permutation word repeated permutation power enumeration subsequence squares 2021 2022"
+      ]
+    },
+    "checked_sources": [
+      "Bannai, I, Köppl: Longest (Sub-)Periodic Subsequence (arXiv:2202.07189v1), Sections 1–5",
+      "Inoue et al.: Computing Longest Common Square Subsequences (DOI:10.4230/LIPIcs.CPM.2018.15), Sections 1–4",
+      "General binary subsequence-universality and insertion-radius research records: distribution/optimization of a different invariant",
+      "Related palindrome-subsequence spectrum and contiguous square-factor papers: different equality notion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Inoue et al. (2018) define a longest common square subsequence and develop algorithms to find its maximum length (Sections 1–4).",
+        "Bannai et al. (2022) treat longest periodic or subperiodic subsequences and a square special case (Sections 1–5)."
+      ],
+      "reasoning": "A length optimizer for arbitrary text can confirm the maximum length for particular P^k, but cannot by itself imply the full vector of distinct-square counts for every root length. The parity extremal multiplicity is extra information even when the largest length is known.",
+      "searches": [
+        "\"Computing longest common square subsequences\" arxiv first posted",
+        "Square subsequence spectrum longest square words, subsequence counting in permutations",
+        "\"cyclic descent\" \"square subsequence\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Both full primary articles concern maximum subsequence length and algorithms, not the enumerative generating function.",
+        "Previously indexed palindrome spectra count reverse symmetry, rather than equality of concatenated halves."
+      ],
+      "reasoning": "The number of distinct square words VV in P^k is equivalent to the number of distinct admissible roots V, not to the number of square embeddings or longest-square lengths. Neither primary paper provides these all-length coefficients.",
+      "searches": [
+        "Exact generating function for distinct square subsequences (YY) of repeated permutation words (1..q)^k, with extremal rotations",
+        "Cyclic weak descents and distinct scattered square subsequences, period powers",
+        "\"square subsequence\" \"generating function\" words",
+        "\"distinct square subsequences\" \"permutation\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The q=3,k=4 profile 3,9,17,15,6,1 was derived from the rational expression and independently reconstructed by position-subsequence enumeration.",
+        "Search results contained no matching specialized all-parameter table or explicit coefficient formula."
+      ],
+      "reasoning": "Finite values alone would not establish novelty; the accepted object is the all-parameter algebraic identity and complete optimizer classification. No matching table with this stated object was found; unindexed tables remain possible.",
+      "searches": [
+        "count distinct square subsequences of cyclic permutation word (123)^k generating function",
+        "\"3, 9, 17, 15, 6, 1\" square subsequences",
+        "Exact generating function for distinct square subsequences (YY) of repeated permutation words (1..q)^k, with extremal rotations"
+      ]
+    },
+    "rationale": "Both most relevant inspected primary articles solve optimization versions of square or periodic subsequence problems and do not provide a complete distinct-square count by every length across all permutation powers. Existing factor-square statistics concern contiguous factors; previous palindrome results count reverse-symmetric words, not squares VV. No equivalent formula emerged from targeted searches or a semantic search of the accessible earlier local claims, but novelty remains conditional on incomplete bibliography.",
+    "residual_risks": [
+      "Unindexed or differently named cyclic-descent enumeration could yield an equivalent coefficient formula.",
+      "Some broader combinatorial generating-function literature was not exhaustively inspected.",
+      "Negative search outcomes cannot prove worldwide priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Optimization algorithms for general input, not the coefficient spectrum or closed rational function for permutation powers. DOES_NOT_STATE_CLAIM.",
+        "evidence": [
+          "arXiv:2202.07189v1 (2022-02-15), Sections 3–5, Theorems 3.2, 4.2, 4.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.07189",
+        "material_read": "Eight-page original full text: abstract, introduction, preliminaries, Sections 3 and 4 including theorem statements/proofs, open problems and references.",
+        "method": "Primary arXiv PDF text sections and rendered page images were examined.",
+        "title": "Longest (Sub-)Periodic Subsequence",
+        "trigger": "Square case and longest repeated subsequences in the same combinatorial problem family"
+      },
+      {
+        "assessment": "Generic algorithms return longest square-subsequence length; not an all-length census or this specialized rational expression. DOES_NOT_STATE_CLAIM.",
+        "evidence": [
+          "DOI:10.4230/LIPIcs.CPM.2018.15, especially Sections 1–4"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol105-cpm2018/LIPIcs.CPM.2018.15/LIPIcs.CPM.2018.15.pdf",
+        "material_read": "Thirteen-page full primary text: sections defining square subsequences, LCSqS algorithms, matching rectangles, improvements and references.",
+        "method": "Open-access original PDF text and rendered page images were examined.",
+        "title": "Computing longest common square subsequences",
+        "trigger": "The generic longest-common-square-subsequence problem plausibly subsumes optimization of the current family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fba1cef2-2135-4d4e-bd36-cd6a31291393",
+  "value": {
+    "evidence": [
+      "RESULT.md full rational expression, two k specializations, and all-optima classification",
+      "Primary literature demonstrates the nontriviality of general longest-square-subsequence optimization."
+    ],
+    "rationale": "The square-word count is a natural invariant of subsequence repetition; it measures distinct admissible repeated patterns, not the much more numerous positional embeddings. The closed bivariate generating function determines every length stratum of an infinite family simultaneously, and the sharp parity split classifies every longest square root for all q and k. The collapse from a transfer-matrix statistic to a short q-dependent rational formula plus the cyclic-descent rigidity has specific reusable structure and is not a finite table or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
