@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For all \(a>0\) and \(\omega\ge 2a\), the two Laguerre functions specified in the result are orthonormal. The Laplace-transform formula gives the exact squared projection energy \(J_W(t)/s\) for every real carrier, with \(t=(k/s)^2\) and a strictly positive denominator. The verified identity comparing \(J_W(t)\) against \((W+1)/W\) reduces the global classification to the discriminant \(16W(W-3)\) of a quadratic. At \(W=3\), its only zero is \(t=5\), alongside the squared-carrier root \(t=2\). For \(W>3\), the above-baseline interval contains a unique global maximum: its derivative polynomial is strictly convex there, with opposite signs at the two endpoints. Endpoint limits and the large-frequency expansion follow by polynomial substitution. Exact symbolic identities and independently integrated half-line Laguerre coefficients were checked with the provided standalone checker; finite grids are not used in place of the continuous proof.
+
+## Originality — PASS relative to inspected sources
+Wang–Zhao–Zhao (arXiv:2609.27910, especially Sections 3.2–4.3, 5 and 6) considers multi-frequency carrier detection, residual phase and approximation-error estimates, not the exact globally optimal **single common carrier** for the displayed beat. Hu–Yu (arXiv:2602.03083, Sections 2, 4, 5 and 6) optimizes scaling and controls general Laguerre projection errors, not this common-modulation problem. Indexed research checks for carrier detachment, modulation bifurcation, two-tone Laguerre projections, exact threshold and related terminology returned no comparable formula. The closest indexed hits address unrelated Fourier moment transitions, two-tap spectrogram conditioning, or Laplace-distribution tails; these do not imply the present optimization. No database search can certify absence of an older equivalent calculation, and this remains a residual risk.
+
+## Mathematical value — PASS
+The lowest nontrivial truncated modulated Laguerre approximation of a coherent two-tone exponentially damped tail is a natural frequency-selection benchmark for half-line spectral methods. The global optimizers exhibit a sharp, **discontinuous** branch change at \(\omega/(2a)=\sqrt3\), with four exactly degenerate carriers at the switch, in contrast to a simple matched-frequency rule. This supplies an exact parameter-selection law and a meaningful boundary for one-carrier representations, not an arbitrary numerical slice. No claims about unconstrained multi-carrier approximation, arbitrary amplitudes, or algorithmic robustness are made.
+
+## Closest literature and remaining risks
+The motivation and general adaptive approximation framework are Wang, Zhao and Zhao (2026), arXiv:2609.27910. The main broader comparison is Hu and Yu (2026), arXiv:2602.03083. Potential unindexed equivalents in optimal matched-filter or Laguerre approximation literature were not excluded. The result is limited to fixed-scale continuum projection and the resolved-frequency domain.
+
+Self-review: passed. Independent audit: not yet performed.
