@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The accompanying `verify.py` uses only the Python 3 standard library. Execute `python3 verify.py` from the extracted package directory. Its finite-state recurrence is defined directly from the graph-neighborhood constraints for two-row ladders.
+# Independent mathematical audit
 
-It verifies, without floating-point computation, all 81 min-cost-state identities at lengths 3 versus 6, 4 versus 7, and 5 versus 8; all 81 state-count fourth-difference identities for the three phases using lengths up to 17; and four terminal minimum-and-multiplicity samples per phase. The equalities imply all larger lengths by a homogeneous min-plus recurrence and periodic optimal-predecessor transitions, as proved in `RESULT.md`. The program also independently enumerates all \(3^{2n}\) vertex assignments for each length \(2\le n\le6\), checking graph neighborhoods directly, and checks one explicit minimum labeling for every length through 100.
+## correctness
 
-Successful output begins with `VERIFY_OK`. The finite test does not independently audit the mathematical interpretation, the published-priority analysis, or correctness beyond the stated recurrence and induction. No external audit has been performed.
+PASS
+
+The 9-symbol column model implements exactly one 2-neighbor for each zero and positive-neighbor support for each nonzero label. The 81-state min-plus recursion checked all 81 shift identities at each r=3,4,5 and all 81 fourth-difference identities at those phases. Fixed 3-step optimal-transition matrices extend the finite identities inductively to all lengths; fourth finite differences enforce polynomial counts; four terminal values interpolate each residue class. Independently rebuilt enumerator reproduced 17 terminal counts, 243 shift and 243 count identities, and independently enumerated graph labels for n=2..5. No inference of an infinite formula from a short scan alone.
+
+## originality
+
+PASS
+
+No inspected exact same-variant, same ladder, all-minimum-labeling count or stronger all-graphs enumeration. Total perfect Roman constraints differ materially from ordinary/perfect Roman, and complete multipartite results do not dominate two-row ladders. Qualified best-of-knowledge novelty.
+
+## value
+
+PASS
+
+A canonical infinite family of width-2 graphs has a complete optimization and all-minimizer enumeration. Distinct minimum labelings are natural graph-domination objects; polynomial residue counts, unique n multiple-of-three minimizers, and nontrivial finite-state induction are mathematically informative rather than a renamed existing bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

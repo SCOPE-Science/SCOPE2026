@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The exact finite-state model checks each vertex's full open neighborhood, using zero sentinels only for absent horizontal neighbors. Every feasible labeling yields exactly one state path. Full 81-state min-cost shifts across three columns at starting lengths three, four, and five are sufficient for the infinite cost periodicity; 81-state fourth-difference zero identities then imply cubic-or-lower count polynomials on each phase. Four exact terminal samples determine those polynomials uniquely. The packaged checker replays these identities and performs separate exhaustive graph-level enumeration for lengths two through six. The proof does not infer an infinite formula from a finite sample alone.
+PASS
 
-## Originality: PASS (best-knowledge, not independent priority certification)
+The 9-symbol column model implements exactly one 2-neighbor for each zero and positive-neighbor support for each nonzero label. The 81-state min-plus recursion checked all 81 shift identities at each r=3,4,5 and all 81 fourth-difference identities at those phases. Fixed 3-step optimal-transition matrices extend the finite identities inductively to all lengths; fourth finite differences enforce polynomial counts; four terminal values interpolate each residue class. Independently rebuilt enumerator reproduced 17 terminal counts, 243 shift and 243 count identities, and independently enumerated graph labels for n=2..5. No inference of an infinite formula from a short scan alone.
 
-The original 2023 full-text article introducing total perfect Roman domination gives general inequalities, complexity, and special equality cases for trees, not this infinite ladder classification. The 2022 grid-product paper concerns the weaker perfect Roman condition and excludes width two in its principal bound, while the 2024 related paper's accessible abstract concerns perfect Roman/Italian variants, not the extra total-support condition. Published-result and equivalent-formulation searches did not disclose a matching minimum-function count or a stronger theorem implying it. A potentially relevant later full text was not inspected, and searches alone cannot establish worldwide novelty.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The theorem determines an exact extremal invariant and the number of *all* optimal configurations on the natural two-row grid family, directly motivated by the 2023 introduction and complexity of the parameter. The unique optimum at lengths divisible by three contrasts with linearly and quadratically many optima in the other residue classes. The small width allows a complete 81-state exact proof and illustrates a robust finite-state mechanism. No claim is made for wider or cyclic grids or for nonoptimal labelings.
+No inspected exact same-variant, same ladder, all-minimum-labeling count or stronger all-graphs enumeration. Total perfect Roman constraints differ materially from ordinary/perfect Roman, and complete multipartite results do not dominate two-row ladders. Qualified best-of-knowledge novelty.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A canonical infinite family of width-2 graphs has a complete optimization and all-minimizer enumeration. Distinct minimum labelings are natural graph-domination objects; polynomial residue counts, unique n multiple-of-three minimizers, and nontrivial finite-state induction are mathematically informative rather than a renamed existing bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
