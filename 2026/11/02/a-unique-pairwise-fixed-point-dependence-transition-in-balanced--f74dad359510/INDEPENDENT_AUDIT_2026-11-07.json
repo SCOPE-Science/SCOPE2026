@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T20:15:18.565956Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on K=k intra-A images, there are (m!)^2 C(m,k)^2 permutations and B has exactly k within-block matched rows. Each tagged B label is fixed with conditional probability k/m^2, and two distinct tagged B labels with probability k(k-1)/[m^2(m-1)^2], yielding exact covariance theta^2 H_m/[m^4(m-1)^2 Z_m^2]. Z_m=sum C(m,k)^2 theta^k is the Legendre transformed polynomial with m distinct negative real roots -rho_i. Setting S_j=sum(theta+rho_i)^(-j) gives H_m/Z_m^2=(2m-1)S_1^2-m^2 S_2; the derivative of S_1^2/S_2 is strictly positive by strict Cauchy–Schwarz because rho_i are distinct. H(0)<0 and the uniform permutation theta=1 covariance =1/[4m^2(2m-1)]>0 give one unique switch theta_m in (0,1). Differentiating the saddle-point/elementary integral representation of Z_m gives E K=mx+O(1), Var K=(m/2)x(1-x)+O(1), x=sqrt(theta)/(1+sqrt(theta)); substituting into exact covariance gives m^3 Cov -> x(3x-1)/2 and theta_m ->1/4 by sign bracketing. Completely enumerated permutations for m=2,3, checked conditional probabilities and covariance for four rational theta values, exact Legendre denominator. These finite instances corroborate, not prove, the general root and asymptotic results.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Duan–Lyu–Powell abstract states Poisson contingency coupling and CLT of macroscopic linear statistics; Ottolini–Starr full PDF Appendix A gives same Z_m; Bruhat-order association applies different event monotonicity."
+        ],
+        "reasoning": "General block-count laws do not entail that tagged diagonal fixed points have unique sign switch at each finite m without conditional matching and negative-root ratio analysis.",
+        "searches": [
+          "arXiv:2610.14616 general Gibbs permutation block counts",
+          "arXiv:2605.25274 large-n block permanents",
+          "arXiv:1909.03770 correlation for permutations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.25274 (Ottolini–Starr) Appendix A exact Z_m and Legendre",
+        "arXiv:2610.14616 (Duan–Lyu–Powell) Gibbs permutation contingency models",
+        "arXiv:1909.03770 Bruhat-order up-set association",
+        "Fisher noncentral hypergeometric block-count law",
+        "Resultary published-record query: balanced two block Gibbs permutations diagonal fixed point covariance negative positive unique threshold Legendre binomial squared"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Z_m factorization plus conditional matching probabilities is needed to obtain the new covariance, and real-rootedness controls its global single crossing. Macroscopic contingency fluctuations offer leading K-variance but not the finite-m sign uniqueness."
+        ],
+        "reasoning": "Exact conditional law and limiting covariance follow from known block-count probability; novelty is their evaluated tagged-pair correlation sign classification, not a new normalizer or general CLT.",
+        "searches": [
+          "arXiv:2605.25274 Section two-block and Appendix A",
+          "arXiv:2610.14616 macroscopic CLT and contingency tables"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weighted permutation model is an exact balanced block-uniform permanent; Z_m and K follow Fisher noncentral hypergeometric coefficients. Fixed point within a block is a tagged diagonal event, not the block-count itself."
+        ],
+        "reasoning": "Equivalent partition-function and contingency-table formulations already exist; only tagged-event joint covariance and its threshold are assessed.",
+        "searches": [
+          "balanced two block Gibbs permutations diagonal fixed point covariance negative positive unique threshold Legendre binomial squared",
+          "arXiv:2605.25274 Appendix A Legendre binomial-square",
+          "Fisher noncentral hypergeometric normalizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top results concerned occupied-box correlation and fixed-composition runs, different objects. Exact m=2 theta=sqrt(6)-2 is derived analytically, not copied from a table."
+        ],
+        "reasoning": "No located exact fixed-point dependence threshold table; not infer absolute novelty from unsuccessful search.",
+        "searches": [
+          "balanced two block Gibbs permutations diagonal fixed point covariance negative positive unique threshold Legendre binomial squared",
+          "theta_m sqrt(6)-2 1/4 fixed point covariance Legendre"
+        ]
+      },
+      "rationale": "Ottolini–Starr (arXiv:2605.25274) already derive the SAME binomial-square normalizer and its Legendre representation for balanced two-block permanent/permutation weights, including large-block asymptotics. Duan–Lyu–Powell (arXiv:2610.14616) provide more general Gibbs permutation/block contingency couplings and macroscopic fluctuations. The assessed increment is microscopic pairwise tagged diagonal fixed-point covariance, a single finite-m sign reversal, and the universal limiting threshold 1/4. General CLT statements for block statistics do not directly impose the exact finite-size sign uniqueness. Fisher noncentral hypergeometric theory also covers K but not event covariance sign geometry. Prior normalization is fully credited.",
+      "residual_risks": [
+        "A differently formulated permanent-derivative identity or classic noncentral-hypergeometric conditional covariance might already imply the threshold.",
+        "Full text of the recent Duan–Lyu–Powell primary paper was inaccessible; only abstract and cited theorem descriptions were inspected.",
+        "Only distinct fixed-point indicators in same balanced block, fixed positive theta in large-m limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_PARTITION_POLYNOMIAL_PRIOR; no tagged fixed-point covariance sign theorem identified in read text",
+          "evidence": "Appendix A normalized permanent: sum_{k=0}^n C(n,k)^2 xi^{2k} = (1-xi^2)^n P_n((1+xi^2)/(1-xi^2)).",
+          "identifier_or_url": "arXiv:2605.25274 (https://arxiv.org/pdf/2605.25274)",
+          "material_read": "Main model/results and Appendix A p.15–16: exact permanent formula with sum C(n,k)^2 xi^(2k), Legendre expression and oscillatory asymptotics",
+          "method": "Primary PDF text plus screenshot of Appendix A page 16",
+          "title": "Pal's permanent conjecture: proof for block uniform matrices",
+          "trigger": "Identical two-block weight normalizer and Legendre transformation"
+        },
+        {
+          "assessment": "COVERS_BLOCK_COUNT_CORRESPONDENCE; full text not exhaustively checked",
+          "evidence": "Abstract identifies Poisson contingency tables with block counts of Gibbs permutations and states a CLT for linear statistics.",
+          "identifier_or_url": "arXiv:2610.14616 (https://arxiv.org/abs/2610.14616)",
+          "material_read": "Primary abstract and identified statements of finite-dimensional coupling and macroscopic central limit theorem; full PDF was unavailable",
+          "method": "Primary abstract and bibliographic inspection",
+          "title": "Poisson contingency tables, Gibbs permutations, and entropic optimal transport",
+          "trigger": "More general block Gibbs permutations and fluctuations"
+        },
+        {
+          "assessment": "DIFFERENT_ORDER_EVENTS; tagged fixed-point indicators do not satisfy general Bruhat-upset assumption",
+          "evidence": "Positive association applies strong Bruhat-order up-sets, whereas the present exact covariance has a negative phase.",
+          "identifier_or_url": "arXiv:1909.03770 (https://arxiv.org/abs/1909.03770)",
+          "material_read": "Abstract and theorem description for strong Bruhat-order up-sets; not full PDF",
+          "method": "Primary abstract/theorem description",
+          "title": "Correlation for permutations",
+          "trigger": "Possible broad association theorem ruling out a negative covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The covariance sign distinguishes competition among diagonal slots from common latent block-preservation fluctuations, a natural question for Gibbs random matching. An exact phase diagram at every m and a fixed nontrivial limiting critical bias 1/4 identify a microscopic dependence transition not visible from partition-function normalization alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "m>=2 identical-sized blocks; theta>0; two distinct tagged diagonal fixed points in the same block only.",
+    "No asymptotic when theta scales with m or blocks have unequal sizes."
+  ]
+}
