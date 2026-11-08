@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "PASS. For each k>=3 each radius-(k-i) cycle ball is an arc of length 2(k-i)+1; the sum is k^2. A cover of order k^2 is disjoint, and a cover of order k^2-1 has a unique vertex of multiplicity two. The source-separation inequalities follow from pairwise arc nonoverlap or one-point endpoint overlap, including the last singleton. The proof uniquely encodes such one-short covers by a labelled cyclic order, overlap boundary, and cycle translation, and proves that precisely two valid one-coordinate slides move the overlap clockwise/counterclockwise. After k clockwise moves every arc has shifted one vertex; orbit length kn yields one C_kn for each of (k-1)! orders. The k=2 case is separately checked. Independent C++17 complete enumeration for k=2..5 and Python for k=2..4 reconstruct states/edges/components, supporting but not replacing the infinite proof. The code and actual output are embedded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonato–Janssen–Roshanbin, arXiv:1507.06524, Corollary 11: b(C_n)=ceil sqrt(n)",
+        "Nagao–Ogawa 2022, Theorems 1–2, path forests with prescribed sources and order-swap operation",
+        "Pereira et al., ESA 2024 publication page abstract, integer-programming method for finding optimum schedules"
+      ],
+      "reasoning": "The original optimal burning number and general covering criterion establish only existence and minimum length, not the full graph of fixed-time adjacent source relocations. The inspected Nagao–Ogawa theorem is on path forests with a fixed source set and different operation. Row-generation optimization yields optima without classifying this local transition graph in the material read. No inspected stronger theorem implies the claimed isomorphisms.",
+      "searches": [
+        "all optimal burning sequences of C_n for n=k^2 and k^2-1 counted by factorials, reconfiguration adjacency one coordinate",
+        "number of optimal burning sequences on cycles C_{k^2-1}, near-square graph-burning configurations",
+        "site:arxiv.org \"Burning Schedule Reconfiguration\"",
+        "DOI:10.4230/LIPIcs.ESA.2024.94"
+      ]
+    },
+    "checked_sources": [
+      "Bonato, Janssen, Roshanbin arXiv:1507.06524v1 original full text",
+      "Nagao and Ogawa JCDCG³ 2022 pp.25–26 complete conference version",
+      "Pereira et al ESA 2024 published abstract",
+      "Published mathematical research index, searched using literal graph objects, aliases and component shapes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 10 and Corollary 11 of Bonato et al. establish burning numbers of paths and cycles, and equation (1) supplies covering conditions; no enumeration or source-slide graph is stated.",
+        "Nagao–Ogawa, 2022 pp.25–26, lines defining BSRP: G, fixed B, and adjacent move is to swap the order of two sources."
+      ],
+      "reasoning": "The prior burning number entails optimality of length k but not the number, adjacency, components or diameter of schedules. The Nagao–Ogawa graph acts on permutations of one fixed set; the new graph moves coordinates along C_n while retaining their times. These models cannot imply each other by simply identifying names. The later chapter was not accessible and remains a residual risk, but the publicly defined move model is different.",
+      "searches": [
+        "arXiv:1507.06524v1",
+        "Nagao-Ogawa JCDCG3-2022 pp.25-26",
+        "critical overlap boundary rigidity graph burning on cycles burning sequence reconfiguration isolated square and cyclic almost-square",
+        "extremal near-square burning sequences overlap one vertex singleton final ignition",
+        "10.1007/978-3-032-00281-5_21"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bonato et al., arXiv:1507.06524, lines of §2 describing ordered source separation and final ball covering",
+        "Nagao–Ogawa JCDCG³ 2022 proceedings, pp.25–26, defines burning-schedule reconfiguration by order swaps of fixed sources"
+      ],
+      "reasoning": "Potential rephrasings include shortest burning-sequence source relocation, arc-cover one-overlap tilings and reconfiguration of time-labelled ignition sites. The defining state transition is a one-edge move of one source at fixed time, whereas the closest named BSRP model swaps two time slots of a fixed set. These produce different vertex sets and adjacency relations. Neither is a word-for-word equivalence to the other.",
+      "searches": [
+        "graph of optimal graph-burning schedules for cycle length k squared minus one, shifting one ignition source to adjacent vertex yields disjoint cycles of length k(k squared minus one)",
+        "critical overlap boundary rigidity graph burning on cycles burning sequence reconfiguration isolated square and cyclic almost-square",
+        "arXiv:1507.06524v1",
+        "Nagao-Ogawa JCDCG3-2022 pp.25-26",
+        "strict optimal burning sequences of cycles C_{k^2-1} exact number (k^2-1) k! and reconfiguration graph union (k-1)! long cycles under adjacent source slides",
+        "burning sequence source relocation configuration graph on cycles; one step move ignition vertex adjacent; one overlap defect; C_{k squared} isolated"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published finding search returned four-round burning threshold on H(n,5), a separate threshold-two burning source parameter, and cover-free numbers for paths/cycles/wheels, but no matching time-labelled cyclic burning slide graph."
+      ],
+      "reasoning": "The exact graph isomorphism (a disjoint union of isolated configurations versus cycles) and k-dependent state counts were searched explicitly with aliases. Closest source IDs address distinct processes or host graphs. Searches are a nonexhaustive priority check, not proof of uniqueness.",
+      "searches": [
+        "graph of optimal graph-burning schedules for cycle length k squared minus one, shifting one ignition source to adjacent vertex yields disjoint cycles of length k(k squared minus one)",
+        "all optimal burning sequences of C_n for n=k^2 and k^2-1 counted by factorials, reconfiguration adjacency one coordinate",
+        "enumeration of burning sequences for path and cycle graphs maximal burning capacity k squared",
+        "2026/10/4/SCOPE-four-round-burning-cutoff-for-h-n-5--c67e002b03db",
+        "2026/9/16/SCOPE013",
+        "2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2",
+        "strict optimal burning sequences of cycles C_{k^2-1} exact number (k^2-1) k! and reconfiguration graph union (k-1)! long cycles under adjacent source slides",
+        "burning sequence source relocation configuration graph on cycles; one step move ignition vertex adjacent; one overlap defect; C_{k squared} isolated",
+        "cyclic arc cover disjoint length 1 3 5 upto 2k-1 and unique one-point overlap reconfiguration"
+      ]
+    },
+    "rationale": "PASS, historically qualified. Direct comparison with the original strict-burning paper isolates its prior b(C_n)=ceil sqrt(n) and ball-cover condition, neither implying complete source-slide adjacency. The closest-named Nagao–Ogawa public 2022 full conference text studies fixed-set source-order swaps on path forests, not fixed-time source moves on a cycle. The available ESA 2024 optimization abstract does not state our graph, though its full article was not checked. Actual published finding index claim searches for aliases, near-square parameters, and equivalences found no exact or stronger coverage. An unindexed equivalent claim and unread full 2025 chapter remain risks, and no independent audit or priority certification is claimed.",
+    "residual_risks": [
+      "Bibliographic or unindexed equivalent work may exist, especially enumeration of strict burning sequences on near-square cycles under adjacent ignition moves.",
+      "Full later Nagao–Ogawa chapter DOI:10.1007/978-3-032-00281-5_21 was not readable; published earlier 2022 version defines a different move model.",
+      "The ESA 2024 article was inspected at abstract and publication-page level, not read in full; its optimization statements do not directly imply the new source-slide graph."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the premise and strict source condition but no exact optimal cyclic source-slide graph.",
+        "evidence": [
+          "First posted July 23, 2015; §2 equation (1) source separation and ball cover; Corollary 11 on cycle burning number; searched full text for reconfiguration and enumeration without matches"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.06524",
+        "material_read": "Complete arXiv HTML text, introduction, §2 including equation (1), Theorem 10, Corollary 11, and later discussion of perfect-square paths",
+        "method": "Public full-text mathematical and keyword inspection",
+        "title": "How to burn a graph",
+        "trigger": "Origin of exact strict burning definition and near-square cycle optimum"
+      },
+      {
+        "assessment": "Uses fixed burning-source set and swaps time order; restriction to path forests. Structurally different adjacency from moving a time-labelled source by one edge on a cycle.",
+        "evidence": [
+          "Contribution introduction and Theorems 1–2, pp.25–26; BSRP definition fixes B and swaps order of two vertices"
+        ],
+        "identifier_or_url": "https://www.rs.tus.ac.jp/jcdcggg/JCDCG3-2022Proceedings%28r2%29.pdf",
+        "material_read": "Complete two-page public 2022 conference contribution, printed pp.25–26",
+        "method": "Inspected entire publicly available conference contribution in full extracted-text presentation; underlying page images were not available",
+        "title": "Algorithms for Burning Schedule Reconfiguration Problem on Path Forests (conference version)",
+        "trigger": "Strong title/method overlap: burning schedule reconfiguration"
+      },
+      {
+        "assessment": "No claim of full document NOT_COVERING; residual historical uncertainty. Public predecessor establishes a different formal operation.",
+        "evidence": [
+          "Earlier 2022 public contribution explicitly defines BSRP as swapping order of a fixed source set"
+        ],
+        "identifier_or_url": "DOI:10.1007/978-3-032-00281-5_21",
+        "material_read": "No full text accessible; bibliographic identity and earlier public full conference version inspected",
+        "method": "Investigated open-access and preprint sources; full later edition unavailable for inspection",
+        "title": "Algorithms for Burning Schedule Reconfiguration Problem on Path Forests (later chapter)",
+        "trigger": "Later substantial version of closest-named primary source"
+      },
+      {
+        "assessment": "Solves optimal-burning-sequence search by row generation; inspected abstract does not state the complete adjacent-source reconfiguration graph, but no whole-document negative claim is made.",
+        "evidence": [
+          "ESA 2024 abstract states exact optimization method and large-instance performance"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2024.94",
+        "material_read": "Open published metadata and abstract, not full 17-page text",
+        "method": "Online abstract and bibliographic inspection",
+        "title": "A Row Generation Algorithm for Finding Optimal Burning Sequences of Large Graphs",
+        "trigger": "Potential general optimal-sequence enumeration/optimization coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a4ad3bc0-cd0f-432c-bf90-09856a317554",
+  "value": {
+    "rationale": "PASS. Adjacent movement of time-indexed optimal ignition sources is a natural graph-burning mobility question: it preserves the two true constraints of the process, unlike permutation-only scheduling. There is a sharp, structural single-vertex threshold at the burning-capacity square: the entire mobility graph changes from isolated states to long cyclic components generated by a unique movable overlap. Full graph isomorphism, component count and sharp component diameter for infinitely many cycles go beyond previously known burning number and provide a motivated benchmark for constrained source relocation.",
+    "status": "PASS"
+  }
+}
