@@ -1,19 +1,21 @@
-# Scientific review: arithmetic flex divisor of the 48-automorphism quartic
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The plane quartic is smooth for every characteristic above three by its three explicit first derivatives. The exact Hessian determinant is \(108Y^2Z(8X^3-Z^3)\). Intersections on the three factors give four double points and sixteen simple points, of total length twenty-four by Bézout, and tangent restrictions independently distinguish four contact-four hyperflexes from sixteen contact-three ordinary flexes. All formulas use only powers of roots of unity of order dividing twenty-four and denominators invertible in characteristic above three. The displayed Galois action follows from \(\sigma_a(\sqrt3)=\pm\sqrt3\). The orbit decomposition and Frobenius fixed-point counts are exhaustive. Exact verifier checks the Hessian, Galois action, 23 prime fields and three quadratic fields. Finite experiments are corroboration, not the infinite-field proof.
+PASS
 
-## Originality — PASS, with residual risk
+Read actual RESULT.md and verify_c48_flex.py. Smoothness from simultaneous first derivatives; Hessian det=108Y^2 Z(8X^3-Z^3) over Z[1/6]. Intersections: Y=0 gives four simple-in-Y curve points with Hessian order 2 and line contact 4; Z=0 gives four simple intersections with contact 3; 8X^3=Z^3 gives 12 simple intersections with Y^4=-9 zeta3^j/16. Total Hessian degree 4*6=24 accounts for all points. Hyperflex and infinity labels generate Q(zeta3) and Q(zeta8), respectively, whose compositum is Q(zeta24). Unit-group action on explicitly listed cyclotomic coordinates has orbit sizes 1,1,2,4,4,8; Frobenius acts by q mod24, and p^2=1 mod24 for p>3. Independent exact symbolic Hessian, Galois action and direct prime-field counts p=5,7,11,13,17,19,23 passed. Finite primes corroborate, not justify the all-prime formula.
 
-The exact motivating source, Janasz arXiv:2406.07015v1 Section 3, already gives the four hyperosculating lines and the sixteen ordinary dual cusps; these imply the *geometric* ordinary-flex population and are explicitly excluded from the independent novelty claim. Its full text treats complex bitangent geometry; it does not state the exact cyclotomic splitting field, six rational Galois orbits, any Frobenius rational-flex counts, or the uniform quadratic splitting result. Janasz–Pokora–Zieliński arXiv:2308.16514v2 concerns bitangent arrangements of different special quartics and does not cover this fixed-model arithmetic action. Mathematical-record searches using the fixed equation, flex/Hessian, roots of unity, Galois orbit sizes and finite-field counts found no dominating claim; published mathematical-record results about other quartics and Hessians were compared by implication, not merely titles. A classical or unindexed equivalent calculation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The inflection divisor is a natural geometric invariant of a nonhyperelliptic genus-three curve. Determining its exact Galois representation and minimum common splitting field is useful for rational-inflection geometry and arithmetic reductions, not merely a re-expression of four known hyperflexes. The eight-element action turns into an exact uniform residue-class point count in all finite extensions with a sharp degree-two splitting bound. These statements are complete and independently reproducible for the distinguished published quartic.
+Janasz 2024 already proves the four hyperosculating lines and 16 ordinary dual cusps for exactly this complex quartic; geometric counts are prior coverage and excluded from claimed independent novelty. The new assessed arithmetic claim is the full coordinate-level Q(zeta24) splitting field, explicit Galois permutation orbits, uniform Frobenius fixed-point counts over all F_q and quadratic splitting. The inspected original Section 3 does not give these arithmetic invariants. A classical inflection-field computation could be unindexed.
 
-## Scope and limitations
+## value
 
-Characteristic two and three, nontrivial twists, full bitangent arithmetic and zeta functions are outside scope. The geometric number of ordinary flexes is known implicitly; only its arithmetic refinement is assessed as a new contribution. No independent audit or external validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An inflection divisor is a canonical genus-three curve invariant; its splitting field and Frobenius action distinguish arithmetic geometry absent from bare complex flex support counts. The exact field-of-definition and all-extension point-count table provide useful direct data for rational tangents and reductions of a distinguished high-symmetry quartic, not a recomputation of known four hyperflexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
