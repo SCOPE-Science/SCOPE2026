@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T16:16:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/sharp-first-surplus-approximation-ratio-for-the-product-gap-faci--57ea40341f63/RESULT.md (Git blob 03a62ed92541cc150067f3a466da9b7cfec60424)",
+        "2026/11/02/sharp-first-surplus-approximation-ratio-for-the-product-gap-faci--57ea40341f63/verify_gap_product.py (Git blob checked)",
+        "Independent standalone exact-arithmetic calculations"
+      ],
+      "rationale": "For k>=2 and precisely k+1 distinct ordered agents on the real line, the nearest-facility social optimum is min adjacent gap m by pigeonhole and triangle inequality. Product-Gap selection omits one position; for the product P of k adjacent gaps, omission weights are P/g1 for the first, P(1/g_{i-1}+1/g_i) internally, P/g_k for the last, total Z=2PΣ1/g_j. The omitted agent alone pays its nearest adjacent gap, giving the exact expected social-cost identity [k+1+Σ min(g_j,g_{j+1})/max(g_j,g_{j+1})]/[2Σ 1/g_j]. At m=g_t, set h_j=m/g_j,A=Σ_{j≠t} h_j>0; adjacent ratio terms are bounded by adjacent h and all others by 1, leading ratio≤(2k-1+A)/(2(1+A))<k-1/2. Gap family g1=eps,g2..k=1 tends to the bound, never reaches for positive m. Independent exact rational direct weighted-selected-subset enumerations on 350 profiles across k=2..8 reproduced normalization, identity and strict bound.",
+      "residual_risks": [
+        "Only one-dimensional additive distance cost, the specified Product-Gap selection, exactly k+1 agents, positive m. Does not assert strategyproofness or an unrestricted many-agent approximation ratio."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior 2k approximation bound holds all populations but does not imply sharp k-1/2 for the one-surplus subfamily; Chan Section 4 also studies n=k+1 but via inverse-square mechanism, a different rule."
+        ],
+        "reasoning": "The 2k general bound is weaker than the exact first-surplus performance. The independently optimized different inverse-square mechanism does not directly compute the omission distribution of Product-Gap.",
+        "searches": [
+          "arXiv:2608.22484 Sections 4–5, Lemma 5",
+          "arXiv:2608.19633 abstract and indexed publication details"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.22484",
+        "arXiv:2608.19633",
+        "Resultary semantic query: product gap mechanism first surplus k+1 agents k-1/2 ratio"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General 2k statement does not imply equality of the smaller subdomain supremum.",
+          "The exact omission weights combine reciprocal adjacent gaps in all k+1 possible omissions, a distinct derivation absent from checked source sections."
+        ],
+        "reasoning": "One-agent surplus is a natural specialization, but a published general bound on a larger domain does not mathematically determine the specialized optimum. No direct stronger implication established from actual accessible passages.",
+        "searches": [
+          "Chan–Lin–Wang arXiv:2608.22484 Section 5 and Section 4",
+          "Jia arXiv:2608.19633 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Product-Gap/Gap-Product is the same randomized subset-by-gap-product mechanism under differing names.",
+          "General upper bound 2k already in both papers; new ratio pertains only to exactly k+1 agent reports."
+        ],
+        "reasoning": "The mechanism is identical to prior known rule, not a new mechanism; the proposed result is a sharp population-specific performance invariant.",
+        "searches": [
+          "Resultary semantic query: product gap mechanism first surplus k+1 agents k-1/2 ratio",
+          "Jia arXiv:2608.19633 Definition 3.1",
+          "Chan–Lin–Wang arXiv:2608.22484 Section 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected exact k+1 Product-Gap performance table was present in the full text of Chan Section 5; Jia full text not read, so negative whole-document claim is NOT made.",
+          "The sharpness family is an analytic continuous-gap limit, not a finite tabulated constant inferred from numerical experiments."
+        ],
+        "reasoning": "No matching table found among accessible sources. Jia full text remains plausible covering source and priority risk.",
+        "searches": [
+          "Resultary semantic query: product gap mechanism first surplus k+1 agents k-1/2 ratio",
+          "arXiv:2608.22484 Section 5 Lemma 5",
+          "arXiv:2608.19633 source record"
+        ]
+      },
+      "rationale": "Both Jia and Chan–Lin–Wang define identical product-of-selected-gaps mechanism and general 2k bound; this mechanism is not new. The exact k+1-agent first-surplus sharp ratio k-1/2 and omission law do not appear in fully accessible Chan–Lin–Wang section 5, and Jia accessible metadata does not provide it. Broader priority qualified since Jia full text inaccessible.",
+      "residual_risks": [
+        "A full read of Jia arXiv:2608.19633 could reveal an implicit one-surplus omission specialization; abstract alone cannot establish whole-paper not-covering. Authorized retrieval returned vpn_disconnected.",
+        "The two prior authorships and mechanism definition are expressly credited, and no incentive claims are introduced."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same mechanism and 2k covered; not found exact first-surplus Product-Gap ratio in inspected full text",
+          "evidence": [
+            "Section 5 specifies selecting facility reports with probability proportional to product of consecutive gaps; Section 4 employs a different inverse-square selection rule."
+          ],
+          "identifier_or_url": "arXiv:2608.22484",
+          "material_read": "Full accessible online article; inspected Section 5 Gap-Product definition and Lemma 5/unrestricted 2k performance, and Section 4 distinct n=k+1 mechanism",
+          "method": "primary full HTML inspection, sections and lemmas",
+          "title": "Randomized Strategyproof Facility Location: Two Facilities and Beyond",
+          "trigger": "Independent primary source introducing the same mechanism"
+        },
+        {
+          "assessment": "General 2k known; exact first-surplus treatment remains unverified in this inaccessible plausible source",
+          "evidence": [
+            "The abstract and audited source reference to Definition 3.1 and Theorem 3 give the Product-Gap and 2k context; no full-text noncoverage inference."
+          ],
+          "identifier_or_url": "arXiv:2608.19633v1",
+          "material_read": "Bibliographic abstract/index and cited definition/theorem numbers; full primary PDF/HTML NOT obtained",
+          "method": "arXiv and OA attempts followed by authorized institutional retrieval, vpn_disconnected",
+          "title": "Product Gap Mechanisms for Multi-Facility Location",
+          "trigger": "Earliest same named Product-Gap rule and possible special-case theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/sharp-first-surplus-approximation-ratio-for-the-product-gap-faci--57ea40341f63/RESULT.md",
+        "Primary literature and model references identified in originality"
+      ],
+      "rationale": "Exactly one more agent than facilities is the first natural nonzero-optimum regime, so an exact sharp ratio there is a meaningful performance invariant of a named stochastic allocation mechanism. Its omission distribution and nonattained k-1/2 supremum quantify a substantial gap from its known global factor 2k, rather than changing names or computing isolated instances.",
+      "residual_risks": [
+        "The result is only a specialized mechanism/population ratio, not a new mechanism or approximation lower bound for all truthful randomized algorithms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only one-dimensional additive distance cost, the specified Product-Gap selection, exactly k+1 agents, positive m. Does not assert strategyproofness or an unrestricted many-agent approximation ratio.",
+    "The result is only a specialized mechanism/population ratio, not a new mechanism or approximation lower bound for all truthful randomized algorithms.",
+    "A full read of Jia arXiv:2608.19633 could reveal an implicit one-surplus omission specialization; abstract alone cannot establish whole-paper not-covering. Authorized retrieval returned vpn_disconnected.",
+    "The two prior authorships and mechanism definition are expressly credited, and no incentive claims are introduced."
+  ],
+  "schema_version": 1
+}
