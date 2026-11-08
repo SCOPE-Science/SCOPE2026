@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The iid delay conditional second-moment map is derived on the exact symmetric 2×2 covariance cone. Its determinant is h(2−h−ph²), and positivity ensures its spectral radius is a nonnegative eigenvalue; the local Perron derivative is −2 and continuity excludes another crossing. At the boundary an eigenvalue is one and beyond the determinant has the wrong sign for Schur stability. Rank-one deterministic initial states span covariance space, ensuring the stated all-initial-pairs quantifier. For the (p,h)=(1/4,3/2) example a weighted max norm and strong law give a negative almost-sure logarithmic growth bound, while an exact rational generating function has a unique dominant positive pole (verified characteristic polynomial) and positive coefficient, forcing exponential expected-error growth. Exact symbolic verifier and finite exhaustive small-n independent checks passed; finite checks are not used to prove continuum statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lale et al. (2021), §4 and §5: the general positive covariance map spectral-radius test is applicable to the present example, but its discussion of genuine random delays is numerical (pp. 5–6) and its exact closed-form subsection assumes zero delay.",
+        "Arjevani et al. (2018), equation (2): fixed integer delay, versus iid Bernoulli delays in this claim."
+      ],
+      "reasoning": "A stronger general-purpose decision criterion based on a covariance matrix exists and is acknowledged. It is not an explicit evaluation of the sharp two-parameter frontier, nor does it imply the exhibited almost-sure/second-moment divergence without additional analysis. This is a motivated exact special-case solution, not an assertion of a new covariance-matrix framework.",
+      "searches": [
+        "\"asynchronous delayed scalar gradient random Bernoulli delay stability exact mean square eta p eta squared less than 2\"",
+        "\"mean square versus almost sure convergence iid random stale gradient p=1/4 step 3/2\"",
+        "https://proceedings.mlr.press/v144/lale21a/lale21a.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1806.10188",
+      "https://proceedings.mlr.press/v144/lale21a.html",
+      "https://arxiv.org/abs/2306.07850",
+      "https://arxiv.org/abs/1909.05350"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arjevani–Shamir–Srebro (2018) §1, Eq. (2) fixes delay τ, with finite-time upper/lower rates; it does not specify independently drawn Bernoulli delays.",
+        "Lale et al. (2021) §4–5 supplies the general positive-map spectral framework, which is used rather than claimed.",
+        "Mulayoff–Michaeli (2024) §2, Eq. (2) is current-gradient minibatch SGD; random component choice is not random index staleness.",
+        "A published numerical-analysis result on random delayed two-coordinate Gauss–Seidel uses a different two-coordinate update and gives a delay-generating-function characteristic equation, not this scalar-gradient polynomial."
+      ],
+      "reasoning": "The fixed-delay bound, random-update/no-delay criterion, current-gradient SGD threshold, and delayed two-coordinate Gauss–Seidel recurrence do not directly entail the two-part present claim. The source-independent spectral-radius principle supplies a method, but computing the exact universal Bernoulli threshold and the explicit pathwise/moment separation requires a separate proof. The possible equivalence to an older scalar switching result is disclosed.",
+      "searches": [
+        "\"stochastic delayed gradient one-step iid random asynchronous optimization sharp stepsize\"",
+        "https://arxiv.org/pdf/1806.10188",
+        "https://arxiv.org/pdf/2306.07850",
+        "\"randomly switched scalar two-step recurrence mean-square stability Markov jump matrix 3x3\"",
+        "random delayed scalar gradient one step p=1/4 step h=3/2 almost sure exponentially converges but mean squared error increases exponentially covariance matrix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lale et al. (2021) §4–5 explicitly represent random delays as a Markov-jump covariance map, but only numerically examine their delayed case and derive a symbolic formula in the no-delay random-update setting.",
+        "Mulayoff–Michaeli (2024) §2–3 linearizes random minibatch SGD without stale gradients."
+      ],
+      "reasoning": "Randomly switched second-order recurrences and positive Lyapunov maps are equivalent mathematical formulations and were included in searches, not ignored. The source models and statements do not give the exact Bernoulli zero/one gradient-delay inequality plus the explicit almost-sure/mean-square split.",
+      "searches": [
+        "\"randomly switched scalar two-step recurrence mean-square stability Markov jump matrix 3x3\"",
+        "\"random delay\" \"gradient descent\" \"exact\" \"stability\" Bernoulli",
+        "\"Bernoulli\" \"delayed gradient\" \"mean square\" \"stability\" stepsize",
+        "iid Bernoulli one step stale gradient x_(n+1)=x_n-h x_(n-D_n), probability p, mean square stability iff h+p*h^2<2, sharp critical h=4/(1+sqrt(1+8p)), pathwise almost-sure convergence diverging E x_n^2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No displayed table or statement with the proposed exact expression or numerical witness was found in the retrieved sources. This negative search cannot establish nonexistence.",
+        "General random-asynchronous numerical diagrams in Lale et al. (2021), Figure 1, are for different matrices and do not constitute an exact table for this scalar gradient recursion."
+      ],
+      "reasoning": "Checked numerical/frontier forms as well as title-level overlaps. The claim derives an all-probability formula, not a recomputation of an identified published numerical table.",
+      "searches": [
+        "\"Bernoulli 0-1 delayed gradient on scalar strongly convex quadratic x_{n+1}=x_n-h x_{n-D_n} stability exact h+p*h*h < 2\"",
+        "\"random zero or one step gradient delay quadratic 3x3 second moment stability threshold\"",
+        "Bernoulli random delay exact sharp mean square stability and almost sure instability mismatch scalar gradient descent quadratic"
+      ]
+    },
+    "rationale": "The exact stochastic-delay phase boundary and simultaneous almost-sure exponential decay/mean-square exponential growth example are not stated in the inspected primary papers. The generic positive-map spectral-radius condition is prior work and is explicitly credited, so no novelty is claimed for that tool. A directly equivalent result under older random-switching/delay-recurrence terminology remains a residual priority risk; originality is a best-knowledge assessment, not a uniqueness certificate.",
+    "residual_risks": [
+      "Older random-delay difference-equation and Markov-switching literature could contain an equivalent scalar case under different notation.",
+      "Stich–Karimireddy was examined in the open-access PDF introduction and relevant method sections, not read page-by-page throughout; an equivalent technical lemma elsewhere in its appendices remains a residual risk.",
+      "The general positive-map spectral framework is established prior art; originality is claimed for explicit analytic evaluation and the exact separation witness, not for spectral-radius testing."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Fixed delay τ rather than independently Bernoulli-stale gradients; no matching threshold",
+        "evidence": [
+          "Eq. (2) takes the gradient at iteration k−τ for fixed τ, while Eq. (3) compares complexity rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1806.10188",
+        "material_read": "First two pages including Eq. (2), setup, abstract and stated convergence bounds; paper text searched for random-delay coverage",
+        "method": "Primary open-access PDF text plus rendered page 2",
+        "title": "A Tight Convergence Analysis for Stochastic Gradient Descent with Delayed Updates",
+        "trigger": "Exact quadratic gradient delays and potential stronger bound"
+      },
+      {
+        "assessment": "A general positive-map spectral criterion applies; only numerical random-delay study, exact analysis for no-delay random updates. No stated sharp scalar Bernoulli front or pathwise split.",
+        "evidence": [
+          "§4 describes Markov-jump matrix S_h and numerical spectral tests; end of §4 says full random-delay closed-form analysis is left to future work; §5 is q=1 no-delay."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v144/lale21a/lale21a.pdf",
+        "material_read": "Model definitions in §§1–3, spectral test discussion in §4, §5.2 and concluding statement; relevant rendered page 4",
+        "method": "Primary open-access full PDF text sections and page render",
+        "title": "Stability and Identification of Random Asynchronous Linear Time-Invariant Systems",
+        "trigger": "General random-delay moment stability framework could subsume claim"
+      },
+      {
+        "assessment": "Analyzes independent minibatch selection using current iterate, no one-step stale state; no matching delay inequality.",
+        "evidence": [
+          "§2, Eq. (2), updates at θ_t using stochastic minibatch gradient ∇L_hat(θ_t), not at θ_(t−D_t)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2306.07850",
+        "material_read": "Introduction and contributions, §§2–3 for the stochastic update model; relevant rendered page 3",
+        "method": "Primary open-access PDF searchable text plus page render",
+        "title": "Exact Mean Square Linear Stability Analysis for SGD",
+        "trigger": "Exact mean-square stability criterion might already imply this law"
+      },
+      {
+        "assessment": "§1 gives the fixed-delay recurrence and broad rate bounds, and explicitly discusses more general variable delays in the related work. No analytic binary iid delay stability boundary is stated in the reviewed relevant sections; equivalence elsewhere in the document is a residual literature risk.",
+        "evidence": [
+          "D-SGD formula in §1, Eq. (D-SGD), has fixed τ; §1.1 gives general complexity O bounds; §1.2 discusses variable-delay literature without specifying the exact Bernoulli frontier."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1909.05350",
+        "material_read": "Open-access full preprint, introduction and D-SGD formulation, §§1–2 main contributions and related-work discussion; rendered page 2",
+        "method": "Primary arXiv PDF full-text sections and page render",
+        "title": "The Error-Feedback Framework: Better Rates for SGD with Delayed Gradients and Compressed Communication",
+        "trigger": "Possible broad delay/staleness convergence coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f5af2b94-9bb8-4c82-b97e-96c5da5de816",
+  "value": {
+    "rationale": "The impact of genuinely random staleness on a numerical gradient solver is a motivated optimization question. The exact sharp step ceiling decreases continuously from 2 to 1 as stale probability increases, replacing conservative upper bounds or numerical stability diagrams with a complete natural one-dimensional model. More importantly, the same explicit solver/step/delay law has exponentially decaying iterates on almost every sample path while expected quadratic loss diverges exponentially, proving a structurally significant risk-assessment distinction. This is not a named-parameter substitution or a tiny improvement and does not claim broader high-dimensional performance.",
+    "status": "PASS"
+  }
+}
