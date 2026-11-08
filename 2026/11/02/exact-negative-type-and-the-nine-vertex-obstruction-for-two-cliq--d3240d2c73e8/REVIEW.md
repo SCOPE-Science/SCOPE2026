@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every zero-sum test vector, the powered distance form is the complete-graph negative Euclidean energy plus one cross-clique correction. An orthogonal group-mean decomposition reduces the condition to a real symmetric \(2\times2\) matrix. Its exact determinant yields the claimed exponent, strictness, critical kernel, and explicit failure vector above the threshold. The \(p=1\) criterion and nine-vertex classification follow by integer inequalities; at both nine-vertex failures, a rational vector gives a strictly positive violation. An independently assembled full centered-Gram checker passed 1,320 exact distance-matrix tests and 10,469 integer tests. No finite computation is offered as a proof for all dimensions.
+PASS
 
-## Originality — PASS, with acknowledged risk
+For K_h join (K_a disjoint_union K_b), h>=2,a,b>=1, distances differ from the complete graph only by A-to-B value 2. On zero-sum coefficients the powered quadratic form is -sum z_i²+2(2^p-1)αβ. Group-mean decomposition gives negative within-group deviations plus the explicit 2x2 matrix R with diagonals 1/a+1/h and 1/b+1/h and off diagonal 1/h-(2^p-1). Its PSD condition yields the stated log2(1+1/h+sqrt((1/h+1/a)(1/h+1/b))) endpoint and 1D nullity, with dimensions N-1 below and N-2 at critical exponent. At p=1 determinant rearranges to (h-2)ab<=h+a+b. Since F=(h-2)ab-(h+a+b) grows under nontrivial exclusive-size enlargement, enumerating boundary N=8 yields no failures, N=9 exactly triples (4,2,3) and (5,2,2) up to exchange. Independent exhaustive tuple enumeration through N=9 reproduced both and direct PSD witness signs. Scope is ONLY this chordal family, not all chordal graphs.
 
-The closest checked source, Sánchez's arXiv:1108.0451, gives a general finite-metric distance-matrix characterization and examples for complete bipartite graphs; its inspected statements do not include two complete graphs sharing a multi-vertex clique or their first loss of \(1\)-negative type. Faver et al.'s arXiv:1201.6669 gives general embedding-rank and additive-metric results, not this chordal family. An established one-vertex clique-bouquet result treats intersection size one and does not imply the multi-vertex threshold. A broader 1990 transformed-distance/spectral reference by Deza and Maehara could contain an implicit reduction; its full manuscript was not available, so noncoverage is **not** asserted for it. Database search cannot prove novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a natural chordal gluing operation, the theorem completely resolves when squared Euclidean snowflaking is possible at a given exponent. The explicit threshold, critical embedding dimension and sharp \(1\)-negative-type classification identify a structural obstruction: overlapping cliques can destroy \(1\)-negative type, first at nine vertices within this family. This exact finite cutoff and two-type classification have mathematical content beyond computing a matrix for an arbitrarily selected graph.
+General finite-metric matrix criteria and classical transforms are credited. A multi-vertex shared clique changes the 2x2 obstruction from earlier one-vertex bouquet and complete-bipartite examples. The exact h,a,b threshold and nine-vertex first-failure list do not appear in inspected accessible primary text. Deza–Maehara 1990 may contain a stronger transformed-distance theorem; full text inaccessible after OA/arXiv attempts and institution VPN, so its noncoverage is not asserted.
 
-## Limits
+## value
 
-No statement is made about arbitrary chordal graphs, more than two cliques, independently weighted distances, or uniqueness in all prior literature. Full-text historical comparison has an acknowledged access limitation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural chordal clique-gluing construction gives a complete exact negative-type phase diagram, critical Hilbert rank and the first dimension at which the unweighted graph metric ceases to be of 1-negative type. This sharply identifies two minimal obstruction graph types within the family, beyond a routine one-off matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
