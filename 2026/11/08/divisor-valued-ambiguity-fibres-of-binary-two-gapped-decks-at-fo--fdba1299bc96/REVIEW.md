@@ -1,0 +1,19 @@
+# Review of four-run two-gapped-deck ambiguity
+
+## Correctness — PASS
+The observation includes singleton multiplicities, so the zero and one populations are recovered. The same-symbol gapped-pair counts give both symbol-run counts exactly by subtracting adjacent occurrences from all same-symbol pairs. These run counts exclude reconstructions from outside the claimed stratum. At three runs, orientation and the sole split run length are determined by one cross-pair count. At four runs, one orientation gives the middle-run product \(G_{10}+1\), while the opposite gives \(G_{01}+1\); admissible factor pairs are in one-to-one correspondence with words. Equation \(G_{01}+G_{10}=AB-3\) establishes the reflected multiplication-table count. The divisor-family construction makes the second summand vanish and proves the precise multiplicity \(\tau(K)\). No finite enumeration is used to extend a bound to infinity.
+
+The independent literal-deck implementation in `verify.py` grouped 8,094 words into 5,611 observed low-run classes through length 18 and verified every group against the formula. It additionally checked 529 fixed-composition multiplication-table identities and 120 divisor examples. This supports the proof but does not substitute for it.
+
+## Originality — PASS with stated bibliographic limitations
+The most relevant foundational paper, Golm–Nahvi–Gabrys–Milenkovic, *The Gapped \(k\)-Deck Problem* (arXiv:2201.12671), is the source of this precise observation model. Its accessible full text establishes general constructions and explicitly reports \(G(2)=6\), including a six-letter confusable pair. **Neither that threshold nor its example is asserted to be new.** Its inspected theorems and numerical table do not state a complete inverse-fibre formula indexed by four-run middle products, nor the reflected multiplication-table code size and arbitrary divisor multiplicities.
+
+Related primary studies and public technical results on substring multispectra and length-limited substring compositions observe *adjacent* strings or *contiguous* compositions. They do not dominate the two-gapped observation, which combines all nonadjacent ordered pair counts with singleton counts. The inspected text therefore does not imply the new inverse classification, though an unindexed earlier statement remains possible. The external comparison is a best-knowledge assessment, not a claim of globally certified novelty.
+
+## Mathematical value — PASS
+The result answers a natural recovery question in the exact observation model introduced for gapped string reconstruction. Four runs are the first nontrivial bounded-run stratum with ambiguous full decks (apart from the length-two `01`/`10` degeneracy). The classification goes beyond a single collision example: it returns every compatible word, every fibre size, and the exact code size at a fixed composition. The unexpected arithmetic dependence on bounded divisor pairs, and the unbounded family of precise \(\tau(K)\)-sized fibres, identify a structural obstruction to reconstruction that cannot be seen from isolated examples. It is a limited-parameter but complete classification, not a claim about arbitrary strings.
+
+## Limitations and nearby literature
+The first length-six collision is published and must not be used as originality evidence. The theorem does not cover five or more runs, gaps greater than two, larger subsequence length, noisy observations, or nonbinary alphabets. Full-text comparisons were performed for arXiv:2201.12671v2, arXiv:1804.04548v2, and the relevant composition sections of arXiv:2208.14963v2, alongside public technical results on adjacent two-multispectra and two-length substring compositions. Novelty can still be affected by work not retrieved in those searches. No external expert or independent proof audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.
