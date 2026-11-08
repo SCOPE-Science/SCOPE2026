@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The cyclic XOR obstruction and forest two-complement solution lemma establish the exact test for all n,k. Counting uses Cayley and labeled set partitions. The upper 2r bound uses balanced vertex assignments per component and shore-complement symmetry; star construction attains it when n>=3r+1. Small-forest theorem follows from maximum subset-sum gap <= maximum term and enough isolated vertices. Independent exhaustive comparisons (168146 across n<=6) and coefficient checks agree, but infinite claims are proven separately.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "T. Lee et al., arXiv:2011.05085, first version November 10 2020; its abstract, introduction and Theorems 1-2 concern linear span of incidence vectors of minimum cuts, not VC shattering of fixed-cardinality cut families.",
+        "D. Coudert et al., arXiv:2405.07588, Section 2, explicitly defines the graph VC parameter through closed vertex neighborhoods, not edge membership in cuts."
+      ],
+      "reasoning": "Neither a linear-span dimension of mincuts nor the vertex-neighborhood VC dimension is a stronger theorem covering the present edge-cut trace family. They cannot be substituted for this cardinality-constrained learning invariant. General forest XOR constraints are incorporated as known premises.",
+      "searches": [
+        "VC dimension of fixed-k graph cut incidence vector class on edge queries of complete graph",
+        "forest query supports of balanced cut 2-colorings with cardinality constraint",
+        "shattered bisections graph class parity constraints"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2011.05085 (2020-11-10, CCC 2021 full text checked as described)",
+      "arxiv:2405.07588 (2024-05-13, SEA 2024 full text checked as described)",
+      "Earlier accessible cardinality-two-cut result (claim statement compared)",
+      "Searches in available mathematical-records index: fixed-k cut VC, bisection shattering, forest edge traces; no direct stronger match among returned summaries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lee et al. full text pages 1-3 and text search on entire PDF show mincut linear-span theorems cdim(G)<=2n-3; not fixed-size edge-cut VC claims.",
+        "Coudert et al. full text introduction and Section 2 set up a neighborhood set system and emphasize other VC set systems are outside scope.",
+        "The prior fixed-cardinality-two claim is a special case and its constant-four VC capacity cannot imply the parameter-uniform 2 min(k,n-k) saturation for arbitrarily growing k."
+      ],
+      "reasoning": "Parameter growth is substantive: the new theorem supplies an all-support equivalence by component-order data, a face polynomial, and exact dimension for all k in a large-n regime. None of the identified theorems states these implications. No claim of independent priority certification is made.",
+      "searches": [
+        "On the cut dimension of a graph 2020 minimum cut incidence spans",
+        "Practical Computation of Graph VC-Dimension 2024 neighborhood definition",
+        "VC dimension cuts balanced graph edge shattering"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A cut trace on an edge uv is precisely x_u XOR x_v for one binary vertex partition. The full unconstrained cut family has the cycle-parity forest condition.",
+        "Earlier fixed-shore-size-two classification determines only k=2 and its specific polynomial; it does not logically imply the all-k component-order criterion."
+      ],
+      "reasoning": "Compared graph-cut traces and edge-parity equivalence, not merely titles. The unrestricted forest statement is known background and excluded from novelty. The prior fixed-k=2 result is a strict parameter specialization; claims for all k>=3, the partition-count formula, and uniform stable-range capacity are not logical consequences of its stated result.",
+      "searches": [
+        "VC dimension cuts balanced graph edge shattering",
+        "VC dimension cuts fixed cardinality graph bisection shattering edge labels",
+        "Exact shattering polynomial of two-vertex cuts in complete graphs and fixed-size cut systems with XOR pair queries"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible fixed-k=2 result supplies a separate exact case table and coefficients, explicitly recognized as prior.",
+        "No inspected source establishes an integer-partition face count for all k; the provided coefficient formula is independently checked against complete cut-trace enumeration through six vertices."
+      ],
+      "reasoning": "A known two-shore-vertex table is subsumed mathematically but is not itself novel; it does not provide the general component-size partition sum. A database absence alone does not prove priority, hence the recorded residual risk.",
+      "searches": [
+        "VC dimension of graph cuts with size constraint uniform cuts bisections learning theory",
+        "VC dimension and shattering polynomial for connected induced vertex subsets of unicyclic cactus graphs",
+        "VC dimension of k-cut graph fixed size bipartition balanced cuts shattering edge sets graph"
+      ]
+    },
+    "rationale": "Direct comparison excludes the pre-existing unrestricted forest obstruction and earlier k=2 enumeration. Verified source distinctions and record searches reveal no stronger all-k fixed-cardinality cut shattering theorem. New claims are all-k component-size universality, whole face enumerator and stable-range sharp dimension. Priority under alternate terminology remains a nonzero risk.",
+    "residual_risks": [
+      "An equivalent prior theorem may appear under bisection, graph-boundary, incidence-code, or balanced-cut terminology outside the accessible sources.",
+      "A full exhaustive historical priority survey was not completed; absence from searches is not proof of uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "different invariant; not covering on inspected object and main-theorem scope",
+        "evidence": [
+          "Theorem 1 bounds span dimension of minimum-cut incidence vectors by 2n-3, not VC dimension of cardinality-k cut hypotheses.",
+          "Full-text searches find no shattering or VC-dimension mention."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2011.05085",
+        "material_read": "35-page open-access CCC 2021 PDF: abstract, introduction pages 1-3, definitions and main Theorems 1-2, targeted full-text searches for shattering, VC-dimension, cardinality, bisection",
+        "method": "primary PDF parsed-text reading and page-image inspection",
+        "title": "On the Cut Dimension of a Graph",
+        "trigger": "same cut-incidence vectors in an abstract, possible stronger structural results"
+      },
+      {
+        "assessment": "different concept class; not covering",
+        "evidence": [
+          "The paper defines its instances as vertices and hypotheses as closed neighborhoods N[v]; present instances are edges and hypotheses fixed-cardinality cuts.",
+          "The authors explicitly distinguish other graph-related set systems and exclude them."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.07588",
+        "material_read": "20-page open-access SEA 2024 PDF: abstract, introduction, graph VC definition Section 2, theorem/algorithm overview, targeted full-text search for cuts",
+        "method": "primary PDF parsed-text reading and page-image inspection",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "potentially broader VC algorithm on graphs"
+      },
+      {
+        "assessment": "covered for k=2, not broader k>=3",
+        "evidence": [
+          "The stated earlier result enumerates four-edge maximal supports and polynomial for exactly two selected vertices, with VC=4 for n>=7.",
+          "The new all-k component-shape invariance, finite partition count, and arbitrary-r capacity do not follow from this special-case theorem."
+        ],
+        "identifier_or_url": "opaque-prior-result:97de3d7a",
+        "material_read": "prior claim statement and its parameter ranges",
+        "method": "statement-level implication comparison",
+        "title": "Earlier exact two-vertex-cut support classification",
+        "trigger": "direct same-object specialization at k=2"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "938da32c-b1c6-4beb-a1e9-ce33d3533e7c",
+  "value": {
+    "rationale": "An exact complete classification of shattered supports for natural globally constrained cuts yields the entire polynomial of feasible query supports via integer partitions. The dimension bound is sharp for every cardinality k in a large-n range, while the uniform forest lemma explains robust realizability of arbitrary binary edge assignments. The result does not claim an efficient polynomial-time enumeration or all-n scalar dimension formula.",
+    "status": "PASS"
+  }
+}
