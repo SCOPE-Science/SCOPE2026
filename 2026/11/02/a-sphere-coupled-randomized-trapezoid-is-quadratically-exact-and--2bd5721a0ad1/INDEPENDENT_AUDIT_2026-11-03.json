@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T21:48:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each sphere coordinate is Uniform[-1,1], hence the symmetric node fractions are individually uniform and yield unbiased cell integration. The Taylor expansion at cell midpoint gives leading centered error h^3 f doubleprime(m_i)(V_i^2-1/3)/8 plus uniformly o(h^4) for C^3; the pathwise identity sum_{j=0}^2 (V_j^2-1/3)=0 cancels constant curvature exactly. Across each triple, f doubleprime changes by (j-1)h f tripleprime(c_k), giving leading block error h^4 f tripleprime(c_k)(V_2^2-V_0^2)/8. Uniform S2 squared coordinates have Dirichlet(1/2,1/2,1/2), E V_i^4=1/5, E Vi²Vj²=1/15, so Var(V2²-V0²)=4/15. Independent blocks and Riemann convergence give limit 1/720. Cubic paths make the leading block expression exact, giving a²/(20n^7); quadratic is pathwise exact. Block size 1 impossible by nondegenerate squared uniform; size 2 impossible since P(V1²>2/3)>0 contradicts a fixed squared sum 2/3. Independent exact rational sphere-path and moment checks agree; finite checks do not prove the C3 limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2011.15086: IID randomized trapezoid fractional-Sobolev rates.",
+          "https://arxiv.org/abs/2212.11476: Gaussian-weight Sobolev quadrature minimax, different domain and error model."
+        ],
+        "reasoning": "Neither cited independent-cell rule nor Gaussian measure Sobolev minimax theorem implies a particular fixed C^3 integrand dependent-triple variance law.",
+        "searches": [
+          "dependent randomized trapezoidal quadrature spherical copula three cells exactly quadratic variance n^-7",
+          "randomized trapezoidal rule dependent stratified optimal variance Gaussian Sobolev"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2011.15086",
+        "https://arxiv.org/abs/1101.0145",
+        "https://arxiv.org/abs/2212.11476",
+        "https://doi.org/10.3390/sym3030574"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2011.15086: Wu sampled tau_i independently.",
+          "https://arxiv.org/abs/1101.0145: Perlman Wellner derived sphere marginals but did not analyze Q_n."
+        ],
+        "reasoning": "The correlated triple changes fluctuation cancellation relative to IID sampling and obtains new local finite-block minimality plus an asymptotic coefficient not directly entailed by either theorem alone.",
+        "searches": [
+          "https://arxiv.org/abs/2011.15086",
+          "https://arxiv.org/abs/1101.0145",
+          "https://arxiv.org/abs/2212.11476",
+          "dependent randomized trapezoidal quadrature spherical copula three cells exactly quadratic variance n^-7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2011.15086: independent uniform random offsets per cell.",
+          "https://arxiv.org/abs/1101.0145: uniform sphere coordinate copula constructed separately."
+        ],
+        "reasoning": "Existing copula gives a squared-coordinate constant sum, but does not by itself imply a sample-path quadrature rule and its n^-7 variance/Riemann limit.",
+        "searches": [
+          "dependent randomized trapezoidal quadrature spherical copula three cells exactly quadratic variance n^-7",
+          "joint mixability uniform marginal squared three coordinates randomized trapezoid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/1101.0145: spherical copula marginal distribution known.",
+          "https://doi.org/10.3390/sym3030574: same copula publication.",
+          "No table for pathwise quadratic exactness at three-cell coupling or 1/720 variance was retrieved."
+        ],
+        "reasoning": "Known sphere moments do not pre-tabulate the error constant of this numerical integration algorithm; lack of search results is not a priority proof.",
+        "searches": [
+          "dependent randomized trapezoidal quadrature spherical copula three cells exactly quadratic variance n^-7",
+          "spherical copula numerical integration quadratic exact three cell table"
+        ]
+      },
+      "rationale": "The iid symmetric randomized trapezoid and spherical copula are earlier known ingredients, not contributions. Their composition to yield smallest block quadratic exactness and the sharp C3 n^-7 variance constant is not stated/implied by the inspected primary results.",
+      "residual_risks": [
+        "Specialized dependent-stratified randomized quadrature work could contain the same three-block method.",
+        "Not an optimality theorem among all couplings or rough integrands."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IID offsets do not have sphere-block exact quadratic cancellation or the n^-7 variance statement",
+          "evidence": [
+            "Independent per-interval sampling assumption, main convergence results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2011.15086",
+          "material_read": "Accessible full preprint main result assumptions and proof, especially independent cell-offset hypothesis and Sobolev convergence statements",
+          "method": "Read primary manuscript and theorem-level conditions",
+          "title": "A randomised trapezoidal quadrature",
+          "trigger": "Exact same two-point symmetric cell sampling rule"
+        },
+        {
+          "assessment": "Proves uniform S2 coordinate marginals as known probability; does not formulate the quadrature rule or variance limit",
+          "evidence": [
+            "Uniform coordinate marginal and sphere identity results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1101.0145",
+          "material_read": "Accessible full primary article, marginal laws and construction of 3D spherical copula",
+          "method": "Read open article probability construction and relevant propositions",
+          "title": "Squaring the Circle and Cubing the Sphere: Circular and Spherical Copulas",
+          "trigger": "Sphere-coordinate uniform marginal is key nonstandard ingredient"
+        },
+        {
+          "assessment": "Gaussian measure and minimax Sobolev setting rather than this fixed smooth integrand interval covariance limit",
+          "evidence": [
+            "Gaussian-weight integration hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.11476",
+          "material_read": "Accessible preprint abstract and theorem/model statements, not a claim of complete page-by-page read",
+          "method": "Compared integration measure, function class, error norm and theorems",
+          "title": "Randomizing the trapezoidal rule gives the optimal RMSE rate in Gaussian Sobolev spaces",
+          "trigger": "Potentially dominating random quadrature rate result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same two evaluations per cell gain two powers in variance decay for smooth integrands through deliberate dependence while preserving unbiasedness and giving pathwise quadratic precision. The minimal three-cell coupling size is a sharp structural lower bound, and the constant 1/720 is an independently meaningful numerical-analysis invariant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2011.15086",
+    "https://arxiv.org/abs/1101.0145",
+    "https://arxiv.org/abs/2212.11476",
+    "https://doi.org/10.3390/sym3030574"
+  ],
+  "disposition": "passed",
+  "final_claim": "On uniform n-cell grids, 3|n, grouping symmetric randomized two-point trapezoids by independent uniform S^2 coordinate triples makes quadrature pathwise exact for every quadratic and unbiased for continuous f; for real C^3 f, n^7 Var(Q_n) -> integral_0^1 (f triple prime)^2/720; exact cubic variance a^2/(20n^7). Three is the minimal block size with individual uniform sampling fractions; IID cells instead have n^5 variance limit integral(f double prime)^2/720.",
+  "limitations": [
+    "Requires uniform n divisible 3, independent sphere blocks and deterministic real C3 integrands; no minimax or rough-input claim."
+  ],
+  "residual_risks": [
+    "Specialized dependent-stratified randomized quadrature work could contain the same three-block method.",
+    "Not an optimality theorem among all couplings or rough integrands."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Each projected coordinate of the uniform \(S^2\) law is uniform on \([-1,1]\), proving unbiasedness cell by cell. The proof's exact degree-two cancellation uses \(V_0^2+V_1^2+V_2^2=1\); uniform \(C^3\) Taylor–Peano remainder and independent-block variance summation yield the sharp \(n^{-7}\) limit. The sphere Dirichlet moments give the coefficient \(1/720\), and the finite cubic variance and two-cell impossibility are proved directly. Exact-rational verification reproduces the algebra, but cannot certify the limiting theorem by enumeration.
+## correctness
 
-## Originality — PASS (qualified)
-The strongest direct prior work is Yue Wu, arXiv:2011.15086 (2020), whose symmetric two-point rule assumes IID uniform cell fractions; its proof and rate do not cover the sphere-dependent cancellation or the exact third-derivative variance constant. Perlman and Wellner, arXiv:1101.0145 (2010), explicitly construct the uniform spherical copula; it is fully credited rather than treated as a novel distribution. General complete-mixability theory could imply existence of a constant-sum coupling, but not by itself the specific integration/error asymptotic. Goda–Kazashi–Suzuki, arXiv:2212.11476 (2022), treat Gaussian-weight integration and minimax Sobolev rates, not this deterministic-integrand finite interval theorem. Searches did not identify a directly covering randomized quadrature theorem; a specialized coupling-based quadrature source outside the examined papers remains a priority risk. Independent validation is outstanding.
+PASS
 
-## Value — PASS
-The modification uses the same two function evaluations per interval but removes all pathwise quadratic error, yields a strict whole-power variance-rate gain for every nonquadratic \(C^3\) test function, and identifies the smallest feasible size of a quadratic-exact uniform-marginal block. The quantified gain answers a natural numerical-analysis question about dependence design in the randomized trapezoidal rule, beyond simply recomputing a known distributional moment.
+Each sphere coordinate is Uniform[-1,1], hence the symmetric node fractions are individually uniform and yield unbiased cell integration. The Taylor expansion at cell midpoint gives leading centered error h^3 f doubleprime(m_i)(V_i^2-1/3)/8 plus uniformly o(h^4) for C^3; the pathwise identity sum_{j=0}^2 (V_j^2-1/3)=0 cancels constant curvature exactly. Across each triple, f doubleprime changes by (j-1)h f tripleprime(c_k), giving leading block error h^4 f tripleprime(c_k)(V_2^2-V_0^2)/8. Uniform S2 squared coordinates have Dirichlet(1/2,1/2,1/2), E V_i^4=1/5, E Vi²Vj²=1/15, so Var(V2²-V0²)=4/15. Independent blocks and Riemann convergence give limit 1/720. Cubic paths make the leading block expression exact, giving a²/(20n^7); quadratic is pathwise exact. Block size 1 impossible by nondegenerate squared uniform; size 2 impossible since P(V1²>2/3)>0 contradicts a fixed squared sum 2/3. Independent exact rational sphere-path and moment checks agree; finite checks do not prove the C3 limit.
 
-## Limits
-Only uniform grids with block size three, independent blocks, and scalar smooth deterministic integrands are established. No rough-function advantage or global minimax claim is made. Uniqueness/priority of this quadrature adaptation is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The iid symmetric randomized trapezoid and spherical copula are earlier known ingredients, not contributions. Their composition to yield smallest block quadratic exactness and the sharp C3 n^-7 variance constant is not stated/implied by the inspected primary results.
+
+## value
+
+PASS
+
+The same two evaluations per cell gain two powers in variance decay for smooth integrands through deliberate dependence while preserving unbiasedness and giving pathwise quadratic precision. The minimal three-cell coupling size is a sharp structural lower bound, and the constant 1/720 is an independently meaningful numerical-analysis invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
