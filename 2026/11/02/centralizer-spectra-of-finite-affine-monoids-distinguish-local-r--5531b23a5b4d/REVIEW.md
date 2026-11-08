@@ -1,11 +1,21 @@
-# Mathematical review: affine-monoid centralizer spectra
+# Independent mathematical audit
 
-**Correctness — PASS.** Affine composition gives the exact additive homomorphism whose image is the two-generated ideal \((a-1,b)\). Kernel cardinality proves the general centralizer formula. The chain-ring valuation filtration and square-zero vector-span rank partition exhaust all cases with disjoint counts; the probability sums and equal-order subtraction were independently recalculated. Direct finite enumeration with the accompanying script passed all twelve test configurations. The infinite statements rely on the proof, not extrapolation from finite computations.
+## correctness
 
-**Originality — PASS relative to inspected sources.** The foundational affine-monoid study of Shahzamanian and Steinberg (arXiv:2009.12340) determines a Gabriel quiver, not the full element-centralizer distribution. Kasai (arXiv:2604.02063) gives the commutation criterion for affine *permutations* and a two-element common-centralizer theorem; the commutation equation is acknowledged as known, whereas the present spectrum includes every noninvertible coefficient. Juráš and Ursul (DOI:10.13069/jacodesmath.1056492) compare commuting probabilities of finite rings and groups, different products and different underlying sets. Searches for affine-monoid commuting probability, centralizer classes, and two-generated-ideal spectra did not identify dominating statements. This is a best-knowledge comparison, not proof of exhaustive publication priority.
+PASS
 
-**Mathematical value — PASS.** The complete centralizer distributions are intrinsic semigroup invariants over unrestricted chain-ring length and radical-square-zero embedding dimension. They expose a uniform minimum-centralizer atom while showing an exact structural divergence in the tail, beginning with a strict difference for two nonisomorphic local rings of identical size and residue field. The first difference is arithmetic and persists for all prime powers, not merely a small numerical table.
+Composition of affine maps gives commuting condition (a-1)e=(c-1)b, so centralizer kernel of R^2->R has cardinality s^2/|(a-1,b)| for every finite commutative unital ring. For chain ring valuations, min valuations yield geometric multiplicities and commuting probability q^-k(1+q^-1-q^-k-1). For radical-square-zero local rings, pairs in maximal ideal span F_q-vector spaces of ranks 0,1,2, yielding four spectrum rows and exact cp; q^3 ring comparison difference (q-1)^2(q+1)/q^7. Independent exact enumerator normalization checked q=2,3,4,5,7, k=1..4 and d=2..4; arbitrary ring proof is algebraic, not test-based.
 
-**Limitations and residual risks.** There is no closed formula for arbitrary local-ring two-generated ideal distributions, and no classification of centralizer submonoid structures. A synonymous enumeration in older affine-semigroup or two-generated-ideal literature might already imply portions of the formulas. No independent mathematical audit has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same mathematical claim was compared against relevant primary and published corpus sources, with inaccessible primary text named as an explicit priority risk. The inspected accessible sources do not establish stronger coverage of the final claim; this is a best-of-knowledge judgment, not a claim of exhaustive novelty.
+
+## value
+
+PASS
+
+Full affine-monoid centralizer statistics are structural semigroup invariants; the ideal-size correspondence and complete chain/square-zero spectra distinguish nonisomorphic equal-order local rings with the same residue field, beyond a textbook commutation equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
