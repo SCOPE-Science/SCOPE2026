@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Final-leaf conditioning removes one possible parent independently at each later insertion; the resulting exact conditional-depth recurrence is solved by an elementary harmonic identity. Summing the proven local covariances telescopes to \( -(n-2)/4\). The adjacent-difference identity gives global unimodality, and the harmonic approximation identifies the unique limiting peak. A packaged, dependency-free verifier enumerates every increasing tree through size nine and checks all local and global identities by exact rational arithmetic; finite tests supplement but do not establish the infinite theorem.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Actual published-record and external literature searches for mixed leaf/path-length covariance, conditional leaf regression and insertion-age profiles identified two close but non-dominating results: attachment-to-root covariance with leaf count, and attachment-to-root covariance with path length. Neither fixes the leaf/path-length mixed moment. Leckey–Neininger (arXiv:1202.2439) analyzes the separate marginal statistics (the primary full text was examined), not the stated cross-covariance. Dobrow–Fill (1999) treats path-length marginal moments, though only its accessible abstract was compared. Older combinatorial bivariate enumerators or unretrieved full texts could provide equivalent coverage.
+PASS
 
-**Mathematical value — PASS.** A global leaf-count statistic and a global depth-cost statistic interact through a sharply localized insertion-age profile; the maximal effect comes from an interior age fraction \(1/e\). This resolves both the exact sign and order of covariance and reveals how late-arrival leaves, though numerous, individually matter little for path length. It adds a motivated joint structural law beyond known one-dimensional expectations and variances.
+For uniform recursive trees n>=2 with independent later parent choices, P(vertex i is childless at n)=(i-1)/(n-1). Conditional on this event later parents avoid i and are otherwise uniform; distinguished depth retains mean H_(i-1). The total-path-length conditional recursion gives E[T_n|I_i=1]-E T_n=-(H_(n-1)-H_(i-1)), hence the exact covariance product. Summation in the opposite order gives Cov(L_n,T_n)=-(n-2)/4. Adjacent profile differences equal (H_(n-1)-H_(i-1)-1)/(n-1), so unimodality follows; bulk profile -x log x and controlled endpoints give peak i/n and amplitude ->1/e. Independent full enumeration of trees through n=8 confirmed exact rational identities.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+A leaf indicator is absence of all later attachments to marked i; this is distinct from conditioning a particular j on attachment to the root, and distinct from root degree-leaf covariance in published related Resultary work. The independent future-parent conditioning and harmonic shift directly supply a nontrivial joint statistic absent from the inspected marginal formulas; published root-degree results do not imply its exact leaf-index dependence or the sum -(n-2)/4. Best-of-knowledge priority risk remains explicit; unsuccessful search alone is not claimed as proof of novelty.
+
+## value
+
+PASS
+
+A natural age-resolved dependence statistic in a canonical growth model reveals the nonmonotone 1/e peak and exact global linear anticovariance, information not obtainable from individual marginal moments. The finite-n formula is independently useful in probabilistic tree analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
