@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns finite products \(G=\square_i K_{m_i}\) with \(r\ge2\), characteristic two, and the loopless adjacency update on \(L(G)\). The proof derives \(F=B^{\mathsf T}B\), \(L=BB^{\mathsf T}\), and the square-zero product Laplacian when all factors are even. It reconstructs the full rank and Jordan count using contractible tensor pairs, the even-sum incidence image, and the fact that the all-ones vector belongs to \(L(W)\). When a factor is odd, the explicit Laplacian eigenvector produces a nonzero edge fixed point. The all-even formulas agree with separate Python and C++ rank checks and exhaustive orbit checks at three smaller graph sizes. The algebraic proof, not the finite experiment, justifies the universal quantifiers. The unique lower-index boundary is \(K_2\square K_2\).
+## correctness
 
-## Originality — PASS, with residual risk
-The closest previously recorded edge-parity theorem treats \(L(Q_d)\) when every clique factor has size two; this is a strict specialization and is excluded from novelty credit. A different previous theorem treats **vertex** adjacency dynamics on mixed-parity Hamming products; its state space and update matrix differ and it neither yields the edge-Jordan formula nor this nilpotency criterion. The 2004 full-text study by Davis–Domke–Garner analyzes real ranks, including Cartesian products; neither a real spectrum nor first-adjacency rank determines characteristic-two nilpotent block sizes. Fish–Key–Mwambene (2010) give directly relevant binary-code studies on hypercubes and Hamming graphs. Their article records and abstracts were inspected, but complete text could not be obtained; this creates a genuine historical-overlap risk, not a claim that their full texts were checked. Searches for the exact all-even mixed-clique formula, its equivalent nilpotence statement, and adjacency-power ranks identified no covering prior result. The positive originality assessment applies to the mixed-alphabet theorem, the tensor-homology Jordan term, and the necessity direction, not to the cube specialization.
+PASS
 
-## Value — PASS
-Hamming products and their line graphs are canonical symmetric networks, and nearest-neighbor parity is a natural finite-state dynamical rule. Even clique size in **every** coordinate is exactly the boundary between uniform extinction and persistent nonzero fixed states, independent of network dimension. Within the extinction class, \(H=\prod_i(m_i-2)\) controls the exact number \(H+2\) of length-two Jordan blocks; it varies nontrivially beyond binary cubes. All first-zero-time classes are counted in closed form over every characteristic-two finite field, providing a full dynamical census rather than a sample computation or a reparameterized cube statement.
+PASS: The unsigned vertex-edge incidence B over characteristic two gives F=B^TB with no diagonal self-loops and L=BB^T. Connectedness gives imB=W (coordinate sum 0) and ker B^T=〈1〉. For all-even clique sizes L=Σ_i J_{mi} on tensor factors, with each J²=0; characteristic-two cancellation yields L²=0 and F³=0. Each factor (F2^{mi},J_{mi}) has one contractible 2-block and mi-2 trivial homology blocks; tensor contracting homotopies imply total homology dimension H=∏(mi-2), so rankL=(N-H)/2. Since 1∈W, kerL⊂W and 1∈L(W) (explicit unit⊗all-ones vector, r>=2), rankF=N-2 and rankF²=rankL-2. These ranks exactly yield all three Jordan multiplicities and counts C_t=q^{dim kerF^t}-q^{dim kerF^{t-1}}. With any odd factor, the tensor of e0+e1 in that factor and all-ones elsewhere is a sum-zero Laplacian eigenvector with eigenvalue 1, giving B^Tv a nonzero F-fixed edge state. Independent GF2 line-graph matrices were constructed directly for nine even/odd small tuples and reproduced ranks; no finite test extrapolation to arbitrary field sizes or factors. The claimed exceptional nilpotency index two for K2□K2 follows from rankF²=0.
 
-## Closest sources and limits
-Davis–Domke–Garner, *Ranks of Line Graphs of Regular Graphs* (2004), full PDF relevant pages 113,125–127; Fish–Key–Mwambene, *Binary codes from the line graph of the n-cube* (2010), indexed opening/abstract; Fish–Key–Mwambene, *Codes from incidence matrices and line graphs of Hamming graphs* (2010), abstract; Zaidenberg, *Convolution equations on lattices* (2006), abstract. The two Fish–Key–Mwambene full texts were unavailable; no whole-document noncoverage assertion is made. The 2004 source is in ordinary real linear algebra, and the 2010 sources foreground code dimensions and decoding, not the claimed all-even mixed-product dynamics. Exact code citations are in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for all even-order Cartesian clique products with H-dependent mixed-alphabet Jordan counts and the odd-factor iff obstruction, NOT for the prior all-m_i=2 cube edge case. Ordinary real adjacency rank results of Davis–Domke–Garner cannot imply characteristic-two Jordan powers. Fish–Key–Mwambene code papers are strongly relevant: their available theorem and summaries cover code ranks and binary Hamming graph geometry, but a complete 2010 primary proof was inaccessible. The independent F² and F³ classification is not established by a rankF code dimension alone. No decisive broader theorem found in actual searches; source-access risk expressly remains.
+
+## value
+
+PASS
+
+PASS: Characteristic-two edge-neighbor dynamics on Cartesian clique/Hamming graphs is a natural linear cellular automaton with a meaningful structural parity boundary. The theorem identifies exactly when every state is extinguished, gives an all-alphabet Jordan census and sharp extinction times, and introduces the nontrivial tensor-homology factor H. The all-binary cube subcase is credited as known rather than claimed new. This is a genuine infinite family classification, not merely a code-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
