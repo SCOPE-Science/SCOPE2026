@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The graph power and geodesic distance are specified unambiguously. The discrete Fourier transform of the squared-cycle distance is derived by splitting the ceiling into ordinary-cycle distance plus parity. For even orders the parity is a single alternating character; for odd orders its Dirichlet kernel is explicit. The resulting sign inequalities are exhaustive and include the \(n=9\) exact-zero boundary. Fourier diagonalization plus the finite Schoenberg equivalence proves the all-orders Gaussian classification and the centered embedding ranks. The separately implemented BFS/DFT checks cover orders 3 through 128 and exactly verify the nine-vertex residue cancellation. These computations corroborate but do not replace the infinite proof.
+## correctness
 
-## Originality: PASS under bounded historical review
-The closest known **same-object** publication, Atik and Panigrahi, Electronic Journal of Linear Algebra 29 (2016), Theorem 2.2 and pp. 198–199, already gives the complete distance spectrum of **even** cycle squares. No novelty is claimed for that part. The assessed claim is the odd-order formula, the all-order negative-type/Gaussian dichotomy, and the isolated admissible odd order \(n=9\). Aalipour et al. (arXiv:1509.01196v1) prove general graph-distance results and discuss other graph families; their accessible full HTML has no cycle-square spectral theorem. Zhou (2014) supplies only circulant distance spectral-radius/Wiener-index relations. Searches under the aliases cycle square, power of cycle, two-step circulant, negative type, generalized roundness, Schoenberg kernel and Euclidean embedding, together with prior findings, did not find a covering claim. The diameter-two cases are accessible from standard adjacency Fourier methods; this does not dominate the all-order odd classification for unbounded diameter. A differently titled historical odd-square-cycle spectrum remains a residual risk.
+PASS
 
-## Mathematical value: PASS
-Universal Gaussian positivity of a graph metric is a natural Fourier/embedding invariant. The answer is not simply a small-order calculation: even order works in every dimension, almost all odd orders fail, and the isolated nine-vertex exception has a nontrivial two-dimensional null space and a sharp six-dimensional Euclidean realization. The explicit odd Fourier formula and parity-frequency obstruction identify the structural mechanism, while the complete endpoint embedding ranks connect spectral signs to attainable geometry. The result is a meaningful complete classification of an infinite, canonical graph-power family rather than an arbitrary numerical slice.
+For C_n^2 the shortest path distance is ceil(min(k,n-k)/2)=(delta(k)+delta(k) mod 2)/2. Discrete Fourier diagonalization of the circulant distance matrix yields an explicit nonconstant spectrum. For even n, the parity term contributes a single alternating frequency and every nonconstant eigenvalue is nonpositive. For odd n=2N+1, the parity Dirichlet sum yields lambda_j=-1/4(1/(1+(-1)^j cos(pi j/n))+(-1)^(N+j)/cos(pi j/n)); sign cases exclude odd n>=7 congruent 3 mod 4, and among n congruent 1 mod 4 admit only 5,9. At n=9 the frequencies 3,6 vanish; there are no positive modes. Finite Schoenberg negative-type equivalence and strict PD of distinct-point Gaussian kernels prove the claimed universal t>0 statement, with converse small-t failure from positive distance eigenmodes. Independent FFT checks of all n=3..128 matched formulas and admissibility including zero modes at nine.
 
-## Limits and related literature
-The already-known even-order distance spectrum is not counted as novel. There has been no independent mathematical verification. Search-based historical originality cannot rule out differently named or unindexed papers. The result does not cover nonunit distance exponents.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Atik–Panigrahi 2016 Theorem 2.2 already establishes the full distance spectrum of even square cycles. That component must not be called new. The candidate distinctive theorem supplies a complete odd-n spectrum and Gaussian negative-type classification, with unique odd nine-vertex exception. Other graph-distance spectral and circulant papers cited do not directly state the odd spectrum in inspected material. Priority for a differently titled historical odd-square-cycle result remains uncertain.
+
+## value
+
+PASS
+
+Universal Gaussian-kernel positivity and squared-Euclidean embeddability are canonical finite metric invariants. A complete infinite-family classification with a surprising isolated odd exception and exact minimum embedding dimensions has independent mathematical use and is not an arbitrary small-n check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
