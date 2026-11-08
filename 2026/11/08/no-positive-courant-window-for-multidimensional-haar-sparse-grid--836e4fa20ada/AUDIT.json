@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For every d>=2,N>=2 the quadrant indicator belongs to V1 tensor V1 and hence the sparse space. The retained longitudinal slice with transverse W1 is exactly V_(N-1), whose average of the negative jump is -1/2 on the adjacent odd cell. Both projected differences are exactly +1/4 there, so the Euler output is -(r_i+r_j)/4, strictly negative whenever at least one selected speed is positive. Extra coordinates differentiate constants to zero. Adding a smaller positive constant proves strict-input failure. At N=1 the positive cone is a>=sum|b_i| and each coefficient scales by 1-2r_i; this gives the exact iff bound. In d=1 the standard periodic full-grid upwind convex-combination criterion applies; N=0 is identity. Independent standard-library exact-rational projection code verified finite cases, not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang (2026), Theorem 4.3 proves L2 contraction under maximum directional CFL but not positivity.",
+        "Guo–Cheng (2016) proves L2 stability and conservation.",
+        "Gong et al. (2024) addresses locally conservative lower-order DG without sparse tensor compression.",
+        "Zeiser (2023) is an implicit continuous-FE stabilized method."
+      ],
+      "reasoning": "Full-grid P0 positivity results do not dominate a compressed Haar space, even though full-grid positivity is used as a contrasting boundary case. General order-preserving time-stepping/limiting frameworks require additional hypotheses absent here and do not supply this exact all-level classification.",
+      "searches": [
+        "web: sparse grid positivity discontinuous Galerkin transport negative values maximum principle",
+        "web: sparse grid discontinuous Galerkin linear advection positivity preserving maximum principle",
+        "web: sparse grid DG method positivity preservation piecewise constant 2026",
+        "Indexed research query: sparse grid discontinuous Galerkin piecewise constants Markov positivity finite volume transport"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.17312 (Huang 2026, primary scheme and CFL theorem)",
+      "arxiv:1602.02124 (Guo–Cheng 2016, original sparse-grid DG)",
+      "arxiv:2405.16117 (Gong et al., distinct positive DG)",
+      "doi:10.1007/s42985-023-00250-2 (Zeiser 2023, distinct implicit stabilized scheme)",
+      "Indexed published mathematical-finding comparisons under the listed claim and equivalence queries",
+      "Previously reported findings on function-space SBP transport, scalar EIN diffusion, and heat-control Gramians"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source supplies the operator and norm-stability regime but does not calculate a positive-cone violation; the present proof explicitly computes projection of a dyadic quadrant indicator and the level-one cone.",
+        "The source L2 theorem cannot imply the new sign claim: a contraction need not be positive, and the projected forward-Euler operator gives an explicit separation."
+      ],
+      "reasoning": "The positive semigroup/Metzler cone criterion is a general technique, not an assertion of the concrete dyadic-quarter value nor an all-level if-and-only-if. The claim is a new conclusion for the precise published method, not merely a special case of a stronger positivity or nonpositivity theorem found during the checks.",
+      "searches": [
+        "Huang arXiv:2609.17312: Section 2 equation (2.9), Theorem 4.3 and Section 5",
+        "Guo–Cheng arXiv:1602.02124: Sections 2–3, 5",
+        "Indexed research query: dyadic quadrant indicator wavelet sparse transport projected backward shift half pair negative outside initial support"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For the invariant fine-cell positive cone, preservation by every small step is equivalent to the projected generator being inward-pointing at every zero coordinate; the explicit dyadic-quadrant certificate instead has the outward derivative minus one quarter of each selected positive speed.",
+        "The closest indexed local projector positivity finding 99c2b9dd9b34 concerns affine finite-element projection on a simplex, not a sparse Haar transport generator."
+      ],
+      "reasoning": "Rephrasing as a discrete maximum-principle violation, a non-Metzler/cone-tangency defect, or a negative semidiscrete derivative does not match a covering previous result in the checked sources. The named source proves only L2 contraction, which does not imply cone invariance.",
+      "searches": [
+        "Indexed research query: piecewise constant sparse grid discontinuous Galerkin transport sharp CFL positivity preserving maximum principle negative projection Haar modes",
+        "Indexed research query: An all-level failure of positivity and discrete maximum principle for first-order piecewise constant Haar sparse-grid DG upwind transport, even arbitrarily small CFL steps and single-direction velocity",
+        "Indexed research query: 2610? positive orthant order-preserving projected Haar sparse-grid upwind DG no CFL",
+        "web: sparse grid Haar upwind semidiscrete positivity fails negative values"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed records closest to the query concern unrelated positivity work on backward Euler, Padé, local affine projection, and Krylov positivity, not this DG projection.",
+        "Previously reported findings on function-space SBP transport, scalar diffusion positivity and heat-control Gramians do not contain the Haar sparse-grid upwind claim."
+      ],
+      "reasoning": "No checked database record or tabulation provides the all-level positivity frontier. Absence from a finite search is only an evidence limit, not a uniqueness certificate.",
+      "searches": [
+        "Indexed research query: positivity preservation sparse grid DG advection probability mass negative solution Haar projection",
+        "Indexed research query: sharp positivity CFL threshold Haar sparse tensor Galerkin forward Euler transported quadrant dyadic box initial data",
+        "Indexed research query: negative cell average from projection of periodic upwind difference onto sparse grid Haar space, no positivity preserving timestep",
+        "Indexed research query: arxiv:2609.17312 Huang sharp CFL piecewise constant sparse grid discontinuous Galerkin transport"
+      ]
+    },
+    "rationale": "The primary 2026 scheme analysis proves sharp L2 contractivity but has no positivity result; 2016 foundational sparse-grid DG work gives L2 stability/conservation. Distinct 2024 positivity-preserving DG and 2023 stabilized sparse-grid transport methods do not use this unmodified operator. Comparisons with indexed prior mathematical findings and targeted primary literature yielded no covering all-dimensional no-step positivity theorem. This is best-knowledge originality, not priority certification.",
+    "residual_risks": [
+      "A differently worded generic sparse-grid order-preservation obstruction or an unindexed application of the non-Metzler criterion could predate this statement.",
+      "The exact step-independent witness is an unmodified-linear-scheme result; any claims about positivity-limited implementations or different hierarchical index sets need separate proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes a sharp L2 norm contraction condition and projection leakage, but no claim on preserving nonnegative fine-cell values. Its theorem does not imply positivity and its constructed alternating-mode L2 witness differs from the nonnegative dyadic quadrant used here.",
+        "evidence": [
+          "arXiv:2609.17312, equations (2.4) and (2.9), Theorem 4.3 (equation 4.9), Section 6.1; no positivity/maximum-principle statement located in inspected full HTML."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.17312",
+        "material_read": "HTML manuscript: Introduction, Section 2.1–2.2 equations (2.4)–(2.9), level-slice projection identities in Section 3, Theorem 4.3 and proof, Section 5 sufficient and sharpness criteria, Section 6 numerical CFL discussions; searched HTML for positivity and maximum principle.",
+        "method": "Read primary arXiv full-text HTML sections and compare statements and defining equations.",
+        "title": "The sharp CFL condition of the piecewise constant sparse grid discontinuous Galerkin method for high-dimensional transport equations",
+        "trigger": "Exact named forward-Euler scheme, Haar total-level subspace and all-dimensional CFL theorem; possible direct prior coverage."
+      },
+      {
+        "assessment": "Provides stability, convergence and conservation; positivity is mentioned for distinct previously known DG schemes, but the sharp no-step positivity classification of the unmodified piecewise-constant sparse scheme is not given.",
+        "evidence": [
+          "arXiv:1602.02124, Sections 1–2, upwind flux equation (3), conservation Theorem 5.1, references to positivity-preserving Vlasov-Boltzmann algorithms."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1602.02124",
+        "material_read": "Primary arXiv HTML: Sections 1–2 scheme and hierarchical spaces, Section 3 stability descriptions, Section 4 numerical design, Section 5 kinetic conservation discussion; searched the complete indexed text for positivity, maximum and nonnegative.",
+        "method": "Read original freely accessible preprint before using secondary journal abstract.",
+        "title": "A sparse grid discontinuous Galerkin method for high-dimensional transport equations and its application to kinetic simulations",
+        "trigger": "Original sparse-grid DG scheme may already imply order-preserving behavior or give failure examples."
+      },
+      {
+        "assessment": "The positive result is for a different locally conservative full DG formulation in coupled flow/transport; it does not cover Haar total-level orthogonal compression and thus is not a contradiction.",
+        "evidence": [
+          "arXiv:2405.16117, abstract and introduction; no statement that global sparse-grid projected upwind schemes are positive."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.16117",
+        "material_read": "Primary arXiv HTML abstract and introduction, including precise description of locally conservative flux and particular lowest-order DG framework.",
+        "method": "Read accessible primary abstract and introduction and compare the method class.",
+        "title": "Positivity and Maximum Principle Preserving Discontinuous Galerkin Finite Element Schemes for a Coupled Flow and Transport",
+        "trigger": "Possible stronger low-order DG positivity theorem."
+      },
+      {
+        "assessment": "Uses continuous finite elements in space, streamline diffusion and implicit space-time Galerkin, so it does not assert positivity or cover the specified forward-Euler Haar projector.",
+        "evidence": [
+          "Zeiser (2023), Sections 1–2, continuous conforming FE spaces and implicit stabilized space-time formulation."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s42985-023-00250-2",
+        "material_read": "Open-access full HTML abstract, Sections 1–2 and method-defining space-time implicit stabilization description; HTML text searched for positivity.",
+        "method": "Read open-access publisher HTML with method-level comparison.",
+        "title": "Sparse grid time-discontinuous Galerkin method with streamline diffusion for transport equations",
+        "trigger": "Broader sparse-grid transport analysis that may dominate a projected method barrier."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "836e4fa2-0ada-4c4a-a424-54e35c547607",
+  "value": {
+    "rationale": "The same natural low-order sparse-grid discretization known to achieve an enlarged sharp L2 CFL has no positivity-preserving positive Courant number at all once mixed level-one Haar functions enter, including for a single active velocity and strictly positive input. The complete dimension/level frontier gives a decisive algorithm-design boundary: reducing the time step or applying a generic positive CFL restriction cannot solve this specific issue; a change in spatial projection or nonlinear limiting is necessary. The exact one-quarter signed defect and low-level necessity/sufficiency make this substantially more informative than an arbitrary small negative numerical sample.",
+    "status": "PASS"
+  }
+}
