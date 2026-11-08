@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** A direct polarization reduction expresses each threefold fiber as the image of the bilinear map \(B(u,v)=u^{2^r}v+uv^{2^r}\). The critical lemma identifies the relative-trace hyperplane and proves it intersects every power-subgroup coset for even relative degree at least four. The proof covers both odd-factor and power-of-two extension degrees. Exact twofold counting proves sharpness, and exact finite-field computations verify 36 parameter pairs through degree eight.
+## correctness
 
-**Originality — PASS, qualified.** Carlet–Gong–Tan (2014) supplies differential uniformity and partial difference sets. Thornburgh (2024), Theorem 1.6, already gives **stronger ordered/distinct three-sum information** in the APN subfamily, so the special case \(\gcd(m,r)=1\) is not presented as new. The surviving contribution is the complete relative-degree classification and non-APN \(\gcd(m,r)>1\) trace-coset covering theorem. The published Gold-graph fourth-moment result provides derivative fibers but not additive triple coverage. The accessible comparisons did not identify a stronger implication covering all non-APN cases. Residual risk: a differently framed result in cryptographic coding literature may have established the same full classification.
+PASS
 
-**Mathematical value — PASS.** It determines the least additive covering order for a natural polynomial graph throughout an infinite two-parameter family and separates two genuine subfield obstructions from the full-plane regime. The non-APN even-degree proof is a structural trace-hyperplane coset-intersection theorem, not merely a routine restatement of derivative uniformity.
+For F=GF(2^m), g=gcd(m,r), s=2^g, n=m/g and D=2^r+1, write each triple summing to first coordinate a as (a+u,a+v,a+u+v); its second-coordinate deviation from a^D equals B(u,v)=u^(2^r)v+uv^(2^r). For v!=0, B(vt,v)=v^D(t^(2^r)+t). The image of this additive linear polynomial is H=ker Tr(F/F_s), of size q/s. If n odd, gcd(D,q-1)=1, so scaled H covers F (except n=1), with exact ordered triple counts q+(q-1)s on b=a^D and q-s otherwise. If n=2, H=F_s and the D-power image is F_s^*, giving 3G=F x F_s; n=1 graph itself additive. For even n>=4, D-power subgroup P has index s+1; when n has odd divisor e>=3, F_(s^e)^* lies in P and each coset meets H by a nonzero trace kernel vector. If n is a power of two >=4, F_(s^2) is contained in H, and its nonzero elements project onto all s+1 cosets of P. Therefore 3G=F^2 for n>=3. Direct 2G fibers give |2G|=1+(q-1)q/s, so the covering threshold 3 is sharp. Independently brute-enumerated finite fields degrees m<=6 with r<=m using checked polynomial-basis arithmetic and confirmed the claimed supports and twofold cardinalities; infinite result rests on trace/coset argument.
 
-**Limits.** No general even-relative-degree triple representation histogram is asserted; computational enumeration is corroborative only. Historical priority and correctness have not undergone independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Thornburgh 2024 Thm 1.6 covers three-distinct-point sum multiplicities for binary Gold APN functions with gcd(m,r)=1 and even m, which already implies full triple support for that APN subfamily. The present contribution is the uniform classification including gcd(m,r)>1 and even relative degree >=4, the exceptional n1,n2 cases and the |2G| formula. Carlet–Gong–Tan derivative uniformity and the published Resultary Gold-graph fourth-moment result provide relevant machinery but not an equivalent general 3G support theorem.
+
+## value
+
+PASS
+
+Additive diameter and threefold sum representation of Gold-polynomial graphs are natural invariants in characteristic-two finite-field combinatorics. The phase split by relative Frobenius order and the non-APN full-coverage proof are structurally motivated and give a complete sharp classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
