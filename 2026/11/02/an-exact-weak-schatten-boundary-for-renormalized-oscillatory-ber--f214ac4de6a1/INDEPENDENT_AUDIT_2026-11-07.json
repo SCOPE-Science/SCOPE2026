@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T01:18:35.171611Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rotational invariance diagonalizes T_u on each homogeneous degree-n block with dimension binom(n+d-1,d-1). Beta integration yields lambda_n=Gamma(beta+is)/Gamma(beta)*Gamma(n+d+beta)/Gamma(n+d+beta+is). Its gamma-product modulus gives centered block eigenvalues r_n=c(product_(k>=0)(1+s²/(n+d+beta+k)²)-1)>0, decreasing to zero. Asymptotic log-product s²/n+O(n^-2) gives r_n=c s²/n+O(n^-2). The multiplicities sum to binom(n+d,d), proving s_j~c s²/(d!)^(1/d)*j^-1/d, S_p exactly p>d, and log endpoint (c s²)^d/d!. Q_s essential limit c-1 and unique centering 1-c follow. Gamma characteristic-function argument proves 0<c<1 for s!=0. Independent mpmath checks tested the first-order asymptotic in dimensions 1,3,4; these do not prove the infinite limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang–Wang–Zheng arXiv:2210.04148 Thm1.1 Eq1.2",
+          "Bendaoud et al doi:10.15407/mag16.01.003 §3 Prop3.1"
+        ],
+        "reasoning": "Tang–Wang–Zheng treats semicommutators on balls under smoothness and related assumptions absent for u_s",
+        "searches": [
+          "radial Bergman Toeplitz oscillatory logarithmic symbol semicommutator weak Schatten gamma",
+          "\"Toeplitz operators with radial symbols on Bergman space\" Schatten 2020",
+          "Tang Wang Zheng arXiv 2210.04148 Thm1.1; Bendaoud et al 2020 §3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2210.04148",
+        "https://www.mathnet.ru/php/getFT.phtml?jrnid=jmag&option_lang=rus&paperid=744&what=fullt",
+        "Tang–Wang–Zheng arXiv:2210.04148 Thm1.1 Eq1.2",
+        "Bendaoud et al doi:10.15407/mag16.01.003 §3 Prop3.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tang–Wang–Zheng arXiv:2210.04148 Thm1.1 Eq1.2",
+          "Bendaoud et al doi:10.15407/mag16.01.003 §3 Prop3.1"
+        ],
+        "reasoning": "No exact table for rough imaginary-power product singular asymptotic; a Resultary Fock logarithmic filter concerns another space",
+        "searches": [
+          "radial Bergman Toeplitz oscillatory logarithmic symbol semicommutator weak Schatten gamma",
+          "\"Toeplitz operators with radial symbols on Bergman space\" Schatten 2020",
+          "Tang Wang Zheng arXiv 2210.04148 Thm1.1; Bendaoud et al 2020 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tang–Wang–Zheng arXiv:2210.04148 Thm1.1 Eq1.2",
+          "Bendaoud et al doi:10.15407/mag16.01.003 §3 Prop3.1"
+        ],
+        "reasoning": "Hankel factorization and radial symbol sequence equivalence",
+        "searches": [
+          "radial Bergman Toeplitz oscillatory logarithmic symbol semicommutator weak Schatten gamma",
+          "\"Toeplitz operators with radial symbols on Bergman space\" Schatten 2020",
+          "Tang Wang Zheng arXiv 2210.04148 Thm1.1; Bendaoud et al 2020 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tang–Wang–Zheng arXiv:2210.04148 Thm1.1 Eq1.2",
+          "Bendaoud et al doi:10.15407/mag16.01.003 §3 Prop3.1"
+        ],
+        "reasoning": "Bendaoud et al. covers (quasi-)radial Toeplitz S_p on disk with Legendre methods, not directly this product and centering",
+        "searches": [
+          "radial Bergman Toeplitz oscillatory logarithmic symbol semicommutator weak Schatten gamma",
+          "\"Toeplitz operators with radial symbols on Bergman space\" Schatten 2020"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the exact stated theorem only; public primary comparison and published-record semantic searches found related methods but no prior statement implying the complete final claim. This is not proof of worldwide priority. No exact table for rough imaginary-power product singular asymptotic; a Resultary Fock logarithmic filter concerns another space",
+      "residual_risks": [
+        "The radial operator literature provides general moment and Schatten techniques; an unlocated exact product formula might dominate this example.",
+        "Smooth-symbol semicommutator theorems do not automatically apply to the oscillatory symbol; no uniform s->0 result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Trace theorem assumes C² or stronger controlled boundary derivatives; logarithmically oscillatory u_s lacks those bounds, so it does not directly imply its scalar defect and weak-Schatten endpoint.",
+          "evidence": [
+            "Theorem 1.1 requires f,g in C²(closed disk)",
+            "Eq. (1.2) gives general semicommutator-Hankel equivalence"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.04148",
+          "material_read": "Theorems 1.1–1.2, Hankel identity (1.2), assumptions and higher-dimensional introduction.",
+          "method": "Primary PDF extracted text and p.2 screenshot",
+          "title": "Trace Formula of Semicommutators",
+          "trigger": "Potential general semicommutator trace/Schatten coverage"
+        },
+        {
+          "assessment": "Provides eigenvalue moment formula and sufficient smoothness conditions for Schatten membership on disk; does not directly state this centered oscillatory-product exact coefficient in inspected material; some general methods remain relevant.",
+          "evidence": [
+            "Proposition 3.1 requires Sobolev smoothness and vanishing derivatives at boundary",
+            "Section 2 gives radial eigenvalue moment formula"
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/php/getFT.phtml?jrnid=jmag&option_lang=rus&paperid=744&what=fullt",
+          "material_read": "Full-text 24-page PDF accessible; inspected introduction, section 2 radial eigenvalue formula, §3 Proposition 3.1 assumptions, results overview.",
+          "method": "Primary open-access PDF extracted text and screenshot p.9",
+          "title": "Toeplitz Operators with Radial Symbols on Bergman Space and Schatten-von Neumann Classes",
+          "trigger": "Same radial Bergman/Schatten topic; central previous access risk"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural bounded but boundary-oscillating unimodular symbol, the raw semicommutator is noncompact while its unique scalar renormalization has a precise weak-S_d endpoint. The exact gamma coefficient and dimension threshold are useful invariants for rough-symbol Bergman operator ideals; this does not claim a general arbitrary-symbol theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The radial operator literature provides general moment and Schatten techniques; an unlocated exact product formula might dominate this example.",
+    "Smooth-symbol semicommutator theorems do not automatically apply to the oscillatory symbol; no uniform s->0 result."
+  ],
+  "schema_version": 1
+}

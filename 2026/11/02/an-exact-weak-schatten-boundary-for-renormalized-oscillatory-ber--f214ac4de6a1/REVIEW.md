@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Radial beta integration gives a gamma quotient on each finite-dimensional homogeneous polynomial space. The exact gamma-product identity proves positivity, monotonicity and compactness after the unique scalar correction. Its logarithm yields a controlled inverse-degree expansion; the exact homogeneous-block multiplicities yield the ordered singular-value constant, Schatten cutoff and weak endpoint sum. The standalone mpmath program passed 336 high-precision finite tests. The infinite-dimensional claims are proved analytically, not inferred from those tests.
+## correctness
 
-**Originality — PASS with historical-priority risk.** Tang–Wang–Zheng (arXiv:2210.04148v1), sections 1, 5 and 6, concern trace formulas for suitably regular symbols; their smooth boundary hypotheses fail here, and their statements do not provide the noncompact scalar defect and weak-Schatten constant. Suárez (arXiv:0710.0797), sections 1–2, provides radial moment context, not the proposed semicommutator product and dimension-dependent endpoint. Bendaoud et al. (DOI:10.15407/mag16.01.003) study radial Toeplitz Schatten classes; its complete text was not accessible from the attempted open sources or institutional retrieval, so a residual priority risk is explicitly retained. Targeted semantic searches of published mathematical findings found related Fock/radial work but no statement implying the precise ball semicommutator claim; lack of a match is not a uniqueness proof.
+PASS
 
-**Value — PASS.** Smooth-symbol Bergman semicommutators admit trace results, whereas boundary-phase characters are bounded and unimodular yet give a noncompact defect. Precisely subtracting its noncompact scalar produces an intrinsic positive compact operator whose spectral decay records complex dimension; the exact weak-Schatten endpoint quantifies the sharp regularity of that correction. This is a natural boundary-regularity counterpoint, not an arbitrary scalar calculation.
+Rotational invariance diagonalizes T_u on each homogeneous degree-n block with dimension binom(n+d-1,d-1). Beta integration yields lambda_n=Gamma(beta+is)/Gamma(beta)*Gamma(n+d+beta)/Gamma(n+d+beta+is). Its gamma-product modulus gives centered block eigenvalues r_n=c(product_(k>=0)(1+s²/(n+d+beta+k)²)-1)>0, decreasing to zero. Asymptotic log-product s²/n+O(n^-2) gives r_n=c s²/n+O(n^-2). The multiplicities sum to binom(n+d,d), proving s_j~c s²/(d!)^(1/d)*j^-1/d, S_p exactly p>d, and log endpoint (c s²)^d/d!. Q_s essential limit c-1 and unique centering 1-c follow. Gamma characteristic-function argument proves 0<c<1 for s!=0. Independent mpmath checks tested the first-order asymptotic in dimensions 1,3,4; these do not prove the infinite limit.
 
-**Scientific limits.** The proof is fixed-frequency, fixed-dimension and fixed-weight; no uniform parameter estimates or independence claims. Originality remains provisional until broader literature review and independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the exact stated theorem only; public primary comparison and published-record semantic searches found related methods but no prior statement implying the complete final claim. This is not proof of worldwide priority. No exact table for rough imaginary-power product singular asymptotic; a Resultary Fock logarithmic filter concerns another space
+
+## value
+
+PASS
+
+For a natural bounded but boundary-oscillating unimodular symbol, the raw semicommutator is noncompact while its unique scalar renormalization has a precise weak-S_d endpoint. The exact gamma coefficient and dimension threshold are useful invariants for rough-symbol Bergman operator ideals; this does not claim a general arbitrary-symbol theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
