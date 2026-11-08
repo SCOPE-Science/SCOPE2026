@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every map of a disjoint equal-clique graph has a unique decomposition into occupied source parts, distinct target parts, and nonempty partial bijections. Complement invariance is immediate from induced isomorphisms. Gardiner's finite homogeneous graph classification leaves only the two exceptional graphs; the full automorphism group and subset pointwise stabilizers give exact coefficients. An independent type-based enumerator checks all exceptional coefficients and 18 parametrized graph/complement profiles. The local deficiency distribution is exactly \(\binom nj/(j!L_n(-1))\); strict log-concavity and a uniform quadratic log-weight expansion prove the Gaussian limit, with classical Laguerre asymptotics giving total-size growth. The code checks finite cases, not convergence.
+## correctness
 
-**Originality — PASS on inspected evidence, not certified publication priority.** The old Gardiner classification and classical partial-bijection coefficients are explicit inputs. An accessible star-isometry paper treats a different restricted monoid. The existing cycle-automorphism result already covers the pentagon coefficient vector, and the separately known balanced-clique nilpotency theorem treats a different invariant. The 2018 general inverse-monoid paper establishes underlying structural theory but its full text was not accessible; its abstract does not state the complete homogeneous-graph rank polynomials or Gaussian deficiency law. Eight distinct query families of published mathematical research records and targeted public-literature searches identified no directly equivalent statement. The full-text access gap and possible implicit consequences of general partial-permutation asymptotics remain risks.
+PASS
 
-**Value — PASS.** Rank distribution is a canonical invariant of partial graph-automorphism monoids; the result simultaneously resolves its full distribution over every classified finite homogeneous graph, including a nine-vertex exceptional case with nontrivial orbit stabilizers. Its large-component limit gives a quantitative concentration scale and fluctuation law for actual monoid elements. The fact that one ingredient is the classical rook polynomial does not itself settle the complete graph-family problem or the transfer of the limit law.
+By the finite homogeneous graph classification, a graph or complement is t disjoint equal-sized cliques or an exceptional C5 or 3×3 rook graph. Occupied cliques inject into distinct target cliques; this yields R=Σ_s binom(t,s)(t)_s(B_n(z)−1)^s with B_n=Σ_j binom(n,j)^2 j! z^j. Complement induces identical partial isomorphism monoid. For exceptions, orbit-stabilizer counts each induced-domain isomorphism: C5 coefficients [1,25,100,100,50,10], rook [1,81,1296,5616,9072,9072,6048,2592,648,72], total 34,498, independently verified by explicit group actions on all subsets. For fixed t, s=t dominates as T_n=n!L_n(−1)→∞; local deficiency weights binom(n,j)/j! have ratios (n−j)/(j+1)^2, yielding (J_n−sqrt(n))/n^(1/4)⇒N(0,1/2). Independence of t components implies total variance t/2. Classical Laguerre asymptotic gives stated total-size factor t!(n!)^t e^(2t√n−t/2)/(2√π)^t n^(t/4).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Finite homogeneous graph classification, partial permutation rank counts/laguerre asymptotic, and C5 values are prior work. Full primary paper on general graph-partial-automorphism inverse monoids was inspected; its focus is monoid structure and Green classes, not the complete homogeneous graph rank polynomial and Gaussian deficiency. The combined all-homogeneous rank enumerator and fixed-t limit appear new at best knowledge; potential equivalent PAut enumeration remains a priority risk.
+
+## value
+
+PASS
+
+A complete rank spectrum for every finite homogeneous graph, including the nontrivial nine-vertex rook exception, is a natural complete inverse-monoid classification. The Gaussian deficiency law links these exact finite counts with a nondegenerate asymptotic invariant; not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
