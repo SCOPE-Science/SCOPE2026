@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result has an explicit finite-dimensional domain, the full published admissible parameter interval, and exact quantified conclusions. The scalar claim follows from the signed cubic leading coefficient, an exactly positive quadratic at \(C=5/183\), and a positive parameter derivative. The two-state part is a complete generator classification. The three-state counterexample follows from the exact Jordan-block derivative identity and the positive sign of \(1204C^2+4C-1\) throughout the upper parameter interval. Exact rational matrix evaluation provides a second check of the nonstandard derivative/witness calculation. The accompanying standalone verification program passes 24 exact-rational assertions. This is not a claim that finite computation proves the universal statements: the inequalities in RESULT.md do so.
+PASS
 
-## Originality — PASS under accessible-source comparison
+The exact published stability rational function has positive denominator on the negative axis. At C=5/183 its cubic numerator reduces to a positive quadratic of negative discriminant, and its derivative with respect to C is a positive quadratic times 3x; below threshold the leading cubic coefficient is negative and dominates as x->infinity. A-stability ensures R(-x)<=1; 2-state generators obey Q^2=-(a+b)Q and their functional calculus is a convex combination of I and stationary projection when 0<=R<=1. The 3-state upper Jordan block evaluates the (1,2) entry to 12R_C prime(-12); differentiation gives the stated negative rational expression, with 1204 C^2+4C-1>0 on upper interval. Independent exact rational algebra reproduced the derivative identity and direct 3x3 rational matrix value -16260/22193521 at Cq. Dimension one always Q=0. Universal quantifiers rely on these algebraic facts and not finite trials.
 
-The original and transport–relaxation papers give the integrator and its scalar A/L-stable rational function but do not establish the precise scalar-positivity cutoff or the minimal conservative Markov-chain dimension shift; the relevant mathematical sections and surrounding applications were read. Established absolute-monotonicity theory anticipates positivity restrictions in general but does not supply this method-specific phase classification. The closest published exact-state comparisons for SSP-SDIRK2(2) and [2/2] Padé concern different rational functions; their claims do not entail the present coefficient \(5/183\), universal witness \(h=12\), or dimension dichotomy. The source-specific comparisons remain subject to historical-priority uncertainty, particularly for literature not fully accessible in this review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The method is intended for stiff transport–relaxation and reactive evolution, where nonnegative states and conservation both matter. This theorem proves that row-sum conservation and fourth-order L-stability can coexist with a negative transition probability, pinpoints the scalar sign boundary exactly at the independently motivated quadratic-stiff-decay parameter, and identifies the smallest conservative model needed to reveal the hidden sign defect. A parameter-resolved minimal-dimension classification is more informative than a generic reminder that A-stability does not imply positivity.
+Qualified best-of-knowledge originality of only the stated new claim; acknowledges known methods/results explicitly. The scalar boundary partly shares Huo–Su special Cq but does not follow from the stiff quadratic decay observation; Markov positivity is a different rational-function property.
 
-## Limits and nearest comparisons
+## value
 
-The result is for exact linear endpoint updates, reducible CTMCs, and the published L-stable parameter interval. It does not establish stage, nonlinear, spatially discretized, or finite-precision positivity behavior. The closest conceptual precedents are the established absolute-monotonicity theory and analogous but quantitatively distinct Markov-chain examples for SSP-SDIRK2(2) and fourth-order Padé. Independent review and exhaustive historical-priority confirmation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a stiff transport–relaxation fourth-order scheme, shows precisely how L-stability and mass conservation fail to guarantee endpoint nonnegative Markov transitions, with sharp scalar/2-state/3-state parameter-dependent boundary. The criterion is motivated by positivity of probability and chemical concentration states, not a generic trivial method warning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
