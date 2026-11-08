@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The proof distinguishes all rational divisor points on individually rational exceptional curves and at intersections of conjugate curves. The triangle-free forty-edge incidence graph rules out triple intersections. Lefschetz gives the full surface count from the rank-six Picard representation, yielding the displayed formula at every extension degree. A signed oriented-edge character then establishes the entire rational zeta identity. Exact verification enumerated all \(1920\) Weyl-group elements, their eighteen conjugacy classes, and fifteen incidence profiles; a separate projective-plane enumeration checked both the previously known split specialization and a non-split transposition type using exact quadratic-field arithmetic. The source code and its executed checks are embedded with the mathematical statement. Non-realization of a particular abstract profile over a small field is not conflated with the validity of the formula.
+
+## Originality — PASS, with residual priority risk
+Kunyavskii–Skorobogatov–Tsfasman provide the geometric configuration and its Weyl-group action, and Banwait–Fité–Loughran give the complete-surface Frobenius-trace formula. Their split-complement count \((q-5)^2\) is explicitly excluded from the novelty claim. Darwin's enriched line count addresses a different invariant. The full non-split fifteen-profile census and signed-edge zeta formula are not stated in the inspected relevant material and are not implied by an explicit previously published open-surface census located in targeted searches. They do follow by a new incidence-trace computation from classical ingredients, so a historically unlocated equivalent reformulation remains possible. A related record on integral homology of a five-point parabolic very-stable locus concerns complex homology, not finite-field Frobenius zeta data; its full text was unavailable for inspection.
+
+## Mathematical value — PASS
+The open complement of all \((-1)\)-curves is an intrinsic natural locus on a degree-four del Pezzo surface. Classifying its rational points over every finite extension gives a sharper arithmetic invariant than the surface's Picard trace: several surfaces with the same complete-surface trace have different numbers of points off all exceptional curves. The census is complete for all \(1920\) abstract Weyl actions and describes fourteen possible counting polynomials, while the determinant formula recovers extension-field behavior that a one-field table cannot. The result does not merely recompute the already-known split case.
+
+## Closest literature and limitations
+The historical papers are cited precisely in RESULT.md. The comparison covers the full Weyl-group graph description, published split-point formula, and enriched line counts. Residual priority risk concerns older incidence/zeta calculations phrased in terms of graph automorphisms or twisted moduli; searches did not establish their absence. Individual Weyl types need not be realizable over every small field. No independent validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
