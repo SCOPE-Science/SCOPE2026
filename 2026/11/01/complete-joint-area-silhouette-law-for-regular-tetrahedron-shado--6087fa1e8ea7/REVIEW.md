@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The geometric starting point \(A=\max(2s,4a)\) and the equivalence between the triangle event and \(2a<s\) follow directly from the tetrahedron's four face-normal contributions and from projected-hull incidence. The cone partitions are exhaustive up to null boundaries. In the three-vertex cone, radial arcs about the body-diagonal spherical center yield the first density with correct sphere-normalization factor \(8/(4\pi)\). In the four-vertex cones, polar arcs about the three coordinate axes yield the second density with factor \(24/(4\pi)\). The common transition comes from their spherical inradius. Both densities integrate to the previously known exact silhouette probabilities and to the correct conditional area moments. Standalone independent hull reconstruction checks 2,500 directions; integrated moment checks and 450,000 further spherical samples corroborate. These computations are supplemental to the complete analytical change-of-variables proof.
+## correctness
 
-## Originality: PASS (historical priority provisional)
-Vickers and Brown (2001) already provide the full *marginal* projected-area density and its three intervals; this is explicitly prior coverage. The new claim is *type-resolved* density for area jointly with triangle/quadrilateral silhouette, and its constant Bayesian posterior on a positive-length band. Their full-text Appendix B discusses spherical cap counting but does not state the joint measures or posterior. The 2026 published result *Area-weighted silhouette probabilities of arbitrary tetrahedra* provides complete conditional first and second moments, including the regular example, but not conditional distributions. Finch (2012) gives unconditional moments and unweighted silhouette probabilities; Feldman and Klain (2008) give unweighted cone probabilities. Black and Criado (2024) bound expected shadow-vertex counts, not joint area laws. The complete type-resolved distribution requires additional partition-specific integration and does not follow from previously recorded unconditional densities or finitely many conditional moments alone. Residual priority risk: the 2001 spherical cap construction may permit an implicit reconstruction, and an unindexed equivalent analysis could exist.
+PASS
 
-## Value: PASS
-This is a natural complete classification of a discrete/metric joint invariant of a basic regular polytope. It resolves a geometric inference question not determined by either the known marginal area density or known conditional first two moments: how a measured area alters the probability of a triangular silhouette. The exact constant-posterior band and its sharp endpoint, despite different silhouette supports, are structural and useful in silhouette discrimination and stochastic convex geometry; no claim of broad downstream theorem is needed.
+For regular tetrahedron with vertices (1,1,1),(1,−1,−1),(−1,1,−1),(−1,−1,1), edge 2√2, Cauchy brightness yields A(u)=max{2∑|u_i|,4 max|u_i|}. The projected silhouette is triangular iff 2max|u_i|<∑|u_i|, quadrilateral otherwise (null boundary ignored). These cases partition eight octants into a central spherical triangle and 24 axis cones. In polar coordinates about body diagonal e, the allowed azimuth for triangle cases is 2π before the inradius then 2π−6acos(cotρ/(2√2)); area A=2√3 cosρ with |dA/dρ|=2√3 sinρ. Axis-cone azimuth for quad is π/2 then π/2−2acos(cotθ/√2), with A=4cosθ. Sphere factors 8/(4π) and 24/(4π) yield exact f3 and f4 with common b*=4√(2/3), triangular endpoint b3=2√3 and quad endpoint 4. On b*<t<b3 their constants are 2/√3 and 3/4, hence posterior 8/(8+3√3). Independent numerical quadrature reproduces P(N=3)=2(π/2−3asin(1/3))/π≈0.35095931218 and first weighted moments 2/√3 and 4/√3; analytic change of variables, not sampling, proves the continuous densities.
 
-## Limits and prior comparison
-The theorem assumes a regular tetrahedron and Haar-uniform orthogonal planar projections. No extension to general tetrahedra, other norms, or nonuniform sampling is proved. Previously known unconditional density and conditional moments are explicitly credited. Historical priority has not been independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full 2001 Vickers–Brown paper supplies the unconditional area density including its plateaus and cone analysis, not the two type-resolved measures. A published all-tetrahedra result gives the first two silhouette-conditional area moments, but finitely many moments do not determine an entire density or posterior plateau. This claim restricts to a natural regular tetrahedron and gives an exact joint law; full older stereology might implicitly contain equivalent equations.
+
+## value
+
+PASS
+
+The natural joint metric/combinatorial law for a random regular tetrahedron shadow is fully solved, supplying elementary f3,f4 on all area thresholds and a nontrivial constant area-only Bayesian silhouette probability over a positive-length interval; this is genuinely additional information beyond the known marginal or finitely many conditional moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T03:11:10Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read pinned RESULT.md and verify.py; separately checked area=max(2s,4a), spherical cone partition, normalization and all four density branches.",
+        "Independent one-dimensional adaptive integrals give f3 mass 0.350959312183645, f4 mass 0.649040687816356, and area-weighted moments 2/√3,4/√3.",
+        "Posterior plateau numerically 0.606237314009377; values at endpoints are irrelevant to the density law."
+      ],
+      "rationale": "For regular tetrahedron with vertices (1,1,1),(1,−1,−1),(−1,1,−1),(−1,−1,1), edge 2√2, Cauchy brightness yields A(u)=max{2∑|u_i|,4 max|u_i|}. The projected silhouette is triangular iff 2max|u_i|<∑|u_i|, quadrilateral otherwise (null boundary ignored). These cases partition eight octants into a central spherical triangle and 24 axis cones. In polar coordinates about body diagonal e, the allowed azimuth for triangle cases is 2π before the inradius then 2π−6acos(cotρ/(2√2)); area A=2√3 cosρ with |dA/dρ|=2√3 sinρ. Axis-cone azimuth for quad is π/2 then π/2−2acos(cotθ/√2), with A=4cosθ. Sphere factors 8/(4π) and 24/(4π) yield exact f3 and f4 with common b*=4√(2/3), triangular endpoint b3=2√3 and quad endpoint 4. On b*<t<b3 their constants are 2/√3 and 3/4, hence posterior 8/(8+3√3). Independent numerical quadrature reproduces P(N=3)=2(π/2−3asin(1/3))/π≈0.35095931218 and first weighted moments 2/√3 and 4/√3; analytic change of variables, not sampling, proves the continuous densities.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published SCOPE, Area-weighted silhouette probabilities of arbitrary tetrahedra, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66 provides P(N=j) and area conditional moments orders one and two for arbitrary tetrahedra; G. T. Vickers, D. J. Brown, The distribution of projected area and perimeter of convex, solid particles (Proc. R. Soc. A 457, 2001), DOI:10.1098/rspa.2000.0667, Section 3(c)(ii), Appendix B provides unconditional area distribution for regular tetrahedron."
+        ],
+        "reasoning": "All-tetrahedron first two conditional moments are broader geometrically but strictly weaker statistically than a full conditional law; neither finite-moment nor unconditional data imply f3,f4 or the positive-length posterior plateau.",
+        "searches": [
+          "DOI:10.1098/rspa.2000.0667 §3(c)(ii), Appendix B",
+          "Published SCOPE all-tetrahedron conditional moment RESULT.md",
+          "Finch arXiv:1203.2464 planar projections"
+        ]
+      },
+      "checked_sources": [
+        "G. T. Vickers, D. J. Brown, The distribution of projected area and perimeter of convex, solid particles (Proc. R. Soc. A 457, 2001), DOI:10.1098/rspa.2000.0667, Section 3(c)(ii), Appendix B",
+        "Published SCOPE, Area-weighted silhouette probabilities of arbitrary tetrahedra, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66",
+        "S. R. Finch, Planar Projections and Second Intrinsic Volume, arXiv:1203.2464, Sections 2.1, 5",
+        "D. V. Feldman, D. A. Klain, Angles as probabilities, arXiv:0809.3459",
+        "A. E. Black, F. Criado, Random Shadows of Fixed Polytopes, arXiv:2406.06936"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "G. T. Vickers, D. J. Brown, The distribution of projected area and perimeter of convex, solid particles (Proc. R. Soc. A 457, 2001), DOI:10.1098/rspa.2000.0667, Section 3(c)(ii), Appendix B appendix explicitly treats projection contours and cap overlap but does not state separate type-labeled density functions; Published SCOPE, Area-weighted silhouette probabilities of arbitrary tetrahedra, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66 claims only two area moments."
+        ],
+        "reasoning": "Given f=f3+f4 and only finitely many mixed moments, infinitely many decompositions can share that data. The new separation via cone geometry is extra reasoning; not an immediate corollary of the prior formulas.",
+        "searches": [
+          "Vickers–Brown Appendix B viewing-sphere cap derivation vs f3,f4",
+          "Published all-tetrahedron conditional moments vs full conditional laws"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "G. T. Vickers, D. J. Brown, The distribution of projected area and perimeter of convex, solid particles (Proc. R. Soc. A 457, 2001), DOI:10.1098/rspa.2000.0667, Section 3(c)(ii), Appendix B Section 3(c)(ii) establishes marginal area density with flat branches; Appendix B discusses contours and spherical caps."
+        ],
+        "reasoning": "Checked Bayesian conditional type posterior, joint area/vertex-count distribution and type-resolved area density aliases, not only titles. The full marginal f3+f4 cannot determine f3 and f4 individually.",
+        "searches": [
+          "Resultary semantic: regular tetrahedron random projection joint area distribution silhouette triangular quadrilateral densities posterior plateau",
+          "web: tetrahedron projected area distribution conditioned triangular quadrilateral polygon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "G. T. Vickers, D. J. Brown, The distribution of projected area and perimeter of convex, solid particles (Proc. R. Soc. A 457, 2001), DOI:10.1098/rspa.2000.0667, Section 3(c)(ii), Appendix B unconditional area PDF with three branches; Published SCOPE, Area-weighted silhouette probabilities of arbitrary tetrahedra, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66 exact moment entries for regular case."
+        ],
+        "reasoning": "Existing numerical/moment tables concern integrated data; a finite moment table cannot specify full joint density at every area threshold.",
+        "searches": [
+          "Resultary query: tetrahedron exact silhouette conditional area density",
+          "Vickers and Brown 2001 Figure 8 area PDF tables",
+          "Finch 2012 moments and shape probabilities"
+        ]
+      },
+      "rationale": "The full 2001 Vickers–Brown paper supplies the unconditional area density including its plateaus and cone analysis, not the two type-resolved measures. A published all-tetrahedra result gives the first two silhouette-conditional area moments, but finitely many moments do not determine an entire density or posterior plateau. This claim restricts to a natural regular tetrahedron and gives an exact joint law; full older stereology might implicitly contain equivalent equations.",
+      "residual_risks": [
+        "Older projection-cap methods could implicitly encode conditional densities despite no matching explicit statement in inspected primary article.",
+        "Exact regular tetrahedron and uniform orthogonal planar projection only; no arbitrary tetrahedra full joint law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MARGINAL_ONLY_CAVEAT",
+          "evidence": [
+            "Authors give unconditional area PDF and spherical cap geometry; separate f3/f4 joint area/vertex-number densities not identified in inspected original."
+          ],
+          "identifier_or_url": "https://doi.org/10.1098/rspa.2000.0667",
+          "material_read": "Entire accessible 2001 full text (1343 lines), Section 3(c)(ii), Figure 8 discussion, Appendix B lines about spherical caps and tetrahedron",
+          "method": "full text extracted from public lawful PDF (page screenshot attempt denied by host)",
+          "title": "The distribution of projected area and perimeter of convex, solid particles",
+          "trigger": "same regular tetrahedron area distribution and possible original contour formulas"
+        },
+        {
+          "assessment": "FINITE_MOMENTS_ONLY",
+          "evidence": [
+            "Equations give two moments but not all-threshold joint density nor plateau."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66",
+          "material_read": "Entire RESULT.md including equations (1)–(7) and proof of first/second weighted moments",
+          "method": "published full GitHub raw text read",
+          "title": "Area-weighted silhouette probabilities of arbitrary tetrahedra",
+          "trigger": "same N=3,4 area label on general tetrahedra"
+        },
+        {
+          "assessment": "KNOWN_MARGINAL_MOMENTS",
+          "evidence": [
+            "No fully type-resolved area density asserted in compared sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1203.2464",
+          "material_read": "Relevant sections 2.1 and 5 / citation material for moments",
+          "method": "arXiv source comparison",
+          "title": "Planar Projections and Second Intrinsic Volume",
+          "trigger": "tetrahedral shadow moments and silhouette probability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "The question of inferable silhouette type from projected area motivates the joint distribution before its calculation.",
+        "The posterior plateau is a qualitative feature not implied by a moment table or the unconditional density."
+      ],
+      "rationale": "The natural joint metric/combinatorial law for a random regular tetrahedron shadow is fully solved, supplying elementary f3,f4 on all area thresholds and a nontrivial constant area-only Bayesian silhouette probability over a positive-length interval; this is genuinely additional information beyond the known marginal or finitely many conditional moments.",
+      "residual_risks": [
+        "Older projection-cap methods could implicitly encode conditional densities despite no matching explicit statement in inspected primary article.",
+        "Exact regular tetrahedron and uniform orthogonal planar projection only; no arbitrary tetrahedra full joint law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "G. T. Vickers, D. J. Brown, The distribution of projected area and perimeter of convex, solid particles (Proc. R. Soc. A 457, 2001), DOI:10.1098/rspa.2000.0667, Section 3(c)(ii), Appendix B",
+    "Published SCOPE, Area-weighted silhouette probabilities of arbitrary tetrahedra, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66",
+    "S. R. Finch, Planar Projections and Second Intrinsic Volume, arXiv:1203.2464, Sections 2.1, 5",
+    "D. V. Feldman, D. A. Klain, Angles as probabilities, arXiv:0809.3459",
+    "A. E. Black, F. Criado, Random Shadows of Fixed Polytopes, arXiv:2406.06936"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only Haar random orthogonal planar projection of a regular tetrahedron at edge length 2√2.",
+    "No assertion for perimeter, nonuniform directions or arbitrary tetrahedra full law."
+  ],
+  "residual_risks": [
+    "Older projection-cap methods could implicitly encode conditional densities despite no matching explicit statement in inspected primary article.",
+    "Exact regular tetrahedron and uniform orthogonal planar projection only; no arbitrary tetrahedra full joint law."
+  ],
+  "schema_version": 1
+}
