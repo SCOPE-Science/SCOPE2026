@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T16:55:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md git blob 4562d92dd19eb766437d53a24b1529f45c9822c7",
+        "assigned verify_subdivided_cube.py git blob 25034dcfce34abe388171c6c2e7dbe168c3d8c39",
+        "independent_checks_output.txt CASE1 d=1..5",
+        "Schoenberg, Metric spaces and positive definite functions, Trans. AMS 44 (1938)"
+      ],
+      "rationale": "The vertex-to-vertex, vertex-to-midpoint and midpoint-to-midpoint shortest-path formulas are derived by minimizing endpoint Hamming distances. The Walsh decomposition separates frequencies |S|=0,1,>=2. The mean block has d-1 midpoint contrasts a-2 and one centered class contrast 2(a-2)/(d+2); singleton frequencies give eta+ and eta- (negative by trace<0, determinant 4a>0), and higher frequencies contribute -2 and zero. Multiplicities sum to (d+2)2^(d-1). Boundary d=1 path gives (-2,-2/3,0), d=2 gives (0,4,4) inertia, and d>=3 gives (d,d2^(d-1),2^d-d). The direction-1 minus direction-2 midpoint coefficient vector is zero-sum and has c^T D c=2a(a-2)>0, making the Schoenberg all-scales Gaussian criterion fail at small t. I independently reconstructed BFS distance matrices and numerically checked centered eigenvalues for d=1..5 exactly to floating tolerance 1e-8; proof of all d rests on the Walsh block identities, not finite checks.",
+      "residual_risks": [
+        "Finite BFS/eigenspectral checks cover d<=5 only; higher d follows only from the analytic Walsh argument.",
+        "No maximal fractional negative-type exponent for d>=3 and no exact single-scale positive-definiteness threshold is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Howlader–Panigrahi arXiv:2109.05274 Sections 3, Theorems 3.4/3.5 compute subdivision spectra of K_{k+1}, K_{k,k}, and other minimal cages.",
+          "For d>=3, Q_d has 2^d vertices; the minimal (d,4)-cage K_{d,d} has 2d."
+        ],
+        "reasoning": "The minimal-cage theorem does not specialize to subdivided Q_d for d>=3; its distinct graph hypothesis prevents coverage of the infinite-family result.",
+        "searches": [
+          "centered geodesic distance matrix spectrum and negative type of once-subdivided hypercube graph Q_d",
+          "arxiv:2109.05274 Theorems 3.4, 3.5"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2109.05274",
+        "https://arxiv.org/pdf/1509.01196",
+        "https://doi.org/10.1155/2013/543189",
+        "Resultary semantic search: centered geodesic distance matrix spectrum and negative type of once-subdivided hypercube graph Q_d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Liu et al. compute Kirchhoff/Laplacian resistance-related quantities for hypercubes/subdivision, rather than ordinary geodesic-distance inertia.",
+          "The Howlader–Panigrahi hypotheses are minimal cages, and Q_d is outside them in the novel range."
+        ],
+        "reasoning": "No inspected prior assertion implies the exact Walsh blocks or kernel PSD transition; the classical Schoenberg equivalence is credited as the translation, not new science.",
+        "searches": [
+          "centered geodesic distance matrix spectrum and negative type of once-subdivided hypercube graph Q_d",
+          "Liu et al doi:10.1155/2013/543189",
+          "arxiv:2109.05274"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Centered geodesic-distance inertia is equivalent to all-t exponential kernel positive semidefiniteness by Schoenberg, not to electrical-resistance or Laplacian spectra.",
+          "Aalipour et al. treat other graph families, including halved cubes, under ordinary distance spectra."
+        ],
+        "reasoning": "The identical full/centered shortest-path distance spectrum for S(Q_d) was not found; resistance-metric and unsplit-cube spectra have different matrices, so apparent naming similarities do not imply it.",
+        "searches": [
+          "centered geodesic distance matrix spectrum and negative type of once-subdivided hypercube graph Q_d",
+          "\"subdivision graph\" hypercube distance spectrum",
+          "arxiv:1509.01196"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected graph-class spectral tables concern halved cubes/other distance-regular families, not the midpoint subdivision metric.",
+          "Resultary semantic search on centered once-subdivided hypercube found similarly named but distinct hypercube and graph spectra."
+        ],
+        "reasoning": "No table with the simultaneous centered/uncentered S(Q_d) multiset, dimension-three sign transition and explicit witness was identified in these actual comparisons; absence of a hit is not novelty proof.",
+        "searches": [
+          "centered geodesic distance matrix spectrum and negative type of once-subdivided hypercube graph Q_d",
+          "On the distance spectra of graphs arxiv:1509.01196"
+        ]
+      },
+      "rationale": "After direct mathematical implication comparisons, no inspected prior theorem gives the entire final claim; positive classification is best-of-knowledge, not an absolute historical priority certificate. The once-subdivided binary d-cube has explicit full and centered geodesic-distance spectra; the centered matrix is conditionally negative semidefinite iff d<=2 and has precisely d positive eigenvalues for d>=3.",
+      "residual_risks": [
+        "An equivalent geodesic-distance theorem in unindexed older distance-spectral literature could exist.",
+        "The 2013 same-graph Kirchhoff article was not independently read cover-to-cover in this run; its stated metric differs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_METHOD_NOT_COVERING: general subdivision techniques but not arbitrary Q_d, which is not a minimal (d,4)-cage for d>=3.",
+          "evidence": [
+            "Theorems 3.4–3.5 explicitly name K_{k+1} and K_{k,k}; 2^d>2d for d>=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.05274",
+          "material_read": "Accessible full 22-page PDF; abstract, introductory graph hypotheses and Section 3 Theorems 3.4–3.5 on subdivided complete and complete bipartite cages; page 16 visually inspected.",
+          "method": "PDF text and page-image review with theorem-domain comparison",
+          "title": "On the distance spectrum of minimal cages and associated distance biregular graphs",
+          "trigger": "Subdivision distance spectra, possible dominating family theorem"
+        },
+        {
+          "assessment": "NOT_COVERING for this specific graph: discusses non-subdivided distance-regular cube-related families, not S(Q_d).",
+          "evidence": [
+            "Graph-class hypotheses differ from once-subdivided Q_d."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.01196",
+          "material_read": "Accessible full 20-page PDF; abstract, graph families, cube/halved cube results and spectrum tables, first page visually inspected.",
+          "method": "PDF theorem text and table comparison",
+          "title": "On the distance spectra of graphs",
+          "trigger": "Possible distance-spectral graph families including cubes"
+        },
+        {
+          "assessment": "RELATED_NOT_EQUAL: Laplacian/effective-resistance invariants do not entail ordinary geodesic-distance eigenvalues.",
+          "evidence": [
+            "The source concerns Kirchhoff indices rather than geodesic distance matrices."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2013/543189",
+          "material_read": "Article identification and Kirchhoff-index theorem descriptions from available bibliographic/article material; did not independently inspect its entire 2013 full text during this run.",
+          "method": "Source bibliographic and result-domain comparison",
+          "title": "The Kirchhoff Index of Hypercubes and Related Complex Networks",
+          "trigger": "Same underlying subdivided hypercube but different metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "The complete Walsh decomposition in assigned RESULT.md",
+        "Schoenberg negative-type/positive-definite correspondence"
+      ],
+      "rationale": "This exact all-dimension spectrum and sharp d=3 negative-type boundary form a natural classification of a graph-metric embedding invariant, with a simple explicit obstruction; it is not a trivial finite lookup or renaming of a known Laplacian theorem.",
+      "residual_risks": [
+        "Further fractional-power negative-type thresholds and positive-kernel scale windows remain open outside the scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite BFS/eigenspectral checks cover d<=5 only; higher d follows only from the analytic Walsh argument.",
+    "No maximal fractional negative-type exponent for d>=3 and no exact single-scale positive-definiteness threshold is claimed.",
+    "An equivalent geodesic-distance theorem in unindexed older distance-spectral literature could exist.",
+    "The 2013 same-graph Kirchhoff article was not independently read cover-to-cover in this run; its stated metric differs.",
+    "Further fractional-power negative-type thresholds and positive-kernel scale windows remain open outside the scope."
+  ],
+  "schema_version": 1
+}

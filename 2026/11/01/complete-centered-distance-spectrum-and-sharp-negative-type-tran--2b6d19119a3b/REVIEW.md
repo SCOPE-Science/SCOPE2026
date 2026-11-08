@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit edge-endpoint formulas for all three kinds of graph-vertex pairs reduce geodesic distances to affine Hamming kernels. Walsh summation gives an orthogonal block diagonalization. The zero-frequency block, singleton blocks, and higher-frequency scalar modes account for exactly all \((d+2)2^{d-1}\) coordinates; their traces, determinants, and multiplicities determine the complete centered spectrum and full uncentered spectrum. Only \(a-2\) and \(2(a-2)/(d+2)\) can be positive, and each has the claimed sign for all integer dimensions. The dimension-one and dimension-two boundaries are treated explicitly. The all-scales positive-semidefinite criterion follows from Schoenberg, and strict positivity in the admissible cases follows from distinct Euclidean images. The separate BFS and exact-integer Walsh checker reproduces the predictions for dimensions 1–6. No numerical experiment is used to infer infinitely many dimensions.
+PASS
 
-## Originality — PASS under bounded review
+The vertex-to-vertex, vertex-to-midpoint and midpoint-to-midpoint shortest-path formulas are derived by minimizing endpoint Hamming distances. The Walsh decomposition separates frequencies |S|=0,1,>=2. The mean block has d-1 midpoint contrasts a-2 and one centered class contrast 2(a-2)/(d+2); singleton frequencies give eta+ and eta- (negative by trace<0, determinant 4a>0), and higher frequencies contribute -2 and zero. Multiplicities sum to (d+2)2^(d-1). Boundary d=1 path gives (-2,-2/3,0), d=2 gives (0,4,4) inertia, and d>=3 gives (d,d2^(d-1),2^d-d). The direction-1 minus direction-2 midpoint coefficient vector is zero-sum and has c^T D c=2a(a-2)>0, making the Schoenberg all-scales Gaussian criterion fail at small t. I independently reconstructed BFS distance matrices and numerically checked centered eigenvalues for d=1..5 exactly to floating tolerance 1e-8; proof of all d rests on the Walsh block identities, not finite checks.
 
-The closest object-specific publication, Liu et al. (2013), calculates the resistance-based Kirchhoff index and Laplacian spectra of subdivided hypercubes, not the shortest-path distance matrix. Aalipour et al. (2015) address original halved-cube and other distance-regular examples, not once-subdivided binary cubes. Howlader–Panigrahi (2021) calculate distance spectra of subdivisions of minimal cages, but for \(d\ge3\) the hypercube is not the relevant minimal girth-four cage; the results do not imply the complete spectrum here. Statement/implication comparisons and bounded searches found no equivalent covering result. Residual risk: older or differently named distance spectral results might implicitly contain the classification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural, widely studied network transform changes the conditional negative type of a canonical Hamming metric exactly between dimensions two and three, despite leaving the unsubdivided metric in the negative-type class. The theorem supplies the complete eigenvalue multiplicities, an explicit integer witness of failure, and all-scales Gaussian-kernel consequences for an infinite family; it is not merely a finite calculation or a relabeled existing formula. It does not solve fractional exponent or fixed-scale questions.
+After direct mathematical implication comparisons, no inspected prior theorem gives the entire final claim; positive classification is best-of-knowledge, not an absolute historical priority certificate. The once-subdivided binary d-cube has explicit full and centered geodesic-distance spectra; the centered matrix is conditionally negative semidefinite iff d<=2 and has precisely d positive eigenvalues for d>=3.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This exact all-dimension spectrum and sharp d=3 negative-type boundary form a natural classification of a graph-metric embedding invariant, with a simple explicit obstruction; it is not a trivial finite lookup or renaming of a known Laplacian theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
