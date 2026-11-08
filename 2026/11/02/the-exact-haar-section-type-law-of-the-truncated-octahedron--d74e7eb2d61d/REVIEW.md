@@ -1,19 +1,21 @@
-# Review of the exact Haar truncated-octahedron section law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proposed theorem concerns the 24-vertex regular truncated octahedron, Haar-uniform **central** planes, and generic orientations. The vertex-radius identity \(\|v\|^2=5\) and edge-endpoint identity \(v\cdot w=4\) are verified by enumerating the actual facets and 36 edges. On each of five chambers within \(a>b>c>0\), edge-crossing signs give respectively \(8,10,6,8,6\) sides. The only possible chamber boundaries are the three vertex-orthogonality planes \(a=2b\), \(a=2c\), and \(b=2c\). The decagon cone is a spherical triangle of exact solid angle \(2\arctan(1/B)\), with \(B=11+3\sqrt{14}+4\sqrt6+2\sqrt{21}\). The expected side count follows exactly by integrating one edge's two endpoint signs. Normalization then determines the other two probabilities. The standard-library verifier reproduces the arithmetic and a separate finite Monte Carlo consistency check. Finite computation is not used in place of the all-orientation chamber argument.
+PASS
 
-## Originality — PASS, with bounded historical-priority risk
+PASS. Independently enumerated 24 vertices and 36 edges of [-2,2]^3∩{sum abs(x_i)<=3}, and exact rational orientations in all five x=b/a,y=c/a chambers give side counts 8,10,6,8,6. The only interior arrangement walls are x=1/2,y=1/2,y=x/2. The decagon cell is a spherical triangle with solid angle 2 arctan(1/[11+3sqrt(14)+4sqrt(6)+2sqrt(21)]); 48 equal orientation chambers give p10=24 beta/pi. Edge endpoint dot=4, length^2=5 yields E N=36 arccos(4/5)/pi and thus remaining p8,p6 from support and normalization. Independently obtained (.498450689917704,.316108855580190,.185440454502106). Excludes vertex-incident measure-zero directions and noncentral affine cuts.
 
-The closest inspected full text is Brandenburg–De Loera–Meroni, arXiv:2304.14239v1, which treats the same solid as a three-dimensional permutahedron and studies slicing chambers, all affine section types, and extremizers. Neither Theorem 1.1 nor Example 5.1 states the Haar distribution of central section types or the exact decagon spherical solid angle. Published findings on central sections of the cube, icosahedron, and octahedron concern different solids and do not imply the central truncated-octahedron distribution. The De Leo preprint concerns a periodically extended truncated-octahedron surface; only its abstract was available here. Older specialized stereological tables remain an explicit priority risk and are not represented as ruled out.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The truncated octahedron is both the regular three-dimensional permutahedron and an Archimedean space-filling parallelohedron. A complete, exact orientation probability distribution for central polygonal sections is a natural geometric statistic, not an arbitrary finite parameter. The positive decagon probability \(0.185440454502106\ldots\) is not determined by knowing merely that decagonal sections are possible. The elementary solid-angle calculation provides a reusable, independently checkable benchmark for stereological geometric sampling.
+PASS best-of-knowledge. Source precedent partitions all affine sections of this permutahedron and derives combinatorial maximal sections, but does not provide exact spherical Haar probabilities restricted to central section. Other random central-section laws concern different Archimedean bodies.
 
-## Limitations and closest work
+## value
 
-The classification holds for the regular solid only, under central orientation sampling. It does not cover affine offsets, general 14-faced polyhedra, or complete metric shape statistics of sections. Source comparison is bounded and incomplete for older specialized literature. The theorem has not received an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. An exact, full distribution of the polygonal combinatorics of random central sections of a standard space-filling Archimedean solid is a natural stochastic-geometric invariant; the exact solid-angle and edge-crossing first-moment derivation has intrinsic use independent of extensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
