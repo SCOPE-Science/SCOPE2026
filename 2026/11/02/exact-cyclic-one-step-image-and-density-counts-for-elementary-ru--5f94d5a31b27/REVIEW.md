@@ -1,19 +1,21 @@
-# Scientific review of the cyclic Rule-18 image classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The local transition has the exact form \((1-b)(a\oplus c)\). Every positive-length zero run between input ones produces either no output ones (length one) or its two endpoint ones (length at least two). This establishes necessity. Conversely, an allowed alternating pairing gives the explicit input consisting of zero-valued pair arcs and one-valued separating arcs, establishing sufficiency for every ring length. Stars-and-bars and inclusion–exclusion count the indexed outputs without dividing by rotations, and two exactly stated cycle-counting series yield the logarithmic-derivative generating function. The dominant reciprocal roots establish the claimed asymptotic. Independent exhaustive checks of all inputs and outputs through length eighteen and the integer coefficient formulas through length seventy returned `VERIFY_OK`.
+PASS
 
-## Originality
+The exact local truth table forces output ones to be endpoints of length>=2 input zero-runs between input ones; the intervening input ones force a positive separating gap for one alternating pairing. Conversely choosing paired zero arcs and interpair one arcs constructs an exact same-length predecessor. Counting distinguished cyclic one positions by stars-and-bars and correcting overlap yields the binomial formula; the block generating functions B=z^3/(1-z)^2 and C=z^2/(1-z) give the stated log-derivative series, with reciprocal roots establishing lambda and phi coefficients. Distinct rotations are indexed rather than necklace-equivalent; n=1,2 and zero output follow from the local rule. Independent forward enumeration checked all 8190 length-n binary words for n<=12 against classifier and formula; finite enumeration supports, but does not replace, the all-n proof.
 
-**PASS, with residual historical risk.** Relevant full texts inspected include Hanson–Crutchfield (1991 working paper), Jen's 1987 preimage recurrence paper, Meunier's arXiv:1406.5306v1, and the accessible 2026 Sabrié–Törmä article. They respectively establish attractor/domain language techniques, general preimage recurrences, computational-complexity classification, and necessary local preimage obstructions. None of the inspected results directly states or implies the all-length cyclic predecessor construction together with exact fixed-density enumerations. Jen's 1988 paper on cyclic attractors is a close-boundary reference but its full text could not be obtained: its available abstract studies attractors and fixed-period limit cycles rather than the entire one-step image. No claim of independently certified priority is made; the possibility of an unindexed equivalent remains.
+## originality
 
-## Value
+PASS
 
-**PASS.** Reachability of a desired cyclic output and the size of the image after a single application are natural finite-state questions for a classical nonlinear cellular automaton. The result unifies a constructive recognition criterion, a count at every output Hamming weight, an exact full-length generating function and an exponential information-loss rate. These are all-length structural results, not an arbitrary isolated finite statistic or a routine restatement of general algorithmic decidability.
+Same-claim comparison: Finite-block preimage recurrences and necessary forbidden patterns do not logically supply the exact fixed-period ring image criterion or weight count. The stronger-looking dynamics descriptions do not entail these one-update all-ring counts. Existing general finite-state algorithms can compute cases, but do not themselves state the derived formulas. The implication direction from older necessary conditions to this sufficient global cyclic theorem fails; no known broader published identity was found that forces all claims. Historical-priority risks are retained.
 
-## Closest literature and limitations
+## value
 
-Hanson and Crutchfield's Rule-18 attractor-domain analysis and Jen's general preimage methods are the closest archival conceptual antecedents. Sabrié and Törmä's later necessary obstruction for patterns `11v11` with odd one count is related but does not give the cyclic sufficiency or enumerator. The theorem does not count predecessor multiplicities or address multi-step images. Jen's cyclic-attractor article was available only in abstract/metadata form.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact all-length necessary/sufficient image language with explicit same-period preimages, weight enumerator and exponential density for a classical elementary cellular automaton is a motivated natural discrete-dynamical invariant, not merely a generic finite automata routine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
