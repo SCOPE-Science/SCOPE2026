@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Exact gcd-class partition and counting bounds f(m) between 2^(m-1) and 2^m-1 yield the two-sided sandwich for all n>=4. The least excluded gcd for D is the least nondivisor and for Phi is the least prime factor. Explicit parity exponent gaps n/6 dominate the linear factor. The bundled verifier independently checks 397 cases and direct subsets through size 13.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 9 of Local Behaviors: D(2m)>Phi(2m), D(2m+1)<Phi(2m+1), and bounds for (D-f)/(Phi-f).",
+        "2013 Theorem 3 concerns partial sums, not the quotient of pointwise deficits."
+      ],
+      "reasoning": "The prior sign theorem does not state or directly imply the least-nondivisor and least-prime-factor logarithmic law; the new statement has different exponent-determining parameters.",
+      "searches": [
+        "web: \"Local behaviors of the number of relatively prime sets\" pdf theorem 9 asymptotic D Phi",
+        "published-finding corpus: \"Pongsriiam\" \"D(n)\" \"Phi(n)\" ratios deficits 2^n question 3.3 limsup liminf least nondivisor"
+      ]
+    },
+    "checked_sources": [
+      "Pongsriiam 2013 JIS 16 Article 13.9.1",
+      "Pongsriiam Local Behaviors IJNT 12(6) (2016), Theorem 9",
+      "OEIS A224840",
+      "published-finding corpus searches for direct ratio, equivalent forms and larger coverage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 9 in Pongsriiam Local Behaviors (2015/2016) resolves Question 3.1, but does not evaluate Question 3.3 of the 2013 paper.",
+        "This new result implies alternating deficit-rate limits and stronger quantitative estimates, but does not re-claim the known parity ordering."
+      ],
+      "reasoning": "The exact gcd-class decomposition yields a deficit ratio and not merely the sign of D-Phi. The 2015 theorem controls (D-f)/(Phi-f) and its parity order; the new bound controls (2^n-D)/(2^n-Phi) using minimum inadmissible gcds, giving the entire logarithmic growth profile and both limits. No inspected earlier statement supplies these uniform inequalities. Searches cannot prove uniqueness.",
+      "searches": [
+        "web: \"relatively prime sets\" \"D(n)\" \"Phi(n)\" sign alternates",
+        "web: Pongsriiam \"3.3\" \"limsup\" \"D\" \"Phi\" relatively prime subsets solution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pongsriiam 2013 Section 4 Question 3.3 specifically asks for limsup and liminf of the ratio of deficits.",
+        "Pongsriiam 2015/2016 Theorem 9 concerns the sign and ratio after subtracting f(n), rather than after subtracting 2^n."
+      ],
+      "reasoning": "The exact gcd-class decomposition yields a deficit ratio and not merely the sign of D-Phi. The 2015 theorem controls (D-f)/(Phi-f) and its parity order; the new bound controls (2^n-D)/(2^n-Phi) using minimum inadmissible gcds, giving the entire logarithmic growth profile and both limits. No inspected earlier statement supplies these uniform inequalities. Searches cannot prove uniqueness.",
+      "searches": [
+        "published-finding corpus: \"Pongsriiam\" \"D(n)\" \"Phi(n)\" ratios deficits 2^n question 3.3 limsup liminf least nondivisor",
+        "published-finding corpus: \"relatively prime sets\" exponential growth of (2^n-D(n))/(2^n-Phi(n)) smallest nondivisor least prime factor",
+        "published-finding corpus: \"Phi(n)\" \"D(n)\" compare ratios 2^n alternating growth exponent n/2 n/3",
+        "web: \"2^n-D(n)\" \"2^n-Phi(n)\" \"limsup\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A224840 defines and tabulates D(n), referring to Pongsriiam 2013, with no formula for the deficit ratio."
+      ],
+      "reasoning": "Finite values cannot establish universal bounds or the two infinite limits, and OEIS entries are not claims of such bounds.",
+      "searches": [
+        "web: OEIS A224840 divisor sum relatively prime subsets",
+        "web: \"2^n-D(n)\" \"2^n-Phi(n)\" \"least\""
+      ]
+    },
+    "rationale": "The exact gcd-class decomposition yields a deficit ratio and not merely the sign of D-Phi. The 2015 theorem controls (D-f)/(Phi-f) and its parity order; the new bound controls (2^n-D)/(2^n-Phi) using minimum inadmissible gcds, giving the entire logarithmic growth profile and both limits. No inspected earlier statement supplies these uniform inequalities. Searches cannot prove uniqueness.",
+    "residual_risks": [
+      "The bound is short and built from familiar subset counting, so an equivalent asymptotic may have been established independently outside inspected references.",
+      "The 2015 theorem establishes parity sign; originality is limited specifically to ratio bounds and the two requested limits."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Poses precise limsup and liminf question, does not give requested values or arithmetic sandwich",
+        "evidence": [
+          "2013, pages 8-9, Corollary 9 and Question 3.3"
+        ],
+        "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL16/Pongsriiam/pong2.pdf",
+        "material_read": "Sections 1, 2 (counting identities), 3 (asymptotic partial sums), 4 (combinatorial characterization) and pages including Questions 3.1-3.5",
+        "method": "Full primary PDF text and selected rendered page",
+        "title": "Relatively Prime Sets, Divisor Sums, and Partial Sums",
+        "trigger": "Same arithmetic functions and Question 3.3"
+      },
+      {
+        "assessment": "Covers parity sign of D-Phi, not the ratio of complementary counts or the two limits",
+        "evidence": [
+          "Theorem 9 and proof, Section 3.1"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/287391047_Local_behaviors_of_the_number_of_relatively_prime_sets",
+        "material_read": "Introduction, relevant definition and Theorem 9 statement and proof, adjacent Corollary 10, other theorem headings",
+        "method": "Author-supplied full-text transcription",
+        "title": "Local Behaviors of the Number of Relatively Prime Sets",
+        "trigger": "Later work by the same author directly solves the parity sign question"
+      },
+      {
+        "assessment": "Provides exact D sequence and combinatorial interpretation; no ratio-growth theorem",
+        "evidence": [
+          "A224840 comments and formulas"
+        ],
+        "identifier_or_url": "https://oeis.org/A224840",
+        "material_read": "Definition, terms, citations, formulas, links, comments",
+        "method": "Database text inspected",
+        "title": "OEIS A224840",
+        "trigger": "Exact published sequence for D(n)"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e3e2e0e5-6cb2-473d-86fd-86de2aa5267a",
+  "value": {
+    "rationale": "The origin paper explicitly asks for two limit invariants of a natural ratio. The theorem determines both and establishes a uniform, prime-factor/nondivisor-dependent exponential growth law. The pointwise phase formula is stronger than a parity-only sign result. It does not extend to the requested partial sums.",
+    "status": "PASS"
+  }
+}
