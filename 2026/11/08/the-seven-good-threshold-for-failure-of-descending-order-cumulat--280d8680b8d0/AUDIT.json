@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "All greedy branches and every two-agent sign allocation are covered by the exact LP dual certificates for each length 2..6. Independent standard-library exact Fraction replay verifies all 1364 stationarity identities and multipliers; scaling, zero and tie cases are proved. Seven weights have greedy cost 20 and exhaustive 64-pattern optimum 18.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.09843 Proposition 1 establishes greedy optimum for binary-identical goods, not arbitrary ordered real weights; Section 5 analyzes a sequencing algorithm using ascending order and provides approximate guarantees.",
+        "arXiv:2410.14593 Theorem 3.7/Appendix B construct temporal EF1, a different objective."
+      ],
+      "reasoning": "Binary 0/1 goods are a special case of the new six-good theorem, but cannot imply the continuum of real sorted weights. Generic dynamic programming can compute an instance but does not imply the 6/7 classification. Temporal EF1 feasibility controls one-item-removal envy, not the optimal sum of maximum envy.",
+      "searches": [
+        "Full article arXiv:2610.09843 Sections 2, 4, 5 and Appendices 0.B, 0.C",
+        "Full article arXiv:2410.14593 Sections 3 and Appendix B",
+        "Web: two machines cumulative load difference LPT optimal seven jobs counterexample"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.09843",
+      "https://arxiv.org/abs/2410.14593",
+      "https://arxiv.org/abs/1801.05489",
+      "https://www.uni-augsburg.de/de/fakultaet/fai/conferences/sagt-2026/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The related 2026 paper proves global fixed-order hardness and supplies generic pseudo-polynomial algorithms, plus a 3/2-bound for selecting an ascending order with two identical agents; none states optimality under a fixed descending order up to six.",
+        "The 2018 LPT article optimizes final makespan, not time-summed max/min load gaps."
+      ],
+      "reasoning": "Neither results for an algorithm which selects an arrival order nor generic solvability of a fixed-order problem imply that descending least-loaded greedy is optimal for every real-valued sequence of length at most six. The exact seven-good witness also uses a different objective from known makespan bad examples.",
+      "searches": [
+        "arXiv:2610.09843 Proposition 1, Section 4 dynamic program, Section 5 Algorithm 2, Appendix 0.C",
+        "arXiv:2410.14593 generalized-binary greedy and TEF1 results",
+        "arXiv:1801.05489 LPT makespan abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same two-agent objective is exactly the minimum sum of absolute signed prefix sums, not the maximum prefix discrepancy. arXiv:2610.09843 defines cumulative maximum envy in Section 2 and treats related but different ordering rules in Section 5. No retrieved result asserted this sharp threshold."
+      ],
+      "reasoning": "An equivalent would assert universal greedy optimality for all descending real weights up to six signed terms and a first failure at seven. Retrieved scheduling/discrepancy titles concern maximum prefix deviation or final makespan rather than sum across all prefixes.",
+      "searches": [
+        "published-finding corpus: minimum sum of absolute signed prefix sums for nonincreasing positive sequence greedy signs optimal up to six terms",
+        "published-finding corpus: descending arrival sorted nonincreasing identical additive goods cumulative maximum envy minimum greedy least-loaded optimal six seven counterexample",
+        "Web: \"sum of absolute partial sums\" \"nonincreasing\" greedy",
+        "Web: \"minimum total imbalance\" \"two machine\" prefix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact small-horizon table or seven-good allocation example among returned published findings; the closest ranked records concerned serial dictatorship rank-maximality rather than cumulative envy.",
+        "The inspected arXiv:2610.09843 example tables/appendices concern approximation or binary inputs, not the seven-good fixed-descending cutoff."
+      ],
+      "reasoning": "No found database entry tabulates this threshold. This is negative search evidence only, not a proof of global novelty.",
+      "searches": [
+        "published-finding corpus: Minimizing Cumulative Envy in Allocating a Sequence of Items Goldberg Robinson Teh 2026 descending greedy two agents six goods",
+        "published-finding corpus: two agent cumulative maximum envy fixed arrival order greedy local load balancing optimality shortest counterexample 7 jobs",
+        "Web: \"cumulative maximum envy\" \"seven\" goods"
+      ]
+    },
+    "rationale": "The primary 2026 cumulative-envy paper analyzes generic hardness, binary greedy and selected ascending-order approximations, not the sharp fixed-descending six/seven real-weight boundary. The TEF1 and classical LPT papers use distinct outcome criteria. Actual semantic record and web searches found no equivalent statement, with residual unindexed-priority risk.",
+    "residual_risks": [
+      "Unindexed earlier theory of signed prefix-sum minimization or two-machine scheduling might state an equivalent 6/7 threshold.",
+      "The preprint states that a preliminary conference version was presented September 2026; any full written conference version not located for independent direct claim comparison.",
+      "Only the abstract, not full paper, of the 2018 LPT scheduling work was inspected; objective differs materially."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "Proposition 1 concerns binary valuations; Section 5 Algorithms/Theorems optimize selected ascending order, rather than globally certifying fixed descending order through six real-valued goods.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.09843",
+        "material_read": "Full accessible article text, including Sections 2, 4, 5 and relevant Appendix 0.B/0.C sections on greedy, examples and bound proofs",
+        "method": "Inspected article text and targeted within-document sections and searches",
+        "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+        "trigger": "Exactly the same cumulative maximum envy objective"
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_OBJECTIVE",
+        "evidence": "TEF1 constrains envy after removal of an item; it does not minimize the sum over time of maximum envy.",
+        "identifier_or_url": "https://arxiv.org/abs/2410.14593",
+        "material_read": "Full accessible article text including Section 3 and Appendix B generalized-binary greedy proof",
+        "method": "Inspected full text, theorem definitions and greedy-algorithm region",
+        "title": "Temporal Fair Division of Indivisible Items",
+        "trigger": "Greedy sequential allocations and prefix fairness with identical goods"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE_ABSTRACT_ONLY",
+        "evidence": "The article focuses on makespan and approximation, not cumulative load-gap area; full-text priority check not completed.",
+        "identifier_or_url": "https://arxiv.org/abs/1801.05489",
+        "material_read": "Abstract and problem statement, not full article",
+        "method": "Read arXiv abstract and compared stated objective",
+        "title": "Longest Processing Time rule for identical parallel machines revisited",
+        "trigger": "Descending least-load scheduling alias"
+      },
+      {
+        "assessment": "DATE_EVIDENCE",
+        "evidence": "The paper is listed in a September 16, 2026 paper-talk block, preceding its October 7 arXiv posting.",
+        "identifier_or_url": "https://www.uni-augsburg.de/de/fakultaet/fai/conferences/sagt-2026/",
+        "material_read": "Conference program listing for Wednesday September 16 and accepted papers",
+        "method": "Read dated program listing",
+        "title": "19th SAGT 2026 programme",
+        "trigger": "First public appearance date of motivating work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "280d8680-b8d0-4e49-a3dd-aad586ec889a",
+  "value": {
+    "rationale": "Determines a natural exact first-failure horizon for least-loaded greedy under the descending processing-time order. The result applies to all real nonnegative weights, not a finite table, and gives a strictly positive seven-good witness; it distinguishes prefix-area optimization from classic final makespan and one-item fair allocation.",
+    "status": "PASS"
+  }
+}
