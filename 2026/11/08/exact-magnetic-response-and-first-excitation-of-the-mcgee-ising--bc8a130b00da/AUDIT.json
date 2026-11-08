@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "For each of all \\(2^{24}\\) binary spin assignments, verify_masks.cpp directly counts edges of the standard LCF McGee graph, and verify_recursive.cpp independently uses a fixed 36-edge list and depth-first accumulated cut counts. Both exactly verify C_q and N_q for every q, maximum cut 32 with 2 maximizing states, and 16 first excited states at cut 31 with total squared magnetization 64. The algebra H/J=36-2c-b(24-2q), spin complement and lower envelope give the asserted energies, magnetizations and multiplicities; the first-excitation Boltzmann expansion yields the susceptibility asymptotic. No unproved extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Strečka, Karľová and Madaras 2015 examine only the five Platonic solids by a general graph-based finite Ising method (arxiv:1502.04449v1).",
+        "McGee is a 24-vertex nonplanar cubic (3,7)-cage, none of the studied Platonic solids."
+      ],
+      "reasoning": "A general exact enumeration method applicable in principle to any finite graph does not itself tabulate or logically imply these particular integer values without doing the case-specific calculation. No broader theorem with the \\(q=11\\),12 values was identified.",
+      "searches": [
+        "web: antiferromagnetic Ising model Archimedean solid cuboctahedron rhombicuboctahedron ground state magnetization exact",
+        "web: classical Ising antiferromagnet dodecahedron ground state magnetization degeneracy icosahedron polyhedra",
+        "arxiv:1502.04449v1 Sections 1-4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1502.04449",
+      "https://blogs.ams.org/visualinsight/2015/09/15/mcgee-graph/",
+      "https://mathworld.wolfram.com/McGeeGraph.html",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-the-mcgee-graph-independence-complex-is-a-five-sphere--5daca7995d97/RESULT.md",
+      "https://houseofgraphs.org/graphs/1223"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published McGee independence polynomial includes 34305 total independent sets and 8 largest independent sets.",
+        "The new minimum-field diagram additionally uses \\(C_{11}=31\\) with \\(N_{11}=8\\) and \\(C_{12}=32\\) with \\(N_{12}=2\\), whose uniqueness is established by exhaustive cut enumeration.",
+        "The 2015 finite Ising-polyhedra study does not treat the McGee graph."
+      ],
+      "reasoning": "The saturated-field boundary follows from prior independent-set data and is not presented as a standalone new discovery. The actual focal claim is the complete field diagram including the first crossing and the unique antiferromagnetic ground pair, plus the gap and multiplicity of its first excitation; neither follows from a homotopy type, an independence polynomial, a graph spectrum, or a generic enumeration recipe alone.",
+      "searches": [
+        "published-finding corpus: McGee graph independent sets 10 maximum cut zero field spin",
+        "published McGee independence-complex RESULT.md",
+        "web: McGee graph Ising antiferromagnetic spin glass ground state magnetization",
+        "published-finding corpus: McGee 24 vertex 7 cage antiferromagnetic Ising all magnetic field thresholds J 3J 18 fold crossing 16 first excited"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Finite Ising ground energies reduce exactly to cardinality-constrained cuts \\(C_q=3q-2e(S)\\).",
+        "The published McGee independent-complex RESULT.md (https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-the-mcgee-graph-independence-complex-is-a-five-sphere--5daca7995d97/RESULT.md) gives face vector (1,24,240,1304,4212,8328,10024,7072,2668,424,8), which determines only the zero-internal-edge sectors \\(q\\le10\\).",
+        "The new \\(q=11\\) and \\(q=12\\) minima are respectively one and two internal edges, with counts eight and two, and yield the 18-state first crossing."
+      ],
+      "reasoning": "We checked minimum-frustration/max-cut, fixed-magnetization cut enumerators, induced-edge minima, and the independence-polynomial reformulation. The known independent-set enumeration implies the 34305-state saturation coexistence, not the first transition or the unique 32-cut ground-state pair.",
+      "searches": [
+        "published-finding corpus: McGee graph Ising antiferromagnet maximum cut field plateau 18 degeneracies 34305",
+        "published-finding corpus: (3,7)-cage graph Ising maxcut 32 4 frustrated edges ground states",
+        "web: \"McGee graph\" \"bipartite\" \"maximum cut\" \"32\"",
+        "web: \"3,7-cage\" maxcut Ising frustration index 4",
+        "published-finding corpus: McGee graph minimum frustration 4 edges maxcut 32 unique cut induced 11 vertex one edge",
+        "published-finding corpus: McGee graph bivariate cut enumerator fixed magnetization antiferromagnetic Ising 24 36"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld explicitly supplies LCF \\((-12,7,-7)^8\\), group size 32, and graph spectrum but no cut or Ising field table in the readable article.",
+        "The public McGee independence-complex result gives the independent-set face vector but not a bivariate cut table.",
+        "House of Graphs page required JavaScript; its underlying searchable invariant tables were not materially accessible in this check."
+      ],
+      "reasoning": "We distinguished existing exact graph/spectrum/independence data from the necessary two-extra-cardinality constrained cut counts. Inaccessibility of the graph database leaves a documented priority risk, not an invented negative full-text inspection.",
+      "searches": [
+        "web: \"McGee graph\" \"maximum cut\" 32",
+        "web: \"McGee graph\" \"Ising\" \"magnetization\"",
+        "web: \"McGee graph\" \"independence polynomial\" 34305",
+        "MathWorld McGee Graph full entry",
+        "House of Graphs McGee graph 1223 landing page"
+      ]
+    },
+    "rationale": "Statement-level comparisons distinguish the full Ising field response, the unique maximum cut, the 18-state first crossing and the 16-state gap \\(2J\\) excitation from general magnetization methodology, graph specifications, and the already published McGee independence polynomial. The prior polynomial implies the saturation-boundary count 34305 and all \\(q\\le10\\) independent sets, so those are credited. It does not determine the \\(q=11\\) or \\(q=12\\) induced-edge minima and counts that control the low-field diagram. Targeted web and semantic-index searches did not identify an equivalent magnetic classification. This is best-knowledge originality, not a proof of universal priority.",
+    "residual_risks": [
+      "An unindexed historical Ising cut polynomial, magnetic-field enumeration, or max-cut/fixed-cardinality database could dominate the result.",
+      "House of Graphs underlying invariant table was not readable; no claim is made that the full database was inspected.",
+      "The 1960 original cage publication was not materially inspected because it concerns graph construction rather than this specific magnetic enumeration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers tetrahedron, octahedron, cube, icosahedron and dodecahedron, not McGee; general graph methodology is prior art",
+        "evidence": [
+          "arxiv:1502.04449v1 Sections 1, 2, 4",
+          "https://arxiv.org/abs/1502.04449"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1502.04449",
+        "material_read": "Original arXiv full HTML text: abstract, Introduction, explicit graph list in Section 2, field-method formulae and Section 4 conclusion",
+        "method": "Read searchable HTML of original arXiv work, including graph scope and formula for fixed-magnetization energies",
+        "title": "Giant magnetocaloric effect, magnetization plateaux and jumps of the regular Ising polyhedra",
+        "trigger": "Closest finite-cluster Ising field-diagram method and scope"
+      },
+      {
+        "assessment": "Defines graph and explains its 8+16 vertex orbits, but has no classical Ising field classification",
+        "evidence": [
+          "Dated 2015-09-15",
+          "Graph has 24 vertices, 36 edges, girth seven and group order 32"
+        ],
+        "identifier_or_url": "https://blogs.ams.org/visualinsight/2015/09/15/mcgee-graph/",
+        "material_read": "Dated article graph history, symmetry and the Z8 construction",
+        "method": "Read webpage mathematical description",
+        "title": "McGee Graph (John Baez, AMS Visual Insight)",
+        "trigger": "Direct dated focal source for canonical cubic cage geometry"
+      },
+      {
+        "assessment": "Exact independent-set vector (sum 34305) is credited; homotopy theorem and the face counts do not supply induced-edge minima for eleven- or twelve-vertex subsets",
+        "evidence": [
+          "Independent counts 1,24,240,1304,4212,8328,10024,7072,2668,424,8",
+          "No bivariate cut enumeration or magnetic field phase diagram in this RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-the-mcgee-graph-independence-complex-is-a-five-sphere--5daca7995d97/RESULT.md",
+        "material_read": "Complete RESULT.md: Finding, scope, proof, face-vector table, verification, prior-work comparison, and limitations",
+        "method": "Read publicly hosted original file through repository file retrieval",
+        "title": "The McGee graph independence complex is a five-sphere",
+        "trigger": "Closest published exact enumeration on precisely the same graph"
+      },
+      {
+        "assessment": "Records LCF, spectrum and cage properties; no claimed Ising magnetic field result",
+        "evidence": [
+          "LCF \\((-12,7,-7)^8\\)",
+          "No maximum-cut or fixed-magnetization table in the readable article"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/McGeeGraph.html",
+        "material_read": "Complete readable article and bibliography",
+        "method": "Read HTML source and checked graph invariant list",
+        "title": "McGee Graph (Eric Weisstein, MathWorld)",
+        "trigger": "Canonical exact graph specification and spectrum"
+      },
+      {
+        "assessment": "Unresolved database coverage, conservatively retained as residual risk",
+        "evidence": [
+          "Website returns \"You need to enable JavaScript to run this app\""
+        ],
+        "identifier_or_url": "https://houseofgraphs.org/graphs/1223",
+        "material_read": "Only JavaScript shell accessible; invariant entries not retrieved",
+        "method": "Read accessible rendered landing content and checked relevant search results",
+        "title": "McGee graph entry, House of Graphs",
+        "trigger": "Potential exact graph-invariant database coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bc8a130b-00da-47c0-9eca-523f4ef9a867",
+  "value": {
+    "rationale": "The McGee graph is the canonical unique minimal cubic girth-seven cage, a natural sharply frustrated finite spin network. The complete zero-temperature field response measures how its four unavoidable frustrated bonds produce a unique spin-reversed ground pair, a stable zero-magnetization interval, an 8-state magnetization-4 plateau and an 18-state first transition. The 16-state activated first-excitation law gives an exact low-temperature observable. These are new fixed-magnetization cut data not implied by known independent-set totals, rather than a renamed parameter substitution or an arbitrary unmotivated subset.",
+    "status": "PASS"
+  }
+}
