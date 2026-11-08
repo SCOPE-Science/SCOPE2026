@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "A committee fails the integral Hare core exactly when a proposal of size t has at least nt/k strictly improving voters. Under candidate exchangeability, disjoint equal-sized candidate blocks force the proposed block to be a unique strict maximum among floor(k/t)+1 exchangeable counts, giving improvement probability at most 1/(floor(k/t)+1). Exact integer arithmetic gives minimum quota gap 1/[k(k+1)]. Total variation controls the averaged improvement probability under heterogeneous ballots; independence, Jensen and Chernoff yield the finite bound. A biased one-hot multinomial model proves sharpness at and above the boundary, and a binomial sandwich yields the exact logarithmic large-deviation rate. Exact checker passes 446363 orbit comparisons, 6678 direct core-profile checks and 14 TV identities; finite checks are not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.11912v1 proves there exists a core+ (hence core) committee in any deterministic election, a stronger existence guarantee across all instances but not universal core-membership of every committee on almost-neutral random profiles.",
+        "arXiv:2501.18304v1 proves PAV committee core properties for restricted numbers of seats, not a high-probability property for every size-k committee.",
+        "arXiv:2609.00486v1 develops fractional Nash core and a bounded-voter existence result, not candidate-exchangeable concentration.",
+        "arXiv:2605.22528v1, §§1, 3.2, 4, studies NTU/TU core existence, structural utility transformations and computational membership; no universal stochastic random-ballot result."
+      ],
+      "reasoning": "An all-instances existential guarantee does not imply an almost-sure all-committees guarantee; fractional core existence is also logically distinct from integral core membership of every candidate subset. Exact claim and hypotheses are not dominated by these results.",
+      "searches": [
+        "approval based committee voting core impartial culture random elections probability all committees core",
+        "site:arxiv.org/abs/2609.11912 Existence of the Core in Approval-Based Committee Elections",
+        "Nash Core in Multiwinner Election arXiv 2609.00486",
+        "The Core of Approval-Based Committee Elections with Few Seats arXiv 2501.18304",
+        "Multi-Winner Voting Games in TU and NTU When is the Core Always Non-Empty arXiv 2605.22528"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.11912",
+      "https://arxiv.org/abs/2501.18304",
+      "https://arxiv.org/abs/2609.00486",
+      "https://arxiv.org/html/2510.18718v1",
+      "https://arxiv.org/abs/2605.06194",
+      "https://arxiv.org/abs/2605.22528"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Main result here: for every W, all W are integral Hare core with an explicit high-probability bound, conditioned on aggregate candidate symmetry within a sharp total variation distance.",
+        "Becker–Greger–Peters: for every approval instance there exists some core committee; not all committees.",
+        "Han et al.: average justified representation, explicitly incomparable with integral core as an axiom.",
+        "Goel–Jiang–Zhou: fractional and deterministic existence questions; not random all-committee stability.",
+        "Chen–Hatschka: NTU/AV/PAV/SAV core equivalence and core-membership complexity, no population sampling or total-variation theorem."
+      ],
+      "reasoning": "Existence of one stable committee cannot imply a bound on the probability all committees are stable, even with random inputs. Conversely, the new result under symmetry and voter independence does not prove deterministic existence without assumptions. The AJR and Nash-core assertions require different definitions and parameters.",
+      "searches": [
+        "arXiv:2609.11912 Sections 2 3 core definition and main theorem",
+        "arXiv:2510.18718 core stability average justified representation Section 1",
+        "arXiv:2501.18304 Section 4 core stability PAV restricted seats",
+        "arXiv:2609.00486 fractional discrete Nash core bounded voters"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.11912v1, Sections 1–3 and theorem statements, establishes deterministic core existence by selecting an appropriate committee, not a distributional result about all committees.",
+        "arXiv:2510.18718v1, Sections 1–2, studies the different AJR axiom with binomial approvals and explicitly states core and AJR are incomparable.",
+        "arXiv:2605.22528v1, §3.2 Observation 2, proves the standard approval-score Hare core is equivalent to the NTU core under strictly increasing SAV/PAV utility transformations, but gives no random-population symmetry threshold."
+      ],
+      "reasoning": "The possible aliases include strict Hare core, group-stable committee selection, blocking-coalition stability, and probabilistic candidate-neutral approval elections. The new probability-1 universal quantifier over committees, averaged-law total variation, and exact boundary behavior are not statements of the inspected sources. Search nonmatches alone are not treated as proof of novelty.",
+      "searches": [
+        "random approval elections stability core under impartial culture all committees core proportion average case",
+        "symmetric preference distributions proportional core voting no blocking coalition probabilistic",
+        "core stability approval committee symmetry exchangeable ballots number of blocking voters all committees exponential concentration",
+        "candidate anonymous approval distribution tolerance total variation sharp threshold Hare core"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected arXiv text or surfaced research-index hit provided a table or formula for a TV-robust universal core probability or its one-hot large-deviation rate.",
+        "Exact checker independently tests 446363 exchangeable-orbit comparisons and 6678 one-hot profiles, which are finite verification and not novelty evidence by themselves."
+      ],
+      "reasoning": "A matching count table would subsume the special finite one-hot cases only if it included this blocking criterion and the general k,n regime; no such table was identified. Full bibliographic coverage is not asserted.",
+      "searches": [
+        "approval committee core random electorate universal satisfaction exponential probability",
+        "random voter approval distribution one hot candidates multinomial large deviations strict Hare core all committees",
+        "core committee universal candidate permutation symmetric approval profiles stronger coverage theorem",
+        "random approval profiles core stability committee Bernoulli core probabilistic"
+      ]
+    },
+    "rationale": "Theorem scope and implication direction were compared to five primary papers, including the full relevant model and existence results of arXiv:2609.11912 and the random AJR paper arXiv:2510.18718. None of the inspected claims includes an aggregate-symmetry TV radius for *all* integral Hare-core committees, its non-iid Chernoff bound, or the sharp one-hot boundary. Multiple scientific search formulations and available prior claims were checked. Novelty remains best-knowledge and not independently established.",
+    "residual_risks": [
+      "Unindexed or differently worded average-case core results may be equivalent; web and semantic search coverage is not exhaustive.",
+      "Only relevant sections, rather than every appendix, were inspected for some less-plausible related sources.",
+      "The exact sharp TV radius is uniform over candidate counts and approval laws; individual specific laws may tolerate larger deviations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the Hare blocking condition and proves at least one stable committee for each instance; does not state concentration for simultaneous stability of all committees or a sharp symmetry bias tolerance.",
+        "evidence": "arXiv:2609.11912v1, §§1–3 and harmonic-entropy result; §3 explicitly defines integer and fractional blocking.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.11912",
+        "material_read": "arXiv rendered article, introduction, related work, model, core/core+ definitions, theorem and proof sections; text searched for stochastic/random coverage.",
+        "method": "Direct inspection of accessible full-text rendition and section-specific comparison of quantifiers and blocking definition.",
+        "title": "Existence of the Core in Approval-Based Committee Elections",
+        "trigger": "Closest motivating 2026 theorem on the identical integral Hare core and its stronger fractional notion."
+      },
+      {
+        "assessment": "Results concern existence and the PAV output; no general all-committees random stability law.",
+        "evidence": "arXiv:2501.18304v1, §§1–4.",
+        "identifier_or_url": "https://arxiv.org/abs/2501.18304",
+        "material_read": "Full available arXiv rendered article, introduction, related work, restricted-size results and relevant definitions; searched for stochastic formulas.",
+        "method": "Direct source reading and statement/implication comparison.",
+        "title": "The Core of Approval-Based Committee Elections with Few Seats",
+        "trigger": "Earlier deterministic core structure under restricted seat/candidate counts could dominate a special case."
+      },
+      {
+        "assessment": "Fractional core and small-voter discrete existence; no candidate-neutral ballot concentration or TV threshold in inspected material.",
+        "evidence": "arXiv:2609.00486v1, Introduction and Definitions 1–3.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.00486",
+        "material_read": "Full-text rendition, abstract, Introduction §§1.1–1.4, and the fractional/discrete distinction; document searched for random preference analysis.",
+        "method": "Direct reading of definitions, principal results, and source-wide targeted text search.",
+        "title": "Nash Core in Multiwinner Election",
+        "trigger": "Same core concept and a stronger-looking Nash/core framework."
+      },
+      {
+        "assessment": "Its phase diagram is for average justified representation, explicitly incomparable with core, and it does not establish any all-committees Hare-core concentration theorem.",
+        "evidence": "arXiv:2510.18718v1, §1 Core Stability and §2.1.",
+        "identifier_or_url": "https://arxiv.org/html/2510.18718v1",
+        "material_read": "HTML abstract, Introduction including Core Stability subsection, Section 2 model and Theorem 2.2, related comparisons.",
+        "method": "Direct arXiv HTML reading; matched proposed parameters/axioms rather than titles.",
+        "title": "Likelihood of the Existence of Average Justified Representation",
+        "trigger": "Closest stochastic multiwinner approval work, with fixed candidate counts and binomial approvals."
+      },
+      {
+        "assessment": "Voter-type and monoid-rounding existence theory is not a universal stochastic stability theorem.",
+        "evidence": "arXiv:2605.06194v1, §§1–2, 5.",
+        "identifier_or_url": "https://arxiv.org/abs/2605.06194",
+        "material_read": "Available arXiv full-text introduction, relevant related-work sections and normality/existence statements; document-wide search for random preferences.",
+        "method": "Direct inspection of source sections and text search.",
+        "title": "Core Existence in Approval-Based Committee Elections with up to Five Voter Types",
+        "trigger": "Potentially stronger deterministic guarantee under voter-type restrictions."
+      },
+      {
+        "assessment": "Establishes structural and computational equivalences, deterministic existence and membership; neither covers high-probability universal committee core stability under near-symmetric independent voter laws.",
+        "evidence": "arXiv:2605.22528v1, §§1 and 3.2 Observation 2, §§4 results.",
+        "identifier_or_url": "https://arxiv.org/abs/2605.22528",
+        "material_read": "Accessible full-text abstract, introduction, core model and comparison, Section 3.2 Observation 2 and complexity statements; source-wide searches for random and probability terminology.",
+        "method": "Direct primary full-text examination of definitions, quantifiers, theoretical contributions, and the utility-equivalence statement.",
+        "title": "Multi-Winner Voting Games in TU and NTU: When is the Core Always Non-Empty?",
+        "trigger": "Alternate formalization of exactly the Hare core as nontransferable cooperative-game core, with AV/PAV/SAV equivalence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4dc2c4ae-c4e2-4d8f-942d-8e053b635da9",
+  "value": {
+    "rationale": "The core is a demanding fairness selection criterion and recent work solves only the deterministic existence question. The theorem identifies a qualitatively different symmetry regime in which *every* committee is stable, shows this degeneracy is exponentially robust under heterogeneous voter laws and within-ballot correlation, and derives the sharp quantitative contamination radius at which the phenomenon ceases. The exact one-hot large-deviation boundary supplies a natural benchmark for detecting when core stability becomes discriminating. The conclusion is a motivated structural and phase-transition result, not a numerical increment or an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
