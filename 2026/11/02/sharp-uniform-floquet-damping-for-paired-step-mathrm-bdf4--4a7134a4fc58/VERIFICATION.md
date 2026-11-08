@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python VERIFY.py` in an environment with SymPy. The file requires no source downloads or other repository artifacts.
+## correctness
 
-It constructs all varying BDF4 interpolation coefficients from the four-step mesh \((1,r,r,1)\), checks the difference recurrence and exact four-step characteristic polynomial, and recomputes the four cubic Schur inequality certificates. Positivity is proved for all \(r>0\) by substituting \(t=r+r^{-1}=u+2\) and replacing \(\sqrt{21}\) with the upper bound 5 or lower bound 4 as appropriate in every coefficient. It also checks the exact limiting polynomial and six rational examples.
+PASS
 
-# Limits
+Genuine degree-four Lagrange interpolation at varying time nodes yields α0=sum(1/dj)>0 and the 3×3 difference companion first row of cumulative α2..α4. Four matrices give cubic z³-A(t)z²/D(t)+B(t)z/D(t)-C(t)/D(t), t=r+1/r≥2. Independent SymPy computation from interpolation agreed exactly for r=1/7,1/2,1,3/2,3,9 (not alone an all-r certificate). Rescaling by sqrt(21) and cubic Schur criterion reduces strict root bound to P1,P2,P3 shifted coefficient positivity with 4<sqrt21<5 and positive-coefficient polynomial P4; independently rechecked all these polynomial coefficient certificates. As t→∞ the limiting cubic z(z²-2z/15+1/21) has conjugate roots modulus 1/sqrt21, establishing sharpness and nonattainment at finite r. Does not prove arbitrary-step norm stability.
 
-Finite root checks do not prove the infinite statement; the polynomial inequalities do. The computation establishes no general nonperiodic-grid stability, external certification, or convergence guarantee for nonzero right-hand sides. No independent audit has yet been performed.
+## originality
+
+PASS
+
+Best-knowledge PASS qualified: 1983–1990 BDF specialist work gives restrictions for variable steps and could have a hidden periodic classification. Wang–Ruuth 2008 sufficient adjacent-ratio bound does not imply this unbounded-r paired four-step result; no exact same cubic/supremum found in inspected abstracts or published-finding query. Inaccessible old primary texts materially limit priority confidence.
+
+## value
+
+PASS
+
+An exact uniform sharp spectral damping constant despite arbitrarily extreme fixed periodic ratios is a substantive numerical-stability phenomenon, distinguishing zero-stability of a repeated paired mesh from standard adjacent-step sufficient conditions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
