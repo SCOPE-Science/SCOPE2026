@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later; no third-party dependencies. The executable constructs all directed matching-pair vertices for the friendship graph, enumerates the complete set of vertex filtrations for the first four cases, computes the induced full strong matching complex, and compares every face against the independent join-plus-cones construction. It also forms the mod-two simplicial boundary matrices directly and computes their ranks.
+## correctness
 
-Observed successful output:
+PASS
 
-```text
-EXHAUSTIVE_OK m= 1 vertex_orders= 6 directed_pairs= 6 faces= 6 f_vector= (6,) reduced_mod2_betti= [5]
-EXHAUSTIVE_OK m= 2 vertex_orders= 120 directed_pairs= 12 faces= 36 f_vector= (12, 24) reduced_mod2_betti= [0, 13]
-EXHAUSTIVE_OK m= 3 vertex_orders= 5040 directed_pairs= 18 faces= 178 f_vector= (18, 72, 88) reduced_mod2_betti= [0, 0, 33]
-EXHAUSTIVE_OK m= 4 vertex_orders= 362880 directed_pairs= 24 faces= 840 f_vector= (24, 144, 352, 320) reduced_mod2_betti= [0, 0, 0, 89]
-ALL_VERIFY_OK
-```
+For one-dimensional graph F_m, a graph vertex is descending dominated precisely with exactly one earlier neighbor (even if its two neighbors are adjacent: a graph link has discrete vertices). If hub c has zero or at least two earlier neighbors, the induced matching has at most one of four directed leaf pairs D_i in each triangle, giving A=join_i D_i. If hub has exactly one earlier neighbor in triangle i, the directed hub pair h_i is present, no second pair in i, and the other triangles contribute only inward E_j, giving one of 2m cones h_i * (join_{j!=i} E_j). Each facet in A and each cone is realizable by an explicit vertex ordering, so this is exact equality of *full downward-closed* complexes, not containment. A is the join of m four-point discrete sets, hence wedge of 3^m spheres S^(m-1). Each B_i=join_{j!=i} E_j is S^(m-2), its inclusion into A is nullhomotopic since any vertex in D_i cones it in A; the 2m separate apex attachments add 2m spheres S^(m-1). m=1 gives six isolated points, hence reduced rank 5; m>=2 cofiber proof holds integrally. Disjoint face counting yields f_(k-1)=C(m,k)4^k+2m C(m-1,k-1)2^(k-1). Independently enumerated all vertex orders and full face sets at m=1,2,3; finite checks corroborate but do not replace the all-m join/cofiber argument.
 
-These are exhaustive checks only for those four finite instances. The universal integral homotopy statement depends on the separately reconstructed symbolic proof in `RESULT.md`, in particular the exact facet classification and the explicit nullhomotopies of the cone bases. Mod-two Betti ranks alone would not establish the integral homotopy equivalence. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for m>=2 all-family exact full-strong complex wedge and f-vector; m=1 known and acknowledged. Prior Dutch-windmill ordinary matching result concerns a different simplicial functor; closest 2026 full strong paper was not fully retrievable, so publication priority has a named risk.
+
+## value
+
+PASS
+
+PASS: A natural family of triangle bouquets gives an explicit exponential and integral all-m homotopy formula for the newly studied strong Morse matching functor, sharply contrasting with contractible ordinary matching complexes of the same windmills. A uniform structural cone decomposition, rather than a small random example, is provided.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

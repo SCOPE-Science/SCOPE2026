@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The one-dimensional descending-link criterion yields an exact classification of the generating matchings by their position relative to the hub. All four per-triangle ordinary pairs form a join; exactly two hub-pair cones per triangle attach along joins of two-point complexes. Each attaching sphere bounds an explicit cone inside the main join, so the \(2m\) attachments add exactly \(2m\) top spheres, in addition to the join’s \(3^m\) spheres. The six-point \(m=1\) case is handled separately. The face-vector computation follows by disjoint counting. Independent complete face comparisons and mod-two chain-rank calculations for \(m=1,2,3,4\) agree; finite checks are corroborative only.
+## correctness
 
-## Originality — PASS, with residual risk
-Knudson and Owens–White, *Complexes of strong discrete Morse matchings* (arXiv:2609.06844v1), supply the framework and the \(m=1\) case, but their inspected graph-family classifications do not imply the result for every \(m\ge2\). Donovan and Scoville, *Star clusters in the Matching, Morse, and Generalized Morse complex* (arXiv:2207.13780v1), Theorem 30, determine the ordinary edge-matching complex of Dutch windmill graphs, not the full strong-Morse complex; its triangle case is contractible and hence cannot be the same invariant. Indexed searches and accessible earlier claim comparisons under friendship/windmill/triangle bouquet/strong-gradient aliases found no covering theorem. Unindexed equivalent work remains a risk; failure to find a theorem is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The exact integral homotopy classification covers the entire connected family of one-point unions of triangles. It provides a non-obvious exponential top-sphere rank, the complete face vector, and a precise topological contrast with ordinary matching complexes on the same canonical graphs. The key null-attaching cone decomposition is structural, not a parameter substitution in the known cycle or complete-bipartite formulas. No equivariant or general-cycle-length statement is claimed.
+For one-dimensional graph F_m, a graph vertex is descending dominated precisely with exactly one earlier neighbor (even if its two neighbors are adjacent: a graph link has discrete vertices). If hub c has zero or at least two earlier neighbors, the induced matching has at most one of four directed leaf pairs D_i in each triangle, giving A=join_i D_i. If hub has exactly one earlier neighbor in triangle i, the directed hub pair h_i is present, no second pair in i, and the other triangles contribute only inward E_j, giving one of 2m cones h_i * (join_{j!=i} E_j). Each facet in A and each cone is realizable by an explicit vertex ordering, so this is exact equality of *full downward-closed* complexes, not containment. A is the join of m four-point discrete sets, hence wedge of 3^m spheres S^(m-1). Each B_i=join_{j!=i} E_j is S^(m-2), its inclusion into A is nullhomotopic since any vertex in D_i cones it in A; the 2m separate apex attachments add 2m spheres S^(m-1). m=1 gives six isolated points, hence reduced rank 5; m>=2 cofiber proof holds integrally. Disjoint face counting yields f_(k-1)=C(m,k)4^k+2m C(m-1,k-1)2^(k-1). Independently enumerated all vertex orders and full face sets at m=1,2,3; finite checks corroborate but do not replace the all-m join/cofiber argument.
 
-## Review status
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for m>=2 all-family exact full-strong complex wedge and f-vector; m=1 known and acknowledged. Prior Dutch-windmill ordinary matching result concerns a different simplicial functor; closest 2026 full strong paper was not fully retrievable, so publication priority has a named risk.
+
+## value
+
+PASS
+
+PASS: A natural family of triangle bouquets gives an explicit exponential and integral all-m homotopy formula for the newly studied strong Morse matching functor, sharply contrasting with contractible ordinary matching complexes of the same windmills. A uniform structural cone decomposition, rather than a small random example, is provided.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
