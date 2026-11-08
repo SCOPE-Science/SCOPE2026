@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Exact unit-edge support test r cos(b-theta) <= cos b proves complete hull vertex structure, including endpoint equality. The cyclic shoelace formula and chord lengths prove both volume formulas. The symbolic identity for the squared derivative signs factorizes as 2(cos theta - cos(2b-theta))(r T-c)(T-r c), strictly positive in the active interval. At the optimum, direct radical expansions give first-order area and second-order perimeter threshold gains. Actual scipy convex-hull construction tested 10,619 parameter combinations with zero discrepancies above 2e-7; finite tests only corroborate the complete analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth–Lángi 2013 considers maxima over isometries and translative/reflection restrictions, but its stated theorems do not calculate the anglewise two-scale hull.",
+        "Horváth–Lángi 2020 describes translated homothetic copies, not centered relative rotation.",
+        "General convex-hull or shoelace identities alone do not imply the sign factorization or sharp coupled onset."
+      ],
+      "reasoning": "A general inequality for translated or reflected congruent convex bodies does not determine the exact continuous rotational profile for concentric unequal-radius polygons. For a full covering prior result, it would need either the same two-parameter specialization or a theorem forcing both intrinsic volume formulas.",
+      "searches": [
+        "nesting transition of homothetic rotated polygons convex hull area perimeter",
+        "exact phase transition convex hull of rotated scaled regular polygon pair simultaneous area perimeter optimization",
+        "arxiv:1302.6164v3 sections 1-4",
+        "arxiv:2012.08955v1 sections 1-3"
+      ]
+    },
+    "checked_sources": [
+      "Horváth and Lángi, On the convex hull and homothetic convex hull functions of a convex body, arXiv:2012.08955v1 (2020-12-16), inspected introduction, definitions, §2 and §3",
+      "Horváth and Lángi, On the volume of the convex hull of two convex bodies, arXiv:1302.6164v3 (2013), inspected abstract, §1, §§2-4, references",
+      "Universal radial coverage by concentric regular-polygon unions, published record 2026/10/11, full RESULT.md inspected",
+      "Exact translative convex-hull profile of every regular polygon, published record 2026/10/11, full RESULT.md inspected",
+      "Horváth, Maximal convex hull of connecting simplices (2008), only bibliographic citation and abstract/context summaries accessible; no claim of full-text noncoverage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Both arXiv sources specify translations/reflections or translated homothetic bodies, leaving the twist parameter absent.",
+        "The concentric-polygon-union record calculates radial-angular coverage, not convex hull and its Euclidean perimeter.",
+        "The regular-polygon translative record varies chord direction, not concentric orientation and relative scale."
+      ],
+      "reasoning": "Even though standard shoelace/edge formulas imply the local expressions once the hull face structure is known, the named sources provide neither the precise contact criterion for scaled rotated polygons nor the necessary strict perimeter monotonicity. Their stronger-looking optimization results do not dominate the present complete phase diagram.",
+      "searches": [
+        "arxiv:2012.08955v1",
+        "arxiv:1302.6164v3",
+        "2026/10/11/SCOPE-universal-radial-coverage-by-concentric-regular-polygon-unions--4705952c9b28",
+        "2026/10/11/SCOPE-exact-translative-convex-hull-profile-of-every-regular-polygon--79b005afe9c0",
+        "exact phase transition convex hull of rotated scaled regular polygon pair simultaneous area perimeter optimization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full published record on radial coverage treats nonconvex union of congruent copies, not the convex hull of unequal scales.",
+        "Primary arXiv:2012.08955 defines the hull functional with translates; no rotation variable in its definition.",
+        "No matching full two-parameter rotational hull statement in actual retrieved records."
+      ],
+      "reasoning": "The same geometric object could be called a two-ring regular configuration, twisted homothety, or convexification of concentric polygonal union; searches and the closest material inspections do not identify an equivalent full profile. Failed searches are not novelty proof.",
+      "searches": [
+        "convex hull of two concentric rotated regular polygons different radii exact area angular optimization phase transition",
+        "regular polygons concentric twisted convex hull area maximized half step rotated",
+        "full rotational convex hull area perimeter profile two concentric scaled regular n-gons cyclic alternating vertices critical scale cos(pi/n) simultaneous maximal half-step rotation",
+        "web: \"rotated\" \"scaled\" \"regular polygon\" \"convex hull\" area"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public records state area of a nonconvex polygon union, respectively an extremal ratio under translation.",
+        "Own available ledger inspected 74 recoverable claims; closest are the Bernoulli vertex-thinning regular-polygon fluctuation law 735087ac-5f5f-40f5-a910-b71d5ecfcfaf and random translated lattice-disk hull law 1098c654-ec0a-4bea-8ee8-dd2bb63ab5d4, neither implies deterministic two-ring hull formulas."
+      ],
+      "reasoning": "No retrieved exact lookup table or covered prior claim for all n, radius ratios and rotation angles. Finite numerical tables are neither a claim of publication priority nor sufficient to prove equality for continuous parameters.",
+      "searches": [
+        "convex hull of two concentric rotated regular polygons different radii exact area angular optimization phase transition",
+        "full rotational convex hull area perimeter profile two concentric scaled regular n-gons cyclic alternating vertices critical scale cos(pi/n) simultaneous maximal half-step rotation",
+        "polygon twist shell concentric two n-gons convex hull perimeter monotonicity scaling threshold",
+        "published result title: Universal radial coverage by concentric regular-polygon unions",
+        "published result title: Exact translative convex-hull profile of every regular polygon"
+      ]
+    },
+    "rationale": "Full-text comparisons with the 2020 translated-homothetic-hull study and the 2013 translation/reflection study show no implication for a common-center rotational two-scale hull or its perimeter. The closest published mathematical records deal with nonconvex congruent unions or translated hulls. Search for aliases and two-scale phase parameters returned no covering statement. Older planar all-scale results might exist and historical priority remains provisional.",
+    "residual_risks": [
+      "Any unpublished or unindexed paper using dual regular polygons, two-ring convexification, polygon twist, or radial support envelopes could have an implication-equivalent all-parameter formula.",
+      "The older 2008 simplex convex-hull paper was only accessible through its abstract and citation summaries, not complete primary text; its described 3D congruent-tetrahedron subject does not appear directly controlling.",
+      "The claimed contribution uses elementary hull and trigonometric algebra; parts may be implicit in more general classical rotating-body theorems not recovered here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: varying translations/homothety-with-translation is not concentric rotation; no two-scale angular perimeter formula",
+        "evidence": "Definition 1 uses K+t; Definition 2 uses translated homothetic copy. No theta-parametrized concentric two-regular-polygon phase.",
+        "identifier_or_url": "https://arxiv.org/abs/2012.08955",
+        "material_read": "Abstract, introduction, §2 translative convex-hull function, §3 translated homothetic convex-hull function and their results",
+        "method": "Accessible HTML full article inspected via arXiv",
+        "title": "On the convex hull and homothetic convex hull functions of a convex body",
+        "trigger": "Closest lead paper in matching convex-hull-function topic and eligible public date"
+      },
+      {
+        "assessment": "NOT_COVERING: sections concern translations, reflections and general isometric maximal hull comparisons; no full rotation-scale profile",
+        "evidence": "Abstract states translation/reflection inequalities; the distinct earlier regular-simplex same-centroid question concerns a different specialization.",
+        "identifier_or_url": "https://arxiv.org/html/1302.6164v3",
+        "material_read": "Abstract, introduction, detailed theorem statements and sections 2–4, reference list",
+        "method": "Accessible arXiv HTML full paper",
+        "title": "On the volume of the convex hull of two convex bodies",
+        "trigger": "Earlier primary full-text paper on congruent-copy hull optimization"
+      },
+      {
+        "assessment": "NOT_COVERING: m congruent polygons form a nonconvex union; new object is two potentially different-scale polygons under convexification",
+        "evidence": "Source explicitly restricts identical circumradii and measures union radial coverage. It does not specify hull perimeter or differential onset.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-universal-radial-coverage-by-concentric-regular-polygon-unions--4705952c9b28/RESULT.md",
+        "material_read": "Full RESULT.md: finding, assumptions, proof, verification, relationship to prior work, limitations and references",
+        "method": "Public repository source read via file connector",
+        "title": "Universal radial coverage by concentric regular-polygon unions",
+        "trigger": "Concentric polygons and rotational optimization; possible directly covering source"
+      },
+      {
+        "assessment": "NOT_COVERING: the source maximizes ratio for nontrivially translated copies, no relative rotation nor variable radius",
+        "evidence": "Definition uses maximum over translation t and a chord width product. It states translative c^tr(P_m) and excludes the two-scale rotation family.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/11/SCOPE-exact-translative-convex-hull-profile-of-every-regular-polygon--79b005afe9c0/RESULT.md",
+        "material_read": "Full RESULT.md, including formula, proof and scope exclusions",
+        "method": "Public repository source read via file connector",
+        "title": "Exact translative convex-hull profile of every regular polygon",
+        "trigger": "Same convex-hull regular polygon object; potential parameter reduction"
+      },
+      {
+        "assessment": "UNRESOLVED_BUT_NOT_DECISIVE: cited result concerns regular tetrahedra, not two-scale planar regular n-gon profile",
+        "evidence": "Accessible summaries describe same-centroid congruent regular tetrahedra and cube-optimal configuration; planar arbitrary n, r, theta not asserted. Limited material is noted as a residual risk.",
+        "identifier_or_url": "https://www.researchgate.net/publication/256485998_Maximal_convex_hull_of_connecting_simplices",
+        "material_read": "Bibliographic abstract and related-paper contextual summaries only, no primary complete text",
+        "method": "Accessible public bibliography and citing discussion; full paper not materially read",
+        "title": "Maximal convex hull of connecting simplices",
+        "trigger": "2013 paper cites older same-centroid congruent regular simplices; plausible nearby result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e6b9181e-cfc0-4fff-922e-cb873f31e515",
+  "value": {
+    "rationale": "Two natural Euclidean intrinsic volumes and full combinatorial hull structure are classified simultaneously for every n and all continuous scale/rotation parameters. This resolves a geometrically motivated containment-to-exposure transition, proves one sharp optimizer for two different functionals, and distinguishes first-order area onset from second-order perimeter onset. Those exact exponents exhibit a structural boundary phenomenon and make the result more than a single textbook chord calculation.",
+    "status": "PASS"
+  }
+}
