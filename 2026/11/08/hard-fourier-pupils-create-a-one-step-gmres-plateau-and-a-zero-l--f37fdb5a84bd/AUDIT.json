@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Direct Schur multiplication yields T_B=[[I,0],[(I-PB)A*,PB]]. With a hard Fourier mask PB=Π, Π²=Π implies T_0²=T_0. Exactly one Krylov image direction remains, giving squared residual ||b||²E/(||b||²+E) for all positive orders. Fixed-range variable right maps yield physical iterates with second component in ranΠ; solving the decoupled Fourier modewise constrained least squares proves the positive sharp geometric floor. At ε>0, (Tε-I)(Tε-εI)=0 and Tε invertible, so GMRES terminates by two; the 2×2 omitted-mode singular-value trace/determinant proves its exact conditioning and divergence. Exact symbolic checks and 160/480 numerical instances passed. Singular-breakdown and noise hypotheses explicitly delimited.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1806.06599 Section 4: singular low-rank preconditioners and possible GMRES breakdown",
+        "arxiv:1910.02552 Introduction: regularized saddle constrained-preconditioning variants under nonsingular constraint preconditioners",
+        "doi:10.1137/05063427X abstract: implicit factorization and spectral clustering for regularized saddles"
+      ],
+      "reasoning": "Known general theory covers singular-preconditioning breakdown and nonsingular saddle preconditioning but does not visibly imply the all-RHS exact plateau coefficient, a universal geometric FGMRES error floor under a specific fixed spectral mask, and the zero/positive-leakage conditioning law simultaneously. The latter are not asserted as general theorems outside the commuting-Fourier setting.",
+      "searches": [
+        "hard Fourier aperture spectral mask Schur complement preconditioner singular idempotent projection GMRES one step stagnation leakage two step regularization",
+        "singular rank deficient circulant approximate inverse mask finite aperture preconditioned augmented Tikhonov saddle block GMRES residual floor",
+        "filtered Schur inverse preconditioner spectral cutoff mask retained frequencies flexible GMRES residual irreducible lower bound",
+        "arxiv:1806.06599 low-rank preconditioners singular breakdown",
+        "arxiv:1910.02552 constraint preconditioned Krylov regularized saddle"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.17275v1 (full HTML, sections 2.1–2.2, 3.1.1, 4.2 and conclusions)",
+      "arxiv:1806.06599 (full arXiv HTML, Introduction, sections 2 and 4, especially rank-deficient preconditioner discussion)",
+      "arxiv:1910.02552 (full arXiv HTML, introduction and regularized saddle Krylov construction)",
+      "doi:10.1137/05063427X (abstract and repository bibliographic record only)",
+      "doi:10.1137/130916394 (published abstract and references only)",
+      "published mathematical-record search: Fourier pupil, projected preconditioning, GMRES residual and leakage query families"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.17275v1 provides exact Type-2 Schur structure and binary finite-aperture model; calculation of their composition with a hard projector and GMRES minimization is not displayed.",
+        "arxiv:1806.06599 Section 4 studies generic rank-deficient preconditioners and potential breakdown, not the frequencywise Type-2 hard-mask flexible residual floor.",
+        "arxiv:1910.02552 uses constraint preconditioners and projected Krylov methods under a different operator model."
+      ],
+      "reasoning": "Prior general breakdown results imply possible failure in singular right-preconditioned systems, but not this unique exact residual or conditioning coefficient; the 2026 paper assumptions imply the new results after the additional proof steps and are acknowledged as motivating input, not preexisting stated results. The full 2006 article could not be inspected; its abstract lacks a decisive implication for this fixed-frequency optical special case.",
+      "searches": [
+        "hard Fourier aperture spectral mask Schur complement preconditioner singular idempotent projection GMRES one step stagnation leakage two step regularization",
+        "filtered Schur inverse preconditioner spectral cutoff mask retained frequencies flexible GMRES residual irreducible lower bound",
+        "singular Fourier projector preconditioned inverse problem GMRES one step exact residual plateau",
+        "Gazzola Noschese Novati Reichel Arnoldi decomposition GMRES preconditioning for linear discrete ill-posed problems arxiv pdf",
+        "Dollar Gould Schilders Wathen implicit-factorization preconditioning iterative solvers regularized saddle-point systems full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.17275v1 Sections 2.2, 3.1.1, 4.2; the published Type-2 formula and binary pupil do not derive the projected transformed operator",
+        "arxiv:1806.06599 Section 4 recognizes low-rank preconditioning and Krylov breakdown without this Schur-pupil exact residual formula"
+      ],
+      "reasoning": "An idempotent transformed operator is equivalent to one-step saturation of all transformed Krylov images in this construction, but the source and related papers do not state this exact source-specific equivalence, nor its data-dependent residual and soft-pupil contrast. Generic projector or singular-preconditioner terminology alone cannot establish coverage of the three-part quantitative claim.",
+      "searches": [
+        "arXiv:2610.17275 Optical Fourier Transform-Based Preconditioning for Large-Scale Inverse Problems finite aperture singular hard pupil GMRES FGMRES rank truncation",
+        "hard Fourier aperture spectral mask Schur complement preconditioner singular idempotent projection GMRES one step stagnation leakage two step regularization",
+        "hard binary pupil Fourier optical preconditioner Type 2 LDL factorization Tikhonov saddle ideal mask idempotent projected right preconditioner GMRES stagnation",
+        "hard aperture optical preconditioner GMRES rank deficient Fourier pupil Tikhonov projection stagnation",
+        "GMRES applied to projection matrix one step stagnates"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published records concern symmetric GMRES(1), Rayleigh-residual spectral filtering, and diagonal step preconditioning; no retrieved entry gives the Type-2 optical pupil Schur formulas.",
+        "Published mathematical results involving Nyström Gram blocks and Krylov methods do not supply an exact Fourier-aperture Schur residual law."
+      ],
+      "reasoning": "No dedicated database/table indexing the exact aperture-dependent GMRES plateau or mask-restricted minimization was located. Searches are evidence of attempted coverage comparison, not mathematical proof of uniqueness. A similar published record could be missing from ranked search results.",
+      "searches": [
+        "arXiv:2610.17275 Optical Fourier Transform-Based Preconditioning for Large-Scale Inverse Problems finite aperture singular hard pupil GMRES FGMRES rank truncation",
+        "hard binary pupil Fourier optical preconditioner Type 2 LDL factorization Tikhonov saddle ideal mask idempotent projected right preconditioner GMRES stagnation",
+        "optical 4f Fourier preconditioning arxiv 2610.17275 finite aperture leakage transition two GMRES steps",
+        "singular Fourier projector preconditioned inverse problem GMRES one step exact residual plateau"
+      ]
+    },
+    "rationale": "Source arXiv:2610.17275v1 supplies the optical Type-2 preconditioning map, hard aperture, and noise model, but not an idempotence/GMRES exact-stagnation theorem, a mask-invariant FGMRES lower bound, or a positive-leakage polynomial and conditioning classification. General singular-preconditioner Krylov failure is acknowledged as known from arXiv:1806.06599; the claim is the sharp source-specific spectral classification, not the generic idea. Detailed source/full-text, record, equivalence and dominance comparisons are described below; historical priority is not certified.",
+    "residual_risks": [
+      "Singular right-preconditioner breakdown is classical; the new scope must be understood as an exact Fourier/Type-2 instantiation plus mask-invariant flexible bound and positive-leakage boundary, not a generic innovation.",
+      "The full 2006 implicit-factorization paper and 2014 projected Krylov paper could not be compared beyond accessible abstracts; their broader analysis might imply additional special cases.",
+      "Ranked published-record retrieval can miss semantically equivalent obscure work, and historical priority needs independent verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_DEFINITIONS_ONLY for the proposed exact hard-cutoff/positive-leakage spectral theorem; noise and quantization treated numerically, not claimed as a theorem of one-step stagnation",
+        "evidence": [
+          "arxiv:2610.17275v1 Eq.(10)–(11), §3.1.1 Eq.(14)–(15), §4.2 Eq.(27)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.17275v1",
+        "material_read": "Full HTML sections 2.1–2.2 including LDL (10), Type 2 (11), section 3.1.1 binary pupil (14)–(15), section 4.2 equations (27) and surroundings; abstract, experiments and conclusions",
+        "method": "Read publisher-equivalent lawful full-text HTML and compare explicit algebraic objects, formulas and claimed results",
+        "title": "Optical Fourier Transform-Based Preconditioning for Large-Scale Inverse Problems",
+        "trigger": "Exact source of the Type-2 Schur inverse and hard optical pupil"
+      },
+      {
+        "assessment": "GENERAL_BREAKDOWN_KNOWN; its rank-deficient preconditioner observation does not state the asserted optical Type-2 exact coefficient or flexible-mask geometry",
+        "evidence": [
+          "arxiv:1806.06599 §4 discussion of rank-deficient preconditioner and GMRES breakdown"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.06599",
+        "material_read": "Full arXiv HTML introduction, GMRES setup §2, circulant preconditioners and rank-deficient breakdown in §4",
+        "method": "Read lawful arXiv full text and compare source-specific transformed block, projector, residual and leakage statements",
+        "title": "Arnoldi decomposition, GMRES, and preconditioning for linear discrete ill-posed problems",
+        "trigger": "Highly relevant prior on singular/low-rank GMRES preconditioning and numerical inverse problems"
+      },
+      {
+        "assessment": "DIFFERENT_CONSTRUCTION; constraint preconditioners and their basis-generation framework do not give the claimed exact optical Fourier hard-mask formulas",
+        "evidence": [
+          "arxiv:1910.02552 §1 and general preconditioning construction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.02552",
+        "material_read": "Full arXiv HTML introductory matrix and constraint-preconditioned Krylov framework; searched for Fourier, mask, idempotence",
+        "method": "Read lawful arXiv full text relevant operator statements and compare hypotheses",
+        "title": "Constraint-Preconditioned Krylov Solvers for Regularized Saddle-Point Systems",
+        "trigger": "Plausible dominating prior for the regularized saddle structure"
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE_GENERAL_PRIOR; abstract does not settle the special source-dependent exact claim",
+        "evidence": [
+          "DOI 10.1137/05063427X abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/05063427X",
+        "material_read": "Published abstract and bibliographic repository records; complete article unavailable from accessed OA sources",
+        "method": "Compared available abstract concerning implicit factorization, regularized saddles and eigenvalue clustering; no whole-document exclusion inferred",
+        "title": "Implicit-Factorization Preconditioning and Iterative Solvers for Regularized Saddle-Point Systems",
+        "trigger": "Foundational implicit-factorization literature close to the Schur setting"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY; no claim of full-text negative coverage",
+        "evidence": [
+          "DOI 10.1137/130916394 abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/130916394",
+        "material_read": "Published abstract and bibliographic reference list; article full text not accessible in the cited view",
+        "method": "Compared available statement of projected Krylov equivalences to our exact optical right-map model",
+        "title": "Projected Krylov Methods for Saddle-Point Systems",
+        "trigger": "Potential stronger theory for projected and constrained Krylov methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f37fdb5a-84bd-4728-a405-b6dc16fa8178",
+  "value": {
+    "rationale": "The hard cutoff of an optical Fourier pupil is a source-motivated, structurally meaningful rank erasure, not an arbitrary parameter slice. Its exact all-order GMRES failure and algorithm-independent mask-restricted geometric floor quantify the frequencies that no number of flexible right steps can restore despite invertible Tikhonov K. The discontinuous restoration of exact two-step solvability at any nonzero leakage and the inverse-leakage conditioning cost reveal a practical distinction between exact rank loss and weak transmission. This is valuable as a mathematically sharp boundary for designing/assessing idealized optical preconditioners, without asserting physical noisy-device failure.",
+    "status": "PASS"
+  }
+}
