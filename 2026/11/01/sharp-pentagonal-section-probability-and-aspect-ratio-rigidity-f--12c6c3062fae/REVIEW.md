@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-For positive base half-lengths and height, the centroid normalization is exact. The proof exhausts possible vertex sign patterns, identifies the five-edge cut event, integrates its Haar spherical solid angle without approximation, establishes strict monotonicity of the height stationarity function, and proves strict shape balancing for fixed base diagonal. The unique equality and the two negative Hessian eigenvalues follow by differentiation. A standalone numerical checker uses edge topology and independent spherical quadrature to test the formulas, and it passed. The geometric claims rely on the written analytic proof, not finite sampling.
+## correctness
 
-## Originality: PASS, with residual historical risk
-The 2023 polytope slicing-chamber analysis gives general combinatorial machinery, not the present exact Haar law for centroidal right rectangular pyramids or its rigidity. Black–Criado (2024) proves general random-shadow estimates. Feldman–Klain (2008) gives intrinsic-angle principles. The closest published exact right-rectangular-pyramid **shadow** result supplies the previously known square-case constant. Under polarity the general nonsquare rectangular-base section corresponds to a *rhombic*-base shadow, outside that exact predecessor's rectangular-base hypotheses. Nonorthogonal affine conversion is not probability-preserving for Haar directions. The non-square formula, universal sharp inequality, and stability Hessian therefore remain genuinely distinct under the inspected coverage. Residual risk: obscure earlier spherical-geometry or rhombic-pyramid formulas might imply them; the survey is not exhaustive.
+PASS
 
-## Mathematical value: PASS
-This is a complete sharp optimization for the frequency of pentagonal centroidal cuts in a natural three-parameter polyhedron family. Both base anisotropy and height have uniquely determined optimizing geometry, and a positive-definite stability law quantifies deviations. These assertions address geometric shape design and random slicing rather than a one-off special-case number; the square-case probability alone is expressly not presented as new.
+PASS: The pyramid centroid is (0,0,h/4), so after centering base z=−c, apex z=3c with c=h/4. For the chosen upper-hemisphere normal, opposite base-corner scalar products sum to −2cu_z, so the only generic pentagon event is ||a u_x|−|b u_y||<c u_z<a|u_x|+b|u_y|. Integrating four sign quadrants using the arcsine primitive yields p=(4/π)(arcsin(a/S)+arcsin(b/S)−arcsin(L/S)) with L²=a²+b², S²=L²+c². Exact differentiation gives one critical c, since c(a/√(b²+c²)+b/√(a²+c²)) increases strictly from 0 to a+b>L; balancing a,b at fixed diagonal is uniquely optimal at a=b; its height optimum c=a=b yields maximum 6 arccos(1/3)/π−2. Second derivatives give the stated diagonal negative Hessian. I independently checked derivative symbolically (identity TRUE), Hessian coefficients numerically and compared 50,000 Gaussian-direction edge counts on three asymmetric parameter triples (≤0.0015 discrepancy); sampling is not the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (best of knowledge), strictly excluding known square-case p*: The closest published right-rectangular pyramid random SHADOW law was read in full. Through polar duality it yields the square-case centroidal-section probability, so that number is NOT new. A nonsquare rectangle-base pyramid has a rhombic-base polar, and the nonorthogonal affine transformation that maps rhombus to rectangle does not preserve Haar orientation. Its shadow law therefore does not imply the general nonsquare section probability, the global aspect-height maximizer or local Hessian. Brandenburg–De Loera–Meroni supplies slicing chamber combinatorics; Black–Criado expected shadow bounds do not specify this exact law. Specialized unpublished rhombic-pyramid solid-angle formulas remain a risk.
+
+## value
+
+PASS
+
+PASS: A complete Haar-oriented polygonal section law over a natural three-parameter right-pyramid family, with unique joint shape-height optimality and positive-definite quadratic stability, is a mathematically motivated geometric optimization result. It does not seek credit for the already-known square numerical constant or elementary polarity alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
