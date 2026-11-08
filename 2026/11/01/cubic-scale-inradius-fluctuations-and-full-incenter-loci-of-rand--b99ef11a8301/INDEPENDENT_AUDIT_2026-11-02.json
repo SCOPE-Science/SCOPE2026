@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T02:58:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cubic-scale-inradius-fluctuations-and-full-incenter-loci-of-rand--b99ef11a8301/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cubic-scale-inradius-fluctuations-and-full-incenter-loci-of-rand--b99ef11a8301/artifacts/verify_cube_section_inradius.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cubic-scale-inradius-fluctuations-and-full-incenter-loci-of-rand--b99ef11a8301/AUDIT.json",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cubic-scale-inradius-fluctuations-and-full-incenter-loci-of-rand--b99ef11a8301/METADATA.json"
+      ],
+      "rationale": "For all n>=2, support functional e_i restricted to u-perp has norm sqrt(1-u_i^2). Ball containment is exactly |z_i|+t sqrt(1-u_i^2)<=1; central reflection/convexity makes z=0 optimal, proving rho=(1-min_i u_i^2)^(-1/2) and every admissible maximal center. At a generic unique minimum nonzero |u_i|, precisely one coordinate center bound vanishes and the independent hyperplane condition leaves affine dimension n-2. Squared normalized independent Gaussians have Dirichlet(1/2)^n density, with x_i=a+(1-na)y_i yielding the claimed (n-1)-simplex survival formula, correct normalization Gamma(n/2)/pi^(n/2), support [1,sqrt(n/(n-1))] and no atoms. Single-coordinate and two-coordinate spherical small bands give the lower sqrt(epsilon) coefficient (with n=2 disjoint bands); a uniform simplex limit gives the stated upper (b-r)^(n-1) coefficient. n min|G_i| -> Exp(rate sqrt(2/pi)), sum G_i^2/n ->1, and a Taylor expansion give n^3(R-1) => (pi/4)Exp(1)^2. For x<=n, the bound P(n^(3/2)min|U_i|>x)<=exp(-n/16)+exp(-0.45x/sqrt2)<=2exp(-x/16), with the variable bounded by n, gives moment uniform integrability; moment constants follow. Inspected actual finite checker: literal 3D edge intersections, 2D quadrature and sampled scaling; these cannot substitute for the all-n proof.",
+      "residual_risks": [
+        "The recent Guedon et al. full text was not accessible in this run; any inradius corollary not visible in its abstract remains a priority risk.",
+        "An unindexed exact cube-section inradius distribution might predate this result.",
+        "The numerical program samples only finitely many dimensions and cases; proof rests on Gaussian/Dirichlet analysis, not simulation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guedon et al. explicitly study random section diameters and outer radii with high-probability bounds; Brandenburg-Meroni Theorems 1.1,1.2 and 2.6, Section 3 and Appendices A/B classify face types and vertex counts for bounded dimensions; Ambrus treats critical section volume."
+        ],
+        "reasoning": "Neither diameter/outer-radius estimates nor combinatorial or volume classifications imply the exact intrinsic inradius/Chebyshev-center law or n^3 limiting distribution. The inaccessible full Guedon paper remains a priority risk; no whole-paper no-coverage claim is made from its abstract.",
+        "searches": [
+          "arXiv:2609.24131 (Guedon et al.)",
+          "arXiv:2510.09265v1 (Brandenburg-Meroni)",
+          "arXiv:2107.14778 (Ambrus)"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cubic-scale-inradius-fluctuations-and-full-incenter-loci-of-rand--b99ef11a8301/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cubic-scale-inradius-fluctuations-and-full-incenter-loci-of-rand--b99ef11a8301/artifacts/verify_cube_section_inradius.py",
+        "https://arxiv.org/html/2510.09265v1",
+        "https://arxiv.org/abs/2609.24131",
+        "https://arxiv.org/abs/2107.14778",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-direction-resolved-half-normal-fluctuations-of-random-central-cu--5ebe8c4adfad"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A random diameter is a supremal pairwise distance while the inradius is an infimum of restricted coordinate-functional barriers; the vertex-count law uses signs of edge crossings, not min_i U_i^2. The exact Dirichlet integral and min-Gaussian limit require an additional derivation."
+        ],
+        "reasoning": "The stated inradius/center formula is not a corollary of the cited diameter or face-number statements; exact numerical parameter matches would not suffice without an implication.",
+        "searches": [
+          "arXiv:2609.24131",
+          "arXiv:2510.09265v1",
+          "Resultary: SCOPE-direction-resolved-half-normal-fluctuations-of-random-central-cu--5ebe8c4adfad"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Polarity expresses the same radial optimization as maximal projected cross-polytope vertex norm; a Boolean signed-chain polytope has a related central-cube-section description of its own centers but its ambient convex body, normalization and random variable are different."
+        ],
+        "reasoning": "The polar reformulation is an equivalent proof of the new inradius formula, not evidence of a published exact Haar law for this model; the identified signed-chain result is not the same object.",
+        "searches": [
+          "arXiv:2510.09265v1",
+          "Resultary: 2026/10/11/SCOPE-cube-section-incenter-loci-of-boolean-signed-chain-polytopes--9b96bfb466e7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Brandenburg-Meroni Appendix A shows distributions of combinatorial slice types by vertex counts, not intrinsic inball radii. Resultary direction-resolved half-normal random central section result measures intersection vertex counts rather than radii."
+        ],
+        "reasoning": "No directly matching intrinsic cube-section inradius distribution or all-center table was identified in the bounded Resultary and paper checks; this is not a proof of priority.",
+        "searches": [
+          "Resultary query on random cube-section inradii, signed-chain Chebyshev centers and half-normal vertex counts",
+          "arXiv:2510.09265v1 Appendix A/B tables"
+        ]
+      },
+      "rationale": "A bounded comparison of precise mathematical statements and implications finds no identified earlier theorem covering the full new claim; known special cases and foundational tools are acknowledged; inaccessible source scopes and possible hidden prior art are explicitly residual risks.",
+      "residual_risks": [
+        "The recent Guedon et al. full text was not accessible in this run; any inradius corollary not visible in its abstract remains a priority risk.",
+        "An unindexed exact cube-section inradius distribution might predate this result.",
+        "The numerical program samples only finitely many dimensions and cases; proof rests on Gaussian/Dirichlet analysis, not simulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the claimed metric inradius distribution in inspected material",
+          "evidence": "Theorems 1.1/1.2 classify combinatorial types d<=6/7; Thm 2.6 gives maximal slice vertex counts; appendix histograms count vertices, not radii.",
+          "identifier_or_url": "https://arxiv.org/html/2510.09265v1",
+          "material_read": "Accessible complete HTML, Abstract and Introduction, Sections 2-4 including Theorems 1.1,1.2,2.6; Appendix A vertex-count distributions and Appendix B data scope",
+          "method": "Read arXiv HTML primary article, reviewed theorem statements, proof sections, searched for inradius",
+          "title": "Combinatorics of slices of cubes",
+          "trigger": "Same hyperplane sections of [-1,1]^n; possible exact computation in appendices"
+        },
+        {
+          "assessment": "Comparison LIMITED; abstract concerns outer diameters, full paper not inspected",
+          "evidence": "Abstract describes upper/lower high-probability random-section diameter estimates and p-ellipsoid applications, not explicit intrinsic cube inradii. Retain risk that full paper contains a relevant corollary.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24131",
+          "material_read": "ArXiv abstract and publication date only; direct full-text fetch unavailable",
+          "method": "Read arXiv indexed abstract via web; attempted public HTML/full text",
+          "title": "On random diameters of convex bodies",
+          "trigger": "Very relevant random-section geometry; possible dominating result"
+        },
+        {
+          "assessment": "Different ambient signed-chain polytope; full source not inspected, so no whole-document negative assertion",
+          "evidence": "Indexed summary concerns a rank-constant center locus of an unrelated Boolean signed-chain polytope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cube-section-incenter-loci-of-boolean-signed-chain-polytopes--9b96bfb466e7",
+          "material_read": "Resultary title and scientific summary only",
+          "method": "Resultary semantic index lookup",
+          "title": "Cube-section incenter loci of Boolean signed-chain polytopes",
+          "trigger": "Similar incenter terminology, different convex polytope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cubic-scale-inradius-fluctuations-and-full-incenter-loci-of-rand--b99ef11a8301/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cubic-scale-inradius-fluctuations-and-full-incenter-loci-of-rand--b99ef11a8301/artifacts/verify_cube_section_inradius.py",
+        "https://arxiv.org/html/2510.09265v1",
+        "https://arxiv.org/abs/2609.24131",
+        "https://arxiv.org/abs/2107.14778",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-direction-resolved-half-normal-fluctuations-of-random-central-cu--5ebe8c4adfad"
+      ],
+      "rationale": "Central cube sections are a canonical convex-geometric random model. The exact free-center locus distinguishes inradius from circumscribed radius and establishes generic nonuniqueness; the cubic scale and squared-exponential law identify a previously undetermined natural random invariant beyond coarse diameter/volume estimates. Sharp support endpoints and all-moment convergence can be used for precise comparison with random-section asymptotics; the dimension and observable are mathematically motivated, not an arbitrary parameter slice.",
+      "residual_risks": [
+        "The recent Guedon et al. full text was not accessible in this run; any inradius corollary not visible in its abstract remains a priority risk.",
+        "An unindexed exact cube-section inradius distribution might predate this result.",
+        "The numerical program samples only finitely many dimensions and cases; proof rests on Gaussian/Dirichlet analysis, not simulation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cubic-scale-inradius-fluctuations-and-full-incenter-loci-of-rand--b99ef11a8301/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cubic-scale-inradius-fluctuations-and-full-incenter-loci-of-rand--b99ef11a8301/artifacts/verify_cube_section_inradius.py",
+    "https://arxiv.org/html/2510.09265v1",
+    "https://arxiv.org/abs/2609.24131",
+    "https://arxiv.org/abs/2107.14778",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-direction-resolved-half-normal-fluctuations-of-random-central-cu--5ebe8c4adfad"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "The recent Guedon et al. full text was not accessible in this run; any inradius corollary not visible in its abstract remains a priority risk.",
+    "An unindexed exact cube-section inradius distribution might predate this result.",
+    "The numerical program samples only finitely many dimensions and cases; proof rests on Gaussian/Dirichlet analysis, not simulation."
+  ]
+}
