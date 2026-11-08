@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full analytic argument checks domain restrictions, derivative signs on the two end intervals, the discriminant-controlled shape of the stationary-price equation, fold equality cases, and the strictly monotonic envelope difference between competing maxima. A delivered standalone checker independently verifies exact symbolic identities and 48 numerical scenarios. The numerical component supports but does not replace the proof.
+## correctness
 
-## Originality — PASS, with provisional historical priority
-Kunz and Crone (2014) describe exponential demand as a standard pricing model but do not present the two-exponential bifurcation in the inspected portions. Hetrakul and Cirillo (2014) use latent classes, log-linear daily demand and joint capacity allocation rather than this two-component survival-price theorem. Targeted related-result and exact-formulation searches yielded no statement subsuming the sharp ratio and unique equal-height weight. Related work by Kim–Blattberg–Rossi (1995) and Kalyanam (1996) was available only in abstract form, leaving real possible priority risk. See AUDIT.json for actual searches and comparison reasoning.
+PASS
 
-## Mathematical value — PASS
-The rate-contrast threshold \(3+2\sqrt2\) is a sharp structural criterion for emergence of competing pricing modes. The unique transition in the buyer-mix parameter proves a discontinuous optimizer selection despite continuously changing smooth demand, a meaningful guide for methods assuming revenue unimodality. The theorem has global scope in its clearly stated two-class model, but makes no claims for generalized price models or empirical markets.
+For zero-cost single uniform price p>=0 and two positive exponential valuation-class weights, R′>0 for p<=1/k and R′<0 for p>=1. Within (1/k,1), R′ has sign w/(1-w)-H_k(p). The exact log derivative of H has sign kp²-(k+1)p+2, with positive discriminant only for k>3+2sqrt2; two extrema of H then produce precisely 1 or 3 stationary prices, and folded tangent roots do not add strict local maxima. The two peak revenues have strictly increasing log ratio in w because the envelope derivative is strictly increasing in price. One peak dominates at each fold, so a unique equal-height w*(k) lies strictly inside; both separated prices are global maxima there. Boundary k=k_c is monotone despite derivative zero. This is an analytic continuum classification, not inferred from a k=10 numerical example.
 
-## Main scientific limitations
-Exactly two exponential tails, deterministic single-period demand, one nonnegative price and no cost or capacity are essential assumptions. Historical priority remains provisional where full older literature was unavailable. There is no independent validation or external scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: heterogeneous valuation distributions and exponential price-demand functions are classical, but full-text survey and heterogeneous latent-class railway model do not provide this explicit hyperexponential-survival two-fold threshold and unique abrupt optimizer switch. Specialist older price-sensitivity and Bayesian-mixture papers remain a genuine unresolved priority risk.
+
+## value
+
+PASS
+
+The two-class exponential survival model is a motivated minimal example of heterogeneous consumer willingness to pay. The exact sharp separation k_c, complete local-mode count and proven unique discontinuous global-price switch constitute a natural complete bifurcation classification, not just a routine numerical price calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
