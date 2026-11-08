@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact criterion is obtained from a real Bloch representation, the established unital-qubit Choi/PPT nuclear-norm test, and an explicit Cayley–Hamilton/Chebyshev calculation. The strict-contraction argument proves the full finiteness dichotomy, including the nonrotating boundary. A uniform matrix-power limit and strict semigroup contraction prove a unique continuum crossing, while a nonnegative-square term gives both the sharp universal lower bound and every equality case. A fresh standalone replay from the current package passed 619 numerical assertions; no finite sample is used as an infinite proof.
+## correctness
 
-## Originality — PASS, qualified best knowledge
-The 2026 motivating paper develops the exceptional-channel Jordan and observable signatures but not the index or the crossover. General unital-qubit entanglement-breaking criteria and general index definitions are prior art (Lami–Giovannetti, Ruskai). Related rotated-dephasing optics (Cuevas et al.) demonstrates the two-step filtered effect but not the full Chebyshev and resonant scaling theorem. Closest accessible earlier findings concern a diamond-distance isospectral comparator for the very same exceptional channel and an *unrestricted-unitary* optimization of dephasing powers; neither statement supplies the fixed-axis repeated-rotation index or the discrete resonant critical-limit optimizers. This remains a best-knowledge assessment rather than certified priority. A more general controlled-dephasing semigroup paper could imply this specialization, although none was found in the cited searches.
+PASS
 
-## Value — PASS
-The quantum-channel exceptional point changes spectral form but operational entanglement transmission is controlled by a different invariant: the first power destroying arbitrary reference entanglement. The theorem identifies a complete finite-versus-infinite boundary, computes that invariant at every iteration, determines its weak-noise phase diagram, and finds infinitely many exact resonant minimizers within a physically motivated fixed-axis control family. Those nontrivial optima and the finite exceptional-point penalty are not obtained from a simple spectral gap or from known unrestricted-qubit-unitary bounds.
+The Bloch map is diag block M=[[lambda^2 cos(theta),sin(theta)],[-lambda^2 sin(theta),cos(theta)]] and independent y multiplier lambda^2. The standard unital-qubit EB iff sum of Bloch singular values <=1 criterion is applied (not claimed new). det M=lambda^2 and tr M=2lambda x, x=(lambda+lambda^-1)cos(theta)/2. Cayley--Hamilton gives M^n=lambda^n[T_n(x)I+U_{n-1}(x)(lambda^-1 M-xI)]. For real 2x2 matrices ||A||_*^2=||A||_F^2+2|det A|, and Chebyshev identity reduces ||M^n||_* to lambda^n sqrt(4+(lambda^-1-lambda)^2 U_{n-1}(x)^2), with no division at x=±1. For sin theta=0 the norm remains 1+2lambda^(2n)>1. Otherwise norm M^2_op<1 because the sole one-step nonshrinking vector is rotated out of the z axis, guaranteeing finite EB iteration. For fixed c>0 the scaled M powers converge on compact time intervals to exp(t B_c), B_c=[[-2,c],[-c,0]], whose norm is strict contraction at t>0 because d||v||^2/dt=-4v_x^2 and c>0. This proves a unique positive crossing and convergence of discrete first index. Its limiting nuclear norm is 2e^-t sqrt(1+S_c(t)^2); lower bound S^2>=0 forces threshold >=L, with equality only at oscillatory sin(L sqrt(c^2-1))=0, precisely all c_k. No claim of uniform c(delta) or finite-delta optimum.
 
-## Scientific limitations
-No finite-parameter optimal rotation is claimed. The cutoff concerns identical repetitions of the specified unital qubit channel, not arbitrary adaptive control or general quantum channels. The resonance statement is limited to fixed positive drive/noise ratios before the weak-noise limit. Experimental realization, finite-shot detection, and independent validation are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact 2026 exceptional-channel model is prior in Brandão, the unital EB nuclear norm criterion and index definition are prior in Lami--Giovannetti and Ruskai, and Cuevas et al. treat a two-use rotated damping experiment. These jointly motivate but do not entail the Chebyshev all-power criterion plus singular scaling resonance classification. No covering restricted fixed-axis optimization was established; unrestricted unitary control differs.
+
+## value
+
+PASS
+
+The EB index measures operational disappearance of all reference entanglement under repeated hardware-fixed maps, not merely spectrum or defectivity. Exact all-power criterion, finite/infinite boundary, weak-noise continuum crossover and discrete resonant optimal drive ratios are a substantive classification for a canonical exceptional-point qubit channel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

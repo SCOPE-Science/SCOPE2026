@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T09:10:52.464014Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Bloch map is diag block M=[[lambda^2 cos(theta),sin(theta)],[-lambda^2 sin(theta),cos(theta)]] and independent y multiplier lambda^2. The standard unital-qubit EB iff sum of Bloch singular values <=1 criterion is applied (not claimed new). det M=lambda^2 and tr M=2lambda x, x=(lambda+lambda^-1)cos(theta)/2. Cayley--Hamilton gives M^n=lambda^n[T_n(x)I+U_{n-1}(x)(lambda^-1 M-xI)]. For real 2x2 matrices ||A||_*^2=||A||_F^2+2|det A|, and Chebyshev identity reduces ||M^n||_* to lambda^n sqrt(4+(lambda^-1-lambda)^2 U_{n-1}(x)^2), with no division at x=±1. For sin theta=0 the norm remains 1+2lambda^(2n)>1. Otherwise norm M^2_op<1 because the sole one-step nonshrinking vector is rotated out of the z axis, guaranteeing finite EB iteration. For fixed c>0 the scaled M powers converge on compact time intervals to exp(t B_c), B_c=[[-2,c],[-c,0]], whose norm is strict contraction at t>0 because d||v||^2/dt=-4v_x^2 and c>0. This proves a unique positive crossing and convergence of discrete first index. Its limiting nuclear norm is 2e^-t sqrt(1+S_c(t)^2); lower bound S^2>=0 forces threshold >=L, with equality only at oscillatory sin(L sqrt(c^2-1))=0, precisely all c_k. No claim of uniform c(delta) or finite-delta optimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A general unital qubit nuclear-norm criterion covers the EB test but not an explicit one-axis n-step index and weak-noise optimization.",
+          "Unrestricted repeated-unitary optimization allows controls outside fixed y-axis rotations; its optimum cannot identify which fixed c resonates."
+        ],
+        "reasoning": "General EB criteria cover part of the proof but do not logically dominate the more detailed channel-specific sharp limiting resonance structure; distinct control classes explicitly separated.",
+        "searches": [
+          "arXiv:1411.2517 Entanglement-Breaking Indices",
+          "dephasing arbitrary unitary entanglement breaking index optimum",
+          "Hamiltonian assisted dephasing entanglement breaking time exact rotation"
+        ]
+      },
+      "checked_sources": [
+        "Brandão arXiv:2610.13622 full HTML",
+        "Lami--Giovannetti arXiv:1411.2517 relevant sections",
+        "Cuevas et al. arXiv:1707.00161 full lawful OA PDF and first-page image",
+        "arXiv:2609.09350 abstract only",
+        "Resultary semantic query: rotated qubit dephasing entanglement breaking index powers Chebyshev weak noise rotation resonance optimal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A defective Bloch eigenvalue does not alone determine the nuclear norm or first EB power.",
+          "The new limit uses exp(t B_c) singular values and strict operator-norm decrease; standard EB characterization is a necessary tool, not a sharp asymptotic theorem."
+        ],
+        "reasoning": "Same-channel measurement Jordan signatures and two-pass entanglement breaking experiments do not imply the entire c-dependent root, threshold L, or its countably infinite resonance set.",
+        "searches": [
+          "arXiv:2610.13622 Jordan model",
+          "arXiv:1411.2517 Eq 7 index",
+          "arXiv:1707.00161 rotated phase damping two use experiment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brandão, arXiv:2610.13622, Section V gives rotated dephasing Bloch/Jordan channel, but studies measurement traces across exceptional points.",
+          "Lami--Giovannetti arXiv:1411.2517 gives unital qubit EB singular-norm criterion and EB index definitions."
+        ],
+        "reasoning": "Known criterion + channel are essential premises; evaluating all repeated powers and the continuum resonant index does not follow by a one-line substitution and is not stated in inspected sources.",
+        "searches": [
+          "rotated qubit dephasing entanglement breaking index powers Chebyshev weak noise rotation resonance optimal",
+          "rotated dephasing entanglement breaking iterations channel",
+          "Chebyshev entanglement breaking qubit powers",
+          "arXiv:2610.13622 exact channel model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Brandão Section V lists Jordan degeneracies and measurement probabilities, not a table of first EB powers.",
+          "Cuevas et al. 2017 examines two-use EB amendment instead of an all-n threshold sequence."
+        ],
+        "reasoning": "No exact all-iteration or resonance table identified; lack of table alone would not prove priority.",
+        "searches": [
+          "rotated qubit dephasing entanglement breaking index powers Chebyshev weak noise rotation resonance optimal",
+          "qubit dephasing entanglement breaking index Chebyshev table",
+          "operational signatures exceptional quantum channel index resonant optimum"
+        ]
+      },
+      "rationale": "The exact 2026 exceptional-channel model is prior in Brandão, the unital EB nuclear norm criterion and index definition are prior in Lami--Giovannetti and Ruskai, and Cuevas et al. treat a two-use rotated damping experiment. These jointly motivate but do not entail the Chebyshev all-power criterion plus singular scaling resonance classification. No covering restricted fixed-axis optimization was established; unrestricted unitary control differs.",
+      "residual_risks": [
+        "Previously published driven-dephasing semigroup entanglement-breaking-time optimum might imply the fixed-axis resonance formula under another representation.",
+        "Resonance optimizer is only for fixed positive c in lambda=1-delta, theta=c delta; no claim for optimal c(delta) or arbitrary feedback.",
+        "Standard singular-norm EB criterion and the Jordan channel themselves are known, not original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the channel/defective curve and Jordan measurements; inspected results do not state EB index or resonance set",
+          "evidence": [
+            "Initial arXiv 2026-10-09; full channel discussed in Section V."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.13622",
+          "material_read": "Full arXiv HTML including channel Section V Bloch and Jordan formulas, operational probabilities and conclusions",
+          "method": "Compared same map parameters and theorem implications",
+          "title": "Operational signatures of exceptional quantum channels",
+          "trigger": "Exact same rotated qubit channel, very high coverage risk"
+        },
+        {
+          "assessment": "General index and PPT criterion are prior; explicit one-axis resonance is not directly provided by inspected statements",
+          "evidence": [
+            "Section II.1 Eq (7) gives unital qubit EB iff Bloch nuclear norm <=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1411.2517",
+          "material_read": "Accessible open-text theorem statements and sections on index and unital qubit nuclear norm; direct html endpoint intermittently disabled",
+          "method": "Compared general norm criterion to fixed channel detailed scaling",
+          "title": "Entanglement-Breaking Indices",
+          "trigger": "Standard potentially dominating all-unital-EB characterization"
+        },
+        {
+          "assessment": "Two-step filtered/unfiltered EB amendment, not repeated one-axis n-index resonance theorem",
+          "evidence": [
+            "Phys. Rev. A 96, 022322 (2017), rotated phase damping, Section II."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1707.00161",
+          "material_read": "Full five-page author OA PDF: Sections I--V, model equations, two-use test and experimental diagrams; checked PDF page image",
+          "method": "Read same physical model and compare n and allowed intermediate operations",
+          "title": "Amending entanglement-breaking channels via intermediate unitary operations",
+          "trigger": "Rotated dephasing experimentally and exact EB after two uses"
+        },
+        {
+          "assessment": "Thermal collision model differs; full text not inspected",
+          "evidence": [
+            "Different physical channel family in abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.09350",
+          "material_read": "Abstract and title only",
+          "method": "Compared channel type from abstract; no whole-document conclusion",
+          "title": "Measuring the entanglement-breaking index of a qubit collision channel on a quantum processor",
+          "trigger": "Same operational index in recent model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The EB index measures operational disappearance of all reference entanglement under repeated hardware-fixed maps, not merely spectrum or defectivity. Exact all-power criterion, finite/infinite boundary, weak-noise continuum crossover and discrete resonant optimal drive ratios are a substantive classification for a canonical exceptional-point qubit channel.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Single qubit, exact identical rotations/noise each application, 0<lambda<1, fixed drive-to-noise c>0; no intermediate control/adaptive operations, no uniform or finite-delta optimality.",
+  "schema_version": 1
+}
