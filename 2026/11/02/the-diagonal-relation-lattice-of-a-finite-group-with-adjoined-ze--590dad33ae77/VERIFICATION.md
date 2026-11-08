@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the finite group-with-zero classification
+# Independent mathematical audit
 
-Execute `python3 verify.py` with a standard Python 3 interpreter. The program is self-contained and uses exact integer computations only. It checks all predicted relations for closure, verifies symmetric/transitive congruence counts, and independently exhausts **every reflexive relation** for the cyclic groups of orders \(1\), \(2\), and \(3\). The larger cyclic examples and the nonabelian \(S_3\) example check all constructed relations, but do not exhaust the ambient relation space.
+## correctness
 
-Recorded output is embedded in `verification_output.txt`. The final line is `VERIFY_OK`. The theorem for arbitrary finite groups is established by the complete symbolic normal-form argument; exhaustive small computations cannot substitute for its proof.
+PASS
+
+Proof identifies Q=R∩G² as subgroup containing Δ_G, hence ρ_N with N normal; cross zero row and column are independently all-or-none; every combination is closed. Symmetry requires identical cross bits and transitivity of (1,1) requires N=G. Counts 4k,2k,k+1 and χ=(k+1)/4k follow; C_{p^(k−1)} realizes every k. Independent exhaustive relational enumeration C1/C2/C3 confirms. Covers every finite group, including trivial, not infinite groups.
+
+## originality
+
+PASS
+
+PASS at best knowledge: Barber–Ruškuc introduce DSC ratio and general structural classes; their Clifford section gives an upper bound and a nonexhaustive injection, not the complete absorbing-zero lattice/defect counts. Their group case is prior; the zero-row/column product is the assessed contribution.
+
+## value
+
+PASS
+
+Natural exact semigroup DSC invariant: supplies a canonical full lattice classification, symmetric/nontransitive defect partition, and sharp realizable coefficient spectrum for an important zero extension. While subgroup closure is elementary, the precise semigroup count is motivated by a published DSC comparison and is not a mere renaming or known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
