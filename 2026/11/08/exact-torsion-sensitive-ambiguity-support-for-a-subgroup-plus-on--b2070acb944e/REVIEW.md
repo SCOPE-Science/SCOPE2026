@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+
+The hypotheses specify a proper subgroup with at least two elements, an outside point, a nonzero complex amplitude, unnormalized character conventions, and exact zero support. Directly expanding the autocorrelation isolates: \(h-1\) subgroup rows of \(q\) characters; a zero-delay row with a cancellation fiber of size \(q/r\) only when the quotient has even order and the impulse energy is \(h\); and either two disjoint cross-cosets or one merged order-two cross-coset. In the merged case the single-row cancellation criterion is character evaluation \(\chi(x)=-\bar z/z\), which gives exactly \(N/o(x)\) zeros when permitted. The stated formulas, attainable values, optimizer classification, sharp universal lower bound, and torsion detection follow with no limiting arguments. Exact cyclotomic checks on eleven distinct group/support geometries passed all 80 tested cases. The checks corroborate, rather than prove, the all-group theorem.
+
+## Originality — PASS (provisional historical priority)
+
+The most pertinent inspected primary texts are Nicola's 2023 general abelian-group extremizer classification (arXiv:2305.02738, especially Introduction and Theorem 4.5) and his 2022 cyclic-group STFT equality theorem (arXiv:2204.14176, especially Theorem 1.2 and Section 4.2). They classify the minimum ambiguity support and its equality cases, but the inspected statements do not specify the nonzero off-subgroup impulse support count, its arithmetic phase levels, or the exact quantitative gap. Current mathematical-record searches included aliases for subgroup-indicator perturbations, finite Gabor ambiguity, quotient-order-two cancellation, and support spectra. Closest located records address two-sparse STFTs, three-tap cyclic supports, or measurement-operator ranks rather than this subgroup-plus-impulse self-ambiguity invariant. The broader literature might contain the same combinatorial count under different notation; a negative search cannot certify novelty. Three particularly close public mathematical results were additionally inspected in full; some other search neighbors were compared only from indexed summaries.
+
+## Mathematical value — PASS
+
+A subgroup indicator is a standard maximally concentrated finite time-frequency waveform. Adding exactly one off-subgroup point is the minimal controlled loss of that support geometry. The theorem gives a complete, scale-independent exact zero-support profile for every finite abelian ambient group, including a group-theoretic torsion test and a sharp universal lower bound with equality classification. It reveals that an order-two quotient produces an entire arithmetic phase staircase, whereas higher quotient orders collapse the profile to at most two levels. These are natural structural support invariants and a concrete instability mechanism for exact uncertainty extremizers, not merely a numerical instance. They do not imply approximate or noise-stable localization estimates.
+
+Self-review: passed. Independent audit: not yet performed.
