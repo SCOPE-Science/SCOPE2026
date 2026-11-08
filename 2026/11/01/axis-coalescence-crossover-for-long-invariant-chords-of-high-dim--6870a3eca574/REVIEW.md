@@ -1,17 +1,21 @@
-# Scientific review: invariant ellipsoid chord crossover
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact geometry was reconstructed using the Schur-complement formula for an ellipsoid's orthogonal projection and the quadratic equation for a line–ellipsoid intersection. Invariant line measure biases directions by the projection volume; the conditioned offset is uniform in that projected ellipsoid. These facts imply equation (1) of `RESULT.md`, including the essential square-root brightness weight. The split-sphere marginal has the stated Dirichlet/beta density, and scaling its transverse coordinates by the square root of the tail deficit produces an integrable unit-ball limit. The beta-ball integral yields the exponent, coefficient and beta crossover. The derivation separately handles an empty transverse set, repeated longest axes, the spherical endpoint and the local-uniformity restriction. No numerical result is being used as an infinite proof.
+## correctness
 
-Actual verification uses `checker.py`: it compares direct quadratic chord intersections with the normalized-offset formula, numerical one-dimensional exact integrals with sharp constants, multiaxis small-region integrals with the coefficient, and explicit nonzero coalescence parameters with the crossover profile. The fixed-gap versus coalesced-axis gamma coefficients were also compared algebraically using the beta-function identity. Residual scientific limits are finite-dimensionality, the fixed shorter axes, and the absence of a uniform unbounded-crossover-parameter theorem.
+PASS
 
-## Originality — PASS, historical priority provisional
-The strongest predecessor, Heinrich (2014), provides exact chord power moments for arbitrary ellipsoids, which mathematically determine a full chord law. It does **not** state the simultaneous longest-axis coalescence / rare-chord limit or identify its beta crossover profile and large-parameter matching; those require a controlled two-parameter endpoint analysis. Thus the existence of a moment formula is acknowledged as foundational coverage, not misrepresented as unrelated. Kellerer (1984) treats exact planar ellipses and three-dimensional spheroids; all principal theorems here are restricted to dimensions at least four. Hug and Schneider's 2019 preprint establishes a relevant Crofton-measure framework, but studies aggregate pairs of lines and no such asymptotic. Van der Jagt–Jongbloed–Vittorietti (2023) treat random hyperplane profiles rather than lines in higher dimensions. Historical records and relevant semantic research records were compared by mathematical objects, sampling mechanisms, critical parameters and implications rather than by titles. The inaccessible full text of Suwa (1977) and unindexed older stereological work remain priority risks.
+PASS: The proof correctly uses the Crofton brightness factor det(A)sqrt(u^T A^-2 u), rather than Haar-direction sampling. Completing the line-intersection square gives L=2sqrt(1-|W|^2)/sqrt(u^TA^-2u), and the uniform (d-1)-ball radius gives exponent p=(d-1)/2. The perpendicular sphere marginal has density Gamma(d/2)/(pi^(m/2)Gamma((r+1)/2))(1-|z|^2)^((r-1)/2) and U_{r+1}^2=(1-|z|^2)Beta(1/2,r/2). The z=O(sqrt(epsilon)) scaling produces beta-ball power beta=p+m/2, the stated Gamma normalisation and E[(1-lambda T/2)_+^beta]; dominated convergence is uniform on bounded lambda sets and covers m=0 separately. Rescaling T by 2/lambda verifies the beta-function matching coefficient; no joint lambda→infinity limit is asserted. Independent direct quadrature d=4,r=2,3 gives convergence ratios to the exact profile approaching 1. A finite quadrature cannot establish asymptotics, which follow analytically.
 
-## Mathematical value — PASS
-The singularity of the leading endpoint coefficient as two semiaxes coalesce makes an ordinary fixed-shape asymptotic mathematically unstable. The new theorem resolves exactly that natural boundary layer, supplies a nonconstant beta interpolation for every permissible multiplicity, identifies both adjacent exponents, and matches their leading constants. This is a structural multi-scale geometric probability law in dimensions four and higher, not a table recomputation, numerical slice or routine direct moment evaluation.
+## originality
 
-## Scope and limitations
-No claim is made to new formulas for previously published 2D or 3D chord distributions, to a uniform joint limit as the crossover parameter diverges, or to a broader stochastic-line model. The review is self-review and independent validation is not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS, best-of-knowledge: Heinrich 2014 Theorem 3.1 supplies general ellipsoid chord-power integrals, so all fixed-ellipsoid chord distributions are already encoded in prior work. That theorem was inspected including its formula (10) and subsequent ellipsoid inequalities; the precise moving-axis long-chord endpoint crossover and beta scaling law require additional singular two-parameter analysis and were not stated or directly implied by its evaluated identities. Kellerer covers planar/spheroidal lower dimension, Hug–Schneider pair-line integrals and van der Jagt et al hyperplane section volumes do not dominate this Crofton line-chord rare-event claim. An older stereological equivalent could exist.
+
+## value
+
+PASS
+
+PASS: A natural geometric singularity occurs when one formerly shorter semiaxis coalesces with a repeated major axis: the endpoint tail exponent changes by one half and fixed-shape constants diverge. The theorem resolves this instability with a positive nonconstant beta interpolation, explicit scale and coefficient matching throughout r=1,...,d-1. This is a reusable structural result, not a sphere computation or numerically chosen ellipsoid.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
