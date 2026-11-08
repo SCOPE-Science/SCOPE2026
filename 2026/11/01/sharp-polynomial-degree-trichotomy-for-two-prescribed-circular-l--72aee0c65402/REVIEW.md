@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the exact planar polynomial subclass with strictly positive angular speed, the radial first-order equation is autonomous. Consequently each nonconstant periodic orbit is a circle at a positive zero of the radial polynomial, and its period and nontrivial Floquet multiplier are exactly determined by the angular value and radial derivative at that zero. The two prescribed zeros force an interpolating polynomial with two fixed values. A degree bound restricts the interpolant to a constant or affine polynomial. The sign of the unique affine interpolant determines precisely when it creates an unwanted positive zero. A global sum-of-squares interpolant supplies the degree-nine construction in the remaining cases. This proves both sufficiency and sharp lower bounds, with all parameter endpoints accounted for, including the harmless zero at the origin. The accompanying exact-rational checks reproduce representative cases and the claimed witness, but are not used as infinite proof.
+PASS
 
-## Originality — PASS under inspected literature
+For rotation-equivariant P,Q with Q(s)>0, direct differentiation gives ds/dt=2sP(s), dtheta/dt=Q(s), so every nonconstant periodic orbit lies at a positive root s_i of P. The physical period is 2pi/Q(s_i) and log(mu_i)=2s_iT_iP'(s_i). Hence P=(s-s1)(s-s2)B and B(s1)=-log(mu1)/(2s1T1(s2-s1)), B(s2)=log(mu2)/(2s2T2(s2-s1)). Same-sign Floquet logs force opposite signs of B node values and an extraneous positive root. Opposite-sign Floquet logs give equal-sign node values: the degree-0, degree-1, and strictly nonvanishing degree-2 B alternatives give exactly degrees 5,7,9, including the boundary c2=(s2/s1)c1, with Q=omega1*l1^2+omega2*l2^2 globally positive. Exact rational independent calculations checked five representative node datasets, derivatives, degrees 5/7/9 and the forbidden affine root. This reconstructs the unrestricted-in-parameters proof within the stated restricted class; not an arbitrary planar-field result.
 
-Jana–Sarkar (arXiv:2610.33226, first public 2026-10-23) characterize concentric invariant circles but do not prescribe their numerical Floquet multipliers and physical periods with a sharp degree trichotomy. Margalef-Bentabol–Peralta-Salas (arXiv:1507.00698, Theorems 1.2 and 4.2) prescribe periods and qualitative stabilities in more general planar polynomial fields but do not assert the present exact multipliers or minimum degrees under equivariance and positive angular speed. Giné–Llibre–Valls (2018), Theorem 1, characterize cubic concentric circles and show they cannot both be limit cycles; this agrees with the degree-five floor but does not imply the three cases. The closest inspected published-record finding on star-node flows gives an exact single-cycle Floquet rigidity, not an inverse two-circle degree classification. Christopher (2001) establishes a broad prescribed-curve construction; the accessible abstract does not decide the present exact numerical-parameter question. Exact searches for prescribed Floquet multipliers and concentric polynomial limits revealed no decisive encompassing result. Historical priority against unindexed work remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Two nested circles are the smallest nontrivial test of exact multi-cycle oscillator synthesis. Prescribing only their stability signs does not determine the necessary nonlinear polynomial complexity: even with unchanged prescribed radii and periods, varying the numerical Floquet multipliers forces the least degree to jump sharply through five, seven, or nine. The complete parameter classification combines a genuine global no-unwanted-cycle constraint with explicit quantitative local stability data. In contrast with merely interpolating two derivatives, the proof must control the sign of the entire polynomial on the positive half-line, and the degree-nine case is forced by a positive extra root at every lower degree. The result supplies an exact design boundary, not a numerical census or arbitrary coefficient example.
+The continuous radial Floquet interpolation plus strict exclusion of additional circles gives a numerical, degree-sharp inverse-design classification absent from the inspected period/stability construction. Previously established general realization and circle factorization are credited. Best-of-knowledge pass is qualified because the 2026 Jana–Sarkar full text was inaccessible, and a historical implicit construction remains possible.
 
-## Literature and limits
+## value
 
-The degree-minimality theorem is confined to rotation-equivariant polynomial vector fields with strictly positive global angular speed and precisely the two specified hyperbolic periodic orbits. The polynomial-degree statements do not extend without further proof to unrestricted planar fields. Source comparisons support originality relative to the works inspected, not independent validation or absolute historical priority. The Christopher (2001) full text was not available in the material inspected; its abstract describes a different prescribed-curve goal. The program checks exact rational examples, not the continuum theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This solves a natural inverse limit-cycle design problem with exactly two specified circles and physical periods/multipliers, distinguishing three genuinely different minimal degrees. The degree-nine obstruction is not implied by alternating stability and is motivated by the required absence of extra cycles. It has precise scope and excludes unrestricted optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
