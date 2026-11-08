@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+The claim is the complete Ehrhart \(h^*\)-coefficient table for exactly five listed seven-dimensional lattice polytopes, not a finite approximation to a general infinite-class conjecture. The full-dimensionality certificates have first-eight augmented determinants \(2,-6,-6,-6,-8\). For each example, all \(\binom{14}{7}=3432\) subsets are examined with exact cofactor determinants, and the resulting complete supporting-facet list has respectively \(144,136,136,136,136\) simplicial facets. Exact integer containment tests then exhaust every candidate lattice point in \(q[0,1]^7\) for all \(0\le q\le7\). The standard degree-seven Ehrhart numerator identity turns these eight counts into a proof for **all** nonnegative dilations. As an independent geometric consistency check, exact center-star facet determinants give normalized volumes \(464,386,386,450,514\), the sums of the numerator coefficients. The standalone source `verify.py` executed to `ALL EXACT CHECKS PASSED`. This is an exhaustive finite proof with independently justified bounds, not inference from partial enumeration.
+
+## Originality — PASS, with provisional historical priority
+
+Kaibel and Pokutta's arXiv:2606.31640v2 provides exactly the five vertex sets and their ordinary face numbers, but does not state their Ehrhart series, \(h^*\)-polynomials, lattice-point counts, or normalized volumes. The new result is not an immediate consequence of the published face vectors: \(P_2,P_3,P_4,P_5\) have the same ordinary \(f\)- and \(h\)-vectors, yet their \(h^*\) spectra split into three different profiles. The paper's full accessible HTML treatment of Sections 1–5 and Appendix A, Table 3 was compared with the present statement. Targeted mathematical-record queries for the paper, equivalent Ehrhart terminology, exact coefficients and normalized volumes, plus comparison with recoverable local claims, disclosed no covering result. The nearest indexed records concern unrelated seven-dimensional obstruction polytopes and oriented-cycle root-polytope enumeration, not these five convex hulls. An unindexed or later manuscript could still contain the spectra; independent historical review remains necessary.
+
+## Mathematical value — PASS
+
+The five objects are not arbitrary small examples: they are the **entire** exceptional list in the first possible dimension for the failure of Ziegler's maximal-vertex central-symmetry prediction. The Ehrhart \(h^*\)-polynomial is a standard lattice invariant not fixed by the face lattice. This complete five-case arithmetic census provides four distinct lattice fingerprints aligned with the four affine types, and the inexpensive pairs \((L(2),L(3))\) already distinguish them. Especially, the four combinatorially isomorphic polytopes exhibit three different full Ehrhart series, a concrete arithmetic separation beyond the published combinatorial classification. The seven-dimensional normalized-volume spectrum and detailed dilation counts are directly reusable benchmarks for further study of extremal binary-polytopal arithmetic. This is an exact natural classification, not an arbitrary parameter slice or a routine restatement of the primary paper.
+
+## Closest source and limitations
+
+Primary vertex data and the preexisting five-class enumeration are Kaibel–Pokutta (arXiv:2606.31640v2, initial public submission June 30, 2026). The central limitations are reliance on that published class completeness (only the five representatives are independently recomputed), a finite arithmetic classification rather than an extension to higher dimensions, and remaining historical-priority uncertainty. Equality of \(h^*\) for two objects is not claimed to establish their affine or unimodular equivalence. The result has no independent scientific audit.
+
+Self-review: passed. Independent audit: not yet performed.
