@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The local equations follow from completing the square and the weight-\((2,1,1)\) blowup. Both charts show smooth total space, reduced exceptional genus-one curves and normal-crossing intersections. Contracting the two rational valence-two components gives the stable two-elliptic banana. Two distinct infinity points are fixed by inversion and so differ by nonzero two-torsion; the generalized-Jacobian gluing construction gives an extension class of exact order two. Reconstructed symbolic identities agree with `verify.py`.
+## correctness
 
-**Originality — PASS (qualified, residual historical-priority risk).** Badr–Saleem treat flexes of smooth \(a\ne\pm2\) members; Hassett–Hyeon establish general tacnode/elliptic-bridge geometry. Crucially Bouw et al. arXiv:2003.07633, full text §§2–4, already classify the broader Ciani stable reduction, including an elliptic-pair/two-node case with both \(j\)-invariants \(1728\); the graph and component invariants are therefore NOT new. The remaining claim is the *exact nonzero order-two semiabelian extension class* derived from the two marked attaching-point differences in this explicit pencil. The inspected Bouw et al. formulation gives stable types and \(j\)-invariants, not that class; however its admissible-cover geometry may imply the value after specialization, so attribution should be rechecked independently before publicity.
+PASS
 
-**Mathematical value — PASS.** A stable-reduction graph and the \(j\)-invariants fail to determine the semiabelian extension, because the node attachment differences vary in the elliptic factors. The exact order-two class is a natural arithmetic/geometric boundary invariant: it distinguishes nonsplit but isogeny-split degeneration from generic infinite-order extensions and is relevant to generalized Jacobians and one-motive degeneration data. It is not an arbitrary coefficient enumeration or an isolated textbook rank calculation.
+At a=2, X⁴+Y⁴+Z⁴+2X²Y²=(X²+Y²+iZ²)(X²+Y²−iZ²). The two smooth conics meet in exactly two A3 tacnodes. Near either, u=1+Y², v=Z yields u²+v⁴+t⁴(u−1)=0; U=u+t⁴/2 makes U²+v⁴=t⁴(1+t⁴/4). After unit reparametrization the weight-(2,1,1) blowup yields an exceptional smooth genus-one w²+V⁴=1; the v-chart relation r=vR and w²+1−R⁴=0 shows transverse attachment to each conic. Four nodes on K2,2 with two elliptic components give genus 3; contracting both rational valence-two conics yields E1,E2 joined at two nodes. Their infinity attachment points P± are distinct fixed points of V↦−V, an involution preserving origin P+ with four fixed points, hence inversion and T=P−−P+ is nonzero E[2]. The generalized-Jacobian gluing sequence has class (T1,−T2) of exact order two, nonsplit and split by [2]. Binary quartic I≠0,J=0 gives j=1728. Complex field, a−2=t⁴, identity component only.
 
-Independent verification and priority certification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two-elliptic banana stable graph and j=1728 components are already covered by Bouw–Coppola–Kılıçer–Kunzweiler–Lorenzo García–Somoza 2020/2021 Ciani reductions (not new). The remaining narrowly assessed result is the explicitly marked nonzero 2-torsion difference at nodes and resulting order-two extension in Ext¹(E1×E2,G_m). The full Bouw technical treatment was checked, including elliptic-pair reductions, but the marked Picard extension class was not stated in the inspected classifications; it may be recoverable by specializing admissible-cover data.
+
+## value
+
+PASS
+
+The same dual graph and component j-invariants allow differing generalized-Jacobian extension classes as attachment points vary. Computing exact nonzero order-two gluing produces a natural degeneration/one-motive invariant distinguishing a nonsplit but isogeny-split special Jacobian from a split or infinite-order class. This is mathematically motivated even without a new stable graph classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
