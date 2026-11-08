@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The proposed exact distribution follows from a canonical split of an automorphism into commuting parts of coprime orders, averaging conjugacy for its tame finite-order part, and a leading-term kernel calculation in a uniformly sampled centralizer. Crucially, the leading coefficient \((kd)b_j\) cannot vanish in characteristic \(p>n\). The nilpotent subgroup has exponent dividing \(p\), so the decomposition and finite-order reduction apply to every finite field with characteristic \(p>n\). The two count families sum to the correct number of automorphisms for each multiplier, even when dimension labels coincide. Literal composition-matrix computations reproduce all nine checked finite cases. They are corroboration only, not the infinite proof.
+
+## Originality — PASS relative to examined material
+The 2024 monomial-algebra automorphism-group papers establish underlying group descriptions in characteristic zero but not the finite-field conditional fixed-ring dimension spectrum. A 2012 univariate right-equivalence classification may yield orbit classifications, so the Burnside formula alone is not treated as an independent novelty guarantee. The **joint fixed-subalgebra distribution, ring shapes, and tamely uniform multiplicities**, rather than known group order or linearization, form the assessed claim. Semantic research-record queries covered fixed rings, Nottingham substitutions, formal-power-series conjugacy, and arithmetic automorphism distributions; closest indexed records concerned different objects or invariants. A negative search cannot prove priority. The most material residual risk is an unlocated general formal-series conjugacy/stabilizer theorem implying the same distribution.
+
+## Mathematical value — PASS
+For an automorphism of a finite local algebra, the fixed subalgebra is a canonical invariant; its dimension and multiplicative structure measure how much of the ring is preserved. An exact law under uniformly sampled automorphisms, resolved by a natural arithmetic datum (the multiplier order), supplies structural information not obtained from merely knowing the automorphism-group order. The orbit consequence is a useful independent consistency check and describes the action on every ring element. The theorem covers infinitely many finite fields and truncation lengths in its tame regime, not an arbitrary small numerical slice.
+
+## Closest sources and limitations
+Díaz–Liendo–Manzano-Flores–Regeta, arXiv:2408.02197 (automorphism group of zero-dimensional monomial algebras, characteristic zero); Díaz–Lucchini Arteche, arXiv:2409.15081 (automorphism-group rigidity, characteristic zero); Nguyen, arXiv:1210.2868 (related univariate power-series right equivalence; full source not recovered); and indexed research records on truncated coordinate-cross algebras and Nottingham braces (different objects or invariants). The proof requires \(p>n\), and the direct verifier is over prime fields. Complete literature priority and independent mathematical audit remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
