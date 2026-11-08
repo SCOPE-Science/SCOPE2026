@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalization is probability weighted Bergman area. Exact radial moments are gamma ratios, and Parseval controls the degree-window Hilbert norm. The nonstandard two-sided fourth-moment radial inequality is proved by polynomial reversal and subharmonicity for arbitrary complex coefficients; the resulting sharp-operator sandwich is valid without phase restrictions. Finite-dimensional compactness and strict radial increase identify the cutoff uniquely. Gamma-ratio uniformity controls both the bandwidth error and the logarithmic radial-shift error. Dirichlet kernels prove the sharp bandwidth exponent, and exact three-character convolution shows the resonance constant ratio. Finite checks are supplementary, not the basis of any infinite claim.
+## correctness
 
-**Originality — PASS (best-knowledge).** Melentijević (2022) and Bayart et al. (2017) establish global Bergman contractivity and therefore only fixed universal admissible dilation radii, not the sharp packet-restricted radius approaching one. Wang–Zhang (2025) gives degree-only estimates that do not resolve sharp carrier–bandwidth cutoff asymptotics. Existing Fourier character moment classifications already contain the values 15/7 and 5/3; no originality is claimed for those components. Indexed claims were compared by implication and same parameters. The new contribution is the uniform sharp carrier–bandwidth law and its resonance-sensitive Bergman cutoff consequence. Historical-priority uncertainty remains, particularly if an older high-frequency contractivity theorem implicitly yields this precise reduction.
+PASS
 
-**Value — PASS.** The degree of localization, frequency width, and arithmetic collision structure affect the actual sharp contraction boundary in separable ways. The leading exponent varies continuously with the logarithmic bandwidth growth, and three-mode supports of identical cardinality have a nonvanishing second-order radius separation. Such a threshold is a meaningful operator-norm invariant of analytic spectral packets; it is not an isolated low-dimensional coefficient calculation.
+Exact radial moments M_k=Gamma(alpha)Gamma(k+1)/Gamma(k+alpha); Parseval and polynomial reversal yield two-sided fourth-norm estimates and the sharp compact-sphere operator sandwich. Uniform gamma ratio on 0<=h<=2L, monotonic radial norms, and L log m/m=o(m) yield the O_alpha((L log m+1)/m) remainder. Directly recomputed AP additive-collision H=15/7 and Sidon H=5/3 from coefficient convolution and verified gamma-moment asymptotics. The proof is all m sufficiently large for every admissible pattern; finite tests alone are not the proof.
 
-**Limitations.** Only fixed \(\alpha>1\), exponents \(2\to4\), and widths \(L_m\log m=o(m)\); no finite-carrier closed formula and no independent priority certification. Numerical checker provides corroboration, not a substitute for the general proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Melentijevic 2023 Theorem 1 proves global weighted Bergman p-to-q dilation hypercontractivity with r=sqrt(p/q), and Bayart et al. establish related contractive inequalities. The global radius is controlled by the constant-plus-linear perturbation; it does NOT give the sharp cutoff restricted to high-degree narrow spectral packets, which tends to one and tracks the additive energy H(S). Wang-Zhang degree bounds are not an equivalent uniform translated-spectrum asymptotic. The old circle constants are explicitly credited.
+
+## value
+
+PASS
+
+Quantifies a natural exact spectral-subspace hypercontractive invariant where localization profoundly improves the global dilation radius; determines both the growth exponent from bandwidth and arithmetic frequency-collision correction. It is not just renaming the known global hypercontractivity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

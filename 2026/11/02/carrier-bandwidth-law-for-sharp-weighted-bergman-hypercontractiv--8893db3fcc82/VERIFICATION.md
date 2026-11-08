@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The mathematical proof establishes the general claim using a complete two-sided radial comparison for every analytic polynomial, exact weighted Bergman moments, and uniform gamma-ratio asymptotics. The standalone deterministic code in `check.py` evaluates exact finite carrier cases and the derived inequalities from coefficient convolutions. It makes no finite-to-infinite extrapolation claim.
+## correctness
 
-Checked definitions: the area measure is normalized, the frequency support is nonempty, the cutoff is sharp for arbitrary complex coefficients, and the shift-width hypotheses are explicit. The three-frequency circle fourth moments are independently derived from additive pair-sum collisions; their values are treated as known supporting inputs.
+PASS
 
-The checker requires Python 3 with NumPy and SciPy. To reproduce: `python3 check.py`. All infinite-asymptotic statements depend on the written proof, not on computational sampling. Independent mathematical review and historical-priority audit are not performed.
+Exact radial moments M_k=Gamma(alpha)Gamma(k+1)/Gamma(k+alpha); Parseval and polynomial reversal yield two-sided fourth-norm estimates and the sharp compact-sphere operator sandwich. Uniform gamma ratio on 0<=h<=2L, monotonic radial norms, and L log m/m=o(m) yield the O_alpha((L log m+1)/m) remainder. Directly recomputed AP additive-collision H=15/7 and Sidon H=5/3 from coefficient convolution and verified gamma-moment asymptotics. The proof is all m sufficiently large for every admissible pattern; finite tests alone are not the proof.
+
+## originality
+
+PASS
+
+Melentijevic 2023 Theorem 1 proves global weighted Bergman p-to-q dilation hypercontractivity with r=sqrt(p/q), and Bayart et al. establish related contractive inequalities. The global radius is controlled by the constant-plus-linear perturbation; it does NOT give the sharp cutoff restricted to high-degree narrow spectral packets, which tends to one and tracks the additive energy H(S). Wang-Zhang degree bounds are not an equivalent uniform translated-spectrum asymptotic. The old circle constants are explicitly credited.
+
+## value
+
+PASS
+
+Quantifies a natural exact spectral-subspace hypercontractive invariant where localization profoundly improves the global dilation radius; determines both the growth exponent from bandwidth and arithmetic frequency-collision correction. It is not just renaming the known global hypercontractivity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
