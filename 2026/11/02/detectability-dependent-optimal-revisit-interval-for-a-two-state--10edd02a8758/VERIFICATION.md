@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 check.py` with Python 3 and the standard library from the directory containing `RESULT.md` and this file. The reported output is:
+## correctness
 
-`VERIFICATION_OK exact_assertions=2300 numerical_assertions=863 perfect=0.796812130020 low_detection_limit=1.138090854067 crossing=0.699847881249`
+PASS
 
-The exact-rational portion independently recomputes each of four positive two-visit observation-cell probabilities, differentiates with respect to the two statistically unknown parameters, forms the Fisher matrix and takes its nuisance Schur complement at 460 rational detector/correlation pairs. It verifies the closed-form denominator via arithmetic equality. The floating-point portion verifies the three numerical reference constants, local sign and order properties, and numerical maxima across a grid of 100 detector efficiencies. The universal proof of a unique global optimum and strict monotonicity is the analytic case analysis in `RESULT.md`, not numerical enumeration.
+For two detections P(11),P(10),P(01),P(00)=(a²+c,a(1−a)−c,a(1−a)−c,(1−a)²+c) with a=pq,c=p²q(1−q) exp(-γΔ), compute Fisher J_{qq},J_{qr},J_{rr}; at q=1/2 Schur complement is exactly p²/[(2-p)²+4(1-p)²r−p²r²]. Chain-rule derivative dr/dγ=−Δr yields formula. For x=γΔ the log-score has sign opposite g=x(2A+Br)−2(A+Br−Cr²), A=(2-p)²,B=4(1-p)²,C=p². Prove g<0 through log2, g strictly increases beyond log2 and tends positive; score therefore has one global maximizer. Differentiating score w.r.t p gives strict negative at all maximizing roots (r<1/2), hence x*(p) decreases. Substitute x=1 gives threshold p_c. Independently recomputed exact symbolic Schur complement and threshold 0.6998478812491185 from multinomial cells; checked actual source check.py, no finite test claimed to prove all-p uniqueness.
 
-The numerical root values are approximations. The formulas assume stationary Markov occupancy, known detector efficiency and equal true occupancy one half, while treating that occupancy parameter as statistically unknown. There is no asymptotic result with one site and two observations, no detector misclassification, and no empirical study. An external mathematical review and historical-priority audit have not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality survives the actual implication comparisons; cited antecedents cover the foundations or narrower/different objects but none of the accessible material establishes this exact completed statement. Uninspected plausible literature is explicitly treated as residual priority risk, not a proven absence.
+
+## value
+
+PASS
+
+Imperfect detection materially changes optimal temporal design. Explicit nuisance-adjusted Fisher information, all-p monotonicity, and exact one-switching-time crossover are natural and actionable mathematical distinctions beyond the known perfect-detection endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

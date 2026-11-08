@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T05:40:01.180803Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/detectability-dependent-optimal-revisit-interval-for-a-two-state--10edd02a8758/RESULT.md",
+        "2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/detectability-dependent-optimal-revisit-interval-for-a-two-state--10edd02a8758/check.py"
+      ],
+      "rationale": "For two detections P(11),P(10),P(01),P(00)=(a²+c,a(1−a)−c,a(1−a)−c,(1−a)²+c) with a=pq,c=p²q(1−q) exp(-γΔ), compute Fisher J_{qq},J_{qr},J_{rr}; at q=1/2 Schur complement is exactly p²/[(2-p)²+4(1-p)²r−p²r²]. Chain-rule derivative dr/dγ=−Δr yields formula. For x=γΔ the log-score has sign opposite g=x(2A+Br)−2(A+Br−Cr²), A=(2-p)²,B=4(1-p)²,C=p². Prove g<0 through log2, g strictly increases beyond log2 and tends positive; score therefore has one global maximizer. Differentiating score w.r.t p gives strict negative at all maximizing roots (r<1/2), hence x*(p) decreases. Substitute x=1 gives threshold p_c. Independently recomputed exact symbolic Schur complement and threshold 0.6998478812491185 from multinomial cells; checked actual source check.py, no finite test claimed to prove all-p uniqueness.",
+      "residual_risks": [
+        "Finite checker does not establish an infinite or arbitrary-size theorem"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Michel assumes fully observed states; 2010 occupancy-design paper studies closed single-season replicate allocation rather than lag of dynamic occupancy; Mehtälä multi-state timing paper potentially broader but its full text was inaccessible through checked OA and Oxford routes."
+        ],
+        "reasoning": "The plausible Mehtälä source is explicitly not declared noncovering; abstract did not establish coverage of this particular hidden-state nuisance-adjusted two-visit formula.",
+        "searches": [
+          "Michel 2018 publicly available full manuscript",
+          "Mehtälä et al 2015 DOI 10.1111/rssc.12084 abstract",
+          "MacKenzie et al 2003 dynamic occupancy",
+          "Guillera-Arroita et al 2010 imperfect detection occupancy design"
+        ]
+      },
+      "checked_sources": [
+        "Michel 2018 full manuscript",
+        "Mehtälä et al 2015 abstract and DOI (Oxford vpn_disconnected)",
+        "Guillera-Arroita et al 2010 abstract",
+        "MacKenzie et al 2003 dynamic occupancy context",
+        "Resultary hidden Markov scheduling semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known p=1 optimum is a strict endpoint, not a theorem of detection-dependent monotonicity or the nuisance Schur formula. General Markov timing theory could conceivably subsume it, but no cited statement was verified to do so."
+        ],
+        "reasoning": "Explicit four-cell efficiency calculation and sign proof are additional mathematical steps; no assertive whole-document noncoverage for Mehtälä.",
+        "searches": [
+          "Michel 2018 optimal adaptive sampling theorem at p=1",
+          "Guillera-Arroita et al 2010 DOI 10.1111/j.2041-210X.2010.00017.x",
+          "Mehtälä et al 2015 paper metadata/abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Imperfectly observed stationary two-state CTMC defines a 4-cell dependent Bernoulli pair; after nuisance q projection the information differs from the perfectly observed continuous-time chain design. Michel proves x*(1)=0.7968... only."
+        ],
+        "reasoning": "Checked Markov observation scheduling, hidden-Markov emission, efficient-Fisher Schur complements and occupancy-revisit terminology; perfect detection is endpoint but does not imply all p.",
+        "searches": [
+          "Resultary semantic: optimal time gap two-state occupancy hidden Markov detection Fisher nuisance prevalence",
+          "Michel 2018 perfect-observation symmetric Markov optimum",
+          "Mehtälä Auranen Kulathinal 2015 optimal observation times multistate Markov"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Reference numbers at p=1 and p->0 are endpoints of a continuously parameterized unique optimum and the exact algebraic crossing p_c; no extant numerical table was identified giving the full formula."
+        ],
+        "reasoning": "A table of design times at selected detector probabilities cannot establish the continuous all-p theorem; failed search alone does not certify uniqueness.",
+        "searches": [
+          "Resultary occupancy detectability optimal interval semantic search",
+          "perfect-observation x*(1) result and numerical design constants"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives the actual implication comparisons; cited antecedents cover the foundations or narrower/different objects but none of the accessible material establishes this exact completed statement. Uninspected plausible literature is explicitly treated as residual priority risk, not a proven absence.",
+      "residual_risks": [
+        "Mehtälä et al 2015 primary full text inaccessible via lawful OA and authorized Oxford; it may imply a special hidden-detection formula",
+        "Other HMM Fisher-information optimal schedule theorems may subsume the all-p result",
+        "p->0 limit has zero absolute information; no claim of successful inference there"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms p=1 endpoint is prior knowledge; no imperfect detector p or unknown occupancy nuisance in stated result",
+          "evidence": "Perfect-state observation result is strictly the boundary p=1.",
+          "identifier_or_url": "J. Michel 2018 public manuscript; DOI 10.1080/07474938.2019.1701808",
+          "material_read": "Full publicly available manuscript, including theorem on symmetric chain optimal gap; PDF theorem page visually inspected",
+          "method": "Full primary preprint reading and screenshot",
+          "title": "Optimal adaptive sampling for a symmetric two-state continuous time Markov chain",
+          "trigger": "Exact known perfect-observation endpoint x=0.7968, key priority comparison"
+        },
+        {
+          "assessment": "Cannot rule out paper-wide coverage; its abstract concerns observed-state multistate timing, not explicitly this hidden imperfect-detection nuisance model",
+          "evidence": "Specific relevant source remains unresolved access risk, not an automatic originality FAIL.",
+          "identifier_or_url": "Mehtälä, Auranen, Kulathinal 2015; DOI 10.1111/rssc.12084",
+          "material_read": "Accessible published abstract/metadata only; full text failed lawful OA/preprint search; authorized institutional retrieval returned vpn_disconnected (no material bypass)",
+          "method": "Abstract/metadata read, legitimate Oxford retrieval attempt unsuccessful",
+          "title": "Optimal observation times for multistate Markov models—applications to pneumococcal colonization studies",
+          "trigger": "Potential general theorem covering observation scheduling"
+        },
+        {
+          "assessment": "Closed/static single-season design of replicate counts, rather than a changing occupancy CTMC revisit interval",
+          "evidence": "Dynamic versus static occupancy distinction.",
+          "identifier_or_url": "Guillera-Arroita, Ridout and Morgan 2010; DOI 10.1111/j.2041-210X.2010.00017.x",
+          "material_read": "Abstract and bibliographic material, not entire primary full text",
+          "method": "Abstract comparison",
+          "title": "Design of occupancy studies with imperfect detection",
+          "trigger": "Same imperfect-detection framework, possible Fisher design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Michel 2018 full manuscript",
+        "Mehtälä et al 2015 abstract and DOI (Oxford vpn_disconnected)",
+        "Guillera-Arroita et al 2010 abstract",
+        "MacKenzie et al 2003 dynamic occupancy context",
+        "Resultary hidden Markov scheduling semantic search"
+      ],
+      "rationale": "Imperfect detection materially changes optimal temporal design. Explicit nuisance-adjusted Fisher information, all-p monotonicity, and exact one-switching-time crossover are natural and actionable mathematical distinctions beyond the known perfect-detection endpoint.",
+      "residual_risks": [
+        "Precise future uses beyond the motivated invariant are not guaranteed"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Michel 2018 full manuscript",
+    "Mehtälä et al 2015 abstract and DOI (Oxford vpn_disconnected)",
+    "Guillera-Arroita et al 2010 abstract",
+    "MacKenzie et al 2003 dynamic occupancy context",
+    "Resultary hidden Markov scheduling semantic search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For stationary CTMC occupancy with total transition rate gamma, nominal q=1/2 treated as nuisance, known imperfect detection p∈(0,1], efficient per-site gamma Fisher information is p² Δ² exp(-2γΔ)/[(2-p)²+4(1-p)² exp(-γΔ)-p² exp(-2γΔ)]; its unique optimal x=γΔ strictly decreases from limit 1.138090854... as p->0 to 0.79681213... at p=1, crossing x=1 exactly when p=sqrt(2e)/(1+sqrt(2e)).",
+  "limitations": [
+    "Nominal q=1/2, known p, two observations/site, many independent sites, no survey costs, hidden-state Markov process only"
+  ],
+  "residual_risks": [
+    "Mehtälä et al 2015 primary full text inaccessible via lawful OA and authorized Oxford; it may imply a special hidden-detection formula",
+    "Other HMM Fisher-information optimal schedule theorems may subsume the all-p result",
+    "p->0 limit has zero absolute information; no claim of successful inference there"
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Confirms p=1 endpoint is prior knowledge; no imperfect detector p or unknown occupancy nuisance in stated result",
+      "evidence": "Perfect-state observation result is strictly the boundary p=1.",
+      "identifier_or_url": "J. Michel 2018 public manuscript; DOI 10.1080/07474938.2019.1701808",
+      "material_read": "Full publicly available manuscript, including theorem on symmetric chain optimal gap; PDF theorem page visually inspected",
+      "method": "Full primary preprint reading and screenshot",
+      "title": "Optimal adaptive sampling for a symmetric two-state continuous time Markov chain",
+      "trigger": "Exact known perfect-observation endpoint x=0.7968, key priority comparison"
+    },
+    {
+      "assessment": "Cannot rule out paper-wide coverage; its abstract concerns observed-state multistate timing, not explicitly this hidden imperfect-detection nuisance model",
+      "evidence": "Specific relevant source remains unresolved access risk, not an automatic originality FAIL.",
+      "identifier_or_url": "Mehtälä, Auranen, Kulathinal 2015; DOI 10.1111/rssc.12084",
+      "material_read": "Accessible published abstract/metadata only; full text failed lawful OA/preprint search; authorized institutional retrieval returned vpn_disconnected (no material bypass)",
+      "method": "Abstract/metadata read, legitimate Oxford retrieval attempt unsuccessful",
+      "title": "Optimal observation times for multistate Markov models—applications to pneumococcal colonization studies",
+      "trigger": "Potential general theorem covering observation scheduling"
+    },
+    {
+      "assessment": "Closed/static single-season design of replicate counts, rather than a changing occupancy CTMC revisit interval",
+      "evidence": "Dynamic versus static occupancy distinction.",
+      "identifier_or_url": "Guillera-Arroita, Ridout and Morgan 2010; DOI 10.1111/j.2041-210X.2010.00017.x",
+      "material_read": "Abstract and bibliographic material, not entire primary full text",
+      "method": "Abstract comparison",
+      "title": "Design of occupancy studies with imperfect detection",
+      "trigger": "Same imperfect-detection framework, possible Fisher design"
+    }
+  ]
+}
