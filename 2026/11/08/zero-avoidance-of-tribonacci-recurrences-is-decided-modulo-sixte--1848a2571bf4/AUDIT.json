@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Exhaustive 4096-state orbit computation verifies the 72 liftable zero-incidence cycles and 1280 primitive zero-avoiders. Exact integer matrix multiplication gives the base congruence; repeated squaring proves all higher congruences. Orbit shifts preserve the second coordinate modulo four while toggling successive zero-coordinate bits. The unique two-adic content decomposition yields the geometric sum. The computation covers every mod-16 state, not sampled states. Boundary: every r>=1, every initial triple, exactly first coordinate zero. Finite base verified by provided runnable code and outputs; no inference from finite sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klaška (2008), Theorems 2.1 and 2.4–2.6: period classifications, not exact zero-free incidence.",
+        "Bilu et al. (2022), main problem: valuations of distinguished Tribonacci numbers."
+      ],
+      "reasoning": "The closest broad arbitrary-initial-condition results address the periods of the orbit, not the requested number of orbits that contain zero and how a zero lifts. A standard result for one special initial triple cannot imply the enumeration over all triples.",
+      "searches": [
+        "Tribonacci zero-free modulo 2^n arbitrary initial values exact count avoiding zero recurrence",
+        "Tribonacci sequences with arbitrary three initial values, exact number of triples modulo 2^r whose sequence has no zero term; limiting density five fourteenths; zero term criterion determined by initial values modulo sixteen; 2-adic Hensel lift."
+      ]
+    },
+    "checked_sources": [
+      "Klaška, Mathematica Bohemica 133 (2008), Section 2",
+      "Bilu et al., arXiv:2210.16959 (2022)",
+      "OEIS A106285",
+      "Published semantically ranked mathematical findings queried for arbitrary-initial Tribonacci zero-avoidance and modulo-16 lifting"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Klaška (2008), Lemma 2.2 supplies a congruence equivalent to our base T^16 and squaring; Theorems 2.4–2.6 determine periods for parity types.",
+        "Bilu et al. (2022), standard Tribonacci initial data and p-adic zero structure.",
+        "OEIS A106285, cycle-count data."
+      ],
+      "reasoning": "Klaška matrix congruence is used with explicit attribution, so that congruence alone is not asserted original. The new statement requires a finite complete zero-incidence classification and proves that hitting zero at modulus 16 for a primitive state is equivalent to hitting zero at all higher powers of two. Neither period lengths alone nor special initial-data valuations logically fixes which orbit states visit the zero-coordinate hyperplane.",
+      "searches": [
+        "Tribonacci sequences with arbitrary three initial values, exact number of triples modulo 2^r whose sequence has no zero term; limiting density five fourteenths; zero term criterion determined by initial values modulo sixteen; 2-adic Hensel lift.",
+        "Tribonacci recurrence modulo powers of two; nonzero terms all indices; zero-free orbits, 1280 primitive residue triples modulo 16.",
+        "Exact primitive orbit-length multiplicity distribution for all initial triples of tribonacci linear recurrence modulo 2^r; 3-dimensional companion matrix fixed points Smith invariants"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Klaška (2008), pages 378–381: general initial triples, period function h(2^t)[a,b,c], and matrix lifting congruences.",
+        "Bilu et al. (2022), introduction: p-adic zero orders of the distinguished Tribonacci sequence."
+      ],
+      "reasoning": "We compared zero-avoidance in arbitrary initial-state orbits against recurrence period types, p-adic zeros of a fixed sequence, and classification of cycles meeting the zero-coordinate hyperplane. Exact orbit periods do not themselves determine hyperplane incidence, and the fixed-sequence theorems do not range over arbitrary triples.",
+      "searches": [
+        "Tribonacci sequences with arbitrary three initial values, exact number of triples modulo 2^r whose sequence has no zero term; limiting density five fourteenths; zero term criterion determined by initial values modulo sixteen; 2-adic Hensel lift.",
+        "Tribonacci recurrence modulo powers of two; nonzero terms all indices; zero-free orbits, 1280 primitive residue triples modulo 16.",
+        "\"Tribonacci\" \"zero-free\" modulo powers two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A106285: numbers of orbits/cycles of generalized Tribonacci recurrence, not number of states in zero-free orbits.",
+        "Finite base table certified in check.py: 32 primitive 16-cycles avoiding zero and 24 primitive 32-cycles avoiding zero."
+      ],
+      "reasoning": "Targeted exact-count and distinguishing-parameter searches identified no earlier indexed statement of the 1280 zero-free primitive state count or the closed N_r formula. OEIS cycle totals and lengths do not encode zero-coordinate incidence. Failure to find an indexed table is not proof of novelty.",
+      "searches": [
+        "\"Tribonacci\" \"1280\" \"zero\" \"16\" residues",
+        "\"Tribonacci\" \"1417\" \"11657\" cycles",
+        "\"1, 9, 137, 1417, 11657\"",
+        "Tribonacci recurrence modulo powers of two; nonzero terms all indices; zero-free orbits, 1280 primitive residue triples modulo 16."
+      ]
+    },
+    "rationale": "Direct searches and full-text comparisons reveal the literature gives period classifications and valuations for a distinguished sequence, not this full zero-free state census. The period congruence is inherited and acknowledged, while zero-incidence counting plus liftability distinguishes the claim. No stronger covering source found; residual indexing risk remains.",
+    "residual_risks": [
+      "A pre-existing orbit-incidence table under different recurrence terminology may remain unindexed.",
+      "Klaška already contains the matrix congruence essential to the lifting argument; novelty is restricted to the zero-incidence classification and resulting counts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Matrix base congruence and period classification explicitly credited. No zero-avoidance counts or zero-hyperplane incidence classification identified.",
+        "evidence": "pp. 377–381, especially Lemma 2.2 and Theorems 2.4–2.6.",
+        "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/140627/MathBohem_133-2008-4_5.pdf",
+        "material_read": "Full PDF text including abstract, Section 2 Lemma 2.2, Theorems 2.1 and 2.4–2.6, and end matter.",
+        "method": "Read full-text PDF and inspected a rendered page; matched definitions, matrix congruences, and theorem conclusions.",
+        "title": "Tribonacci modulo 2^t and 11^t",
+        "trigger": "Arbitrary initial triples and powers-of-two Tribonacci cycles, highly plausible broader coverage."
+      },
+      {
+        "assessment": "Focuses on valuations of a distinguished Tribonacci sequence, not the measure of arbitrary starting triples that avoid zero modulo 2^r.",
+        "evidence": "Introduction and Theorem 1.1 discuss valuations of T(n) with its fixed initial data.",
+        "identifier_or_url": "https://arxiv.org/abs/2210.16959",
+        "material_read": "Full open-access HTML paper, with introduction, valuations, main statements, and body.",
+        "method": "Read arXiv HTML primary text and compared initial-condition quantifiers and zero definitions.",
+        "title": "On the p-adic zeros of the Tribonacci sequence",
+        "trigger": "Same recurrence, 2-adic zeros and valuation structure."
+      },
+      {
+        "assessment": "Records orbit totals rather than zero-free state counts; does not include the claimed count.",
+        "evidence": "OEIS A106285 description of cycles in recurrence state dynamics.",
+        "identifier_or_url": "https://oeis.org/A106285",
+        "material_read": "OEIS sequence heading and description of cycle counts.",
+        "method": "Compared orbit-count invariant against zero-avoidance property and exact-count queries.",
+        "title": "A106285, number of cycles of generalized Tribonacci sequence modulo n",
+        "trigger": "Potential exact database table for modular recurrence cycle structure."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1848a257-1bf4-4d16-9d13-2ba117f925e9",
+  "value": {
+    "rationale": "Zero visitation is a natural dynamical property of modular recurrences distinct from orbit periods; a finite-modulus decision criterion for all primitive states is a structural stabilization result, and the exact N_r formula plus limiting density 5/14 quantify all initial conditions at every 2-power. Neither follows from a table of periods without studying hyperplane incidence. Precision is intrinsic to the natural zero-hitting problem; no claim about other coefficients or primes is made.",
+    "status": "PASS"
+  }
+}
