@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
-Execute `python3 verify_path_angle.py` in a directory containing the embedded program. The expected output is embedded as `verify_path_angle.out`, and the final line is `VERIFY_OK`.
+# Independent mathematical audit
 
-The checker constructs all sign vertices of the n-cube for n=3,...,11, computes components of the induced graph on nonpalindromic corners, enumerates all fixed proper arc endpoints, identifies the parallel-arc pairing of palindromic boundary circles, computes the signed Lefschetz trace on cubical cells, and compares its quotient Euler characteristic and nonorientable genus with the symbolic formulas. All arithmetic uses integers; there are no random samples or symbolic-precision approximations.
+## correctness
 
-Limit: these finite enumerations do not establish the all-length theorem. The proof uses an explicit connectivity argument for arbitrary length, geometric half-disk and quotient-boundary analysis, and compact-surface classification. The verifier is not an independent audit or external certification.
+PASS
+
+Read pinned RESULT.md and verify_path_angle.py. The cubical surface has 2^n vertices, n2^{n-1} edges and (n-1)2^{n-2} squares; vertex links equal a path, and end-coordinate edges give 2^{n-2} boundary circles. A global compatible orientation is specified by product of signs of frozen coordinates; coordinate reversal swaps square axes and reverses orientation. Fixed points are exactly palindromic coordinate strings, yielding 2^{floor((n-1)/2)} proper arcs; palindrome endpoint-sign boundary circles pair across two fixed arcs, giving b=2^{n-3}. For finite involutions χ(Q)=[χ(R)+χ(Fix)]/2; nonfixed cube-corner graph connectivity with two distinct mismatched coordinate pairs for n>=4 rules out quotient orientability. The compact surface classification gives the crosscap and rank formulas; n=3 is a disk. Independently reconstructed off-fixed cube-corner connectivity and palindromic boundary sign counts for n=3..11; all matched stated cases; finite graph checks supplement the all-n buffer argument.
+
+## originality
+
+PASS
+
+The inspected primary material supplies ambient or more restricted results; the new geometric fixed locus, symmetry representation, quotient homeomorphism, or equivariant deletion claim requires the additional specified proof. Claims are compared by mathematical implication, not matching titles; exact covered subfamilies are credited. Best-of-knowledge originality remains qualified by the named residual risks.
+
+## value
+
+PASS
+
+The exact homeomorphism classification of a natural reflection quotient, including boundary combinatorics and nonorientability, is substantially stronger than known ambient wedge homotopy or Euler characteristic. The two-arc gluing is a meaningful topological invariant, not merely elementary substitution into a known formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
