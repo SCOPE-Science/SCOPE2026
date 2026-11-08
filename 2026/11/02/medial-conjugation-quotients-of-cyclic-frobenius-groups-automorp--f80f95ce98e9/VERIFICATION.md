@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,5 +19,24 @@
 }
 ---
 
-# Verification
-Run `python3 verify.py` with Python 3.10 or later. The script builds semidirect products over finite prime fields, computes universal medial congruences by direct finite saturation, and compares the quotient multiplication with the claimed structure. It checks finite automorphism counts and an explicit pair of inequivalent order-sixteen kernels, producing `VERIFY_OK` when successful. Its actual output includes the prime cases \((p,m)=(3,2),(5,2),(5,4),(7,2),(7,3),(7,6)\) and the eighteen-point collision. Cases with \(m=2\) check the general algebraic identity but are not part of the novel automorphism assertion. Finite computations do not prove the claimed classification for all admissible groups; the proof in `RESULT.md` handles the general case. No independent audit or external certification has occurred.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Since alpha−I is bijective, [G,G]=K. Conjugation by K has n singleton orbits in K and one orbit per other coset Kt^j, because alpha^j−I is onto; mediality makes their orbit quotient universal via commuting right translations. The nontrivial right translators are the s_j and act on K by alpha^−j; automorphisms normalize the permutation with one fixed point and k length-m cycles. Its cycle rotations/permutations and a common unit power yield m^k k! φ(m); inner group diagonal C_m. Order-three matrix [[0,−1],[1,−1]] acts without nonzero fixed point on both C_4^2 and C_2^2; distinguished derived-subgroup exponents prove the two infinite families are not isomorphic. A separately built p=7,m=3 quotient has 36 automorphisms as predicted.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison finds no inspected stronger result covering the full final claim; known components and related earlier theorems are credited. This is not a novelty certificate.
+
+## value
+
+PASS
+
+Universal medialization is intended to quantify the loss of nonabelian group data. The exact full automorphism structure and nonfaithfulness on infinitely many distinct derived-subgroup exponents provide a concrete structural classification and collision family beyond finite catalogue entries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

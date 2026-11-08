@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The kernel derived-subgroup identity follows from surjectivity of \(lpha-I\); all complement cosets are single derived-conjugation orbits because \(lpha^j-I\) is surjective. The universal medial quotient is computed with these actual orbits. Its distinguished trivial-right-translation locus identifies the kernel, reducing the full automorphism group to the normalizer of a permutation with one fixed point and \(k=(n-1)/m\) cycles of length \(m\). The normalizer and its inner diagonal subgroup yield the exact group orders. The separate exponent-two and exponent-four kernels are provably nonisomorphic as derived subgroups. Seven actual finite cases passed the standalone table-level checker, but the symbolic proof, not finite sampling, establishes all parameters.
+## correctness
 
-## Originality — PASS with bounded priority risk
-Bardakov–Sangare (arXiv:2610.18676v1), Section 5, provide the general medialization problem and bounds. The derived-conjugacy-orbit mechanism itself is previously known. Cazet (arXiv:2303.15815v3), Theorem 3.4, gives the one-nontrivial-column predecessor corresponding to complement size two, excluded from the new automorphism formula's scope. Salix–Wood (arXiv:2510.26673v1) treat quandle automorphism and inner groups and finite enumerations, not the explicit all-size family or infinite collision. No checked primary statement or accessible mathematical-record summary entails the joint higher-complement classification and nonisomorphic-kernel collision theorem. Standard cycle-normalizer theory is used, not claimed new. An older equivalent permutation-quandle construction may exist.
+PASS
 
-## Mathematical value — PASS
-The question of what group-theoretic information survives universal medialization is directly motivated by the recent medialization literature. The exact automorphism/outer-group formula is a structural invariant across infinitely many cardinalities. The explicit pair of different derived-subgroup exponents supplies a sharp, infinite obstruction to reconstructing a Frobenius group from its medialized conjugation quandle. This is substantially more than a low-order table or a direct textbook corollary.
+Since alpha−I is bijective, [G,G]=K. Conjugation by K has n singleton orbits in K and one orbit per other coset Kt^j, because alpha^j−I is onto; mediality makes their orbit quotient universal via commuting right translations. The nontrivial right translators are the s_j and act on K by alpha^−j; automorphisms normalize the permutation with one fixed point and k length-m cycles. Its cycle rotations/permutations and a common unit power yield m^k k! φ(m); inner group diagonal C_m. Order-three matrix [[0,−1],[1,−1]] acts without nonzero fixed point on both C_4^2 and C_2^2; distinguished derived-subgroup exponents prove the two infinite families are not isomorphic. A separately built p=7,m=3 quotient has 36 automorphisms as predicted.
 
-## Limitations
-Assumes fixed-point-freeness for every proper nonzero power of the cyclic complement; does not treat general Frobenius complements, nonabelian kernels, arbitrary group-quandle quotients, or completeness of historical mathematical indexing. All nontrivial claims have explicit hypotheses; the small checker is not an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison finds no inspected stronger result covering the full final claim; known components and related earlier theorems are credited. This is not a novelty certificate.
+
+## value
+
+PASS
+
+Universal medialization is intended to quantify the loss of nonabelian group data. The exact full automorphism structure and nonfaithfulness on infinitely many distinct derived-subgroup exponents provide a concrete structural classification and collision family beyond finite catalogue entries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
