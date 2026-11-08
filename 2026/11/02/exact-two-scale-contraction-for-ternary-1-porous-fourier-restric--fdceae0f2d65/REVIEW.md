@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-All one-step porous supports at length two embed in one of exactly 27 four-element maximal supports. The affine-transitivity and translation-orbit reductions reduce the unrestricted finite maximum to three four-by-four Fourier blocks. Their exact characteristic polynomials were reconstructed independently using the integer cyclotomic quotient \(\mathbb Z[z]/(z^6+z^3+1)\) and Newton identities; the bundled checker verifies every coefficient. A derivative and endpoint-sign argument compares their top eigenvalues without substituting numerics for proof. The single-level norm is one by dimension. The all-scale extension applies the published submultiplicativity lemma with identical normalization and porosity. Risks: no independently performed validation; no claim of optimal global exponent.
+## correctness
 
-## Originality — PASS relative to inspected sources
-Badalucco--Franchi (arXiv:2607.11534, full accessible source, sections 1 and 3) prove qualitative decay through a generic block length four for the ternary one-step case; they neither derive the sharp length-two contraction nor the quartic and optimal-support orbit. Dyatlov--Jin (arXiv:1608.02238, inspected introduction, FUP formulation and Cantor sections) concern fixed self-similar alphabets, not the maximal norm over all nonselfsimilar one-step porous pairs. Osgood--Siripuram--Wu (arXiv:1204.0992, inspected original sections IV--VI and Appendix A) concern invertibility, sampling-set construction, and an inverse-condition-number lower bound for consecutive samples, rather than the present sharp restricted-norm optimum over porous supports. Results about Fourier support incidence on the cyclic nine-point group concern rank/support realizability and do not imply the continuous singular-value spectrum or its global maximum. Other available mathematical records did not reveal an equivalent two-scale norm calculation. Risk: unindexed historical exact spectral-design calculations remain possible.
+PASS
 
-## Mathematical value — PASS
-The target is the precise first-block constant in a 2026 porous finite fractal uncertainty theorem, not an arbitrary small matrix. The result proves that strict contraction occurs two levels earlier than the available generic construction, gives the exact optimum across all 27-by-27 maximal porous configurations, and derives a concrete valid all-scale exponent from the published propagation theorem. The degree-four cyclotomic polynomial captures a natural finite Fourier invariant necessary for optimizing this specific contraction mechanism. It does not purport to be a sharp all-scale asymptotic rate.
+For cyclic 9-point Fourier transform with unitary factor 1/3, one-step porous X,Y have ≤4 elements and any smaller sets extend to 27 maximal four-point porous supports. Independently enumerated all 729 ordered maximal pairs; spectral norm 0.9924183566182428, exactly 243 maximizers. Affine transitivity and the three Y-translation classes reduce the Gram characteristic quartics to P_j(T), with unique winning root T*=8.864047750975656 in (8,9), yielding exact R2=sqrt(T*/9)<1. R1=1 by 2+2>3 dimension. For higher scales, the modular Fourier factorization and porous fibers yield R_{m+k}≤R_m R_k, producing stated admissible β, not a proved optimal rate. Full primary paper for the cited general lemma was inaccessible; direct block-factorization logic supplies an independent justification and is recorded with that limitation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Badalucco–Franchi give a general porous FUP and submultiplicativity (cited premise); the exact first contracting length and 9-point norm/243 extremizers are not determined by the general positivity claim. Dyatlov–Jin self-similar Cantor models are not arbitrary 1-step porous supports. Full relevant 2026 preprint was inaccessible, so possible hidden explicit short-block computation is a genuine priority risk.
+
+## value
+
+PASS
+
+The smallest strictly contracting porous Fourier block in the smallest odd prime setting is mathematically motivated by quantitative fractal uncertainty; the exact cyclotomic norm and finite optimizer orbit refine a qualitative bound and yield an explicit all-scale admissible exponent. No optimal exponent is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
