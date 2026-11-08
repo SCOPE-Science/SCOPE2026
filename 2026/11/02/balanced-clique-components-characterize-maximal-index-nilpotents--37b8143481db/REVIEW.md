@@ -1,19 +1,21 @@
-# Review: maximal-index nilpotents in cluster-graph partial automorphism monoids
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The functional-digraph description makes the maximal nilpotency index equivalent to a unique spanning directed path. The induced subgraph isomorphism criterion is exactly symmetry along every adjacency-matrix offset. For cluster graphs, the least repeated identifier gap propagates along the entire word, proving the component-residue normal form. Residue cardinalities force balance and yield the assignment-and-vertex-permutation count without overcounting. The proof includes singleton components, equal-size components, one component, and two vertices. Direct exhaustive checks were passed on 47 finite configurations. Finite tests support rather than establish the theorem.
+PASS
 
-## Originality — PASS relative to inspected literature
+Index-n nilpotent partial bijection on n labels is exactly one spanning directed path; its unique vertex ordering v0,...,v(n-1) determines the shift. Induced partial-graph isomorphism requires adjacency in the first n-1 vertices exactly equal after one shift, i.e. symmetric Toeplitz adjacency matrix in that ordering. In a cluster graph, adjacency iff clique-label equality; the smallest repeated label separation d propagates equality at every distance-d pair, and no two positions modulo d carry one label, forcing d=r and a periodic clique-label word. Hence clique sizes must be floor(n/r) or ceil(n/r), and choosing clique residues gives r! if all equal, else t!(r-t)!; independent labeled-vertex order within each clique yields product s_i!. Conversely every such periodic ordering defines a partial automorphism. Independent exhaustive permutation checks of every integer partition of n=2,...,7 (43 configurations) agreed with the formula and equivalence, including singleton and single-clique cases. Finite checks corroborate, while symbolic shift-invariance proves all n.
 
-The closest structural work is arXiv:2112.14371, Proposition 2.3: residue-class decompositions of certain Toeplitz graphs, which explains a step of this proof but does not count index-extremizing nilpotent partial automorphisms. arXiv:2303.12387 classifies counts of *monogenic inverse-submonoid isomorphism types* in the full symmetric inverse monoid, not labeled nilpotents under induced-subgraph constraints. arXiv:1809.04422 supplies the general partial-graph-automorphism monoid framework. DOI 10.1007/s00233-021-10193-y treats the distinct path-graph family. The inspected statements do not imply the exact multiplicity result without the new correspondence and label assignment. Residual possibility remains that partition-preserving partial transformation or Toeplitz graph work contains an equivalent result; publication priority is not claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The maximum attainable nilpotency index and its extremizer count are intrinsic and mathematically motivated semigroup invariants, refined from ambient inverse-monoid monogenic work. The existence criterion sharply separates balanced from unbalanced component sizes. The exact formula distinguishes equal and unequal balanced partitions and counts actual elements, not only conjugacy types, for an unbounded natural family. The Toeplitz equivalence gives an independently useful bridge between partial graph symmetries and graph labelings.
+General inverse-semigroup and monogenic inverse-monoid counts precede this result; Toeplitz graph theory already explains periodic component partitions. However the inspected literature does not state the exact labeled maximal-nilpotency-index enumeration in PAut of cluster graphs, nor the ordering bijection with all Toeplitz adjacency matrices. The combination, sharp existence criterion and multiplicity are assessed as new with possible equivalences via partial automorphisms of equivalence relations.
 
-## Boundaries
+## value
 
-The theorem covers index equal to total vertex count, not a complete nilpotent census at lower indices. It does not determine index maxima for unbalanced partitions. Toeplitz decomposition is credited as established graph theory. No independent audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Maximal nilpotency index and multiplicity are natural structural invariants of graph partial-automorphism monoids. A sharp necessary/sufficient balance criterion and exact labeled-element counts are independently useful for semigroup enumeration and the related multipartite complements; not merely a renaming of graph regularity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

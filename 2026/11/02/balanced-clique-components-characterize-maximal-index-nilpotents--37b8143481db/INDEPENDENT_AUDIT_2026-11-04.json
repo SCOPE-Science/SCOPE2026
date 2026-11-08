@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T04:04:42.412423Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Index-n nilpotent partial bijection on n labels is exactly one spanning directed path; its unique vertex ordering v0,...,v(n-1) determines the shift. Induced partial-graph isomorphism requires adjacency in the first n-1 vertices exactly equal after one shift, i.e. symmetric Toeplitz adjacency matrix in that ordering. In a cluster graph, adjacency iff clique-label equality; the smallest repeated label separation d propagates equality at every distance-d pair, and no two positions modulo d carry one label, forcing d=r and a periodic clique-label word. Hence clique sizes must be floor(n/r) or ceil(n/r), and choosing clique residues gives r! if all equal, else t!(r-t)!; independent labeled-vertex order within each clique yields product s_i!. Conversely every such periodic ordering defines a partial automorphism. Independent exhaustive permutation checks of every integer partition of n=2,...,7 (43 configurations) agreed with the formula and equivalence, including singleton and single-clique cases. Finite checks corroborate, while symbolic shift-invariance proves all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elliott et al count monogenic isomorphism types in unrestricted transformation/inverse monoids, rather than labeled elements preserving graph adjacency.",
+          "Mojallal et al Prop 2.3 covers separation into residue components when edge distances are multiples of a base gap."
+        ],
+        "reasoning": "The Toeplitz component decomposition is known, but maximal-nilpotent enumeration needs order-induced shift and vertex labels; neither general result directly produces the displayed element count as a stated corollary.",
+        "searches": [
+          "Elliott Levine Mitchell Counting monogenic monoids and inverse monoids 2303.12387",
+          "Jajcay Jajcayova Szakacs Szendrei partial graph automorphisms 1809.04422",
+          "Mojallal Toeplitz graphs proposition 2.3 2112.14371"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 548cc15fa8397240c4d0310e3ffe8ff2c579ff27 and verify.py blob 82ba23981e8771055716db45db86952733fbd0cb; source tree 71fb822f6ce3969b64130b5c18fc75838d526eb5",
+        "Elliott–Levine–Mitchell arXiv:2303.12387",
+        "Mojallal et al arXiv:2112.14371, Proposition 2.3",
+        "Jajcay et al arXiv:1809.04422"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Toeplitz residue-graph decomposition resembles the cluster-word periodicity but assumes Toeplitz graph as given; does not identify nilpotent graph partial shifts and their labeled multiplicity.",
+          "Elliott et al classify monogenic inverse monoids up to isomorphism, not PAut cluster restrictions."
+        ],
+        "reasoning": "The older results are structurally relevant; they do not settle the sharp labeled count under the graph-induced-domain constraint in the material inspected.",
+        "searches": [
+          "Mojallal et al Structural properties of Toeplitz graphs arXiv:2112.14371 Proposition 2.3",
+          "Elliott Levine Mitchell arXiv:2303.12387 nilpotent monogenic inverse"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General graph condition is Toeplitz adjacency ordering, and complement-equivalent complete multipartite formulation is acknowledged.",
+          "Jajcay et al arXiv:1809.04422 develops PAut inverse monoids; no inspected specific maximal-index labeled-element formula."
+        ],
+        "reasoning": "A theorem phrased for equivalence-relation-preserving partial permutations could dominate, but none located; complement equivalence is part of present theorem, not independent priority evidence.",
+        "searches": [
+          "Resultary: partial automorphism monoid disjoint union cliques nilpotent maximal index Hamiltonian path Toeplitz adjacency balanced clique multiplicity",
+          "partial bijections preserving equivalence relation nilpotents maximal chain length",
+          "complete multipartite partial automorphism nilpotency index enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent enumeration of every integer partition n<=7 gives formula; sources do not exhibit a comparable all-component-size table."
+        ],
+        "reasoning": "The count is an all-order formula, not reconstruction of a finite table; a published formula using equivalence-relations would count regardless of wording, but no such formula was found.",
+        "searches": [
+          "cluster graph partial automorphisms maximal nilpotents counts labeled 3+2 3+3",
+          "Toeplitz graph maximal-index nilpotent exact M(G) table"
+        ]
+      },
+      "rationale": "General inverse-semigroup and monogenic inverse-monoid counts precede this result; Toeplitz graph theory already explains periodic component partitions. However the inspected literature does not state the exact labeled maximal-nilpotency-index enumeration in PAut of cluster graphs, nor the ordering bijection with all Toeplitz adjacency matrices. The combination, sharp existence criterion and multiplicity are assessed as new with possible equivalences via partial automorphisms of equivalence relations.",
+      "residual_risks": [
+        "Equivalent enumerations of partial automorphisms of finite equivalence relations could precede the cluster formulation.",
+        "Maximal index only: no claim about lower-index nilpotent distribution.",
+        "Complement classes are included through identical PAut, not an independent new counting theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts isomorphism types of cyclic inverse monoids rather than graph-restricted labeled maximal-index maps.",
+          "evidence": "Object and equivalence relation differ.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.12387",
+          "material_read": "Read the full PDF framing and theorem statements on isomorphism types; rendered PDF page inspected.",
+          "method": "arXiv full PDF",
+          "title": "Counting monogenic monoids and inverse monoids",
+          "trigger": "Closest inverse-monoid nilpotent counting"
+        },
+        {
+          "assessment": "Covers underlying residue-component structure, not PAut index-n element classification/count.",
+          "evidence": "Toeplitz graph decomposition requires no nilpotent paths.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.14371",
+          "material_read": "Read primary PDF and Proposition 2.3 on distance sets and component decomposition; PDF page inspected.",
+          "method": "arXiv full PDF",
+          "title": "Structural properties of Toeplitz graphs",
+          "trigger": "Could subsume periodic cluster geometry"
+        },
+        {
+          "assessment": "Defines/characterizes PAut and general properties; no definitive search-proof of absence of the exact count.",
+          "evidence": "Ambiguous further coverage explicitly retained as residual risk.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.04422",
+          "material_read": "Read accessible abstract and available structural descriptions, not a claimed full-text elimination.",
+          "method": "OA abstract and theorem-level context",
+          "title": "Inverse monoids of partial graph automorphisms",
+          "trigger": "General ambient definition and inverse semigroup framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Maximal nilpotency index and multiplicity are natural structural invariants of graph partial-automorphism monoids. A sharp necessary/sufficient balance criterion and exact labeled-element counts are independently useful for semigroup enumeration and the related multipartite complements; not merely a renaming of graph regularity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 548cc15fa8397240c4d0310e3ffe8ff2c579ff27 and verify.py blob 82ba23981e8771055716db45db86952733fbd0cb; source tree 71fb822f6ce3969b64130b5c18fc75838d526eb5",
+    "Elliott–Levine–Mitchell arXiv:2303.12387",
+    "Mojallal et al arXiv:2112.14371, Proposition 2.3",
+    "Jajcay et al arXiv:1809.04422"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only maximal possible index n; counts distinct labeled transformations, not isomorphism classes.",
+    "Graph is disjoint union of cliques or its complement; no full general-graph enumeration is claimed."
+  ],
+  "schema_version": 1
+}

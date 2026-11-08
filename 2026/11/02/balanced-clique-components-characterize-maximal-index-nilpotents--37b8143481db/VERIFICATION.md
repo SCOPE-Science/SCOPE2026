@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-The standalone checker `verify.py` uses only Python's standard library. It constructs all orderings of the labeled vertices of every cluster graph with component orders given by integer partitions of the vertex count, for every size from 2 through 7. It tests, for all pairs of domain vertices, whether adjacency and nonadjacency are preserved by the one-step path shift, and checks the resulting counts against the proposed explicit formula. Four eight-vertex cluster graphs additionally test uniform and nonuniform components, including a nonexistence case. Total 47 instances.
+# Independent mathematical audit
 
-Executed command: `python3 verify.py`.
-Observed output: `VERIFY_OK cluster partial-automorphism nilpotents: 47 exhaustive configurations`.
+## correctness
 
-Mathematical checks reconstructed without relying on the finite computation: a nilpotent partial injection of index equal to the vertex count is one spanning path; the induced-graph isomorphism is equivalent to shift-invariant adjacency; the minimum repeated-label separation forces the period; residue-count arithmetic gives the exact counts. No enumeration is offered as a proof for unbounded vertex counts. No independent external audit or certification has been performed.
+PASS
+
+Index-n nilpotent partial bijection on n labels is exactly one spanning directed path; its unique vertex ordering v0,...,v(n-1) determines the shift. Induced partial-graph isomorphism requires adjacency in the first n-1 vertices exactly equal after one shift, i.e. symmetric Toeplitz adjacency matrix in that ordering. In a cluster graph, adjacency iff clique-label equality; the smallest repeated label separation d propagates equality at every distance-d pair, and no two positions modulo d carry one label, forcing d=r and a periodic clique-label word. Hence clique sizes must be floor(n/r) or ceil(n/r), and choosing clique residues gives r! if all equal, else t!(r-t)!; independent labeled-vertex order within each clique yields product s_i!. Conversely every such periodic ordering defines a partial automorphism. Independent exhaustive permutation checks of every integer partition of n=2,...,7 (43 configurations) agreed with the formula and equivalence, including singleton and single-clique cases. Finite checks corroborate, while symbolic shift-invariance proves all n.
+
+## originality
+
+PASS
+
+General inverse-semigroup and monogenic inverse-monoid counts precede this result; Toeplitz graph theory already explains periodic component partitions. However the inspected literature does not state the exact labeled maximal-nilpotency-index enumeration in PAut of cluster graphs, nor the ordering bijection with all Toeplitz adjacency matrices. The combination, sharp existence criterion and multiplicity are assessed as new with possible equivalences via partial automorphisms of equivalence relations.
+
+## value
+
+PASS
+
+Maximal nilpotency index and multiplicity are natural structural invariants of graph partial-automorphism monoids. A sharp necessary/sufficient balance criterion and exact labeled-element counts are independently useful for semigroup enumeration and the related multipartite complements; not merely a renaming of graph regularity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
