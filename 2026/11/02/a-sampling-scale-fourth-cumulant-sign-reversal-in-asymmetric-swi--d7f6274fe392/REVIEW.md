@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a stationary two-state velocity process the conditional mean and the two-point quadratic identity determine its four-time cumulant exactly. Integrating across four ordered disjoint intervals proves the formula and its sign classification; independent Brownian increments and independent position errors cannot contribute to a joint fourth cumulant unless the same noise source enters all four arguments. The exact matrix-based symbolic checker independently reproduces the kernel and factorization. Strict monotonicity of \(H\) establishes the unique sign crossing and boundary cases. The proof is at the population-identity level and does not infer any sampling-distribution guarantee.
+PASS
 
-## Originality — PASS, provisional
+For stationary two-state chain Z in {0,1} with π=P(Z=1), a=q01+q10, S=Z-π and b=π(1-π), conditional E[S(t+h)|S(t)]=e^-ah S(t) and S^2=b+(1-2π)S. Consequently the ordered four-time joint cumulant is b exp[-a(t4-t1)]((1-2π)^2-2b exp[-a(t3-t2)]). Integrating this kernel over four disjoint intervals gives exactly δ^4 b Δ^4 e^(-2aΔ) H(aΔ)^2[(1-2π)^2-2b H(aΔ)^2], H(x)=(1-e^-x)/x. Each independent position error eps_j appears in at most two of the four consecutive increments, so its contribution to their joint 4th cumulant is zero despite arbitrary finite kurtosis; independent Brownian increments and deterministic drift also cancel. The covariance-matched Gaussian OU velocity has identical second moments but zero fourth mixed cumulant. H strictly decreases 1->0, giving the unique sign-reversal band 0<|1-2π|<1/sqrt(3), symmetric all-negative and more asymmetric all-positive regimes, including strict equality boundary at positive Delta. Independently reconstructed the four-point symbolic transition-matrix cumulant and checked signs at several π and Δ, not relying solely on stored program output.
 
-Cywiński et al. (arXiv:0712.2225, Appendix A, inspected full text) derived symmetric random-telegraph four-time correlators and cumulants long before this result; no broad claim that telegraph fourth cumulants are new is made. The proposed difference is the **asymmetric stationary-probability/cadence phase diagram of the cross-cumulant of four separate increments**, with complete boundaries, error-cancellation and an exactly covariance-matched OU comparison. Fleming et al. (2014, inspected full online text) develop autocorrelated movement using Gaussian models and the first two moments; Blackwell et al. (2015, inspected full online text) analyze switching-state trajectories, neither giving this sharp cross-cumulant sign law in the material read. López–Ratanov (2014) and Kolesnik (2012) discuss asymmetric telegraph moments but accessible material does not resolve coverage by all multi-time formulas. Those works, especially potentially stronger generalized cumulant theorems, remain a named historical-priority risk. Targeted mathematical-record and prior claim searches did not identify an equivalent sign boundary, but lack of matches is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-When the two-state and Gaussian movement models have identical displacement covariances, standard autocorrelation and mean-squared-displacement methods cannot distinguish them. The present result gives an explicit higher-order statistic based on the minimum five successive fixes needed to form four distinct displacements, identifies exactly when its sign changes with observational cadence, and shows why independent heavy-tailed localization errors do not contaminate this particular mixed cumulant. The sharp zero-cadence locus warns that the single statistic can lose discrimination despite differing latent laws. No field inference or finite-sample performance is claimed.
+Cywiński et al arXiv:0712.2225 Appendix A already derives symmetric random-telegraph four-time correlators/cumulants; telegraph fourth moments are not new. López–Ratanov asymmetric telegraph and Kolesnik moment work may provide general one-time/sometimes multitime formulas, but the accessed material does not establish this integrated four-displacement stationary-asymmetry and sampling-cadence sign phase classification with localization-error cancellation. Fleming/Blackwell animal-movement papers use Gaussian covariance/switching trajectory approaches, not the explicit identified mixed fourth-cumulant frontier. A general multitime telegraph theorem remains a meaningful historical priority risk.
 
-## Closest literature and scientific limitations
+## value
 
-Full primary-material comparisons include arXiv:0712.2225, DOI:10.1111/2041-210X.12176 and DOI:10.1111/2041-210X.12460. Closely related bibliographic/abstract information was used for DOI:10.1239/jap/1402578644 and Kolesnik (2012); their uninspected full arguments prevent exhaustive historical-priority claims. The mathematical result assumes stationary two-state movement, independent localization errors, Brownian independent diffusion, and finite fourth moments. Independent empirical or mathematical review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Second moments of the switching-velocity trajectory and exactly covariance-matched OU movement cannot distinguish the two latent models. The minimal 5 observations/4 separated displacements generate a higher-order observable that survives independent, even heavy-tailed (finite 4th moment), position noise; the exact blind sampling interval warns when this test loses power. This is a natural motivated sharp observational design fact, not a finite-simulation artifact; no finite-sample statistical guarantee is implied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

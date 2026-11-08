@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T16:06:17.178027Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For stationary two-state chain Z in {0,1} with π=P(Z=1), a=q01+q10, S=Z-π and b=π(1-π), conditional E[S(t+h)|S(t)]=e^-ah S(t) and S^2=b+(1-2π)S. Consequently the ordered four-time joint cumulant is b exp[-a(t4-t1)]((1-2π)^2-2b exp[-a(t3-t2)]). Integrating this kernel over four disjoint intervals gives exactly δ^4 b Δ^4 e^(-2aΔ) H(aΔ)^2[(1-2π)^2-2b H(aΔ)^2], H(x)=(1-e^-x)/x. Each independent position error eps_j appears in at most two of the four consecutive increments, so its contribution to their joint 4th cumulant is zero despite arbitrary finite kurtosis; independent Brownian increments and deterministic drift also cancel. The covariance-matched Gaussian OU velocity has identical second moments but zero fourth mixed cumulant. H strictly decreases 1->0, giving the unique sign-reversal band 0<|1-2π|<1/sqrt(3), symmetric all-negative and more asymmetric all-positive regimes, including strict equality boundary at positive Delta. Independently reconstructed the four-point symbolic transition-matrix cumulant and checked signs at several π and Δ, not relying solely on stored program output.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fleming and Blackwell treat trajectory inference with Gaussian/behavior-switching mechanisms, without the disclosed fourth mixed displacement cumulant sign law; López–Ratanov abstract describes asymmetric telegraph behavior but not a specific four-disjoint-increment statistic."
+        ],
+        "reasoning": "Generic OU covariance equivalence is *weaker* than a fourth cumulant difference, and one-time telegraph moments are different from a four-interval mixed cumulant. A genuinely encompassing multitime cumulant theorem remains possible.",
+        "searches": [
+          "López Ratanov On the asymmetric telegraph processes 2014",
+          "Fleming autocorrelated animal movement Gaussian OU 2014",
+          "Blackwell exact Bayesian continuous time animal movement 2015"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/0712.2225",
+        "https://doi.org/10.1239/jap/1402578644",
+        "https://doi.org/10.1111/2041-210X.12176",
+        "https://doi.org/10.1111/2041-210X.12460"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known symmetric instantaneous kernel is recovered at π=1/2, whereas the theorem integrates across four disjoint increments and characterizes a new positive-sign regime impossible for symmetric telegraph; arbitrary independent position errors cancel."
+        ],
+        "reasoning": "The published symmetric formula is a limiting/special input, but cannot cover asymmetric positive cross-cumulants; an inaccessible broader asymmetric source could and is listed as residual risk.",
+        "searches": [
+          "arxiv:0712.2225 Appendix A fourth cumulant telegraph",
+          "DOI:10.1239/jap/1402578644 asymmetric telegraph moment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cywiński arXiv:0712.2225 Appendix A contains symmetric telegraph four-point cumulant, and López–Ratanov literature addresses asymmetric telegraph processes; neither inspected source supplies the exact four *consecutive integrated intervals* phase boundary.",
+          "Resultary semantic search yields unrelated four-frequency Fourier and four-step persistence results."
+        ],
+        "reasoning": "A general symmetric instantaneous correlation does not imply the stationary asymmetry parameter/four-integral sign frontier; a stronger asymmetric general formula might, and is retained as risk.",
+        "searches": [
+          "asymmetric telegraph velocity integrated four displacement fourth cumulant sign sampling interval noise",
+          "\"asymmetric telegraph\" joint fourth cumulant four time intervals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 11 hit semantic search did not retrieve a matching exact sign-boundary table; inspected primary symmetric fourth cumulant is a known formula, no new priority claimed for it."
+        ],
+        "reasoning": "A continuum phase transition is not a published finite table in the inspected sources. Failed database search is not a novelty proof; it only supports bounded best-of-knowledge comparison.",
+        "searches": [
+          "asymmetric telegraph velocity integrated four displacement fourth cumulant sign sampling interval noise",
+          "binary telegraph process fourth cumulant sampling interval sign reversal stationary errors"
+        ]
+      },
+      "rationale": "Cywiński et al arXiv:0712.2225 Appendix A already derives symmetric random-telegraph four-time correlators/cumulants; telegraph fourth moments are not new. López–Ratanov asymmetric telegraph and Kolesnik moment work may provide general one-time/sometimes multitime formulas, but the accessed material does not establish this integrated four-displacement stationary-asymmetry and sampling-cadence sign phase classification with localization-error cancellation. Fleming/Blackwell animal-movement papers use Gaussian covariance/switching trajectory approaches, not the explicit identified mixed fourth-cumulant frontier. A general multitime telegraph theorem remains a meaningful historical priority risk.",
+      "residual_risks": [
+        "Full multitime asymmetric telegraph literature including López–Ratanov and Kolesnik may contain a dominating formula; full articles were not accessible in this run.",
+        "The unique zero is a blind spot of only this mixed fourth cumulant, not observational distributional equality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers symmetric instantaneous telegraph cumulants; not all stationary asymmetries or integrated four-interval sign classification.",
+          "evidence": "Appendix A time-ordered telegraph four-point correlations.",
+          "identifier_or_url": "https://arxiv.org/pdf/0712.2225",
+          "material_read": "Read full primary PDF relevant Appendix A formula for time-ordered symmetric random telegraph correlators; inspected page screenshot of Appendix A.",
+          "method": "Original mathematical Appendix A full relevant equations.",
+          "title": "How to Enhance Dephasing Time in Superconducting Qubits",
+          "trigger": "Known 4-point telegraph cumulants might cover formula"
+        },
+        {
+          "assessment": "Potentially relevant; no NOT_COVERING claim for inaccessible full text; priority risk retained.",
+          "evidence": "Asymmetric telegraph-process moments and distributional formulas in abstract.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1402578644",
+          "material_read": "Accessed Cambridge publisher bibliography/abstract and mathematical scope; full article arguments were not available for direct inspection.",
+          "method": "Abstract and bibliographic summary only, explicitly NOT whole-document.",
+          "title": "On the asymmetric telegraph processes",
+          "trigger": "Potential directly dominating general asymmetric telegraph distribution"
+        },
+        {
+          "assessment": "Provides second-order Gaussian movement context but not this non-Gaussian mixed-cumulant phase law.",
+          "evidence": "Autocorrelated movement with Gaussian velocity/likelihood.",
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12176",
+          "material_read": "Read scientific online source descriptions of Gaussian autocorrelation and likelihood rather than fourth independent-increment cross-cumulants.",
+          "method": "Scientific primary online model/method comparison.",
+          "title": "Non-Markovian maximum likelihood estimation of autocorrelated movement processes",
+          "trigger": "Gaussian correlated movement comparator"
+        },
+        {
+          "assessment": "Switching-state movement inference, no exact stationary telegraph 4-displacement cumulant frontier identified.",
+          "evidence": "Behavior-switching movement framework.",
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12460",
+          "material_read": "Read accessible scientific online model and inference discussion.",
+          "method": "Scientific article model/observables comparison.",
+          "title": "Exact Bayesian inference for animal movement in continuous time",
+          "trigger": "State switching animal movement model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Second moments of the switching-velocity trajectory and exactly covariance-matched OU movement cannot distinguish the two latent models. The minimal 5 observations/4 separated displacements generate a higher-order observable that survives independent, even heavy-tailed (finite 4th moment), position noise; the exact blind sampling interval warns when this test loses power. This is a natural motivated sharp observational design fact, not a finite-simulation artifact; no finite-sample statistical guarantee is implied.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/0712.2225",
+    "https://doi.org/10.1239/jap/1402578644",
+    "https://doi.org/10.1111/2041-210X.12176",
+    "https://doi.org/10.1111/2041-210X.12460"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Requires stationary irreducible two-state chain, a,Delta>0, δ!=0, finite independent localization fourth moments, Gaussian Brownian base; no finite-sample power, errors correlated in time, or all-observable equivalence.",
+    "Full multitime asymmetric telegraph literature including López–Ratanov and Kolesnik may contain a dominating formula; full articles were not accessible in this run.",
+    "The unique zero is a blind spot of only this mixed fourth cumulant, not observational distributional equality."
+  ],
+  "schema_version": 1
+}
