@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-`CHECKER.py` is an executable standalone supplementary checker requiring Python 3, NumPy, and SciPy. Run `python CHECKER.py` from a directory containing that file. A completed replay produced:
+# Independent mathematical audit
 
-```
-PASS: matrix/flow comparisons = 783; transport LPs = 5; large-branching tests = 8
-```
+## correctness
 
-The checker constructs the incidence matrix from the actual tree edges, exponentiates the complete edge Laplacian independently, and compares all inner- and outer-orbit row norms against the two-block formula. For selected cases it reconstructs the vertex heat transition matrix and computes \(W_1\) by accumulating masses on unique descendant subtrees. It additionally solves independent finite primal optimal-transport linear programs for five edge pairs and tests the large-branching trend at prescribed times. Full-spectrum finite computations, floating-point comparisons, and linear programs are not infinite proofs. The analytic identity and asymptotic are derived directly in `RESULT.md`; the untested infinite parameter range is covered only by that argument.
+PASS
 
-The formula presumes integer branching \(b,k\ge2\), the graph path metric with unit edges, symmetric unit edge jump rates, and the unnormalized Laplacian. Replacing the generator by the degree-normalized walk changes the result. A historical priority assessment remains qualified; no independently performed scientific audit is represented.
+PASS. For the unit-rate continuous-time walk on depth-two regular T_{b,k}, b,k≥2, unique tree-edge flows give exact W1=ell1 edge norm; e^{-tBB^T}B=B e^{-tB^TB} reduces the operator norm to maximal abs edge-column sum. The edge Laplacian splits into b(k−1) contrasts eigenvalue 1 and two symmetric 2×2 blocks S,G. Counting branch/orbit entries gives the stated I_{b,k},O_{b,k} all-time formulas exactly. Along b=k=N, entrywise Metzler comparison implies 0≤G≤S; spectral slow/fast mode yields I≤4−10/N+O(N^-2); at t=3log N/N, I meets this to O(log N/N²). Uniform O≤3+2/sqrt N excludes domination at large N. Strictly positive finite-chain transition kernels prevent attaining diameter four. Independent complete edge matrix exponentials agreed with block formulas to <2e-14 for four parameter triples; finite test is supplemental.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. Standard Ollivier coarse Ricci and Münch–Wojciechowski heat Lipschitz contraction theory provides abstract framework. The inspected sources do not present the exact two-orbit 2×2 expression or 4−10/N extremal asymptotic for two-level homogeneous trees; related one-level stars and complete bipartite graphs have different geometry. Some relevant Cheng–Li–Wu detailed full text was not obtained, leaving a historical risk.
+
+## value
+
+PASS
+
+PASS. A natural finite diffusion family has an explicit exact all-time transport operator norm with computation independent of growing vertex dimension; its peak approaches the sharp diameter-four bound on a vanishing timescale, with a nontrivial exact 10/N deficit. This is a meaningful structural and asymptotic benchmark beyond generic curvature estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

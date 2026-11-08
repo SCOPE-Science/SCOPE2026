@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T20:59:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-transient-wasserstein-amplification-on-two-level-regular-t--4f4e256fae40/RESULT.md (blob 4bad325b3cdbeb5871fd278932454409e6472448)",
+        "2026/11/02/exact-transient-wasserstein-amplification-on-two-level-regular-t--4f4e256fae40/CHECKER.py",
+        "source RESULT.md pinned blob 4bad325b3cdbeb5871fd278932454409e6472448"
+      ],
+      "rationale": "PASS. For the unit-rate continuous-time walk on depth-two regular T_{b,k}, b,k≥2, unique tree-edge flows give exact W1=ell1 edge norm; e^{-tBB^T}B=B e^{-tB^TB} reduces the operator norm to maximal abs edge-column sum. The edge Laplacian splits into b(k−1) contrasts eigenvalue 1 and two symmetric 2×2 blocks S,G. Counting branch/orbit entries gives the stated I_{b,k},O_{b,k} all-time formulas exactly. Along b=k=N, entrywise Metzler comparison implies 0≤G≤S; spectral slow/fast mode yields I≤4−10/N+O(N^-2); at t=3log N/N, I meets this to O(log N/N²). Uniform O≤3+2/sqrt N excludes domination at large N. Strictly positive finite-chain transition kernels prevent attaining diameter four. Independent complete edge matrix exponentials agreed with block formulas to <2e-14 for four parameter triples; finite test is supplemental.",
+      "residual_risks": [
+        "The exact first-order asymptotic is proved along b=k=N only, not arbitrary jointly growing b,k.",
+        "The independent finite checks sample small trees; general theorem rests on analytic block decomposition and spectral bounds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Münch–Wojciechowski gives curvature/exponential estimate equivalence, without an exact all-time size-dependent norm for T_{b,k}.",
+          "Cheng–Li–Wu abstract indicates coupling exponential-convergence estimates; complete text not inspected."
+        ],
+        "reasoning": "General estimates, including potentially negative curvature, do not imply the exact transient maximum or its 10/N coefficient without the specialized edge spectral calculation.",
+        "searches": [
+          "arXiv:1712.00875 Theorem 3.8 Ollivier Ricci graph heat contraction",
+          "arXiv:1907.11036 Ricci curvature W1 exponential convergence of Markov processes"
+        ]
+      },
+      "checked_sources": [
+        "source RESULT.md pinned blob 4bad325b3cdbeb5871fd278932454409e6472448",
+        "https://arxiv.org/abs/1712.00875",
+        "https://arxiv.org/abs/1907.11036",
+        "Resultary: continuous-time Wasserstein-1 heat semigroup transient expansion two level regular tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Coarse Ricci bounds control contraction/expansion and imply generic exponential estimates; the new expression permits all-time temporary amplification and sharp asymptotic saturation of graph diameter 4."
+        ],
+        "reasoning": "The prior framework is used in reducing to local pairs; it does not determine the matrix exponential row norms or asymptotic optimum for this graph family.",
+        "searches": [
+          "Ollivier Ricci curvature 2009 coupling contraction inequality",
+          "Münch Wojciechowski Theorem 3.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On a tree the Kantorovich–Rubinstein W1 norm is the ell1 norm of unique edge flows; this makes the heat Lipschitz norm an edge-exponential column sum."
+        ],
+        "reasoning": "The unique-flow dual representation is equivalent; the source evaluates a new structured instance and its large-branching peak, not a new general W1 duality theorem.",
+        "searches": [
+          "continuous-time Wasserstein-1 heat semigroup transient expansion two level regular tree",
+          "rooted depth two homogeneous tree W1 heat flow Lipschitz operator norm edge gradient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits include unrelated semigroup positivity and heat lattice phenomena but no exact two-level-tree transport formula."
+        ],
+        "reasoning": "No database or table with the exact two-block formula or asymptotic constant 10 was found; a negative search does not prove novelty.",
+        "searches": [
+          "Resultary: continuous-time Wasserstein-1 heat semigroup transient expansion two level regular tree",
+          "two-level tree finite Markov Wasserstein norm exact eigen decomposition"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. Standard Ollivier coarse Ricci and Münch–Wojciechowski heat Lipschitz contraction theory provides abstract framework. The inspected sources do not present the exact two-orbit 2×2 expression or 4−10/N extremal asymptotic for two-level homogeneous trees; related one-level stars and complete bipartite graphs have different geometry. Some relevant Cheng–Li–Wu detailed full text was not obtained, leaving a historical risk.",
+      "residual_risks": [
+        "Full text of highly relevant 2019 Markov-process coupling paper not inspected; an exact tree example could be present.",
+        "Equivalent formulas may appear under edge-gradient heat operator norms rather than W1 wording."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK",
+          "evidence": [
+            "Local-pair Wasserstein curvature is prior; all-time depth-two tree formula not found in material actually read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jfa.2008.11.001",
+          "material_read": "Accessible cited statement and relevant background; complete original proof not reread.",
+          "method": "Read abstract and relevant theorem description",
+          "title": "Ollivier, Ricci curvature of Markov chains on metric spaces",
+          "trigger": "Foundational Dirac/local transport curvature formalism"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_LIMITED_INSPECTION",
+          "evidence": [
+            "Exponential contraction criteria are not the presented exact all-time two-level tree norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1712.00875",
+          "material_read": "Abstract and specific Theorem 3.8 comparison from accessible indexed material; full proof not read this run.",
+          "method": "Web bibliographic/abstract plus theorem comparison",
+          "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+          "trigger": "Direct graph semigroup and heat Lipschitz relation"
+        },
+        {
+          "assessment": "ACCESS_RISK",
+          "evidence": [
+            "A hidden worked homogeneous-tree application may overlap."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.11036",
+          "material_read": "Abstract only; full text unavailable in current inspection.",
+          "method": "Read arXiv abstract",
+          "title": "Ricci curvature and W1-exponential convergence of Markov processes on graphs",
+          "trigger": "Possible broad semigroup domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/exact-transient-wasserstein-amplification-on-two-level-regular-t--4f4e256fae40/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-transient-wasserstein-amplification-on-two-level-regular-t--4f4e256fae40"
+      ],
+      "rationale": "PASS. A natural finite diffusion family has an explicit exact all-time transport operator norm with computation independent of growing vertex dimension; its peak approaches the sharp diameter-four bound on a vanishing timescale, with a nontrivial exact 10/N deficit. This is a meaningful structural and asymptotic benchmark beyond generic curvature estimates.",
+      "residual_risks": [
+        "Uniform rates and two generation tree only; no extension to degree-normalized or arbitrary weighted trees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All-time formula requires b,k≥2, symmetric unit edge jumps, unnormalized generator; logarithmic error asymptotic only b=k→∞.",
+    "Relevant primary Markov-process paper inspected abstract only.",
+    "The exact first-order asymptotic is proved along b=k=N only, not arbitrary jointly growing b,k.",
+    "The independent finite checks sample small trees; general theorem rests on analytic block decomposition and spectral bounds.",
+    "Full text of highly relevant 2019 Markov-process coupling paper not inspected; an exact tree example could be present.",
+    "Equivalent formulas may appear under edge-gradient heat operator norms rather than W1 wording."
+  ],
+  "schema_version": 1
+}
