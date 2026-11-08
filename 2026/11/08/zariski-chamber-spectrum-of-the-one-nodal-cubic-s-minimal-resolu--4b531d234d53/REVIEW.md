@@ -1,0 +1,21 @@
+# Scientific review of the chamber-spectrum theorem
+
+## Correctness — PASS
+
+The statement quantifies over an algebraically closed base field of arbitrary characteristic and every configuration of six distinct points on a smooth conic. Step 1 proves the **complete** negative-curve classification without assuming a very general configuration: \(-K_X\) is nef by Bézout, and adjunction forces a negative curve to have either type \((-1,1)\) or \((-2,0)\) in self-intersection and anticanonical degree. For nonexceptional curves distinct from the conic, Bézout forces degree one, giving exactly 15 strict pair-lines. Together with six exceptional curves and the unique negative conic, the list has 22 curves.
+
+The intersection formulas reconstruct the entire rank-seven integral lattice. A negative-definite support contains only mutually disjoint \((-1)\)-curves and at most one exceptional curve if it also contains the \((-2)\)-conic. The Schur complement establishes sufficiency as well as necessity. The classical chamber/support correspondence supplies genuine big-divisor realizability. The intersecting-edge-family lemma handles stars and the only non-star case (a triangle), and its generating function expands to the asserted seven coefficients and total 1898. Exact exhaustive lattice enumeration over all allowable ranks independently yields the same coefficients and conic subtotal. The verifier is not used to prove the completeness of the geometric negative-curve list; that depends on the written adjunction/Bézout argument.
+
+## Originality — PASS, with qualified historical priority
+
+Bauer–Funke–Neumann (2009) already give the general negative-support criterion and 2764 Zariski chambers for a **smooth** cubic surface; these are antecedents, not new contributions. Bauer–Schmitz (2012) provide a general algorithm for any known intersection matrix. Derenthal–Joyce–Teitler (2007) study generalized del Pezzo nef-cone volumes and root systems, not the requested chamber cardinality. Brodie–Constantin (2024) formulate generalized del Pezzo cohomology chambers and classify the types, but the inspected discussion and tables do not supply the 1898 count or support-size polynomial for the one-nodal cubic. The newly evaluated statement is the exact chamber spectrum for this \(A_1\) weak cubic resolution, its closed star/triangle combinatorial description, and the 648-root-support refinement. Targeted literature and mathematical-record searches did not locate an equivalent published count. This supports a qualified novelty judgment, not a proof that the count is globally first: equivalent data may exist in specialist weak del Pezzo tables or supplementary computations not inspected.
+
+## Mathematical value — PASS
+
+The number of Zariski chambers measures the distinct negative supports of big-divisor Zariski decompositions and hence the piecewise-quadratic structure of the volume function. The one-nodal cubic is the simplest singular degeneration of the smooth cubic, and the calculation measures how its exceptional root changes this birational invariant, dropping the total from 2764 to 1898. The calculation is a natural complete classification independent of the moduli of the six conic points. The size-graded polynomial and the 648 chambers containing the contracted root go beyond recomputing a single isolated integer. The result remains a self-contained motivated invariant, without claiming a general theorem for all ADE types or any external certification.
+
+## Closest sources, scope and risk
+
+Primary comparisons are Bauer–Funke–Neumann, *Counting Zariski chambers on Del Pezzo surfaces*, arXiv:0912.0958, §§1–4; Bauer–Schmitz, *Zariski chambers on surfaces of high Picard number*, arXiv:1204.4373, §§1–3; and Derenthal–Joyce–Teitler, *The nef cone volume of generalized Del Pezzo surfaces*, arXiv:math/0703202, §§1,3–5. The later Brodie–Constantin study (2024, §4.3) extends cohomology-chamber methods to generalized del Pezzo surfaces but does not provide this enumerator in its inspected main text. A complete historical survey of computational packages and weak del Pezzo ADE chamber tables was not performed. Verification is internal mathematical review and exact enumeration, not an independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
