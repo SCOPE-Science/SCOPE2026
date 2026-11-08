@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:38:03.128702Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the displayed hyperbolic Laplacian and separation into degree-m spherical harmonics, the regular radial factor is S_m(t)=1+(m/2)(1−t), satisfying (1−t)[4tS''+4(m+2)S']+4[mS+2tS']=0. The radial mass density t^{m+1}(1−t)^s S_m(t)² gives the exact beta-integral quotient and multiplicity (m+1)². Differentiating log(p_{m+1}/p_m) gives 1/t−1/(S_m S_{m+1})>0, establishing stochastic-order strict decrease. Endpoint asymptotics yield Λ_m~T²(1−T)^{s+2}m^{s+2}T^m/[Γ(s+1)(s+2)(s+5)] versus Euclidean E_m~T²(1−T)^s m^s T^m/Γ(s+1). Threshold inversion m=L/c+(a/c)log L+O(1) and ∑_{m≤M}(m+1)²=M³/3+O(M²) give coefficient 2/c³ of L²log L. Independently checked the radial PDE for m≤14 and rational integral spectra/monotonicity for s=0,...,3, T=1/4,1/2,3/4 and m≤14.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2008 result works with ordinary Euclidean-harmonic balls; the Resultary gap concerns complex-ball holomorphic Bergman spaces."
+        ],
+        "reasoning": "Those broad operator classes have differing Laplacians and multiplicities; they cannot be identified with this real four-dimensional H-harmonic radial spectral family.",
+        "searches": [
+          "arXiv:2404.07384 full paper",
+          "Choe–Koo–Lee Studia Math. 189 (2008) positive Schatten Toeplitz operators on the ball",
+          "Resultary 2026/10/11/SCOPE-the-positive-second-order-gap-in-hyperbolic-bergman-spectral-fil--c6321f2aae5a"
+        ]
+      },
+      "checked_sources": [
+        "https://users.math.cas.cz/~englis/106.pdf",
+        "https://arxiv.org/abs/2404.07384",
+        "https://arxiv.org/abs/2303.12137",
+        "https://doi.org/10.4064/sm189-1-6",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-positive-second-order-gap-in-hyperbolic-bergman-spectral-fil--c6321f2aae5a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "S_m(t) is a special n=4 reduction of a known hypergeometric formula and is therefore not new."
+        ],
+        "reasoning": "The novel coefficient 2/c³ requires endpoint Laplace asymptotics and degree-counting inversion for both H and Euclidean modes; the primary paper’s decomposition does not state that comparison, although the technical derivation is elementary from its formulas.",
+        "searches": [
+          "Blaschke–Engliš–Youssfi arXiv:2404.07384 Eqs. (2)–(6)",
+          "Choe–Koo–Lee 2008 Euclidean-harmonic Toeplitz"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blaschke et al. define identical H_s(B^n), dρ_s, S_m and full-radius I_m(s), covering the radial building blocks."
+        ],
+        "reasoning": "The new restriction eigenvalues are ratios of partial to full radial norms, not the full-radius norm itself; no published same-operator count identity was identified.",
+        "searches": [
+          "Blaschke–Engliš–Youssfi arXiv:2404.07384 §2 Eqs. (2)–(6)",
+          "Resultary semantic search: hyperbolic harmonic weighted Bergman ball concentration spectral eigenvalue counting logarithmic excess"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior I_m(s) are complete radial beta norms, while the claimed Λ_m requires incomplete beta mass at a fixed radius."
+        ],
+        "reasoning": "The known complete beta norms make each Λ_m calculable but do not tabulate the strict ordering and asymptotic N_H−N_E; no exact precomputed spectrum table was located.",
+        "searches": [
+          "Blaschke et al. 2024 §2 explicit I_m(s) radial integrals",
+          "Resultary hyperbolic harmonic concentration spectral eigenvalue counting query"
+        ]
+      },
+      "rationale": "Blaschke–Engliš–Youssfi provide the precise H-harmonic weighted Bergman spaces, spherical decomposition and radial factor S_m in their primary article, so those foundations and the denominator integral are unequivocally prior art. Their actual full PDF Section 2, Eqs. 2–6, does not formulate the inner-ball concentration operator, strict eigenvalue ordering or Euclidean-vs-H-harmonic counting excess; searches of the PDF found no concentration/Toeplitz/eigenvalues section. The surviving novelty is the spectral comparison and universal logarithmic excess, not the known radial profile.",
+      "residual_risks": [
+        "Related Toeplitz or concentration literature for H-harmonic spaces may express the same counting result under different terminology; keyword searches do not prove global novelty.",
+        "The dimension-four simplification is essential; no moving cutoff R or parameter s uniformity is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The H-harmonic decomposition and mode norms are prior; the concentration spectrum and log-count comparison were not located in the inspected full text.",
+          "evidence": "Eq. (4) states complete radial integral I_m(s), Eq. (6) gives modes S_m(r²)r^m; no concentration or Toeplitz match in PDF keyword search.",
+          "identifier_or_url": "https://users.math.cas.cz/~englis/106.pdf",
+          "material_read": "Accessible full PDF inspected: introductory motivation, Section 2 equations (1)–(7), radial norms I_m(s) and hypergeometric S_m(t), and full-document keyword checks for concentration, Toeplitz and eigenvalues.",
+          "method": "primary author-hosted full PDF, textual and page-image inspection",
+          "title": "A Möbius invariant space of H-harmonic functions on the ball",
+          "trigger": "exact same weighted H-harmonic Bergman spaces and radial profiles"
+        },
+        {
+          "assessment": "Uses ordinary Euclidean-harmonic weighted Bergman spaces, not ∆_h-regular modes.",
+          "evidence": "The comparator operators have S_m≡1, while the H-harmonic equation gives S_m≠1 for m>0.",
+          "identifier_or_url": "https://doi.org/10.4064/sm189-1-6",
+          "material_read": "Published primary bibliographic summary and scope; complete text not retrieved.",
+          "method": "publisher listing and primary article abstract",
+          "title": "Positive Schatten class Toeplitz operators on the ball",
+          "trigger": "possible broader concentration result for harmonic Bergman spaces"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Radial restriction/concentration is a canonical compact operator on a natural function space. Its exact degree spectrum, monotone ordering and quantitative two-log-order excess over Euclidean harmonic functions provide natural spectral-invariant information, including precise eigenvalue counts and Schatten membership, beyond a bare radial-mode normalization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://users.math.cas.cz/~englis/106.pdf",
+    "https://arxiv.org/abs/2404.07384",
+    "https://arxiv.org/abs/2303.12137",
+    "https://doi.org/10.4064/sm189-1-6",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-positive-second-order-gap-in-hyperbolic-bergman-spectral-fil--c6321f2aae5a"
+  ],
+  "disposition": "passed",
+  "final_claim": "On weighted H-harmonic L² of real B⁴ with s>−1 and radial inner radius squared T∈(0,1), concentration has strictly decreasing eigenvalues Λ_m equal to explicit incomplete/complete beta combinations with multiplicity (m+1)²; Λ_m~C m^{s+2}T^m and the eigenvalue counts exceed Euclidean-harmonic concentration by 2(log 1/ε)²loglog(1/ε)/[log(1/T)]³+O((log 1/ε)²).",
+  "limitations": {
+    "actual_independent_work": [
+      "Read frozen Git RESULT.md, verification script, METADATA.json, AUDIT.json and SLOGAN.txt; verified source tree object and original blob identities.",
+      "Ran independent bounded computational crosschecks from inspectable self-written script without running repository code."
+    ],
+    "finite_tests_are_not_infinite_proofs": true,
+    "literature_priority_provisional": true,
+    "publication_privacy_clearance": false,
+    "source_program_executed": false
+  },
+  "residual_risks": [
+    "Related Toeplitz or concentration literature for H-harmonic spaces may express the same counting result under different terminology; keyword searches do not prove global novelty.",
+    "The dimension-four simplification is essential; no moving cutoff R or parameter s uniformity is claimed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "The H-harmonic decomposition and mode norms are prior; the concentration spectrum and log-count comparison were not located in the inspected full text.",
+      "evidence": "Eq. (4) states complete radial integral I_m(s), Eq. (6) gives modes S_m(r²)r^m; no concentration or Toeplitz match in PDF keyword search.",
+      "identifier_or_url": "https://users.math.cas.cz/~englis/106.pdf",
+      "material_read": "Accessible full PDF inspected: introductory motivation, Section 2 equations (1)–(7), radial norms I_m(s) and hypergeometric S_m(t), and full-document keyword checks for concentration, Toeplitz and eigenvalues.",
+      "method": "primary author-hosted full PDF, textual and page-image inspection",
+      "title": "A Möbius invariant space of H-harmonic functions on the ball",
+      "trigger": "exact same weighted H-harmonic Bergman spaces and radial profiles"
+    },
+    {
+      "assessment": "Uses ordinary Euclidean-harmonic weighted Bergman spaces, not ∆_h-regular modes.",
+      "evidence": "The comparator operators have S_m≡1, while the H-harmonic equation gives S_m≠1 for m>0.",
+      "identifier_or_url": "https://doi.org/10.4064/sm189-1-6",
+      "material_read": "Published primary bibliographic summary and scope; complete text not retrieved.",
+      "method": "publisher listing and primary article abstract",
+      "title": "Positive Schatten class Toeplitz operators on the ball",
+      "trigger": "possible broader concentration result for harmonic Bergman spaces"
+    }
+  ]
+}

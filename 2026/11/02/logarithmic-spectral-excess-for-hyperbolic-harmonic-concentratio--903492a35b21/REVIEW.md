@@ -1,19 +1,21 @@
-# Mathematical self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A direct separation of the hyperbolic Laplacian in \(\mathbb B^4\) gives the unique regular degree-\(m\) radial factor \(1+\tfrac m2(1-t)\). Radial orthogonality with angular multiplicity \((m+1)^2\) yields the full explicit incomplete-beta formula. The likelihood-ratio derivative \(1/t-1/(S_mS_{m+1})\) is strictly positive, establishing the strict spectral order. Gamma-ratio and endpoint Laplace asymptotics give \(m^{s+2}T^m\) and the Euclidean-harmonic \(m^sT^m\) comparator. Inverting their logarithms and summing the square multiplicities yields the stated \(2L^2\log L/c^3\) difference with \(O(L^2)\) error. The included finite exact-rational checker reports 4,395 assertions passed, but the infinitely indexed theorem relies on the analytical argument.
+PASS
 
-## Originality — PASS, with priority risk
+From the displayed hyperbolic Laplacian and separation into degree-m spherical harmonics, the regular radial factor is S_m(t)=1+(m/2)(1−t), satisfying (1−t)[4tS''+4(m+2)S']+4[mS+2tS']=0. The radial mass density t^{m+1}(1−t)^s S_m(t)² gives the exact beta-integral quotient and multiplicity (m+1)². Differentiating log(p_{m+1}/p_m) gives 1/t−1/(S_m S_{m+1})>0, establishing stochastic-order strict decrease. Endpoint asymptotics yield Λ_m~T²(1−T)^{s+2}m^{s+2}T^m/[Γ(s+1)(s+2)(s+5)] versus Euclidean E_m~T²(1−T)^s m^s T^m/Γ(s+1). Threshold inversion m=L/c+(a/c)log L+O(1) and ∑_{m≤M}(m+1)²=M³/3+O(M²) give coefficient 2/c³ of L²log L. Independently checked the radial PDE for m≤14 and rational integral spectra/monotonicity for s=0,...,3, T=1/4,1/2,3/4 and m≤14.
 
-Blaschke, Engliš and Youssfi (arXiv:2404.07384, April 10, 2024) already supply the general H-harmonic radial hypergeometric mode; the present dimension-four specialization is used as an ingredient, not claimed as a new basis theorem. Üreyen (arXiv:2303.12137) develops atomic decomposition, interpolation and inclusion for the same PDE, without the inner-ball eigenvalue count. Choe, Koo and Lee (2008) prove Schatten results on an **ordinary harmonic** Bergman ball, with a different PDE. Published published-finding corpus hits on holomorphic Bergman spectral filling and planar harmonic trace concern different operators. The strictly ordered beta spectrum and the two-term H-versus-Euclidean logarithmic counting difference were not found in this comparison. Equivalent formulations in further historical literature remain possible; negative searches alone do not establish global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Concentration inside a hyperbolic ball is a canonical compact localization problem; complete spectral multiplicities and a strict degree order give its exact finite-rank behavior. The exponential tail and universal logarithmic excess measure a genuine geometric distinction between hyperbolic and ordinary harmonic PDE solutions, beyond tautological diagonalization or an all-Schatten statement. The real four-ball is the first nonplanar even dimension in which the hypergeometric radial factor truncates linearly, giving a self-contained natural model.
+Blaschke–Engliš–Youssfi provide the precise H-harmonic weighted Bergman spaces, spherical decomposition and radial factor S_m in their primary article, so those foundations and the denominator integral are unequivocally prior art. Their actual full PDF Section 2, Eqs. 2–6, does not formulate the inner-ball concentration operator, strict eigenvalue ordering or Euclidean-vs-H-harmonic counting excess; searches of the PDF found no concentration/Toeplitz/eigenvalues section. The surviving novelty is the spectral comparison and universal logarithmic excess, not the known radial profile.
 
-## Boundaries and closest literature
+## value
 
-Only fixed weight \(s>-1\), fixed \(0<R<1\), and the real four-ball are covered; no uniform variable-parameter estimates are asserted. The earliest focal source is arXiv:2404.07384; alternative historical presentations could imply this spectral law. No external expert or independent mathematical validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Radial restriction/concentration is a canonical compact operator on a natural function space. Its exact degree spectrum, monotone ordering and quantitative two-log-order excess over Euclidean harmonic functions provide natural spectral-invariant information, including precise eigenvalue counts and Schatten membership, beyond a bare radial-mode normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
