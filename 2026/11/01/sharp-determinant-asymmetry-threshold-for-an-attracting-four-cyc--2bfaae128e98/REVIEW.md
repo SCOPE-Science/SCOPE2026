@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is a quantified if-and-only-if statement over the full natural two-determinant unit square, with no unstated assumptions on branch slopes. The four-step trace/determinant formulas and the two branch-coordinate numerators are checked as exact polynomial identities by the supplied standard-library verification program. The necessary condition uses the Schur lower bound and a global, strict trace ceiling; the sufficient condition constructs positive-slope-inequality parameters in an open hyperbolic neighborhood of a boundary double-contact orbit. Continuity and the exact coordinate formulas validate strict itinerary and hyperbolicity. The two first-coordinate limits are rigorous series expansions of rational functions. The checker passed; finite witnesses are not offered as infinite proof.
+## correctness
 
-**Originality — PASS within compared material.** The 2024 Ghosh–McLachlan–Simpson source §4 proves an attracting two-cycle region, and §9 identifies numerically a four-cycle region, but does not state the exact projection \(0<v<u<1\) of four-cycle existence onto determinant parameters or the linear/quadratic grazing law. Its renormalization framework is substantially related, and the necessity is partly implicit in its lemmas; the sufficiency over every possible determinant pair and rate separation require a separate construction. The 2022 Fatoyinbo–Simpson survey treats general periodic-orbit admissibility and parameter diagrams but not this sharp all-determinant existence theorem. The 2023 Ghosh–McLachlan–Simpson paper studies robust chaotic attractors, not this stable four-cycle existence projection. The closest indexed research record proves non-attraction of a different four-cycle itinerary \(LLLR\), and it is neither stronger nor equivalent. Residual risk: an unindexed explicit parametrization of the same stable \(LRRR\) tongue or a direct corollary in some uninspected appendix.
+PASS
 
-**Mathematical value — PASS.** The underlying paper discusses the conspicuous attracting-four-cycle tongue in a mixed-sign noninvertible regime, but the existence region varies with four real parameters. Projecting onto the two Jacobian determinants is a natural coarse classification: it proves that one entire half of the two-dimensional determinant square forbids this attractor regardless of branch traces, while every point in the other half admits an open set of genuine attracting four-cycles. The explicit simultaneous first/second-order border contacts explain how the tongue persists up to its sharp organizing boundary and separate two geometrically distinct rates. This goes beyond a single example or numeric phase diagram; it does not assert general global dynamics or other itineraries.
+For 0<u,v<1, t>1-u, r>1+v, the strict LRRR branch multiplier M=A_R^3 A_L has determinant -uv^3 and trace T=-rt(r²-2v)+(u-v)(r²-v). Exact fixed-point branch-coordinate numerators give D x0=-(r-v-1)(r²+(v-1)²) and D x2=-(r-v-1)((1+u)(1-v)-rt), where D=1-T-uv³. Schur stability gives D>0 and T>-1+uv³; x2>0 forces rt>(1+u)(1-v), yielding T<-1+uv³+2v(u-v) and hence u>v. Conversely for u>v, r0=1+v,t0=(1+u)(1-v)/(1+v) gives a strictly Schur-stable boundary double-contact with t0>1-u; setting r,t to boundary+epsilon opens strict LRRR and keeps stability. Exact expansion yields x0=-2(1+v²)epsilon/D0+O(epsilon²), x2=(r0+t0)epsilon²/D0+O(epsilon³), and the other points tend positive. Reconstructed M/coordinate formulas independently with symbolic algebra plus rational u=3/4,v=1/4 witness; finite witnesses do not prove all-real necessity.
 
-**Closest literature and limitations.** The source figure already displays the \(LRRR\) tongue, so that observation is not new. General linear-algebra and renormalization tools are established. The present novelty is the full determinant-pair criterion with its constructive converse and quantitative boundary mechanism. Complete publication-priority and independent expert checks remain outstanding. The theorem holds only for \(0<u,v<1\) and two-saddle slopes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge after comparing the exact claimed quantifiers and mathematical implication with original papers, full relevant primary sections, and semantic published-finding searches. Positive evidence of independent coverage was not found; negative searches do not establish priority. Ghosh–McLachlan–Simpson 2024 renormalization and figures may implicitly encode more of the boundary projection than stated; checked sections do not present the universal iff nor precise two-point epsilon coefficients. Priority remains best of knowledge.
+
+## value
+
+PASS
+
+Determines the complete determinant-plane projection of a naturally occurring attracting period-four region, an open triangle u>v, even though earlier bifurcation diagrams only show slope slices. The constructive sharply anisotropic linear/quadratic two-point boundary grazing gives a meaningful codimension-boundary mechanism rather than an arbitrary small numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
