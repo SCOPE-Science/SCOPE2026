@@ -1,12 +1,21 @@
-# Review of the open-ladder cardinality and boundary-size theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The local three-rung condition is equivalent to ordinary \(P_3\)-convexity and yields a weighted sixteen-state transfer with zero-mask boundary vectors. Exact symbolic inversion and a determinant calculation establish the infinite bivariate rational identity, rather than relying on sample terms. At the unique smallest positive pole, the transfer has a simple dominant eigenvalue and a nonzero numerator, supplying a uniform analytic singular expansion. Differentiation yields the algebraic mean, variance, and boundary constant; the variance is positive by the distinct-weight closed walks within the same primitive component. Characteristic-function expansion proves the Gaussian limit. Independent direct enumeration matches eight sizes. The finite tests do not prove the infinite theorem alone.
+## correctness
 
-## Originality — PASS, qualified
-The initiating 2026 article studies the graph counting problem but not the open-ladder weight enumerator or boundary-size law. The exact unweighted two-row array counts and their empirical scalar recurrence and scalar generating function are already present in OEIS A231376, and are credited. An earlier circular-ladder enumeration has the same bulk characteristic factor; it does not imply the distinct open-end boundary numerator without extra boundary computation. Searches of published literature and comparable records did not locate the exact open-ladder bivariate enumerator and sharp boundary constant. The proximity of these transfer constructions and the possibility of prior results under majority-stable array terminology remain residual priority risks.
+PASS
 
-## Mathematical value — PASS
-The cardinality polynomial refines a natural, documented infinite integer sequence into the full distribution rather than recomputing its totals. The nonzero algebraic boundary correction quantifies the finite-strip edge effect, while the positive algebraic variance and central limit theorem describe typical admissible configurations. These statistics are not determined by the previously published unweighted values alone. Its scope is deliberately confined to one natural width and boundary condition; no more general consequence is claimed.
+A 16-state rung-mask transfer T(z), with zero dummy boundary rungs and local omitted-vertex condition b_j=0 => a_j+b_(1-j)+c_j<=1, gives F_n(z)=u T(z)^n v for all n. The rational elimination N(t,z)/D(t,z), D=1-(1+z+z^2)t+(z^2+z^3)t^2-(z+z^2)t^3+2z^3t^4+z^3t^5 and N=1+zt+(z+z^2-2z^3)t^2-3z^3t^3-z^3t^4, supplies an infinite exact cardinality enumerator. Unique simple positive dominant pole at z=1, with positive residue and nonzero asymptotic variance, yields the quasi-powers mean mu*n+beta+O(theta^n), variance sigma^2*n+O(1), CLT with mu≈0.514909291, sigma^2≈0.359892855, beta≈0.521089734. Independent graph-based enumeration and independent transfer calculation agree for n=1..7; finite checks corroborate but the matrix identity and analytic pole justify unbounded n. Boundary n=1 gives four sets unlike the published strict-majority convention.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+After independent comparison of statement/implication and the source inspections below, the final claim is original to the best of present knowledge, subject to the named residual risks. Known unweighted tables are excluded from the novelty claim.
+
+## value
+
+PASS
+
+The full cardinality distribution and exact, nonzero endpoint contribution beta of uniformly random P3-convex subsets are natural invariants of a standard width-two strip and mathematically distinct from the previously tabulated unweighted counts. The Gaussian size fluctuations quantify a nontrivial family of constrained binary configurations, with a new boundary numerator needed beyond the cyclic/bulk transfer. Fixed width and familiar transfer methods limit ambition but not mathematical utility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

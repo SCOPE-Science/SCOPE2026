@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction of the open-ladder enumerator
+# Independent mathematical audit
 
-Use Python 3.10 or later with SymPy installed. Run `python3 verify.py` in the directory containing this document. The verifier builds the weighted transfer from the central-rung local inequalities, checks the exact formal power series rational identity by symbolic inversion and the characteristic factor by symbolic polynomial equality, and compares against an independent exhaustive graph-based test for every ladder with one through eight rungs. Each of the \(87380\) possible vertex subsets in these eight dimensions is checked directly. The observed output was `VERIFY_OK open_cases=8 examined_subsets=87380 weighted_matrix_identities=2 mu=0.514909291164 variance=0.359892854829`.
+## correctness
 
-The numerical check recomputes the two limiting constants from implicit derivatives and the displayed algebraic root, but the exact formulas in `RESULT.md` are the mathematical definitions. The symbolic checks establish the infinite enumerator; the analytic central limit theorem is proved in the written proof, not by a finite computer experiment. The asymptotic estimates concern uniformly selected admissible sets and do not assert quantitative Berry–Esseen rates, local limits, or results for wider grids.
+PASS
+
+A 16-state rung-mask transfer T(z), with zero dummy boundary rungs and local omitted-vertex condition b_j=0 => a_j+b_(1-j)+c_j<=1, gives F_n(z)=u T(z)^n v for all n. The rational elimination N(t,z)/D(t,z), D=1-(1+z+z^2)t+(z^2+z^3)t^2-(z+z^2)t^3+2z^3t^4+z^3t^5 and N=1+zt+(z+z^2-2z^3)t^2-3z^3t^3-z^3t^4, supplies an infinite exact cardinality enumerator. Unique simple positive dominant pole at z=1, with positive residue and nonzero asymptotic variance, yields the quasi-powers mean mu*n+beta+O(theta^n), variance sigma^2*n+O(1), CLT with mu≈0.514909291, sigma^2≈0.359892855, beta≈0.521089734. Independent graph-based enumeration and independent transfer calculation agree for n=1..7; finite checks corroborate but the matrix identity and analytic pole justify unbounded n. Boundary n=1 gives four sets unlike the published strict-majority convention.
+
+## originality
+
+PASS
+
+After independent comparison of statement/implication and the source inspections below, the final claim is original to the best of present knowledge, subject to the named residual risks. Known unweighted tables are excluded from the novelty claim.
+
+## value
+
+PASS
+
+The full cardinality distribution and exact, nonzero endpoint contribution beta of uniformly random P3-convex subsets are natural invariants of a standard width-two strip and mathematically distinct from the previously tabulated unweighted counts. The Gaussian size fluctuations quantify a nontrivial family of constrained binary configurations, with a new boundary numerator needed beyond the cyclic/bulk transfer. Fixed width and familiar transfer methods limit ambition but not mathematical utility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

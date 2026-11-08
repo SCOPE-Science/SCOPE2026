@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T00:58:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A 16-state rung-mask transfer T(z), with zero dummy boundary rungs and local omitted-vertex condition b_j=0 => a_j+b_(1-j)+c_j<=1, gives F_n(z)=u T(z)^n v for all n. The rational elimination N(t,z)/D(t,z), D=1-(1+z+z^2)t+(z^2+z^3)t^2-(z+z^2)t^3+2z^3t^4+z^3t^5 and N=1+zt+(z+z^2-2z^3)t^2-3z^3t^3-z^3t^4, supplies an infinite exact cardinality enumerator. Unique simple positive dominant pole at z=1, with positive residue and nonzero asymptotic variance, yields the quasi-powers mean mu*n+beta+O(theta^n), variance sigma^2*n+O(1), CLT with mu≈0.514909291, sigma^2≈0.359892855, beta≈0.521089734. Independent graph-based enumeration and independent transfer calculation agree for n=1..7; finite checks corroborate but the matrix identity and analytic pole justify unbounded n. Boundary n=1 gives four sets unlike the published strict-majority convention.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dourado et al. 2026 analyze broad P3-convex counts and special tree/threshold algorithms; inspected sections do not exhibit the open two-rung-width bivariate N/D or Gaussian boundary constant.",
+          "Known cyclic-ladder transfers share a bulk characteristic factor but are traces rather than uT^nv contractions."
+        ],
+        "reasoning": "General enumeration algorithms or cyclic-transfer identities do not determine the particular open-boundary numerator and its residue derivative without extra computation.",
+        "searches": [
+          "Counting P3-convex sets in graphs arXiv 2603.04706 tree threshold algorithms",
+          "2-neighbour bootstrap percolation stable sets square lattice strips 2 x n weight enumerator and central limit theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches: cardinality refined number of P3 convex vertex sets open ladder 2xN size distribution rational generating function Gaussian boundary correction",
+        "Git frozen RESULT.md at 1b4bb7d5a7f8465e45bc87fbe47c2ba66c59e443",
+        "Git frozen verify.py at 5187f1f8237ac3e8f5f7613068f12b6b43cdba75",
+        "https://arxiv.org/html/2603.04706v1",
+        "https://oeis.org/A231376",
+        "https://oeis.org/A231382"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting z=1 in the proposed formula recovers prior unweighted values.",
+          "Trace(T^n) does not determine uT^nv, even with the same denominator factor, since endpoint vectors select different spectral projections."
+        ],
+        "reasoning": "The new full weighted numerator and Gaussian endpoint term require a boundary contraction that is absent from the identified prior scalar and circular formulas. Failure to find an equivalent earlier weighted result is a risk, not a priority proof.",
+        "searches": [
+          "A231376 weight generating function",
+          "P3-convex full cardinality polynomial open ladder cyclic trace boundary numerator",
+          "https://arxiv.org/html/2603.04706v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n>=2 the no-omitted-vertex-with-two-selected-neighbors rule equals the OEIS strict-neighbor-majority 2xn binary-array rule, but only at z=1 is the published enumeration immediately recovered.",
+          "The degree-one n=1 OEIS rule differs: P3-convexity counts four versus the OEIS convention count two."
+        ],
+        "reasoning": "Explicitly distinguish equivalent binary configuration semantics and previously known unweighted data; the weighted open-boundary statistic and beta are not fixed by a single scalar evaluation.",
+        "searches": [
+          "P3-convex vertex subsets of ladder graph P_n Cartesian K_2 exact size generating polynomial rational generating function",
+          "Hardin OEIS A231376 n by 2 binary strict majority horizontal vertical neighbors bivariate weight enumerator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A231376 gives unweighted totals 10,21,48,113,261,601,1390 for n=2..8 and an earlier scalar rational generating function.",
+          "A231382 tabulates scalar rectangular-array counts, including the width-two specialization, but not coefficients by selected cardinality."
+        ],
+        "reasoning": "Scalar database counts and growth roots are covered prior knowledge, not claimed new; F_n(z) and beta are additional data not implied by the z=1 table.",
+        "searches": [
+          "OEIS A231376",
+          "OEIS A231382",
+          "Hardin majority-stable binary-array strict neighbor table width 2"
+        ]
+      },
+      "rationale": "After independent comparison of statement/implication and the source inspections below, the final claim is original to the best of present knowledge, subject to the named residual risks. Known unweighted tables are excluded from the novelty claim.",
+      "residual_risks": [
+        "An earlier weighted majority-stable binary array/finite-strip statistical mechanics treatment may already contain a formally equivalent bivariate enumerator.",
+        "Close circular-ladder and scalar transfer formulas reduce novelty, although not endpoint contraction.",
+        "Asymptotic CLT relies on analytic spectral isolation rather than formal machine certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No matching open-ladder weighted generating function or limiting boundary-size law found in inspected sections",
+          "evidence": [
+            "Definitions and Sections 2–4 of arXiv:2603.04706v1"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.04706v1",
+          "material_read": "Full primary HTML: definitions, general counting results, tree and threshold graph sections, references; searched ladder/Cartesian interpretations",
+          "method": "Full-text section inspection",
+          "title": "Counting P3-convex sets in graphs",
+          "trigger": "Recent primary source about counting same P3-convex objects"
+        },
+        {
+          "assessment": "Covers unweighted sequence n>=2; does not display cardinality refinement or nonzero endpoint correction",
+          "evidence": [
+            "OEIS A231376, Hardin 2013; Barker scalar generating function 2018"
+          ],
+          "identifier_or_url": "https://oeis.org/A231376",
+          "material_read": "Full OEIS entry including sequence, scalar GF/recurrence, date/attributions, examples",
+          "method": "Primary database entry and direct algebraic specialization",
+          "title": "OEIS A231376: binary arrays avoiding neighbor-majority deficits",
+          "trigger": "Exact semantic alias for width-two unweighted objects"
+        },
+        {
+          "assessment": "Scalar counts only; no displayed size-refined polynomial",
+          "evidence": [
+            "OEIS A231382 width-two entries"
+          ],
+          "identifier_or_url": "https://oeis.org/A231382",
+          "material_read": "Entry heading and tabulated rectangular counts including width-two cases",
+          "method": "Database table inspection",
+          "title": "OEIS A231382 rectangular binary-array counts",
+          "trigger": "Broader rectangular array database"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full cardinality distribution and exact, nonzero endpoint contribution beta of uniformly random P3-convex subsets are natural invariants of a standard width-two strip and mathematically distinct from the previously tabulated unweighted counts. The Gaussian size fluctuations quantify a nontrivial family of constrained binary configurations, with a new boundary numerator needed beyond the cyclic/bulk transfer. Fixed width and familiar transfer methods limit ambition but not mathematical utility.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary searches: cardinality refined number of P3 convex vertex sets open ladder 2xN size distribution rational generating function Gaussian boundary correction",
+    "Git frozen RESULT.md at 1b4bb7d5a7f8465e45bc87fbe47c2ba66c59e443",
+    "Git frozen verify.py at 5187f1f8237ac3e8f5f7613068f12b6b43cdba75",
+    "https://arxiv.org/html/2603.04706v1",
+    "https://oeis.org/A231376",
+    "https://oeis.org/A231382"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Two-row open ladders only; no wider/circular/orbit enumerator or local limit theorem.",
+    "Uniform distribution over allowed labeled subsets; n=1 differs from strict-majority OEIS convention."
+  ],
+  "residual_risks": [
+    "An earlier weighted majority-stable binary array/finite-strip statistical mechanics treatment may already contain a formally equivalent bivariate enumerator.",
+    "Close circular-ladder and scalar transfer formulas reduce novelty, although not endpoint contraction.",
+    "Asymptotic CLT relies on analytic spectral isolation rather than formal machine certification."
+  ],
+  "schema_version": 1
+}
