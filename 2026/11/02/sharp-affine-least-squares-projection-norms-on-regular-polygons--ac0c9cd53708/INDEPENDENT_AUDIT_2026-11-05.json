@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:58:05Z",
+  "axes": {
+    "correctness": {
+      "independent_checks": [
+        "source RESULT.md inspected at frozen commit, all files verified via exact Git tree SHA",
+        "independent clipped-polygon exact/float integration for 12 values n=3..101",
+        "disk limit coefficient symbolic/reduction comparison"
+      ],
+      "rationale": "Reconstructed the covariance s=(2+cos(2pi/n))/12 from polygon triangular integration; the reproducing kernel is 1+x.z/s. Convexity of absolute kernel-row integrals, together with a positive-measure sign-change neighborhood for each pair of distinct vertices, yields strict vertex maxima. For a vertex, the negativity region is the clipped polygon z1<-s; the shoelace cap area B and first moment M give L_n=1-2(B+M/s)/A. The disk limit follows from the uniform radial lost-layer h^2/12, normalized expectation correction h^2(E_D-E_S)/6, and the s shift -h^2/24. Independent polygon-clipping row calculations agree for n=3,4,5,6,7,8,10,11,15,21,31,101, including exact cases 19/8, 233/108, 361/180; the n=101 scaled defect approximates 5.07096 vs predicted 5.06972. No finite test is used as a proof of the all-n formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hangelbroek et al provide Gram-matrix bounds for localized-kernel projection spaces; Resultary simplex formula applies only to simplices and explains n=3 baseline."
+        ],
+        "reasoning": "Neither a generic inequality nor an n=3 exact value determines the n>=4 trigonometric cap moments or sharp disk-limit constant; n=3 is not independently novel.",
+        "searches": [
+          "Hangelbroek et al arXiv:1005.2424 L-infinity norm of L2 projector",
+          "Resultary exact positivity defect and max norm on simplex 2026/10/4/...--99c2b9dd9b34"
+        ]
+      },
+      "checked_sources": [
+        "GitHub snapshot RESULT.md and nested verification/check_regular_polygon.py package identity",
+        "arXiv:1005.2424",
+        "arXiv:0802.0316",
+        "Dunkl 1987 DOI:10.1137/0147022 abstract only",
+        "Resultary 2026/10/4 simplex projection constant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General projector bounds cannot imply a sharp n-dependent equality; an orthogonal basis on a hexagon can in principle be used to compute an affine row norm, but such an explicit implication has not been established."
+        ],
+        "reasoning": "No inspected stronger theorem directly entails the all-order vertex-extremizer classification and disk coefficient. Any unseen exact hexagon formula would only affect a special case unless it contains a larger family theorem.",
+        "searches": [
+          "Hangelbroek et al arXiv:1005.2424 sections 4-5",
+          "Dunkl 1987 hexagon orthogonal polynomials DOI 10.1137/0147022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned regular-polygon Banach norm and snowflake results but no exact L2 affine projection family; Xu works with Fourier/trigonometric spectral projections."
+        ],
+        "reasoning": "The Fourier spectral projector and degree-one algebraic L2 orthoprojector have different kernels/ranges. Matching domain shape alone does not imply the sharp norm formula.",
+        "searches": [
+          "Resultary semantic: exact affine L2 orthogonal projection regular n-gon disk asymptotic vertex maximizers",
+          "Xu arXiv:0802.0316 Fourier series approximation hexagonal triangular domains"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact small-polygon values 19/8, 233/108 and 361/180 acknowledged as known; Dunkl 1987 is specifically the same hexagonal domain but only bibliographic/abstract material available."
+        ],
+        "reasoning": "The claimed novelty is the uniform all-n formula and asymptotic coefficient, not isolated known small values. Inaccessible Dunkl is not characterized as NOT_COVERING in full.",
+        "searches": [
+          "regular polygon affine least-squares projector exact sup norm n=3 4 6",
+          "C. F. Dunkl Orthogonal Polynomials on the Hexagon DOI:10.1137/0147022"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct all-order polygon formula and n^-2 defect. Existing simplex results cover the triangular special case and generic kernel/spectral estimates do not imply the family formula. Full Dunkl 1987 hexagon paper was not accessible, so implicit coverage of n=6 remains an explicit priority uncertainty.",
+      "residual_risks": [
+        "Exact full Dunkl 1987 article inaccessible because authorized Oxford VPN disconnected; may include n=6 detail.",
+        "Unindexed equivalent all-order polygon norm computation not ruled out.",
+        "No proof of monotonic finite n norm sequence; theorem claims only asymptotic positive defect."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General bounds; no inspected exact uniform regular-polygon affine formula",
+          "evidence": "General framework is not a sharp equality for this solid-polygon degree-one space.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.2424",
+          "material_read": "ArXiv full paper discussion of kernel-space projection estimates and localized bases, sections 4-5",
+          "method": "full-text arXiv PDF/text inspection",
+          "title": "Kernel Approximation on Manifolds II: The L-infinity norm of the L2-projector",
+          "trigger": "Common L2 projector endpoint norm and Gram-matrix methods"
+        },
+        {
+          "assessment": "Different spectral domain and operator",
+          "evidence": "Its Fourier projection is not the three-dimensional algebraic affine least-squares projector.",
+          "identifier_or_url": "https://arxiv.org/abs/0802.0316",
+          "material_read": "ArXiv full paper on trigonometric Fourier approximation",
+          "method": "full-text arXiv inspection",
+          "title": "Fourier series and approximation on hexagonal and triangular domains",
+          "trigger": "Hexagonal and triangular domains"
+        },
+        {
+          "assessment": "UNREAD full text; potential hexagon special-case priority overlap remains",
+          "evidence": "Cannot infer complete paper does not contain equivalent sharp n=6 calculation.",
+          "identifier_or_url": "https://doi.org/10.1137/0147022",
+          "material_read": "Bibliographic title and accessible abstract only; no original theorem or appendix inspected",
+          "method": "lawful OA/preprint attempt then authorized Oxford retrieval; Oxford returned vpn_disconnected job 950ba43d87233bfe87cc66b0d85f2db7",
+          "title": "Orthogonal Polynomials on the Hexagon",
+          "trigger": "Exact regular hexagon polynomials; plausible same-domain overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact L-infinity norm and every maximizing point are natural sharp stability characteristics of ordinary least-squares projection on increasingly disk-like polygons. The second-order disk-limit defect is not a renaming of known small-domain constants: it quantifies a geometric discretization effect for all n and supplies a useful benchmark for projection and approximation theory.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub snapshot RESULT.md and nested verification/check_regular_polygon.py package identity",
+    "arXiv:1005.2424",
+    "arXiv:0802.0316",
+    "Dunkl 1987 DOI:10.1137/0147022 abstract only",
+    "Resultary 2026/10/4 simplex projection constant"
+  ],
+  "disposition": "passed",
+  "final_claim": "The real affine L2 orthoprojector on every solid uniform regular n-gon (n>=3) has the exact stated one-index cap formula, precisely n vertex maximizing rows, and n^2 norm excess converging to 5*pi*sqrt(15)/12 above the disk norm.",
+  "residual_risks": [
+    "Exact full Dunkl 1987 article inaccessible because authorized Oxford VPN disconnected; may include n=6 detail.",
+    "Unindexed equivalent all-order polygon norm computation not ruled out.",
+    "No proof of monotonic finite n norm sequence; theorem claims only asymptotic positive defect."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Exact full Dunkl 1987 article inaccessible because authorized Oxford VPN disconnected; may include n=6 detail.",
+    "Unindexed equivalent all-order polygon norm computation not ruled out.",
+    "No proof of monotonic finite n norm sequence; theorem claims only asymptotic positive defect."
+  ]
+}

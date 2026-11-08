@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The covariance of the uniform polygon is \(sI_2\), with \(s=(2+\cos(2\pi/n))/12\), giving an exact affine projection kernel. A strict opposite-sign neighborhood for every pair of distinct polygon vertices proves that precisely the vertices maximize the absolute kernel-row integral. Clipping the kernel-negative cap and evaluating its area and first moment with shoelace identities gives the stated finite formula. A thin-boundary-layer calculation and explicit disk-coordinate integrals give the exact limiting coefficient \(5\pi\sqrt{15}/12\). The standard-library checker independently integrates the kernel on triangles for all \(3\le n\le80\), plus interior and large-order checks. Remaining correctness risk is ordinary error in the analytic asymptotic argument; the finite checks do not prove it.
+## correctness
 
-**Originality — PASS, with a specified residual priority risk.** The accessible full text of Hangelbroek et al., arXiv:1005.2424, Sections 4–5, proves general boundedness for a different kernel-translate projection class, without the polygonal exact constants. The accessible full text of Xu, arXiv:0802.0316, studies trigonometric Fourier projections rather than the algebraic affine projector. Beirão da Veiga and Mora's local polygonal affine approximation inequality supplies no exact endpoint norm. Dunkl's *Orthogonal Polynomials on the Hexagon* (1987) is relevant to the same hexagonal domain, but only its abstract and bibliographic description were accessible; complete comparison with that text is unresolved. Existing triangle, square, and disk special cases are covered, not claimed independently. No checked prior statement was found implying the all-order regular-polygon formula together with the nonzero \(n^{-2}\) coefficient, but unindexed equivalent work remains possible.
+PASS
 
-**Value — PASS.** Sharp \(L^\infty\) amplification is the natural stability constant governing uniform error and the positivity defect of local affine least squares. The theorem computes it for the canonical sequence of polygonal approximants to the disk, determines all spatial extremizers, and gives the exact leading cost of polygonal geometry. This is a motivated continuous family with a quantitative limit law, not an arbitrary isolated table entry.
+Reconstructed the covariance s=(2+cos(2pi/n))/12 from polygon triangular integration; the reproducing kernel is 1+x.z/s. Convexity of absolute kernel-row integrals, together with a positive-measure sign-change neighborhood for each pair of distinct vertices, yields strict vertex maxima. For a vertex, the negativity region is the clipped polygon z1<-s; the shoelace cap area B and first moment M give L_n=1-2(B+M/s)/A. The disk limit follows from the uniform radial lost-layer h^2/12, normalized expectation correction h^2(E_D-E_S)/6, and the s shift -h^2/24. Independent polygon-clipping row calculations agree for n=3,4,5,6,7,8,10,11,15,21,31,101, including exact cases 19/8, 233/108, 361/180; the n=101 scaled defect approximates 5.07096 vs predicted 5.06972. No finite test is used as a proof of the all-n formula.
 
-**Scientific limitations.** Results concern uniform-area, degree-one, real orthogonal projection on solid regular polygons only. No all-order monotonicity claim is made; finite tests are not proofs. The full Dunkl paper was not accessible, so literature priority for the hexagon remains uncertain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct all-order polygon formula and n^-2 defect. Existing simplex results cover the triangular special case and generic kernel/spectral estimates do not imply the family formula. Full Dunkl 1987 hexagon paper was not accessible, so implicit coverage of n=6 remains an explicit priority uncertainty.
+
+## value
+
+PASS
+
+The exact L-infinity norm and every maximizing point are natural sharp stability characteristics of ordinary least-squares projection on increasingly disk-like polygons. The second-order disk-limit defect is not a renaming of known small-domain constants: it quantifies a geometric discretization effect for all n and supplies a useful benchmark for projection and approximation theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
