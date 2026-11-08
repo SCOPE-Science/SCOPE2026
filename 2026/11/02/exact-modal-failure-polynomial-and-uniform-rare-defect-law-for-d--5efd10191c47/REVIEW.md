@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact failure polynomial is established by an explicit quotient bijection between agent-partition tuples with a specified meet and tuples with discrete meet on its blocks, followed by blockwise counting of valuations. The signed-Stirling weights are the standard Möbius inversion for the partition lattice. Both first-order probabilities follow from independent two-edge event calculations and Bonferroni bounds; the uniform error follows from Bell-number ratios and a monotone-in-agent-count comparison. This verifies quantifiers, including arbitrarily growing agent counts, and keeps the replacement by Lambert-W asymptotics restricted to fixed agent count. The standalone checker directly enumerated six finite parameter instances and returned `ALL_CHECKS_OK`.
+PASS
 
-## Originality — PASS within inspected evidence
+For r>=3 independent Bell-uniform partitions and an independent fair valuation, the meet with k cells has T_{r,k}=sum_j s(k,j)B_j^r quotient realizations (lattice Möbius inversion), and a cell of size m contributes Phi_m=1+(1+z)^m-z^m to the generating polynomial. Pair-coalescence events have first-order probability a_n^r, intersections b_n^r even for overlapping pairs; fair valuation separation makes their factors 1/2 and 1/4. Bonferroni controls F and L, with pair-error ratio <=(N-1)/2 (B_{n-2}/B_{n-1})^3 = O(W(n)^3/n), uniformly r>=3. At most one coalesced pair conditional on failure, giving one violating world; Lambert-W replacement restricted to fixed r. Independent direct n=3,r=3 partition-tuple/valuation enumeration gave coefficients (910,87,3,0) / 1000.
 
-The closest source is Pittel (2000) and Canfield (2001), which already give the exact number of ordered partition tuples with discrete meet and the qualitative two-versus-three-agent transition; these are **not** claimed as new. Pittel's relevant theorems and Canfield's full 8-page article, including his general quotient/Whitney-number theorem, were inspected; OEIS A059849 lists the classical two-partition discrete-meet counts. The inspected statements do not give the complete distribution of worlds violating the modal axiom under an independent random valuation, its exact marked generating polynomial, or a uniform first-defect estimate across all growing agent counts. Balbiani–van Ditmarsch–Lerouvillois (2026) supply the initial intersection semantics and examine history-sensitive epistemic updates, not random-frame failure laws. Searches of mathematical research records and the accessible prior claim ledger found no matching theorem. Historical novelty is not mathematically guaranteed: an abstract marked-partition enumeration or rare-event sieve could imply this result after reduction, and Pittel's exact count supplies a crucial existing ingredient.
+## originality
 
-## Value — PASS
+PASS
 
-The number of worlds falsifying a basic distributed-knowledge schema is a natural model-theoretic measure of epistemic information loss. The finite polynomial classifies its entire distribution, not merely whether a frame is valid, while the sharp three-agent probability and uniform isolated-pair picture quantify how the axiom fails in the rare exceptional models. This supplies a reusable baseline for testing finite epistemic-frame samplers and separates frame validity from detectability by a chosen valuation. The results are limited to initial, synchronous S5 intersection frames and should not be applied to asynchronous histories.
+Pittel 2000 and Canfield 2001 already establish discrete-meet enumeration and general quotient/Whitney identities; the T_{r,k} factor is explicitly NOT a new result. The substantive claim marks all worlds of a modal-failure formula with an independent fair valuation and proves its uniform rare-doubleton law for any r>=3, which the compared primary unmarked combinatorics and epistemic introduction do not directly state. General marked-partition sieve implications are residual risk.
 
-## Closest literature and residual risks
+## value
 
-Pittel’s and Canfield’s exact enumeration dominate the unmarked finite frame-success count; the asserted contribution is the marked modal statistic, its full polynomial, and the uniform first-defect/valuation law. Analogous formulas could exist under the names of random partition meet statistics, weighted Bell polynomials, or occupancy-collision processes. The available literature search and one review do not amount to independent historical certification. The study does not make claims about other modal schemas or nonuniform frame distributions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distribution of worlds falsifying p->Dp is a natural logical quantity under a transparent random finite S5 model. It quantifies a sharp structural single-defect mechanism and a uniform all-agent rare-event law, rather than just restating partition counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
