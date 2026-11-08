@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The implication between the graph definition and cyclic binary occupancy words avoiding three consecutive ones, with alternating row labels in occupied runs, is proved both ways. Marked-run enumeration yields the exact coefficient formula without overcounting; the circular-arc cardinality bound and three attaining constructions establish the sharp maximum, and a two-case run calculation gives every extremal multiplicity. Direct exhaustive graph checks for lengths three through ten independently confirm all coefficients. Risk: the word/run encoding requires consistent cyclic seam handling; the proof and direct checks explicitly cover it.
+
+**Originality — PASS, provisional.** The 2026 frugal-colouring primary source introduces the maximum 2-frugal independent-set invariant and broad cubic bounds but does not compute this labelled-prism polynomial. Prior prism dynamic and homogeneous colouring theorems, and separate four-palette conflict-free colour-count identities, count full colourings or decide feasibility, not independent subsets. Mathematical-record and primary-literature comparisons did not reveal equivalent or stronger frugal-independent-set enumerators. Risk: an earlier cyclic words/independence enumeration may implicitly specialize to this formula, and priority has not been independently certified.
+
+**Value — PASS.** This is a complete classification and exact coefficient-by-coefficient polynomial for a natural infinite cubic family, including a sharp frugal-independence number and explicit counts of *all* extremizers in the three congruence classes. It meaningfully refines the general maximum-cardinality bounds motivating the invariant, and supplies enumeration data for probabilistic sampling and future comparisons. Risk: it does not give a universal theorem on arbitrary cubic graphs.
+
+Self-review: passed. Independent audit: not yet performed.
