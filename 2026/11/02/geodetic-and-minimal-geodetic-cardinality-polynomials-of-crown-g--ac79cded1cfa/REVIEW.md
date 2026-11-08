@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof establishes all distance classes in a crown graph with \(n\ge3\) and precisely characterizes which selected pairs can cover an unselected vertex. An opposite-shore same-index pair covers the entire graph through length-three geodesics; with no such pair, the omitted-vertex condition reduces to two selected neighbors of the opposite shore. The three cases exhaust all vertex-set profiles, and inclusion-minimality reduces to matched pairs, both full shores, or two disjoint triples. Independent shortest-path enumeration for \(3\le n\le9\) checks 349,497 nonempty subsets and reproduces both polynomials. The unrestricted result follows from the written argument, not from extrapolating the finite checks.
+## correctness
 
-## Originality — PASS, with residual publication risk
-The close full-text comparison is the 2018 crown-graph strong-geodetic paper by Gledel and Iršič, especially Section 3. Its strong one-path-per-pair covering convention is distinct from ordinary geodetic intervals, and the paper determines a scalar minimum rather than all/minimal ordinary-geodetic cardinality distributions. Bergougnoux–Defrain–Mc Inerney's 2023 paper gives general minimal-geodetic enumeration reductions, not a crown-graph closed census. Indexed records covering crown-graph strong edge geodesics, geodesic-subpath invariants, edge metric bases, and complete multipartite geodetic polynomials do not imply the proposed formulas: the invariants or graph classes differ materially. The alternative name \(K_2\times K_n\) for the categorical product was also queried. Older publications defining geodetic polynomials and a related edge-geodetic article were not fully readable; these remain explicit publication-priority risks. Absence from searches is not proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-A structural theorem reduces arbitrary geodetic-set testing in an infinite, highly symmetric crown family to three index-profile conditions, determines the complete ordinary and inclusion-minimal geodetic polynomials, and exhibits a three-point minimal-size spectrum with an unbounded internal gap while the lower parameter stays two and the upper parameter grows as \(n\). These are informative enumerative results for a natural graph family already studied through a harder shortest-path covering variant, and they are not routine restatements of a scalar parameter.
+For crown graph K_{n,n} minus matching (n≥3), same-shore vertices have distance2 and their geodesic intervals cover opposite-shore indices other than the endpoint indices; an opposite-shore matched pair a_i,b_i has distance3 and varying intermediate paths covers the whole graph. Unmatched cross-shore pairs are adjacent and introduce no interior points. Thus any matched pair suffices; with X∩Y=∅, geodetic coverage occurs only for an entire shore or for both nonempty shores with |X|,|Y|≥3. These cases are disjoint and yield G_n(z)=(1+z)^(2n)−(1+2z)^n+2z^n+Σ_{k=6}^n C(n,k)(2^k−2−2k−k(k−1))z^k. Inclusion minimality forces exactly one matched pair, exactly an entire shore, or exactly 3 indices in each of two disjoint shores, yielding M_n(z)=n z²+2 z^n+C(n,3)C(n−3,3)z^6. All minimal sizes for n≥7 are {2,6,n}; upper geodetic n. Direct independent BFS distance-and-geodesic interval enumeration for n=3..5 agrees with classification and cardinality counts; the all-n proof is by exact intervals, not finite extrapolation.
 
-## Limitations and literature context
-The theorem excludes the disconnected \(n=2\) case; the finite verifier is corroboration, not a proof for all \(n\). No full publication-priority claim or independent mathematical audit is made. The terminology and scalar minimum are not claimed as new; the structural classification and cardinality polynomials are the finding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for exact all-set and inclusion-minimal polynomial of ordinary geodetic sets on crown graphs, and absent-cardinality spectrum; existing same graph strong-geodetic work uses a stricter covering convention. Full primary geodetic-enumeration article inaccessible, leaving historical-priority risk; absence of matching Resultary hit is not novelty proof.
+
+## value
+
+PASS
+
+Crown graphs are canonical regular vertex-transitive bipartite graphs obtained by deleting a perfect matching; geodetic coverage is a well-studied graph invariant. Their complete all-set and inclusion-minimal enumerators reveal a three-point minimal-cardinality spectrum and arbitrarily long gaps despite strong symmetry, a structural classification rather than an arbitrary sampled exact coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

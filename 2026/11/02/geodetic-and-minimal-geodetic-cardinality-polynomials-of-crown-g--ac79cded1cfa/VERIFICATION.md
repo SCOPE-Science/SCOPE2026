@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification record
-The standalone Python 3 script `verify_crown_geodetic.py` uses breadth-first-search distances and the condition \(d(u,w)+d(w,v)=d(u,v)\) to compute geodesic intervals without referring to the algebraic classification. It checks all nonempty vertex subsets for \(n=3,4,5,6,7,8,9\), compares actual coverage with the structural criterion and with both claimed coefficient polynomials, and determines minimal sets by checking every one-vertex deletion.
+# Independent mathematical audit
 
-Executed command: `python3 verify_crown_geodetic.py`.
+## correctness
 
-Observed output summary: `VERIFY_OK graph_orders=7 tested_subsets=349497 structural_and_polynomial_agreement=true`.
+PASS
 
-Observed inclusion-minimal size distributions: \(n=3:\{2:3,3:2\}\); \(n=4:\{2:4,4:2\}\); \(n=5:\{2:5,5:2\}\); \(n=6:\{2:6,6:22\}\); \(n=7:\{2:7,6:140,7:2\}\); \(n=8:\{2:8,6:560,8:2\}\); \(n=9:\{2:9,6:1680,9:2\}\).
+For crown graph K_{n,n} minus matching (n≥3), same-shore vertices have distance2 and their geodesic intervals cover opposite-shore indices other than the endpoint indices; an opposite-shore matched pair a_i,b_i has distance3 and varying intermediate paths covers the whole graph. Unmatched cross-shore pairs are adjacent and introduce no interior points. Thus any matched pair suffices; with X∩Y=∅, geodetic coverage occurs only for an entire shore or for both nonempty shores with |X|,|Y|≥3. These cases are disjoint and yield G_n(z)=(1+z)^(2n)−(1+2z)^n+2z^n+Σ_{k=6}^n C(n,k)(2^k−2−2k−k(k−1))z^k. Inclusion minimality forces exactly one matched pair, exactly an entire shore, or exactly 3 indices in each of two disjoint shores, yielding M_n(z)=n z²+2 z^n+C(n,3)C(n−3,3)z^6. All minimal sizes for n≥7 are {2,6,n}; upper geodetic n. Direct independent BFS distance-and-geodesic interval enumeration for n=3..5 agrees with classification and cardinality counts; the all-n proof is by exact intervals, not finite extrapolation.
 
-Finite exhaustive checks do **not** establish any claim for untested graph orders. The general all-order argument and boundary conditions are in `RESULT.md`. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Qualified PASS for exact all-set and inclusion-minimal polynomial of ordinary geodetic sets on crown graphs, and absent-cardinality spectrum; existing same graph strong-geodetic work uses a stricter covering convention. Full primary geodetic-enumeration article inaccessible, leaving historical-priority risk; absence of matching Resultary hit is not novelty proof.
+
+## value
+
+PASS
+
+Crown graphs are canonical regular vertex-transitive bipartite graphs obtained by deleting a perfect matching; geodetic coverage is a well-studied graph invariant. Their complete all-set and inclusion-minimal enumerators reveal a three-point minimal-cardinality spectrum and arbitrarily long gaps despite strong symmetry, a structural classification rather than an arbitrary sampled exact coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

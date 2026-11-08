@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T17:52:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For crown graph K_{n,n} minus matching (n≥3), same-shore vertices have distance2 and their geodesic intervals cover opposite-shore indices other than the endpoint indices; an opposite-shore matched pair a_i,b_i has distance3 and varying intermediate paths covers the whole graph. Unmatched cross-shore pairs are adjacent and introduce no interior points. Thus any matched pair suffices; with X∩Y=∅, geodetic coverage occurs only for an entire shore or for both nonempty shores with |X|,|Y|≥3. These cases are disjoint and yield G_n(z)=(1+z)^(2n)−(1+2z)^n+2z^n+Σ_{k=6}^n C(n,k)(2^k−2−2k−k(k−1))z^k. Inclusion minimality forces exactly one matched pair, exactly an entire shore, or exactly 3 indices in each of two disjoint shores, yielding M_n(z)=n z²+2 z^n+C(n,3)C(n−3,3)z^6. All minimal sizes for n≥7 are {2,6,n}; upper geodetic n. Direct independent BFS distance-and-geodesic interval enumeration for n=3..5 agrees with classification and cardinality counts; the all-n proof is by exact intervals, not finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complete multipartite K_{n_1,...} has every cross-part edge, while a crown has a perfect matching deleted; the latter produces diameter-three matched pairs and different interval structure.",
+          "General-purpose enumeration of minimal sets does not automatically give closed polynomial or cardinality gaps without a specialized classification."
+        ],
+        "reasoning": "No inspected broader graph-class theorem immediately implies the matched-pair/full-shore/disjoint-triples trichotomy. The unread full algorithmic paper may contain crown examples, so this is a named risk.",
+        "searches": [
+          "Resultary semantic query: crown graph geodetic sets minimal geodetic polynomial and upper geodetic number complete bipartite minus matching",
+          "Resultary 2026 complete multipartite geodetic polynomial",
+          "Bergougnoux–Defrain–Mc Inerney 2023"
+        ]
+      },
+      "checked_sources": [
+        "Gledel–Iršič 2018 arXiv:1810.04004 (abstract/source theorem statements only)",
+        "Bergougnoux–Defrain–Mc Inerney 2023 arXiv:2309.17419 (abstract only)",
+        "Resultary complete-multipartite and strong bipartite result summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matched pair a_i,b_i at distance3 has union of shortest paths through all other vertices when n≥3; hence each is ordinary geodetic with two vertices.",
+          "Disjoint mixed index subsets need ≥3 members in each shore for every omitted vertex to lie on an interval."
+        ],
+        "reasoning": "This diameter-three path-union argument gives minimal geodetic structures that are not a corollary of strong-geodetic single-path coverage. Existing general algorithm may output them computationally, but does not by itself prove the explicit polynomial as a published formula.",
+        "searches": [
+          "arXiv:1810.04004",
+          "arXiv:2309.17419",
+          "Resultary semantic query: crown graph geodetic sets minimal geodetic polynomial and upper geodetic number complete bipartite minus matching"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary geodetic coverage uses union of ALL shortest paths between selected endpoints; strong geodetic requires one shortest path chosen per endpoint pair.",
+          "Source classification yields all geodetic sets, not only scalar geodetic number or minimum strong size."
+        ],
+        "reasoning": "Strong and ordinary variants have distinct quantifiers and different behavior for a matched-index pair at distance3; prior crown strong-geodetic number is not an equivalent formulation of the complete ordinary polynomial.",
+        "searches": [
+          "Resultary semantic query: crown graph geodetic sets minimal geodetic polynomial and upper geodetic number complete bipartite minus matching",
+          "arXiv:1810.04004 crown strong geodetic",
+          "arXiv:2309.17419 minimal geodetic enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact polynomial for crown graph appeared in the ranked returned results.",
+          "Independent BFS n=3,4,5 gave minimal cardinality counts 3z²+2z³, 4z²+2z⁴, 5z²+2z⁵; source independently checks n≤9."
+        ],
+        "reasoning": "This is a natural complete infinite-family profile, not merely n≤9 tabulation. Exact database/table coverage cannot be excluded by an index search alone.",
+        "searches": [
+          "Resultary semantic query: crown graph geodetic sets minimal geodetic polynomial and upper geodetic number complete bipartite minus matching",
+          "Resultary ID 2026/10/4/SCOPE-geodetic-polynomial-of-complete-multipartite-graphs--98565a07b2d3",
+          "Crown graph geodetic number minimal polynomial search"
+        ]
+      },
+      "rationale": "Qualified PASS for exact all-set and inclusion-minimal polynomial of ordinary geodetic sets on crown graphs, and absent-cardinality spectrum; existing same graph strong-geodetic work uses a stricter covering convention. Full primary geodetic-enumeration article inaccessible, leaving historical-priority risk; absence of matching Resultary hit is not novelty proof.",
+      "residual_risks": [
+        "Primary full texts of Gledel–Iršič and Bergougnoux–Defrain–Mc Inerney unavailable; possible explicit crown case in appendices has not been ruled out.",
+        "n=2 is disconnected and deliberately excluded; strong geodetic and hull-closure cover notions differ."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong geodetic requires one chosen shortest path per terminal pair; not equivalent to ordinary union over all shortest paths. Covers related scalar graph invariants, not necessarily ordinary minimal-geodetic polynomial.",
+          "evidence": "Gledel–Iršič 2018 crown strong-geodetic number; no whole-document noncoverage claim.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.04004",
+          "material_read": "Primary abstract and main results as described in record; full arXiv/publisher text inaccessible on attempted paths",
+          "method": "Attempted lawful full text and institutional route; VPN disconnected",
+          "title": "Strong geodetic number of complete bipartite graphs, crown graphs and hypercubes",
+          "trigger": "Same crown graph family with geodesic coverage"
+        },
+        {
+          "assessment": "General enumeration algorithm/traversal results do not by title alone provide these closed crown formulas; full paper not characterized as noncovering.",
+          "evidence": "Bergougnoux–Defrain–Mc Inerney 2023 algorithmic enumeration.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.17419",
+          "material_read": "Abstract and broad algorithmic framing; full article unavailable after open-access and authorized retrieval",
+          "method": "Primary abstract and source comparison, institutional VPN disconnected",
+          "title": "Enumerating minimal solution sets for metric graph problems",
+          "trigger": "General theorem enumerating minimal geodetic sets, could imply crown counts"
+        },
+        {
+          "assessment": "Crown graph deletes one cross edge per index and is not a complete multipartite graph in the natural n≥3 range; scalar/geodesic structures differ.",
+          "evidence": "Identified result provides all-set polynomial for complete multipartite, not crown.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-geodetic-polynomial-of-complete-multipartite-graphs--98565a07b2d3",
+          "material_read": "Resultary summary under crown graph and polynomial semantic search",
+          "method": "Resultary semantic search",
+          "title": "Published geodetic polynomial of complete multipartite graphs",
+          "trigger": "Potential graph-class generalization"
+        },
+        {
+          "assessment": "Strong (fixed-path) upper geodetic number on K_{a,b} does not compute ordinary minimal geodetic polynomial on K_{n,n} minus matching.",
+          "evidence": "Resultary record ID 2026/9/30/SCOPE-strong-upper-geodetic-number-of-complete-bipartite-graphs--19a81b4f67a5",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/30/SCOPE-strong-upper-geodetic-number-of-complete-bipartite-graphs--19a81b4f67a5",
+          "material_read": "Resultary matched summary",
+          "method": "Resultary search",
+          "title": "Strong upper geodetic number of complete bipartite graphs",
+          "trigger": "Possible reduction by deleting perfect matching"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Crown graphs are canonical regular vertex-transitive bipartite graphs obtained by deleting a perfect matching; geodetic coverage is a well-studied graph invariant. Their complete all-set and inclusion-minimal enumerators reveal a three-point minimal-cardinality spectrum and arbitrarily long gaps despite strong symmetry, a structural classification rather than an arbitrary sampled exact coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "n≥3 connected crown graphs; ordinary all-shortest-path geodetic coverage not strong/hull geodetic; full older literature inaccessible and possible exact preexisting crown table unexcluded.",
+  "schema_version": 1
+}
