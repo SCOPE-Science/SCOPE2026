@@ -1,0 +1,15 @@
+# Scientific review: Arithmetic incidence of the Clebsch line complement
+
+## Correctness
+The surface is smooth for all characteristics greater than five. Its geometric line configuration comprises fifteen rational diagonal lines and twelve lines defined over the quadratic character extension. When nonsplit, the six Frobenius pairs of nonrational lines are skew, so none contains a rational point. The diagonal incidence graph has fifteen vertices, degree six and intersection matrix rank six, fixing the arithmetic Picard trace at five in the nonsplit case. The quadratic term on a tangent plane rules out any Eckardt point with fewer than three zero coordinates, proving there are exactly ten in all stated characteristics. Ten triple points and fifteen diagonal-only double points determine the nonrational spectrum. When split, 135 intersecting line-pairs account for ten triple points and 105 double points. The resulting all-extension spectrum and zeta factors follow algebraically. The two standalone exact programs were executed, and their conclusions agree with the derived formulas. Correctness: PASS.
+
+## Originality
+The surface, its 27 lines and ten Eckardt points, and the split 27-line complement count are known. In particular, Hirschfeld's 1981 split-line union formula already gives the split complement polynomial. The asserted contribution concerns the nonsplit arithmetic restriction, the exact fourfold point-incidence profile over every extension, and the open zeta factorization. The accessible papers by Brundu–Logar–Polli, McKean, and Debarre do not state this all-extension spectrum; the Hirschfeld chapter's accessible summary treats the split case. Exact-formula and equivalent-formulation searches did not locate directly covering literature or mathematical records. An older implicit incidence argument or inaccessible chapter full text could overlap, so historical novelty is conditional on this remaining priority risk. Originality: PASS on the evidence inspected, not proof of absolute uniqueness.
+
+## Mathematical value
+The complement of all geometric exceptional curves is a canonical open surface. Its complete Hasse–Weil zeta function and full incidence multiplicities distinguish two Frobenius types and give a sharp natural emptiness boundary: exactly two base fields have no rational point outside the exceptional divisor. Unlike a bare split-field polynomial substitution, the nonsplit case requires descending the twelve nonrational skew lines and controlling the Picard trace; the result supplies an exact arithmetic classification for an infinite set of finite fields, not a small numerical improvement. Mathematical value: PASS.
+
+## Limitations
+The result is specific to the untwisted Clebsch surface in characteristic greater than five, with no classification of other cubic surfaces or twists. It does not take priority for the classical 27-line geometry or for the known split case. The full Hirschfeld chapter was not accessed, and an older equivalent finite-field statement cannot be excluded. No independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
