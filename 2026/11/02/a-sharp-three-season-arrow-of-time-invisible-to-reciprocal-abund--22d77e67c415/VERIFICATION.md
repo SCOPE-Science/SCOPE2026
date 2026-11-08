@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python checker.py` in the directory containing RESULT.md and checker.py. The checker uses Python's standard-library exact fractions and SymPy for exact symbolic simplification; it performs six symbolic identities and 606 further exact assertions, reporting 612 total.
+## correctness
 
-The symbolic conditions directly verify the equal elementary symmetric sums, the Vandermonde product difference, the common shifted second sum and the cleared-denominator identity for all formal variables. Exact rational periodic-orbit reconstruction checks one period return, the sample means and cubic difference, every circular autocorrelation in selected periods from one to eight, and strict saturated-response signs across rational test cases. The checker is reproducible and deliberately requires no numerical integration or external datasets.
+PASS
 
-The all-period autocorrelation theorem is established by the Fourier proof in RESULT.md, not by checking periods up to eight. The universal sign theorem is established by the symbolic factorization with strictly positive factors, not by a finite parameter grid. No external independent validation has been performed.
+For a>1 and any positive periodic beta, y=1/x obeys the positive-intercept contraction a*y_(t+1)-y_t=beta_t. Its Fourier transfer Y_k=B_k/(a exp(2pi ik/n)-1) preserves squared magnitudes when real beta is reversed, proving all n and all cyclic lags. The explicit three-season inverse numerators share e1,e2 and have product difference -a(a-1)^3(a+1)(b-c)(b-d)(c-d). Replacing each numerator L_i by L_i+q(a^3-1) preserves e1,e2 differences and product difference; subtracting their positive-denominator saturated means proves the claimed sign for all finite q>=0. For n<=2 the reversal is a cyclic rotation. Independently reconstructed the polynomial factor with SymPy and rational a=2,b=1,c=2,d=3 cycles.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for the precise final theorem only, with known component results explicitly excluded from novelty and named inaccessible-source risks; relevant indexed findings and primary literature were compared by implication.
+
+## value
+
+PASS
+
+The smallest order-sensitive seasonal arrangement is a natural finite cutoff: all second-order inverse-population cyclic measurements hide orientation for every n, while a realistic saturating census proxy detects the orientation of three distinct seasons with a parameter-universal exact sign. This is an interpretable structural identification limit, not mere numerical resampling of a known mean.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
