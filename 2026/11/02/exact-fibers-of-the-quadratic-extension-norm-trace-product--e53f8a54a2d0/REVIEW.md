@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The trace-one normalization gives a direct count of fibers via a cubic power equation. The reduction is valid in both characteristics because trace is onto and the norm vanishes only at zero. In the nonuniform branch, the trace-one norm character sum reduces to a Jacobi sum (odd characteristic) or ordinary Gauss sum (characteristic two); their magnitudes are exactly \(\sqrt q\). Orthogonality proves the exact variance. The strict inequality \(q>2\sqrt q\) for \(q>4\) and an explicit calculation for \(\mathbb F_4\) complete the surjectivity classification. Exact independent enumeration confirms all stated cases for ten prime powers, but the infinite theorem relies on the proof, not sampling.
+## correctness
 
-## Originality: PASS, with residual risk
-Mullen–Wan–Wang's 2012 full text treats general value-set upper bounds; Gao–Wang's 2014 full text treats random/cyclotomic mapping value distributions. Ding–Xiong–Zieve's 2025 full text treats permutation or complete mappings of cubic Frobenius polynomials; although their form includes the present polynomial, their stated classification concerns bijections of the full quadratic field and does not supply its subfield-target fiber distribution. No equivalent claim was found through searches for the exact polynomial, trace–norm product, variance, cubic characters, or exceptional image, or through checks of available earlier research claims and mathematical research records. Failure to find coverage does not prove worldwide uniqueness; older specialized character-sum literature remains a possible source of equivalent results.
+PASS
 
-## Mathematical value: PASS
-The norm–trace product is intrinsic to the quadratic extension and therefore a natural arithmetic map. The result supplies the exact fiber formula for all prime powers and both characteristics, an exact variance dichotomy controlled by cubic residue characters, and the unique nonsurjective extension \(\mathbb F_{16}/\mathbb F_4\). These are structural, infinitely parameterized answers, beyond a general image-size bound or an isolated computation. The special four-element-field obstruction is fully classified rather than conjectured from examples.
+Every nonzero trace element has a unique x=t z decomposition with Tr(z)=1 and P(tz)=t³N(z). If cube map is invertible, each nonzero y has exactly q preimages. In cubic regime character orthogonality converts the counts to the trace-one norm Gauss sum; in odd characteristic this is a Jacobi sum of nontrivial cubic and quadratic characters, and in even characteristic an additive Gauss sum, both of modulus √q. Variance 2q(q−1) and positivity for q>4 follow. The q=4 trace-one norm split supplies two 6-fibers, one missing 1-fiber, zero fiber 4. Independent polynomial-quotient extension enumerations checked every x for q=2,3,5,7,11,13; the universal proof is character-theoretic.
 
-## Limitations
-Nonuniform individual fibers are described by an explicit cubic character sum rather than a purely elementary formula in \(q\). The analysis is specific to degree-two extensions and trace times norm. Earlier equivalent coverage in comprehensive finite-field literature remains possible. No independent external review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ding–Xiong–Zieve 2025 study complete/permutation maps from F_{q²} to itself in a cubic Frobenius polynomial family containing the two monomials of this trace–norm product; this does not imply the F_{q²}→F_q fiber counts. The Gauss–Jacobi modulus is classical and explicitly credited. Resultary and targeted searches revealed no exact norm–trace product census.
+
+## value
+
+PASS
+
+Sharp all-characteristic balanced/nonbalanced classification and the exceptional surjectivity threshold q=4 describe a natural trace–norm map in finite-field arithmetic; its exact deviation energy is a substantive invariant not determined by generic polynomial value-set bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
