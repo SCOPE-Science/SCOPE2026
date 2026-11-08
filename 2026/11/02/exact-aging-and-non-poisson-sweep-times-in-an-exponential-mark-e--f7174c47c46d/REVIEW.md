@@ -1,15 +1,21 @@
-# Review of an exact selective-sweep aging law
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The Poisson score-tail measure \(t e^{-m/t}\) gives existence and a Gumbel score. A Mecke density factors into an independent exponential location and Gumbel score, yielding the claimed distribution of \(e^{-Y_s}\). The exact mass of new competitors capable of overtaking by \(t\) is \((t-s)e^{-Y_s}\), proving the conditional exponential reign and two-time aging formula. An independently parametrized two-point Mecke crossing calculation yields switch intensity \(1/(2t)\), hence local finiteness and the expected count. The previously unexamined higher-slope wedge is an independent marked Poisson process with rate \(e^{-y}dh\,v e^{-v}dv\); its successive exploration gives iid gamma fitness increments and the logarithmic almost-sure sweep-frequency law. Poisson-intensity scaling makes log-time switch locations stationary; their void law rules out a Poisson process. The 17 reproducibility assertions pass, but are not substitutes for the proof.
+## correctness
 
-## Originality
-**PASS, qualified historical priority.** The motivating Fontes--Schinazi preprint defines precisely this envelope and obtains candidate-point convergence and fixed-time/finite-dimensional leader behavior. It does not report the conditional lifetime, gamma replacement chain, almost-sure sweep frequency, persistence, switch-count or non-Poisson law proved here. Boettcher--Robe--Sibani instead treat another log-Poisson record mechanism, and Groeneboom's linear-score homogeneous-quadrant hull is not the present logarithmic score after coordinate transformation. Related general upper-envelope machinery could imply portions of the statement implicitly; independent priority review is outstanding.
+PASS
 
-## Mathematical value
-**PASS.** The exact two-time persistence, gamma fitness increment law and almost-sure frequency resolve natural temporal observables missing from the selective-sweep point-process description. In particular, the process has logarithmic mean growth yet is non-Poisson, while conditional reigns are exponential but unconditional mean remaining reign is infinite. This distinguishes mutation-candidate Poisson points from actual changes of dominant genotypes and is pertinent to aging and sweep-frequency predictions.
+One-point PPP void probability gives P(max(y−x/s)≤z)=exp(-s e^{-z}) and independent X_s/s~Exp(1), Z_s−log s~Gumbel. Therefore e^{-Y_s}=s^{-1}E_1U, E_1~Exp(1), U~Unif(0,1). Palm conditioning and affine overtaking region for x′>x gives measure (t-s)e^{-Y_s}, hence conditional Exp holding time and exact persistence Laplace mixture. The two-point Campbell–Mecke crossing intensity integrates v exp(-2y-v) times the no-third-point probability to 1/(2t), proving mean switch count and a.s. local finiteness. The as-yet-unexposed future wedge conditional on all leader history has intensity e^{-Y} dh v e^{-v}dv, so waiting-time clocks and Gamma(2,1) slope increments regenerate; SLLN/Borel–Cantelli yield log T_k/k→2 and N(s,t)/log t→1/2. Multiplicative scaling preserves PPP, giving log-time stationarity; interval void a/(e^a-1) differs from exp(-a/2). Independent quadratures checked persistence for four (s,t) pairs. No discrete finite-population path convergence follows.
 
-## Limitations and risks
-No finite-population path-level convergence is inferred, and no arbitrary mark laws are covered. The result relies on the given exponential-mark Poisson limit and exact linear score. General point-process or convex-hull formulas might provide stronger historical coverage. Numerical checks are finite approximations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the precise final claim after Resultary and primary-paper statement/implication comparisons, with named inaccessible sources and residual risks explicitly retained: Exact aging and non-Poisson sweep times in an exponential-mark envelope. No failed search is represented as a proof of novelty.
+
+## value
+
+PASS
+
+The precise switch process and its age-dependent residual life distinguish selected leader changes from the underlying candidate-mutation PPP. Exact aging, non-Poisson log-time structure, and almost-sure switch frequency are natural stochastic-process invariants and resolve an important modeling distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

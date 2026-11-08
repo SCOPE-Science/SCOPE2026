@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T07:53:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "One-point PPP void probability gives P(max(y−x/s)≤z)=exp(-s e^{-z}) and independent X_s/s~Exp(1), Z_s−log s~Gumbel. Therefore e^{-Y_s}=s^{-1}E_1U, E_1~Exp(1), U~Unif(0,1). Palm conditioning and affine overtaking region for x′>x gives measure (t-s)e^{-Y_s}, hence conditional Exp holding time and exact persistence Laplace mixture. The two-point Campbell–Mecke crossing intensity integrates v exp(-2y-v) times the no-third-point probability to 1/(2t), proving mean switch count and a.s. local finiteness. The as-yet-unexposed future wedge conditional on all leader history has intensity e^{-Y} dh v e^{-v}dv, so waiting-time clocks and Gamma(2,1) slope increments regenerate; SLLN/Borel–Cantelli yield log T_k/k→2 and N(s,t)/log t→1/2. Multiplicative scaling preserves PPP, giving log-time stationarity; interval void a/(e^a-1) differs from exp(-a/2). Independent quadratures checked persistence for four (s,t) pairs. No discrete finite-population path convergence follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Poisson mapping/Mecke methods give foundations for envelope statistics, not by themselves the computed gamma renewal and void law.",
+          "The 2018 aging model has log-Poisson behavior under a distinct record rule."
+        ],
+        "reasoning": "Generic Poisson hull/records theory could imply parts after a new transformation, but no inspected stronger theorem furnished all exact statements. The directly matching 2026 primary manuscript was inaccessible beyond abstract.",
+        "searches": [
+          "Fontes and Schinazi A branching model for selective sweeps arXiv:2610.29759",
+          "Resnick Extreme Values, Regular Variation, and Point Processes",
+          "Boettcher et al. arXiv:1803.06580"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 actual RESULT.md and verify.py at frozen tree 669ffac607bd327b769c9c97de5693aedfbd467c",
+        "Fontes–Schinazi arXiv:2610.29759 public abstract and model",
+        "Boettcher et al. arXiv:1803.06580 abstract",
+        "Groeneboom arXiv:1111.2504 abstract",
+        "Independent_checks.py exact persistence numerical quadratures"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A Poisson point process of candidate events does not imply the derived point process of leader changes is Poisson; exact void a/(e^a−1) refutes that implication.",
+          "Classical homogeneous quadrant Poisson convex hull with linear score is not the same model after exponential change of variables."
+        ],
+        "reasoning": "Accessible prior source introduces the exact envelope; whether it already proves some quantitative leader-switch identities is unresolved by available text. Judged best-of-knowledge PASS only for the explicit additional conditional age/gamma/non-Poisson laws, not for the original model.",
+        "searches": [
+          "Fontes–Schinazi arXiv:2610.29759 abstract and model description",
+          "Boettcher–Robe–Sibani arXiv:1803.06580",
+          "Groeneboom arXiv:1111.2504"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original model uses the same exponential-mark Poisson upper envelope; distinguish candidate PPP from actual switching point process.",
+          "Groeneboom Poisson hull optimizes x+a z rather than x+t log z after z=e^{-y}."
+        ],
+        "reasoning": "The important potential equivalent is the champion renewal process in Fontes–Schinazi; accessible abstract is not decisive on Section 3 jump laws. The exact conditional rate and non-Poisson void are not located, with substantial explicit risk.",
+        "searches": [
+          "Resultary semantic: Poisson point process exponential marks maximizing t y minus x leader switches log time non Poisson persistence selective sweeps",
+          "Fontes–Schinazi arXiv:2610.29759",
+          "Groeneboom arXiv:1111.2504"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table of two-time champion persistence or log-time leader-switch interval void was retrieved."
+        ],
+        "reasoning": "Natural continuous-time stochastic distributions rather than finite databases; the table check means looking for formulas/tabulations under the exact PPP model, not presuming novelty from failed search.",
+        "searches": [
+          "Resultary semantic query on exponential mark envelope logarithmic switches",
+          "arXiv:2610.29759 candidate vs actual switching times"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precise final claim after Resultary and primary-paper statement/implication comparisons, with named inaccessible sources and residual risks explicitly retained: Exact aging and non-Poisson sweep times in an exponential-mark envelope. No failed search is represented as a proof of novelty.",
+      "residual_risks": [
+        "Directly matching source Fontes–Schinazi arXiv:2610.29759 could contain some of the asserted switch-time laws in unread Section 3; full-text institutional access was blocked (VPN disconnected).",
+        "Potential equivalent Poisson hull representation has not been ruled out by exhaustive full-text literature search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact underlying PPP model is prior; possible Section 3 champion switching formula coverage remains a material risk",
+          "evidence": "Abstract states scaling point-process limit to inhomogeneous PPP, not a verified exact non-Poisson leader-switch void law.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.29759",
+          "material_read": "Read available public arXiv abstract/model description and secondary technical summary; full text was not available; no whole-paper absence claim",
+          "method": "Public source search and attempted lawful OA; authorized institutional attempt returned VPN disconnected",
+          "title": "A branching model for selective sweeps",
+          "trigger": "Directly introduces the same PPP envelope and is highest priority"
+        },
+        {
+          "assessment": "Different record-driven aging model; does not force a log-Poisson conclusion in the present envelope",
+          "evidence": "Distinguishes a separate extremal dynamics record process from the linear-score champion.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.06580",
+          "material_read": "Public abstract and problem description, not full body",
+          "method": "Abstract/theorem topic comparison",
+          "title": "Aging is a (log-)Poisson Process, not a Renewal Process",
+          "trigger": "Potentially opposing general assertion about log-Poisson jump times"
+        },
+        {
+          "assessment": "Hull score becomes x+t log z rather than previously studied x+a z; not directly same jump process",
+          "evidence": "Score non-equivalence under z=e^{-y}.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.2504",
+          "material_read": "Public abstract and model description, not full body",
+          "method": "Public paper abstract with change-of-variable comparison",
+          "title": "The remaining area of the convex hull of a Poisson process",
+          "trigger": "Related Poisson hull jump process"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise switch process and its age-dependent residual life distinguish selected leader changes from the underlying candidate-mutation PPP. Exact aging, non-Poisson log-time structure, and almost-sure switch frequency are natural stochastic-process invariants and resolve an important modeling distinction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 actual RESULT.md and verify.py at frozen tree 669ffac607bd327b769c9c97de5693aedfbd467c",
+    "Fontes–Schinazi arXiv:2610.29759 public abstract and model",
+    "Boettcher et al. arXiv:1803.06580 abstract",
+    "Groeneboom arXiv:1111.2504 abstract",
+    "Independent_checks.py exact persistence numerical quadratures"
+  ],
+  "disposition": "passed",
+  "final_claim": "In the PPP on [0,infinity)×R with intensity dx e^{-y}dy and leader maximizing t y-x, the conditional residual reign law is Exp(e^{-Y_s}), persistence is s log(t/s)/(t-s), expected switches (1/2)log(t/s), Gamma(2,1) iid fitness increments give a.s. N(s,t)/log t→1/2, and stationary logarithmic switch times have void law a/(e^a-1) rather than a Poisson law.",
+  "limitations": [
+    "Theorem concerns limiting PPP, not finite branching population trajectories or their path-level convergence.",
+    "Only positive times, exponential marks, linear score and half-strip geometry; numerical quadratures do not prove infinite PPP law."
+  ],
+  "residual_risks": [
+    "Directly matching source Fontes–Schinazi arXiv:2610.29759 could contain some of the asserted switch-time laws in unread Section 3; full-text institutional access was blocked (VPN disconnected).",
+    "Potential equivalent Poisson hull representation has not been ruled out by exhaustive full-text literature search."
+  ],
+  "schema_version": 1
+}
