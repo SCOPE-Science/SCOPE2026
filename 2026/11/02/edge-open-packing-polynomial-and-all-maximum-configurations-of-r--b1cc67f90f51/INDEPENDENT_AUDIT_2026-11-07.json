@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T06:50:10.915473Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The forbidden-third-edge predicate is equivalent to B being an induced disjoint union of stars; rook-row and rook-column neighbor cliques force components to be 2-edge corners or single horizontal/vertical edges. Distinct components must have disjoint row and column indices, giving exact resource constraints R=2a+b+2c<=m, C=2a+2b+c<=n. Counting unordered row and column groups, matching like types and four corner-center choices produces the stated factorial coefficient with denominator 2^(b+c)a!b!c! and no double-counting. The resource bounds show t<=min(m,n), parity loss on odd squares, and every equality case by b,c constraints. An independent edge-pair forbidden-third-edge exhaustive implementation recovered all coefficients and maximum-counts for 2x2,2x3,2x4,3x3,3x4,4x4; no claim is based on extending finite data.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 Cartesian-product source offers a general lower bound and special graph-product examples, not equality-case classification of K_m Cartesian K_n.",
+          "The all-size generating polynomial implies the maximum and optimum counts, whereas prior generic bounds alone do not."
+        ],
+        "reasoning": "A more general induced-star forest enumeration for Hamming graphs would dominate; none was identified in inspected full texts or Resultary semantic hits.",
+        "searches": [
+          "edge open packing complete Cartesian clique products all maximum configurations and count square odd rectangular",
+          "Brešar Dravec Hedžet Samadi arxiv:2406.04020 Section 5 Corollary 5.3"
+        ]
+      },
+      "checked_sources": [
+        "Brešar--Samadi arxiv:2403.00750 (full text)",
+        "Brešar--Dravec--Hedžet--Samadi arxiv:2406.04020 (full text)",
+        "RAIRO 56 (2022) 3765-3776 (indirect bibliographic only)",
+        "Resultary semantic search graph-product packing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Brešar--Samadi induced-star characterization is an underlying lemma, but determining admissible rook components and exact label factors is additional counting.",
+          "Brešar et al. Corollary 5.3 provides a Cartesian lower bound; it does not give matching upper bound for odd square boards, the parity obstruction, or all coefficients."
+        ],
+        "reasoning": "The exact polynomial does not follow by substituting m,n into generic lower bounds. The new object/invariant interaction is the exact support-disjoint component bijection and all maximum types.",
+        "searches": [
+          "Brešar Samadi arxiv:2403.00750 edge open packing complexity and bounds",
+          "Brešar Dravec Hedžet Samadi arxiv:2406.04020 Induced matching vs edge open packing trees and product graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The edge-open-packing condition equals selecting an induced star forest; two-factor Hamming/rook graphs are Cartesian products of two cliques.",
+          "The present solution counts all disjoint 2x2 corner configurations and lone row/column edges, a stricter enumeration than a general edge-open-packing number."
+        ],
+        "reasoning": "Searches included rook graph, Hamming H(2;q), induced star forest, Cartesian complete products and labeled polynomial counts to catch equivalent invariants; none of the inspected primary results states this bivariate formula.",
+        "searches": [
+          "edge open packing polynomial rook graph Cartesian product of complete graphs exact maximum",
+          "arxiv:2403.00750",
+          "arxiv:2406.04020"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary found related exact results for complete bipartite graphs and other graph invariants, not the edge-open-packing polynomial of a rook graph.",
+          "Fresh exhaustive 2x2 through 4x4 subset enumerations agree with polynomial coefficients including 3x3 maximum count 45; finite tables alone do not prove all m,n."
+        ],
+        "reasoning": "No exact published table for the same polynomial and all m,n was found; the full coefficient formula itself is more than a scalar packing number or a finite table.",
+        "searches": [
+          "edge open packing polynomial rook graph Cartesian product of complete graphs exact maximum",
+          "Resultary semantic query: edge open packing polynomial rook graph Cartesian product of complete graphs exact maximum"
+        ]
+      },
+      "rationale": "PASS, qualified. Prior Brešar--Samadi develops the edge-open-packing invariant and induced-star equivalence, and Brešar et al. prove general Cartesian-product bounds. The inspected full-text product theorem gives a lower bound, not an exact two-parameter rook-graph polynomial or classification of odd-square maxima. No published dominating formula found by targeted search.",
+      "residual_risks": [
+        "Unindexed rook/induced-star-forest enumeration, possibly the earlier 2022 paper or a supplement, may already imply the polynomial.",
+        "Only two-factor Cartesian products of complete graphs are covered, not arbitrary Hamming graphs or other product classes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational induced-star interpretation and general complexity; no exact rook-graph polynomial in material checked",
+          "evidence": "The all-size rectangular polynomial uses row/column disjointness beyond general induced-star equivalence.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.00750",
+          "material_read": "Accessible primary full-text PDF, definitions and principal packing/bounds statements; pages inspected",
+          "method": "arXiv full-text PDF with theorem-level reading",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "same edge-open-packing definition and induced-star lemma"
+        },
+        {
+          "assessment": "Generic lower bounds, not exact K_m Cartesian K_n enumerator or all extremizers",
+          "evidence": "A lower bound does not imply maximum=min(m,n)-1 on odd square nor factorial coefficient distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.04020",
+          "material_read": "Accessible full-text paper, Section 5 Cartesian-product statement and Corollary 5.3, PDF pages visually inspected",
+          "method": "arXiv full-text PDF with detailed Section 5 inspection",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "directly relevant product graph and clique factors"
+        },
+        {
+          "assessment": "Historical coverage remains possible and must not be represented as whole-document noncoverage",
+          "evidence": "Later sources credit foundational definitions to this article; no proof that the older paper lacks a rook specialization.",
+          "identifier_or_url": "RAIRO Operations Research 56 (2022) 3765–3776",
+          "material_read": "Bibliographic citation located through later papers, complete primary full text not examined",
+          "method": "secondary bibliographic mention only",
+          "title": "Edge open packing sets in graphs",
+          "trigger": "earlier foundational invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: K_m Cartesian K_n is the canonical two-factor Hamming/rook graph. A complete all-size enumerating polynomial, precise parity obstruction on odd-square boards and all labeled maximizing configurations are natural structural strengthening of existing edge-open-packing bounds. They are potentially useful as exact benchmarks for product graph packing and induced-star constraints.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Brešar--Samadi arxiv:2403.00750 (full text)",
+    "Brešar--Dravec--Hedžet--Samadi arxiv:2406.04020 (full text)",
+    "RAIRO 56 (2022) 3765-3776 (indirect bibliographic only)",
+    "Resultary semantic search graph-product packing"
+  ],
+  "disposition": "passed",
+  "final_claim": "For m,n>=2, every edge-open-packing on K_m Cartesian K_n decomposes uniquely into disjoint row-and-column-support corners (two edges), horizontal or vertical single edges. Its complete polynomial has coefficients m!n!/[2^(b+c)a!b!c!(m-2a-b-2c)!(n-2a-2b-c)!] for admissible triples (a,b,c), maximum min(m,n)-1 if m=n odd and min(m,n) otherwise, with exact labeled counts and configurations of all maxima.",
+  "limitations": [
+    "Simple graphs m,n>=2, labeled boards and original third-edge packing predicate; finite original-definition census is limited to displayed six boards."
+  ],
+  "residual_risks": [
+    "Unindexed rook/induced-star-forest enumeration, possibly the earlier 2022 paper or a supplement, may already imply the polynomial.",
+    "Only two-factor Cartesian products of complete graphs are covered, not arbitrary Hamming graphs or other product classes."
+  ],
+  "schema_version": 1
+}
