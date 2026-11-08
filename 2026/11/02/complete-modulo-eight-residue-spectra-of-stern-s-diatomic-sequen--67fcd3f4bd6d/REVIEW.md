@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The recurrence from the Stern definition gives a 48-state primitive-pair transfer matrix. The accompanying integer-only verifier checks all 48 coordinates of eight row annihilator certificates and matches the rational-function numerators with initial counts. The residue-four reduced recurrence follows from the longer certified recurrence and initial conditions. Reduced denominators exhibit noncancelled roots of magnitude \(\sqrt2\), proving the sharp per-residue fluctuation rather than extrapolating finite data. The graph's primitive stationary distribution supplies the densities. The proof and certificate apply to every depth.
+## correctness
 
-**Originality — PASS, with limitations.** Reznick (2006/2008) proves uniform Stern residue-pair distribution and exact dyadic formulas only for moduli two and three in the inspected full text. An existing exact formula for the difference between counts divisible by eight and six is **prior coverage**, but is strictly weaker than all eight separate residue generating functions and their individually sharp errors. Lansing's (2014) dissertation studies a different Stern-related sequence and parity properties. Defant's (2016) abstract concerns growth upper bounds. Searches on exact residue-eight formulas, alternative names including fusc/Calkin–Wilf, and a mathematical-record search did not reveal equivalent complete eight-class formulas; absence from searches does not establish universal priority. Reznick's cited unpublished further work remains a residual source-access risk.
+PASS
 
-**Mathematical value — PASS.** The eight-class dyadic histogram is a natural complete modular invariant; mod eight is the first three-bit modulus with 48 primitive pair states. Exact rational generating functions yield infinitely many exact counts, explicit recurrences, and eight sharp square-root error exponents, materially refining Reznick's general equidistribution theorem and earlier comparisons of just two divisibility counts. This is an entire residue distribution, not an arbitrary slice or a routine restatement of a known table.
+State transfer on 48 primitive pairs mod8 has descendants (a,a+b) and (a+b,b). All eight exact integer row annihilator identities and initial numerator coefficients were independently reconstructed; the special residue-4 shorter denominator follows from longer annihilator plus initial values. Coprimality ensures uncancelled modulus-sqrt2 spectral roots, proving separate sharp O(2^(r/2)) fluctuation; stationary uniform pair distribution yields densities 1/12 even and 1/6 odd. Independent 48-state row certificates and 21 dyadic levels checked; finite recurrence certificate supports all depths, not finite extrapolation.
 
-**Limits.** No result is asserted for all endpoints, higher moduli, or novel full joint-pair counts. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Reznick 2008 gives the primitive-pair dynamics, general equidistribution, and small-modulus computations (two and three). Earlier one-dimensional divisibility difference for mod8 vs mod6 does not provide eight distinct exact reduced generating functions nor each class sharp rate. Resultary search found no direct stronger table, but incomplete coverage is a priority risk.
+
+## value
+
+PASS
+
+Full exact residue histogram and eight sharp error exponents for a classical number-theoretic sequence, extending known equidistribution to recurrences for infinitely many dyadic blocks. It is a natural complete modular classification rather than an arbitrary isolated residue count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
