@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a proposed symbol sequence, the linear recurrence on the zero-trace slice has a unique periodic solution because \(0<b<1\) and \(1-(-b)^L\ne0\). A strict-vs-inclusive threshold comparison characterizes exactly when this solution follows its proposed branches; hence the finite certificate enumerating every one of the 358 nonzero ternary words of lengths one through five proves the complete short-period census on \(b=1/4\). The four admissible length-five necklace classes and their exact rational intervals are printed in the result, and the exhaustive checker independently verifies each via exact arithmetic. For general \(0<b<b_*\), explicit formulas satisfy the published map and give a nonempty open parameter strip with two distinct attracting prime-five cycles. Since \(J^2=-bI\), the five-step multipliers have modulus \(b^{5/2}<1\); strict branch inequalities provide genuine local neighborhoods of attraction. The neutral fixed point remains locally attracting. The theorem excludes all longer-period classification claims.
+PASS
 
-## Originality — PASS within inspected evidence
+For zero trace c=1+b, map F(x,y)=(-b y+d sigma_h(x-y),x), 0<b<1, prescribed n-periodic ternary symbols yield a UNIQUE exact periodic response z_i=(Σ_{k=0}^{L-1}(-b)^k s_{i-1-2k})/(1-(-b)^L), L=n/gcd(n,2). This is a closed finite linear system since denominator !=0. Branch feasibility: active s_i u_i>0 and r=d/h>1/H strictly; neutral r<=1/Z inclusively. For b=1/4 independently enumerated exactly every 358 nonzero words of lengths 1..5 in rational arithmetic, mod cyclic rotations, obtaining precisely four feasible n=5 classes: (-1,-1,0,1,0),(-1,0,1,1,0), each r in (205/252,205/188], and (-1,-1,0,1,1),(-1,-1,1,1,0), each r in (41/16,41/4]. None for n<=4. Intersect 0<r<1 leaves exactly two primitive 5-orbits above threshold, none at equality because active threshold is strict and grazing point neutral. For 0<b<b* solving b+2b³=1, explicit five-word difference tuple and Q,Z bounds yield nonempty r interval Q/(1-b³)<r<min(1,Q/Z); odd symmetry gives distinct second orbit. Jacobian J²=-b I, so both strict-itinerary cycles locally attracting (five-step multipliers magnitude b^(5/2)); origin stable. Complete census only period<=5 and b=1/4; nonempty parameter open family not full phase diagram, no long-period exclusion.
 
-Gardini et al. (2023), DOI `10.1016/j.chaos.2023.114143`, is the primary source defining this three-zone map. Its analytically derived period-adding sequences and illustrated five-cycles have only one neutral visit at period five and are studied in the \(d>h\) regime. Its concluding remarks expressly raise \(0<d<h\) for further study. The full accessible article content was checked at the defining formulas, cycle-family derivations, numerical figures and conclusion. Gardini et al. (first published 2024), DOI `10.1017/S1365100524000439`, treats a rescaled equivalent map; its main cycle discussion and global-stability appendix restrict the driving ratio and do not imply this exact weak-sentiment five-cycle threshold. The earlier two-branch model lacks the inactive middle regime. Searches for the numerical threshold, sign words, equivalent recurrence, and result-level coverage found no covering claim among accessible indexed findings or accessible prior scientific claims. This is evidence of a gap, not proof of worldwide priority. An unindexed or uninspected analysis remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Weak forcing \(d<h\) is a mathematically and economically natural regime explicitly left open by the source. The theorem gives a nonempty open coexistence strip, an exactly sharp border-collision threshold, and a complete short-period census at a natural zero-trace rational parameter, rather than an arbitrary numerical example or a renaming of known five-cycles. The branch boundary matters: the critical cycle disappears because equality is neutral. The calculation is useful for testing numerical bifurcation portraits that can miss multiple small attracting basins and for understanding what changes when neutral trading spans more than one visit. No broader dynamical claim is inferred from the finite census.
+PASS (best of knowledge). The model itself and overlapping periodicity are prior work by Gardini–Radi–Schmitt–Sushko–Westerhoff (2023) and 2025 continuation. Comparison of their actual parameter regimes and symbolic words shows their principal theorems use d>h or cycles with other neutral counts, whereas this finding proves sharp onset at d/h=205/252 in 0<d<h with two neutral visits and exhaustive primitive periods <=5. Research Resultary hits for two-zone maps or other piecewise-affine periods are not equivalent. Possible missed weak-forcing appendix or unindexed symbolic search remains residual risk.
 
-## Residual risks and limits
+## value
 
-The result is restricted to the zero-trace slice and (for the complete short-period census) a specified rational point of that slice. Literature searches cannot exclude unpublished equivalents or all unindexed theses. The software certificate's finite enumeration only proves periods at most five on the rational slice. Independent mathematical audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A precise threshold and complete short-period classification in the previously less-studied weak-sentiment regime is an independently motivated dynamical fact: grazing-boundary inclusion is mathematically decisive, the two distinct attracting 5-orbits coexist with a stable equilibrium, and finite exhaustive word space is exactly relevant to the period<=5 statement. No claim beyond period five or global dynamics is needed for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
