@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The exact cross criterion follows from tensor adjacency; bipartite Koenig duality and matching size >=3 exhaust configurations. If matching number <=2 the two-row/two-column cover forces precisely two selected cells on each line; converses check deletion minimality. The four-cell overlap is exactly a 2x2 rectangle. The polynomial follows by inclusion-exclusion. The smallest disconnected case is covered. Independent brute enumeration by original graph definition agrees for 9 parameter pairs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kazemi 2017, Proposition 7 establishes upper k-tuple total-domination for K_n tensor K2, with Question 1 extending to general pairs.",
+        "Burcroff–O’Brien 2021, Section 5.1 establishes unimodality for ordinary domination polynomials of connected complete-graph products.",
+        "Bahadır–Ekim–Gözüpek 2020, Sections 2–4 give generic well-totally-dominated graph criteria."
+      ],
+      "reasoning": "None of the inspected broad theorems provides the size distribution of inclusion-minimal total dominating sets for arbitrary m,n. The direct-product domination polynomial uses closed neighborhoods and cannot alone infer exact minimal total sets.",
+      "searches": [
+        "\"upper total domination\" \"direct products of complete graphs\" \"4\"",
+        "\"upper total domination number\" \"K_m\" \"K_n\" direct product",
+        "\"total domination\" \"direct product of complete graphs\" minimal sets counting"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2110.00709v1 (Burcroff–O’Brien 2021, full-text inspection)",
+      "arXiv:1603.02428v1 (Kazemi 2016, 2017 journal; full-text inspection)",
+      "arXiv:2010.02341v1 (Bahadır–Ekim–Gözüpek 2020, full-text inspection)",
+      "K-tuple total domination in cross products of graphs (2012, accessible abstract: minimum only)",
+      "Wolfram GraphData documentation (generic property only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kazemi 2017, Proposition 7 and Question 1 are directly comparable: k=1, K2 boundary known, general factors asked.",
+        "Burcroff–O’Brien 2021, Section 5.1 gives an ordinary-domination unimodality theorem rather than a minimal-total-domination enumerator.",
+        "Koenig matching–cover theorem supplies the proof method but no particular graph family polynomial by itself."
+      ],
+      "reasoning": "The present claim strictly strengthens the known k=1 factor-two upper case and supplies counts for m,n>=3. It does not assert resolution for k>1. Neither the ordinary domination-polynomial result nor Kazemi’s special case entails the new exact coefficients.",
+      "searches": [
+        "\"K_m \\times K_n\" \"minimal total dominating sets\"",
+        "\"upper total domination\" \"direct products of complete graphs\" \"4\"",
+        "\"Unimodality and monotonic portions of certain domination polynomials\" arxiv 2021-10-02"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Direct product is also called tensor/categorical/cross product (Kazemi 2017, Section 5); selected cells correspond to bipartite edges whose row-column crosses are forbidden.",
+        "Full text Kazemi 2017, Section 5, Proposition 7 and Question 1: only special upper bound with K2 factor, not arbitrary m,n enumerator."
+      ],
+      "reasoning": "A graph-theoretic equivalent is a minimal edge subset of a complete bipartite grid that escapes every row-column cross. Existing cross-product upper-number results do not enumerate all minimal such subsets. The generic minimal-transversal language is a restatement, not a known exact enumerator.",
+      "searches": [
+        "\"minimal total dominating sets\" \"complete graph\" \"direct product\" counting",
+        "\"minimal total dominating sets\" \"direct product\" \"K3\" \"K4\"",
+        "\"tensor product\" \"complete graphs\" \"minimal total domination\" count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wolfram GraphData documentation lists a general MinimalTotalDominationPolynomial property for individual named graphs; it does not state a symbolic formula for all direct-product parameters.",
+        "No exact two-variable polynomial table emerged from the targeted literature searches."
+      ],
+      "reasoning": "A facility to compute individual finite graph polynomials is not a formula covering all factor orders. An unindexed exact enumeration remains an acknowledged priority risk.",
+      "searches": [
+        "\"complement of rook graph\" \"minimal total dominating sets\"",
+        "\"total domination polynomial\" \"direct product\" \"complete graphs\""
+      ]
+    },
+    "rationale": "Kazemi proves an upper-number special case for a factor of order two and asks about arbitrary factors; the present theorem handles the k=1 case in every dimension and uniquely enumerates all inclusion-minimal total dominating sets. Burcroff–O’Brien Section 5.1 studies ordinary domination-polynomial unimodality, and Bahadır–Ekim–Gözüpek study general WTD structure; none of their inspected statements imply the exact family classification. Targeted literature and database searches found no stronger or identical result, subject to publication-priority risk.",
+    "residual_risks": [
+      "Search engines, indexed records and visible full-text sources are not a complete literature census; an equivalent result could occur in an unindexed table or differently termed cross-family paper.",
+      "The Wolfram named-graph database was not exhaustively enumerated over products, and no priority conclusion is drawn from its search results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: addresses ordinary domination coefficients and unimodality, not minimal total domination family or size polynomial",
+        "evidence": [
+          "Section 5.1, Theorem 5.5 concerns unimodality for domination polynomials of direct products of complete graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2110.00709",
+        "material_read": "ResearchGate accessible full-text rendering, definitions, Section 5.1 through Theorem 5.5 and Section 5.2 introduction",
+        "method": "Read textual full-text rendering and inspected result statements and neighborhood conventions",
+        "title": "Unimodality and monotonic portions of certain domination polynomials",
+        "trigger": "Same graph products and domination polynomial"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: upper parameter when one factor is K2 already known; arbitrary two complete factors and full k=1 enumerator not stated",
+        "evidence": [
+          "Proposition 7: upper k-tuple total domination on K_n tensor K2 is 2k+2; Question 1 asks if 2k+2 extends to arbitrary factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1603.02428",
+        "material_read": "ResearchGate accessible full-text rendering, Definitions 4–5, Section 5, Proposition 7 and Question 1, relevant conclusion",
+        "method": "Read full-text rendering around exact cross-product statements",
+        "title": "Upper k-tuple total domination in graphs",
+        "trigger": "Exact open upper-total-domination comparison on same products"
+      },
+      {
+        "assessment": "NOT_COVERING: develops general WTD recognition and WTD(2) structures; does not count minimal sets of K_m tensor K_n",
+        "evidence": [
+          "Introduction and Section 2 define WTD and minimal total domination; Section 3 concerns WTD(2), Section 4 girth restrictions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.02341",
+        "material_read": "Accessible ar5iv full-text HTML, abstract, Introduction, Sections 2–4, discussion and bibliography",
+        "method": "Inspected entire HTML article text and scoped terms product/complete",
+        "title": "Well-Totally-Dominated Graphs",
+        "trigger": "Definition and structural motivation for all minimal total dominating sets having equal size"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b38db5e1-1608-4652-af0e-3bb98c77f6a4",
+  "value": {
+    "rationale": "A natural two-parameter family receives a complete, explicit inclusion-minimal total-domination distribution. The upper number equals four for all factors, extending Kazemi’s known K_n tensor K2 case to the k=1 question for arbitrary factors. The exact minimum-size phase transition and well-totally-dominated classification follow, with motivations in product domination and minimal-set enumeration.",
+    "status": "PASS"
+  }
+}
