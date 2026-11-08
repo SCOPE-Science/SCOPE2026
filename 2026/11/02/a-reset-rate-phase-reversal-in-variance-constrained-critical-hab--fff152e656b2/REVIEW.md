@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The boundary value problem for the exponentially killed exit potential is solved in all three parameter regimes. A positive rank-one resolvent argument verifies the critical equation's relationship to the principal growth eigenvalue. Brownian scaling proves uniqueness of its critical halfwidth. Strict convexity/concavity in squared reset radius and Jensen/chord inequalities prove the sharp law bounds and equality cases. The standalone verifier corroborates the derivation with exact moments, 13 rates, intermediate laws, numerical root bracketing and independent finite-difference solutions (846 deterministic finite checks).
+## correctness
 
-**Originality — PASS, qualified best-knowledge.** The closest physical paper, Menon–de Castro–Anteneodo (2025; arXiv:2505.03727), calculates critical habitat size for fixed reset locations and explicitly identifies *distributed reset locations* as a future direction. The most relevant distributed-reset studies by Méndez–Flaquer-Galmés–Campos (2024) and Julián-Salgado–Dagdug–Boyer (2025) study an unbounded-target first-passage setting and optimal reset rates, not sharp moment-constrained laws for a finite Dirichlet population-growth threshold. Multiple genuine claim/alias, broader-result and formula searches of research records and accessible prior claims revealed no equivalent finding. Residual risks include uncatalogued convex-order resetting results and incomplete full-text coverage of the 2024 13-page source. An unsuccessful search is not proof of priority.
+PASS
 
-**Value — PASS.** The precise question is motivated by conservation-oriented habitat thresholds and experimentally meaningful constraints on relocation locations. The theorem proves an all-law optimum rather than a numerical comparison of two handpicked examples: optimum, pessimum, uniqueness and an exact degenerate transition at the growth-reset resonance, all with a concise rigorous mechanism.
+The killed diffusion with Poisson resetting and linear mean-growth generator is a rank-one positive perturbation of Dirichlet diffusion. Positive resolvent eigenvalue equation 1=r E[F_{lambda+r-g}^{(L)}(LZ)] has a unique principal solution, and the lambda=0 branch has a unique L_c by scaling of Brownian exit time. For s=r-g positive, killed resolvent F_s(Lz)=(1-cosh(Lz sqrt(s/D))/cosh(Lsqrt(s/D)))/s is strictly concave in w=z^2; for s negative and L below the first Dirichlet pole it is strictly convex; at s=0 it is affine L^2(1-w)/(2D). Jensen and endpoint chord inequalities at fixed Ew=sigma^2 therefore identify unique shell W=sigma^2 and unique center/edge W in {0,c^2}, with EZ=0 forcing their symmetric masses. The ordering of the resolvent reverses at r=g and the ordering of L_c reverses accordingly. At r=g every admissible law has L_c=sqrt(2D/[g(1-sigma^2)]). Independently numerically solved the three continuous Dirichlet-resolvent roots at r/g=.3,1,3 and checked strict reversal and resonance. The proof is for principal mean growth, not almost-sure nonextinction.
 
-**Scientific limitations.** One dimension, fixed fractional spatial support, fixed variance and mean, independently resampled reset destinations, instantaneous resets, ideal absorbing boundaries and linear mean growth. No almost-sure infinite-population persistence, partial external mortality, nonlinear population dynamics or higher-dimensional analog is proved. The finite verifier does not certify any universal proof or novelty claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Menon–de Castro–Anteneodo directly studies critical habitat sizes and resetting but to a fixed resetting position; its distributed-reset extension is not the quantified all-law second-moment comparison. Méndez–Flaquer-Galmés–Campos and Julián-Salgado–Dagdug–Boyer give distributional resetting and first-passage/rate optimization in different unbounded geometry. Their renewal tools may derive a resolvent but do not in inspected passages imply both sharp variance-constrained extremizers and their growth-rate reversal. Exact comparison with a more general convex-order theorem is a plausible priority risk rather than a demonstrated covering source.
+
+## value
+
+PASS
+
+Sharp minimax design over all atomic, nonsymmetric and mixed reset laws with fixed variance and bounded fractional habitat support is a natural, motivated constrained optimization. The jump from center-plus-edge law to two-site shell at r=g, strict uniqueness off resonance and law independence at resonance give a complete structural result for a mean-growth habitat threshold rather than a two-case numerical observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
