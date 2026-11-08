@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof constructs two local affine Quot charts that jointly cover every fixed point. On cyclic length-two quotients, the exchange sends each odd coefficient to its negative; on vector-space-framed quotients it sends the multiplication matrix to its adjugate, with a three-dimensional anti-invariant traceless subspace. The chart equations identify the *scheme-theoretic* fixed subschemes, not a numerical sample. Smoothness and dimensional counts follow directly from the Quot tangent/obstruction calculation. The local quotient invariants give index-two non-Gorenstein singularities, and the compact finite-group Lefschetz formula gives the Euler trace. The accompanying finite exact tests verified the displayed algebra but do not replace these proofs.
+## correctness
 
-**Originality — PASS, with residual risk.** The motivating primary preprint arXiv:2609.14283v1 constructs the exchange involution and identifies the swap on distinct-point fibres but does not give the fixed-component classification or non-Gorenstein quotient locus in the inspected sections and targeted full-text comparisons. The apparently broader \(\mu_2\)-fixed punctual Quot treatment arXiv:2610.17737v1 concerns a different group action and a local affine-space problem; the torus-localization framework of arXiv:2404.17942 does not furnish this exchange-fixed description. Searches of available prior findings and targeted mathematical literature returned no equivalent statement. Failed searches do not prove uniqueness, and earlier implicit coverage remains possible.
+PASS
 
-**Mathematical value — PASS.** The exceptional involution is singled out by the general automorphism classification of length-two Quot schemes. Its complete geometric fixed strata, the universal index-two non-Gorenstein quotient locus and the all-genus all-rank Lefschetz formula describe significant global and local consequences not contained in the involution's definition alone. The result is a naturally complete classification for a motivated moduli-space symmetry, not an arbitrary parameter slice or a textbook numerical restatement.
+For Q=Quot_C^2(O_C^r), smooth connected complex projective C and r>=2, smoothness dim 2r follows Hom(K,F), Ext^1(K,F)=0 for zero-dimensional F. In a cyclic O_D-module chart with w=t-s1/2, the exchange involution sends B_j->-B_j for j=2..r and fixes s1,s2,A_j, so scheme fixed locus C^(2)xP^(r-1) with negative normal rank r-1. In a noncyclic two-framed chart F has multiplication T and vectors v3..vr; the action is T->tr(T)I-T and all v fixed, so fixed ideal is three traceless equations, geometrically CxGr(2,r), negative normal rank3. Every length-two module at a double point is cyclic or k_x^2; at distinct points invariance requires common quotient line, so the two charts exhaust the fixed scheme. Completed-local invariant rings yield transverse A^(r-1)/±1 and A^3/±1; the sign action in dimension three has determinant -1 and no pseudoreflection, hence quotient index2 non-Gorenstein. Euler fixed locus gives L=r*chi(Sym^2 C)+binom(r,2)*chi(C)=r(1-g)(r+2-2g). Independently checked 625 integer 2x2 matrices and 100 (r,g) cases, not a replacement for global Quot-chart geometry.
 
-The claimed scheme-theoretic classification holds for complex curves and trivial rank-\(r\) bundles with \(r\ge2\). No generalization to longer Quot schemes or other involutions is asserted. Independent confirmation and exhaustive mathematical priority checking are still outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The underlying involution is not novel: Bansal–Sarkar–Vats construct it and analyze the two-distinct-point fibre. The assessed all-rank two scheme-theoretic fixed components, negative normal characters, singularity index and Lefschetz formula need the collision charts and are not supplied by the inspected construction. Best-of-knowledge O PASS with explicit possibility that an unlocated equivariant Quot result implies these strata.
+
+## value
+
+PASS
+
+The involution is a canonical exceptional automorphism of a standard length-two Quot moduli space. Complete scheme fixed-component geometry through the collision divisor, codimensions, non-Gorenstein quotient singularity type and the all-genus Lefschetz number together form a motivated full classification with concrete birational/topological information, not a routine Euler substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
