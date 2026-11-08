@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T19:49:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Q4 the graph condition is exactly selected vertices have at least two selected neighbors, and unselected vertices at least one. All 2^16 masks were examined by source and by separate independently implemented C++ enumeration. For Q5, write D=A∪B' by Q4 layers; any D satisfies the 2-limited constraint iff P(A)∧P(B)∧R(A)⊆B∧R(B)⊆A, where P requires ≥2 within-layer selected neighbors at each selected vertex and R selects the deficits (selected with exactly two, or unselected with none). This is an exact decomposition of every 32-bit set. Both programs enumerated all 8122 possible layers and all 8122²=65,966,884 ordered pairs without early pruning; independent output exactly 16 and 1830, while Q4 gives 8 and 428. The coordinate flip/adjacent-coordinate-swap generators span the entire cube automorphism group and independent BFS agrees with all six orbit sizes and canonical reps. This is exhaustive finite proof for Q4,Q5, not an inference to larger cubes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known γ₁ᴸ(Q4)=8 and γ₁ᴸ(Q5)=16 imply only γ₂ᴸ ≤ those numbers and do not prove lower bounds.",
+          "The total-domination formula applies to k=d−1, not k=2 for d=4,5."
+        ],
+        "reasoning": "Neither a monotone upper bound nor a different k-regime implies the exact minima or their complete symmetry orbit census.",
+        "searches": [
+          "arXiv:2606.22428 Table 3 hypercube k limited",
+          "arXiv:2606.22422 k limited domination in graphs",
+          "gamma_{d-1} limited hypercube total domination"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.22428 first version §5 Table 3",
+        "https://doi.org/10.1007/s40314-026-03902-2",
+        "https://arxiv.org/abs/2610.01584 abstract",
+        "Resultary hypercube limited-domination and full-orbit searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tepeh known first-row k=1 results yield upper bounds but not lower bounds at k=2.",
+          "Perfect domination and ordinary domination impose different constraints and do not count these (1,d−2) optimizers."
+        ],
+        "reasoning": "Distinct domination parameters were checked for logical implication; neither implies the two exact k=2 values or the orbit breakdown.",
+        "searches": [
+          "arXiv:2606.22428 §5 hypercube results",
+          "Weichsel 1994 Dominating sets in n cubes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For d-regular graphs 2-limited domination equals (1,d−2)-domination: at least d−2 inside neighbors for selected vertices and ≥1 selected neighbor outside.",
+          "Source Table 3 of Tepeh lists k=2, d=4,5 blank."
+        ],
+        "reasoning": "Searched both standard notation systems, requiring matched degree and parameter rather than a generic hypercube-domination number.",
+        "searches": [
+          "2 limited domination hypercube Q4 Q5 exact cardinality optimizer symmetry orbit",
+          "\"(1,d-2)\" domination Q4 Q5 hypercube",
+          "\"gamma_2^L\" \"Q5\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary Table 3 has unfilled k=2 Q4 and Q5 entries in its first version, making the two solved cells specifically new relative to that table.",
+          "No matching 428/1830 labelled counts or six-orbit table appears in the inspected nearby primary passages."
+        ],
+        "reasoning": "The explicitly relevant table was checked, not merely generic literature search. A subsequent revised table could affect priority.",
+        "searches": [
+          "Tepeh arXiv:2606.22428 Table 3 Q4 Q5 k=2",
+          "two limited dominating sets Q5 1830 6 orbits count table",
+          "2 limited domination hypercube Q4 Q5 exact cardinality optimizer symmetry orbit"
+        ]
+      },
+      "rationale": "Tepeh 2026 arXiv:2606.22428v1 presents k-limited domination and explicitly leaves the k=2,d=4,5 hypercube Table 3 cells blank; its available k=1 cube values only give upper bounds and k=d−1 total domination has a different condition. Božović studies Sierpiński graphs. The new finite values and full minimizer orbit enumerations are not directly covered by these primary statements. Later revisions and unindexed hypercube (1,d−2)-domination tables remain a risk.",
+      "residual_risks": [
+        "A later full revision of the exact primary preprint or an independent (1,d−2)-domination table may fill the same entries.",
+        "Finite certificate depends on correct complete subset/layer traversal, checked independently; no general dimension result proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Table 3 explicitly leaves d=4,5,k=2 cells unfilled; provides upper bounds via more restrictive k",
+          "evidence": "§5 and Table 3; first-version published June 21, 2026.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.22428",
+          "material_read": "full available first-version HTML transcript including definition, hypercube results and Table 3",
+          "method": "author preprint text mirrored as complete readable HTML",
+          "title": "On k-limited domination: complexity and Cartesian products",
+          "trigger": "same parameter, same hypercube family, explicit known-value table"
+        },
+        {
+          "assessment": "covers general framework, not the inspected finite optimizer census",
+          "evidence": "Regular graph relation γ_k^L(G)=γ_{1,d−k}(G).",
+          "identifier_or_url": "https://doi.org/10.1007/s40314-026-03902-2",
+          "material_read": "open-access article abstract, definition and equivalence statements",
+          "method": "publisher HTML",
+          "title": "On k-limited domination in graphs",
+          "trigger": "foundational definition and (1,t) equivalent formulation"
+        },
+        {
+          "assessment": "object differs: Sierpiński graphs; no whole-document exclusion made",
+          "evidence": "New Sierpiński results do not imply labelled Q4 or Q5 optimizer counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01584",
+          "material_read": "abstract and stated family",
+          "method": "arXiv abstract",
+          "title": "On k-limited domination: complexity and Sierpiński graphs",
+          "trigger": "potential other finite-family tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two consecutive naturally missing cells in an explicit hypercube parameter table, combined with full labeled optimum counts and group-orbit classification, are motivated exact invariants of central symmetric regular graphs. They quantify not merely cardinality but optimizer degeneracy; no arbitrary subset of examples or extrapolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The 2-limited domination numbers γ₂ᴸ(Q4)=8 and γ₂ᴸ(Q5)=16, with exactly 428 and 1830 labelled minimizers respectively; under the full hypercube automorphism groups there are exactly six orbits each, of Q4 sizes 8,12,24,96,96,192 and Q5 sizes 10,20,120,240,480,960.",
+  "limitations": [
+    "A later full revision of the exact primary preprint or an independent (1,d−2)-domination table may fill the same entries.",
+    "Finite certificate depends on correct complete subset/layer traversal, checked independently; no general dimension result proved."
+  ],
+  "schema_version": 1
+}
