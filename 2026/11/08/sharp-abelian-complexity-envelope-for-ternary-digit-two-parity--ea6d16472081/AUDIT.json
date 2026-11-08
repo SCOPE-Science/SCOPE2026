@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The signed image recurrence \\(W_{k+1}=W_kW_k(-W_k)\\) gives unit total signed weight and exact prefix extrema \\(M_k=k+1\\), \\(m_k=\\min(0,2-k)\\), checked from the initial state. Because each factor of length \\(n\\le3^k\\) meets no more than two aligned kth substitution blocks, all possible sign choices are bounded by the prefix-extrema inequalities, yielding \\(|S|\\le2k+1\\), including the \\(k=0\\) boundary. The factor 01 supplies adjacent opposite blocks; choosing a maximizing prefix makes a length-\\(3^k\\) factor with signed weight \\(-(2k+1)\\). Complement closure supplies \\(+(2k+1)\\), and sliding windows realize all intermediary Parikh counts, hence exactly \\(2k+2\\). These steps give the all-length sharp logarithmic envelope. Extracted standalone verify.py passed 177147 digit-formula comparisons, supertile extrema through \\(k=8\\), exact scale complexity through \\(k=7\\), and all 300 short-length bound tests. Finite checks are supplementary to the arbitrary-k proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blanchet-Sadri, Fox and Rampersad uniform-morphism classification (2013 public slides, §4.2) distinguishes \\(d=1\\), \\(\\Delta>0\\) and states \\(O(\\log n)\\) as the known general bound; their §5 poses a logarithmic lower-growth question.",
+        "For the particular map, the image-zero difference \\(d=1\\) and the length-three excess \\(\\Delta=3-2=1\\), so this generic \\(O(\\log n)\\) statement applies but has no explicit coefficient or equality at powers.",
+        "Blanchet-Sadri, Seita and Wise (2016) abstract describes automaticity of the forward-difference word for binary uniform morphisms, a generic computability statement rather than the closed form in this claim."
+      ],
+      "reasoning": "A generic algorithm or logarithmic upper order neither establishes the exact lower growth nor determines its sharp coefficient and values at all ternary-power lengths. The inaccessible full version of the 2016 algorithmic paper remains a stated risk but has no verified matching implication.",
+      "searches": [
+        "\"On the asymptotic abelian complexity of morphic words\" pdf blanchet sadri Fox Rampersad 2014",
+        "\"Computing abelian complexity of binary uniform morphic words\" pdf Blanchet Sadri Seita Wise",
+        "Blanchet Sadri Fox Rampersad 2014 \"001\" \"110\" \"abelian\"",
+        "\"001\" \"110\" \"abelian\" \"fixed point\""
+      ]
+    },
+    "checked_sources": [
+      "Allouche et al., arXiv:2610.03837 (2026-10-02), Remark 4 and Theorem 7, primary PDF",
+      "Blanchet-Sadri, Fox and Rampersad, Advances in Applied Mathematics 61 (2014), related 2013 presentation sections 4.2 and 5",
+      "Blanchet-Sadri, Seita and Wise, Theoretical Computer Science 640 (2016), abstract/metadata; full text access-limited",
+      "Whiteland, Journal of Automata, Languages and Combinatorics 24 (2019), primary draft"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2013 slides explicitly bound the positive-excess \\(d=1\\) case by \\(O(\\log n)\\) and identify a lower-growth question, whereas the candidate asserts \\(\\rho(3^k)=2k+2\\) and \\(\\limsup_{n\\to\\infty}\\rho(n)/\\log_3 n=2\\).",
+        "2026 source Remark 4 asks about other r and alphabet choices, and its Theorem 7 addresses a binary coding of a ternary morphic word of different length.",
+        "2016 abstract reports an automatic forward-difference structure and no particular \\(r=2\\) binary sharp scale evaluation."
+      ],
+      "reasoning": "The new scale exactness is not a special case of a known explicit stronger formula found in the inspected sources, and a mere \\(O(\\log n)\\) bound leaves both the explicit values and the lower asymptotic coefficient undetermined. Historical priority is not claimed certain.",
+      "searches": [
+        "\"On the asymptotic abelian complexity of morphic words\" pdf blanchet sadri Fox Rampersad 2014",
+        "\"Computing abelian complexity of binary uniform morphic words\" pdf Blanchet Sadri Seita Wise",
+        "arxiv:2610.03837",
+        "\"001\" \"110\" \"abelian complexity\" automatic morphism"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For the present substitution \\(x_{3i}=x_i,\\ x_{3i+1}=x_i,\\ x_{3i+2}=1-x_i\\), so x(i) is the parity of the number of ternary digits equal to two.",
+        "The inspected 2026 source in its Remark 4 formulates the family \\(a\\mapsto a^r(a+1)\\) with arithmetic modulo the alphabet size; the present binary case has \\(r=2\\), not the source theorem \\(r=3\\) on three letters.",
+        "The 2013 uniform-morphism source discusses image-zero differences and global asymptotic classes without stating this specialized exact sequence."
+      ],
+      "reasoning": "The substitution, ternary-digit parity, signed Rademacher-product-like sequence and zero/one-complement expressions are identical mathematical objects. Exact-phrase searches against these representations found no theorem asserting \\(\\rho(3^k)=2k+2\\). Mere absence of search hits is not uniqueness proof.",
+      "searches": [
+        "\"001\" \"110\" \"abelian complexity\" automatic morphism",
+        "\"parity\" \"ternary\" \"2\" \"abelian complexity\"",
+        "\"ternary digit\" parity \"abelian complexity\" word",
+        "\"001\" \"110\" \"powers of three\" \"abelian complexity\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed results cover other automatic words including Thue-Morse and Rudin-Shapiro and other combinatorial invariants, not an exact table or all-scale expression for this ternary-digit-two parity word.",
+        "The latest primary paper develops a nonregular example for another parameter and its explicit table concerns a different word, not this substitution."
+      ],
+      "reasoning": "No direct exact-data record containing the result was located among queried public indexes and related mathematical records. This is a best-knowledge check only; private computations or unindexed tables could duplicate the claim.",
+      "searches": [
+        "\"abelian complexity\" \"2k+2\" \"3^k\" word",
+        "\"001\" \"110\" \"abelian complexity\" \"3\"",
+        "\"001, 110\" \"abelian complexity\"",
+        "\"3-automatic\" \"digit 2\" \"abelian complexity\""
+      ]
+    },
+    "rationale": "The published 2026 morphism-family question concerns other parameters and its principal theorem uses a ternary 4-uniform map, not the binary 3-uniform parity-of-ternary-digit-two map here. The 2013/2014 uniform-binary classification provides a generic \\(O(\\log n)\\) upper bound for \\(\\Delta>0\\) and states that the logarithmic lower-bound behavior is a further question, but does not imply an exact sharp value at every power of three. The 2016 algorithmic treatment can compute general difference data but neither its accessible abstract nor the directly inspected earlier primary works present this explicit scale spectrum or sharp leading limsup constant. No relevant indexed record matched the equivalent digit-parity or morphism formulations. A 2016 full text remains inaccessible and unindexed matching computations may exist; this residual risk is not evidence of coverage.",
+    "residual_risks": [
+      "The complete text of the 2016 general algorithmic paper was unavailable; it may contain a specialized exact example not captured by the abstract.",
+      "An unindexed publication, unpublished table or equivalent digit-parity calculation may predate this exact claim.",
+      "A full independent historical-priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper gives the structural family but not the present binary \\(r=2\\) power-of-three Abelian-complexity result.",
+        "evidence": [
+          "Remark 4: study \\(a\\mapsto a^r(a+1)\\) modulo alphabet size for other r and alphabets.",
+          "Its studied 4-uniform three-letter morphism and binary coding are distinct from tau(0)=001,tau(1)=110."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03837",
+        "material_read": "arXiv v1 PDF title/intro, Lemma 3, Remark 4, Theorem 7 and associated statement, including page-image inspection",
+        "method": "primary PDF full-text inspection and page screenshots",
+        "title": "An example of an automatic sequence with non-regular abelian complexity",
+        "trigger": "2026 literature source defining a natural morphism family and explicitly asking about other parameters"
+      },
+      {
+        "assessment": "It covers asymptotic upper-order but not exact sharp power-of-three values or the coefficient.",
+        "evidence": [
+          "For \\(d=1\\) and \\(\\Delta>0\\) the displayed bound is \\(O(\\log n)\\).",
+          "The slides propose a further Omega(log n) question for this positive-excess case."
+        ],
+        "identifier_or_url": "https://sites.math.rutgers.edu/~nhf12/research/DLT2013-AbelianAsymptoticComplexities.pdf",
+        "material_read": "2013 lecture version: definitions, uniform morphisms classification section 4.2 and future-work section 5",
+        "method": "primary-source PDF text and page-image inspection",
+        "title": "On the asymptotic abelian complexity of morphic words",
+        "trigger": "General results potentially covering the morphism through asymptotic classification"
+      },
+      {
+        "assessment": "Provides broad asymptotic context without a located explicit equality for this specific ternary-power spectrum.",
+        "evidence": [
+          "The paper addresses asymptotic Abelian growth for classes of pure morphic binary words."
+        ],
+        "identifier_or_url": "https://www.utupub.fi/bitstream/10024/172354/1/final_version_for_personal_use.pdf",
+        "material_read": "abstract, introduction, relevant growth classifications and searched substitution terminology",
+        "method": "primary PDF text and page image",
+        "title": "Asymptotic Abelian Complexities of Certain Morphic Binary Words",
+        "trigger": "Further prior work classifying asymptotic Abelian behavior of binary morphic words"
+      },
+      {
+        "assessment": "Accessible abstract states an automatic forward-difference calculation. No complete-document NOT_COVERING determination is claimed; exact same-morphism computation remains residual risk.",
+        "evidence": [
+          "The 2016 abstract says the forward differences of Abelian complexity form an automatic sequence of the substitution length."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2016.05.046",
+        "material_read": "bibliographic metadata and abstract only; full paper not obtained from available lawful full-text sources",
+        "method": "publication/abstract discovery and bounded lawful-access retrieval",
+        "title": "Computing abelian complexity of binary uniform morphic words",
+        "trigger": "Potential stronger general algorithmic theorem on exactly the class of uniform binary substitutions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ea6d1647-2081-491d-b936-e919f0bbb32d",
+  "value": {
+    "rationale": "The exact closed value \\(\\rho(3^k)=2k+2\\) for every k and the sharp all-length geometric-scale envelope identify the true logarithmic coefficient in a binary morphic example lying in the \\(d=1\\), \\(\\Delta>0\\) regime whose general 2013 classification only yields \\(O(\\log n)\\) and asks for lower logarithmic growth. The map is a canonical, naturally parameterized special case of a 2026 family and a simple ternary digit-parity automatic word. The proof supplies an explicit prefix-extrema mechanism and infinitely many equality cases, not a finite sample, unmotivated parameter slice, known-table recomputation or mere substitution of general logarithmic estimates.",
+    "status": "PASS"
+  }
+}
