@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two normalized window gcds reduce to respectively two and three explicit differences of recurrence states. The invariant \(N(x,y)=y^2-xy-x^2\) changes sign at each step, yielding \(2\mu\) divisibility for odd window lengths in both cases. Since the recurrence is invertible modulo the fixed positive integer \(M=2|\mu|\), state periodicity gives an effective common even shift. Nonzero and zero seeds and nonprimitive scaling have been separately handled. The explicit proof in `RESULT.md` is self-contained; `verify.py` confirms \(5{,}040\) direct finite window cases and shifted periods and cannot substitute for the infinite proof.
+## correctness
 
-**Originality — PASS within bounded search.** Guyer–Mbirika (2021) already give the first-power gcd formula; Mbirika–Spilker (2022) already give the square-gcd formula and square divisibility. Those facts are explicitly excluded from the novelty claim. Nevertheless the latter paper explicitly poses the condition for periodicity as Question 6.4 in Section 6.2, whereas the present theorem proves the definitive universal condition (all integer initial pairs), with an effective joint period. Searches of the exact question, aliases, fixed norm modulus and prior mathematical record did not surface an intervening resolution. This is a concise consequence of powerful old formulas, so unlocated implicit coverage is a real bibliographic risk.
+PASS
 
-**Mathematical value — PASS.** A published open question asks for the exact initial-condition criterion. The answer is not a parameter sample or a computational table: all integer seeds are covered, and the theorem gives a constructive period and bounded gcd formula. It resolves two simultaneous gcd functions, including negative and nonprimitive inputs, in one unified argument.
+For nonzero integer seeds, normalize by d=gcd(|a|,|b|), obtaining primitive u,v; the quadratic norm mu=v^2-uv-u^2 cannot vanish because z^2-z-1 has irrational roots and zero-u case contradicts primitivity. The recurrence changes the norm sign each step. First-power windows obey an order-2 recurrence, hence infinite gcd equals gcd(g_{k+1}-g_1,g_{k+2}-g_2); for odd k, equality of shifted states modulo this gcd forces the norm difference 2mu to vanish modulo the gcd. Square-window sums obey the integer order-3 recurrence q_{n+3}=2q_{n+2}+2q_{n+1}-q_n and telescope to three reported differences; exact identity Z-2Y-X=2mu for odd k supplies the bound. Both gcds (after d/d^2 scaling) are divisors of M=2|mu| and depend only on the recurring state modulo M; invertible matrix determinant -1 gives period pi and even common T=lcm(2,pi). All-zero seeds give identically zero gcds. Independently implemented exact checks on 120 nonzero seed pairs in [-5,5]^2 and 15 odd k per seed: 1800 window/period/divisibility checks agreed. The all-input conclusion follows from the displayed algebra, not the checks.
 
-**Closest literature and limits.** Guyer–Mbirika (2021), arXiv:2104.12262; Mbirika–Spilker (2022), arXiv:2204.12626, especially Theorem 3.4 and Question 6.4. The computed period can be nonminimal; only odd lengths and powers one/two are treated. Independent checking may find implicit implications or later resolutions not visible in the searched sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for an affirmative universal answer to Mbirika-Spilker Question 6.4, including all integer seeds, both odd-window gcd functions and a computable common even period. The 2021 paper gives the first-power gcd; the 2022 paper gives square gcd and odd-window bound, and explicitly asks the periodicity condition rather than answering it. The additional first-power norm bound and simultaneous finite-modulus reduction are short deductions; implicit-coverage risk is substantial and recorded.
+
+## value
+
+PASS
+
+Explicitly resolves the natural, previously stated Mbirika-Spilker Question 6.4 about which integer seeds yield simultaneous odd-window gcd periodicity, with a uniform answer and constructive common period. Though short and highly dependent on published gcd identities, the observation links a nonzero Cassini norm to bounded gcds and modular dynamics for all integer initial conditions; this is a motivated complete classification, not a random numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
