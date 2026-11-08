@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness — PASS
+The shell-index walk and the ballot formula are derived explicitly, giving the algebraic return transform. The full-branch dyadic map proves that the returned *coordinate* is uniform conditionally on every successful excursion duration, which supplies the renewal independence, not merely an assertion from simulations. At the analytic phase threshold, a square-root branch point collides with a denominator zero, and the two boundary transfer expansions give exact coefficients including parity. The critical survival constant is checked by the generating-function Tauberian step. Endpoints and defective returns are treated separately. The exact-rational checker supplies independent arithmetic corroboration; only the proof establishes the infinite statements.
+
+## Originality — PASS within inspected evidence
+The 2024 source computes invariant densities and correlations, not a return generating function or the three-regime coefficient transition at the different threshold \(p=4/5\). The 2026 open-map source establishes countable-state stochastic reduction and quasi-stationary statistics, but its return-time law, exact closed-map pole/branch-point transition, and conditional spatial uniformity do not appear in the inspected text. The source's random-walk representation, standard ballot results, and source's pre-existing density-convexity transition at \(p=4/5\) are not credited as novel. The precise new conclusion is a return-time singularity trichotomy and uniform incoming-coordinate factorization. A fully general unindexed renewal theorem for other map families might imply pieces of the result; this remains a publication-priority limitation.
+
+## Mathematical value — PASS
+The original system's anomalous dynamics and invariant-density shape were known, but the distribution of time between visits to the natural top dyadic shell matters for physical reinjection and observable renewal statistics. The change at \(p=4/5\) from branch-controlled \(n^{-3/2}\) corrections, through \(n^{-1/2}\), to a pure exponential reveals a second, finer dynamical transition beyond the recurrence threshold \(p=1/2\). Uniform re-entry coordinates enable exact joint position-time calculations; this is not simply a renamed gambler's-ruin probability. The claim is restricted to the natural uniformly sampled section and is not a result for arbitrary deterministic initial conditions.
+
+Self-review: passed. Independent audit: not yet performed.
