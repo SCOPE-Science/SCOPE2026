@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:00:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For arbitrary deterministic positive weights, p_j=w_j/W_j in (0,1), the actual innovation-variance recurrence v_{j+1}=(1-p_j^2)v_j+p_j(1-p_j) with v_2=0 is cited from Gałązka--Wdowicka Proposition 5.3 and is independently consistent with parent-choice conditioning. Completing the square gives v_{j+1}=G(v_j)-(v_j+1)(p_j-1/[2(v_j+1)])^2, G(x)=x+1/[4(x+1)] strictly increasing for x>=0. Thus induction gives attained B_{j+1}=G(B_j) and unique fractions p_j=1/[2(B_j+1)] for j<n; all such fractions correspond to positive weights. Subtraction yields the exact nonnegative stability recursion. Squared shift b_{j+1}^2-b_j^2=1/2+1/(16b_j^2), b_j^2=j/2+O(log j), leads to (B_n+1)^2=n/2+(log n)/8+O(1). Independently recomputed exact rational deficit for four nonoptimal fractions, equality and dominance at every step; no numerical extrapolation proves the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gałązka--Wdowicka arXiv:2610.00614 Prop5.3",
+          "Desmarais 2024 abstract"
+        ],
+        "reasoning": "The general arbitrary-weight recurrence is broader as a starting relation but does not itself state a maximization theorem or rigidity; a separate monotone dynamic programming argument and asymptotic summation are required.",
+        "searches": [
+          "weighted recursive trees expected conditional depth variance maximizing positive attachment weights sharp asymptotic envelope",
+          "recursive tree conditional depth variance optimal weights global"
+        ]
+      },
+      "checked_sources": [
+        "Gałązka and Wdowicka, Total Path Length in Power-Weight Recursive Trees: Martingale Limits and Global Fluctuations, arXiv:2610.00614v1, Proposition 5.3",
+        "Desmarais, Depths in random recursive metric spaces, J Appl Probab 2024 DOI:10.1017/jpr.2024.32",
+        "Resultary published root-attachment/path-length record 3b3e0426b1ba and weighted-tree search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known v_{j+1}=(1-p_j^2)v_j+p_j(1-p_j)",
+          "New exact optimal p_j and telescoping b_j^2 growth"
+        ],
+        "reasoning": "The exact recurrence makes the result derivable but does not *already state* the optimum; the controlled nonlinear comparison and logarithmic correction add specific all-horizon conclusions.",
+        "searches": [
+          "weighted recursive trees expected conditional depth variance maximizing positive attachment weights sharp asymptotic envelope",
+          "arXiv:2610.00614 variance recursion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gałązka--Wdowicka Prop5.3 Eq29",
+          "Resultary root attachments/path-length profile 3b3e0426b1ba"
+        ],
+        "reasoning": "Aliases include mean martingale innovation energy, next-depth conditional variance and attachment-step uncertainty. The closest exact recurrence is known, but its optimal control is not given.",
+        "searches": [
+          "weighted recursive trees expected conditional depth variance maximizing positive attachment weights sharp asymptotic envelope",
+          "weighted recursive tree optimal conditional innovation variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary root-degree/path-length covariance result 3b3e0426b1ba",
+          "Gałązka--Wdowicka section 5"
+        ],
+        "reasoning": "Available tables/profiles concern other tree statistics; no exact B_n sequence or optimal p_j table found in relevant results.",
+        "searches": [
+          "weighted recursive trees expected conditional depth variance maximizing positive attachment weights sharp asymptotic envelope",
+          "Resultary published weighted recursive tree variance results"
+        ]
+      },
+      "rationale": "Qualified PASS: Gałązka and Wdowicka prove the same universal variance recursion as a premise, but their path-length martingale study does not optimize it over the entire positive weight class. The global unique optimal control, exact deficit and logarithmic second-order asymptotic are new conclusions relative to the inspected source; an old generic deterministic-control result may be an alternative derivation.",
+      "residual_risks": [
+        "A general published discrete Riccati-like control theorem could mechanically imply the envelope; no exhaustive historical search has been made.",
+        "The result concerns expected conditional new-depth variance, not unconditional depth variance, height, or total path length.",
+        "Desmarais full text not materially inspected during this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves universal recursion but no all-positive-weight finite-horizon maximization or optimal control",
+          "evidence": "Proposition 5.3 Eq (29) v_{n+1}=(1-p_n^2)v_n+p_n(1-p_n).",
+          "identifier_or_url": "https://arxiv.org/abs/2610.00614",
+          "material_read": "Original arXiv full HTML, Proposition 5.3 Eq (29) and discussion of path-length fluctuations",
+          "method": "Primary full-text relevant theorem and proof sections",
+          "title": "Total Path Length in Power-Weight Recursive Trees: Martingale Limits and Global Fluctuations",
+          "trigger": "Same conditional variance recurrence"
+        },
+        {
+          "assessment": "Not classified as wholly noncovering: full proof was not read; different regime and observable in available material",
+          "evidence": "Its random recursive metric-space depth results are not direct statements of an all-weight innovation-variance optimum.",
+          "identifier_or_url": "https://doi.org/10.1017/jpr.2024.32",
+          "material_read": "Bibliographic record/abstract and accessible stated framework, not complete article",
+          "method": "Abstract and metadata only",
+          "title": "Depths in random recursive metric spaces",
+          "trigger": "Broader model of insertion depths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The expected conditional depth variance of the next vertex is a natural quantifier of uncertainty under preferential tree attachment. The all-weights sharp envelope, uniquely realizable evolving policy and stability identity solve a real extremal design question beyond fixed power laws; the sqrt(n) optimal regime and log correction are nontrivial.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gałązka and Wdowicka, Total Path Length in Power-Weight Recursive Trees: Martingale Limits and Global Fluctuations, arXiv:2610.00614v1, Proposition 5.3",
+    "Desmarais, Depths in random recursive metric spaces, J Appl Probab 2024 DOI:10.1017/jpr.2024.32",
+    "Resultary published root-attachment/path-length record 3b3e0426b1ba and weighted-tree search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A general published discrete Riccati-like control theorem could mechanically imply the envelope; no exhaustive historical search has been made.",
+    "The result concerns expected conditional new-depth variance, not unconditional depth variance, height, or total path length.",
+    "Desmarais full text not materially inspected during this execution."
+  ],
+  "residual_risks": [
+    "A general published discrete Riccati-like control theorem could mechanically imply the envelope; no exhaustive historical search has been made.",
+    "The result concerns expected conditional new-depth variance, not unconditional depth variance, height, or total path length.",
+    "Desmarais full text not materially inspected during this execution."
+  ],
+  "schema_version": 1
+}
