@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the temporal-memory theorem
+# Independent mathematical audit
 
-The standalone `verify.py` runs with Python 3 and `mpmath` and prints a passing assertion count. It was executed from the self-contained package as `python verify.py` and returned **PASS: 271 deterministic mathematical consistency assertions.**
+## correctness
 
-Checks compare the exact killed-generator matrix for finite two-point rate distributions with the separate renewal-resolvent prediction, including integrated correlation and positive finite-time correlation at several rates, refresh parameters and lags. Gamma-law Stieltjes integrals are compared with their incomplete-gamma formula and differential identity. Numerical small-refresh tests cover both Stieltjes singularities, all five correlation-time regimes, deterministic-rate recovery, and numerical Laplace inversion probes of the incomplete-gamma and logarithmic-lag profiles.
+PASS
 
-The printed check count refers only to computational assertions in the supplied source and is reproducible with `mpmath`. Mathematical infinity, uniqueness of the stationary pullback process and convergence for arbitrary rate-density laws rely on the proof in `RESULT.md`, not on these finite numerical checks. The finite gamma-family probes do not establish the result for every law, and no independent mathematical audit is claimed.
+For the stationary environmental rate, conditioning on its first redraw yields S(t)=exp(-mu*t)phi(t)+mu*(exp(-mu*.)phi)*S, hence R_mu(z)=g(mu+z)/(1-mu*g(mu+z)); 0<mu*g(mu+z)<1 gives positivity and finite stationary mean age. Conditional Brownian isometry for overlapping intervals since the last position reset gives C_mu(t)=2D integral_t^infinity S_mu(s)ds. Tonelli and derivative g prime=-h yield tau=h(mu)/(g(mu)*(1-mu*g(mu))). Beta-integrals at f(lambda)~c lambda^(alpha-1) give five regimes, alpha=1 and 2 boundaries and normalizations. For 0<alpha<1, the normalized survival-weighted law rescaled by mu converges via Laplace transforms to Gamma(1-alpha,1), proving the incomplete-gamma correlation profile; for alpha=1, e^-mu*t phi(t)<=S_mu(t)<=phi(t) and an O(1) integrated error on t<=O(1/mu) give the log-lag (1-q)+ profile. Independently checked resolvent and integrated correlation by two-rate killed-generator inverses at six parameter pairs. This algebraic check is finite corroboration, not a proof of the singular limits.
+
+## originality
+
+PASS
+
+The 2025 Arutkin-Reuveni SAME-model paper already supplies the survival functional and exact stationary one-time spatial characteristic transform. Originality is limited to the reconstructed two-time covariance, its sharp two exponent thresholds and full gamma/logarithmic weak-refresh profiles; those were not stated in the materially inspected primary text. General Cox-process renewal theory could encode the same consequence, so priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+A physical model may have bounded stationary positional variance for 1<alpha<=2 but divergent integrated correlation time; the theorem quantifies this sharp nonergodic-timescale boundary and gives usable observation-time scaling functions. This is a motivated structural temporal-memory classification rather than a change of notation in the known one-time transform.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
