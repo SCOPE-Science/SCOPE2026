@@ -1,0 +1,15 @@
+# Scientific review: parity law for ternary-sphere Fourier sampling
+
+## Correctness
+**PASS (self-review).** The character-moment formulas are derived by conditioning on one and two coordinate symbols and by the exact cube-root filter for Hamming weights modulo three. The Gram decomposition into coordinate-antisymmetric, coordinate-contrast, and two-dimensional invariant subspaces is exhaustive (dimensions \(d+(d-1)+2=2d+1\)). The closed spectral formulas were algebraically substituted into each of the three residue classes of \(d\) and every strict comparison and denominator was checked, including the rank-one failure at dimension four and radius two. The independent direct-character finite checker in `CHECK.py` passed 463 supplementary assertions, including direct diagonalization for dimensions four through eight. Finite tests support but do not replace the quantified proof in `RESULT.md`.
+
+## Originality
+**PASS relative to the inspected sources, with a priority risk.** Pham--Xue (arXiv:2610.29664v1, Sections 1 and 4) establishes \(L^p\to L^4\) extension and sparse-recovery bounds on spheres, not an optimal two-norm condition-number choice among all radii for a fixed first-degree Fourier band. Iosevich--Koh--Lee--Pham--Shen (2020) also treats \(L^p\)-extension exponents rather than the present coordinate aperture. The public *Exact q-ary Hamming-shell Fourier concentration and the arithmetic tightness criterion* and *An all-degree spectral law for Fourier sampling on q-ary Hamming spheres* provide one-shell spectral calculations; a ternary quadratic sphere is instead a union of all fixed-weight shells whose weights are congruent modulo three. The present exact global minimizer is not a single-shell theorem or one of its equality cases. A different public result on split quadratic cones treats a distinct support and Fourier aperture. Searches and full-text comparison did not identify an explicit stronger covering radius-optimization theorem. This is not a priority certification: equivalent consequences might be embedded in Krawtchouk/association-scheme tables.
+
+## Value
+**PASS.** This natural sampling problem selects the most stable quadratic level set for reconstructing degree-one Fourier signals from complete spherical observations. A strict and unexpected dimension-parity law governs the optimal radius, and exact sharp conditioning and the isolated singular exception are derived for all dimensions. The result distinguishes optimal recovery stability from unrestricted extension bounds and gives exact two-eigenvalue frames in even dimensions.
+
+## Boundaries
+The condition number is squared and refers to an ambient-orthonormal first-character basis, with conditional uniform sampling on each sphere. The proof requires characteristic three, dimensions at least four, and complete quadratic level sets. No robustness under nonuniform sampling or higher harmonics is asserted. Independent validation is not performed.
+
+Self-review: passed. Independent audit: not yet performed.
