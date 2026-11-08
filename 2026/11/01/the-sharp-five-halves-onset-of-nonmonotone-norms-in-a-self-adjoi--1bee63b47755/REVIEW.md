@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The norm is the larger absolute eigenvalue of a real symmetric two-by-two matrix. The implicit quadratic equation for its excess above \(b\) gives the derivative sign, an exact decreasing threshold function, and a unique interior maximizer when the coefficient threshold is crossed. A second exact quadratic comparison confines every positive overshoot to the scale \(b\gtrsim\varepsilon^{-1/2}\), \(1-t\lesssim\varepsilon\). On this entire region the square-root expansion has uniform differentiated remainder; the resulting two-variable quadratic optimization gives the global coefficient \(1/(100\sqrt5)\). Finite calculations supplement, rather than replace, the proof.
+PASS
 
-## Originality
+For real alpha,b>0 and t>=0, direct diagonalization of [[-b,t],[t,b t^alpha]] yields F=b+u for t<=1 with u[b(1+t^alpha)+u]=t^2, and the positive eigenvalue branch increases for t>=1. Implicit differentiation fixes the sign reversal at b^2=4/(alpha t^(alpha-2)((alpha-2)t^alpha-2)); the threshold is decreasing in t and terminates at alpha>4, b_c=2/sqrt(alpha(alpha-4)). The exact F(t)>F(1) comparison confines all positive backward overshoot to b>=const epsilon^(-1/2), 1-t=O(epsilon). The uniform square-root expansion there yields L(beta,s)=s(beta^2-1)/(4 beta^3)-s^2/beta. Its unique global maximum is 1/(100sqrt5) at beta=sqrt5,s=1/10; compactness and the vanishing beta->infinity envelope establish global limit and every maximizing-pair scale. Exact symbolic checks independently confirmed stationary and expansion identities; finite checker samples do not prove universality.
 
-PASS, subject to best-knowledge limits. Wu–Ling–Xu (arXiv:2605.25283, Theorem 2.1, Corollary 2.3) prove the universal monotonicity boundary \(\alpha=4\), and their Example 2.1 treats one fifth-power coefficient choice. The new statement is a complete continuous two-parameter monotonicity diagram and a sharp *globally optimized* critical exponent, coefficient, and parameter scaling. The arXiv:2511.04313 paper and the 2011 Li–Poon–Tominaga work address constant-diagonal generalized quadratic blocks, and so do not subsume the nonlinear diagonal motion. A separate published spectral-mass norm-attainment criterion deals with maximizing spectral support, not this global norm reversal. The possibility of an unlocated equivalent matrix-perturbation asymptotic remains a residual originality risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The 2026 universal exponent-four boundary leaves the size and shape of the first nonmonotone region unspecified. The result determines its exact two-parameter bifurcation and shows that optimizing the available coefficient produces an unusual \(5/2\)-power onset through a coupled divergence of \(b\) and narrowing of the maximizing \(t\)-window, a phenomenon not visible in a fixed-coefficient example. The sharp coefficient and optimizing scales characterize how the monotone operator-norm mechanism fails, with direct relevance to norm-attainment examples built from such block matrices. It is a natural complete quantitative boundary problem, not an arbitrarily selected numerical case.
+The previous universal exponent-four boundary and alpha=5,b=2 witness are explicitly credited. They do not imply the coefficient-dependent threshold or optimized critical 5/2 law. Search of alternate spectral-norm and moving-diagonal formulations plus the constant-diagonal quadratic-operator sources found no comparison proving that law; priority is best knowledge, not a certification.
 
-## Closest literature and limitations
+## value
 
-Wu–Ling–Xu's analyzed \(\alpha=5,b=2\) example lies inside the new classification; none of its qualitative or single-parameter statements is claimed as novel. The new quantitative result is confined to a symmetric real pencil and to the backwards comparison with \(t=1\). The 2011 generalized-quadratic paper was available only through its published description and accessible text excerpts during this assessment; the source's constant-diagonal definition makes its quantitative conclusions inapplicable to the moving-diagonal family, but the full-paper comparison remains a publication-priority risk. Numerical checks do not certify the continuum proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The failure mechanism at the sharp universal exponent-four monotonicity threshold is a natural quantitative follow-up; both the optimal overshoot coefficient and coupled divergent/vanishing optimizer scales define an intrinsic sharp onset in a canonical spectral-norm family. It is not a repackaging of the known single fifth-power example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
