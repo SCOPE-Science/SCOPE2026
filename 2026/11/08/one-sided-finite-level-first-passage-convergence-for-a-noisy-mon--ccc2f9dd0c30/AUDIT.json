@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Direct finite-generator backward recurrence yields Phi_B(s)=1/L_B(-s/B). Positive coefficient products strictly increase with B at k=2; for every k the coefficient is bounded above by one. Finite-product first/second-order inequalities prove the all-B global bound and compact-uniform O(B^-2) remainder with sharp coefficient. A squared-Bessel backward ODE identifies the diffusion hitting law. Exact rational independent Markov equations and standard-library Bessel series passed 1,232 checks from the embedded file.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "NIST 18.11.6 states the leading Laguerre-to-Bessel limit, not a cross-degree inequality.",
+        "Deaño et al. give general Bessel expansions and high-order Laguerre asymptotics, including possible specialization to an inverse-threshold coefficient.",
+        "Ryan et al. Appendix B explicitly invokes Mehler--Heine for the classical limiting spectrum."
+      ],
+      "reasoning": "Broad Laguerre expansion results cover the method and may imply the first coefficient with additional algebra, which is not treated as independently novel. The proposed one-sided all-threshold transform order and a simultaneous global finite-B error certificate are not stated in the inspected passages, and are not a direct instance of a fixed-parameter limiting theorem.",
+      "searches": [
+        "Laguerre polynomial Mehler Heine expansion first correction 1/n I2",
+        "Laguerre polynomials first passage stochastic heating noisy oscillator monitored 1/n correction Bessel",
+        "Deaño Huertas Marcellán 2013 arXiv:1301.4266 §§1--3",
+        "DLMF 18.11.6 https://dlmf.nist.gov/18.11.E6"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.08267 (primary full indexed HTML, Appendices A and B)",
+      "https://dlmf.nist.gov/18.11.E6 (full relevant formula)",
+      "https://arxiv.org/abs/1301.4266 (primary full indexed HTML, relevant Introduction and §§2--3)",
+      "https://doi.org/10.1103/PhysRevE.83.051115 (abstract only)",
+      "https://arxiv.org/abs/2508.21790 (related experimental abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ryan: Eq. (29) supplies the transform and Eq. (31) supplies the mean; Appendix B discusses the leading Mehler--Heine limit but not a strict threshold order.",
+        "NIST gives leading limiting formula; Deaño gives higher-order tools; neither checked discussion gives a global all-B stochastic Laplace comparison.",
+        "The new proof uses coefficientwise increase of prod_{j<k}(1-j/B) and finite-product bounds to derive a global monotonic order plus quantitative remainder."
+      ],
+      "reasoning": "The main paper contains stronger *one-B exact transform information*, but does not explicitly compare different mean-matched B values. Its formula makes the comparison derivable, so this work must be evaluated as an additional structural corollary, not as a new solution of the source model. The uniform sharp signed rate and global error certify that ordering quantitatively. No inspected primary statement explicitly includes all three conclusions, but a broader unindexed Laguerre inequality may exist.",
+      "searches": [
+        "Ryan et al. full primary HTML Sections III.1, Appendices A and B",
+        "Deaño et al. arXiv:1301.4266 full indexed HTML Introduction and Sections 2--3",
+        "NIST DLMF §18.11.6",
+        "quantum classical first passage oscillator Laplace monotonic threshold",
+        "sharp B^-1 finite energy threshold correction quantum classical oscillator first passage Laplace ordering"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ryan et al., Eq. (29): L_{N_0}(-s)/L_{N_B}(-s), the exact transform for any initial level.",
+        "Exact equivalence of current vacuum-start transform to published formula under s->s/B is acknowledged and not taken as novel.",
+        "A published finding on Bessel-function complete monotonicity concerns a different special-function positivity property rather than oscillator hitting times."
+      ],
+      "reasoning": "The current exact transform equals the published specialization. The new proposition is a family-wise strict inequality between different B, with a uniform signed error. A single transform identity does not assert these inequalities; the coefficient-product comparison and global union estimate supply the additional implications. The Bessel completely-monotone result concerns an unrelated function and parameter.",
+      "searches": [
+        "Laguerre L_B(-s/B) strictly monotone in B Bessel I_0 first passage Laplace stochastic heating",
+        "squared Bessel diffusion Laguerre birth death entrance boundary Laplace transform monotone threshold",
+        "Laguerre L_n(-x/n) strictly increasing in n monotonic Bessel I0",
+        "Ryan et al. Appendix A Eq. (29), https://arxiv.org/abs/2608.08267"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related indexed results on vacuum-Fock Wigner positivity study coherence constraints, not first-passage timing.",
+        "Related indexed Poisson--Laguerre results concern tessellation geometry, not finite-oscillator passage.",
+        "No inspected published table or source reports the all-threshold mean-normalized Laplace ordering."
+      ],
+      "reasoning": "The underlying finite Laguerre transform is an existing exact formula, not a newly tabulated invariant. No inspected exact-result table covers the cross-threshold inequality. Nonsuccessful discovery searches are not proof of worldwide uniqueness.",
+      "searches": [
+        "Ryan Gorbaty Teitsworth Noel 2608.08267 monitored oscillator quantum classical first passage Laguerre Laplace transform cutoff",
+        "monitored noisy quantum harmonic oscillator energy threshold first passage Laguerre polynomial 1/B asymptotics",
+        "birth death rates n+1 n absorption Laguerre first passage Laplace transform Bessel finite N monotonic"
+      ]
+    },
+    "rationale": "The primary monitored-oscillator paper states the exact finite-transform Laguerre ratio and leading classical Mehler--Heine limit, so neither is claimed as original. The compared statement is different: global strict mean-normalized Laplace ordering over all integer energy thresholds, an all-threshold one-sided bound, and an explicit sharp, compact-uniform B^{-1} correction. The source and NIST provide the inputs but do not state this joint quantitative comparison. Higher-order Laguerre machinery may subsume the coefficient alone; priority remains qualified.",
+    "residual_risks": [
+      "General hard-edge expansions may subsume the first-order inverse-threshold coefficient, which is credited as a possible specialization rather than a wholly new identity.",
+      "The related 2011 Bessel first-passage paper and 2025 experiment were read at abstract level only; neither establishes the finite oscillator comparison from the available evidence.",
+      "Search nonmatches are not mathematical novelty or publication-priority certificates; independent literature review is pending."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS existing exact finite Laguerre first-passage transform and leading classical crossover; NOT_STATED for global all-threshold Laplace ordering and uniform signed correction",
+        "evidence": [
+          "Eq. (10) finite-state evolution; Eq. (29) exact Laplace transform; Eq. (31) mean; Appendix B Mehler--Heine limit and classical Bessel modes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.08267",
+        "material_read": "Full indexed HTML of Sections II, III.1, Appendix A (equations 26--31) and Appendix B (equations 32--36), with surrounding explanations",
+        "method": "Read directly from primary open indexed HTML; compared entire available formulas and their normalized implication",
+        "title": "Quantum-classical crossover in noisy monitored oscillators",
+        "trigger": "Same birth-death rates and monitored harmonic-oscillator FPT; mandatory exact-source comparison"
+      },
+      {
+        "assessment": "COVERS leading Laguerre-to-Bessel limit, NOT_STATED for global finite-threshold inequalities or quantitative coefficient",
+        "evidence": [
+          "Eq. 18.11.6 and surrounding notes, limit and compact uniformity."
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/18.11.E6",
+        "material_read": "Section 18.11.6, notes and uniformity statement for bounded complex arguments",
+        "method": "Read authoritative NIST HTML formula",
+        "title": "DLMF §18.11, Mehler--Heine type formulas",
+        "trigger": "Potential stronger special-function coverage of scaled Laguerre limit"
+      },
+      {
+        "assessment": "POTENTIAL_MORE_GENERAL technique for correction term, but not the all-integer-threshold stochastic Laplace order",
+        "evidence": [
+          "Introduction Eq. (4), §2 Bessel expansions; §3 fixed-negative-argument ratio asymptotics."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.4266",
+        "material_read": "Full indexed HTML Introduction and §§2--3 on Mehler--Heine, Tricomi--Buchholz expansions and ratio asymptotics",
+        "method": "Read primary 2013 preprint HTML, compared regime and propositions",
+        "title": "Strong and ratio asymptotics for Laguerre polynomials revisited",
+        "trigger": "General high-order Laguerre asymptotics might imply new coefficient"
+      },
+      {
+        "assessment": "Related *continuum* Bessel hitting-time theory only; not sufficient to claim the finite-level quantum comparison",
+        "evidence": [
+          "2011 abstract studies Bessel-like process hitting-time densities and boundary classifications."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.83.051115",
+        "material_read": "Publisher abstract and institutional abstract; not full proof text",
+        "method": "Abstract-level scientific comparison; treated as limited access evidence",
+        "title": "First-passage and first-exit times of a Bessel-like stochastic process",
+        "trigger": "Classical Bessel first-passage theory may dominate limiting law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ccc2f9dd-0c30-4548-86ef-d2bd2aa37018",
+  "value": {
+    "rationale": "The motivating work presents a physically natural quantum-classical first-passage crossover but leaves direction and quantitative convergence of the entire normalized Laplace transform unspecified. The new global cross-threshold order provides nonperturbative direction; the inverse-level bound and nonzero sharp coefficient provide an explicit error-calibration rule over every bounded measurement argument range. It complements rather than merely rewrites the known finite transform; it is not a table recomputation or arbitrary threshold slice.",
+    "status": "PASS"
+  }
+}
