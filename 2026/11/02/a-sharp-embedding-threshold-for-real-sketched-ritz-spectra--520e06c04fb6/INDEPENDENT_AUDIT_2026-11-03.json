@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T23:53:09.452497Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From AV=VB+R, V^TR=0, and sketch Gram G with spectrum in [1-eps,1+eps] on span(V,AV), H-B=M^-1 CT. The orthogonal cross-block norm is bounded by max_{t in [1-eps,1+eps]}sqrt(eps²-(t-1)²)/t =eps/sqrt(1-eps²). B is real diagonalizable symmetric with simple gap Delta, so disjoint disks of radius <Delta/2 retain exactly one root each under continuous real homotopy; conjugate pairs cannot occur, yielding real simple H roots. Explicit SPD 4x4 A and positive sketch Gram with (G-I)^2=eps²I attain the bound, and the resulting skew-symmetric 2x2 coupling develops a defective real double root and nonreal pair at eps*=delta/sqrt(delta²+gamma²). All claims require joint subspace embedding and exact real arithmetic; k=1 trivial.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nakatsukasa–Tropp Section 6.8 covers projected nonsymmetric spectra and discusses nonreal sRR approximations; Liu–Liu Theorems 8–9 address selected local invariant subspaces."
+        ],
+        "reasoning": "Standard normal-matrix pseudospectral disks imply real roots if a perturbation already satisfies the strict gap test, but neither earlier result determines the *sharp embedding/residual* coefficient and SPD saturating construction.",
+        "searches": [
+          "Resultary: sketched Rayleigh Ritz symmetric real eigenvalues sharp subspace embedding perturbation epsilon residual gap complex eigenvalues",
+          "Liu–Liu arxiv:2610.22261v1, Theorems 8–9",
+          "Nakatsukasa–Tropp DOI 10.1137/23M1565413 Sections 6.3 and 6.8"
+        ]
+      },
+      "checked_sources": [
+        "source:assigned Git RESULT.md, verify.py, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt",
+        "Resultary semantic query sketched Rayleigh Ritz symmetric real eigenvalues sharp subspace embedding perturbation epsilon residual gap complex eigenvalues",
+        "Liu–Liu arxiv:2610.22261v1, Theorems 8–9",
+        "Nakatsukasa–Tropp DOI 10.1137/23M1565413 Sections 6.3 and 6.8",
+        "Stewart DOI 10.1137/100792093"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Claim: for any real SPD or symmetric A and joint epsilon sketch, ||H-B||<=eps||R||/sqrt(1-eps²), and Delta>2 bound makes all projected eigenvalues real; a single family saturates both."
+        ],
+        "reasoning": "Earlier papers show complex sRR eigenvalues exist, and normal spectral perturbation disks control any given F. This does not imply exact norm-optimal dependence on the sketch Gram or existence of a 4x4 critical exceptional point.",
+        "searches": [
+          "Liu–Liu arxiv:2610.22261v1, Theorems 8–9",
+          "Nakatsukasa–Tropp DOI 10.1137/23M1565413 Sections 6.3 and 6.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Approximate Rayleigh–Ritz, oblique/sketched Ritz, non-Hermitian projected eigenproblem, epsilon joint-subspace embedding and Gram cross-block perturbation all describe this construction."
+        ],
+        "reasoning": "The main bound is an operator perturbation norm, not a probability guarantee on random sketches or an a priori probability of all-real spectra.",
+        "searches": [
+          "Resultary: sketched Rayleigh Ritz symmetric real eigenvalues sharp subspace embedding perturbation epsilon residual gap complex eigenvalues",
+          "Liu–Liu arxiv:2610.22261v1, Theorems 8–9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite database/table defines a universal continuum-of-epsilon minimax threshold; source verify.py lists one rational example, not a table of full result."
+        ],
+        "reasoning": "Resultary returned sharp Rayleigh residual distortion under normal filtering, a different filter mechanism not sketched Ritz projection.",
+        "searches": [
+          "Resultary: sketched Rayleigh Ritz symmetric real eigenvalues sharp subspace embedding perturbation epsilon residual gap complex eigenvalues",
+          "Liu–Liu arxiv:2610.22261v1, Theorems 8–9"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for an exact attained distortion-to-residual norm bound coupled with a sharp real/nonreal all-Ritz transition under joint-subspace embedding. Liu–Liu 2026 discusses nonreal sketched Ritz and local selected-characteristic-subspace real Schur analysis. Nakatsukasa–Tropp 2024 notes sketched Ritz can have complex estimates and obtains other perturbation results; neither inspected theorem states this complete minimax threshold or the explicit defective transition. The cross-block norm and disk argument may be implicit in classical oblique projection literature, recorded as a priority risk.",
+      "residual_risks": [
+        "Sharp oblique-projection cross-Gram coefficient could have an earlier formulation in numerical linear algebra; no absolute novelty guarantee.",
+        "No floating-point, random-sketch success probability, or iterative convergence guarantee follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_FULL_COVERAGE",
+          "evidence": "Reports nonreal sketch Ritz estimates and real-Schur extraction; Theorems 8–9 are local selected subspace estimates, not the sharp all-roots-real criterion and explicit saturating SPD witness.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22261",
+          "material_read": "Full accessible PDF, Introduction, Sections 3.1 and 5.3, local characteristic subspace Theorems 8–9 (PDF pages 14–16 examined including visual pages).",
+          "method": "arXiv primary full text and PDF screenshots",
+          "title": "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices",
+          "trigger": "same symmetric sketched Rayleigh–Ritz and complex eigenvalue issue"
+        },
+        {
+          "assessment": "RELATED_GENERAL_METHOD",
+          "evidence": "Acknowledges nonreal sRR eigenvalue estimates for symmetric problems but gives no sharp joint-subspace embedding-residual/gap crossover with equality witness.",
+          "identifier_or_url": "https://doi.org/10.1137/23M1565413",
+          "material_read": "Author-hosted complete 2024 preprint PDF, Sections 6.3, 6.8 and relevant derivations read; PDF page 20 visually inspected.",
+          "method": "author open manuscript and screenshots",
+          "title": "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "sketched Rayleigh–Ritz base method"
+        },
+        {
+          "assessment": "UNINSPECTED_PLAUSIBLE_METHOD",
+          "evidence": "General prior methods are relevant to the cross-block part; potential implicit coverage remains an explicit residual risk.",
+          "identifier_or_url": "https://doi.org/10.1137/100792093",
+          "material_read": "Citation/abstract and mathematical description, no full text read in this run.",
+          "method": "bibliographic primary-source search",
+          "title": "On the Numerical Analysis of Oblique Projectors",
+          "trigger": "general oblique projectors and norm estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Nonreal eigenvalues for a nonsymmetric compressed approximation to a symmetric problem are an algorithmically motivated instability. An optimal computable sufficient condition in terms of actual Ritz residual, spectral gap and embedding distortion, with a sharp four-dimensional witness and exceptional point, is a meaningful quantitative boundary.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "source:assigned Git RESULT.md, verify.py, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt",
+    "Resultary semantic query sketched Rayleigh Ritz symmetric real eigenvalues sharp subspace embedding perturbation epsilon residual gap complex eigenvalues",
+    "Liu–Liu arxiv:2610.22261v1, Theorems 8–9",
+    "Nakatsukasa–Tropp DOI 10.1137/23M1565413 Sections 6.3 and 6.8",
+    "Stewart DOI 10.1137/100792093"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Requires norm embedding of span(V,AV), not just span(V); sufficient universal condition not necessary for each individual sketch.",
+    "Sharpness is minimax over SPD witnesses; finite tests of four eps are not universal proof."
+  ],
+  "residual_risks": [
+    "Sharp oblique-projection cross-Gram coefficient could have an earlier formulation in numerical linear algebra; no absolute novelty guarantee.",
+    "No floating-point, random-sketch success probability, or iterative convergence guarantee follows."
+  ],
+  "schema_version": 1
+}
