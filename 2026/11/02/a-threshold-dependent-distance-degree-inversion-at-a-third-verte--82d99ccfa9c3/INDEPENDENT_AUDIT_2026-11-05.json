@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T19:16:28.875310Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform labeled Cayley tree with three fixed DISTINCT vertices: conditioned marked u-v path length ℓ, rooted-forest determinant m n^(r−1) counts completions. Marking a root gives generating function a(z)^(n−ℓ−2)*(ℓ+z)/(ℓ+1); marking nonroot gives z a(z)^(n−ℓ−2). Mixture by probability p=(ℓ−1)/(n−2) yields 1+B+J(1+C), with B,J,C independent, for ℓ≤n−2; ℓ=n−1 forces H=2. Exact leaf P(H=1|ℓ) decreases, hence all-n positive nonleaf covariance; at penultimate versus last ℓ the ≥2 and ≥3 tail events cross. Centered generating function cancels n^−1/2 contribution and order-n^−1 contains (2−x²)/2 z e^(z−1)(z−1)²; Rayleigh L/√n and uniform exponential tails yield √n covariance constant −sqrt(π/2)b_q/2 for fixed q. Independently computed n=8,ℓ=4 degree probabilities {1:49/128,2:133/320,3:11/64,4:9/320,5:1/640} summing to 1. Fixed q≥4 eventually negative, q=3 leading zero only. The actual package script enumerates all Prüfer codes n≤8; its logs are not accepted as an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman general fixed-forest extension count yields total path-completion count.",
+          "Aldous–Pitman spanning subtree laws can describe path membership, not marked third-vertex full degree tails.",
+          "Published endpoint-degree formula implies the third-vertex conditional MEAN by summing all vertex degrees, which the present theorem explicitly does not claim as independently new."
+        ],
+        "reasoning": "Broad forest results provide ingredients and already cover the mean by reduction; the second-order high-degree covariance still needs nontrivial marked-degree calculation.",
+        "searches": [
+          "Pitman Coalescent Random Forests technical report 457 forest extension theorem",
+          "Aldous Pitman 1998 p-tree spanning subtree third vertex membership",
+          "Berzunza Ojeda Janson distance profile simply generated trees"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify_third_vertex_degree.py Git blobs",
+        "Complete published Resultary endpoint-degree RESULT.md",
+        "Aldous–Pitman 1998 Berkeley report, discrete p-trees",
+        "Pitman 1996 rooted forest formula (cited primary)",
+        "Resultary semantic query: uniform Cayley tree distance between two vertices conditioned degree of third vertex covariance threshold degree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier endpoint law gives Δ−1|L=ℓ ~ Bin(n−ℓ−2,1/n)+Bern(1/(ℓ+1)), with negative stochastic regression.",
+          "Present third degree is 1+B+J(1+C); conditioning on path membership changes sign characteristics and gives b_2=−e^−1, b_q>0 for q≥4."
+        ],
+        "reasoning": "Endpoint formula plus degree conservation implies only the mean, not the third-vertex degree PGF nor threshold sign inversion.",
+        "searches": [
+          "Resultary/2026 endpoint-degree result RESULT.md Eq (2),(7),(8)",
+          "Aldous Pitman 1998 spanning subtree formula",
+          "uniform Cayley tree distance between two vertices conditioned degree of third vertex covariance threshold degree"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/4 endpoint result conditions degree Δ=deg(u), one of distance endpoints. Present variable H=deg(w) for w outside endpoints and is a Bernoulli mixture of path internal/external positions.",
+          "The endpoint law has negative stochastic regression for all monotone transforms; third-vertex law has strictly positive leaf-avoidance regression and threshold crossing."
+        ],
+        "reasoning": "These are inequivalent random variables with opposite qualitative regressions; cannot transfer the endpoint theorem without additional combinatorial identities.",
+        "searches": [
+          "uniform Cayley tree distance between two vertices conditioned degree of third vertex covariance threshold degree",
+          "uniform Cayley third vertex degree path internal external forest conditional law",
+          "Resultary exact negative regression endpoint degree and distance in uniform Cayley tree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit matched endpoint-distance law, with full RESULT.md inspected; no tabulated third-vertex mixed-degree high-threshold covariance.",
+          "The current source enumerates n≤8 but does not infer all-n from finite table."
+        ],
+        "reasoning": "No exact preexisting same-variable full conditional table or constant sequence located; endpoint table does not cover third vertex.",
+        "searches": [
+          "uniform Cayley tree distance between two vertices conditioned degree of third vertex covariance threshold degree",
+          "Resultary semantic uniform Cayley endpoint degree path length",
+          "uniform tree 3 labeled vertices length degree generating function"
+        ]
+      },
+      "rationale": "Qualified PASS for third-vertex (neither endpoint) exact degree mixture and fixed-threshold tail covariance sign reversal. Earlier published Resultary endpoint-degree conditional law directly determines some mean identities through degree conservation but NOT this third-degree distribution or high-threshold cancellation. Classical rooted-forest formulas are tools, not claimed new.",
+      "residual_risks": [
+        "Broad spanning-subtree enumeration or older three-point joint formulas may imply a component of the result in uninspected appendices.",
+        "No all-n finite cutoff for q≥4 is asserted; threshold q=3 finite-n sign unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS endpoint conditional laws and some mean implications; mathematically distinct third-vertex regression",
+          "evidence": [
+            "Prior equation (2) for endpoint degree and strict negative regression, compared directly with third-marker formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+          "material_read": "Entire original RESULT.md including conditional law, proof, forest extension and covariance",
+          "method": "Read complete published original source through GitHub connector",
+          "title": "Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+          "trigger": "Very close same Cayley statistic with a distinct marked vertex role"
+        },
+        {
+          "assessment": "COVERS marked path membership and general subtree combinatorics, no explicit tail inversion in inspected statements",
+          "evidence": [
+            "Lemmas 4–5 discuss p-tree subtree placement; not high-degree tail covariance."
+          ],
+          "identifier_or_url": "https://live-statistics.pantheon.berkeley.edu/sites/default/files/tech-reports/526.pdf",
+          "material_read": "Primary 1998 report discrete p-tree/span-subtree Lemmas 4–5 and tree-path context, accessed in research comparison",
+          "method": "Reviewed public PDF sections and source context; no full-text blanket noncoverage claim beyond inspected material",
+          "title": "A Family of Random Trees with Random Edge Lengths",
+          "trigger": "Spanning-subtree identity and third path-membership ambiguity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural three-marked-vertex probabilistic statistic exhibits a nontrivial reversal of dependence under thresholding: nonleaf and mean regression increase while high-degree tail covariances eventually decrease. It is a reusable structural distinction between mean order and distribution order, not a tiny unmotivated enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform labeled Cayley trees, three distinct fixed labels, fixed integer threshold q as n→∞ only.",
+    "Broad spanning-subtree enumeration or older three-point joint formulas may imply a component of the result in uninspected appendices.",
+    "No all-n finite cutoff for q≥4 is asserted; threshold q=3 finite-n sign unresolved."
+  ],
+  "schema_version": 1
+}

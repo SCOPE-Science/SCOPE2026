@@ -1,19 +1,21 @@
-# Scientific review of third-vertex distance–degree inversion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement carefully separates three fixed distinct labels, all conditional boundary lengths, and fixed integer high-degree thresholds. Conditioning on a specified path produces a rooted forest whose Laplacian determinant is \(m n^{r-1}\). A marked-root determinant gives the binomial-plus-Bernoulli offspring law; a marked-nonroot determinant gives the shifted binomial law. The path-membership mixture proves the exact degree law. The leaf monotonicity and opposite tail inequalities at the terminal two path lengths are algebraic. At the fluctuation scale \(L/\sqrt n\), the independent order-\(n^{-1/2}\) contributions cancel; second-order expansion and a Rayleigh exponential tail bound yield the stated limiting covariance constants. The standalone program passed 11,422 exact-or-numerical checks, including exhaustive trees through eight vertices. Its finite experiments are corroboration, not the basis for the infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge, with residual historical risk)
+Uniform labeled Cayley tree with three fixed DISTINCT vertices: conditioned marked u-v path length ℓ, rooted-forest determinant m n^(r−1) counts completions. Marking a root gives generating function a(z)^(n−ℓ−2)*(ℓ+z)/(ℓ+1); marking nonroot gives z a(z)^(n−ℓ−2). Mixture by probability p=(ℓ−1)/(n−2) yields 1+B+J(1+C), with B,J,C independent, for ℓ≤n−2; ℓ=n−1 forces H=2. Exact leaf P(H=1|ℓ) decreases, hence all-n positive nonleaf covariance; at penultimate versus last ℓ the ≥2 and ≥3 tail events cross. Centered generating function cancels n^−1/2 contribution and order-n^−1 contains (2−x²)/2 z e^(z−1)(z−1)²; Rayleigh L/√n and uniform exponential tails yield √n covariance constant −sqrt(π/2)b_q/2 for fixed q. Independently computed n=8,ℓ=4 degree probabilities {1:49/128,2:133/320,3:11/64,4:9/320,5:1/640} summing to 1. Fixed q≥4 eventually negative, q=3 leading zero only. The actual package script enumerates all Prüfer codes n≤8; its logs are not accepted as an infinite proof.
 
-The closest published mathematical record treats degree at an **endpoint**, where the conditional law is binomial plus Bernoulli and stochastically *decreasing* in distance. It also implies the third-vertex conditional **mean** through the deterministic sum of all vertex degrees. Accordingly the mean formula is expressly not a separately novel result. Pitman's coalescent-forest work establishes the extension formulas, and Aldous–Pitman's spanning-subtree formula covers path inclusion; neither inspected full text states the **third-vertex conditional degree distribution** or the **high-threshold negative covariance with exact \(n^{-1/2}\) coefficient**. The new conclusion genuinely distinguishes mean regression from threshold regression. Broader forest enumerations could potentially conceal an implicit equivalent; absence from checked sources is not an absolute priority certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The distinction between measuring degree *at* a path endpoint and at a *third* labeled vertex matters in random network sampling. The exact joint law identifies the mechanism by which a longer path makes the third vertex more likely to lie on it while reducing external offspring. At first order those effects cancel, leading to positive association with nonleaf status but negative covariance with fixed degree thresholds of at least four. That simultaneous contrast and its sharp asymptotic coefficients are a structural, motivated dependence boundary, rather than a routine calculation of a single covariance.
+Qualified PASS for third-vertex (neither endpoint) exact degree mixture and fixed-threshold tail covariance sign reversal. Earlier published Resultary endpoint-degree conditional law directly determines some mean identities through degree conservation but NOT this third-degree distribution or high-threshold cancellation. Classical rooted-forest formulas are tools, not claimed new.
 
-## Closest literature and limitations
+## value
 
-Primary background is Pitman, *Coalescent Random Forests*, Berkeley Report 457 (first catalog date 1996-09-01), whose full-text enumeration establishes rooted and unrooted forest counts; Aldous–Pitman, *A Family of Random Trees with Random Edge Lengths*, Berkeley Report 526 (1998), with a general spanning-subtree formula; and the published endpoint-degree/distance result linked in `RESULT.md`. The complete open text of Berzunza Ojeda–Janson on simply generated tree distance profiles was inspected for neighboring conditioning results. The theorem is specific to uniform labeled trees, yields eventual rather than explicit finite cutoffs at high thresholds, and makes no \(q=3\) sign claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural three-marked-vertex probabilistic statistic exhibits a nontrivial reversal of dependence under thresholding: nonleaf and mean regression increase while high-degree tail covariances eventually decrease. It is a reusable structural distinction between mean order and distribution order, not a tiny unmotivated enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
