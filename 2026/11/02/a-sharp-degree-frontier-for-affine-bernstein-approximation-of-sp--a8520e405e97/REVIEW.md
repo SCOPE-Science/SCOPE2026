@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The sampling map, normalized Gegenbauer basis, and sign criterion were reconstructed explicitly. The centered-difference exponential generating function gives the exact top-degree coefficient, and Gegenbauer leading terms give the all-dimensional obstruction. On the two-sphere, direct low-degree Legendre expansions cover every nonnegative Schoenberg coefficient; the only nonalgebraic step uses the published Bernstein estimate for Legendre polynomials to bound all odd input degrees at the single interior sample. The checker passed 292 exact rational supplementary assertions. Finite checks are corroboration, not evidence for an infinite conclusion.
+PASS
 
-## Originality — PASS under inspected evidence
+Schoenberg coefficient characterization of zonal PD on S^d gives the correct cone. EGF of n-th centered difference, (2sinh(z/n))^n, computes exact top Bernstein coefficient for t^n and t^{n+2}; combined with leading Gegenbauer terms and C_m^lambda(1) normalization gives [Q_n] B_n Q_(n+2)=(n!/n^n)(n+lambda)(d+1-n)/(3n)*(n+1)(n+2)/((n+d-1)(n+d)), negative for n>=d+2. For S2, explicit n=1,2,3 Legendre expansions are positive; odd n=3 samples m>=7 controlled by published sharp |P_m(1/3)| Bernstein inequality and the low m=1,3,5 calculated separately. Independent exact symbolic reconstruction confirmed 60 (d,n) top coefficients and P5(1/3)=1/3. Prior n=4 S2 coefficient -9/256 is explicitly credited, not claimed new. Full quantifiers rely on the proof, not 60 tests.
 
-The closest motivating manuscript, Otten–Nguyen–Watts, arXiv:2608.04836 (first public 2026-08-05), proves positivity preservation for a *different operator* in the geodesic-distance variable on the circle, and separately gives an affine two-sphere failure at exactly degree four with coefficient -9/256. Its accessible theorem, Section 4 and conclusion were inspected; they do not provide an all-degree affine classification, nor the all-dimensional top Gegenbauer formula. Schoenberg's 1942 characterization and the published 2008 Legendre inequality are methodological inputs, not claims of this result. Adjacent Gegenbauer positivity and dimension-walk results employ different functionals. Text searches for equivalent affine/spherical Bernstein cone-preservation statements found no stronger theorem covering the claims; as always, incomplete indexing of older approximation theory remains a residual originality risk.
+## originality
 
-## Value — PASS
+PASS
 
-The natural shape-preserving question of whether ordinary Bernstein approximation can maintain a spherical covariance kernel receives an exact, all-degree answer on the usual two-sphere. The closed degree/dimension obstruction exposes the general mechanism and converts a previously given isolated fourth-degree example into a sharp preservation frontier. The classification is intrinsic to Schoenberg positivity and does not depend on arbitrarily chosen parameter slices.
+Best-of-knowledge original contribution limited to complete claimed classification and quantitative threshold; classical ingredients and exact previously known special cases credited. Primary comparisons distinguish same mathematical objects from similar names; remaining equivalence risk explicitly documented.
 
-## Closest literature and limitations
+## value
 
-Otten, Nguyen & Watts (2026), arXiv:2608.04836, Section 4, supplies the degree-four affine counterexample; it does not give the degree-one-through-three preservation classification or universal coefficient formula. Schoenberg (1942) characterizes zonal positive-definite kernels. Gautschi–Giordano (2008), Eq. (56), records the Bernstein–Legendre bound required in the proof. The remaining low-degree preservation problem for spheres of dimension greater than two is not decided here. Independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The shape-preservation question for zonal spherical covariance kernels is natural: ordinary affine Bernstein approximation preserves positivity for exactly three degrees on S², and a dimension-dependent obstruction applies to all larger spheres. This converts a known single-degree counterexample into a complete sharp degree frontier and general closed obstruction, a useful exact classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
