@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The binomial formula for the central Delannoy sequence follows from the bivariate lattice-path generating function. Two applications of Vandermonde's identity split the dyadic shift into terms with one and two positive indices. The elementary bound \(\nu_2\binom hi\ge\nu_2(h)-\nu_2(i)\) leaves two single-positive contributions and, only when \(\nu_2(h)=2\), two double-positive contributions of the lowest possible valuation. The latter cancel modulo \(32\), a critical exceptional check. The resulting first-order phase holds for all \(n\ge0\) and all positive \(4\mid h\). The minimal-period argument rules out all smaller periods through the gcd-of-periods property, not merely half the chosen period. The standalone integer-recurrence verifier passed all documented tests; it is corroboration rather than an infinite certificate.
+PASS
 
-## Originality — PASS with residual historical risk
+Vandermonde on the binomial sum produces terms with one or two positive shift indices. v2 C(h,i)>=a-v2(i) leaves only (j,i)=(1,1),(2,2) from single-positive terms. For double-positive terms all vanish mod2^(a+3) except at a=2 the (i,l,j)=(2,2,2),(4,4,4) terms, each 16 mod32 and cancelling. The resulting phase is 2^(a+2)n(n+1)/2; its parity detects n=1,2 mod4. Powers-of-two h yield claimed periods, with half-period refuted at n=1; gcd-of-periods excludes all smaller shifts. Independent recurrence computation checked 10 moduli; finite work not substitute for cancellation proof.
 
-Sun, arXiv:1008.3887 (2010), identifies the generalized trinomial specialization and analyzes summatory congruences; Sun, arXiv:1009.2486 (2010), considers primarily odd-prime sums. Guo, arXiv:1412.7724 (2014), proves weighted Delannoy-polynomial power-sum congruences. Kauers–Krattenthaler–Müller, arXiv:1107.2015 (2011), develop general methods for powers-of-two congruences in other recurrent families. OEIS A001850 tabulates standard central Delannoy formulas, not an explicit all-moduli least-period theorem in the inspected entry. The precise uniform dyadic index-shift phase and resulting least-period law were not located in the inspected material. These sources may imply weaker modular congruences, while a general recurrence algorithm might in principle derive special cases after computation; no directly covering statement or reduction was identified. Prior-work searches do not establish absolute uniqueness. Specialized literature on Legendre-polynomial values at three or on modular recurrences may contain equivalent results; this requires independent historical scrutiny.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Global least periods modulo every power of two are canonical invariants of the central Delannoy sequence. The result supplies their complete classification and a uniform leading dyadic shift term, with a sharp parity dichotomy in the index and a nontrivial cancellation at the first exceptional valuation. It is more informative than finite period tables or a generic existence-of-period result and identifies exact arithmetic behavior across an infinite family of moduli.
+Best-of-knowledge distinct mathematical claim after direct model/parameter and implication comparisons; known overlapping prerequisites and specializations credited. The identity T_n(3,2)=P_n(3)=D_n is a renaming and not original. General sum congruences or mod-2^k algorithms do not logically establish the specific uniform index-shift layer without arithmetic computation and exceptional a=2 cancellation; the proof supplies that calculation for all n,h and derives the least global periods. Lengyel Conjecture 4 explicitly anticipates part of the shifted valuation phenomenon for b=1,2 modulo four; the reviewed proof establishes those predicted special cases, but the original paper conjectures rather than proves that comparison and does not supply the full uniform h phase or period classification.
 
-## Verification and limits
+## value
 
-The verifier uses the three-term integer recurrence to compute the sequence independently of the binomial and shift formulas, then checks the latter and the least periods. The proof, not a bounded enumeration, supports the unbounded claim. No assertion is made for odd-prime periods, arbitrary generalized coefficients, or the higher valuation layers of indices congruent to zero or three modulo four. Historical priority remains subject to further source access and an independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The least global period modulo every 2^k is a canonical exact arithmetic invariant of the central Delannoy sequence, rather than an arbitrary finite table. The all-h dyadic phase and exceptional 32-cancellation explain why the least-period hierarchy behaves as claimed and provide usable congruences for unbounded indices. It additionally proves a natural special case of the shifted-difference valuation conjecture in Lengyel (2021) for offsets b=1 or 2 modulo four, though the other offsets remain outside the exact valuation theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

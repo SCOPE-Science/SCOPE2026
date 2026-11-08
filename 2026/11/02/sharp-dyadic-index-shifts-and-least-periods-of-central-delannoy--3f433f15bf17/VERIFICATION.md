@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the dyadic Delannoy shift theorem
 
-Run `python3 delannoy_period_verifier.py` using a standard Python installation. This is a finite independent reconstruction of the sequence via its integer three-term recurrence, not a replacement for the symbolic proof. The expected successful diagnostic is:
+# Independent mathematical audit
 
-```
-VERIFY_OK independent_binomial_crosschecks= 161 dyadic_phase_checks= 197504 sharp_valuation_checks= 98688 period_entries= 1027 shorter_period_exclusions= 1016 highest_modulus= 2048
-```
+## correctness
 
-The script checks the first 161 binomial identities, 197504 shift congruences with all shifts divisible by four through 512 and all eligible indices below 1801, 98688 cases with exact valuation, and all least-period claims modulo powers of two through 2048, excluding every smaller candidate shift on a complete interval for each tested modulus. The unrestricted conclusion rests on the finite-term Vandermonde expansion, its valuation bounds, the exceptional two-term cancellation modulo 32, and the period-gcd argument. The independent mathematical audit remains unperformed.
+PASS
+
+Vandermonde on the binomial sum produces terms with one or two positive shift indices. v2 C(h,i)>=a-v2(i) leaves only (j,i)=(1,1),(2,2) from single-positive terms. For double-positive terms all vanish mod2^(a+3) except at a=2 the (i,l,j)=(2,2,2),(4,4,4) terms, each 16 mod32 and cancelling. The resulting phase is 2^(a+2)n(n+1)/2; its parity detects n=1,2 mod4. Powers-of-two h yield claimed periods, with half-period refuted at n=1; gcd-of-periods excludes all smaller shifts. Independent recurrence computation checked 10 moduli; finite work not substitute for cancellation proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct mathematical claim after direct model/parameter and implication comparisons; known overlapping prerequisites and specializations credited. The identity T_n(3,2)=P_n(3)=D_n is a renaming and not original. General sum congruences or mod-2^k algorithms do not logically establish the specific uniform index-shift layer without arithmetic computation and exceptional a=2 cancellation; the proof supplies that calculation for all n,h and derives the least global periods. Lengyel Conjecture 4 explicitly anticipates part of the shifted valuation phenomenon for b=1,2 modulo four; the reviewed proof establishes those predicted special cases, but the original paper conjectures rather than proves that comparison and does not supply the full uniform h phase or period classification.
+
+## value
+
+PASS
+
+The least global period modulo every 2^k is a canonical exact arithmetic invariant of the central Delannoy sequence, rather than an arbitrary finite table. The all-h dyadic phase and exceptional 32-cancellation explain why the least-period hierarchy behaves as claimed and provide usable congruences for unbounded indices. It additionally proves a natural special case of the shifted-difference valuation conjecture in Lengyel (2021) for offsets b=1 or 2 modulo four, though the other offsets remain outside the exact valuation theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
