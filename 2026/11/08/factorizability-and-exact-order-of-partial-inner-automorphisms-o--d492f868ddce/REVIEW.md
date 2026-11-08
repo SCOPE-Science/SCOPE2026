@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The argument independently derives the elementary domains as \(\operatorname{Hom}(V/U,F)\), proves that \(g:F'\to F\) and \(\bar g:V/U'\to V/U\) are isomorphisms, and constructs a simultaneous invertible linear extension \(Q\). This establishes \(\phi_{g,h}=\psi_Q|_D\) for arbitrary singular or nonsingular \(g,h\). Every nonzero proper pair of image/kernel subspaces arises by finite intersections of elementary domains, so the resulting inverse monoid is exactly the partial conjugation restriction monoid. Pointwise centralizers are characterized by commuting with every rank-one tensor; adapted blocks give the stated stabilizer order. Grassmannian intersection counting yields the exact finite-field order. The independent finite checks include all \(6561\) elementary pairs in dimension two over \(\mathbb F_3\), and the entire restriction monoid of order \(15506\) over \(\mathbb F_2\) in dimension three.
+
+## Originality — PASS, qualified
+Araújo et al. (arXiv:2605.00041), Section 7, Problem 7.9, explicitly leave the endomorphism-monoid partial-inner classification open. Their generating-map definition alone does not imply factorization into global conjugations. Dolinka--East's matrix sandwich theory (arXiv:1503.03139), including Corollary 4.8, Theorem 6.5, and Proposition 7.2, classifies individual sandwich semigroups and their idempotents, but not the partial inner maps or their global extension. Earlier enumerations of idempotent domains and low-rank or dimension-two partial maps cover proper portions of the present object, not arbitrary-dimensional factorization or the full order formula. The specific conclusion is a complete unit-restriction description and exact order, rather than the previously known domain count. Searches for partial inner automorphisms, factorizability, quotient action, aliases, and matrix sandwich interpretations found no stronger prior coverage. Equivalence hidden in older restriction-monoid literature remains a priority risk.
+
+## Mathematical value — PASS
+The theorem answers the qualitative structure of a specifically posed recent classification problem for **all** finite-dimensional full linear monoids. It supplies a universal extension lemma for singular generating pairs, describes every resulting partial map by a global projective conjugation restricted to a fully specified subspace domain, and gives a nontrivial exact all-ranks finite-field order law. The sharp first unexplored binary dimension-three total \(15506\) is exhaustively verified. The result extends well beyond the previously accessible idempotents and rank-one skeleton.
+
+## Boundaries and sources
+The result does not classify arbitrary partial automorphisms or monoids over general rings. Sources: Araújo et al., arXiv:2605.00041 (first public 2026-04-28), original construction and Problem 7.9; Dolinka--East, arXiv:1503.03139, finite matrix sandwich semigroups. Source full text was inspected in the sections actually relevant to the comparisons. No independent mathematical review has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
