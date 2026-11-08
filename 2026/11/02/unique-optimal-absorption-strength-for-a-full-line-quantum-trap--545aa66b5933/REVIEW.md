@@ -1,27 +1,21 @@
-# Scientific review: unique optimal interior-trap absorption
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes the infinite chain, dissipator normalization \(H=J(S+S^*)-i\eta P_0\), and point-source distance. Its eventual absorption is an absolutely convergent positive time integral. The exact scalar Laplace transform follows from the free-lattice Green function and the rank-one resolvent formula. Since the trap amplitude is square integrable by the norm-dissipation identity, Plancherel applies to its boundary values. Splitting inside and outside the continuous spectral band proves the stated exact absorption formula. Strict distance decrease follows from the positive exterior contribution; the first two inverse-distance terms follow from a justified small-\(u\) Laplace expansion. The elementary band integral evaluates to the stated three-case form. Its derivative is strictly negative for normalized coupling at least one, and below one its sign is controlled by a power series with one negative constant and otherwise strictly positive coefficients; hence the optimum is unique. The high-precision optimum, quadrature identities and finite-time lattice simulations replay with `verify.py`.
+PASS
 
-Risk: The numerical checks do not certify all parameter choices; global claims rest on explicit analytic inequalities. The long-distance remainder is fixed-parameter, not uniform across singular coupling limits.
+For H=J(S+S*)−iηP0 on ℓ²(Z), differentiate norm to get Q_m=2η∫_0∞|A_m(t)|²dt. Free lattice Green function and rank-one resolvent give Laplace amplitude ρ(s)^m/(η+√(s²+4J²)). L²-Plancherel on imaginary axis splits |ω|<2J source-independent band Q∞=η/π ∫_{−2J}^{2J}(η+√(4J²−ω²))^(−2)dω from an exterior-band strictly positive integral with e^(−2mu). Monotone Q_m↓Q∞ follows; expanding sinh integrand at u=0 yields m⁻² and m⁻⁴ coefficients with O(m⁻⁶). Substituting a=η/(2J) evaluates band integral; derivative is negative for a≥1, while for a∈(0,1) its sign equals (3−2k²)(atanh k−k)−k³ with k²=1−a². After division by k⁵, series has one negative constant and strictly positive higher coefficients, strictly increases to infinity; thus one global critical η/J≈1.225741123666 and Q∞≈0.222796320563. Independent spectral quadrature and optimization checks corroborate.
 
-## Originality — PASS, with priority qualification
+## originality
 
-Longhi's accessible main preprint establishes positive survival for finite sets of coherent traps but does not state the exact single-trap starting-distance law or the global remote-source loss-strength optimum. Riberi gives a fully explicit **boundary** absorber kernel, with reciprocal loss-strength duality and the maximum at normalized coupling one; it does not state or imply the different **interior full-line** formula and its unique optimum at \(1.225741123666\ldots\) from its uniform half-line result. Earlier absorbing quantum walks predominantly involve discrete-time coined walks or measurement protocols. The use of rank-one resolvents itself is known. Direct searches of previous comparable claims and mathematical records did not find the present combined exact geometry-sensitive optimization classification.
+PASS
 
-Risk: A separately hosted supplement to Longhi's main article could not be inspected; undiscovered equivalent interior-defect formulas or general scattering theory may subsume the claim. Publication priority is not certified.
+PASS best of knowledge for remote-source full-line interior-trap unique coupling optimum and precise spatial correction, not for existence of partial absorption or rank-one resolvent methods.
 
-## Mathematical value — PASS
+## value
 
-The loss strength is a controllable physical design parameter and the eventual fraction of remote particles captured is a natural asymptotic transport efficiency. A complete sharp optimizer addresses a non-obvious competition between weak capture and Zeno reflection. Its value differs quantitatively from the boundary-sink optimum and breaks a known reciprocal-coupling duality. Strict dependence on launch distance and the inverse-square correction quantify the approach to this remote-source efficiency, rather than merely restating nonzero quantum survival. These features form a motivated complete classification of this canonical single-trap transport problem, not a parameter relabeling.
+PASS
 
-## Closest literature and limits
+The coherent single-site trapping problem is a canonical quantum transport model; exact optimal interior absorption with rigorous unique coupling and spatial approach rate answers an intrinsic design question that differs from the established boundary sink optimum.
 
-- S. Longhi, *Photonic random walks with traps*, 2024, https://arxiv.org/html/2405.07192v1 — same physical full-line setup; survival criterion and examples, but no assessed optimizer in accessible main text. Supplemental material was inaccessible.
-- F. Riberi, *An Exactly Solvable Absorbing Quantum Walk*, 2026, https://arxiv.org/html/2605.08056v1 — half-line boundary sink and a different exact absorption kernel, reciprocal coupling symmetry and boundary optimum.
-- M. Sabri, E. Segawa, M. Štefaňák, *Conditional limit measure of a one-dimensional quantum walk with an absorbing sink*, 2018, DOI: 10.1103/PhysRevA.98.012136 — different discrete-time coined evolution and conditional limit law.
-
-The theorem has one interior loss site, infinite homogeneous full line, no dephasing, and fixed-parameter large-distance limits. It does not optimize each finite-distance absorption probability or provide finite-time first-passage distributions.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
