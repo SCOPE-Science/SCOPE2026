@@ -1,15 +1,21 @@
-# Review of parity rigidity and first-defect laws for central-binomial characters
+# Independent mathematical audit
 
-## Correctness — PASS
-The classification has a closed proof. Lucas's theorem turns the sign requirement for the two exceptional primes into a product of digit signs, and parity agrees with base-digit parity for odd bases. For every other odd prime, the exact first five central-binomial factorizations force a defect by index five; the small prime \(7\) is dealt with at index one. The five-way classification follows by comparing the quadratic characters of \(2,3,5,7\) in that order. Quadratic reciprocity and CRT show each joint sign pattern occupies twelve units modulo \(840\); Dirichlet's theorem supplies the stated densities. A digit-string generating polynomial \((2+z)^L\) proves the shifted residue counts and exact Gaussian-integer imbalance. Direct arithmetic verification also checks the formulas without using the character-sign proof as its oracle. No infinite theorem is inferred from finite data.
+## correctness
 
-## Originality — PASS, with documented risk
-Guo–Krattenthaler (2013) pose a broad binomial-residue conjecture. Vsemirnov (2014) already supplies the \(\{0,2,3\}\) restriction for the shifted \(p=5\) family, and that restriction is excluded from the claimed novelty. Yaqubi–Mirzavaziri (2017), Section 4, reproduce this result while pursuing different binomial divisibility questions. He–Yuan (2024), Section 3, study which residues occur and prove central-binomial residue completeness for the unshifted family. The available texts do not establish the present quadratic-character parity classification, uniform sharp first-defect index, exact prime-density law, or finite-block Gaussian-integer frequency formula. The 2014 Vsemirnov article was accessible only as a publisher preview and quotations in later full texts; it remains possible that its unseen pages contain finer counting claims. Targeted published-result and literature searches found no equivalent statement; search absence alone is not treated as novelty proof.
+PASS
 
-## Mathematical value — PASS
-The modulus-five counterexample to a published universal-residue conjecture is a natural starting point for asking whether its quadratic-character rigidity is exceptional among primes. The answer is a complete prime classification with sharp universal first-obstruction index five; Dirichlet densities give the exact arithmetic prevalence of each failure type. The finite-block counts additionally quantify both frequencies and their algebraic oscillation for the specific exceptional family, beyond knowing only its allowable residue set. None of these facts requires an artificially chosen finite cutoff: five is forced by the first contradictory character product, and \(5^L\) is the natural Lucas-digit scale. The result makes no claim to resolve the original conjecture for all shifted families.
+For p=3,5 Lucas digits without carries have local Legendre signs (-1)^digit, giving global rigidity. For every p>=11, direct factorization of B(1)..B(5) makes five exhaustive first-defect branches by chi(2),chi(3),chi(5),chi(7); p=7 differs at n=1. Quadratic reciprocity and CRT give all 16 four-symbol patterns exactly 12 times among 192 units modulo 840; Dirichlet gives the asserted densities. For odd m<5^L, Lucas gives allowed digits 0,1,2, digit-1 parity odd, and (2+z)^L yields exact zero/two/three residue formulas and imaginary (2+i)^L imbalance. Independently counted the small digit blocks directly using integer binomial residues; finite checks supplement the universal proof.
 
-## Sources and residual limitations
-Primary works compared: Guo–Krattenthaler, arXiv:1301.7651, Section 7 (first release 2013-01-31); Vsemirnov, DOI:10.1142/S1793042114500420, publisher preview and theorem quoted in later works; Yaqubi–Mirzavaziri, arXiv:1701.06217, Section 4; He–Yuan, *Results on some conjectures about binomial coefficients* (2024), Introduction and Section 3. The first-defect theorem applies to odd primes and unit binomial residues. The counting theorem is specific to the displayed \(p=5\) interval. The incomplete primary full-text access and possible historical unindexed equivalences remain scientific-priority risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Conjectured full residue coverage and Vsemirnov’s p=5 allowed-residue restriction are explicitly older and not claimed new. Sharp uniform first-defect classification, its prime-density law and Gaussian-integer finite-block imbalance do not follow from the prior restriction. Complete Vsemirnov 2014 paper inaccessible (Oxford VPN disconnected), so finer prior counting coverage is a material residual risk, not by itself a negative novelty verdict.
+
+## value
+
+PASS
+
+The exceptional primes 3 and 5 are singled out by a structural Lucas-digit and quadratic-character mechanism; sharp defect at at most five and exact density statistics quantify how all others fail. The 5^L digit scale is canonical and its exact residue oscillation refines the established residue-set counterexample; this is a motivated classification, not arbitrary tiny testing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

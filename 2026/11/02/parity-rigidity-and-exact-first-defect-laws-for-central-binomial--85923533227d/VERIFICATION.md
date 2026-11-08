@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Computational checks and reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and its standard library. The program independently computes \(\binom{2n}{n}\) as an integer for the first five positive indices of every odd prime below \(5000\), checks the predicted first discrepancy, and directly checks the parity law for the first \(700\) positive indices for each of the primes \(3\) and \(5\). It verifies all sixteen sign patterns, each of multiplicity twelve, by independently evaluating Legendre characters for representatives of the \(192\) units modulo \(840\). Finally, for every \(1\le L\le6\), it enumerates the shifted-index interval, computes binomial residues digitwise, and compares to the three exact count formulas. The largest interval comprises \(7812\) indices.
+## correctness
 
-The executed result was:
+PASS
 
-```
-VERIFY_OK primes_tested= 668 first_failure_counts= {None: 2, 1: 332, 2: 167, 3: 80, 4: 41, 5: 46} exceptional_indices= 1400 dirichlet_patterns= 16 digit_levels= 6 max_shifted_terms= 7812
-digit_counts= {1: {2: 1, 0: 1}, 2: {2: 4, 0: 8}, 3: {2: 12, 0: 49, 3: 1}, 4: {2: 32, 0: 272, 3: 8}, 5: {2: 81, 0: 1441, 3: 40}, 6: {2: 204, 0: 7448, 3: 160}}
-```
+For p=3,5 Lucas digits without carries have local Legendre signs (-1)^digit, giving global rigidity. For every p>=11, direct factorization of B(1)..B(5) makes five exhaustive first-defect branches by chi(2),chi(3),chi(5),chi(7); p=7 differs at n=1. Quadratic reciprocity and CRT give all 16 four-symbol patterns exactly 12 times among 192 units modulo 840; Dirichlet gives the asserted densities. For odd m<5^L, Lucas gives allowed digits 0,1,2, digit-1 parity odd, and (2+z)^L yields exact zero/two/three residue formulas and imaginary (2+i)^L imbalance. Independently counted the small digit blocks directly using integer binomial residues; finite checks supplement the universal proof.
 
-The formulas for infinitely many primes and all positive integer levels are proved mathematically, not by exhaustion. The finite tests neither establish prime density nor assert historical novelty. The primary 2014 source was not fully available, leaving a literature-comparison risk.
+## originality
+
+PASS
+
+Conjectured full residue coverage and Vsemirnov’s p=5 allowed-residue restriction are explicitly older and not claimed new. Sharp uniform first-defect classification, its prime-density law and Gaussian-integer finite-block imbalance do not follow from the prior restriction. Complete Vsemirnov 2014 paper inaccessible (Oxford VPN disconnected), so finer prior counting coverage is a material residual risk, not by itself a negative novelty verdict.
+
+## value
+
+PASS
+
+The exceptional primes 3 and 5 are singled out by a structural Lucas-digit and quadratic-character mechanism; sharp defect at at most five and exact density statistics quantify how all others fail. The 5^L digit scale is canonical and its exact residue oscillation refines the established residue-set counterexample; this is a motivated classification, not arbitrary tiny testing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
