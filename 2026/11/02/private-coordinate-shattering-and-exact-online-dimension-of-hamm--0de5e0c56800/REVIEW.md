@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The interval-mixing lemma gives the precise Cartesian-box hypothesis family. The private-coordinate criterion proves both shattering directions, including empty and singleton supports. The VC upper bound handles separately supports no larger than a factor and supports larger than every factor; the online bound uses the exact \(2^k\) positive version-space size, while the depth-\(k+1\) construction is an induction with a two-query negative branch. Degenerate factor profiles and the complete two-factor maximum-support count are explicitly handled. Standalone finite verification independently checks graph shortest-path convexity, traces, and the online recurrence.
+## correctness
 
-**Originality — PASS under accessible-source comparison.** The established geometric product theorem is credited rather than presented as new. Inspected source sections in Thiessen–Gärtner (2022) provide generic online bounds and graph convexity definitions, not exact Hamming-product online ranks or the private-coordinate characterization. Dourado et al. (2022) study convex geometries, and Chepoi–Labourel–Ratel (2017) study a differently defined VC invariant of product subgraphs. Published-research-record searches for exact formulas, Hamming graphs, rectangular classes and private coordinates revealed no claim implying the combined result. Older Boolean-conjunction or finite combinatorial-rectangle formulations remain a priority risk; an inaccessible older product-geometry manuscript was compared only through its abstract.
+PASS
 
-**Value — PASS.** The result covers the whole family of finite Cartesian products of complete graphs without parameter cutoffs, classifies every shattered support, and gives the sharp adversarial online dimension with an explicit constructive mechanism. The relationship with private coordinate symbols and, for two factors, star forests supplies a reusable structural description beyond a scalar invariant. The gap holds for arbitrary alphabet sizes and dimension, and the degenerate boundary is exact.
+For the all-shortest-path geodesic convexity in products of finite complete graphs, geodesic intervals independently change coordinate values, hence every nonempty convex set is exactly a product of coordinate subsets; the concept count is 1+∏_i(2^{n_i}-1). A support S is shattered iff each point has a coordinate value unique within S: this is necessary from the leave-one-out trace and sufficient since coordinate-projection hulls exclude every omitted point. Thus VCdim k when at least two factors are nontrivial and k+1 otherwise, k=∑(n_i−1). Littlestone upper bound k+1 follows from the positive first-query version space having 2^k boxes, while induction on k gives a depth-(k+1) complete mistake tree, exploiting a second nontrivial coordinate after a negative answer. For two factors private-value support graphs are star forests; exact max-support counts mn (m,n>=3), 2^max (one side two), 6 (2x2). Independent direct concept and online-dimension recursion verified (2,2): concepts 10, Ldim3; (2,3):22,Ldim4; (2,2,2):28,Ldim4, agreeing with proof.
 
-No extension to general graphs or noisy learning is claimed. Computational checks supplement but do not replace the proof; complete historical priority and independent validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cartesian-product geodesic convexity is old (Jiang–Pelayo–Pritikin) and general online graph convex-set complexity is prior (Thiessen–Gärtner). The specific private-coordinate shattering iff, exact VC/Littlestone dimensions across arbitrary finite Hamming factors, sharp gap one and maximal-support star-forest counts are not directly stated by those inspected results. However signed-literal conjunction and combinatorial-rectangle terminology are important aliases; broader learning-theory coverage remains a priority risk.
+
+## value
+
+PASS
+
+The all-alphabet exact classification relates graph convexity, static VC dimension and online Littlestone dimension, including an every-shape sharp one-unit gap and exact counts of extremal shattered supports in two factors. It resolves a natural parameter-uniform combinatorial dimension problem, useful independently of larger graph-learning bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

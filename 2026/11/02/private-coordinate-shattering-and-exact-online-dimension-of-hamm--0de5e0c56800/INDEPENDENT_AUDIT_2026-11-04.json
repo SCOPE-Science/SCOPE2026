@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T22:07:06.430425Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the all-shortest-path geodesic convexity in products of finite complete graphs, geodesic intervals independently change coordinate values, hence every nonempty convex set is exactly a product of coordinate subsets; the concept count is 1+∏_i(2^{n_i}-1). A support S is shattered iff each point has a coordinate value unique within S: this is necessary from the leave-one-out trace and sufficient since coordinate-projection hulls exclude every omitted point. Thus VCdim k when at least two factors are nontrivial and k+1 otherwise, k=∑(n_i−1). Littlestone upper bound k+1 follows from the positive first-query version space having 2^k boxes, while induction on k gives a depth-(k+1) complete mistake tree, exploiting a second nontrivial coordinate after a negative answer. For two factors private-value support graphs are star forests; exact max-support counts mn (m,n>=3), 2^max (one side two), 6 (2x2). Independent direct concept and online-dimension recursion verified (2,2): concepts 10, Ldim3; (2,3):22,Ldim4; (2,2,2):28,Ldim4, agreeing with proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thiessen–Gärtner give generic learning bounds for convex graph concepts and Jiang–Pelayo–Pritikin product convexity, but not an explicit tight Littlestone dimension for this whole Cartesian-box class. General inequality Ldim<=log2|C| is weaker here and not enough for k+1 lower bound."
+        ],
+        "reasoning": "Inspected broader ambient theorems have weaker or different conclusions and so do not automatically imply the full assigned claim; residual stronger-theorem risks are retained.",
+        "searches": [
+          "Thiessen–Gärtner, Online Learning of Convex Sets on Graphs (ECML-PKDD 2022), DOI:10.1007/978-3-031-26412-2_22",
+          "Jiang–Pelayo–Pritikin, Geodesic Convexity and Cartesian Products in Graphs (2004)",
+          "Dourado et al., arXiv:2203.15878, graph convex geometries survey"
+        ]
+      },
+      "checked_sources": [
+        "Thiessen–Gärtner, Online Learning of Convex Sets on Graphs (ECML-PKDD 2022), DOI:10.1007/978-3-031-26412-2_22",
+        "Jiang–Pelayo–Pritikin, Geodesic Convexity and Cartesian Products in Graphs (2004)",
+        "Dourado et al., arXiv:2203.15878, graph convex geometries survey",
+        "Chepoi–Labourel–Ratel, arXiv:1711.11485 (different subgraph VC dimension)",
+        "Resultary semantic query: Hamming boxes convex sets Littlestone dimension VC dimension private coordinate values",
+        "Web: combinatorial rectangles Littlestone dimension finite product points conjunctions VC"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Graph product convexity implies the box family but not private-coordinate shattering or adaptive mistake-tree lower bounds. Conversely generic VC-dimensional bounds do not enforce the exact gap-one identity or the mn/2^max/6 extremal counts."
+        ],
+        "reasoning": "Explicit mathematical implication direction checked rather than title-only similarity; any inaccessible plausible sources remain priority risks.",
+        "searches": [
+          "Thiessen–Gärtner, Online Learning of Convex Sets on Graphs (ECML-PKDD 2022), DOI:10.1007/978-3-031-26412-2_22",
+          "Jiang–Pelayo–Pritikin, Geodesic Convexity and Cartesian Products in Graphs (2004)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Geodesically convex sets are Cartesian boxes/combinatorial rectangles; binary-factor boxes are subcubes or conjunctions of signed literals; vertex membership is an online concept-learning query."
+        ],
+        "reasoning": "Aliases were compared at the level of mathematical domain and conclusion. A matching title or parameter alone cannot establish coverage; the exact evaluated invariant differs from known foundational results.",
+        "searches": [
+          "Resultary semantic: Hamming boxes convex sets Littlestone dimension VC dimension private coordinate values",
+          "Thiessen–Gärtner, Online Learning of Convex Sets on Graphs (ECML-PKDD 2022), DOI:10.1007/978-3-031-26412-2_22",
+          "Jiang–Pelayo–Pritikin, Geodesic Convexity and Cartesian Products in Graphs (2004)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No fixed database is equivalent to an all-shapes theorem; for two factors exact largest shattered-support counts are a natural star-forest enumeration, checked against small shapes. The original graph and concept verifier compares all convex sets on tractable instances."
+        ],
+        "reasoning": "Compared exact tabulations, finite sequences and classifications when relevant; finite searches and code checks cannot prove historical novelty.",
+        "searches": [
+          "Resultary semantic: Hamming boxes convex sets Littlestone dimension VC dimension private coordinate values",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/private-coordinate-shattering-and-exact-online-dimension-of-hamm--0de5e0c56800/RESULT.md"
+        ]
+      },
+      "rationale": "Cartesian-product geodesic convexity is old (Jiang–Pelayo–Pritikin) and general online graph convex-set complexity is prior (Thiessen–Gärtner). The specific private-coordinate shattering iff, exact VC/Littlestone dimensions across arbitrary finite Hamming factors, sharp gap one and maximal-support star-forest counts are not directly stated by those inspected results. However signed-literal conjunction and combinatorial-rectangle terminology are important aliases; broader learning-theory coverage remains a priority risk.",
+      "residual_risks": [
+        "A standard exact Littlestone dimension theorem for monotone boxes or disjunctions of coordinate literals might imply the result without naming Hamming graphs.",
+        "Original 2004 Cartesian product preprint was available at abstract level only; full text comparison limited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General online bounds and examples, not the exact all-Hamming-factor private-symbol criterion/dimension formula",
+          "evidence": [
+            "The generic graph-convexity online results do not specialize to an explicit exact Ldim=k+1 formula for every product of complete factors."
+          ],
+          "identifier_or_url": "https://ecmlpkdd-storage.s3.eu-central-1.amazonaws.com/preprints/2022/lncs13716/lncs13716354.pdf",
+          "material_read": "Abstract, introduction, algorithmic learning bounds, convex graph examples, graph-family table and relevant propositions",
+          "method": "Accessible primary full-text PDF with inspected pages",
+          "title": "Online Learning of Convex Sets on Graphs",
+          "trigger": "Direct overlap of online Littlestone dimension and graph convex-set concepts"
+        },
+        {
+          "assessment": "Credit product-convexity, no whole-text noncoverage assertion",
+          "evidence": [
+            "Cartesian-product convexity fact is used as prior known structure, with direct proof provided."
+          ],
+          "identifier_or_url": "2004 preprint, Jiang–Pelayo–Pritikin",
+          "material_read": "Available abstract and bibliographic description; full draft inaccessible at source address",
+          "method": "Primary abstract/metadata only",
+          "title": "Geodesic Convexity and Cartesian Products in Graphs",
+          "trigger": "Original geometric rectangularization theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-alphabet exact classification relates graph convexity, static VC dimension and online Littlestone dimension, including an every-shape sharp one-unit gap and exact counts of extremal shattered supports in two factors. It resolves a natural parameter-uniform combinatorial dimension problem, useful independently of larger graph-learning bounds.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Thiessen–Gärtner, Online Learning of Convex Sets on Graphs (ECML-PKDD 2022), DOI:10.1007/978-3-031-26412-2_22",
+    "Jiang–Pelayo–Pritikin, Geodesic Convexity and Cartesian Products in Graphs (2004)",
+    "Dourado et al., arXiv:2203.15878, graph convex geometries survey",
+    "Chepoi–Labourel–Ratel, arXiv:1711.11485 (different subgraph VC dimension)",
+    "Resultary semantic query: Hamming boxes convex sets Littlestone dimension VC dimension private coordinate values",
+    "Web: combinatorial rectangles Littlestone dimension finite product points conjunctions VC"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A standard exact Littlestone dimension theorem for monotone boxes or disjunctions of coordinate literals might imply the result without naming Hamming graphs.",
+    "Original 2004 Cartesian product preprint was available at abstract level only; full text comparison limited.",
+    "No source edit/GitHub write; publication not_ready due to public-file provenance; no external certification or unbounded search guarantee."
+  ],
+  "schema_version": 1
+}
