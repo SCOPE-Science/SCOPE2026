@@ -1,15 +1,21 @@
-# Scientific review: reflected-simplex translate-depth
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is stated for every nondegenerate \(d\)-simplex, \(d\ge3\), and for every ambient point, with an equal-size reflected testing simplex. Barycentric translation caps have sum two. Inclusion–exclusion gives their exact overlap fraction. Brunn–Minkowski concavity and the nonhomothety of differently capped full-dimensional intersections reduce the constrained optimization to one exceptional cap and establish strict monotonicity. The homothetic level sets, support-contact threshold, depth survival law, and equal-size baseline atom then follow from the uniform Dirichlet law. The exponential estimate follows from an explicit Gamma Chernoff bound. The standalone source file was executed and returned 68,437 exact or sampled checks. Numerical comparisons are diagnostics; the universal statements rely on the proof. Risk: as in all intricate geometric arguments, an independent check of the Brunn–Minkowski strictness step is still desirable.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The 2026 Molchanov–Nagy full-text framework supplies general depth, erosion, and baseline properties, but its inspected Sections 2–4 and 7 do not supply these all-dimensional reflected-simplex formulas. A previously worked planar reflected-triangle result covers only dimension two. A separate simplex result considers same-orientation testing bodies \(tS\), not the reflected body \(-S\). Schlemm's 2014 full-text analysis records the known maximum-Dirichlet-coordinate formula, which is used and expressly not claimed new. Searches for reflected-simplex translate-depth, capped Dirichlet maximization, and equivalent depth-region profiles found no higher-dimensional encompassing theorem; the nearest retrieved mathematical records concern different simplex invariants. Residual risk: an earlier paper in convex intersection or geometric-depth literature may package the same symmetrization and level-region result in different terminology. Failed discovery is not a novelty proof.
+PASS
 
-## Mathematical value — PASS
-The opposite orientation produces a different optimization from the same-orientation simplex case. The resulting dimension-uniform reduction reveals that every nonbaseline region is an exact reflected simplex, determines its precise contact with the original support, and gives an explicit nontrivial distribution with a baseline atom whose mass equals its own depth value. In dimensions three and above this is a new classification question, not just a restatement of the previously established triangle formula. The atom approaches one exponentially, exposing the behavior of this depth at high dimension. A further general testing-body or nonuniform-distribution result remains open.
+Translations of −S have barycentric upper caps z_i with Σ_i z_i=2; the S-intersection mass is an exact capped-simplex inclusion–exclusion sum. For nonnegative caps, Brunn–Minkowski gives concavity of the dth root of overlap mass; permutation symmetry of the remaining d caps makes the constrained maximizing vector (a,(2−a)/d,…). For 0<a<2/(d+1), lower/upper active facets make distinct cap polytopes nonhomothetic, giving strict growth along the path to equal caps and proving the cap-optimization step rather than relying on random tests. The maximum external barycentric coordinate L(y) controls the exclusion constraint, with saturation at c=2/(d+1). Dirichlet(1,…,1) barycentric mass gives exact H_d(u), so Dα consists of max λ_i≤uα, a reflected homothetic simplex; the vertex contact criterion u≤1/d, pointwise baseline atom mass β_d, and centroid max follow. An independent rational inclusion–exclusion check for d=3…8 and exact d=3 β=1/2, γ=5/8, contact=5/9 agrees. Exponential baseline estimate follows via independent Exp/Gamma representation and Chernoff bound. No finite sampling proves the d-uniform statements; the cap argument does.
 
-## Scope and limits
-This result covers equal-size reflected simplices and uniform measures; it does not classify arbitrary dilations or sampling variability. The explicit maximum-spacing distribution and the planar case are prior results. Independent validation and definitive historical priority are not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General translate-depth convexity and eroded-depth identities are prior work, as is the Dirichlet maximum-coordinate distribution and the planar reflected-triangle special case. The all-dimensional opposite-orientation capped Dirichlet optimization, complete ambient depth law, support-contact threshold and exact equal-mass baseline atom were not found as consequences of the inspected primary statements. Best-of-knowledge acceptance retains multivariate-spacing and older overlap-literature priority risk.
+
+## value
+
+PASS
+
+This determines the full ambient depth landscape, shape and support-contact of all upper regions, and the distribution of depth for a natural high-dimensional probability model under opposite-orientation convex translates. A surprisingly exact identity between baseline probability mass and depth level and explicit exponential concentration are mathematically motivated and potentially reusable in depth/statistics. The general-d theorem goes beyond the previously known planar special case, rather than an arbitrary finite parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
