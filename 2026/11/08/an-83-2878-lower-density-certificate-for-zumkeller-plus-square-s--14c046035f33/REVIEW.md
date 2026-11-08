@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The constructive divisor partition for \(2^ap\) is explicit when \(p\le2^{a+1}-1\); the divisor subset \(\{70,2\}\) witnesses the new mixed-prime building block. For coprime multipliers, a product-divisor partition proves closure directly. The root-lifting classification of \(G_p\) is complete for every odd prime, and the four nested binary-square strata give an exact CRT fraction. In the extra residue family, the exact valuation-one conditions at \(2,5,7\) force a coprime multiple of \(70\). This extra family has no intersection with the sieve's prime events for \(p\ge5\), while its intersection with the \(p=3\) event is independent. The exact difference is \(12/175\). A uniform positive-square witness bound is \(15376^2\); no finite experiment substitutes for the argument.
+
+## Originality — PASS within inspected evidence
+Somu--Kukla--Tran (arXiv:2310.14149, Proposition 4.11) gives ten congruence classes modulo \(18\), of density \(5/9\), and Conjecture 4.21 asks for density one. A preceding ten-prime square-residue certificate gives density \(63520442937841228526/83108492151210387225\approx0.76430749\), but its prime events with \(p\ge5\) require squares modulo \(4\). The present construction uses \(70=2\cdot5\cdot7\) on the complementary nonsquare classes \(2,3\pmod4\), adding a provably disjoint \(12/175\). Thus this is a strict new numerical and structural conclusion rather than a new presentation of the previous lower bound. Mahanta--Saikia--Yaqubi (arXiv:2008.11096, Theorem 2.2) characterizes individual two-prime Zumkeller factors and does not supply the mixed-prime additive density result. Searches for this exact fraction, the mixed-prime progressions, and broader square-sum density results found no covering theorem. A broader unindexed result remains a residual risk.
+
+## Mathematical value — PASS
+The source asks for density one and provides an elementary quantitative baseline. Raising an independently reconstructible lower bound from approximately \(76.43\%\) to \(83.29\%\) is a substantial advance toward that named quantitative gap. The additional \(6.857\) percentage points are explained by a genuinely different congruence mechanism: mixed odd prime support defeats the binary-square obstruction that limits the single-prime template. The conclusion is an exact density of an explicit certificate, not an arbitrary bounded sample or an unsupported statement about the true sumset.
+
+## Limitations and literature
+The full exceptional set may have a strictly smaller density than the complement of this certificate. Neither global density one nor a sharp full sumset threshold is proved. The proof directly verifies its individual Zumkeller premises. Relevant literature: Somu--Kukla--Tran (2023), Proposition 4.11, Theorem 4.17, Conjecture 4.21; Mahanta--Saikia--Yaqubi (2020), Theorem 2.2; Peng--Bhaskara Rao (2013), coprime-multiplier principle (also proved directly here). Independent mathematical audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
