@@ -1,19 +1,21 @@
-# Scientific review: rank-two Gaussian localization shape Hessian
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain has exactly fixed area because the squared radial cutoff is affine in the mean-zero deformation. The Fock Toeplitz operator is trace-class analytic in the deformation parameter near positive squared radius. Its disk eigenvalue cluster \(\{\lambda_0,\lambda_1\}\) is separated from the rest by \(e^{-t}t^2/2\). Differentiating the exact matrix elements and applying the cluster eigenvalue-sum formula yields the displayed coefficient. The \(k=1\) contribution cancels, while a strictly decreasing consecutive Poisson-weight ratio proves the exact higher-mode ordering and sharp \(k=2\) constant. The independently computed finite-section checker passed 24 assertions; no infinite claim rests on numerics.
+PASS
 
-## Originality — PASS (best-knowledge, not independent priority certification)
+For fixed t>0 and real C^3 mean-zero h, the radial-squared perturbation has area pi*t and the top-two Fock Toeplitz eigenvalue sum admits an O_{t,h}(|epsilon|^3) expansion. The exact disk eigenvalues lambda_n=1-e^{-t} sum_{j=0}^n t^j/j! decrease with isolated gap lambda_1-lambda_2=e^{-t}t^2/2. Differentiating the coherent-state trace-class integral gives T_1(n,m)=e^{-t}sqrt(a_n a_m)*hhat_{m-n}; isolated-cluster perturbation cancels occupied-plane mixing. Direct second order term -t e^{-t}sum|hhat_k|^2 and cross-cluster gaps give the coefficient D_k(t). D_1=0, D_2=t(3+2t)/((t+2)(t+3))>0 and D_k strictly increases to t via decreasing Poisson-tail ratios. The trace-class remainder and fixed smooth h justify the infinite sum. Independent exact SymPy D2 and Dk monotonic samples plus separate finite-section quadrature at t=1, k=1,2,3,5 agree with quadratic coefficients to <4e-7. Finite matrices alone do not prove the infinite claim; no global shape optimality is asserted.
 
-The 2017 accumulated-spectrogram results supply the partial eigenvalue-sum motivation and Gaussian-disk spectral formulas, not a second variation of the rank-two sum. The 2023 quantitative Gaussian Faber–Krahn theorem concerns the largest eigenvalue alone. The 2025 Fock partial-sum isoperimetric theorem assumes circular symmetry and expressly leaves nonradial optimality open. The 2026 existence theorem provides no local Fourier Hessian. Searches for equivalent Ky-Fan, accumulated-spectrogram, nonradial shape-derivative and Toeplitz formulations did not locate this statement. A rank-one coherent-state Hessian concerns a distinct spectral functional; it is not a rank-two implication. The continuing risk is unindexed or otherwise unlocated shape-calculus literature.
+## originality
 
-## Value — PASS
+PASS
 
-The spectral sum measures how well an *orthonormal pair* of Gaussian time-frequency signals can be jointly localized. Its nonradial optimality had only radial evidence in the closest 2025 theorem and remained open globally. Exact positivity of each transverse angular Fourier mode establishes a motivated, full local second-order result, exhibits the translation symmetry kernel, and identifies the sharp, least-penalized quadrupole perturbation. This is not a routine evaluation of individual radial eigenvalues or a bare numerical constant.
+Rank-two nonradial disk Hessian is not a consequence of known rank-one stability or circularly symmetric Ky-Fan inequalities. The 2026 peer-reviewed Nicola–Riccardi–Tilli article is explicit that the disk maximization is shown among circularly symmetric sets; its source work leaves nonradial problems open. Prior 2017 accumulated-spectrogram formulas supply the disk spectrum but not this cross-cluster shape Hessian.
 
-## Limits
+## value
 
-The claim is local to each fixed smooth perturbation and to the first two eigenvalues. It does not prove global optimality for nonradial measurable sets. Residual historical-priority uncertainty and lack of independent validation persist.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sum of the two largest Fock localization eigenvalues is an intrinsic orthonormal-pair concentration objective. An open nonradial issue motivates testing the disk against all angular Fourier modes. The exact positive transverse Hessian, translation null mode and sharp quadrupole constant are structural, nontrivial information not contained in the known circularly symmetric K-sum inequality or the top-one Faber–Krahn theorem; the result is expressly local and fixed-deformation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
