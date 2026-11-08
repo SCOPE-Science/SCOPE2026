@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The exact AM/GM range-minimization formula is proved via derivatives with endpoints fixed, and the normalized range-to-total-variation inequality follows from the convex chord with p-weighted mean 1. Zero-sum positive/negative increments imply Euclidean square ≤2 TV². The hyperbolic identity yields global 2/n; the strictly positive two-active-coordinate family proves sharpness. The pathwise rate corollary telescopes exact relative wealth and uses compactness and the all-window squared-displacement assumption. Standalone script checked 68982 grid pairs, 39000 range cases, 19800 random pairs, 81 boundary cases, 24 two-cycle cases; none is used as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xu and Cui Appendix B (B.3)–(B.7) prove positive coercivity with coefficient depending on K (example 1/(24M²)) for n=3, not a uniform sharp 2/n.",
+        "Pal and Wong (2018) discuss nondegenerate local L-divergence geometry and generalized Pythagorean comparison, not the exact claimed all-pair Euclidean coercivity in the inspected material."
+      ],
+      "reasoning": "The source three-asset compact-state positivity estimate is weaker in stated scope and numerical constant, and does not dominate the global all-n sharp inequality. General local metric theorems do not cover arbitrary finite jumps; no stronger published result was found in inspected primary text.",
+      "searches": [
+        "Functional generation L-divergence local Hessian spectral minimum covariance matrix diag(p)-pp^T two-coordinate limit",
+        "Worst-case relative growth restricted market weight dynamics uniform local quadratic lower bound equal weighted portfolio",
+        "Equal weighted functionally generated portfolio L-divergence sharp state-space independent quadratic bound 2/n and two-asset asymptotic extremizers",
+        "doi:10.1214/17-AOP1201 Introduction and §2",
+        "arXiv:2610.41603v1 Appendix B"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.41603v1",
+      "https://arxiv.org/html/2510.25740v2",
+      "https://arxiv.org/html/1402.3720v5",
+      "doi:10.1214/17-AOP1201"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xu-Cui (B.3): T≥c_K ||q-p||² with c_K=1/(24M²); Proposition B.1 γ≥c_Kρ.",
+        "Campbell-Wong (3.24): a local second-order form at each given interior point; does not give a nonlocal global sharp lower bound.",
+        "Pal-Wong (2014): exact portfolio L-divergence and telescoping wealth identity are already known and explicitly reused."
+      ],
+      "reasoning": "Our coefficient 2/n is optimal even when p approaches the boundary, whereas a bound with M depending on K offers no state-space-independent constant. The new range lemma bridges the gap and gives the exact extremal constant for every dimension, from which the dynamic corollary follows. The older local and definitional results do not claim this finite-amplitude sharp bound, although they supply its setting.",
+      "searches": [
+        "Worst-case relative growth restricted market weight dynamics uniform local quadratic lower bound equal weighted portfolio",
+        "Equal weighted functionally generated portfolio L-divergence sharp state-space independent quadratic bound 2/n and two-asset asymptotic extremizers",
+        "Geometric mean L-divergence sharp Pinsker inequality AM-GM ratio normalized probability simplex logarithmic mean",
+        "arXiv:2610.41603v1 (B.2)–(B.7)",
+        "arXiv:2510.25740v2 Remark 3.19",
+        "arXiv:1402.3720v5 (22)–(24)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Campbell and Wong (2025) equate excess growth with a logarithmic Jensen gap and provide only a local quadratic metric in Remark 3.19.",
+        "Pal and Wong (2014) Eq. (23) already gives the identical L-divergence formula."
+      ],
+      "reasoning": "The logarithmic AM/GM gap, equal-weight excess-growth return, and geometric-mean L-divergence are the same object. Prior definitions and Taylor expansions do not imply or state the global sharp Euclidean coefficient: they supply the starting identity, whereas a range/total-variation argument yields the new uniform nonlocal estimate.",
+      "searches": [
+        "Sharp infinitesimal L-divergence coercivity for geometric mean functionally generated portfolio equal weight: optimal quadratic constant 2/n Euclidean market weight increment two-asset boundary",
+        "Sharp global inequality for logarithmic arithmetic geometric mean of market-weight ratios log(mean q_i/p_i) minus mean log(q_i/p_i) >= 2/n squared Euclidean distance of probability vectors p,q",
+        "Geometric mean L-divergence sharp Pinsker inequality AM-GM ratio normalized probability simplex logarithmic mean",
+        "arXiv:2510.25740v2 §3.3 and Remark 3.19",
+        "arXiv:1402.3720v5 §2.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned claims on weighted Euclidean clipping, weighted means and unrelated inequalities but no table or item reporting the coefficient 2/n for the present L-divergence.",
+        "The retrieved geometric clipping and special-function logarithmic-mean bounds are about distinct objects, not the same portfolio divergence."
+      ],
+      "reasoning": "The theorem is an infinite continuum inequality and sharpness law, not a finite table recomputation. The closest semantic numerical/weighted results apply to different objects; their statements have no implication to this portfolio divergence.",
+      "searches": [
+        "Sharp infinitesimal L-divergence coercivity for geometric mean functionally generated portfolio equal weight: optimal quadratic constant 2/n Euclidean market weight increment two-asset boundary",
+        "Sharp global inequality for logarithmic arithmetic geometric mean of market-weight ratios log(mean q_i/p_i) minus mean log(q_i/p_i) >= 2/n squared Euclidean distance of probability vectors p,q",
+        "Functional generation L-divergence local Hessian spectral minimum covariance matrix diag(p)-pp^T two-coordinate limit",
+        "\"L-divergence\" \"quadratic\" \"Euclidean\" functionally generated portfolios"
+      ]
+    },
+    "rationale": "Closest specific literature Xu-Cui (2026) obtains only a compact-dependent c_K in its three-asset example; earlier Campbell-Wong and Pal-Wong sources define the same divergence and local geometry but do not supply the all-pair sharp 2/n claim in inspected sections. Semantic claim searches and the accessible previous claim ledger revealed no dominating overlap. The strict sharpness law and uniform pathwise bound are not formal restatements of a local or K-dependent theorem. Historical priority is not independently proven.",
+    "residual_risks": [
+      "Other global Jensen-gap stability or AM/GM inequalities, possibly expressed without the L-divergence name, could imply the exact constant and escaped targeted search.",
+      "Older specialized portfolio optimization and information-geometry literature not exhaustively reviewed.",
+      "The 2018 published PDF was searched and partially read by sections rather than comprehensively evaluated page by page; no whole-document negative coverage is inferred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECTLY RELEVANT BUT WEAKER: only c_K depending on K, n=3 example; not the sharp global dimension-only coefficient",
+        "evidence": [
+          "Appendix B (B.3) T≥c_K||q-p||²; (B.4) c_K=1/(24M²); (B.7) γ≥c_Kρ; primary MSC 37B20; first posted 2026-10-30."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.41603v1",
+        "material_read": "Full accessible HTML including Sections 1–3 and complete Appendix B, equations (B.1)–(B.7), and Proposition B.1",
+        "method": "Primary OA arXiv full HTML, formula and hypothesis comparison",
+        "title": "Worst-Case Relative Growth of Functionally Generated Portfolios under Restricted Market-Weight Dynamics",
+        "trigger": "Same equal-weight generator, the same L-divergence, and direct restricted-growth corollary"
+      },
+      {
+        "assessment": "Provides known logarithmic Jensen gap and local Hessian expansion, not an explicit sharp globally uniform finite-pair constant in the inspected text",
+        "evidence": [
+          "Definition 1.1 gives Γ(π,R); Remark 3.19 (3.24) gives local quadratic form."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.25740v2",
+        "material_read": "Full HTML Introduction, Sections 2 and 3, in particular Section 3.3 and Remark 3.19; searched for Pinsker and global Euclidean bounds",
+        "method": "Primary OA arXiv full HTML, implications comparison",
+        "title": "A mathematical study of the excess growth rate",
+        "trigger": "Exact excess-growth Jensen-gap representation and known quadratic metric could subsume new bound"
+      },
+      {
+        "assessment": "Establishes divergence formula, nonnegativity and exact wealth decomposition; the sharp global 2/n Euclidean coercivity is not in the inspected sections",
+        "evidence": [
+          "Eq. (23) exact fixed-weight Jensen-gap expression; Eq. (24) log wealth decomposition; Eq. (31) local excess-growth quadratic form."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1402.3720v5",
+        "material_read": "Full HTML Sections 2.4 and 2.6 with Definition 3, Lemma 7, excess growth quadratic form, and discussion of global paths",
+        "method": "Primary OA arXiv HTML",
+        "title": "The Geometry of Relative Arbitrage",
+        "trigger": "Original L-divergence and equal-weight pathwise decomposition"
+      },
+      {
+        "assessment": "General divergence information geometry and local metrics; no exact same-object global 2/n bound identified in inspected material",
+        "evidence": [
+          "Introduction identifies constant-weight cross entropy and its L-divergence as excess growth; Section 2 discusses local smooth geometry and positivity."
+        ],
+        "identifier_or_url": "https://projecteuclid.org/journals/annals-of-probability/volume-46/issue-2/Exponentially-concave-functions-and-a-new-information-geometry/10.1214/17-AOP1201.pdf",
+        "material_read": "Primary full PDF Introduction, formulas (1.3), (1.6), related Section 2 definitions, selected material searched for quadratic, Hessian, lower bound and Pinsker",
+        "method": "OA publisher PDF text and page inspection",
+        "title": "Exponentially Concave Functions and a New Information Geometry",
+        "trigger": "General L-divergence and induced metric potentially covering coercivity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "43ee398a-1e3f-40ce-bf77-3c76d2357371",
+  "value": {
+    "rationale": "A natural unresolved quantitative gap in recent research is a volatility-growth coefficient robust to state spaces approaching the simplex boundary. The exact 2/n constant works globally for arbitrary jumps in every dimension, strengthens the source compact-coercivity and worst-case rate lower bound, and has a matching two-coordinate extremizing construction. These are structural inequalities and sharp dynamical consequences for the motivating framework; no universal equality of growth rates is claimed.",
+    "status": "PASS"
+  }
+}
