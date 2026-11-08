@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T01:53:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md @ 4fd79bd859928d24191ce8a0fa3e02cffa9f7511",
+        "verification.py @ e46ff0b507d7f7bcf910df83b03f026b23b66aa1",
+        "independently reconstructed ball-overlap Taylor asymptotic and radial/angle perturbation; SymPy derivatives for 3D chamber difference 0 through order3 and jump 48/x in order4",
+        "Git tree ed39beec5180d6d160392c89eb8b61acca5cfe9c"
+      ],
+      "rationale": "For fixed d>=2, x>0 and lambda_i>=0 with min lambda=0, checked the actual domain, volume normalization and diameter 2. The difference U-V of uniform unit-ball points is spherical with radial overlap density 2*kappa_{d-1} integral_{r/2}^1(1-s²)^((d-1)/2)ds /kappa_d². Its 2-h tail is K_d h^((d+3)/2)+O(h^((d+5)/2)); with A_t diagonal, directional scale=1-t sum lambda_i Theta_i²+O(t²) and h_t=t(x-2sum lambda_i Theta_i²)_++O(t²). Bounded derivatives give the claimed absolute O(t^(p+1)) even at positive-part transition, uniformly on bounded lambda and compact x. Strict Schur ordering follows symmetric convex expectation; strictness uses a positive-measure active angular neighborhood around at least one zero contraction direction and averaging unequal coordinates, giving unique balanced/spike endpoints. For k zero axes and q=d-k stiff directions, checked rescaling transverse sphere coordinates, beta/angular prefactor and Gamma constant (large-T limit only of coefficient, not t,T jointly). Independently verified exact d=3 two formulas match through derivatives 0..3 and have fourth-derivative jump 48/x. This is analytic all-d proof, not extrapolation from finite numeric checks.",
+      "residual_risks": [
+        "No simultaneous t->0, T->infty bound is provided; the large-T asymptotic is only for fixed crossover coefficient."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Henze/Jammalamadaka 2026 fixed ellipsoid largest interpoint distance with maximal axis multiplicity",
+          "Schrempp 2017 fixed smooth body with diameter endpoint pair",
+          "This work assumes gap between semiaxes shrinks at same order as distance threshold"
+        ],
+        "reasoning": "Fixed-gap extremes and diameter manifold exponents do not establish a uniform near-isotropic moving-parameter crossover. Their exponents match the large-T coefficient limit but do not dominate the theorem.",
+        "searches": [
+          "Resultary semantic search: ellipsoid moving eccentricity near diameter interpoint distance Schur convex anisotropy crossover asymptotic",
+          "https://arxiv.org/abs/2606.29036",
+          "https://arxiv.org/abs/2605.24627",
+          "https://arxiv.org/abs/1709.03706"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.29036",
+        "https://arxiv.org/abs/2605.24627",
+        "https://arxiv.org/abs/1709.03706",
+        "https://doi.org/10.1088/0305-4470/38/16/001",
+        "https://doi.org/10.1063/1.533249"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-gap diameter extreme-value results concern n->infty for fixed bodies; this theorem concerns two points at t->0 moving semiaxes",
+          "Classical spheroid law can derive d=3 formula, but has no stated d-dimensional Schur optimizer"
+        ],
+        "reasoning": "Matching fixed-gap exponent by T->infty and a new quantitative all-d crossover do not follow from previously read 3D distribution or fixed-anisotropy extreme value claims.",
+        "searches": [
+          "Resultary semantic search: ellipsoid moving eccentricity near diameter interpoint distance Schur convex anisotropy crossover asymptotic",
+          "https://arxiv.org/abs/2606.29036",
+          "https://doi.org/10.1088/0305-4470/38/16/001"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Garcia-Pelayo 2005 Section 3 gives spheroid distance law, including a general 3D integral",
+          "This work expressly regards its d=3 chamber formula as specialization, not separate novelty"
+        ],
+        "reasoning": "Equivalent distribution formulation covers the 3D display but not the all-dimensional moving-ellipsoid uniform expansion and ordering as actually stated.",
+        "searches": [
+          "Resultary semantic search: ellipsoid moving eccentricity near diameter interpoint distance Schur convex anisotropy crossover asymptotic",
+          "https://doi.org/10.1088/0305-4470/38/16/001"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Garcia-Pelayo exact 3D spheroidal law; Parry–Fischbach eccentricity expansions in d=2,3",
+          "No indexed all-d shrinking-eccentricity uniform tail with Schur spectrum extremizers from Resultary search"
+        ],
+        "reasoning": "The lower-dimensional exact formulas are covered/acknowledged, but do not tabulate the multidimensional coefficient function with strict all-spectrum majorization.",
+        "searches": [
+          "Resultary semantic search: ellipsoid moving eccentricity near diameter interpoint distance Schur convex anisotropy crossover asymptotic",
+          "https://doi.org/10.1088/0305-4470/38/16/001",
+          "https://doi.org/10.1063/1.533249"
+        ]
+      },
+      "rationale": "Qualified PASS for the joint all-dimensional moving-gap expansion, Schur-convex sharp contraction endpoints and multiplicity coefficient matching. The d=3 explicit spheroid chamber is expressly prior implied by Garcia-Pelayo and NOT claimed independently novel. Primary fixed-ellipsoid results do not supply the moving-gap uniformity. Full text of plausible fixed-ellipsoid paper inaccessible due Oxford VPN disconnection; acknowledged as residual risk not alone scientific failure.",
+      "residual_risks": [
+        "Oxford authorized source attempt returned vpn_disconnected; relevant 2026 Henze/Jammalamadaka primary full text could not be read, so originality is best-of-knowledge not exhaustive.",
+        "The 2005 spheroid law covers 3D formula; historical priority of all-d asymptotics not absolutely established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed semiaxis gaps rather than simultaneous near-isotropic scaling; no whole-document noncoverage certified",
+          "evidence": "Published result is for fixed ellipsoid sample maxima and the exponent of diameter multiplicity.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.29036",
+          "material_read": "Primary arXiv abstract and accessible exposition of fixed semiaxis multiplicity; full paper PDF not obtained from arXiv/OA; authorized Oxford returned VPN disconnected",
+          "method": "Primary abstract and authorized full-text access attempt",
+          "title": "The limit law of the largest interpoint distance in a d-dimensional ellipsoid",
+          "trigger": "Closest arbitrary-d anisotropic diameter asymptotic"
+        },
+        {
+          "assessment": "Fixed rotational ellipsoid, not stated evolving semiaxes",
+          "evidence": "Uniform shrinking semiaxis-gap regime not established in material read.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.24627",
+          "material_read": "Public arXiv abstract and theorem scope",
+          "method": "Primary abstract inspection",
+          "title": "A 4/7-limit law for the largest interpoint distance in a rotational ellipsoid",
+          "trigger": "Potential overlap in 3D near-diameter behavior"
+        },
+        {
+          "assessment": "The 3D spheroid specialization is prior-covered and not credited as separately new",
+          "evidence": "Exact distance law in d=3 can be specialized to the threshold chamber; all-d Schur coefficient is distinct.",
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/38/16/001",
+          "material_read": "DOI record, accessible abstract and cited Section 3 formula(8) description; full publisher article inaccessible",
+          "method": "Primary bibliographic abstract/formula comparison",
+          "title": "Distribution of distance in the spheroid",
+          "trigger": "Direct previous exact 3D distance law"
+        },
+        {
+          "assessment": "Fixed-body unique diameter pair does not imply uniform degeneration in t",
+          "evidence": "Multiplicity changes near the sphere, violating uniform fixed-gap premises.",
+          "identifier_or_url": "https://arxiv.org/abs/1709.03706",
+          "material_read": "Public arXiv abstract and stated unique fixed diameter pair setting",
+          "method": "Primary abstract/theorem-scope comparison",
+          "title": "Limit laws for the diameter of a set of random points from a distribution supported by a smoothly bounded set",
+          "trigger": "Broad theorem that might dominate moving ellipsoid tails"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md @ 4fd79bd859928d24191ce8a0fa3e02cffa9f7511",
+        "verification.py @ e46ff0b507d7f7bcf910df83b03f026b23b66aa1",
+        "independently reconstructed ball-overlap Taylor asymptotic and radial/angle perturbation; SymPy derivatives for 3D chamber difference 0 through order3 and jump 48/x in order4",
+        "Git tree ed39beec5180d6d160392c89eb8b61acca5cfe9c"
+      ],
+      "rationale": "Nontrivial uniform transition as diameter endpoint manifold expands when ellipsoid anisotropy shrinks at threshold scale; explicit all-d coefficient and sharp Schur ordering under fixed first-order volume contraction give a geometrically motivated optimization law. Matching the fixed-anisotropy exponent clarifies how two asymptotic regimes connect without claiming a two-parameter theorem.",
+      "residual_risks": [
+        "d=3 specialization is an illustration derived from prior exact spheroid law, not separately new; uniformity excludes unbounded contraction parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed dimension, x>0 and bounded lambda; full primary 2026 fixed-ellipsoid paper inaccessible due disconnected Oxford VPN; no simultaneous t,T limit; d=3 law previously known."
+  ],
+  "schema_version": 1
+}

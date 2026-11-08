@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The ball-overlap integral yields the exact normalization \(K_d\) and order \(t^{(d+3)/2}\). An angular perturbation identity reduces the moving ellipsoid distance tail to a uniform expectation of the ball tail, with an explicit absolute next-order bound. Convexity and strictness on an open spherical set prove both sharp spectral extremizers; a local spherical chart and a beta integral prove the multiplicity crossover; exact integration establishes the three-dimensional branch and derivative jump. The standalone checker was executed from the candidate package and passed 57 symbolic and numerical checks. These tests are supplemental, not a replacement for the proof. Limits: no simultaneous unbounded-contraction estimate, no increasing-dimensional assertion.
+PASS
 
-## Originality
+For fixed d>=2, x>0 and lambda_i>=0 with min lambda=0, checked the actual domain, volume normalization and diameter 2. The difference U-V of uniform unit-ball points is spherical with radial overlap density 2*kappa_{d-1} integral_{r/2}^1(1-s²)^((d-1)/2)ds /kappa_d². Its 2-h tail is K_d h^((d+3)/2)+O(h^((d+5)/2)); with A_t diagonal, directional scale=1-t sum lambda_i Theta_i²+O(t²) and h_t=t(x-2sum lambda_i Theta_i²)_++O(t²). Bounded derivatives give the claimed absolute O(t^(p+1)) even at positive-part transition, uniformly on bounded lambda and compact x. Strict Schur ordering follows symmetric convex expectation; strictness uses a positive-measure active angular neighborhood around at least one zero contraction direction and averaging unequal coordinates, giving unique balanced/spike endpoints. For k zero axes and q=d-k stiff directions, checked rescaling transverse sphere coordinates, beta/angular prefactor and Gamma constant (large-T limit only of coefficient, not t,T jointly). Independently verified exact d=3 two formulas match through derivatives 0..3 and have fourth-derivative jump 48/x. This is analytic all-d proof, not extrapolation from finite numeric checks.
 
-**PASS under best-knowledge comparison, with historical-priority risk.** The fixed-gap two-point tails and many-point maxima of Henze (2026), Henze–Jammalamadaka (2026), and Schrempp (2017) are not asserted as new. García-Pelayo (2005) already gives exact pair-distance integrals for three-dimensional ellipsoids, including a closed spheroidal law, and Parry–Fischbach (2000) gives finite-order eccentricity expansions. Thus the three-dimensional piecewise formula alone is not counted as original; the proposed contribution is the uniform arbitrary-dimensional moving-eccentricity asymptotic, its strict spectral majorization theorem, and the matching coefficient across arbitrary diameter-manifold multiplicity. The general three-dimensional integral is not a uniform arbitrary-dimensional estimate or an extremal statement under a fixed total semiaxis contraction. A historical synthesis using classical radial-convolution identities remains possible; no uniqueness or priority certification is claimed.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Fixed-gap diameter-tail laws change exponent when the top-axis multiplicity changes, so a quantitative interpolation in which the axis gaps shrink with the rare-event scale is mathematically motivated. The leading angular law specifies that interpolation in arbitrary dimension, strict Schur ordering identifies uniquely minimizing and maximizing anisotropies under fixed first-order volume loss, and the rank-matching factor explains how the fixed-gap exponents emerge. The three-dimensional fourth-derivative transition illustrates a genuine regularity change in the crossover profile, without mislabeling a special case of previously known exact distance distributions as independently novel.
+Qualified PASS for the joint all-dimensional moving-gap expansion, Schur-convex sharp contraction endpoints and multiplicity coefficient matching. The d=3 explicit spheroid chamber is expressly prior implied by Garcia-Pelayo and NOT claimed independently novel. Primary fixed-ellipsoid results do not supply the moving-gap uniformity. Full text of plausible fixed-ellipsoid paper inaccessible due Oxford VPN disconnection; acknowledged as residual risk not alone scientific failure.
 
-## Closest sources and limitations
+## value
 
-Full readable material inspected: Schrempp, arXiv:1709.03706; Henze, arXiv:2605.24627; Henze–Jammalamadaka, arXiv:2606.29036; García-Pelayo, J. Phys. A **38** (2005), Sections 2–4. The Parry–Fischbach 2000 abstract and bibliographic information were accessible, but its full paper was not inspected. Remaining risks are older equivalent asymptotic formulas, the close conceptual relation to the 2005 exact angular transform, and the absence of independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Nontrivial uniform transition as diameter endpoint manifold expands when ellipsoid anisotropy shrinks at threshold scale; explicit all-d coefficient and sharp Schur ordering under fixed first-order volume contraction give a geometrically motivated optimization law. Matching the fixed-anisotropy exponent clarifies how two asymptotic regimes connect without claiming a two-parameter theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
