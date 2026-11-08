@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Exact degree-wise flip condition: at degree d with t same-bit neighbors, closed minority flips iff 2t>=d, changing the number of same edges by d−2t. For all recurrent states leaf edges disagree; degree-three marked vertices cannot flip at constant energy. A pair in one arc or adjacent arcs can be moved to an energy-decreasing collision. Otherwise the one-or-zero particles in nonconsecutive arcs are closed reflecting walks. Cycle parity forces |I|≡n mod 2; binary complement yields two components. The weighted count and exact tensor-product path Laplacian spectrum follow. Actual packaged class_scc.py exhaustively verified 243 graphs and 335632 configurations, and class_product.py checked 32 independent constructed cases and path eigenvectors. These finite checks supplement the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 4.2 of arXiv:1011.5119 gives cycle/path limit sets and O(N^3) expected entry time, but assumes maximum degree 2.",
+        "Theorem 4.6 of arXiv:1011.5119 covers trees with maximum degree 3, not unicyclic graphs.",
+        "Section 3.3 and Conclusion of arXiv:1011.5119 explicitly describe the difficulty of nonbipartite topologies."
+      ],
+      "reasoning": "The strongest nearby published topology theorem uses a tree reduction and has no cycle holonomy. Removing a cycle edge changes the local degree at its ends and the Markov transitions, so applying the tree theorem to a cut graph does not imply the unicyclic statement. The result adds parity-dependent existence, gap-weighted component sizes, exact product Markov spectra and a Lucas-plus-six-periodic unweighted attractor count. No broader coverage discovered in tested sources.",
+      "searches": [
+        "unicyclic graph stochastic minority dynamics stationary attractor particle",
+        "asynchronous minority rule unicyclic graph pendant leaves cycle recurrent attractors independent sets defects",
+        "parity selected independent sets on a cycle of arcs are the recurrent communicating classes of stochastic minority dynamics on partially whiskered cycles; product of reflecting random walks",
+        "unicyclic subcubic minority dynamics pendant leaf pinning frustration defects exact attractors spectral gaps",
+        "minority dynamics cactus graph unicyclic pendant vertices particle excitations independent sets"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1011.5119 — selected relevant full text inspected (Definition 2, energy, Sections 3.3, 4.1, 4.2, conclusion).",
+      "arxiv:1501.00061 — full text of Lucas independent-set mathematical statements and proof inspected.",
+      "arxiv:1907.02131 — title/abstract only; not relied upon for full-document noncoverage.",
+      "OEIS A007391 and A007390 — descriptions only; combinatorial known-table comparison.",
+      "Earlier scientific claims and titles screened for overlap; nearest is the friendship-graph asynchronous minority result, with a different graph family and transition structure.",
+      "published-finding corpus semantic records: actual queries and closest result IDs listed in the named check objects."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1011.5119 Theorem 4.6 proves a related but tree-only matching classification; its proof explicitly shows pairwise particle collisions in path segments.",
+        "arXiv:1011.5119 Theorem 4.2 characterizes unadorned odd cycles by a single circulating particle, without fixed marks or multiple recurrent classes.",
+        "arXiv:1501.00061 Theorem 1.1 is a purely combinatorial independent-set enumeration.",
+        "Earlier scientific item 63f34224-0c6c-4e86-97b0-c92ca3b7cd5b concerns asynchronous minority on friendship graphs, not the marked-cycle family or its recurrence structure."
+      ],
+      "reasoning": "If the source tree theorem were extended mechanically to a cyclic core, the parity holonomy must first be imposed and its consistency checked, and root-bit choices must be shown dynamically disconnected; neither is in the tree conclusion. The cycle theorem does not imply stable higher-energy sectors on even cycles with several leaves. The new claim includes a complete family classification and an exact spectrum, not merely the classic Lucas identity. Previous own asynchronous friendship-graph claim has a single hub and a different graph/transition product, so neither implies the other.",
+      "searches": [
+        "asynchronous stochastic minority graph complete bipartite product recurrent classes exact mixing",
+        "asynchronous stochastic minority on a cycle with leaves attached to selected vertices recurrent communicating classes weighted independent sets of marked arcs random walks",
+        "parity selected independent sets on a cycle of arcs are the recurrent communicating classes of stochastic minority dynamics on partially whiskered cycles; product of reflecting random walks",
+        "unicyclic subcubic minority dynamics pendant leaf pinning frustration defects exact attractors spectral gaps",
+        "Lucas number of attractors asynchronous antiferromagnetic stochastic minority cycle with pendant leaves",
+        "\"stochastic minority\" \"unicyclic\" attractors matching",
+        "\"minority\" \"sunlet\" asynchronous recurrent states"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rouquier–Regnault–Thierry arXiv:1011.5119, Definition 2: identical binary, closed-neighborhood, tie-retaining, uniformly asynchronous update. Their Lemma 1 is the equivalent particle-energy descent rule.",
+        "Theorem 4.6 in arXiv:1011.5119 describes degree-at-most-three TREES by a reduced-tree matching criterion.",
+        "Papp–Wattenhofer arXiv:1907.02131 concerns different minority stabilization schedules; abstract only was inspected."
+      ],
+      "reasoning": "Equivalent physical language is zero-temperature antiferromagnetic sequential spin flips with neutral moves, and equivalent combinatorics is independent sets/matchings of inter-mark arcs subject to the spin-holonomy parity constraint. The same update rule in arXiv:1011.5119 is explicitly credited. Its graph theorems are on undecorated cycles, paths, cliques, and trees; the present unicyclic graph with protected defects, parity-selected recurrent products, and exact conditional spectra is not one of these and is not implied merely by equivalence of the local update.",
+      "searches": [
+        "asynchronous stochastic minority on a cycle with leaves attached to selected vertices recurrent communicating classes weighted independent sets of marked arcs random walks",
+        "zero temperature antiferromagnetic dynamics unicyclic sunlet graph recurrent classes stationary particle defects",
+        "stochastic minority on graphs particle annihilation odd cycle pendant degree-three vertices independent-set attractor structure",
+        "stochastic minority on graphs cycle with pendant leaves attractors recurrent classes graph",
+        "zero temperature antiferromagnetic Glauber dynamics unicyclic graph leaves absorbing states recurrent communicating classes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Alexander–Hearding arXiv:1501.00061, Theorem 1.1: classical fact that independent sets of the k-cycle are counted by L_k, citing Prodinger–Tichy.",
+        "OEIS A007391/A007390 are enumerations of strict-order maximal independent sets, a different statistic, not the closed Markov classes."
+      ],
+      "reasoning": "The unweighted Lucas count and the independence polynomial itself are previously known and explicitly excluded from the originality claim. Neither their sequence tables nor the cited polynomial theorem records the two parity-selected stochastic communicating classes per independent set, position-weighted sizes, or Markov transition spectra. No exact dynamic population table was found.",
+      "searches": [
+        "OEIS Lucas numbers independent sets cycle graph maximal count all independent sets",
+        "number independent sets cycle Lucas L_n independence polynomial cycle",
+        "A graph theoretic encoding of Lucas sequences arxiv 1501.00061"
+      ]
+    },
+    "rationale": "Statement-level comparison: the primary 2010 source proves the exact model, energy descent, ordinary cycle behavior and a tree-only matching theorem, but not the unicyclic parity-selection, classes weighted by marked-arc gaps, or the product-path transition spectrum. The combinatorial Lucas identity is recognized as old, with original contribution restricted to its dynamical realization and spectrum. Specific residual historical-priority risks remain.",
+    "residual_risks": [
+      "An unindexed or differently named zero-temperature antiferromagnetic unicyclic-graph paper may already contain the same recurrent-class classification.",
+      "The 2019 minority-stabilization preprint full text was not inspected, although its abstract concerns different scheduling and hitting-time questions.",
+      "Theorem 4.6 of arxiv:1011.5119 contains a closely related tree matching mechanism; the present advance is its nontrivial cyclic/parity extension with exact spectral data, not the particle-collision method or Lucas enumeration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "LOCAL MODEL AND TREE/CYCLE COMPONENT METHODS COVERED, EXACT UNICYCLIC THEOREM NOT COVERED BY INSPECTED STATEMENTS.",
+        "evidence": [
+          "Section 4.1 cycle/path theorem max degree two and odd-cycle one-particle description.",
+          "Section 4.2 Theorem 4.6 relies on graph being a tree and gives reduced-tree matchings, with no global odd-cycle parity or spectrum.",
+          "Section 3.3 stresses complexity of nonbipartite topologies."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1011.5119",
+        "material_read": "Introduction and model, Definition 2, particle-energy lemmas, nonbipartite section 3.3, Theorems 4.2 and 4.6 including their proofs, and the conclusion.",
+        "method": "Full-text HTML selected material examination and statement/implication comparison.",
+        "title": "Stochastic Minority on Graphs",
+        "trigger": "Exact update model; cycles, degree-three tree attractors, possible covering reduction"
+      },
+      {
+        "assessment": "COVERS THE CLASSICAL INDEPENDENT-SET LUCAS COUNT, NOT THE STOCHASTIC MODEL OR RECURRENT SPECTRA.",
+        "evidence": [
+          "Theorem 1.1 cites Prodinger–Tichy for the cycle independent-set Lucas identity.",
+          "Theorem 1.2 and proof concern independent sets of chainsaw graphs and Dickson polynomials."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1501.00061",
+        "material_read": "Introduction, Theorem 1.1, Theorem 1.2, main proof and references.",
+        "method": "Full-text HTML mathematical-statement comparison.",
+        "title": "A graph-theoretic encoding of Lucas sequences",
+        "trigger": "Potential exact coverage of the Lucas independent-set factor"
+      },
+      {
+        "assessment": "Abstract emphasizes stabilization-time lower bounds under alternative schedules; exact recurrent-class theorem not established from this limited access.",
+        "evidence": [
+          "arXiv abstract describes an Ω(n^(2−ε)) stabilization-time graph construction rather than the marked-cycle Markov recurrent-class spectrum."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1907.02131",
+        "material_read": "Title, author/date and abstract only (full preprint not obtained in this round).",
+        "method": "Primary preprint landing-page abstract comparison; no whole-document exclusion inferred.",
+        "title": "Stabilization Time in Minority Processes",
+        "trigger": "Possible later broader minority-graph theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b7fe633d-0c54-4302-99a3-7ac63159fea3",
+  "value": {
+    "rationale": "A natural unicyclic graph with selectable one-leaf pinning sites supports complete higher-energy persistent-frustration sectors. The cycle parity constraint yields a Lucas-plus-period-six number of attractors depending only on the number of marks, even though sizes and mixing rates distinguish their placement. In particular an even 12-cycle with marks 0,2,5,7 has nonabsorbing 2-particle recurrent components of sizes 4 and 15 despite admitting bipartite ground states. This is a motivated full infinite-family dynamical classification and exact relaxation law, beyond the already known matching/Lucas counts.",
+    "status": "PASS"
+  }
+}
