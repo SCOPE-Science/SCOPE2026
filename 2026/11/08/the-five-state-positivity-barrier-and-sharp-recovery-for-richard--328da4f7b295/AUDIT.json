@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Exact circulant resolvent sums yield the rational coefficient formula (1), integer-polynomial identity (2) and denominator positivity. For n=2,3,4 the resulting coefficient polynomials have nonnegative coefficients and are nonzero; on n=5 only j=4 has the sign-changing factor 4p(h). Descartes and IVT establish a unique positive root; an exact rational bracket encloses it. The Taylor coefficient of the fourth displacement is -3/8 for every n>=5. Fourier spectral projection proves eventual strict positivity for every finite n. The standalone verifier passed 1476 exact-arithmetic checks including independent exact matrix inversion, while analytic arguments prove infinite-family statements. No extrapolation or numerical trial is substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2102.08242v2: Sections 3.2-3.4 use splitting and exponential/Magnus graph-Laplacian methods rather than \\(2(I-hQ/2)^{-2}-(I-hQ)^{-1}\\).",
+        "https://arxiv.org/abs/2105.07403: Sections 2-3 treat centered advection spatial discretizations with theta-method time steps; the generator differs from the upwind directed Markov cycle.",
+        "https://web.cels.anl.gov/~emconsta/Repository/Papers/TM-306.pdf: Sections 1-2 and report structure emphasize extrapolation order and scalar stability, with no Markov positivity classification identified."
+      ],
+      "reasoning": "General positivity-preservation barriers and different high-order integrators give context but neither state nor imply an if-and-only-if entrywise positivity classification for this particular rational cyclic propagator.",
+      "searches": [
+        "2-level Richardson extrapolation backward Euler directed cycle Markov generator P-I positivity threshold dimension 5 n=5",
+        "two backward Euler half steps minus one full step, nonnegative transition matrix periodic directed pure birth, circulant",
+        "\"Richardson extrapolation\" \"positivity\" \"backward Euler\" numerical",
+        "2021 Blanes Iserles Macnamara positivity preserving graph Laplacian integrators",
+        "2021 Hadjimichael Ketcheson Loczi positivity implicit discretizations circulant advection"
+      ]
+    },
+    "checked_sources": [
+      {
+        "first_public_date": "2021-02-16",
+        "title": "Blanes–Iserles–Macnamara (2021)",
+        "url": "https://arxiv.org/html/2102.08242v2"
+      },
+      {
+        "title": "Constantinescu–Sandu (2008/2009)",
+        "url": "https://web.cels.anl.gov/~emconsta/Repository/Papers/TM-306.pdf"
+      },
+      {
+        "title": "Hadjimichael–Ketcheson–Lóczi (2021)",
+        "url": "https://arxiv.org/abs/2105.07403"
+      },
+      {
+        "title": "Public scalar Richardson positivity finding (2026)",
+        "url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1/RESULT.md"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1/RESULT.md: establishes the scalar decay sign boundary but explicitly limits its positivity claim to scalar.",
+        "https://web.cels.anl.gov/~emconsta/Repository/Papers/TM-306.pdf: gives extrapolation with arbitrary substep counts and linear stability, not sign classification on finite directed cyclic generators.",
+        "https://arxiv.org/abs/2105.07403: rational circulants have positivity thresholds, but their centered advection operator is not \\(P_n-I_n\\) and their time integrator is a theta method."
+      ],
+      "reasoning": "Applying the same stability function to \\(Q_n\\) requires evaluating every circulant coefficient; neither a known scalar threshold nor a theorem about a different rational map dominates the claim. Direct coefficient calculations are the additional mathematical content. This does not claim algorithmic invention of Richardson extrapolation.",
+      "searches": [
+        "2-level Richardson extrapolation backward Euler directed cycle Markov generator P-I positivity threshold dimension 5 n=5",
+        "matrix resolvent-square extrapolation (I-hQ/2)^-2 (I-hQ)^-1 directed cycles positivity reentrant",
+        "Richardson extrapolation implicit Euler Markov semigroup directed cycle negative coefficients positivity recovery",
+        "2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+        "arxiv:2105.07403 theta method circulant positivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus scalar Richardson finding https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1/RESULT.md: \\(R_2(z)\\) changes sign at \\(2+2\\sqrt2\\) for scalar decay.",
+        "https://web.cels.anl.gov/~emconsta/Repository/Papers/TM-306.pdf: Section 2 equations (2.1)-(2.3) develops the same two-level extrapolation construction and its accuracy.",
+        "The cyclic propagator is a matrix rational function whose Fourier eigen-amplifications need not have the same sign as its entries."
+      ],
+      "reasoning": "The scalar stability function is algebraically the same rational function evaluated on a different operator; scalar amplifier sign and entrywise stochasticity are inequivalent. Neither scalar sign nor A-stability provides the five-cycle coefficient polynomial, its root, or the dimension split.",
+      "searches": [
+        "Richardson second order rational stability function entrywise positivity cyclic Markov chains five state",
+        "matrix resolvent-square extrapolation (I-hQ/2)^-2 (I-hQ)^-1 directed cycles positivity reentrant",
+        "\"Richardson extrapolation\" \"circulant\" \"nonnegative\" Euler",
+        "2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-finding corpus similarity searches returned related scalar Richardson and other Runge-Kutta/Padé Markov-cycle findings, but not the stated five-cycle polynomial or a table for this method.",
+        "Accessible own finding statements include different directed-cycle maps (Radau IIA, implicit Taylor, Gauss-Padé), not the two-level backward Euler extrapolation.",
+        "The integer polynomial certificate in the present proof is recomputed directly, not copied from a known numerical table."
+      ],
+      "reasoning": "The actual consulted result sets and accessible own finding statements contain no matching exact polynomial or threshold. This is evidence about checked sources only, not a claim that search exhausts all literature.",
+      "searches": [
+        "cycle five positivity recovery extrapolated backward Euler numerical Markov",
+        "Richardson second order rational stability function entrywise positivity cyclic Markov chains five state",
+        "\"implicit Euler extrapolation\" \"positive\" matrix",
+        "own claim scan for Richardson, extrapolation, positivity, Markov, directed cycle and circulant"
+      ]
+    },
+    "rationale": "The nearest published scalar result on Richardson backward Euler proves a sign threshold for a real scalar decay amplifier, not entrywise cyclic propagator positivity. The original extrapolation paper gives the construction/order/stability without this finite cyclic positivity boundary. The 2021 graph-Laplacian and circulant papers analyze different algorithms/generators. The new first-failing cycle size five, its exact algebraic recovery threshold and all-size small/large-step sign reversal were not found in those read texts or the actual targeted literature and published-finding corpus searches. A previously unlocated equivalent specialist result remains a residual precedence risk.",
+    "residual_risks": [
+      "An older special-case rational-function calculation could encode the same five-cycle polynomial under different terminology.",
+      "Other published articles on matrix absolute monotonicity or time-extrapolated Markov chains may be inaccessible or not indexed by searched terminology.",
+      "The method itself and general extrapolation convergence/stability facts are prior work; only the stated cycle-specific characterization is assessed as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Scalar decay sign threshold, not finite cyclic entrywise positivity",
+        "evidence": "The theorem assumes \\(y\\prime=-\\lambda y\\) and its limitations expressly identify a scalar scope; it does not define directed cycles or coefficient polynomials.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1/RESULT.md",
+        "material_read": "Complete public RESULT.md, including finding, proof, scope, relationship to prior work and limits",
+        "method": "Full-text repository file retrieval and implication comparison",
+        "title": "Richardson acceleration creates a sharp positivity barrier for backward Euler",
+        "trigger": "Identical Richardson stability function and possible stronger positivity result"
+      },
+      {
+        "assessment": "Construction, convergence/order and stability framework prior; no cyclic entrywise sign classification in inspected material",
+        "evidence": "Section 2 equations (2.1)-(2.3) give extrapolation tableaux; the table of contents centers error expansions and stability. Text searches for positivity and Markov had no matches.",
+        "identifier_or_url": "https://web.cels.anl.gov/~emconsta/Repository/Papers/TM-306.pdf",
+        "material_read": "PDF contents and extracted text of introduction, Section 2 base/extrapolation scheme, method scope; full-text searches for positivity and Markov; page screenshots",
+        "method": "OA author/technical-report PDF inspected through rendered pages and parsed relevant sections",
+        "title": "Achieving Very High Order for Implicit Explicit Time Stepping: Extrapolation Methods",
+        "trigger": "Primary source of Euler-based extrapolation recurrence and possible general positivity result"
+      },
+      {
+        "assessment": "Motivates the precise gap; differs in propagator construction and does not state the cycle result",
+        "evidence": "The authors analyze exponential and splitting/Magnus methods; searches of the article text yielded no Richardson/extrapolation discussion. The first arXiv submission is 2021-02-16.",
+        "identifier_or_url": "https://arxiv.org/html/2102.08242v2",
+        "material_read": "Full HTML introduction, mathematical graph-Laplacian setup, Sections 3.2 and 3.3 on splitting/Magnus, Section 5 numerical comparison; full-text queries for extrapolation and Richardson",
+        "method": "Primary arXiv HTML text inspection",
+        "title": "Positivity-preserving methods for population models (revised: ordinary differential equations)",
+        "trigger": "Earliest verified motivating paper; graph-Laplacian mass/positivity and high-order integrators"
+      },
+      {
+        "assessment": "Different centered-space advection generators and theta-method time stepping; no Richardson directed-cycle claim identified",
+        "evidence": "Article explicitly specifies centered differences and arbitrary theta time discretization; Sec. 3.2 examines their resulting circulant entries.",
+        "identifier_or_url": "https://arxiv.org/abs/2105.07403",
+        "material_read": "Full HTML abstract, introduction, Sections 2 and 3 including explicit circulant coefficients and sign study; article text searched for extrapolation",
+        "method": "Primary arXiv HTML text inspection",
+        "title": "Positivity preservation of implicit discretizations of the advection equation",
+        "trigger": "Potentially overlapping circulant matrix sign thresholds and dimension parity effects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "328da4f7-b295-49e7-8fd0-403441c16e71",
+  "value": {
+    "rationale": "Whether every nonnegative initial probability state stays nonnegative is a structural requirement for Markov time stepping. The exact minimum directed-cycle size at which a mass-conserving second-order extrapolation fails, its surprising small-step failure, the sharp five-cycle algebraic recovery, and large-step eventual positivity diagnose a real qualitative numerical hazard. This is a natural complete classification at the first failing dimension and a reusable exact benchmark, not a parameter renaming, known-table recomputation or unsupported small numerical gain.",
+    "status": "PASS"
+  }
+}
