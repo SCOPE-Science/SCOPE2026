@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact affine determinant representation reduces the daughter-volume fraction to the absolute determinant of a column-stochastic barycentric matrix. Volume equality localizes to the finitely many permutation matrices. The quadratic determinant expansion gives a radial boundary \(S_\varepsilon=\varepsilon+\varepsilon^2B_2+O_d(\varepsilon^3)\); exact integration of its \(m\)-th power and Dirichlet mixed moments produce both coefficients, with a uniform remainder. Dominated convergence of the rescaled local densities proves the full conditional shape law and its \(\operatorname{Beta}(m,1)\) deficit corollary. The proof applies for every fixed \(d\ge3\), and finite tests only corroborate it. A standalone checker passed 132 exact arithmetic/constant checks and importance-sampling comparisons in dimensions two, three and four.
+## correctness
 
-## Originality — PASS, subject to stated residual risk
-Alagar's known *entire* planar triangle-area distribution excludes \(d=2\) from the claim. Mannion's 1994 accessible abstract names the first, second, fourth and sixth moments of a random daughter-tetrahedron volume; it does not assert this near-maximum tail, but the inaccessible complete paper cannot be certified as non-covering. Letac–Scarsini's nested-simplex limiting barycentric law concerns infinite iteration rather than conditioning on a single near-maximal child. Rademacher (arXiv:1008.3944) and Reichenwallner–Reitzner (arXiv:1601.07295) establish moment monotonicity results, while Frieze–Pegden–Tkocz (arXiv:2002.11693) study growing-dimensional samples whose count is exponential; none of the inspected full primary works implies this fixed-dimensional two-term endpoint law. Relevant published research-record searches and the compared mathematical findings revealed no matching implication. Specific remaining uncertainty: inaccessible historical full texts, especially Mannion and Alagar's 1975 dissertation.
+PASS
 
-## Mathematical value — PASS
-The distribution of the volume of a random simplex even in a tetrahedron has historically been difficult enough that selected moments attracted dedicated research. A sharp probability near the geometrically distinguished *maximum*, including its first correction and a joint limiting shape law for all dimensions, is a natural boundary invariant, not an arbitrary parameter slice or merely a recomputed known table. The result distinguishes volume tails from moment computations and explains how all near-extremal sampled vertices approach the original vertices. It has no asserted extension to nonsimplicial parents or to dimension-uniform limits.
+For every fixed d>=3, normalize the full-dimensional parent by an affine map. Equality of daughter and parent volumes requires a permutation barycentric matrix; compactness isolates disjoint near-permutation neighborhoods. Writing off-diagonal coordinates t>=0 and S=sum t, the exact second-order determinant term is 1-det(A)=S-B2(t)+O_d(S^3), where B2=sum_{i<j}(s_i s_j-t_ij t_ji). Along t=Sp, radial inversion gives S_epsilon(p)=epsilon+epsilon^2 B2(p)+O_d(epsilon^3) uniformly. Uniform Dirichlet mixed moments E[p_a p_b]=1/[m(m+1)] imply the relative coefficient m(d^2-1)/[2(m+1)], and disjoint (d+1)! orientations give the leading constant (d+1)!(d!)^(d+1)/m!. Dominated convergence of epsilon^-1 t gives uniform law on the m-simplex and deficit Beta(m,1). Independently recomputed exact constants: d=3 1/15400 with correction 48/13; d=4 1/2546168625 with correction 50/7. These finite checks are supplementary to the uniform fixed-d analytic argument.
 
-## Limitations
-Independently audited historical priority is not established; the full 1994 tetrahedron paper remained inaccessible. The planar case is excluded. The analytic proof, not the finite verifier, is the basis of universal correctness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The asserted new content is the two-term near-maximal volume tail in every fixed dimension d>=3 and the conditional joint barycentric shape law. It is not the full volume law, moment calculation, nested-simplex limit, or high-dimension sample-count theorem. Alagar already covers the planar triangle distribution, and that dimension is expressly excluded. Mannion studies the same random daughter tetrahedron in d=3 and is the serious priority comparator; only its abstract and bibliographic material were available, so potential full-paper overlap is not excluded. Published-research semantic search found related but non-covering simplex spectra and sections. Best-of-knowledge originality PASS with a major named risk, rather than treating access alone as mathematical rejection.
+
+## value
+
+PASS
+
+Near-maximal daughter volume is a canonical extremal rare-event question for random simplices, which resists inference from a few ordinary moments. The exact exponent, leading constant, positive second correction, and joint conditional shape distribution give a natural, dimension-wide stochastic-geometric boundary theorem; the correction and full conditional law are not mere renaming of a known moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
