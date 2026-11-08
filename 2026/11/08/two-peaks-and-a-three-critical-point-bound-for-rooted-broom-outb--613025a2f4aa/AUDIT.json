@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The exact decomposition X=1+Bin(m,p)+truncated geometric prefix yields the verified variance polynomial. Its derivative coefficients have sign blocks +,-,+,- for m>=3,L>=3, hence at most three positive roots by Descartes. The exact inequalities at 0,2/3,3/4,1 force three distinct simple interior critical points for all integer L>=14,136<=m<=149. The p=3/4 bound is uniform because both correction terms decrease with L and the L=14 bound is rationally certified. The embedded exact checker additionally compares direct independent edge-mask enumerations, symbolic moments, derivatives, and sample parameter brackets; finite checks are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kenah--Robins 2007, PMCID:PMC2215389, Intro and Sec. 2: general SIR with nondegenerate infectious periods has dependent outgoing transmission and different outbreak law.",
+        "Sharkey et al. 2013, PMCID:PMC4541714, Abstract/Main Result: exact time-dependent expected infectious-state equations on finite trees, rather than fixed-edge Bernoulli cluster-size variance extrema.",
+        "Nogawa et al. 2016, arxiv:1602.00803, Secs. 2, 3.2: regular Cayley-tree local cluster distributions and large-tree scaling."
+      ],
+      "reasoning": "These results cover important but distinct models or observables. The standard moment identities are shared background and can be used to derive our variance polynomial, but the robust two-maxima window and at-most-two bound do not follow as literal stated consequences of those inspected results.",
+      "searches": [
+        "bond percolation finite tree cluster size variance local maxima probability",
+        "Exact Equations for SIR Epidemics on Tree Graphs Sharkey Kiss Wilkinson Simon 2013",
+        "local cluster-size statistics critical phase bond percolation Cayley tree moments",
+        "root cluster size variance unimodal bond percolation tree p"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/cond-mat/9911492",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC2215389/",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4541714/",
+      "https://arxiv.org/abs/1602.00803",
+      "Compared mathematical claim IDs: c340fc29-ef7b-4e2c-942c-43c47837b2d1, baeb0675-150a-4d4a-aec6-a5f2f98d0baa, e3ee2dfe-82d8-47c8-b4c2-0aec192b6fc0, 8b64466b-f53a-4d13-a712-3ac3cb96a274"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The finite-tree derivation uses an explicit polynomial with coefficient signs +,-,+,- and two rational interior brackets; none of the cited prior theorem statements contains these ingredients as a formal special case.",
+        "Nogawa et al. PDF bimodality is across cluster size at a fixed p, while our variance curve has three critical p values at fixed finite m,L."
+      ],
+      "reasoning": "Independent-edge percolation basics imply a way to calculate the polynomial, but do not by themselves assert the signs, exact root count, or nontrivial infinite window. Conversely the current result does not contradict large-network threshold or SIR-closure results. Priority is provisional because other fixed-tree moment papers may exist.",
+      "searches": [
+        "variance outbreak size function transmissibility bimodal two peaks network SIR percolation",
+        "Local cluster-size statistics in the critical phase of bond percolation on the Cayley tree",
+        "Moore and Newman Epidemics and percolation in small-world networks 1999",
+        "finite network percolation susceptibility variance bimodality p"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nogawa--Hasegawa--Nemoto, arxiv:1602.00803, Sec. 3.2.1: two modes in the cluster-size PDF at a fixed occupation parameter, not two extrema of the variance as parameter varies.",
+        "Moore--Newman, arxiv:cond-mat/9911492, Secs. II--VI: thresholds and outbreak profiles for small-world models."
+      ],
+      "reasoning": "A bimodal probability distribution at fixed parameter, a variance ranking crossover between two seeds, and bimodality of the variance function for one fixed source are mathematically different statements. Neither reduction supplies the new three-root claim.",
+      "searches": [
+        "broom tree percolation cluster variance multiple maxima",
+        "rooted comet tree epidemic outbreak size variance two interior maxima transmission",
+        "cluster size variance bimodal percolation finite tree",
+        "finite network percolation susceptibility variance bimodality p"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-index result 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174 concerns component--triangle covariance, not rooted cluster-size variance in transmissibility.",
+        "Closest other result 2026/9/9/SCOPE058 concerns bunkbed percolation inequalities, not moment-curve extrema.",
+        "The compared own claims concern path vertex-indicator covariance, a one-crossing ranking on paths, a biclique two-seed variance ranking, and two-seed tree variance ranking reversals."
+      ],
+      "reasoning": "No exact-table entry or checked statement supplies the rooted-broom one-source variance-curve classification. The older claims do not logically imply unimodality or multimodality of an individual root-cluster variance function; absence of a matching search hit is not independent novelty proof.",
+      "searches": [
+        "published-index query: bond percolation finite tree root cluster variance nonmonotone bimodal transmission parameter",
+        "published-index query: percolation broom tree root cluster variance nonunimodality",
+        "published-index query: SIR outbreak size variance shape dependence broom tree path star",
+        "previously compared mathematical claim IDs c340fc29-ef7b-4e2c-942c-43c47837b2d1, baeb0675-150a-4d4a-aec6-a5f2f98d0baa, e3ee2dfe-82d8-47c8-b4c2-0aec192b6fc0, 8b64466b-f53a-4d13-a712-3ac3cb96a274"
+      ]
+    },
+    "rationale": "The exact claim is a parameter-dependent, rooted-broom cluster-variance theorem: a three-positive-critical-point upper bound and an infinite robust integer parameter region with two maxima. The inspected 1999 independent-edge small-world threshold work, 2007 SIR-percolation correction, 2013 Markovian tree SIR moment equations, and 2016 Cayley-tree cluster-size distribution study do not themselves state or imply that classification without new tree-specific calculation. Relevant public published-findings searches and available own claims were compared by logical implication. This is best-knowledge originality, not a claim of literature exhaustion.",
+    "residual_risks": [
+      "Other specialized finite-tree percolation moment literature may already derive an equivalent broom mode theorem; historical priority is not independently certified.",
+      "The cited 2013 Markovian tree SIR article was inspected in its main-relevant sections rather than treated as exhaustive proof of no hidden consequence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different network family and target: large small-world percolation thresholds, not fixed rooted-broom variance critical points.",
+        "evidence": [
+          "1999-11-30 initial public arXiv date; sections III and VI derive bond thresholds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/9911492",
+        "material_read": "HTML full article sections I--VI, with detailed sections on site/bond thresholds and numerical results.",
+        "method": "Lawful public full-text HTML inspection, sections II--VI.",
+        "title": "Epidemics and percolation in small-world networks",
+        "trigger": "Earliest independent-bond epidemic formulation and possible variance analysis."
+      },
+      {
+        "assessment": "Establishes model boundary: random infectious durations create dependent outgoing transmissions, so the present result is explicitly restricted to independent bonds.",
+        "evidence": [
+          "Abstract and introduction explain inequivalence and illustrate a size-one outbreak difference."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2215389/",
+        "material_read": "Open full-text abstract, Introduction, and construction of epidemic percolation networks in section 2.",
+        "method": "Lawful public PMC HTML inspection.",
+        "title": "Second look at the spread of epidemics on networks",
+        "trigger": "Check whether an independent-bond model can be claimed as general SIR."
+      },
+      {
+        "assessment": "Exact time-dependent expected infectious-state equations for Markovian SIR on trees; not the claimed independent-edge variance-curve mode classification. Entire article was not used as evidence for a universal absence claim.",
+        "evidence": [
+          "Abstract and main-result text describe time-series expectations and moment closure."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4541714/",
+        "material_read": "Open full-text abstract, Introduction, main-result formulation and model definitions.",
+        "method": "Lawful public PMC HTML inspection.",
+        "title": "Exact Equations for SIR Epidemics on Tree Graphs",
+        "trigger": "Tree-specific exact epidemic moments might dominate a proposed variance theorem."
+      },
+      {
+        "assessment": "Its bimodality is in the probability distribution over cluster sizes at fixed p; its trees are Cayley trees and its results focus on large-depth scaling, not extrema of a finite-broom variance curve over p.",
+        "evidence": [
+          "Sections 3.2.1--3.2.3 show two PDF modes and scaling of root cluster moments."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1602.00803",
+        "material_read": "Public full-text sections 1--3.2.3, especially PDF bimodality and moment scaling.",
+        "method": "Lawful public arXiv HTML inspection.",
+        "title": "Local cluster-size statistics in the critical phase of bond percolation on the Cayley tree",
+        "trigger": "A highly relevant occurrence of “bimodal” in root-cluster size literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "613025a2-f4aa-4b83-8fc1-c3f87089963d",
+  "value": {
+    "rationale": "Outbreak-size variance measures uncertainty of final epidemic extent across transmission strengths; a common interpretation is a single intermediate risk window because variance vanishes at both transmission extremes. The theorem identifies a structural mechanism--the independent aggregation of shallow leaf contacts and a deep chain--giving two separated maxima even on trees, establishes that no rooted broom has three such maxima, and proves an infinite 14-by-unbounded parameter regime. This is a qualitative model boundary, not a renamed standard expectation or an arbitrary single computed statistic. It makes no empirical forecast or minimal-size claim.",
+    "status": "PASS"
+  }
+}
