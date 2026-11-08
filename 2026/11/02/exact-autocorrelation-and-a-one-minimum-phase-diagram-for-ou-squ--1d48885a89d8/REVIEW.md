@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim has a specified stationary OU-stiffness SDE, exact domain \(\kappa>2D_k/\mu^2\), explicit integrals and dimensionless thresholds. The proof conditions on the independent driving Brownian noise and computes the covariance of the two overlapping OU time integrals exactly. The resulting positive integral implies the strict excess over the averaged Green response, and derivatives of normalized Laplace expectations prove uniqueness, strict ordering, and complete signs of the envelope transitions. Strict boundary cases, long-time expansion, and the small-noise implicit-function calculation are included in the proof. The `VERIFY.py` program independently checks 81 integral pairs, threshold order and three shape classes, leading expansions, and a directly sampled OU-stiffness-path correlation. The finite computations are corroboration, not exhaustive or infinite proofs.
+## correctness
 
-## Originality — PASS, with residual risk
-Cocconi et al., arXiv:2405.09460v1 (2024), provide the model, averaged response and stationary one-time moment formulas. The complete source text was examined for the same stationary two-time position covariance, response-normalized strict inequality, and sharp two-threshold envelope classification; those specific statements were not found. Gupta and Klapp, arXiv:2507.20915 (2025), were examined in accessible article text for stochastic-stiffness moments, energetics, and temporal correlations. Their analyzed observables do not deliver the claimed three-regime covariance envelope. Ferraro et al., arXiv:2405.05183 (2024), treat a different many-body linear annealed-disorder model; their temporal correlations are not the present multiplicative-OU stiffness theorem. Additional two-state telegraph-stiffness literature differs in noise law and model. Relevant mathematical record queries and previously published mathematical findings were compared by claim and implication, not just titles. A generic Gaussian-functional representation is classical, and another published special evaluation might exist; independent publication priority is unverified.
+PASS
 
-## Mathematical value — PASS
-Averaging an impulse response is generally not the same as correlating a stationary fluctuating observable with its future value: position and the future fluctuating trap share memory. The exact response-correlation separation quantifies that physical effect. The two sharp thresholds supply a qualitative diagnostic—monotone increasing, monotone decreasing, or one strict minimum—in an observable relaxation envelope of the studied noisy-trap model. The boundary's vanishing first exponential coefficient and explicit second-order tail offer an identifiable critical signature. This is motivated by an established stochastic confinement problem, not an arbitrary parameter slice.
+Conditioning on thermal Brownian noise reduces C(t) to Gaussian expectation exp(−2I_s−J_t). Direct integrated OU covariances yield C(t)=2Dx exp[−λt−d(1−e^(−µt))] Iµ(A,2d(1+e^(−µt))), with d=Dk/µ³, A=2κ−4Dk/µ²>0, λ=κ−Dk/µ². The averaged impulse G uses only J_t, so C/(C0G)=Iµ(A,2d(1+e^(−µt)))/Iµ(A,4d)>1 and increases. Tilt derivative ∂A M=−Cov(S,h)<0 and ∂bM=−Var(h)<0, h=1−e^(−µS), establishes two unique ordered M=1/2 thresholds and envelope derivative dµe^(−µt)(2M−1), hence no maxima and one strict minimum exactly in middle regime. Independent quadrature found a_-<a_+ at d=0.04, 0.2, 1; full proof is analytic. Taylor of bounded tilted expectation controls t→∞ and d→0 boundary.
 
-## Closest work and scientific limitations
-The base paper's stationary variance and averaged response remain credited. The theorem addresses an envelope of stationary position covariance in the finite-second-moment region, not thermal fluctuation–dissipation relations, nonlinearity, correlated noises, or all finite-time energetic statistics. The comparison does not assert that all published or unpublished results have been exhaustively inspected. The available 2023 telegraph model was compared at the abstract/model level, rather than claimed to have been fully inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cocconi et al. introduced this very stochastic stiffness OU² model with averaged Green response and stationary variance; neither those known one-time quantities nor stochastic trap literature inspected yields the stated exact two-time covariance plus response excess and complete one-minimum envelope transition. Related Gupta–Klapp paper studies stochastic stiffness moments/energetics; generic Gaussian functional identities are classical. A differently parameterized prior autocovariance calculation remains a risk.
+
+## value
+
+PASS
+
+Stationary X0 depends on prior stiffness which is correlated with future stiffness, making variance times averaged impulse response incorrect. The exact temporal response-correlation discrepancy and complete physically motivated envelope shape classification identify quantitative memory effects of a studied trap rather than an arbitrary integral evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

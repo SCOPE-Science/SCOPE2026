@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:13:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned frozen RESULT.md analytical proof and case boundaries",
+        "Independent bounded exact or numerical checks, /mnt/data/scope_audit_independent_checks_20261104_0804.py"
+      ],
+      "rationale": "Conditioning on thermal Brownian noise reduces C(t) to Gaussian expectation exp(−2I_s−J_t). Direct integrated OU covariances yield C(t)=2Dx exp[−λt−d(1−e^(−µt))] Iµ(A,2d(1+e^(−µt))), with d=Dk/µ³, A=2κ−4Dk/µ²>0, λ=κ−Dk/µ². The averaged impulse G uses only J_t, so C/(C0G)=Iµ(A,2d(1+e^(−µt)))/Iµ(A,4d)>1 and increases. Tilt derivative ∂A M=−Cov(S,h)<0 and ∂bM=−Var(h)<0, h=1−e^(−µS), establishes two unique ordered M=1/2 thresholds and envelope derivative dµe^(−µt)(2M−1), hence no maxima and one strict minimum exactly in middle regime. Independent quadrature found a_-<a_+ at d=0.04, 0.2, 1; full proof is analytic. Taylor of bounded tilted expectation controls t→∞ and d→0 boundary.",
+      "residual_risks": [
+        "Strict finite-variance parameter A>0 and independent noises essential; only rescaled envelope can have minimum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cocconi et al., arXiv:2405.09460, model and response",
+          "Ferraro et al., arXiv:2405.05183, related many-particle annealed disorder"
+        ],
+        "reasoning": "General Gaussian functional/Feynman–Kac methods apply broadly but do not supply the specific two-threshold one-minimum theorem as a stated corollary. Ferraro model has distinct self-consistent noise.",
+        "searches": [
+          "OU squared process confinement stochastic Ornstein Uhlenbeck stiffness two time stationary covariance autocorrelation",
+          "Feynman Kac Gaussian fluctuating spring two time correlation OU"
+        ]
+      },
+      "checked_sources": [
+        "Cocconi et al., The OU² process, arXiv:2405.09460v1, full PDF relevant sections",
+        "Gupta and Klapp, arXiv:2507.20915, OA relevant sections",
+        "Ferraro et al., arXiv:2405.05183, adjacent model",
+        "Frozen RESULT.md proof and independent scipy integral thresholds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact Gaussian cross-interval covariance Cov(I_s,J_t)=d(1−e^(−µs))(1−e^(−µt))",
+          "Prior averaged impulse response G from Cocconi et al."
+        ],
+        "reasoning": "C(0)G(t) cannot be the stationary covariance because X0² remains correlated with future stiffness; the cross-interval term leads to a new t-dependent Laplace argument and strict excess, not derivable by naive multiplication of known quantities.",
+        "searches": [
+          "OU squared process confinement stochastic Ornstein Uhlenbeck stiffness two time stationary covariance autocorrelation",
+          "OU fluctuating harmonic trap covariance equal response variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cocconi et al., The OU² process, arXiv:2405.09460v1",
+          "Gupta and Klapp, arXiv:2507.20915"
+        ],
+        "reasoning": "Same model and averaged impulse/one-time variance established; no exact C(t) and two-threshold envelope were identified in inspected relevant primary sections. Gaussian OU expectation machinery is prior, not the resulting time-structure classification.",
+        "searches": [
+          "OU squared process confinement stochastic Ornstein Uhlenbeck stiffness two time stationary covariance autocorrelation",
+          "Cocconi Alston Romano Bertrand OU2 position stationary covariance temporal two time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cocconi et al. stationary variance and averaged Green function formulas",
+          "Resultary hits for separate OU sensor and hidden critical mode results"
+        ],
+        "reasoning": "Known OU² numerical and one-time statistics do not tabulate exact response-normalized two-time C(t) and the two unique threshold values; no matching exact table found.",
+        "searches": [
+          "OU squared process confinement stochastic Ornstein Uhlenbeck stiffness two time stationary covariance autocorrelation",
+          "OU squared stationary autocorrelation threshold plot covariance numerical"
+        ]
+      },
+      "rationale": "Cocconi et al. introduced this very stochastic stiffness OU² model with averaged Green response and stationary variance; neither those known one-time quantities nor stochastic trap literature inspected yields the stated exact two-time covariance plus response excess and complete one-minimum envelope transition. Related Gupta–Klapp paper studies stochastic stiffness moments/energetics; generic Gaussian functional identities are classical. A differently parameterized prior autocovariance calculation remains a risk.",
+      "residual_risks": [
+        "An alternate earlier Gaussian stochastic-stiffness autocorrelation treatment may imply the exact closed form.",
+        "Strict finite-variance parameter A>0 and independent noises essential; only rescaled envelope can have minimum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers base model, G(t), one-time moments; inspected passages do not present the exact stationary two-time C(t) or its envelope classification",
+          "evidence": "Sections on stationary variance and averaged Green response",
+          "identifier_or_url": "arXiv:2405.09460v1",
+          "material_read": "Full 32-page OA arXiv PDF inspected with page image and source text; relevant model, stationary-moment and averaged response sections; in-document checks for two-time autocorrelation",
+          "method": "PDF first-page screenshot plus text/section reading",
+          "title": "The OU² process: Characterising dissipative confinement in noisy traps",
+          "trigger": "Exactly the same OU-driven fluctuating harmonic trap"
+        },
+        {
+          "assessment": "Adjacent trap model/one-time statistics; no observed dominating two-threshold statement",
+          "evidence": "Distinct observables in article sections",
+          "identifier_or_url": "arXiv:2507.20915",
+          "material_read": "OA accessible article text model, positional moment and energetic-fluctuation sections; no claim of a full text-priority certificate",
+          "method": "Online article section reading",
+          "title": "Nonequilibrium fluctuations in a harmonic trap with annealed stochastic stiffness",
+          "trigger": "Stochastic harmonic confinement may include an overlapping temporal observable"
+        },
+        {
+          "assessment": "Many-body mean-field model rather than scalar multiplicative OU trap; no whole-document NOT_COVERING claim",
+          "evidence": "Different stochastic dynamics",
+          "identifier_or_url": "arXiv:2405.05183",
+          "material_read": "Model and solution scope from accessible abstract and assigned source comparisons; not independently examined in full",
+          "method": "Abstract/model comparison",
+          "title": "Exact solution of Dynamical Mean-Field Theory for a linear system with annealed disorder",
+          "trigger": "General annealed disorder may cover temporal correlation expressions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Cocconi et al., The OU² process, arXiv:2405.09460v1, full PDF relevant sections",
+        "Gupta and Klapp, arXiv:2507.20915, OA relevant sections",
+        "Ferraro et al., arXiv:2405.05183, adjacent model",
+        "Frozen RESULT.md proof and independent scipy integral thresholds"
+      ],
+      "rationale": "Stationary X0 depends on prior stiffness which is correlated with future stiffness, making variance times averaged impulse response incorrect. The exact temporal response-correlation discrepancy and complete physically motivated envelope shape classification identify quantitative memory effects of a studied trap rather than an arbitrary integral evaluation.",
+      "residual_risks": [
+        "Exact known premises and natural scope limitations are credited; no claim of broad priority or universal generalization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An alternate earlier Gaussian stochastic-stiffness autocorrelation treatment may imply the exact closed form.",
+    "Strict finite-variance parameter A>0 and independent noises essential; only rescaled envelope can have minimum."
+  ],
+  "schema_version": 1
+}
