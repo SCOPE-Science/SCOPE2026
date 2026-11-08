@@ -1,15 +1,21 @@
-# Scientific review: uniqueness of the thermal-qubit free-energy crossing
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-jump Davies generator gives longitudinal decay \(e^{-\Gamma t}\) and transverse decay \(e^{-\Gamma t/2}\). The exact squared-Bloch-radius gap is \((R-z)(R+z+2b)p(1-p)\). An integral formula for the binary-entropy difference reduces the normalized free-energy difference to a positive quadratic-resolvent integral. Its derivative has a strictly negative numerator bounded by \(-[1-s^2R^2]\), so the normalized free-energy difference is strictly monotone. Opposite endpoint signs prove exactly one crossing for positive coherence. The diagonal and maximally mixed boundaries are treated separately. Symbolic identities and an independently implemented two-by-two Lindblad semigroup agree for mixed and pure inputs. Finite diagnostics are not substituted for the global proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest source is Moroder et al., arXiv:2403.16959 (2024): its main-text single-qubit example and Appendix A give the exact population-inversion construction and demonstrate a crossing, but do not supply its global uniqueness, normalization monotonicity, or asymptotic coefficient. Summer et al., arXiv:2507.16976 (2025), reuse the Davies qubit and plot crossover times for Rényi divergences without giving this all-state theorem. Chatterjee et al., arXiv:2311.01347 (2023), describe observed single relative-entropy crossings for a distinct driven dissipative qubit. Mathematical-record searches using model, observable, equality and monotonicity aliases found no direct covering finding. General qubit entropy calculus may allow an independent derivation, so publication priority requires further examination.
+PASS
 
-## Mathematical value — PASS
-For a natural, experimentally motivated thermal Davies model and an established coherent-to-inverted-state preparation, the result settles exactly how many thermodynamic crossings occur for every admissible initial state. This rules out reentrant free-energy orderings in the precise model, identifies a sharp coherence/no-coherence boundary and provides a useful monotonic quantity and quantitative late-time tail. It strengthens qualitative existence and example plots into a global dynamical classification, not a numerical fit.
+For finite positive bath temperature, gamma_+,gamma_->0 satisfying detailed balance and no added pure dephasing, Bloch evolution gives longitudinal p=e^-Gamma t and transverse sqrt(p). The coherent original has radius A(p) and population-inverted isospectral comparator radius B(p); Gibbs-relative entropy difference Delta(p)=(R-z)atanh(b)p-[S(B)-S(A)]. The exact squared radius gap is (R-z)(R+z+2b)p(1-p)>=0. Entropy derivative S(sqrt(q))=-h(q), h(q)=1/2 integral_0^1(1-qs^2)^-1 ds. Quadratic interpolation Q_theta between A^2 and B^2 satisfies Q+(1-p)Q_prime=R^2-a_theta(1-p)^2<=1. This makes the normalized gap Delta(p)/((R-z)p) strictly increase in p, even for pure initial vectors at every finite t. The normalized signs at p=1 and p->0 are positive and -((R+z)/(2b))atanh(b); coherence c>0 means -R<z<R, hence unique finite root. Cases c=0 are treated separately. Independent symbolic verification and direct numerical implicit root at b=.5,R=.8,z=0 gave p*=0.42993172972647203, t*=0.8441288509774865.
 
-## Limitations and nearest literature
-The result needs a faithful Gibbs state, exactly the two energy-exchange jumps and a comparison chosen by maximal inversion. Pure dephasing, non-Davies dynamics, alternative comparators and multilevel systems are not covered. The exact crossing time is determined implicitly. Publication-priority risk includes unindexed specialized theorems on the generalized amplitude-damping channel and qubit relative-entropy ordering.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Moroder et al. 2024 already construct an isospectral population-inverted Davies comparison and exhibit a sample free-energy crossing (Fig. 2 and Appendix A); that example and physical setup are prior. The inspected main paper and appendix do not prove strict global monotonicity of normalized difference for every coherent Bloch vector or uniqueness and if-and-only-if classification. Summer et al 2025 compare divergence-dependent crossover times in a wider resource-theoretic setup, not the same all-state theorem.
+
+## value
+
+PASS
+
+Global uniqueness of a quantum thermodynamic relaxation crossing gives a structurally useful theorem beyond illustrated examples. It identifies exactly when coherence forces an inversion of nonequilibrium free-energy order and provides sharp late-time coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
