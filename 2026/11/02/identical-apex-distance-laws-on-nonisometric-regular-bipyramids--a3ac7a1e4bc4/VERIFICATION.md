@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytical argument in `RESULT.md` is the reason for the claimed continuum equalities. The standalone `verify.py` is an independent numerical stress test of its radial integration and moment consequences; its sampling is not an exhaustive proof. It checks exact CDF against adaptive quadrature, empirical CDFs and moments, and sharp asymptotic coefficients for angles below, at and above \(\pi/4\).
+# Independent mathematical audit
 
-The executed scientific checker reported a largest CDF-versus-quadrature discrepancy of \(4.900524430695441\times10^{-12}\), an empirical CDF discrepancy of \(0.003020621838995652\), relative discrepancies below \(0.00370\) for the second moment and below \(0.00503\) for the fourth moment. Arbitrary-precision onset tests for angle fractions \(0.20,0.25,0.30\) of \(\pi\) agreed with the predicted leading constants at relative errors below \(4\times10^{-9}\), and quadratic upper-tail tests agreed within \(6\times10^{-8}\) relative. These tests did not enumerate every possible surface path, which is instead handled by the global 1-Lipschitz argument.
+## correctness
 
-Source-priority limits remain: the full later skeletal-cut-locus text was not obtained. No independent mathematical audit has been performed.
+PASS
+
+All 2n triangular faces form n equal rhombi. Euclidean radial distance from the rhombus apex agrees on all shared upper and lower edges, so is globally continuous and piecewise gradient-1, hence 1-Lipschitz on the intrinsic surface. Each convex rhombus contains the straight radial segment from N to X, supplying the matching path and proving exact geodesic distance rather than merely a candidate upper bound. Uniform surface measure selects each rhombus equally and cancels n; n+2 curvature vertices distinguish the surfaces. Polar-coordinate integration gives F(r)=(s² sin2beta)^(-1)∫_0^beta min(r²,s² sin²2beta/sin²(beta+theta))dtheta, while independent uniform U,V coordinates give all even moments. Boundary clipping at beta=pi/4 separates quadratic and three-halves onset exponents; opposite apex gives upper quadratic tail. Reconstructed each geometric argument and independently checked selected CDF/moment/asymptotic cases; numerical checks are corroboration only.
+
+## originality
+
+PASS
+
+General geodesic source unfolding, skeletal cut loci of dipyramids and rooted radial metric-measure comparisons are known. The complete normalized rhombus radial law independent of n and arbitrarily large nonisometric same-law families were not identified in relevant statements, with full historical priority risk retained.
+
+## value
+
+PASS
+
+Exact radial distance distributions are natural metric-measure invariants. The result constructs arbitrarily large nonisometric convex polyhedral families sharing all one-source distance quantiles, a concrete, motivated obstruction to radial inverse reconstruction, and classifies nontrivial angular threshold singularities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

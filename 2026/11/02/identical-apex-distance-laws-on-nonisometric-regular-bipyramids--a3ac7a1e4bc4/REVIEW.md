@@ -1,19 +1,21 @@
-# Review of the apex-distance distribution theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete proof identifies the actual distance function, not only a candidate path. The surface splits into \(n\) congruent rhombi. The proposed distance is continuous on every upper and lower seam and has planar gradient norm one away from finitely many vertices, making it globally 1-Lipschitz in the surface path metric. Convexity of each rhombus supplies a matching shortest path to every point. The exact radial law, all even moments, and the nonisometry conclusion follow. The angular cutoff subcases were checked separately, including the unusual obtuse rhombus regime possible only for three-gonal bipyramids. Quadrature, simulation and arbitrary-precision asymptotic tests provide independent numerical corroboration but no infinite certification.
+PASS
 
-## Originality — PASS with residual priority risk
+All 2n triangular faces form n equal rhombi. Euclidean radial distance from the rhombus apex agrees on all shared upper and lower edges, so is globally continuous and piecewise gradient-1, hence 1-Lipschitz on the intrinsic surface. Each convex rhombus contains the straight radial segment from N to X, supplying the matching path and proving exact geodesic distance rather than merely a candidate upper bound. Uniform surface measure selects each rhombus equally and cancels n; n+2 curvature vertices distinguish the surfaces. Polar-coordinate integration gives F(r)=(s² sin2beta)^(-1)∫_0^beta min(r²,s² sin²2beta/sin²(beta+theta))dtheta, while independent uniform U,V coordinates give all even moments. Boundary clipping at beta=pi/4 separates quadratic and three-halves onset exponents; opposite apex gives upper quadratic tail. Reconstructed each geometric argument and independently checked selected CDF/moment/asymptotic cases; numerical checks are corroboration only.
 
-The searched statements were compared by implication, not by titles. Miller–Pak's general source-foldout theorem and Aronov–O'Rourke's cut-locus descriptions concern arbitrary convex polyhedra and do not state the normalized bipyramid radial law, exact angle regimes, all moment formulas, or the arbitrarily large nonisometric families sharing them. Dantsin–Wolpert introduce radial distribution comparison but do not provide this surface construction. O'Rourke–Vîlcu explicitly discuss skeletal cut loci on octahedra and some dipyramids; this feature alone is not new, and the unavailable full text remains a genuine priority risk. Indexed mathematical-record and literature searches found no statement implying the combined law and ambiguity result; searches alone cannot establish priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete radial law is a natural metric-measure invariant of a canonical continuous family of convex polyhedral surfaces. The cross-side-count invariance gives arbitrarily large finite collections of mutually nonisometric surfaces whose one-root distance data are identical, a concrete geometric boundary for radial inverse reconstruction. The threshold geometry gives a structurally different fractional-order wavefront transition in squat triangular bipyramids and an exact classification over all permitted parameters. No general paper-sized implication is required for the exact invariant and nonidentifiability construction to be informative.
+General geodesic source unfolding, skeletal cut loci of dipyramids and rooted radial metric-measure comparisons are known. The complete normalized rhombus radial law independent of n and arbitrarily large nonisometric same-law families were not identified in relevant statements, with full historical priority risk retained.
 
-## Closest literature and limits
+## value
 
-The source-unfolding machinery is established in the 1992 and 2003 cited research. Later skeletal-cut-locus research explicitly covers related discrete cut-locus structures, and later rooted metric-measure literature uses radial distributions. The new claim is limited to distances from a designated apex, rather than full distance matrices or distances between two random points. A complete full-text check of the later skeletal-cut-locus preprint was unavailable; no claim of historical uniqueness or external certification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact radial distance distributions are natural metric-measure invariants. The result constructs arbitrarily large nonisometric convex polyhedral families sharing all one-source distance quantiles, a concrete, motivated obstruction to radial inverse reconstruction, and classifies nontrivial angular threshold singularities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
