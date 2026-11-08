@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary n>=1, the rank-r fixed-atom star is shattered by the mixed-rank antichain constructed for each label pattern; omitted r-subsets are blocked by their unique deleted-atom subsets, and finite maximal extension preserves inclusion/exclusion. Sperner width bounds any support realized all-positive. For n<=5, a self-contained checker enumerates all maximal antichains as maximal cliques, verifies all maximality conditions, uses the exhaustive trace-splitting equivalence and monotone increasing supports to compute every shattered set, including an empty next level; all 120 atom permutations give eleven classes and 310 six-supports. Full local replay succeeded. Finite findings are never extrapolated to exact dimensions above five.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Griggs et al., Theorem 1 and Theorem 2 classify feasible sizes of maximal antichains (not all-membership traces).",
+        "Duffus, Sands and Winkler, Theorem 1(d): avoidance of n prescribed antichains, which is insufficient by itself to prescribe all 2^k patterns on a fixed shattered support."
+      ],
+      "reasoning": "Sperner width gives the upper bound only; size-existence, avoidance and induced matching statements do not imply the exact support polynomial, the 310 shattered six-point supports, or eleven orbit representatives. Rank-star general lower bound is compared to familiar incidence induced matchings, and the new exact classification is not subsumed.",
+      "searches": [
+        "Boolean lattice maximal antichain family shatters middle layer star all rank r subsets containing a fixed element binomial n-1 choose r-1",
+        "maximal antichain hypergraph VC dimension Boolean lattice exact dimension or lower bound exponential",
+        "all inclusion maximal antichains of Boolean lattice VC dimension exponential binomial n-1 choose floor (n-1)/2 by rank star block construction",
+        "arXiv:2302.07062",
+        "Duffus-Sands-Winkler-1990"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2302.07062v2",
+      "https://www.math.emory.edu/~dwight/papers/1-DSW-Boolean.pdf",
+      "https://publications.hse.ru/en/articles/839893683",
+      "https://oeis.org/A326358",
+      "https://oeis.org/A348260",
+      "https://arxiv.org/abs/1710.08509",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/9/SCOPE022"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Griggs et al., arXiv:2302.07062, Theorems 1 and 2 quantify sizes of individual maximal antichains and existence of flat versions, not all 2^|S| incidence labels.",
+        "Balogh et al., arXiv:1710.08509, consider different VC-bounded families and adjacent-rank induced matchings.",
+        "Ignatov public abstract counts maximal antichains and their isomorphism classes; full body not accessed."
+      ],
+      "reasoning": "Claim implies precise VC and shattering data, while prior enumerations answer number and size distributions of hypotheses. A family cardinality does not fix its VC dimension, and known existence/avoidance does not fix all incidence traces. The uninspected Ignatov body remains a risk, but its public abstract does not establish direct coverage.",
+      "searches": [
+        "VC dimension of maximal Sperner families maximal antichains of Boolean lattice B_n n=5 equals 6 shattering coordinate set membership",
+        "maximal antichains Boolean lattice B5 VC dimension six 310 shattered six-point supports eleven orbits under S5",
+        "arXiv:2302.07062",
+        "arXiv:1710.08509",
+        "doi:10.1134/S1995080223010158"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sperner family = antichain of Boolean lattice; maximal antichain = maximal clique in incomparability graph, but these equivalences change only representation, not incidence-shattering invariant.",
+        "No indexed exact shattered-support polynomial or orbit classification found in semantically matched published-finding corpus hits; closest result counts antichains on truncated lattices."
+      ],
+      "reasoning": "Re-expressed the claim as membership VC dimension of maximal Sperner families, incidence traces of maximal cliques, and shattering of lattice points. The enumerated object is the set of shattered supports, not the set of maximal antichains; direct algebraic equivalence to a known enumeration was not identified.",
+      "searches": [
+        "VC dimension of maximal Sperner families maximal antichains of Boolean lattice B_n n=5 equals 6 shattering coordinate set membership",
+        "shattering VC dimension maximal antichains of posets partition lattice Sperner families",
+        "Boolean lattice maximal antichain membership class equivalent incomparability graph maximal clique VC dimension",
+        "published-finding corpus record 2026/9/9/SCOPE022"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A326358 reports 376 five-atom maximal antichain hypotheses; A348260 reports 30 orbits of hypotheses; neither is the polynomial with coefficients 1,32,285,1090,1780,1224,310.",
+        "published-finding corpus SCOPE022 includes rank-profile census of all antichains in truncated B5 and B6 with width certificates, a different count."
+      ],
+      "reasoning": "Explicitly compared the universe and equivalence relation of each tabulation. Neither table enumerates shattered subfamilies or their S5 orbits, so neither numerically or structurally determines the 310 and eleven-orbit classification.",
+      "searches": [
+        "maximal antichains Boolean lattice B5 VC dimension six 310 shattered six-point supports eleven orbits under S5",
+        "shattering polynomial 1 32 285 1090 1780 1224 310 maximal Sperner families on 5 atoms",
+        "OEIS A326358",
+        "OEIS A348260",
+        "published-finding corpus 2026/9/9/SCOPE022"
+      ]
+    },
+    "rationale": "Semantic published-finding corpus and local-ledger overlap searches and implication comparisons against directly relevant full arXiv material and primary lattice literature did not find the same VC concept-class invariant or a stronger claim implying the exact B5 support polynomial and eleven orbits. Counting/maximality and static poset-width results are not logically equivalent to supportwise all-label realizability. Full-text inaccessibility of Ignatov and alternate historical terms leave a stated finite residual risk; no global novelty theorem is asserted.",
+    "residual_risks": [
+      "The complete 2023 Ignatov paper could not be inspected; its public abstract is enumeration-focused but hidden connections are possible.",
+      "A result under alternative terminology (Sperner-family incidence, maximal-clique shattering) may have escaped indexed searches.",
+      "The general exponential lower bound may be known through adjacent-level induced matching folklore; the finite 310-support and eleven-orbit classification is the strongest distinctive component."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for exact support polynomial or VC lower bound: its quantified results concern feasible cardinalities of individual maximal antichains and flat-rank constructions.",
+        "evidence": [
+          "Theorem 1 characterizes the set of cardinalities S(n) of maximal antichains; Theorem 2 realizes intervals of these sizes with two-level antichains, arXiv:2302.07062, sections 1,3,4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.07062v2",
+        "material_read": "Abstract, Introduction, Theorems 1 and 2, proof sections 3-4 and open-problems discussion, accessed lawful arXiv HTML.",
+        "method": "Statement-by-statement implication comparison; searched for VC dimension, shattered-support and all-trace incidence questions.",
+        "title": "Sizes of flat maximal antichains of subsets",
+        "trigger": "Same Boolean lattice and inclusion-maximal antichains; first public version 2023-02-14."
+      },
+      {
+        "assessment": "ABSTRACT_DOES_NOT_COVER; RESIDUAL_RISK of uninspected body, since article could contain other observations.",
+        "evidence": [
+          "Ignatov, Lobachevskii J. Math. 44 (2023), 137-146, abstract: two methods to count maximal antichains and their isomorphism classes, no stated VC/shattering polynomial.",
+          "OEIS A326358 and A348260 count maximal antichains and their orbits, not six-point shattered supports."
+        ],
+        "identifier_or_url": "https://publications.hse.ru/en/articles/839893683",
+        "material_read": "Public abstract, bibliographic record, links to supporting code and OEIS references; article body unavailable.",
+        "method": "Compared enumerated objects and invariants in abstract and author-linked data; full-body implication comparison not possible.",
+        "title": "On the Number of Maximal Antichains in Boolean Lattices for n up to 7",
+        "trigger": "Direct enumeration and orbit census for exactly the same family of hypotheses."
+      },
+      {
+        "assessment": "NOT_COVERING: guarantees disjoint maximal antichains for certain unions of antichains, not binary support shattering profiles or exact VC dimension.",
+        "evidence": [
+          "Duffus, Sands and Winkler, SIAM J. Discrete Math. 3 (1990), Theorem 1(a)-(d) and Theorem 2."
+        ],
+        "identifier_or_url": "https://www.math.emory.edu/~dwight/papers/1-DSW-Boolean.pdf",
+        "material_read": "Full nine-page lawful author-hosted PDF (introduction, Theorem 1, proofs and final section); visually inspected first page.",
+        "method": "Checked the quantifiers in the four equivalent assertions and their proofs versus simultaneously prescribing all membership patterns on one support.",
+        "title": "Maximal Chains and Antichains in Boolean Lattices",
+        "trigger": "Foundational theorem about existence and avoidance of maximal antichains in B_n."
+      },
+      {
+        "assessment": "NOT_COVERING for the five-atom exact polynomial/orbits; the induced matching theme is acknowledged as potentially overlapping with lower-bound mechanism.",
+        "evidence": [
+          "Balogh, Mészáros and Wagner, arXiv:1710.08509, study induced matchings in the hypercube and separate bounded-VC set-family extremals."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1710.08509",
+        "material_read": "Lawful arXiv full paper examined for definitions and main statements; alternate open HTML endpoint currently unavailable.",
+        "method": "Compare hypothesis family, ground set and quantified assertions with maximal-antichain membership.",
+        "title": "Two results about the hypercube",
+        "trigger": "Relevant adjacent rank induced matchings and bounded VC set-family theory may imply star construction."
+      },
+      {
+        "assessment": "NOT_COVERING: their sequences report 376 labeled maximal antichains on five atoms and 30 classes of antichains, not 310 six-point shattered supports in eleven classes.",
+        "evidence": [
+          "OEIS A326358 and A348260, respective definitions; A348260(5)=30 inequivalent maximal antichains."
+        ],
+        "identifier_or_url": "https://oeis.org/A348260",
+        "material_read": "Sequence definitions, numerical terms, references and related sequence descriptions.",
+        "method": "Distinguished number of maximal antichains (hypotheses) and their equivalence classes from the supports shattered by all hypotheses.",
+        "title": "OEIS A326358 and A348260",
+        "trigger": "Exact known tabulations might subsume claimed finite values."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dc9f8577-cb39-4bf5-8faf-acd1fcc735cc",
+  "value": {
+    "rationale": "For a standard extremal family, the new invariant measures learnability of which lattice elements may occur jointly across maximal families; it differs fundamentally from Sperner width or hypothesis counting. A uniform, nontrivial star/blocker construction gives an exponential-order lower bound for all n. The exact five-atom polynomial, complete six-support orbit classification and first VC dimension exceeding number of underlying atoms supply a natural sharp finite benchmark with a plausible role in subsequent high-dimensional shattering studies. Neither independent certification nor a stronger general formula is claimed.",
+    "status": "PASS"
+  }
+}
