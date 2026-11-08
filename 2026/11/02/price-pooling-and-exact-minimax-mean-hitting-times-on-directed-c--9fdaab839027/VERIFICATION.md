@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-`verify.py` is the complete standalone check; run with `python3 verify.py`. All formulas are derived for every positive price and budget in `RESULT.md`; the finite tests here do not substitute for the proof.
+## correctness
 
-The performed run passed **6,393 deterministic checks** covering root equations, budget saturation, primal-dual equality, exact radical examples and 12 independently generated competitor allocations for each of 372 price-and-budget cases. An optional SciPy SLSQP block achieved successful independent constrained minimization on **33 of 36** trials, with objective values agreeing to its tolerance. Three trials reported optimizer non-success flags; these were neither counted as successful optimizations nor interpreted as infeasibility. The code reports this distinction itself.
+PASS
 
-To reproduce the mathematical conclusion without numerical black boxes, evaluate the exact inequalities and equality cases in the proof, particularly the weights \(\lambda_i=(1-p_i/c)_+\) and the scalar Cauchy–Schwarz identity. The proof covers every integer \(n\ge3\), every positive price vector, every positive budget and all threshold ties. Verification is self-review only; independent mathematical audit remains unperformed.
+For every n>=3, prices p_i>0 and budget B>0, the first passage along the unique forward arc has expectation sum h_j with h_j=1/r_j. The maximum over ordered distinct pairs is sum h_j minus min h_j. The continuous strictly increasing level function sum(1-p_i/c)_+ has a unique solution c, and weights lambda_i=(1-p_i/c)_+ sum to one. Averaging omitted-edge sums gives T>=sum (1-lambda_i)h_i; Cauchy-Schwarz and exact budget give T>=M^2/B for M=sum p_i/sqrt(max(p_i,c)). The claimed positive h_i=(M/B)*sqrt(max(p_i,c)) attains all inequalities; strict Cauchy equality plus budget saturation gives uniqueness for every price tie. For (1,1,Q) the level c gives Q=2 breakpoint. Independent check sampled 200 price-budget cases and 1000 feasible competitors; proof is unrestricted.
+
+## originality
+
+PASS
+
+Qualified PASS for the explicit all-price cost-pooling solution and global positive optimizer uniqueness on a directed Markov cycle, with an explicit material priority risk from general PERT convex resource allocation.
+
+## value
+
+PASS
+
+PASS: Exact unique positive optimal control for a natural first-passage minimax problem, explicit observable price pooling and a sharp single-price transition, usable to design directed cyclic networks without numerical optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

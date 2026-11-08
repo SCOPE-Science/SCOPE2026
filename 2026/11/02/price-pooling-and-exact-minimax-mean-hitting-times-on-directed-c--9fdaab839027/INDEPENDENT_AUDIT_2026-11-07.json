@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T22:46:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=3, prices p_i>0 and budget B>0, the first passage along the unique forward arc has expectation sum h_j with h_j=1/r_j. The maximum over ordered distinct pairs is sum h_j minus min h_j. The continuous strictly increasing level function sum(1-p_i/c)_+ has a unique solution c, and weights lambda_i=(1-p_i/c)_+ sum to one. Averaging omitted-edge sums gives T>=sum (1-lambda_i)h_i; Cauchy-Schwarz and exact budget give T>=M^2/B for M=sum p_i/sqrt(max(p_i,c)). The claimed positive h_i=(M/B)*sqrt(max(p_i,c)) attains all inequalities; strict Cauchy equality plus budget saturation gives uniqueness for every price tie. For (1,1,Q) the level c gives Q=2 breakpoint. Independent check sampled 200 price-budget cases and 1000 feasible competitors; proof is unrestricted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Roch treats reversible discrete-time spectral relaxation, not directed first-passage maximum.",
+          "Aldous and Fill state general first-hitting identities but no price-optimization theorem.",
+          "Berman is potentially dominating as a general algorithmic framework but only abstract material was accessible."
+        ],
+        "reasoning": "No inspected stronger theorem supplies the claimed explicit minimizer as an immediate specialization, although Berman remains a genuine priority risk rather than disproven coverage.",
+        "searches": [
+          "Berman 1964 10.1287/mnsc.10.4.734",
+          "Ghosh resource allocation not required",
+          "Roch arxiv:math/0409429 fastest mixing",
+          "Aldous Fill Markov Chains Chapter 2 hitting times"
+        ]
+      },
+      "checked_sources": [
+        "Berman 1964 DOI:10.1287/mnsc.10.4.734 abstract only",
+        "Best-Chakravarti-Ubhaya 2000 DOI:10.1137/S1052623497314970 abstract only",
+        "Roch 2004 arxiv:math/0409429 full text",
+        "Aldous-Fill Chapter 2 §2.2 full section",
+        "Resultary q3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Berman conceptual reduction could supply a method but accessible abstract does not show this evaluated optimizer.",
+          "The Markov directed-cycle worst-ordered-pair objective equals omission-of-one-edge sum, while spectral or stationary-average objectives are mathematically different."
+        ],
+        "reasoning": "After adopting standard PERT/convex tools, deriving the single endogenous c with uniqueness including equality-price ties remains the assessed contribution; no decisive prior implication was found in read material.",
+        "searches": [
+          "Berman Resource Allocation in a PERT Network Under Continuous Activity Time-Cost Functions 1964",
+          "Roch Bounding Fastest Mixing 2004",
+          "Best Chakravarti Ubhaya 2000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berman (1964) supplies a related general continuous PERT time-cost convex allocation framework; its publisher abstract has no explicit all-price level formula.",
+          "Best et al. impose given coordinate-order chain constraints; here active omitted-edge arcs and price pooling are determined endogenously."
+        ],
+        "reasoning": "The cycle hitting-time objective reduces to a convex PERT-like time-allocation problem, but equivalence to a general optimization class does not by itself establish the specific closed-form price-root, tie uniqueness and Q=2 threshold without further derivation.",
+        "searches": [
+          "directed continuous-time Markov cycle worst pairwise hitting time rate budget prices minimax optimizer pooling",
+          "Berman 1964 Resource Allocation in a PERT Network Under Continuous Activity Time-Cost Functions",
+          "Best Chakravarti Ubhaya 2000 minimizing separable convex functions subject to chain constraints"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary highest-ranked records concern different numerical optimization and hitting problems; no matching table identified in returned hits.",
+          "The displayed formula is a continuum of positive-price inputs and cannot be inferred from a few tabulated examples."
+        ],
+        "reasoning": "No actual checked table or database gives the entire all-price formula; this negative search is not an absolute priority certificate.",
+        "searches": [
+          "Resultary semantic query: directed continuous-time Markov cycle worst pairwise hitting time rate budget prices minimax optimizer pooling",
+          "directed cycle mean hitting times rate budget allocation optimized table",
+          "Berman 1964 PERT cost-time allocation"
+        ]
+      },
+      "rationale": "Qualified PASS for the explicit all-price cost-pooling solution and global positive optimizer uniqueness on a directed Markov cycle, with an explicit material priority risk from general PERT convex resource allocation.",
+      "residual_risks": [
+        "Full-text specialist priority for Berman 1964 remains open due to unavailable authorized access (vpn_disconnected).",
+        "Best-Chakravarti-Ubhaya 2000 full text was not read; general optimization implications must not be ruled out by abstract alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE_PRIORITY_RISK",
+          "evidence": "General PERT time-cost models may encompass the cycle program; unavailable full text prevents ruling out a direct evaluated all-price result.",
+          "identifier_or_url": "https://doi.org/10.1287/mnsc.10.4.734",
+          "material_read": "Publisher abstract and bibliographic metadata; no full primary text accessible",
+          "method": "OA and arXiv searched, publisher abstract inspected; authorized Oxford PDF access returned vpn_disconnected",
+          "title": "Resource Allocation in a PERT Network Under Continuous Activity Time-Cost Functions",
+          "trigger": "Very relevant broad convex resource-allocation predecessor"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": "Reversible relaxation eigenvalue optimization does not imply directed mean hitting-time minimax.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0409429",
+          "material_read": "Theorem formulation and analysis of reversible spectral mixing in accessible full text",
+          "method": "Inspected primary full-text mathematical objective",
+          "title": "Bounding Fastest Mixing",
+          "trigger": "Related Markov transition design optimization"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK",
+          "evidence": "Contains first passage identities, no priced directed cycle minimax solution.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/users/aldous/RWG/Book_Ralph/Ch2.S2.html",
+          "material_read": "Full relevant Chapter 2 §2.2 material",
+          "method": "Read accessible primary chapter section",
+          "title": "Reversible Markov Chains and Random Walks on Graphs, Chapter 2",
+          "trigger": "General hitting-time identities"
+        },
+        {
+          "assessment": "PARTIAL_SOURCE_RISK",
+          "evidence": "Its pre-imposed chain constraints are not identical to endogenous active omitted-edge set; full text may supply relevant generic tools.",
+          "identifier_or_url": "https://doi.org/10.1137/S1052623497314970",
+          "material_read": "Published abstract and metadata; full text not accessible",
+          "method": "Read abstract only and compared constraint structure",
+          "title": "Minimizing Separable Convex Functions Subject to Simple Chain Constraints",
+          "trigger": "Possible exact allocation algorithm dominating this formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact unique positive optimal control for a natural first-passage minimax problem, explicit observable price pooling and a sharp single-price transition, usable to design directed cyclic networks without numerical optimization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only single one-way CTMC cycle, positive independent linear prices, maximum mean hitting times between distinct states; no stationary-target averaging.",
+    "A full specialist priority comparison with a relevant 1964 PERT paper remains inaccessible."
+  ],
+  "schema_version": 1
+}

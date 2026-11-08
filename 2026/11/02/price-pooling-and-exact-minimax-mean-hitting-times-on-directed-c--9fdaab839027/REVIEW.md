@@ -1,19 +1,21 @@
-# Scientific review: price-pooled minimax hitting-time design
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model specifies all distinct ordered start–target pairs and the positive-rate budget. Every hitting expectation is a sum of forward-arc reciprocal rates, so the worst arc has length \(n-1\). The unique price root exists by strict monotonicity. A dual convex average of omitted-edge sums and Cauchy–Schwarz give the universal sharp bound \(M^2/B\), attained by the displayed positive allocation. Equality forces proportional holding times and exact budget use, proving uniqueness including price ties. The explicit three-state and single-expensive-edge cases follow by solving the level equation. `verify.py` supplies 6,393 supporting deterministic checks; finite experiments are not infinite proofs.
+PASS
 
-## Originality — PASS on inspected evidence; priority risk retained
+For every n>=3, prices p_i>0 and budget B>0, the first passage along the unique forward arc has expectation sum h_j with h_j=1/r_j. The maximum over ordered distinct pairs is sum h_j minus min h_j. The continuous strictly increasing level function sum(1-p_i/c)_+ has a unique solution c, and weights lambda_i=(1-p_i/c)_+ sum to one. Averaging omitted-edge sums gives T>=sum (1-lambda_i)h_i; Cauchy-Schwarz and exact budget give T>=M^2/B for M=sum p_i/sqrt(max(p_i,c)). The claimed positive h_i=(M/B)*sqrt(max(p_i,c)) attains all inequalities; strict Cauchy equality plus budget saturation gives uniqueness for every price tie. For (1,1,Q) the level c gives Q=2 breakpoint. Independent check sampled 200 price-budget cases and 1000 feasible competitors; proof is unrestricted.
 
-The source full text of Roch (2004) addresses reversible spectral mixing rather than directed first-hitting minimax design. Aldous–Fill gives general hitting identities, not a price-allocation formula. The Berman (1964) PERT model is a broad convex resource-allocation predecessor, so the present optimization is connected to that framework. Its accessible abstract does not exhibit the price threshold or complete closed-form optimizer, but full-text comparison is incomplete; it is the largest priority risk. The Best–Chakravarti–Ubhaya (2000) published abstract describes prespecified monotone-chain constraints, not endogenous cheapest-price pooling. No equivalent exact result was identified in the actual semantic source and formula searches; a negative search does not prove uniqueness in literature. Kemeny-type stationary-target averages differ from the maximum over all ordered pairs and cannot directly imply the transition at \(Q=2\).
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Worst-case pairwise first-hitting delay is a natural robust performance criterion for a unidirectional stochastic communication cycle. The all-price threshold turns a nonsmooth minimax allocation into an exact, sorted-price computation; the unique pooled versus square-root regimes show which transitions should share equal service rates. The sharp price tie cases, explicit three-state breakpoint, and expensive-edge budget-concentration law are useful structural consequences beyond a mere numerical optimizer.
+Qualified PASS for the explicit all-price cost-pooling solution and global positive optimizer uniqueness on a directed Markov cycle, with an explicit material priority risk from general PERT convex resource allocation.
 
-## Remaining limitations
+## value
 
-The result is restricted to one-way exponentially held directed cycles and expected first hitting times. It does not determine stationary-target Kemeny or spectral convergence optima. The full text for the broad PERT predecessor was inaccessible at review; no independence, formal validation, or publication priority is certified by this review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Exact unique positive optimal control for a natural first-passage minimax problem, explicit observable price pooling and a sharp single-price transition, usable to design directed cyclic networks without numerical optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
