@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-Exact multiplication weights give a diagonal positive D with twofold eigenvalues; the algebraic difference and n↔1-n reflection were reconstructed. Finite telescoping proves trace 1-q. Strict ratio yields maximal eigenvalue. With h=-log q, dominated Riemann sums (geometric upper bound e^(-k h)) prove every fixed-p moment and each fixed-t Fredholm logarithm; beta integration and the explicit t derivative yield B(p,p) and arcosh²(1+t/2). Strict monotone logistic profile gives exact level counts. Exact-rational checker passes 137 claims; no finite check is used as an infinite proof.
+## correctness
 
-Boundary conditions are \(0<q<1\), fixed \(p>0\), fixed \(t\geq0\), fixed \(0<a<1/4\). The entire nonzero spectrum is accounted for by the bilateral Laurent basis. The exact critical substitutions and the distinction between vague and finite-measure convergence are verified. The executable checks are supplementary only.
+PASS
 
-## Originality — PASS (best-knowledge)
-A concrete same-space basis occurs in Das–Narayanan 2025, but the primary results concern Toeplitz zero products and Hankel compactness. Parker 2025 is unilateral/disk and chiefly a first-trace formula. Douglas–Kim 2009 is an annular reducing-subspace theorem. Related indexed results concern other commutators or scalar traces. The new spectral determinant/real-p moment/counting profile is not implied by their stated theorems in inspected material. Remaining uncertainty from uninspected portions of the older annular thesis and undiscovered aliases is recorded, not denied.
+With equal normalized angular-mass boundary components, e_n=z^n/sqrt(1+q^n) for 0<q<1; S=M_z is a bilateral weighted shift with weights squared w_n^2=(1+q^(n+1))/(1+q^n). The diagonal self-commutator is w_n^2-w_(n-1)^2=(1-q)^2 q^(n-1)/[(1+q^(n-1))(1+q^n)], and reflections n=-k and n=k+1 give each delta_k twice. Strict ratio <1, telescoping gives Tr D=1-q and trace class. h=-log q, g_q(k)->g(x)=1/(4cosh^2(x/2)), exponential geometric bounds justify Riemann sums for every fixed p>0 and t>=0, giving B(p,p) and I(t)=integral log(1+t g(x)) dx=arcosh^2(1+t/2). At threshold a in (0,1/4), double-counted points with g(x)>a yield 4 arcosh(1/(2sqrt a)); differentiating the upper-tail function gives density 2/[y sqrt(1-4y)]. Spectral convergence is vague away from zero, not weak finite-mass convergence. Independent rational Laurent-basis differences and sample continuum convergence checked; infinite limits derived analytically.
 
-Closest inspected works: Das–Narayanan (2025), Douglas–Kim (2009), and Parker (2025). A 2015 annulus Toeplitz/Hankel thesis was inspected only in available introductory/structural portions; older hidden equivalents remain a risk. The key object/parameter implication comparisons and precise search outcomes are recorded in AUDIT.json. An absence of matches is not a priority certificate.
+## originality
 
-## Mathematical value — PASS
-The nonnormality of the canonical annular coordinate multiplier is an intrinsic spectral object. As the two boundary circles coalesce, D tends to zero but develops a diverging number of natural size-(1-q)^2 eigenvalues. The explicit arcosh-square logarithmic determinant, all-p Beta moments and level-count law jointly quantify this transition, beyond the elementary trace or an arbitrary finite special case. This is a motivated full-parameter asymptotic, with an exact count profile and plausible applications to thin-annulus operator perturbations.
+PASS
 
-## Limits of review
-The full 2015 Tattersall thesis was not exhaustively checked: a remote equivalent annular spectral calculation could be present under different headings. No independent checking has been performed. The present finding establishes no claims for other symbols, arbitrary boundary weights, or uniform parameter asymptotics.
+The identical normalized annulus Laurent basis is prior work (Das–Narayanan 2025), as are the general bilateral weighted shift methods. Douglas–Kim 2009 treats reducing subspaces, Parker 2025 unilateral disk commutator traces; none of their compared theorems states or directly implies the complete Beta-p/Fredholm/counting triple. Resultary closest matches concern Hardy–Volterra, polydisc quotient commutators and a Rhaly operator with inequivalent spectra. Best-knowledge originality survives with risk of an unnoticed annular special-operator calculation.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Natural canonical annular Hardy operator, with a complete and nontrivial degenerating spectral distribution covering all Schatten exponents, determinant and positive-level laws rather than just one scalar trace; these are mathematically reusable asymptotic operator invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
