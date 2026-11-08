@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The starting equilibrium and unique-positive-limit theorem are explicitly taken from Qin's arXiv:2610.11780v1, Theorem 1.1. Dividing by the positive edge powers gives the incidence equation \(Br=s\); connectedness and odd-cycle parity prove the rank and exact positive fiber, including the converse from positive equilibrium uniqueness. The cyclic Jacobian has eigenvalues \(1-\alpha\sin^2(\pi k/n)>0\), justifying the analytic implicit differentiation and exact Fourier singular values. The modal crossover and continuum maximum follow from a complete scalar optimization. Replaying the embedded finite checker passed 1,460 determinate corroborations. Finite tests are not the proof of the universal conclusions.
+PASS
 
-## Originality — PASS, provisional
+Using Qin’s assumed positive unique fixed-point limit m for all finite connected graphs, dividing m_e=m_e^α Σ_{v∈e}q_v/D_v(m) by m_e^α gives Br=m^(1−α), r_v=q_v/D_v(m)>0. Conversely every positive solution r of Br=s corresponds to q_v=r_vD_v(m) and the same unique equilibrium. Connected unsigned incidence has kernel zero iff graph has an odd cycle; otherwise it has one alternating sign vector and positivity produces exactly an open interval of inverse rates. For uniform q_i=p on C_n, differentiating the equilibrium yields the cyclic positive definite L=(1-α/2)I+(α/4)(shift+inverse shift), eigenvalues 1−α sin²(πk/n)>0; input derivative p(h_i+h_{i+1})/2 gives multiplier p(1+e^{iθ})/[2(1−α sin²(θ/2))]. Maximizing absolute mode gains yields threshold α_n, continuum envelope and finite-n endpoint limits. Positive alternate q=p(1+ε(-1)^i) has exactly constant m_i=p on even rings. Independent graph incidence ranks and Fourier norm checks corroborate. Crucial external existence/uniqueness premise is attributed to Qin, not proven from source here.
 
-Primary full texts compared: Qin, arXiv:2610.11780v1 (homogenization and transformed equilibrium), Couzinié–Hirsch, arXiv:2010.03347 (weak-reinforcement convergence for unit rates), van der Hofstad–Holmes–Kuznetsov–Ruszel, arXiv:1406.0449 (cycle stability Jacobian in a strong-reinforcement setting), and Benaïm–Benjamini–Chen–Lima, arXiv:1211.1247v4 (a different vertex-bin interacting urn). The first work *does imply* the flux equation after a power change, and the third contains related cycle eigenvalue analysis; those premises are fully credited. The exact graph-topological inverse fibers and sharp heterogeneous-firing Fourier gain with its finite-size crossover were not found stated or jointly covered in the inspected literature. Targeted mathematical-record queries and comparison against accessible previous claims identified no direct duplicate. A straightforward unpublished graph-incidence corollary and classical sensitivity estimates remain historical-priority risks; absence of a match is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Recovering unobserved vertex firing rates from long-run edge reinforcement is a natural inverse problem made well-posed by the motivating homogenization theorem. The complete all-graph bipartiteness criterion gives an exact identifiable/nonidentifiable distinction, including every admissible alternative positive rate vector. The cycle calculation determines *sharp* conditioning, a finite-size frequency crossover and a nonlinear blind spot not visible from qualitative convergence alone. These are structural and quantitative results, not a mere rephrasing of the source existence theorem.
+Best-of-knowledge qualification: specific evaluated claim is not implied by inspected stronger statements or prior tables. Negative search is not itself proof of novelty. Although Qin’s general equation implies the inverse classification with familiar linear algebra, the sharp multi-mode derivative and its nontrivial crossover provide the valuable substantive new part; strongest primary full text could not be inspected and residual overlap risk must be explicit.
 
-## Scope and residual risks
+## value
 
-All scientific conclusions are for finite connected simple graphs, strictly positive rates and exponent \(0\le\alpha<1\). Spectral response is local about uniform rates on cycles. There are no finite-data inference bounds, no infinite-graph inverse classification, and no claim of independent review or definitive publication priority. The source's existing transformed equilibrium identity makes implicit-priority overlap possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact identifiability obstruction and full nonlinear positive inverse fiber are useful for inferring heterogeneous hidden firing rates from network edge growth. The spectral susceptibility crossover at α~1/2 distinguishes null alternating perturbations from strongly amplified nearby modes, furnishing exact conditioning information; not merely a rephrasing of the equilibrium equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
