@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:42:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from the two exact recurrence equations, W Delta q +tK q=0 with nonsymmetric W=[[1+a/2,0],[(1-omega)c/2,1]]. For temporal mode z, x=2-z-z^-1, det(tK-xW)=p x²-Sx+R. The discriminant decomposes into the square (a-pb+(1-omega)c²/2)² plus (4+2a omega)c², proving two real positive spatial roots; the smaller root is <a/p<2 for C≠0, and the C=0 decoupled case is explicit. A positive spatial root has power-bounded temporal solutions precisely for x<4; x=4 gives repeated -1 with linearly growing n(-1)^n and x>4 an exponentially growing mode. Thus the larger root must be below four, equivalent to det(tK-4W)=16+4(A-B)t-[AB+(2omega-1)C²]t²>0, a strictly concave quadratic with exactly one positive root. Solving gives the stated T*(omega), monotone decreasing with omega if C≠0 and separator 4/B at omega=1/2. For A=B, C²↑AB, ratio of omega0 to midpoint ceilings diverges within SPD domain. Independently verified determinant/discriminant symbolic identities and 36 SPD modal cases; numerical checks alone are not proof for all matrices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The originating wave-scheme paper gives the general weighted split and sufficient energy bounds in identified cases, not an all-weight necessary-and-sufficient two-mode threshold."
+        ],
+        "reasoning": "Sufficient stability of a broad discretization does not imply a sharp iff frontier on the restricted 2D family; generic scalar oscillator theory applies after proving real positive generalized modes.",
+        "searches": [
+          "Chung Efendiev Leung Vabishchevich arXiv:2102.13198 Eq 3.1 Appendix A",
+          "standard central difference modal stability 4/lambda"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 5c09dbad33031c557edb22c376af371e75ce60ba and verify.py a149d7acc4ff1dd0a8e4008b5901995316d978c1",
+        "Chung–Efendiev–Leung–Vabishchevich arXiv:2102.13198 full PDF Eq.(3.1), Section 3 and Appendix A",
+        "Standard central difference CFL derivation",
+        "Resultary partially explicit two-mode sign reversal search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Eq(3.1) gives the same scheme and conventional x<4 criterion. The paper’s stability theorem provides sufficient conditions that need not be sharp for nonsymmetric W."
+        ],
+        "reasoning": "Taking a 2D specialization and solving the full determinant supplies the new explicit iff calculation. Older von Neumann analyses in alternative notation may remain an equivalence risk.",
+        "searches": [
+          "arXiv:2102.13198 Section 3 Appendix A",
+          "standard second-order central-difference time multiplier discriminant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The recurrence reduces to a quadratic in x=2-z-z^-1; the general scalar oscillator CFL condition 0<x<4 is classical."
+        ],
+        "reasoning": "An amplification-matrix stability analysis might recover the same frontier by parameter substitution, but the explicit coupled non-symmetric-mass root location and weight sign are separately established.",
+        "searches": [
+          "Resultary partially explicit two-mode wave scheme sharp CFL omega coupling threshold",
+          "weighted wave time splitting 2x2 amplification matrix Schur root condition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant exact table found; explicit critical examples T*(0)=5,T*(1/2)=4,T*(1)=20/sqrt(34) are internal illustration, not externally known constants."
+        ],
+        "reasoning": "A continuous SPD parameter threshold is not settled by numerical grids or lookup tables.",
+        "searches": [
+          "Resultary exact two mode CFL transition sign",
+          "Altair Radioss explicit scheme stability modal CFL"
+        ]
+      },
+      "rationale": "PASS, qualified: Chung–Efendiev–Leung–Vabishchevich introduce precisely the weighted partially explicit split and analyze omega=1 and omega=0 with sufficient energy conditions. The explicit necessary-and-sufficient 2D power-boundedness frontier, its all-omega dependence and sign-reversal phase were not found in that primary source. Generic von Neumann methods may make the computation short but do not constitute an already stated boundary formula.",
+      "residual_risks": [
+        "The claim holds only for the stipulated orthogonal unit-mass two-mode split; it does not directly generalize to arbitrary mass-coupled subspaces.",
+        "A classical exact 2x2 von Neumann criterion could imply the specific formula even if not explicitly cited.",
+        "At the CFL boundary power boundedness fails due to a Jordan-type repeated temporal root."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELEVANT_MODEL_PREMISE_NOT_FINAL_CLASSIFICATION",
+          "evidence": [
+            "Introduces scheme and sufficient energy conditions; no all-omega exact 2x2 squared-step frontier in inspected proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.13198",
+          "material_read": "Complete primary PDF inspected; equation (3.1), Section 3 stability conditions, Appendix A special omega case and associated conclusions",
+          "method": "Open arXiv PDF and visual screenshot of Eq.(3.1) and Appendix A",
+          "title": "Contrast-independent partially explicit time discretizations for multiscale wave problems",
+          "trigger": "Primary source of the exact weighted second-order wave splitting"
+        },
+        {
+          "assessment": "CLASSICAL_INGREDIENT",
+          "evidence": [
+            "For scalar modal x, strict stability requires 0<x<4; not an all-omega coupled W classification."
+          ],
+          "identifier_or_url": "https://2024.help.altair.com/2024/hwsolvers/rad/topics/solvers/rad/theory_dynamic_analysis_explicit_scheme_stability_r.htm",
+          "material_read": "Reference explanation of scalar explicit central-difference mode stability",
+          "method": "Web documentation textual content",
+          "title": "Explicit Scheme Stability (Radioss documentation)",
+          "trigger": "Classical power-bounded oscillator CFL bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coupling sign switches the effect of off-diagonal stiffness on allowable time steps across the weight omega=1/2; this isolates a meaningful stability mechanism and provides sharp boundary design guidance, rather than just a special-case normalization. Arbitrarily large near-singular gain strengthens the significance, while no accuracy claim is made.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The claim holds only for the stipulated orthogonal unit-mass two-mode split; it does not directly generalize to arbitrary mass-coupled subspaces.",
+    "A classical exact 2x2 von Neumann criterion could imply the specific formula even if not explicitly cited.",
+    "At the CFL boundary power boundedness fails due to a Jordan-type repeated temporal root."
+  ],
+  "schema_version": 1
+}
