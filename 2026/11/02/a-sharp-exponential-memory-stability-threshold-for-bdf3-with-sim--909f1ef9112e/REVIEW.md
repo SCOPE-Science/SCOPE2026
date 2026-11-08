@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The constant-coefficient BDF3 quadrature tail is reconstructed directly from the published weights; elimination of the exponential convolution yields a quartic polynomial. Seven exact polynomial-positivity certificates establish the Routh–Hurwitz inequalities after a Cayley transform on the entire stated open parameter region. The sign of \(P(1)\) proves the exterior root beyond threshold; a strict cubic Hurwitz test and the same positivity certificate prove a simple unit root at equality. The exponential-kernel series proves strict separation from the continuous threshold. The rational geometric witness is exact except for the rigorously bounded \(\log4\).
+## correctness
 
-**Originality: PASS subject to historical-access limitations.** The motivating full-text paper provides sufficient memory bounds and the quadrature; no exact scalar Schur frontier or stable-discrete/unstable-continuous interval was found in the inspected original sections. Published research-record comparisons covered BDF stability, memory equations, continuous exponential-memory consensus, and adjacent linear multistep analyses without an implication yielding this coefficient-specific quartic frontier. The early memory literature was identified but not fully read; there is genuine residual historical-priority risk.
+PASS
 
-**Value: PASS.** The theorem gives a sharp, parameter-complete long-time stability threshold for a recently introduced method and exposes false stabilization on a physically unstable scalar memory equation. The issue is structural: fixed positive steps introduce a nonempty stability mismatch, even though consistency recovers the continuum threshold as \(h\downarrow0\). This informs modewise benchmark design and distinguishes long-time stable discrete dynamics from correct continuous qualitative behavior.
+The original quadrature tail has weights 23/12, 7/12 then 1 with three left-end corrections. Subtracting q times the preceding recurrence, q=e^{-theta}, cancels the starting convolution forcing and produces the displayed quartic with K=mu beta theta. At v=beta theta q(23-16q+5q²)/(12(1-q)), P(1)=6mu(1-q)(1-v); v>1 forces a real root>1. For v<1, the Cayley transform maps Schur to Hurwitz and seven necessary/sufficient Routh–Hurwitz expressions have explicit strictly positive polynomial numerators after q=X/(1+X),v=Y/(1+Y); independent rational SymPy reconstruction verified all coefficients nonnegative and exact term counts 3,14,16,16,16,63,117, plus all five v=1 boundary positivity checks. A separate expansion of theta W(e^{-theta}) proves <1 for theta>0, and the continuous augmented 2x2 memory ODE has a positive eigenvalue whenever beta>1. The verifier checks algebraic positivity for all positive parameters, not mere sampling.
 
-**Closest related work and limitations.** W. Qiu, arXiv:2610.32364v1, proves a general sufficient estimate \(\beta<500/579\), rather than the present sharp scalar exponential-kernel criterion. Thomée–Wahlbin (1994) is background on time stepping for equations with memory; its full historical relation remains unconfirmed. Exact arithmetic, fixed positive timestep, prescribed quadrature, and scalar modes only; no nonlinear or PDE extension. Numerical tests corroborate but do not replace analytic proof or the exact symbolic certificates.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty of the precise final theorem survives comparison with relevant antecedents and currently indexed mathematical literature, but not exhaustive historical priority. Different numerical stability notions and quadrature weights prevent direct equivalence, despite the shared BDF family.
+
+## value
+
+PASS
+
+This is an exact stability/false-stability phase boundary for a published high-order memory scheme. It demonstrates an operationally important spectral discrepancy between continuous Volterra growth and discrete numerical decay, including a rigorously nonempty interval for every timestep.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

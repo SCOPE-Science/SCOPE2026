@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T07:50:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/a-sharp-exponential-memory-stability-threshold-for-bdf3-with-sim--909f1ef9112e/RESULT.md (Git blob dca000283a5a18cfb01f68b46100bcdfcdd9a2e6)",
+        "2026/11/02/a-sharp-exponential-memory-stability-threshold-for-bdf3-with-sim--909f1ef9112e/verify_schur.py (Git blob dfa464bee9cf24563f1dbff4ed487ffef031804b)",
+        "2026/11/02/a-sharp-exponential-memory-stability-threshold-for-bdf3-with-sim--909f1ef9112e/METADATA.json (Git blob fc24822ac1b8fd476900c96ebe8ed823a810c963)",
+        "2026/11/02/a-sharp-exponential-memory-stability-threshold-for-bdf3-with-sim--909f1ef9112e/AUDIT.json (Git blob 6283ee05b87a2d56018d449e4ae2a772543a3c12)",
+        "/mnt/data/scope_worker03_20261106T0738Z/independent_checks_output.txt"
+      ],
+      "rationale": "The original quadrature tail has weights 23/12, 7/12 then 1 with three left-end corrections. Subtracting q times the preceding recurrence, q=e^{-theta}, cancels the starting convolution forcing and produces the displayed quartic with K=mu beta theta. At v=beta theta q(23-16q+5q²)/(12(1-q)), P(1)=6mu(1-q)(1-v); v>1 forces a real root>1. For v<1, the Cayley transform maps Schur to Hurwitz and seven necessary/sufficient Routh–Hurwitz expressions have explicit strictly positive polynomial numerators after q=X/(1+X),v=Y/(1+Y); independent rational SymPy reconstruction verified all coefficients nonnegative and exact term counts 3,14,16,16,16,63,117, plus all five v=1 boundary positivity checks. A separate expansion of theta W(e^{-theta}) proves <1 for theta>0, and the continuous augmented 2x2 memory ODE has a positive eigenvalue whenever beta>1. The verifier checks algebraic positivity for all positive parameters, not mere sampling.",
+      "residual_risks": [
+        "The finite computations alone do not establish unrestricted hypotheses, parameter domains or infinite quantifiers; proof reconstruction supplies those steps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qiu proves PDE long-time stability under beta<500/579, a safer sufficient range; it does not dominate beta_crit>1 for the exponential scalar. Thomée–Wahlbin uses earlier lower-order schemes and different estimates."
+        ],
+        "reasoning": "The all-parameter positivity certificate and false-stability interval are a stronger exact scalar conclusion than a norm-based sufficient PDE bound, without implying a general PDE theorem.",
+        "searches": [
+          "Qiu arXiv:2610.32364 Sections 3–4",
+          "Thomée–Wahlbin DOI:10.2307/2153519"
+        ]
+      },
+      "checked_sources": [
+        "Qiu, arXiv:2610.32364v1 §3 BDF3 and Simpson/AB memory weights, long-time sufficient stability beta<500/579",
+        "Thomée–Wahlbin, Mathematics of Computation 62 (1994) long-time numerical memory analysis (background, full text not checked)",
+        "Resultary query BDF3 Simpson Adams Bashforth exponential convolution false stability; nearest BDF2 delayed sign loss applies a distinct method"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Qiu’s published beta<500/579 sufficient bound is below the continuous beta=1, so it cannot imply the proven discrete-decay interval at beta>1."
+        ],
+        "reasoning": "The exact analytical threshold requires eliminating exponential memory and symbolic Routh–Hurwitz positivity; it is not a specialization of the stated prior sufficient theorem.",
+        "searches": [
+          "Qiu arXiv:2610.32364 long-time stability Theorem/§3",
+          "characteristic polynomial and exact Routh–Hurwitz identities in reviewed RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The related Resultary work is BDF2 positivity rather than BDF3 exponential-memory spectral stability. Qiu’s norm-bound criterion is sufficient and not the exact scalar Schur threshold."
+        ],
+        "reasoning": "Different numerical stability notions and quadrature weights prevent direct equivalence, despite the shared BDF family.",
+        "searches": [
+          "\"BDF3 Simpson Adams Bashforth exponential convolution fading memory discrete continuous false stability threshold\"",
+          "arXiv:2610.32364 §3",
+          "Resultary 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact quartic can be checked at sample numerical parameter values but claims an explicit formula for all positive q and mu, not a table entry."
+        ],
+        "reasoning": "Known BDF3 stability regions without this modified quadrature cannot replace the actual coefficient-dependent root classification.",
+        "searches": [
+          "\"sharp BDF3 fading memory scalar root threshold Simpson Adams Bashforth\"",
+          "Resultary 12 result search"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty of the precise final theorem survives comparison with relevant antecedents and currently indexed mathematical literature, but not exhaustive historical priority. Different numerical stability notions and quadrature weights prevent direct equivalence, despite the shared BDF family.",
+      "residual_risks": [
+        "The theorem addresses only the scalar exponential-kernel tail and says nothing about PDE stability, convergence or startup transient behavior.",
+        "Earlier scalar-convolution Schur threshold may be implicit in general BDF stability analysis; broad background paper was not fully checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE METHOD AND SAFE SUFFICIENT BOUND, NOT SHARP SCALAR THRESHOLD",
+          "evidence": "The printed causal quadrature has 23/12 and 7/12 recent weights and 3/4,5/12,4/3 initial corrections, consistent with the eliminated recurrence.",
+          "identifier_or_url": "https://arxiv.org/html/2610.32364v1",
+          "material_read": "Full HTML available; §3 quadrature coefficients and §4 stability estimates, introduction",
+          "method": "public primary HTML opened; relevant formulas and sections read",
+          "title": "Long-time stability and convergence of a BDF3 method for a parabolic equation with fading memory",
+          "trigger": "identical BDF3 method, exact named quadrature"
+        },
+        {
+          "assessment": "INACCESSIBLE FULL-TEXT PRIORITY RISK",
+          "evidence": "Could include equivalent scalar stability analysis; does not provide positive evidence of exact coverage.",
+          "identifier_or_url": "https://doi.org/10.2307/2153519",
+          "material_read": "Bibliographic references/abstract only; complete publisher text not examined",
+          "method": "source identification, not full paper read",
+          "title": "Long-time numerical solution of a parabolic equation with memory",
+          "trigger": "classical broader long-time memory numerical analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Qiu, arXiv:2610.32364v1 §3 BDF3 and Simpson/AB memory weights, long-time sufficient stability beta<500/579",
+        "Thomée–Wahlbin, Mathematics of Computation 62 (1994) long-time numerical memory analysis (background, full text not checked)",
+        "Resultary query BDF3 Simpson Adams Bashforth exponential convolution false stability; nearest BDF2 delayed sign loss applies a distinct method"
+      ],
+      "rationale": "This is an exact stability/false-stability phase boundary for a published high-order memory scheme. It demonstrates an operationally important spectral discrepancy between continuous Volterra growth and discrete numerical decay, including a rigorously nonempty interval for every timestep.",
+      "residual_risks": [
+        "The value is for the exactly scoped theorem, not an assertion of broader applications not proved here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Qiu, arXiv:2610.32364v1 §3 BDF3 and Simpson/AB memory weights, long-time sufficient stability beta<500/579",
+    "Thomée–Wahlbin, Mathematics of Computation 62 (1994) long-time numerical memory analysis (background, full text not checked)",
+    "Resultary query BDF3 Simpson Adams Bashforth exponential convolution false stability; nearest BDF2 delayed sign loss applies a distinct method",
+    "2026/11/02/a-sharp-exponential-memory-stability-threshold-for-bdf3-with-sim--909f1ef9112e/RESULT.md (Git blob dca000283a5a18cfb01f68b46100bcdfcdd9a2e6)",
+    "2026/11/02/a-sharp-exponential-memory-stability-threshold-for-bdf3-with-sim--909f1ef9112e/verify_schur.py (Git blob dfa464bee9cf24563f1dbff4ed487ffef031804b)",
+    "2026/11/02/a-sharp-exponential-memory-stability-threshold-for-bdf3-with-sim--909f1ef9112e/METADATA.json (Git blob fc24822ac1b8fd476900c96ebe8ed823a810c963)",
+    "2026/11/02/a-sharp-exponential-memory-stability-threshold-for-bdf3-with-sim--909f1ef9112e/AUDIT.json (Git blob 6283ee05b87a2d56018d449e4ae2a772543a3c12)",
+    "/mnt/data/scope_worker03_20261106T0738Z/independent_checks_output.txt"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The theorem addresses only the scalar exponential-kernel tail and says nothing about PDE stability, convergence or startup transient behavior.",
+    "Earlier scalar-convolution Schur threshold may be implicit in general BDF stability analysis; broad background paper was not fully checked."
+  ],
+  "schema_version": 1
+}
