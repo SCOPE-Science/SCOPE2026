@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The 15-vertex graph is reconstructed canonically as the line graph of \(KG(5,2)\). The odd-scale Čech facets are justified by the geometric metric-graph witness lemma of Adams–Shukla–Singh. A program independent of graph packages exhaustively compares face closure and ball-witness membership on all 32768 subsets, counts 2141 faces and all 8955 incidences, and constructs two matchings (opposed tie orders). Each pairing is globally checked acyclic by directed Hasse topological sort, leaves one critical zero-cell and 21 three-cells, and hence establishes the full integral homotopy equivalence. Independent mod-two simplicial boundary ranks are consistent, but not substituted for the integral homotopy proof.
+
+**Originality — PASS against checked evidence.** The primary Čech paper [2] treats hypercubes, and the primary line-graph paper [1] treats clique complexes, not odd-scale graph Čech nerves. The closest published scale-two line-graph collapse [3] does not address scale three; the scale-three vertex-truncation result [4] applies to a twice-as-large line graph of a subdivided Petersen graph. Actual literature, research-record and accessible own-claim searches did not identify an equivalent graph/parameter claim or stronger implication. This is best-knowledge originality, not a guarantee against unindexed work.
+
+**Value — PASS.** The object is the line graph of the smallest snark, a canonical four-regular 15-vertex graph, rather than an arbitrary sliced example. The result determines a complete natural integral homotopy invariant at the first odd scale beyond the known line-graph scale-two collapse theorem. A six-dimensional pure nerve reduces to precisely 21 three-spheres, furnishing a motivated, exact non-shellability benchmark with substantial topological dimension loss. No paper-sized generalization is asserted or needed.
+
+**Residual scientific limits.** One specific graph and scale; no naturality or persistence maps; no equivariant classification; equivalent unindexed work remains possible. The proof is computation-assisted but finite and complete for the claimed graph.
+
+Self-review: passed. Independent audit: not yet performed.
