@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The all-offered and one-choice processes share a single sequence of uniformly sampled fixed-size groups. The unselected total is a pure-death chain with exact death probability \(1-\binom{n-u}{d}/\binom nd\); its geometric holding-time decomposition and central-window exponential approximation yield the required Poisson factorial moments. Conditioning on a specified never-offered subset produces an exact tagged formula, and inclusion-exclusion identifies the two independent Poisson marks. A sparse-event continuous-time coupling proves the joint completion law and the exact finishing-round tie limit. The package verifier independently represents labeled states and aggregated count states and reproduces 1,351 exact/numerical assertions. Finite checks are not substituted for the limit proof; fixed \(d\) and fixed critical-window arguments are essential.
+PASS
 
-## Originality: PASS (qualified)
+The number U of types not selected by an adaptive one-choice policy is a pure-death chain with exact death parameter q_(n,u)=1-binomial(n-u,d)/binomial(n,d), independent of tie breaking. The sum of geometric holding times from n to sqrt(n) concentrates around (n/d)log(n/sqrt(n))+n C_d, while the last sqrt(n) disappearances couple at o(n) error to independent exponential clocks, giving Pois(c_d e^-x) in the standard window. For disjoint tagged I,J, conditioning on avoiding I gives exactly the reduced n-a process and tagged factorial identity; inclusion-exclusion over J splits off already offered but unselected types. Mixed factorial moments yield independent Pois(e^-x),Pois((c_d-1)e^-x). Rare simultaneous draws of two still-unselected types permit the two independent pure-death limits across times, yielding joint Gumbel extrema. Integrating the difference of extrema gives F_D(z)=1/[1+(c_d-1)e^-z] for z>=0 with mass 1/c_d at zero. Exact finite tie probability convergence requires near-tie control; two independent continuous limiting maxima have zero tie probability, so ties come exactly from reversed final categories in the limit. d=1 yields identical policies. Independently computed seven sequential finite count-state distributions against labeled coupon-mask dynamics (n=5,d=2).
 
-The closest primary work, Doumas–Spektor (arXiv:2607.01463), gives each policy's marginal Gumbel limit and expectation, **not** their dependence under identical offered groups. Neither its shift by \(C_d\) nor a difference of independent marginal Gumbels implies the paired law: the two completion times share unoffered extreme coupons. Xu–Tang derives one-choice mean behavior, and grouped coupon limit literature concerns offered sets rather than the two-policy coupling. Targeted mathematical-record searches and accessible earlier claims did not disclose the independent two-mark splitting, the joint CDF or its logistic delay and exact-tie limit. Residual historical-priority risk remains for unindexed marked-coupon processes and inaccessible complete older source text; novelty is not independently certified.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Two natural policies use precisely the same groups and have marginal Gumbels differing by a constant. Their **joint** law determines the likely extra time actually incurred in the same experiment, including a nonzero probability of finishing together despite the more restrictive one-choice rule. The exact tie probability \(e^{-dC_d}\) and continuous positive-delay law expose concrete dependence information inaccessible from the known separate marginals. This is a motivated comparative question, not a substitution into the marginal formulas.
+PASS, qualified: Doumas–Spektor study the exact same two multi-draw retention policies but accessible descriptions identify marginal means, variances and separate Gumbel limits, not their joint law under shared offered groups. Coupling, independent marked categories and a logistic lag with an atom are additional observables; general group-drawing Poisson results treat occupancy but may provide transferable machinery. Complete same-model primary full text remains inaccessible and priority risk is substantial, not treated as scientific failure.
 
-## Closest sources and limits
+## value
 
-The primary source is Doumas and Spektor, arXiv:2607.01463, first posted July 1, 2026. Additional comparisons include Xu–Tang (2011), Mahmoud–Smythe on generalized coupon-type counts, and Schilling–Henze and Betken–Thäle on group-draw Poisson limits. Theorem assumptions require fixed offered group size, independent rounds, uniform subsets and the specified least-collected selection rule; no growing-group rate or independent priority confirmation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The coupling describes the sample-by-sample price of discarding offered coupons, a natural algorithmic comparison not determined by two marginal completion laws. Exact asymptotic chance of equal finishing round and a nontrivial limiting delay distribution are useful invariant statistics even for fixed d=2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

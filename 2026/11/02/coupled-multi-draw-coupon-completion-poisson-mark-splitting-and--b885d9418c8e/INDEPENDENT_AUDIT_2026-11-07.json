@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:42:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The number U of types not selected by an adaptive one-choice policy is a pure-death chain with exact death parameter q_(n,u)=1-binomial(n-u,d)/binomial(n,d), independent of tie breaking. The sum of geometric holding times from n to sqrt(n) concentrates around (n/d)log(n/sqrt(n))+n C_d, while the last sqrt(n) disappearances couple at o(n) error to independent exponential clocks, giving Pois(c_d e^-x) in the standard window. For disjoint tagged I,J, conditioning on avoiding I gives exactly the reduced n-a process and tagged factorial identity; inclusion-exclusion over J splits off already offered but unselected types. Mixed factorial moments yield independent Pois(e^-x),Pois((c_d-1)e^-x). Rare simultaneous draws of two still-unselected types permit the two independent pure-death limits across times, yielding joint Gumbel extrema. Integrating the difference of extrema gives F_D(z)=1/[1+(c_d-1)e^-z] for z>=0 with mass 1/c_d at zero. Exact finite tie probability convergence requires near-tie control; two independent continuous limiting maxima have zero tie probability, so ties come exactly from reversed final categories in the limit. d=1 yields identical policies. Independently computed seven sequential finite count-state distributions against labeled coupon-mask dynamics (n=5,d=2).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Doumas–Spektor study same rules and report separate completion-time laws. Schilling–Henze and Betken–Thäle treat group drawing occupancy, not an adaptive one-choice collector on the same draws."
+        ],
+        "reasoning": "The same model has been studied, but the accessible prior mathematical claims do not determine the *joint* law or atom. Full Doumas–Spektor text remains unverified, so priority is qualified.",
+        "searches": [
+          "Doumas Spektor arXiv:2607.01463 two multi-draw retention rules",
+          "Schilling Henze Poisson limits coupon collector group drawings 2021",
+          "Betken Thale group drawing Stein Poisson 2022"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 6f1ef1f4fdb48d3e921328e40a4ccad9b62df416 and verify_multidraw_joint.py 023868119cdd11e8de807c5061491fb3d4c67d5e",
+        "Doumas–Spektor arXiv:2607.01463 abstract and accessible public descriptions",
+        "Schilling–Henze 2021 doi:10.1017/jpr.2021.15",
+        "Betken–Thäle arXiv:2202.07485",
+        "Resultary coupled group-draw Gumbel search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The separate marginal Gumbel parameters c_d and 1 are inherited. Marginals alone cannot specify their dependence or equality probability."
+        ],
+        "reasoning": "An explicit same-sample coupling calculation is essential; it might be embedded in an unread appendix of Doumas–Spektor, which must remain a residual risk.",
+        "searches": [
+          "arXiv:2607.01463 Doumas Spektor 2026",
+          "Mahmoud Smythe joint behavior coupon types 2012",
+          "Schilling Henze 2021 group drawings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent marked Poisson unselected-category counts yield the joint extrema and delay; a general marked-occupancy theorem might make the conclusion a corollary."
+        ],
+        "reasoning": "No Resultary hit or retrieved primary theorem covers both coupled adaptive retention and the exact tie atom. Distinguish mere independent marginal Gumbels from their copula.",
+        "searches": [
+          "Resultary: multi draw coupon collector coupled all offered versus one selected joint Gumbel logistic delay",
+          "joint coupon collector marked Poisson extremes one choice all new coupons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known exact means and finite death-chain recurrences are precedents; n=3..19 d=2 finite tie recurrences support but do not imply the fixed-d limiting independent marks."
+        ],
+        "reasoning": "The object is an all-n limit law, not an exact finite census. No matching exact joint table was identified; non-discovery does not certify novelty.",
+        "searches": [
+          "Resultary coupon collector coupled completion logistics",
+          "group drawn coupon collector finite tie probability d=2 n"
+        ]
+      },
+      "rationale": "PASS, qualified: Doumas–Spektor study the exact same two multi-draw retention policies but accessible descriptions identify marginal means, variances and separate Gumbel limits, not their joint law under shared offered groups. Coupling, independent marked categories and a logistic lag with an atom are additional observables; general group-drawing Poisson results treat occupancy but may provide transferable machinery. Complete same-model primary full text remains inaccessible and priority risk is substantial, not treated as scientific failure.",
+      "residual_risks": [
+        "Highly relevant exact-model Doumas–Spektor full paper could not be inspected; Oxford institutional retrieval vpn_disconnected job 8f72c2cc0476b70eecda7605ba95fa7b; no claim that entire paper lacks the joint result.",
+        "Generic joint Poisson/marked extreme-value renewal theory could subsume the joint law under natural identification.",
+        "Fixed d only; no quantified convergence rate or increasing d."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE_NOT_FULLY_READ_HIGH_PRIORITY_RISK",
+          "evidence": [
+            "Descriptions report individual means, variances, separately centered completion-time Gumbel limits; no whole-document noncoverage claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.01463",
+          "material_read": "Original arXiv abstract, accessible bibliographic and ResearchGate abstract descriptions; full primary PDF not obtained",
+          "method": "arXiv preprint and lawful OA routes attempted; Oxford authorized access vpn_disconnected",
+          "title": "Two Multi--Draw Coupon Collector models with different retention rules",
+          "trigger": "Same exact retention policies and asymptotic Gumbel behavior"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_STATE_VARIABLE",
+          "evidence": [
+            "Group-drawing missing counts, without adaptively selected versus offered-but-unselected decomposition."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/jpr.2021.15",
+          "material_read": "Primary title, abstract and publication information",
+          "method": "Published source abstract read via web search",
+          "title": "Two Poisson limit theorems for the coupon collector problem with group drawings",
+          "trigger": "Potential prior marked-Poisson group-drawing theory"
+        },
+        {
+          "assessment": "PARTIAL_READING",
+          "evidence": [
+            "Poisson approximation for group-drawing missing types, not coupling of two retention strategies."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.07485",
+          "material_read": "Abstract and summary, not complete mathematical text",
+          "method": "Open abstracts and search information",
+          "title": "Approaching the coupon collector problem with group drawings via Stein’s method",
+          "trigger": "General exact Poisson approximation for group coupons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coupling describes the sample-by-sample price of discarding offered coupons, a natural algorithmic comparison not determined by two marginal completion laws. Exact asymptotic chance of equal finishing round and a nontrivial limiting delay distribution are useful invariant statistics even for fixed d=2.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Highly relevant exact-model Doumas–Spektor full paper could not be inspected; Oxford institutional retrieval vpn_disconnected job 8f72c2cc0476b70eecda7605ba95fa7b; no claim that entire paper lacks the joint result.",
+    "Generic joint Poisson/marked extreme-value renewal theory could subsume the joint law under natural identification.",
+    "Fixed d only; no quantified convergence rate or increasing d."
+  ],
+  "schema_version": 1
+}
