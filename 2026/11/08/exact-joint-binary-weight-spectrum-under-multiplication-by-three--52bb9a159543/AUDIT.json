@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Binary addition n+2n proves t=2s2(n)-s2(3n) is a carry count, excludes t=1, and bounds 0<=t<=r. A digit-length extremal argument forces t=0 whenever s2(3n)>r. In the t=0 case no adjacent ones occur; in the t>=2 case explicit exact binary identities for (10)^h1^b and 1^t(01)^h realize all parity-compatible b,t with matching sharp lower lengths. Direct parity-square count gives binomial(r,2)+2. Enumerations through r=15 and 2401 witnesses independently corroborate the algebra; r=1 and n=0 are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2002.02731, pp. 15-26: Theorem 17 asymptotic enumeration of 3-flimsy numbers and Section 13 equal-digit-weight automata; neither statement specifies all ordered pairs.",
+        "Kaneko–Stoll, arXiv:2112.03077: accessible publisher abstract addresses products with prescribed small binary weights, and bounding fixed k=2,3; full source unavailable for a stronger-coverage test.",
+        "arXiv:1009.5357, Theorems 1-2 and proof discussion: modular parity and least-index bounds, not paired weight support."
+      ],
+      "reasoning": "Asymptotic counts of the sign or zero of the difference lose the two individual weight coordinates; specific fixed-small-weight Diophantine classifications do not dominate the all-r image theorem. A stronger uninspected full-text implication in Kaneko–Stoll is a residual priority risk, not claimed impossible.",
+      "searches": [
+        "published-finding corpus: For the binary Hamming weights of n and 3n, the exact set of pairs on 0<=n<2^r has size binomial(r,2)+2; the attainable pairs are classified by carry count and digit weight",
+        "web: Kátai s2(3n)-s2(n) normal distribution",
+        "web: Kaneko Stoll binary digit sums products 3 n Hamming weight pairs fixed input"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1009.5357v1; 2010-09-27; relevant theorem and proof sections",
+      "arXiv:2002.02731v1; Sections 12-13",
+      "Kaneko–Stoll 2022 publisher abstract; arXiv:2112.03077v1 unavailable full text",
+      "OEIS A036555, A180054",
+      "published-finding corpus 2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published published-finding corpus hit 2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9 proves a special odd-factor case of weights (2,3,3); the unrestricted support is not stated or implied by that finite low-weight census.",
+        "Morgenbesser–Shallit–Stoll 2010 obtains odd parity at multiples, while the new claim gives all integer values of both binary digit sums simultaneously.",
+        "Clokie et al. 2020 Theorem 17 concerns 3-flimsy counts, and Section 13 counts equality; neither controls the full pair spectrum."
+      ],
+      "reasoning": "The new proof contributes sharp universal carry constraints plus explicit realizations for every admissible pair. Known parity, inequality, equal-value and few-weight theorems have narrower target statements; no consulted stronger theorem subsumes the all-r support.",
+      "searches": [
+        "published-finding corpus: joint Hamming weight spectrum (popcount(n), popcount(3n)) exact dyadic block sizes and minimal binary length",
+        "published-finding corpus: 3-flimsy numbers binary weight s_2(3n) less than s_2(n) exact support minimum length",
+        "arXiv:1009.5357v1",
+        "arXiv:2002.02731v1",
+        "arXiv:2112.03077v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Legendre formula equates each central-binomial valuation with a binary digit sum; this equivalence was included in both published-finding corpus and literature searches. The retrieved nearby published-finding corpus record 2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9 handles a fixed low-weight product case, not all pairs.",
+        "Clokie et al. arXiv:2002.02731, sections 12-13, study the inequality/equality of digit sums, not the full pointwise support."
+      ],
+      "reasoning": "Neither the low-weight product classification nor the known inequality/equality predicates implies the simultaneous two-parameter attainable spectrum or sharp minimal lengths. The central-binomial interpretation is equivalent to the claim, not a separate novelty.",
+      "searches": [
+        "published-finding corpus: For n<2^r, classify all pairs (v2(C(2n,n)),v2(C(6n,3n))) and obtain count r(r-1)/2+2",
+        "web: \"s_2(3n)\" \"s_2(n)\" joint",
+        "web: \"binary weight\" \"3n\" \"n\" possible pairs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A036555 gives s2(3n) as a sequence and identifies a binomial valuation; OEIS A180054 catalogs numbers with s2(3n)<s2(n). Neither encodes or states the complete two-dimensional dyadic support.",
+        "The numerical cardinalities coincide with an elementary quadratic-number sequence, but a count by itself does not determine which arithmetic weight pairs occur."
+      ],
+      "reasoning": "Matching a marginal table, inequality indicator, or ordinary integer sequence is not equivalent to enumerating all ordered value pairs with sharp minimal witness lengths.",
+      "searches": [
+        "web: site:oeis.org \"2,3,5,8,12,17,23,30\"",
+        "web: \"s_2(3n)\" \"s_2(n)\" possible pairs",
+        "OEIS A036555",
+        "OEIS A180054"
+      ]
+    },
+    "rationale": "Relevant archived digit-sum parity work, newer flimsy-number asymptotics and automata, and fixed-few-ones product classifications were compared at statement/implication level. None of the inspected results states the all-dyadic joint weight support and optimal per-pair witness lengths. Missing full 2022 paper remains a historical-priority risk; no uniqueness certification is claimed.",
+    "residual_risks": [
+      "The full Kaneko–Stoll paper was not retrieved; its higher or wider implications have not been exhaustively checked.",
+      "Unlocated historic digital-sum results could state an equivalent pair-support characterization.",
+      "Search results and sampling of source sections cannot certify exhaustive historical novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Examined parity/equidistribution and first-witness bounds; no complete two-coordinate digit-sum support was located. No claim of complete negative coverage beyond material examined.",
+        "evidence": "First preprint dated 2010-09-27; abstract and Theorem 2 concern t_kn=s2(kn) mod 2 and smallest odd-parity index. 2010 MSC 11N25, 11A63.",
+        "identifier_or_url": "arXiv:1009.5357v1",
+        "material_read": "PDF abstract, introduction, Theorems 1-2, proof outline, and searchable test for explicit 3n content",
+        "method": "arXiv PDF text and page screenshots of pages 1 and 4",
+        "title": "Thue-Morse at Multiples of an Integer",
+        "trigger": "Archival first-public source on binary digit sums of integer multiples and parity"
+      },
+      {
+        "assessment": "The relevant sections count inequality and equality cases; their results do not specify each attained pair or shortest witness. Remaining sections are not claimed completely excluded.",
+        "evidence": "Theorem 17 gives asymptotic count of 3-flimsy numbers; Section 13 treats k-equal numbers.",
+        "identifier_or_url": "arXiv:2002.02731v1",
+        "material_read": "PDF abstract, introduction, Sections 12-13, Theorem 17, 3-flimsy and 3-equal automata",
+        "method": "arXiv PDF text, page screenshots of pp. 1, 15, 25",
+        "title": "Computational Aspects of Sturdy and Flimsy Numbers",
+        "trigger": "Directly investigates k=3 sign and equality of s2(3n)-s2(n)"
+      },
+      {
+        "assessment": "Published abstract treats bounded fixed product weights; no direct all-pair all-bitlength theorem in available material. Unread full text remains a priority risk.",
+        "evidence": "Abstract specifies Diophantine system s(ab)=k, s(a)=ell, s(b)=m and bounds for k=2,3; primary MSC 11A63.",
+        "identifier_or_url": "arXiv:2112.03077v1; 10.2478/udt-2022-0006",
+        "material_read": "Open-access publisher abstract, classification, and bibliographic references; full article text not accessed",
+        "method": "publisher landing-page abstract plus separate arXiv retrieval attempt, which failed",
+        "title": "Products of Integers with Few Nonzero Digits",
+        "trigger": "Direct fixed-small-binary-weight product theory, includes multiplier three as a weight-two factor"
+      },
+      {
+        "assessment": "Marginal sequence and predicate list, no simultaneous two-coordinate all-r support theorem in inspected entries.",
+        "evidence": "A036555 identifies s2(3n); A180054 identifies indices with s2(3n)<s2(n).",
+        "identifier_or_url": "https://oeis.org/A036555; https://oeis.org/A180054",
+        "material_read": "Entries, comments, references, and displayed initial values",
+        "method": "web text reads",
+        "title": "OEIS A036555 and A180054",
+        "trigger": "Exact database/tables of 3n binary weights and 3-flimsy indices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "52bb9a15-9543-455c-9f7e-5caa4f6942c0",
+  "value": {
+    "rationale": "The first nontrivial odd binary dilation n->3n yields a natural two-coordinate weight and central-binomial valuation invariant. The theorem classifies support and shortest bit lengths for every dyadic interval, exposing a rigid forbidden single-carry layer and a quadratic support size. Known marginal values or 3-flimsy sign statistics do not answer this complete support question. The result does not depend on a proposed downstream conjecture or arbitrary finite cutoff.",
+    "status": "PASS"
+  }
+}
