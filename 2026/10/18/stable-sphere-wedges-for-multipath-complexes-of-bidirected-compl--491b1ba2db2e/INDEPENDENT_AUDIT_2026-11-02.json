@@ -1,0 +1,220 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T14:52:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md Git blob b0682fc3d1311d6a0987ea1ddb580c48424ca8da",
+        "assigned verify_bidirected_multipath.py Git blob 55cf3aa791581a2fd165f083f75f20a2db849b77",
+        "https://www.mi.fu-berlin.de/math/groups/discgeom/ziegler/Preprintfiles/033PREPRINT.pdf"
+      ],
+      "independent_verification": {
+        "checks": [
+          "For n=4,7,8 every nonchessboard face has exactly one bend; every bend link is precisely crown K_(n−1,n−1) minus matching.",
+          "Exact symbolic Euler polynomial r(n)=n⁴−10n³+29n²−24n+1 and final R(n)."
+        ],
+        "examples": [
+          {
+            "absolute_betti_mod2": [
+              1,
+              0,
+              0,
+              491
+            ],
+            "f_vector": [
+              28,
+              266,
+              1008,
+              1260
+            ],
+            "n": 7
+          },
+          {
+            "absolute_betti_mod2": [
+              1,
+              0,
+              0,
+              1105
+            ],
+            "f_vector": [
+              32,
+              352,
+              1568,
+              2352
+            ],
+            "n": 8
+          },
+          {
+            "absolute_betti_mod2": [
+              1,
+              0,
+              0,
+              2143
+            ],
+            "f_vector": [
+              36,
+              450,
+              2304,
+              4032
+            ],
+            "n": 9
+          }
+        ],
+        "full_finite_domain": "n=4 through 9, all arc subsets sizes 1..4; structural partition/link checks for n=4,7,8.",
+        "method": "Fresh Python implementation, not trusting repository output: independent arc-mask enumeration, cycle tests, exact GF(2) boundary ranks and face-partition/link tests."
+      },
+      "rationale": "The theorem concerns all integers n>=7 for the bidirected K_{2,n} multipath complex, where every vertex has selected indegree/outdegree <=1 and selected directed cycles are forbidden. Verified the four-row by n chessboard A_n consists of faces with pairwise distinct arc rows and leaf columns. A nonchessboard face has a single admissible repeated-column directed two-path P_i Q_i or R_i S_i, and two bends cannot coexist. Each bend star is the cone e_i*L_i over the crown graph on 2(n−1) vertices and (n−1)(n−2) edges, and its intersection with A_n is ∂e_i*L_i≃ΣL_i. Other star overlaps lie inside A_n. For n≥7, Ziegler vertex-decomposability gives A_n a 3-sphere wedge and π_2(A_n)=0, so all suspended crown-graph attaching maps are null. The 2n cones contribute 2n(n²−5n+5) 3-spheres, and the chessboard Euler computation gives r(n)=n⁴−10n³+29n²−24n+1, hence R(n)=n⁴−8n³+19n²−14n+1. Independently enumerated complete face sets and F₂ boundaries for n=4..9 and reconstructed bend/link partition for n=4,7,8; stable ranks n=7/8/9 are 491/1105/2143. The infinite homotopy result relies on the checked structural argument and published theorem, not the finite computations.",
+      "residual_risks": [
+        "No formal Lean proof or independent external expert attestation is available.",
+        "Integral homotopy follows from cited shellability plus nullhomotopy argument, not from mod-2 finite-field ranks alone."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.7 in Caputi–Collari–Di Trani–Smith considers one-way oriented K_{m,n}; it uses ordinary chessboard complexes and does not admit opposite arcs at every spoke.",
+          "Caputi–Collari–Smith 2026 Theorems 2.8 and 2.10 concern bidirectional polygon complexes; Theorem 1.4 treats acyclic digraphs, unlike the present bidirected graph with directed two-cycles.",
+          "Ziegler Theorem 2.3 ensures Δ_{4,n} is shellable for n≥7 but contains no analysis of same-column bent directed two-paths."
+        ],
+        "reasoning": "Acyclic/quiver minor reductions and complete-bipartite one-way results are inapplicable to the symmetric orientation; the only stronger topological input covers a proper subcomplex and does not imply the full cone attachments or final polynomial.",
+        "searches": [
+          "Multipath complex of bidirected complete bipartite digraph K_{2,n} all n stable wedge spheres chessboard 4 by n",
+          "Multipath complexes bidirectional polygonal digraphs complete bipartite homotopy equivalent sphere wedge",
+          "arXiv:2208.04656",
+          "arXiv:2601.05670v1",
+          "Ziegler 1994 Theorem 2.3",
+          "Resultary: bidirected double-star multipath classification"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2601.05670v1",
+        "https://ntu.eprints-hosting.org/id/eprint/50523/1/1844094_Smih.pdf",
+        "https://www.mi.fu-berlin.de/math/groups/discgeom/ziegler/Preprintfiles/033PREPRINT.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-homotopy-classification-of-bidirected-double-star-multipath-comp--9525e342e100",
+        "https://arxiv.org/abs/2401.01248",
+        "https://doi.org/10.1007/BF02772986"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The main result adds 2n disjoint crown-graph mapping-cone attachments to the chessboard core; the additional sphere term is 2n(n²−5n+5).",
+          "The 2024 one-way complete-bipartite theorem has no opposite arc pairs and therefore no bent-edge attachments.",
+          "The full Resultary double-star classification has distinct underlying vertex/edge connectivity and an (a,b)-dependent S²/S³ pattern, not the K_{2,n} stable S³ polynomial."
+        ],
+        "reasoning": "Comparison is by implication and object rather than parameter-word matching: none of the examined statements alone or as a straightforward corollary entails the explicit bidirected K_{2,n} sphere-wedge theorem. The result uses published chessboard shellability as an input, not as a claimed new theorem.",
+        "searches": [
+          "Multipath complexes of symmetric complete bipartite graph double arrows and four-row chessboard crown graphs",
+          "Multipath complexes bidirectional polygonal digraphs complete bipartite homotopy equivalent sphere wedge",
+          "Caputi–Collari–Di Trani–Smith 2024 Theorem 3.7",
+          "Ziegler Shellability of Chessboard Complexes Theorem 2.3",
+          "Resultary double-star full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Caputi–Collari–Smith 2026 Definition 1.2 defines the relevant multipath face predicate but analyzes bidirectional paths and polygons rather than bidirected K_{2,n}.",
+          "The Resultary double-star theorem treats a tree with two adjacent hubs and disjoint pendant sets, not two hubs connected to the same n leaves in a K_{2,n}.",
+          "Ordinary Morse complexes and two-matching complexes of K_{2,n} use distinct vertex/face constructions."
+        ],
+        "reasoning": "Searched synonyms symmetric digraph, double-arrow biclique and multipath, plus related matching/Morse models. The bidirected double-star tree is not graph-isomorphic to K_{2,n}; no inspected equivalent-result formulation supplies its chessboard-plus-2n-crown-cones splitting.",
+        "searches": [
+          "Multipath complex of bidirected complete bipartite digraph K_{2,n} all n stable wedge spheres chessboard 4 by n",
+          "Multipath complexes of symmetric complete bipartite graph double arrows and four-row chessboard crown graphs",
+          "stable sphere wedges for multipath complexes of bidirected complete bipartite graphs",
+          "\"multipath\" \"bidirected\" \"K_{2,n}\" homotopy",
+          "arXiv:2601.05670v1",
+          "Resultary: bidirected double-star multipath classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent enumerations for n=7,8,9 yield top mod-2 Betti ranks 491, 1105, 2143, but they do not substitute for a prior unrestricted homotopy table.",
+          "Known chessboard top Betti polynomial r(n)=n⁴−10n³+29n²−24n+1 lacks 2n(n²−5n+5) extra spheres."
+        ],
+        "reasoning": "The known formulas tabulate a distinct chessboard subcomplex or small-width cases. No exact database or family table surfaced that implies the integral all-n≥7 classification; unsuccessful lookup alone does not prove originality.",
+        "searches": [
+          "Moore space summands multipath complexes of bidirected K2n n 3 4 5 6",
+          "multipath complexes of bidirected complete bipartite digraphs for n small K2n",
+          "stable sphere wedges for multipath complexes of bidirected complete bipartite graphs",
+          "n^4-8n^3+19n^2-14n+1 bidirected K2n",
+          "491 1105 2143 multipath complex"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: this is a uniform non-equivariant homotopy classification for the bidirected complete bipartite K_{2,n}, n>=7. The primary full-text sources separately cover one-way complete bipartite orientations, bidirectional paths/polygons and the four-row chessboard core. The published bidirected double-star homotopy classification is on a different underlying tree; its theorems do not imply the symmetric biclique cone-attachment formula. Actual Resultary, published-result and primary literature comparisons supplied no mathematically dominating prior statement; absence in bounded search is not proof of global priority.",
+      "residual_risks": [
+        "Unindexed theses, unpublished computations, recently revised work, and alternate names for multipath or chessboard complexes could contain an implication-equivalent theorem.",
+        "A higher-level general theorem for bidirected graph multipath complexes not identified by bounded searches might imply the n>=7 specialization.",
+        "Related low-width n<=6 biclique studies are not a proof for the infinite quantified range; their mathematical overlap remains acknowledged.",
+        "Originality is best-of-knowledge only, not an exhaustive priority or independent certification claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the bidirected complete bipartite K_{2,n} claim: results concern paths and polygons, with the general acyclic-digraph reduction excluding directed two-cycles.",
+          "evidence": "Definition 1.2; Theorems 1.4, 2.8, 2.10; Section 3 graph-family discussion.",
+          "identifier_or_url": "https://arxiv.org/html/2601.05670v1",
+          "material_read": "Open-access full-text HTML: abstract, Introduction, definitions and Sections 1–3 including Definitions 1.2, Theorems 1.4, 2.8, 2.10 and graph-family proofs.",
+          "method": "Read lawful arXiv HTML in detail and compare hypotheses, graph objects and conclusions.",
+          "title": "Multipath complexes of bidirectional polygonal digraphs",
+          "trigger": "Highly relevant primary source defining bidirectional multipath complexes; possible family-level coverage."
+        },
+        {
+          "assessment": "NOT_COVERING: the complete bipartite family in the theorem uses a one-way source-to-sink orientation, not both orientations at each edge.",
+          "evidence": "Section 3.2 and Theorem 3.7 specify directed complete bipartite graph and chessboard identification.",
+          "identifier_or_url": "https://ntu.eprints-hosting.org/id/eprint/50523/1/1844094_Smih.pdf",
+          "material_read": "Lawful institutional OA author postprint PDF: Introduction, definitions and complete-bipartite Section 3.2, especially Theorem 3.7 on displayed source page 7; source page screenshot checked.",
+          "method": "Read PDF extracted text and actual relevant page image; compared oriented edges and multiplex definitions.",
+          "title": "On the homotopy type of multipath complexes",
+          "trigger": "Potential broad complete-bipartite theorem by same core authors."
+        },
+        {
+          "assessment": "SUPPORTS proof input Δ_{4,n} being a pure shellable three-complex for n≥7; does not classify extra bent-edge faces of full bidirected multipath complex.",
+          "evidence": "Theorem 2.3 asserts vertex-decomposability of m×n chessboard complex for n≥2m−1.",
+          "identifier_or_url": "https://www.mi.fu-berlin.de/math/groups/discgeom/ziegler/Preprintfiles/033PREPRINT.pdf",
+          "material_read": "Original author-posted article PDF: introduction, statement and proof of Theorem 2.3, relevant pages 1 and 8, including page-image inspection.",
+          "method": "Read lawful preprint and page images, checked n>=2m−1 when m=4.",
+          "title": "Shellability of Chessboard Complexes",
+          "trigger": "Critical nonstandard shellability/vertex-decomposability hypothesis and possible dominating theorem."
+        },
+        {
+          "assessment": "RELATED_BUT_DIFFERENT: double stars are trees with two adjacent centers and disjoint pendant sets, whereas K_{2,n} has n common leaves and binomial(n,2) four-cycles for n>=2; no implication established.",
+          "evidence": "Definition of D_{a,b} and the theorem's four regimes distinguish structure from bidirected complete bipartite K_{2,n}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-homotopy-classification-of-bidirected-double-star-multipath-comp--9525e342e100",
+          "material_read": "Full publicly available RESULT.md mathematical statement, definitions, five-case theorem, proof and limitations in Resultary GitHub source.",
+          "method": "Read entire scientific result file through GitHub repository at its published result path; compare graph and multipath predicates.",
+          "title": "Homotopy classification of bidirected double-star multipath complexes",
+          "trigger": "Highly similar published result involving bidirected graphs, two branching hubs and sphere wedges."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "assigned RESULT.md proof and limitations",
+        "https://arxiv.org/html/2601.05670v1",
+        "https://ntu.eprints-hosting.org/id/eprint/50523/1/1844094_Smih.pdf",
+        "https://www.mi.fu-berlin.de/math/groups/discgeom/ziegler/Preprintfiles/033PREPRINT.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-homotopy-classification-of-bidirected-double-star-multipath-comp--9525e342e100"
+      ],
+      "rationale": "The family bidirected K_{2,n} is an unbounded natural class whose multipath complexes are not ordinary chessboard complexes because of two-arc same-leaf paths and directed two-cycles. This all-n>=7 integral homotopy classification reveals a stable torsion-free pure three-dimensional sphere-wedge regime and quantifies the extra 2n crown-graph contributions beyond the known chessboard core. The cutoff n=7 is mathematically dictated by shellability of the four-row core, not arbitrary numerical slicing. A researcher studying bidirectional digraph complexes or stability of graph-complex homotopy types could use this exact family result; it is not a standard renaming or small table recomputation.",
+      "residual_risks": [
+        "No extension to n<7, higher hub number, equivariant splitting or arbitrary orientations is established; these are expressly outside the claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2601.05670v1",
+    "https://ntu.eprints-hosting.org/id/eprint/50523/1/1844094_Smih.pdf",
+    "https://www.mi.fu-berlin.de/math/groups/discgeom/ziegler/Preprintfiles/033PREPRINT.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-homotopy-classification-of-bidirected-double-star-multipath-comp--9525e342e100",
+    "https://arxiv.org/abs/2401.01248"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Non-equivariant geometric homotopy claim only; two hubs, all spokes bidirected, and n>=7.",
+    "Bounded enumerations establish n<=9 only; infinite conclusion rests on structural homotopy proof.",
+    "No Lean or expert attestation claimed, and no independent certification or complete global originality priority guarantee.",
+    "Historical recovery fragments from separate prior assignments remain untouched."
+  ]
+}
