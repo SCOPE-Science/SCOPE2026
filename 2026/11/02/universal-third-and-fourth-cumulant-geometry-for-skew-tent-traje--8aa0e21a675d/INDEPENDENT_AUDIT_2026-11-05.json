@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T14:14:43.960142Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Read frozen RESULT.md and verification.py. Full-branch transfer P h=a h(ax)+(1−a)h(1−(1−a)x) has simple isolated stationary eigenvalue on BV, analytic twisted eigenvalue ρ(t) near t=0. Differentiating through third order solves zero-mean polynomial h1,h2,h3 because 1−[a^(j+1)+(−1)^j(1−a)^(j+1)] never vanishes for j≥1 and 0<a<1. Independent SymPy substitution checked all three polynomial recurrence residuals vanish identically and yields K2=a/[12(1−a)], K3=−a/[24(1−a)²], K4=a[19+6a(1−a)]/[720(1−a)³]. Also exact rational checks verified G²=3/[a(1−a)], H=6/5+(19/15)G² at four a. Spectral gap, not finite orbit counts, justifies limits and cumulant derivative interchange; symmetric a=1/2 is included but previously known.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lindström–Thunberg 2008 skew tent dynamics abstract: general map, no checked cumulant theorem."
+        ],
+        "reasoning": "Standard transfer operator perturbation is a general method, not a direct implication of all-parameter coefficients.",
+        "searches": [
+          "Resultary semantic query: skew tent map third fourth Birkhoff cumulant rates skewness kurtosis parameter universal relation",
+          "https://arxiv.org/abs/2204.04652",
+          "https://doi.org/10.1080/10236190801927462"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2204.04652 — Large deviations in chaotic systems: exact results and dynamical phase transition",
+        "https://doi.org/10.1080/10236190801927462 — An elementary approach to dynamics and bifurcations of skew tent maps",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/universal-third-and-fourth-cumulant-geometry-for-skew-tent-traje--8aa0e21a675d/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Analytic spectral perturbation method yields K_r after new parameter-dependent polynomial algebra; does not itself state full formulas."
+        ],
+        "reasoning": "Smith's K3,K4 at a=1/2 agree; the new all-a shape relation is not a corollary of that one datum.",
+        "searches": [
+          "Resultary semantic query: skew tent map third fourth Birkhoff cumulant rates skewness kurtosis parameter universal relation",
+          "https://arxiv.org/abs/2204.04652",
+          "https://doi.org/10.1080/10236190801927462"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:2204.04652: symmetric tent a=1/2 and twisted transfer method."
+        ],
+        "reasoning": "Possible coordinate/observable conjugacy could express skew cumulants; no complete parameterized match inspected.",
+        "searches": [
+          "Resultary semantic query: skew tent map third fourth Birkhoff cumulant rates skewness kurtosis parameter universal relation",
+          "https://arxiv.org/abs/2204.04652",
+          "https://doi.org/10.1080/10236190801927462"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Symmetric-map cumulant table covers only one parameter and is expressly credited."
+        ],
+        "reasoning": "Existing exact symmetric third/fourth cumulants are covered, but do not determine the infinite a-dependence.",
+        "searches": [
+          "Resultary semantic query: skew tent map third fourth Birkhoff cumulant rates skewness kurtosis parameter universal relation",
+          "https://arxiv.org/abs/2204.04652",
+          "https://doi.org/10.1080/10236190801927462"
+        ]
+      },
+      "rationale": "PASS at best knowledge. Smith (2022) computed the symmetric tent-map cumulants K3(1/2)=−1/12 and K4(1/2)=41/360, and used the same spectral perturbation method. The inspected main text and Appendix E do not give full 0<a<1 formulas or the G–H line. Specialist skew-tent bifurcation literature remains a risk because one full article was abstract-only.",
+      "residual_risks": [
+        "Skew tent specialist paper inspected only as abstract, so possible hidden equivalent formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact a=1/2 K3=-1/12 and K4=41/360, and general method, are prior. No all-a skew tent formulas or elimination relation H=6/5+(19/15)G^2 in inspected result.",
+          "evidence": "Method and symmetric specialization overlap; strict all-parameter formulas and geometric curve are additional.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.04652",
+          "material_read": "Open-access full primary paper: main symmetric tent-map generating function and Appendix E's polynomial spectral perturbation plus reported third/fourth coefficients inspected",
+          "method": "arXiv PDF text and screenshots including appendix",
+          "title": "Large deviations in chaotic systems: exact results and dynamical phase transition",
+          "trigger": "Symmetric tent-map cumulants and twisted transfer-operator approach"
+        },
+        {
+          "assessment": "Bifurcations/attractors are indicated by abstract; cannot conclude entire paper lacks higher cumulant calculation.",
+          "evidence": "Plausible uninspected specialist paper is priority risk and is not described as conclusively noncovering.",
+          "identifier_or_url": "https://doi.org/10.1080/10236190801927462",
+          "material_read": "Accessible abstract only, NOT whole paper; recorded access limitation",
+          "method": "publisher abstract",
+          "title": "An elementary approach to dynamics and bifurcations of skew tent maps",
+          "trigger": "Same skew family may carry parameterized probability laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Parameter-wide exact higher temporal cumulants of a canonical chaotic dynamical system form a natural complete classification, including the qualitative distinction between zero two-time covariance and nonzero higher cumulants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed 0<a<1, affine coordinate observable, Lebesgue stationarity; no endpoint uniformity.",
+    "A=1/2 coefficients and spectral method are prior work; only all-parameter extension and relation assessed.",
+    "Skew tent specialist paper inspected only as abstract, so possible hidden equivalent formulas."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verification.py` in a Python environment with the `sympy` package available. The program checks finite-horizon moment and cumulant identities using exact rational arithmetic, and verifies the analytic perturbation identities symbolically for the unrestricted real parameter. It was executed successfully as embedded.
+## correctness
 
-The exact finite-horizon tests cover \(a\in\{1/4,1/2,3/4\}\) and \(N\in\{1,2,4,8,16,32,64\}\). The symbolic checks prove the displayed rational-function manipulations on \(0<a<1\) once the analytical spectral-perturbation setup is established; they are not an independent proof of the spectral gap.
+PASS
 
-An exponential spectral remainder on bounded variation for each fixed skew tent map gives \(\operatorname{cum}_r(S_N)=NK_r(a)+O_a(1)\) through order four. Finite computation is never used to infer the all-time limit. The independent-audit channel remains unperformed.
+PASS. Read frozen RESULT.md and verification.py. Full-branch transfer P h=a h(ax)+(1−a)h(1−(1−a)x) has simple isolated stationary eigenvalue on BV, analytic twisted eigenvalue ρ(t) near t=0. Differentiating through third order solves zero-mean polynomial h1,h2,h3 because 1−[a^(j+1)+(−1)^j(1−a)^(j+1)] never vanishes for j≥1 and 0<a<1. Independent SymPy substitution checked all three polynomial recurrence residuals vanish identically and yields K2=a/[12(1−a)], K3=−a/[24(1−a)²], K4=a[19+6a(1−a)]/[720(1−a)³]. Also exact rational checks verified G²=3/[a(1−a)], H=6/5+(19/15)G² at four a. Spectral gap, not finite orbit counts, justifies limits and cumulant derivative interchange; symmetric a=1/2 is included but previously known.
+
+## originality
+
+PASS
+
+PASS at best knowledge. Smith (2022) computed the symmetric tent-map cumulants K3(1/2)=−1/12 and K4(1/2)=41/360, and used the same spectral perturbation method. The inspected main text and Appendix E do not give full 0<a<1 formulas or the G–H line. Specialist skew-tent bifurcation literature remains a risk because one full article was abstract-only.
+
+## value
+
+PASS
+
+PASS. Parameter-wide exact higher temporal cumulants of a canonical chaotic dynamical system form a natural complete classification, including the qualitative distinction between zero two-time covariance and nonzero higher cumulants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
