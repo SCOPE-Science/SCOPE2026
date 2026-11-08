@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The rank-one tangent projector fixes the off-diagonal control forcing, so the one-step projected Euler state is the unique leading singular component of [[1,u],[u,0]]. Its eigenvalues (1±sqrt(1+4u²))/2 have absolute-value gap exactly one. Exact spectral-projector formulas give the terminal loss. In s=u² the loss derivative has sign T_gamma(sqrt(1+4s))-q, with T_gamma strictly increasing from 1+gamma/2 to infinity for all gamma>=0. This proves the full global-minimizer classification, all boundaries, and the cubic root equation. A Taylor expansion establishes quartic criticality, square-root splitting, objective gain and vanishing Frobenius projection error. The unreduced objective is an explicitly strictly convex quadratic. The executable reproduces 1728 exact rational identities, 2500 parameter tests and 8 asymptotic checks; these supplement rather than replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carrel and Vanzan, arXiv:2610.29554v1, Remark 4.10, state that the continuous-time projected problem may have a nonunique minimum even when the original is linear-quadratic.",
+        "Kieri and Vandereycken (2017 preprint, Section 1.2) state that convex optimization restricted to a low-rank manifold can have additional local minima; Section 4 defines projected Euler."
+      ],
+      "reasoning": "The generic nonconvexity and possible nonuniqueness assertions are qualitatively broader phenomena but do not imply the exact threshold 1+gamma/2, uniqueness on its boundary, all two minimizers above it, the constant singular-value gap, or the critical scaling for this distinct one-step objective. Neither paper asserts a general quantitative theorem from which those formulas follow.",
+      "searches": [
+        "dynamical low rank approximation control matrix ODE rank one non convex simple example multiple minimizers",
+        "nonconvexity low rank approximation project then optimize spurious minima matrix optimization singular value truncation 2024 2025",
+        "low rank optimal control project then optimize spurious nonzero controls rank-one SVD truncation bifurcation"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "https://arxiv.org/html/2610.29554v1",
+        "material": "Section 4.2, Remark 4.10, Sections 5 and 6.3",
+        "title": "Carrel–Vanzan (2026)"
+      },
+      {
+        "identifier": "https://www.unige.ch/math/vandereycken/papers/preprint_Kieri_V_2017.pdf",
+        "material": "Sections 1, 3, 4, Appendix A",
+        "title": "Kieri–Vandereycken (2017 preprint, 2019 journal)"
+      },
+      {
+        "identifier": "Scientific keyword and equivalence searches for the specific matrix and target",
+        "material": "Related published source abstracts and titles, without claiming snippet-only full-text exclusion",
+        "title": "Rank-one SVD and low-rank control literature searches"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carrel and Vanzan, arXiv:2610.29554v1, Section 4.2 and Remark 4.10, concern continuous-time project-then-optimize dynamics; their Section 5 uses a BUG forward scheme in experiments.",
+        "Kieri and Vandereycken, author preprint, equation (21), give the abstract update R(Y+h P_Y F(Y)) and related error bounds, but not the scalar terminal-control minimization for the particular matrix.",
+        "The present proof derives the strict monotonicity of T_gamma(delta) and its exact range, facts necessary to infer the global phase diagram."
+      ],
+      "reasoning": "The one-step update is a particular Kieri–Vandereycken projected Euler method but its optimal-control phase transition is not a corollary of their error estimates. Carrel–Vanzan provide the research motivation and qualitative possible nonconvexity, not this discrete scheme or its exact global optimizer. No asserted stronger theorem in inspected sources directly entails the claim.",
+      "searches": [
+        "Carrel Vanzan 2610.29554 2026 low rank optimal control nonconvex example exact symmetry breaking bifurcation",
+        "Kieri Vandereycken projection Euler step control low-rank retraction artificial optimal solutions quartic bifurcation",
+        "Projection methods for dynamical low-rank approximation of high-dimensional problems projected Euler equation 21"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A(u)=[[1,u],[u,0]] is unitarily diagonalizable, with leading singular projector determined by its two eigenvalues; the problem is equivalently a symmetric two-mode projected Euler terminal-control problem.",
+        "Kieri and Vandereycken (author preprint, equation (21)) introduce the rank-retracted projected Euler update; no target-amplitude two-minimizer classification is given there."
+      ],
+      "reasoning": "The eigenvalue reduction and sign reversal u to -u are the principal algebraic aliases. Searches of the exact 2-by-2 form and rank-one SVD control variants produced no direct published equality of the minimizer bifurcation theorem. General best-rank-one uniqueness does not classify the minimizers of the composed terminal loss.",
+      "searches": [
+        "exact phase transition truncated SVD target diagonal off diagonal control bifurcation singular vectors",
+        "Truncated rank-one matrix Euler step [[1,z],[z,0]], tracking terminal target e22, spurious optimal controls exact threshold",
+        "best rank one approximation 2x2 matrix target diagonal control quadratic objective two symmetric global minimizers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The new classification ranges over the continuous parameter domain of every real target and every nonnegative regularization value; its proof is exact and does not depend on tabulation.",
+        "The inspected primary sources do not contain a table or example of the same exact two-dimensional objective and its cubic minimizer equation."
+      ],
+      "reasoning": "A precomputed finite table would not cover the all-real parameter classification unless it stated a stronger symbolic formula. Search results showed no exact symbolic tabulation or equivalent formula in the inspected relevant sources.",
+      "searches": [
+        "rank one singular value truncation control parameter bifurcation convex quadratic loss nonconvex multiple minimizers",
+        "rank truncated singular value decomposition linear quadratic optimal control nonconvex spurious minima explicit 2x2 bifurcation",
+        "Rank-one truncated SVD of 2x2 symmetric matrix [[1,z],[z,0]] with target t e2e2, control regularization, symmetry breaking phase transition"
+      ]
+    },
+    "rationale": "The compared primary work establishes the dynamical low-rank optimal-control setting and general nonconvexity risk, while earlier projection-method theory specifies rank-retracted Euler steps. Neither statement supplies the one-step target-dependent exact global minimizer count, critical regularization line, global singular gap or near-critical error law. Searches over the exact matrix, equivalent rank-one SVD form, control bifurcation and broad low-rank optimisation aliases did not reveal an equivalent theorem. This is qualified best-knowledge originality, not a claim that nonconvexity itself is new.",
+    "residual_risks": [
+      "An unindexed algebraically equivalent two-by-two SVD target-tracking example could predate this calculation.",
+      "The result is one step with an exact retraction and does not automatically extend to the continuous projected differential equation or the BUG integrator.",
+      "No finite collection of searches establishes literature-wide uniqueness or independently validates the theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "A different continuous projected equation and BUG experiment; qualitative nonconvexity known, exact one-step SVD-retraction terminal-control phase diagram not given in material examined.",
+        "evidence": [
+          "Remark 4.10 explicitly says nonuniqueness may arise from a nonlinear low-rank state solution map.",
+          "Section 5.1 specifies a BUG forward integrator for the source experiments; Section 6.3 reports possible local trapping."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.29554v1",
+        "material_read": "Open-access complete HTML article: abstract, introduction, Sections 4.2, 5.1, 6.2, 6.3, conclusion, and indexed references (relevant passages).",
+        "method": "Inspected primary HTML sections, including exact equations, Remark 4.10, forward-integration scheme and numerical example.",
+        "title": "Dynamical low-rank approximations for the optimal control of matrix ODEs",
+        "trigger": "Direct motivating recent paper, same matrix-state optimal-control objects and explicit nonconvexity observation."
+      },
+      {
+        "assessment": "Provides abstract projected Euler rank retractions and error theory, not the target-tracking optimal control bifurcation formula.",
+        "evidence": [
+          "Equation (21): projected Euler is R(Y+h P_Y F(Y)).",
+          "Equations (13)-(14) define best/quasi-best rank retraction. Section 1.2 explains that fixed-rank optimization can introduce local minima."
+        ],
+        "identifier_or_url": "https://www.unige.ch/math/vandereycken/papers/preprint_Kieri_V_2017.pdf",
+        "material_read": "Author preprint: Sections 1.2, 3 and 4, relevant equations (13), (20), (21) and related proof; Appendix A spectral-projector formula.",
+        "method": "Examined accessible author-hosted full PDF text and page images for the scheme, approximability requirements and retraction definitions.",
+        "title": "Projection methods for dynamical low-rank approximation of high-dimensional problems",
+        "trigger": "The exact general projected Euler scheme and best-rank approximation used in the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7e747441-3cd3-4d8c-85bc-ebb53f138f17",
+  "value": {
+    "rationale": "A fully characterized smallest nontrivial rank-retracted projected Euler control model changes a strictly convex, uniquely optimized full problem to one with two global controls. The threshold, optimizer scaling and objective gap are exact over the continuous target/regularization domain. Crucially, the singular-value separation is fixed at one and the rank-one residual at the new optima tends to zero at criticality, so this is not a tie or large-retraction-error artifact. The explicit boundary is a useful benchmark for assessing low-rank numerical-control fidelity; no paper-sized downstream theorem is required and no broader solver guarantee is claimed.",
+    "status": "PASS"
+  }
+}
