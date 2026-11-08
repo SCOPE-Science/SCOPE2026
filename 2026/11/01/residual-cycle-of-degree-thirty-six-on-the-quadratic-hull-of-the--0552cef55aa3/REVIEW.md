@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The six-quadric complete-intersection theorem from Massri, arXiv:2610.28499v1, establishes pure dimension four and degree \(64\). The map \(([\ell],[h])\mapsto[\ell^7h]\) has generic degree one and hyperplane pullback \(\mathcal O(7,1)\), giving degree \(28\) for the known component. An exact, separately replayable six-by-six Jacobian determinant at a smooth point of that component is nonzero, hence its scheme-theoretic multiplicity in the complete intersection is one. The residual fundamental cycle degree is exactly \(36\). A finite calculation certifies the specific rank, not any general infinite statement.
+## correctness
 
-**Originality: PASS, with priority qualifications.** Massri's 2026 source computes the whole complete-intersection degree and proves that an additional component exists, but its degree-divisibility argument does not fix the generic multiplicity of the osculating component. Thus the new rank witness and weighted residual degree are not implied by the explicit theorem statements. A relevant 2026 revision of arXiv:1202.5531 was not available in full text and may contain closer material. Mathematical record searches found no asserted same residual degree, but a failed search is not proof of novelty.
+PASS
 
-**Value: PASS.** This is the first nonexceptional reducible boundary case of a natural family of quadratic hulls. Its previously unresolved degree budget is the basic enumerative constraint for identifying the extra components: distinguishing weighted residual degree \(36\) from, for example, the possible degree \(8\) if the known component had multiplicity two requires a substantive local Jacobian computation. The result is deliberately a cycle-level invariant rather than an unsupported classification of residual geometry.
+Over complex binary decics, six transvectant quadrics from the cited Massri complete-intersection theorem cut a pure fourfold X of degree 2^6=64. The incidence P1 x P3 -> T, (ell,h) -> ell^7 h, is generically one-to-one because a degree-10 form cannot have two sevenfold roots. O(7,1)^4 has intersection number 28. Independently reconstructed the full six-row integer Jacobian at f=x^7(x^3+x²y+xy²+y³) in transverse coordinates a5..a10, row gcds 2438553600,4877107200,2438553600,9754214400,14631321600,73156608000 and primitive determinant -1890000. Rank six gives smoothness of X at a smooth point of T and generic component multiplicity one. The effective remaining four-cycle therefore has exact weighted degree 64-28=36, without any irreducibility assertion. The finite determinant proves a local rank only; the complete-intersection theorem is the nonlocal input.
 
-**Limitations and risks.** No decomposition, reducedness or prime-ideal result is supplied for the residual cycle. The revised preprint arXiv:1202.5531v4 could not be inspected in full, so implicit prior coverage remains plausible. Independent mathematical validation and definitive priority adjudication are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Massri 2026 proves the complete intersection and degree and observes boundary reducibility, and these are not credited as new. The extra generic multiplicity-one witness, yielding residual fundamental-cycle degree 36, is a distinct local calculation; no examined primary statement asserts this refined cycle result. The exact 2026 revision arXiv:1202.5531v4 and Massri 2610 full text were unavailable and could contain stronger coverage; this remains explicitly qualified best-of-knowledge priority, not a claim of exhaustive novelty.
+
+## value
+
+PASS
+
+At the boundary where a complete intersection acquires its known osculating component, knowing whether that prime occurs with multiplicity one is a natural scheme-theoretic question and controls the residual enumerative intersection number. The exact weighted degree 36 gives meaningful information beyond a degree-divisibility reducibility test, while not pretending to classify residual components.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
