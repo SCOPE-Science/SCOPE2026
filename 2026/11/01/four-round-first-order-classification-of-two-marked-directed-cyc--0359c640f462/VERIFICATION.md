@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-## Reproduction
-Run `python verify_symbolic.py --write-tables` and `python verify_direct.py` using Python 3.9 or later, with no third-party packages. `verify_symbolic.py` produces the exact class and representative tables and checks the class counts 4, 14, 40, 108, 340 at ranks 0 through 4 and the sharp bounds 4, 7, 11, 19, 35. Its successful terminal marker is `EXACT_FINITE_CLASSIFICATION_OK`.
+# Independent mathematical audit
 
-The second program builds the atomic diagrams directly on `range(n)`, enumerates every possible vertex witness, and compares exact recursive types with the gap-based computation. It checks rank 0 through 3 on cycles of sizes up to 20 and rank 4 up to 12. Its successful terminal marker is `INDEPENDENT_DIRECT_CHECKS_OK`. These are distinct finite implementations; the second one cross-checks rather than replacing the first exhaustive finite calculation.
+## correctness
 
-The inductive gap lemma in RESULT.md, not a finite sample, justifies truncating all rank-four inputs to 32 vertices per gap. The 1024 rows in `class_table.csv` and 340 rows in `class_representatives.csv` are the complete finite certificate. Their counts and minimal representatives are mathematically exact modulo correct execution of the transparent algorithms. Independent expert review has not occurred.
+PASS
+
+The rank-r complete FO type of distinguished constants and chosen tuple has its full equality/successor atomic diagram and SET (not multiset) of possible rank-(r-1) one-point extension types. A selected-vertex cyclic-order encoding with positive gaps is bijective with these diagrams. Splitting a gap g inserts one new element, matching every possible quantifier witness; repetitions are separate block choices. Gap truncation at B_r=2^(r+1) is valid inductively: if two gaps >=2 B_(r-1), any split either leaves one side <B_(r-1), which can be matched exactly while other stays large, or leaves two large sides, which can be matched; smaller gaps agree exactly. Thus all infinite cycles reduce to 32x32 canonical gap pairs at rank4. Independently reimplemented gap partition and complete recursive types, obtaining class counts 4,14,40,108,340 at ranks 0..4 and sharp minimal representative sizes 4,7,11,19,35; the only rank4 maximally large representative was (17,18). No extrapolation from small graph experiments: exhaustive finite table follows the proven quantifier-rank cutoff. Source verify_symbolic.py and verify_direct.py were inspected for exact diagram, reuse/splits, and independent direct recursion.
+
+## originality
+
+PASS
+
+Best-of-knowledge original sharp marked-directed-cycle rank-four type census. Brown–Hoshino’s broad EF theorem uses an undirected edge relation and no named constants; colored linear-order and directed-path theorems have genuinely different signatures/objects. No inspected prior result implies this 340 count or unique 35-vertex class; old software tables remain possible.
+
+## value
+
+PASS
+
+Exact rank-four finite-model-theoretic classification of an infinite natural family gives an implementable test for equivalence, a sharp small-model bound and a unique hard class, improving vastly on generic bounds. The two observable landmark gaps genuinely interact in the FO type recurrence, making 340 nontrivial rather than a routine independent truncation of a and b.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

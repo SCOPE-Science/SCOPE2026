@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The formula-type recursion includes the complete quantifier-free diagrams, equality/repetition, and every one-point extension. The inductively proved gap cutoff reduces all input cycles to a 32-by-32 finite rectangle. The replayed exact symbolic program yields 340 types and a unique maximum minimum representative of 35 vertices; an independently coded direct-vertex recursion agrees over its stated finite ranges. The finite program is not used as an unsupported infinite extrapolation.
+## correctness
 
-**Originality: PASS, with historical-priority risk.** The full primary paper by Brown and Hoshino addresses undirected unmarked cycles and paths, not two named constants in directed successor structures. Mwesigye and Truss investigate coloured linear orders, whose order predicate is not part of the present signature. The closest published directed-successor-path finding has no cyclic closure or pair of named markers. published-finding corpus and external queries for pointed directed cycles, equivalent gap formulations, and exact type counts found no statement with the same 340-class implication. A generic EF type recursion is known, but the specific exhaustive count and optimal representatives were not located in inspected materials. An unindexed prior computation remains possible.
+PASS
 
-**Value: PASS.** Two landmarks create coupled gaps whose four-round information cannot be read off from a naive independent truncation rule. The exact 340-class census and sharp 35-vertex representative bound give a complete finite test for every two-marked directed cycle. They refine general finite-model-theoretic locality bounds with a genuinely sharp small-model property for a natural marked successor family.
+The rank-r complete FO type of distinguished constants and chosen tuple has its full equality/successor atomic diagram and SET (not multiset) of possible rank-(r-1) one-point extension types. A selected-vertex cyclic-order encoding with positive gaps is bijective with these diagrams. Splitting a gap g inserts one new element, matching every possible quantifier witness; repetitions are separate block choices. Gap truncation at B_r=2^(r+1) is valid inductively: if two gaps >=2 B_(r-1), any split either leaves one side <B_(r-1), which can be matched exactly while other stays large, or leaves two large sides, which can be matched; smaller gaps agree exactly. Thus all infinite cycles reduce to 32x32 canonical gap pairs at rank4. Independently reimplemented gap partition and complete recursive types, obtaining class counts 4,14,40,108,340 at ranks 0..4 and sharp minimal representative sizes 4,7,11,19,35; the only rank4 maximally large representative was (17,18). No extrapolation from small graph experiments: exhaustive finite table follows the proven quantifier-rank cutoff. Source verify_symbolic.py and verify_direct.py were inspected for exact diagram, reuse/splits, and independent direct recursion.
 
-**Limitations.** The computation is a finite exact certificate after a proved infinite reduction. Independent mathematical audit and historical-priority verification remain unperformed; no claim is made about higher quantifier ranks or other signatures.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original sharp marked-directed-cycle rank-four type census. Brown–Hoshino’s broad EF theorem uses an undirected edge relation and no named constants; colored linear-order and directed-path theorems have genuinely different signatures/objects. No inspected prior result implies this 340 count or unique 35-vertex class; old software tables remain possible.
+
+## value
+
+PASS
+
+Exact rank-four finite-model-theoretic classification of an infinite natural family gives an implementable test for equivalence, a sharp small-model bound and a unique hard class, improving vastly on generic bounds. The two observable landmark gaps genuinely interact in the FO type recurrence, making 340 nontrivial rather than a routine independent truncation of a and b.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

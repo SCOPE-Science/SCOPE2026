@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T21:56:47.102258Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rank-r complete FO type of distinguished constants and chosen tuple has its full equality/successor atomic diagram and SET (not multiset) of possible rank-(r-1) one-point extension types. A selected-vertex cyclic-order encoding with positive gaps is bijective with these diagrams. Splitting a gap g inserts one new element, matching every possible quantifier witness; repetitions are separate block choices. Gap truncation at B_r=2^(r+1) is valid inductively: if two gaps >=2 B_(r-1), any split either leaves one side <B_(r-1), which can be matched exactly while other stays large, or leaves two large sides, which can be matched; smaller gaps agree exactly. Thus all infinite cycles reduce to 32x32 canonical gap pairs at rank4. Independently reimplemented gap partition and complete recursive types, obtaining class counts 4,14,40,108,340 at ranks 0..4 and sharp minimal representative sizes 4,7,11,19,35; the only rank4 maximally large representative was (17,18). No extrapolation from small graph experiments: exhaustive finite table follows the proven quantifier-rank cutoff. Source verify_symbolic.py and verify_direct.py were inspected for exact diagram, reuse/splits, and independent direct recursion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brown–Hoshino studies simple undirected adjacency E, whereas current language has oriented successor S and individually named constants.",
+          "Coloured linear orders include a global order and are not just reducts of bounded-rank directed cycles with constants."
+        ],
+        "reasoning": "The named signaturally broader-sounding theorems do not mathematically imply this exact census merely by adding/fixing markers or taking reducts.",
+        "searches": [
+          "Brown–Hoshino 2007 The Ehrenfeucht–Fraisse Game for Paths and Cycles",
+          "Mwesigye–Truss 2010 Classification of Finite Coloured Linear Orderings",
+          "two marked directed successor cycle quantifier rank four Ehrenfeucht Fraisse types count 340 representative 35 gap length"
+        ]
+      },
+      "checked_sources": [
+        "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+        "https://doi.org/10.1007/s11083-010-9178-9",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112",
+        "Resultary: two marked directed successor cycle quantifier rank four Ehrenfeucht Fraisse types count 340 representative 35 gap length"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2007 paper’s first page explicitly describes equivalence in language with an undirected binary predicate E.",
+          "The directed path threshold 2^q does not count pair-of-marker cyclic FO types; other prior order formula is (2^q-1)^2+2 for a different structure."
+        ],
+        "reasoning": "No logical interpretation/reduction with the same rank preserving all 340 counts was found; finite model theory’s general EF recursion is standard, while the exact cutoff and 340-type census are additional computations.",
+        "searches": [
+          "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+          "Resultary directed-path rank threshold",
+          "Resultary one-red linear order profile"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Four-round Duplicator equivalence for two pointed oriented successor cycles is exactly rank-4 FO equivalence with constants.",
+          "Cyclic gap pairs (a,b) encode distinct named landmark positions without a global linear order."
+        ],
+        "reasoning": "An older complete classification by two-gap EF game signatures would be equivalent; unpointed undirected cycles and endpoint paths do not have these observable constants.",
+        "searches": [
+          "two marked directed successor cycle quantifier rank four Ehrenfeucht Fraisse types count 340 representative 35 gap length",
+          "Brown Hoshino 2007 cycle EF games",
+          "Resultary: 2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The audited source contains exhaustive 1024-row class_table.csv and 340-row class_representatives.csv; this is claimed NEW evidence, not an independent published prior table.",
+          "Prior indexed records yield different count formulas for directed paths / colored orders."
+        ],
+        "reasoning": "A prior exact table for the two-marked directed-cycle signature would decide novelty regardless of its title; none was located. The source table has a fully inspectable recurrence rather than black-box solver counts.",
+        "searches": [
+          "two marked directed successor cycle quantifier rank four Ehrenfeucht Fraisse types count 340 representative 35 gap length",
+          "Resultary: directed successor paths and one-red linear orders",
+          "Brown–Hoshino 2007 numerical tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge original sharp marked-directed-cycle rank-four type census. Brown–Hoshino’s broad EF theorem uses an undirected edge relation and no named constants; colored linear-order and directed-path theorems have genuinely different signatures/objects. No inspected prior result implies this 340 count or unique 35-vertex class; old software tables remain possible.",
+      "residual_risks": [
+        "An unindexed earlier finite-model-theory census or software table for two-pointed directed cycles may coincide.",
+        "Full Mwesigye–Truss order classification was not read; no whole-document noncoverage claim.",
+        "All ranks beyond four, extra markers and global-order signatures are outside the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING different signature",
+          "evidence": "The paper uses undirected graph edge E with neither orientation nor two named constants; this cannot yield the 340 two-pointed successor rank4 classes as an immediate corollary.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+          "material_read": "Full 20-page primary PDF inspected in relevant definitions/game strategy, theorem sections and tables, first-page screenshot verified",
+          "method": "Lawful public publisher PDF text plus visual inspection",
+          "title": "The Ehrenfeucht–Fraïssé Game for Paths and Cycles",
+          "trigger": "Highly relevant cycle EF theorem and numerical thresholds"
+        },
+        {
+          "assessment": "DIFFERENT_SIGNATURE_RESIDUAL_RISK",
+          "evidence": "Has global order predicate on linear structures, unlike only directed cyclic successor and two constants.",
+          "identifier_or_url": "https://doi.org/10.1007/s11083-010-9178-9",
+          "material_read": "Bibliographic theorem descriptions/abstract; full text not materially read",
+          "method": "Public metadata/abstract",
+          "title": "Classification of Finite Coloured Linear Orderings",
+          "trigger": "General colored order EF type classification"
+        },
+        {
+          "assessment": "NOT_DIRECTLY_COVERING_ON_AVAILABLE_STATEMENT",
+          "evidence": "The threshold for unmarked paths differs from cyclic two-marked class census; accessible summary alone not whole-document clearance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112",
+          "material_read": "Published indexed title and mathematical summary; not full mathematical text",
+          "method": "Resultary semantic search result",
+          "title": "Exact quantifier-rank threshold for finite directed paths",
+          "trigger": "Closest same directed successor language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact rank-four finite-model-theoretic classification of an infinite natural family gives an implementable test for equivalence, a sharp small-model bound and a unique hard class, improving vastly on generic bounds. The two observable landmark gaps genuinely interact in the FO type recurrence, making 340 nontrivial rather than a routine independent truncation of a and b.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+    "https://doi.org/10.1007/s11083-010-9178-9",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112",
+    "Resultary: two marked directed successor cycle quantifier rank four Ehrenfeucht Fraisse types count 340 representative 35 gap length",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/01/four-round-first-order-classification-of-two-marked-directed-cyc--0359c640f462"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An unindexed earlier finite-model-theory census or software table for two-pointed directed cycles may coincide.",
+    "Full Mwesigye–Truss order classification was not read; no whole-document noncoverage claim.",
+    "All ranks beyond four, extra markers and global-order signatures are outside the theorem."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed earlier finite-model-theory census or software table for two-pointed directed cycles may coincide.",
+    "Full Mwesigye–Truss order classification was not read; no whole-document noncoverage claim.",
+    "All ranks beyond four, extra markers and global-order signatures are outside the theorem.",
+    "Finite experiments are corroboration only; each universal claim uses its proof or proved finite reduction.",
+    "No expert, Lean or independent external publication certification is asserted."
+  ]
+}
