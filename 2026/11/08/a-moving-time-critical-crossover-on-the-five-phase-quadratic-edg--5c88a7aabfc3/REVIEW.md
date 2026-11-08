@@ -1,0 +1,15 @@
+# Scientific review of the moving-time edge crossover
+
+## Correctness
+PASS. The object is the original five-phase permuted Volterra map restricted to an explicit invariant edge, not a surrogate unrelated to the source. The fivefold scalar factorization is checked directly from the source's three polynomials and independently against the full five-coordinate update with exact rational arithmetic. The core infinite-time/vanishing-parameter theorem follows from the explicit exponential estimate on the logarithm of the relative defect, which tends to zero even though the observation horizon diverges, and from a finite-offset induction. It does not use finite experiments to infer an infinite result. Conditions \(0<s<1\), \(c>0\), sufficiently large \(n\), and fixed \(\ell\ge1\) are explicit.
+
+## Originality
+PASS within reviewed primary text and available published research indexing, subject to residual risk. Ganikhodjaev–Pah–Rozikov (arXiv:1908.07740, §4.3, Eq. 4.11 and Proposition 5) give the raw edge return composition, qualitative endpoint convergence and fixed-parameter derivatives. They do not state the joint \(n\to\infty\), \(p_n\uparrow1\) asymptotic with observation-dependent \(p_n\), sharp downstream exponent, or the coefficient \(c+c^2\). Those are not conclusions of their derivative calculation at fixed \(p\); the transition requires uniform control of the full growing number of iterations. Nearby published work on polynomial iteration provides context but no established equivalence was located. An inaccessible later journal rendering of the same paper, unindexed sources and stronger general quadratic-iteration asymptotics remain publication-priority risks.
+
+## Mathematical value
+PASS. The originating dynamics has a natural attracting vertex five-cycle on this boundary edge. At \(p=1\) convergence is double exponential, but fixed \(p<1\) produces geometric tails. The exact \(1-p_n\asymp(1-s)^{32^n}\) transition, its \(c+c^2\) scaling profile, and the certified exponential error bound settle a mathematically motivated nonuniformity in the singular limit. Such a quantitative transition cannot be read off from the limiting multiplier, and it provides sharp predictions for rare near-vertex states. The finding is deliberately restricted to the invariant edge, not claimed for generic interior configurations.
+
+## Prior evidence and limitations
+The closest primary source is the full arXiv text of Ganikhodjaev, Pah and Rozikov, published 2019-08-21, in particular the first boundary-edge composition and derivative calculations. The 2021 journal version was identifiable through publisher metadata but the complete publisher text was not accessible; the lawful preprint was inspected. Literature/index searches for the singular five-step return and the quadratic-iteration scaling did not disclose an equivalent statement. Search absence alone does not prove priority. The checker verifies algebra and representative finite-horizon limits; the analytical inequalities provide the actual proof.
+
+Self-review: passed. Independent audit: not yet performed.
