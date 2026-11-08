@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For any two k-subsets, shortest paths must remove each element of A\\B and insert each of B\\A exactly once. The independent orderings give (d!)² states. Fixing adjacent ranks yields exactly four feasible midpoint states and generators (s_i,e),(e,s_i),(s_i,s_i). The edge/triangle/maximal clique formulas follow by unique moved rank. Applying a shared triangular bubble-sort comparator schedule to both orderings proves a universal binom(d,2) upper bound; reversal in one coordinate provides matching inversion lower bound. Both independent embedded programs reconstruct exact small cases, one directly from Johnson subsets and one from the generator graph. Finite checks are corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonsma 2010, arXiv:1009.3217v2, Sections 1-2 and theorem roadmap: general PSPACE hardness and claw-free/chordal results; no exact Johnson family theorem.",
+        "Asplund et al. 2017, arXiv:1705.09385v1, §§3–4 and 6: general structural operations, grid realization and hypercube Proposition 27, not the Johnson two-ordering generators.",
+        "Gajjar et al. 2024, DOI 10.1007/s00453-024-01263-y, §§2,5.4, Theorem 5: exact Kendall distance for a hypercube, not the synchronized paired-permutation Johnson metric."
+      ],
+      "reasoning": "A universal existence/decision algorithm or one-permutation hypercube theorem does not imply the exact Johnson rerouting clique structure and sharp diameter without the two-ordering bijection and synchronized bubble-sort proof; none of the closest inspected theorems dominates this assertion.",
+      "searches": [
+        "Johnson graph shortest paths between k-subsets local rerouting graph geodesic diameter",
+        "shortest-path rerouting graph of disjoint k-subsets in Johnson graph has diameter k choose 2",
+        "shortest path reconfiguration Johnson graph diameter reconfiguration graph shortest paths",
+        "\"Johnson graph\" \"shortest path reconfiguration\" rerouting permutation"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.37236/1683, §2 and §6",
+      "arxiv:1009.3217v2, §§1–2 and theorem overview",
+      "arxiv:1705.09385v1, §§3–4,6 Proposition 27",
+      "doi:10.1007/s00453-024-01263-y, §§2,5.4 Observation 2 and Theorem 5",
+      "Indexed study: Exact graph metric of consecutive-layer hypersimplices (different graph metric)",
+      "Indexed study: Sphere-wedge collapse of scale-one Johnson-graph Rips complexes (different topological invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Asplund et al. 2017, Proposition 27 describes generators (s_i) in one copy of S_d; the present generators (s_i,e),(e,s_i),(s_i,s_i) live in S_d×S_d.",
+        "Gajjar et al. 2024, Theorem 5 proves a single Kendall-tau shortest-path metric on hypercubes. The present paired generators allow synchronized swaps only at the same index.",
+        "Zara 2003 Theorem 2.3 counts and represents a restricted ascending-path family, not a rerouting metric."
+      ],
+      "reasoning": "The prior one-permutation statement does not imply paired-four-clique adjacency or a simultaneous two-list optimal diameter; independently sorting the two permutations would yield a weaker 2*binom(d,2) bound. The present common comparator schedule is a separate proof of the sharp binom(d,2) bound. Zara’s restricted ascending paths cannot imply all-geodesic counts (d!)².",
+      "searches": [
+        "shortest path reconfiguration Johnson J(n,k) paired removal insertion permutations K4 cliques radius diameter",
+        "paired permutohedron synchronous adjacent transpositions Cayley graph diameter sorting network",
+        "\"synchronous\" \"adjacent transpositions\" \"diameter\" permutations",
+        "\"Johnson graph\" \"shortest path reconfiguration graph\" clique product permutations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zara 2003, DOI 10.37236/1683, Theorem 2.3 and §6: parametrization of selected relevant ascending paths by a Bruhat interval, without all-geodesic graph adjacency.",
+        "Asplund et al. 2017, arXiv:1705.09385v1, Proposition 27: the single-permutation Cayley graph of hypercube shortest paths.",
+        "Indexed studies of the graph metric of consecutive-layer hypersimplices and the Rips complex of Johnson graphs concern different objects and do not state this rerouting classification."
+      ],
+      "reasoning": "The Johnson rerouting vertices are pairs of permutations, with all three simultaneous single-index generators; they are not the ordinary one-permutation permutohedron, and no matched full rerouting graph was identified. A same-parameter result about paths, Rips complexes, or Johnson distance is not equivalent to this reconfiguration graph.",
+      "searches": [
+        "Johnson graph J(2k,k), disjoint antipodal k-subsets, shortest path rerouting graph paired permutations K4 cliques diameter binomial k 2",
+        "shortest path reconfiguration Johnson J(n,k) paired removal insertion permutations K4 cliques radius diameter",
+        "paired permutohedron synchronous adjacent transpositions Cayley graph diameter sorting network",
+        "\"Johnson graph\" \"path graph\" \"shortest\" \"permutations\" rerouting 2024",
+        "\"shortest path graphs\" \"Johnson\" \"permutations\" rerouting"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed search matches addressed Johnson-graph Rips homotopy and hypersimplex one-skeleton metrics, not shortest-geodesic rerouting adjacency; the closest geometric metric result treated a different one-skeleton.",
+        "Direct web queries for a Johnson rerouting-graph table or the paired synchronous generator Cayley graph returned no relevant exact enumerations."
+      ],
+      "reasoning": "No exact database or table of Johnson geodesic one-vertex rerouting graphs, their four-cliques, or diameters was located. Negative searches alone cannot certify priority.",
+      "searches": [
+        "Johnson graph J(2k,k), disjoint antipodal k-subsets, shortest path rerouting graph paired permutations K4 cliques diameter binomial k 2",
+        "shortest path reconfiguration Johnson J(n,k) paired removal insertion permutations K4 cliques radius diameter",
+        "Johnson graph shortest paths between k-subsets local rerouting graph geodesic diameter",
+        "Johnson graph shortest path reconfiguration graph distance symmetric group product compatible adjacent transpositions simultaneous",
+        "\"Johnson\" \"rerouting graph\" shortest paths \"cliques\""
+      ]
+    },
+    "rationale": "Primary full-text comparisons distinguish restricted ascending paths (Zara 2003), global rerouting complexity (Bonsma 2010), a single-copy Cayley model for hypercube geodesics (Asplund et al. 2017), and the hypercube Kendall metric (Gajjar et al. 2024). None inspected states or logically implies the paired Johnson Cayley graph, edge-disjoint K4 decomposition, or its sharp diameter. Semantic index and primary-literature searches matched only different objects. Residual priority risk is explicitly retained.",
+    "residual_risks": [
+      "Unindexed or unpublished prior work may state an equivalent synchronized two-permutation Cayley-graph classification.",
+      "The diameter bound may have an equivalent formulation in the sorting-network literature not discovered by semantic searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING: relevant ascending paths and Bruhat intervals, not all shortest-path one-vertex rerouting graphs",
+        "evidence": "§2 defines relevant ascending paths with a strict decreasing-removal condition; §6 Theorem 2.3 relates these to Bruhat-interval attainable permutations.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v9i2r11/pdf/",
+        "material_read": "PDF pages 1, 3–4 and 10, especially Theorems 2.1–2.3 and §6, with source page images inspected",
+        "method": "Full-text theorem/definition comparison and page image inspection",
+        "title": "Parking Functions, Stack-Sortable Permutations, and Spaces of Paths in the Johnson Graph",
+        "trigger": "Exact Johnson graph and paths in title; earliest archived source"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: general complexity and special claw-free/chordal graph bounds do not entail the Johnson exact model",
+        "evidence": "§1 states PSPACE-completeness and linear-diameter bound in special classes; no theorem describing Johnson shortest-path rerouting.",
+        "identifier_or_url": "https://arxiv.org/pdf/1009.3217",
+        "material_read": "Preprint introduction §§1–2, theorem roadmap, targeted full-document search for Johnson, and PDF page images of opening pages",
+        "method": "Inspect primary open arXiv text, search Johnson and diameter, compare exact implication",
+        "title": "The Complexity of Rerouting Shortest Paths",
+        "trigger": "Foundational rerouting definition and sharp structural/complexity restrictions"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: one-copy symmetric-group Cayley generator, not two synchronized copies or Johnson diameter",
+        "evidence": "Proposition 27 states shortest path graph of diametric Q_d vertices is Cay(S_d, adjacent transpositions); §§3–4 concern general constructions.",
+        "identifier_or_url": "https://arxiv.org/pdf/1705.09385",
+        "material_read": "PDF abstract, introduction, §§3–4, §6 including Proposition 27 and proof; associated page images inspected",
+        "method": "Inspect structural results and hypercube Cayley characterization, targeted Johnson search",
+        "title": "Reconfiguration graphs of shortest paths",
+        "trigger": "Graph structure and Cayley-graph reconstruction for hypercube paths"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: exact Kendall distance for one permutation of coordinate switches in Q_d, not paired Johnson geodesics",
+        "evidence": "§5.4 Observation 2: swapping a single adjacent pair; Theorem 5 proves minimum rerouting length equals Kendall tau in hypercubes.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-024-01263-y",
+        "material_read": "Accessible full-text HTML §§2 and 5.4, especially Observation 2 and Theorem 5, with within-page search for Johnson",
+        "method": "Read primary HTML theorem/proof and compare permitted graph moves",
+        "title": "Reconfiguring Shortest Paths in Graphs",
+        "trigger": "Strong recent theorem for hypercube shortest rerouting, possible general implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ff72776d-d5d5-4e45-b9ba-470b40ee8f00",
+  "value": {
+    "rationale": "A uniform complete structural classification is given for shortest-path rerouting between every pair of endpoints in every Johnson graph. It exhibits a genuine structural difference from hypercube rerouting (unique K4 edge tiling for simultaneous deletion/insertion) and an exact diameter matching the one-coordinate permutohedron despite squaring the state count. The constructive common sorting network and exact clique/triangle counts make it useful for comparing rerouting models and quantifying worst-case path changes, without reliance on speculative downstream applications.",
+    "status": "PASS"
+  }
+}
