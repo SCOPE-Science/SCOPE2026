@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Each stochastic transition becomes an increasing affine self-map of [0,1] exactly when the 2x2 determinant is nonnegative. Greedy upper/lower envelopes are monotone, their iterates form a monotone orbit, and unique active affine slopes cannot return to an earlier symbol. The converse gives explicit rational transitions with slope r+(i-1)epsilon, crossings exactly at the between-run thresholds, strict stochastic endpoints, and greedy orbit error at most 1/(5000n^2), below the minimum baseline half-spacing 3/(64n). The proof works at all n and q. The standalone checker exactly validated 162 run profiles, full competing-word comparisons through length six, a 1,750-machine rational grid audit, and 28 counts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kjos-Hanssen, arXiv:2607.26275 (July 28 2026): every finite word has a three-state PFA; this is an upper bound, not a two-state if-and-only-if classification.",
+        "Gill, arXiv:2402.13376: exactly two-state binary classification; not an all-alphabet restriction."
+      ],
+      "reasoning": "Three-state existence is strictly weaker than the assertion that specified multiletter words are isolatable by two states with nonnegative determinants, or that the others are impossible in that restricted model. The binary-only result does not dominate the multiletter setting.",
+      "searches": [
+        "Every string has probabilistic automatic complexity at most three Kjos-Hanssen Gill 2026",
+        "Every string has probabilistic automatic complexity at most three arxiv 2607.26275",
+        "Probabilistic automatic complexity of finite strings Gill arxiv 2402.13376"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2402.13376",
+      "https://arxiv.org/pdf/2402.13376",
+      "https://arxiv.org/abs/2607.26275",
+      "https://arxiv.org/html/2607.26275",
+      "Published mathematical record index, queried by equivalent formulations and parameter aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gill 2024 gives unrestricted two-state witnesses for certain binary patterns, including negative-determinant examples; his Theorem 4.1 does not characterize order-preserving multiletter maximizers.",
+        "Kjos-Hanssen 2026 constructs three-state witnesses for arbitrary words, but that construction need not reduce to an orientation-preserving two-state machine."
+      ],
+      "reasoning": "Neither result implies the necessity via monotone affine-envelope slope order nor the sufficiency via arbitrary ordered crossings. The novelty asserted is the precise restricted-model iff and its constructive enumeration, not the known two-state binary subfamilies or the general three-state upper bound.",
+      "searches": [
+        "arxiv:2402.13376, Theorem 4.1 and section 4.4",
+        "arxiv:2607.26275, abstract and sections 1–3",
+        "two-state probabilistic automata nonnegative determinant transition matrices, uniquely most likely words exactly words with each symbol in single contiguous run",
+        "conjecture alphabet independent probabilistic automatic complexity Gill 2024"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gill, arXiv:2402.13376, Theorem 4.1 is explicitly restricted to binary words and arbitrary transition determinants; its section 4.4 discusses extra ambient alphabet symbols, not three-symbol targets.",
+        "No inspected search hit stated the iff classification for monotone two-state witnesses."
+      ],
+      "reasoning": "Two-state stochastic updates are affine maps. The new equivalent formulation is that unique greedy itineraries of finite monotone affine systems are exactly run-distinct words when systems may be designed for the word. The binary classification does not cover genuinely multiletter targets or the restricted model exactly.",
+      "searches": [
+        "two-state probabilistic automata nonnegative determinant transition matrices, uniquely most likely words exactly words with each symbol in single contiguous run",
+        "monotone affine iterated function system upper envelope greedy word distinct letter blocks 2-state probabilistic automatic complexity",
+        "\"probabilistic automatic complexity\" \"distinct letters\" \"blocks\"",
+        "\"probabilistic automatic complexity\" \"ternary\" \"2\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact counting formula for nonnegative-determinant two-state PFA maximizers was found in inspected published records.",
+        "No equivalent all-alphabet classification appeared in the reviewed relevant research records."
+      ],
+      "reasoning": "The enumerator is tied to the complete run-distinct classification, not merely a count of compositions in isolation. The inspected primary publications and searched published claims did not yield an equivalent table. Lack of a match is not proof of priority.",
+      "searches": [
+        "two-state probabilistic automata nonnegative determinant transition matrices, uniquely most likely words exactly words with each symbol in single contiguous run",
+        "probabilistic automatic complexity multiletter a1^n1 a2^n2 ... ak^nk 2-state PFA",
+        "ternary alphabet two state probabilistic automata unique most probable string classification",
+        "published mathematical-claim search for order-preserving PFA word maximizers"
+      ]
+    },
+    "rationale": "The theorem is an all-alphabet if-and-only-if characterization for a natural order-preserving two-state PFA submodel, together with an all-parameter exact enumeration and explicit strictly positive rational witnesses. The published binary classification of arbitrary two-state PFAs and the 2026 universal three-state upper bound do not imply the multiletter characterization. No equivalent claim was found among accessible published scientific claims and semantic searches, or inspected primary text; an implicit older affine-control argument remains a residual risk.",
+    "residual_risks": [
+      "An older implicit greedy-control or affine-envelope characterization may be present under other terminology.",
+      "The 2026 primary HTML later sections were not independently retrievable during this run; inspected text does not prove absence from unread sections.",
+      "No external independent mathematical review or priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the claimed multiletter monotone-model classification in inspected portions; explicit binary-only theorem and ambient-alphabet discussion",
+        "evidence": "Theorem 4.1 concerns w in {i,j}*, and section 4.4 describes extending a binary witness by intermediate maps for unused letters.",
+        "identifier_or_url": "https://arxiv.org/pdf/2402.13376",
+        "material_read": "Abstract, definitions, Theorem 4.1, theorem discussion in section 4, and section 4.4 on alphabet extension; relevant pages 1–3, 10–11 and 34–35 of a 46-page PDF",
+        "method": "Opened PDF primary text, inspected relevant excerpts and a page image",
+        "title": "Probabilistic automatic complexity of finite strings",
+        "trigger": "Defines the invariant and might imply the two-state characterization"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected material; later-section comparison limited by access",
+        "evidence": "Theorem 1.2 is A_P(w) ≤ 3 for every alphabet and word; the construction tracks (u,u^2), with three probabilistic states.",
+        "identifier_or_url": "https://arxiv.org/html/2607.26275",
+        "material_read": "Accessible arXiv HTML abstract, sections 1–3 and construction through the beginning of section 3; later sections could not be reopened successfully",
+        "method": "Primary arXiv HTML open and abstract page; attempted PDF and later-section open",
+        "title": "Every string has probabilistic automatic complexity at most three",
+        "trigger": "Most relevant 2026 primary statement on finite-string PFA complexity across alphabets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9d9f39c8-4df0-4eea-b0a6-aa25c4268586",
+  "value": {
+    "rationale": "The nonnegative-determinant condition is a natural stochastic order-preservation property, not an arbitrary parameter slice. The theorem gives an exact complete all-alphabet classification and explicit positive rational witnesses for a state-minimization problem not addressed by the binary unrestricted classification. The exact enumerator and the finite-vs-polynomial separation from all \\(q^n\\) words quantify the restricted automaton model and make the result useful in comparisons with unconstrained probabilistic automatic complexity.",
+    "status": "PASS"
+  }
+}
