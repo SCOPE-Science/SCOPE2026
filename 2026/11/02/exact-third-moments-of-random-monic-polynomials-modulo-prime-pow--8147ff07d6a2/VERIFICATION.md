@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification scope and replay
+# Independent mathematical audit
 
-The companion `verify.py` is standalone Python 3 code using only standard-library exact integer and rational arithmetic. Execute `python3 verify.py` from the extracted package directory. Its completed result was:
+## correctness
 
-`VERIFY_OK cubic_full_enumerations=11 quartic_full_enumerations=3 smith_triple_checks=11 symbolic_group_checks=100 exact_arithmetic=yes`
+PASS
 
-Cubic cases: \((p,k)=(2,1),(2,2),(2,3),(2,4),(2,5),(3,1),(3,2),(3,3),(5,1),(5,2),(7,1)\). Quartic cases: \((2,2),(2,3),(3,2)\). Every cubic case independently enumerates all lower-coefficient tuples and roots, enumerates all reduced Vandermonde triples, and compares both to the parity formula. For \(p\in\{2,3,5,7,11\}\) and \(1\leq k\leq20\), the grouped valuation expression is also compared with the closed formula. No randomness or floating-point arithmetic enters any test.
+Smith normal form of evaluation constraints at three points x,y,z exploits independent uniform a0,a1,a2. For the 3-by-3 Vandermonde, unit first Smith invariant, t=min capped valuations of three differences and s=min(k,sum valuations minus t) give joint-zero probability p^(-3k+t+s), including coincident points separately. Translation reduces E R^3 to p^(-2k) sum_{u,v} p^(t+s). Enumerating unique minimal-valuation patterns and one closer pair gives w0=(p-1)(p-2)/p^2, w_j=3(p-1)^2/p^(j+2), w_L=3(p-1)/p^(L+1), and finite exact geometric sum. Its even/odd simplification matches claimed formulas. First/two-point probabilities give mean 1, variance k(1-p^-1). Independently enumerated coefficient tuples for cubics p=2,k=1..3, p=3,k=1..2, p=5,k=1 and quartic p=2,k=2; checked Vandermonde/closed grouped expressions. Finite checks complement written all-k proof.
 
-These checks do not enumerate all primes, all degrees or all exponents. Those quantifiers are justified by the finite algebraic proof in `RESULT.md`. No independent audit or outside certification is asserted.
+## originality
+
+PASS
+
+Exact THIRD raw moment of finite congruence-root counts at every prime-power exponent is the narrow original claim. Simhi (Oct 2026) squarefree values and random polynomial local roots modulo p^2 is highly relevant but full arXiv/OA was inaccessible, and authorized Oxford retrieval returned vpn_disconnected, so its full theorem implications remain a MATERIAL risk rather than fabricated noncoverage. Bhargava–Cremona–Fisher–Gajović and Caruso study genuine Q_p roots, not all transient roots modulo p^k; no exact Resultary coverage emerged.
+
+## value
+
+PASS
+
+The third moment is a natural next observable beyond mean/variance for random congruence roots; its exponential p^(k/2) growth and parity asymptotic, despite only linear variance, detect meaningful singular-root clustering and distinguish finite congruence roots from Q_p roots. It is not just a tiny computation or known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
