@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "All hypotheses and quantifiers are explicit. Exact variable-step coefficients give a two-step monodromy with trace N/H, determinant xy/H and discriminant s^4 Delta/H^2. A strictly positive backward-Euler projection above the smaller positive eigenslope ensures positivity for both distinct and repeated multiplier cases. Otherwise complex or negative real multipliers force some negative iterate. A difference identity proves strict decrease. Six exact symbolic identities and supplementary rational trajectories replayed successfully from the packaged verifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liao–Tang–Zhou (2020) obtain sufficient nonlinear maximum-bound conditions with restricted adjacent step ratios.",
+        "Li–Liao (2022) establish stability on arbitrary grids, a norm stability property distinct from entrywise positivity.",
+        "Bonaventura–Della Rocca (2015) study the one-step TR-BDF2 composition and hybrid methods, not the genuine multistep iteration."
+      ],
+      "reasoning": "A stronger norm-stability theorem does not imply trajectory positivity; a nonlinear sufficient maximum-principle result with a restrictive ratio bound does not cover the large-contrast positive phase. Likewise a one-step TR-BDF2 method has a different recurrence and startup.",
+      "searches": [
+        "https://arxiv.org/abs/2003.00421",
+        "https://arxiv.org/abs/2201.00527",
+        "https://arxiv.org/abs/1510.04303",
+        "variable steps backward differentiation formula BDF2 sign preservation scalar y prime negative lambda two alternating steps"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1510.04303v1",
+      "https://arxiv.org/html/2003.03534v1",
+      "https://arxiv.org/abs/2003.00421",
+      "https://arxiv.org/abs/2201.00527",
+      "https://doi.org/10.3103/S1066369X14030025"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known equal-step sharp boundary \\(\\lambda h\\leq1/2\\) is a strict subfamily of the current classification.",
+        "Malygina’s characteristic-root criterion provides a general implication for a constant-coefficient fundamental solution but does not address the backward-Euler starter, especially at the repeated multiplier."
+      ],
+      "reasoning": "The equal-step result follows by setting \\(x=y\\), so it is not separately novel. The new claim depends on two unequal-step polynomial identities and the starter position relative to the minimal Floquet eigenvector, giving a classification with a much larger high-contrast region. The general spectral ingredients are existing mathematics.",
+      "searches": [
+        "exact delayed sign loss just beyond BDF2 positivity boundary alternating grids",
+        "https://arxiv.org/html/2003.03534v1",
+        "https://www.researchgate.net/publication/269358350_On_positiveness_of_the_fundamental_solution_of_a_difference_equation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang–Mao–Wang (2020), Sections 2–5, use the genuine variable-step recurrence and backward-Euler start for norm stability and error estimates; the exact all-index sign region is not their theorem.",
+        "Malygina (2014), Theorems 1–2, establish general characteristic-root/constant-coefficient fundamental-solution nonoscillation criteria, a relevant known mechanism, but not the alternating BDF2 starter classification."
+      ],
+      "reasoning": "An alternating two-periodic BDF2 recurrence can be converted to a constant two-step monodromy, so generic positive-root disconjugacy results are the closest possible equivalence. Those tools alone do not establish the explicit polynomial phase boundary AND positive projection of this specific backward-Euler history; both are derived here. Any unknown specialised explicit reduction remains a priority risk.",
+      "searches": [
+        "variable step BDF2 alternating time step positivity scalar decay period two recurrence nonoscillation",
+        "two-periodic BDF2 absolute monotonicity positivity and oscillation condition",
+        "https://arxiv.org/html/2003.03534v1",
+        "https://www.researchgate.net/publication/269358350_On_positiveness_of_the_fundamental_solution_of_a_difference_equation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary texts state analytic stability or sufficient maximum-principle properties, not an exact catalogue of alternating normalized step pairs.",
+        "The universal formula is symbolic for all positive real pairs and is not based on any numerical database."
+      ],
+      "reasoning": "No covering exact tabulation or phase diagram was encountered in the inspected sources; absence of a hit is not a uniqueness proof. A specialised exact table or older article could still exist.",
+      "searches": [
+        "variable-step BDF2 alternating two-periodic positive scalar decay backward Euler start exact positivity phase boundary h1 h2 discriminant",
+        "BE-started variable-step BDF2 y'-lambda y alternating steps strict positivity all iterates s=x+y less 2 contrast |x-y| discriminant",
+        "https://arxiv.org/abs/2201.00527"
+      ]
+    },
+    "rationale": "The exact pairwise iff positivity and monotonicity phase with a genuine two-periodic BDF2 recurrence and specified backward-Euler starter was not established in inspected direct primary texts or current semantic research hits. Known equal-step positivity, constant-coefficient nonoscillation machinery, TR-BDF2 one-step theory, and general BDF2 norm-stability methods are credited. Publication-priority certainty is limited by possible specialist cyclic-difference reductions.",
+    "residual_risks": [
+      "A specialised older two-periodic difference-equation oscillation criterion may imply the explicit condition without identical terminology.",
+      "The accessible author-uploaded 2014 text has imperfect character extraction, although the relevant theorem statements were readable.",
+      "No independent specialist publication-priority assessment was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "One-step TR-BDF2 and hybrids, not the two-periodic genuine variable-step multistep recurrence.",
+        "evidence": "Section 3 identifies TR-BDF2 as trapezoidal/BDF composition and a DIRK one-step method; Section 4 studies monotone hybrids.",
+        "identifier_or_url": "https://arxiv.org/html/1510.04303v1",
+        "material_read": "Full HTML text: introduction, Sections 2–5, numerical methods and conclusions/appendix headings; checked method definition in Section 3 and hybrid in Section 4.",
+        "method": "Compared exact update maps, step/starter assumptions and positivity statements.",
+        "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+        "trigger": "2015 first-public archived positivity source and possible one-step BDF2 confusion"
+      },
+      {
+        "assessment": "Genuine scheme but no explicitly covering alternating-grid exact positivity iff theorem in the inspected material.",
+        "evidence": "Equation (2) defines the variable BDF2 derivative; the abstract and Sections 3–4 focus norm stability and error bounds, including the initial step.",
+        "identifier_or_url": "https://arxiv.org/html/2003.03534v1",
+        "material_read": "Full HTML text, especially Section 2 variable-step scheme, Section 3 stability, Section 4.3 backward-Euler starting error, Section 5 extensions and references.",
+        "method": "Matched recurrence coefficients and compared stability/error quantifiers with the sign-for-all-index property.",
+        "title": "Stability and error estimates for the variable step-size BDF2 method for linear and semilinear parabolic equations",
+        "trigger": "Exact same variable-step BDF2 formula and backward-Euler starting values"
+      },
+      {
+        "assessment": "Does not dominate high-contrast alternating scalar positivity; its maximum-principle result is a sufficient bound for a different equation/class.",
+        "evidence": "The result restricts \\(r_k<1+\\sqrt2\\) for maximum-principle preservation and uses practical step constraints.",
+        "identifier_or_url": "https://arxiv.org/abs/2003.00421",
+        "material_read": "Accessible public full-text extraction inspected for BDF2 coefficients, maximum principle theorem, step ratio and time-step conditions.",
+        "method": "Compared sufficient nonlinear PDE bounds with necessary-and-sufficient scalar two-periodic sign region.",
+        "title": "On energy stable, maximum-principle preserving, second order BDF scheme with variable steps for the Allen-Cahn equation",
+        "trigger": "Variable-step BDF2 positivity and strong maximum principle"
+      },
+      {
+        "assessment": "Norm stability does not imply all-iterate positivity; no matching two-parameter phase theorem identified.",
+        "evidence": "Abstract asserts arbitrary-grid BDF2 stability; introduction (1.4) defines the variable-step formula.",
+        "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+        "material_read": "Public complete HTML/text including introduction, discrete-kernel definitions and stated stability theorem; not only abstract.",
+        "method": "Compared norm-stability estimates and an arbitrary-grid quantifier with strict scalar sign preservation.",
+        "title": "Stability of variable-step BDF2 and BDF3 methods",
+        "trigger": "Broad arbitrary-grid theorem might subsume periodic case"
+      },
+      {
+        "assessment": "Provides existing general nonoscillation mechanism but no explicit two-periodic BDF2/BE-started boundary; unresolved specialist implicit-priority possibility.",
+        "evidence": "Theorems 1–2 give sign oscillation without a positive characteristic root and a sufficiency criterion for constant-coefficient fundamental solutions under coefficient restrictions.",
+        "identifier_or_url": "https://www.researchgate.net/publication/269358350_On_positiveness_of_the_fundamental_solution_of_a_difference_equation",
+        "material_read": "Author-uploaded readable full-text extraction (ResearchGate); inspected Definitions, Lemma 4, Theorems 1–3, characteristic-root analysis and parameter-domain discussion.",
+        "method": "Checked scope for constant coefficients, fundamental solutions, arbitrary histories and possibility of reduction through monodromy.",
+        "title": "On Positiveness of the Fundamental Solution of a Difference Equation",
+        "trigger": "Closest general recurrence-theoretic positive characteristic-root condition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "34750bc9-94c5-450a-ab31-04bb0688ab61",
+  "value": {
+    "rationale": "A natural exact infinite-time sign-preservation frontier for a standard adaptive second-order multistep method is determined without a conservative uniform ratio condition; a repeated Floquet root is included. The high-contrast admissible region quantifies an almost twofold mean-step gain and quadratic required contrast, exposing a meaningful distinction from accuracy and perturbation robustness. This is a complete natural two-parameter classification, not an arbitrary finite example.",
+    "status": "PASS"
+  }
+}
