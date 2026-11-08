@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T23:50:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The Markov W1 Lipschitz norm equals its maximum adjacent Dirac-pair ratio by coupling convexity and graph geodesics; cycle translation symmetry reduces it to W1(p,shift p). The known circular transport-flow identity reduces to median absolute deviation of the N heat-kernel entries. Reflection symmetry and a positive irreducible Metzler difference system give strictly radial descending entries for all t>0; shell counts give median at r=floor((N+1)/4). Expansion of the heat kernel by shortest-path length with positive coefficients in the defect yields k=floor((N+2)/4), coefficients 2/1/4/3 according to N mod4, including N=3/4/6. Submultiplicativity gives strict decrease; Fourier first eigenspace yields the stated long-time prefactor. Independent matrix exponentials for N=3..22 and t=0.02,0.1,0.7 confirmed median formula and short-time orders. Those finite checks are corroboration, while the proof is all N≥3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Münch–Wojciechowski relates Ollivier curvature bounds and e^(−Kt) gradient/W1 contraction; it does not specify the exact finite-cycle t-dependent operator norm.",
+          "Pedrotti supplies general contractive coupling bounds rather than all N mod-four leading Taylor constants in the inspected scope."
+        ],
+        "reasoning": "A general semigroup inequality without sharp operator norm and derivative order does not dominate the claimed exact formula.",
+        "searches": [
+          "arXiv:1712.00875 semigroup characterization",
+          "arXiv:2308.00516 coupling rates",
+          "Wasserstein contraction heat semigroup finite cycle sharp short time order median formula"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob df8c32fd625441ca17c3e900d48607f4ee3f3175, tree 944dcd403f837a5616e6f09b3ebd27331f358a5e",
+        "arXiv:0906.5499 Section 2.2 Eq (12) and PDF pages 5–7",
+        "arXiv:1712.00875 general curvature-gradient equivalences",
+        "Independent scipy.linalg.expm C_N(t) tests N3..22",
+        "Resultary search Wasserstein contraction heat semigroup finite cycle sharp short time order median formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Median formula plus radial positivity and shell combinatorics yields new closed heat contraction but requires substantial specialization.",
+          "General K=0 curvature bound gives C_N(t)≤1, but it does not imply strictly smaller norm at t>0 with first k−1 derivatives zero."
+        ],
+        "reasoning": "The high-order flatness and sharp coefficient are not tautological consequences of contraction or spectral-gap theory.",
+        "searches": [
+          "arXiv:0906.5499 Eq 12",
+          "arXiv:1712.00875 heat semigroup curvature contraction",
+          "Wasserstein contraction heat semigroup finite cycle sharp short time order median formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The circular flow representation is precisely Delon–Rabin–Gousseau Eq.(12) specialized to signed adjacent heat kernels.",
+          "Cycle shortest-path W1 and periodic circular histogram transport are equivalent for equal unit spacings."
+        ],
+        "reasoning": "The median formula itself is already known; the all-time heat-kernel evaluation and first nonzero derivative cannot be credited as an invention of circular transport.",
+        "searches": [
+          "Wasserstein contraction heat semigroup finite cycle sharp short time order median formula",
+          "arXiv:0906.5499 circular earth mover median formula",
+          "cycle heat Wasserstein Lipschitz graph simple random walk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct independent finite Laplacian matrix exponentials matched the radial median formula for N=3..22.",
+          "The published circular-histogram formula is an algorithm for input pairs, not a pre-tabulated all-time heat semigroup contraction for all N."
+        ],
+        "reasoning": "No exact published mod-four sequence was found in inspected searches, but that negative search does not prove novelty.",
+        "searches": [
+          "finite cycle C_N(t) Wasserstein heat kernel explicit median",
+          "C6 W1 contraction 4/3 exp(-t) -1/3 exp(-4t)",
+          "Wasserstein contraction heat semigroup finite cycle sharp short time order median formula"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Delon–Rabin–Gousseau already establish the circular KR/median transport formula and are acknowledged. Münch–Wojciechowski generalize curvature/heat semigroup contraction, but do not give this explicit C_N(t) or N-dependent vanishing-order law in inspected material. The new statement specializes the median law to ordered cycle heat kernels and derives sharp high-order defect. Possible earlier cycle random-walk coupling estimates remain a qualified risk.",
+      "residual_risks": [
+        "An older specialist diffusion-on-finite-cycle or optimal-coupling computation could have exactly this time-dependent formula under other normalizations.",
+        "The long-time and small-time asymptotics are for fixed N; no uniform in N error claim is established.",
+        "High-order flatness from t=0 coexists with strict positive-time contraction; no uniform e^(-ct) with c>0 claimed for N≥6."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_MEDIAN_FORMULA_PRIOR_KNOWN",
+          "evidence": "Gives min-over-cyclic-flow offset/median formula used as an acknowledged known ingredient; no cycle heat-semigroup all-time norm in inspected relevant sections.",
+          "identifier_or_url": "arXiv:0906.5499; https://arxiv.org/pdf/0906.5499",
+          "material_read": "Full PDF obtained; relevant Section 2.2 circular histogram identities, Eq.(12), discussion on PDF pages 5–7 and concluding statement read",
+          "method": "Textual PDF inspection and screenshots",
+          "title": "Transportation Distances on the Circle and Applications",
+          "trigger": "Exact circular-flow median transport primitive"
+        },
+        {
+          "assessment": "GENERAL_CURVATURE_SEMIGROUP_BOUND_NOT_SHARP_CYCLE_TAYLOR",
+          "evidence": "Proves curvature-gradient equivalences/diameter bounds; no explicit N mod4 cycle W1 operator norm found in material examined.",
+          "identifier_or_url": "arXiv:1712.00875; https://arxiv.org/pdf/1712.00875",
+          "material_read": "Full PDF acquired; abstract, theorem framework and semigroup characterization discussion inspected",
+          "method": "Searchable primary PDF text and screenshot",
+          "title": "Ollivier Ricci Curvature for General Graph Laplacians: Heat Equation, Laplacian Comparison, Non-Explosion and Diameter Bounds",
+          "trigger": "Possible stronger general contraction characterization"
+        },
+        {
+          "assessment": "GENERAL_ESTIMATE_POTENTIAL_RISK",
+          "evidence": "General coupling bounds might imply a weak inequality; an explicit sharp cycle coefficient from same hypotheses was not verified.",
+          "identifier_or_url": "arXiv:2308.00516",
+          "material_read": "Abstract and relevant available theorem framing, not entire source body",
+          "method": "Public abstract/theorem summaries",
+          "title": "Contractive coupling rates and curvature lower bounds for Markov chains",
+          "trigger": "General coupling contraction methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The exact all-time W1 contraction on a canonical graph family and its high-order short-time flatness characterize a genuine obstruction to positive uniform small-time curvature despite finite spectral gap. The mod-four leading coefficient and first nonzero derivative can be used for sharp transport estimates, not mere numerical eigenvalue recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For unnormalized continuous-time nearest-neighbor heat semigroup on C_N, all-time W1 Lipschitz norm equals the sum of deviations of the heat kernel from its radial median; first nonzero short-time defect has order floor((N+2)/4) with exact mod-four coefficient, despite strict t>0 contraction.",
+  "limitations": [
+    "An older specialist diffusion-on-finite-cycle or optimal-coupling computation could have exactly this time-dependent formula under other normalizations.",
+    "The long-time and small-time asymptotics are for fixed N; no uniform in N error claim is established.",
+    "High-order flatness from t=0 coexists with strict positive-time contraction; no uniform e^(-ct) with c>0 claimed for N≥6."
+  ],
+  "schema_version": 1
+}
