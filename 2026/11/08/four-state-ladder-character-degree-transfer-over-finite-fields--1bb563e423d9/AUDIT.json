@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The n-rung bipartite ladder alternating matrix splits into an unrestricted n-by-n tridiagonal block and its negative transpose, so skew rank is twice tridiagonal rank. Kernel dimension is propagated one equation at a time; the 5 possible types of 2D boundary image reduce to 4 because vertical and oblique lines have the same aggregate transitions. Explicit enumeration of each row type yields the displayed row vector, 4x4 matrix and final column, including the independent terminal dummy variable. The ordinary group-character factor is obtained by decomposing the twisted group algebra over each central character of odd-characteristic class-two graphical groups. The included checker independently exhausts all tridiagonal matrices in 12 small test cases and actual alternating graph matrices in 6, including a nonprime field; a separate nonsingular recurrence check agrees with a published determinant count. Finite checks corroborate but do not prove the unrestricted theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rossmann 2022 Section 1.6 poses graph-character degree enumeration as Question 1.10 and supplies a rank reduction; examples noted there concern paths.",
+        "Published cycle-graph and tree-graph character-degree formulas concern those respective graph families.",
+        "The rooted-vertex-amalgamation identity for square bouquets applies to graphs joined at a single vertex, not two-connected ladders with at least three rungs."
+      ],
+      "reasoning": "For n≥3 the ladder is two-connected, not a tree, cycle, cone or one-vertex bouquet; the exact rank distribution is therefore not a corollary of the reviewed family formulas. Rossmann’s general rank reduction does not evaluate tridiagonal rank strata. A hypothetical general bounded-pathwidth theorem remains a residual risk.",
+      "searches": [
+        "skew adjacency rank generating polynomials graph 2-tree edge amalgamation finite fields",
+        "graphical Lie algebras ladder graphs rank polynomial coadjoint orbit enumeration",
+        "doi:10.1112/blms.12665 Question 1.10"
+      ]
+    },
+    "checked_sources": [
+      "Mainkar, arxiv:1010.4005",
+      "Lewis et al., arxiv:1011.4539",
+      "Rossmann, doi:10.1112/blms.12665",
+      "Jitman–Sricharoen, doi:10.1515/spma-2023-0114",
+      "Published summaries for ladder/tridiagonal, tree, cycle, coning and other candidate matrix families",
+      "Published square-bouquet rooted-vertex-amalgamation formula, statement comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original rank-to-character implication is established by the commutator form and is already part of the framework of Rossmann 2022/O’Brien–Voll.",
+        "Nonsingular tridiagonal recurrence a_n=q^2(q-1)a_(n-1)+q^3(q-1)^2a_(n-2) appears in Jitman–Sricharoen 2024.",
+        "The present transfer yields full nullity polynomial; neither a total singular count nor the general rank/character correspondence determines its coefficients."
+      ],
+      "reasoning": "The claimed advance is not the generic character-degree reduction, graph construction, or the full-rank term. It is the complete all-rank evaluation of ladder matrices with one fixed transfer matrix, which implies the individual character counts. Its lowest-order previous cases and coincident specialization are explicitly credited.",
+      "searches": [
+        "bipartite ladder graph graphical group ordinary irreducible character enumeration alternating ranks",
+        "alternating adjacency matrix weighted ladder graph finite field rank distribution character degree Lie algebra",
+        "doi:10.1515/spma-2023-0114 Theorem 3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A bipartite ladder has a general tridiagonal matrix as its cross-color adjacency block; thus the exact target is the entire nullity distribution of tridiagonal matrices.",
+        "Lewis et al., arxiv:1011.4539 Section 5 formulates arbitrary support-restricted rank counting but gives no ladder-specific transfer in the inspected text.",
+        "Jitman–Sricharoen doi:10.1515/spma-2023-0114 Section 3.1 counts full rank/prescribed determinant, not each rank."
+      ],
+      "reasoning": "The equivalence to unrestricted tridiagonal rank census was considered explicitly, rather than matching only graph terminology. The closest full-text sources do not state the complete coefficient sequence or its constant-size transfer; the covered nonsingular specialization is excluded from the novelty claim.",
+      "searches": [
+        "four-state transfer matrix nullity distribution tridiagonal matrices over finite fields ladder graphical Lie groups all character degrees",
+        "\"tridiagonal\" \"rank distribution\" finite fields",
+        "arxiv:1011.4539 Sections 1,5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Jitman–Sricharoen Theorems 3.1–3.4 and Example 1 contain the nonsingular counts, including 1,6,32,176 for q=2 and n=1,2,3,4.",
+        "The complete computed n=3, q=2 nullity vector is (32,74,21,1), exhibiting lower-rank cells not determined by a determinant count.",
+        "Lewis et al. discuss general support patterns and counterexamples to polynomiality; no table of ladder rank cells appears in its inspected relevant sections."
+      ],
+      "reasoning": "Known determinant or nonsingularity tables give only the coefficient of z^0 (or its complement); they do not supply how the singular total distributes among positive nullities. The new transfer gives every coefficient, all dimensions, and the associated character degrees.",
+      "searches": [
+        "tridiagonal matrices rank distribution over finite fields explicit formula number rank r",
+        "\"tridiagonal\" \"rank\" \"count\" matrices finite fields arbitrary",
+        "arxiv:1011.4539"
+      ]
+    },
+    "rationale": "The graph-to-tridiagonal equivalence converts the desired character-degree formula into a rank census for independent tridiagonal entries. The source comparisons distinguish a general support-pattern framework (Lewis et al.), a generic character problem and rank reduction (Rossmann), a determinant/full-rank tridiagonal count (Jitman–Sricharoen), and graph-Lie algebra construction (Mainkar) from the specific all-rank fixed four-state ladder transfer. The source search did not find the same transfer or a theorem implying all its coefficients. Published tree/cycle/bouquet/coning cases are narrower or structurally different; the n=2 boundary and nonsingular term are expressly not claimed new. A more general yet unlocated transfer theorem is a genuine residual risk.",
+    "residual_risks": [
+      "A broadly formulated bounded-pathwidth/zero-pattern rank-transfer theorem absent from the targeted searches could subsume the matrix recurrence.",
+      "Full-text links for the relevant public tree and cycle repository notes were unavailable; their returned scientific summaries do not state ladder coverage.",
+      "The historical-priority check is not exhaustive and has no independent verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "not_covering_ladder_character_enumeration",
+        "evidence": [
+          "Preprint posted 2010-10-19; identifies graph-Lie construction and proves graph isomorphism characterization rather than field character degrees."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1010.4005",
+        "material_read": "full accessible HTML main text: Introduction, construction, Theorem 3.1 and Theorem 3.2",
+        "method": "publisher-preprint HTML text inspection",
+        "title": "A short note on 2-step nilpotent Lie algebras associated with graphs",
+        "trigger": "archival graph-Lie construction, same objects"
+      },
+      {
+        "assessment": "not_covering_four_state_ladder_transfer_in_relevant_sections",
+        "evidence": [
+          "Section 5 defines rank counts for arbitrary zero-pattern sets but does not evaluate the tridiagonal all-rank family; within-document find for tridiagonal yielded no match."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1011.4539v3",
+        "material_read": "Introduction and stated results, Section 5 on arbitrary zero patterns and polynomiality, sections/table of contents examined for tridiagonal specialization",
+        "method": "arXiv lawful full-text HTML and within-document find",
+        "title": "Matrices with restricted entries and q-analogues of permutations",
+        "trigger": "generic support pattern rank counting may dominate tridiagonal rank census"
+      },
+      {
+        "assessment": "poses_relevant_problem_without_ladder_solution",
+        "evidence": [
+          "Question 1.10 requests degree-by-degree character counts and reduces them to alternating rank distributions; no ladder-specific formula in the inspected text."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/blms.12665",
+        "material_read": "full-text HTML, Introduction and Section 1.6 Question 1.10, adjacent results and graph-family statements; within-document search for ladder",
+        "method": "lawful open-access journal full-text HTML",
+        "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+        "trigger": "exact same class-two graphical group and degree-by-degree problem"
+      },
+      {
+        "assessment": "covers_nonsingular_and_determinant_not_all_ranks",
+        "evidence": [
+          "Theorems 3.1–3.4 count matrices with nonzero determinant and fixed determinant; their recurrence is reproduced as a check on the new z^0 coefficient."
+        ],
+        "identifier_or_url": "https://doi.org/10.1515/spma-2023-0114",
+        "material_read": "full-text HTML Introduction, Section 2.2, all Theorems 3.1–3.4 and Section 3.2, including examples",
+        "method": "open-access journal HTML",
+        "title": "Determinants of tridiagonal matrices over some commutative finite chain rings",
+        "trigger": "exact same unrestricted tridiagonal matrices; possible stronger all-rank coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1bb563e4-23d9-4d33-b8ee-cf82b2154cb8",
+  "value": {
+    "rationale": "The ladder is a canonical non-tree, noncycle, 2-connected family with unboundedly many cycles. All ordinary character degree counts for its class-two graphical groups were specifically motivated by Rossmann’s open enumeration question; a transfer of fixed dimension four over Z[q,z] evaluates every rank cell and thus every degree population in arbitrary ladder length and odd field size. This gives structural arithmetic data not contained in the previous determinant/nonsingularity census, and is not a routine substitution of a tree/cycle/amalgamation recurrence.",
+    "status": "PASS"
+  }
+}
