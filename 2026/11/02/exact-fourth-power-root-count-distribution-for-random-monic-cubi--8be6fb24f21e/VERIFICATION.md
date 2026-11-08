@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction
 
-Compile the included `verify.cpp` with `g++ -std=c++17 -O3 -Wall -Wextra verify.cpp -o verify` and run `./verify`. This performs all coefficient and root tests modulo \(3^4\), not sampled tests, and compares each polynomial to the exact extremizer condition. The output observed was:
+# Independent mathematical audit
 
-```
-VERIFY_OK p=3 cubics=531441 max=27 extremizers=81 classification=exact 0:201852 1:277749 3:32805 7:13122 9:972 10:4374 18:486 27:81
-VERIFY_OK witness_p=5 roots=75
-VERIFY_OK witness_p=7 roots=147
-VERIFY_OK witness_p=11 roots=363
-```
+## correctness
 
-Separately substituting \(p=3\) into the proved generating-function formula using exact rational arithmetic gives the same histogram and total mass one; the mean root count is one. Run `python3 verify_distribution.py` for a second, independent exact-rational generating-function check at seven primes, including the complete \(p=3\) histogram and mean-one identity. The code's exact search for \(p=3\) does not prove any statement for arbitrarily large primes. The general proof consists of the five reduction types, conditional discriminant and valuation arguments, and uniform coefficient-digit counting. No external or independent mathematical validation has been performed.
+PASS
+
+Five mod-p monic cubic factorization types count B0,B1,B3,B2,p. Simple roots lift uniquely mod p⁴. In the simple+double class, p² divides constant to enter quadratic H; its uniform mod-p discriminant gives 2p or 0 roots, with repeated branch next-digit 1/p giving p² roots. Triple branch requires p-adic divisibility of translated B,C, leaving uniform cubic G mod p and each G-root giving p² residues. These cases derive D_p,T_p and full PGF and 3p² extremizers. Independent exact rational PGF normalization/mean checks for p=3,5,7,11; separately enumerated all 531441 cubics mod 81, exact eight-bin histogram as stated and 81 maximizers. Enumeration p=3 is finite; proof handles all odd primes.
+
+## originality
+
+PASS
+
+Cheng-Gao-Rojas-Wan (2017/2019) Sections 2/4 and Thm 4.1 give per-polynomial p⁴ root-count algorithm and p²-scaled branch cases, but not the distribution over uniform coefficients. Caruso studies p-adic roots rather than ephemeral mod-p⁴ roots. Jain gives expected root number, a first moment, not PGF. The new fact is explicit full coefficient-averaged finite-ring cubic law.
+
+## value
+
+PASS
+
+Root counts over prime-power rings are natural arithmetic statistics, and the cubic at fourth prime-power level is the first genuinely multilevel double/triple-lifting situation; exact distribution, full support and rare 3p² maximum can serve as a sharp test and quantitative benchmark for root-lifting algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
