@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The congruence \(s\mid A,C\), the modular invertibility conditions, and the length-preserving identity \((n+1)A+nC=sB\) are checked algebraically. Normalizing the coefficient of \(B\) gives a bijection, including multiplicities, between unrestricted factorizations and the reduced two-coin solutions, which are enumerated exhaustively by coprimality. This proves the complete formula for all nonnegative targets, not merely for sufficiently large targets. An independent finite brute-force comparison of length multiplicities supports the proof but cannot replace it.
+## correctness
 
-**Originality — PASS, subject to bibliographic uncertainty.** The full generalized-star preprint of Yin, Mu and Komatsu (2024) studies Frobenius/genus-type invariants, not exact factorization-length multiplicities; the later star-number paper (2025) likewise treats \(p\)-Frobenius behavior. The primary general 2019 length-distribution study describes asymptotics and general length-preserving trades. It provides an important adjacent framework, but no identical closed subfamily formula was found in the material examined. Targeted literature and mathematical-record searches found no equivalent; this does not prove absence. The largest residual risk is that the result can be obtained from an uncited general gluing formula already published.
+PASS
 
-**Value — PASS.** A full multiset of factorization lengths, including each multiplicity at every semigroup element, is a standard and more refined invariant than genus, Frobenius number, or eventual delta-set structure. The formula supplies a direct exact algorithm without factorization enumeration, for an infinite arithmetic parameter subfamily. It gives a no-exception length spectrum and demonstrates that the delta-set gaps are uniformly \(2a\), with multiplicity variations controlled by two explicit inequalities. This is a naturally motivated closed classification, not an arbitrary finite slice.
+Under s=2n+1 dividing 3a+4, direct congruences give s|A,C, gcd(B,s)=1, gcd(A/s,C/s)=1. The identity (n+1)A+nC=sB preserves length and supplies an explicit bijection from each original factorization to a unique reduced y=r factorization plus a bounded nonnegative trade count. Coprime two-coin Diophantine solutions exactly enumerate x=x0+vj,z=z0−uj with 0<=j<=floor(z0/u), and allowable inverse trades count h_j. This proves no missed lengths/duplicates for every M>=0; v−u=2a gives all gaps and the M=suv witness makes delta={2a}. Independently compared 924 targets across four admissible (a,n) parameter sets against brute-force enumeration; not a proof in place of modular bijection.
 
-**Limitations and closest literature.** The divisibility subfamily may be amenable to generic gluing theory; that potential prior implication is expressly not ruled out by keyword search. The 2019 article was inspected via its substantial publicly indexed full-text presentation, but the downloadable PDF endpoint was unavailable. No result is claimed for parameters outside the divisibility condition. There has been no independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified originality of the all-element closed multiplicity profile in this arithmetic generalized-star subfamily, not of modular inverses, two-coin solutions or homogeneous trades. Yin–Mu–Komatsu 2024 studies the SAME triple but p-Frobenius largest numbers by representation count, not all individual elements’ factorization length distributions. Garcia–O’Neill–Yih 2019 gives the generic length-preserving-trade mechanism and asymptotic mode/mean/median, including counting factorizations at a fixed length in a proof; this is substantial relevant prior methodology, yet its published main theorems do not state the exact no-threshold star-family h_j. There remains a serious risk a broader gluing normal form yields the formula by short specialization.
+
+## value
+
+PASS
+
+Factorization length multisets and delta sets are standard invariants in numerical semigroup theory. The full exact M-dependent histogram with multiplicities is not the same as genus or Frobenius bounds; the nonempty infinite symmetric generalized-star subfamily is arithmetically motivated by s|A,C and a homogeneous relation. Exact no-threshold support and h_j may be used directly by researchers studying factorization statistics. Value is specialized and grounded in this exact invariant, not claimed as a new general gluing theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
