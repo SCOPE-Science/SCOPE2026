@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The coordinate injection constructs bounded linear reductions preserving weighted membership exactly. The Gaussian feature map has uniform squared-norm tail bounds and a weighted-difference identity equivalent to square summability. A continuous additive map from a product of real lines into a normed space factors through finitely many coordinates, preventing a homomorphic reduction. All universal quantifiers and topological domains are explicit in the proof.
+## correctness
 
-**Originality — PASS within accessible evidence.** Wang's recent high-complexity \(F_\sigma\) coset constructions do not cover the diagonal two-degree theorem. Ding's 2015/2017 Schauder equivalence-relation theorem establishes related Borel classifications on a different ambient product space; the statement available does not imply the present continuous restriction theorem, contractive linear comparisons, or homomorphism obstruction. published-finding corpus queries for weighted diagonal cosets, continuous benchmark reductions, and linear-vs-nonlinear reductions returned no covering claim. The uninspected full Ding text, and older Banach/descriptive-set-theoretic literature, remain concrete priority risks.
+PASS
 
-**Value — PASS.** The result identifies a complete natural tractable subclass of \(F_\sigma\) coset relations that cannot realize Wang's higher-complexity behavior, even under the stricter continuous reducibility relation. The contrast between contractive linear internal comparisons and necessarily nonlinear coding from the standard benchmark gives a nontrivial structural boundary.
+If a is bounded H_a=l2, one-class relation; if unbounded choose sparse coordinates with large weights so H_a is proper. For any two unbounded weights select injective σ with b_σ(n)>=a_n and Lx_σ(n)=sqrt(a_n/b_σ(n))x_n: contractive injective linear reduction with exact equality of weighted sums. The coordinate map T_a is continuous l2(norm)→R^N(product) and reduces E_a→E2. For E2→E_a, map each source coordinate t to Gaussian ψ_t(s)=exp(-(s-t)²/2) in L²(R), expand in ONB and put weighted, exponentially damped coordinates n(j,m). The weighted difference equals 2√π sum_j(1−exp(−(v_j−w_j)²/4)), equivalent to l2 difference; geometric tails guarantee product→Hilbert norm continuity. Any continuous additive homomorphism R^N(product)→l2 is finite-coordinate, hence cannot reduce E2. F_sigma follows finite partial sums. All quantifiers and topologies matter; no finite simulation replaces proof.
 
-The theorem assumes real weights at least \(1\), and only diagonal Hilbert subgroups. An inaccessible plausible source does not establish novelty; a historical-priority risk remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: compared exact mathematical statement and logical implication against the listed primary sources and semantically searched published Resultary records. Ding’s accessible stated conclusion is Borel rather than continuous on different ambient topologies. The Gaussian summability kernel and finite-coordinate obstruction are additional proof steps, so prior implication remains unverified and priority qualified. Failed search is not novelty proof; residual risks remain.
+
+## value
+
+PASS
+
+The continuous rather than merely Borel reducibility dichotomy is a natural descriptive-set-theoretic invariant of diagonal Hilbert cosets. The constructive contractive pairwise reductions and nonlinear-necessity boundary are meaningful topological refinements beyond an isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
