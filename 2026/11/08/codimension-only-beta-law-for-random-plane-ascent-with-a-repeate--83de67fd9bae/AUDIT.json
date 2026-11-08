@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Let e=||Qv||^2, w=Qv/sqrt(e), D=||Qx||^2 and c=<w,Qx>. The exact 2x2 orthogonal compression of Q is [[e,sqrt(e)c],[sqrt(e)c,D]], so the next error is its smaller eigenvalue and the normalized ratio equals 2(D-c^2)/(e+D+sqrt((D-e)^2+4ec^2)). A coupled Gaussian tangent representation yields R_e -> (Z_2^2+...+Z_m^2)/(Z_1^2+...+Z_m^2) almost surely. Independent chi-squares give Beta((m-1)/2,1/2). Since 0<=R_e<=1, bounded convergence supplies the stated moments. O(r)xO(m) invariance and e_next<=e prove conditional-kernel convergence and the fixed-k iid-product law by induction. Actual standalone verify.py executed with 1,851 successful exact matrix and numerical distribution checks; finite checks are corroboration and do not replace the analytic limit proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2410.08297: almost-sure convergence for a broader algorithm class does not give a sharp local multiplier distribution",
+        "https://arxiv.org/abs/2512.05520: multiplicity and global convergence discussions do not state the beta law or finite-horizon iid multipliers",
+        "https://arxiv.org/abs/2610.42071: the spectral-gap assumption is the strict ordering of the largest and second-largest eigenvalues"
+      ],
+      "reasoning": "Broader qualitative convergence or moment inequalities do not imply a unique explicit beta probability law and all finite-horizon product moments. The motivating positive-gap theorem cannot be specialized to repeated largest eigenvalues, as its gap becomes zero.",
+      "searches": [
+        "stochastic Rayleigh Ritz random plane repeated largest eigenvalue multiplicity convergence rate rank r 2026",
+        "arXiv:2410.08297 original global convergence",
+        "arXiv:2512.05520 multiplicity convergence section"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.42071",
+      "https://arxiv.org/abs/2410.08297",
+      "https://arxiv.org/abs/2512.05520",
+      "https://epubs.siam.org/doi/abs/10.1137/100784928"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2610.42071: expected convergence bound predicated on lambda_1>lambda_2, with example involving a one-dimensional top eigenspace",
+        "https://arxiv.org/abs/2512.05520: generalized Rayleigh quotient convergence and finite termination cases, not a beta-distributed local contraction with repeated top",
+        "https://arxiv.org/abs/2410.08297: original random-plane optimization construction and almost-sure convergence, without quantitative repeated-top one-step distribution in inspected sections"
+      ],
+      "reasoning": "The actual new theorem is a local law in the precise parameter case lambda_1=lambda_2 with r>=2. The main 2026 simple-top hypothesis excludes it, and the 2024 and 2025 papers establish weaker/different properties. Their results neither algebraically imply the explicit beta CDF nor its joint iid finite-step limit. The general elementary beta-ratio identity is acknowledged within the proof.",
+      "searches": [
+        "arXiv:2610.42071v1 Theorem 2.3 Example 2.4",
+        "arXiv:2512.05520 Sections 4 and 6",
+        "arXiv:2410.08297 convergence and construction sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2610.42071: two-level example assumes one top eigenvector and gives an expectation factor, not a repeated-top beta distribution",
+        "https://arxiv.org/abs/2410.08297: the underlying random-plane operator-norm iteration but no inspected repeated-top local beta multiplier"
+      ],
+      "reasoning": "The single-top-pole rank-one example and repeated-leading-eigenspace case are not equivalent by relabeling: the tangent dimension and error geometry change. General beta projection identities identify a chi-square law only after the exact Rayleigh-Ritz compression and its singular local limit are proved.",
+      "searches": [
+        "\"random plane\" \"eigenspace\" \"beta\" \"convergence\"",
+        "randomized plane eigenvector repeated top eigenspace local contraction beta distribution codimension",
+        "arXiv:2610.42071v1 Example 2.4 and Theorem 2.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical finding search returns adjacent sharp Rayleigh-residual filtering, stochastic subspace descent and projected eigenpair certification records, not a rank-r repeated-top beta multiplier or fixed-horizon product table.",
+        "No numerical database or published table matching the claimed explicit law was located."
+      ],
+      "reasoning": "A search with algorithms, eigenspace multiplicity, equivalent random-plane and beta-product terms did not identify an exact claim or a dominating table. Nonmatching database records are negative evidence of limited strength, not proof of historical novelty.",
+      "searches": [
+        "random-plane Rayleigh-Ritz ascent top eigenvalue multiplicity codimension local beta contraction limiting distribution",
+        "exact beta product distribution rank-one spiked Rayleigh Ritz random plane stochastic convergence Lyapunov CLT hitting time",
+        "stochastic Rayleigh Ritz random plane eigenvector iteration exact expected improvement sharp low dimensional"
+      ]
+    },
+    "rationale": "Bresch-Melnyk 2026 proves expectation bounds with a simple top eigenvalue and explicitly treats a rank-one top subspace; this statement instead requires top multiplicity at least two, a complete local beta multiplier law and finite-horizon products. Full relevant sections of that paper and two closely related original papers were inspected and their stated results do not imply this claim. Source-aware searches found only adjacent convergence, filtering, and random-projection results; equivalent unindexed probability identities remain a priority risk.",
+    "residual_risks": [
+      "Historical equivalent distribution calculations could be embedded in unrelated random-projection or stochastic subspace literature.",
+      "The result only treats the real, two-level, exact-arithmetic local model; it does not extend the 2026 paper’s global guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The simple-largest-eigenvalue assumption and one-dimensional top example do not cover the repeated-top beta law.",
+        "evidence": [
+          "Theorem 2.3 assumes a positive gap between the largest and second largest eigenvalues.",
+          "Example 2.4 gives a rank-one top eigenspace expectation bound; the present top multiplicity is at least two."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.42071",
+        "material_read": "Full-text PDF: algorithm and probability model, main convergence theorem, two-level example, numerical experiment discussion and conclusion.",
+        "method": "Primary PDF textual examination with page-image inspection",
+        "title": "Stochastic Rayleigh–Ritz Ascent: Global Linear Convergence under a Spectral Gap",
+        "trigger": "Exact algorithm and closest source convergence theorem"
+      },
+      {
+        "assessment": "Provides foundational algorithm and broad qualitative convergence; no exact repeated-top beta law in inspected material.",
+        "evidence": [
+          "Algorithm uses uniform random tangent planes and exact ascent.",
+          "Its convergence statements are qualitative and do not determine the conditional local multiplier CDF."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.08297",
+        "material_read": "Primary PDF algorithm setup, convergence analysis and eigenvalue-multiplicity discussion.",
+        "method": "Primary PDF textual examination with first-page image inspection",
+        "title": "Matrix-free stochastic calculation of operator norms without using adjoints",
+        "trigger": "Original construction and its convergence results"
+      },
+      {
+        "assessment": "Generalized eigenvector procedure and finite termination do not imply the explicit repeated-top beta law.",
+        "evidence": [
+          "The examined material treats generalized quotient ascent and eigenvalue multiplicity.",
+          "No exact local conditional beta distribution or fixed-step iid product law was stated there."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2512.05520",
+        "material_read": "Primary HTML: multiplicity cases, generalized iteration and convergence section.",
+        "method": "Full-text HTML sections examined",
+        "title": "Stochastic Zeroth-Order Method for Computing Generalized Rayleigh Quotients",
+        "trigger": "Potential stronger coverage of multiple leading eigenvalues"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "83de67fd-9bae-4f28-9c1e-c5acc43c431b",
+  "value": {
+    "rationale": "Repeated largest eigenvalues are a natural degenerate spectral regime explicitly excluded by the motivating simple-top spectral-gap rate theorem. The exact beta distribution yields an entire local one-step reliability CDF, all positive moments, and fixed-horizon product behavior, with a surprising dependence only on the dimension of the complement. This is an exact useful classification and benchmark rather than a routine restatement of simple-eigenvalue convergence or a single numerical test.",
+    "status": "PASS"
+  }
+}

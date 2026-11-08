@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact maximization over an orthonormal two-plane gives the smaller eigenvalue of an explicit symmetric \(2\times2\) compression of the bottom-eigenspace projector. Rationalization avoids a singular zero-error substitution. An invariant Gaussian coupling produces a chi-square ratio, proving the beta weak limit and all bounded nonnegative moments. The conditional error kernel depends only on the current scalar error and converges uniformly near zero, yielding finite-horizon independent products by induction. `verify.py` reproduces the exact spectral relation and 1,851 numerical and formula checks. It does not certify the infinite-dimensional or infinite-time generalization, neither of which is claimed.
+
+**Originality — PASS, with priority risk.** The primary October 30, 2026 source establishes an expected rate with a simple leading eigenvalue and works out a rank-one top-eigenspace two-level example. The present repeated-top case, exact beta multiplier distribution, and joint finite-horizon product law are not consequences of that simple-eigenvalue bound. The two earlier inspected original works address the underlying algorithm and eigenspace multiplicity without deriving the stated distributional classification. Semantic searches of mathematical records found related spectral filtering, random subspace descent and eigenvalue certification, but not this claim. Unindexed equivalent Gaussian-projection calculations remain possible; the search does not prove mathematical priority.
+
+**Value — PASS.** In a natural exactly solvable spectral clustering problem, the largest eigenvalue is degenerate, so a standard positive-gap rate bound cannot describe the algorithm. This theorem gives a full one-step reliability distribution and all fixed-horizon error moments, with a sharp codimension-only factor. It distinguishes eigenspace dimension effects from the ambient dimension and supplies a precise numerical benchmark.
+
+**Scope and risks.** The model is real, two-level, and exact-arithmetic; the result is local and for fixed horizons. No global rate, complex analogue, or eigenvalue-cluster perturbation law is asserted. Historical-priority uncertainty is separate from mathematical correctness.
+
+Self-review: passed. Independent audit: not yet performed.
