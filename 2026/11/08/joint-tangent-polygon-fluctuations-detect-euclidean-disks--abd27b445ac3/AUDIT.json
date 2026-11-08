@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For C4 strictly convex positive-curvature-radius support functions and homogeneous Poisson normal angles, the exact tangent-leg identity gives area coefficient r²/24 and perimeter coefficient r/12 per cubic angular gap. Exact one- and two-point Palm identities for the cubic-gap functional give mean 6 lambda^-2 integral w and asymptotic cross-covariance 504 lambda^-5 integral wv (diagonal contribution 720 and two near-neighbor contributions -108 each). Truncation into independent Poisson blocks yields a Cramer–Wold Gaussian limit with negligible gap and geometric errors, and L2 error yields moment covariance convergence. Cauchy–Schwarz gives the determinant and its equality case; constant curvature radius solves h+h''=R and hence characterizes translated disks. Standard-library checker reconstructs genuine tangent polygons for circle and perturbed circle, verifies exact circle area–perimeter dependence and approximate covariance scaling. Finite simulations are corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bakó-Szabó–Fodor (2024), introduction, Theorems 1.4–1.5 and Section 3: variance bounds/strong law for mean width of circumscribed random halfspace intersections.",
+        "Hug–Schneider (2019), sections 1–4: hitting functional, mean width and facet number for stationary Poisson hyperplane processes."
+      ],
+      "reasoning": "The random offset dimension changes the approximation scale, and neither work supplies a joint CLT for area and perimeter in the tangent-only angular Poisson model. Existing general CLT principles explain a proof strategy but not the exact coefficient matrix or disk-characterization conclusion.",
+      "searches": [
+        "Convex geometric random halfplanes planar disk perimeter sharp fluctuation variance limit",
+        "Random tangent-line approximations of convex curve area perimeter joint asymptotic fluctuation matrix curvature integral and renewal reward",
+        "doi:10.1112/mtk.12266",
+        "arxiv:1908.09498"
+      ]
+    },
+    "checked_sources": [
+      "Bakó-Szabó–Fodor, Mathematika 70 (2024), DOI 10.1112/mtk.12266; public full article HTML",
+      "Hug–Schneider, arXiv:1908.09498v1, full HTML",
+      "Calka–Demichel–Enriquez, Annales Henri Lebesgue 4 (2021), DOI 10.5802/ahl.86, article page and abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Random-offset halfspaces: Bakó-Szabó–Fodor prove asymptotic mean-width variance upper bounds, not an exact two-observable tangent-normal covariance.",
+        "Stationary Poisson hyperplanes: Hug–Schneider obtain mean-width/hitting functional approximation rates and facet-number results.",
+        "Poisson–Voronoi approximation: Calka–Demichel–Enriquez use Voronoi cells, with tangency not imposed."
+      ],
+      "reasoning": "None of the compared theorems implies the specific matrix for exact tangent-normal angular Poisson sampling; the determinant-rigidity inference also requires the derived cross-covariance and is not a consequence of marginal limits. A direct relevant weighted-spacing theorem could still supersede the calculation and is recorded as residual risk.",
+      "searches": [
+        "Poisson sampled support tangent normals to smooth strictly convex planar body asymptotic bivariate Gaussian area perimeter deficits covariance 7/8 integral curvature-radius fourth power 7/4 third power 7/2 second power; singular covariance characterizes disks",
+        "Random tangent-line approximations of convex curve area perimeter joint asymptotic fluctuation matrix curvature integral and renewal reward",
+        "doi:10.1112/mtk.12266",
+        "arxiv:1908.09498",
+        "doi:10.5802/ahl.86"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Two exact-tangent observables have an asymptotic covariance 504 times a weighted radius product integral before geometric normalization.",
+        "Hug–Schneider (2019), introduction and Theorem 1: stationarity entails integration over hyperplane offsets rather than support-only tangent lines."
+      ],
+      "reasoning": "In polarity language, tangential-normal sampling would correspond to a singular boundary-supported distribution, not the positive offset densities of the inspected random-halfspace theorems. Neither finite-n iid sampling nor stationary spatial Poisson sampling is equivalent to Poisson angular support sampling.",
+      "searches": [
+        "Uniform random tangent lines to unit disk circumscribed polygon perimeter area variance central limit theorem exact asymptotic constants Dirichlet spacings and conditioning on boundedness",
+        "Random circumscribed polygon of unit circle iid uniform tangent directions exact joint variance area and perimeter asymptotic gamma distribution",
+        "Poisson sampled support tangent normals to smooth strictly convex planar body asymptotic bivariate Gaussian area perimeter deficits covariance 7/8 integral curvature-radius fourth power 7/4 third power 7/2 second power; singular covariance characterizes disks",
+        "Poisson random tangent normal angular spacings smooth convex curve CLT Gaussian fluctuations perimeter area excess covariance 504 integral curvature radius and disk rigidity rank one",
+        "arxiv:1908.09498",
+        "doi:10.1112/mtk.12266"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned related circumscribed and inscribed polygon results, but no indexed exact entry for the covariance matrix with weights r⁴,r³,r² or the determinant.",
+        "Accessible earlier results concern zonogons, boundary-sampled polygons, box sections, projections, and different random geometric observables."
+      ],
+      "reasoning": "The claimed quantity is a continuum-weighted covariance functional, not a finite tabulated combinatorial object. Search absence alone does not establish priority; specific indexed matches have different randomization and observables.",
+      "searches": [
+        "Uniform random tangent lines to unit disk circumscribed polygon perimeter area variance central limit theorem exact asymptotic constants Dirichlet spacings and conditioning on boundedness",
+        "Random circumscribed polygon of unit circle iid uniform tangent directions exact joint variance area and perimeter asymptotic gamma distribution",
+        "Random circumscribed polygon Poisson angular normals elliptical body covariance rank criterion circle",
+        "Poisson random tangent normal angular spacings smooth convex curve CLT Gaussian fluctuations perimeter area excess covariance 504 integral curvature radius and disk rigidity rank one"
+      ]
+    },
+    "rationale": "The new theorem concerns exact supporting tangent halfplanes whose normal angles form a homogeneous Poisson point process; it gives a full joint area/perimeter fluctuation covariance, sharp constants, and disk-rigidity determinant. The closest inspected papers concern randomly offset halfspaces or stationary spatial Poisson hyperplanes, with different sampling geometry and variance/mean-width results. Published circular-gap geometry and general stochastic-geometry CLTs do not by themselves imply the specific geometric joint covariance or rigidity statement. Earlier equivalent weighted spacing theorems remain a plausible historical-priority risk.",
+    "residual_risks": [
+      "An equivalent random-spacing/renewal-reward theorem with the same weighted covariance may exist under another title or terminology.",
+      "The Poisson–Voronoi article was not exhaustively read, although its object differs.",
+      "No independent proof review or historical-priority certification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different random-offset hyperplane model, and mean-width variance upper bounds rather than joint exact tangent-normal area/perimeter limit.",
+        "evidence": [
+          "First published 17 July 2024; Theorem 1.4 upper variance bound and Theorem 1.5 strong law for their model."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/mtk.12266",
+        "material_read": "Introduction, model definition, main theorems 1.4 and 1.5, and Section 3 on mean-width variance of circumscribed polyhedral sets.",
+        "method": "Open-access publisher HTML full scientific text.",
+        "title": "On the variance of the mean width of random polytopes circumscribed around a convex body",
+        "trigger": "Title explicitly addresses random circumscribed polytope variance."
+      },
+      {
+        "assessment": "Stationary hyperplane process integrates over spatial offsets; its observables and theorems do not give a support-only tangent-normal joint covariance.",
+        "evidence": [
+          "First submitted 26 Aug 2019; Theorem 1 mean-width rate and Sections 2–4 distinguish the construction."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1908.09498v1",
+        "material_read": "Complete article HTML with introduction, hitting functional, mean-width difference and facet-number sections; theorems and model assumptions.",
+        "method": "arXiv HTML full text.",
+        "title": "Poisson hyperplane processes and approximation of convex bodies",
+        "trigger": "Explicit Poisson hyperplane model and approximation geometry."
+      },
+      {
+        "assessment": "Related Poisson–Voronoi model is not exact tangent-angular halfplane sampling; absence of an equivalent deep corollary has not been established from the limited inspection.",
+        "evidence": [
+          "Planar Poisson–Voronoi cells enclosing a prescribed convex body, unlike boundary-tangent sampling."
+        ],
+        "identifier_or_url": "https://doi.org/10.5802/ahl.86",
+        "material_read": "Article abstract, model description, and bibliographical context on article page; full text not exhaustively inspected.",
+        "method": "Publisher article-page inspection.",
+        "title": "Large planar Poisson–Voronoi cells containing a given convex body",
+        "trigger": "Potential planar circumscribed random-cell analog."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "abd27b44-5ac3-48c6-8141-b1ef73f7cc6d",
+  "value": {
+    "rationale": "The two most natural approximation errors for a circumscribed polygon—area and perimeter—exhibit a sharp new joint fluctuation matrix whose singularity is equivalent to a disk. This creates a probabilistic shape test not available from either separate marginal Gaussian law and quantifies when the scalar proportionality seen for circles breaks for all smooth noncircles. The exact Poisson-only constants and model restrictions are substantive, not arbitrary numerical extensions.",
+    "status": "PASS"
+  }
+}
