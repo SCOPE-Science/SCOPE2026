@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The proof defines period spans for each letter in an arbitrary run subsequence. At each descent in letter order, a new source period is compulsory; telescoping yields sum(v_i-1)+d <= k-1. Multiplying spans by the positive template weights gives the exact upper bound. Its equality conditions force use of all q letters in natural order, full physical letter runs and extra periods only for heaviest letters, then weak-composition counting. Constructive embeddings attain all and only these labels. Independent small-input DP and exhaustive string-language enumeration passed 1440 and 84 configurations, with 3986 replayed optimum labels; finite tests are supporting checks rather than universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schrinner et al., WABI 2020, sections 2 and 4, gives ILP and dynamic-programming optimization for arbitrary finite strings, and its result logically applies to each template power as an input.",
+        "Dondi–Sikora (arXiv:2011.08119), introduction and sections 2–5, gives FPT algorithms and hardness, not an optimal-language enumerator.",
+        "Asahiro et al. WABI 2025 studies approximation and complementary deletions, not exact optimum labels in this subclass."
+      ],
+      "reasoning": "The generic exact algorithm is broader in input scope but delivers a computed instance optimum rather than a closed formula, equality rigidity, and exact enumeration for all parameters. No inspected theorem states a stronger structural classification from which the present three-part claim follows as a direct corollary.",
+      "searches": [
+        "published-finding corpus: Longest Run Subsequence problem permutation power repeated distinct letters at most one run per symbol NP hard tractable cases",
+        "web: \"The Longest Run Subsequence Problem\" WABI 2020",
+        "web: \"The Longest Run Subsequence Problem: Further Complexity Results\" 2020",
+        "web: \"Approximability of Longest Run Subsequence and Complementary Minimization Problems\""
+      ]
+    },
+    "checked_sources": [
+      "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.WABI.2020.6",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol172-wabi2020/LIPIcs.WABI.2020.6/LIPIcs.WABI.2020.6.pdf",
+      "https://arxiv.org/abs/2011.08119",
+      "https://arxiv.org/html/2011.08119v2",
+      "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CPM.2023.2",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol344-wabi2025/html/LIPIcs.WABI.2025.3/LIPIcs.WABI.2025.3.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General LRS algorithms are applicable but require solving each expanded input. The new proof forces every optimal output to contain all q letters in template order with full period spans, assigning extra copies only to maximum-weight symbols.",
+        "Dondi–Sikora prove APX-hardness even with two input occurrences per symbol and related FPT properties, not the equality-rigidity conclusion.",
+        "2025 work establishes approximation bounds under occurrence constraints, logically weaker than an exact multiplicity classification here."
+      ],
+      "reasoning": "The essential new implication is a period-span inequality with an equality characterization, producing a complete optimizer language and a binomial count for arbitrarily large k and q. This is not a renaming of generic exact optimization, nor a direct consequence of an approximation guarantee. Bibliographic equivalence remains a finite-search risk.",
+      "searches": [
+        "full text: https://drops.dagstuhl.de/storage/00lipics/lipics-vol172-wabi2020/LIPIcs.WABI.2020.6/LIPIcs.WABI.2020.6.pdf",
+        "full text: https://arxiv.org/html/2011.08119v2",
+        "full text: https://drops.dagstuhl.de/storage/00lipics/lipics-vol344-wabi2025/html/LIPIcs.WABI.2025.3/LIPIcs.WABI.2025.3.html"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No directly matching published-result hit; published-finding corpus top hits concerned distinct subsequence universality and automaton rank profiles, not maximum one-run-per-letter subsequences.",
+        "No accessible previously published claim in the checked collection contains a formula for longest run subsequences of weighted permutation powers.",
+        "Schrinner et al. (2020), DOI 10.4230/LIPIcs.WABI.2020.6, defines precisely this optimization problem and presents general-purpose methods, but no weighted permutation-power optimal-language classification in inspected sections."
+      ],
+      "reasoning": "Aliases include longest run subsequence (LRS), maximum one-block-per-symbol subsequence, one run per letter, powers of run-length encoded permutations, weighted permutation power. This claim differs from ordinary LCS, ordinary repeated subsequence and scattered universality. None of the inspected candidate statements gives the same universal value plus set of all distinct optimal outputs.",
+      "searches": [
+        "published-finding corpus: Longest Run Subsequence of periodic words repeated permutations with weighted letter runs one contiguous block per symbol exact length sum weights plus k-1 times maximum weight",
+        "published-finding corpus: Longest Run Subsequence problem permutation power repeated distinct letters at most one run per symbol NP hard tractable cases",
+        "web: \"longest run subsequence\" periodic permutation power exact optimal",
+        "web: \"longest run subsequence\" \"closed form\" repeated",
+        "accessible-claim comparison: longest run subsequence; at most one run per symbol; run-subsequence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest published-finding corpus hits comprise other exact invariants, with no matching LRS value or multiplicity table.",
+        "The 2020 WABI paper reports solver experiments on random and genomic-derived inputs; it does not tabulate weighted permutation-power optimal strings.",
+        "Earlier published claims in the checked collection were filtered for direct LRS terminology and mathematical object; no direct overlap was found."
+      ],
+      "reasoning": "No database entry or known tabulation of the asserted all-parameter optimum and stars-and-bars multiplicity was located. These negative retrieval results are limited evidence, not proof of novelty.",
+      "searches": [
+        "published-finding corpus: Longest run subsequence repeated block string (a^a b^b c^c)^k",
+        "web: \"longest run subsequence\" \"periodic\" \"max\" repeated",
+        "web: \"longest run subsequence\" periodic strings exact"
+      ]
+    },
+    "rationale": "The two original full-text LRS sources establish NP-hardness, general exact algorithms, parameterized and approximation complexity, but not a uniform exact optimal-label classification for repeated positive weighted permutation templates. The inspected approximation developments also do not state this result. Search and accessible historical-claim comparisons found no implication-equivalent assertion. General exact algorithms can solve individual instances and do not, without mathematical specialization, imply the closed optimum and multiplicity classification. Remaining risk: uncatalogued earlier special-family result.",
+    "residual_risks": [
+      "An uncatalogued equivalent classification or a brief implicit observation in other primary literature might exist.",
+      "The 2023 approximation paper was assessed from publisher abstract and metadata rather than all pages; stronger exact special-family coverage was not suggested by its stated aims.",
+      "General exact algorithms already compute every fixed instance, so the originality claim is specifically the all-parameter closed forms and equality classification, not polynomial-time solvability of the subclass."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact weighted permutation-power optimizer-language classification; general algorithms apply instance by instance.",
+        "evidence": [
+          "DOI 10.4230/LIPIcs.WABI.2020.6, pages 4 and 8 give the general LRS definition and ILP/DP; page 10 reports synthetic experiments, not closed forms for weighted repeated permutations."
+        ],
+        "identifier_or_url": "doi:10.4230/LIPIcs.WABI.2020.6",
+        "material_read": "Abstract, introduction, problem formulation, reduction rules, ILP/DP setup and experiments, using the publisher full-text PDF and page screenshots.",
+        "method": "Full-text PDF textual inspection and screenshots of pages 4, 6 and 10 (one-indexed).",
+        "title": "The Longest Run Subsequence Problem",
+        "trigger": "Foundational definition and potentially dominant general exact algorithms"
+      },
+      {
+        "assessment": "NOT_COVERING: proves parameterized complexity and hardness; no optimizer label classification for repeated weighted permutation templates.",
+        "evidence": [
+          "https://arxiv.org/html/2011.08119v2, sections 2, 3, 5 and 6; no periodic or power mentions in indexed full text."
+        ],
+        "identifier_or_url": "arxiv:2011.08119",
+        "material_read": "Full-text HTML problem definitions, FPT construction, bounded-occurrence hardness and conclusion; inspected sections 1–3, 5–6.",
+        "method": "arXiv open-access full-text HTML; searched within text for periodic and power.",
+        "title": "The Longest Run Subsequence Problem: Further Complexity Results",
+        "trigger": "Later theoretical LRS study could imply special-case optimum"
+      },
+      {
+        "assessment": "No direct exact optimizer-language result visible; inspection is abstract-limited.",
+        "evidence": [
+          "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CPM.2023.2, abstract: bounded-occurrence approximation ratios."
+        ],
+        "identifier_or_url": "doi:10.4230/LIPIcs.CPM.2023.2",
+        "material_read": "Publisher article metadata and abstract, including precise approximation statements; full PDF not examined.",
+        "method": "Publisher abstract and bibliographic metadata.",
+        "title": "Approximation Algorithms for the Longest Run Subsequence Problem",
+        "trigger": "Potential stronger algorithms with bounded occurrence input"
+      },
+      {
+        "assessment": "NOT_COVERING: bounded-occurrence approximation and deletion, no matching period-power all-optima theorem in checked material.",
+        "evidence": [
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol344-wabi2025/html/LIPIcs.WABI.2025.3/LIPIcs.WABI.2025.3.html, sections 1–2 and search."
+        ],
+        "identifier_or_url": "doi:10.4230/LIPIcs.WABI.2025.3",
+        "material_read": "Open publisher HTML introduction, problem definition, approximation theorems, algorithm development, and targeted full-text search for periodic/power/permutation.",
+        "method": "Publisher open-access HTML reading and keyword search.",
+        "title": "Approximability of Longest Run Subsequence and Complementary Minimization Problems",
+        "trigger": "Later broader approximation treatment might subsume an exact subclass"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f8851dd8-7d7f-484a-9fc0-6fe4e8f8f384",
+  "value": {
+    "rationale": "Longest run subsequence is generally NP-hard and motivated by contig-scaffolding reconstruction. The result classifies every optimal string in the natural unbounded family of repeated weighted distinct-letter motifs; the optimum depends only on total motif length and maximum run, and the entire multiplicity depends only on the number of ties for that maximum. This is a natural complete exact classification and a substantive structural rigidity theorem, not a single fixed computation or parameter substitution.",
+    "status": "PASS"
+  }
+}
