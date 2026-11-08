@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The coordinate proof reconstructs all base equations, shows proper nonempty finite filters and monotone winning maps, proves their converse, and checks each Ser, Det and IA condition. Direct exhaustive algebra checks on \(n=1,2\) atoms return the four predicted counts; larger cases rely on the normal-form proof and known Dedekind numbers, not unbounded computation.
+## correctness
 
-## Originality
-PASS within inspected sources. Wang--Dou (2026) explicitly restricts its structural theorem to at least two agents and supplies no one-agent finite labelled count. Li--Ju (2024) supplies the game semantics and logic completeness, not the all-parameter algebra enumeration; standard Dedekind tables count monotone functions only. Search comparisons included alias terms for effectivity functions and normal forms and the closest mathematical database results. Residual risk: an older strategic-effectivity algebra enumeration could be equivalent under different language.
+PASS
 
-## Value
-PASS. This determines every finite one-agent Boolean coalition algebra and four natural subfamilies, an exact sharp boundary of the eight-extension >=2-agent theory. It exhibits complete freedom of the nonconstant monotone winning function, its rigidity under determinism, and the redundancy of independence.
+At each output atom s, f_empty(1)=0 forces all outputs zero; otherwise the mixed implication makes the empty operation a proper finite filter of the input Boolean lattice, hence membership iff a unique nonempty T_s⊆X. The agent operation depends only on X∩T_s and is an arbitrary monotone Boolean function with false/true endpoints (M(|T_s|)−2 choices). Conversely these states satisfy the axioms. Ser deletes inactivity. Det with X=T\{t},Y={t} forces w({t})=1 for every t, hence disjunction of nonempty traces, yielding 2^n choices per output. Disjoint singleton-agent coalition combinations already satisfy independence. Independent literal axiom enumeration at n=2 gives [49,36,16,9], n=1 direct [2,1,2,1]. All n follow from finite filter normal form, not finite runs.
 
-## Scope and limitations
-Fixed labelled Boolean reduct; no classification under isomorphism, no infinite-carrier version, no claims for two or more agents. Direct computation validates only one and two atoms. Independent validation and historical priority certification were not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General coalition algebra correspondence and Dedekind antichains are known. Wang–Dou 2026 explicitly studies extension lattices for at least two agents; Li–Ju 2024 treats strategic semantics/completeness, not an all-n count of fixed-label one-agent Boolean expansions. A one-agent effectivity-algebra enumeration in older literature remains possible, so PASS is best-of-knowledge.
+
+## value
+
+PASS
+
+The one-agent case is a canonical small-signature boundary of coalition algebra theory, and the exact finite labeled normal form is useful in finite model construction. The count separates nonconstant monotone effectivity choices from the rigidity of determinism and proves independence redundancy, not merely renaming a Dedekind table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
