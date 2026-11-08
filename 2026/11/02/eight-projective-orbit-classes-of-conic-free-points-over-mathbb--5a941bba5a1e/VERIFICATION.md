@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Reproducible finite checks
-Run `python3 verify_f64_conics.py` (Python 3 standard library). It must print `F64_QUADRATIC_ORBIT_CENSUS_PASS`. Every field element is a 6-bit polynomial modulo `0b1000011`. It proves the modulus irreducible via binary polynomial Frobenius and gcd tests; verifies all nonzero elements are invertible; enumerates each of 4096 affine points; cross-checks rank six against direct evaluation of all 63 binary conics; enumerates each of 512 candidate binary projective matrices, retaining 168 invertible ones; classifies all 1344 conic-free points into eight disjoint 168-element orbits; computes the exact Frobenius permutation and its cycle lengths. The witness is additionally verified symbolically in RESULT.md.
+# Independent mathematical audit
 
-## Limits
-These are exhaustive finite computations over a specific field, not a proof for other fields or degrees. No independent external audit or certification is represented here.
+## correctness
+
+PASS
+
+Projective points with first coordinate zero lie on the nonzero F2-conic X0X1. Affine conic-freeness is exactly F2-linear independence of (1,a,b,a²,ab,b²). Independent six-bit finite-field enumeration of all 4096 affine pairs reproduced rank spectrum (4,12,384,2352,1344) at ranks (1,2,3,5,6), 168 invertible F2 matrices, eight 168-element orbits and Frobenius permutation [5,6,3,7,1,0,2,4]. The witness [1:t:t^4] yields a basis after t^8=t^3+t². This is exhaustive for the finite stated domain; no extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge original in the precise final scope: compared the theorem against the stated prior implications, including overlapping prerequisites and potentially broader aliases. Inaccessible primary material is expressly preserved as a residual priority risk, not treated as proof of noncoverage.
+
+## value
+
+PASS
+
+A complete finite geometric/arithmetic census of the first excluded binary plane-quadratic case supplies both an explicit independent-conditions witness and orbit classification, relevant to Galois-orbit interpolation and finite projective geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
