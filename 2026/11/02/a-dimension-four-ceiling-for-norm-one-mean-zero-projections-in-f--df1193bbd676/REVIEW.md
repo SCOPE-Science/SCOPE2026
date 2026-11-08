@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the real finite weighted Lorentz norm with nonnegative decreasing weights and a positive first weight, averaging coordinate permutations makes the centering map the least-norm projection onto the zero-sum hyperplane. A signed-indicator layer-cake argument gives the exact global projection norm. The independent derivative criterion on generic centered vectors is necessary and sufficient by convexity and density. Feasible strict sign patterns are characterized by a negative signed prefix, leading to the dimension-two, dimension-three, dimension-four and higher-dimensional conditions in the theorem. The supplied rational checker verifies 780 finite weight profiles, but the unrestricted claim depends on the analytic proof, not enumeration.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+Every projection onto ker(sum) is I-sigma(.)v with sum v=1. Averaging coordinate permutations makes the centering P=I-J/n norm-minimal. Decreasing-magnitude layer cake represents each x as nonnegative linear combination of signed support indicators, giving exact finite max P-norm/W_k. Norm one is equivalent to t=0 minimizing N_w(y+t1) for each y with sum zero. For generic y the derivative vanishes iff all feasible sorted sign words have weighted sum zero. Positive gap variables show feasibility iff a prefix signed sum is negative. Enumerating feasible words yields the n=2,3,4 equalities; for n>=5 comparing all continuations of (+,-,-) forces tail weights zero, and (+,+,-,-,-,...) contradicts w1>0 with monotonicity. Independently enumerated signed supports and exact integer weight families for n=2..6 support this. Finite test does not prove n>6.
 
-The 2018 Ciesielski–Lewicki article gives a general one-complementation/existence-set implication in Lorentz sequence spaces, rather than this finite-weight classification of the specific coordinate-sum-zero hyperplane. The 2021 paper treats general existence/contractive sets; nearby established projection results for other norms and metric free spaces do not imply this parameter classification. The 2009 Kamińska–Lee–Lewicki paper is particularly relevant, but its full text could not be accessed despite an open-copy search and an attempted institutional source; its abstract alone cannot settle whether an equivalent result appears there. Novelty is therefore a qualified self-review, not a claim of exhaustiveness or independent priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result fully resolves a natural classical question about one-complemented symmetric hyperplanes in finite Lorentz geometry, including a sharp dimension cutoff and a singular boundary that disappears under strictly positive weights. It also gives a reproducible exact formula for every allowable weight profile, not only a qualitative existence statement. The cutoff is not a mere change of notation or a fixed numerical example.
+General one-complementation and existence-set theory for Lorentz spaces appears in Kamińska–Lee–Lewicki (2009), and Ciesielski–Lewicki (2018, 2021). The 2018 original Theorem 6.2 is a statement that every existence set is one-complemented in an infinite Lorentz sequence-space class, not an explicit zero-sum hyperplane test or dimension cutoff. The 2009 closest paper full text remains inaccessible even through the authorized institutional route; its abstract does not establish the exact finite theorem. Best-knowledge PASS with a substantial outstanding priority risk, not a claim that the source was excluded.
 
-## Boundaries
+## value
 
-The assertion uses nonincreasing nonnegative weights, finite dimension, real scalars and the sum-zero hyperplane. The existence/one-complementation prior theory is acknowledged without re-claiming it. Inaccessible full-text prior art and the absence of external audit are genuine limits.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural symmetric hyperplane projection constant for weighted rearrangement norms. An exact all-n signed-support maximum and sharp dimension-four cutoff are structurally useful, not arbitrary small-size enumeration; zero tail weights and full real-weight quantification matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
