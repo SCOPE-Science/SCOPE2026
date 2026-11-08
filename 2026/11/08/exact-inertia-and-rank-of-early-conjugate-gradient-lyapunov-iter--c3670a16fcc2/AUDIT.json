@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For r active eigenspaces of SPD A and F=bb^T, at least 2r-1 distinct active Lyapunov eigenvalue sums prevent early breakdown. The exact CG solution polynomial has degree k-1 with leading coefficient (-1)^(k-1) product_{j=1}^k alpha_j, alpha_j>0. Its sum kernel has Vandermonde factorization with invertible antitriangular core C and determinant (-1)^{d(d+1)/2} c_d^{d+1} product binom(d,j); deformation to the antidiagonal determines inertia independently of lower coefficients. Congruences yield exactly (ceil(k/2),floor(k/2),n-k) for all k<=r. Exact X* is PSD with rank r by the exponential-integral Gram representation. The included rational CG, characteristic-root, determinant and polynomial-kernel checks passed (68 groups). The proof, not finite tests, covers all quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lungová–Plešinger 2026: Theorem 2 and Corollaries 1/2 give rank upper bounds, without lower bound/signature.",
+        "Kressner–Lund–Massei–Palitta 2021: positive semidefinite projected SKSM and potentially indefinite restarted corrections, not universal unpreconditioned CG inertia.",
+        "Sun–Liu 2020: cone-constrained optimization algorithms, not the unconstrained recurrence.",
+        "Hochbruck–Starke 1995 abstract: nonsymmetric Kronecker sum systems, preconditioned QMR, symmetry of iterates; full text not accessible."
+      ],
+      "reasoning": "The generic Krylov space rank upper bound cannot force a lower rank or inertial split; PSD projection results apply to different algorithms. The older preconditioned QMR article remains an unresolved historical full-text risk, but the available material does not establish a stronger covering result for this exact recurrence.",
+      "searches": [
+        "rank growth iterands conjugate gradient Lyapunov equation rank one right hand side exact lower bound rank X_k min(k,spectral support)",
+        "positive semidefinite Gramian matrix equation rank-one matrix CG iterates spectral inertia compare projection Krylov solution",
+        "\"conjugate gradient\" \"Lyapunov equation\" \"positive semidefinite\" iterate",
+        "\"Preconditioned Krylov Subspace Methods for Lyapunov Matrix Equations\" Hochbruck Starke 1995 pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.39308",
+      "https://arxiv.org/abs/2609.39308",
+      "https://doi.org/10.1002/nla.2339",
+      "https://doi.org/10.1155/2020/6968402",
+      "https://doi.org/10.1137/S0895479892239238"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Corollary 1 of the source gives rank(X_k)<=dim K_k(A,b), not the equality; Corollary 2 gives the upper cap r.",
+        "2021 projected SKSM preserves PSD for negative definite A, while restarted corrections can be indefinite; neither quantifies CG inertia.",
+        "The new polynomial sum-kernel core has anti-triangular nonzero determinant and alternating inertia, which are not implied by an upper bound."
+      ],
+      "reasoning": "An upper rank bound and a possible indefiniteness statement allow zeros and different negative indices, whereas this claim forces exactly k nonzero eigenvalues and floor(k/2) negative ones for all admissible data. The implication goes strictly beyond what the inspected statements assert.",
+      "searches": [
+        "matrix conjugate gradient Lyapunov AX+XA^T=bb^T exact rank solution iterate k rank equals k until Krylov active eigenvalues; polynomial of spectral sums and anti-triangular Vandermonde",
+        "Lyapunov matrix conjugate gradient SPD operator rank-one bbT CG iterates alternating inertia exact number negative eigenvalues k/2, no positive semidefinite iterates",
+        "positive semidefinite Gramian matrix equation rank-one matrix CG iterates spectral inertia compare projection Krylov solution",
+        "https://arxiv.org/html/2609.39308 sections 4.3–6",
+        "https://doi.org/10.1002/nla.2339 section 2.3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 paper Corollary 1 establishes only rank upper bounds for exact matrix CG; its source text gives no lower bound or negative eigenvalue count.",
+        "published-finding corpus search also returned the published result Three dimensions are minimal for positivity loss in conjugate gradients on Stieltjes systems; vector-coordinate cone is not the matrix PSD cone."
+      ],
+      "reasoning": "An equivalent formulation would give rank(X_k)=k or n_-(X_k)=floor(k/2) for CG applied to SPD Kronecker sums with rank-one matrix RHS. Neither the available source statements nor the closest published-finding corpus record imply this; ordinary CG error orthogonality alone says nothing about the matrix inertia.",
+      "searches": [
+        "matrix conjugate gradient Lyapunov AX+XA^T=bb^T exact rank solution iterate k rank equals k until Krylov active eigenvalues; polynomial of spectral sums and anti-triangular Vandermonde",
+        "polynomial kernel p(x+y) exact rank deg p plus one Vandermonde Lyapunov CG rank",
+        "Lyapunov matrix conjugate gradient SPD operator rank-one bbT CG iterates alternating inertia exact number negative eigenvalues k/2, no positive semidefinite iterates",
+        "conjugate gradient Lyapunov equation negative eigenvalues rank growth early iterates matrix polynomial p(lambda_i+lambda_j) sign pattern",
+        "\"inertia\" \"Lyapunov equation\" \"conjugate gradient\" iterate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Local current-week ledger claims were inspected for matching source/objects/results, with none giving this inertia classification.",
+        "published-finding corpus returned the Stieltjes-vector CG positivity and Haar spectral-tolerance CG findings as nearest records, but no matrix Lyapunov-CG inertia table.",
+        "The 2026 motivating paper Figure 1 plots absolute eigenvalues/numerical rank; an absolute-value figure cannot give sign counts."
+      ],
+      "reasoning": "No directly covering exact table was found. This is an actual search outcome, not a claim that unindexed tables cannot exist; the graph of absolute eigenvalues and prior rank caps do not determine signs.",
+      "searches": [
+        "matrix conjugate gradient Lyapunov AX+XA^T=bb^T exact rank solution iterate k rank equals k until Krylov active eigenvalues; polynomial of spectral sums and anti-triangular Vandermonde",
+        "rank growth iterands conjugate gradient Lyapunov equation rank one right hand side exact lower bound rank X_k min(k,spectral support)",
+        "polynomial kernel p(x+y) exact rank deg p plus one Vandermonde Lyapunov CG rank",
+        "Lyapunov matrix conjugate gradient SPD operator rank-one bbT CG iterates alternating inertia exact number negative eigenvalues k/2, no positive semidefinite iterates",
+        "conjugate gradient Lyapunov equation negative eigenvalues rank growth early iterates matrix polynomial p(lambda_i+lambda_j) sign pattern",
+        "positive semidefinite Gramian matrix equation rank-one matrix CG iterates spectral inertia compare projection Krylov solution",
+        "local ledger claims 2026-11_week1 p0001 g000135, source arxiv:2609.39308 and aliases matrix CG/Gramian/inertia/positive semidefinite/rank"
+      ]
+    },
+    "rationale": "The motivating 2026 article states rank upper bounds and Krylov support caps; the new result is a matching exact early rank plus complete alternating positive/negative inertia for *every* SPD coefficient and active-rank-one right-hand side. Prior projection/restart work does not imply the matrix-CG claim. published-finding corpus and local historical-ledger searches returned no matching/supervening theorem. A potentially relevant 1995 full text was inaccessible and remains a stated priority risk.",
+    "residual_risks": [
+      "1995 Hochbruck–Starke full text was not accessed; it is a plausible older related treatment of Kronecker-sum Krylov methods, so no assertion of whole-document noncoverage is made.",
+      "Unindexed equivalent observations about polynomial sum kernels or older numerical-analysis theses could affect historical priority.",
+      "The novelty assessment depends on accessible literature and published-finding corpus records, not an exhaustive proof of uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Upper bounds rank(X_k)<=dim K_k(A,b) and rank cap kappa_(A,b); no matching lower rank or signed inertia classification of the first r CG iterates",
+        "evidence": [
+          "arXiv:2609.39308v1, Algorithm 1; Theorem 2, Corollary 1 (equations (14),(15)); Corollary 2 (equation (18)); Figure 1 and conclusions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.39308",
+        "material_read": "Full-text HTML sections 2–6: algorithm, numerical example, Krylov-space relationships, Theorem 2, Corollaries 1–2, conclusions; equations (9)–(18)",
+        "method": "Read accessible full scientific text and compare quantified rank statements with exact inertia law",
+        "title": "On bounds for rank growth of iterands in conjugate gradients for Lyapunov equation",
+        "trigger": "Same SPD Lyapunov matrix CG, rank-one right-hand-side, rank bounds of solution iterates"
+      },
+      {
+        "assessment": "Discusses PSD projection and possible indefinite correction matrices; uses projected and restarted methods, not the exact CG polynomial on the Kronecker-sum operator; does not imply the rank/inertia equality.",
+        "evidence": [
+          "Section 2.3.1 states projected SKSM can retain SPSD when A is negative definite, corrections may be indefinite, and gives a projection bound; Figure 2 illustrates occasional indefiniteness."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/nla.2339",
+        "material_read": "Open-access HTML introduction, section 2.1, section 2.3.1 (positive semidefinite approximations), Lemma 1 and numerical Figure 2 discussion",
+        "method": "Compare projected/restarted Krylov recurrence and its occasional indefiniteness statements with the unpreconditioned Frobenius-CG recurrence and universal counts",
+        "title": "Compress-and-restart block Krylov subspace methods for Sylvester matrix equations",
+        "trigger": "PSD Lyapunov solution, intermediate indefiniteness and projection to positive cone"
+      },
+      {
+        "assessment": "Addresses different cone-constrained algorithms; no universal exact inertia for unpreconditioned standard matrix CG.",
+        "evidence": [
+          "Introduction distinguishes earlier unconstrained CG from the new RPPA, PRSM and ADMM constrained algorithms; Sections 2–5 establish latter methods and show numerical examples."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2020/6968402",
+        "material_read": "Open-access HTML abstract, introduction, Sections 2–5 and conclusions",
+        "method": "Compare constrained proximal/Peaceman–Rachford/ADMM algorithms with unconstrained CG and its iterate inertia",
+        "title": "Iterative Algorithms for Symmetric Positive Semidefinite Solutions of the Lyapunov Matrix Equations",
+        "trigger": "Methods specifically enforcing positive-semidefinite solutions to Lyapunov equations"
+      },
+      {
+        "assessment": "Cannot establish whole-paper noncoverage. Abstract emphasizes nonsymmetric systems, QMR with preconditioning and symmetry; does not disclose signed inertia result for unpreconditioned SPD matrix CG. Residual priority risk explicitly retained.",
+        "evidence": [
+          "SIAM J. Matrix Anal. Appl. 16(1), 156–171 (1995), abstract describes preconditioned Krylov/QMR symmetry and numerical tests, without an inertia count."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0895479892239238",
+        "material_read": "Publicly accessible publisher abstract only; full text unavailable after search for arXiv and lawful open copies and an authorized-access attempt",
+        "method": "Compare scope of publicly described QMR/ADI/SSOR and symmetry questions; explicitly retain unknown full-text scope",
+        "title": "Preconditioned Krylov Subspace Methods for Lyapunov Matrix Equations",
+        "trigger": "Historical Kronecker-sum Krylov methods; plausible earlier symmetric-iterate analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c3670a16-fcc2-4c26-aed0-28ebc3e1ae0a",
+  "value": {
+    "rationale": "A precise rank/inertia classification is a motivated structural refinement of the 2026 numerical Lyapunov rank-growth problem. It shows every unconstrained CG Gramian approximation with 2<=k<=r is *necessarily* indefinite, despite a PSD true solution, and quantifies the number of negative modes without spectral-conditioning hypotheses. This motivates choosing projected methods or PSD safeguards for controllability Gramians and gives exact early storage rank. No guarantee for floating-point or late stages is claimed.",
+    "status": "PASS"
+  }
+}
