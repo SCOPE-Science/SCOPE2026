@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact survival law is reconstructed by enumerating injective mapping paths with prescribed indegrees and averaging over the independent uniform start. Its \(\{0,d\}\) specialization is a finite binomial product. Taylor expansion of logarithms through cubic order, a Gaussian envelope to discard large paths, and half-line Euler–Maclaurin summation give the stated order-one coefficient with \(O_d(n^{-1/2})\) remainder. The limits \(d\ge2\), \(d\mid n\), and \(n\to\infty\) at fixed \(d\) are explicit. `check.py` uses exact rational exhaustive small-instance enumeration and separate numerical asymptotic comparisons; no finite check substitutes for the infinite proof.
+## correctness
 
-## Originality — PASS (with historical priority risk)
-The 2018 Leckey–Wormald paper directly implies the exact finite survival product after averaging, so neither that combinatorial identity nor the Rayleigh leading mean is attributed as new. Its Theorems 2.1–2.2 give leading weak/moment limits, with no explicit order-one offset. Martins et al. (2017 preprint, 2018 conference paper) study global cyclic-period products and orders rather than this correction. The older 2015 Martins–Panario abstract discusses mean rho-length heuristics and is the closest incompletely inspected source; full text was not accessible, so this remains a real priority risk. Semantic research-record searches found related collision/expanding-map results but no comparable formula. Originality is limited specifically to an explicit second-order asymptotic extraction with a degree-dependent sign transition, not the underlying exact distribution.
+PASS
 
-## Value — PASS
-Restricted-indegree mappings are established benchmarks for iteration/first-repeat costs in Pollard-type polynomial heuristics. A leading square-root law cannot identify whether the finite-size bias is positive or negative. The new offset yields a complete rational correction for each fixed degree, a sign change at degree four, and an analytic remainder. The sign distinguishes classes that have similar leading Rayleigh behavior after coalescence scaling. It is not claimed to predict actual polynomials at order one, where exceptional indegrees matter.
+For a uniform map with n divisible by fixed d>=2 and exactly n/d indegree-d targets, prescribing k distinct image targets has probability product b_vi/(n)_k. A uniform starting point not among those targets contributes (n-k)/n. Summing ordered k-subsets gives survival S_n(k)=(1-k/n) d^k binom(n/d,k)/binom(n,k), zero above n/d. With a=d-1, logarithmic expansion for k<=sqrt(n)log n gives -a k^2/(2n)+(a/2-1)k/n-(d^2-1)k^3/(6n^2) plus a summably O(n^-1/2) error; the inequality S_n(k)<=exp[-a k(k-1)/(2n)] handles the upper tail. Half-line Euler–Maclaurin gives E[R]=sqrt(pi n/(2a))+1/2+(a/2-1)/a-(d^2-1)/(3a^2)+O_d(n^-1/2) = sqrt(pi n/(2(d-1)))+(2d-7)/(3(d-1))+O_d(n^-1/2). Independently enumerated every admissible map and start at (n,d)=(4,2),(6,2),(6,3), and independently evaluated means through n=40000. This verifies but does not prove uniform infinite bounds.
 
-## Closest sources and limitations
-Leckey–Wormald, arXiv:1803.02667v1 (2018); Martins–Panario–Qureshi–Schmutz, arXiv:1701.09148 (2017); Martins–Panario, arXiv:1505.02983 (2015), abstract only; Hansen–Jaworski, arXiv:math/0603529 (2006). Residual risks include unknown priority in the older rho-length paper and classical asymptotic analysis of functional mappings. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Leckey–Wormald supplied the general exact path enumeration and leading Rayleigh distribution/moment limit, which are expressly prior art. Only the explicit subleading constant and d-dependent sign are assessed as possibly new. Martins–Panario earlier studied polynomial-vs-restricted-map expected rho lengths and is particularly relevant, but full paper remained unavailable after OA/arXiv and authorized Oxford attempts; its abstract is insufficient for a whole-paper exclusion and is a real priority risk.
+
+## value
+
+PASS
+
+The order-one first-repeat bias is a natural next-order invariant of restricted-indegree random mappings, benchmarks for polynomial iteration and birthday/Pollard heuristics. It changes sign between d=3 and d=4 even when all classes have the leading Rayleigh square-root scale; an explicit O(n^-1/2) error and complete degree classification are informative for finite-size comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

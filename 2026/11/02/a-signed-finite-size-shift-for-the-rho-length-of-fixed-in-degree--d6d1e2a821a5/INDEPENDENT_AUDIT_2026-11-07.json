@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T19:18:05.049972Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a uniform map with n divisible by fixed d>=2 and exactly n/d indegree-d targets, prescribing k distinct image targets has probability product b_vi/(n)_k. A uniform starting point not among those targets contributes (n-k)/n. Summing ordered k-subsets gives survival S_n(k)=(1-k/n) d^k binom(n/d,k)/binom(n,k), zero above n/d. With a=d-1, logarithmic expansion for k<=sqrt(n)log n gives -a k^2/(2n)+(a/2-1)k/n-(d^2-1)k^3/(6n^2) plus a summably O(n^-1/2) error; the inequality S_n(k)<=exp[-a k(k-1)/(2n)] handles the upper tail. Half-line Euler–Maclaurin gives E[R]=sqrt(pi n/(2a))+1/2+(a/2-1)/a-(d^2-1)/(3a^2)+O_d(n^-1/2) = sqrt(pi n/(2(d-1)))+(2d-7)/(3(d-1))+O_d(n^-1/2). Independently enumerated every admissible map and start at (n,d)=(4,2),(6,2),(6,3), and independently evaluated means through n=40000. This verifies but does not prove uniform infinite bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:1803.02667",
+          "arxiv:1505.02983"
+        ],
+        "reasoning": "Their general fixed-degree-sequence Rayleigh leading theorem covers the first term but not automatically a signed order-one coefficient; prior polynomial heuristic study may contain a refinement and remains unread.",
+        "searches": [
+          "random functional graph fixed in-degree 0 d rho length birthday problem finite size expectation correction Rayleigh",
+          "arxiv:1803.02667",
+          "arxiv:1505.02983"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1803.02667",
+        "https://arxiv.org/abs/1505.02983",
+        "https://doi.org/10.4230/LIPIcs.AofA.2018.30"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:1803.02667",
+          "arxiv:1505.02983"
+        ],
+        "reasoning": "The known exact law plus Gaussian expansion and Euler–Maclaurin mathematically yield the subleading term; the Leckey–Wormald leading Rayleigh limit alone does not imply it. Same-family earlier average rho analysis is an unresolved priority risk, not a correctness failure.",
+        "searches": [
+          "random functional graph fixed in-degree 0 d rho length birthday problem finite size expectation correction Rayleigh",
+          "arxiv:1803.02667",
+          "arxiv:1505.02983"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:1803.02667"
+        ],
+        "reasoning": "The finite survival law specializes Leckey–Wormald Lemma 3.2 exactly after averaging a uniform root; it is not new. The novel assessment is asymptotic extraction of explicit constant.",
+        "searches": [
+          "random functional graph fixed in-degree 0 d rho length birthday problem finite size expectation correction Rayleigh",
+          "arxiv:1803.02667"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arxiv:1803.02667",
+          "arxiv:1701.09148"
+        ],
+        "reasoning": "This is an all-fixed-d asymptotic constant, not a finite database of orbit lengths. Existing restricted-map tables concern model-specific finite n and do not alone establish the analytic constant.",
+        "searches": [
+          "random functional graph fixed in-degree 0 d rho length birthday problem finite size expectation correction Rayleigh",
+          "arxiv:1803.02667",
+          "arxiv:1701.09148"
+        ]
+      },
+      "rationale": "Leckey–Wormald supplied the general exact path enumeration and leading Rayleigh distribution/moment limit, which are expressly prior art. Only the explicit subleading constant and d-dependent sign are assessed as possibly new. Martins–Panario earlier studied polynomial-vs-restricted-map expected rho lengths and is particularly relevant, but full paper remained unavailable after OA/arXiv and authorized Oxford attempts; its abstract is insufficient for a whole-paper exclusion and is a real priority risk.",
+      "residual_risks": [
+        "Martins–Panario 2015/2016 full text was unavailable from arXiv/OA; authorized institutional access returned vpn_disconnected; no claim that the work lacks the exact correction.",
+        "Leading Rayleigh law and finite survival distribution are known; value is only the order-one coefficient/sign.",
+        "Asymptotic is for fixed d and idealized uniform mappings, not for finite-field polynomials or growing d."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General exact tail and Rayleigh leading limit are known; inspected statements do not report order-one constant for {0,d} ensemble",
+          "evidence": "Lemma 3.2 and main Rayleigh limit",
+          "identifier_or_url": "https://arxiv.org/pdf/1803.02667",
+          "material_read": "Complete 2018/2019 paper including general path-count Lemma 3.2, Theorems 2.1–2.2, proofs and asymptotic hypotheses",
+          "method": "full open-access PDF text and visual verification of theorem page",
+          "title": "Leckey and Wormald, A limit theorem for the rho-length of random functional graphs with a fixed degree sequence",
+          "trigger": "exact same restricted indegree model, possible stronger general asymptotics"
+        },
+        {
+          "assessment": "Plausible exact finite-size coverage cannot be ruled out; no whole-document NOT_COVERING conclusion",
+          "evidence": "Abstract explicitly discusses expected rho length and restricted mappings",
+          "identifier_or_url": "https://arxiv.org/abs/1505.02983",
+          "material_read": "Accessible arXiv abstract and journal bibliographic/abstract information only; PDF fetch failed; authorized Oxford attempt returned vpn_disconnected",
+          "method": "abstract and bibliographic records, not full paper",
+          "title": "Martins and Panario, On the heuristic of approximating polynomials over finite fields by random mappings",
+          "trigger": "closest older explicit average rho-length problem; priority risk"
+        },
+        {
+          "assessment": "Treats global cycle periods, not directly a vertex first-repeat order-one offset in the inspected material",
+          "evidence": "AofA 2018 article scope",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2018.30",
+          "material_read": "Original OA conference abstract and theorem/topic overview",
+          "method": "publisher OA abstract/model inspection",
+          "title": "Martins, Panario, Qureshi and Schmutz, Periods of Iterations of Mappings over Finite Fields with Restricted Preimage Sizes",
+          "trigger": "similar indegree family, different global iteration statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The order-one first-repeat bias is a natural next-order invariant of restricted-indegree random mappings, benchmarks for polynomial iteration and birthday/Pollard heuristics. It changes sign between d=3 and d=4 even when all classes have the leading Rayleigh square-root scale; an explicit O(n^-1/2) error and complete degree classification are informative for finite-size comparisons.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Martins–Panario 2015/2016 full text was unavailable from arXiv/OA; authorized institutional access returned vpn_disconnected; no claim that the work lacks the exact correction.",
+    "Leading Rayleigh law and finite survival distribution are known; value is only the order-one coefficient/sign.",
+    "Asymptotic is for fixed d and idealized uniform mappings, not for finite-field polynomials or growing d."
+  ]
+}
