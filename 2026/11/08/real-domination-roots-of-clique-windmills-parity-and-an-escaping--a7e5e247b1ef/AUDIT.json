@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Exact graph-based generating-polynomial derivation; exhaustive partition of real axis; each admissible root comes from an explicitly strictly monotone one-dimensional equation giving uniqueness and simplicity. Bracketing establishes finite limits; logarithmic asymptotics establish escape. Nine direct graph-enumeration checks and 36 exact Sturm real-root counts replayed; no finite computation is used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beaton–Brown (2021) proves density of real domination roots over ALL graphs, without an exact count for this family",
+        "The 2015 generalized-cycle flower paper treats a non-equivalent graph class",
+        "published-finding corpus returned unrelated dissociation, clique-partition and graph-polynomial items, no stronger exact real-root statement"
+      ],
+      "reasoning": "A global density theorem gives possible root values over graph families but cannot fix the roots of W_{k,m}. The 2026 paper covers only mK_2; the 2025 diagonal formula includes k=m but provides only annular bounds, not a covering conclusion about signs or asymptotics.",
+      "searches": [
+        "web: \"domination\" \"windmill\" \"real roots\" \"odd\" \"cliques\"",
+        "web: \"K_1\" \"nK_n\" \"real roots\" domination",
+        "web: On the real roots of domination polynomials Beaton Brown closure",
+        "published-finding corpus: escaping real domination root asymptotic (m/log m)^(1/k) windmill graph fixed clique size"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.08998 (Theorem 3.1, Corollary 3.2, §6, §7)",
+      "doi:10.61091/jcmcc126-19 (Theorem 2.10, Propositions 2.13–2.15, open problems)",
+      "arxiv:1501.05856 (§2 flower definition and Theorem 4)",
+      "arxiv:1503.03628 (§2 listed zero-free families; only background)",
+      "doi:10.55016/ojs/cdm.v16i3.72075 (published abstract of global real-root closure)",
+      "published-finding corpus IDs 2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc and 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f (different invariants)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rather 2026: k=2, even m produces two bounded roots converging to -1±1/sqrt(2), while odd m gives only 0",
+        "Rather 2025: generating-polynomial formula for diagonal k=m and a radius n²+1 but no real-root enumeration",
+        "New proof: for odd k>=3, (1+s^-k)^m=1+s has exactly one solution s>1 and s~(k m/log m)^(1/k), which is incompatible with concluding bounded behavior from k=2"
+      ],
+      "reasoning": "The new all-k theorem strictly subsumes the k=2 real-root phenomenon but that previously known case is explicitly excluded from the novelty assertion. Prior general formulas and root radius estimates do not imply a unique root below -2, or its escape law, or the full parity classification. The older cycle-flower family is not equivalent to clique blades.",
+      "searches": [
+        "web: root geometry domination polynomials friendship book graphs 2604.08998",
+        "web: On domination polynomials of some graphs Rather 2025 theorem 2.10",
+        "web: Domination polynomial generalized friendship generalized book graphs Jahari Alikhani 1501.05856",
+        "published-finding corpus: 2026 domination roots friendship book graph real root limits -1 sqrt(1/2)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2025 diagonal generating-function formula is the same object only when blade count equals size; no root spectrum is stated",
+        "The 2026 friendship paper is the k=2 specialization; its negative real root remains strictly inside (-2,-1)",
+        "published-finding corpus closest title \"Dissociation polynomial and all maximal dissociation sets of generalized windmills\" concerns dissociation, not domination-root geometry"
+      ],
+      "reasoning": "Checked aliases clique windmill, generalized friendship, K1 join mK_k and polynomial roots. The known polynomial itself does not imply the claimed root locations, parity cases, simplicity or asymptotic escape without the new monotonicity analysis. The closest named same-object database finding is a different polynomial.",
+      "searches": [
+        "published-finding corpus: exact number of real domination polynomial roots for windmill graphs Wd(k,m), parity of clique size and blades; full real zero classification",
+        "published-finding corpus: generalized friendship graphs K1 join m complete cliques domination polynomial exact real roots and parity",
+        "web: windmill graph domination polynomial real roots clique K_n",
+        "web: generalized friendship graph real roots K_1 cliques"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026 friendship paper Table 1 lists approximate roots for triangular blades (k=2) and even m only",
+        "2025 generalized friendship paper gives a polynomial and graphical root plots, but not a closed classification for all fixed k>=3",
+        "Wolfram MathWorld tabulates some named graph domination polynomials, not the asserted infinite-family root-count theorem"
+      ],
+      "reasoning": "A finite table or a symbolic formula without an explicit sign-and-monotonicity theorem does not cover the complete all-parameter statement; the presented proof determines all intervals and a new divergent asymptotic branch.",
+      "searches": [
+        "web: windmill only real domination polynomial zeros",
+        "web: K1 nKn roots domination polynomial",
+        "published-finding corpus: domination polynomial K_1 join m disjoint complete graphs K_k parity negative zeros no other real roots",
+        "web: Wolfram MathWorld Domination Polynomial graph table"
+      ]
+    },
+    "rationale": "The 2025 formula and 2026 friendship k=2 root theorem are acknowledged as prior. Inspected primary material and published-finding corpus searches did not identify the k>=3 parity spectrum or divergent root branch. Direct mathematical implication comparisons reject broader coverage by the prior annular estimate or global root-density theorem; priority remains provisional.",
+    "residual_risks": [
+      "Historical priority is provisional: semantic search, primary-literature checks and result databases are not a complete publication census.",
+      "The 2021 global-density paper was compared at abstract-level, not full text; its published statement does not imply fixed-family root counts.",
+      "No independent audit of the unrestricted proof has been performed; exact SymPy checks are finite corroboration only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives the complete triangular-blade case k=2 and bounded root limits; does not assert k>=3 real-root classification or odd-k divergent root",
+        "evidence": [
+          "Theorem 3.1 k=2, even blade count: precisely two nonzero roots in (-2,-1), (-1,0)",
+          "Corollary 3.2: both k=2 branches converge to -1 ± 1/sqrt(2)",
+          "§7 only summarizes friendship graphs and book graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2604.08998",
+        "material_read": "OA PDF abstract, §§2–3 (Theorem 3.1 and Corollary 3.2, proof), §6 integer-root theorem, §7 conclusion; PDF term searches for generalized and appendix; PDF page 5 rendered and inspected",
+        "method": "Primary OA PDF full-text reading and page screenshot; theorem-level comparison",
+        "title": "On roots of domination polynomials for friendship and book graphs",
+        "trigger": "Direct 2026 originating literature on exact real-root counts and limiting locations"
+      },
+      {
+        "assessment": "Provides the diagonal-subfamily polynomial and coarse complex-root annulus, not exact real-root counts, locations or growth law",
+        "evidence": [
+          "Theorem 2.10: D(K1 join nK_n,z)=z(1+z)^(n^2)+((1+z)^n-1)^n",
+          "Proposition 2.13: roots satisfy |z|≤n²+1",
+          "Final root and limit discussion poses further problems"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-126/on-domination-polynomials-of-some-graphs/",
+        "material_read": "Publisher openly accessible full HTML article, §2 Theorem 2.10, Propositions 2.12–2.15, Figure 3 and final open problems; publication metadata",
+        "method": "Full publisher article text with formula and statements compared directly",
+        "title": "On domination polynomials of some graphs",
+        "trigger": "The diagonal family K1 join n K_n shares the exact polynomial"
+      },
+      {
+        "assessment": "Its F_{q,n} are cycles sharing a vertex, not m complete cliques; root questions concern four-cycle flowers and do not cover the exact clique-windmill theorem",
+        "evidence": [
+          "§2 defines F_{q,n} as n cycles of length q sharing a vertex",
+          "Theorem 4 treats four-cycle flowers F_{4,n}; p. 6 discusses their real-root conjecture"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1501.05856",
+        "material_read": "OA PDF §1–2 and §3 overview, especially definition of flowers F_{q,n}, recurrence Theorem 4 and root discussion on p. 6; page 6 rendered",
+        "method": "Primary OA PDF text and page-image inspection",
+        "title": "Domination polynomial of generalized friendship and generalized book graphs",
+        "trigger": "Potential alias generalized friendship graphs and root-location comparison"
+      },
+      {
+        "assessment": "The global density theorem does not determine the exact real zeros of any specified clique windmill; no full-document negative inference is made",
+        "evidence": [
+          "Main stated result: closure of real domination roots across all graphs is (-infinity,0]"
+        ],
+        "identifier_or_url": "https://cdm.ucalgary.ca/article/view/72075",
+        "material_read": "Publisher article abstract and statement of main global closure theorem (not full PDF)",
+        "method": "Published abstract-level implication comparison",
+        "title": "On the real roots of domination polynomials",
+        "trigger": "Potential stronger theorem on all real domination roots"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a7e5e247-b1ef-42ed-a6e7-21b130ae6600",
+  "value": {
+    "rationale": "A natural complete classification in an infinite two-parameter graph family of known interest in domination-root geometry. The blade-size parity dictates a qualitative change from two bounded nonzero real roots to a divergent negative root, with an explicit sharp asymptotic. This is not merely evaluation of a known polynomial or a single small numerical example.",
+    "status": "PASS"
+  }
+}
