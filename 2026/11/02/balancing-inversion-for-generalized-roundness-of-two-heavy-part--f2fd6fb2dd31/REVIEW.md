@@ -1,19 +1,21 @@
-# Scientific review: two-heavy-part balance reversal
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes \(r\ge3\), \(u\ge4\), \(a,b\ge1\), and \(a+b=u\). Distances, the negative-type quadratic form, the critical endpoint, and the comparison parameter \(ab\) are explicitly defined. Expanding the powered distance matrix yields an exact identity on zero-sum vertex measures. Cauchy–Schwarz is sharp for constant weights on each graph part, converting the problem into a finite generalized Rayleigh quotient. Its two-dimensional characteristic polynomial is \(rv\mu^2-((r-1)u+2v)\mu+(u+r-2)\). A test vector locates its larger root above \(2/r\); substituting \(2/r\) in the polynomial and differentiating the smaller root proves the strict/flat sign trichotomy. The endpoint is included and every larger exponent fails by a uniform-on-part zero-sum witness. An independent full-matrix eigenvalue comparison and exact-rational checks support the calculations. The finite computations are explicitly not used as proofs of unrestricted statements.
+PASS
 
-## Originality — PASS, with disclosed residual risk
+For r>=3, u=a+b>=4 and graph metric K_{a,b,1,...,1}, reconstructed the exact zero-sum quadratic form (2^p-1) sum_i s_i^2 - 2^p sum_x alpha_x^2 and the partwise Cauchy-Schwarz reduction to Rayleigh quotient min_{sum s=0} (sum s_i^2/n_i)/(sum s_i^2). Averaging singleton coordinates reduces the minimum to a two-dimensional generalized eigenvalue. Its determinant is rv*mu^2-((r-1)u+2v)*mu+(u+r-2)=0, v=ab; the smaller root is in (0,1). The exact negative-type boundary is -log2(1-mu), included at equality and violated above it by a partwise-constant witness. Since F(2/r,v)=(r-2)(1-u/r) and dmu/dv=mu(r*mu-2)/sqrt(discriminant), balancing decreases the exponent for u>r, increases it for u<r, and is flat for u=r. Recomputed exact rational exemplar roots and discriminant signs; numerical diagonalization is corroborative, not an infinite proof.
 
-Sánchez, arXiv:1108.0451 (2011), supplies the general finite-distance-matrix framework and a closed result for complete bipartite graphs. Deza and Grishukhin (2000) discuss general two-distance spectral/Euclidean embedding methods and multipartite-related constructions. These are important prior mathematical tools, not newly discovered methods. The narrowly assessed result is the **fixed-budget inversion of the strict ordering under splitting two parts, with precise equality line \(u=r\)**; it is neither the already-known bipartite formula nor a claim that two-distance matrices were previously unstudied. The primary materials inspected did not state that comparison. Search coverage included equivalent generalized-roundness, conditionally negative-distance, and Hilbert-snowflake terminology, and semantically related published records. An equivalent hidden in older two-distance literature remains possible. Full text of Deza and Maehara (1990) was inaccessible; no conclusion of noncoverage is drawn from an abstract alone.
+## originality
 
-## Value — PASS
+PASS
 
-A fixed vertex and partition budget poses a natural extremal question for the largest Hilbert-snowflake exponent. The direction of the extremum *reverses* as the number of singleton parts passes the total variable-part budget, and an entire family of distinct part profiles collides at the same exponent on the exact equality line. These are structural constraints on metric embeddings, rather than arbitrary small-graph constants or direct restatements of an available table. The proof gives an exact formula and unique balancing optimizers away from the transition. The classification is limited to two variable parts, and it makes no assertion about arbitrary multipartite graphs.
+No inspected current-priority source states or unambiguously implies the precise new theorem; methods and covered neighbors are credited explicitly, and residual inaccessibility/overlap risks remain. Best-of-knowledge originality, not world-priority certification.
 
-## Sources, comparison, and limitations
+## value
 
-The most relevant primary sources are Sánchez, “On the supremal \(p\)-negative type of a finite metric space” (2011), Theorem 3.1 and its full finite-metric criterion; Deza and Grishukhin, “Hypermetric two-distance spaces” (2000), its two-distance spectral approach; and Deza–Maehara, “Metric transforms and Euclidean embeddings” (1990), an inaccessible historical comparator. Exact source identifiers and residual originality risks are recorded in `AUDIT.json`. The attached `verify.py` performs finite reproducibility tests but is not an independent infinite-proof certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp global allocation-reversal/equality-line theorem for natural finite two-distance graph metrics, with exact exponent and extremal splits. It resolves the nontrivial question of how balancing fixed-budget non-singleton parts changes generalized roundness as the number of singleton parts varies; not merely a relabeling of a spectral formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
