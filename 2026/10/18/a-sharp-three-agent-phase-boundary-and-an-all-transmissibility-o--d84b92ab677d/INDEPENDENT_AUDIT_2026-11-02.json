@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T11:08:55.881469Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed S the independent-contact exploration is distributionally identical to independent bond-percolation reachability from S: every frontier edge is tested once and unbiased independent retention makes all terminal moments equal. The independent enumerator checked all 2^|E| bond patterns and all seed sets/pairs on the only connected types of n<=3, obtaining each stated P3 and triangle Gamma polynomial. An independent directed-arc exhaustive calculation at p=1/5 and 3/5 verified the reachability laws on edge, P3 and K3. The cubic h(p)=1-5p+2p^3 is strictly decreasing through 1/3 and negative on [1/3,1), proving its unique critical root p*=0.203364213796905... and the exact graph-order classification. On K_{1,m}, conditioning on the center activating yields F_m(k)=q_k(1-q_k)(1+(m-k)p)^2+q_k(m-k)p(1-p), q_k=1-(1-p)^k. Substituting u=(1-p)^(m-2), the independently symbolically verified second difference is p^2*u*((5+4p)-(14-4p-p^2)*u), universally for integer m>=2. Because 0<R=(5+4p)/(14-4p-p^2)<1, this is positive exactly when u<R, giving the sharp specified pair threshold m*=3+floor(logR/log(1-p)) and small-p scale log(14/5)/p. Exact star bond checks m=2..7 for all k and five rational sample p corroborate; infinite m and all real p follow algebraically, not from finite tests. Endpoint p=0,1 deterministic, correctly excluded. No assertion of global minimal star order is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Staib–Jegelka, ICML 2017 supplementary Appendix D, equations (41)–(51), analyze variance over random Beta edge-probability parameters as a function of continuous budget; their D.2 nonsubmodularity concerns standard deviation of that model, not fixed-p Bernoulli cascade-size variance.",
+          "Sadeh–Cohen–Kaplan, Sample Complexity Bounds for Influence Maximization, ITCS 2020, Theorem 2 gives a variance magnitude upper bound on reachability in strongly submodular diffusion models; no second-difference sign follows.",
+          "NasehiMoghaddam–Fathian–Amiri, Alternate Solutions for Influence Maximization, Swarm and Evolutionary Computation 83 (2023), DOI 10.1016/j.swevo.2023.101424, accessible abstract and indexed introduction discuss numerical variance minimization; full paper unavailable, so full-document coverage not asserted."
+        ],
+        "reasoning": "Broader stochastic influence variance bounds and numerical variance minimization do not logically fix the signs of all discrete submodularity gaps or supply a specified-star exact witness threshold. The full 2023 primary paper was not read; an exact relevant theorem therein remains a priority risk, not a proven absence.",
+        "searches": [
+          "Scholarly: second moment stochastic coverage function variance submodular counterexample",
+          "Scholarly: risk-aware influence maximization variance submodular function random cascade counterexample",
+          "Staib–Jegelka (2017) robust budget allocation via continuous submodular functions Appendix D",
+          "Sadeh–Cohen–Kaplan (ITCS 2020) sample complexity bounds influence variance",
+          "NasehiMoghaddam–Fathian–Amiri (2023) Alternate Solutions for Influence Maximization variance minimization"
+        ]
+      },
+      "checked_sources": [
+        "Kempe–Kleinberg–Tardos KDD 2003 DOI 10.1145/956750.956769; expanded 2015 primary text",
+        "Khanna–Lucier SODA 2014 primary 27-page PDF",
+        "Staib–Jegelka ICML 2017 primary supplementary Appendix D",
+        "Sadeh–Cohen–Kaplan ITCS 2020 primary PDF Theorem 2",
+        "NasehiMoghaddam–Fathian–Amiri 2023 DOI 10.1016/j.swevo.2023.101424 abstract only",
+        "Resultary semantic search, three distinct queries and returned candidate titles",
+        "Targeted published scholarly searches for exact cubic, stochastic coverage, independent cascade variance and star counterexamples"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proposed theorem determines Gamma(S;a,b)=W(S+a)+W(S+b)-W(S)-W(S+a+b), which is not determined by submodularity of E[X(S)].",
+          "The 2020 variance bound provides an upper estimate Var(R^tau(S)) <= tau I^tau(S) max_v I^{tau-1}(v); upper bounds on individual W(S) do not determine its discrete Hessian sign.",
+          "The random-parameter Staib–Jegelka standard-deviation Hessian is a different probability space and continuous optimization variable from the fixed-p independent-cascade seed-set Hessian."
+        ],
+        "reasoning": "Expectation submodularity and nonnegative influence variance can coexist with either sign of Gamma. A positive upper bound, another risk functional, or random parameters cannot imply the exact polynomial or the all-p constructive negative gap. The reviewed result supplies a new, motivated second-order structural classification, subject to unresolved literature risk.",
+        "searches": [
+          "DOI 10.1145/956750.956769 expected cascade influence",
+          "SODA 2014 Influence Maximization in Undirected Networks original PDF",
+          "ITCS 2020 Sample Complexity Bounds for Influence Maximization variance bound theorem 2",
+          "ICML 2017 Staib Jegelka supplementary Appendix D standard deviation counterexample"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The reviewed model identifies IC terminal-size law for fixed seeds with a bond-percolation reachability-volume random variable: W(S)=Var(|reachable(S)|).",
+          "Kempe–Kleinberg–Tardos (KDD 2003 DOI 10.1145/956750.956769; Theory of Computing expanded 2015, Section 4) establish submodularity of sigma(S)=E|reachable(S)|, not variance.",
+          "Khanna–Lucier, Influence Maximization in Undirected Networks, SODA 2014, Sec. 1–2 defines val(S)=E|reachable(S)| on undirected independently sampled bonds; 27-page primary PDF inspected, no variance term located."
+        ],
+        "reasoning": "The aliases IC terminal influence variance, random seeded reachability volume variance, and independent bond-percolation coverage variance refer to the same object. The expected-coverage theorems constrain the first moment only, not differences of second moments and squared means; no inspected source gives the claimed variance-submodularity phase diagram.",
+        "searches": [
+          "Resultary: variance of final influence spread as seed set submodular independent cascade undirected star graphs threshold",
+          "Resultary: submodularity of variance of reachability random bond percolation seeded connected components",
+          "Scholarly: \"variance\" \"influence spread\" \"submodular\" seed set",
+          "Scholarly: variance of influence spread submodularity seed set star threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The independent exact enumeration of all connected graph isomorphism types on <=3 vertices yields the claimed curvature polynomials and cubic root; this is a validation of this theorem, not a historical table.",
+          "Resultary semantic results from three searches returned no listed exact seeded-variance cubic/star threshold. The closest component–triangle covariance finding concerns a different statistic and does not list these coefficients."
+        ],
+        "reasoning": "No exact database row, numerical constant, or stronger table covering both the cubic threshold and the star formula was located in actual queries. This is strictly a bounded-search observation, not a claim that no prior database exists.",
+        "searches": [
+          "Scholarly: \"2p^3-5p+1\" influence variance",
+          "Scholarly: \"0.203364213796905\" influence",
+          "Scholarly: \"influence spread variance\" formula star",
+          "Resultary: risk-aware influence maximization variance submodular social networks independent cascade"
+        ]
+      },
+      "rationale": "The exact terminal-size variance, rather than mean terminal influence, is the operative seed-set function. Targeted Resultary and scholarly searches found neighboring expectation-submodularity theorems, a general influence-variance upper bound, Bayesian-parameter standard-deviation non-submodularity, and a 2023 numerical variance-aware influence study, but no mathematically covering three-node cubic phase threshold or all-transmissibility star certificate with its exact minimal leaf count. This is a bounded best-of-knowledge conclusion, not proof of bibliographic uniqueness; the inaccessible full 2023 source and equivalent stochastic-coverage/reliability literature remain explicit residual risks.",
+      "residual_risks": [
+        "Relevant 2023 variance-aware influence optimization primary full text inaccessible; author/coverage cannot be cleared from abstract alone. An authorized Oxford full-text attempt was blocked by safety controls; no retry or workaround used.",
+        "Equivalent variance of stochastic reachability/coverage or network reliability may exist under another terminology outside checked search results.",
+        "No human bibliographic priority attestation; assessed originality is best-of-knowledge, not globally certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes first-moment submodularity, not variance submodularity; nothing inspected supplies the exact phase threshold.",
+          "evidence": [
+            "Kempe–Kleinberg–Tardos, Theorem 4.5, expected influence sigma(S) for independent cascade."
+          ],
+          "identifier_or_url": "https://dokk.org/library/theoryofcomputing_v011a004",
+          "material_read": "Accessible expanded primary HTML text, model and expected influence sigma(S) definitions, Sec. 4 and submodularity theorem; text searched for variance.",
+          "method": "Lawful primary full-text HTML reading and term search",
+          "title": "Maximizing the Spread of Influence through a Social Network",
+          "trigger": "Foundational independent-cascade model and potentially dominating all-graph submodularity theorem"
+        },
+        {
+          "assessment": "Optimizes expected seeded reachability val(S); no variance term in document-wide text extraction and no reviewed phase curvature theorem.",
+          "evidence": [
+            "Khanna–Lucier (SODA 2014), Sec. 1 first-page definition val(S)=expected number of nodes reachable from S."
+          ],
+          "identifier_or_url": "https://www.cis.upenn.edu/~sanjeev/papers/soda14_undirected_influence.pdf",
+          "material_read": "Accessible 27-page primary PDF, pp. 1–4 introduction and model, pp. 1–2 expected val(S) definition, document-wide variance text search, page 1 rendered.",
+          "method": "Full PDF text reading, targeted term search and page-image inspection",
+          "title": "Influence Maximization in Undirected Networks",
+          "trigger": "Identical undirected bond-percolation reachability setting and possible stronger structural theorem"
+        },
+        {
+          "assessment": "Different variance over random edge-parameter distribution and continuous budget; not fixed-p cascade final-size variance for discrete seed sets.",
+          "evidence": [
+            "Staib–Jegelka (ICML 2017), Appendix D beta-parameter moments and D.2 standard-deviation non-submodularity."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v70/staib17a/staib17a-supp.pdf",
+          "material_read": "Full supplementary primary PDF available; Appendix D, equations (41)–(51) and D.2 standard-deviation counterexample, pages 16–17 rendered and inspected.",
+          "method": "Open-access primary PDF reading and page-image inspection",
+          "title": "Robust Budget Allocation via Continuous Submodular Functions — supplementary material",
+          "trigger": "Contains variance and a non-submodularity example closely adjacent to the claim"
+        },
+        {
+          "assessment": "General upper bounds on the magnitude of influence-spread variance, not discrete submodularity curvature or graph-size thresholds.",
+          "evidence": [
+            "Sadeh–Cohen–Kaplan (ITCS 2020), Theorem 2 variance upper bound."
+          ],
+          "identifier_or_url": "https://drops.dagstuhl.de/opus/volltexte/2020/11714/pdf/LIPIcs-ITCS-2020-29.pdf",
+          "material_read": "Accessible primary PDF, variance-bound theorem and associated discussion; variance theorem page 9 rendered.",
+          "method": "Lawful PDF primary reading and screenshot",
+          "title": "Sample Complexity Bounds for Influence Maximization",
+          "trigger": "Same reachability random variable and explicit variance theorem potentially stronger"
+        },
+        {
+          "assessment": "Same variance-aware influence domain and possible priority risk. Available abstract describes numerical/heuristic variance-aware optimization; exact curvature conclusions in full text remain unverified.",
+          "evidence": [
+            "NasehiMoghaddam–Fathian–Amiri (2023), DOI 10.1016/j.swevo.2023.101424, abstract and bibliographic information."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.swevo.2023.101424",
+          "material_read": "Accessible bibliographic abstract and indexed introduction excerpts only; full text not obtained. Do not infer absence of theorem from snippets.",
+          "method": "Primary abstract/metadata inspection; arXiv and lawful OA avenues queried; authorized institutional full-text retrieval attempted once but safety-blocked, no retry or bypass.",
+          "title": "Alternate Solutions for Influence Maximization: Beyond theoretical approximation by the Genetic Algorithm Framework",
+          "trigger": "Primary paper studies variance minimization of final influence spread and may directly cover the stochastic objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Submodularity supports the central greedy guarantee for expected influence; variance of the terminal infected population is a natural second-moment risk metric whose submodularity cannot be inferred from expectation. The claim locates the minimum nontrivial connected graph order and a sharp p boundary across all types on up to three vertices, then proves no uniformly positive low-transmissibility regime can rescue variance submodularity on all connected graphs. The specified last-two-leaf witness has an exact finite threshold and rare-transmission scaling, explaining the structural obstruction rather than just exhibiting a small arbitrary sign computation. This motivated natural classification and global graph-family boundary has independent mathematical utility without claiming an approximation guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The 2023 variance-minimization paper full text was inaccessible; source-inspection assessment was bounded to abstract and indexed material, and institutional attempt was safety-blocked. No retry or bypass.",
+    "Potentially public METADATA.json and AUDIT.json retain operational provenance identifiers (scope_run_id, record_id) and require guarded privacy sanitation before publication.",
+    "This is an independent mathematical best-of-knowledge review, not Lean or expert formal verification; original expert/Lean channels left intact.",
+    "This private JSONL is scientific assessment plus transport plan, not a published independent certificate."
+  ],
+  "schema_version": 1
+}
