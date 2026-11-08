@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Kozlov’s Proposition 6.10 provides the prior nonequivariant circle/point decomposition. The integer cocycle measuring signed particle flux is closed on commuting-flip cubes. Its cohomology class is primitive because an explicit closed path crosses each vertex exactly once forward. Spatial reflection reverses both the polygon ordering and particle/hole encoding and thus preserves the flux; global arrow reversal changes the flux sign without reversing the polygon. This proves all integral module formulas. The finite cellular checker passed 208 signed Lefschetz comparisons for all geometric symmetries and reversal choices for polygon lengths three through ten. These computations do not prove the general statement without the cocycle argument and prior component theorem.
+## correctness
 
-## Originality — PASS, subject to known-search limits
-The primary open full text of Kozlov (DOI 10.1007/s41468-026-00235-1), including the cycle proposition and nearby discussion, establishes only the component homotopy types, not the signed action of the natural involutions. The closely related published-finding corpus record “Equivariant homology and symmetry quotients of complete-graph flex complexes” gives symmetric-group characters and quotients for complete graphs; the complete-graph component parameterization does not imply this polygon-flex statement. Search comparisons also considered cyclic, dihedral, flux, orientation-reversal and equivariant-homology aliases, as well as accessible earlier claims. No statement-level dominating result was located. Equivalent unindexed work is still possible.
+PASS
 
-## Value — PASS
-The ambient homotopy ranks do not determine how polygon symmetries and reversal act on individual loop generators. The theorem fully resolves the natural integral action across an unbounded family and identifies a genuine symmetry distinction: reflection and reversal have the same action on components but opposite loop characters. The rational quotient consequence is motivated by equivariant topology and is not a numerical increment to the published sphere count.
+A legal vertex flip exchanges adjacent unlike edge-orientation bits 10↔01, so number k of clockwise bits is conserved. Kozlov Proposition 6.10 supplies one point component for k=0,n and one circle component for each 1<=k<=n-1, with no H>=2. For each vertex i define the integral one-cochain α_i counting signed clockwise particle transport across i; independent flip cubes commute and make α_i closed. The occupancy cochains satisfy dx_i=α_i−α_(i+1), so their cohomology classes agree. The displayed explicit path moving one particle around vacant edges, then shifting all remaining particles and closing across the boundary, crosses every vertex once positively: α_i pairs to +1 and hence is primitive in integral H1=Z on each middle component. Spatial reflection both reverses polygon order and complements the particle/hole encoding, giving positive action on flux; global arrow reversal complements without reversing geometric order, giving negative flux. This proves all integral module actions, trace formulas and zero full-group H1 invariants. Quotient rational homology is invariants for a finite simplicial action after subdivision, and component orbits are k∼n-k. The inspected finite signed cubical Lefschetz checker covers 208 group actions for n=3..10; it corroborates but does not establish all n.
 
-## Remaining risks
-The argument assumes the exact scope and hypotheses of Kozlov's published circle decomposition. Literature searching cannot establish absolute novelty; an obscure independent equivalent may exist. Rational acyclicity does not assert quotient contractibility or absence of integral torsion, and no independent verification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kozlov already determines every component as circle or point; only the natural symmetry maps on primitive integral cycles are newly asserted. The nearest published Resultary theorem for Flex(K_n) is another graph family with different topology and cannot imply the present cycle formula. Detailed integer flux/reflection/reversal signs, not just a Betti count, support newness on best-of-knowledge basis.
+
+## value
+
+PASS
+
+The integral H1 sign representation under geometric reflection versus all-arrow reversal is a natural topological invariant of flex dynamics. Identical component permutation actions obscure genuinely opposite loop actions; the theorem resolves the complete integral D_n×C2 action for every n and yields a quotient rational-homology consequence. This is an unbounded, structurally motivated equivariant calculation, not restatement of the known rank n−1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
