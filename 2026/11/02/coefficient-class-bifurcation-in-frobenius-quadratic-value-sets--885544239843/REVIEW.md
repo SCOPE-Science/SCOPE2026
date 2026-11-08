@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The equation \(F_a(x)=y\) implies an explicit quartic in \(x\), bounding each fiber by four. Distinct collision pairs are parametrized by their nonzero differences. Triple fibers correspond bijectively to distinct triples in the norm-one cyclic group with prescribed product \(a^{1-q}\). Inclusion–exclusion counts such triples; identifying opposite pairs distinguishes the exact three- and four-fiber populations. Two mass equations recover the remaining counts. The cyclic cubic-power map then establishes the exact coefficient census. All divisions by two assume and use odd characteristic; the argument also covers characteristic three because no division by three is used. The independently executed standalone program matched 493 exact finite examples, but the infinite theorem rests on the algebraic proof.
+PASS
 
-## Originality — PASS, with literature limitations
+Subtracting F_a(x)=F_a(z) for distinct x,z gives unique ordered collision pair for each nonzero Delta=x-z, hence q^2-1 pairs. Frobenius elimination yields a quartic P_y of leading coefficient a^{q+2}, so fibers <=4, and four roots sum zero. For ordered collision triples the unit-circle parameters alpha=a(x+y),beta=a(x+z),gamma=a(y+z) lie in norm-one U, are distinct, and satisfy alpha beta gamma=a^{1-q}; the inverse formulas reconstruct triples. Inclusion-exclusion yields (q+1)^2-3(q+1)+2h=6N3+24N4; precisely 3(q+1-2h) opposite-pair triples fail to extend to a fourth. Solving first two factorial moments and total sources/targets gives all five displayed N0..N4 expressions. For q=2 mod3, cube character of coefficient determines h=3 for 1/3 coefficients or 0 for 2/3; else h=1. Independent full coefficient-and-fiber enumeration verified q=3 (8 coefficients), q=5 (24), q=7 (48), q=11 (120) including both cube classes; proof covers every odd prime power, not only tests. a=0 and characteristic two excluded.
 
-Mullen–Wan–Wang's 2012 preprint and article give general value-set bounds, not exact spectra for these coefficients. The earlier normalized \(a=1\) spectrum covers the cube-coefficient class after scaling and is excluded from the claimed new contribution. In the regime \(q\equiv2\pmod3\), the scaling exponent has image index three, so this cannot imply the two noncubic classes. Their profile differs, including the three-fiber population jump from \((q-5)/2\) to \((q+1)/2\). Searches for direct coefficient/fiber aliases and a semantic results database yielded no closer stronger claim, but the historical literature is not exhaustive.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural complete coefficient classification for a Frobenius-perturbed quadratic over all odd quadratic extensions. It identifies an actual structural cubic-coset bifurcation in fiber multiplicities affecting two-thirds of all coefficients in an infinite field family, even though total image cardinality is rigid. The noncubic case is mathematically distinct rather than a change of notation for the unit-coefficient result. The proof is self-contained and exact, not a finite-table recomputation.
+Best-of-knowledge PASS for the noncubic coefficient branch and complete coefficient-dependent fiber distribution, not the previously known unit-coefficient value set or generic finite-field value-set bounds. The cubic/noncubic coefficient distinction is mathematically necessary when q is 2 mod3, so a scaling of the unit-coefficient case does not cover the other two-thirds. Possible independently derived generalized quadratic-linearized polynomial spectra remain a residual priority risk.
 
-## Remaining limits
+## value
 
-The result does not cover characteristic two or larger extension degrees; less-accessible equivalent literature could remain undiscovered.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Value-set size alone loses information about the distribution of fiber multiplicities for a natural mixed Frobenius/quadratic polynomial. The exact entire odd-prime-power coefficient census isolates a new noncubic branch with a different number of three- and four-preimage targets, while the already known unit-coefficient branch and common image size are credited as prior. The invariant is a natural complete finite-field classification potentially useful in polynomial-value-set and collision studies, not an artificial small parameter table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
