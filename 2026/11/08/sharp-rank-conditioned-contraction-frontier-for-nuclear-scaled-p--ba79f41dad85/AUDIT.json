@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Direct expansion gives 1-alpha(2-alpha t)S^2/D with t=tr(U^THU), D=sum s_j^2 u_j^TH^{-1}u_j. The marked-frame lemma follows by completing a frame to an orthogonal matrix, taking entrywise squared coordinates and maximizing a linear functional at a Birkhoff permutation vertex, yielding alpha t+J_r u_k^TH^{-1}u_k<=2. Bounding D<=dmax S^2 gives the universal envelope, and eigenframes with singular spectrum (1,epsilon,...,epsilon) give sharpness. All strictness, rank, endpoint and convex minimization claims follow in elementary finite dimensions. A standalone checker passed 56010 exact-rational and randomized reconstruction assertions; finite tests do not replace the complete analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jawanpuria, Garai and Mishra, Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics, arXiv:2610.27747v1, Theorem 3, Appendix C eq. (8), Proposition 8, https://arxiv.org/html/2610.27747v1",
+        "Shulgin, Laing, Orvieto and Richtárik, A Quadratic Lens on Muon’s Polar Update, arXiv:2610.30280, Theorem 3 and Appendix E.2/E.6, https://arxiv.org/abs/2610.30280",
+        "Lau, Long and Su, PolarGrad, arXiv:2505.21799v4, Sections 3.3 and 3.5, https://arxiv.org/html/2505.21799v4"
+      ],
+      "reasoning": "Broader PolarGrad convergence and line-search theorems are genuinely stronger in applicability, but their parameters are smoothness/rank/condition numbers or an iterate-dependent exact line-search quantity; they do not state the optimal rank-constrained arbitrary-spectrum one-step factor at a fixed step. Shulgin rank monotonicity and their full-rank factor are acknowledged as prior. The present improvement is specifically intermediate-rank sharpness.",
+      "searches": [
+        "sharp rank dependent worst case one step objective decrease nuclear norm scaled polar gradient PolarGrad SPD quadratic arbitrary eigenvalue spectrum",
+        "minimax spectral contraction ‖gradient‖ nuclear times polar factor rank r exact optimal rate and tight step",
+        "PolarGrad constant step nuclear norm polar matrix quadratic worst case all rank",
+        "Shulgin, Laing, Orvieto and Richtárik, A Quadratic Lens on Muon’s Polar Update, arXiv:2610.30280, Theorem 3 and Appendix E.2/E.6, https://arxiv.org/abs/2610.30280"
+      ]
+    },
+    "checked_sources": [
+      "Jawanpuria, Garai and Mishra, Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics, arXiv:2610.27747v1, Theorem 3, Appendix C eq. (8), Proposition 8, https://arxiv.org/html/2610.27747v1",
+      "Shulgin, Laing, Orvieto and Richtárik, A Quadratic Lens on Muon’s Polar Update, arXiv:2610.30280, Theorem 3 and Appendix E.2/E.6, https://arxiv.org/abs/2610.30280",
+      "Lau, Long and Su, PolarGrad, arXiv:2505.21799v4, Sections 3.3 and 3.5, https://arxiv.org/html/2505.21799v4",
+      "published-finding corpus published research semantic index: sharp rank-constrained nuclear-scaled polar descent Birkhoff assignment marked eigenvalue Ky Fan trace sum worst-case objective ratio",
+      "published-finding corpus published research semantic index: Shulgin near rank deficient PolarGD active subspace eigenvalue coupling minimum lambda_i over sum eigenvalues excluding i exact contraction",
+      "published-finding corpus published research semantic index: Jawanpuria Garai Mishra nuclear scaling matrix quadratic contraction max_i 1-2 alpha lambda_i + alpha squared lambda_i sum selected top r eigenvalues"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jawanpuria, Garai and Mishra, Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics, arXiv:2610.27747v1, Theorem 3, Appendix C eq. (8), Proposition 8, https://arxiv.org/html/2610.27747v1: fixed-step identity and top-r spectral-trace bound; invariant eigenframes give threshold necessity.",
+        "Shulgin, Laing, Orvieto and Richtárik, A Quadratic Lens on Muon’s Polar Update, arXiv:2610.30280, Theorem 3 and Appendix E.2/E.6, https://arxiv.org/abs/2610.30280: full-row-rank tight bound and near-rank-deficient witness; rank-deficient Corollary 2 and Proposition 9.",
+        "Lau, Long and Su, PolarGrad, arXiv:2505.21799v4, Sections 3.3 and 3.5, https://arxiv.org/html/2505.21799v4: standard nuclear-scaled polar update and rank-based sufficient rates."
+      ],
+      "reasoning": "The source yields f+=f-alpha||G||_*^2(1-alpha tr(U^THU)/2), hence only the uncoupled trace-based guarantee. Shulgin full-row-rank exact factor matches the new theorem only when r=d, and their rank-deficient Corollary 2 bounds a quotient with the current active trace but does not optimize across all rank-r frames. By Birkhoff assignment, when 1<r<d the exact replacement uses T_{r,i}=lambda_i+top(r-1) eigenvalues excluding i. The diagonal (1,10,11), r=2, alpha=2/25 gives 573/625 versus 609/625 from the uncoupled trace bound, establishing a nontrivial difference in implication strength.",
+      "searches": [
+        "Shulgin near rank deficient PolarGD active subspace eigenvalue coupling minimum lambda_i over sum eigenvalues excluding i exact contraction",
+        "Jawanpuria Garai Mishra nuclear scaling matrix quadratic contraction max_i 1-2 alpha lambda_i + alpha squared lambda_i sum selected top r eigenvalues",
+        "matrix sign descent spectral norm steepest descent trace curvature rank dependent exact contraction rates",
+        "Jawanpuria, Garai and Mishra, Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics, arXiv:2610.27747v1, Theorem 3, Appendix C eq. (8), Proposition 8, https://arxiv.org/html/2610.27747v1",
+        "Shulgin, Laing, Orvieto and Richtárik, A Quadratic Lens on Muon’s Polar Update, arXiv:2610.30280, Theorem 3 and Appendix E.2/E.6, https://arxiv.org/abs/2610.30280",
+        "Lau, Long and Su, PolarGrad, arXiv:2505.21799v4, Sections 3.3 and 3.5, https://arxiv.org/html/2505.21799v4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jawanpuria, Garai and Mishra, Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics, arXiv:2610.27747v1, Theorem 3, Appendix C eq. (8), Proposition 8, https://arxiv.org/html/2610.27747v1",
+        "Shulgin, Laing, Orvieto and Richtárik, A Quadratic Lens on Muon’s Polar Update, arXiv:2610.30280, Theorem 3 and Appendix E.2/E.6, https://arxiv.org/abs/2610.30280",
+        "Birkhoff–von Neumann theorem: a linear functional on the doubly stochastic polytope maximizes at a permutation vertex; Ky Fan maximum principle: trace maximum over orthogonal frames is the leading eigenvalue sum."
+      ],
+      "reasoning": "Recast the theorem as the sharp infimum of (2-alpha tr(U^THU))/(max_j u_j^TH^{-1}u_j) over orthonormal r-frames. The source one-step identity does not solve the marked-frame assignment. In Shulgin et al., Theorem 3 yields exactly the r=d case and their Corollary 2 lower-bounds rank-deficient progress by lambda_min/tr(H Pi_G); it does not optimize the coupling between the selected eigenvector for H^{-1} and the other r-1 eigenvectors. The rank-one case is ordinary GD and not asserted novel.",
+      "searches": [
+        "sharp rank-constrained nuclear-scaled polar descent Birkhoff assignment marked eigenvalue Ky Fan trace sum worst-case objective ratio",
+        "Shulgin near rank deficient PolarGD active subspace eigenvalue coupling minimum lambda_i over sum eigenvalues excluding i exact contraction",
+        "Jawanpuria, Garai and Mishra, Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics, arXiv:2610.27747v1, Theorem 3, Appendix C eq. (8), Proposition 8, https://arxiv.org/html/2610.27747v1",
+        "Shulgin, Laing, Orvieto and Richtárik, A Quadratic Lens on Muon’s Polar Update, arXiv:2610.30280, Theorem 3 and Appendix E.2/E.6, https://arxiv.org/abs/2610.30280"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed research summaries instead concern Polyak step monotonicity, LARS condition-number frontiers, isotropic PolarGrad special cases and other optimizers, not the ranked marked-curvature eigenvalue envelope.",
+        "Jawanpuria, Garai and Mishra, Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics, arXiv:2610.27747v1, Theorem 3, Appendix C eq. (8), Proposition 8, https://arxiv.org/html/2610.27747v1",
+        "Shulgin, Laing, Orvieto and Richtárik, A Quadratic Lens on Muon’s Polar Update, arXiv:2610.30280, Theorem 3 and Appendix E.2/E.6, https://arxiv.org/abs/2610.30280"
+      ],
+      "reasoning": "No inspected source gives a table/database of the spectral envelope for all SPD eigenvalue lists and all intermediate ranks. A numerical coincidence with a known full-rank factor is expressly separated, and the r=1 branch is standard GD. Index absence is not proof of novelty.",
+      "searches": [
+        "Jawanpuria Garai Mishra nuclear scaling matrix quadratic contraction max_i 1-2 alpha lambda_i + alpha squared lambda_i sum selected top r eigenvalues",
+        "sharp rank-constrained nuclear-scaled polar descent Birkhoff assignment marked eigenvalue Ky Fan trace sum worst-case objective ratio",
+        "PolarGrad nuclear scaled matrix polar operator one-step worst case rank discontinuity sharp spectrum envelope"
+      ]
+    },
+    "rationale": "The 2026 matrix-quadratic source proves the update identity and the global top-r trace threshold, while Shulgin et al. independently establish the full-rank special case and an uncoupled active-subspace rank bound. The newly proved sharp marked-eigenvalue assignment envelope for genuine intermediate ranks 1<r<d couples the eigenvalue carrying nearly all singular mass with the remaining r-1 selected curvatures. This stronger spectrum-resolved envelope, its strict rank-activation penalty and unique fixed-rank minimax step are not implications of the inspected sufficient bounds. Published research-index queries and prior-claim comparisons revealed no identical/dominating statement; historical bibliographic priority remains a risk.",
+    "residual_risks": [
+      "An older general variational or matrix inequality may subsume the marked-frame optimization, even though no direct primary or indexed comparison was found.",
+      "Search index coverage and historical bibliographic coverage are non-exhaustive. Full-rank and rank-one special cases are known, not presented as novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides identity and top-r trace threshold, not sharp intermediate-rank one-step spectral envelope.",
+        "evidence": [
+          "Jawanpuria, Garai and Mishra, Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics, arXiv:2610.27747v1, Theorem 3, Appendix C eq. (8), Proposition 8, https://arxiv.org/html/2610.27747v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.27747v1",
+        "material_read": "Main Sections 2 and 4; Appendix A comparison; Appendix C derivation of eq. (8), Theorem 3, Proposition 8, invariant eigenframe proof; references and remarks.",
+        "method": "Read public full-text HTML including theorem statements, proof steps and appendices.",
+        "title": "Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics",
+        "trigger": "Identical algorithm and strongly convex quadratic with fixed step"
+      },
+      {
+        "assessment": "Exact full-rank special case and other mechanisms are established prior; exact fixed-step all-spectrum sharp intermediate-rank assignment was not found.",
+        "evidence": [
+          "Shulgin, Laing, Orvieto and Richtárik, A Quadratic Lens on Muon’s Polar Update, arXiv:2610.30280, Theorem 3 and Appendix E.2/E.6, https://arxiv.org/abs/2610.30280"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.30280",
+        "material_read": "Full public extracted article: contribution statement; Theorem 3 equations (14)-(17); proof; Appendix E.2 near-rank-deficient extremizers; Appendix E.6.2 Corollary 2; E.6.3 Proposition 9; fixed-step comparison in Appendix D.",
+        "method": "Read arXiv article full-text extraction, including original theorems and relevant appendices.",
+        "title": "A Quadratic Lens on Muon’s Polar Update: Benefits, Pitfalls, and the Role of Newton–Schulz",
+        "trigger": "Overlapping polar updates and tight near-rank-deficiency results"
+      },
+      {
+        "assessment": "Original algorithm, sufficient convergence rates and step constraints are acknowledged as prior, but not claimed to solve spectral assignment across intermediate ranks.",
+        "evidence": [
+          "Lau, Long and Su, PolarGrad, arXiv:2505.21799v4, Sections 3.3 and 3.5, https://arxiv.org/html/2505.21799v4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.21799v4",
+        "material_read": "Public full-text algorithm and main Sections 3.3 and 3.5, plus supplementary convergence discussions.",
+        "method": "Read primary arXiv HTML main paper and relevant supplementary statements.",
+        "title": "PolarGrad: A Class of Matrix-Gradient Optimizers from a Unifying Preconditioning Perspective",
+        "trigger": "Introduces the precise nuclear-scaled polar update and prior rank-dependent rates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ba79f41d-ad85-4fbf-8239-bdf22b468289",
+  "value": {
+    "rationale": "The motivating 2026 theorem estimates contraction by separately optimizing minimum eigenvalue and active trace, even though these extrema cannot always coincide for intermediate ranks. The coupled marked-frame theorem computes the exact best possible per-rank guarantee from the full Hessian spectrum, with a 0.9168 versus 0.9744 certified comparison on a small natural three-mode anisotropic example and a quantifiable strict rank-activation cost. It supports fixed-step selection for numerical matrix optimization without overclaiming trajectory sharpness. The nonattained extremizers explain why very weak singular components still affect the worst-case polar update.",
+    "status": "PASS"
+  }
+}
