@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The universal proof is in `RESULT.md`. It uses exact polynomial reduction in characteristic three, the trace exact sequence for the additive map \(t\mapsto t^3-t\), Frobenius on conjugate square roots, and fixed two-element subsets of six branch points. No finite experiment is used to prove a statement for all extension degrees.
+## correctness
 
-Run `python3 verify_wild_d6.py` with the standard library. The script constructs exact finite fields of orders \(3,9,27,81\), tests every nonzero parameter in each (\(2+8+26+80=116\) cases), checks the original characteristic-three polynomial identity, directly enumerates rational branch points, and independently computes \(\deg\gcd(f(X),X^{q^d}-X)\) at extension degrees \(d=1,2,3,6\). It also checks the exact three-way parameter frequencies.
+PASS
 
-Observed terminal success marker: `WILD_D6_CHAR3_FROBENIUS_2TORSION_ALL_CHECKS_PASS`.
+For r,c in F_(3^n)^×, the transformed sextic has branch equation (t³−t)²=−1/r. The additive map t↦t³−t has image trace-zero, so rational β gives two split cubics (trace zero) or two irreducible cubics (trace nonzero). Nonsquare β gives Frobenius conjugation ±β and trace zero over the quadratic extension, hence 2³ cycles. Frobenius-fixed unordered Weierstrass pairs give rational 2-torsion orders 16,4,1. Pairs ±β parametrize (q−3)/6, nonsquares (q−1)/2, and remainder q/3. Sextic derivative vanishes only at 0,±1, where sextic is nonzero, establishing smooth genus two. Boundary q=3 has empty fully split class. Finite-field source checker uses polynomial gcd of f with T^(q^d)−T in q=3,9,27,81; uniform proof is algebraic, not 116 tests.
 
-Scientific limits: the previously published characteristic-three model, ordinarity, and complete-splitting criterion are not new. The newly classified non-split Frobenius types, exact parameter distribution, and rational two-torsion orders have no independent external validation. The published reference's full characteristic-three subsection was inspected, but not every possible older equivalent treatment.
+## originality
+
+PASS
+
+The primary 2024 D6 study supplies the characteristic-three model and complete-splitting criterion, and standard Artin–Schreier and genus-two 2-torsion facts supply the method. The exact complete three-way Frobenius frequency plus rational 2-torsion parameter census is a meaningful non-identical strengthening; no dominating published statement identified in the actual targeted search. Best-of-knowledge PASS only; historical classification in specialized literature could contain the same corollary.
+
+## value
+
+PASS
+
+A complete arithmetic trichotomy for literal parameters is a natural invariant of the prominent wild D6 genus-two family: precise field-of-definition of all six branch points and fixed rational 2-torsion rank affect arithmetic of the Jacobian. The exact parameter frequencies and exclusion of six-cycles close the classification, not a gratuitous finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
