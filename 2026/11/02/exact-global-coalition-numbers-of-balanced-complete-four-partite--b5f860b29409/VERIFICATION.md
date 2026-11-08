@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` establishes the formula for every integer \(q\ge1\). The following computations test independent encodings of the original definition rather than replacing that proof.
+## correctness
 
-Run `python verify.py` (Python 3.10+, NumPy, SciPy). It enumerates all set partitions of the original labelled graph for \(q=1,2\), constructs and directly verifies three families of lower-bound witnesses, and solves an exact mixed-integer program for the support-count description for every integer \(1\le q\le25\). Output includes `DIRECT_ORIGINAL_GRAPH_PARTITIONS_OK 1 15 2`, `DIRECT_ORIGINAL_GRAPH_PARTITIONS_OK 2 4140 4`, and `INDEPENDENT_MIXED_INTEGER_SUPPORT_OPTIMUM_OK` for each \(q\), ending `VERIFY_OK`.
+PASS
 
-Run `g++ -O2 -std=c++17 verify_direct.cpp -o verify_direct` and then `./verify_direct`. This independently constructs all graph and complement neighborhood checks, directly tests the global-dominating condition, and enumerates all unlabelled set partitions of the original labelled graphs, obtaining:
+For G=K_{q,q,q,q}, a nonempty set globally dominates G and its complement exactly when it intersects each of four parts. Hence coalition partners have supports whose union is [4], while each valid class has nonempty proper support. The published t-class lower construction realizes 2q, 3q−3, or 4q−8 as feasible, with q=1 boundary K4=2. In the upper proof, t=#distinct singleton-supported part indices. At t=0 counting ≥2 incidences gives k≤2q; at t=1 complementary triple and another incident class force 2z+2≤3q (or k≤2q if no such class); at t=2 compulsory triples and required opposite partner yield k≤3q−3; t=3 entails three excess incidences, k≤3q−3; t=4 entails eight excess, k≤4q−8. Thus the maximum holds for every positive integer q. A fresh direct partition enumeration on original graph and complement gives GC(K4)=2, GC(K2,2,2,2)=4. The all-q statement rests on complete support-incidence inequalities, not finite enumeration.
 
-```
-EXHAUSTIVE_ORIGINAL_GRAPH_PARTITIONS_OK 1 15 2
-EXHAUSTIVE_ORIGINAL_GRAPH_PARTITIONS_OK 2 4140 4
-EXHAUSTIVE_ORIGINAL_GRAPH_PARTITIONS_OK 3 4213597 6
-EXHAUSTIVE_VERIFY_OK
-```
+## originality
 
-The mixed-integer program's support variables count class incidences and their coalition partners. This finite optimization is not an assertion about all integers \(q\); the mathematical five-case proof supplies the universal result. Both scripts assume ordinary finite simple graphs and the global coalition definition stated in `RESULT.md`.
+PASS
+
+The new proof supplies an all-q upper bound for the balanced four-part graph and therefore settles a natural conjectured special case, whereas the identified published construction supplied the lower bound and up to three-part exact results. Full revised primary text was unavailable; that access limitation is a named priority risk, not fabricated evidence or an automatic originality failure.
+
+## value
+
+PASS
+
+This is a natural infinite four-part balanced test of a named multipartite global-coalition conjecture beyond the known three-part exact case. The proof explains three sharp regimes and can inform unrestricted part sizes through compulsory complementary support classes. The new contribution is the upper bound; the lower bound is credited prior work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
