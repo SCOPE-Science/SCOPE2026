@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The normal form is forced by the two original coverage clauses. Every omitted induced-isolate needs exactly one incident selected cross edge; every omitted–omitted edge is forced; all other selected edges would be redundant. Receiver essentiality is precisely the condition that deleting a selected receiver vertex uncovers a cross edge. Inclusion–exclusion over potentially bad receivers gives the stated coefficient, with inconsistent overlapping assignments contributing zero. The \(3^n\) term bound follows from a complete enumeration of \((W,S)\). Exact direct enumeration verified 115 small graph instances, but finite checks are not an infinite proof.
+
+**Originality — PASS (historical priority provisional).** The 2025 public conference presentation defines strong total covering and addresses optimization/polyhedra. Aprile and Ferrarini's 2026 full manuscript proves an incidence-graph equivalence and an optimal-size induced-matching identity; neither yields the explicit induced-isolate polynomial as a stated theorem. Castelo, Defrain and Gomes address algorithmic minimal-domination enumeration on chordal bipartite graphs, not the unrestricted original-vertex coefficient formula. The known private-neighbor condition entails the vertex essentiality test after structural reduction, so an undiscovered equivalent formula is a residual priority risk. Related specialized complete-bipartite enumeration does not cover arbitrary graphs.
+
+**Mathematical value — PASS.** The normal form and formula classify all inclusion-minimal strong total covers of arbitrary simple graphs, not just minimum covers or a named special graph family. The \(3^n\) original-vertex inclusion–exclusion evaluation avoids direct enumeration of all \(2^{n+|E|}\) selections in the incidence graph, and supplies each cardinality coefficient; this is a meaningful counting refinement of an optimization problem, though not output-polynomial.
+
+**Limitations.** Independent audit has not been conducted. Generic minimal-domination equivalences remain an originality risk, as does the exact posting date of the 2025 public conference abstract. The computational examples are not exhaustive beyond graph order four.
+
+Self-review: passed. Independent audit: not yet performed.
