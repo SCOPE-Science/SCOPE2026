@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The mathematical proof is in RESULT.md. In the noncontractible range, verify the face condition for the link of the central vertex, the contractible cone cover of the missing-near-vertex part, and the relative-chain boundary contraction. The latter identifies the actual integral lattice, avoiding reliance on coefficient-field calculations. The homotopy wedge follows from the same decomposition and the simplex-skeleton homotopy type.
+# Independent mathematical audit
 
-Execute `python3 check_subdivided_star.py` from the extracted directory (Python standard library only). The checker constructs every face from the induced-component condition, reduces all boundary maps modulo two, and independently computes signed Lefschetz traces for all permutations of the arms for five small arm counts. The observed successful output is `PASS: 30 independent mod-2 chain homology tests; 1438 signed Lefschetz-character tests.` These are finite consistency checks, not a proof for all parameters nor an integer Smith-normal-form calculation.
+## correctness
 
-The theorem assumes equal arms of two edges, at least three arms, and thresholds at least two. The rational character checks cannot on their own determine an integral group-action lattice; the direct relative-chain identification in RESULT.md does. Independent mathematical validation has not been performed.
+PASS
+
+Deleting center c leaves a disjoint-edge graph, so its r-independence complex for r>=2 is the full simplex. The link faces obey |I|+#{i:u_i,v_i both selected}<=r-1. Its subcomplex omitting some near u_i has a good cover by cones D_i, every intersection a cone; nerve full simplex, hence contractible. In middle range r=m+1+q, all-near-u faces form Delta(U)*K_q, overlap boundary(Delta U)*K_q, giving link quotient and suspension of a (q-1)-skeleton; yields binom(m-1,q) S^{m+q}. The relative integral boundary is the sign-twisted truncation of exterior contraction by the primitive augmentation epsilon, with unique top kernel wedge^q ker(epsilon); no torsion. Independent complete F2 boundary calculation for m=3, r=2..7 returned ranks 0,0,1 at H3,2 at H4,1 at H5,0 as predicted.
+
+## originality
+
+PASS
+
+Existing qualitative all-tree results and fully whiskered-star classifications do not imply this exact phase diagram and integral sign-twisted exterior augmentation representation for a center lacking leaf neighbors.
+
+## value
+
+PASS
+
+Deleting precisely the central whisker in a standard fully whiskered family changes the binomial multiplicities, presenting a sharp and interpretable homotopy phase transition. The sign-twisted exterior power of the augmentation lattice is a natural integral symmetry refinement, useful beyond Betti counts; all thresholds and arms covered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
