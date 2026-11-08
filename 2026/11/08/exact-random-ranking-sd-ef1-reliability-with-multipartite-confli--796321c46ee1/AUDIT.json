@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For N/2<ell<=N the direct existential-removal definition reduces to prefix-balance. Top ell goods must occupy all ell agents bijectively, and each of the remaining N-ell goods must match injectively with a top good of its own multipartite class, giving the exact falling-factorial count and feasibility iff 2x_i<=n_i. Hypergeometric sampling over bottom sets gives the probability coefficient. The normal limit uses the correct mean, variance and finite-population CLT; Chebyshev handles larger surpluses. A separately implemented direct definition and exhaustive small-case allocations match the theorem. The worst-case threshold uses cited earlier strong-colorability monotonicity, not empirical extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Haviv Theorem 1.1 provides a broad every-order equivalence but no success measure over orders; its generality does not include a quantitative distribution conclusion.",
+        "Equbal et al. focus on maximal EF1 possibly unallocated goods rather than complete SD-EF1 allocations."
+      ],
+      "reasoning": "The stronger-looking general every-ranking theorem covers existence above its threshold but is silent about the probability below it, which is the principal new claimed invariant. It also does not specify all allocation counts.",
+      "searches": [
+        "hypergeometric central limit fair division SD-EF1 random preferences graph conflict threshold erf",
+        "complete multipartite strong chromatic number partition transversal coloring exact",
+        "random order stochastic dominance EF1 allocation complete multipartite conflict graph exact feasibility probability hypergeometric",
+        "Gaussian critical window random fair allocation bipartite conflict graph top bottom item order agents m + sqrt m",
+        "arxiv:2607.01059v1 Theorem 1.1 and Lemmas 3.4, 3.8, 4.1-4.3",
+        "arxiv:2605.09930v1 introduction and results"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.01059v1",
+      "arxiv:2605.09930v1",
+      "doi:10.1007/s10458-021-09537-3",
+      "2026/10/4/SCOPE-two-preference-types-restore-stochastic-dominance-envy-freeness--6e7d900d7fa1",
+      "2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+      "2026/10/4/SCOPE-exact-proper-conflict-free-colorings-of-complete-multipartite-gr--5943975f038c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The existing balanced bipartite worst-case chi_s^1 value is restated and explicitly credited.",
+        "The new theorem obtains, for ell=m+s below ceil(3m/2), a nonzero exact success probability with a nontrivial erf limit in s/sqrt(m), which is not inferable as a numerical value from worst-case existence alone.",
+        "The normal approximation is from a classic hypergeometric CLT and not claimed separately as novel."
+      ],
+      "reasoning": "A broad existential statement or general prefix lemma may ease proving the new result but neither implies its enumerative coefficient expression without new multipartite pairing/injection analysis, nor its critical Gaussian success law without probabilistic analysis.",
+      "searches": [
+        "arxiv:2607.01059v1 Lemmas 3.8 and 4.3 / Theorem 1.1",
+        "arxiv:2605.09930v1 abstract, introduction, main results",
+        "doi:10.1007/s10458-021-09537-3 text and Section 5",
+        "An exact coefficient formula for the probability that a uniformly random common ranking permits stochastic-dominance envy-free-up-to-one allocation to labeled agents with complete multipartite item-conflict graphs",
+        "balanced complete bipartite conflict K_m,m random permutation SD-EF1 phase transition number agents m plus c square root m Gaussian error function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Haviv Lemma 4.3: SD-EF1 equivalent to color classes meeting ranked blocks at most once, but does not enumerate all such colorings for multipartite graphs.",
+        "Haviv Lemma 3.8: chi_s^1(K_m,m)=ceil(3m/2) already known; the exact random-ranking coefficient law and limit are not the same statement.",
+        "published research-record SCOPE two-preference-types random priority result uses different randomized object and agents."
+      ],
+      "reasoning": "The new event is random-order feasibility at a fixed sub-worst-case number of agents, with exact mass and Gaussian scaling; neither a deterministic worst-case existence criterion nor RSD lottery SD envy-freeness implies the event distribution.",
+      "searches": [
+        "An exact coefficient formula for the probability that a uniformly random common ranking permits stochastic-dominance envy-free-up-to-one allocation to labeled agents with complete multipartite item-conflict graphs",
+        "balanced complete bipartite conflict K_m,m random permutation SD-EF1 phase transition number agents m plus c square root m Gaussian error function",
+        "multinomial falling factorial count complete conflict multipartite fair allocations identical strict ranking worst case chi_s^1",
+        "arxiv:2607.01059v1 Sections 3.3, 4.1, 4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Haviv Table 1 summarizes thresholds, algorithms and conditions; not distribution tables.",
+        "published research-record forced-colorings paper tabulates minimum-palette forcing sets, not preference-rank feasible allocation counts."
+      ],
+      "reasoning": "No inspected matching parameter table or empirical listing provides the coefficient probabilities or error-function limit. This negative search evidence is not itself proof of uniqueness.",
+      "searches": [
+        "An exact coefficient formula for the probability that a uniformly random common ranking permits stochastic-dominance envy-free-up-to-one allocation to labeled agents with complete multipartite item-conflict graphs",
+        "balanced complete bipartite conflict K_m,m random permutation SD-EF1 phase transition number agents m plus c square root m Gaussian error function",
+        "published research-record SCOPE forced colourings of complete multipartite graphs at the chromatic palette size",
+        "arxiv:2607.01059v1 Table 1, Lemma 3.8"
+      ]
+    },
+    "rationale": "Direct full-text comparison with Haviv (2026) distinguishes his universal SD-EF1 existence and balanced bipartite strong-colorability threshold from the presently proved complete allocation-count distribution and the random-order Gaussian transition. Equbal et al. (2026) focus on incomplete EF1/maximality, and Hummel--Hetland (2021) on EF1/MMS conflicting items. Targeted published research-record searches yielded only distinct stochastic assignment and graph-coloring questions. Known general hypergeometric CLT and Haviv prefix lemma are acknowledged as ingredients; an unindexed identical computation remains possible.",
+    "residual_risks": [
+      "Unindexed equivalent enumerations and implicit deductions in adjacent strong-coloring work could exist.",
+      "The counting formula follows a short argument using Haviv's existing ranked-block insight; its significance rests on the exact probability and sharp random-versus-worst-case Gaussian transition, not on complexity of the finite counting argument."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes baseline characterization and known worst-case balanced-bipartite threshold; no random-ranking reliability law or complete enumeration observed",
+        "evidence": [
+          "Theorem 1.1 SD-EF1 iff ell>=chi_s^1 for all common orders",
+          "Lemma 3.8 chi_s^1(K_m,m)=ceil(3m/2)",
+          "Lemma 4.3 balanced ranked-block characterization",
+          "PDF searched for random order and randomly with no hits"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.01059",
+        "material_read": "Full 32-page primary PDF; theorem statements, definitions, Sections 3 and 4 including Lemmas 3.4, 3.8, 4.1-4.3, and related proof passages",
+        "method": "Full-text HTML/PDF text reading, targeted phrase search and visual inspection of printed page 14",
+        "title": "Fair Allocation under Conflict Constraints via Strong Colorability",
+        "trigger": "Exact same fairness definition, conflict graph model, and balanced-bipartite threshold"
+      },
+      {
+        "assessment": "Studies EF1/maximal possibly incomplete assignments and two- or many-agent existence, not common strict-order SD-EF1 enumerative law",
+        "evidence": [
+          "Abstract states EF1 plus maximality of partially unassigned goods; no random-order probability in inspected material"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.09930",
+        "material_read": "33-page primary PDF, abstract, introduction and main-results discussion",
+        "method": "PDF text and visual inspection of first page",
+        "title": "Fair Allocation under Conflict Constraints",
+        "trigger": "Same conflict graph and fair allocation problem"
+      },
+      {
+        "assessment": "EF1/MMS/MNW conflict-constrained fair division, but no exact common-rank SD-EF1 feasibility probability or balanced-graph Gaussian window",
+        "evidence": [
+          "Article explicitly studies EF1, MMS, MNW; full-text stochastic term search had no hits"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10458-021-09537-3",
+        "material_read": "Accessible full-text HTML abstract, introduction, methods/results sections and relevant random-allocation passages",
+        "method": "Open-access full-text browsing and targeted stochastic/ordering searches",
+        "title": "Fair allocation of conflicting items",
+        "trigger": "Earlier complete conflict-constrained fair-division model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "796321c4-6ee1-47db-8e83-f8b329c839c2",
+  "value": {
+    "rationale": "The exact success probability is a natural service-reliability metric when items have a random common priority order; it measures an unknown intermediate regime left unresolved by a worst-case-only existence criterion. The critical window proves a structurally meaningful separation: m+Theta(sqrt(m)) agents suffice for a nonzero or high typical success rate while the adversarial threshold is ceil(3m/2). The all-size enumerative law and Gaussian scaling are exact, not arbitrary small-instance tables, and can inform prioritization and agent-capacity planning. The known balanced worst-case threshold is not counted as an original contribution.",
+    "status": "PASS"
+  }
+}
