@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The included `check.py` independently counts occurrences using a standard subsequence dynamic program, not the profile identity. Exact enumeration across all binary words of lengths through 15 was compared with the profile formula in 3,168 separate parameter/length/frequency cells, for \(1\le a,b\le4\), \(a+b\le n\le15\), \(1\le k\le18\). The \(0011\) frequency-five profile and its closed binomial formula were also checked through \(n=39\). The recorded output appears in `check_output.txt`; use `python3 check.py` to replay.
+## correctness
 
-The infinite claims do not follow from finite verification. They are proved in `RESULT.md` via classification by the first one of a scattered occurrence, finite bounds on canonical zero-count profiles, and a unique \(a+b\)-free-gap factorization. The length generating function holds for all positive integers \(a,b,k\) and every nonnegative integer \(n\).
+PASS
 
-Scientific boundaries: only two-run binary patterns and positive occurrence frequencies; no complexity claim for the profile enumeration, no independent mathematical audit, and no claim of publication-priority certification.
+After the a-th zero, enumerate q>=b ones, and let t_i be preceding-zero totals. Classifying an occurrence by its first chosen 1 gives the exact weighted identity k=sum_{i=1}^{q-b+1} binom(q-i,b-1)binom(t_i,a). The first r=q-b+1 monotone t_i determine all contributing terms; binom(q,b)<=k and binom(t_r,a)<=k ensure a finite profile set, including b=1 boundary. The first a zeros and remaining b-1 unconstrained ones delimit a+b free slots, giving unique length decomposition q+t_r+sum free nonnegative gaps, hence generating function numerator over (1-z)^(a+b). Positive numerator at z=1 proves exact eventual degree if attainable. The example a=b=2,k=5 has unique (q=3;t=2,3) giving z^6/(1-z)^4. Independently enumerated all short binary words with DP occurrence counting and confirmed profile results; this does not prove unbounded parameters.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for complete stated claim, after explicit same-object and strong-theorem comparisons; known ingredients and limitations credited. Historical priority is not certified.
+
+## value
+
+PASS
+
+An exact all-positive-frequency rational enumerator and complete sharp-degree characterization for a broad natural two-run class go beyond a known general eventual-degree upper bound and settle the documented difficult 0011-frequency-five regime as an illustration. The positive-coefficient numerator gives useful exact coefficients, not just a degree estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

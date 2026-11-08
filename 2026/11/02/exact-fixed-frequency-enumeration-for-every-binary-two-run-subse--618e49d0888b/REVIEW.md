@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Fix a binary word with a positive number of scattered occurrences of \(0^a1^b\). The \(a\)-th zero is canonical. Label its following ones, record the first \(q-b+1\) preceding-zero counts, and classify occurrences by their first selected one. This proves the weighted binomial profile equation, not just an upper bound. Its positive summands imply \(\binom{q}{b}\le k\) and \(\binom{t_r}{a}\le k\), establishing termination of the profile enumeration. A word of fixed profile is recovered uniquely from \(a+b\) free nonnegative gap variables and has baseline length \(q+t_r\), proving the rational generating function. Its numerator has positive value at \(z=1\) when a profile exists, proving exact polynomial degree \(a+b-1\); otherwise no word has that positive occurrence frequency.
+PASS
 
-The standalone checker separately computed subsequence multiplicities on binary words and matched the formula in 3,168 exact parameter/length comparisons, including the five-occurrence example through length 39. These finite checks are corroboration; the all-parameter proof is combinatorial and independent of them.
+After the a-th zero, enumerate q>=b ones, and let t_i be preceding-zero totals. Classifying an occurrence by its first chosen 1 gives the exact weighted identity k=sum_{i=1}^{q-b+1} binom(q-i,b-1)binom(t_i,a). The first r=q-b+1 monotone t_i determine all contributing terms; binom(q,b)<=k and binom(t_r,a)<=k ensure a finite profile set, including b=1 boundary. The first a zeros and remaining b-1 unconstrained ones delimit a+b free slots, giving unique length decomposition q+t_r+sum free nonnegative gaps, hence generating function numerator over (1-z)^(a+b). Positive numerator at z=1 proves exact eventual degree if attainable. The example a=b=2,k=5 has unique (q=3;t=2,3) giving z^6/(1-z)^4. Independently enumerated all short binary words with DP occurrence counting and confirmed profile results; this does not prove unbounded parameters.
 
-## Originality — PASS, with specified residual risks
+## originality
 
-Bruda, *Enumerating binary words restricted by subsequence frequency*, arXiv:2607.02578v1, states the general eventual polynomial upper-degree bound and explicitly asks for complete sharpness criteria; it mentions the pattern \(0011\) at frequency five as a pre-existing exceptional example. The present result does not claim that exception as a discovery. It supplies instead a finite canonical profile set, an exact positive-numerator generating function for every fixed positive frequency of every binary two-run pattern, and a complete if-and-only-if degree criterion in that subclass. Bruda's eventual upper bound alone cannot determine the exact numerator or positivity.
+PASS
 
-Menon–Singh, arXiv:2306.07870v1, gives small-frequency formulas and extremal occurrence results, not the all-frequency two-run classification. Tian, arXiv:2507.03205v1, develops general occurrence and primitive-word methods but does not state this specific canonical profile formula or its degree-sharpness consequence in the inspected sections. Targeted searches of closely related research records and web literature did not yield an equivalent statement. A more general algorithm could be specialized to obtain some counts with additional work; an overlooked earlier equivalent formula remains a priority risk. A match between a special case's numerical coefficients and the classical tetrahedral sequence is not coverage of its word-counting interpretation or the two-run theorem.
+Best-of-knowledge originality for complete stated claim, after explicit same-object and strong-theorem comparisons; known ingredients and limitations credited. Historical priority is not certified.
 
-## Value — PASS
+## value
 
-The source paper identifies the failure of its known sufficient sharpness conditions and proposes determining when the general upper degree is attained. The answer for **all** two-run binary patterns and **every positive frequency** is a natural, nontrivial complete subfamily of that problem. The explicit finite numerator also supports exact length-by-length enumerations, not only eventual growth, and separates unattainable frequencies from all attainable ones.
+PASS
 
-## Scope and limitations
+An exact all-positive-frequency rational enumerator and complete sharp-degree characterization for a broad natural two-run class go beyond a known general eventual-degree upper bound and settle the documented difficult 0011-frequency-five regime as an illustration. The positive-coefficient numerator gives useful exact coefficients, not just a degree estimate.
 
-The claim excludes zero frequency, three-or-more-run patterns, and alphabets beyond two letters. The decidability criterion uses a finite but potentially expensive arithmetic enumeration. No unperformed independent verification, publication-priority guarantee, or broader classification is asserted.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

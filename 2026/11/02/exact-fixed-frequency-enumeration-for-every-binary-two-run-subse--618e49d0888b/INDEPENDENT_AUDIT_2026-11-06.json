@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T05:45:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After the a-th zero, enumerate q>=b ones, and let t_i be preceding-zero totals. Classifying an occurrence by its first chosen 1 gives the exact weighted identity k=sum_{i=1}^{q-b+1} binom(q-i,b-1)binom(t_i,a). The first r=q-b+1 monotone t_i determine all contributing terms; binom(q,b)<=k and binom(t_r,a)<=k ensure a finite profile set, including b=1 boundary. The first a zeros and remaining b-1 unconstrained ones delimit a+b free slots, giving unique length decomposition q+t_r+sum free nonnegative gaps, hence generating function numerator over (1-z)^(a+b). Positive numerator at z=1 proves exact eventual degree if attainable. The example a=b=2,k=5 has unique (q=3;t=2,3) giving z^6/(1-z)^4. Independently enumerated all short binary words with DP occurrence counting and confirmed profile results; this does not prove unbounded parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For two runs Bruda gives upper bound a+b−1, but sufficient sharpness conditions do not cover all attainable positive k and an exact coefficient formula is not supplied.",
+          "Tian addresses general occurrence algorithms."
+        ],
+        "reasoning": "The upper bound is prior art; exact numerator positivity and its iff attainable sharpness across all k are not implied by an upper bound alone.",
+        "searches": [
+          "Bruda 2026 theorem 1.4 degree bound subsequence frequencies two runs sharpness",
+          "Tian 2025 Counting occurrences of a pattern in a binary word arxiv:2507.03205"
+        ]
+      },
+      "checked_sources": [
+        "Bruda arxiv:2607.02578 full primary text Theorem 1.4 and §4.2",
+        "Menon–Singh arxiv:2306.07870 bibliographic and partial descriptions",
+        "Tian arxiv:2507.03205 abstract and methods summary",
+        "Resultary query binary word scattered subsequence occurrence exact frequency two runs rational generating function eventual polynomial sharp degree",
+        "Assigned RESULT.md Git blob db40ecc16fa5c17f981d83c55747371be6543516"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior papers imply eventual polynomial growth with upper bound and establish separate small-frequency cases.",
+          "Neither the upper bound nor small cases proves the positive numerator or exact degree for every attainable k, so the current exact combinatorial factorization adds material coverage."
+        ],
+        "reasoning": "Special case 0011 at k=5 is not claimed as new example, only new exact count.",
+        "searches": [
+          "Bruda arxiv:2607.02578 Theorem 1.4 and §4.2",
+          "Menon Singh arxiv:2306.07870 frequency <=4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bruda proves general eventual polynomiality with degree at most length-runs+1; Menon–Singh handle small k and extremal frequencies.",
+          "Resultary binary-word hits mainly address subsequence universality and reconstruction, not fixed occurrence frequencies."
+        ],
+        "reasoning": "The combinatorial occurrence-count profile is an explicit exhaustive classification of the two-run pattern not shown by the cited broader-degree result.",
+        "searches": [
+          "binary word scattered subsequence occurrence exact frequency two runs rational generating function eventual polynomial sharp degree",
+          "Bruda 2026 Enumerating binary words restricted by subsequence frequency arxiv:2607.02578",
+          "Menon Singh 2023 subsequence frequency binary words arxiv:2306.07870"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The special pattern 0011 at frequency 5 is recognized as an exceptional unsolved-sharpness example in the prior discussion, not newly discovered here.",
+          "The independently computed identity B_{2,2}(n,5)=binom(n-3,3) for n>=6 is corroborated by word-level counting."
+        ],
+        "reasoning": "No indexed complete all-a,b,k table was located; the symbolic profile enumeration provides the asserted exact formula.",
+        "searches": [
+          "0011 pattern five scattered subsequences eventual polynomial example Bruda",
+          "binary two-run subsequence frequency exact coefficient tables",
+          "Resultary binary word scattered subsequence occurrence exact frequency two runs rational generating function eventual polynomial sharp degree"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for complete stated claim, after explicit same-object and strong-theorem comparisons; known ingredients and limitations credited. Historical priority is not certified.",
+      "residual_risks": [
+        "Some general subsequence-occurrence generating function may algebraically specialize to the entire profile formula even without matching terminology; full Tian paper not materially compared theorem by theorem.",
+        "The formal binomial convention for n<h profiles is essential; generating function is formal in z for each fixed k.",
+        "No conclusion for k=0, three-or-more-run patterns or complexity polynomial in binary bit length of k."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS eventual degree upper bound; does not establish all attainable two-run exact degree and numerator",
+          "evidence": [
+            "Theorem 1.4 gives degree <= length−runs+1; §4.2 identifies limits of sharpness conditions."
+          ],
+          "identifier_or_url": "G. Bruda, arxiv:2607.02578v1; https://www.researchgate.net/publication/408521949_Enumerating_binary_words_restricted_by_subsequence_frequency",
+          "material_read": "Accessible full-text manuscript (Theorem 1.4 and §4.2 particularly), including explicit sharpness discussion",
+          "method": "Read primary full text through accessible HTML mirror and matched theorem implications",
+          "title": "Enumerating binary words restricted by subsequence frequency",
+          "trigger": "Exactly same statistic and general polynomiality"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE k<=4 / known extremal frequencies",
+          "evidence": [
+            "Does not, in inspected material, give all-positive-frequency two-run numerator."
+          ],
+          "identifier_or_url": "Menon–Singh, arxiv:2306.07870 (2023); Discrete Mathematics 347 (2024), 113928",
+          "material_read": "Abstract and previously documented limited-frequency statements; complete full-text independent inspection not established",
+          "method": "Available summary and source cross-comparison",
+          "title": "Subsequence frequency in binary words",
+          "trigger": "Prior small frequency cases"
+        },
+        {
+          "assessment": "PRIOR_GENERAL_METHOD; detailed equivalence not excluded",
+          "evidence": [
+            "A general algorithm might specialize to the profile count but no exact denominator/numerator identity verified."
+          ],
+          "identifier_or_url": "R. Tian, arxiv:2507.03205 (2025)",
+          "material_read": "Abstract/general formula descriptions, not complete full-text primary reading",
+          "method": "Metadata and theorem-scope comparison",
+          "title": "Counting occurrences of a pattern in a binary word",
+          "trigger": "Potential general enumeration dominating exact profile"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact all-positive-frequency rational enumerator and complete sharp-degree characterization for a broad natural two-run class go beyond a known general eventual-degree upper bound and settle the documented difficult 0011-frequency-five regime as an illustration. The positive-coefficient numerator gives useful exact coefficients, not just a degree estimate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bruda arxiv:2607.02578 full primary text Theorem 1.4 and §4.2",
+    "Menon–Singh arxiv:2306.07870 bibliographic and partial descriptions",
+    "Tian arxiv:2507.03205 abstract and methods summary",
+    "Resultary query binary word scattered subsequence occurrence exact frequency two runs rational generating function eventual polynomial sharp degree",
+    "Assigned RESULT.md Git blob db40ecc16fa5c17f981d83c55747371be6543516"
+  ],
+  "disposition": "passed",
+  "final_claim": "For any a,b,k>=1, binary words having exactly k scattered occurrences of 0^a1^b have the finite-profile generating function [sum z^(q+t_r)]/(1-z)^(a+b); unattainable k give zero and attainable k give eventual polynomial degree exactly a+b-1.",
+  "limitations": [
+    "Some general subsequence-occurrence generating function may algebraically specialize to the entire profile formula even without matching terminology; full Tian paper not materially compared theorem by theorem.",
+    "The formal binomial convention for n<h profiles is essential; generating function is formal in z for each fixed k.",
+    "No conclusion for k=0, three-or-more-run patterns or complexity polynomial in binary bit length of k."
+  ],
+  "residual_risks": [
+    "Some general subsequence-occurrence generating function may algebraically specialize to the entire profile formula even without matching terminology; full Tian paper not materially compared theorem by theorem.",
+    "The formal binomial convention for n<h profiles is essential; generating function is formal in z for each fixed k.",
+    "No conclusion for k=0, three-or-more-run patterns or complexity polynomial in binary bit length of k."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS eventual degree upper bound; does not establish all attainable two-run exact degree and numerator",
+      "evidence": [
+        "Theorem 1.4 gives degree <= length−runs+1; §4.2 identifies limits of sharpness conditions."
+      ],
+      "identifier_or_url": "G. Bruda, arxiv:2607.02578v1; https://www.researchgate.net/publication/408521949_Enumerating_binary_words_restricted_by_subsequence_frequency",
+      "material_read": "Accessible full-text manuscript (Theorem 1.4 and §4.2 particularly), including explicit sharpness discussion",
+      "method": "Read primary full text through accessible HTML mirror and matched theorem implications",
+      "title": "Enumerating binary words restricted by subsequence frequency",
+      "trigger": "Exactly same statistic and general polynomiality"
+    },
+    {
+      "assessment": "PARTIAL_COVERAGE k<=4 / known extremal frequencies",
+      "evidence": [
+        "Does not, in inspected material, give all-positive-frequency two-run numerator."
+      ],
+      "identifier_or_url": "Menon–Singh, arxiv:2306.07870 (2023); Discrete Mathematics 347 (2024), 113928",
+      "material_read": "Abstract and previously documented limited-frequency statements; complete full-text independent inspection not established",
+      "method": "Available summary and source cross-comparison",
+      "title": "Subsequence frequency in binary words",
+      "trigger": "Prior small frequency cases"
+    },
+    {
+      "assessment": "PRIOR_GENERAL_METHOD; detailed equivalence not excluded",
+      "evidence": [
+        "A general algorithm might specialize to the profile count but no exact denominator/numerator identity verified."
+      ],
+      "identifier_or_url": "R. Tian, arxiv:2507.03205 (2025)",
+      "material_read": "Abstract/general formula descriptions, not complete full-text primary reading",
+      "method": "Metadata and theorem-scope comparison",
+      "title": "Counting occurrences of a pattern in a binary word",
+      "trigger": "Potential general enumeration dominating exact profile"
+    }
+  ]
+}
