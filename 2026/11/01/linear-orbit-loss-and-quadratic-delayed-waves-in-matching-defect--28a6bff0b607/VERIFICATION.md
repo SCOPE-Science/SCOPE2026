@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,25 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the matching-defect cyclic dynamics census
 
-The proof is analytic and covers all integers \(n\ge5\), \(1\le k\le\lfloor n/2\rfloor\), \(n-k\ge4\). The separate computations below test the exact six-class count and the full-state identity without extrapolating from finite graph sizes.
+# Independent mathematical audit
 
-Compile and execute the C++17 implementation:
+## correctness
 
-```sh
-g++ -O2 -std=c++17 verify_matching_exhaustive.cpp -o verify_matching_exhaustive
-./verify_matching_exhaustive
-```
+PASS
 
-The implementation directly inspects neighbors for every vertex at each update, testing the entire labelled state space for every admissible \((n,k)\) up to \(n=11\), alongside the complete-graph control \(k=0\). Its expected successful terminal line is recorded in `verification_matching_exhaustive.txt` as `EXHAUSTIVE_CENSUS_OK cases=36 states=1560978`.
+For K_n with k disjoint deleted edges, n-k>=4, every vertex misses at most its matched partner, and a color-i vertex can be blocked only if the unique successor-color vertex is that partner. At most one color-blocking pair exists in any onto-three-color state. With one/two initial colors, nonmonochromatic states enter consensus at time one except 6k exceptional orientations which enter at time two; three monochromatic states are fixed. An onto state is an immediate three-cycle unless uniquely blocked, in which case 6k(2^{n-2}-1) initial states are selected. If r=0 additional original color-i vertices, all others advance to consensus in two steps (6k states); if r>=1, only the r=1 case paired to a second deleted edge creates a second consecutive blocker, counted by 12k(k-1), then unblocked and in three-cycle. Remaining one-blocker states enter three-cycle at time one and yield 6k(2^{n-2}-2k). The derived disjoint census has exact six rows (0,1):3,(0,3):3^n-3*2^n+3-6k(2^{n-2}-1),(1,1):3*2^n-6-6k,(1,3):6k(2^{n-2}-2k),(2,1):12k,(2,3):12k(k-1). It implies F^5=F^2, primitive 3-cycle Q3=(0,3)/3, consensus basin 3(2^n-1)+6k, and sharp time2 for every k. Independent direct neighbor-update enumeration, without using the blocking classification, exhausted all 3^n states for each admissible n=5..9 and k (14 parameter pairs), reproduced every cell, transient/period and global iterate identity; infinite result rests on blocker proof.
 
-Run the independently formulated Python verifier:
+## originality
 
-```sh
-python3 verify_matching_structure.py
-```
+PASS
 
-The Python program classifies initial configurations by their unique blocked missing edge and, separately, performs direct successor-contact updates. It confirms that predicted structural classes equal actual first-periodic-entry classes and reproduces all six formulas through \(n=10\). The reproduced terminal line in `verification_matching_structure.txt` is `STRUCTURAL_CLASSIFICATION_OK cases=30 states=498096`.
+Best-of-knowledge PASS for the all-(n,k) matching-defect six-class labelled orbit census and its linear-versus-quadratic response, while the qualitative time-two period-collapse is not claimed as new. Gravner-Lyu-Sivakoff provide finite-graph synchronization criteria/diameter results, but do not count all transient/period classes. The closest exact published complete-multipartite census discovered is for a different binary parity automaton, not three-color successor contact.
 
-The boundary \(n-k=3\) is outside the new quantitative theorem because exact tripartite results already exist; graphs with only two multipartite shores can support other periods. No infinite-range certificate is inferred from the finite replay. The family-level result depends on the proof's uniqueness of the initial blocker and the explicitly checked disappearance of the second blocker at update two. Independent external validation has not been performed.
+## value
+
+PASS
+
+Exact six-class dynamics for a natural near-complete graph family gives a substantive perturbative invariant: k disjoint missing edges cause linear loss of primitive three-cycle orbits, only linear consensus-basin growth, but a quadratic 12k(k-1) delayed oscillation class caused by interaction of distinct defects. The natural matching-size parameter, exhaustive labelled state classification and sharp two-step cutoff make this meaningful beyond a one-off finite simulation or qualitative synchronization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

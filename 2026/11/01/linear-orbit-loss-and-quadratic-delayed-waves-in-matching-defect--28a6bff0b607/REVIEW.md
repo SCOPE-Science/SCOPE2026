@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The local obstruction rule is necessary and sufficient: only the unique successor at the sole nonneighbor of a vertex can stop that vertex from advancing. At most one obstruction is present in an onto-three-color configuration. The proof separates all monochrome, exactly-two-color, three-color unobstructed, one-obstruction and two-obstruction cases and counts them without double counting. In the two-obstruction case the condition \(n-k\ge4\) ensures at least two available successor-colored neighbors at update two, so the process becomes a global three-phase rotation. The exact six-class formulas, period identity and sharp two-step delay therefore hold for all admitted \(n,k\). Verification is secondary: independent exhaustive programs checked 1,560,978 and 498,096 labelled states respectively.
+## correctness
 
-## Originality — PASS, qualified
-The closest inspected primary source is Gravner–Lyu–Sivakoff, arXiv:1610.07320v1 (2016), Theorem 3: it gives the exact successor-contact rule, a cycle-integral synchronization criterion and a general diameter bound, not the six-entry labelled transient census. A related previously derived complete-multipartite period identity covers the non-novel qualitative period bound; its tripartite numerical result covers only the three-part boundary, excluded here. The claim under review is the four-or-more-shore exact all-matching-size census and its linear/quadratic perturbation laws. Actual literature and research-record searches of graph names, variants of the update rule, aliases and equivalent claims did not reveal stronger covering formulas; undiscovered older material remains a risk.
+PASS
 
-## Mathematical value — PASS
-The deleted matching size is a canonical structural variable. A non-obvious contrast follows: eventual consensus changes by precisely six states per missing edge, whereas the number of immediate primitive three-cycle orbits loses exponentially many per missing edge. Two separate missing edges generate a strictly quadratic population of delayed oscillations. These are exact natural dynamical invariants across an infinite, growing graph family, with a transparent mechanism and no need to assert any larger theorem beyond the census.
+For K_n with k disjoint deleted edges, n-k>=4, every vertex misses at most its matched partner, and a color-i vertex can be blocked only if the unique successor-color vertex is that partner. At most one color-blocking pair exists in any onto-three-color state. With one/two initial colors, nonmonochromatic states enter consensus at time one except 6k exceptional orientations which enter at time two; three monochromatic states are fixed. An onto state is an immediate three-cycle unless uniquely blocked, in which case 6k(2^{n-2}-1) initial states are selected. If r=0 additional original color-i vertices, all others advance to consensus in two steps (6k states); if r>=1, only the r=1 case paired to a second deleted edge creates a second consecutive blocker, counted by 12k(k-1), then unblocked and in three-cycle. Remaining one-blocker states enter three-cycle at time one and yield 6k(2^{n-2}-2k). The derived disjoint census has exact six rows (0,1):3,(0,3):3^n-3*2^n+3-6k(2^{n-2}-1),(1,1):3*2^n-6-6k,(1,3):6k(2^{n-2}-2k),(2,1):12k,(2,3):12k(k-1). It implies F^5=F^2, primitive 3-cycle Q3=(0,3)/3, consensus basin 3(2^n-1)+6k, and sharp time2 for every k. Independent direct neighbor-update enumeration, without using the blocking classification, exhausted all 3^n states for each admissible n=5..9 and k (14 parameter pairs), reproduced every cell, transient/period and global iterate identity; infinite result rests on blocker proof.
 
-## Closest literature and limitations
-The general 2016 irrotationality theorem addresses qualitative behavior; the new combinatorial blocking-pair decomposition determines labelled populations and temporal entry times not supplied there. Previously available three-shore formulas and all-shore period restrictions are explicitly treated as background. This result does not classify separate attraction basins of individual three-cycles, arbitrary nonmatching deletions or different update rules. The self-review checked the proof and verification files; an independent historical novelty and scientific audit remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the all-(n,k) matching-defect six-class labelled orbit census and its linear-versus-quadratic response, while the qualitative time-two period-collapse is not claimed as new. Gravner-Lyu-Sivakoff provide finite-graph synchronization criteria/diameter results, but do not count all transient/period classes. The closest exact published complete-multipartite census discovered is for a different binary parity automaton, not three-color successor contact.
+
+## value
+
+PASS
+
+Exact six-class dynamics for a natural near-complete graph family gives a substantive perturbative invariant: k disjoint missing edges cause linear loss of primitive three-cycle orbits, only linear consensus-basin growth, but a quadratic 12k(k-1) delayed oscillation class caused by interaction of distinct defects. The natural matching-size parameter, exhaustive labelled state classification and sharp two-step cutoff make this meaningful beyond a one-off finite simulation or qualitative synchronization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T20:42:58.830146Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_n with k disjoint deleted edges, n-k>=4, every vertex misses at most its matched partner, and a color-i vertex can be blocked only if the unique successor-color vertex is that partner. At most one color-blocking pair exists in any onto-three-color state. With one/two initial colors, nonmonochromatic states enter consensus at time one except 6k exceptional orientations which enter at time two; three monochromatic states are fixed. An onto state is an immediate three-cycle unless uniquely blocked, in which case 6k(2^{n-2}-1) initial states are selected. If r=0 additional original color-i vertices, all others advance to consensus in two steps (6k states); if r>=1, only the r=1 case paired to a second deleted edge creates a second consecutive blocker, counted by 12k(k-1), then unblocked and in three-cycle. Remaining one-blocker states enter three-cycle at time one and yield 6k(2^{n-2}-2k). The derived disjoint census has exact six rows (0,1):3,(0,3):3^n-3*2^n+3-6k(2^{n-2}-1),(1,1):3*2^n-6-6k,(1,3):6k(2^{n-2}-2k),(2,1):12k,(2,3):12k(k-1). It implies F^5=F^2, primitive 3-cycle Q3=(0,3)/3, consensus basin 3(2^n-1)+6k, and sharp time2 for every k. Independent direct neighbor-update enumeration, without using the blocking classification, exhausted all 3^n states for each admissible n=5..9 and k (14 parameter pairs), reproduced every cell, transient/period and global iterate identity; infinite result rests on blocker proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary Theorem 3: a 3-color CCA on a finite graph synchronizes iff initial 1-form conservative; if so by graph diameter, otherwise activity rate controlled by directed-cycle integral.",
+          "Neither the synchronization condition nor the diameter bound counts the (T,p)=(1,3) versus (2,3) states or the quadratic k(k−1) population.",
+          "Known qualitative complete-multipartite period restriction can be credited separately from the six-class numbers."
+        ],
+        "reasoning": "Qualitative finite-graph synchronization is broader in allowed graphs, but its conclusion is strictly weaker with respect to exact per-transient population and cycle count; one cannot infer the six-row table from a diameter bound alone.",
+        "searches": [
+          "Gravner, Lyu, Sivakoff 2018 Theorem 3 full primary PDF p. 3328 and Section 4",
+          "Resultary: three color cyclic cellular automata complete multipartite graphs exact orbit count basin attraction tripartite",
+          "Resultary: cyclic cellular automaton three color complete graph minus matching recurrent orbit census preperiod"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/linear-orbit-loss-and-quadratic-delayed-waves-in-matching-defect--28a6bff0b607/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Theorem 3 gives a graph-global conservation criterion, not an exact classification of initial colorings by transient and primitive eventual period.",
+          "The new second-blocker argument is required to derive 12k(k−1) and its sharp two-step delayed waves.",
+          "The binary parity census has distinct state space and different temporal periods; no implication to ternary CCA."
+        ],
+        "reasoning": "No inspected stronger published result entails the quantitative claim by restriction or simple substitution. Earlier all-multipartite qualitative F^5=F^2 (if known) is not the claimed novelty, which is the exact population and defect-response formulas.",
+        "searches": [
+          "Gravner-Lyu-Sivakoff 2018 Theorem 3 and Section 4 full PDF",
+          "Resultary Sharp period-four census for complete multipartite parity automata entire RESULT.md",
+          "Resultary: complete multipartite three color cyclic cellular automata matching defect"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent graph description is a complete multipartite graph with k parts of size two and n−2k singleton parts, hence n−k >=4 total parts.",
+          "The source rule advances color i iff an adjacent successor-color vertex exists, as in original CCA equation on the primary paper page 2.",
+          "Resultary published exact multipartite parity dynamics is GF(2)-linear and not this nonlinear ternary CCA."
+        ],
+        "reasoning": "Aliases (near-complete graph, deleted matching, one-nonneighbor vertex, multipartite shores of size one/two) were included. Shared underlying graph type does not equate different Boolean XOR versus three-color successor-contact update or imply the six transient-class formulas.",
+        "searches": [
+          "Resultary: cyclic cellular automaton three color complete graph minus matching recurrent orbit census preperiod",
+          "Resultary: three color cyclic cellular automata complete multipartite graphs exact orbit count basin attraction tripartite",
+          "Gravner-Lyu-Sivakoff full PDF finite graph sections 2 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published nearby multipartite parity record gives exact fixed point counts only for binary GF(2) adjacency updates F0/F1; its period four phenomenon is incompatible with present ternary CCA period 1/3.",
+          "The 2018 CCA paper does not provide a table of labelled six classes (T,p) for K_n minus matching."
+        ],
+        "reasoning": "There is no identified exact same-update/same-graph full family table in the bounded queries. Mere existence of a finite-state or period count for another automaton does not cover a distinct update rule.",
+        "searches": [
+          "Resultary: three color cyclic cellular automata complete multipartite graphs exact orbit count basin attraction tripartite",
+          "Resultary: cyclic cellular automaton three color complete graph minus matching recurrent orbit census preperiod",
+          "Resultary 2026/10/11 Sharp period-four census for complete multipartite parity automata"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the all-(n,k) matching-defect six-class labelled orbit census and its linear-versus-quadratic response, while the qualitative time-two period-collapse is not claimed as new. Gravner-Lyu-Sivakoff provide finite-graph synchronization criteria/diameter results, but do not count all transient/period classes. The closest exact published complete-multipartite census discovered is for a different binary parity automaton, not three-color successor contact.",
+      "residual_risks": [
+        "A previous exact tripartite or general complete-multipartite basin census may cover some boundary cases; the audited new domain has at least four parts, but complete historical priority is unproven.",
+        "Full state enumeration only n<=9; larger n established by blocker proof, not a simulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative synchronization iff conservative and diameter cutoff; does not state the six-class matching-defect census",
+          "evidence": [
+            "Annals Appl Prob 28(2018), theorem 3 p.3328: synchronization iff dX0 conservative; if synchronized then by D(G), not all six state counts."
+          ],
+          "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "material_read": "Primary full 34-page published PDF definition pp. 3324–3326, Theorem 3 and Corollary 4 p. 3328, finite-graph reasoning and Section 4, including rendered p. 3328",
+          "method": "Read full primary original model and specific theorem statements; checked theorem quantifiers and inspected rendered page",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Same three-color CCA rule and finite graph global synchronization"
+        },
+        {
+          "assessment": "Different GF(2) parity rule, even though graph family overlaps; does not imply ternary cyclic-contact dynamics",
+          "evidence": [
+            "Boolean F0=Ax and F1=(I+A)x have periods 1,2,4, unlike successor-contact ternary CCA with periods 1 and 3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7/RESULT.md",
+          "material_read": "Entire RESULT.md with the Boolean algebra rank proof, exact fixed point table, limitations",
+          "method": "Read full published GitHub blob 4141a9effe5bda16943402a845d7b918d704970e",
+          "title": "Sharp period-four census for complete multipartite parity automata",
+          "trigger": "Closest public exact multipartite orbit count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact six-class dynamics for a natural near-complete graph family gives a substantive perturbative invariant: k disjoint missing edges cause linear loss of primitive three-cycle orbits, only linear consensus-basin growth, but a quadratic 12k(k-1) delayed oscillation class caused by interaction of distinct defects. The natural matching-size parameter, exhaustive labelled state classification and sharp two-step cutoff make this meaningful beyond a one-off finite simulation or qualitative synchronization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Synchronous successor-contact CCA only; no asynchronous dynamics, Greenberg-Hastings rule, overlapping deleted edges, other color counts or per-orbit three-cycle basin sizes.",
+    "A broader older complete-multipartite exact state census might exist under different language; bounded literature searches do not rule it out."
+  ],
+  "schema_version": 1
+}
