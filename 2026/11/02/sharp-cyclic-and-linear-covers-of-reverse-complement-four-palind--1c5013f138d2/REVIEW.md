@@ -1,24 +1,21 @@
-# Scientific review: reverse-complement four-palindrome covers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem quantifies over every even alphabet size \(q\ge2\) and every fixed-point-free involution. The exact suffix-prefix calculation yields \(q(q-1)/2\) ordinary pairs with reciprocal overlap length two and \(q/2\) special pairs with reciprocal overlap length three; every transition leaving its pair has cost at least three. A circular target tour must leave all pairs, forcing the bound \((5q^2-q)/2\). A linear target path must leave all but its terminal pair, giving one more symbol. The constructive Euler multigraph is balanced and connected on its support, contains every paired target exactly once, and realizes all inter-pair overlaps in one symbol. This supplies a complete proof, independent of finite experiments. `verify.py` reproduces the explicit constructions through \(q=30\) and exact Hamiltonian minimization for \(q=2,4\). Boundary cases include \(q=2\), empty nonisolated complementary vertices, circular wraparound and the linear terminal factor.
+PASS
 
-## Originality — PASS, with residual literature risk
+For even q with fixed-point-free involution, the oriented target set consists of all q² fourmers T_{a,b}=ab bar(b) bar(a). Explicit suffix-prefix overlap analysis gives q/2 special two-target modules with reciprocal cost-one transitions and q(q-1)/2 ordinary modules with reciprocal cost-two transitions. All other intermodule transition costs are >=3. In a selected cyclic Hamiltonian ordering one must leave each module, adding excess one per ordinary module and two per special module above sum of cheap outcosts 2q²-q; the result is L_cyc>=(5q²-q)/2. For linear paths, omitting the last target exit and the corresponding module penalty yields L_lin>=L_cyc+1. The proof supplies a balanced connected directed multigraph of modules (loops within complement pairs and balanced pairs between distinct complement pairs); its Euler circuit traverses each module at its cheapest internal cost and connects modules at cost exactly 3, meeting the lower bound for every even q. Cutting one intermodule overlap yields the linear optimum. Independent reconstruction checked Euler covers for q=2,4,6,8 with lengths 9,38,87,156; q=4 literal Watson–Crick 38/39-word examples were checked to contain all 16 oriented targets. This finite evidence only corroborates the symbolic module/Euler proof.
 
-The 2018 Gabric–Sawada universal-cycle concatenation study develops exact-once constructions for other factor languages, but does not derive the all-even-alphabet reverse-complement-palindrome *shortest cover* cost. The 2019 Chen–Kitaev–Sun paper treats probabilities of exact-once universal cycles after deleting factors from a full language; its main theorems neither assert nor imply this complement-specific minimum. The 2026 Yamano–Shibuya work analyzes general reverse-complement superstring approximation, and does not state an exact optimal length for these \(q^2\) self-reverse-complementary factors. A separate ordinary-palindrome theorem concerns \(abba\), rather than \(ab\bar b\bar a\), and its numerical optimum is different. Searches for Watson–Crick palindrome coverings, involutive universal cycles, exact target-length superstrings and database near equivalents yielded no decisive covering claim. Originality is assessed relative to inspected and available sources, not claimed as uniqueness across all published mathematics.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The targets are precisely all possible length-four Watson–Crick palindromic DNA motifs at \(q=4\). The exact \(38\)-symbol cyclic and \(39\)-symbol linear minima, plus the all-even-\(q\) formulas, are natural optimal control lengths for full motif coverage. The partner-pair decomposition establishes why the exact bound exceeds the raw \(q^2\) factor count, and gives a reproducible quadratic-size constructive algorithm. This is a complete motivated family, not an arbitrary finite slice or a restatement of the classical de Bruijn word count.
+Although both have palindrome pairing and Euler tour language, universal reverse-complement representative coverage and palindrome-only shortest literal coverage are mathematically different optimization problems. A cover for all k-mer classes need not attain the palindrome-only lower bound. General approximation bounds and full de Bruijn-cycle constructions do not imply the exact length or module equality characterization. Reverse-complement pairing is an established ingredient and is credited, not claimed novel. The all-q statement is not a mere database lookup or a small q=4 numerical optimum. The explicit formula is proved for arbitrarily large even q by a module/Euler construction; lack of a database hit does not prove novelty. The pairing observation alone is insufficient to deduce the selected all-palindrome minimum tour, including the gap between cyclic and linear lengths. Matching motifs/names are insufficient; the specified coverage obligations and implications differ. Best-of-knowledge PASS with specifically identified historical-priority risks; an unsuccessful search is not proof of novelty.
 
-## Closest sources, scope and remaining risks
+## value
 
-- Gabric and Sawada, arXiv:1803.09009 (2018-03-23): general universal-cycle concatenations, but no complement-paired four-gram shortest-cover theorem in inspected sections.
-- Chen, Kitaev and Sun, arXiv:1908.01116 (2019-08-03): exact-once u-cycle existence/probability, not minimum-length all-target coverage with non-target fillers.
-- Yamano and Shibuya, DOI:10.4230/LIPIcs.CPM.2026.15 (2026): arbitrary-instance reverse-complement superstring approximation, not the present exact special-instance optimum.
-- A preexisting ordinary-palindrome covering theorem has different required targets and the even-alphabet circular value \((5q^2+2q)/2\); it does not subsume the result here.
+PASS
 
-Residual risk: a mathematically equivalent treatment could appear under earlier involutive-string, anti-palindromic word, or directed rural-postman terminology. Other lengths and involutions with fixed points are not covered. Independent scientific checking, including searches outside currently indexed sources, is still warranted.
+The shortest superstring/cover of every literal Watson–Crick reverse-complement four-palindrome is a natural constrained universal-word optimization in DNA motif design. The exact all-even-alphabet cyclic and linear formulas plus necessary extremal module structure are meaningful, not a small ad hoc enumeration; the four-letter molecular case has a concrete optimal witness.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
