@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "All 27 fixed boundary-color triples obey an exact recursive minimum and multiplicity identity. The invariant three energy classes (x,x+1,x+2) are verified at depth two and preserved by a complete three-case central-color enumeration, yielding the all-generation count. The log-count expansion follows from scalar positive recurrences with proven superexponential ratio growth and vanishing tail errors. Independent exhaustive and dynamic-programming implementations agree through their certified finite ranges; none substitutes for the induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Araújo et al. 2010 explicitly state ferromagnetic couplings in introduction and conclusion (ar5iv full text lines 17-20, 124-128). Andrade–Herrmann 2004 discusses binary Ising spins (arXiv PDF section II, page 4) and residual entropy 0.222 for the Ising antiferromagnet (section IV, page 12). Shrock 2000 abstract discusses chromatic-polynomial ground entropy where proper colorings exist."
+      ],
+      "reasoning": "The already-known transfer-matrix method is a broad computational scheme, not an explicit result that dominates the specific three-color AF count or its sharp \\(2^t\\) correction. A generic method alone does not eliminate the need for the nontrivial minimizing-state classification and asymptotic analysis.",
+      "searches": [
+        "arxiv:1007.4494 full text, especially sections II-V and transfer-matrix section III",
+        "arxiv:cond-mat/0411364 pages 3-14, Ising model and thermodynamic discussion",
+        "Ground state entropy in Potts antiferromagnets Shrock 2000"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:cond-mat/0411364v1 (2004-11-14), primary PDF text and selected page images",
+      "arxiv:1007.4494v1 (2010-07-26), primary full HTML",
+      "Shrock (2000), Physica A 281, 221-232, abstract only",
+      "Published-index semantic searches: Apollonian Potts antiferromagnetic exact entropy and aliases",
+      "Focused web searches for three-state Potts Apollonian AF entropy, ground-state energies, and degeneracy sequences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Andrade–Herrmann explicitly restrict to Ising spins +1/-1 in section II and mention Potts as future work in conclusion (PDF page 14). Araújo et al. specify homogeneous ferromagnetic couplings and do not derive low-temperature AF three-state recurrences."
+      ],
+      "reasoning": "The older Ising residual entropy and ferromagnetic Potts entropy are different observables under different parameters, and neither implies this all-generation exact AF degeneracy theorem by specialization. The implicit general transfer framework is not mistaken for an explicit closed-form coverage.",
+      "searches": [
+        "arxiv:cond-mat/0411364 full text pages 1-15",
+        "arxiv:1007.4494 full text sections I-VI",
+        "Apollonian network Potts chromatic number three color frustration energy external field"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a three-state antiferromagnet, minimizing the equal-color edge penalties is equivalent to maximum three-cut and minimum-defect three-coloring. The graph contains a K4 at its first subdivision, so no proper three-colorings exist. Focused search results contained no equivalent Apollonian minimum-defect theorem."
+      ],
+      "reasoning": "Proper-coloring/chromatic-polynomial evaluations at three colors vanish and cannot encode the nonzero minimum-defect ground-state degeneracy. Equivalent maximum-three-cut formulations were included in the comparison; no equivalent claim appeared.",
+      "searches": [
+        "three-color Potts antiferromagnet hierarchical Apollonian triangulations ground state count 18B+6C cubic recursion entropy correction 2 to the generation",
+        "\"Apollonian\" \"three-state\" \"Potts\" frustration degeneracy",
+        "Apollonian network three-state antiferromagnetic Potts model ground state entropy degeneracy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching Apollonian ground-state energy or degeneracy table was returned. The prior literature contains a two-state residual entropy number, which cannot be transcribed to three states. Exact graph construction was cross-checked against the first published Apollonian-network studies."
+      ],
+      "reasoning": "No specific numerical database entry, chromatic table, or exact ground-state sequence covering this claim was identified. The failure of search is not a proof of novelty, and a hidden table remains a residual risk.",
+      "searches": [
+        "\"Apollonian\" \"3-state\" \"antiferromagnetic\" \"entropy\" Potts",
+        "\"Apollonian\" \"three-state Potts\" \"ground-state\" antiferromagnetic",
+        "q=3 Apollonian network ground state residual entropy positive 0.171882936885 2^n stretched correction"
+      ]
+    },
+    "rationale": "The two closest primary investigations differ materially in their spin alphabets or interaction sign: arXiv:cond-mat/0411364 gives Ising (two states) frustration and arXiv:1007.4494 treats ferromagnetic Potts. General partition-function recursions can be applied but do not state the exact minimum-energy three-coloring recurrence, nonzero entropy density, or stretched \\(2^t\\) deficit. Focused literature and semantic published-index searches found no stronger theorem; risk of unindexed prior work remains.",
+    "residual_risks": [
+      "An unindexed historical treatment of the three-color antiferromagnetic Apollonian ground-state entropy might contain an equivalent statement.",
+      "Not all broadly relevant graph-Potts literature was available in full text; the Shrock 2000 source was inspected at abstract level only.",
+      "The general published transfer-matrix machinery is algorithmically broad, so originality is in the explicit count and sharp entropy correction, not in using recursion or constructing Apollonian graphs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; q=2 Ising, not q=3 Potts. A related residual-entropy value belongs to different model.",
+        "evidence": [
+          "arXiv header 14 Nov 2004; section II uses spins s_i=±1; section IV gives Ising AF residual entropy about 0.222; conclusion offers Potts as a further possible model"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0411364",
+        "material_read": "PDF abstract, full model specification in sections I-II, transfer framework in III, antiferromagnetic low-temperature results in IV, conclusions in V and appendix context",
+        "method": "Read full-text parsed PDF passages and inspected page images 1 and 5; compared Hamiltonian, alphabet and entropy observables",
+        "title": "Magnetic models on Apollonian networks",
+        "trigger": "Same graph, antiferromagnetic couplings, residual entropy"
+      },
+      {
+        "assessment": "NOT_COVERING as explicitly presented; paper studies ferromagnetic Potts, no three-state AF ground-state count or stretched finite-size correction",
+        "evidence": [
+          "Introduction lines 17-20 and conclusion lines 124-128 expressly restrict to ferromagnetism; section III outlines general transfer-matrix methodology"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1007.4494",
+        "material_read": "Complete accessible HTML paper, sections I-V, Appendix and references (196 numbered text lines)",
+        "method": "Compared interaction sign, transfer states, thermal observables and zero-field limit against the proposed three-color AF ground-state and entropy correction",
+        "title": "q-state Potts model on the Apollonian network",
+        "trigger": "Same Potts alphabet class and same deterministic graph"
+      },
+      {
+        "assessment": "No affirmative coverage established; retained as broader-background access limitation rather than asserting full-text NOT_COVERING",
+        "evidence": [
+          "Published abstract discusses proper chromatic colorings and lattice-strip families; the Apollonian graph has a K4 and hence no proper 3-coloring"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0378-4371(00)00023-6",
+        "material_read": "Abstract and bibliographic summary only; full text not inspected",
+        "method": "Compared stated proper-coloring/chromatic-polynomial objects to the minimum-defect q=3 Apollonian system",
+        "title": "Ground state entropy in Potts antiferromagnets",
+        "trigger": "Broadly relevant exact antiferromagnetic Potts entropy literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "02c2fcb0-31bf-4370-9cfb-21de70474da3",
+  "value": {
+    "rationale": "On a canonical hierarchically triangulated planar network, three-state antiferromagnetism is the smallest Potts extension of the known Ising model but still cannot properly color the embedded tetrahedron. Exact minimum-defect ground-state degeneracy and residual entropy are natural observables; the proven \\(2^t\\) negative finite-size entropy term reveals a nontrivial fractal correction on system size \\(N\\sim3^t/2\\), beyond textbook chromatic counting or routine parameter substitution.",
+    "status": "PASS"
+  }
+}
