@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The smooth-locus criterion and genus calculation are elementary and explicit. The genus-three Hasse--Witt matrix is diagonal with entries \(B,A,B\), and a standalone exact polynomial computation verifies every coefficient and factorization. Squarefreeness and the coprimality of \(A\), \(B\), and the discriminant divisor prove completeness over the algebraic closure. The three elliptic quotient maps and the norm-map group-ring determinant \(81\) furnish a degree-nine isogeny, establishing the Newton slopes without guessing from finite-field counts. The first-occurrence check uses the same two elliptic Hasse invariants at each smaller tame odd prime. Risk: characteristic-three is deliberately excluded and no claim is made about a model in that characteristic.
+## correctness
 
-**Originality: PASS, qualified.** Fuertes--Streit (2006), Section 6, and Gutierrez--Sevilla--Shaska (2012), Section 3.1, give the classical dihedral pencil, but their relevant treatments do not state its complete characteristic-thirteen \(p\)-rank and Newton stratification. Achter--Pries (2009, 2013) give global stratification results, not this coefficient family. A previous computation of simultaneous Hasse invariant zeros for several small primes determines superspecial parameters; it does not identify the two *rank-one* members or their complete complementary rank-two stratum. Previously recorded complete characteristic-eleven results similarly do not determine characteristic thirteen. Searches by curve equation, elliptic factors, rank-one terminology, and parameter values found no prior mathematical claim that implies the complete statement. Historical priority remains provisional: older moduli tables, differently normalized elliptic quotient equations, or unindexed characteristic-thirteen computations might cover it.
+PASS
 
-**Mathematical value: PASS.** The first occurrence of an entire Newton stratum in this fixed one-dimensional genus-three locus is a motivated structural boundary, not simply an increment of a computed prime. Characteristic eleven has rank zero but no rank one, whereas characteristic thirteen has rank one but no rank zero; the change follows from the elliptic-square splitting. The two rank-one coefficients are rational and align with parameter magnitudes singled out by the historical classical-family study. The classification is complete for the marked characteristic-thirteen family and gives exact counts over the smallest two finite fields. It does not assert an all-prime theorem or count geometric moduli classes.
+For a²≠4 the degree-seven curve is smooth genus three. Because f(x)^6 only has exponents divisible by 3, Hasse–Witt is diag(B,A,B), B=2a²+6, A=a⁶+4a⁴−a²−6. Exact polynomial factorization over F13 gives 2 simple B-roots ±6, 6 degree-two A-roots, disjoint from each other and a²−4. Stable semilinear Frobenius rank equals its diagonal nonzero count, a-number = 3−rank. The quotient automorphisms identify tame prime-to-13 degree-nine isogeny with E0×E1², hence elliptic supersingular slopes explain full Newton polygons. For primes 5,7,11, elliptic Hasse pairs cannot produce rank1 on smooth fiber. Independently recomputed polynomial coefficients/roots and 11 rational smooth parameters.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS at best knowledge: Fuertes–Streit study the identical dihedral pencil in characteristic zero (their parameter t corresponds to -a); moduli and general p-rank stratum works do not provide the characteristic-13 marked rank/a-number/Newton table or minimal tame-prime comparison.
+
+## value
+
+PASS
+
+Sharp explicitly factored p-rank, a-number and Newton polygon stratification of a classical natural genus-three dihedral family, with a first-occurrence characteristic boundary and exact geometric/rational point counts for parameters. The classification is not a trivial arbitrary small prime slice: p=13 is the first tame odd prime supporting a smooth rank-one member.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
