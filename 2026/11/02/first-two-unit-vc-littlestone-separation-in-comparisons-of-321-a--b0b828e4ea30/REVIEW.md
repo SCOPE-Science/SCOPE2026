@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The candidate gives precise finite quantifiers and the full Boolean query model. Each hypothesis is generated uniquely by least-unused-index fixed-point/transposition recursion and independently filtered by the exact forbidden-triple criterion. A complete shattered-query-support recursion checks the static values, and an exact memoized complete-tree recurrence checks the adaptive values. Full depth-seven and depth-eight trees have explicit, individually verified leaf witnesses; a separate Boolean-depth implementation verifies their optimality, with an especially simple exact root-split obstruction at the two critical sizes. The table was rerun from actual files. Integer computations are exhaustive for the stated range and do not claim an infinite classification.
+## correctness
 
-**Originality — PASS under accessible comparisons.** Fang–Hamaker–Troyka establish the underlying involution-avoidance definitions and counts, not these positional-comparison dimensions. Guingona–Kolesnikov–Nierwinski–Soucy concern linear zero-set families, and Chase–Freitag–Reyzin establish general learning relationships. Closest additional classifications concern all involutions or all permutations avoiding a length-three pattern, neither of whose dimensions determines the intersection; their implications do not cover the finite statement. Indexed-research-record and primary-literature searches under alternative names found no directly covering statement. Risk remains from two-row-tableau, ballot-path, and nonnesting-matching representations, and priority has not been established definitively.
+PASS
 
-**Mathematical value — PASS.** The intersection is a canonical, highly structured and enumerated permutation class rather than an arbitrary finite slice. Its fixed pairwise-comparison learning problem is a natural test of how involution symmetry interacts with pattern avoidance. The exact transition at eleven establishes the first two-unit static/adaptive gap, and at eleven and twelve a very narrow entropy obstruction is quantified by exact minority branch counts 126 versus 128, and 252 versus 256. These facts are not implied by class counts or by dimensions of larger ambient classes and provide reproducible benchmarks for further structural/asymptotic theory. No general theorem beyond the finite scope is asserted.
+Enumerating involutions by fixing/swapping the least unused position and filtering all 321 triples is exhaustive; the comparison mask maps permutations injectively, and counts match binom(n,floor(n/2)). Exact VC search adds query supports in strictly increasing order and keeps all nonempty pattern fibers, pruning only unsplittable singletons. Exact online recurrence for version spaces splits on all comparison pairs, with sound cardinality pruning; the source traverses every n<=12. Independently reconstructed sorted 321-avoiding involutions from scratch at n11 and n12 and validated the actual Git JSON tree certificates: depth7 at n11, 127 internal queries and 128 distinct valid path witnesses; depth8 at n12, 255 queries and 256 distinct valid witnesses. Independently evaluated every query minority split, maxima 126 at n11 and 252 at n12, strictly below 128 and 256 needed for deeper trees, proving critical Ldim upper bounds. Full finite claims only n<=12; no extrapolation.
 
-**Limitations and risks.** The largest class exhaustively handled has 924 hypotheses; no formula or unbounded separation is established for arbitrary order. Near-equivalent encodings in classical tableau literature remain a historical-priority risk. Independently reproduced program results are not independent scientific review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The central binomial counts for 321-avoiding involutions are known (Fang–Hamaker–Troyka and earlier tableau bijections), as are general Littlestone/VC theory. Those results do not determine the two dimensions under the specific positional-comparison query model. The first n11 two-unit adaptive/static gap and complete n1..12 table were not found covered, but alternate tableaux/ballot-path coding of comparisons is a priority risk.
+
+## value
+
+PASS
+
+Identifies a sharp first discrepancy between static VC and adaptive mistake-tree complexity for a natural Catalan-related pattern-avoidance class represented by positional comparisons. Exact finite dimension thresholds require both an exhaustive static shattering search and independently checkable adaptive certificates; this is a motivated natural classification, not an arbitrary tiny sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Requires Python 3.9 or newer, no third-party modules. In the unpacked directory run:
+## correctness
 
-```
-python3 verify.py
-python3 upper_obstruction.py
-```
+PASS
 
-The first command exhaustively regenerates every involution with forbidden pattern testing for each size 1 through 12, verifies the established cardinality \(\binom{n}{\lfloor n/2\rfloor}\), enumerates every shattered query support, evaluates the exact complete-tree recurrence, and verifies the complete depth-seven and depth-eight certificates with a concrete distinct witness at each terminal leaf. It cross-checks the concept enumeration against all ordinary permutations for sizes at most eight. The second command independently recomputes Boolean depth feasibility and rejects depths eight and nine at sizes eleven and twelve, respectively.
+Enumerating involutions by fixing/swapping the least unused position and filtering all 321 triples is exhaustive; the comparison mask maps permutations injectively, and counts match binom(n,floor(n/2)). Exact VC search adds query supports in strictly increasing order and keeps all nonempty pattern fibers, pruning only unsplittable singletons. Exact online recurrence for version spaces splits on all comparison pairs, with sound cardinality pruning; the source traverses every n<=12. Independently reconstructed sorted 321-avoiding involutions from scratch at n11 and n12 and validated the actual Git JSON tree certificates: depth7 at n11, 127 internal queries and 128 distinct valid path witnesses; depth8 at n12, 255 queries and 256 distinct valid witnesses. Independently evaluated every query minority split, maxima 126 at n11 and 252 at n12, strictly below 128 and 256 needed for deeper trees, proving critical Ldim upper bounds. Full finite claims only n<=12; no extrapolation.
 
-The critical count checks are \(462\) concepts, VC search 27,977 recursion nodes, and adaptive recursion 28,764 memoized version spaces at eleven; \(924\) concepts, 257,991 VC nodes, and 272,863 memoized version spaces at twelve. Root query minority maxima are \(126\) and \(252\), giving immediate impossibility of the next adaptive depths. The stored trees contain respectively 128 and 256 distinct terminal witness indices, and their comparison responses are checked at every branch.
+## originality
 
-`make_certificate.py` is optional and regenerates the included `tree_certificate.json`. The verification exercises only the stated finite ranges; it does not prove that observed formulas extend to larger sizes or that no equivalent historical result exists.
+PASS
+
+The central binomial counts for 321-avoiding involutions are known (Fang–Hamaker–Troyka and earlier tableau bijections), as are general Littlestone/VC theory. Those results do not determine the two dimensions under the specific positional-comparison query model. The first n11 two-unit adaptive/static gap and complete n1..12 table were not found covered, but alternate tableaux/ballot-path coding of comparisons is a priority risk.
+
+## value
+
+PASS
+
+Identifies a sharp first discrepancy between static VC and adaptive mistake-tree complexity for a natural Catalan-related pattern-avoidance class represented by positional comparisons. Exact finite dimension thresholds require both an exhaustive static shattering search and independently checkable adaptive certificates; this is a motivated natural classification, not an arbitrary tiny sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

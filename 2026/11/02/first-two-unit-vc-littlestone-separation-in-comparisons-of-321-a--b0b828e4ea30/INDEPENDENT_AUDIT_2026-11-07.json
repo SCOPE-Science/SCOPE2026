@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T20:42:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Enumerating involutions by fixing/swapping the least unused position and filtering all 321 triples is exhaustive; the comparison mask maps permutations injectively, and counts match binom(n,floor(n/2)). Exact VC search adds query supports in strictly increasing order and keeps all nonempty pattern fibers, pruning only unsplittable singletons. Exact online recurrence for version spaces splits on all comparison pairs, with sound cardinality pruning; the source traverses every n<=12. Independently reconstructed sorted 321-avoiding involutions from scratch at n11 and n12 and validated the actual Git JSON tree certificates: depth7 at n11, 127 internal queries and 128 distinct valid path witnesses; depth8 at n12, 255 queries and 256 distinct valid witnesses. Independently evaluated every query minority split, maxima 126 at n11 and 252 at n12, strictly below 128 and 256 needed for deeper trees, proving critical Ldim upper bounds. Full finite claims only n<=12; no extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General VC/Ldim and full permutation bounds do not give equality for the restricted intersection of involutions and 321-avoiders; the central binomial concept count provides only Ldim<=floor(log2 |C|)."
+        ],
+        "reasoning": "No identified stronger theorem delivers all n<=12 dimensions with this particular comparison query set.",
+        "searches": [
+          "https://arxiv.org/abs/2009.00079",
+          "https://arxiv.org/abs/2109.04805",
+          "https://doi.org/10.4230/LIPIcs.MFCS.2024.42"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md 11847b7c263aad6c5f14d149b5af4224c20731f7; verify.py 38ad036b5040a9460942483d111621289637149d",
+        "Full tree_certificate.json Git blob b0dda94048bc53c11bd1f81daa83122ac434a896",
+        "Independent sorted involution enumeration, all 127/255 internal nodes and 128/256 separate leaves, and all minority sizes for n11/12, recorded in owner audit session",
+        "Fang–Hamaker–Troyka arXiv:2009.00079 full preprint; related learning literature abstracts",
+        "Resultary query: VC Littlestone dimension 321 avoiding involutions positional comparisons n=11"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n11, |C|=462 gives only Ldim<=8, while exact root minority 126<128 excludes 8 and certified depth7 exists; VC=5 independently requires fixed query support search."
+        ],
+        "reasoning": "The exact first two-unit gap is neither a consequence of known central binomial counts nor generic Ldim bounds; concrete masks/certificates are mathematically decisive.",
+        "searches": [
+          "https://arxiv.org/abs/2009.00079",
+          "https://doi.org/10.4230/LIPIcs.MFCS.2024.42"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boolean positional comparison masks distinguish all permutations in the chosen class. Known involution counts are equivalent combinatorial class enumeration, not a statement of online/static query shattering."
+        ],
+        "reasoning": "Potential ballot-path or Young-tableau comparison coding could encode an equivalent dimension calculation, but no demonstrated table found.",
+        "searches": [
+          "Resultary: VC Littlestone dimension 321 avoiding involutions positional comparisons n=11",
+          "https://arxiv.org/abs/2009.00079",
+          "321 avoiding involution standard Young tableaux positional inversions VC Littlestone"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Central binomial cardinalities 462,924 are tabulated and prior; the nontrivial metric entries VC5/Ldim7 and VC6/Ldim8 follow from complete comparison-mask searches and explicit certificate trees."
+        ],
+        "reasoning": "Count-only OEIS/Young-tableau tables do not subsume dimensional entries; older specialized machine-learning tables may exist under alternate labels.",
+        "searches": [
+          "Resultary: VC Littlestone dimension 321 avoiding involutions positional comparisons n=11",
+          "321 avoiding involutions VC Littlestone n11 462 7",
+          "https://arxiv.org/abs/2009.00079"
+        ]
+      },
+      "rationale": "The central binomial counts for 321-avoiding involutions are known (Fang–Hamaker–Troyka and earlier tableau bijections), as are general Littlestone/VC theory. Those results do not determine the two dimensions under the specific positional-comparison query model. The first n11 two-unit adaptive/static gap and complete n1..12 table were not found covered, but alternate tableaux/ballot-path coding of comparisons is a priority risk.",
+      "residual_risks": [
+        "An equivalent result may be known through standard tableaux, ballot-path dynamics, or alternative comparison query notation.",
+        "VC upper bounds n<=12 reviewed via the source exhaustive algorithm but not independently reproduced for every n in this run; independently checked critical adaptive certificates/upper obstructions.",
+        "No formula for n>=13 or alternative query encoding is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the known hypothesis cardinalities, no positional-comparison VC/Ldim tree census. The original package Theorem 1.4(a) locator differs from inspected version numbering; check the actual version-specific theorem (1.6(a) in retrieved draft).",
+          "evidence": "Earlier central binomial enumeration does not fix shattering dimensions",
+          "identifier_or_url": "https://arxiv.org/abs/2009.00079",
+          "material_read": "Full accessible author preprint, introduction and theorem giving central-binomial enumeration",
+          "method": "full arXiv HTML via web",
+          "title": "On pattern avoidance in matchings and involutions",
+          "trigger": "Same enumerated 321-avoiding involution family"
+        },
+        {
+          "assessment": "Different zero-set concept class, no demonstrated direct implication for 321-avoiding involution comparisons",
+          "evidence": "Object is linear-combination zero sets, not positional comparison masks",
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "Public abstract and statement descriptions; complete article not asserted read",
+          "method": "public abstract and cited theorem synopsis",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Possible general two-dimension theorem"
+        },
+        {
+          "assessment": "Provides learning framework, not this finite n=11 involution table",
+          "evidence": "General Ldim principles do not yield exact VC/Ldim difference",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2024.42",
+          "material_read": "Public proceedings abstracts/description, not claimed exhaustive full manuscript",
+          "method": "web bibliographic/theorem summary",
+          "title": "Applications of Littlestone Dimension to Query Learning and to Compression",
+          "trigger": "General query-learning ramifications of Ldim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies a sharp first discrepancy between static VC and adaptive mistake-tree complexity for a natural Catalan-related pattern-avoidance class represented by positional comparisons. Exact finite dimension thresholds require both an exhaustive static shattering search and independently checkable adaptive certificates; this is a motivated natural classification, not an arbitrary tiny sample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md 11847b7c263aad6c5f14d149b5af4224c20731f7; verify.py 38ad036b5040a9460942483d111621289637149d",
+    "Full tree_certificate.json Git blob b0dda94048bc53c11bd1f81daa83122ac434a896",
+    "Independent sorted involution enumeration, all 127/255 internal nodes and 128/256 separate leaves, and all minority sizes for n11/12, recorded in owner audit session",
+    "Fang–Hamaker–Troyka arXiv:2009.00079 full preprint; related learning literature abstracts",
+    "Resultary query: VC Littlestone dimension 321 avoiding involutions positional comparisons n=11"
+  ],
+  "disposition": "passed",
+  "final_claim": "For n=1..12, 321-avoiding involutions treated as pairwise positional comparison Boolean concepts have cardinalities (1,2,3,6,10,20,35,70,126,252,462,924), VC dimensions (0,1,1,2,2,3,3,4,4,5,5,6), Littlestone dimensions (0,1,1,2,2,3,4,5,5,6,7,8), first Ldim-VC gap 2 at n=11 (5 versus 7), also gap 2 at n12.",
+  "limitations": [
+    "An equivalent result may be known through standard tableaux, ballot-path dynamics, or alternative comparison query notation.",
+    "VC upper bounds n<=12 reviewed via the source exhaustive algorithm but not independently reproduced for every n in this run; independently checked critical adaptive certificates/upper obstructions.",
+    "No formula for n>=13 or alternative query encoding is implied."
+  ],
+  "residual_risks": [
+    "An equivalent result may be known through standard tableaux, ballot-path dynamics, or alternative comparison query notation.",
+    "VC upper bounds n<=12 reviewed via the source exhaustive algorithm but not independently reproduced for every n in this run; independently checked critical adaptive certificates/upper obstructions.",
+    "No formula for n>=13 or alternative query encoding is implied."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Provides the known hypothesis cardinalities, no positional-comparison VC/Ldim tree census. The original package Theorem 1.4(a) locator differs from inspected version numbering; check the actual version-specific theorem (1.6(a) in retrieved draft).",
+      "evidence": "Earlier central binomial enumeration does not fix shattering dimensions",
+      "identifier_or_url": "https://arxiv.org/abs/2009.00079",
+      "material_read": "Full accessible author preprint, introduction and theorem giving central-binomial enumeration",
+      "method": "full arXiv HTML via web",
+      "title": "On pattern avoidance in matchings and involutions",
+      "trigger": "Same enumerated 321-avoiding involution family"
+    },
+    {
+      "assessment": "Different zero-set concept class, no demonstrated direct implication for 321-avoiding involution comparisons",
+      "evidence": "Object is linear-combination zero sets, not positional comparison masks",
+      "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+      "material_read": "Public abstract and statement descriptions; complete article not asserted read",
+      "method": "public abstract and cited theorem synopsis",
+      "title": "Littlestone and VC-dimension of families of zero sets",
+      "trigger": "Possible general two-dimension theorem"
+    },
+    {
+      "assessment": "Provides learning framework, not this finite n=11 involution table",
+      "evidence": "General Ldim principles do not yield exact VC/Ldim difference",
+      "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2024.42",
+      "material_read": "Public proceedings abstracts/description, not claimed exhaustive full manuscript",
+      "method": "web bibliographic/theorem summary",
+      "title": "Applications of Littlestone Dimension to Query Learning and to Compression",
+      "trigger": "General query-learning ramifications of Ldim"
+    }
+  ]
+}
