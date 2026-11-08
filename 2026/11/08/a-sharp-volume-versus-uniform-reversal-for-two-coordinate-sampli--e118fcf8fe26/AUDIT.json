@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For any fixed omitted coordinate, exact block minimization gives rank-one energy residual e_j e_j^T/(H^{-1})_{jj}. The worst conditional expectation is lambda_max of normalized inverse-Hessian Gram scaled by omission probabilities. The unit fixed Rayleigh witness gives a universal bound 1/R, attained by positive Perron eigenvector at the inverse-row-sum law; equality forces the same law by matrix invertibility. On a 3-by-3 star the signed Gram is explicit, the volume omission weights follow principal-minor determinants, and the top symmetric-mode root has strictly negative derivative between volume and uniform weights. The unique optimizer is separate. Derivatives at s=1 give a sharp 4/3 decrement limit. Algebraic proof covers all stated real parameters; 62 supplementary symbolic/spectral checks replay.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rodomanov–Kropotov (2019) gives general determinant-proportional pair selection and convergence estimates; Section 6 compares it empirically with uniformly selected blocks, without the sharp star-family strict inequality.",
+        "Qu et al. (2015) allow general random principal Hessian blocks and matrix expectation bounds; the source does not determine this pair-sampling minimax law or volume-uniform separation."
+      ],
+      "reasoning": "The more general algorithmic frameworks contain our update rule but their displayed theorems do not logically imply the strict direction of the volume-versus-uniform comparison or the closed asymptotic decrement ratio; the counterordering needs the explicit star spectral calculation.",
+      "searches": [
+        "exact optimal probabilities sampling two-coordinate blocks for 3x3 star Hessian expected worst-case quadratic energy contraction compared with volume sampling",
+        "volume sampled randomized coordinate descent star matrix min eigenvalue vs optimal importance sampling",
+        "exact optimal probabilities of leaving one coordinate unupdated in block Gauss Seidel quadratic compared determinant volume sampling",
+        "arxiv:1904.04587 Section 2 Definition 2.2, Sections 3, 5.1, 6.1",
+        "arxiv:1502.02268 sampled Newton quadratic block convergence"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1904.04587 (full relevant sections and page images)",
+      "arXiv:1502.02268 (relevant preprint sections)",
+      "Published 2026 single-coordinate result full RESULT.md",
+      "Prior three-variable pair-optimality claim text and related historical claims (deduplication only)",
+      "arXiv:1904.04587 first-posted metadata 2019-04-09 and MSC2020 90C25",
+      "Pukelsheim and Torsney 1991 optimal-design bibliographic metadata only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 paper establishes convergence for fixed volume sampling but does not give a universal rate ordering against uniform for these exact matrices.",
+        "A preexisting three-column pair result already yields the star optimal weights and best-vs-uniform relation; those components are not claimed original.",
+        "The new formula shows uniformly sampled pairs have strictly lower worst-direction expected energy retention than determinant-proportional pairs for all 0<s<1, and the optimal/volume decrement ratio tends to 4/3."
+      ],
+      "reasoning": "A formula for the optimizer alone does not compare volume sampling with uniform, and an abstract convergence bound does not imply the sign of this exact comparison. The all-dimensional sufficient optimum uses a broader nonnegative signed inverse-Gram hypothesis. The resulting integrated claim is not asserted to be unconditionally new in all older optimal-design sources.",
+      "searches": [
+        "arxiv:1904.04587 Sections 2.2 3.1 6.1 determinant-proportional sampling vs uniform",
+        "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "minimax expected energy residual of rank n minus 1 exact randomized block coordinate descent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact residual norm is lambda_max(Q^{1/2}GQ^{1/2}), equivalently minimum possible norm of a convex mixture of rank-one complement projectors.",
+        "Published inverse-positive coordinate theorem maximizes lambda_min of probability-scaled Hessian for singleton updates; its proof uses a different quadratic decrement operator.",
+        "Prior three-variable batch-optimality calculation independently includes a symmetric-star optimizer but does not assert the determinant-proportional-versus-uniform strict ordering or the factor-4/3 limit."
+      ],
+      "reasoning": "Changing from singleton updates to all-except-one-block updates reverses the spectral criterion and normalizes the inverse Hessian. Exact star optimality alone would be covered by prior work; the new comparison quantifies a different natural determinant law versus uniform and persists for all star parameters. The signed-positive Gram lemma is stated as a sufficient generalization, not an independence claim from the broad theory of optimal design.",
+      "searches": [
+        "minimize largest eigenvalue of probability weighted Gram matrix with nonnegative correlation and row sum inverse positive explicit minimizer",
+        "optimal fixed probability stochastic complement Gauss Seidel two-coordinate block largest eigenvalue inverse Hessian correlation Gram",
+        "\"inverse gram\" \"optimal\" \"largest eigenvalue\" sampling probability",
+        "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected published result for two-coordinate Gauss-Seidel ordering addresses a two-variable sweep and Euclidean transient amplification, not randomly choosing a two-coordinate subset in three variables.",
+        "The preceding recovered claims include max-block mean-square dynamics and related pair-optimality; no recovered result states this exact strict determinant-proportional-versus-uniform star comparison and near-singular 4/3 decrement limit."
+      ],
+      "reasoning": "The theorem is continuous in a real star coupling, not a finite-table cell. Querying an index or partial historical ledger cannot certify uniqueness; overlapping special optimal weights are acknowledged, not repackaged as new.",
+      "searches": [
+        "volume sampling uniform 3 by 3 star Cholesky pair rate exact table",
+        "sharp minimax expected quadratic energy exact all except one coordinate block update volume sampling three by three star counterexample",
+        "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+      ]
+    },
+    "rationale": "The exact signed inverse-Hessian Gram minimax sufficient condition is an all-dimensional largest-eigenvalue complement-block statement; the principal new numerical observation is the strict volume-sampling versus uniform reversal for every three-variable star, with a sharp factor 4/3 in the near-singular expected decrement. The 2019 motivating volume-sampling paper defines this exact pair law and proves convergence rates, but does not present this counterordering or its sharp limit. A preexisting three-variable pair-optimality result covers the special star optimal weights, which are used as known comparisons rather than counted as newly discovered. The distinct singleton-coordinate inverse-positive theorem optimizes a smallest eigenvalue, not this complement-block largest eigenvalue. Residual equivalence risk in saturated spectral design is explicitly retained.",
+    "residual_risks": [
+      "An older saturated E-optimal design, Perron matrix diagonal-scaling, or sketch-and-project treatment may give an equivalent all-dimensional signed-Gram lemma.",
+      "A previously recorded three-variable pair-sampling result already proves its special optimal law; no originality is assigned to that subformula.",
+      "The strict volume-uniform ordering or 4/3 decrement limit could occur in an unexamined appendix or alternative terminology; absence from inspected material is not proof of precedence.",
+      "Exact one-step worst-direction expectation does not determine the precise multi-step mean-square exponent or implementation time."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the same determinant-proportional distribution and broad rates, not the exact 3-by-3 star all-parameter reversal nor the 4/3 asymptotic relative decrement.",
+        "evidence": [
+          "arXiv:1904.04587, Definition 2.2, equation (2.4), Section 5.1, Section 6.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1904.04587",
+        "material_read": "Accessible full manuscript PDF; title and abstract, Introduction and related work, Section 2 and Definition 2.2, Section 3 convergence definitions, Section 5.1 quadratic specialization, Section 6.1 comparison of volume and uniform sampling, plus figure/discussion headings.",
+        "method": "Full-text and page-image reading of directly relevant manuscript sections with formula and implication comparison.",
+        "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+        "trigger": "Direct parent algorithm: determinant-proportional two-coordinate block selection and claimed convergence benefits."
+      },
+      {
+        "assessment": "Gives related arbitrary sampling framework but no closed star volume-uniform strict inequality or near-singular 4/3 decrement.",
+        "evidence": [
+          "arXiv:1502.02268, Sections 2.1–2.3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1502.02268",
+        "material_read": "Accessible manuscript PDF sections 2.1 and 2.3 and introductory method comparison; source abstract, general sampling properties, and sampled-Hessian update statements.",
+        "method": "Accessible preprint full-text section analysis and explicit comparison of quadratic block step and matrix performance criterion.",
+        "title": "SDNA: Stochastic Dual Newton Ascent for Empirical Risk Minimization",
+        "trigger": "Earlier arbitrary principal-submatrix randomized Newton steps and sharp expectation matrices."
+      },
+      {
+        "assessment": "Covers singleton-coordinate update/minimum-eigenvalue contraction, not inverse-Gram complement blocks/maximum-eigenvalue retention or volume-vs-uniform star comparison.",
+        "evidence": [
+          "Published RESULT.md setting and proof: rho(p)=lambda_min(P^{1/2}CP^{1/2})."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995/RESULT.md",
+        "material_read": "Entire published RESULT.md including objective, theorem, proof, optimality conditions, example, and limitations.",
+        "method": "Direct reading of accessible source result and comparison of update subset and eigenvalue direction.",
+        "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+        "trigger": "Closest published explicit coordinate-sampling optimization with Perron structure."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e118fcf8-fe26-4446-9cab-ac751657eead",
+  "value": {
+    "rationale": "The source algorithm specifically favors determinant-proportional volume subset selection, making an all-parameter family on which uniform has strictly better sharp one-step energy contraction a motivated boundary, not a random numeric exception. The explicit optimum and sharp 4/3 near-singular decrement improvement provide a measurable same-block-cost reference for analyzing selection heuristics. Scope excludes actual wall-clock costs and higher-dimensional volume guarantees; previously covered special minimax weights are not independently counted for value.",
+    "status": "PASS"
+  }
+}
