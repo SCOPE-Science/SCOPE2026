@@ -1,0 +1,90 @@
+{
+  "correctness": {
+    "rationale": "Exact minimal DFAO: count terminal maximal digits modulo the tail-cycle of f, and distinguish any two residuals by a suffix of maximal digits. Initial state is zero-invariant. The unique possible binary mixed-incoming vertex is state 0 only if onset a=0, reached by one after p consecutive maximal digits; this gives shortest mixed path p+1. When a>0 all binary incoming edges have a unique label and opacity is zero. For b>=3 two distinct reset input symbols create a length-2 conflict. Source [1] yields normalized opacity; 4,094 independent finite configurations and 237,440 direct integer evaluations corroborate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The relevant full text of arXiv:2404.13601v1 (Sections 2–4) enumerates constant, Thue–Morse, period-doubling, Rudin–Shapiro, paperfolding, Baum–Sweet and other examples; it does not quantify over all ultimately periodic valuation controllers.",
+        "Related modular-period and digit-pattern machine results address different transition graphs and not the valuation preperiod/period trichotomy."
+      ],
+      "reasoning": "The general automaton shortest-path theorem provides a method, not a value for arbitrary \\(f(\\nu_b(n+1))\\). Previous exact modular-residue formulas concern sequences periodic in the integer argument; nonconstant valuation words such as period-doubling are not of that type.",
+      "searches": [
+        "Allouche Yao opacity complexity period doubling generalized m valuation eventually periodic",
+        "\"opacity complexity\" \"generalized period-doubling\" valuation modulo",
+        "\"opacity complexity\" \"preperiod\" \"period\" automatic"
+      ]
+    },
+    "checked_sources": [
+      "Allouche and Yao, arXiv:2404.13601v1 full relevant text, posted 2024-04-21",
+      "arXiv public submission and subject metadata, including 94A17",
+      "Published 2026 Acta Informatica record DOI 10.1007/s00236-026-00521-6, bibliographic information only",
+      "Targeted scholarly search on opacity, valuation functions, and ultimate periodicity",
+      "Relevant previous publicly indexed opacity claims and accessible locally held research claims, used only for statement-level deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1, Theorem 2] supplies the relation between opacity and shortest inhomogeneous path; [1, Example 6] proves normalized opacity 1/2 for the classical binary period-doubling word.",
+        "The new proof derives the minimal tail-cycle graph and the full trichotomy for all bases and arbitrary eventually periodic controllers; this graph has one or several reset input letters depending on base."
+      ],
+      "reasoning": "The isolated source example is exactly the specialization \\(b=2,a=0,p=2\\), hence not independently novel. Neither it nor the general algorithm states the all-controller parameter law; source premises alone do not directly entail it without the new structural state and path analysis. A later full journal revision could narrow novelty.",
+      "searches": [
+        "arxiv:2404.13601v1 Theorems 1 2 and Example 6 full HTML",
+        "Exact opacity spectrum for all automatic words n map f(v_b(n+1)) for all ultimately periodic controllers f",
+        "\"opacity complexity\" \"valuation\" \"period doubling\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Allouche–Yao arXiv:2404.13601v1, Theorems 1–2, give the common opacity notion and shortest path criterion; Example 6 states only the binary period-two instance.",
+        "A search for valuation-controlled tail-cycle automata did not return a complete equivalent classification."
+      ],
+      "reasoning": "The proposed quantity is precisely the source-defined normalized prefix opacity, not a rebranded factor or state metric. The controller generalization requires identification of the intrinsic DFAO and its first conflicting paths; the known period-two case is included only as a consistency check.",
+      "searches": [
+        "\"opacity complexity\" \"valuation\" \"period doubling\"",
+        "\"opacity complexity\" \"eventually periodic\" f(n)",
+        "Opacity complexity of valuation sequences u(n)=f(v_2(n+1)) with eventually periodic f; purely periodic vs preperiodic suffix and exact normalized opacity 2^(1-period)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of available mathematical research summaries showed no exact table or spectrum for valuation words and arbitrary ultimate periods.",
+        "A direct test of the constructed graph covers 4,094 parameter configurations, not a prior published table."
+      ],
+      "reasoning": "The claim is an unbounded two-parameter plus arbitrary-controller structural classification rather than an unseen finite table entry. Finite tests verify examples without establishing database uniqueness.",
+      "searches": [
+        "\"opacity complexity\" trailing ones automata eventually periodic valuations",
+        "\"ν2(n+1)\" \"opacity\"",
+        "finite automaton incoming same digit edges for unary tail-cycle valuation sequences normalised opacity"
+      ]
+    },
+    "rationale": "Published [1] provides the general framework and one binary period-two example but not the valuation-controller trichotomy and a+p state law. Targeted literature, relevant prior claims, and semantic research comparison found no covering result; this is best-knowledge rather than proof of absolute novelty.",
+    "residual_risks": [
+      "The 2026 journal revision of the same source has not been checked in full; the original 2024 full public arXiv text has been read.",
+      "An unindexed equivalent or alternative formulation of the general valuation classification may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS generic opacity algorithm and the particular b=2,a=0,p=2 example; does not assert the all-controller base/preperiod/period classification",
+        "evidence": "arXiv:2404.13601v1, Section 3 Theorems 1–2; Section 4 Example 6",
+        "identifier_or_url": "https://arxiv.org/html/2404.13601v1",
+        "material_read": "Definitions and proofs in Sections 1–3, examples and remarks in Section 4, closing discussion in Section 5",
+        "method": "Public full arXiv HTML textual reading, including Theorems 1 and 2 and Example 6",
+        "title": "Opacity complexity of automatic sequences. The general case",
+        "trigger": "Same opacity invariant and exactly the classical period-doubling input family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4e3f4172-ed8e-4b59-9515-873267594170",
+  "value": {
+    "rationale": "The natural valuation-controlled automatic family is fully classified for arbitrary finite output alphabets and ultimately periodic controllers. It exhibits a base-dependent three-way phase diagram and exact attainable spectrum plus sharp intrinsic state size; one transient prefix can switch the binary value from positive opacity to transparency. These facts are not a trivial renaming of any single existing example. No downstream application or complete classification of arbitrary automatic words is asserted.",
+    "status": "PASS"
+  }
+}
