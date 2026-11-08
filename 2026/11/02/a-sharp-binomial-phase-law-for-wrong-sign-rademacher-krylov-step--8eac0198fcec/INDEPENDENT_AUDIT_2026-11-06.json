@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T07:50:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/a-sharp-binomial-phase-law-for-wrong-sign-rademacher-krylov-step--8eac0198fcec/RESULT.md (Git blob c6494a135f17e191763249960251e5b0af1f8b55)",
+        "2026/11/02/a-sharp-binomial-phase-law-for-wrong-sign-rademacher-krylov-step--8eac0198fcec/verify.py (Git blob b3226a692c1c3986f60b06469553bb908340316c)",
+        "2026/11/02/a-sharp-binomial-phase-law-for-wrong-sign-rademacher-krylov-step--8eac0198fcec/METADATA.json (Git blob b7573dfc42c49dd415edf8563fd822ae3f5e6359)",
+        "2026/11/02/a-sharp-binomial-phase-law-for-wrong-sign-rademacher-krylov-step--8eac0198fcec/AUDIT.json (Git blob 425e3aa5c4cd18b2c14d64439ebae6751e9c7dc9)",
+        "/mnt/data/scope_worker03_20261106T0738Z/independent_checks_output.txt"
+      ],
+      "rationale": "The numerator of t_S is ka(x²+kappa y²)+a(1+kappa)xy sum_epsilon_i, where iid epsilon_i are fair row-products. Negativity is equivalent to cross-sign and |B|/k>(x²+kappa y²)/((1+kappa)|xy|). AM-GM sharply minimizes the right-hand threshold at chi=2sqrt(kappa)/(1+kappa), attained for |x/y|=sqrt(kappa), and binomial signs enumerate B=2J-k. With sketch-null direction denominator zero, numerator zero and minnorm t=0, so no negative event. For kappa=1 numerator=||Sb||². Negative t strictly raises true Euclidean residual since b^T A b>0. Independent exact sign enumeration of all row-product configurations k=1..7 and four square ratios reproduced the sharp tails and endpoints. The infinite k/real kappa theorem comes from AM-GM, not sampling.",
+      "residual_risks": [
+        "The finite computations alone do not establish unrestricted hypotheses, parameter domains or infinite quantifiers; proof reconstruction supplies those steps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General randomized Krylov embedding and stability guarantees cover broader systems but are bounds on embedded residuals, not exact exceptional probabilities for a discrete two-column distribution."
+        ],
+        "reasoning": "Conditional quality guarantees cannot force a binomial exact law over the entire iid sign ensemble, including poorly embedded outcomes.",
+        "searches": [
+          "Yuan–Wu arXiv:2610.34964 §2.2",
+          "Nakatsukasa–Tropp arXiv:2111.00113",
+          "Güttel–Pearson arXiv:2506.18408"
+        ]
+      },
+      "checked_sources": [
+        "Yuan–Wu, arXiv:2610.34964v1 §2.2 sketched minimal residual objective and Rademacher embeddings",
+        "Güttel–Pearson arXiv:2506.18408v2 randomized GMRES stabilization (related methods)",
+        "Resultary search wrong-sign Rademacher Krylov binomial tails; nearest 2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731 concerns unsketched MINRES second iterate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier objective min_t||S(b-tAb)||² gives a normal equation but does not itself state a supremum of probability. Rademacher row products and sharp AM-GM are extra steps."
+        ],
+        "reasoning": "The exact signed probability is an evaluated distribution and extremum, not a direct published equation of the generic Krylov formulation.",
+        "searches": [
+          "arXiv:2610.34964 §2.2 sketched minimum residual",
+          "arXiv:2111.00113 sketch/subspace embedding theory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nearest Resultary numerical solver entry analyzes a deterministic second MINRES iterate, not a random one-dimensional sketched least squares sign. Yuan–Wu defines the randomized algorithms, not the exact two-mode signed-tail law."
+        ],
+        "reasoning": "An equivalent sketch-and-solve formulation uses sign products B, but no accessed matching full distribution/threshold theorem was found.",
+        "searches": [
+          "\"Rademacher randomized Krylov GMRES sketch wrong sign step negative coefficient binomial tail\"",
+          "Resultary 2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731",
+          "arXiv:2610.34964"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact tabulation was returned; the theorem treats all sketch dimensions k and real condition ratios kappa."
+        ],
+        "reasoning": "No finite database exhausts the continuum kappa and all positive integer k. Negative search is only a bounded priority indication.",
+        "searches": [
+          "\"Rademacher sketch wrong sign scalar step binomial condition number\"",
+          "Resultary search 12"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty of the precise final theorem survives comparison with relevant antecedents and currently indexed mathematical literature, but not exhaustive historical priority. An equivalent sketch-and-solve formulation uses sign products B, but no accessed matching full distribution/threshold theorem was found.",
+      "residual_risks": [
+        "This is a two-coordinate diagonal alignment, not a universal worst-case over arbitrary SPD rotations or all residual increases.",
+        "A sketch-and-solve failure analysis may imply the negative-tail probability without using Krylov terminology; searched variants but priority not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR SKETCHING METHOD, NO TWO-MODE BINOMIAL WORST-CASE",
+          "evidence": "Sketched shifted GMRES and related FOM objectives and subspace equivalences are established, not a worst one-step wrong-sign probability.",
+          "identifier_or_url": "https://arxiv.org/html/2610.34964v1",
+          "material_read": "Full HTML accessible; introduction, §2.2 and sketched algorithm/theorem statements on methods",
+          "method": "primary public full-text HTML inspected in relevant sections",
+          "title": "Randomized Krylov Subspace Methods for Shifted Linear Systems",
+          "trigger": "identical sketched minimal residual method and named Rademacher sketches"
+        },
+        {
+          "assessment": "BACKGROUND ONLY, UNRESOLVED STRONGER-METHOD PRIORITY RISK",
+          "evidence": "No claim of exhaustive reading; a specialized negative-step law might be implicit.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.00113",
+          "material_read": "Abstract and cited context, not entire full text",
+          "method": "lawful public abstract/source citation inspection",
+          "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "broad sketch-and-solve theory potentially covering two-mode case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Yuan–Wu, arXiv:2610.34964v1 §2.2 sketched minimal residual objective and Rademacher embeddings",
+        "Güttel–Pearson arXiv:2506.18408v2 randomized GMRES stabilization (related methods)",
+        "Resultary search wrong-sign Rademacher Krylov binomial tails; nearest 2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731 concerns unsketched MINRES second iterate"
+      ],
+      "rationale": "The first sketched Krylov step is a natural minimal failure mode: a discrete sign ensemble has a nonvanishing adversarial wrong-step probability even for SPD matrices arbitrarily close to the identity. The precise binomial staircase and discontinuity identify a useful algorithmic boundary, not merely a generic observation that sketches can err.",
+      "residual_risks": [
+        "The value is for the exactly scoped theorem, not an assertion of broader applications not proved here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Yuan–Wu, arXiv:2610.34964v1 §2.2 sketched minimal residual objective and Rademacher embeddings",
+    "Güttel–Pearson arXiv:2506.18408v2 randomized GMRES stabilization (related methods)",
+    "Resultary search wrong-sign Rademacher Krylov binomial tails; nearest 2026/10/4/SCOPE-condition-two-is-the-sharp-second-iterate-positivity-frontier-fo--b50999a21731 concerns unsketched MINRES second iterate",
+    "2026/11/02/a-sharp-binomial-phase-law-for-wrong-sign-rademacher-krylov-step--8eac0198fcec/RESULT.md (Git blob c6494a135f17e191763249960251e5b0af1f8b55)",
+    "2026/11/02/a-sharp-binomial-phase-law-for-wrong-sign-rademacher-krylov-step--8eac0198fcec/verify.py (Git blob b3226a692c1c3986f60b06469553bb908340316c)",
+    "2026/11/02/a-sharp-binomial-phase-law-for-wrong-sign-rademacher-krylov-step--8eac0198fcec/METADATA.json (Git blob b7573dfc42c49dd415edf8563fd822ae3f5e6359)",
+    "2026/11/02/a-sharp-binomial-phase-law-for-wrong-sign-rademacher-krylov-step--8eac0198fcec/AUDIT.json (Git blob 425e3aa5c4cd18b2c14d64439ebae6751e9c7dc9)",
+    "/mnt/data/scope_worker03_20261106T0738Z/independent_checks_output.txt"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "This is a two-coordinate diagonal alignment, not a universal worst-case over arbitrary SPD rotations or all residual increases.",
+    "A sketch-and-solve failure analysis may imply the negative-tail probability without using Krylov terminology; searched variants but priority not certified."
+  ],
+  "schema_version": 1
+}

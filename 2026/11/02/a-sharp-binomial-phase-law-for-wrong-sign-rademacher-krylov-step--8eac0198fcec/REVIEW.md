@@ -1,15 +1,21 @@
-# Assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The coefficient normal equation reduces its sign to \(k(x^2+\kappa y^2)+(1+\kappa)Bxy\). AM–GM gives a necessary condition on the row-product sum \(B\) and the fixed residual \(b=(\sqrt\kappa,1)\) simultaneously attains it for every row-product outcome. The binomial distribution then gives an exact probability, not an empirical estimate. The \(k=3\) endpoint, zero-denominator convention, embedded high-dimensional scope and limiting near-identity residual ratio are derived explicitly. The included checker passed 352 exact-rational enumerations, 16 floor checks, and both sides of the first phase boundary. The finite tests support but do not establish the infinite claim.
+## correctness
 
-## Originality — PASS, conditional on documented literature coverage
-The motivating randomized Krylov study [1] states the sketched minimal-residual objective and lists sign sketches but does not report the sharp sign-reversal binomial phase diagram in the inspected relevant sections. Güttel–Pearson [2] studies stabilizing sketched GMRES through FGMRES; Nakatsukasa–Tropp [3] provides sketch-and-solve and embedding guarantees. Gaussian sketch-and-solve [4] handles a different continuous ensemble. The exact staircase and its \(\kappa\downarrow1\) failure floor are not entailed by these inspected conclusions. Related numerical-method records with deterministic GMRES error bounds do not imply the discrete sign-sketch law. There remains an ordinary risk of older specialized calculations on sign sketches; no exhaustive claim of historical uniqueness is made.
+PASS
 
-## Value — PASS
-The sharp binomial failure risk answers a natural safety question for a practical oblivious sketch distribution and identifies a persistent \(2^{-k}\) failure floor arbitrarily near identity conditioning. At \(k=3\), a specific curvature threshold changes the risk from \(1/8\) to \(1/2\); on the rare all-opposite-sign event the true residual norm tends to twice the previous norm even as the matrix becomes arbitrarily well conditioned. This exact finite-sample dimension/condition-number tradeoff is not supplied by ordinary embedding bounds and is useful for calibrating sketch confidence and safeguards. No guarantee is asserted for all residual-growth mechanisms.
+The numerator of t_S is ka(x²+kappa y²)+a(1+kappa)xy sum_epsilon_i, where iid epsilon_i are fair row-products. Negativity is equivalent to cross-sign and |B|/k>(x²+kappa y²)/((1+kappa)|xy|). AM-GM sharply minimizes the right-hand threshold at chi=2sqrt(kappa)/(1+kappa), attained for |x/y|=sqrt(kappa), and binomial signs enumerate B=2J-k. With sketch-null direction denominator zero, numerator zero and minnorm t=0, so no negative event. For kappa=1 numerator=||Sb||². Negative t strictly raises true Euclidean residual since b^T A b>0. Independent exact sign enumeration of all row-product configurations k=1..7 and four square ratios reproduced the sharp tails and endpoints. The infinite k/real kappa theorem comes from AM-GM, not sampling.
 
-## Scope and references
-The theorem is restricted to one exact-arithmetic step, two diagonal active modes and iid Rademacher entries; arbitrary SPD rotations or other ensembles may behave differently. Sources: [1] arXiv:2610.34964v1, [2] arXiv:2506.18408v2, [3] arXiv:2111.00113, [4] Epperly (2024) Gaussian sketch-and-solve note. Independent priority and mathematics reviews remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty of the precise final theorem survives comparison with relevant antecedents and currently indexed mathematical literature, but not exhaustive historical priority. An equivalent sketch-and-solve formulation uses sign products B, but no accessed matching full distribution/threshold theorem was found.
+
+## value
+
+PASS
+
+The first sketched Krylov step is a natural minimal failure mode: a discrete sign ensemble has a nonvanishing adversarial wrong-step probability even for SPD matrices arbitrarily close to the identity. The precise binomial staircase and discontinuity identify a useful algorithmic boundary, not merely a generic observation that sketches can err.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
