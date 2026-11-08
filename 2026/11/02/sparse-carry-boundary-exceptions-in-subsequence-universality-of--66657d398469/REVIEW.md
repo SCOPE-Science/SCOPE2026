@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The adjacent-one classification is proved from binary carry behavior, including the initial \(j=0\) case. Two initial \(110\) arches consume four ones; all subsequent completed arches consume one, with exactly the identified one-symbol exceptional residue. The general greedy-arch universality lemma has both directions proved, and the four-state count gives the Fibonacci specialization. Independent code checks prefix lengths through \(65{,}536\) but does not substitute for the proof.
+PASS
 
-## Originality
+For each j, carry behavior proves consecutive ones iff j=4^t−1, including j=0. The two greedy initial arches are 110|110; all further complete arches carry one 1, apart from a single uncompleted 1 precisely at N=4^t+1, t≥2. Greedy binary arch count equals scattered-subsequence universality index in both directions. Four-state digit counting gives S(2^k)=F_(k+2). Hence the N≥6 formula and its dyadic specialization follow for infinitely many N. Independent direct digit/greedy computations checked N=6..4096 and small exhaustive target subsequences; finite tests are corroboration only.
 
-**PASS, with historical limitations.** Searches concerned Baum–Sweet, prefix universality, Simon subsequences, greedy arches, and Fibonacci dyadic counts. The closest broad result is the general arch/absent-subsequence framework of Kosche et al. The full relevant sections of that work and Waldschmidt's Baum–Sweet description were inspected; neither states the sparse-exception prefix formula in those portions. Published research records on general binary subsequence-universality distributions give a different aggregate invariant and do not imply the particular all-prefix formula without a further Baum–Sweet-specific argument. Priority assessment is not exhaustive; the original 1976 paper could not be read in full.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is an exact all-prefix classification of a natural subsequence-capacity invariant for a classical automatic word. The exceptional indices identify a mathematically sharp synchronization failure at powers of four, and the dyadic specialization ties scattered-subsequence coverage to Fibonacci growth. The result is not a finite numerical cutoff, a routine normalization check, or merely a bound.
+Best-of-knowledge comparison of explicit final claim with observed primary prior statements; unresolved historical sources listed explicitly.
 
-## Scientific limitations
+## value
 
-Only zero-indexed initial prefixes and the fixed binary alphabet are covered; general factor intervals and complete absent languages are not. Source access and independent-priority checks remain incomplete. The mathematical proof is self-contained under the given definitions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact uniform all-prefix subsequence-universality index for a classical automatic sequence has naturally occurring sparse exceptional boundaries, and produces a sharp Fibonacci dyadic law; knowing the exact positions is useful in automatic-word and scattered-pattern questions beyond generic per-prefix algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

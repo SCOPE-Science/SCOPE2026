@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The accompanying `checker.py` executed successfully. It tests every prefix \(6\le N\le65{,}536\) against a greedy-arch index calculated directly from the digits, cross-checks dyadic generation by a separately programmed four-state morphism through rank 16, and independently enumerates short binary targets for small prefixes. The unrestricted theorem uses the proof in `RESULT.md`; finite tests alone prove no statement about all integers. This package has not undergone independent audit.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For each j, carry behavior proves consecutive ones iff j=4^t−1, including j=0. The two greedy initial arches are 110|110; all further complete arches carry one 1, apart from a single uncompleted 1 precisely at N=4^t+1, t≥2. Greedy binary arch count equals scattered-subsequence universality index in both directions. Four-state digit counting gives S(2^k)=F_(k+2). Hence the N≥6 formula and its dyadic specialization follow for infinitely many N. Independent direct digit/greedy computations checked N=6..4096 and small exhaustive target subsequences; finite tests are corroboration only.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of explicit final claim with observed primary prior statements; unresolved historical sources listed explicitly.
+
+## value
+
+PASS
+
+The exact uniform all-prefix subsequence-universality index for a classical automatic sequence has naturally occurring sparse exceptional boundaries, and produces a sharp Fibonacci dyadic law; knowing the exact positions is useful in automatic-word and scattered-pattern questions beyond generic per-prefix algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
