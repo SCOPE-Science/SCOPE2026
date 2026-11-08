@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python verify_figure8.py` with Python 3.10 or newer. It uses only standard-library rational arithmetic, numerical loops, and deterministic pseudorandom sampling, and printed:
+## correctness
 
-`VERIFY_OK 54 exact rational equalities/inequalities, 12 independently integrated or sampled tests`
+PASS
 
-Exact rational assertions independently recompute the moment integrals from conditional uniform distributions for multiple positive rational length pairs. They check the three closed forms, cubic contrast, positivity, and algebraic feasibility. A separate midpoint double-integration routine computes shortest routes directly in circle coordinates rather than using the derived moment expression; a seeded random graph sampler provides an additional numerical cross-check. The proof for all positive real lengths is in RESULT.md. These finite tests do not establish the universal identity, historical originality, statistical estimation guarantees, or independent mathematical certification.
+Conditioning on whether the points fall on one circle gives uniform [0,h/2] distances; crossing circles adds independent vertex-distance uniforms. Independently expanded the exact general moment sum using symbolic algebra and confirmed μ=(L-c)/4, ν=(L-c)^2/12, ω=((L-c)^3+c^3)/32 with c=ab/L, whence Δ=ω-2μ³=c³/32. Solving L=4μ+c and quadratic z²-Lz+Lc yields complete positive-real feasibility μ>0,ν=4μ²/3,2μ³<ω<=56μ³/27, and unique unordered lengths. First two coincide with a circle of length 4μ. The cube-root Hölder estimate follows from concavity; c=ε,2ε at fixed μ proves exponent 1/3 sharp even with positive circles. Inspected independent code verify_figure8.py and its exact conditional integrals; numerical tests supplement general algebra.
+
+## originality
+
+PASS
+
+Garijo–Márquez–Silveira 2023 and Wei–Walteros–Batta 2020 contain general FORWARD metric-network distance means/moments, including known first/second moment identities. Those established forward identities and circle comparison are excluded from novel claim. The narrower accepted novelty is the full inverse feasible 3-moment region, unique two-circle reconstruction without L known, minimal third-moment distinction and sharp contrast inverse modulus. Doyle–Graver 1982 original article inaccessible; earlier inverse observation may exist.
+
+## value
+
+PASS
+
+Recovering a metric-graph topology parameter from unlabeled random pair-distance moments is an intrinsic inverse problem. The exact point at which a pair of circles ceases to mimic a single circle, the complete realizable surface and optimal inverse stability give natural and potentially reusable benchmark facts, despite simple final algebra after prior forward-moment methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

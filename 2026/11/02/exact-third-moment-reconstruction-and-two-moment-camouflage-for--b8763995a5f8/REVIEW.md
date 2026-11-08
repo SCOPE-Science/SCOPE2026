@@ -1,19 +1,21 @@
-# Scientific review — two-loop intrinsic distance moments
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The graph is precisely two positive circles joined at a unique articulation; the proof separates same-loop circular distances, each uniform on half the corresponding circumference, from cross-loop sums of two independent uniforms. This gives the exact first, second and third moments for all positive real loop lengths. The cubic contrast is \(\Delta=(ab/(a+b))^3/32\), so solving the positive quadratic \(z^2-Lz+Lc=0\) recovers the unordered lengths. The discriminant gives necessary and sufficient feasibility with correct strict and closed endpoints. The modulus follows from concavity of the real cube root; two strictly positive graph families with fixed mean prove its exponent sharp. Rational and independently integrated checks in `verify_figure8.py` passed. Finite checks are not a proof of the quantifiers.
+PASS
 
-## Originality
+Conditioning on whether the points fall on one circle gives uniform [0,h/2] distances; crossing circles adds independent vertex-distance uniforms. Independently expanded the exact general moment sum using symbolic algebra and confirmed μ=(L-c)/4, ν=(L-c)^2/12, ω=((L-c)^3+c^3)/32 with c=ab/L, whence Δ=ω-2μ³=c³/32. Solving L=4μ+c and quadratic z²-Lz+Lc yields complete positive-real feasibility μ>0,ν=4μ²/3,2μ³<ω<=56μ³/27, and unique unordered lengths. First two coincide with a circle of length 4μ. The cube-root Hölder estimate follows from concavity; c=ε,2ε at fixed μ proves exponent 1/3 sharp even with positive circles. Inspected independent code verify_figure8.py and its exact conditional integrals; numerical tests supplement general algebra.
 
-**PASS, with historical-priority risk.** The known general forward-moment framework of Wei–Walteros–Batta (2019/2020), Garijo–Márquez–Silveira's cactus mean formula (2023), and prior metric-flower first/second-moment identities are explicitly acknowledged. In particular, the two-moment identity is already algebraically implied by broader prior formulas, and is not claimed new. The retained result is the exact inverse feasibility classification, reconstruction from mean and third moment, minimal consecutive-moment cutoff, and sharp contrast-based recovery exponent. Dey–Shi–Wang's persistence distortion and Aanjaneya et al.'s point-cloud reconstruction use different and richer observables. Accessible relevant sections were inspected; the complete Doyle–Graver (1982) article remained inaccessible. Search nonmatches are treated as provisional evidence, not certification.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The inverse problem asks which geometric parameters can be recovered from the smallest number of unlabelled random-distance moments. The theorem proves a surprising information obstruction: a branched two-cycle graph and a simple circle agree on the first two moments, and a continuum of two-loop lengths also agree. It gives the exact third-order remedy with constructive formulas, a complete feasible data region, equality and degeneracy cases, and an optimal modulus for a natural recovered invariant. This is a complete, motivated low-dimensional inverse classification rather than an arbitrary new forward moment coefficient.
+Garijo–Márquez–Silveira 2023 and Wei–Walteros–Batta 2020 contain general FORWARD metric-network distance means/moments, including known first/second moment identities. Those established forward identities and circle comparison are excluded from novel claim. The narrower accepted novelty is the full inverse feasible 3-moment region, unique two-circle reconstruction without L known, minimal third-moment distinction and sharp contrast inverse modulus. Doyle–Graver 1982 original article inaccessible; earlier inverse observation may exist.
 
-## Limits and closest literature
+## value
 
-The forward moments are not novel; no full-graph reconstruction beyond the explicitly described two-loop class is claimed. No finite-sample robustness or optimal individual-loop modulus at equal loops is proved. Relevant comparisons: Dey–Shi–Wang, arXiv:1503.07414; Wei–Walteros–Batta, DOI 10.1002/net.21919; Garijo–Márquez–Silveira, DOI 10.1007/s00025-023-01902-w; Aanjaneya et al., DOI 10.1142/S0218195912600072; Doyle–Graver, DOI 10.1002/jgt.3190060410. A previously obtained general metric-flower result implies the first two formulas, but not the new inverse criterion from the third moment. The possibility of an equivalent inverse theorem in older literature remains a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Recovering a metric-graph topology parameter from unlabeled random pair-distance moments is an intrinsic inverse problem. The exact point at which a pair of circles ceases to mimic a single circle, the complete realizable surface and optimal inverse stability give natural and potentially reusable benchmark facts, despite simple final algebra after prior forward-moment methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
