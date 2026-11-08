@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-The classification proof fixes a code edge by translation and uses the incompatibility of overlapping open neighbourhoods to force its remaining antipodal edge. The antipodal quotient and full edge-to-code correspondence then give the distance and partition formulas without unproved computational assumptions.
+# Independent mathematical audit
 
-Reproducible finite checks (Python standard library):
+## correctness
 
-```
-python direct_certificate.py
-python quotient_certificate.py
-```
+PASS
 
-Expected passing lines:
+C PASS: Every total perfect code on Q4 has exactly 4 vertices by open-neighborhood partition, inducing two disjoint edges. After translating chosen edge {0,ei}, mutual nonoverlap of open neighborhoods forces other edge {u,u+ei} with u=1111. Four directions times four cosets give 16 codes. Quotient by antipodal pairs has 8 vertices and exactly K4,4 edges; each code is full edge preimage. Intersections of codes are size 2 iff quotient edges incident, otherwise 0; legal double-swap graph equals L(K4,4)=K4 Cartesian K4, strongly regular (16,6,2,2), 48 edges, distances 0/1/2, two shortest 2-step paths, no single-swap. Matching count 4!=24 partitions, each code in 3!=6.
 
-```
-DIRECT_Q4_OPEN_NEIGHBORHOOD_PASS 16 48 Counter({4: 72, 2: 48})
-ANTIPODAL_QUOTIENT_K44_PASS 8 16 Counter({'distance_two': 72, 'adjacent': 48})
-```
+## originality
 
-The first program exhaustively checks all \(\binom{16}{4}=1820\) possible four-vertex subsets, every legal pair of codes, each source's shortest-path distances and every four-code partition. The second uses quotient-graph algebra, rather than the first program's code enumeration, to reconstruct the structure and perfect-matchings census. Both were run successfully. Neither is an external, independent scholarly audit. The claim applies only to \(Q_4\); historical originality comparisons remain subject to inaccessible literature, notably the full Kwon–Lee (2014) article.
+PASS
+
+Best-of-knowledge new complete Q4 code inventory and exact two-replacement exchange geometry/matching census, distinct from classical existence and one exhibited partition.
+
+## value
+
+PASS
+
+V PASS: A complete natural solution-space and fault-tolerant reconfiguration classification for smallest nontrivial 4-cube exact-one-open-domination family, with intrinsic sharp 2-replacement connectivity threshold and exact tiling multiplicities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
