@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For each maximal threshold induced vertex set of T_n, the corresponding selected K_n-edge graph has exactly one triangle-plus-spokes component and disjoint matching edges covering all n base vertices. Its bivariate enumeration is a designated-root triple count corrected precisely for the zero-spoke case. The coefficient ratio decreases strictly and the last correction only decreases it further. A fresh standalone forbidden-fourvertex enumerator exhaustively counted every admissible selected subset for n=3,...,8 (74,533 valid subsets; 5,501 maximal) and matched the complete predicted polynomials. The general proof is not inferred from the finite test.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Proposition 41 gives a universal necessary-and-sufficient structural test for threshold line graphs, stronger than the admissibility part of the present proof.",
+        "Cao, Theorem 1 (ESA 2023): polynomial-delay listing of maximal induced threshold subgraphs for arbitrary input graphs.",
+        "Galvin--Wesley--Zacovic, Section 1.1: enumerates arbitrary labeled threshold graphs by components and dominating vertices."
+      ],
+      "reasoning": "Neither the general threshold-line characterization nor the general enumeration algorithm states or supplies the labeled maximal-set size enumerator of T_n. The exact coefficient enumeration and the strict log-concavity require additional counting, including the triple-count correction for a bare triangle; priority risk from short corollary remains explicit.",
+      "searches": [
+        "arXiv:1602.06622 Proposition 41 threshold line graphs",
+        "arXiv:2004.09885 maximal induced threshold graphs polynomial delay",
+        "arXiv:2110.08953 labeled threshold graph enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1602.06622 (Behr--Sivaraman--Zaslavsky, 2016; especially Proposition 41)",
+      "arXiv:2110.08953 (Galvin--Wesley--Zacovic, 2021; primary MSC 05C30)",
+      "arXiv:2004.09885 and ESA 2023 DOI:10.4230/LIPIcs.ESA.2023.31 (Cao)",
+      "Current research-record semantic searches: 6 stated threshold-line/maximal/T_n/involution queries",
+      "Accessible related prior-claim records and identifiers examined strictly for topical overlap",
+      "Public web and OEIS-indexed sequence searches specified in named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 Proposition 41 implies the permitted component shapes and therefore underlies the maximality derivation; the present result makes no competing structural claim.",
+        "The involution coefficient at exactly r matching pairs is 3*C(n,3)*m!/(2^r*r!*(m-2r)!) apart from the final corrected coefficient for even m.",
+        "Galvin and Cao discuss distinct enumeration problems: counts of all labeled threshold graphs, and algorithmic listing of maximal induced subgraphs, respectively."
+      ],
+      "reasoning": "The named prior results do not give, as a stated formula or table, the complete maximal-subset coefficient function, the parity correction, or strict log-concavity. They provide methods and a strong structural lemma from which the new enumeration is derived; the derivation is fairly direct and that is a limitation of novelty/value, but general admissibility is not the same quantitative invariant.",
+      "searches": [
+        "Behr Sivaraman Zaslavsky Mock Threshold Graphs Proposition 40 Proposition 41 line graph",
+        "Galvin Wesley Zacovic threshold graph enumeration fixed components 2110.08953",
+        "Cao 2023 Enumerating Maximal Induced Subgraphs threshold graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Behr--Sivaraman--Zaslavsky, 2016, Proposition 41: threshold line graphs correspond to a star with at most one added edge plus isolated edges; this identifies admissible edge sets but not their inclusion-maximal size counts.",
+        "Threshold-free characterization: no induced P4, C4, or 2K2; the selected vertices of T_n correspond to selected edges of K_n."
+      ],
+      "reasoning": "Line-graph duality is the decisive equivalent formulation. The present claim counts inclusion-maximal edge subsets of K_n with threshold line graph and their cardinality statistics; prior structural admissibility is not misrepresented as a new result.",
+      "searches": [
+        "Maximal induced threshold graph vertex subsets of triangular graphs T_n = line graph of complete graph, enumeration by size, correspondence with involutions and matching components",
+        "Induced threshold subgraphs of Johnson graph J(n,2), line graphs of star plus triangle, maximal threshold subset polynomial",
+        "Maximal threshold subgraph counts of line graphs complete graphs, forbidding P4 C4 2K2 and matching involutions",
+        "\"maximal induced threshold\" \"triangular graph\"",
+        "\"line graphs of threshold graphs\" characterization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct forbidden-induced-subgraph enumeration gives counts 1, 12, 40, 240, 840, 4368 for triangular graph orders 3 through 8.",
+        "The inspected Galvin--Wesley--Zacovic paper lists OEIS entries for labeled threshold graphs but not this T_n maximal-subset count."
+      ],
+      "reasoning": "No matching exact table or database identity was surfaced by the specified searches. An absent match is not a proof of non-indexing or of originality; offset variants and unindexed sequences remain residual risks.",
+      "searches": [
+        "site:oeis.org \"1, 12, 40, 240, 840, 4368\"",
+        "site:oeis.org \"12,40,240,840,4368\" involutions",
+        "site:oeis.org \"240, 840, 4368\" threshold",
+        "\"1, 12, 40, 240, 840, 4368\" threshold graphs"
+      ]
+    },
+    "rationale": "The labeled maximal-set polynomial, bivariate involution generating function, exceptional parity subtraction, and strict log-concavity are not provided by the inspected primary works or closest mathematical records. The 2016 complete structural theorem for threshold line graphs is explicitly acknowledged as a strong antecedent. Its enumeration of maximal subgraphs and coefficient shape still require the present maximality and involution-counting argument. Publication priority is provisional; the relatively short derivation is a material risk.",
+    "residual_risks": [
+      "The 2016 Proposition 41 already characterizes every allowable edge-set shape; the novel enumeration is a short consequence, and other authors could have counted it without explicit indexing.",
+      "Exact formula may appear in a specialized unindexed table or as a corollary of another known threshold-vertex-deletion enumeration.",
+      "No independent external audit; publication-priority conclusion remains provisional."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING structural antecedent: all threshold line graph component forms are already classified. NOT_COVERING the new cardinality polynomial, involution correction and coefficient log-concavity within material inspected; straightforward-derivation priority risk disclosed.",
+        "evidence": [
+          "Proposition 41 explicitly states the star/one-extra-edge-plus-matching classification.",
+          "Section 6 turns to mock threshold line graphs rather than maximal induced threshold-subset counts."
+        ],
+        "identifier_or_url": "arXiv:1602.06622; https://people.math.binghamton.edu/zaslav/Tpapers/mtg.pdf",
+        "material_read": "Full paper text, especially introduction (threshold forbidden-subgraphs), Section 6 pages 16-19 and Proposition 40-41 on page 17, and listed results/sections to distinguish structural and enumerative claims.",
+        "method": "Open-access author-hosted full PDF text and visual check of page 17.",
+        "title": "Mock Threshold Graphs",
+        "trigger": "Directly matches the threshold line-graph structural characterization required for the claimed maximal-set proof."
+      },
+      {
+        "assessment": "NOT_COVERING the maximal induced threshold-subset cardinality polynomial of triangular graphs. Its enumerated objects are all labeled threshold graphs and related classes, not subsets of a fixed triangular host.",
+        "evidence": [
+          "First public arXiv posting October 18, 2021; later March 2022 revision does not reset source date.",
+          "Page 42 explicitly identifies primary MSC 05C30."
+        ],
+        "identifier_or_url": "arXiv:2110.08953; https://arxiv.org/pdf/2110.08953",
+        "material_read": "Full 43-page public PDF, including abstract, Sections 1.1 and 2 on labeled threshold graph enumeration, paper-wide term comparison, and page 42 verifying Primary 05C30.",
+        "method": "Open-access arXiv full PDF text with visual checks of page 1, page 3, and page 42.",
+        "title": "Enumerating Threshold Graphs and Some Related Graph Classes",
+        "trigger": "Middle-cohort, verified primary MSC 05C30 paper on threshold graph enumeration and combinatorial counting."
+      },
+      {
+        "assessment": "Algorithmic broader-coverage antecedent but no exact labeled coefficient polynomial for T_n, no involution correction, no strict log-concavity statement.",
+        "evidence": [
+          "Theorem 1 promises polynomial-delay enumeration for threshold graphs on arbitrary inputs.",
+          "No T_n or J(n,2) specialization in inspected text."
+        ],
+        "identifier_or_url": "arXiv:2004.09885; DOI:10.4230/LIPIcs.ESA.2023.31; https://drops.dagstuhl.de/storage/00lipics/lipics-vol274-esa2023/LIPIcs.ESA.2023.31/LIPIcs.ESA.2023.31.pdf",
+        "material_read": "Open-access ESA 2023 full 13-page paper, especially Introduction, Theorems 1-2 and algorithmic discussion of the threshold class.",
+        "method": "Full PDF text with visual check of page 1 and term search for threshold/triangular.",
+        "title": "Enumerating Maximal Induced Subgraphs",
+        "trigger": "Theorem 1 lists threshold graphs among graph classes whose maximal induced subgraphs can be enumerated efficiently."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "41ce6513-b839-47ff-8e93-24fc9880c3fc",
+  "value": {
+    "rationale": "The natural cardinality distribution of inclusion-maximal induced threshold subgraphs (equivalently complements of minimal threshold-deletion sets) in the vertex-transitive triangular family was not determined by existing scalar or algorithmic literature. The exact involution transform exposes a parity-specific correction and yields an all-order bivariate EGF and strictly log-concave nonzero coefficients; it is a complete motivated enumeration. Its reliance on a strong old structural classification is candidly limited, not ignored.",
+    "status": "PASS"
+  }
+}
