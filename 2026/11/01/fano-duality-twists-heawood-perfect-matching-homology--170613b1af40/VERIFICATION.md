@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the rational Heawood duality character
 
-Execute `python3 verify_heawood_perfect_duality.py` in the same directory using Python 3 standard library. The checked output is included as `verify_heawood_perfect_duality.output.txt`. The program verifies all \(24\) perfect matchings, all \(2201\) nonempty perfect-complex faces, all \(3461\) nonempty ordinary-matching faces, the \(1092\) discrete-Morse pairs and complete \(8736\)-incidence acyclicity, the six exact mod-two boundary ranks, all \(336\) graph automorphisms, and two independent signed character computations for each. The key assertion tested for each element is \(\chi_{\mathrm p}(g)=\varepsilon(g)\chi_{\mathrm ordinary}(g)\).
+# Independent mathematical audit
 
-Exact character averaging produces zero fixed vectors under the full group and one fixed vector under its point–line-preserving subgroup. Forman's discrete-Morse theorem, chain-rank inequalities, rational character semisimplicity and finite-group rational transfer are explicit proof steps, not executable substitutions. The conclusion is neither an integral representation isomorphism nor a claim of quotient contractibility. The independent audit remains unperformed.
+## correctness
+
+PASS
+
+Independently regenerated all 24 seven-edge perfect matchings, 2,201 nonempty perfect-complex faces and 3,461 ordinary-complex faces with complete f vectors matching the source. The source 1,092-pair Hasse-graph acyclic matching yields one vertex plus sixteen 2-cells and H2=Q^16. Ordinary mod-2 boundary ranks (20,148,496,722,312,24) with rank-of-chain upper bounds yield rational H4=Q^16. I independently regenerated all 336 automorphisms in the Fano model and evaluated both signed simplex traces under each: preserving/swap classes match all eight character rows (preserve orders 1,2,3,4,7: traces 16,0,1,0,2; swap orders 2,6,8: perfect -4,-1,0 vs ordinary +4,+1,0). The character equality elementwise and semisimplicity over Q prove module isomorphism. Averaging gives fixed dimensions 0 for G and 1 for B. Finite enumeration is exhaustive for exactly H, not an incidence-graph-family proof; quotient statement is rational homology, not contractibility or integral representation equivalence.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for this exact final mathematical claim, with primary-source comparisons, qualified access residual risks, and four explicit implication checks.
+
+## value
+
+PASS
+
+The comparison identifies a nonobvious sign twist under the extra point-line duality on two distinct natural complexes with same dimension in different degrees. It recovers the rational symmetry-quotient homology and distinguishes ordinary vs extendible matching constructions. This is a motivated finite representation invariant of the canonical Fano incidence graph, not recomputation of its known Betti number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
