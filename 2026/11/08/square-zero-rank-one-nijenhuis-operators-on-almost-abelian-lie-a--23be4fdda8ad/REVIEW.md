@@ -1,0 +1,15 @@
+# Scientific review: rank-one square-zero Nijenhuis operators on almost-Abelian Lie algebras
+
+## Correctness — PASS
+
+Write a nonzero rank-one endomorphism as \(N=w\otimes\phi\) with \(w=at+u\), \(\phi=bt^*+\psi\). Direct evaluation of the original Lie-Nijenhuis equation, using \([w,w]=0\), yields \(\phi(x)\phi([w,y])-\phi(y)\phi([w,x])=\phi(w)\phi([x,y])\). Evaluating at \((t,v)\) and \((v,z)\) gives the complete constraints \(\psi(Au)\psi=\psi(u)\psi\circ A\) and \(a\psi\wedge(\psi\circ A)=0\). Nilpotency independently requires \(ab+\psi(u)=0\). The three stated classes are exhaustive because a nonzero covector is either a left eigen-covector or is linearly independent of its image under right multiplication by \(A\). Finite-field counts divide the exact factorization census by the free \(k^\times\) rescaling action. Seven finite field configurations, including a genuine extension field, were checked by exhaustive original-equation substitution; see `verify.py` and `verification_output.txt`. These finite verifications corroborate, but do not replace, the symbolic proof.
+
+## Originality — PASS (provisional)
+
+The general Lie-Nijenhuis identity and constructions in Liu–Sheng–Zhou–Bai (arXiv:1601.02356) are distinct from an arbitrary-dimensional finite-field rank-one square-zero census. Avetisyan (arXiv:1610.05365) describes the codimension-one abelian-ideal family and several operator classes but not the present square-zero Lie-Nijenhuis census in the accessed material. Ma–Zhao (arXiv:2507.12692) classify Nijenhuis operators on three-dimensional real Leibniz algebras and may imply some low-dimensional real specializations, which are not claimed as new. Freibert (doi:10.1007/s12220-026-02413-0) studies torsion-free geometric structures on real almost-Abelian solvmanifolds, not all labeled rank-one square-zero Lie-Nijenhuis operators over finite fields. Previously developed idempotent Nijenhuis classifications are disjoint from nonzero square-zero rank-one maps, and other rank-one classifications concern different Lie-algebra families. Semantic database queries found no decisive covering statement, but nonappearance does not prove novelty. An unidentified stronger criterion or low-dimensional special case is a genuine residual priority risk; no claim of independently established priority is made.
+
+## Value — PASS
+
+The claim is not merely a linear-algebra exercise: it gives an exact census for a natural torsion condition on a flexible class of solvable Lie algebras. The defect formula is controlled by the invariant number of rational left eigen-covectors of the defining action, detects precisely the scalar-action boundary over *every* base field, and produces different counts for spectral types of the same dimension. The complete case separation and sharp scalar-rigidity boundary provide reusable structure beyond isolated computations. The result is limited to rank one, square-zero, and labeled operators; it makes no assertion about higher rank, conjugacy, or nonreduced schemes.
+
+Self-review: passed. Independent audit: not yet performed.
