@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For each n=8..599 the exact certificate supplies a genuine chord, a finite formula for sums of valid connected vertex sets, a complete target-coverage bitset, and an independent check that the original cycle is incomplete. For 8..14 all connected vertex subsets were enumerated independently via graph traversal. All 592 instances were executed in disjoint bounded batches, with exact integer arithmetic. The claim is explicitly finite.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Public record Sublinear edge completion for consecutive cycle sums proves mEC(n)=O(sqrt(n)) for all large n",
+        "Marotti–Needleman Proposition 1 provides an O(n) upper bound"
+      ],
+      "reasoning": "Neither positive upper bound forces the integer-valued optimum to be one. The external sublinear construction is stronger asymptotically than the original paper but is not a covering implication for the exact finite theorem.",
+      "searches": [
+        "\"Consecutive Cycle Sums\" \"minimum edge completion\" chord solution",
+        "\"connected subset sums\" graph labeled \"cycle\" chord"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.08889v1 full HTML",
+      "Public sublinear edge-completion record",
+      "Cambie–Groenland 2026 open-access article, introduction and relevant propositions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.08889v1 Theorem 1 states C_n is incomplete for n>=8",
+        "Section 5 proves mEC(8)=1 and an upper bound of about n/2",
+        "The separately accessible sublinear construction bounds mEC(n) above by O(sqrt n)"
+      ],
+      "reasoning": "Theorem 1 supplies the needed lower bound but cannot give mEC=1; neither general upper bound implies exact equality. The present 592 exact witnesses close the finite-window gap without a claim for n>=600.",
+      "searches": [
+        "\"Marotti\" \"Needleman\" \"one edge\" cycle complete",
+        "\"Consecutive Cycle Sums\" \"one edge\" all n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.08889v1 Section 5 defines minimum added edges and shows mEC(8)=1",
+        "No covering single-chord classification appeared in the actual targeted searches"
+      ],
+      "reasoning": "Reformulate as each graph C_n plus chord {1,b_n} having a connected set for every sum 1..T_n, together with incompleteness of C_n. The source only gives one instance and an upper bound for general n.",
+      "searches": [
+        "\"Consecutive Cycle Sums\" \"one chord\" \"n\" \"complete\"",
+        "\"mEC(n)=1\" graph",
+        "\"minimum edge completion\" cycles sums one edge all n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper reports finite incompleteness checks up through n=599, not an exact one-edge completion table",
+        "No matching table of 592 chord witnesses found in the checked sources"
+      ],
+      "reasoning": "The computed finite table records a distinct invariant: least completion edges, not simply missing sums. Exact computation is fully reproduced by standalone files.",
+      "searches": [
+        "\"Consecutive Cycle Sums\" \"minimum edge completion\" n up to 599",
+        "\"mEC(n)\" \"Consecutive Cycle Sums\""
+      ]
+    },
+    "rationale": "The inspected 2026 primary paper defines the edge-completion invariant and supplies one example at n=8, rather than the exact values for each n=8..599. A separate O(sqrt(n)) construction does not imply mEC(n)=1 in that range; connected-subgraph-sum uniqueness with unrestricted weight assignments is different. Search did not reveal a covering classification. The finite range is not presented as an all-parameter novelty statement.",
+    "residual_risks": [
+      "Unindexed older or contemporaneous exact one-chord tables could exist.",
+      "The result is finite and does not show mEC(n)=1 for any n>=600.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for exact mEC(n)=1 on every 8<=n<=599",
+        "evidence": "Theorem 1: C_n incomplete n>=8. Section 5: mEC(8)=1, n/2-type upper bound, and question about fewer edges. Section 4 cites finite checks through 599.",
+        "identifier_or_url": "https://arxiv.org/html/2610.08889v1",
+        "material_read": "Rendered HTML full main definitions, Theorem 1, analytic-vs-finite proof split and Section 5 edge-completion question and proposition",
+        "method": "Read mathematical statements and compare exact implications with the new finite claim",
+        "title": "Consecutive Cycle Sums",
+        "trigger": "Same invariant and numeric boundary 599"
+      },
+      {
+        "assessment": "NOT_COVERING: no exact equality in finite interval",
+        "evidence": "Gives O(sqrt(n)) upper bound using a growing number of edges and says exact mEC(n) remains open.",
+        "identifier_or_url": "https://www.trureturing.org/research/marotti-needleman-2026-consecutive-cycle-sums/",
+        "material_read": "Public statement, explicit star construction, scope assessment, known limitations",
+        "method": "Compare O(sqrt n) construction with integer exact one-chord claim",
+        "title": "Sublinear edge completion for consecutive cycle sums",
+        "trigger": "Relevant asymptotically stronger completion construction"
+      },
+      {
+        "assessment": "NOT_COVERING: distinct assignments and injectivity target",
+        "evidence": "Studies whether connected sums distinguish graphs under assigned vertex weights, not minimal chord completion for fixed consecutive labels.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00373-026-03026-8",
+        "material_read": "Accessible abstract, introduction and propositions on graph labeling/injective subgraph sums",
+        "method": "Compare whether arbitrary-weight assignment results imply coverage for fixed labels 1..n",
+        "title": "Note on extremal problems about connected subgraph sums",
+        "trigger": "Same connected-subgraph-sum terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5a074d3f-7794-4fdc-a181-58fc9ba0a8e6",
+  "value": {
+    "rationale": "The number 599 is not an artificial cutoff: the motivating paper uses n<=599 for finite checking before analytic incompleteness takes over. Exact mEC(n) is explicitly named as an open optimization problem; completing all 592 cases at the natural cutoff with one chord supplies a nontrivial full finite classification and a reproducible witness table. It neither claims an all-parameter theorem nor invents downstream applications.",
+    "status": "PASS"
+  }
+}
