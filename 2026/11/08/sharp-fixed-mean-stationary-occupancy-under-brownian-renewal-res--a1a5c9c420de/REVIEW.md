@@ -1,0 +1,12 @@
+# Assessment of the fixed-mean renewal-reset density envelope
+
+## Correctness — PASS
+The statement assumes a stationary regenerative Brownian reset process, strictly positive independent reset periods of given finite mean, and a nonzero queried spatial position. Equilibrium-age renewal reward gives exactly \(f_S(x)=\mathbb E H_x(S)/\mu\). The Gaussian kernel changes its time derivative's sign once; this proves the unique tangent-from-origin solution and the explicit concave majorant. Jensen proves the sharp universal bound. The equality conditions distinguish the unique deterministic maximizer from the nonattained two-point extremizing limit; a separate two-point escape-to-infinity sequence establishes the infimum. Verified Gaussian integration and tangency numerically, with 430 passing assertions in the companion program. General applicability is analytic, not inferred from finite tests.
+
+## Originality — PASS, with residual priority risk
+Assefa–Keller-Ressel–Palmowski (arXiv:2610.01363v1) study polynomial moments and cross-moments under renewal resetting. Eule–Metzger (arXiv:1510.07876) supply the general stationary renewal framework and particular Gamma/Weibull density examples, and study first-passage optimization. Masoliver–Montero (Phys. Rev. E 100, 042103) present another general stationary-density mixture. These prior formulas do not themselves specify the sharp fixed-mean pointwise optimization, the exact numerical transition, or the attainment structure. Searches for equivalent stationary occupation density optimizations, broader resetting controls, exact tables, and historical claim overlaps did not identify a directly covering mathematical statement. General moment-problem theory may give the convex-envelope argument, so ultimate priority remains provisional pending wider expert review.
+
+## Value — PASS
+For a fixed average frequency of resets, spatial occupancy at a chosen target is a natural control objective distinct from mean first passage. The new law identifies a universal dimensionless boundary: regular deterministic resets maximize local occupancy in the near region, while a two-scale renewal clock beats them beyond the boundary. The exact optimizer existence change and sharp positive/zero envelopes resolve a meaningful complete variational classification rather than an arbitrary numerical bound. The theorem assumes \(x\ne0\) and does not address optimizing whole-density distances or first-passage performance.
+
+Self-review: passed. Independent audit: not yet performed.
