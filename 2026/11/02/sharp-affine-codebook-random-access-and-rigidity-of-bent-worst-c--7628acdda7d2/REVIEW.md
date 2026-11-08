@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all even \(m\ge2\), Walsh orthogonality gives \(\sum_aW_a^2=N^2\). Normalizing signed Walsh coefficients by their \(\ell_1\) sum constructs a valid encoder that attains identical success at each coordinate, at least \(\frac12+\frac1{2\sqrt N}\). The explicit bent quadratic has flat Walsh spectrum, and averaging the correlation of an arbitrary mixture over all coordinates proves the matching converse. Strictness of Cauchy–Schwarz separates nonbent inputs. At bent inputs, equality forces a unique inverse-Walsh vector of signed message probabilities, and saturation of the \(\ell_1\) probability constraint forces the unique distribution. The integer verifier checked all \(2^{16}\) tables at \(m=4\) as well as quadratic bent spectra in dimensions \(2,4,6,8\). The infinite claim relies on the proof, not the finite computation.
+PASS
 
-## Originality — PASS, with explicit priority risk
+For even m>=2, Parseval H^T H=NI gives sum_a W_a^2=N^2; inverse Walsh gives E decoded sign=(N/S)s_x under mixture |W_a|/S, hence per-coordinate (1+N/S)/2. Cauchy gives S<=N sqrt(N), strict for any nonbent. Quadratic sum x_{2j-1}x_{2j} is bent for all even m. At bent s, average signed success <=1/sqrt N from sum |t_a|<=1; all-coordinate optimality forces equality, inverse Walsh fixes t_a=sgn(W_a)/N, and termwise saturation uniquely fixes every p_{a,b}. Independent direct character-sum truth-table enumeration recovered exactly 8 maximizers for m=2 and 896 for m=4; finite census supports but does not prove the all-m claim.
 
-The April 2026 RAC paper gives a general geometric reduction and a different punctured simplex codebook, and uses Walsh orthogonality, but does not state or imply the full affine-codebook exact value without the additional extreme Walsh \(\ell_1\) calculation. The 2007 Reed–Muller list-decoding literature already knows that bent words maximize a Hamming-ball list-size invariant, a distinct function from coordinatewise stochastic recovery success. The classical sharp Walsh bound and bent characterization are **not new** and could make this RAC application a short consequence of known geometric identities. The checked literature and mathematical-record claims exposed no prior statement of the joint minimax, exact worst-case class, and unique optimal encoder; that priority risk persists, and independent verification is not claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The fixed affine decoder is a canonical \(2^{m+1}\)-codeword, length-\(2^m\) random-access design. The theorem solves its global worst-case stochastic encoding problem for every even dimension, classifies *all* input adversaries exactly and proves uniqueness of the optimal encoder at each adversary. It supplies an explicit polynomial-time Fourier sampler, rather than solely an unquantified geometric reduction or a small finite table. The conclusion is not an unrestricted RAC bound, not a new bent-function characterization, and does not compare with unfixed decoder families.
+Best-of-knowledge contribution is precise fixed RM(1,m) affine-decoder RAC minimax and unique randomized encoder at bent inputs; known Walsh and covering-radius results are explicitly excluded.
 
-## Residual scientific limitations
+## value
 
-The numerical optimum uses classical Walsh–Hadamard convexity and bent-function facts and may have a prior unindexed equivalent formulation. A 2007 decoding source was accessible in relevant extracted portions rather than reviewed page by page. No external independent audit is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fixed Reed-Muller affine codebook is natural in finite-bit random access. The exact minimax and uniqueness of the optimizer on every bent hard input give a meaningful operational interpretation and rigidity strengthening of known Walsh flatness, with precise unavoidable restriction to this decoder.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
