@@ -1,23 +1,21 @@
-# Review of Sharp Minkowski asymmetry and golden-ratio envelope of Euclidean ball slabs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns full-dimensional intersections of a Euclidean unit ball with two axial halfspaces. After reflecting a negative cut midpoint, the proof establishes a unique root \(\sigma\in(1,\varphi)\) of an increasing quadratic. Its proposed center makes the reflected-dilated body fit by two axial supporting-plane inequalities and a sharp lower-rim ball inequality. The converse uses that same lower rim and the uppermost axial level to show that every smaller scale fails; equality forces the unique center. A completed-square identity gives the fixed-upper-cut quartic and its unique optimizer. The enclosed `check.py` corroborates with exact symbolic identities and fourteen independent polygonal Minkowski-center linear programs. Finite numerical checks do not replace the universal analytic arguments.
+PASS
 
-## Originality — PASS, provisional priority
+For ell+u>0, F(r)=(1-ell²)r²-2ell(u-ell)r-(1+u²-2ell u) is increasing on r>=1 with F(1)<0<F(phi), hence exactly one root sigma. Setting c=(u+sigma ell)/(1+sigma)e makes (1+sigma)c-p lie within both axial cut bounds and within ball of radius sigma using its lower-rim equality. Any smaller r must satisfy F(r)>=0 from the upper support and a lower-rim point opposite transverse center displacement, impossible; equality forces unique center. Reflection covers ell+u<0 and central symmetry ell+u=0. Exact completion of square gives F_ell,u(S)=S(2-S)(ell-u(S-1)/(S(2-S)))² +S²-1-u²/(S(2-S)); g(S)=S(2-S)(S²-1) increases 0 to 1, giving unique sharp upper-cut parameter. Independent symbolic identities and five contact pairs passed; polygonal diagnostics are corroboration only.
 
-The 2022 den Hertog–Pauphilet–Soali study gives a general robust-optimization approach to Minkowski centers and works out other uncertainty sets, but the inspected primary sections and table do not cover the two-parameter ball slab or its sharp upper-cut envelope. The 2023 Brandenberg–von Dichter–González Merino study proves more general symmetrization inequalities, including a related numerical golden-ratio boundary for a different planar invariant, but does not imply the present all-dimensional exact law. A 2022 Hou–Jin paper studies spherical-surface constant-width bodies, not truncated Euclidean solid balls. Published mathematical-record searches also located clipped-disk dilation and ball-plank volume findings, whose claims involve different invariants. Older specialized prior work may remain unlocated, so priority is provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Minkowski asymmetry and the location of its minimizing center are natural affine-invariant descriptors of convex bodies. The theorem classifies all Euclidean ball slabs in every dimension, proves that a universal golden-ratio ceiling is sharp but unattained, and identifies a unique interior second-cut optimizer with a monotone quartic value. This resolves a natural shape-optimization question, not an arbitrary numerical slice. No stability or application theorem beyond the stated geometric result is claimed.
+Originality best-of-knowledge: complete two-cut ball/ellipsoid slab profile, all minimizing centers, and quartic fixed-cut envelope, not the general Minkowski center existence or unrelated planar golden-ratio symmetry inequalities.
 
-## Closest literature and remaining limitations
+## value
 
-1. D. den Hertog, J. Pauphilet, M. Y. Soali, *Minkowski Centers via Robust Optimization: Computation and Applications* (first public January 19, 2022), https://optimization-online.org/2022/01/8768/ .
-2. R. Brandenberg, K. von Dichter, B. González Merino, *From inequalities relating symmetrizations of convex bodies to the diameter-width ratio for complete and pseudo-complete convex sets* (first public June 20, 2023), https://arxiv.org/abs/2306.11460 .
-3. P. Hou and H. Jin, *The Minkowski Measure of Asymmetry for Spherical Bodies of Constant Width* (2022), https://doi.org/10.1051/wujns/2022275367 .
+PASS
 
-The cuts must be parallel and the base quadratic surface ellipsoidal up to affine equivalence. This work does not study nonparallel cuts, general uniformly convex bodies, or noisy data. Earlier uncatalogued formulas could affect historical novelty, and no independent audit has been performed.
+Minkowski asymmetry is natural affine-invariant convexity descriptor; exact unique centers and extremal clipping position for a canonical family yield a meaningful complete classification, dimension-independent sharp unattained bound, and nontrivial maximizer structure.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

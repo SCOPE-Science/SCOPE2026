@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of the exact ball-slab asymmetry profile
+# Independent mathematical audit
 
-The mathematical proof consists of independent necessary and sufficient inequalities: a unique zero of the increasing quadratic, exact reflected-ball containment at that zero, a lower-rim obstruction for all smaller dilations, rigidity of the minimizing center, and a strict completed-square optimization over the second cutting level. These are analytic proofs for every dimension at least two and every admissible clipping pair, not finite enumerations.
+## correctness
 
-The standalone `check.py` uses Python, NumPy, SciPy and SymPy. Running it in the same directory as these files produced:
+PASS
 
-```
-EXACT_QUADRATIC_AND_COMPLETED_SQUARE_IDENTITIES_PASSED
-INDEPENDENT_POLYGONAL_MINKOWSKI_LP_CHECKS_PASSED 14
-RIM_CONTACT_AND_STRICT_LOWER_SCALE_CERTIFICATES_PASSED 5
-SHARP_FIXED_UPPER_CUT_ENVELOPE_AND_UNIQUE_OPTIMIZER_PASSED 6
-GOLDEN_RATIO_CEILING_AND_ENDPOINT_PASSED
-ALL_CHECKS_PASSED
-```
+For ell+u>0, F(r)=(1-ell²)r²-2ell(u-ell)r-(1+u²-2ell u) is increasing on r>=1 with F(1)<0<F(phi), hence exactly one root sigma. Setting c=(u+sigma ell)/(1+sigma)e makes (1+sigma)c-p lie within both axial cut bounds and within ball of radius sigma using its lower-rim equality. Any smaller r must satisfy F(r)>=0 from the upper support and a lower-rim point opposite transverse center displacement, impossible; equality forces unique center. Reflection covers ell+u<0 and central symmetry ell+u=0. Exact completion of square gives F_ell,u(S)=S(2-S)(ell-u(S-1)/(S(2-S)))² +S²-1-u²/(S(2-S)); g(S)=S(2-S)(S²-1) increases 0 to 1, giving unique sharp upper-cut parameter. Independent symbolic identities and five contact pairs passed; polygonal diagnostics are corroboration only.
 
-Its symbolic factorization tests are exact. Its planar polygonal linear programs approximate the curved body and are not proofs in infinitely many parameter values or higher dimensions. They are corroboration only. Source comparison and historical priority are provisional; no independent audit or certification is claimed.
+## originality
+
+PASS
+
+Originality best-of-knowledge: complete two-cut ball/ellipsoid slab profile, all minimizing centers, and quartic fixed-cut envelope, not the general Minkowski center existence or unrelated planar golden-ratio symmetry inequalities.
+
+## value
+
+PASS
+
+Minkowski asymmetry is natural affine-invariant convexity descriptor; exact unique centers and extremal clipping position for a canonical family yield a meaningful complete classification, dimension-independent sharp unattained bound, and nontrivial maximizer structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
