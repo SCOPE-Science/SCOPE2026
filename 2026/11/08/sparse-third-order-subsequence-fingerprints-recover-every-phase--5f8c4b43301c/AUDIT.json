@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "A bijective enumeration of the a+b cyclic phases gives exact first-order and second-order counts. The first scattered counter 01 has exactly gcd(a,b)-1 disjoint cross-family collisions. The independent formula for 001 has positive difference bm*s*(a-s)/2 on every such pair, proving injectivity of the joint signature. The minimal degree and exact gap follow. A four-run example is verified with all fourteen degree<=3 counts, and the truncated subsequence generating series proves persistence under powers. Standard-library checks independently recompute 9360 signatures and 30420 phase comparisons; these checks corroborate the proof but are not infinite certificates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rigo–Stipulanti–Whiteland, arXiv:2201.04603, introduce binomial complexity results for morphic and structured infinite words.",
+        "Vivion, arXiv:2509.11172, gives equality of binomial and factor complexities under particular balance and morphic hypotheses; these do not describe arbitrary long two-run periods."
+      ],
+      "reasoning": "A theorem asserting degree-2 equivalence equals equality for balanced words cannot imply degree-3 rigidity for all two-run periods, many of which are not balanced. The general complexity statements in the inspected sources give no exact two-counter phase formulas or positive gap.",
+      "searches": [
+        "\"two-block\" \"3-binomial\" \"complexity\" periodic",
+        "\"phase\" reconstruction \"scattered subsequences\" cyclic binary",
+        "arxiv:2201.04603",
+        "arxiv:2509.11172"
+      ]
+    },
+    "checked_sources": [
+      "Poovanandran–Simpson–Teh, arXiv:2110.14858 (2021-10-28)",
+      "Rigo–Stipulanti–Whiteland, arXiv:2201.04603 (2022-01-12)",
+      "Vivion, arXiv:2509.11172 (2025-09-14)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The degree-two gcd class count already appears in an existing related record; this new claim does not assert it as a separate original contribution.",
+        "The primary circular Parikh-matrix paper studies rotational averages rather than a sparse injective phase fingerprint.",
+        "The explicit primitive four-run conjugate pair demonstrates that universal degree-three rigidity across all binary cycles is false."
+      ],
+      "reasoning": "Prior second-order phase-class counts are a shared premise, not an implication of third-order injectivity: when gcd(a,b)>1, second-order collisions persist and require independent 001 separation. Averaged counts, generic binomial complexity and balanced-family equality results do not imply the joint sparse signature or the strict quantitative gap. The boundary example is included as a structural limitation and witness, not a broader universal claim.",
+      "searches": [
+        "arxiv:2110.14858",
+        "arxiv:2201.04603",
+        "arxiv:2509.11172",
+        "\"conjugates\" \"binomial equivalence\" binary periodic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Poovanandran–Simpson–Teh, arXiv:2110.14858, develop circular subword counts and averaged Parikh matrices. The average erases rotation phase; the theorem uses two phase-specific scattered counters."
+      ],
+      "reasoning": "The candidate concerns injectivity of the map from the cut position to the ordered pair of counts of 01 and 001. Rotational averaging does not supply a statement about this map. A circular average cannot recover its inputs. No inspected result states an equivalent phase-injectivity criterion.",
+      "searches": [
+        "\"three-binomial\" \"cyclic\" \"conjugates\"",
+        "\"Parikh matrices\" \"cyclic shifts\" 001",
+        "\"001\" \"01\" \"conjugates\" \"binomial equivalence\"",
+        "arxiv:2110.14858"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The formulas in RESULT.md give a complete parametrization of precisely gcd(a,b)-1 degree-two phase collisions and a strictly positive 001 gap in each.",
+        "No exact tabulation of all one-zero-run/one-one-run cyclic phase pairs with the joint (01,001) signature was identified in the inspected primary sources."
+      ],
+      "reasoning": "The claim is a universally quantified phase-reconstruction and separation theorem rather than a finite table entry. Search absence does not prove novelty; the exact overlap with published tables, if any, remains a residual risk.",
+      "searches": [
+        "\"two-run\" \"subsequence\" \"Parikh matrix\" \"cyclic\"",
+        "arxiv:2110.14858",
+        "arxiv:2201.04603"
+      ]
+    },
+    "rationale": "The inspected closest sources on averaged circular Parikh matrices, general binomial complexities, and balanced-family degree-two separation do not imply a sparse two-counter, gcd-sensitive all-phase recovery theorem. Earlier degree-two gcd counts are explicitly credited and not treated as the new contribution. Comparison is limited by unindexed prior work.",
+    "residual_risks": [
+      "A differently phrased or unindexed equivalent theorem on cyclic conjugates and scattered subsequence counts could exist.",
+      "No universal extension to arbitrary observation lengths or to cyclic words with more than two runs is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected results develop rotationally averaged counts, not recovery of a particular phase from (01,001).",
+        "evidence": "Theorem 4.11 concerns an averaged circular Parikh-matrix invariant; rotational averaging is not the same map as phase-specific linear-window counting.",
+        "identifier_or_url": "https://arxiv.org/abs/2110.14858",
+        "material_read": "Introduction, definitions and results on circular words, including Section 3.2, Section 4 and Theorem 4.11 in the full-text manuscript",
+        "method": "Examined the open-access manuscript and relevant mathematical statements",
+        "title": "Counting Subwords in Circular Words and Their Parikh Matrices",
+        "trigger": "Direct match to circular scattered subwords and Parikh matrices"
+      },
+      {
+        "assessment": "No inspected result yields the sparse two-coordinate phase separation or quantitative gap for two-run cycles.",
+        "evidence": "The paper treats families of morphisms and words through general binomial complexity; its stated families and assertions are not the present exact cyclic phase condition.",
+        "identifier_or_url": "https://arxiv.org/abs/2201.04603",
+        "material_read": "Full-text introduction and definitions, results overview and relevant binomial-complexity statements",
+        "method": "Examined the lawful open manuscript and searched for the corresponding cyclic phase/reconstruction statements",
+        "title": "Characterizations of Families of Morphisms and Words via Binomial Complexities",
+        "trigger": "Potential stronger k-binomial complexity theorem covering all phase factors"
+      },
+      {
+        "assessment": "Certain balanced subcases may be covered at degree two, but arbitrary two-run periods and the quantitative gcd-sensitive sparse degree-three criterion are not covered by the inspected statements.",
+        "evidence": "The inspected Theorem 1 concerns specified low-complexity and balanced classes, not arbitrary (0^a1^b)^omega for a,b positive.",
+        "identifier_or_url": "https://arxiv.org/abs/2509.11172",
+        "material_read": "Full-text introduction and stated main theorem, including the balanced and quasi-Sturmian hypotheses",
+        "method": "Examined the open-access manuscript and checked hypotheses against nonbalanced two-run periods",
+        "title": "New Examples of Words for Which the Binomial Complexities and the Subword Complexity Coincide",
+        "trigger": "Potential stronger k-binomial injectivity theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5f8c4b43-301c-4f89-aa8b-bc6ff8c15927",
+  "value": {
+    "rationale": "Cut-position recovery from a sparse scattered-subsequence deck is a natural combinatorial reconstruction problem. The result achieves phase injectivity with only two ordered-pattern counts, gives a sharp gcd-dependent minimal deck degree, exact positive integer separation gaps uniform in repeat count, and identifies a primitive four-run counterexample. The proof explains the structural arithmetic of collisions instead of only enumerating cases.",
+    "status": "PASS"
+  }
+}
