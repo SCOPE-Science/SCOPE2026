@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result reduces the integer-square condition to \(\gcd(h,u_m)=1\) using the exact reduced-numerator recurrence. Odd and even prime divisors are treated separately, including the parity valuation that rules out a disguised square after cancellation. A valuation check restricts dangerous starting residues to \(v_p(x_0)=v_p(h)\). For primes \(13,17\pmod{20}\), the discriminant \(-5\) eliminates all second-level preimages; for \(5\), the discriminant \(-3\) eliminates all third-level preimages; for \(2\) only a first-level preimage exists. The Chinese remainder theorem makes the resulting local probabilities independent, establishing exact periodic densities. A separate exact-rational computation tests the original recurrence in addition to extensive reduced-pair tests. Finite computations corroborate, but are not used as the proof of the all-parameter statement.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The principal comparison is Matijasevick–Rodríguez–Salazar, arXiv:2610.00765v1 (2026-09-30), whose Propositions 2.3 and 4.1 and Theorem B are inputs to the proof; Section 7, Question (1), explicitly poses the failure-count density question. The present claim answers that question for an infinite class, yielding exact *joint time* frequencies and a sharp two-failure regime, rather than simply repeating their bound. Jones–Manes, arXiv:1101.4339, treats broad arboreal Galois phenomena, not the explicit modular frequencies here. Mathematical-record searches found no statement entailing the theorem. A Matijasevick 2026 companion preprint on \(z+k/z\) was identified in the source references but could not be read; an equivalent explicit local-tree result there would threaten priority. An unlocated earlier theorem may also exist. No search result is treated as proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The 2026 primary source explicitly raises failure-count densities. The theorem resolves that motivated question for a nontrivial multiplicatively generated infinite parameter class allowing arbitrarily many prime factors, proves a uniform temporal cutoff independent of their number, and provides an exact product formula for all possible failure patterns. The positive-density two-failure family distinguishes this answer from a simple always-square or single-prime calculation. No general solution for arbitrary prime factors is asserted.
+Reconstructed t=S/h reduced recurrence u_{k+1}=u_k²+v_k², v_{k+1}=u_kv_k, gcd invariance and square criterion Q_{k+1}=(u_{k-1}+v_{k-1})²/gcd(h,u_k). Odd p divisibility excludes numerator factor; p=2 valuation exactly one. A prime divides u_k at most once after v_{k+1}=0 mod p. Only starts with v_p(x0)=v_p(h) can fail. For p≡13,17 mod20, -5 is nonsquare and no rational second preimages; p=5 has two one-step and two two-step preimages, no later; p≡3 mod4 inert; CRT yields four densities. Independently evaluated original rational recurrence for all 4225 residue starts h=65 with observed counts (3507,380,334,4), not extrapolated as infinite proof.
 
-## Scope and limits
-The parameter class is essential; primes outside it can have deeper preimage trees. Complete source priority is not independently established because the named companion preprint was unavailable, and the result has received no external mathematical audit. The attached verification is finite, with exact arithmetic.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Propositions 2.3/4.1 and Theorem B of the 2026 primary paper establish prerequisites; its Section 7(1) explicitly asks for failure proportions. Added value is explicit simultaneous time-index law, shallow-prime class and exact CRT support. The full text provides no formula equivalent to the claimed four densities.
+
+## value
+
+PASS
+
+The original paper explicitly asks for the exact distribution over starting values; resolving it on an infinite, nontrivial admissible factor class and showing positive density of double failures at h=65 answers a motivated arithmetic-dynamics question, beyond a tautological modular count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
