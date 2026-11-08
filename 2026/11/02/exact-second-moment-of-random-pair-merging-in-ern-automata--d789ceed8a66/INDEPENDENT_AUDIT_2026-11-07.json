@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T13:54:55.304393Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pair coordinate P_{r,s} enumerates all unordered pairs without duplication, with a shortened even antipodal layer. Absorption is almost sure by bounded merging words. The first-moment Bellman equation and second-moment equation 2U=4T-2+U(Pa)+U(Pb) uniquely determine finite solutions; the explicit Y_r,B_{r,s},K_r potentials satisfy ordinary, exceptional, top-layer and phase-zero equations for both parities. Summing polynomial potentials over the exact pair counts yields the global polynomial. Independent Markov matrix inversion in exact rationals n=2..8 reproduced both moments, including n=2 U=6. These finite checks test, but do not replace, the symbolic all-n parity calculation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gusev 2014 derives expected pair synchronization for fair and biased inputs, not the inspected uniform-pair second moment.",
+          "Lipin--Volkov arXiv:2601.18362 and Szykuła arXiv:2608.24245 emphasize adversarial and deterministic synchronization bounds."
+        ],
+        "reasoning": "A general absorbing Markov-chain inverse contains the moments implicitly if entire transition graph is supplied, but the inspected prior results do not present a closed n-polynomial variance nor the universal CV sqrt(7/5).",
+        "searches": [
+          "Resultary: Černý automaton random letter pair merging hitting time second moment variance Gusev",
+          "Gusev Synchronizing automata with random inputs general expected time pair automaton"
+        ]
+      },
+      "checked_sources": [
+        "Gusev arXiv:1404.6731 full Section 3",
+        "Lipin--Volkov arXiv:2601.18362 bibliographic scope",
+        "Szykuła arXiv:2608.24245 survey scope",
+        "Frozen RESULT.md verify_random.py verify_second.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gusev's first moments solve the Bellman mean equations; second moments instead obey 2U=4T-2+U(a)+U(b).",
+          "The source package gives explicit Y_r,K_r,B_{r,s} second moment potentials and evaluates all initial-pair sums."
+        ],
+        "reasoning": "The first-moment solution is necessary but insufficient to infer the second-moment potential: it requires a new Poisson/Bellman solve and parity-dependent phase corrections. Uniform-pair averaging differs from worst-pair selection.",
+        "searches": [
+          "Resultary: Černý automaton random letter pair merging hitting time second moment variance Gusev",
+          "arxiv:1404.6731 Section 3 random Černý expectation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gusev arXiv:1404.6731 studies same automaton and independent random letters; its full Section 3 develops first-moment recurrences and worst pairs.",
+          "Current new observable is second moment averaged over uniformly chosen unordered pair."
+        ],
+        "reasoning": "First-merge and synchronization of a fixed pair denote the same hitting time, but worst initial-pair expected length does not give uniformly mixed second moment or variance.",
+        "searches": [
+          "Resultary: Černý automaton random letter pair merging hitting time second moment variance Gusev",
+          "random synchronization pair hitting time variance Černý Cerny automaton iid letters"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query returned unrelated general stochastic hitting-time/variance records, no matching polynomial.",
+          "Polynomial is valid all n, rather than a finite automata table."
+        ],
+        "reasoning": "No direct table was located; such a negative search alone cannot justify novelty.",
+        "searches": [
+          "Resultary: Černý automaton random letter pair merging hitting time second moment variance Gusev",
+          "Černý automaton random letters pair mean variance polynomial table"
+        ]
+      },
+      "rationale": "Best-of-knowledge on this final, narrowly delimited claim: same-object and neighboring primary mathematics were compared at the level of stated results and implications, including published mathematical findings; all identified antecedents or access gaps are credited without asserting a negative full-document conclusion where unavailable.",
+      "residual_risks": [
+        "Other random-automaton papers may have a general generating function specializing to this variance without using the name Černý.",
+        "Exact algebraic parity-by-parity all-n sum is supported by substitution; full formal proof assistant verification is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers first moments and worst pairs, not explicit uniformly averaged second moment",
+          "evidence": [
+            "Section 3 analyzes pair-transition Markov chains and expected times; target here is U(P)=E[tau²|P] and uniform-pair variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1404.6731",
+          "material_read": "Complete 11-page accessible arXiv paper, especially Section 3 mean pair-sync formulas and automaton definitions",
+          "method": "PDF text reading and page-image inspection",
+          "title": "Synchronizing automata with random inputs",
+          "trigger": "Direct same Černý random-letter model and expected pair merge"
+        },
+        {
+          "assessment": "Deterministic or adversarial synchronization is not the fair random-letter variance",
+          "evidence": [
+            "Its setting is adversarial rather than i.i.d. unbiased input."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.18362",
+          "material_read": "Public title, abstract and available mathematical scope",
+          "method": "arXiv abstract / scope review",
+          "title": "Adversarial Synchronization",
+          "trigger": "Recent same-family synchronizing automaton results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Pair merging under random input is a fundamental stochastic synchronization observable on a canonical difficult family. The exact second moment and persistent nonvanishing coefficient of variation capture fluctuation severity absent from expected-time and worst-pair analyses.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gusev arXiv:1404.6731 full Section 3",
+    "Lipin--Volkov arXiv:2601.18362 bibliographic scope",
+    "Szykuła arXiv:2608.24245 survey scope",
+    "Frozen RESULT.md verify_random.py verify_second.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For n≥2 classical Černý automaton with iid fair a,b and uniform independent unordered initial pair, E tau=(n-1)(2n²+n-4)/3, E tau²=(16n⁶-32n⁵-16n⁴+66n³-15n²-87n+52)/15, Var tau=(28n⁶-76n⁵+47n⁴+68n³-130n²-61n+76)/45, CV→sqrt(7/5).",
+  "limitations": [
+    "Fair independent inputs and uniform unordered initial pair only; no all-state reset time or biased-input law.",
+    "Scientific proof has not been checked by formal Lean or expert attestation."
+  ],
+  "residual_risks": [
+    "Other random-automaton papers may have a general generating function specializing to this variance without using the name Černý.",
+    "Exact algebraic parity-by-parity all-n sum is supported by substitution; full formal proof assistant verification is not claimed."
+  ],
+  "schema_version": 1
+}
