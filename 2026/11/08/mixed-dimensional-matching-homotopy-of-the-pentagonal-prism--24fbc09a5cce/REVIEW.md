@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The graph has exactly ten vertices and fifteen explicitly indexed edges. All \(32768\) candidate edge sets are examined, yielding \(341\) nonempty simplices. The deterministic coordinate-toggle matching is built solely from actual faces and is checked to be acyclic on all \(1020\) cover incidences. Its five critical cells lie in dimensions \(0,2,2,3,3\). The signed integral Morse-boundary algorithm eliminates each matched face using its unit \(\pm1\) incidence coefficient and finds the zero matrix on the two critical three-cells. The reduced CW complex has simply connected two-skeleton \(S^2\vee S^2\), so Hurewicz turns vanishing attaching degrees into nullhomotopic attaching maps, proving the exact mixed-dimensional wedge. Independent finite-field boundary checks corroborate the conclusion. The full finite check is a proof for this graph, not a sample of an infinite parameter range.
+
+## Originality — PASS, with residual risk
+The closest primary paper, Agarwal–Basak (arXiv:2608.30601v2, inspected across its 19 pages), classifies independence and **perfect** matching complexes of circular ladders and explicitly singles out the **ordinary** matching complex as a future question (Problem 26, p. 17). Its result that the perfect matching complex of the pentagonal prism is contractible neither proves nor contradicts the different result here. Primary outerplanar and polygonal-line matching-complex papers do not cover the graph class. Focused mathematical-record searches including alternate names (circular ladder, five-prism, generalized Petersen \(G(5,1)\), line-graph independence) found no equivalent numerical or homotopy classification. Closest indexed records concern Rips, Čech, cut, total-cut, or independence complexes on circular ladders or ordinary matching complexes of **different** graphs. Residual risk: an unindexed computation or unavailable broader theorem could still imply the particular wedge; absence of a search hit is not a priority proof.
+
+## Mathematical value — PASS
+The graph is a symmetric, nonouterplanar first nontriangular odd-width circular ladder, within the natural family explicitly highlighted as open in recent research. The theorem demonstrates a striking separation: the perfect matching subcomplex is contractible while the full matching complex has two distinct positive homotopy dimensions and integral reduced Betti ranks two in each. A complete homotopy type with proof is more informative than a table of finite-field ranks; the exact graph is motivated by the family and its boundary condition, not selected through an arbitrary parameter slice.
+
+## Closest literature and limitations
+The 2026 circular-ladder work is the primary same-graph comparison; the outerplanar graph and polygonal-line theorems differ structurally. Rectangular grid results are not periodic-boundary results. The theorem is not extended to all circular ladders or to equivariant homotopy, and no claim of independent review is made.
+
+Self-review: passed. Independent audit: not yet performed.
