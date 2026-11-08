@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs Stark's exact independent negative-hypergeometric input, including the m=0 first step, verifies its means and variances, proves the exp(1) increment limit with uniform exponential tails and moments, derives the precise endpoint-sum variance, applies Lyapunov with third absolute moments for 1<beta<2, and establishes fixed-lag joint convergence plus uniform L^r tail bounds at beta=2 and last-increment domination above it. The exact-and-diagnostic standalone checker replays 347 assertions; the infinite assertions are analytically proved.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 4 of Stark assumes bounded n_t/N_{t-1}; the multiplicity ratio here diverges for every beta>1.",
+        "Stark discussion of e^{t^3} proves a failure of Gaussianity, not the positive distributional limits nor the full beta classification.",
+        "General Lyapunov and triangular-array results are used only after proving the endpoint-weight structure."
+      ],
+      "reasoning": "A theorem for all independent triangular arrays may imply the normal component after checking Lyapunov, but does not automatically supply the concrete variance scale, critical geometric weights, non-Gaussian distribution, or moment convergence in this model. No known stronger coverage was found.",
+      "searches": [
+        "Multiset permutations with unequal and rapidly growing multiplicities: phase transition of the number of Knuth cycles from Gaussian normal limit to an infinite weighted sum of independent exponential variables, critical square-exponential growth.",
+        "Stark negative hypergeometric independent increments multiset permutation cycles CLT for unbounded n_t/N_t diverging, square exponential critical non-Gaussian q-hypoexponential limit",
+        "multiset permutation Knuth cycles superexponential multiplicity critical normal nonnormal limit 2026",
+        "arxiv:2509.13979"
+      ]
+    },
+    "checked_sources": [
+      "Stark, arXiv:2509.13979 and full 2026 journal HTML, Sections 2-4",
+      "Buchanan et al., arXiv:2606.19500 / AofA 2026 full primary PDF, Sections 1-2 and scope",
+      "published-finding corpus semantic search results for four tailored aliases and source/claim/parameters",
+      "Web searches on square-exponential multiset cycles, Gaussian-to-exponential phase, negative hypergeometric increments"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Stark exact increment law implies the theorem only after a new analysis of the time-varying ratio, the sum of endpoint variances, and the critical infinite-weight limit.",
+        "Buchanan et al. calculate the cycle type of f(i)=w_i, a distinct statistic.",
+        "published-finding corpus ordinary-permutation cycle/inversion covariance does not determine cycle counts of multiset words."
+      ],
+      "reasoning": "The claimed Gaussian regime has n_t/N_{t-1}->infinity, violating Stark Theorem 4, while the source counterexample only establishes nonnormality at beta=3. Neither implies the exact beta=2 q-series or all positive moments, nor excludes a Gaussian law when beta<2. This is the claim-vs-implication distinction.",
+      "searches": [
+        "arxiv:2509.13979",
+        "https://www.vmsta.org/journal/VMSTA/article/347/text",
+        "arxiv:2606.19500",
+        "Knuth cycle count of a uniform multiset permutation rapidly growing multiplicities n_j=ceil(exp(c j^beta)): Gaussian for 1<beta<2, exponential shot-noise at beta=2, exponential at beta>2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stark: negative-hypergeometric independent increments and e^{t^3} example (journal Section 4, eqs 10-15,22-25).",
+        "Buchanan et al.: cycles of directed graph i -> w_i (AofA 2026 Section 2.1), not canonical Knuth factorization."
+      ],
+      "reasoning": "The infinite weighted exponential law is equivalently a hypoexponential/q-product convolution, but the searched literature did not state it for this multiset-cycle object. Ordinary functional-digraph cycle laws are not equivalent to canonical Knuth cycle counts.",
+      "searches": [
+        "Knuth cycle count of a uniform multiset permutation rapidly growing multiplicities n_j=ceil(exp(c j^beta)): Gaussian for 1<beta<2, exponential shot-noise at beta=2, exponential at beta>2",
+        "Stark negative hypergeometric independent increments multiset permutation cycles CLT for unbounded n_t/N_t diverging, square exponential critical non-Gaussian q-hypoexponential limit",
+        "arxiv:2509.13979",
+        "arxiv:2606.19500"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed ordinary permutation covariance record: 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051.",
+        "Closest indexed multinomial Gaussian crossover record: 2026/9/18/SCOPE-multinomial-mode-gaussian-critical-dimension--e6b134ac7b73.",
+        "Stark original full text gives formulas for finite increments but no table of the critical S_c law."
+      ],
+      "reasoning": "The result concerns continuous shape parameter c and asymptotic growing-multiplicity families, not a fixed finite enumeration table. Exact known negative-hypergeometric tables contain inputs, not this critical limit.",
+      "searches": [
+        "Knuth cycle count of a uniform multiset permutation rapidly growing multiplicities n_j=ceil(exp(c j^beta)): Gaussian for 1<beta<2, exponential shot-noise at beta=2, exponential at beta>2",
+        "Uniform multiset permutation Chinese restaurant process Knuth cycle count n_t=ceil(exp(t^beta)) square exponential critical beta=2 weighted independent exponentials non Gaussian q-Pochhammer limit",
+        "Multiset permutations with unequal and rapidly growing multiplicities: phase transition of the number of Knuth cycles from Gaussian normal limit to an infinite weighted sum of independent exponential variables, critical square-exponential growth.",
+        "Stark chinese restaurant multiset permutations extreme multiplicities exp t squared phase distribution 2025 2026"
+      ]
+    },
+    "rationale": "Originality is assessed for the complete three-regime theorem and critical product limit, not for the source decomposition or elementary triangular-array tools. Stark [1] proves independence and a bounded-ratio CLT, then an extreme cubic-exponential non-normal example; direct inspection shows no sharp square-exponential crossover. Buchanan et al. [2] use functional-digraph rather than Knuth cycles. Multiple targeted published-finding corpus and web searches found related but not implication-equivalent records; historical priority remains provisional.",
+    "residual_risks": [
+      "Search coverage and unknown equivalent historical results cannot establish mathematical uniqueness.",
+      "A broad unpublished or differently titled independent-increment limit theorem might imply all or some of this specialization.",
+      "A separate mathematical audit of the new analysis has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies inputs and example but not beta=2 critical q-weighted exponential law, beta<2 unbounded-ratio CLT, or the full triad.",
+        "evidence": [
+          "https://arxiv.org/abs/2509.13979",
+          "https://doi.org/10.15559/26-VMSTA294"
+        ],
+        "identifier_or_url": "https://www.vmsta.org/journal/VMSTA/article/347/text",
+        "material_read": "Full open-access article; Sections 2, 3, 4, Theorems 1-4, explicit negative-hypergeometric formulas (10)-(15) and cubic-exponential counterexample (22)-(25).",
+        "method": "Full-text HTML read and theorem/parameter comparison to all three beta regimes.",
+        "title": "A Chinese restaurant process for multiset permutations",
+        "trigger": "Same canonical cycle object; supplies underlying independent-increment identity and closest claimed CLT."
+      },
+      {
+        "assessment": "Studies cyclic points/functional-digraph cycle types and parking functions, not canonical Knuth-factorization cycle counts or the varying multiplicity beta regimes.",
+        "evidence": [
+          "https://arxiv.org/abs/2606.19500",
+          "https://doi.org/10.4230/LIPIcs.AofA.2026.16"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol381-aofa2026/LIPIcs.AofA.2026.16/LIPIcs.AofA.2026.16.pdf",
+        "material_read": "Full primary PDF available, contents and results checked; Section 1 definition and Section 2.1 f(i)=w_i functional-digraph cycles, introductory scope for remaining sections.",
+        "method": "Text extraction and visually inspected rendered Section 2 page (PDF page 2); comparison of definitions and main results.",
+        "title": "On Cycles in Multiset Permutations, Parking Functions, and Related Structures",
+        "trigger": "Highly similar title and cycles of multiset permutations; test possibility of equivalent formulation."
+      },
+      {
+        "assessment": "Uniform ordinary-permutation cycles versus inversions; no coverage of the new multiset growth-phase theorem.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+        "material_read": "Indexed title, substantive result summary, identifier and implication comparison; not asserted to be a full-paper inspection.",
+        "method": "Semantic search with explicit canonical-cycle and critical exponent queries.",
+        "title": "published-finding corpus indexed ordinary-permutation covariance and Gaussian crossover records",
+        "trigger": "Closest ranked match from source/alias/parameter targeted semantic searches."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c540efc0-50a5-42db-911c-8dc8c42b7851",
+  "value": {
+    "rationale": "The canonical multiset restaurant process has a naturally missing high-multiplicity growth regime: the closest paper shows one cubic-exponential failure of CLT but gives no boundary. A complete sharp power-exponential trichotomy supplies the variance scale where Gaussian behavior surprisingly survives unbounded ratios, an explicit infinite non-Gaussian q-convolution at the boundary, and the one-exponential dominated regime. The full continuum of c and beta parameters and moment laws have a clear structural connection to endpoint variance concentration, not a trivial finite enumeration.",
+    "status": "PASS"
+  }
+}
