@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof explicitly separates ordinary automorphisms from changes of natural basis. The two-dimensional characteristic-two algebra has identity as its only automorphism; its polynomial family of natural bases has at most two parameters per monomial equivalence class. The dimension-three algebra is automorphism-rigid in every characteristic; its rational orthogonal family yields infinitely many classes in all other characteristics. The lower bound outside characteristic two uses the monomial rigidity of perfect algebras and the dichotomy for a nondegenerate symmetric two-dimensional form with multiplication image one-dimensional; both anisotropic-generator reflection and isotropic-generator hyperbolic scaling give nonidentity automorphisms. The hyperbolic companion is explicitly made isotropic by the characteristic-not-two hypothesis. Finite exact verification agrees with the all-field formulas.
+PASS
 
-## Originality — PASS (qualified)
+Under any infinite field K and ordinary K-rational automorphisms, the two-dimensional characteristic-two algebra e1^2=e2^2=e1 has nonzero squares, only identity automorphism, and infinitely many pairwise inequivalent orthogonal bases f1(a),f2(a) with at most two parameters per scaling-permutation class. In any characteristic, the three-dimensional algebra e1^2=e2^2=e1+e3, e3^2=e2+e3 has only identity automorphism: applying T to products forces T(e1),T(e2) into span(e1,e2), then T(e3)=ce3, and preservation of e1^2 and e3^2 forces identity. In characteristic !=2, stereographic rational SO2 rotations give infinitely many distinct natural-basis classes over any infinite K. Dimension one has a single class. A nondegenerate two-dimensional nonperfect algebra in char !=2 has xy=B(x,y)u with nonsingular symmetric B, and either a nonidentity reflection fixing nonisotropic u or a nonidentity hyperbolic similarity scaling isotropic u; a perfect algebra only admits monomial natural basis changes. Thus d(K)=2 in char2 and 3 otherwise. Independently enumerated invertible matrices and automorphisms in F2 (3D, 168 GL members) and F3 (3D, 11232) as finite corroboration only; all-field proof is algebraic.
 
-The source survey of 15 October 2026 [1] explicitly asks in Question 14 whether a nondegenerate evolution algebra can have infinitely many natural bases despite having finite automorphism group. Its Proposition 14's orthogonal examples have an infinite automorphism group. Boudi et al. [2] give the general natural-family decomposition, while Calderón Martín et al. [3] classify structures through dimension three. Their accessible statements do not formulate the characteristic-dependent least-dimension criterion with trivial automorphism group. A related published automorphism-symmetry record reports rigidity in a different family but lacks natural-basis information in its accessible summary. Incomplete historic full-text coverage and possible implicit consequences of classification tables remain originality risks. No claim of absolute historical priority or a new isomorphism class is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding resolves a specifically posed existence question and refines it to a sharp dimension invariant uniformly over infinite fields. The characteristic-two jump is structural: an otherwise available nontrivial sign-reflection automorphism becomes trivial in characteristic two. This separates the notions of automorphism rigidity and natural-basis uniqueness and gives reproducible explicit examples.
+Best-of-knowledge PASS for the full d(K) formula with ordinary automorphism group exactly identity. Important predecessor: evolution algebras with infinitely many natural bases and finite nontrivial automorphism group already exist (2D over complex fields, group order 2), so the weaker Question 14 existence is not independently new. Existing survey Proposition 14 uses infinite orthogonal group, and nondegenerate classification does not state the sharp all-infinite-field trivial-group minimum. Resultary E_lambda jump is distinct.
 
-## Scientific limitations
+## value
 
-The theorem concerns finite-dimensional nondegenerate evolution algebras over infinite fields and ordinary rational automorphism groups. It does not classify arbitrary such algebras, finite-field behavior, or automorphism group schemes. Computations test examples over small fields and exact rational parameters, not the full quantified theorem. Literature inspection cannot prove historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The survey poses an explicit rigidity-versus-natural-basis question, and the characteristic-dependent *minimum dimension with trivial ordinary automorphism group* across all infinite fields is a sharp, natural invariant. It distinguishes a finite nontrivial group from complete rigidity and handles the subtle characteristic-two exceptional dimension; there is substantive structural content beyond an example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
