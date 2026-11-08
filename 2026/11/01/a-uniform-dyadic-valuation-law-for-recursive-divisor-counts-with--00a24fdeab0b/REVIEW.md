@@ -1,17 +1,21 @@
-## Correctness
+# Independent mathematical audit
 
-PASS. The formal Dirichlet identity, labelled-prime extraction, Stirling-number expansion, and modulo-four analysis give an unrestricted proof, including all boundary cases. The independently implemented proper-divisor recurrence and Stirling reconstruction agree in 84 configurations.
+## correctness
 
-## Originality
+PASS
 
-PASS within inspected sources. Fink's 2023 Theorem 1 contains the Dirichlet series but not the sharp stabilized valuation rule; his separate general closed-form study was accessible only at title-and-abstract level and remains a bibliographic risk. Searches of research records, OEIS, and targeted literature yielded no equivalent explicit statement. The available current-week research claims were checked for overlap.
+Formal Dirichlet convolution identity from κ0 recursion gives ζ/(2−ζ). Labelled-cofactor coefficient extraction gives G_r(t)=2^r e^t/(2−e^t)^{r+1}; with u=e^t−1, 2^-r κ0(N)=Σ_{j=0}^k [binom(r+j,j)+binom(r+j−1,j−1)]j!S(k,j). For k=0,1 this equals 1 and r+2. For k≥2 and odd r, j=1 term r+2 is odd, others even; for even r, j≥3 vanish mod4, and j=1,2 sum ≡2 mod4 because S(k,2)=2^{k−1}−1 odd. Thus the claimed four-case v2 formula for all r≥1 k≥0. Independently recomputed κ0 from proper-divisor exponent-vector recurrence for r=1..14,k=0..7 (112 integer cases); tests corroborate but do not prove unbounded r,k.
 
-## Mathematical value
+## originality
 
-PASS. The class \(p^r q_1\cdots q_k\) is the canonical family extending prime powers by distinct squarefree factors. The theorem provides its complete dyadic valuation stratification, including unbounded exceptional valuations at exactly one added cofactor prime and uniform stabilization for two or more.
+PASS
 
-## Limitations
+Best-of-knowledge PASS: derives a sharp uniform dyadic valuation classification for exponent vectors (r,1,…,1), including exceptional k=1 and stabilization at k≥2. Known Dirichlet series itself is not new. A highly relevant Fink companion full text remains a genuine residual risk, not an automatic failure.
 
-General exponent vectors with at least two repeated primes are not covered. The Dirichlet series is prior work; the extracted sharp valuation is the asserted result. Absolute priority is not certified, and the companion full text could not be fully inspected. Independent scientific assessment remains outstanding.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The first non-squarefree exponent-vector family p^r times an arbitrarily long squarefree cofactor is a natural arithmetic structural class. The sharp, uniform v2 law detects exceptional unbounded k=1 growth and stabilization after two cofactor primes, answering a genuine exact invariant beyond small-count tables; no claim for two repeated primes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

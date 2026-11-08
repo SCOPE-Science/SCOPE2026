@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T16:15:56.478929Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Formal Dirichlet convolution identity from κ0 recursion gives ζ/(2−ζ). Labelled-cofactor coefficient extraction gives G_r(t)=2^r e^t/(2−e^t)^{r+1}; with u=e^t−1, 2^-r κ0(N)=Σ_{j=0}^k [binom(r+j,j)+binom(r+j−1,j−1)]j!S(k,j). For k=0,1 this equals 1 and r+2. For k≥2 and odd r, j=1 term r+2 is odd, others even; for even r, j≥3 vanish mod4, and j=1,2 sum ≡2 mod4 because S(k,2)=2^{k−1}−1 odd. Thus the claimed four-case v2 formula for all r≥1 k≥0. Independently recomputed κ0 from proper-divisor exponent-vector recurrence for r=1..14,k=0..7 (112 integer cases); tests corroborate but do not prove unbounded r,k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 companion paper advertises three general closed formulas for κ0 and associated ordered factorizations, suggesting some stronger raw counts may be known.",
+          "An exact integer closed form does not itself supply a uniform v2 classification without further congruence analysis."
+        ],
+        "reasoning": "Most serious risk is a hidden valuation corollary or table inside the uninspected companion; cannot declare that full manuscript does not cover it.",
+        "searches": [
+          "Fink closed form recursive divisors 2023",
+          "arxiv:2307.16691 Number of ordered factorizations and recursive divisors"
+        ]
+      },
+      "checked_sources": [
+        "Resultary recursive-divisor v2 target query (10 retrieved, no direct match)",
+        "Fink 2023 original arxiv:2307.09140 five-page full PDF",
+        "Fink companion arxiv:2307.16691 abstract only",
+        "Targeted recursive divisors/ordered factorization 2-adic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Dirichlet generating function is a prior theorem; its formal specialization yields G_r(t)=2^r e^t/(2−e^t)^{r+1}.",
+          "Uniform parity of j≥4 terms and Stirling S(k,2) gives v2 exactly r or r+1; the k=1 exceptional r+v2(r+2) requires explicit coefficient."
+        ],
+        "reasoning": "General count formula could be employed to derive the valuations, but existing checked statements do not directly imply the uniform classification as a routine one-line substitution.",
+        "searches": [
+          "Fink 2023 Theorems 1–3 of 2307.09140",
+          "2023 companion arxiv:2307.16691 available abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fink establishes ζ/(2−ζ) coefficientwise and general ordered-factorization identities but does not state the uniform valuation piecewise law in the read first paper."
+        ],
+        "reasoning": "A multivariate/cofactor exponential generating function derives from the known Dirichlet series; extracting mod4 congruence for all k≥2 is additional arithmetic content.",
+        "searches": [
+          "Resultary: recursive divisor function kappa0(n) 2-adic valuation p^r times distinct squarefree primes ordered factorizations Fink",
+          "arxiv:2307.09140 Theorem 1",
+          "arxiv:2307.16691 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fink first paper includes a small values table and generating series, not a table for arbitrary r and k."
+        ],
+        "reasoning": "Finite examples cannot establish the infinite stabilization across arbitrarily many squarefree factors; no exact matching database result found.",
+        "searches": [
+          "Resultary 2-adic recursive divisor valuation prime power squarefree",
+          "Fink arxiv:2307.09140 table n≤12"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: derives a sharp uniform dyadic valuation classification for exponent vectors (r,1,…,1), including exceptional k=1 and stabilization at k≥2. Known Dirichlet series itself is not new. A highly relevant Fink companion full text remains a genuine residual risk, not an automatic failure.",
+      "residual_risks": [
+        "Fink 2023 companion full text could contain valuation formula in an uninspected appendix, Oxford route blocked by disconnected VPN.",
+        "Unindexed ordered-factorization parity identities may imply a stronger theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS generating function and convolution inputs; no exact uniform v2 stabilization theorem",
+          "evidence": "Theorem 1 gives ζ/(2−ζ) and finite small-n table; mod4 uniform r,k piecewise formula not asserted.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.09140",
+          "material_read": "Full five-page primary preprint including Theorems 1–3, proof and n≤12 table; original PDF image examined",
+          "method": "Compare exact GF and arithmetic statements line by line",
+          "title": "Properties of the recursive divisor function and the number of ordered factorizations",
+          "trigger": "Same κ0 recursion and generating series"
+        },
+        {
+          "assessment": "HIGH_RELEVANCE_UNREAD: not justified to claim NOT_COVERING",
+          "evidence": "Abstract announces three general closed forms; these could conceal an equivalent valuation corollary.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.16691",
+          "material_read": "ArXiv title, abstract and bibliographic metadata only; full PDF/OA routes unsuccessful; Oxford VPN disconnected",
+          "method": "Explicitly document inability to assess companion full formulas",
+          "title": "Number of ordered factorizations and recursive divisors",
+          "trigger": "Potentially stronger general exact κ0 closed forms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first non-squarefree exponent-vector family p^r times an arbitrarily long squarefree cofactor is a natural arithmetic structural class. The sharp, uniform v2 law detects exceptional unbounded k=1 growth and stabilization after two cofactor primes, answering a genuine exact invariant beyond small-count tables; no claim for two repeated primes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only one prime can have exponent exceeding 1.",
+    "Companion Fink 2307.16691 full PDF unavailable; Oxford VPN disconnected.",
+    "Known Dirichlet series and closed-form counts are not claimed novel."
+  ],
+  "schema_version": 1
+}
