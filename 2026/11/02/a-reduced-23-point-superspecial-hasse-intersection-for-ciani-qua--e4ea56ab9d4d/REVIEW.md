@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the saturated Hasse-vanishing scheme on the smooth three-parameter coefficient space, not the full moduli stack. Smoothness is governed by the displayed discriminant; the three elliptic quotient equations follow by completing a square, and in characteristic seven the relevant quartic Hasse coefficient is \(B(B^2-AC)\). The known degree-two quotient isogeny has degree prime to seven, so all three elliptic curves supersingular is equivalent to the genus-three Jacobian being superspecial.
+## correctness
 
-The saturated lexicographic Gröbner basis was recomputed from the actual formulas. Its initial ideal has exactly 23 standard monomials. Direct exact arithmetic over \(\mathbb F_{49}\) identifies 23 distinct smooth points partitioned into four claimed symmetry orbits and finds nonzero Jacobian determinants at all 23. Length 23 plus 23 distinct points proves there are no additional geometric points or embedded multiplicities. This establishes the stated finite étale and transversality results. The attached scripts reproduce both critical checks.
+PASS
 
-## Originality — PASS, with a significant historical-priority limitation
-Known ingredients are separated from the new claim. Lercier–Ritzenthaler–Rovetta–Sijsling describe the parameter family and its symmetry group; Ohashi provides the smoothness, elliptic quotients, prime-to-characteristic isogeny, and theorem that all smooth superspecial Ciani coefficients belong to the quadratic extension. The latter rationality fact is **not** claimed as new. Ohashi explicitly attributes studies of superspecial Ciani curves and enumerations to Brock's 1993 thesis, which was not fully accessible. This prevents an unqualified priority claim about the number of curves or coefficient triples.
+The quotient elliptic double-cover equation gives H(u,v,w)=B(B²−AC) modulo 7. Independent SymPy GF7 elimination of the Rabinowitsch-saturated ideal (H1,H2,H3,tΔ−1) produced the seven monic leading monomials a³,ab,ac,b⁴,b³c⁴,bc⁵,c⁷; their standard-monomial complement has exactly 23 classes, proving the global geometric scheme length and excluding points outside F49. A separate independent 49³ field census found exactly 23 smooth common zeros; the exact 3×3 Jacobian determinant is nonzero for all 23, establishing reduced/transverse local structure and finite étaleness over F7. The four explicit group orbit sizes follow from finite group arithmetic. Prime-to-7 quotient Jacobian isogeny identifies p-divisible factors, so vanishing all three elliptic Hasse invariants is equivalent to superspecial genus-three Jacobian. Exhaustive finite-field points without the global saturation calculation would not establish completeness over algebraic closure; both were checked.
 
-The independent mathematical target here is the **scheme structure** of the simultaneous three-Hasse-zero locus: degree 23, geometric reducedness and transverse intersection in the normalized smooth coefficient space. These are not logical consequences of the published rationality theorem, geometric isomorphism-class counts, or the known elliptic-quotient decomposition. The inspected primary material does not state the identical characteristic-seven scheme computation. A specialized earlier scheme calculation may cover it; that residual risk remains explicit. No independent literature certification has occurred.
+## originality
 
-## Value — PASS
-The three quotient Hasse divisors are natural arithmetic divisors on a classical three-dimensional genus-three family. Their intersection multiplicities quantify how superspeciality imposes infinitesimal conditions and are not captured by counting isomorphism classes or rational points. Showing the intersection is everywhere transverse and computing its degree gives an exact finite enumerative geometry result with reproducible evidence and potential use in deformation and arithmetic-moduli comparisons. Four explicitly described parameter-symmetry orbits also make the result interpretable without conflating coefficient triples and isomorphism classes.
+PASS
 
-## Scope and residual risks
-The characteristic is exactly seven; \(\Delta=0\) is excluded. The four orbits are for the specified parameter subgroup, not for all projective changes of coordinates. Brock's original thesis was cited but could not be fully read, so overlap with uninspected historical calculations cannot be ruled out. The checks are reproducible self-review computations, not an independent audit.
+Ohashi already describes Ciani quartic smoothness, elliptic quotient isogenies, rationality of superspecial coefficients over Fp², and refers to Brock (1993) as studying their enumeration. None of those inspected results proves that this particular characteristic-seven marked Hasse intersection is a *reduced transverse scheme of degree 23*. Brock is a high-relevance plausible source with inaccessible full text; an authorized institutional retrieval attempt returned "Oxford worker unavailable or request invalid". This material risk does not, by itself, negate best-of-knowledge originality, but a complete Brock comparison could change priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Scheme-theoretic reducedness and transversality refine an ordinary finite list of superspecial quartics; they make the Hasse divisor intersection multiplicity and geometric degree exact on a natural smooth genus-three coefficient family. Counting marked coefficient orbits rather than geometric isomorphism classes removes a frequent ambiguity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
