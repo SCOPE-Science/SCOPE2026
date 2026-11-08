@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For any synchronizing label string, different initial states force distinct modular effective-jump counts. This gives ≥n−1 b letters and ≥(n−2)(n−r) cyclic shifts; a missing-image induction shows the known word meets equality. Equality forces every b effective along an extremal trajectory, all a letters inside forced return intervals, and therefore uniquely fixes the word. Noncoprime residue obstruction, n=2 boundary and independent finite subset-BFS counts verified.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Don circular-automaton coprime criterion bounds reset length but does not enumerate optimal label strings.",
+        "Rystsov and Szykuła establish synchronization of primitive permutation/unitary automata, with no optimizer counts."
+      ],
+      "reasoning": "Broader sufficient criteria and quadratic bounds have no implication that a given two-letter generator pair has exactly one shortest reset word.",
+      "searches": [
+        "cyclic automaton rotation a i->i+1 and rank n-1 b mapping state 0 to r fixing all others, shortest reset threshold (n-1)^2-(n-2)(r-1)",
+        "jump Černý automata merge 0 into k cyclic rotation synchronization exact reset length",
+        "number multiplicity optimal reset words one point jump permutation circle",
+        "Don 2016 Proposition 15",
+        "Rystsov Szykuła arXiv 2307.01302 Theorems 22-23"
+      ]
+    },
+    "checked_sources": [
+      "https://cyber.bibl.u-szeged.hu/index.php/actcybern/article/view/3780/3764",
+      "https://doi.org/10.37236/5616",
+      "https://arxiv.org/html/2307.01302v1",
+      "https://arxiv.org/pdf/2309.08321",
+      "https://doi.org/10.4230/LIPIcs.ESA.2022.85",
+      "2026/10/4/SCOPE-two-defect-reachability-in-cyclic-defect-one-automata--3d0ad329ab1e",
+      "2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+      "2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+      "2026/10/4/SCOPE-exactly-four-shortest-reset-words-in-the-deficiency-two-family-d--c55ed3dc1ef0",
+      "2026/10/4/SCOPE-shortest-reset-multiplicity-of-the-seven-state-wielandt-automato--84d91bfb4a49"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Martyugin claims one particular word is shortest; it does not rule out another shortest word.",
+        "Known reset thresholds alone are compatible with any number of cooptimal words.",
+        "Early rank thresholds do not specify all full-reset optimal strings."
+      ],
+      "reasoning": "An existence and minimum-length theorem cannot imply uniqueness without an equality-case argument. The new proof extracts a rigid all-effective trajectory and forces every occurrence of both letters; this implication is absent from the inspected published statements.",
+      "searches": [
+        "Martyugin Proposition 6.2, printed page 532",
+        "Don Proposition 15",
+        "published-finding corpus: 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+        "complete reset threshold and unique minimum reset word for Černý distance d coprime n single contracting letter rank n−1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Martyugin one-cycle simple idempotent with p maps to current automaton under reversing cyclic order/exchanging letter labels.",
+        "published-finding corpus closest records lack same optimizer uniqueness."
+      ],
+      "reasoning": "Exact same family and threshold are acknowledged covered; the new uniqueness assertion is not a consequence of existence of one shortest word. Reverse-rotation equivalence does not alter the number of shortest label strings.",
+      "searches": [
+        "unique shortest synchronizing word Černý automata cyclic permutation one idempotent",
+        "exactly one shortest reset word cyclic automaton q1 to q2 gcd(n,p)=1 Martyugin",
+        "Martyugin 2009 Proposition 6.2 Figure 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus Wielandt 7 state record counts 2^20 shortest words, unlike this family.",
+        "Scanned all accessible current-week own ledger claim strings; no reset/Černý/Martyugin claim match."
+      ],
+      "reasoning": "No exact table or database entry recovered that lists unique shortest reset words for all coprime n,r. Finite machine counts through n=12 independently verify the claim but alone do not establish novelty.",
+      "searches": [
+        "Černý synchronizing automata subset reset thresholds for intervals and shortest synchronizing words",
+        "unique shortest synchronizing word Černý automata cyclic permutation one idempotent",
+        "exactly one shortest reset word cyclic automaton q1 to q2 gcd(n,p)=1 Martyugin",
+        "number multiplicity optimal reset words one point jump permutation circle",
+        "published-finding corpus: 2026/10/4/SCOPE-shortest-reset-multiplicity-of-the-seven-state-wielandt-automato--84d91bfb4a49"
+      ]
+    },
+    "rationale": "Originality is confined to the exact singleton count of shortest reset-word labels for all coprime cyclic one-point-jump automata. Martyugin (2009) already states the threshold and an optimal word for the same class; those known parts are explicitly not novel. Its displayed claims do not assert or entail uniqueness. Full-text Don 2016 and Rystsov–Szykuła 2023 provide different reachability/upper-bound results. published-finding corpus related records do not imply the all-parameter singleton count. Other unindexed proofs remain possible.",
+    "residual_risks": [
+      "A previous uniqueness proof under a different generator naming, one-cycle orientation or unpublished source may exist.",
+      "Some publisher or database records were not accessed in full; no independent novelty certification.",
+      "The previously known optimal length and constructed word must not be interpreted as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS coprimality, threshold and existence of one shortest reset word; does NOT state a unique shortest reset word. No novelty asserted for the known portions.",
+        "evidence": [
+          "Proposition 6.2, printed p.532: if gcd(n,p)=1 then word a(b^(p-1)a)^(n-2) is a shortest reset word; printed p.532 does not assert uniqueness."
+        ],
+        "identifier_or_url": "https://cyber.bibl.u-szeged.hu/index.php/actcybern/article/view/3780/3764",
+        "material_read": "Full-text Proposition 6.2, Figure 5 and surrounding proof on PDF pages 15-16 (printed 531-532), especially exact coprimality/word claim",
+        "method": "Full-text PDF and page images inspected; exact transition actions and statements compared",
+        "title": "Complexity of Problems Concerning Reset Words for Some Partial Cases of Automata",
+        "trigger": "Same cyclic/simple-idempotent automaton and shortest reset word; decisive prior implication check"
+      },
+      {
+        "assessment": "Gives coprime synchronization and upper bound but not optimizer uniqueness.",
+        "evidence": [
+          "Proposition 15: coprime distance implies synchronization, threshold ≤(n−1)^2, and reachability of subsets."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/5616",
+        "material_read": "PDF 10 pages, introduction, main theorem, Section 4 Proposition 15, accompanying discussion on printed pages 6-7",
+        "method": "Full-text PDF including page images and theorem text",
+        "title": "The Černý Conjecture and 1-Contracting Automata",
+        "trigger": "Strongest circular 1-deficient letter coverage with coprime displacement"
+      },
+      {
+        "assessment": "Establishes structural synchronization criteria for broader classes but no exact uniqueness or reset-word count for this one-point cyclic subclass.",
+        "evidence": [
+          "Section 4 defines unitary letters and Theorem 22 characterizes synchronization via a digraph; Theorem 23 concerns primitive PU-automata."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2307.01302v1",
+        "material_read": "HTML full-text Sections 3 and 4, especially definitions of unitary letters in Section 4 and Theorems 22-23",
+        "method": "Read arXiv full-text HTML, definitions, proofs and stated results",
+        "title": "Primitive Automata that are Synchronizing",
+        "trigger": "Middle-period source for permutational/unitary automata and synchronization structure"
+      },
+      {
+        "assessment": "General monoid/one-point synchronization bounds; does not count shortest label words for specific cyclic generator.",
+        "evidence": [
+          "Corollary 10 and Theorem 13 yield quadratic upper bounds for one-point/primitive-group classes, not exact shortest-word multiplicity."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.08321",
+        "material_read": "PDF abstract and Sections 1, 6, 7, including Corollary 10 and Theorem 13, with page image review",
+        "method": "Read PDF text and first-page image, searched cyclic and one-point cases",
+        "title": "Reset Thresholds of Transformation Monoids",
+        "trigger": "Potentially broader upper-bound or optimization theorem"
+      },
+      {
+        "assessment": "Algorithmic exact shortest-reset-word discovery; no uniform singleton theorem for the cyclic unitary family.",
+        "evidence": [
+          "General bidirectional search algorithm for minimum-length synchronization."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2022.85",
+        "material_read": "Full PDF introductory algorithmic claims and complexity discussion, page image of first page",
+        "method": "Read accessible PDF text and synopsis",
+        "title": "An Improved Algorithm for Finding the Shortest Synchronizing Words",
+        "trigger": "General exact algorithm could imply fixed-parameter counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "34a9919c-4680-46c9-aaea-ed32d1fa2ffe",
+  "value": {
+    "rationale": "The exact optimizer multiplicity is a natural and previously unasserted structural invariant for the canonical cyclic/unitary family. A complete all-parameter singleton classification is stronger than the already-known threshold and example, is not implied by them, and provides a rigidity benchmark in contrast with families having exponentially many shortest reset words.",
+    "status": "PASS"
+  }
+}
