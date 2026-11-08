@@ -1,12 +1,21 @@
-# Review of centroidal sections of right rectangular pyramids
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex counts follow exhaustively from signed heights of the five vertices and edge-crossing counts, with a Haar-null set of degenerate normals. The pentagon condition is exactly a positive orthant of three nondegenerate, explicitly given Gaussian linear forms, accounting for all four possible singled-out base vertices and the antipodal symmetry. The Gaussian sign-correlation identity yields the closed formula with correlations reconstructed from the three vectors. Sharpness is proved by a strict pairwise-balancing inequality on the open probability simplex, including equality and boundary behavior. The independently implemented solid-angle formula and direct edge-counting simulations corroborate the derivation. Limitation: finite computational checks are not themselves proofs.
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The closest source is the published published-finding corpus “Exact five-vertex shadow law and unique height optimum for right rectangular pyramids”, whose full RESULT.md was materially inspected. Its experiment is orthogonal **projection** rather than centroidal **section**. Under polarity, the dual pyramid has a rhombic base for unequal rectangle sides, so the shadow theorem restricted to rectangular bases does not directly imply the present anisotropic section formula. The square-case numerical value is already known and not claimed as novel. Feldman–Klain (2008) concerns projection probabilities; Finch (2012) includes known shadow constants; Padrol–Pfeifle (2014) gives combinatorial polygon-section configurations. Published results about central sections of boxes and icosahedra address different bodies. Searches for central sections, Haar polygon-type probabilities, Gaussian orthant equivalents, and exact pyramid optimizer formulas found no equivalent full-family theorem. Residual risk: unindexed or general polar random-section results may imply the stated law after specialization; the review is not independent priority certification.
+PASS
 
-## Mathematical value — PASS
-The question is a natural metric-integral invariant of convex polytopes: the entire section-vertex-count law under a canonical invariant random experiment. The theorem covers a geometrically meaningful three-parameter class, identifies a sharp global design optimum with a unique equality shape up to scaling, and distinguishes central sections from shadows (for which square-base anisotropy behaves differently). It is not an arbitrary numerical slice, a renaming of a prior shadow theorem, or an unsupported finite enumeration. The theorem makes no claim about non-centroidal, oblique, or non-Haar sections.
+Reconstructed apex/base signed-height geometry centered at G=(0,0,h/4). For generic oriented n_z>0, section has five vertices iff exactly one of four base vertices has positive height. Each disjoint one-positive sign event is one trivariate Gaussian positive orthant with equal squared normal length S=4a²+4b²+h²; correlations 8a²/S-1, 8b²/S-1, 2h²/S-1. Gaussian arcsine sign formula gives P5=(4/pi)∑asin(sqrt(p_i))-2, where p=(4a²,4b²,h²)/S. For x>y>0, x+y<1, derivative balancing strictly increases ∑asin(sqrt p_i), giving unique optimum p_i=1/3, i.e. a=b,h=2a; positive orthant gives P>0, boundary gives unattained infimum 0. Independently enumerated crossing edges for Gaussian normals for 40,000 directions each for (a,b,h)=(1,1,2),(1,2,3),(1,1,0.1); frequencies agree with formula to sampling precision, not proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact final claim against primary mathematical statements and published semantic records; no inspected result covers it. Source access and residual uncertainty are documented, not construed as certainty of novelty.
+
+## value
+
+PASS
+
+A natural geometric probability law for Haar sections through a polytope centroid, including full anisotropy and a unique optimal aspect/height. Distinguishes sections from better-studied shadows, with exact global shape optimum; potentially useful for stochastic convex geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

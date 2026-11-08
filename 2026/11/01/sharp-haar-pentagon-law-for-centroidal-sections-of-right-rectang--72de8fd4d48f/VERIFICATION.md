@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verifiable calculations and analytic scope
+# Independent mathematical audit
 
-The exact formula is derived in `RESULT.md` by counting face-edge crossings of a central plane, converting the pentagonal event to a trivariate Gaussian orthant, and using a proved Gaussian sign identity. The global optimizer follows from strict pairwise smoothing of the normalized positive shape parameters; no finite test is used to assert an infinite claim.
+## correctness
 
-Run `python3 verify.py` with Python 3 and its standard library only. The verifier independently counts section-edge crossings directly from randomly oriented planes for seven explicit positive shape triples, using 120,000 Gaussian normal vectors per triple (840,000 total); the largest observed difference between sampled frequencies and the theorem's predictions is about 0.00262851. It checks a separate spherical-triangle formula and global upper bound on 4,000 additional predetermined random triples and tests nonmaximal nearby shapes. Exact identities in the proof are not computer-certified by the samples, and no independent mathematical audit has been performed.
+PASS
 
-Known scope restrictions: the section plane always passes through the volume centroid; pyramids are right with rectangular bases; orientations are Haar-uniform; all side lengths and heights are strictly positive. The square optimal value coincides with a previously published orthogonal-projection constant; novelty assessment concerns the full section law, not that scalar alone.
+Reconstructed apex/base signed-height geometry centered at G=(0,0,h/4). For generic oriented n_z>0, section has five vertices iff exactly one of four base vertices has positive height. Each disjoint one-positive sign event is one trivariate Gaussian positive orthant with equal squared normal length S=4a²+4b²+h²; correlations 8a²/S-1, 8b²/S-1, 2h²/S-1. Gaussian arcsine sign formula gives P5=(4/pi)∑asin(sqrt(p_i))-2, where p=(4a²,4b²,h²)/S. For x>y>0, x+y<1, derivative balancing strictly increases ∑asin(sqrt p_i), giving unique optimum p_i=1/3, i.e. a=b,h=2a; positive orthant gives P>0, boundary gives unattained infimum 0. Independently enumerated crossing edges for Gaussian normals for 40,000 directions each for (a,b,h)=(1,1,2),(1,2,3),(1,1,0.1); frequencies agree with formula to sampling precision, not proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of exact final claim against primary mathematical statements and published semantic records; no inspected result covers it. Source access and residual uncertainty are documented, not construed as certainty of novelty.
+
+## value
+
+PASS
+
+A natural geometric probability law for Haar sections through a polytope centroid, including full anisotropy and a unique optimal aspect/height. Distinguishes sections from better-studied shadows, with exact global shape optimum; potentially useful for stochastic convex geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
