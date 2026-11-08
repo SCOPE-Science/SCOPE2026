@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The inversion number and third *distinct* minimum have explicit definitions. All odd \(b\ge7\) and every unit multiplier are partitioned into small, middle, and large ranges; the only exceptions are the known two lower inversion values. Reciprocity and the previously published Proposition 2.6 are the only external mathematical premises. The small-range factorization gives a nonnegative product and exact equality set. The large and middle ranges each reduce to concave quadratics with strictly positive endpoint values for every allowed \(b\). Direct symbolic factorization checks the coefficients. The finite verifier supplies independent low-modulus corroboration, not the infinite proof.
+
+**Originality — PASS (historical risk remains).** Chen–Dunn–Hewett–Silas Conjecture 2.7 explicitly asserts the inequality; their Proposition 2.6 proves only the *second* rank. The result establishes the third rank for every odd \(b\ge7\) and a complete equality-classification, so it is neither a restatement of their proposition nor a consequence of its numeric lower bound without further work. Related articles on Dedekind-sum equalities do not imply extremal rank inequalities. Searches of published mathematical results and targeted literature revealed no equivalent proof, but non-discovery is not mathematical proof of priority; an earlier or later overlooked solution is possible.
+
+**Value — PASS.** A specific published conjecture about the ordered inversion spectrum of modular multiplication is proved on an infinite, natural family, with sharpness and equality multipliers determined. This is more than a routine finite example or unmotivated restriction: it gives a structural third-rank theorem beyond the already-proved second-rank theorem. The unresolved even-modulus and higher-rank directions remain separate.
+
+The primary source was materially inspected at Conjecture 2.7, Proposition 2.6, the inversion-reciprocity identity, and the proof of Proposition 2.6. The independent calculation checked 498 odd moduli and direct inversion enumeration on 49 moduli, but a separate mathematical audit and exhaustive historical-priority audit have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
