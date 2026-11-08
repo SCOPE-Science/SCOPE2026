@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the graph, simultaneous three-state rule, temporal orbit convention, and page-label convention. Pages initially in the same one of nine ordered pair states have identical trajectories; the hubs depend only on the existence of an excited first/second page coordinate. Consequently the support-state reduction is exact for every integer \(k\ge1\), not merely for a bounded graph census. All \(9(2^9-1)=4599\) initial hub/support cases were enumerated from the included source (`code/verify_symbolic.py`) and compared with their full CSV witness. Every case enters a period-one, -three, or -four orbit by time five and obeys the face-circulation sign criterion. The fixed-period support counts, local phase classification, and inclusion–exclusion supply the closed orbit and basin formulas. The explicit one- and two-page configurations attain the announced entry-time bounds. Separately, the included C++ verifier enumerated every labelled configuration with one through six pages (5,380,830 configurations), matching the exact claims. Mathematical risk: the universal entrance bound is a fully reproducible finite-state computer-assisted lemma, not a hand-reduced table-free proof; the nine-type reduction and transition code are critical.
+PASS
 
-## Originality — PASS, qualified
+Reconstructed local hub/page-pair update and confirmed distinct initially equal page types remain equal forever, so one representative of every occupied type suffices for EVERY k; precisely 9*(2^9-1)=4599 nonempty support/hub states. Independently reimplemented and exhaustively checked all 4599 states, measuring periods 1/3/4, max periodic-entry time 5, and circulation-sign period rule; support-size tables matched the complete supplied certificate, and the k=1/2 sharp witness transients were verified. Inclusion-exclusion over supports and phase assignments gives Q3=3^k-2^(k+1)+1, Q4=2^(k+1)-2, B1=3*7^k+6*6^k, B3=3*(9^k-2*8^k+7^k), B4=6*(9^k+8^k-7^k-6^k), with sum 9^(k+1). lcm(3,4)=12 and entry <=5 yield F^17=F^5. Certificate exhausts parameter-independent support types, not merely finite values of k. Inspected source code for both support and direct enumeration.
 
-The closest primary result, Gravner–Lyu–Sivakoff (arXiv:1610.07320v1, 2016-10-24), gives a general cycle-circulation criterion and excitation-rate characterization. It does **not** state the exact primitive orbit counts, global iterate identity, or uniform sharp transient bound for quadrilateral books. Doba (2018, *Complex Systems* 27) gives general winding/rate criteria, again without this complete graph-family census. Historical studies of square bouquets **sharing a vertex** and triangular books **sharing an edge** concern genuinely different edge sets; their counting results do not imply the present statements for \(k\ge2\). Research-record searches included the precise graph family, its alternate names (four-cycle book, edge-glued square bouquet), three-state excitation, primitive periods, orbit counts, and basin parameters. Returned work on matching complexes of the same book graph and binary parity dynamics uses different dynamics/invariants. Residual risk: exhaustive priority checking against unindexed historic publications is impossible; the existing general circulation theorem is credited explicitly.
+## originality
 
-## Value — PASS
+PASS
 
-The classification explains an intrinsic dynamical competition on an unbounded, natural family: the first three-phase oscillator requires at least two edge-glued squares; period-three orbit *counts* overtake period-four counts at exactly four pages, while their attraction-basin fractions tend to one third and two thirds. Both exact labelled recurrent-orbit counts and all-state basins are nontrivial functions of the page count. The uniform sharp five-step entrance bound is independent of graph size. This distinction between orbit abundance and basin prevalence is not a routine substitution into a general period theorem. Scope stays restricted to the stated rule and graph family.
+Gravner–Lyu–Sivakoff Theorem 3 and Doba 2018 Theorem 2 already identify circulation criteria and asymptotic excitation rate for general graphs, so that qualitative criterion is NOT new. Neither inspected full primary discusses exact labelled quadrilateral edge-book Q3/Q4 counts, attraction-basin cardinalities, uniform sharp entrance-time five, nor global iterate F^17=F^5. Their general criterion informs period interpretation but does not directly enumerate support classes. Earlier specialized graph automaton census possible.
 
-## Closest literature and limitations
+## value
 
-Gravner, Lyu and Sivakoff, *Limiting behavior of 3-color excitable media on arbitrary graphs*, 2016 arXiv v1 and 2018 journal text; Nobutaka Doba, *The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph*, 2018, Sections 6–7. The finite support-class proof and independently implemented direct-state census are supplied, but there has been no independent external audit. Equivalent work may exist under other terminology; neither bounded numerical tests nor absence of database hits proves novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The edge-glued quadrilateral book is a canonical tunable cycle-interaction family; its all-size exact transient, periodic orbit and basin census separates orbit-count dominance from basin-mass dominance (3-cycle orbit majority but asymptotic basin weights 1/3 versus 2/3). A complete symbolic support reduction independent of number of pages makes the structural result meaningful beyond a small-graph table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

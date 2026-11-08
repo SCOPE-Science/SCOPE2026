@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and bounded verification
+# Independent mathematical audit
 
-The package supplies an executable all-parameter finite-state certificate and a separately implemented direct-state test. From the directory containing `RESULT.md`, run `python3 code/verify_symbolic.py --csv evidence/support_classes.csv` and compare the generated 4599-row table with `evidence/support_classes.csv`. The checker enumerates every hub-state and nonempty support of initially present page-pair types, asserts the exact recurrence-entry and circulation-sign classification, and calculates the support-size histograms and power-sum coefficients. Its observed terminal output is in `evidence/symbolic_output.txt`.
+## correctness
 
-For an independent implementation, compile `g++ -std=c++17 -O3 code/verify_direct.cpp -o verify_direct` and execute `./verify_direct`. It builds the labelled graph and checks actual vertex-state transitions without using the support reduction. Its output, `evidence/direct_output.txt`, certifies exact agreement of period-one, -three, and -four orbit counts, basin sizes, and sharp entrance times for each \(1\le k\le6\), totalling 5,380,830 configurations. This bounded enumeration is corroboration; the complete 4599-case support reduction supplies the all-size proof.
+PASS
 
-The page-support reduction is valid because equal initial page-pair states see the same two hubs forever and the hubs only test whether at least one page coordinate is excited. Multiplicities therefore do not affect any transition. The nine pair types and nine possible hub pairs yield exactly \(9(2^9-1)=4599\) complete reduced initial cases. The computed periodicity bound implies the global identity \(F_k^{17}=F_k^5\), with no extrapolation from the bounded direct-state tests.
+Reconstructed local hub/page-pair update and confirmed distinct initially equal page types remain equal forever, so one representative of every occupied type suffices for EVERY k; precisely 9*(2^9-1)=4599 nonempty support/hub states. Independently reimplemented and exhaustively checked all 4599 states, measuring periods 1/3/4, max periodic-entry time 5, and circulation-sign period rule; support-size tables matched the complete supplied certificate, and the k=1/2 sharp witness transients were verified. Inclusion-exclusion over supports and phase assignments gives Q3=3^k-2^(k+1)+1, Q4=2^(k+1)-2, B1=3*7^k+6*6^k, B3=3*(9^k-2*8^k+7^k), B4=6*(9^k+8^k-7^k-6^k), with sum 9^(k+1). lcm(3,4)=12 and entry <=5 yield F^17=F^5. Certificate exhausts parameter-independent support types, not merely finite values of k. Inspected source code for both support and direct enumeration.
 
-Limitations: the support-state classification is computer-assisted and assumes the included finite integer program has been read and executed as specified. It does not establish independent external validation, coverage of all historical literature, or claims for other graphs or update rules.
+## originality
+
+PASS
+
+Gravner–Lyu–Sivakoff Theorem 3 and Doba 2018 Theorem 2 already identify circulation criteria and asymptotic excitation rate for general graphs, so that qualitative criterion is NOT new. Neither inspected full primary discusses exact labelled quadrilateral edge-book Q3/Q4 counts, attraction-basin cardinalities, uniform sharp entrance-time five, nor global iterate F^17=F^5. Their general criterion informs period interpretation but does not directly enumerate support classes. Earlier specialized graph automaton census possible.
+
+## value
+
+PASS
+
+The edge-glued quadrilateral book is a canonical tunable cycle-interaction family; its all-size exact transient, periodic orbit and basin census separates orbit-count dominance from basin-mass dominance (3-cycle orbit majority but asymptotic basin weights 1/3 versus 2/3). A complete symbolic support reduction independent of number of pages makes the structural result meaningful beyond a small-graph table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
