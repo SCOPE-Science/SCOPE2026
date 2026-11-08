@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion covers every real Hadamard matrix of an existing order, every one-entry sign change, and the induced spectral norm on complex matrices. After sign normalization, the two-mode block and orthogonal complementary block follow from the Hadamard equations. At the analytic optimum, the trace-norm lower witness is attained by the real polar orthogonal factor, and the positive operator \(X\) satisfies the exact Gram identity \(B^{\mathsf T}X^{-1}B=X\) with all diagonal entries equal to the proposed sharp constant. The classical Schur factorization inequality matches this lower witness exactly. The order-two exception is handled independently. The script provides 521 supplementary assertions in six nontrivial orders and integer scalar checks; it is not a proof by finite enumeration.
+## correctness
 
-## Originality — PASS, with residual historical-priority risk
-The strongest near match is Holbrook–Johnston–Schoch, arXiv:2206.02863, where the order-four one-flip example already has value \((2+3\sqrt6)/5\), and the Hadamard maximum \(\sqrt n\) and computational SDP tools are established. None of the inspected general and example results states the all-Hadamard-order one-flip law or the exact common certificate. Davidson–Donsig (arXiv:math/0506073), Cowen and collaborators (full Purdue preprint), and Christensen (arXiv:2309.17092) give general Schur multiplier factorizations and other examples, which do not imply the specific radical identity without a new symmetry calculation. An older Cowen–Dritschel–Penney article was only located bibliographically and not inspected in full; hidden coverage is possible. The lack of a matching search result is not treated as a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The unperturbed Hadamard sign pattern attains the largest possible Schur multiplier norm among real sign matrices. Flipping one entry is the smallest combinatorial perturbation and a natural rigidity/stability test. The exact deficit, its independence of the Hadamard equivalence class, an explicit all-order optimizer, and a sharp certificate jointly resolve this structural family rather than provide an arbitrary sample calculation. The known four-by-four value is explicitly excluded from the novelty claim.
+For every existing real Hadamard H of order n>=2 with exactly one flipped sign, normalizing the row/column defect gives a two-mode matrix and an (n-2)-dimensional singular-value block. A trace/nuclear norm weighted polar witness yields the sharp lower bound and a positive Gram factor X with constant diagonal and B^T X^{-1}B=X gives the global complex Schur multiplier upper bound gamma_n=((n-2)sqrt(n)+2(n-1)sqrt(n+2))/(3n-2). The n=2 special case is a rank-one sign matrix multiplier of norm 1. Independent Sylvester 4,8,16 calculations verified the positive Gram certificate and upper/lower equality at machine precision; they do not prove the unbounded n claim.
 
-## Limits and provenance
-This is a theorem about exactly one flipped sign and actual Hadamard orders; it does not assert all-order Hadamard existence. The construction gives a proof in real and complex operator norms, but it does not classify multi-defect patterns. The computational comparisons support the exact algebraic derivation. No external mathematical audit has been conducted. Earlier priority for the general claim remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the final exact mathematical statement against identified primary literature and published research records. Order-four instance is explicitly not novel: M8 norm was calculated in Holbrook–Johnston–Schoch. No inspected accessible primary text establishes the complete final theorem; the source-inspection limits and priority risks are explicit.
+
+## value
+
+PASS
+
+A single-sign error is the most natural robustness test of sharp Schur norms for Hadamard matrices. The exact all-existing-order deficit, independent of equivalence class and defect location, quantifies a nontrivial stability phenomenon, improving beyond an isolated order-four calculation. The explicit global factorization and orthogonal lower witness are useful for operator-theoretic Schur norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

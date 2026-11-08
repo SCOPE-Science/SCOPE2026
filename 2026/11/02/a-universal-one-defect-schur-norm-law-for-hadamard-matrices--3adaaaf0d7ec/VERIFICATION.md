@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The analytic proof rests on a normalized Hadamard block decomposition and matching Schur-multiplier lower and upper witnesses. The lower witness is a real orthogonal polar factor of a weighted sign matrix. The upper witness is a strictly positive Gram matrix with constant diagonal and an exact matrix-inverse identity. These are algebraic equalities for arbitrary existing Hadamard orders, not extrapolations from numerical tests.
+## correctness
 
-The included `verify_hadamard.py` uses NumPy to construct Sylvester orders 4, 8, 16, 32 and independently Paley orders 12, 20, checks Hadamard orthogonality and the exact constant, verifies the witness and certificate with double-precision tolerances, and compares many perturbed weighted nuclear norms. The checker also compares exact closed-form identities over integer orders 4 through 200. Successful replay: 521 supplementary assertions. Reproduction: `OPENBLAS_NUM_THREADS=1 python verify_hadamard.py` (Python 3 with NumPy).
+PASS
 
-The checks do not constitute formal symbolic verification or exhaust all Hadamard matrices or all inputs. Historical priority against all published literature is not independently certified. The previously published order-four specialization is expressly excluded from the novel part.
+For every existing real Hadamard H of order n>=2 with exactly one flipped sign, normalizing the row/column defect gives a two-mode matrix and an (n-2)-dimensional singular-value block. A trace/nuclear norm weighted polar witness yields the sharp lower bound and a positive Gram factor X with constant diagonal and B^T X^{-1}B=X gives the global complex Schur multiplier upper bound gamma_n=((n-2)sqrt(n)+2(n-1)sqrt(n+2))/(3n-2). The n=2 special case is a rank-one sign matrix multiplier of norm 1. Independent Sylvester 4,8,16 calculations verified the positive Gram certificate and upper/lower equality at machine precision; they do not prove the unbounded n claim.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the final exact mathematical statement against identified primary literature and published research records. Order-four instance is explicitly not novel: M8 norm was calculated in Holbrook–Johnston–Schoch. No inspected accessible primary text establishes the complete final theorem; the source-inspection limits and priority risks are explicit.
+
+## value
+
+PASS
+
+A single-sign error is the most natural robustness test of sharp Schur norms for Hadamard matrices. The exact all-existing-order deficit, independent of equivalence class and defect location, quantifies a nontrivial stability phenomenon, improving beyond an isolated order-four calculation. The explicit global factorization and orthogonal lower witness are useful for operator-theoretic Schur norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
