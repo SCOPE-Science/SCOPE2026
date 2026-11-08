@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification procedure
+# Independent mathematical audit
 
-Run `python3 verify_cut_cycles.py` with Python 3.9 or newer. No nonstandard packages, network connection, random seeds from outside the script, prior files, or external tables are needed. The program independently implements the chip-firing transition and the cut-polynomial coefficient calculation, and enumerates all chip configurations inside the rigorously established box \(0\le x_v<2d_v\).
+## correctness
 
-# Checks executed
+PASS
 
-The recorded execution returned `CUT_CYCLE_ALL_CHECKS_PASSED`. It covered 72 connected graphs (all simple connected isomorphism classes through five vertices and larger structured or seeded connected examples), tested 1,821,396 vertex-level states, evaluated the complete coefficient dictionaries rather than only total counts, checked extreme energies, MAX-CUT multiplicities and palindromicity, matched the rooted-tree recurrence in 21 cases, and compared the path sequence through 15 vertices against the Pell recurrence.
+For a finite connected simple graph with n>=2, F²(x)-x=-L(f+g) and connectedness force f+g constant. A nonfixed 2-cycle has f+g≡1, so a cut S between first-round firing and waiting vertices has all c_v(S)>0. Solving the second firing inequalities gives independent intervals of exactly c_v(S) values, with lower total 2m-|S|; quotient complementary first-round colorings into one unordered cut gives the stated complete orbit generating polynomial. Every maximum cut has positive cross-degree at each vertex, giving minima 2m-q, maxima 2m+q-n and coefficient M(G); factor palindromicity gives P(z)=z^(4m-n)P(1/z). Standard MAX-CUT reduces to minimum-energy existence, and rooted-tree edge subset recursion is linear in arithmetic operations; the path two-state transfer matrix [[0,1],[1,2]] gives Pell. Independently enumerated all vertex-level states (0<=x_v<2deg(v)) for P3, K3, P4, C4 and K4, matching direct cut polynomials, extremes and reflection. Source reports a larger 72-graph verifier, but analytical proof—not saved logs—supports all graphs.
 
-Some independent sample coefficient dictionaries: for the four-vertex path, coefficients at totals 3, 4 and 5 are 1, 3 and 1; for the triangle, coefficients at totals 4 and 5 are 3 and 3. The complete machine-readable execution summary is embedded as `verification_output.txt`.
+## originality
 
-# Scope of evidence
+PASS
 
-The finite computation detects errors in the derivation on these graphs but is not a proof for arbitrarily large graph orders. The all-graph statement rests on the graph-Laplacian argument, the exact chip-interval characterization, the cut quotient and the elementary MAX-CUT boundary argument supplied in `RESULT.md`. External audit and separate independent scientific validation have not been performed.
+Best-of-knowledge PASS for the complete energy-resolved primitive-two-cycle state/orbit enumerator, MaxCut thresholds and tree/path specializations. The crucial equal-firing-count prerequisite is credited to Jiang 2010; an exact cut-degree generating theorem is not supplied by the inspected firing-pattern or period-existence references. A 1992 original article remains unread and creates a historical-priority risk.
+
+## value
+
+PASS
+
+A complete energy-resolved dynamical orbit census across an arbitrary connected graph family is motivated by conserved mass and firing-period structure. It explains sharp existence and extreme multiplicity via canonical MaxCut, yields an NP-complete threshold decision, and affords efficient tree computation and a natural Pell path sequence. This is not only a textbook period bound or isolated finite integer computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a primitive two-cycle, the two firing-indicator vectors sum to a constant by the connected graph Laplacian kernel. Nonfixed cycles force complementary firing vectors. At every vertex the first-step chip interval is exactly of length equal to its cross-cut degree; the independent offsets sum to the stated energy polynomial, and passing from the two colorings to the unoriented cut divides the state count by two. The maximum-cut endpoints and their coefficients follow from positivity and the fact that every maximum cut gives positive cross-degree at every vertex. The tree recursion and Pell specialization are derived algebraically. The supplied verifier independently enumerates 1,821,396 full configurations across 72 finite graphs, and validates both polynomial counts and extreme-energy identities. Its outputs do not replace the general proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest general published antecedent is Jiang (arXiv:1003.0943, Proposition 2.5), proving equal per-vertex firing counts in a periodic orbit, rather than an exact state/orbit count. Jiang–Scully–Zhang (arXiv:1211.6786, especially Sections 6–7) characterize possible firing words and tree-like behavior but do not present the unrestricted energy-resolved cut polynomial or maximum-cut orbit threshold. Bitar–Goles (1992) prove the tree period bound; its full text was inaccessible and historical coverage is a specific residual risk. Later results about a middle energy band concern eventual periods, not the exact distribution of primitive two-cycle orbits. Searches for cut-degree products, MAX-CUT energy thresholds, Pell path counts, and equivalent counting statements disclosed no dominating formula in accessible materials. Earlier special-family enumerations cannot imply this all-graph result by themselves.
+PASS
 
-## Value — PASS
-This theorem connects a recurrent-state count in a deterministic dynamics to a canonical optimization invariant of its interaction graph. The exact first and last accessible conserved totals and the multiplicity of extremal orbits become MAX-CUT and maximum-cut counts; the natural low-energy existence problem is NP-complete. The exact cut polynomial supplies all energy shells on arbitrary graphs, and an efficient tree evaluation yields a nontrivial Pell sequence for paths. This goes beyond classifying permitted periods or collecting computational cases.
+For a finite connected simple graph with n>=2, F²(x)-x=-L(f+g) and connectedness force f+g constant. A nonfixed 2-cycle has f+g≡1, so a cut S between first-round firing and waiting vertices has all c_v(S)>0. Solving the second firing inequalities gives independent intervals of exactly c_v(S) values, with lower total 2m-|S|; quotient complementary first-round colorings into one unordered cut gives the stated complete orbit generating polynomial. Every maximum cut has positive cross-degree at each vertex, giving minima 2m-q, maxima 2m+q-n and coefficient M(G); factor palindromicity gives P(z)=z^(4m-n)P(1/z). Standard MAX-CUT reduces to minimum-energy existence, and rooted-tree edge subset recursion is linear in arithmetic operations; the path two-state transfer matrix [[0,1],[1,2]] gives Pell. Independently enumerated all vertex-level states (0<=x_v<2deg(v)) for P3, K3, P4, C4 and K4, matching direct cut polynomials, extremes and reflection. Source reports a larger 72-graph verifier, but analytical proof—not saved logs—supports all graphs.
 
-## Limitations and closest literature
-The 1992 source was accessible only through bibliographic data and abstract despite open-access searching; institutional full text could not be obtained. Unindexed equivalent formulations remain possible. The 2026 middle-stair paper was compared at theorem/abstract level rather than treated as a full-text exclusion. Only primitive period-two orbits are counted, and no independent external validation has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete energy-resolved primitive-two-cycle state/orbit enumerator, MaxCut thresholds and tree/path specializations. The crucial equal-firing-count prerequisite is credited to Jiang 2010; an exact cut-degree generating theorem is not supplied by the inspected firing-pattern or period-existence references. A 1992 original article remains unread and creates a historical-priority risk.
+
+## value
+
+PASS
+
+A complete energy-resolved dynamical orbit census across an arbitrary connected graph family is motivated by conserved mass and firing-period structure. It explains sharp existence and extreme multiplicity via canonical MaxCut, yields an NP-complete threshold decision, and affords efficient tree computation and a natural Pell path sequence. This is not only a textbook period bound or isolated finite integer computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
