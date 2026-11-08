@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is explicitly quantified over every integer stratum count and every closed-bin node selection; duplicate boundary samples are allowed. The parabola-moment convex polygon gives the adjacent-chord minimum and extreme-endpoint maximum at fixed mean. The central-bin parity cases give a sharp lower obstruction, and inward-facing end-bin choices give the sharp upper obstruction. The open interval is precisely the condition that every possible moment vector is in the interior, hence representable with all positive coefficients. Direct rational witnesses and positive weight constructions were checked by the packaged standard-library verifier. These finite checks supplement the complete algebraic/convex proof, not replace it.
+PASS
 
-## Originality — PASS, with priority risk
+For m strata, any ordered node set brackets 1/2. Mean-fixed second moment vertical section of convex hull of points (x_j,x_j²) has minimal variance L=(1/2−x_i)(x_(i+1)−1/2) from adjacent bracket points and maximum U=(1/2−x1)(xm−1/2) from extremes. For m>=5 at least three distinct nodes survive even boundary collisions; strict L<v<U is exactly existence of a representation with every labelled weight positive by interior perturbation averaging all points. Across arbitrary chosen nodes, min U=(m−2)²/(4m²) from inward first/last endpoints; max L equals 1/m² for even m and 3/(4m²) for odd m from central bracket position, both sharp at explicit admissible configurations. Therefore iff alpha_m<v<beta_m, no m=2..4 universal feasible interval, and for uniform target v=1/12 first m=5 with (3/100,9/100). Independent exact Fraction check enumerated 2040 complete closed-stratum endpoint configurations for m=3..10 and both witness inequalities. Finite checks corroborate all-real proof.
 
-The primary 2026 source by Neumayer, Schäfer and Ullrich, https://arxiv.org/html/2610.32699v1, proves an i.i.d. high-probability Richter–Tchakaloff result, not a universal all-placement one-per-bin condition. The relevant van den Bos–Sanderse–Bierbooms–van Bussel arbitrary-sample algorithm, https://arxiv.org/abs/1809.09842, does not supply a sharp prescribed-population-moment feasibility window for adversarial interval transversals. The closest mathematical records inspected are fixed-node Romberg positivity, Newton–Cotes monotone-range criteria and finite-group Fourier positivity, none implying the present interval geometry. Classical convex-hull support geometry is acknowledged as a proof ingredient; a historically equivalent specialized result could exist under different vocabulary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The target is motivated by stability and exact low-degree integration when nodes are imposed by a stratified sampling design. The result tells precisely which centered target moment profiles can always be supported with strictly positive weights and establishes a nontrivial, optimal five-sample guarantee for the natural uniform law. It is a complete design-boundary classification rather than a generic moment-feasibility exercise or a small numerical parameter increment.
+Neumayer–Schäfer–Ullrich (October 2026) Theorem 1.1 supplies positive quadrature from sufficiently many randomly sampled independent nodes with high probability and controlled weights, not deterministic adversarial one-per-equal-bin exact iff. van den Bos et al. construct nested positive quadrature from data, which does not assert robust universal sufficiency at five bins. Exact convex-moment hull geometry is standard and credited; the candidate new invariant is sharp worst-node parity window.
 
-## Limits
+## value
 
-No higher-degree guarantee, bounded relative weights, robust nonsmooth integration error, multivariate analogue, or independent verification is claimed. Primary-source and record comparisons are limited to the identified material and searches, not a uniqueness certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Universal guaranteed positive degree-two exactness despite adversarial stratified points is a natural robust cubature design question. The parity thresholds and sharp m=5 uniform cutoff exactly characterize needed resolution; future quadrature designers can use the exact window independently of the broader random-sampling literature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

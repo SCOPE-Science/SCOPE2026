@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T11:54:46.846482Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/73fa1f2150d62444b9ad37a82e94eae587f2b4cc/2026/11/02/sharp-robust-variance-window-for-one-point-per-stratum-positive--57fea4acf31e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/73fa1f2150d62444b9ad37a82e94eae587f2b4cc/2026/11/02/sharp-robust-variance-window-for-one-point-per-stratum-positive--57fea4acf31e/VERIFICATION.md",
+        "/mnt/data/scope_worker03_20261105T1138Z/independent_checks.py"
+      ],
+      "rationale": "For m strata, any ordered node set brackets 1/2. Mean-fixed second moment vertical section of convex hull of points (x_j,x_j²) has minimal variance L=(1/2−x_i)(x_(i+1)−1/2) from adjacent bracket points and maximum U=(1/2−x1)(xm−1/2) from extremes. For m>=5 at least three distinct nodes survive even boundary collisions; strict L<v<U is exactly existence of a representation with every labelled weight positive by interior perturbation averaging all points. Across arbitrary chosen nodes, min U=(m−2)²/(4m²) from inward first/last endpoints; max L equals 1/m² for even m and 3/(4m²) for odd m from central bracket position, both sharp at explicit admissible configurations. Therefore iff alpha_m<v<beta_m, no m=2..4 universal feasible interval, and for uniform target v=1/12 first m=5 with (3/100,9/100). Independent exact Fraction check enumerated 2040 complete closed-stratum endpoint configurations for m=3..10 and both witness inequalities. Finite checks corroborate all-real proof.",
+      "residual_risks": [
+        "Weights strictly positive but may become arbitrarily small; quadratic one-dimensional centred moments only, one arbitrary point per closed stratum and post-hoc adaptive weights; no random iid probability claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General random-node positive quadrature theorem assumes iid sampling and sufficiently many nodes with high probability."
+        ],
+        "reasoning": "High-probability random event is strictly weaker than uniform guarantee over every allowed deterministic node selection, even with shared bin endpoints.",
+        "searches": [
+          "https://arxiv.org/html/2610.32699v1",
+          "Resultary semantic query: positive polynomial quadrature arbitrary one point per equal interval stratified nodes robust mean variance degree two"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.32699v1",
+        "https://arxiv.org/abs/1809.09842",
+        "Resultary semantic query on adversarial one-per-stratum positive quadratic quadrature"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical convex hull plus known random sampling sufficient conditions are prior, but neither theorem implies sharp deterministic worst-case min U/max L at each equal-stratum size."
+        ],
+        "reasoning": "Independent extremal node-location argument and strict interior positivity proof are needed; these are supplied and verified, with no claim beyond degree two.",
+        "searches": [
+          "https://arxiv.org/html/2610.32699v1",
+          "https://arxiv.org/abs/1809.09842",
+          "Resultary semantic query: positive polynomial quadrature arbitrary one point per equal interval stratified nodes robust mean variance degree two"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-dimensional positive quadrature feasibility is equivalent to mean/second moment point lying in relative interior of the moment curve node convex hull."
+        ],
+        "reasoning": "Classical convex geometry supplies the reduction but not the adversarial extrema over equal strata or parity-dependent sharp cutoffs; possible older exact statement remains.",
+        "searches": [
+          "Resultary semantic query: positive polynomial quadrature arbitrary one point per equal interval stratified nodes robust mean variance degree two",
+          "https://arxiv.org/abs/1809.09842"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant published Resultary exact table for m=3,4,5 or alpha_m/beta_m found; other positive quadrature entries concern nested Romberg and Newton–Cotes weights."
+        ],
+        "reasoning": "Exact first universally sufficient five strata and parity-general window are not reproducing a located finite table; absence of match does not certify historical priority.",
+        "searches": [
+          "Resultary semantic query: positive polynomial quadrature arbitrary one point per equal interval stratified nodes robust mean variance degree two",
+          "https://arxiv.org/abs/1809.09842"
+        ]
+      },
+      "rationale": "Neumayer–Schäfer–Ullrich (October 2026) Theorem 1.1 supplies positive quadrature from sufficiently many randomly sampled independent nodes with high probability and controlled weights, not deterministic adversarial one-per-equal-bin exact iff. van den Bos et al. construct nested positive quadrature from data, which does not assert robust universal sufficiency at five bins. Exact convex-moment hull geometry is standard and credited; the candidate new invariant is sharp worst-node parity window.",
+      "residual_risks": [
+        "A classical one-dimensional moment-space covering lemma or a specialized stratified-support theorem could already encode the sharp alpha/beta formulas.",
+        "No controls on minimum weight or higher-order polynomial exactness; closed bin endpoints allow duplicates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING deterministic worst-case stratum selection",
+          "evidence": "Random independent Lewis-type sampling with probabilistic guarantees cannot imply positivity for every adversarial one-node-per-bin configuration with arbitrary adaptive positive weights.",
+          "identifier_or_url": "https://arxiv.org/html/2610.32699v1",
+          "material_read": "Accessible complete primary HTML theorem statement and proof discussion of iid random nodes, high-probability positivity and near-uniform weights",
+          "method": "Primary HTML reading, Theorem 1.1 and hypotheses",
+          "title": "Random nodes with positive weights: Richter–Tchakaloff rules and optimal positive quadrature",
+          "trigger": "very recent and highly relevant positive exact quadrature theorem"
+        },
+        {
+          "assessment": "Potential conceptual overlap, not whole-paper exclusion",
+          "evidence": "A data-driven positive nested rule method does not on the inspected statement assert the universal one-per-equal-stratum first-two-moment sharp feasibility interval.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.09842",
+          "material_read": "Accessible primary abstract and described iterative construction; full paper not read in this run",
+          "method": "Primary abstract-level reading",
+          "title": "Generating nested quadrature rules with positive weights based on arbitrary sample sets",
+          "trigger": "same arbitrary-node positive quadrature theme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2610.32699v1",
+        "https://arxiv.org/abs/1809.09842",
+        "Resultary semantic query on adversarial one-per-stratum positive quadratic quadrature"
+      ],
+      "rationale": "Universal guaranteed positive degree-two exactness despite adversarial stratified points is a natural robust cubature design question. The parity thresholds and sharp m=5 uniform cutoff exactly characterize needed resolution; future quadrature designers can use the exact window independently of the broader random-sampling literature.",
+      "residual_risks": [
+        "A classical one-dimensional moment-space covering lemma or a specialized stratified-support theorem could already encode the sharp alpha/beta formulas.",
+        "No controls on minimum weight or higher-order polynomial exactness; closed bin endpoints allow duplicates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.32699v1",
+    "https://arxiv.org/abs/1809.09842",
+    "Resultary semantic query on adversarial one-per-stratum positive quadratic quadrature"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A classical one-dimensional moment-space covering lemma or a specialized stratified-support theorem could already encode the sharp alpha/beta formulas.",
+    "No controls on minimum weight or higher-order polynomial exactness; closed bin endpoints allow duplicates."
+  ],
+  "schema_version": 1
+}
