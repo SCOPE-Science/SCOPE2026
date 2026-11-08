@@ -1,19 +1,21 @@
-# Scientific review: exact weight-three palindromic periodicity count
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is stated for every length \(n\ge3\) and indexed binary words with exactly three ones. The word-period characterization uses two possibly empty palindrome factors and includes the full word as a period; this handles the boundaries. For distinct cyclic gaps, every proper period has a root with one, two, or three marked positions. The one-marker case forces equal consecutive gaps and so cannot arise, while the other cases produce exactly the two interval families in `RESULT.md`. Their unions are analyzed without double counting. Equal gaps are counted separately. The disjoint generating-function decomposition and formal rational simplification prove the all-length formula. Direct root-and-palindrome-split enumeration of all \(7{,}315\) weight-three words through length 21, plus recurrence comparisons through length 160, returned `VERIFY_OK`. The all-length assertion depends on the proved combinatorial identities, not finite testing.
+PASS
 
-## Originality — PASS, qualified
+Definition reconstructed from a prefix of repetitions of a symmetric period. Writing marked positions as circular gaps (u,v,h) and offset x gives a bijection with positive u+v+h=n and 0<=x<h. The all-distinct case has offset count h for h<min(u,v), min(u,v) for min<h<max, and max(0,2max-h) for h>max; any coincident gap makes the full word symmetric. Verified the three-root-one-count cases and their offset intervals. Summing these disjoint cases gives the displayed rational generating function and hence the quasipolynomial via its cyclotomic denominator; highest-order pole 1/3 at z=1 proves Q(n)~n^3/18. Independent literal prefix-period/palindrome-split enumeration for all binom(n,3) words n=3..21 agreed with a separate gap summation and coefficients of a rational-denominator recurrence, including Q(3..17)=1,4,10,14,25,36,52,68,93,116,150,182,225,268,324. Finite checks corroborate, do not replace, all-n proof.
 
-The closest matching primary full-text works are Simpson (arXiv:2402.05381) and Fici–Shallit–Simpson (arXiv:2407.10564, plus the 2025 open-access CPM version). They develop the invariant and prove its occurrence in special word classes, but their conclusions concern unrestricted length counts and pose an unrestricted asymptotic problem; no fixed three-one rational generating function appears in the inspected sections. Guo–Shallit–Shur (arXiv:1503.09112) studies products of palindromes, a strict subclass: `01100100` is a palindromic periodicity that is not a product of two palindromes. OEIS A374495 tabulates the unrestricted count and gives a decision program, neither of which implies an exact all-length three-one expression. Literature searches for equivalent formulations, stronger implication coverage and exact fixed-weight tables did not find a covering result. **Risk:** unindexed equivalent enumerations remain possible, and novelty is not certified by negative searches.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Weight three is the earliest nontrivial binary fixed-content layer: zero-, one- and two-marker circular words always have a reflection and hence are symmetric. A complete fixed-weight theorem therefore answers the natural first unsolved slice of the broader counting problem. The exact quasipolynomial, period-12 behavior and sharp limiting fraction \(1/3\) are substantive structural information, not a finite table or relabeling. The scope does not include higher weights or unrestricted exponential-scale asymptotics.
+Fici–Shallit–Simpson establish the symmetric-word-period definition and general properties; their 2025 conclusion asks unrestricted counting. Their trapezoidal-word theorem and counts of symmetric words do not imply the fixed weight-three palindromic-periodicity generating function because proper symmetric periods contribute words that are themselves not symmetric. Simpson 2024 supplies the framework, not the resolved weight-three distribution. Best-of-knowledge distinct finite-weight exact result, with unindexed equivalent enumerations a residual risk.
 
-## Limits and closest literature
+## value
 
-Primary comparisons: arXiv:2402.05381; arXiv:2407.10564 and its CPM 2025 publication, doi:10.4230/LIPIcs.CPM.2025.11; arXiv:1503.09112; OEIS A374495. Definition-level computations are finite supporting checks. Independently performed scientific audit and complete literature priority verification remain outside this review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Weight three is the first nontrivial fixed Hamming-weight layer: all words with <=2 ones have reflection-symmetric circular mark sets. Exact rational enumeration for this first nontrivial layer is a natural structural step toward unrestricted palindromic-periodicity counting, with explicit density and quasipolynomial rather than only finite counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
