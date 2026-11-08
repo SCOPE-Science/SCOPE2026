@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T14:47:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An ordinary two-row n-column ladder perfect matching crosses each intercolumn cut in zero or two edges by prefix parity; it is uniquely tiled by vertical rungs and horizontal two-column dimers, hence F_{n+1} perfect matchings. Querying nonoverlapping dimer cuts realizes all 2^{floor(n/2)} answer patterns. For a shattered support, all-one horizontal queries occupy 2h columns and other queried rungs lie outside; assign opposite parity rung-zero patterns to inject each queried rung into a distinct unqueried neighbor column, giving 2v<=n-2h and VC=floor(n/2). For n=11, a full depth-7 mistake tree is in ladder11_tree.json; independent exact enumeration of all 144 dimer-tilings and recursive certificate traversal verified 127 internal nodes, 128 distinct compatible leaf matchings, and every split nonempty. Upper bound floor(log2 144)=7. Restrict full 11m ladder to matchings without block-boundary dimers and concatenate m trees to get Ldim >=7m; VC=floor(11m/2). For n>=2 the outer cycle guarantees 2-connectivity and every edge occurs in some matching. No exact general-n Ldim is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tratnik–Ye arXiv:1710.00761 Theorem 1.2 proves resonance graph components are induced cubical graphs; Theorem 1.1 cites distributive lattice properties of plane matching-covered bipartite graphs."
+        ],
+        "reasoning": "Those results concern the geometry of a derived flip graph and do not bound the Littlestone dimension of fixed original-edge membership queries, let alone provide the explicit 11-column tree and all-edge constraint.",
+        "searches": [
+          "VC dimension and Littlestone dimension perfect matchings ladder graph edge queries Fibonacci",
+          "https://arxiv.org/abs/1710.00761",
+          "https://arxiv.org/abs/2007.03668",
+          "https://doi.org/10.4230/LIPIcs.ITCS.2023.85"
+        ]
+      },
+      "checked_sources": [
+        "Resonance Graphs and Perfect Matchings of Graphs on Surfaces — https://arxiv.org/abs/1710.00761",
+        "Near-tight closure bounds for Littlestone and threshold dimensions — https://arxiv.org/abs/2007.03668",
+        "Improved Inapproximability of VC Dimension and Littlestone’s Dimension via (Unbalanced) Biclique — https://doi.org/10.4230/LIPIcs.ITCS.2023.85",
+        "Resultary semantic query: VC dimension and Littlestone dimension perfect matchings ladder graph edge queries Fibonacci"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic closure bound (arXiv:2007.03668) and computational hardness work (ITCS 2023) describe broad complexity, not the restricted ladder family; resonance graph theorem has distinct observables."
+        ],
+        "reasoning": "A generic upper bound or known bridge-based adaptive-gap example does not establish this connected matching-covered family. The all-width exact VC proof and eleven-column witness are necessary nonstandard steps.",
+        "searches": [
+          "VC dimension and Littlestone dimension perfect matchings ladder graph edge queries Fibonacci",
+          "https://arxiv.org/abs/1710.00761",
+          "https://arxiv.org/abs/2007.03668",
+          "https://doi.org/10.4230/LIPIcs.ITCS.2023.85"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cut-parity bijection to monomer/dimer tilings gives an exact equivalent concept representation; same edge queries are rung occupancy and dimer start."
+        ],
+        "reasoning": "The equivalent tiling language was explicitly used to check the claim. Binary rung/dimer occupancy is not the resonance graph of all tilings, whose adjacency records local flips.",
+        "searches": [
+          "VC dimension and Littlestone dimension perfect matchings ladder graph edge queries Fibonacci",
+          "https://arxiv.org/abs/1710.00761",
+          "https://arxiv.org/abs/2007.03668",
+          "https://doi.org/10.4230/LIPIcs.ITCS.2023.85"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual source ladder11_tree.json has 144 matchings, 127 internal nodes, 128 distinct leaf witnesses; published Resultary hits on matching complexes and graph cover-free parameters, no corresponding query-tree census."
+        ],
+        "reasoning": "The claim includes a full finite certificate where exhaustive coverage is valid and an all-m lower bound derived by independent block concatenation; no identified external table forces this exact witness.",
+        "searches": [
+          "VC dimension and Littlestone dimension perfect matchings ladder graph edge queries Fibonacci",
+          "https://arxiv.org/abs/1710.00761",
+          "https://arxiv.org/abs/2007.03668",
+          "https://doi.org/10.4230/LIPIcs.ITCS.2023.85"
+        ]
+      },
+      "rationale": "General resonance graphs encode transitions among perfect matchings, and their cubical/Clar polynomial data concern a different graph and invariant from fixed/adaptive original-edge incidence queries. General Littlestone closure and complexity bounds do not give the exact eleven-column depth or connected all-edges-allowed linear gap; classical Fibonacci tiling enumeration is credited.",
+      "residual_risks": [
+        "A combinatorics-on-matchings or learning-theory result using an alternate tiling-query formulation could imply the same lower bound; no absolute priority certification.",
+        "Certificate establishes Ldim exactly only at n=11; for n=11m only the stated lower bound is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RESONANCE_GRAPH_DIFFERENT_STATEMENT",
+          "evidence": "Theorems concern cubical embeddings/flip adjacency of resonance graphs, not static/adaptive original-edge shattering.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.00761",
+          "material_read": "Full accessible arXiv PDF, introduction and Theorems 1.1–1.2, plus screenshot of page 2",
+          "method": "Read theorem statements and match their graph objects to original-edge query class",
+          "title": "Resonance Graphs and Perfect Matchings of Graphs on Surfaces",
+          "trigger": "Same perfect-matching graph family / possible dominating invariant"
+        },
+        {
+          "assessment": "GENERAL_TOOL_NOT_SPECIFIC",
+          "evidence": "Boolean aggregation closure bounds do not present this specific ladder edge-concept classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.03668",
+          "material_read": "Public abstract and problem formulation, not entire derivation",
+          "method": "Abstract and scope comparison",
+          "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+          "trigger": "General online-shattering closure results"
+        },
+        {
+          "assessment": "DIFFERENT_PROBLEM",
+          "evidence": "Hardness of arbitrary explicitly represented concept classes does not provide this exact easy-to-define ladder family dimension.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2023.85",
+          "material_read": "Abstract and theorem-scope overview, not full derivation",
+          "method": "Compare target concept and hardness scope",
+          "title": "Improved Inapproximability of VC Dimension and Littlestone’s Dimension via (Unbalanced) Biclique",
+          "trigger": "Generic computational hardness for dimension estimation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural matching-covered, planar, bipartite, two-connected max-degree-three infinite graph family with an explicit unbounded difference between static and online shattering of edge-incidence concepts; complete depth-7 finite core with rigorously transferable bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A combinatorics-on-matchings or learning-theory result using an alternate tiling-query formulation could imply the same lower bound; no absolute priority certification.",
+    "Certificate establishes Ldim exactly only at n=11; for n=11m only the stated lower bound is proved."
+  ],
+  "schema_version": 1
+}

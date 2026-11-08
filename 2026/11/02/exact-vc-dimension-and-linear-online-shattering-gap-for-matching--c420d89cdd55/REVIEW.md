@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The matching-to-monomer/dimer bijection follows from cut parity in a perfect matching. The VC lower bound is a disjoint-pair construction. The upper bound uses both complementary parity labelings on the residual rung queries to inject all selected rung columns into unqueried residual columns, proving the exact bound. The complete depth-seven tree for eleven columns was reconstructed and checked edge-by-edge against all \(144\\) perfect matchings of the actual ladder; its \(128\) terminal witnesses are distinct. Counting gives the upper bound of seven. An independent version-space recurrence corroborates eleven-column depth. Concatenating the finite tree inside consecutive eleven-column blocks gives the claimed unbounded lower bound without deleting any physical ladder edges.
+## correctness
 
-## Originality — PASS under available comparison
-The closest related generic literature on Littlestone closure and VC/Littlestone computational hardness does not cover the two-row ladder edge-incidence family. Related resonance-graph literature establishes a distributive-lattice structure and Clar-polynomial identities for matching flip graphs, but not the exact incidence-query tree depth studied here; this classical structural fact is credited. A known earlier example concatenates five-column ladders using bridges absent from every perfect matching; it does not imply the exact VC dimension of a continuous ladder, its eleven-column certificate, or its strict gap on a two-vertex-connected all-edges-allowed graph. Searches included alternative terms such as domino tilings, monomer-dimer encodings, matching-covered graphs, edge-query mistake trees, and online shattering. Unindexed or differently titled literature remains a priority risk; absence from search results is not uniqueness evidence.
+PASS
 
-## Mathematical value — PASS
-The all-size exact VC formula concerns a standard infinite graph family. The finite depth-seven certificate exposes a two-round adaptive/static separation at a concrete natural width. Combining it with the structural proof gives an unbounded, quantitatively linear gap inside ordinary planar, bipartite, two-vertex-connected, subcubic graphs in which each edge participates in some perfect matching. This removes the excluded-edge bridge mechanism of earlier examples; it is a nontrivial structural strengthening. No conjecture about exact large-width online dimension is made.
+An ordinary two-row n-column ladder perfect matching crosses each intercolumn cut in zero or two edges by prefix parity; it is uniquely tiled by vertical rungs and horizontal two-column dimers, hence F_{n+1} perfect matchings. Querying nonoverlapping dimer cuts realizes all 2^{floor(n/2)} answer patterns. For a shattered support, all-one horizontal queries occupy 2h columns and other queried rungs lie outside; assign opposite parity rung-zero patterns to inject each queried rung into a distinct unqueried neighbor column, giving 2v<=n-2h and VC=floor(n/2). For n=11, a full depth-7 mistake tree is in ladder11_tree.json; independent exact enumeration of all 144 dimer-tilings and recursive certificate traversal verified 127 internal nodes, 128 distinct compatible leaf matchings, and every split nonempty. Upper bound floor(log2 144)=7. Restrict full 11m ladder to matchings without block-boundary dimers and concatenate m trees to get Ldim >=7m; VC=floor(11m/2). For n>=2 the outer cycle guarantees 2-connectivity and every edge occurs in some matching. No exact general-n Ldim is claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+General resonance graphs encode transitions among perfect matchings, and their cubical/Clar polynomial data concern a different graph and invariant from fixed/adaptive original-edge incidence queries. General Littlestone closure and complexity bounds do not give the exact eleven-column depth or connected all-edges-allowed linear gap; classical Fibonacci tiling enumeration is credited.
+
+## value
+
+PASS
+
+A natural matching-covered, planar, bipartite, two-connected max-degree-three infinite graph family with an explicit unbounded difference between static and online shattering of edge-incidence concepts; complete depth-7 finite core with rigorously transferable bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

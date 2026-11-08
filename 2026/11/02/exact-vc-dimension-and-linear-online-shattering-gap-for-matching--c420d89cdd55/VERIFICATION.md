@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The included `ladder11_tree.json` encodes a complete binary edge-query tree of depth seven for perfect matchings of \(L_{11}\). Query names `v1`–`v11` mean rung membership and `h1`–`h10` mean top-horizontal-edge membership; each terminal `tiling` integer is a bitmask of horizontal-dimer start positions, indexed from the first column.
+## correctness
 
-Run both standalone Python 3 programs in the directory containing the witness:
+PASS
 
-```bash
-python3 verify_witness.py
-python3 finite_recurrence.py
-```
+An ordinary two-row n-column ladder perfect matching crosses each intercolumn cut in zero or two edges by prefix parity; it is uniquely tiled by vertical rungs and horizontal two-column dimers, hence F_{n+1} perfect matchings. Querying nonoverlapping dimer cuts realizes all 2^{floor(n/2)} answer patterns. For a shattered support, all-one horizontal queries occupy 2h columns and other queried rungs lie outside; assign opposite parity rung-zero patterns to inject each queried rung into a distinct unqueried neighbor column, giving 2v<=n-2h and VC=floor(n/2). For n=11, a full depth-7 mistake tree is in ladder11_tree.json; independent exact enumeration of all 144 dimer-tilings and recursive certificate traversal verified 127 internal nodes, 128 distinct compatible leaf matchings, and every split nonempty. Upper bound floor(log2 144)=7. Restrict full 11m ladder to matchings without block-boundary dimers and concatenate m trees to get Ldim >=7m; VC=floor(11m/2). For n>=2 the outer cycle guarantees 2-connectivity and every edge occurs in some matching. No exact general-n Ldim is claimed.
 
-The graph-based checker independently enumerates all perfect matchings of the \(22\)-vertex ladder from the adjacency lists, confirms the \(144\) matching count and the one-to-one correspondence with \(10\)-bit dimer-start signatures, then recursively checks every query branch and all terminal matching witnesses. Expected verified output includes:
+## originality
 
-```text
-LADDER11_TREE_CERTIFICATE_PASS graph_matchings=144 internal_nodes=127 distinct_leaves=128 depth=7
-LADDER11_LITTLESTONE_EXACT_PASS value=7 entropy_upper=7
-FINITE_ONLINE_RECURRENCE_PASS ((1, 0), (2, 1), (3, 1), (5, 2), (8, 3), (13, 3), (21, 4), (34, 5), (55, 5), (89, 6), (144, 7))
-```
+PASS
 
-The second program computes a separate exhaustive minimax recurrence over all finite version spaces at widths one through eleven, corroborating the explicit witness. The upper bound of seven follows mathematically from \(144<256\) possible matching concepts. The universal static VC theorem and the block-product online lower bound are proved in `RESULT.md`, not inferred from experiments. No verification covers an exact adaptive dimension formula at general width, and no independent external scientific audit is claimed.
+General resonance graphs encode transitions among perfect matchings, and their cubical/Clar polynomial data concern a different graph and invariant from fixed/adaptive original-edge incidence queries. General Littlestone closure and complexity bounds do not give the exact eleven-column depth or connected all-edges-allowed linear gap; classical Fibonacci tiling enumeration is credited.
+
+## value
+
+PASS
+
+A natural matching-covered, planar, bipartite, two-connected max-degree-three infinite graph family with an explicit unbounded difference between static and online shattering of edge-incidence concepts; complete depth-7 finite core with rigorously transferable bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
