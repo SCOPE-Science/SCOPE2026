@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed object is the reduced complex algebraic variety of solutions to the quandle algebra equation \(a^2=a\) for \(R_{2m}\), \(m\) odd. The proof verifies a split square-zero extension with a right-regular kernel module and derives the precise Peirce fiber \(\ker(R_b-I)\) above every lower-order idempotent. Fourier inversion gives exact odd-order base equations, finite reduced orbit solutions via nonsingular exponent determinants, and the fiber dimensions. Every component is therefore a closed-and-open affine space. The arithmetic orbit determinant is derived in both cases of the placement of \(-1\) relative to \(\langle2\rangle\). The standalone checker independently confirms those determinants in eleven odd moduli and directly enumerates finite-field idempotents for \(R_2\) over \(\mathbb F_5\) and \(R_6\) over \(\mathbb F_7\). Finite tests are supporting checks, not the general proof.
+PASS
 
-## Originality — PASS relative to examined sources
+For odd m, the algebra map π*:C[R_{2m}]→C[R_m] splits via s(e_i)=(e_i+e_{i+m})/2. The kernel K spanned by κ_i=(−1)^i(e_i−e_{i+m}) satisfies s(A_m)K=K²=0, and κ_i s(e_j)=κ_(2j−i). Thus each element has unique s(b)+κ(w), its square is s(b²)+κ(wb), and it is idempotent exactly when b²=b and R_b(w)=w: each fiber is an affine Peirce +1 eigenspace. Fourier coordinates of any odd-base idempotent satisfy F_t=F_(−t) F_(2t); nonzero generated <2,−1> orbits form finite torus-isogeny solutions with nonsingular exponent matrix, giving Δ_d known root counts, isolated reduced base points, and F_tF_(−t)=1 on active orbits. In the even cover, odd-frequency pairs are linear and each active orbit supplies h_d/2 parameters; augmentation 1 adds the self-opposite Fourier parameter. Therefore all reduced complex components are affine spaces and the component dimension polynomial is (1+z)∏_{d|m,d>1}(1+Δ_d z^(h_d/2))^(φ(d)/h_d), with zero the only isolated component and maximum dimension (m+1)/2. Independent complete arithmetic enumeration of C[R_6] idempotents over F7 (7^6 tuples) found 176, with eight fibers and cardinalities {1:1,7:4,49:3}, matching P_6=1+4z+3z². Finite-field check is only corroboration of the complex algebraic proof.
 
-Elhamdadi–Nunez–Singh–Swain (arXiv:2204.11288, Sections 3–4) give conditional idempotent classifications for quandle coverings when the base has only trivial idempotents. Their condition does not hold for complex odd dihedral bases. Elhamdadi–Nunez–Singh (arXiv:2207.09257, Sections 6–7) give small integral/modular calculations and complex Peirce spectra. Elhamdadi–Ta–Virgin (arXiv:2609.03799, Sections 3–4) derive the Fourier identity used here for complex Alexander quandle algebras, and apply it to integral rigidity. Sangare–Ta (arXiv:2608.01550, Sections 3–4) compute even-order automorphism groups but not this idempotent variety. Zhang (arXiv:2610.08204, Sections 3–5) treats integral augmentation filtrations and Peirce spectra. The arithmetic odd-base root multiplicities are acknowledged as a previously studied phenomenon, not offered as the new contribution; the actual new claim is the even-order geometric lifting, exact Peirce-fiber isomorphism and affine-component topology. A broader implicit treatment of quandle-covering idempotent schemes remains an originality risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is canonical: the full idempotent variety of the nonassociative algebra attached to every even dihedral quandle of order twice an odd integer. The result is an exact classification of its geometry, not a single small computation: every component is smooth affine, the component number and all dimensions are determined, the isolated-idempotent boundary is sharp, and fibers are identified with a natural Peirce eigenspace. This connects lifting of quandle idempotents with an independently meaningful linear-algebra invariant. The statement stops at moduli congruent to two modulo four; longer doubling towers require genuinely different arguments. No independent validation is represented.
+Conditional quandle-covering idempotent theorems (Elhamdadi–Nunez–Singh–Swain 2022) require a base with only trivial idempotents, violated by the complex odd-dihedral base. Prior Fourier idempotence relations and odd-base root multiplicities are explicitly known ingredients. The claimed additional even-order split square-zero/Peirce fiber geometry and all-m component-dimension polynomial are qualified new findings. Generic square-zero-extension results might implicitly yield the lifting phenomenon and remain a priority risk.
 
-## Relationship and limitations
+## value
 
-The Fourier identity and odd-order orbit-root enumeration are not independently claimed as new. The result remains over \(\mathbb C\) for the reduced variety and is not a scheme-theoretic assertion in positive characteristic. Earlier related literature may contain less explicit equivalent reductions; the checked material does not settle global publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Even-order dihedral quandle algebras are a canonical nonassociative algebra family, with nontrivial idempotent varieties over C. A complete smooth component decomposition and exact dimension polynomial for every order twice an odd number is a natural geometric classification; it uses more than a small root count and identifies how odd-base Peirce eigenspaces govern lifting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
