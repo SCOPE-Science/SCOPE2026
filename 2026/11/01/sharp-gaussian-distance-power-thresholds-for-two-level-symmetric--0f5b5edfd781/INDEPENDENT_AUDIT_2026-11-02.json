@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T22:45:01.524952Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Explicitly decomposed zero-sum distance-power form Q_p into global 2x2 negative P_mk/m, branch-contrast negative R_k, and leaf-contrast negative a=sum delta² sectors; dimensions total N-1 for all-vertex N=1+m+mk. The exact identity P_mk=R_k+m H_p and nonproportional Laplace Gram functions show -H_p strictly positive definite for 1<p<2. Thus global P PSD implies all other sectors PD; at p=1 P=[[2,2],[2,2+2/k]] is PD, and its first diagonal reaches zero at beta_m=log2(2m/(m-1)) while P22<0, forcing an earlier determinant zero. Every zero before beta_m has P11>0 and is PSD rank1; Li–Weston strict p-negative type inheritance rules out two distinct determinant roots. The negative rank-one perturbation in 1/k and negative definite H perturbation in m lower the threshold strictly. Endpoint nullity one, ranks N-2/N-1, and two 1/k/1/m asymptotic constants follow by eigenvalue perturbation. Direct all-vertex distance matrix quadratic-form recomputation matched the three-sector formula on 60 independently sampled weights for representative m,k,p, and roots increase/decrease as stated. Finite checks do not prove the family theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General finite tree negative-type bounds yield intervals and qualitative strictness, not the exact m,k-dependent root.",
+          "Sánchez finite metric matrix determinant/inverse test is algorithmic and does not analytically simplify the explicit two-parameter family or compute both sharp limits."
+        ],
+        "reasoning": "The fact that a finite-metric algorithm could evaluate each fixed T_mk does not constitute a closed uniform classification or the strict branching and limiting properties; prior general lemmas are used openly.",
+        "searches": [
+          "Resultary published-record search: negative type generalized roundness complete finite spherically symmetric tree root m children k leaves all vertices exact threshold determinant",
+          "arXiv:1008.3418 sections 2,5",
+          "arXiv:0705.0411 enhanced negative type finite metric trees",
+          "arXiv:1108.0451 Sanchez finite-metric determinant"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1008.3418 Caffarelli Doust Weston primary full PDF, screenshots",
+        "arXiv:0901.0695v3 Li–Weston primary HTML Theorem 5.4",
+        "arXiv:0705.0411 Doust Weston prior finite metric bounds",
+        "arXiv:1108.0451 Sanchez general determinant criterion",
+        "Resultary current negative-type tree query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Weston strict inheritance of p-negative type for smaller p is a key premise and prevents two nonstrict roots, but does not provide P_mk or monotonicity.",
+          "The 2010 paper reports numerical 1.5272 and finite-tree bounds, without establishing the globally symmetric null direction and two asymptotic expansions."
+        ],
+        "reasoning": "The new theorem is a specialization of known negative-type equivalence but not a formal corollary of the inspected stronger bounds or table; its specific P/R/H decomposition and perturbations are substantive.",
+        "searches": [
+          "arXiv:0901.0695v3 Theorem 5.4",
+          "arXiv:1008.3418 full text sections 2,5",
+          "Resultary published-record search: negative type generalized roundness complete finite spherically symmetric tree root m children k leaves all vertices exact threshold determinant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schoenberg equivalence converts PSD exp(-lambda d^p) for every lambda>0 into conditional negative type of d^p, also called generalized roundness.",
+          "The all-vertex balanced depth-two tree has three independent symmetry sectors and its global sector is exactly the P_mk determinant."
+        ],
+        "reasoning": "Compared negative type, generalized roundness, Gaussian kernel and centered Euclidean embedding forms, and avoided confusing leaf-only with all-vertex metrics; old general equivalences are not claimed new.",
+        "searches": [
+          "Resultary published-record search: negative type generalized roundness complete finite spherically symmetric tree root m children k leaves all vertices exact threshold determinant",
+          "arXiv:1008.3418 metric trees generalized roundness two-level",
+          "arXiv:0901.0695v3 Li–Weston strict p-negative type"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The previously published numerical binary depth-two generalized roundness 1.5272 is recovered as alpha_2,2=1.52717308828..., and explicitly acknowledged.",
+          "The Caffarelli–Doust–Weston table is about binary trees at different depths, not all branching pairs m,k with their analytic roots and limits."
+        ],
+        "reasoning": "This calculation is not presented as discovery of the (2,2) value. The full-parameter analytic classification adds exact information beyond the table; search alone does not prove historical absence.",
+        "searches": [
+          "Resultary published-record search: negative type generalized roundness complete finite spherically symmetric tree root m children k leaves all vertices exact threshold determinant",
+          "arXiv:1008.3418 Figure/table binary depth two generalized roundness 1.5272"
+        ]
+      },
+      "rationale": "PASS, best of knowledge: 2010 Caffarelli–Doust–Weston already report the binary depth-two numerical generalized-roundness 1.5272, and Li–Weston strict inheritance is a cited known lemma; these are explicitly excluded from novelty. Inspected 2010 full paper does not supply exact all-(m,k) 2x2 determinant, strict two-variable monotonicity and asymptotic coefficients. Broader tree bounds and abstract finite-metric determinant tests are not these explicit statements.",
+      "residual_risks": [
+        "Other older association-scheme eigenvalue decompositions or depth-two tree tables might encode the same P determinant under alternate terminology.",
+        "Full Sánchez article was not independently read in this run; cannot claim the entire paper lacks an equivalent tree worked example.",
+        "The claimed threshold is simultaneous in all lambda>0; fixed-scale PSD can be different, and finite m,k checks are not all m,k."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING binary depth-two numerical estimate, NOT observed covering symbolic two-parameter theorem",
+          "evidence": "Section 5 explicitly treats binary tree at depth two numerically and the study gives broader metric-tree bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.3418",
+          "material_read": "Primary 14-page PDF Sections 2 and 5, including numerical gamma(B_2)=1.5272 on final pages; PDF visual screenshots pages 0 and 12",
+          "method": "Open arXiv PDF, inspect text and page screenshots",
+          "title": "Metric trees of generalized roundness one",
+          "trigger": "Same spherically symmetric finite binary tree, exact numerical gamma(B_2)"
+        },
+        {
+          "assessment": "COVERING strict negative-type inheritance premise; no explicit T_mk phase diagram",
+          "evidence": "Theorem 5.4: q-negative type yields strict p-negative type below q, crucial for uniqueness of endpoint.",
+          "identifier_or_url": "https://arxiv.org/html/0901.0695v3",
+          "material_read": "Full HTML main theorem text including Theorem 5.4 and relevant definitions",
+          "method": "Open full arXiv HTML and inspect theorem/assumptions",
+          "title": "Strict p-negative type of a metric space",
+          "trigger": "Essential strict exponent inheritance theorem"
+        },
+        {
+          "assessment": "General criterion is relevant but cannot justify whole-document noncoverage without full inspection",
+          "evidence": "General finite matrix criterion does not by itself provide stated closed branching monotonicity/asymptotics.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.0451",
+          "material_read": "Primary abstract and referenced broad determinant criterion; full article not independently re-read this run",
+          "method": "Open arXiv metadata and bounded bibliographic comparison",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "General finite-metric exact determinant characterization might dominate fixed tree"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The full all-vertex depth-two rooted tree is a natural two-branching family. A precise all-Gaussian-scale PSD threshold, one-sector obstruction, endpoint Euclidean embedding dimension, strict branching monotonicity and different limiting constants constitute a useful natural infinite-family classification beyond a single computed exponent.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Other older association-scheme eigenvalue decompositions or depth-two tree tables might encode the same P determinant under alternate terminology.",
+    "Full Sánchez article was not independently read in this run; cannot claim the entire paper lacks an equivalent tree worked example.",
+    "The claimed threshold is simultaneous in all lambda>0; fixed-scale PSD can be different, and finite m,k checks are not all m,k."
+  ],
+  "schema_version": 1
+}

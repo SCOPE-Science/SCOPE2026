@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact five-distance quadratic form is decomposed into independent global, branch-contrast, and leaf-contrast sectors; a strictly positive two-function fractional Laplace Gram integral proves the global sector loses positivity first. Positive definiteness at \(p=1\), a negative diagonal at the explicit upper endpoint, and strict negative-type inheritance yield exactly one determinant crossing, and explicit rank perturbations prove both strict monotonicities. Analytic perturbations at simple eigenvalues establish both asymptotic coefficients. The standalone checker reconstructed 1,257 corroborative identities and inequalities from independent shortest-path distances. The infinite theorem rests on the proof, not the finite checks.
+PASS
 
-## Originality — PASS under bounded examination
+PASS: Explicitly decomposed zero-sum distance-power form Q_p into global 2x2 negative P_mk/m, branch-contrast negative R_k, and leaf-contrast negative a=sum delta² sectors; dimensions total N-1 for all-vertex N=1+m+mk. The exact identity P_mk=R_k+m H_p and nonproportional Laplace Gram functions show -H_p strictly positive definite for 1<p<2. Thus global P PSD implies all other sectors PD; at p=1 P=[[2,2],[2,2+2/k]] is PD, and its first diagonal reaches zero at beta_m=log2(2m/(m-1)) while P22<0, forcing an earlier determinant zero. Every zero before beta_m has P11>0 and is PSD rank1; Li–Weston strict p-negative type inheritance rules out two distinct determinant roots. The negative rank-one perturbation in 1/k and negative definite H perturbation in m lower the threshold strictly. Endpoint nullity one, ranks N-2/N-1, and two 1/k/1/m asymptotic constants follow by eigenvalue perturbation. Direct all-vertex distance matrix quadratic-form recomputation matched the three-sector formula on 60 independently sampled weights for representative m,k,p, and roots increase/decrease as stated. Finite checks do not prove the family theorem.
 
-Caffarelli–Doust–Weston 2010, Section 5, already computes the binary height-two exponent numerically, and that numerical observation is excluded from claimed novelty. Their full text contains bounds for finite spherically symmetric trees rather than the two-variable exact threshold/monotonicity theorem. Sánchez 2011 supplies general finite-metric determinant/inverse tools, not the special analytic spectral reduction. Doust–Weston 2007 and Li–Weston 2009 supply necessary bounds and strict-inheritance theory. A previous one-leaf-per-hub result does not imply the new \(k\ge2\) classification and two-parameter strict comparison; the new scope excludes it. Residual risk: an older equivalent specialized association-scheme or metric-tree treatment might exist under a different title.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete depth-two symmetric trees are a natural canonical test family for negative-type and Gaussian kernels. An earlier study explicitly displayed a numerical depth-two case while emphasizing the difficulty of sharp finite-tree exponents. The new uniform theorem identifies the sole loss-of-positivity mode and proves genuinely structural strict monotonicity in two independent branch counts together with quantitatively sharp two-axis asymptotics. It does not purport to solve general deep-tree exponents.
+PASS, best of knowledge: 2010 Caffarelli–Doust–Weston already report the binary depth-two numerical generalized-roundness 1.5272, and Li–Weston strict inheritance is a cited known lemma; these are explicitly excluded from novelty. Inspected 2010 full paper does not supply exact all-(m,k) 2x2 determinant, strict two-variable monotonicity and asymptotic coefficients. Broader tree bounds and abstract finite-metric determinant tests are not these explicit statements.
 
-## Limitations
+## value
 
-The proof assumes unweighted, all-vertex depth-two trees with \(m,k\ge2\); prior work covers broader frameworks and the numerical \(m=k=2\) value. Search is bounded and cannot establish absolute historical priority. No independent external audit or validation has been completed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The full all-vertex depth-two rooted tree is a natural two-branching family. A precise all-Gaussian-scale PSD threshold, one-sector obstruction, endpoint Euclidean embedding dimension, strict branching monotonicity and different limiting constants constitute a useful natural infinite-family classification beyond a single computed exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
