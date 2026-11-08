@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result follows by a rooted-tree mass-conservation recursion that is separately compared with exhaustive sequential parking for all \(50{,}549\) small preference sequences. Under independent Poisson arrivals, two doubly preferred leaves under one intermediate parent occur with probability asymptotic to \(t^4/(8b)\); the number of such parents is asymptotically Poisson with mean \(t^4/8\). A union bound shows that all competing routes to overflow have probability \(O_t(b^{-1/4})\); each exceptional parent contributes one car to the root, which absorbs one, leaving \((Z-1)_+\). Monotone coupling with concentrated Poisson car totals proves the fixed-count limit and the two threshold directions. Finite checks validate the recursion, not the infinite limit.
+PASS
 
-## Originality — PASS, with historical-priority limitations
+For the deterministic complete b-ary height-two tree (N=b^2+b+1), the order-independent upward flux recurrence R_v=(A_v+sum_child R_child-1)_+ is exact; independent direct-versus-sequential enumeration matched all 50,549 preference sequences in the declared b=2,3 small cases. Under Poisson arrivals with per-vertex mean mu=t*b^(5/4)/N ~ t*b^(-3/4), leaf double occupancy probability q=e^-mu*mu^2/2. For each parent B_i~Binomial(b,q), and b*P(B_i>=2) -> t^4/8. The b independent rare-parent events converge in total variation to Poisson(t^4/8); higher leaf occupancies, parent direct-arrival intersections and triple-leaf collisions are bounded by O_t(b^-1/4). On the good event each crowded parent emits one car, the root absorbs one, so F=(Z-1)_+. Monotone coupling of fixed car count with two Poisson counts proves full fixed-m distribution and sharp sub/supercritical zero-failure threshold at m~b^(5/4)~N^(5/8). The Poissonized rate O_t(b^-1/4) is not asserted for fixed-m. Finite enumeration validates recurrence but does not replace the asymptotic estimates.
 
-Prior results cover generic parking functions on rooted trees, extremal trees, and random Cayley or Galton–Watson tree parking transitions. The closest model sources are Bruner–Panholzer (2015), Contat–Curien (2021), Aldous–Contat–Curien–Hénard (2022), and Contat (2023). Their stated theorems concern general characterizations, different tree ensembles, or fixed branching degree. The explicit deterministic height-two high-degree scale \(m\asymp b^{5/4}\) and the shifted-Poisson law for the **number** exiting are not direct special cases of their conclusions. The known local flux recursion and the Poisson rare-event theorem are credited. Historical priority beyond the inspected sources has not been independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The result identifies an actual first-failure threshold in a canonical bounded-depth hierarchy where car density tends to zero. It explains the nontrivial \(5/8\) load exponent via a two-level collision cascade and gives the full escape-count distribution, not merely a mean or one probability. It is a benchmark for parking bottlenecks in high-degree hierarchical networks and illustrates a sharp mechanism distinct from positive-density transitions on random trees.
+Best-of-knowledge PASS for the complete shifted-Poisson escape-count law and 5/8 critical load exponent on a deterministic height-two high-degree tree. Existing rooted-tree parking enumeration and random Cayley-tree/constant-degree Galton–Watson results have different graph sequences/load regimes, and generic Poisson approximation/Abelian recursion is credited. No same-parameter exact limiting law found in Resultary or inspected literature; historical priority remains qualified.
 
-## Scope and limitations
+## value
 
-Only deterministic balanced height-two trees, uniform independent preferences and one-space upward parking are treated. A fixed-count rate of convergence is not claimed. A broader historical-priority search and independent mathematical review remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical two-level hierarchy yields a sparse-arrival parking phase transition through a double-collision cascade, with a nontrivial exponent 5/8 and an exact nondegenerate law for the number escaping, not only a success probability. This natural exact benchmark can inform parking and load-balancing investigations in shallow networks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
