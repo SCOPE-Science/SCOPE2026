@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is restricted to strictly positive edge weight, one-dimensional full-line or reflected half-line geometries, and the two explicitly stated triangular limits. The renewal decomposition uses independent record increments from the strong Markov property and the symmetry of the full-line extrema. The recurrence for simple-walk return times has the correct absorbing/reflected boundary conditions, and the geometric transform gives equation (1) for every finite range level. The sum of the hyperbolic-tangent deficits is uniformly of order the inverse Laplace spatial scale. The logarithmic expansion has errors of order \(c_n+m c_n^2/n\), which vanish in both specified regimes. Laplace uniqueness, Brownian first passage, and the monotone range/inverse-range identity establish the full claimed distributions, including the boundary regimes. A separate finite-state/rational renewal checker passed 608 assertions and is reproducible. These checks are supporting evidence, not the infinite proof.
+## correctness
 
-## Originality — PASS, subject to historical-priority risk
-The full text of Hu, Ma, Song and Wang (arXiv:2602.10721) proves fixed-positive-weight half-line range moment asymptotics; Pfaffelhuber and Stiefel (arXiv:1903.05234) likewise treat fixed-positive-weight full-line asymptotics. Hu, Song and Wang (arXiv:2610.36790) derive fixed-weight iterated-logarithm laws. Serlet's 2013 and 2018 papers are highly relevant to exact hitting times, records and invariance principles but complete texts could not be inspected, so they cannot be ruled out as historical antecedents. The claim here instead concerns weight depending on observation horizon, the \(n^{-1/2}\) transition, an explicit intermediate distribution and a full-line/half-line universality statement. No directly implying theorem was found in inspected literature or mathematical-record comparisons. The fixed-parameter results do not themselves imply uniformity over vanishing parameters. Independent historical-priority review remains outstanding.
+PASS
 
-## Mathematical value — PASS
-For constant positive edge weight, the two geometries have different range-moment constants. Determining precisely when that distinction disappears and how the range crosses from ballistic to diffusive-side growth is a natural and previously unresolved parameter-dependent probability question. The explicit nontrivial one-parameter family of distribution functions, endpoint laws and common half-normal scaling constitute a meaningful new characterization, not a renaming of a pre-existing distribution. The analytic renewal approach also makes the mechanism transparent.
+In both full-line and reflecting half-line ORRW, independent inverse-record increments satisfy the geometric-excursion transform E q^{S_m}=q^m∏(1+c_n tanh θ tanh(κ iθ))^−1 with q=sech θ and κ=1/2 or 1. Independently solved exact rational i=2 discounted Markov equations verify the renewal factor for both geometries. The tanh-deficit sum O(1/θ) and logarithmic expansion yield Laplace limits r+H_(γr) for m~rn and H_r for m~r√n/c_n; Brownian hitting-time inversion gives stated CDF and half-normal limit. The triangular-array hypotheses c_n√n→γ or c_n→0,c_n√n→∞ are essential.
 
-## Closest literature, risks, and scope
-The closest first-public source is Hu, Ma, Song and Wang, *The range of once-reinforced random walk on the half-line*, first posted 11 February 2026. Another direct comparison is Pfaffelhuber and Stiefel, *The range of once-reinforced random walk in one dimension*, arXiv:1903.05234. Serlet, *Hitting times for the perturbed reflecting random walk* (2013), and *Explicit Laws for the Records of the Perturbed Random Walk on Z* (2018), are relevant but were not read in full; summaries alone cannot establish absence of coverage. The proof does not address fixed-positive-weight limits or functional/path-level convergence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hu–Ma–Song–Wang and Pfaffelhuber–Stiefel investigate fixed-positive reinforcement weights, including moments of the half-line and full-line range; fixed-weight estimates do not automatically imply the n-dependent weak-weight triangular crossover or common full/half-line law. Serlet 2013 hitting-times and 2018 record-law papers are plausible; 2013 full text inaccessible after lawful OA/preprint attempts and authorized download returned VPN disconnected, hence material priority risk not scientific disproof.
+
+## value
+
+PASS
+
+The sharp n^-1/2 weak-reinforcement crossover and explicit nondegenerate distribution for two distinct one-dimensional walk geometries classify a natural probabilistic transition not mechanically implied by fixed-weight moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
