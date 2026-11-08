@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T13:46:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unit-rate absorbing pure-birth Qn the transient power-series coefficients c_k of R(h(z−1)) and absorbing-column tail b_k exactly characterize entrywise nonnegativity. The c0=2(3−h)/(h²+4h+6) sign forbids h>3; for 0<h≤3 an exact positive-amplitude sine expression for b_k has φ>π/12 and ψ>π/6, forcing a negative b_k at some k≤10 and thus forbidding all n≥12. Exact recurrence at h=3 gives positive required coefficients through index 9 and hence feasibility n≤11; small-step fifth Taylor coefficient excludes n≥6 near 0. For n6, b4 sign is quintic P with strictly positive derivative, yielding {0}∪[γ,3]. Independent SymPy exact matrix/recurrence checks passed. No claim of complete n7–11 safe sets.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lóczi–Ketcheson analyze rational absolute monotonicity of stability maps under general positivity requirements.",
+          "Higueras et al. change the integrator by perturbation, while the claim fixes R(z)=(6+2z)/(6−4z+z²)."
+        ],
+        "reasoning": "Broader methods theorems operate under different quantification/modified R; cannot imply exact n=11 fixed-family positivity frontier.",
+        "searches": [
+          "Lóczi Ketcheson rational functions maximal radius absolute monotonicity arxiv 1303.6651",
+          "Higueras Ketcheson Kocsis optimized perturbations RK arxiv 1505.04024"
+        ]
+      },
+      "checked_sources": [
+        "Lóczi–Ketcheson arXiv:1303.6651v1 primary HTML",
+        "Higueras–Ketcheson–Kocsis arXiv:1505.04024 abstract",
+        "Resultary published [2/2] Padé barrier summary",
+        "SCOPE Git RESULT.md and verify.py (symbolic recurrence/matrices)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Padé [2/2] barrier gives an eight-state obstruction for a fourth-order different time-stepping map.",
+          "For this Radau R, b10(3)<0 but all b0..b9(3)>0, giving 11/12 separation via exact coefficients."
+        ],
+        "reasoning": "Changing the rational stability function invalidates parameter-based inference; the assessed sharp frontier requires its own analytic phase inequality.",
+        "searches": [
+          "Lóczi Ketcheson rational absolute monotonicity fixed Radau",
+          "Resultary eight-state Padé Markov barrier"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R(hQn) has stochastic row sums but positivity is governed by c_k≥0 and b_k≥0.",
+          "Standard SSP/absolute monotonicity concerns positivity for all operator classes or small steps, not this nonmonotone safe interval."
+        ],
+        "reasoning": "Equivalent endpoint-stochasticity formulation is exact once row sums are one; a general radius theorem does not characterize these discrete chain entries.",
+        "searches": [
+          "\"Radau IIA\" \"absorbing\" \"pure birth\" positivity",
+          "Resultary: Radau IIA positivity absorbing birth chain eleven state threshold Markov"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary eight-state Padé barrier applies to [2/2] Gauss–Legendre (different rational function).",
+          "No prior exact n6 γ interval or n11 positive/n12 absent table located."
+        ],
+        "reasoning": "No exact table or database entry covering this Radau endpoint chain cutoff identified; absence of search matches not novelty certification.",
+        "searches": [
+          "Radau IIA Markov pure birth 11 12 state sharp threshold",
+          "Resultary: Radau IIA positivity absorbing birth chain eleven state threshold Markov"
+        ]
+      },
+      "rationale": "General absolute-monotonicity or SSP perturbation results do not classify the unmodified method on a specified absorbing chain: in this problem small steps are unsafe while a larger interval is safe. Nearby SCOPE [2/2] Pade eight-state barrier concerns a different method. No stronger result showing the Radau eleven-state frontier was found.",
+      "residual_risks": [
+        "Other specialist publications on Radau IIA CTMC endpoint positivity may contain this exact absorbing-chain threshold; bounded search not exhaustive.",
+        "Exact safe sets for n7–11 not classified; do not imply full positivity windows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_SSP_CONTEXT_NOT_CHAIN_FEASIBILITY",
+          "evidence": "Absolute-monotonicity radius is not exact absorbing chain n11 existence condition.",
+          "identifier_or_url": "https://arxiv.org/html/1303.6651v1",
+          "material_read": "Full accessible HTML including method/rational absolute monotonicity statements and proof context",
+          "method": "Primary HTML reading",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "Same rational integrator positivity topic"
+        },
+        {
+          "assessment": "DIFFERENT_MODIFIED_METHOD",
+          "evidence": "Perturbations alter stability function; cannot infer unmodified endpoint safe set.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.04024",
+          "material_read": "Abstract and reported perturbation setup; not full priority reading",
+          "method": "Published abstract/summary",
+          "title": "Optimal monotonicity-preserving perturbations of a given Runge–Kutta method",
+          "trigger": "Possible strong broad RK positivity theorem"
+        },
+        {
+          "assessment": "DIFFERENT_INTEGRATOR",
+          "evidence": "[2/2] Padé and Radau rational maps differ; no implication inferred from summary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Resultary record title and summary only",
+          "method": "Published database snippet comparison",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Published mathematical index near analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact feasibility cutoff on canonical absorbing CTMC generators, including a recovered positivity interval and an obstruction persisting at every positive step, is a meaningful method-specific sharp boundary, not a routine Taylor-sign deduction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equal-rate finite absorbing pure-birth Qn only; not arbitrary CTMC generators or intermediate Radau stages.",
+    "Other specialist publications on Radau IIA CTMC endpoint positivity may contain this exact absorbing-chain threshold; bounded search not exhaustive.",
+    "Exact safe sets for n7–11 not classified; do not imply full positivity windows."
+  ],
+  "schema_version": 1
+}

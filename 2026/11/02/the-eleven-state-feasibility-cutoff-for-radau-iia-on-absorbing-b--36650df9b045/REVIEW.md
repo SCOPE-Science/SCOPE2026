@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The entry formula for the absorbing unit-rate chain reduces every endpoint entry to a generating-function coefficient or tail. The sign-angle argument proves impossibility for every positive step when the chain has twelve or more states; exact finite rational coefficients at step three establish feasibility for all smaller chains. The six-state quintic derivative proves uniqueness of its boundary. The standalone verifier checked 1701 exact assertions, including matrix-inverse comparisons.
+## correctness
 
-**Originality (PASS, subject to literature risk).** Lóczi–Ketcheson (2013) studies rational absolute monotonicity, and Higueras–Ketcheson–Kocsis (2015) studies perturbed RK methods. Prior directed-cycle Radau IIA work establishes related six-state small-step failure and an *unbounded* large-step positivity window; it does not cover the absorbing-chain eleven-state existence cutoff or bounded six-state window. The published eight-state fourth-order Padé Markov counterexample concerns another rational scheme. Its full text was inaccessible, leaving specialist overlap risk.
+PASS
 
-**Mathematical value (PASS).** The result is a sharp all-size threshold for whether any Markov-compatible endpoint step exists on a canonical absorbing chain, plus a complete algebraic safe domain in six states. It distinguishes a true feasibility obstruction from small-step or scalar stability alone, and gives implementable bounds for numerical Markov propagation.
+For unit-rate absorbing pure-birth Qn the transient power-series coefficients c_k of R(h(z−1)) and absorbing-column tail b_k exactly characterize entrywise nonnegativity. The c0=2(3−h)/(h²+4h+6) sign forbids h>3; for 0<h≤3 an exact positive-amplitude sine expression for b_k has φ>π/12 and ψ>π/6, forcing a negative b_k at some k≤10 and thus forbidding all n≥12. Exact recurrence at h=3 gives positive required coefficients through index 9 and hence feasibility n≤11; small-step fifth Taylor coefficient excludes n≥6 near 0. For n6, b4 sign is quintic P with strictly positive derivative, yielding {0}∪[γ,3]. Independent SymPy exact matrix/recurrence checks passed. No claim of complete n7–11 safe sets.
 
-**Limits.** Only equal-rate absorbing pure-birth chains and endpoint nonnegativity are classified. Exact complete intervals for seven through eleven states remain unproved. Search coverage is bounded and not a novelty certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General absolute-monotonicity or SSP perturbation results do not classify the unmodified method on a specified absorbing chain: in this problem small steps are unsafe while a larger interval is safe. Nearby SCOPE [2/2] Pade eight-state barrier concerns a different method. No stronger result showing the Radau eleven-state frontier was found.
+
+## value
+
+PASS
+
+An exact feasibility cutoff on canonical absorbing CTMC generators, including a recovered positivity interval and an obstruction persisting at every positive step, is a meaningful method-specific sharp boundary, not a routine Taylor-sign deduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
