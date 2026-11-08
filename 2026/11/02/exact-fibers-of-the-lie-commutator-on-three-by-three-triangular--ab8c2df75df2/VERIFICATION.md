@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The complete symbolic proof appears in RESULT.md. The accompanying `check_commutator.py` uses only the Python standard library. It performs direct \(3\)-by-\(3\) entry-bracket enumeration of all ordered matrix pairs over \(\mathbb F_2\) and \(\mathbb F_3\), then independently exhausts the eight-vector-coordinate part of the counting argument over \(\mathbb F_4\) and \(\mathbb F_5\). Each check compares all \(q^3\) output targets individually against the formula and verifies that the resulting counts sum to \(q^{12}\).
+## correctness
 
-Executed command: `python3 check_commutator.py`.
+PASS
 
-Observed final output: `TRIANGULAR_BRACKET_FIBER_CENSUS_OK q=2,3,4,5`.
+Actual multiplication gives u=A·S, v=B·T, w=(A+B)·R+det(S,T); there are q² diagonal lifts for fixed A,B. For A+B≠0, R contributes q solutions; for A+B=0 the determinant count splits according to u=v=0 and w=0. The derived formula q³M(u)M(v)+1_{u=v=0}(q^8 1_{w=0}−q^7) yields four positive strata and, after summing over w, independent U,V; half L1 deviation gives (q−1)/q^5. Independent literal matrix-pair enumeration checked every pair at q=2 and q=3, including characteristic two.
 
-These are exhaustive tests in the specified fields only; the all-field result rests on the determinant and linear-equation proof, not extrapolation. The program does not compute scheme dimensions, geometric components, or any higher-size case. Independent audit has not been performed.
+## originality
+
+PASS
+
+De Mello 2019 classifies images of multilinear polynomials on UT_3 over infinite fields and already covers commutator image surjectivity. Kaur–Sharma–Singh 2020 compute commuting probabilities of invertible triangular groups in odd characteristic, not ordered full-algebra nonzero additive bracket fibers. The result is limited to this finer complete distribution.
+
+## value
+
+PASS
+
+Exact preimage counts and a localized central-coordinate independence defect quantify the nonuniformity of a canonical bilinear Lie bracket map, refining image or zero-commutation-only calculations. The exact four strata and TV formula can support random triangular matrix and Lie algebra analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
