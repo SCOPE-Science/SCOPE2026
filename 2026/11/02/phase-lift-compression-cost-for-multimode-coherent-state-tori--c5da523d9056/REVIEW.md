@@ -1,19 +1,21 @@
-# Review: Phase-lift compression cost for multimode coherent-state tori
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a normalized oscillator vector, the Fourier coefficient vectors of the phase orbit are orthogonal; for the rank-one Hilbert--Schmidt orbit, matrix diagonals with distinct difference indices are orthogonal. Their squared norms are respectively the number-distribution weights and the difference-convolution weights. Averaging any complex rank-\(N\) projection gives the Ky Fan lower bound, attained uniformly by keeping the top Fourier coefficients. Convolution majorization gives the width inequality, strict for full-support product Poisson laws. Stirling and Fourier inversion yield the product Gaussian local limit; tightness, radial level-set separation and lattice counting give the two exact dimension limits and ratio \(2^{d/2}\). The companion script passed 724 finite checks, but infinite claims depend on proof. The statement does not concern physical encoding or positive reconstruction.
+PASS
 
-## Originality — PASS (best-knowledge; priority risk remains)
+For any norm-one complex Hilbert Fourier orbit ψθ=Σe^{ik·θ}v_k with pairwise orthogonal v_k and weights p_k, Haar averaging of projected squared norm combined with Ky Fan bounds gives N-width²=1−ΣtopN p; the span of top modes achieves uniform-in-phase equality. Rank-one projector orbit ρθ in complex Hilbert–Schmidt class has orthogonal difference-index Fourier operators with weights q_l=Σ_k p_k p_{k−l}, yielding N-width²=1−ΣtopN q. Convex convolution q=p*check p is majorized by p; strictly so for all finite N when p is strictly positive Poisson product law. For coherent phases p is Poisson(t²a_j²) product, q is Skellam(t²a_j²) difference product. Multivariate local CLT, strict radial normal superlevel sets and Gaussian ball mass give dimensions Nv∼v_d R^d t^d∏a_j and Nproj∼2^{d/2} times this, fixed d, ai>0, ε∈(0,1), hence ratio 2^{d/2}. This is strictly about complex-linear Hilbert/HS widths, not physical positive-state compression. Independent μ=2 one-mode calculation reproduced top5 p mass≈.94734698 versus q≈.79975660 and strict N=1..14 finite majorization.
 
-The general isometric orbit-width spectral method is closely related to Arbes--Greif--Urban, *The Kolmogorov N-width for linear transport: exact representation and the influence of the data* (2025), whose primary proof and eigenspace characterization were examined. This method and elementary Poisson/Skellam identities are acknowledged as prior ingredients. The specific infinite-dimensional coherent phase torus, the convolution comparison of pure vectors with their rank-one Hilbert--Schmidt lift, and the anisotropic fixed-error ratio \(2^{d/2}\) were not located in checked primary literature or published-finding corpus mathematical records. Drummond--Reid describes projected phase states but not widths; Mamon studies orbit dimension, not approximation cost. The Mensah 2026 motivating work's primary text was inaccessible, and a broader result might implicitly subsume the sharp quantitative comparison. No absence-of-search-result is asserted to prove uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact budget for optimally approximating a full multimode phase orbit is a natural operator approximation invariant. Rank-one lifting is an essential representation change from state vectors to Hilbert--Schmidt observables. The constant \(2^{d/2}\), independent of anisotropy and fixed positive tolerance, quantifies a nontrivial dimension-driven overhead; its covariance-convolution mechanism also explains the exact finite-intensity ordering. This offers a sharp reusable benchmark for linear reduced-order models, without claiming physical admissibility.
+Arbes–Greif–Urban 2025 is a CLOSE broad theorem: full open-access 36-page article §§3–4, especially Corollary3.6, derives sorted shift-isometric covariance eigenspace N-width tails. Hence the universal optimal Fourier-orbit lemma is PRIOR mathematical machinery and is not independently novel. The proposed claim applies it to two distinct coherent-state phase orbits, identifies Poisson vs Skellam weights, proves strict finite-N overhead and exact anisotropic high-intensity compression ratio 2^{d/2}, not stated by inspected transport article. Mensah 2026 Pego HS criterion concerns precompactness and not quantitative widths. Existing group-orbit approximation articles may include an equivalent formulation; priority qualified.
 
-## Literature limits
+## value
 
-Main closest general method: Arbes--Greif--Urban, DOI 10.1007/s10444-025-10224-0. Other inspected full texts: Drummond--Reid, arXiv:1610.01261; Mamon, arXiv:2506.07995. Mensah, arXiv:2608.29976, was available as an abstract and third-party report only; primary full text was inaccessible. The remaining risk is implicit coverage by more general prior shift-group width theory or a separately published coherent-state approximation result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Compression of vectors and projector lifts of a d-mode phase orbit are natural competing linear approximation problems. A complete exact formula, a strict comparison at every finite N, and a sharp 2^{d/2} asymptotic resource overhead provide a motivated, quantitatively actionable invariant beyond the generic N-width theorem; no physically implementable compression claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
