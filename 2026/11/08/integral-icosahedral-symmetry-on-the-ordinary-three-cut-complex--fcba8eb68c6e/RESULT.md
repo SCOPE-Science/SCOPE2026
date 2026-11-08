@@ -1,0 +1,56 @@
+# Integral icosahedral symmetry on the ordinary three-cut complex
+
+## Finding
+Let \(I\) be the twelve-vertex icosahedral graph, let \(X=\Delta_3(I)\) be its **ordinary** three-cut complex, and let \(G=\operatorname{Aut}(I)\cong A_5\times C_2\). Write \(\varepsilon\) for the character trivial on the rotational subgroup \(A_5\) and equal to \(-1\) on the central antipodal involution. Let \(\mathscr A\) be the six unordered antipodal vertex pairs. Orient each antipodal pair arbitrarily and define the rank-six integral \(G\)-lattice \(U_{\mathscr A}\) with these oriented pairs as basis: \(g\) sends a basis vector to that of the image pair, multiplied by \(-1\) exactly when it reverses the chosen pair orientation. Then, **integrally and equivariantly**,
+\[
+\widetilde H_7(X;\mathbb Z)\cong\mathbb Z_{\varepsilon},\qquad
+\widetilde H_8(X;\mathbb Z)\cong U_{\mathscr A},\qquad
+\widetilde H_j(X;\mathbb Z)=0\ (j\notin\{7,8\}).
+\]
+The antipodal involution acts as \(-1\) on degree seven and as \(-\mathrm{Id}\) on all six degree-eight generators. Restricted to rotations, the degree-eight character takes values \((6,-2,0,1,1)\) on the five conjugacy classes of \(A_5\) of orders \(1,2,3,5,5\). Consequently its rational restriction is the irreducible six-dimensional rational icosahedral representation \(W_6\), whose complexification is the sum of the two Galois-conjugate irreducible three-dimensional representations. Equivalently, as rational \(A_5\times C_2\)-modules,
+\[
+\widetilde H_7(X;\mathbb Q)\cong\mathbf 1\boxtimes\varepsilon,\qquad
+\widetilde H_8(X;\mathbb Q)\cong W_6\boxtimes\varepsilon.
+\]
+The nonequivariant homotopy classification \(X\simeq S^7\vee\bigvee^6S^8\) was established previously and is **not** the new finding.
+
+## Assumptions and scope
+The graph is the one-skeleton of the usual regular icosahedron; for complete reproducibility the included standard-library program `verify_icosa_equivariant.py` defines all twelve labeled adjacency lists. The six antipodal pairs in this labeling are \(\{0,3\},\{1,10\},\{2,11\},\{4,8\},\{5,9\},\{6,7\}\). For an induced three-vertex subgraph, disconnected means at most one of its three possible graph edges is present. The facets of \(X\) are the nine-vertex complements of these disconnected triples. All homology is reduced simplicial homology, with integral coefficients except where explicitly marked rational; the group action is induced by graph automorphisms.
+
+## Proof
+**1. A natural invariant model for the Alexander dual.** Put \(K=X^\vee\), the combinatorial Alexander dual relative to the twelve-element graph-vertex set. Thus a set lies in \(K\) precisely when it contains no disconnected triple. Equivalently, the complement graph induced on that set has maximum degree at most one. The icosahedral graph has exactly twenty triangular faces. Any nonadjacent pair at graph distance two has exactly two common neighbors, and those neighbors are adjacent. There are thirty such pairs. Every pair at distance three is antipodal; there are exactly six. These properties imply that \(K\) has every vertex and pair, exactly eighty triangles (twenty graph triangles and sixty induced two-edge paths), exactly thirty tetrahedra, and no higher simplices. Each tetrahedron consists of a distance-two pair and its adjacent common neighbors. These exact assertions can also be checked directly from the displayed graph adjacency data, independently of a geometric realization.
+
+Let \(S\subseteq K\) be the geometric icosahedral boundary (the thirty original graph edges and twenty triangular faces), which is a simplicial \(2\)-sphere, and define \(L=S\cup\mathscr A\), adjoining the six antipodal edges as one-simplices. Both \(S\) and \(L\) are invariant under **every** graph automorphism.
+
+**2. The inclusion \(L\hookrightarrow K\) is a homotopy equivalence.** For each distance-two pair \(\{u,v\}\), its two common neighbors \(a,b\) determine a unique tetrahedron \(\{u,v,a,b\}\). The two graph-triangle faces \(\{u,a,b\}\) and \(\{v,a,b\}\) lie in \(S\). The other faces \(\{u,v,a\}\) and \(\{u,v,b\}\) are distinct induced two-edge paths whose shared nonedge is \(\{u,v\}\). Neither is a face of another tetrahedron: each distance-two pair has its unique common-neighbor tetrahedron. First collapse the tetrahedron along \(\{u,v,a\}\); then the remaining path triangle collapses along the free edge \(\{u,v\}\). Repeating this independently for all thirty distance-two pairs gives **sixty elementary simplicial collapses** and leaves exactly \(L\). Although a chosen collapse sequence need not commute with the symmetry action, the **inclusion of the invariant subcomplex** \(L\hookrightarrow K\) is itself equivariant and induces integral equivariant homology isomorphisms.
+
+**3. Integral homology lattices of the dual.** Since \(S\cong S^2\), it has \(H_1(S;\mathbb Z)=0\), \(H_2(S;\mathbb Z)\cong\mathbb Z\), and is connected. The relative cellular chain group \(C_1(L,S;\mathbb Z)\) is freely generated by the six oriented antipodal edges and has no higher relative cells. The long exact sequence of \((L,S)\), together with the isomorphism on \(H_0\), gives natural \(G\)-module isomorphisms
+\[
+\widetilde H_2(K;\mathbb Z)\cong\widetilde H_2(S;\mathbb Z)\cong\mathbb Z_{\varepsilon},\qquad
+\widetilde H_1(K;\mathbb Z)\cong H_1(L,S;\mathbb Z)\cong U_{\mathscr A}.
+\]
+Here \(\varepsilon\) is the orientation action on the icosahedral sphere: rotations preserve orientation and the central antipodal map reverses it. All other reduced homology is zero. This is an **integral** identification, not merely a character computation.
+
+**4. Equivariant Alexander duality, including the sign.** Integral combinatorial Alexander duality gives \(\widetilde H_i(X;\mathbb Z)\cong\widetilde H^{9-i}(K;\mathbb Z)\), equivariantly up to the sign of the permutation of the twelve ambient vertices. Every icosahedral graph automorphism is an even permutation: the rotational subgroup is \(A_5\), which has no nontrivial homomorphism to \(\{\pm1\}\), and central inversion is a product of six disjoint transpositions. Hence the sign twist is trivial. Since \(H_1(K;\mathbb Z)\) and \(H_2(K;\mathbb Z)\) are free, universal coefficients identify the corresponding cohomology as their integral duals. The signed permutation lattice is canonically self-dual after choosing the oriented-edge orthonormal basis; the orientation line is also self-dual. At \(i=7\), the dual degree is \(2\); at \(i=8\), it is \(1\). This yields the two claimed integral \(G\)-modules, without using the earlier nonequivariant wedge calculation.
+
+**5. The rational irreducible.** For any graph automorphism \(g\), its trace on \(U_{\mathscr A}\) is the number of setwise-fixed antipodal pairs on which \(g\) preserves the chosen edge orientation, minus the number on which it reverses that orientation. The sixty rotations have class counts \(1,15,20,12,12\) for orders \(1,2,3,5,5\), and the corresponding trace values are \(6,-2,0,1,1\). The character table of \(A_5\) identifies this with the sum of its two conjugate three-dimensional characters. Those characters are interchanged by the Galois action over \(\mathbb Q(\sqrt5)\); hence their sum is the character of the irreducible rational representation \(W_6\). The antipodal involution acts by \(-1\) on every oriented antipodal edge, giving the asserted \(C_2\)-twist.
+
+## Verification
+Execute `python3 verify_icosa_equivariant.py` using the Python standard library. It enumerates all \(4096\) vertex subsets to compare direct ordinary-cut-complex membership with Alexander duality; checks the thirty distance-two pairs, six antipodal pairs, all faces and each of the sixty elementary collapses; and independently computes exact boundary ranks over characteristics \(2,3,5\). It enumerates all \(120\) graph automorphisms by adjacency-respecting backtracking, verifies the sphere orientation and antipodal characters, and checks **both** the dual and original cut-complex signed Lefschetz traces for each automorphism. The recorded output `verify_output.txt` begins `VERIFY_OK` and is reproducible by running the included script. The finite verification checks this fixed twelve-vertex statement, not an infinite-family extrapolation.
+
+## Relationship to prior work
+Bayer et al. [1] introduce ordinary cut complexes and their homology representations; their explicit equivariant calculations concern different graph families, including complete multipartite graphs and cycles. Their sequel [2] studies disjoint unions, squared paths, grids, and path/cycle group actions, not the present representation. A publicly indexed icosahedral three-cut calculation [3] **already establishes** the nonequivariant homotopy type; its full RESULT statement expressly leaves equivariant homology outside its scope. A separate cube three-cut equivariant computation [4] determines a different automorphism-group module and cannot imply the present \(A_5\)-irreducibility or integral six-axis lattice. A published icosahedral *neighborhood-complex* representation [5] contains a rational \(W_6\) constituent but is a different simplicial complex with different Betti numbers and does not imply the integral cut-complex action. Here the **new information** is the integral \(A_5\times C_2\)-module identification and its irreducible rational consequence, not the preexisting sphere multiplicities.
+
+## Limitations
+The result concerns this specific graph, its **ordinary** three-cut complex, and natural integral homology modules. It does not assert an equivariant splitting of the underlying homotopy type, an integral decomposition into rational irreducible lattices, or a result for other cut parameters. The previously known nonequivariant homotopy classification is deliberately not presented as new. Bibliographic search cannot exclude unindexed equivalent equivariant calculations.
+
+## References
+[1] Margaret Bayer, Mark Denker, Marija Jelić Milutinović, Rowan Rowlands, Sheila Sundaram, Lei Xue, *Topology of Cut Complexes of Graphs*, arXiv:2304.13675 (first publicly posted 2023-04-26), SIAM Journal on Discrete Mathematics 38 (2024), 1630–1675.
+
+[2] Margaret Bayer, Mark Denker, Marija Jelić Milutinović, Sheila Sundaram, Lei Xue, *Topology of Cut Complexes II*, arXiv:2407.08158 (first publicly posted 2024-07-11).
+
+[3] *The icosahedral three-cut complex is a mixed-dimensional sphere wedge*, publicly indexed result (2026), exact public identifier `fb104995d472`, https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-the-icosahedral-three-cut-complex-is-a-mixed-dimensional-sphere--fb104995d472 .
+
+[4] *Automorphism-module structure of the cube three-cut complex*, publicly indexed result (2026), identifier `7e5f41a11a8d`.
+
+[5] *Rational icosahedral symmetry on the neighborhood complex*, publicly indexed result (2026), identifier `5d7e0af98d39`.
