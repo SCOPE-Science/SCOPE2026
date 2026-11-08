@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem uses normalized slice measure \(d\mathcal H^{n-1}/\sqrt n\), the frequency representative \(k_n=0\), and integer slice levels \(2\le s\le n-2\). The Laplace transform follows by Fubini on the cube; the repeated factors are exactly \((1-e^{-z})^n\) because the frequencies are integers. For distinct poles, the sum of coefficients of \(z^{-1}\) vanishes. For precisely one double pole, the coefficient of the second-order term is the displayed nonzero product and all simple-pole contributions cancel at integer arguments. The finite alternating binomial identity gives the precise level dependence. Pair-hyperplane intersections have lower dimension, proving the sharp support-count main term, with no assertion about their exact values. All boundary conventions are explicit. The standalone checker passed 552 exact arithmetic tests and 11 alternate-integration tests, including four checks for \(n=5\). Finite tests corroborate but do not establish the general statement.
+PASS
 
-## Originality — PASS under bounded literature comparison
+From slicing Fubini transform F(u), product (1-e^-z)^n R(z), R(z)=product(z+2pi i k_j)^-1, relies essentially on integer frequencies. Simple poles have sum of residues zero (R(z)=O(z^-n)), so inverse Laplace values h(m) vanish at positive integers, giving zero coefficient for distinct entries. Precisely one double pole at common r contributes A m, where A=product_{j not a,b}(2pi i(k_j-r))^-1, while simple contributions sum to zero; finite binomial convolution gives (-1)^(s-1) binom(n-2,s-1) A, nonzero. Collision hyperplanes k_a=k_b, including those with k_n=0, have (2N+1)^(n-2) integer points each, pairwise intersections O_n(N^(n-3)), yielding leading binom(n,2)(2N)^(n-2) and the uniform-in-s ratio. Independent integer checks of binomial identity and hyperplane counts (n=5,N=2: 240 exactly-one-pair frequencies, n=5,N=3: 1200); inspected check_hypersimplex.py, with direct low-dimensional integration. Higher collisions and uniform joint n,N are deliberately unproved.
 
-The closest established work is Xu's exponential-spline and cube-slicing theory (arXiv:0806.1127), Li's hypersimplex volume/Ehrhart theory (arXiv:1104.5292), and Diaz–Le–Robins' general Fourier transform of polytopes (arXiv:1602.08593). These provide stronger general frameworks for integral calculation but do not explicitly state the arithmetic one-collision coefficient nor the uniform sharp support count. The one-collision mode requires taking a confluent pole and using the integer-phase and binomial cancellations; the count additionally requires identifying and counting the collision hyperplane arrangement. Queries for the exact claim and aliases found no matching indexed claim; an absent search hit alone is not proof of originality. A prior equivalent specialization in the spline or Fourier-polytope literature remains a material residual risk. The previously studied low-dimensional simplex/cross-polytope cases are not claimed as novel.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Hypersimplices are natural cube sections and matroid polytopes. The result shows that all nontrivial integral slices have an unexpectedly common codimension-one Fourier support density and a universal binomial rescaling at every generic resonance. This is an infinite-parameter structural relation between different polytope sections, with a sharp leading count; it is not merely a numerical slice or a renamed textbook identity. The full high-multiplicity Fourier support remains open within this statement.
+Xu’s multivariate spline theory and Diaz–Le–Robins general polytope Fourier formulas provide frameworks capable of deriving specialized slice coefficients, but inspected primary statements do not expressly give integer collision-order cancellation with sharp cross-slice support count; this requires a confluent double pole and arrangement combinatorics. Li concerns hypersimplex volume/Ehrhart quantities. Generality is treated as a serious priority caveat, not novelty by unmatched keywords.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Hypersimplices are natural matroid polytopes and integer cube sections. Across every nontrivial level the generic nonzero integer Fourier modes share codimension-one arrangement support and explicit binomial coefficient rescaling, giving a sharp resonance density with an infinite family of n,s and not just a finite sample. Higher-multiplicity collisions remain unresolved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

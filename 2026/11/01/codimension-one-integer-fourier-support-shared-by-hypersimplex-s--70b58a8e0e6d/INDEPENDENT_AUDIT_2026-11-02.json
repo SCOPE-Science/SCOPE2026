@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T23:16:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Laplace derivation Steps 1-4, blob f9927ef12e80a5f85daa70b8ffed0b821b7df4b5",
+        "Assigned check_hypersimplex.py, blob c4765c3cdc520ee049acfe864aac4a80267c852d",
+        "Independent combinatorial hyperplane counts and alternating binomial identity"
+      ],
+      "rationale": "From slicing Fubini transform F(u), product (1-e^-z)^n R(z), R(z)=product(z+2pi i k_j)^-1, relies essentially on integer frequencies. Simple poles have sum of residues zero (R(z)=O(z^-n)), so inverse Laplace values h(m) vanish at positive integers, giving zero coefficient for distinct entries. Precisely one double pole at common r contributes A m, where A=product_{j not a,b}(2pi i(k_j-r))^-1, while simple contributions sum to zero; finite binomial convolution gives (-1)^(s-1) binom(n-2,s-1) A, nonzero. Collision hyperplanes k_a=k_b, including those with k_n=0, have (2N+1)^(n-2) integer points each, pairwise intersections O_n(N^(n-3)), yielding leading binom(n,2)(2N)^(n-2) and the uniform-in-s ratio. Independent integer checks of binomial identity and hyperplane counts (n=5,N=2: 240 exactly-one-pair frequencies, n=5,N=3: 1200); inspected check_hypersimplex.py, with direct low-dimensional integration. Higher collisions and uniform joint n,N are deliberately unproved.",
+      "residual_risks": [
+        "No exact high-multiplicity collision support table, no all-real-frequency assertion, and O_n constant depends on fixed n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spline and Stokes formulas apply to more polytopes than hypersimplices",
+          "Li 2011 studies hypersimplex Ehrhart data not this integral Fourier support"
+        ],
+        "reasoning": "General Fourier formulas cover the calculation method, not a previously explicit sharp arithmetic support theorem; possibility that an unexamined specialization yields same result remains residual priority risk.",
+        "searches": [
+          "arXiv:0806.1127",
+          "arXiv:1602.08593",
+          "arXiv:1104.5292"
+        ]
+      },
+      "checked_sources": [
+        "Xu 2008 arXiv:0806.1127 primary PDF",
+        "Diaz–Le–Robins 2016 arXiv:1602.08593 primary PDF",
+        "Li 2011 arXiv:1104.5292",
+        "Resultary semantic query hypersimplex integer Fourier coefficients collision frequency equality codimension one support asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Confluent-pole coefficient A and alternating sum prove the generic collision Fourier coefficient",
+          "Separately counting union of all binom(n,2) collision hyperplanes with O(N^(n-3)) overlaps proves sharp support term"
+        ],
+        "reasoning": "The general formula requires specific integer-phase cancellations and a separate nonvanishing/combinatorial argument to yield the final statement; it was not found stated as a corollary in inspected material.",
+        "searches": [
+          "arXiv:0806.1127 primary spline identities",
+          "arXiv:1602.08593 primary Fourier polytope formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu 2008 exponential box splines can encode integer cube-slice Fourier integrals",
+          "Diaz–Le–Robins 2016 provides general polytope Fourier transform machinery including nongeneric directions",
+          "Present exact one-collision coefficient and leading nonzero integer-frequency count use poles/sections"
+        ],
+        "reasoning": "Broad integral representations might recover coefficients after specializing, but do not by themselves state or evidently imply the nonvanishing count without the integer residue cancellation and collision-hyperplane analysis.",
+        "searches": [
+          "hypersimplex integer Fourier coefficients collision frequency equality codimension one support asymptotic",
+          "arXiv:0806.1127 exponential truncated powers spline Fourier",
+          "arXiv:1602.08593 polytope Fourier Stokes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest Fourier-support results concern functions on finite-field affine sets, not continuous hypersimplex slice measures",
+          "No exact level-independent binom(n,2) hyperplane-leading support table found"
+        ],
+        "reasoning": "The count is over all integer frequencies for fixed n rather than a static numerical table; absence of hit alone is not novelty proof.",
+        "searches": [
+          "hypersimplex integer Fourier coefficients collision frequency equality codimension one support asymptotic",
+          "Resultary hypersimplex integer frequency collision leading count",
+          "arXiv:1104.5292"
+        ]
+      },
+      "rationale": "Xu’s multivariate spline theory and Diaz–Le–Robins general polytope Fourier formulas provide frameworks capable of deriving specialized slice coefficients, but inspected primary statements do not expressly give integer collision-order cancellation with sharp cross-slice support count; this requires a confluent double pole and arrangement combinatorics. Li concerns hypersimplex volume/Ehrhart quantities. Generality is treated as a serious priority caveat, not novelty by unmatched keywords.",
+      "residual_risks": [
+        "A classical general spline residue identity or a hidden specialized Fourier-hypersimplex formula may subsume the collision coefficient, and perhaps the count after a simple deduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader techniques, potential unindexed specialization; no explicit sharp all-s integer support-count statement identified",
+          "evidence": "Xu 2008 exponential truncated powers and cube slicing",
+          "identifier_or_url": "https://arxiv.org/pdf/0806.1127",
+          "material_read": "Primary PDF full text opened, definitions and main spline/polytope transform results inspected",
+          "method": "Full PDF retrieval and targeted theorem/section reading with page image inspection",
+          "title": "Multivariate Splines and Polytopes",
+          "trigger": "Exponential splines and hyperplane slice formulas could cover calculation"
+        },
+        {
+          "assessment": "Applies to wider class but no exact claimed support count seen",
+          "evidence": "Diaz–Le–Robins 2016, Fourier transforms of polytopes",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.08593",
+          "material_read": "Primary PDF opened and general Fourier/face recursion discussion read",
+          "method": "Primary PDF text and page-image review",
+          "title": "Fourier transforms of polytopes, solid angle sums, and discrete volume",
+          "trigger": "General polytope Fourier transform including nongeneric directions"
+        },
+        {
+          "assessment": "Counts lattice points in dilated polytope rather than nonzero Fourier coefficients of sections",
+          "evidence": "Li 2011 arXiv:1104.5292",
+          "identifier_or_url": "https://arxiv.org/abs/1104.5292",
+          "material_read": "Title/abstract and hypersimplex/Ehrhart statement",
+          "method": "Abstract and summary, not presented as full paper inspection",
+          "title": "Ehrhart h-star vectors of hypersimplices",
+          "trigger": "Natural same hypersimplex geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md exact collision coefficient and all-s support asymptotic",
+        "Xu 2008 relates box sections to spline/Fourier analysis"
+      ],
+      "rationale": "Hypersimplices are natural matroid polytopes and integer cube sections. Across every nontrivial level the generic nonzero integer Fourier modes share codimension-one arrangement support and explicit binomial coefficient rescaling, giving a sharp resonance density with an infinite family of n,s and not just a finite sample. Higher-multiplicity collisions remain unresolved.",
+      "residual_risks": [
+        "A general spline identity might make individual coefficients standard; the joint sharp support statement is the motivating content."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Precisely one collision coefficient only; higher multiplicity cancellation may occur.",
+    "Support asymptotic is fixed-n and is not an exact finite-N census."
+  ],
+  "schema_version": 1
+}
