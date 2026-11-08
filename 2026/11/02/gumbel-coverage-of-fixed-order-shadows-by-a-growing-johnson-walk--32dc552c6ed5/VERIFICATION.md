@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of finite checks
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3. The code uses only the standard library, exact integer binomial coefficients, and `fractions.Fraction`. It constructs (i) the full uniform single-swap walk on all \(r\)-element sets and (ii) the reduced chain on the intersection with the union of prescribed \(s\)-subset targets. For 22 specified finite cases, it checks the exact projected initial law, the full and reduced surviving distributions at eight consecutive times, the survival probabilities, and stationary entrance flux. The replay printed `PASS 396 exact-rational comparisons across 22 small-volume target families`.
+## correctness
 
-# Analytic checks and limitations
+PASS
 
-The complete proof in `RESULT.md` independently derives the bounded projection, explicit pure-death diagonalization, uniform eigenprojector control, regenerative rare entrance rate, fixed-order factorial-moment limit, and mean tail bound. Its nonstandard rate estimate is \(1-\rho_F=d\binom{r_n-1}{s-1}/\binom ns\,[1+O_{s,d}(r_n/n)]\) for every fixed family of \(d\) distinct targets. This is a mathematical assertion proved by the excursion and return-transform argument, not an empirical estimate inferred from the checker. The checker tests exact finite identities, not the uniform matrix-resolvent bounds or the infinite-dimensional limit of missing targets. No growing-target-order or positive-density-block extension has been verified.
+The projected full/target-avoiding Markov transition kernel is exact: for J=H∩U, pure-death comparison has eigenvalues 1-|A|/r on incidence-zeta basis. Uniform finite-dimensional resolvent isolation works because r/n->0. Stationary entrance flux for one fixed s-set is exactly binom(r-1,s-1)/binom(n,s); overlapping targets produce relative O(r/n) loss. Excursions from the empty projected state and first-return transform yield 1-rho=d beta/M [1+O_{s,d}(r/n)], for any fixed d uniformly over target intersections. The condition (r/n) log M->0 and t/r sufficiently large give fixed factorial moments, then Poisson/Gumbel; union-bound geometric tails give E[T]. I reconstructed the rate/scaling and regenerative steps, and independently matched 30 exact full-versus-killed-projection probabilities on n=9,r=4,s=2 with two overlapping targets. Finite checks do not prove the uniform triangular-array estimates.
+
+## originality
+
+PASS
+
+Compared actual quantified final claim, its hypotheses and all four possible prior-implication routes against named published research and relevant primary texts. Related results do not establish the entire result on inspected evidence; inaccessible or potential aliases are kept as explicit residual risks. The foundational 2025 paper explicitly leaves the Markovian sparse growing-block Gumbel law unproved; fixed-parameter and independent-draw limits do not dominate.
+
+## value
+
+PASS
+
+This gives a precise distributional and mean cover-time law for fixed-order subset shadows when successive retained blocks grow without becoming macroscopic. It resolves an explicit growing-block Markovian gap not addressed by independent block draws or fixed-parameter limits, with a quantitatively meaningful uniformity threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

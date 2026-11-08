@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T20:53:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The projected full/target-avoiding Markov transition kernel is exact: for J=H∩U, pure-death comparison has eigenvalues 1-|A|/r on incidence-zeta basis. Uniform finite-dimensional resolvent isolation works because r/n->0. Stationary entrance flux for one fixed s-set is exactly binom(r-1,s-1)/binom(n,s); overlapping targets produce relative O(r/n) loss. Excursions from the empty projected state and first-return transform yield 1-rho=d beta/M [1+O_{s,d}(r/n)], for any fixed d uniformly over target intersections. The condition (r/n) log M->0 and t/r sufficiently large give fixed factorial moments, then Poisson/Gumbel; union-bound geometric tails give E[T]. I reconstructed the rate/scaling and regenerative steps, and independently matched 30 exact full-versus-killed-projection probabilities on n=9,r=4,s=2 with two overlapping targets. Finite checks do not prove the uniform triangular-array estimates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published open-access 2025 paper explicitly treats independent block samples in its Gumbel theorem, conjectures Markovian super-coupon mean, and proves a special state-cover case."
+        ],
+        "reasoning": "Neither independent draws nor the Markovian r=s state-cover bound implies this precise limit for sparse diverging r.",
+        "searches": [
+          "https://doi.org/10.1007/s10959-025-01417-w Theorems 2.3,2.5 and Conjecture 2.4",
+          "Markovian super-coupon cover time general Johnson block walk uniform sparse"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s10959-025-01417-w Theorems 2.3,2.5 and Conjecture 2.4",
+        "Markovian super-coupon cover time general Johnson block walk uniform sparse",
+        "https://arxiv.org/abs/2304.01145",
+        "https://doi.org/10.1007/s10959-025-01417-w"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The independent-sampling super-coupon model has no single-label temporal dependence.",
+          "The earlier special Markovian setting has r=s, contrary to r_n->infty."
+        ],
+        "reasoning": "The present rare-event entrance intensity is a dynamic hitting-time correction and needs new uniform error control; it is not a corollary of cited fixed-r or independent-draw formulas.",
+        "searches": [
+          "https://arxiv.org/abs/2304.01145",
+          "https://doi.org/10.1007/s10959-025-01417-w"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Coverage of every s-subset equals zero uncovered s-shadows; the relevant clock is entrance flux beta/M rather than stationary target mass.",
+          "A fixed-r Johnson Gumbel theorem has constants allowed to depend on r."
+        ],
+        "reasoning": "No inspected equivalent claim states the uniform growing-r triangular-array limit; fixed-parameter convergence cannot be substituted along r=r_n.",
+        "searches": [
+          "Resultary: Markovian super coupon collector Johnson graph growing r blocks Gumbel Poisson cover all s-subsets",
+          "https://arxiv.org/abs/2304.01145"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Meaning-based published-result search returned no exact same triangular-array statement among examined results; this is weak absence evidence only."
+        ],
+        "reasoning": "A cover-time table at fixed finite n or r cannot by itself supply the uniform asymptotic distribution; unindexed results remain possible.",
+        "searches": [
+          "Resultary: Markovian super coupon collector Johnson graph growing r blocks Gumbel Poisson cover all s-subsets",
+          "search: stationary Johnson walk missing s subsets Poisson growing block size"
+        ]
+      },
+      "rationale": "Compared actual quantified final claim, its hypotheses and all four possible prior-implication routes against named published research and relevant primary texts. Related results do not establish the entire result on inspected evidence; inaccessible or potential aliases are kept as explicit residual risks. The foundational 2025 paper explicitly leaves the Markovian sparse growing-block Gumbel law unproved; fixed-parameter and independent-draw limits do not dominate.",
+      "residual_risks": [
+        "A more abstract hitting-time/extreme-value theorem for changing Markov chains might imply the triangular-array result under nontrivial verifiable hypotheses.",
+        "The uniform regenerative multiple-entry estimate is nontrivial; proof requires the displayed fixed-d excursion bounds, not the 30 finite checks alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED BUT DOES NOT ESTABLISH uniformly diverging sparse-block Johnson cover-time Gumbel law",
+          "evidence": [
+            "Theorem 2.3 is independent-sample Gumbel; Conjecture 2.4 concerns the single-swap model; Theorem 2.5 addresses state-cover/special r=s."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10959-025-01417-w",
+          "material_read": "Open-access 2025 full text: independent-block Gumbel Theorem 2.3, Markovian Conjecture 2.4 and special r=s Theorem 2.5, with model definitions and conditions",
+          "method": "Open-access journal full text",
+          "title": "On a Generalisation of the Coupon Collector Problem",
+          "trigger": "Direct foundational Markovian super-coupon model and coverage conjecture"
+        },
+        {
+          "assessment": "SAME FOUNDATIONAL LINEAGE; no separate independent prior proof claimed",
+          "evidence": [
+            "Markovian super-coupon model and its conjecture originate with the 2023 preprint."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.01145",
+          "material_read": "Abstract and model/conjecture context; same research lineage as 2025 published paper",
+          "method": "arXiv abstract and relevant passages",
+          "title": "On a generalisation of the coupon collector problem (preprint)",
+          "trigger": "Earlier dated preprint of same paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a precise distributional and mean cover-time law for fixed-order subset shadows when successive retained blocks grow without becoming macroscopic. It resolves an explicit growing-block Markovian gap not addressed by independent block draws or fixed-parameter limits, with a quantitatively meaningful uniformity threshold.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "identifier_or_url": "https://doi.org/10.1007/s10959-025-01417-w",
+      "material_read": "Open-access 2025 full text: independent-block Gumbel Theorem 2.3, Markovian Conjecture 2.4 and special r=s Theorem 2.5, with model definitions and conditions",
+      "title": "On a Generalisation of the Coupon Collector Problem"
+    },
+    {
+      "identifier_or_url": "https://arxiv.org/abs/2304.01145",
+      "material_read": "Abstract and model/conjecture context; same research lineage as 2025 published paper",
+      "title": "On a generalisation of the coupon collector problem (preprint)"
+    }
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A more abstract hitting-time/extreme-value theorem for changing Markov chains might imply the triangular-array result under nontrivial verifiable hypotheses.",
+    "The uniform regenerative multiple-entry estimate is nontrivial; proof requires the displayed fixed-d excursion bounds, not the 30 finite checks alone."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Fixed shadow order s>=2, stationary start, discrete single replacement, r_n log n=o(n); no positive-density block regime, growing s, adversarial start or sharp optimality.",
+    "Rate estimates are uniform for each fixed factorial-moment order d only."
+  ]
+}
