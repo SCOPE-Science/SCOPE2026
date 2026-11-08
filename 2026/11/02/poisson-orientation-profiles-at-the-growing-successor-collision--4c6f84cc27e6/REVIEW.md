@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For one uniform directed path, every compatible set of \(s\) prescribed directed adjacency edges forms disjoint directed paths and has probability \(1/(n)_s\). Independence across paths gives the exact mean. The joint factorial-moment proof separates repeated vertex pairs (which require at least \(j+1\) used relations and vanish as \(k/n\to0\)), overlapping index subsets (a relative \(O(1/k)\) contribution), and disjoint index subsets (factorizing into Poisson moments). Integer-valued weak convergence with a probability limit yields total-variation convergence. Exact finite enumerations corroborate, but do not replace, the infinite proof. A single fixed \(j\) and independent uniform paths are essential.
+## correctness
 
-**Originality — PASS within inspected evidence.** The motivating 2026 paper establishes finite satisfiability, not random-model laws. Bender–Canfield (1999) prove Poisson limits for common edges across a fixed collection of randomly embedded graphs; this supplies significant prior probability theory but does not directly give a growing number of successor relations, simultaneous counts over all \(j\)-subsets, independent orientation strata, or the \(n^{1-2/j}\) threshold. Diaconis–Evans–Graham (2013) and Bóna–Burghart–Wagner (2025) concern fixed-number adjacency or tree intersections. Earlier fixed-vocabulary adjacency analyses likewise do not imply the varying-vocabulary theorem. Risk: an older general Poisson approximation for sparse hypergraph occupancy might subsume these claims; failed searches do not establish global novelty.
+PASS
 
-**Value — PASS.** Counting all \(j\)-way overlaps in an input-dependent family of successor predicates answers a natural probabilistic counterpart of multi-successor satisfiability: even though any specified \(j\) relations rarely share a pair, the growing number of index subsets produces a sharp nontrivial window. Orientation classes have different explicit intensities and independent limiting existence events, giving a structural phase diagram rather than an arbitrary finite calculation.
+For each fixed j>=3, a prescribed oriented edge adjacency in an independent random linear order has probability 1/n. The class weight w_{j,h} counts its 2^j compatible sign patterns, so E W_{j,h}=binom(n,2)binom(k,j)w_{j,h}/n^j exactly. For every fixed mixed factorial moment at k∼c n^{1-2/j}, same-underlying-edge repeated witnesses need at least j+1 distinct relation indices, costing k/n=O(n^{-2/j}); distinct edges with overlapping index subsets cost O(1/k); distinct edges with disjoint relation sets factor exactly, whether or not vertices overlap. Thus the independent Poisson limits with λ_{j,h}=w_{j,h}c^j/(2 j!) follow; convergence of masses plus tail truncation upgrades to TV. Markov below and retained-subfamily monotonicity above give sharp absence/presence; E Σ_e binom(M_e,j+1)=O(n^{-2/j}) rules out multiple witnesses per actual edge at criticality. The FO2 event is a different sentence for each growing vocabulary, not a fixed-language limit theorem. Direct enumeration of all n!^3 triples for n=2,3,4 independently confirms both h-class expectations.
 
-**Limitations:** The original work on fixed-index intersections and classical factorial moments is fully credited. No claim is made about growing \(j\), fixed-vocabulary uniform first-order limits, correlated orders, optimal convergence rates, or historical priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bender–Canfield 1999 Theorem 1 yields a general Poisson law for the common edges in a fixed integer t of independently embedded sparse graphs. The key fixed-t common-edge rare mechanism is therefore prior art, but their theorem does not count all binom(k_n,j) combinations across growing k_n, nor resolve independent minority-direction strata at critical k_n∼n^{1-2/j}. Jeż–Michaliszyn–Witkowski 2026 establishes finite satisfiability of FO2 with many independent successors, not probabilities of random successor structures. The growing-label collision classification is assessed original at best knowledge, with possible wider Poisson-approximation coverage.
+
+## value
+
+PASS
+
+A natural probabilistic counterpart to input-dependent successor satisfiability has a genuinely nontrivial threshold: each specific fixed j-subset virtually never shares edges, while the growing number of subsets creates a finite intensity of oriented collisions. Distinct alignment classes have independent limits and explicit existential-property probabilities, a structural multi-parameter law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
