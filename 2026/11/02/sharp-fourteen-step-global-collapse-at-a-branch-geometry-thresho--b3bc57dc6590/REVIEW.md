@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The homogeneous map is identically zero after five iterations, by an exhaustive four-quadrant analytical argument. Consequently its translated map has bounded fifth image, allowing unbounded pointed itinerary polyhedra to be represented exactly by transformed finite vertices. The checked rational geometry enumerates all five-step sign cells and propagates their complete images through the four affine branches; it ends at the fixed singleton after fourteen steps. The explicit thirteenth-iterate witness proves that the exponent is smallest. The checker is supplementary to the proof that all real initial states, including axes, are covered.
+## correctness
 
-## Originality — PASS (within checked literature)
-The source's Corollary 20 gives a \(22\)-step uniform bound over a parameter interval and distinguishes \(b=1/4\) as a branch-geometry threshold; it neither states the \(14\)-step identity nor its sharpness witness. The follow-up work primarily discusses entropy and omega-limit measure on invariant graphs, not a first-collapse index for this parameter. Closest mathematical-record and literature searches did not identify a covering result. An incomplete worldwide literature index remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The least global settling time is a natural quantitative invariant for a map whose entire unbounded state space is known to collapse in finite time. The exact \(14\) replaces a coarse \(22\)-step guarantee by the optimal value at the source's non-arbitrary geometric transition parameter. The reduction of unbounded continuous-state verification to 75 exact affine sign cells supplies a reproducible approach for broader finite-time dynamics. This is a natural sharp finite cutoff; it is not being claimed as a general parameter classification.
+All points in R^2 including axes are covered. Exhaustive quadrant casework proves homogeneous H^5=0, so the translated F has bounded fifth image. Each closed length-five sign-itinerary polyhedron is pointed, permitting exact convex-vertex images despite its unbounded domain. Independently reconstructed Fraction-based inequality/vertex/branch enumeration gives feasible cell counts 4,13,25,45,75; at times 5–14 the exact (polytopes, distinct vertices) counts are (30,13),(25,11),(20,9),(15,8),(12,7),(10,6),(8,5),(6,4),(3,2),(1,1). At n=14 it is singleton p=(-1/4,-1/2). Exact witness F^13(-3,1/4)=(-3/4,0) establishes strict optimality. Finite enumeration is exhaustive here because of the proven polyhedral/recession argument, not because of sampling.
 
-## Scope and residual risks
-The proof is specific to a single rational parameter, so it gives no neighboring-parameter theorem. A complete independent publication-priority review and independent scientific validation have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closest full primary source proves global collapse by step 22 but not the least step 14 or its obstruction at 13; the follow-up on dynamics/entropy does not supply this exact cutoff. Best-of-knowledge PASS with priority risk.
+
+## value
+
+PASS
+
+The minimum globally constant iterate of a continuous, unbounded-state finite-collapse map is a natural dynamical invariant. Exact value 14 at b=1/4, the original paper’s geometric transition, sharpens the known 22-step sufficient bound and provides a verifiable global settling certificate; not claiming a full parameter census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
