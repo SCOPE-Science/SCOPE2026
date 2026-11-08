@@ -1,0 +1,15 @@
+# Scientific review of sharp primitive-four coexistence
+
+## Correctness
+**PASS.** Each strict four-step sign word gives one affine return equation. An isolated primitive four-cycle cannot have a symbolically periodic shorter word, leaving exactly three primitive length-four necklaces. This proves a global upper bound independently of the numerical witness. At the rational witness, all sixteen fourth-step affine equations are invertible; their exact roots have the asserted signs and are distinct. The rational determinant and multiplier calculations establish the \(2+2+12\) point census and the two-saddle/one-sink types. A sign-ambiguous point on the switching line would solve one of those same sixteen affine equations, whereas all solutions are strict, excluding boundary periodic points. Continuity gives an open four-parameter neighborhood. The exact standalone checker validates the certificate but does not substitute for the general upper-bound proof.
+
+## Originality
+**PASS within the inspected published evidence.** The closest 2024 primary work describes an attracting \(LRRR\) four-cycle in the same mixed non-invertible regime but does not give the simultaneous \(LLLR\), \(LLRR\), and \(LRRR\) census. A closely related published record excludes *attracting* \(LLLR\) cycles and gives separate examples of unstable \(LLLR\) and attracting \(LRRR\); it is logically consistent with, but does not imply, an \(LLLR\) saddle and an \(LLRR\) saddle coexisting with the attracting \(LRRR\) cycle. The 2022 overview and 2023 robust-chaos work do not supply an exact sixteen-point fourth-return count in the inspected material. Equivalences by cyclic word rotation, broader coexistence statements, and exact table coverage were compared. Residual publication-priority risk includes unindexed symbolic treatments and possible equivalent symbolic results in older border-collision literature.
+
+## Mathematical value
+**PASS.** The model's low-period attracting cycles affect its non-invertible bifurcation picture, and an exact period-four coexistence census directly informs that question. The result determines a sharp finite maximum, a robust parameter chamber attaining it, and stability distinctions among all three possible strict primitive necklaces. This is a complete natural short-period classification at an explicit parameter, rather than an arbitrary numerical orbit specimen. It does not classify higher periods, global attractors, or switching-line degeneracies at arbitrary parameters.
+
+## Closest literature and limits
+The principal comparison is Ghosh–McLachlan–Simpson, arXiv:2402.05393v1, §9. Additional comparisons are arXiv:2307.05144v1, arXiv:2210.14445v1, the published \(LLLR\) stability obstruction in the referenced research record, and the rendered full manuscript of arXiv:1403.4678. Searches are evidence of bounded comparison, not mathematical proof of publication priority. Independent mathematical review is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
