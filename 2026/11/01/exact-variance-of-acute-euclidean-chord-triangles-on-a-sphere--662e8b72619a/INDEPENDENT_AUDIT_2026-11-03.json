@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T01:17:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual assigned RESULT.md and verify.py",
+        "Independent numerical one-dimensional conditional integration",
+        "Akopyan et al. original single-triangle acute probability lemma"
+      ],
+      "rationale": "Read RESULT.md and standard-library verifier. With fixed unit A,B at central angle theta, the acute-angle inequalities are |u·C|<sin(theta/2) and v·C<cos(theta/2) for orthonormal midpoint/chord coordinates. Since the excluded cap is contained in the belt, conditional probability q(theta)=sin(theta/2)-(1-cos(theta/2))/2. Uniform A·B on [-1,1] yields E q=1/2 and E q²=(pi-1)/8. Different third points are conditionally independent given shared endpoints, hence covariance (pi-3)/8 for shared pairs. For one shared point, rotation invariance makes conditional mean exactly 1/2; otherwise independent. Unordered overlap-two pairs count C(n,2)C(n-2,2), so Var=C(n,3)/4 +(pi-3)C(n,2)C(n-2,2)/4, with n=4 variance (3pi-7)/2. Independently numerically integrated conditional q and q² obtaining 0.5000000000 and 0.2676990816 vs (pi-1)/8=0.2676990817; geometric and combinatorial proofs establish all n.",
+      "residual_risks": [
+        "Uses planar angles of Euclidean chord triangles, not geodesic sphere triangle angles; right angles measure zero."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2020 source gives one marginal acute probability 1/2, not covariance of two edge-sharing chord triangles.",
+          "MathOverflow investigates P(all four tetrahedron faces acute), a fourth-order intersection rather than pairwise two-triple probability."
+        ],
+        "reasoning": "General U-statistic variance decompositions supply combinatorial bookkeeping but not the evaluated spherical belt-minus-cap covariance (pi-3)/8.",
+        "searches": [
+          "Akopyan Edelsbrunner Nikitenko arXiv:2007.07783 Lemma 4, Theorem 6",
+          "MathOverflow question 498296 four acute tetra faces",
+          "general variance geometric U statistics overlapping indices"
+        ]
+      },
+      "checked_sources": [
+        "Akopyan–Edelsbrunner–Nikitenko arXiv:2007.07783",
+        "MathOverflow question 498296",
+        "Resultary query probability variance number acute triangles n independent uniform points sphere covariance triangles share edge"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Akopyan Lemma 4 provides P(single triangle acute)=1/2.",
+          "A four-face joint probability is only one scalar moment of four dependent Bernoulli variables and does not determine their pair joint probability or general-n variance."
+        ],
+        "reasoning": "The present exact overlap-two moment requires a separate geometric integral. Conditional rotational independence across one shared point is also a needed distinct fact.",
+        "searches": [
+          "Akopyan et al 2020 Lemma 4",
+          "MathOverflow 498296 tetrahedron all acute probability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The count for n=4 equals acute tetrahedral face count; for n>4 all triples are counted regardless of hull-facet membership.",
+          "Conditional pair-shared-edge probability is (pi-1)/8; single-triangle probability is 1/2."
+        ],
+        "reasoning": "Compared tetrahedral faces and all-triples U-statistic formulations, distinguishing the one-vertex overlap independence and two-vertex covariance.",
+        "searches": [
+          "probability variance number acute triangles n independent uniform points sphere covariance triangles share edge",
+          "random spherical tetrahedron number acute faces variance",
+          "U statistic overlapping triangle angle indicators on sphere"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearby geometric probability results did not show this overlap covariance or variance formula.",
+          "No exact variance entry identified in the inspected 2020 paper or four-face probability discussion."
+        ],
+        "reasoning": "Absence in these sources is only bounded evidence; hidden exact Euclidean tetrahedron angle moments remain a priority risk.",
+        "searches": [
+          "Resultary search: probability variance number acute triangles n independent uniform points sphere covariance triangles share edge",
+          "random points S2 acute face tetra variance 3pi-7 over2"
+        ]
+      },
+      "rationale": "Akopyan et al. establish the one-triangle marginal 1/2; the inspected tetrahedral all-four-acute question addresses a four-way intersection. Neither determines the two-triple shared-edge joint probability or the full U-statistic variance coefficient.",
+      "residual_risks": [
+        "Unindexed U-statistic or tetrahedral acute-angle covariance formula may predate this observation.",
+        "No full distribution of T_n; only second moments established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known 1/2 marginal; does not directly provide overlapping-pair joint probabilities or n-triple variance",
+          "evidence": "Akopyan–Edelsbrunner–Nikitenko, Lemma 4 acute probability; Theorem 6 facet marginal.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.07783",
+          "material_read": "Original full PDF with Lemma 4, Theorem 6 and nearby geometric definitions",
+          "method": "Original PDF text read, equations and page image inspected",
+          "title": "The Beauty of Random Polytopes Inscribed in the 2-sphere",
+          "trigger": "Exact same IID sphere model and prior acute triangle marginal"
+        },
+        {
+          "assessment": "Different four-way event does not entail all pair-marginals or general n variance",
+          "evidence": "MathOverflow question 498296 (July 2025), tetrahedron all-four-acute intersection.",
+          "identifier_or_url": "https://mathoverflow.net/questions/498296/",
+          "material_read": "Original question and relevant mathematical answers on all-four acute event",
+          "method": "Read public mathematical discussion",
+          "title": "A tetrahedron’s vertices are random points on a sphere: four faces all acute?",
+          "trigger": "Plausible exact n=4 overlapping-face result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original 2020 marginal theorem",
+        "Conditional geometry and overlap counting in assigned RESULT.md"
+      ],
+      "rationale": "The count of acute Euclidean triangles among random points is a natural geometric U-statistic, and exact variance identifies the positive shared-edge dependence generating n^4 rather than naive independent n^3 fluctuations. The explicit pi coefficient resolves a nontrivial second moment not implied by the known one-triangle probability.",
+      "residual_risks": [
+        "For n>4 this is not convex-hull facet count; interpretation essential."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All unordered triples (not just convex hull facets) for n>4.",
+    "Only dimension 3 ambient and uniform independent samples; no exact full law of count T_n."
+  ],
+  "schema_version": 1
+}
