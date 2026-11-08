@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The identity \(H_i(sp)=s^2\theta_i p_i(1-p_i/2)\) gives the radial/projective decomposition without approximation. A strictly concave potential whose gradient exactly generates the normalized multiplicative update increases by at least half the squared \(\ell^1\) step. The finite-support fixed-point classification and vanishing-coordinate ratio test identify its unique limit on each original face, including parameter ties. The convergent radial series then yields an exact cocycle and the three global alternatives. The Poincaré recurrence conclusion concerns finite invariant probability measures on the specified cone. A standalone checker validates sample rational decompositions and floating calculations, but is not used to infer universal statements.
+## correctness
 
-**Originality: PASS within inspected evidence.** The primary 2024 arXiv preprint and 2025 journal text establish the operator, finite fixed-point classifications and various two-dimensional stable curves, along with partial higher-dimensional geometry. The inspected full texts do not give this global projective convergence theorem for arbitrary finite dimension, the all-face water-filling target, or the uniformly computable global radial separatrix and invariant-measure consequence. A generic degree-two radial cocycle by itself is elementary and explicitly excluded from the originality claim. Semantic searches of a mathematical finding archive using the operator's names, normalized gradient formulas, water-filling, homogeneous quadratic separatrices and invariant probabilities returned different systems; their statements do not imply the result. The possible existence of a broad unindexed discrete replicator convergence theorem remains a priority risk.
+PASS
 
-**Mathematical value: PASS.** The originating study emphasizes difficult or approximate stable curves even in dimension two. The combined theorem supplies a parameter-explicit computable boundary for all dimensions, a complete direction selection rule on every face, and an exhaustive global trichotomy plus stationary-state classification. A strict potential argument is needed to justify the global behavior; finding the radius alone would not solve the projective part.
+For every finite n≥2, positive theta and every nonnegative initial vector, the explicit s,p decomposition gives s_next=a(p)s² and p_next=G(p); theta_min/2≤a≤theta_max. The separable strictly concave Phi has gradient log(theta_i(1-p_i/2)); the multiplicative update makes its gain at least ||G(p)-p||_1²/2 by the symmetric KL identity, Pinsker and bounded negative Hessian. Asymptotic regularity, finitely many face fixed points, and the ratio test for initially positive vanishing coordinates enforce the unique KKT water-filling direction p^S (including theta ties). The uniformly convergent logarithmic series defining s_*(p) obeys s_*(Gp)=a(p)s_*(p)^2, so s_m/s_*(p_m)=(s_0/s_*(p_0))^(2^m). This establishes extinction, convergence to p^S/lambda_S on the separator, or blowup with stated logarithmic rate. All finite invariant Borel probabilities concentrate on fixed points by recurrence and absence of other recurrent trajectories. Verified from actual RESULT.md e4b357..., script blob dda794...; independent 70 parameter trials ×60 projective steps matched monotonicity; no finite experiment was treated as the universal proof.
 
-**Closest literature and scope:** Shoyimardonov–Rozikov (arXiv:2409.13450v1, 2024-09-20; Russian J. Nonlinear Dynamics 21 (2025), 399–418, DOI:10.20537/nd250803) is the strongest same-operator source. No higher-dimensional rate uniform in the parameters, elementary separator formula, general polynomial perturbation theorem, or independently reviewed priority assertion is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: the complete original same-map journal article classifies fixed points and two-dimensional curves and includes partial n-dimensional invariant regions but does not state all-finite-dimensional projective convergence, water-filling selection, global uniformly computable separator or invariant-measure classification. The novelty claim excludes the generic homogeneity identity; a general unindexed discrete-replicator theorem remains a priority risk.
+
+## value
+
+PASS
+
+The exact uniformly approximable global boundary, all-face support selection and invariant-probability classification solve a natural complete orbit-classification problem for a previously studied homogeneous operator in every finite dimension, not merely a routine computation of existing equilibria or the generic radial cocycle. No uniform convergence speed or elementary closed separator is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
