@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Complete proof for every positive ring size: exact de Bruijn transfer identity and characteristic recurrence; simultaneously conjugated matrices have singular values (λ,λ,1,λ^-2) and (λ^1/2,λ^1/2,λ^-1,0). Product trace inequality settles all targets with ≥4 ones. Exact algebra over the cubic and rational root interval give ||S^m||_2≤1 for m≥3, yielding strict bound for ≤3 ones on n≥25. The 15,250 remaining sparse outputs on n≤24 were exhausted with integer matrices. All four extracted verification programs passed. Direct brute enumeration n≤14 cross-checks, not substitutes for, analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jen (1987) supplies general recurrence and asymptotic maximal extension counts on the infinite line, with a different definition of extremum and boundary.",
+        "McIntosh ancestors (7) states a general uniform-multiplicity versus Garden-of-Eden theorem, not a strict Rule-22 finite-ring maximum.",
+        "Powley-Stepney treats homogeneous and some periodic words but not arbitrary products for the strict maximum."
+      ],
+      "reasoning": "The general recurrence method can calculate individual fibers, but those formulas do not imply a unique global maximizer without inequalities comparing arbitrary heterogeneous words. A general strict matrix-product extremal theorem would dominate this result if present; none appeared in inspected sources; this remains a residual risk.",
+      "searches": [
+        "Scaling of Preimages in Cellular Automata Erica Jen 1987 https://content.wolfram.com/sites/13/2018/02/01-6-2.pdf",
+        "Counting preimages of homogeneous configurations Powley Stepney https://www-users.york.ac.uk/~ss44/bib/ss/nonstd/jca11.pdf",
+        "ancestors (7) McIntosh https://delta.cs.cinvestav.mx/~mcintosh/oldweb/wandl/node7.html",
+        "maximum preimage count elementary CA 22 ring Perrin numbers transfer matrix"
+      ]
+    },
+    "checked_sources": [
+      "https://groups.google.com/g/comp.theory.cell-automata/c/fV-VsEEvq80",
+      "https://delta.cs.cinvestav.mx/~mcintosh/oldweb/wandl/node6.html",
+      "https://www-users.york.ac.uk/~ss44/bib/ss/nonstd/jca11.pdf",
+      "https://content.wolfram.com/sites/13/2018/02/01-6-2.pdf",
+      "https://www.math.ucdavis.edu/~gravner/papers/ex1.pdf",
+      "https://content.wolfram.com/uploads/sites/13/2019/06/28-2-1.pdf",
+      "https://delta.cs.cinvestav.mx/~mcintosh/oldweb/wandl/node7.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1993 matrix argument is heuristic about fractions of zeros and growth rates, without showing N(y)<N(0^n) for all n and all y≠0^n.",
+        "Powley-Stepney counts homogeneous targets exactly; that includes the value of N(0^n), so the value alone is not original.",
+        "The project’s earlier Rule-184, Rule-106, Rule-18, Rule-30 and Rule-54 findings use different local maps; none applies by a conjugacy or supplied reduction to Rule 22."
+      ],
+      "reasoning": "The published formulas cover the stated maximum value as a homogeneous fiber, but they do not logically assert or prove its global maximality and uniqueness. The new strict comparison is the claimed contribution. Different ECA rules do not dominate without a verified topological/algebraic conjugacy preserving periodic fibers; no such reduction was identified.",
+      "searches": [
+        "rule 22 cyclic ring global maximum predecessor fiber all zero trace matrix Padovan Perrin period n",
+        "rule22 one-step inverse image maximum indegree configuration all-zero periodic words",
+        "elementary cellular automaton Rule 22 preimage multiplicity all-zero unique maximal target cyclic finite rings",
+        "maximum preimage count elementary CA 22 ring Perrin numbers transfer matrix",
+        "https://groups.google.com/g/comp.theory.cell-automata/c/fV-VsEEvq80",
+        "https://www-users.york.ac.uk/~ss44/bib/ss/nonstd/jca11.pdf",
+        "https://content.wolfram.com/sites/13/2018/02/01-6-2.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McIntosh June 24 1993 explicitly gives the two Rule-22 de Bruijn matrices and notes the dominance of zero-rich ancestor counts, while discussing it qualitatively rather than proving a strict all-length maximizer.",
+        "Powley-Stepney Theorem 4.2 computes homogeneous count as the trace of a single symbol transition matrix power."
+      ],
+      "reasoning": "The equivalent formulations are maximum one-step in-degree, largest finite-ring preimage multiplicity, maximum trace over every binary length-n matrix product, and maximizer of one-step uniform-input output probability. McIntosh has the ingredients and heuristic but no uniform strict proof. Exact homogeneous enumeration alone does not order mixed products.",
+      "searches": [
+        "rule 22 cyclic ring global maximum predecessor fiber all zero trace matrix Padovan Perrin period n",
+        "rule22 one-step inverse image maximum indegree configuration all-zero periodic words",
+        "elementary cellular automaton Rule 22 preimage multiplicity all-zero unique maximal target cyclic finite rings",
+        "\"rule 22\" \"maximum\" \"preimages\" ring",
+        "\"Rule 22\" \"most preimages\" configuration",
+        "cellular automata rule 22 maximum in-degree all zero configuration",
+        "McIntosh 1993 ancestors (3) https://groups.google.com/g/comp.theory.cell-automata/c/fV-VsEEvq80"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "McIntosh ancestors (6) discusses a finite length-three Atlas table and reports that its largest periodic predecessor multiplicity is five.",
+        "The 2019 Rule-22 dynamics study gives finite basin and diagram explorations, not the full n-dependent maximum and uniqueness statement."
+      ],
+      "reasoning": "A finite small-ring table is a special-case lower-dimensional check of the present theorem, not a dominating all-n exact table. Earlier comprehensive state-transition atlases may nonetheless contain overlooked general patterns.",
+      "searches": [
+        "\"rule 22\" \"maximum\" \"preimages\" ring",
+        "\"Rule 22\" \"most preimages\" configuration",
+        "cellular automata rule 22 maximum in-degree all zero configuration",
+        "rule 22 predecessor 1.46557 preimages Perrin unique",
+        "1992 Wuensche Lesser Atlas of Global Dynamics Cellular Automata Rule 22 state predecessors table",
+        "1993 McIntosh ancestors (6) trace periodic 3 word count 5"
+      ]
+    },
+    "rationale": "The precise all-length inequality N(y)<N(0^n) for every nonzero cyclic target is not supplied by the inspected prior texts. McIntosh (1993) contains the transfer matrices and qualitative expectation for zero-rich words, not a rigorous global exact cyclic maximum and strict uniqueness theorem. Powley-Stepney imply homogeneous counts only. Jen addresses a distinct infinite-lattice extremal extension statistic. The same-model analysis identified this exact missing comparison and proved it by a simultaneous singular-value argument, a sparse Perron bound and a finite exact boundary. A genuine historical-priority risk is acknowledged; a null search is not taken as proof of novelty.",
+    "residual_risks": [
+      "The 1993 predecessor-growth heuristic and the 1992 state-transition atlas are close antecedents; a historical exact all-length proof may be hard to find by text search.",
+      "An uninspected publication could state an abstract matrix-product theorem that implies strict Rule-22 optimality.",
+      "Priority was assessed only by same-model review; independently conducted scientific review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same transfer matrices and qualitative growth heuristic; no all-length strict global cyclic maxima theorem",
+        "evidence": "The post says outputs with many zeros have many ancestors, then notes finite cyclic boundary conditions can change behavior.",
+        "identifier_or_url": "https://groups.google.com/g/comp.theory.cell-automata/c/fV-VsEEvq80",
+        "material_read": "Full June 24, 1993 posting, especially paragraphs defining matrices and comparing zero-rich ancestor growth",
+        "method": "Full HTML text",
+        "title": "ancestors (3)",
+        "trigger": "Identical Rule-22 matrices and possible maximality statement"
+      },
+      {
+        "assessment": "Finite n=3 table and a generic Garden-of-Eden criterion; no all-length unique max classification",
+        "evidence": "Page (6) says largest n=3 periodic predecessor count 5; page (7) proves uniform multiplicity implication.",
+        "identifier_or_url": "https://delta.cs.cinvestav.mx/~mcintosh/oldweb/wandl/node6.html",
+        "material_read": "Complete HTML pages (6) and (7), including length-three Rule-22 periodic column and uniform-multiplicity theorem",
+        "method": "HTML full text",
+        "title": "Ancestors (6) and (7)",
+        "trigger": "Possible detailed finite predecessor table or general dominating result"
+      },
+      {
+        "assessment": "The value for all-zero target is covered by its general method; comparison against every mixed target not established",
+        "evidence": "Theorem 4.2 gives trace of D_q^n for a homogeneous configuration.",
+        "identifier_or_url": "https://www-users.york.ac.uk/~ss44/bib/ss/nonstd/jca11.pdf",
+        "material_read": "Introduction, mathematical de Bruijn construction, Theorem 4.2 and later sections on special periodic heterogeneous outputs",
+        "method": "Lawful author PDF text and page images",
+        "title": "Counting preimages of homogeneous configurations in 1-dimensional cellular automata",
+        "trigger": "Exactly the homogeneous count and de Bruijn spectral predecessor method"
+      },
+      {
+        "assessment": "Analyzes arbitrary finite spatial sequences with infinite-line extension extrema; not finite cyclic predecessor-fiber strict maximizer",
+        "evidence": "Definition of extrema repeatedly adds boundary values to spatial words and counts preimages on an infinite line.",
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/01-6-2.pdf",
+        "material_read": "Article abstract, introductory definitions, recurrence formulation and sections characterizing extension extrema",
+        "method": "Full lawful publisher PDF text and page image",
+        "title": "Scaling of Preimages in Cellular Automata",
+        "trigger": "Potential broader exact maximum-preimage theorem"
+      },
+      {
+        "assessment": "Studies forward evolution from finite seeds rather than all-target predecessor maxima on finite rings",
+        "evidence": "Abstract identifies finite-seed replication, periodicity, chaos as focus.",
+        "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/papers/ex1.pdf",
+        "material_read": "Full abstract, introduction and finite-seed dynamics outline, searched text for predecessor results",
+        "method": "Lawful author PDF full text and page image",
+        "title": "The one-dimensional Exactly 1 cellular automaton: replication, periodicity, and chaos from finite seeds",
+        "trigger": "Mathematically rigorous primary study of the same Rule 22"
+      },
+      {
+        "assessment": "Describes forward dynamics, mean-field, attractors and subset diagrams; no all-n strict inverse-fiber maximum",
+        "evidence": "2019 introduction describes dynamics and diagrams as the main objects.",
+        "identifier_or_url": "https://content.wolfram.com/uploads/sites/13/2019/06/28-2-1.pdf",
+        "material_read": "Abstract, historical survey, definition and indexed topics through PDF, searched for preimage text",
+        "method": "Lawful publisher PDF text and page image",
+        "title": "On Patterns and Dynamics of Rule 22 Cellular Automaton",
+        "trigger": "Direct 2019 primary Rule-22 study with de Bruijn diagrams and basin analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2c3e215d-75c3-4347-a638-38d6bbd3d963",
+  "value": {
+    "rationale": "The unique global most ambiguous observation and exact largest one-step inverse-fiber for every ring length are natural structural dynamical invariants for a widely studied nonlinear CA. They quantify the maximum information loss in a one-step observation under uniform input. A qualitative zero-rich growth expectation and homogeneous counting do not settle the sharply formulated global extremal problem.",
+    "status": "PASS"
+  }
+}
