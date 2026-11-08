@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For every support graph H, open-neighborhood traces are precisely two-vertex edge cuts of H. Any center has zero, one, or two endpoints in H, hence two fresh ambient vertices exhaust all possibilities. Complete edge-extension induction enumerates 1,2,5,11,26 unlabeled nonisolated graphs with 1–5 edges; the independent standard-library certificate checks their entire cut repertoires, identifies exactly ten admissible types of sizes 1–4, and excludes every five-edge type. Heredity rules out larger supports. Dividing labelled embeddings by graph automorphism orders yields all coefficients and correct small-order restrictions. Independent labelled brute force for n=2,...,10 and motif counts for n=2,...,12 reproduce the theorem. The universal statement follows from the exhaustive finite reduction, not extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2007.16042v1 §3 treats all Johnson J(m,k) and gives the general upper bound 4; Theorem 3.7 gives the size-4 existence range.",
+        "arXiv:2405.07588 studies algorithms for closed-neighborhood graph VC dimension."
+      ],
+      "reasoning": "The 2020 result is stronger in graph-family scope and covers the dimension corollary; it does not give the support counts, the 10 motif types with availability thresholds, or the random-support probabilities. The broader theorem does not logically determine these integer coefficients.",
+      "searches": [
+        "Vapnik Chervonenkis dimension on Johnson and Hamming graphs Adler Benediktsson Macpherson 2020 exact shattered support count.",
+        "exact number shattered subsets line graph of complete graph VC dimension trace polynomial",
+        "VC dimension Kneser graphs closed neighborhoods shatter"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.16042v1, especially §3, Theorems 3.6–3.9",
+      "arXiv:2405.07588v1; DOI:10.4230/LIPIcs.SEA.2024.8",
+      "DOI:10.1016/j.dam.2021.09.017 (published version of first preprint)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.6 of arXiv:2007.16042 gives no 5-point shattering; Theorem 3.7 gives size-four existence for J(n,2) from n=7.",
+        "The new formula counts 2625 shattered 4-supports at n=7 and gives exact coefficients for every n, beyond a bound or existence statement."
+      ],
+      "reasoning": "The previously proved VC dimension and local witnesses are explicitly prior work; they imply the vanishing of higher coefficients and some positivity, but not the number of shattered supports. The new coefficient formula needs the cut identity, complete motif enumeration, and automorphism-weighted counting, so it is not a direct numerical restatement of the dimension result.",
+      "searches": [
+        "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs Theorem 3.6 3.7 3.9 open neighborhood",
+        "2018 2022 VC dimension line graphs bipartite closed neighborhoods exact VC dimension"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2007.16042v1, §3, formal definitions and Theorems 3.6–3.7",
+        "Complementing open Johnson neighborhoods gives the closed Kneser neighborhoods for two-element sets: both have identical shattered-support counts."
+      ],
+      "reasoning": "Comparison uses the equivalent language of two-vertex edge cuts and, via set complement, closed neighborhoods of the Kneser graph. Accessible sources establish the four-point maximum but do not supply the exact coefficientwise polynomial or the listed ambient-order motif thresholds.",
+      "searches": [
+        "Exact numbers of shattered sets of size 2, 3, and 4 for open neighborhoods of the triangular graph J(n,2), line graph of complete graph; edge cuts of size-two vertex subsets; shattering polynomial.",
+        "VC shattering polynomial open Johnson graph J(n,2) Kneser closed neighborhoods, four-edge star broom path and disjoint two-stars.",
+        "line graph clique VC dimension shattered open neighborhood complete graph triangular graph",
+        "Kneser graph KG(n,2) closed neighbourhood VC dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Inspected arXiv:2007.16042v1 Section 3, including the 16-case local analysis of four-point configurations and Figure 4; no table of complete counts for all n appears in the inspected material.",
+        "arXiv:2405.07588 does not announce a table of exact triangular-graph support counts."
+      ],
+      "reasoning": "The 2020 paper has local configuration casework rather than the global labelled support enumerator; no exact enumerator or table was identified by these searches. This does not exclude unindexed or differently named tables.",
+      "searches": [
+        "\"shattered\" \"J(n,2)\" \"polynomial\" neighborhoods VC dimension",
+        "\"triangular graph\" \"shattered\" \"open neighborhoods\" enumerate",
+        "\"Kneser\" \"shattered set\" \"closed neighbourhood\" VC dimension"
+      ]
+    },
+    "rationale": "The closest primary 2020 study proves VC-dimension and analyzes local shattering configurations on Johnson graphs; it does not state the all-order support-count polynomial. Exact coefficients and labelled motif counts require a separate universal edge-cut classification and automorphism-count derivation. Distinctness from the prior 2020 dimension bound is explicit. Limited search leaves risk of alternate-language duplication.",
+    "residual_risks": [
+      "An exact enumeration may exist under line-graph cut-realizability or closed-Kneser terminology and may not be indexed.",
+      "The 2020 primary paper treats local four-support orbits, so some structural ingredients are already covered; the novelty claim is restricted to the complete coefficientwise census, small-n thresholds, and cut-based full classification.",
+      "No independent external mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers VC dimension at most four, existence of 4-shattering from n=7 in J(n,2), and local configurations; does not present the candidate coefficientwise counts or the global motif-and-threshold table.",
+        "evidence": [
+          "arXiv:2007.16042v1 §3, Theorems 3.6–3.9",
+          "Theorem 3.6: 16 local orbit cases for four points, eight shattered",
+          "Theorem 3.7: lower-bound witness in J(7,2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+        "material_read": "Title page and abstract; setup and definitions; Johnson graph Section 3 including Lemmas 3.1–3.5, the orbit-case proof of Theorem 3.6, Theorem 3.7 and its proof, and adjacent discussion of VC density.",
+        "method": "Inspected searchable primary arXiv PDF text and a rendered title-page image; compared theorems and local 4-support configurations with the candidate enumerator.",
+        "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Direct prior work on the exact graph family and open-neighborhood incidence relation."
+      },
+      {
+        "assessment": "Addresses a general algorithm and closed graph neighborhoods rather than an explicit all-n open triangular-graph coefficientwise enumeration.",
+        "evidence": [
+          "Official SEA 2024 abstract: general graph VC algorithms; closed neighborhoods"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.SEA.2024.8",
+        "material_read": "Published abstract and metadata; compared definitions of open versus closed neighborhoods.",
+        "method": "Read the official publication abstract and first public preprint metadata.",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "General graph VC-dimension algorithms might subsume an exact census."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ea869538-b5c1-4a89-ad42-376bbfcf652c",
+  "value": {
+    "rationale": "The exact all-order shattering polynomial is a natural finer invariant of the canonical Johnson graph family, not just a cardinality bound. The theorem describes precisely which graph motifs contribute, the sharp ambient-order appearance of each, and quantitative rarity of shattered triples and quadruples among random supports (12/n and 48/n²). The coefficientwise counts are not determined by the known VC-dimension threshold; the four-support count is 2625 already at n=7. The result is mathematically motivated by NIP/VC-density and structural tameness, with no unsupported claim to extending the general Johnson bound.",
+    "status": "PASS"
+  }
+}
