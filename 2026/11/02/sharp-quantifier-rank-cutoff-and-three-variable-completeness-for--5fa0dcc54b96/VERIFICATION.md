@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Use Python 3 standard library. Run `python3 verify_rank_types.py` and `python3 verify_intervals.py` in the same directory as the supplied programs. Compare stdout with `rank_output.txt` and `intervals_output.txt`, respectively.
+## correctness
 
-The first checker computes the complete three-pebble, finite-rank type recurrence in the pure ternary cyclic-order signature (with equality) for circle sizes \(3\) through \(40\), including all partial assignments of the three variables up to orientation-preserving rotation. It does not assume the claimed classification when building the colors. The resulting class partition agrees with the formulas for ranks \(0\) through \(6\).
+PASS
 
-The second checker independently calculates the recursive interval threshold formulas' truth values, the split-profile stabilization at the inductive cap, and the existence of the two-arc lower-bound witness pairs. Its output lists the exact check counts and tested ranks.
+For strict ternary cyclic orders, F_{r,s}(x,y) is a genuine three-variable rank-r arc-size test by induction on a witness splitting an open oriented arc. The rank-q two-arc sentence separates any m<T=2^(q-1) from n>m. Conversely a q-round unrestricted EF strategy matches both arcs after two picks at threshold K_(q-2)=2^(q-2)-1, then splits each selected gap using K_r=2K_(r-1)+1; all sizes >=T are equivalent. At ranks <=2 the ternary atom cannot be tested with three distinct assigned elements; FO^2 likewise cannot distinguish any m,n>=3. This reconstructs the exact iff and boundary ranks, not just the supplied checker logs. Inspected verify_rank_types.py and verify_intervals.py: finite type refinement by assigned pebble and independent arc semantic recursion; bounded tests do not prove the unbounded game.
 
-These programs verify the stated finite calculations, not infinitely many finite structures or a formal proof checker of the theorem. The theoretical unrestricted-rank and unrestricted-size conclusions depend on the explicit combinatorial induction in `RESULT.md`. The calculations and literature comparison have not been independently audited.
+## originality
+
+PASS
+
+The contribution is an exact rank-by-rank cutoff for uncoloured ternary cyclic orders together with rank-preserving FO^3 versus full FO and FO^2 collapse. Linear-order EF cutoffs and circular random-bit tenacity are genuine relevant antecedents; the exact two-arc cutoff and width equality are not stated in inspected primary material.
+
+## value
+
+PASS
+
+Pure ternary finite cyclic orders are canonical finite model-theoretic test objects. The sharp rank spectrum and minimum representatives are a natural complete classification; width-three completeness and width-two collapse give structural descriptive-complexity information beyond routine threshold arithmetic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
