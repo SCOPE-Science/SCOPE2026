@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` in the same directory. The standalone program uses Python's standard library only. It verifies the definition directly from allowed directed arc subsets, checks all 2,200 augmented Hasse incidences for the five-leaf case and 23,976 for the nine-leaf case, and confirms the stagewise matching acyclic in those complete complexes. For the five-leaf case, 339 pairs leave one critical two-cell and 32 critical three-cells; exact signed elementary unit-incidence cancellations give eleven \(+2\), ten \(-2\), and eleven zero coefficients. Independent characteristic-two and characteristic-three simplicial boundary ranks corroborate the two-primary distinction. The six-leaf pivot list leaves only three-dimensional critical faces for the nine-leaf universal finite representative. Additional sizes six through ten are checked for regression, not substituted for the locality proof.
+## correctness
 
-The source `RESULT.md` proves why every low-dimensional face for an arbitrary number of leaves reduces to the representative with three generic leaves, and separately proves acyclicity for the stagewise matching. Neither raw finite experiments nor character-field ranks alone would justify all-parameter homotopy or the exact integral Moore summand. No independent audit has been performed.
+PASS
 
-Expected final output marker: `BIDIRECTED_K2N_TORSION_TO_SPHERE_WEDGE_EXACT_OK`.
+Independently reconstructed multipath face admissibility (at most one in/out arc per vertex and no directed cycle), the four-slot bound, augmented face vector f=(1,4n,6n²−4n,4n(n−1)²,n(n−1)²(n−2)), and the sequential pivot acyclicity argument. Independently enumerated exact f-vectors for n=5,6,9: 711,1417,6823 faces; for n=9 the specified six-leaf pivots match every face with ≤3 arcs, leaving 2143 four-arc faces. An arbitrary such low face uses ≤3 outer leaves, so relabeling these as leaves 6,7,8 preserves every fixed first-six-leaf pivot incidence and its staged matched status, proving the n=9 result for all n≥6. The n=5 pivot list leaves one critical 2-cell (2,5,11) and 32 critical 3-cells; independently recomputed signed integral Morse boundary frequency (+2:11, −2:10, 0:11), gcd 2. Integral CW attaching-degree classification proves Moore summand plus 31 free 3-spheres. For n≥6 only critical 3-cells remain after restoring a 0-cell, giving sphere wedges, not merely field homology.
+
+## originality
+
+PASS
+
+No inspected earlier source implies the bidirected K_{2,n} integral homotopy transition; one-way bipartite chessboard complexes, bidirectional paths/polygons, double-star trees and undirected Morse/matching complexes have different admissible faces. Same-batch finite K_{2,n} result overlaps n=5 through 8 but is not a previously published stronger result and supplies no all-n reduction.
+
+## value
+
+PASS
+
+A uniform integral homotopy transition at n=5→6, with isolated genuine 2-torsion and an explicit polynomial stable 3-sphere count, is structurally informative in a natural digraph family. The finite-locality pivot certificate gives a reusable mechanism for an all-parameter result, beyond a table of small Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

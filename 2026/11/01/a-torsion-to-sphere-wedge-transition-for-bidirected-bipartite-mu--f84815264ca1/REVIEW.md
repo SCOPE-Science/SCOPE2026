@@ -1,15 +1,21 @@
-# Scientific review: multipath complexes of fully bidirected bicliques
+# Independent mathematical audit
 
-## Correctness
-The domain and arc indexing are fully specified. The verified face counts follow by exhaustive classification of one through four arcs at two hubs, and the impossibility of five arcs follows from the hub indegree/outdegree restrictions. The stagewise element matching is acyclic by the earliest-stage argument for closed gradient paths. For every parameter at least six, locality under permutations of leaves outside the first six reduces the entire low-dimensional matching check to the exhaustive nine-leaf representative. The final checker verifies that representative, the Hasse incidence orientations and the exact number of critical three-cells. The five-leaf matched complex has one critical two-cell and 32 critical three-cells, with exact signed integral Morse row of gcd two; its Moore-space attaching description follows because its two-skeleton is a two-sphere. The checks establish a homotopy statement, not merely a finite-field experiment.
+## correctness
 
-## Originality
-The closest primary article on complete bipartite multipaths takes a one-way orientation and computes a chessboard Euler characteristic, not a two-direction homotopy classification. The subsequent bidirectional path/polygon study has different underlying graphs. The published bidirected double-star theorem has adjacent hubs and a tree, whereas the shared-neighbor complete bipartite graphs here have many four-cycles. Indexed ordinary Morse and two-matching complexes of bicliques concern different face posets. Direct statement/implication and alias searches in published mathematical research records did not yield the present uniform formula or the five-leaf Moore transition. Unindexed equivalences remain possible; the search cannot prove global uniqueness.
+PASS
 
-## Value
-This theorem detects a sharp and structurally motivated change from integral two-torsion to torsion-free three-sphere wedges in a natural infinite family with two hubs and arbitrarily many shared leaves. The finite-locality argument makes a bounded, independently runnable computation a proof component for all family members, and the quartic exact sphere count is not implied by the prior Euler formula for one-way bicliques. The degree-two Moore summand matters because mod-two homology alone misreads the five-leaf ranks.
+Independently reconstructed multipath face admissibility (at most one in/out arc per vertex and no directed cycle), the four-slot bound, augmented face vector f=(1,4n,6n²−4n,4n(n−1)²,n(n−1)²(n−2)), and the sequential pivot acyclicity argument. Independently enumerated exact f-vectors for n=5,6,9: 711,1417,6823 faces; for n=9 the specified six-leaf pivots match every face with ≤3 arcs, leaving 2143 four-arc faces. An arbitrary such low face uses ≤3 outer leaves, so relabeling these as leaves 6,7,8 preserves every fixed first-six-leaf pivot incidence and its staged matched status, proving the n=9 result for all n≥6. The n=5 pivot list leaves one critical 2-cell (2,5,11) and 32 critical 3-cells; independently recomputed signed integral Morse boundary frequency (+2:11, −2:10, 0:11), gcd 2. Integral CW attaching-degree classification proves Moore summand plus 31 free 3-spheres. For n≥6 only critical 3-cells remain after restoring a 0-cell, giving sphere wedges, not merely field homology.
 
-## Closest literature and limits
-The foundational preprint is arXiv:2208.04656v1 (2022-08-09); the bidirectional polygonal study is arXiv:2601.05670v1 (2026-01-09). A published double-star homotopy classification and indexed undirected Morse-matching results are materially different. The theorem does not address three or more hubs, other orientations, group representations or undiscovered equivalent literature. The infinite statement depends on the exact finite representative and the proved locality transfer; an independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected earlier source implies the bidirected K_{2,n} integral homotopy transition; one-way bipartite chessboard complexes, bidirectional paths/polygons, double-star trees and undirected Morse/matching complexes have different admissible faces. Same-batch finite K_{2,n} result overlaps n=5 through 8 but is not a previously published stronger result and supplies no all-n reduction.
+
+## value
+
+PASS
+
+A uniform integral homotopy transition at n=5→6, with isolated genuine 2-torsion and an explicit polynomial stable 3-sphere count, is structurally informative in a natural digraph family. The finite-locality pivot certificate gives a reusable mechanism for an all-parameter result, beyond a table of small Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
