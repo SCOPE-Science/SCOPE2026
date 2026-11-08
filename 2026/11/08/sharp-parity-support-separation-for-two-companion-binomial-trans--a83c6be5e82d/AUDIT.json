@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Published Theorems 13 and 14 give exactly the two run-length transforms. Their common recurrence modulo two yields s(j+5)=s(j), with seeds 11110 and 10010, so all run-length restrictions hold at every index. Unique binary-word decomposition gives the two rational counting series, and the degree-one term plus a positive simple real pole forces exact Perron asymptotics and arbitrary-cutoff Theta exponents. The supplied checker reconstructs original binomial sums for 1024 inputs per transform and independently enumerates all binary words up to 14 digits; finite data are corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rampersad--Wiebe Section 6 calculates means of selected transforms; it omits higher-order recurrences and does not treat parity-support cardinalities.",
+        "Wu 2016 Section 4 lists earlier Fibonacci, integers, Lucas, Narayana transforms, not Theorems 13 and 14 of the 2023 paper.",
+        "published-finding corpus related automata and Thue--Morse hits concern different sequences and different invariants."
+      ],
+      "reasoning": "General 2-regularity and rational-language methods provide techniques, not a published uniform counting formula for the specific two arithmetic sums. No inspected broader theorem provides their exact coefficient enumeration or the strict asymptotic separation as a stated instance.",
+      "searches": [
+        "published-finding corpus: Parity support dimension and rational generating functions for run-length transforms of period five sequences initial states 11110 and 10010",
+        "published-finding corpus: Run-length transformations period-five binary 1-run lengths allowed residues 0,3, modulo five growth 1.497",
+        "Web: \"run length transform\" \"density\" \"binomial coefficients\" 2023 2024",
+        "arXiv 2309.04012v1 complete text: Sections 3, 5, 6; searched parity, generating function and average",
+        "arXiv 1610.06166: introduction and classification of prior arithmetic transforms"
+      ]
+    },
+    "checked_sources": [
+      "Rampersad--Wiebe arXiv:2309.04012v1, Theorems 13--14 and Section 6",
+      "Wu arXiv:1610.06166v1, original date 2016-10-19, relevant prior transforms",
+      "OEIS A124312 and related A124313/A124314 records",
+      "published-finding corpus 2026/9/20/SCOPE-automatic-odd-parts-thue-morse-3-5-9--39839f2d9a7f",
+      "published-finding corpus 2026/9/19/SCOPE-twice-odd-thue-morse-valuation-obstruction--8d0b08903313",
+      "published-finding corpus 2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published 2023 identities are essential premises, not the claimed conclusions; no period-five support class or exact rational counting series is stated there.",
+        "2016 methods cover other parameters, and the documented OEIS A124312 covers the first count but not the second.",
+        "The new proof requires a residue-period computation, unique binary word grammar and dominant-pole argument to derive the second count and strict relative rate."
+      ],
+      "reasoning": "The old binary-word count plus the 2023 first-transform identity covers only the first companion and is excluded from independent novelty credit. The second support formula and comparative asymptotic ratio are not specializations of any inspected stronger explicit claim. Their derivation uses the prior identities as lemmas, not as already-stated conclusions.",
+      "searches": [
+        "arXiv 2309.04012v1 Theorems 13--14 and Section 6 mean-value discussion",
+        "arXiv 1610.06166v1/v10 Section 4 transform list",
+        "OEIS A124312 run-length enumeration",
+        "published-finding corpus: Odd values count of binomial sum (n+5k choose 2k) (n choose k) theorem 14 Rampersad Wiebe sparsity exponent 1.497094"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rampersad--Wiebe arXiv:2309.04012v1, Theorems 13--14, pp. 9--10: same arithmetic sums, integer run-length representations, but no odd-value counting.",
+        "published-finding corpus related hit 2026/9/20/SCOPE-automatic-odd-parts-thue-morse-3-5-9--39839f2d9a7f concerns parity-normalized Thue--Morse powers, not these binomial transforms.",
+        "Web exact polynomial and 12-term coefficient searches revealed no matching published statement for the second sum."
+      ],
+      "reasoning": "A binary run-length support description is equivalent to a regular-language condition, and a rational word enumerator would imply an exact dyadic count. The inspected source establishes the underlying arithmetic-to-run identity only; deriving the period-five support, the second counting function and its asymptotic entropy is additional work. The searched related Thue--Morse statement does not imply these values.",
+      "searches": [
+        "published-finding corpus: Odd values count dyadic prefixes for binomial sums (n+5k choose 2n+2k) (n choose k), generating function 1/(1-z-z2-z3-z4-z5) binary run lengths modulo 5",
+        "published-finding corpus: Odd values count of binomial sum (n+5k choose 2k) (n choose k) theorem 14 Rampersad Wiebe sparsity exponent 1.497094",
+        "Web: \"1-z-z^4-z^5\" binary word enumeration runs",
+        "Web: \"1,1,1,2,3,5,7,10,15,23,35,52\" sequence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A124312: 2015 comment \"a(n+5) equals the number of n-length binary words avoiding runs of zeros of lengths 5i+4\"; matches the first companion by digit-complement symmetry.",
+        "OEIS A124313 is a pentanacci sequence with distinct initials, not the second count; OEIS A124314 is a signed different recurrence.",
+        "No located exact entry with second-companion initial counts 1,1,1,2,3,5,7,10,15,23,35,52 or denominator 1-z-z^4-z^5."
+      ],
+      "reasoning": "The first enumeration is demonstrably covered by an earlier database entry, so it is an explicitly acknowledged baseline. That coverage does not imply the second count, its distinct fifth-degree characteristic polynomial, or the arithmetic inclusion/entropy comparison. Search coverage cannot exclude unindexed or differently named tables.",
+      "searches": [
+        "OEIS A124312 full record and dated 2015 forbidden-run comment",
+        "Web: \"1, 2, 4, 8, 15, 30, 59, 116, 228, 448, 881\" binary runs",
+        "Web: \"1, 1, 1, 2, 3, 5, 7, 10, 15, 23, 35\" binary",
+        "Web: \"1.497094048762\" combinatorics",
+        "OEIS A124311, A124313, A124314 records inspected for nearby recurrence coverage"
+      ]
+    },
+    "rationale": "Rampersad--Wiebe (2023) proves the two run-length transform identifications but does not count their odd-value supports. The 2016 Wu precursor treats different transforms. OEIS A124312 already gives the first companion count, which is explicitly treated only as a pre-existing comparator, not a new enumeration. The second transform's exact binary-residue support, rational dyadic count, algebraic entropy exponent and the exponential relative thinning against the first are not asserted by the inspected works. Focused semantic, formula, database and literature searches found no dominating statement, subject to possible unindexed equivalents.",
+    "residual_risks": [
+      "One dyadic count (the first companion) is already recorded in OEIS A124312 and must not be counted as new independently.",
+      "An alternative-indexed automatic-sequence or constrained-binary-word count might imply the second series without an obvious name or matching keyword.",
+      "Automatic-sequence and regular-language techniques are classical; the novelty lies in their explicit new arithmetic consequence, not a general method.",
+      "Independent scientific review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_INPUT_NOT_COVERING_NEW_SUPPORT_GROWTH",
+        "evidence": [
+          "Theorem 13 gives seed 1,1,1,1; Theorem 14 gives seed 1,2,2,3 with the same fourth-order recurrence.",
+          "Section 6 concerns numerical average values of other transforms, not parity-support counting."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.04012v1",
+        "material_read": "First-page definitions; full text at Section 5 Theorems 13--14, including their representations and explicit note on shared recurrence; Section 6 average-value formulae and scope; text searches for parity, density, generating function.",
+        "method": "Opened full 16-page arXiv PDF, read extracted text and visual page 9, and compared statement by statement.",
+        "title": "Sums of products of binomial coefficients mod 2 and 2-regular sequences",
+        "trigger": "Primary source giving exactly the two binomial transform formulas and recurrence data."
+      },
+      {
+        "assessment": "RELATED_METHOD_DIFFERENT_PARAMETER_SEQUENCES",
+        "evidence": [
+          "The earlier work lists Fibonacci, integers, extended Lucas, and Narayana cows transforms and does not list the shared fourth-order seed pair from 2023."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1610.06166",
+        "material_read": "Abstract, introductory definitions and arithmetic transform list in Section 4; checked formula/parameter list against both selected 2023 transforms.",
+        "method": "Read original full-text PDF available from arXiv, including introductory screenshot and text of Section 4.",
+        "title": "Sums of products of binomial coefficients mod 2 and run length transforms of sequences",
+        "trigger": "Original earlier arithmetic binomial-transform publication that might cover this application."
+      },
+      {
+        "assessment": "COVERS_FIRST_COUNT_ONLY_AND_DISCLOSED",
+        "evidence": [
+          "Comment dated 2015-02-26 describes binary words with no zero-run length congruent to four modulo five; digit complementation matches the first companion."
+        ],
+        "identifier_or_url": "https://oeis.org/A124312",
+        "material_read": "Full sequence record including generating function, first values, 2015 forbidden-run comment and references.",
+        "method": "Read official OEIS entry, compared initial terms and statement implications.",
+        "title": "OEIS A124312",
+        "trigger": "Exact coefficient match with the first transform dyadic count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a83c6be5-e82d-4580-8985-40ea8e623c92",
+  "value": {
+    "rationale": "The paper introduced this particular pair precisely because their fourth-order recurrence is identical but the seeds differ. Their odd-value sets have exact nested structure, sharply different algebraic exponential growth (about 1.966 versus 1.497 per binary digit), distinct optimal power-law exponents, and an explicit exponential relative thinning law. These natural arithmetic sparsity invariants were not supplied by the 2023 identities, and the comparison is not a restatement of the old OEIS first companion table. The result is intentionally narrow, complete and quantitatively sharp rather than a general algorithm.",
+    "status": "PASS"
+  }
+}
