@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:00:07.160710Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-finite-stochasticity-window-for-fourth-order-gauss-steps--6c4221598c7b/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fcc247c8b7eb30c50d03abc79e1b79aab81f6226/2026/11/02/a-sharp-finite-stochasticity-window-for-fourth-order-gauss-steps--6c4221598c7b/verify.py",
+        "independent_math_checks.py"
+      ],
+      "rationale": "PASS. The fixed conservative directed eight-cycle Q=S-I with S^8=I and row-generator convention has two-stage fourth-order Gauss/Padé endpoint rational map R(hQ)=[I+hQ/2+h^2Q^2/12][I-hQ/2+h^2Q^2/12]^{-1}. Since the scalar denominator zeros have Re>0 whereas spec(Q) has Re<=0, it is well-defined for all h>=0; Q*1=0 gives row sums one. Recomputed exact inverse in Q(h)[z]/(z^8-1), all eight cyclic numerator polynomials H_j and strictly positive denominator W(h); an independent exact SymPy check verified ALL eight factorization formulas. For j=0,4,5,6, coefficients ensure positivity for h>0. Each of P1,P2,P3,P7 has one positive zero by Descartes sign changes; exact rational brackets show P7 root in (1/2,3/5), P1 in (7/2,4), and P2,P3 still negative at 4. Thus c7<0 for 0<h<h_minus, c1<0 for h>h_plus, and every cyclic probability is positive between; at the two endpoints the respective active probability vanishes. Positive endpoints h_minus=6alpha, h_plus=6beta are uniquely specified by given degree-6 and degree-12 primitive polynomials. Independent exact checks and numerical roots gave h_minus≈0.5122515443725, h_plus≈3.5271974662694. The ten finite rational matrices from source verify.py are corroboration, not the continuum proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zappavigna 2012 Section 4 derives negative Padé z^7 coefficient for an 8x8 nilpotent superdiagonal N, with cyclic-feedback general matrix mentioned but no 8-cycle exact-step set; Lóczi/Ketcheson class-level absolute monotonicity radius zero"
+        ],
+        "reasoning": "Generic absence of uniform positivity and previously computed absorbing 8-state windows are weaker/different; they do not supply exact cyclic irreducible generator window. A more specialized numerical Markov circulant theorem might subsume and remains a risk.",
+        "searches": [
+          "Zappavigna Colaneri Kirkland Shorten 2012 Essentially Negative News About Positive Systems Section 4",
+          "Lóczi Ketcheson 2014 rational absolute monotonicity Gauss radius zero",
+          "Itkin Kazbek 2026 rational Fokker Planck positivity"
+        ]
+      },
+      "checked_sources": [
+        "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "arxiv:1303.6651",
+        "arxiv:1505.04024",
+        "Resultary two targeted queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Old pure-birth result is triangular with absorbing state and has exact upper endpoint 2sqrt(3); current periodic S^8=I has an entirely different 8-coefficient rational quotient, upper endpoint root of degree-12 polynomial"
+        ],
+        "reasoning": "The shared rational method and small-step negative coefficient predict qualitative failure, not the new exact circular closure transition. General zero absolute-monotonicity radius is a class guarantee, not exact fixed-generator iff set.",
+        "searches": [
+          "Published Resultary 2026-09-20 pure-birth theorem 1 and 2 full RESULT.md",
+          "Zappavigna et al. 2012 full PDF Section 4 Example 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Resultary 2026-09-20 eight-state barrier treats same Padé rational map but unit-rate upper-triangular pure-birth CTMC Q_* with absorbing state, not periodic S-I"
+        ],
+        "reasoning": "The map is the same [2/2] Padé/Gauss endpoint, and Q=S-I is a conservative circulant rather than the nilpotent/absorbing generator. The difference changes rational coefficients and exact boundary roots, so prior window does not directly give this cycle classification.",
+        "searches": [
+          "Resultary: Gauss Legendre order four Padé [2/2] positive stochastic endpoint directed eight state cycle exact step window",
+          "Resultary: directed 8-cycle fourth order Padé Gauss stochastic interval root"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Resultary pure-birth endpoint h0≈0.59664056 and 2sqrt(3) differ from cycle endpoints 0.51225154 and 3.52719747; both are exact algebraic invariants of different generators"
+        ],
+        "reasoning": "No exact eight-cycle coefficient table or cycle-specific root pair found in the searched published database; known pure-birth window is not the same table.",
+        "searches": [
+          "Resultary: eight state pade Markov positivity barrier cyclic shift",
+          "web: directed circulant 8-cycle Markov Padé Gauss [2/2] exact positivity polynomial table"
+        ]
+      },
+      "rationale": "Best-of-knowledge, theorem/implication-based comparison of relevant primary literature; a failed search by itself does not prove historical priority. Closest known published results address different parameters/objects or only more general frameworks.",
+      "residual_risks": [
+        "A specialized circulant Padé positivity theorem could have tabulated this eight-cycle exact interval outside searched sources.",
+        "Pure-birth minimal dimension for small-step positivity failure is prior work and deliberately NOT claimed new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_SMALLSTEP_COUNTEREXAMPLE_NOT_CYCLE_WINDOW",
+          "evidence": [
+            "Example 3 uses strictly upper-triangular nilpotent N (not S-I) and proves negative entry for small steps; no exact uniform-rate directed cycle window is stated there."
+          ],
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "Primary 23-page PDF: Introduction and Section 4 Example 3 with pp.12–15 examined, plus direct screenshot of page 13; remaining unrelated sections not exhaustively studied",
+          "method": "PDF rendered screenshot and text comparison, including nilpotent N and Padé z^7 coefficient",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "2012 earliest source of Padé non-positivity for eight-state positive matrices and cyclic architecture"
+        },
+        {
+          "assessment": "CLOSEST_DIFFERENT_GENERATOR",
+          "evidence": [
+            "Theorem 2 uses absorbing unit-rate pure-birth Q_*, not conservative irreducible cyclic Q=S-I; old h0=.59664056 and upper 2sqrt(3) do not imply new cycle endpoints."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Complete published RESULT.md retrieved from GitHub and read, Theorems 1–2 and entire proof/limitations",
+          "method": "GitHub connected full source file via exact record path, compared Q matrices and boundary polynomials",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Same order-four Gauss endpoint, eight Markov states, explicit intermediate positivity window"
+        },
+        {
+          "assessment": "GENERAL_CLASS_BOUND_DIFFERENT_INVARIANT",
+          "evidence": [
+            "Radius zero over arbitrary positive systems says nothing about entire positivity interval for one fixed Markov cycle."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1303.6651",
+          "material_read": "Abstract/overview and cited radius-zero results, not independently reread complete article",
+          "method": "Scholarly search and literature comparison",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "General Padé positivity radius could dominate special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "arxiv:1303.6651",
+        "arxiv:1505.04024",
+        "Resultary two targeted queries"
+      ],
+      "rationale": "PASS. Fourth-order A-stable Gauss time stepping can preserve row mass yet violate Markov positivity both for arbitrarily small and sufficiently large steps; the full exact positive window on an irreducible conservative cyclic generator is a natural sharp numerical-analysis invariant. The algebraic boundary and all-step if-and-only-if complement prior absorbing pure-birth eight-state results without merely repeating the small-step obstruction.",
+      "residual_risks": [
+        "A specialized circulant Padé positivity theorem could have tabulated this eight-cycle exact interval outside searched sources.",
+        "Pure-birth minimal dimension for small-step positivity failure is prior work and deliberately NOT claimed new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only exact arithmetic endpoint positivity for a directed unit-rate 8-cycle and uniform rate rescaling; no all-cycle-length or unequal-rate statement, no internal-stage positivity claim."
+  ],
+  "schema_version": 1
+}
