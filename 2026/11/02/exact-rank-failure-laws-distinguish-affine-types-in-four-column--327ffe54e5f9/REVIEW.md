@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed domain is all \(d\ge3\), exactly four distinct Walsh-coordinate columns, and either iid uniform sampling or uniform sampling without replacement. Scaling and nonzero column signs cannot change rank. The three binary differences after translating one column have rank exactly two or three; this proves the two projective designs. Every affine plane in the real cube contains at most four vertices, and exactly twelve four-vertex sets lie in one; the proof checks the six coordinate faces and six diagonal planes and excludes others. Exact occupancy inclusion--exclusion yields both stated probability laws. Their deterministic row-count horizons, asymptotics and strict with-replacement ordering follow algebraically. All essential finite identities were replayed by the embedded verifier. There are no extrapolated infinite deductions from the finite checks.
+## correctness
 
-## Originality — PASS, qualified
-The motivating 2022 Balabanov--Beaupère--Grigori--Lederer full-text sections 1--3 and embedding theorem and the supporting Tropp 2010/2011, Boutsidis--Gittens 2012/2013 and Holodnak--Ipsen 2013/2014 works treat SRHT/OSE bounds, general row sampling and rank criteria. Their statements do not imply either of the displayed exact four-coordinate probability formulas without the new explicit Walsh affine-type and cube coplanarity analysis. The 2019 Jung--Kueng--Mixon design discussion supplies related Walsh sign independence but not this sampling rank law. Published research-record comparisons retrieved Walsh four-support *Fourier uncertainty*, spectral bases and DFT minors, different target quantities, not a covered row-sampled least-squares rank-failure classification. Source-index incompleteness and possible specialized results on cube random-matrix rank remain publication-priority risks; this review makes no independent novelty certification.
+PASS
 
-## Value — PASS
-Rank failure is a definitive breakdown of injectivity for structured-sketch least squares and subspace embeddings. All four-column coordinate subspaces have exactly the same row leverage scores \(4/N\), yet their rank-failure exponents and sharp no-replacement guarantees differ. The exact classification exposes a concrete limitation of coherence-only descriptions and supplies finite-size benchmarks for sampling algorithms. The exact threshold gap is of order \(N\), not a tiny numerical improvement. No broader algorithmic convergence or conditioning result is claimed.
+Every 4-distinct-coordinate support translates to 0 plus three binary differences of rank two or three, producing respectively the four (1,x,y,xy) types or the eight (1,x,y,z) cube vertices with equal multiplicities. The first set spans iff all four types occur. In the cube, every deficient set has at most four vertex types, and the only deficient four-subsets are its 6 coordinate faces and 6 diagonal planes; all 5-sets span. Inclusion-exclusion over occupied types proves P0=4(3/4)^m-6(1/2)^m+4(1/4)^m and P1=12(1/2)^m+8(3/8)^m-68(1/4)^m+72(1/8)^m, and hypergeometric replacements C(jN/v,m)/C(N,m). Max deficient row counts are 3N/4 and N/2 exactly. Rank is invariant under nonzero column signs and rescaling. Direct rational matrix calculations and occupancy tests independently passed 590 cases, including sharp finite thresholds; all-d,m quantifiers follow from proof not tests.
 
-## Scope and remaining risks
-Only four coordinate columns and the standard Walsh--Hadamard sampling design are covered; the proof is exact arithmetic. The designated source has first-public date 2022-10-20. Classical combinatorial identities are acknowledged. Independent publication-priority and proof audit have not been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: classical Walsh characters, affine-cube coplanarity, coupon-collector inclusion-exclusion, and general SRHT embeddings are prior. Inspected Balabanov et al. gives probability bounds and algorithms, not the two exact support-dependent rank-loss distributions and row-count guarantees. Resultary related four-sparse Walsh spectra concern Fourier support sizes, not sampled-row rank. A specialized cube-submatrix enumeration not indexed could cover the formulas; no exhaustive priority certification.
+
+## value
+
+PASS
+
+Injectivity is a fundamental necessary property for structured-sketch least squares. This all-support four-coordinate classification separates failure exponents and sharp deterministic sampling thresholds by Θ(N) despite identical leverage scores 4/N; it provides a meaningful exact benchmark and demonstrates coherence statistics can conceal affine dependence. It makes no claims on conditioned spectral distortion or larger supports.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

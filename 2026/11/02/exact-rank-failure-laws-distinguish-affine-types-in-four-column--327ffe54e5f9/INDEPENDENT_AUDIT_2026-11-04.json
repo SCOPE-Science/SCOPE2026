@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T15:53:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every 4-distinct-coordinate support translates to 0 plus three binary differences of rank two or three, producing respectively the four (1,x,y,xy) types or the eight (1,x,y,z) cube vertices with equal multiplicities. The first set spans iff all four types occur. In the cube, every deficient set has at most four vertex types, and the only deficient four-subsets are its 6 coordinate faces and 6 diagonal planes; all 5-sets span. Inclusion-exclusion over occupied types proves P0=4(3/4)^m-6(1/2)^m+4(1/4)^m and P1=12(1/2)^m+8(3/8)^m-68(1/4)^m+72(1/8)^m, and hypergeometric replacements C(jN/v,m)/C(N,m). Max deficient row counts are 3N/4 and N/2 exactly. Rank is invariant under nonzero column signs and rescaling. Direct rational matrix calculations and occupancy tests independently passed 590 cases, including sharp finite thresholds; all-d,m quantifiers follow from proof not tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balabanov et al., Sections 1-3 provide generic embedding sampling bounds; Tropp and Boutsidis-Gittens provide probabilistic subspace-preservation bounds."
+        ],
+        "reasoning": "General OSE sufficient row counts cannot determine exact two-support laws or optimal all-row-subset cutoffs. Known Walsh orthogonality is an ingredient rather than the final probability theorem.",
+        "searches": [
+          "https://arxiv.org/abs/2210.11295",
+          "Tropp Improved analysis of subsampled randomized Hadamard transform arxiv:1011.1595",
+          "Boutsidis Gittens SRHT arxiv:1204.0062"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2210.11295",
+        "https://arxiv.org/abs/1011.1595",
+        "https://arxiv.org/abs/1204.0062",
+        "https://arxiv.org/abs/1310.1502",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-four-sparse-walsh-spectra-are-controlled-by-affine-dimension-on--1491c27461f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General Gram full-rank conditions and bounds do not fix the 12 singular cube quadruples or occupancy coefficients."
+        ],
+        "reasoning": "Even when assumptions overlap (SRHT), the prior statements lack the exact cube-projective row-type census needed to infer the asserted formulas; no contrary implication found.",
+        "searches": [
+          "https://arxiv.org/abs/2210.11295",
+          "arxiv:1310.1502 randomized approximation Gram matrix exact computation probabilistic bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rows project to the cube design (1,x,y,z) or plane design (1,x,y,xy); the relevant invariant is random sampled row rank, not Fourier-support uncertainty."
+        ],
+        "reasoning": "Compared exact incidence/occupancy law against Walsh-minor and restricted-cube-matrix formulations. A published equivalent two-affine-type failure spectrum was not located; the cube geometry is fully accounted for in the proof.",
+        "searches": [
+          "SRHT four column affine plane versus cube random row full rank sampling exact probability",
+          "Hadamard four-character coordinate restriction rank deficiency cube coplanar"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A published Resultary four-sparse Walsh result gives possible Fourier support-size sets by affine type, not the row-sampling failure generating polynomials."
+        ],
+        "reasoning": "Tables of Walsh spectra and DFT singular minors classify different objects; no exact two-type sampled-rank probability table was identified.",
+        "searches": [
+          "Resultary four sparse Walsh spectra affine dimension",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-four-sparse-walsh-spectra-are-controlled-by-affine-dimension-on--1491c27461f4",
+          "exact 4x4 Hadamard minors cube incidence probability sampling"
+        ]
+      },
+      "rationale": "PASS best of knowledge: classical Walsh characters, affine-cube coplanarity, coupon-collector inclusion-exclusion, and general SRHT embeddings are prior. Inspected Balabanov et al. gives probability bounds and algorithms, not the two exact support-dependent rank-loss distributions and row-count guarantees. Resultary related four-sparse Walsh spectra concern Fourier support sizes, not sampled-row rank. A specialized cube-submatrix enumeration not indexed could cover the formulas; no exhaustive priority certification.",
+      "residual_risks": [
+        "A specialist exact rank-minor distribution or cube-affine random matrix census may predate this calculation.",
+        "No claims about conditioning after full rank, floating point, supports of size other than four, or non-Walsh transforms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact formula in material inspected; treats generic OSE/high probability and block structure.",
+          "evidence": "No exact 4-column affine-parity rank failure law or all-row-set threshold in inspected theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.11295",
+          "material_read": "Full accessible PDF, introductory model, algorithm and sections 1-3 including subspace embedding theorem and bounds; page 2 visually inspected.",
+          "method": "primary PDF reading",
+          "title": "Block subsampled randomized Hadamard transform for low-rank approximation on distributed architectures",
+          "trigger": "same Walsh-Hadamard row subsampling model"
+        },
+        {
+          "assessment": "DIFFERENT_QUANTITY",
+          "evidence": "Fourier support sizes of 4-sparse functions do not determine probability sampled rows of a 4-column matrix lose rank.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-four-sparse-walsh-spectra-are-controlled-by-affine-dimension-on--1491c27461f4",
+          "material_read": "Resultary published full result summary giving possible Fourier support sizes and affine separation.",
+          "method": "published Resultary record semantic reading",
+          "title": "Four-sparse Walsh spectra are controlled by affine dimension",
+          "trigger": "same four-point affine support type, potentially equivalent under Fourier duality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Injectivity is a fundamental necessary property for structured-sketch least squares. This all-support four-coordinate classification separates failure exponents and sharp deterministic sampling thresholds by Θ(N) despite identical leverage scores 4/N; it provides a meaningful exact benchmark and demonstrates coherence statistics can conceal affine dependence. It makes no claims on conditioned spectral distortion or larger supports.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2210.11295",
+    "https://arxiv.org/abs/1011.1595",
+    "https://arxiv.org/abs/1204.0062",
+    "https://arxiv.org/abs/1310.1502",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-four-sparse-walsh-spectra-are-controlled-by-affine-dimension-on--1491c27461f4"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A specialist exact rank-minor distribution or cube-affine random matrix census may predate this calculation.",
+    "No claims about conditioning after full rank, floating point, supports of size other than four, or non-Walsh transforms."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A specialist exact rank-minor distribution or cube-affine random matrix census may predate this calculation.",
+    "No claims about conditioning after full rank, floating point, supports of size other than four, or non-Walsh transforms."
+  ]
+}
