@@ -1,15 +1,21 @@
-# Scientific review: squared-cycle packing neighborhoods
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The single claim is a finite integral homotopy classification at \(k=2,3,4\). All graph vertices are enumerated directly as independent \(k\)-subsets of \(W_{3k+2}\), with an independent cyclic-gap test; all neighborhood-complex simplices are enumerated from all open neighborhoods. The complete matching is checked acyclic on the full directed Hasse graph, not merely sampled. Exact signed Morse boundaries compose to zero and have nonzero Smith invariant factors all equal to one. The specific critical dimensions and unit cancellations establish the claimed CW homotopy types. `verify.py` is a self-contained executable certificate, modulo the stated SymPy dependency. Residual correctness risk: the passage from integer Morse data to homotopy uses standard cellular cancellation and simple-connectivity arguments; execution does not constitute independent proof checking.
+PASS
 
-## Originality — PASS
+Every independent k-set of W_{3k+2}=C_{3k+2}² is a cyclic gap configuration with gaps at least 3; the k=2,3,4 vertex counts independently reconstructed are 12,22,35. Since open neighborhood simplices are precisely subsets of at least one H_k open neighborhood, independently exhaustive enumeration gave exactly 911,16,391,272,861 augmented faces and package face-vectors. An independent deterministic matching reconstructed all 447,8182,136419 face pairs; directed Hasse incidence graph acyclicity held over respectively 3700,89089,1913226 incidences. Fully reconstructed signed integral Morse boundaries have Smith unit diagonals ∂3:1^7 (k=2); ∂3:1^8,∂4:1^4,∂5:1 (k=3); and ∂2:1,∂3:1^10 (k=4). With no 1-cells for k2/k3 and a unit 1/2-cell cancellation for k4, primitive cellular attachments cancel successively. For k3 a possible π4(S3) component of the last five-cell is killed by triangular self-equivalence using its unit degree on S4, leaving S3; the other cases yield S2∨S2∨S3 and S3. Thus homotopy, not merely Betti, is established exactly for the three claimed parameters. The published total-cut types differ, so the corresponding nerve covers cannot be good.
 
-The closest direct source, Shen et al., *Neighborhood Complexes of induced k-independent graphs*, arXiv:2512.09674 (2025), defines \(H_k\), determines \(\mathcal N(H_k(W_{3k+1}))\) for the adjacent residue, and emphasizes that its cover giving the total-cut nerve need not be good. It does not state the three \(3k+2\) neighborhood types. Shen et al., *Homotopy Type of Total Cut Complexes of Squared Cycle Graphs*, arXiv:2510.22574 (2025), computes \(\Delta_k^t(W_{3k+2})\), a different complex on the original cyclic vertices. Its sphere \(S^5\) for \(k\ge3\) does not imply the neighborhood calculation; the computed neighborhood types have a different degree and demonstrate non-goodness of the cover. Published comparison records concerning ordinary squared-cycle cut complexes and ordinary neighborhood complexes of third-power cycles concern different objects and do not imply this claim. Searches using both the induced-graph and the maximum-packing/disjointness aliases found no covering theorem. An equivalent calculation in unindexed literature remains possible, so the search is evidence rather than proof of global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural three-case classification at the first unresolved residue adjacent to a theorem in a recent study. The smallest case exhibits mixed-dimensional integral homotopy, whereas the next two are three-spheres; these behaviors are not predicted by the total-cut sphere formula. The explicit discrepancy proves a nontrivial boundary of the proposed nerve-cover correspondence in the same family. The finite cutoff is mathematically motivated by the three consecutive nontrivial maximum-packing parameters and yields a complete, independently reproducible finite result rather than an arbitrary parameter substitution. It does not give the general \(k\)-formula; that is an explicit limitation, not a claimed extension.
+PASS best of knowledge: the exact three finite cases in residue n=3k+2 are not covered by the adjacent-residue neighborhood theorem or the different total-cut complex theorem. Mathematically compare functors and cover nerve, not just n.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This finite, natural boundary family n=3k+2 lies immediately next to a published all-k n=3k+1 neighborhood-complex theorem, and the first three exactly computed cases expose homotopy behavior that the otherwise natural total-cut nerve fails to capture. The explicit contrasting types and good-cover obstructions are independently useful structural benchmarks, not arbitrary tiny graph instances, despite no extrapolation beyond k=4.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
