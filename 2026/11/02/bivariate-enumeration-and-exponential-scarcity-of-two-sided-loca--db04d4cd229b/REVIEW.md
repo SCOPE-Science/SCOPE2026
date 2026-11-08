@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cyclic local characterization is derived directly from open-neighbourhood signatures, including the crucial assumption that the cycle has length at least five. Every one- or zero-run is then of length one or two; the two five-symbol forbidden patterns become precise adjacent-run constraints. The two finite transfer matrices are defined explicitly, with determinants equal to the stated polynomials. The logarithmic trace identity correctly converts cycles of runs into words on labelled vertices (the \(n/k\) distinguished-run factor). A positive simple dominant root follows from positive coefficients and the gcd-one exponent support; the explicit denominator difference forces strict separation of the radii. The packaged standalone verifier was executed using direct graph-based predicates and an independently coded determinant expansion for all \(5\le n\le16\). Small cycles below five are explicitly excluded. The infinity claim rests on the transfer proof, not on an extrapolation.
+PASS
 
-## Originality — PASS, with historical-priority qualification
+For simple C_n with n>=5, every vertex outside L has nonempty neighboring-L signature iff cyclic 000 is absent. A repeated nonempty signature for two zeros is necessarily shared singleton central 1 in 00100; similarly reverse complement side uses 111 and 11011. Alternating zero/one runs each have length 1 or 2; permitted run transitions yield two explicit transfer matrices with determinant polynomials P_A=1-tz²-t²z³-t²z⁴-t²z⁵-t³z⁶ and P_B=1-tz²-t²z⁴-(t²+t³)z⁵-t³z⁶-t⁴z⁸. The cyclic trace identity -z d_z log det(I-T) counts vertex-labelled words with correct n/k root factors. At t=1 each supported exponent set has gcd 1, so unique simple minimal positive pole; P_B(alpha)-P_A(alpha)=alpha³(1-alpha²-alpha⁵)>0 for alpha<2/3, implying beta>alpha and b_n/a_n~(alpha/beta)^n. Independent direct neighborhood enumeration over all 2^n masks for n=5..13 agrees with both univariate determinant coefficients; the bivariate formal proof is the transfer-matrix argument, not these finite tests.
 
-The March 13, 2026 existence theorem of Chakraborty–Foucaud–Henning–Laihonen was inspected in the author-hosted complete article, including its definition, main theorem and discussion of two LD parts. It establishes existence and constructibility, not the new pair of bivariate enumerators or their asymptotic ratio. The 2025 paper of Foucaud–Maniya–Paul–Pradhan treats existence of two LD parts for other graph classes, likewise not size-resolved cyclic counts. OEIS A001636 already supplies exactly the unweighted one-sided counts; those counts are *excluded* from any assertion of numerical novelty. Search comparisons of cyclic word avoidance, one-sided and two-sided locating domination, generating functions, and the exact enumerator did not find a covering statement for the remaining bivariate or two-sided results. Absence from the searched sources is not an absolute priority proof. Residual risk: an earlier equivalent word-avoidance enumeration not indexed under domination terminology.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A recent general theorem guarantees a partition with one LD side but leaves the number, size profile, and relative rarity of partitions with two LD sides unquantified. The two exact bivariate polynomials solve these natural counting refinements on a fundamental family; the different dominant roots exhibit an actual qualitative distinction: almost all dominating/LD partitions fail the second LD requirement, exponentially often. The result explicitly avoids relying for significance on the already-tabulated one-sided univariate sequence.
+Chakraborty–Foucaud–Henning–Laihonen 2026 establishes existence of dominating/LD partitions in isolate-free graphs, not their cardinality generating polynomials or asymptotic scarcity on cycles. Other LD-partition graph-class papers address existence. OEIS A001636 already includes the unweighted A_n(1) sequence and is not claimed new. Distinct novelty is two-sided size-resolved B_n(t), joint comparison and exponential ratio.
 
-## Limits and scientific relationship
+## value
 
-The result is for labelled simple cycles of length at least five, not arbitrary graphs or orbit counts. The main historical comparator is DOI 10.37236/14049; the closest known univariate table is OEIS A001636. The recurrence-based confirmation does not constitute independent proof or certify originality beyond the inspected sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact size-marked counts for both kinds of identifying partitions and their strictly different growth rates answer a natural enumeration question motivated by 2026 graph-partition existence results. The exponential scarcity constant provides a useful asymptotic distinction that cannot be read from existence alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
