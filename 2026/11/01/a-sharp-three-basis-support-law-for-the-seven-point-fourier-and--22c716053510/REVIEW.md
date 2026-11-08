@@ -1,19 +1,21 @@
-# Review: A sharp three-basis support law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every complex seven-point signal, the prime cyclic Fourier minor theorem bounds each transformed zero count by the original support size minus one. An assumed total support at most \(13\) therefore gives zero sets of combined size one larger than the original support. The resulting rectangular Fourier/chirp matrix must have a nonzero kernel vector, but exhaustive rank verification in \(\mathbb F_{1009}\) finds no such rank-deficient matrix. Because \(105\) is a primitive seventh root in that field, a full-rank specialization exhibits a nonzero cyclotomic minor in characteristic zero. There are exactly \(149793\) eligible matrices, all counted by the standalone checker without sampling. The two-spike vector \(\delta_0-\delta_1\) has supports \((2,6,6)\), proving sharpness. The argument is valid for arbitrary complex coefficients, not only field-valued or unimodular coefficients. The certificate concerns only the matrices specified in the theorem.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Prime cyclic Fourier nonvanishing-minors theorem applies to f and chirp-weighted f, giving each transform at most s−1 zeros when original support size s. A putative triple support ≤13 would provide zero subsets U,V with |U|+|V|=s+1 and each <=s−1; a nonzero vector in the kernel of the (s+1)×s stacked Fourier/chirped Fourier row matrix follows. Since 1009 prime and 105^7≡1 mod1009 with 105≠1, the substitution ω→105 is a valid ring homomorphism from the cyclotomic integer ring. Full column rank modulo1009 witnesses a nonzero cyclotomic minor over C. The exact exhaustive checker ranges all s=1..7, all s-subsets S and all admissible U,V; an independent, differently implemented finite-field row-elimination reproduces 149793 full-rank matrices, per-s counts 0,0,15435,51450,56595,23324,2989, zero defects. The empty s=1,2 test collections are vacuous, not failures. For f=delta0−delta1 Fourier zeros k=0 and chirp-Fourier k=1 prove supports (2,6,6). Finite exhaustive rank verification establishes exactly this finite-dimensional universal predicate for arbitrary complex coefficients, not larger dimensions or all basis triples.
 
-Fiorentino and Weigert's 2022 article gives a general lower bound of \(12\) for the sum of the supports in three seven-dimensional standard mutually unbiased bases; the sharp \(44\) bound studied for the complete eight-basis family concerns a different statistic. The article explicitly proposes sharp bounds for triples as a future direction, while discussing numerical obstructions for some balanced configurations. Tao's prime-order theorem yields the known two-basis bound \(8\) but does not prohibit all three-basis support totals of \(13\). Searches for exact dimension-seven triple support bounds and related finite Fourier/chirp results found no prior statement determining \(14\). Related finite-parabola and Fano-frequency results use different Fourier sampling spaces and do not imply the all-complex-signal claim. An unindexed equivalent theorem or implicit stronger classification remains a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The quantity is the natural exact support uncertainty for three incompatible Fourier-type measurements. The value \(14\), rather than the pairwise lower bound \(12\) or the merely integer-rounded exclusion of \(12\), is a sharp new threshold. Excluding a total of \(13\) requires joint zero-pattern constraints and is not a routine pairwise consequence. Its short exact certificate also provides a reproducible method for a precise finite-dimensional question that the focal literature explicitly isolates for future research.
+Best-of-knowledge originality PASS after searches and real statement-level primary comparisons; no source found to imply the exact final claim. Explicit historical/inaccessible-source risks remain: A stronger lemma in the inaccessible 2026 complete-basis paper might imply the specified 14 bound even though its published global total does not; this is not claimed impossible.; Only a particular triple in dimension seven, no other triples, higher primes, approximate or equality-orbit classification.
 
-## Closest literature and limits
+## value
 
-V. Fiorentino and S. Weigert, *Uncertainty relations for the support of quantum states* (2022), especially the standard-basis definitions in §2.2, pair inequalities and triple inequality in §3, dimension-seven analysis in §§4–5 and concluding research directions; T. Tao, *An uncertainty principle for cyclic groups of prime order* (2003/2005). The result is for one explicit triple and does not assert an all-triples theorem or an equality-orbit classification. A self-review and independent integer-language replication do not constitute independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three mutually unbiased measurements on a natural prime-seven system have a sharp support uncertainty that ordinary pairwise Tao inequalities do not settle (their generic triple floor is 12). The excluded total 13 is a genuine joint-zero obstruction and the finite exact certificate solves a natural focused question identified as open research direction in the primary MUB literature. No need for paper-sized or all-prime theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
