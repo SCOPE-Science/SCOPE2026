@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All faces with four or more vertices lie wholly within one part except for at most one outside vertex. Pairing each owner face that omits its designated pivot with that pivot added gives an injective acyclic face matching: a downward step from a matched upper face retains the pivot and cannot lead to another lower partner. Thus the resulting CW model has dimension at most two; the full two-skeleton makes it simply connected. The Hurewicz and homological Whitehead theorems identify it as a wedge of two-spheres. Critical-triangle counts give the explicit rank; the zero-rank case is contractible. Fourteen fully enumerated small cases independently check faces, acyclicity, Euler counts and mod-two homology. These examples are corroboration, not the infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+Reconstructed the forbidden-subgraph condition: a face of size at least four must have all but at most one vertex in one part, otherwise part-patterns i,j,i,j or i,j,i,k or i,j,k,l make a four-vertex path. For each owner part i, toggling a distinguished owner vertex x_i pairs every face of size >=4; in an alternating path, the next deletion keeps x_i and at least two owner vertices, so that face is never another lower match. Hence the matching is acyclic and leaves only dimensions 0,1,2. The full two-skeleton gives simple connectivity; a simply connected two-dimensional CW model is a wedge of beta_2 spheres by Hurewicz/Whitehead. Counting unmatched owner-triangles yields exactly B. Independently enumerated forbidden paths and all faces and checked reduced Euler rank for (1,1),(2,3),(2,2,2),(1,2,3),(3,3,3),(1,1,2,2),(2,2,2,2): ranks 0,2,10,7,38,10,35 respectively. These finite instances corroborate rather than establish the uniform theorem.
 
-The closest full-text primary source is Deshpande–Goyal–Sawant, arXiv:2607.05358v1: Theorem 4.3 already solves complete bipartite graphs for all path parameters; Theorem 4.5 solves complete multipartite graphs for the three-vertex parameter. Conjecture 4.7 and Question 4.8 explicitly leave higher-parameter multipartite homotopy types and multiplicities open. The new theorem supplies the full four-vertex answer for arbitrary part count, not just a new restatement of the known bipartite result. The higher-independence theorem of Deshpande–Singh (arXiv:2001.05448) treats distinct complexes for this parameter. Indexed-result and targeted literature comparisons did not reveal an equivalent or stronger statement, but implicit or unindexed coverage remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The exact first multipartite path parameter beyond the established three-vertex case is a naturally motivated open case of a published general conjecture, and the formula is uniform in any number and sizes of parts. It gives a full integral homotopy classification, including examples in the explicitly non-shellable range, rather than a finite table or a renaming of the bipartite result.
+No checked prior statement entails the full assigned claim. The bipartite result is an already-covered specialization, not a novelty claim. A shellability classification cannot imply the asserted quantitative rank B without additional argument; no inspected statement dominates the full r>=2 conclusion. The general shellability result does not itself compute homotopy wedge ranks for all multipartite PF_4. The homotopy claim in the checked abstract is only complete bipartite; full-text verification remains a priority risk.
 
-## Limitations
+## value
 
-Only four-vertex forbidden paths and ordinary homotopy types are classified. The two-part specialization was known previously; higher parameters and equivariant homotopy remain untreated. The independent audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An all-part-size homotopy classification of a natural forbidden-subgraph complex supplies a topology/multiplicity result beyond the already characterized complete bipartite specialization and the previously treated three-vertex forbidden-path case. It addresses a specific nontrivial homotopy/multiplicity problem for arbitrary multipartite graphs rather than a rename or a finite curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

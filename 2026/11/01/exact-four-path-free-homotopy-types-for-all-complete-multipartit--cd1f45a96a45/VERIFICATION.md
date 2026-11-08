@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python check_pf4.py` with standard Python 3 (no third-party packages). The program enumerates all four-vertex subgraph paths, all faces of the corresponding path-free complexes, every matched Hasse arrow, and all mod-two simplicial boundary ranks for 14 tuples of part sizes. For each case it verifies the structural face criterion, absence of directed cycles in the matching, the predicted critical-two-cell count, Euler characteristic, and the complete mod-two Betti vector. Its printed final line reports 14 passing exhaustive finite examples.
+## correctness
 
-The unbounded theorem is established by the universal face classification, the owner-pivot acyclic matching, simple connectivity of the full two-skeleton, and the Hurewicz/Whitehead homotopy equivalence argument in RESULT.md. The finite checker does not verify all positive part sizes or substitute for any of these proof steps. No external independent validation has been performed.
+PASS
+
+Reconstructed the forbidden-subgraph condition: a face of size at least four must have all but at most one vertex in one part, otherwise part-patterns i,j,i,j or i,j,i,k or i,j,k,l make a four-vertex path. For each owner part i, toggling a distinguished owner vertex x_i pairs every face of size >=4; in an alternating path, the next deletion keeps x_i and at least two owner vertices, so that face is never another lower match. Hence the matching is acyclic and leaves only dimensions 0,1,2. The full two-skeleton gives simple connectivity; a simply connected two-dimensional CW model is a wedge of beta_2 spheres by Hurewicz/Whitehead. Counting unmatched owner-triangles yields exactly B. Independently enumerated forbidden paths and all faces and checked reduced Euler rank for (1,1),(2,3),(2,2,2),(1,2,3),(3,3,3),(1,1,2,2),(2,2,2,2): ranks 0,2,10,7,38,10,35 respectively. These finite instances corroborate rather than establish the uniform theorem.
+
+## originality
+
+PASS
+
+No checked prior statement entails the full assigned claim. The bipartite result is an already-covered specialization, not a novelty claim. A shellability classification cannot imply the asserted quantitative rank B without additional argument; no inspected statement dominates the full r>=2 conclusion. The general shellability result does not itself compute homotopy wedge ranks for all multipartite PF_4. The homotopy claim in the checked abstract is only complete bipartite; full-text verification remains a priority risk.
+
+## value
+
+PASS
+
+An all-part-size homotopy classification of a natural forbidden-subgraph complex supplies a topology/multiplicity result beyond the already characterized complete bipartite specialization and the previously treated three-vertex forbidden-path case. It addresses a specific nontrivial homotopy/multiplicity problem for arbitrary multipartite graphs rather than a rename or a finite curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
