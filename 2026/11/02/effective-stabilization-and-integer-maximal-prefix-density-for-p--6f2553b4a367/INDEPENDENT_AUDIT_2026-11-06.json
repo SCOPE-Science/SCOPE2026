@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:57:36.159889Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A long palindromic prefix induces a global reflection. Composing reflections fixes the unique center congruence for all long palindrome factors. Lengthening a factor by p yields PL(n+p)<=PL(n); in a factorization of length >p^2 one factor can be shortened by p, proving the reverse. Published translation lemma supplies L(j+p)>=L(j) globally, needed for M to appear in the stabilized window. The single large palindromic-prefix residue contributes P(N)=N/p+O(1), while exactly t of p stable residues maximize L. Direct independent dynamic programming tested 190 primitive binary palindrome-rich periods up to seven, including threshold, maximum, and t range; finite tests are not the proof. Caveat: the cited published translation lemma was not independently checked in its original full text.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rukavicka 2026: universal lower bound |T(N)|>=P(N), liminf ratio >=1; greedy and other lengths are distinct."
+        ],
+        "reasoning": "Universal lower bound and greedy palindromic length do not imply eventual equality, exact ratio, or upper bound p-1 on the different statistic.",
+        "searches": [
+          "arXiv:2609.15146",
+          "arXiv:2005.01371",
+          "arXiv:1606.05660"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md at frozen Git SHA 0da25e680907e8bc480a79076cedb47987843510",
+        "verification.py SHA 881988935f97f97926bb1509e506598bf34e2963",
+        "Independent 190 finite dynamic-programming cases",
+        "arXiv:2609.15146",
+        "arXiv:math/0501420v3",
+        "Resultary: periodic palindrome rich minimal palindromic length stabilization",
+        "web: Rukavicka 2026 density maximal palindromic length periodic words Lemma 6.1",
+        "web: Fischler Palindromic Prefixes Episturmian Lemma 5.6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Their accessible statements provide inequality/residue, whereas the final claim adds a finite cutoff and exact integer density."
+        ],
+        "reasoning": "The cited lemmas are essential inputs but neither explicitly yields the full claim; inaccessible full text remains a nonzero residual risk.",
+        "searches": [
+          "arXiv:2609.15146",
+          "arXiv:math/0501420"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original RESULT proof credits single palindrome-prefix residue and translation inequality."
+        ],
+        "reasoning": "Residue counting alone does not determine the minimum palindromic-factorization profile. The translation inequality only provides monotonicity across periods; reflection and pigeonhole give the new explicit equality cutoff.",
+        "searches": [
+          "Fischler 2005 Lemma 5.6",
+          "Rukavicka 2026 Lemma 6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known (ab)^omega example has ratio 1; independently checked p=2..7 finite profile classes."
+        ],
+        "reasoning": "One period-two case and finite tables cannot imply uniform p(p-1)+1 stabilization or sharp p-1 for every p.",
+        "searches": [
+          "Resultary semantic periodic palindromic-length search",
+          "Rukavicka 2026 Example 6.4"
+        ]
+      },
+      "rationale": "Best-of-knowledge original in the precise final scope: compared the theorem against the stated prior implications, including overlapping prerequisites and potentially broader aliases. Inaccessible primary material is expressly preserved as a residual priority risk, not treated as proof of noncoverage.",
+      "residual_risks": [
+        "The original full text/proof of the Rukavicka translation lemma was not retrieved; its exact application is consistent with the stated lemma but remains a primary-source verification risk.",
+        "Potential older periodic PL stabilization lemma under an alias was not excluded conclusively.",
+        "Indexed/semantic searches are not exhaustive; older unindexed equivalent work could alter publication priority.",
+        "The literature access constraint and article excerpts are explicitly distinguished from a full-document noncoverage finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The accessible theorem proves |T_w(N)|>=P_w(N) and liminf >=1, not the explicit quadratic stabilization or all-period upper sharpness. The exact Lemma 6.1 remains cited but unverified in primary full text.",
+          "evidence": [
+            "turn154334academia72",
+            "turn154334search2"
+          ],
+          "identifier_or_url": "arXiv:2609.15146 (2026-09-14)",
+          "material_read": "Original abstract and publication metadata; not the complete lemma proof",
+          "method": "arXiv indexed search and OA/HTML attempt; institutional request returned vpn_disconnected",
+          "title": "A lower bound on the density of prefixes with maximal palindromic length",
+          "trigger": "Same T_w/P_w quantity and cited translation lemma"
+        },
+        {
+          "assessment": "The earlier periodic-palindrome residue lemma is expressly prior; no assertion of the palindromic-factorization cutoff visible in accessible material.",
+          "evidence": [
+            "turn173829search1"
+          ],
+          "identifier_or_url": "arXiv:math/0501420v3 (2005)",
+          "material_read": "Original abstract and indexed bibliographic context; full text inaccessible",
+          "method": "arXiv HTML attempted; indexed text",
+          "title": "Palindromic Prefixes and Episturmian Words",
+          "trigger": "Periodic palindromic prefix classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit sufficient quadratic cutoff, finite algorithm for the exact long-run palindromic-length profile, integer density, and sharp all-p envelope extend a natural density inequality to an effective all-period classification. A researcher can compute exact t for a given primitive period without asymptotic guesswork.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md at frozen Git SHA 0da25e680907e8bc480a79076cedb47987843510",
+    "verification.py SHA 881988935f97f97926bb1509e506598bf34e2963",
+    "Independent 190 finite dynamic-programming cases",
+    "arXiv:2609.15146",
+    "arXiv:math/0501420v3"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every nonconstant purely periodic right-infinite word with minimal period p>=2 and infinitely many palindromic prefixes, PL(prefix_n)<=p and PL(prefix_{n+p})=PL(prefix_n) for n>=p(p-1)+1. The ratio |T_w(N)|/P_w(N) tends to an integer t between 1 and p-1, computable from the stable window; two-run words attain t=p-1.",
+  "limitations": [
+    "The original full text/proof of the Rukavicka translation lemma was not retrieved; its exact application is consistent with the stated lemma but remains a primary-source verification risk.",
+    "Potential older periodic PL stabilization lemma under an alias was not excluded conclusively.",
+    "Indexed/semantic searches are not exhaustive; older unindexed equivalent work could alter publication priority.",
+    "The literature access constraint and article excerpts are explicitly distinguished from a full-document noncoverage finding."
+  ],
+  "schema_version": 1
+}
