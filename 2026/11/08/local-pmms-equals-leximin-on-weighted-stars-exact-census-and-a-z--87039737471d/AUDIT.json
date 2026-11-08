@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Every connected allocation has exactly one hub bundle and singleton leaves. Enumerating a connected two-way repartition by its isolated leaf proves the exact PMMS inversion criterion, zero-hub exceptional equality, binomial counts, and PMMS/leximin equivalence. Boundaries r=0, r=k, zero and tied valuations are included. The standalone standard-library enumeration agrees on 83,309 settings and 1,391,766 center-subset choices; the finite checks corroborate rather than substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hummel–Igarashi address trees and general valuations, establishing existence/algorithmic guarantees, but not the all-solutions star classification under common valuation.",
+        "Bouveret et al. study connected graph fair division and related star objectives, not this local PMMS census."
+      ],
+      "reasoning": "An existence or polynomial-time construction of one fair allocation does not imply an exact characterization and count of every PMMS allocation. Heterogeneous generality does not by itself cover this stronger all-solutions assertion.",
+      "searches": [
+        "arxiv:2401.14825: tree PMMS algorithm, Theorem 6.1, complete text",
+        "arxiv:1705.10239: star fair division, complete text",
+        "PMMS leximin tree graph connected goods exact count"
+      ]
+    },
+    "checked_sources": [
+      "Hummel and Igarashi (2024), arXiv:2401.14825, full preprint",
+      "Bouveret et al. (2017), arXiv:1705.10239, full preprint",
+      "Amanatidis et al., arXiv:1806.03114, abstract and metadata only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6.1 (Hummel–Igarashi) establishes only the forward leximin=>PMMS direction.",
+        "The Hummel–Igarashi tree construction finds allocations, while this theorem classifies and counts every optimizer.",
+        "The 2017 graph allocation treatment concerns connected partition fairness but does not provide local PMMS star counting in the inspected primary text."
+      ],
+      "reasoning": "None of those published claims logically yields the converse PMMS=>leximin, the sorted/zero-hub decision procedure, or the exact labeled census without the additional structural argument. The unconstrained two-agent PMMS notion and connected-pair PMMS are not interchangeable.",
+      "searches": [
+        "Hummel Igarashi 2024 local PMMS identical leximin converse stars",
+        "Bouveret Cechlárová Elkind Igarashi Peters 2017 star fair division MMS",
+        "Amanatidis Birmpas Markakis 2018 comparing approximate relaxations of envy-freeness PMMS"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hummel–Igarashi Theorem 6.1 proves leximin implies PMMS, but the converse and exact census are not stated in the inspected text.",
+        "The zero-center exception makes the PMMS optimizer set larger than only sorted-leaf center choices."
+      ],
+      "reasoning": "The general leximin-to-PMMS implication does not entail every PMMS allocation is leximin; that is proved here using the star exchange and equal-utility-multiset structure. An equivalent characterization could exist under an alternative term; no such coverage was found.",
+      "searches": [
+        "\"PMMS\" \"star\" \"leximin\" allocation",
+        "\"star\" \"PMMS\" \"leximin\" allocation",
+        "\"local\" \"pairwise maximin\" \"star\" fairness",
+        "arxiv:2401.14825: Theorem 6.1 and neighboring-bundle PMMS"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No accessible published table was identified giving the proposed all-parameter binomial count or zero-hub distinction.",
+        "The count follows by enumerating permissible center-leaf subsets, not by consulting a numerical table."
+      ],
+      "reasoning": "Isolated finite examples or a computational table would not dominate the arbitrary-nonnegative-real-valuation formula; an undiscovered symbolic table or equivalent theorem remains a residual risk.",
+      "searches": [
+        "count locally PMMS connected allocations weighted star zero hub",
+        "exact binomial PMMS leximin star center leaves",
+        "star fair connected allocation exact count zero center"
+      ]
+    },
+    "rationale": "The 2024 initiating paper proves leximin implies PMMS and obtains one allocation on trees; its inspected statements do not imply the converse for all weighted stars or the complete solution set and count. Earlier connected fair division and unrestricted PMMS work addresses different questions. Exact claims, aliases, stronger results and tables were searched. An unindexed equivalent remains possible.",
+    "residual_risks": [
+      "An unindexed or inaccessible published classification could imply this theorem.",
+      "The Amanatidis et al. full paper was not inspected; its unrestricted PMMS setting is distinct.",
+      "The searched literature does not certify absolute priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING for converse and exact all-allocations census",
+        "evidence": "Theorem 6.1 has leximin implies PMMS; tree theorem is an existence algorithm; no inspected theorem asserts the sharp star characterization/count.",
+        "identifier_or_url": "https://arxiv.org/pdf/2401.14825",
+        "material_read": "Full arXiv preprint, especially definitions, Theorem 6.1, tree construction, star examples and concluding discussion",
+        "method": "Read extracted text and rendered PDF pages; inspected theorem statements, proofs and examples",
+        "title": "Keeping the Harmony Between Neighbors: Local Fairness in Graph Fair Division",
+        "trigger": "Introduces the same local PMMS notion and covers the same item graph family in broader tree settings"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING for local pairwise maximin-share census",
+        "evidence": "Addresses proportionality, envy-freeness and maximin notions under graph-connected bundles, but not the exact local PMMS star optimizer set.",
+        "identifier_or_url": "https://arxiv.org/pdf/1705.10239",
+        "material_read": "Full available preprint, definitions and results and star-specific algorithms",
+        "method": "Read extracted text, inspected PDF pages and searched for local PMMS terminology",
+        "title": "Fair Division of a Graph",
+        "trigger": "Foundational graph-constrained allocation results including stars"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY_NOT_DECISIVE",
+        "evidence": "The unconstrained PMMS concept does not directly impose the neighboring-bundle connected bipartition restriction.",
+        "identifier_or_url": "https://arxiv.org/abs/1806.03114",
+        "material_read": "Abstract and publicly accessible source metadata; full text not inspected",
+        "method": "Inspected paper abstract and compared the scope of unconstrained maximin-share relaxations",
+        "title": "Comparing Approximate Relaxations of Envy-Freeness",
+        "trigger": "Potential terminology overlap of PMMS for indivisible goods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "87039737-471d-48e9-8c6e-1a9de50b9002",
+  "value": {
+    "rationale": "This is a natural complete classification and exact count of fair connected allocations, not merely an existence proof or restatement of leximin=>PMMS. It identifies all permitted zero-hub exceptional allocations and sharp discontinuous prevalence, enabling exact counting/sampling and local-versus-global fairness comparisons across a meaningful infinite parametric family.",
+    "status": "PASS"
+  }
+}
