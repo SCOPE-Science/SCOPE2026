@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical limits
-The analytical proof and complete domain assumptions are in `RESULT.md`. The package includes `verify_all_rank.py`, a standalone Python 3 script using NumPy and SciPy to reconstruct finitely truncated Fock localization matrices, compute exact rational second-variation coefficients, and verify the finite-offset summations that yield the large-rank asymptotic coefficient.
+# Independent mathematical audit
 
-Executed command: `python3 verify_all_rank.py`.
+## correctness
 
-Observed output: `474 finite arithmetic, truncated-spectrum, and asymptotic checks passed.` The full package's checker was executed successfully. The tests include 240 exact rational finite-curvature checks, 180 polynomial-sum identities, 36 numerical eigenvalue second-difference checks, and 18 large-rank convergence checks. Numerical finite truncations, finite-degree identities, and finite samples of an asymptotic do not constitute independent proofs of an infinite statement. The trace-norm perturbation and factorial asymptotic arguments in `RESULT.md` are the mathematical proof.
+PASS
 
-Limitations: the result gives a fixed-rank second-order shape expansion for smooth mean-zero deformations, and an ordered two-limit large-rank formula for fixed trigonometric polynomials. No claim of uniform simultaneous high-frequency convergence or global equality uniqueness is made. No independent mathematical audit has been performed.
+At a disk of squared radius x>0, the Fock localization eigenvalues λ_j=1−e^(−x)sum_{a=0}^j x^a/a! are strictly decreasing, isolating rank-N cluster. A rank-one coherent-state Bochner boundary integral is C² in trace norm for small mean-zero C² perturbations r²=x+epsilon h. Isolated cluster second derivative cancels internal-pair terms; the cross-cluster denominator λ_i−λ_j=e^(−x)sum_{a=i+1}^j p_a yields the explicit Γ_{N,k} Fourier multiplier. k=1 cancels, k=2 gives p_{N−1}(N+1+2x)/((N+x)(N+1+x))>0; all Γ>=0 also follows from Abreu known global disk inequality. For fixed k and x=N, adjacent Poisson-weight expansion plus exact finite sums yields NΓ/p_{N−1}→(k²−1)/4, and Stirling gives the N^(−3/2) norm and Jacobi form for fixed trigonometric-polynomial h with epsilon first. Independently checked rational Γ1, Γ2 for N=2..9, x=1/3,1,5/2 and k=1..19 finite polynomial identities; finite numerics not infinite proof.
+
+## originality
+
+PASS
+
+Abreu proves global disk Ky Fan isoperimetry for every rank; Nicola–Riccardi–Tilli prove radial comparison and existence; Ramos treats the first individual eigenvalue. A known rank-two Hessian is explicitly excluded from novelty. Global optimality implies only Hessian semidefiniteness, not all-rank Fourier coefficients or the semiclassical fixed-frequency (k²−1)/4 edge law. No inspected primary result or Resultary hit dominates both these conclusions. Priority remains qualified by broader spectral shape-derivative literature.
+
+## value
+
+PASS
+
+Exact nonradial Hessian for every spectral rank and its universal balanced-edge angular Jacobi stiffness are intrinsic local quantitative stability invariants of Fock localization, with translation zero modes and strictly positive quadrupole curvature. The N^(−3/2) edge scaling is a natural semiclassical asymptotic, not a trivial rank-two recomputation; it can benchmark later quantitative rigidity work without promising an all-distance global inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
