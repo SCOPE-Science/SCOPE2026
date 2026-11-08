@@ -1,15 +1,21 @@
-# Scientific review: integral persistence of the truncated cube
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is uniquely determined by the 24 half-edge labels and the 36 specified edges. Breadth-first shortest paths give diameter six and a unique antipodal partner for each vertex. The executable integer-chain reconstruction exhausts 19,442 scale-four faces, makes 8,881 verified elementary collapses and 838 further unit-coefficient chain contractions, and terminates with precisely one degree-three and two degree-five free generators and zero boundaries. Repeating this for scales one through three gives all intermediate integral homology groups. Crucially, the source-cycle lift and target-chain projection compute a degree-one inclusion matrix of determinant \(-1\) between scales one and two, and the zero \(1\)-by-\(6\) degree-three inclusion matrix from scale three to four. The antipodal cross-polytope argument proves the scale-five \(11\)-sphere, with scale six a simplex. An independent binary persistence reduction agrees with the exact integer calculation. No assertion about unknown higher attaching maps enters the result.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The closest same-object published result, *A mixed-dimensional Rips wedge for the truncated cube* (record `4fae71a21a80`), proves only the scale-three homotopy type and expressly leaves the full filtration and connecting maps open; its complete `RESULT.md` was examined. The article *Clique complexes and graph powers* (arXiv:1104.0433) defines the general construction but does not calculate the truncated cube's fourth power. *Vietoris–Rips complexes of Platonic solids* (arXiv:2302.14388) studies a different polyhedron class and contains a broadly applicable antipodal terminal-stage lemma, so that lemma's consequence at scale five is treated as prior coverage, not as an original contribution. Searches for the truncated cube, its alias cube-connected cycles of order three, fourth graph powers, and exact degree-three/five homology found no covering scale-four result or integral persistence map calculation. An unindexed equivalent finite computation remains possible.
+PASS
 
-## Value — PASS
-A complete integral persistence module is a natural invariant of a canonical Archimedean graph in the shortest-path metric. The scale-four mixed-degree homology, the replacement rather than survival of the degree-three class, and the exactly unimodular survival of the five degree-one classes are mathematically substantive information absent from the previously known scale-three homotopy classification. This matters for distinguishing persistence from isolated Betti tables and for comparisons across polyhedral graph metrics; no generalization or publication-sized impact is asserted.
+Exact graph model (x,i) has 24 vertices, 36 edges, diameter six, unique antipodes (x⊕111,i). Actual pinned verifier source was read: constructs all K1..K4 faces, executes simplicial collapses and unit-coefficient integral cancellations, and lifts/projects integral critical cycles to compute K1→K2 H1 determinant ±1 and K3→K4 H3 zero map. Recorded reduced generators are (H0,H1)=(1,5) at r1,2; (H0,H2,H3)=(1,1,6) at r3; (H0,H3,H5)=(1,1,2) at r4; integral differentials vanish after unimodular cancellations. Independent code reconstructed all clique f-vectors and an algorithmically separate full mod-2 persistence through scale four, matching 23 H0 bars, 5 H1 [1,3), H2 [3,4), 6 H3 [3,4), and surviving H3/H5 counts at r4. K5 is join of 12 S0 antipodal pairs=S11, K6 simplex. Integral rank maps rely on source exact integer cancellations (not merely mod2).
 
-## Limits and closest comparisons
-The result determines integral homology and all induced homomorphisms, not the homotopy type of the scale-four complex or its cup products. It uses the graph metric rather than Euclidean geometry and applies to this 24-vertex graph only. The published scale-three wedge and general antipodal sphere mechanism are explicitly excluded from the originality claim. Publication priority and independently audited verification remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty based on actual same-object / different-object implication comparisons and targeted Resultary and primary literature searches. No decisive prior coverage found; named missing-text and unindexed-source risks remain.
+
+## value
+
+PASS
+
+The truncated cube is a natural Archimedean solid graph; its previously unknown scale-four mixed H3/H5 groups and the zero map from the known K3 H3 group complete a natural graph-metric persistence classification. Exact integral maps and their nontrivial same-degree birth/death split matter independently of computational reproducibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

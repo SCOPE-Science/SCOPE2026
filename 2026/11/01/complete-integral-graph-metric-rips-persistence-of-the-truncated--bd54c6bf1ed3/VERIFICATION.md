@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_truncated_cube_persistence.py` with Python 3.10 or later. It uses only the standard library and makes no network requests. The run output in `verification_output.txt` ends with `TRUNCATED_CUBE_INTEGRAL_PERSISTENCE_VERIFIED`.
+## correctness
 
-The verifier enumerates every Rips face through scale four, checks the simplicial free-face property before elementary collapses, and performs exact signed integral Gaussian cancellations only at unit coefficients \(\pm1\). It verifies all surviving boundary maps square to zero, and all final maps vanish. This gives rigorous integral chain equivalences; reduction counts are \(31,103,542,9719\) total pairs at scales \(1,2,3,4\) respectively. At scale four the final chain groups contain one generator in degree zero, one in degree three, and two in degree five, with zero boundary. No Smith-normal-form approximation or modular rank inference is needed for the integral result.
+PASS
 
-For the inclusion homomorphisms, the verifier reconstructs chain-homotopy inverse lifts of critical generators, confirms the lifts are integral cycles in the original face complex, embeds those cycles in the next scale, and applies the target's recorded chain projections. It computes the unimodular degree-one matrix and the zero scale-three-to-four third-homology matrix. An independent binary persistent-column algorithm reproduces all intervals through scale four, providing a separate check of the combinatorial filtration.
+Exact graph model (x,i) has 24 vertices, 36 edges, diameter six, unique antipodes (x⊕111,i). Actual pinned verifier source was read: constructs all K1..K4 faces, executes simplicial collapses and unit-coefficient integral cancellations, and lifts/projects integral critical cycles to compute K1→K2 H1 determinant ±1 and K3→K4 H3 zero map. Recorded reduced generators are (H0,H1)=(1,5) at r1,2; (H0,H2,H3)=(1,1,6) at r3; (H0,H3,H5)=(1,1,2) at r4; integral differentials vanish after unimodular cancellations. Independent code reconstructed all clique f-vectors and an algorithmically separate full mod-2 persistence through scale four, matching 23 H0 bars, 5 H1 [1,3), H2 [3,4), 6 H3 [3,4), and surviving H3/H5 counts at r4. K5 is join of 12 S0 antipodal pairs=S11, K6 simplex. Integral rank maps rely on source exact integer cancellations (not merely mod2).
 
-The scale-five statement uses a direct graph-distance argument: the twelve antipodal pairs are the **only** nonedges of the fifth power, so its clique complex is the join of twelve copies of \(S^0\). At scale six the clique complex is a full simplex.
+## originality
 
-The computation proves integral homology, inclusion maps and barcode decomposition; it does not supply or require the higher-dimensional homotopy attaching maps of the scale-four complex. The ordinary full scale-three homotopy type and the final antipodal sphere mechanism were previously known. No independent audit has been performed.
+PASS
+
+Best-of-knowledge novelty based on actual same-object / different-object implication comparisons and targeted Resultary and primary literature searches. No decisive prior coverage found; named missing-text and unindexed-source risks remain.
+
+## value
+
+PASS
+
+The truncated cube is a natural Archimedean solid graph; its previously unknown scale-four mixed H3/H5 groups and the zero map from the known K3 H3 group complete a natural graph-metric persistence classification. Exact integral maps and their nontrivial same-degree birth/death split matter independently of computational reproducibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
