@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T06:03:47.409044Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read pinned RESULT.md and checker.py. For n=m+1 regular-simplex vertices, same-edge, adjacent-edge and disjoint-edge absolute inner products are a=2/(m+1), b=(m-3)/(m^2-1), c=4/(m^2-1); the chosen scaling gives sum vv^*=I. Unsigned vertex-edge incidence Q obeys Q^TQ=2I+A and QQ^T=(n-2)I+J, deriving triangular graph adjacency eigenvalues 2(n-2), n-4, -2 with multiplicities 1,m,N-m-1. G=(a-c)I+(b-c)A+cJ therefore has Lambda=4(m-2)/(m+1), Theta=(m-3)(m-5)/(m^2-1), Nu=8/(m^2-1). The transverse maximum switches at m=7, producing gamma=4m(m-3)/(m^2-1) for m<=7, gamma=(3m-7)/(m-1) for m>=8, and all transverse eigenvalues coincide m=7. Orthogonal splitting t=hu+z proves the deficit on the entire nonnegative unit sphere; a small strictly positive eigenvector perturbation realizes equality, and positivity of gap gives unique uniform maximizer. Independent numerical real-symmetric eigensolver recreated spectra for m=4..12, not substituted for universal proof. m=3 excluded because no positive rigidity gap.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kumar–Mohar–Mojallal–Pragada arXiv:2609.03200 concerns stabilization of *ambient-dimension maxima*, not perturbation of weights for this fixed frame.",
+          "Sivashankar–Tang–Wakhare arXiv:2608.02429 discusses graph/projection bounds, but available abstract does not state this best transverse coefficient."
+        ],
+        "reasoning": "General projection-constant upper bounds or dimension stabilization do not determine best quadratic loss within the specified fixed frame.",
+        "searches": [
+          "Resultary: regular simplex midpoint frame absolute Gram spectral gap weight rigidity triangular graph relative projection constants",
+          "arXiv:2609.03200 stability maximal relative projection constants",
+          "arXiv:2608.02429 graph eigenvalues projection constants"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.08695 full HTML Example 2.1",
+        "arXiv:2609.03200 abstract/scope",
+        "arXiv:2608.02429 abstract/scope",
+        "Resultary search Resultary: regular simplex midpoint frame absolute Gram spectral gap weight rigidity triangular graph relative projection constants",
+        "Pinned RESULT.md blob 93ac0a9c93c08699c1cc05145c63a299f42eb922 and checker.py blob 5fb89cfade025fa38d2a8d7e203f387dda8d2c42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2608.08695 Example 2.1 and Lemma 2.1 give biangular frame/uniform-weight maximum.",
+          "Pinned proof constructs equality perturbations in distinct transverse A-eigenspaces and a piecewise optimal gamma."
+        ],
+        "reasoning": "A characterization of maximizing uniform weights plus the standard graph eigenvalues does not state the best global gap or prove positive-cone sharpness absent the spectral optimization; it provides the foundation, not an explicit covering statement.",
+        "searches": [
+          "Resultary: regular simplex midpoint frame absolute Gram spectral gap weight rigidity triangular graph relative projection constants",
+          "Deregowska Lewandowska Example 2.1 Corollary 2.1 arxiv 2608.08695"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pinned RESULT.md uses G=(a-c)I+(b-c)A+cJ where A is adjacency of triangular graph T(m+1).",
+          "Deregowska–Lewandowska arXiv:2608.08695, Example 2.1 supplies the midpoint frame/uniform maximum but not a full best-weight spectral inequality."
+        ],
+        "reasoning": "The correct alias is a triangular-graph weighted Rayleigh-quotient spectral gap; standard eigenvalues enable the proof but are not themselves a published quantification of the all-nonnegative-weight frame deficit. Checked statement content and scope rather than words alone.",
+        "searches": [
+          "Resultary: regular simplex midpoint frame absolute Gram spectral gap weight rigidity triangular graph relative projection constants",
+          "triangular graph line graph complete graph absolute Gram projection constant weight gap arXiv:2608.08695"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantically returned balanced edge configurations of simplices/tree-Wiener energy, id 2026/10/11/SCOPE-balanced-edge-configurations-of-simplices-and-the-tree-wiener-en--68e55186437b: a different geometric invariant.",
+          "Triangular-graph spectrum itself is a standard finite spectral table and explicitly used as background in the package."
+        ],
+        "reasoning": "The known adjacency spectral table is not the packaged globally sharp nonnegative-weight stability classification; no matching previously published fixed-frame stability table identified.",
+        "searches": [
+          "Resultary: regular simplex midpoint frame absolute Gram spectral gap weight rigidity triangular graph relative projection constants",
+          "regular simplex midpoint frame T(m+1) theta nu m=7 eigenspace crossover"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the novel sharp fixed-frame nonuniform weight stability and spectral crossover, *not* for the known unperturbed projection value or triangular graph eigenvalues. Primary Deregowska–Lewandowska regular-simplex midpoint construction identifies the equal-weight optimal relative projection quantity; the present spectral deficit and its exact crossover are additional. Kumar et al.'s ambient-dimension stabilization and graph-spectral projection bounds have different quantified objects. Published-record semantic results on simplex edge configurations address different objectives. No equivalent earlier theorem located; an older implicit triangular-graph Rayleigh bound or frame-stability paper remains a priority risk.",
+      "residual_risks": [
+        "Earlier unindexed work on triangular graph absolute-Gram spectra and weighted frame spectral gaps might already contain an equivalent bound.",
+        "Some peripheral projection-constant papers were inspected only by abstract; absence of a matching term is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Found antecedent frame construction and uniform extremal value, but not the entire frame-weight sharp spectral deficit or crossover",
+          "evidence": [
+            "Example 2.1 frame and relative projection value Lambda=4(m-2)/(m+1); Lemma 2.1 equiweight biangular result."
+          ],
+          "identifier_or_url": "arXiv:2608.08695",
+          "material_read": "Full accessible HTML, especially §2, Example 2.1 and Lemma 2.1",
+          "method": "Read arXiv primary HTML and compared formulae against pinned RESULT.md",
+          "title": "Maximal Projection Constants and Extremal Vector Configurations: Some Conjectures and Examples",
+          "trigger": "Identical regular-simplex midpoint frame and projection constant"
+        },
+        {
+          "assessment": "Different ambient-dimension stability; not a whole-document noncoverage assertion",
+          "evidence": [
+            "Stabilization concerns dimension-indexed maximal constants, not weights t_e of one fixed frame."
+          ],
+          "identifier_or_url": "arXiv:2609.03200",
+          "material_read": "Abstract and claimed scope, not full text",
+          "method": "Compared abstract with fixed-frame quantifiers",
+          "title": "Stability of maximal relative projection constants",
+          "trigger": "Same word stability and projection constants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural fixed optimal-frame objective needs quantitative robustness to nonuniform edge weights, not just its maximizer. The exact best global deficit and sharp transition of destabilizing eigenspace at m=7 are independent structural invariants in all dimensions m>=4 and could be used for perturbative projection-constant work. The conclusion does not assert global frame optimality across all frames.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2608.08695 full HTML Example 2.1",
+    "arXiv:2609.03200 abstract/scope",
+    "arXiv:2608.02429 abstract/scope",
+    "Resultary search Resultary: regular simplex midpoint frame absolute Gram spectral gap weight rigidity triangular graph relative projection constants",
+    "Pinned RESULT.md blob 93ac0a9c93c08699c1cc05145c63a299f42eb922 and checker.py blob 5fb89cfade025fa38d2a8d7e203f387dda8d2c42"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixes this Parseval simplex midpoint frame and Euclidean nonnegative unit weights; m>=4.",
+    "Does not establish global optimality over all frames, or stability to perturbing frame vectors.",
+    "Independent eigensolver tested m=4..12 only; analytic incidence argument establishes universal m.",
+    "Publication transport issue is not a scientific rejection; no private provenance was written into public source files."
+  ],
+  "schema_version": 1
+}
