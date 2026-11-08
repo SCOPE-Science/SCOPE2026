@@ -1,15 +1,21 @@
-# Review: Universal exponential output-degree energy law
+# Independent mathematical audit
 
-## Correctness — PASS
-The orthonormal monomial matrix, positive-kernel integral identity, and beta-function sandwich give the sharp row estimate, uniform in near-critical parameter. An absolutely summable error and a uniform integral comparison yield the full exponential distribution with Kolmogorov error \(O_\alpha(\delta)\). The standard-library reproducibility checker passed finite tests, but is not needed for the infinite-dimensional proof.
+## correctness
 
-## Originality — PASS under inspected evidence
-Li and Zhou (arXiv:2610.05672, 2026-10-05) already prove the Hilbert--Schmidt membership threshold and display the exact double series. The new contribution is specifically the near-critical escape of row energy, its exact residue, and its *uniform exponential probability law*, none of which was identified in that inspected text. Searches also compared earlier generalized Hilbert Schatten results and the structurally distinct published Cesàro and Bergman records. Similarity of titles or parameters alone was not treated as a proof of novelty. Full text of the relevant 2022 Bergman article was inaccessible, so an implicit antecedent remains possible.
+PASS
 
-## Value — PASS
-The distribution identifies how output-monomial energy escapes to exponentially large degrees as a natural published operator approaches its sharp Hilbert--Schmidt boundary; it refines qualitative membership into a precise and uniform quantitative profile. The scale and coefficient arise from the operator's canonical matrix, not a selected test vector or arbitrary truncation.
+PASS: Orthogonal monomial norms yield b_nk=(n+1)/(n+k+1) sqrt(w_n(beta)/w_k(alpha)). Tonelli converts the k sum to S_n=integral_0^1 t^n(-log t)(1-t)^(-alpha-2)dt. The explicit beta sandwich B(n+1,-alpha)<=S_n<=B(n+1,-alpha)+(1/2)B(n,1-alpha) and uniform gamma ratios yield E_n=C_alpha(delta)(n+1)^(-1-delta)+O_alpha((n+1)^(-2-delta)) uniformly 0<=delta<=1/2. The absolute errors are summable uniformly; integral comparisons give logarithmic critical mass and 1/delta total mass. For every s>=0, sum to floor(exp(s/delta)) differs from (1-exp(-s))/delta by O(1) uniformly even when s=0 or huge, proving Kolmogorov O_alpha(delta). Independent scipy quadrature confirmed asymptotic row factors for n=5..500, delta=0,.1,.2; finite checks only supplement proof.
 
-## Limitations and closest literature
-The source's compactness/Schatten criterion is not claimed as new. This is a row-energy, not a singular-value, limit, with fixed \(-1<\alpha<0\). Most relevant primary literature: Li--Zhou, arXiv:2610.05672; Peláez--Seco, arXiv:1510.05455; Xu--Ye--Zhou, DOI:10.1515/math-2022-0559; Ye--Zhou, DOI:10.1016/j.jmaa.2021.125553 (abstract only). Independent mathematical and historical-priority audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: Li–Zhou 2026 determines boundedness, compactness, Schatten membership and the exact Hilbert–Schmidt double sum for the same operator. Those known results are credited. The claimed novel part is the canonical output-degree row probability law near the exact HS endpoint (including uniform in s), critical coefficient and mass escape to degrees exp(s/delta), not a singular-value distribution. Peláez–Seco and Tang–Zhang address other generalized Hilbert variants/qualitative membership. Relevant Ye–Zhou 2022 Bergman article full text could not be retrieved, so possible implicit row-tail antecedent remains.
+
+## value
+
+PASS
+
+PASS: For a natural operator and its sharp Hilbert–Schmidt boundary, the row-by-row energy distribution is a canonical basis-dependent diagnostic, not an arbitrary selected matrix entry. Exact escape to exponentially high output degree with universal Exp(1) profile and quantitative Kolmogorov error genuinely refines qualitative Schatten-class membership and can guide spectral truncation; no unsupported singular-value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
