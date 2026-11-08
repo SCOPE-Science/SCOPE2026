@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For v-free faces the exact independence number is sum_i max(e_i,epsilon_i), and adjoining v replaces it with max(that,1+B). The first matching pairs all v-containing faces except {v} and leaves v-free faces with B=k-1. Each residual block has k-1 chosen middle vertices and local states 0,a,c; the first applicable a-toggle pairs 0 and a, leaving exactly one face of dimension 2k-3 per index subset. A directed cycle cannot change the v-indicator or the number/set of chosen middle vertices, and in a block c-states can only decrease; with those fixed the earliest non-c a-toggle can only increase. Hence the full matching is acyclic. Its critical CW cells force the stated integral wedge. Standalone face-poset verifier independently passed 30 complete parameter pairs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Filakovský, arXiv:2602.11365, Theorem 1.2 treats k=3 on square sequences, Corollary 1.3 treats all k only for edge attachments; Definition 2.3 and §3 specify that a new square contributes one or two new vertices in corner/edge steps.",
+        "Theorem/summary published-finding corpus:2026/10/11/SCOPE-a-three-sphere-wedge-theorem-for-robust-clique-complexes-of-all--8d06720b1a2b treats all connected bipartite graphs only at k=3.",
+        "Kim–Lew arXiv:1912.12605 results emphasize upper bounds on collapsibility, not exact homotopy."
+      ],
+      "reasoning": "For m>=2 the quadrilateral bouquet has an articulation vertex; each additional cycle shares a single vertex and introduces three vertices. The 2026 square sequences are assembled by edge gluing or adding a fourth vertex across an existing length-two path, operations preserving two-vertex connectivity, so their all-k edge-gluing theorem cannot imply the bouquet result. The indexed broad bipartite k=3 theorem is inapplicable at k>=4.",
+      "searches": [
+        "web: Filakovsky square sequence graphs vertex glued cycles robust clique complexes k 2026",
+        "published-finding corpus: all connected bipartite three-robust clique complex wedge three-spheres cycle rank 4-cycles",
+        "published-finding corpus: k-robust clique complexes of windmill graphs bouquet of C4 disjoint four cycles one vertex all k homotopy"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.11365 (HTML read extensively)",
+      "arxiv:1912.12605 (open PDF introduction, definitions, major theorems and relevant sections; not every page)",
+      "published-finding corpus:2026/10/11/SCOPE-a-three-sphere-wedge-theorem-for-robust-clique-complexes-of-all--8d06720b1a2b (indexed summary only)",
+      "scientific claim b1269174-1e94-4a40-b60c-9edc40143f89",
+      "earlier scientific claim e87f9e9f-d5ee-48b2-af48-662f847b8a5b",
+      "indexed grid claims 4506134a-68d7-4ab2-a28f-4651a68e4606 and 7188d104-615c-49fe-9383-50929403114e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Filakovský arXiv:2602.11365, §§1–3 proves related conclusions under distinct graph-building hypotheses, and explicitly discusses difficulty of higher k under corner completion.",
+        "The prior indexed broad bipartite result covers k=3 and so would subsume a k=3-only claim; the present claim states k>=4.",
+        "The new proof supplies exact independent-set formulas and an all-parameter optimal acyclic matching; no cited stronger theorem supplies these for quadrilateral one-vertex bouquets."
+      ],
+      "reasoning": "Direct implication from the published k=2/3 results is impossible for k>=4. A paper proving wedge results for edge-glued or corner-completed square sequences cannot be applied to vertex-glued quadrilateral bouquets. Kim–Lew collapsibility estimates constrain possible discrete Morse theory but do not determine a sphere count or the attaching-map homotopy type. The novelty conclusion is best-knowledge, not an assertion of unique discovery.",
+      "searches": [
+        "web: \"Cliq_k\" \"bouquet\" \"C4\" spheres",
+        "web: \"Dutch windmill\" \"robust clique complex\" homotopy",
+        "published-finding corpus: For every integer m and k the k-robust clique complex of the bouquet of m squares (C4 cycles sharing one vertex) is a wedge of binomial(m,k-1) spheres of dimension 2k-3. Corner-glued square sequence cactus robust clique complexes."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kim–Lew, arXiv:1912.12605, defines I_k(G) via no independent k-set, which is the same simplicial complex.",
+        "Filakovský, arXiv:2602.11365, Definition 2.4 uses the same forbidden-independent-set definition.",
+        "Searches did not identify a cited theorem for quadrilateral bouquets at thresholds k>=4."
+      ],
+      "reasoning": "Equivalent notations I_k(G), Cliq_k(G), and the independence complex of the k-independent-set hypergraph have been considered. Different notation does not create novelty; the novelty claim is confined to a proof of the infinite k>=4 vertex-bouquet homotopy decomposition. The searched sources supply definitions and bounds but not that decomposition.",
+      "searches": [
+        "web: \"robust clique\" \"windmill\" \"square\" complex homotopy",
+        "web: \"bouquet of squares\" \"robust clique\" OR \"bounded independence\"",
+        "web: \"quadrilateral windmill\" \"bounded independence\" simplicial complex",
+        "published-finding corpus: independent-set forbidden hypergraph induced subgraph independence number k-1 cactus square bouquet lexicographic Morse acyclic matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed scientific finding b1269174-1e94-4a40-b60c-9edc40143f89 is an exhaustive finite table for 1,628 square-sequence graph isomorphism classes with at most six squares at k=4.",
+        "Indexed scientific findings 4506134a-68d7-4ab2-a28f-4651a68e4606 and 7188d104-615c-49fe-9383-50929403114e concern k=4 rectangular grids; 4ce9bfae-5c30-44bb-8b29-758ae4a09be8 gives a grid Euler characteristic only.",
+        "No exact catalogue for all m and k of the one-vertex bouquet was found."
+      ],
+      "reasoning": "The prior finite square-sequence table does not include one-vertex bouquets of length >=2, and cannot imply a uniform theorem for arbitrarily many petals or arbitrary k. Grid examples and Euler characteristics do not provide the claimed integral homotopy type for these non-grid graphs.",
+      "searches": [
+        "published-finding corpus: four-robust clique complex square-sequence graph at most five further squares 1628 graph isomorphism classes finite homotopy wedge five spheres",
+        "scientific-claim index query: robust, square sequence, bouquet, cactus, independence",
+        "web: \"k-robust clique\" \"cactus\" \"homotopy\""
+      ]
+    },
+    "rationale": "Actual published-finding corpus searches and accessible claims, together with primary Filakovský HTML and prior bounded-independence definitions, show no implication covering the all-m, k>=4 single-vertex-square-bouquet classification. The paper's square-sequence gluing does not include vertex-only gluing; the broader indexed bipartite theorem is k=3 only. Residual risk: unindexed equivalent results and one indexed related result available only as a summary.",
+    "residual_risks": [
+      "Semantic index search is not a proof of absence.",
+      "Full text of one indexed k=3 bipartite work was not accessible; its stated k=3 scope alone cannot cover the new k>=4 parameters.",
+      "An unindexed classification or an unrecognized reduction in other literature may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Theorem 1.2 applies to k=3 on square-sequence graphs; Corollary 1.3 to arbitrary k only for all-edge-glued sequences.",
+          "Square bouquet B_m shares only one vertex per new square and is excluded by the described attachment rules.",
+          "Paper marks higher-k corner-completion as a conjectural extension."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.11365",
+        "material_read": "Accessible full-text HTML: abstract, introduction, main theorems, definitions, decomposition lemma, principal proofs and references; not every ancillary paragraph.",
+        "method": "Read arXiv open-access full-text HTML, including introduction, Definition 2.3, principal Theorem 1.2 and Corollary 1.3, decomposition statement, main proofs and references.",
+        "title": "The Topology of k-Robust Clique Complexes in Grid-like Graphs",
+        "trigger": "Directly motivates higher-threshold robust clique topology"
+      },
+      {
+        "assessment": "NOT_COVERING_IN_INSPECTED_MATERIAL",
+        "evidence": [
+          "Defines I_k(G) exactly by excluding independent k-sets, equivalent to the robust clique complex.",
+          "Main inspected theorems are upper collapsibility bounds for graph classes, rather than the claimed all-parameter vertex-bouquet homotopy classification.",
+          "No exact theorem covering m four-cycles glued at one vertex and all k>=4 was found in the material inspected; unchecked manuscript text remains a residual risk."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1912.12605",
+        "material_read": "Read arXiv public abstract, original full-text PDF introduction, definitions, major theorems and relevant sections; searched the PDF for bouquet, windmill, four-cycle and homotopy. Not every page of the 33-page manuscript was examined.",
+        "method": "Inspected arXiv PDF first pages in rendered form, searched PDF text and theorem statements by topical terms, and compared exact k, graph-family and output quantifiers.",
+        "title": "Complexes of graphs with bounded independence number",
+        "trigger": "Original naming/equivalent formulations and possibility of stronger theorem"
+      },
+      {
+        "assessment": "NOT_COVERING_THE_NOVEL_K_RANGE",
+        "evidence": [
+          "Indexed theorem is explicitly k=3 for all connected bipartite graphs; cannot imply k>=4 homotopy classification without additional theorems."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-a-three-sphere-wedge-theorem-for-robust-clique-complexes-of-all--8d06720b1a2b",
+        "material_read": "Indexed title and scientific summary, not the primary full text; repository page was inaccessible.",
+        "method": "Searched public mathematical result index for three-robust bipartite graphs and compared the exact quantifier k=3 with k>=4.",
+        "title": "A three-sphere wedge theorem for robust clique complexes of all connected bipartite graphs",
+        "trigger": "Potential broader bipartite theorem subsuming a low-threshold special case"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Claim treats at most six squares with edge/corner gluing and k=4; bouquet shares one vertex and the present m,k are unrestricted."
+        ],
+        "identifier_or_url": "b1269174-1e94-4a40-b60c-9edc40143f89",
+        "material_read": "Recoverable scientific claim only; no assertions about full-document content.",
+        "method": "Compared the available scientific theorem statement by objects, hypotheses, parameter ranges and implications.",
+        "title": "Finite four-robust square-sequence classification",
+        "trigger": "Strong finite overlap candidate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "eb26c760-15bf-468e-8c87-5041f3eb338c",
+  "value": {
+    "rationale": "For a natural canonical family with a cut vertex, the theorem gives the exact all-threshold integral homotopy type and sharp contractibility transition for every k>=4, beyond the edge/corner square-sequence framework. The binomial rank and optimal acyclic matching expose structural topology, and via Alexander duality determine total-cut homology. No finite extrapolation, arbitrary parameter slice, or Euler-only inference is involved.",
+    "status": "PASS"
+  }
+}
