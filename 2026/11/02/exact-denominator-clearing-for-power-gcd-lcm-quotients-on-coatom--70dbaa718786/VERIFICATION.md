@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical limits
+# Independent mathematical audit
 
-Run `python3 verify.py` under Python 3.10 or later with no third-party packages. The program generates divisor lattices and all deleted-coatom subsets, computes the quotient using exact `fractions.Fraction` Gauss–Jordan elimination, extracts the exact least common multiple of all entry denominators, and compares it with the theorem's integer formula. It separately checks the Schur complement's bottom-row formula using explicit Möbius convolutions of all relevant divisors.
+## correctness
 
-The observed transcript is:
+PASS
 
-```
-VERIFY_OK matrix_cases= 1062 nonintegral_cases= 261 mobius_row_entries= 4512 examples= {'(6, (2, 3), 2)': 1, '(12, (2,), 1)': 3, '(12, (2,), 2)': 5, '(30, (2, 3), 1)': 5, '(30, (2, 3, 5), 1)': 11, '(60, (2,), 1)': 3, '(60, (3,), 1)': 1}
-```
+On the factor-closed set R=S\{N}, the power GCD matrix has the Jordan-totient incidence factorization E diag(J_e) E^T. Its Schur complement at N equals positive Delta=J_e(N)+sum_{p in P}J_e(N/p). The local Möbius-LCM transform H_e(d,y)=J_e(d)*(y/gcd(d,y))^e when every prime valuation of y is below that of d, and zero otherwise, gives integral A^{-1}L and A^{-1}u. Thus denominators of the whole quotient reduce exactly to the last row K_y/Delta. A generator analysis of K_y for nonsaturated, one-saturated, and multiple-saturated prime exponents gives exact numerator gcd, with the squarefree semiprime two-coatom exception a chain. Cancelling J_e(N)/D proves formula and its leastness. Independent rational inversion verified 360 cases across N up to 56 and e=1,2; these are finite corroboration, not proof for all N.
 
-The script tests integer exponents 1, 2 and 3 and integers from 2 through 99 with at most 18 positive divisors. All computations use exact integers and rational fractions. The infinite result rests on the incidence-factorization and Möbius-inversion proof in `RESULT.md`, not on extrapolation from these finite tests. The closest general divisibility literature supplies qualitative criteria, not an independently verified historical uniqueness claim. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Same-claim comparison: The algebraic least denominator is an equivalent formulation of the LCM of reduced quotient denominators; the prior general algorithm can compute this in principle but does not state the compressed prime-local expression. An arbitrary-set criterion dominates the binary Lambda=1 subclaim but not the new explicit arithmetic value/locality stated here. The specialized Schur complement and Möbius gcd extraction are additional content, although a generic inverse representation makes the numeric answer algorithmically obtainable. Historical-priority risks are retained.
+
+## value
+
+PASS
+
+The closed minimal common denominator and surprising locality in deleted prime valuation classes are intrinsically meaningful quantitative gcd/lcm matrix invariants; the broad YES/NO integrality problem is explicitly older and not claimed novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

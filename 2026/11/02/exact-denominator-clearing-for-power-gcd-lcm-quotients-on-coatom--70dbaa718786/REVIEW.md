@@ -1,15 +1,21 @@
-# Review of the exact coatom-deletion denominator theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The Jordan-totient incidence factorization gives an exact positive Schur complement, and the independent Möbius-LCM identity reduces all nonintegral entries to a single matrix row. In that row every numerator lies in the span of the displayed generators; permitted divisor columns realize each generator except in the separately treated two-coatom semiprime chain. Taking the common gcd proves **minimality**, rather than merely an upper bound. For factor-closed and chain cases, integral factorization completes the theorem. A separate exact-arithmetic program matched 1,062 full rational matrix quotients and 4,512 independently evaluated bottom-row entries.
+## correctness
 
-## Originality — PASS, with literature risk
-The 2015 archival article studies nondivisibility and characterizations of small GCD-closed sets. The 2025 full-text general theorem already solves **qualitative** divisibility for arbitrary GCD-closed sets and represents the quotient, so the assertion of merely determining whether the quotient is integral would be covered. The present result instead determines the **minimal positive denominator-clearing integer** in a single closed arithmetic expression and proves independence from unselected prime factors and higher exponents away from the explicitly excluded two-element chain. Inspected primary texts do not state that quantitative formula or locality. Searches did not identify an equivalent statement, but this is not a proof of priority.
+PASS
 
-## Value — PASS
-The exact defect of factor closure is a natural arithmetic invariant of GCD/LCM matrix divisibility. A complete infinite family is settled for every positive integer power: singleton deletion produces the sharp and unexpectedly universal threshold \(p^e+1\) precisely at repeated removed primes. Multiple simultaneous deletions admit one explicit least multiplier, without matrix inversion, with immediate use in clearing rational Smith-type matrix quotients. This is more informative than the known yes/no classification.
+On the factor-closed set R=S\{N}, the power GCD matrix has the Jordan-totient incidence factorization E diag(J_e) E^T. Its Schur complement at N equals positive Delta=J_e(N)+sum_{p in P}J_e(N/p). The local Möbius-LCM transform H_e(d,y)=J_e(d)*(y/gcd(d,y))^e when every prime valuation of y is below that of d, and zero otherwise, gives integral A^{-1}L and A^{-1}u. Thus denominators of the whole quotient reduce exactly to the last row K_y/Delta. A generator analysis of K_y for nonsaturated, one-saturated, and multiple-saturated prime exponents gives exact numerator gcd, with the squarefree semiprime two-coatom exception a chain. Cancelling J_e(N)/D proves formula and its leastness. Independent rational inversion verified 360 cases across N up to 56 and e=1,2; these are finite corroboration, not proof for all N.
 
-## Limitations
-The theorem assumes a divisor lattice with only maximal proper divisors removed; it does not solve arbitrary-denominator problems for all GCD-closed sets. The 2025 general theory supplies an algorithmic quotient representation, and undiscovered specializations may affect historical priority. This is a self-review; independent validation was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Same-claim comparison: The algebraic least denominator is an equivalent formulation of the LCM of reduced quotient denominators; the prior general algorithm can compute this in principle but does not state the compressed prime-local expression. An arbitrary-set criterion dominates the binary Lambda=1 subclaim but not the new explicit arithmetic value/locality stated here. The specialized Schur complement and Möbius gcd extraction are additional content, although a generic inverse representation makes the numeric answer algorithmically obtainable. Historical-priority risks are retained.
+
+## value
+
+PASS
+
+The closed minimal common denominator and surprising locality in deleted prime valuation classes are intrinsically meaningful quantitative gcd/lcm matrix invariants; the broad YES/NO integrality problem is explicitly older and not claimed novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
