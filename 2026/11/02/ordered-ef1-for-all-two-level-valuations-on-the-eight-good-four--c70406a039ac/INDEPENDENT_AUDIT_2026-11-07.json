@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T20:57:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/ordered-ef1-for-all-two-level-valuations-on-the-eight-good-four--c70406a039ac/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/ordered-ef1-for-all-two-level-valuations-on-the-eight-good-four--c70406a039ac/verify_exhaustive.cpp",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/ordered-ef1-for-all-two-level-valuations-on-the-eight-good-four--c70406a039ac/verify_independent.py"
+      ],
+      "rationale": "The complete allocation must be four cross-category pairs because there are eight goods and total rank quota two for each agent; independently enumerating unordered matchings of three categories of sizes 3,3,2 yields exactly 36, then 4! ordered placements yield exactly 864 allocations. For binary approval counts 0,1,2, EF1 between i and j fails exactly if own approved count is zero and the other pair has count two; prescribed-order nonenvy requires own count >= each later pair count. Inspected C++ bitset exhaustive coverage algorithm computes all later-agent admissibility masks on 864 allocations for all 256 valuations each, intersects over all 256^3=16,777,216 triples, and unions their 256-bit admissible first-agent masks; every triple covers all 256 masks. The actual compiled C++17 source reported allocations=864, checked triples=16777216, binary preference profiles=4294967296, failed triples=0. Independent literal EF1 checking tested 69,536 further valuation profiles and verified 36 pairings, 864 allocations. For arbitrary nonnegative two-level singleton values a_i and a_i+b_i, equal two-good bundle size preserves ordered comparisons by affine transformation, and after EF1 removal the current-own advantage adds +a_i>=0. Agent relabelling yields every prescribed order. This is an exhaustive finite proof of all 2^32 binary preference profiles, not a sample or infinite search.",
+      "residual_risks": [
+        "Matroid is exactly the 8-good (3,3,2) three-category rank-two laminar key and there are exactly four agents; only heterogeneous nonnegative two-level additive valuations.",
+        "Does not establish existence for arbitrary additive values, 12-good key, EFX or efficiency, and does not eliminate priority uncertainty about unindexed finite exhaustive work."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cookson–Shah reduce a general four-agent laminar problem to key cases but do not resolve ordered EF1 for this key matroid. Dror–Feldman–Segal-Halevi cover other heterogeneous/partition matroid and small-agent regimes; known bi-valued maximin-share results do not entail EF1 with prescribed order."
+        ],
+        "reasoning": "None of the compared broad settings supplies the particular 4-agent truncated 3-category rank-two allocation with additional ordered no-envy property. General MMS existence has different inequalities.",
+        "searches": [
+          "Resultary: eight good 3 3 2 laminar matroid four agents ordered EF1 binary valuations",
+          "https://arxiv.org/abs/2608.31121",
+          "https://arxiv.org/abs/2010.07280",
+          "Matroids are Equitable DOI:10.1007/s00493-026-00217-y"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.31121",
+        "https://arxiv.org/abs/2010.07280",
+        "https://doi.org/10.1007/s00493-026-00217-y",
+        "Resultary: eight good 3 3 2 laminar matroid four agents ordered EF1 binary valuations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cookson–Shah explicitly separate their key instance and note their Lemma 12 does not show EF1 impossible. The key-instance two-level theorem supplies a positive result for an unproved subfamily that their known reduction cannot produce."
+        ],
+        "reasoning": "The new result is consistent with, and logically not implied by, a sufficient-condition failure. The finite certificate and affine reduction establish a distinct affirmative theorem.",
+        "searches": [
+          "https://arxiv.org/abs/2608.31121",
+          "https://arxiv.org/abs/2010.07280",
+          "Resultary: eight good 3 3 2 laminar matroid four agents ordered EF1 binary valuations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cookson–Shah Definition 13 isolates exactly the 8-good rank-two laminar key; their Lemma 12 blocks one top-goods separation argument, not EF1 existence. The proposed theorem adds every prescribed-order no-envy condition and every two-level heterogeneous valuation, which are stronger than ordinary EF1."
+        ],
+        "reasoning": "Prior top-goods dispensability or partition-matroid EF1 existence is not equivalent to all-order EF1 on the three-category rank-two truncation; the exact feasibility matroid matters.",
+        "searches": [
+          "Resultary: eight good 3 3 2 laminar matroid four agents ordered EF1 binary valuations",
+          "https://arxiv.org/abs/2608.31121",
+          "https://arxiv.org/abs/2010.07280"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source presents a 36-matching, 864-labeled-allocation proof and complete 256^4 Boolean valuation-profile coverage; the original key-matroid publication contains an obstruction to one method, not an existing exhaustive positive coverage table."
+        ],
+        "reasoning": "No direct pre-existing equivalent exhaustive table identified. This is a genuinely meaningful finite universal assertion, not a small sample; historical unindexed computation remains a risk.",
+        "searches": [
+          "Resultary: eight good 3 3 2 laminar matroid four agents ordered EF1 binary valuations",
+          "https://arxiv.org/abs/2608.31121"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the precise final claim, not a certification of historical priority: inspected stronger-formulation searches and primary sources do not establish prior coverage of the extra mathematical assertion. Claim-specific comparisons, actual material read and residual risks follow.",
+      "residual_risks": [
+        "An unindexed exhaustive certificate for the same finite key matroid could already exist outside the inspected primary paper.",
+        "The proof is computationally exhaustive for precisely eight goods, not a human-only structural formula or all-valuation result; independent checker tests sample profiles while the full universal certificate is the inspected and actually executed C++ coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The full considered source isolates the key and shows method obstruction, not the complete ordered two-level positive theorem.",
+          "evidence": "Definition 13 identifies the 8-good key, Lemma 12 describes separation-method failure without proving an EF1 counterexample.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.31121",
+          "material_read": "Full primary ResearchGate-hosted HTML of paper: Definition 13, Appendix B, statements and proof context around Lemma 12, and reduction framework.",
+          "method": "Read complete accessible primary material in HTML, compared exact category sizes and top-set obstruction versus EF1 feasibility claims.",
+          "title": "Cookson and Shah, Constrained Fair Allocations via Partition Matroid Reductions",
+          "trigger": "Identical eight-good category (3,3,2) laminar key and EF1 question."
+        },
+        {
+          "assessment": "No inspected statement dominates four-agent ordered two-level key case.",
+          "evidence": "Known fair allocation existence results do not automatically impose no envy of later agents for every chosen ordering.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.07280",
+          "material_read": "Public arXiv abstract and paper overview/source reference, not line-by-line full-text mathematical proof in this run.",
+          "method": "Compared feasible class (partition vs laminar truncation), number of agents and ordered no-envy requirement.",
+          "title": "Dror, Feldman, Segal-Halevi, On Fair Division under Heterogeneous Matroid Constraints",
+          "trigger": "Potential broader heterogeneous EF1 existence result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.31121",
+        "https://arxiv.org/abs/2010.07280",
+        "https://doi.org/10.1007/s00493-026-00217-y",
+        "Resultary: eight good 3 3 2 laminar matroid four agents ordered EF1 binary valuations"
+      ],
+      "rationale": "The eight-good rank-two laminar key matroid is explicitly isolated by Cookson–Shah as one of the small obstructions left from their four-agent reduction, and existence of ordered-no-envy EF1 is nontrivial even with additive constraints. A uniform guarantee for every heterogeneous two-level valuation profile is a mathematically natural, sharply scoped tractable class; the exact complete computational certificate is itself a useful finite classification. It does not claim arbitrary-valued EF1 or solve the wider laminar conjecture.",
+      "residual_risks": [
+        "Matroid is exactly the 8-good (3,3,2) three-category rank-two laminar key and there are exactly four agents; only heterogeneous nonnegative two-level additive valuations.",
+        "Does not establish existence for arbitrary additive values, 12-good key, EFX or efficiency, and does not eliminate priority uncertainty about unindexed finite exhaustive work."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2608.31121",
+    "https://arxiv.org/abs/2010.07280",
+    "https://doi.org/10.1007/s00493-026-00217-y",
+    "Resultary: eight good 3 3 2 laminar matroid four agents ordered EF1 binary valuations"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Matroid is exactly the 8-good (3,3,2) three-category rank-two laminar key and there are exactly four agents; only heterogeneous nonnegative two-level additive valuations.",
+    "Does not establish existence for arbitrary additive values, 12-good key, EFX or efficiency, and does not eliminate priority uncertainty about unindexed finite exhaustive work."
+  ],
+  "residual_risks": [
+    "An unindexed exhaustive certificate for the same finite key matroid could already exist outside the inspected primary paper.",
+    "The proof is computationally exhaustive for precisely eight goods, not a human-only structural formula or all-valuation result; independent checker tests sample profiles while the full universal certificate is the inspected and actually executed C++ coverage."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "The full considered source isolates the key and shows method obstruction, not the complete ordered two-level positive theorem.",
+      "evidence": "Definition 13 identifies the 8-good key, Lemma 12 describes separation-method failure without proving an EF1 counterexample.",
+      "identifier_or_url": "https://arxiv.org/abs/2608.31121",
+      "material_read": "Full primary ResearchGate-hosted HTML of paper: Definition 13, Appendix B, statements and proof context around Lemma 12, and reduction framework.",
+      "method": "Read complete accessible primary material in HTML, compared exact category sizes and top-set obstruction versus EF1 feasibility claims.",
+      "title": "Cookson and Shah, Constrained Fair Allocations via Partition Matroid Reductions",
+      "trigger": "Identical eight-good category (3,3,2) laminar key and EF1 question."
+    },
+    {
+      "assessment": "No inspected statement dominates four-agent ordered two-level key case.",
+      "evidence": "Known fair allocation existence results do not automatically impose no envy of later agents for every chosen ordering.",
+      "identifier_or_url": "https://arxiv.org/abs/2010.07280",
+      "material_read": "Public arXiv abstract and paper overview/source reference, not line-by-line full-text mathematical proof in this run.",
+      "method": "Compared feasible class (partition vs laminar truncation), number of agents and ordered no-envy requirement.",
+      "title": "Dror, Feldman, Segal-Halevi, On Fair Division under Heterogeneous Matroid Constraints",
+      "trigger": "Potential broader heterogeneous EF1 existence result."
+    }
+  ]
+}

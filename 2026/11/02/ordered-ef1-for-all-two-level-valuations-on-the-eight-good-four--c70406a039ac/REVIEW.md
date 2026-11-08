@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite theorem reduces exactly to four independent eight-bit preference masks because all bundles are forced to be two-element bases and each agent's two valuation levels differ by a nonnegative multiple of the binary mask. The exhaustive certificate enumerates 36 distinct feasible pair partitions and all 864 labeled allocations; it checks all 16,777,216 triples of masks for agents two through four while covering all 256 masks for agent one using four exact 64-bit words. The explicit Boolean EF1 equivalence for two-goods bundles and the ordered no-envy comparisons are proven in RESULT.md, not inferred from an experiment. The computed failure count is zero across all 4,294,967,296 binary profiles. An independently coded literal EF1 evaluator passes 68,736 deterministic spot profiles. The affine extension retains EF1 because removing a good reduces the constant baseline by one unit. The scientific conclusion remains limited to this finite key matroid and nonnegative two-level utilities.
+PASS
 
-## Originality — PASS, with residual risk
+The complete allocation must be four cross-category pairs because there are eight goods and total rank quota two for each agent; independently enumerating unordered matchings of three categories of sizes 3,3,2 yields exactly 36, then 4! ordered placements yield exactly 864 allocations. For binary approval counts 0,1,2, EF1 between i and j fails exactly if own approved count is zero and the other pair has count two; prescribed-order nonenvy requires own count >= each later pair count. Inspected C++ bitset exhaustive coverage algorithm computes all later-agent admissibility masks on 864 allocations for all 256 valuations each, intersects over all 256^3=16,777,216 triples, and unions their 256-bit admissible first-agent masks; every triple covers all 256 masks. The actual compiled C++17 source reported allocations=864, checked triples=16777216, binary preference profiles=4294967296, failed triples=0. Independent literal EF1 checking tested 69,536 further valuation profiles and verified 36 pairings, 864 allocations. For arbitrary nonnegative two-level singleton values a_i and a_i+b_i, equal two-good bundle size preserves ordered comparisons by affine transformation, and after EF1 removal the current-own advantage adds +a_i>=0. Agent relabelling yields every prescribed order. This is an exhaustive finite proof of all 2^32 binary preference profiles, not a sample or infinite search.
 
-The directly motivating Appendix B of Cookson–Shah (arXiv:2608.31121, first posted 2026-08-31) leaves the eight- and twelve-good four-agent key matroids unresolved for arbitrary additive valuations and proves only that one proposed separation criterion can fail. The inspected paper does not state the two-level case or prove ordered EF1 for it. Dror–Feldman–Segal-Halevi (arXiv:2010.07280, full-text version v4) cover heterogeneous binary values under partition matroids, or up to three agents under common base-orderable matroids; neither includes this four-agent truncation plus ordered no-envy. Akrami–Liu–Raj–Végh (Combinatorica, 2026) give bi-valued matroid-constrained maximin-share allocations, not ordered EF1. Targeted public-literature and indexed-finding searches found no equivalent assertion. This is a best-knowledge originality assessment, not a uniqueness or publication-priority certificate; unindexed and contemporaneous material remain residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The four-agent eight-good laminar key matroid is one of the two explicit bottlenecks in a published reduction of a major existence question. Solving this entire finite base case for arbitrary heterogeneous nonnegative two-level utilities is a natural exact classification, not an arbitrary sub-instance. The ordered-no-envy property is essential to the motivating component-assembly framework and is stronger than plain EF1. The stress instance demonstrates that the known top-item dispersion obstruction does not negate the existence claim. The twelve-good key and general additive valuations remain open within this analysis.
+Best-of-knowledge originality of the precise final claim, not a certification of historical priority: inspected stronger-formulation searches and primary sources do not establish prior coverage of the extra mathematical assertion. Claim-specific comparisons, actual material read and residual risks follow.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The eight-good rank-two laminar key matroid is explicitly isolated by Cookson–Shah as one of the small obstructions left from their four-agent reduction, and existence of ordered-no-envy EF1 is nontrivial even with additive constraints. A uniform guarantee for every heterogeneous two-level valuation profile is a mathematically natural, sharply scoped tractable class; the exact complete computational certificate is itself a useful finite classification. It does not claim arbitrary-valued EF1 or solve the wider laminar conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
