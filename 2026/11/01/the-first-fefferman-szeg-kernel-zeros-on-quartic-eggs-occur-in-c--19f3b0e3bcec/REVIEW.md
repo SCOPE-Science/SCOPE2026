@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The object and normalization are fixed by Pendyala's source formula. The auxiliary variable ranges over exactly the open disk: ball Cauchy–Schwarz gives the upper bound, and a two-point axial construction realizes every value. The numerator coefficients arise from the proven polynomial generating function, not a truncation. The Cayley map and classical Routh root theorem transfer disk root counts to right-half-plane sign variations. Exact rational computation of every Routh row for dimensions two through eleven, and the real/imaginary polynomial gcds excluding imaginary-axis roots, prove the complete cutoff. An exact squarefree check and real-axis sign arguments establish the conjugate simple pair. The embedded checker was executed and returned `EXACT_CERTIFICATE_OK`; no numerical root approximation is used as a certificate.
+## correctness
 
-## Originality — PASS under inspected evidence
-The closest paper, Pendyala (arXiv:2607.04100, Sections 3–6), gives the full higher-dimensional kernel formula and observes polynomial roots for curvature-rigidity purposes, but does not distinguish roots inside versus outside the realizable auxiliary disk, locate the dimension eleven transition, or count the interior roots. Bhatnagar–Fan (arXiv:2606.24452, Sections 1 and 3.2) concerns only complex dimension two; its explicit quartic numerator agrees with the zero-free base case, but gives no higher-dimensional implication. Beberok (2017) analyzes Bergman kernels on different ellipsoidal intersection domains, with a different reproducing kernel. Targeted literature and mathematical-record searches for the Fefferman–Szegő kernel, quartic eggs, zero-free dimensions, Routh–Hurwitz classification, and dimension eleven revealed no equivalent or dominating theorem. This is a best-knowledge literature assessment, not a claim that all historical mathematics was searched.
+PASS
 
-## Value — PASS
-Zero-freeness is an intrinsic, nontrivial global property of a reproducing kernel. The first dimension where it fails is a natural exact invariant of the simplest weakly pseudoconvex nonball egg family. The result supplies a complete sharp cutoff through first failure, contrasts with the two-dimensional explicit formula, and locates the first interior zero pair, rather than merely recomputing a known kernel or an arbitrary coefficient. No general result for all higher dimensions is required for the threshold to be mathematically meaningful.
+Read pinned RESULT.md, verifier, Pendyala source formula and full source tree. For egg |z|²+|w|^4<1, scalar X=w conj(eta)/(1−<z,zeta>)^(1/2) obeys |X|<1 by ball Cauchy–Schwarz and axial points z=zeta=0 realize any X with |X|<1. Pendyala Thm 4.2 gives nonvanishing outer factor times polynomial numerator (1−X)^n Σ_{j>=0}(mu+j/2)_{n−1} X^j, mu=(n+2)/(2(n+1)). Since rising factorial is degree n−1 in j, finite differences exactly reconstruct degree n−1 numerator from first n terms. For n=2..11 independently computed ALL exact rational numerator polynomials and Cayley H_n(u)=(1+u)^(n−1)P_n((1−u)/(1+u)); exact Routh first-column signs all plus for n2..10 and ++++++-++++ for n11 (two changes), no imaginary-axis roots (real/imag polynomial gcd1) or zero pivots, so disk root counts 0 and 2. n11 alternating coefficients exclude real roots on negative real axis and positive generating series excludes positive (0,1); exact gcd(P,Pprime)=1 makes two complex conjugates simple. Finite range n<=11 fully exhaustive exact certificate; no claim about >=12. Routh theorem and analytic kernel derivation, not approximate roots, establish all quantifiers.
 
-## Sources and residual limitations
-The argument depends on the correctness of the published source kernel formula and the classical Routh theorem; the rational certificate is fully replayable. The threshold is restricted to quartic eggs with integer dimensions two through eleven. Older unindexed equivalent zero-locus classifications cannot be completely excluded. Numerical coordinates are explanatory, not proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for exact first loss of Fefferman-Szegő zero-freeness at n=11 and two simple interior zeros, while Pendyala’s rational kernel formula is credited. Related Bergman Lu Qi Keng results are different kernels, so theorem-level comparison supports distinct contribution.
+
+## value
+
+PASS
+
+Locates the exact first sharp dimension transition for the Lu Qi Keng nonvanishing property in a natural Fefferman-boundary kernel family; a finite complete cutoff n2..11 and first simple interior conjugate pair are a meaningful classification of an unknown exact invariant. The exact Routh and imaginary-axis certificates convert the general known formula into a reproducible zero-geometry theorem useful in boundary reproducing-kernel analysis; not merely a low-degree table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

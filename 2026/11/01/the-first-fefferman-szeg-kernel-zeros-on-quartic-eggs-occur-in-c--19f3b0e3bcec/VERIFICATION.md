@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the quartic-egg zero-free threshold
+# Independent mathematical audit
 
-Execute `python3 verify.py` using a standard Python 3 interpreter. The checker uses only `fractions.Fraction`, `math.comb`, and elementary exact polynomial arithmetic. On successful completion it prints `EXACT_CERTIFICATE_OK`.
+## correctness
 
-It independently builds the eleven-minus-one finite numerator degrees from the rational generating-function coefficients, transforms them through the unit-disk/right-half-plane Cayley map, and constructs the complete Routh arrays with exact rational pivot divisions. It asserts the predicted first-column sign strings for every complex dimension two through eleven, rejects zero pivots, and verifies that the transformed polynomials have no imaginary-axis roots by exact Euclidean gcds. It also proves squarefreeness of the dimension-eleven numerator by polynomial gcd, checks all its coefficients alternate strictly, and cross-checks the two-dimensional numerator against the independently available explicit formula.
+PASS
 
-The root-count inference uses the classical Routh–Hurwitz sign variation theorem; the checker implements the certificate arithmetic, not a generic proof of that theorem. The reduction from the reproducing kernel to the scalar polynomial uses the cited Fefferman–Szegő formula. Approximate complex roots are given for orientation only and do not certify existence or uniqueness. Dimensions beyond eleven and exponents other than two were neither claimed nor verified.
+Read pinned RESULT.md, verifier, Pendyala source formula and full source tree. For egg |z|²+|w|^4<1, scalar X=w conj(eta)/(1−<z,zeta>)^(1/2) obeys |X|<1 by ball Cauchy–Schwarz and axial points z=zeta=0 realize any X with |X|<1. Pendyala Thm 4.2 gives nonvanishing outer factor times polynomial numerator (1−X)^n Σ_{j>=0}(mu+j/2)_{n−1} X^j, mu=(n+2)/(2(n+1)). Since rising factorial is degree n−1 in j, finite differences exactly reconstruct degree n−1 numerator from first n terms. For n=2..11 independently computed ALL exact rational numerator polynomials and Cayley H_n(u)=(1+u)^(n−1)P_n((1−u)/(1+u)); exact Routh first-column signs all plus for n2..10 and ++++++-++++ for n11 (two changes), no imaginary-axis roots (real/imag polynomial gcd1) or zero pivots, so disk root counts 0 and 2. n11 alternating coefficients exclude real roots on negative real axis and positive generating series excludes positive (0,1); exact gcd(P,Pprime)=1 makes two complex conjugates simple. Finite range n<=11 fully exhaustive exact certificate; no claim about >=12. Routh theorem and analytic kernel derivation, not approximate roots, establish all quantifiers.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for exact first loss of Fefferman-Szegő zero-freeness at n=11 and two simple interior zeros, while Pendyala’s rational kernel formula is credited. Related Bergman Lu Qi Keng results are different kernels, so theorem-level comparison supports distinct contribution.
+
+## value
+
+PASS
+
+Locates the exact first sharp dimension transition for the Lu Qi Keng nonvanishing property in a natural Fefferman-boundary kernel family; a finite complete cutoff n2..11 and first simple interior conjugate pair are a meaningful classification of an unknown exact invariant. The exact Routh and imaginary-axis certificates convert the general known formula into a reproducible zero-geometry theorem useful in boundary reproducing-kernel analysis; not merely a low-degree table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
