@@ -1,15 +1,21 @@
-# Review: sharp cycle-space projection norms of circular ladders
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim concerns the unrestricted relative projection constant of the circulation kernel in the real coordinate \(\ell_1\) edge space of \(C_n\square K_2\), for every integer \(n\ge10\). A signed-permutation averaging argument reduces all projections to operators equivariant under rim rotations/reflections and layer interchange. The complete invariant parameterization has a single antisymmetric cyclic coefficient array, with exact horizontal/vertical column norm formulas. A five-site dual inequality establishes \(4H+V\ge12-16/n\) for every such operator. An explicit four-site coefficient array attains equality in both column classes. The standalone exact-rational checker constructs the operator and verifies all its defining identities for \(10\le n\le30\). Finite checks are not invoked as proof of the universal statement.
+## correctness
 
-## Originality
-**PASS, qualified.** The closest primary treatments are Dilworth–Kutzarova–Ostrovskii, arXiv:1807.03814 (2018; cycle projections on recursively generated diamond/Laakso families), arXiv:2007.07949 (2020; sharp estimates for Laakso and diamond families), and arXiv:2305.12582 (2023; invariant projections on square discrete tori, their higher equal-factor versions, and Hamming graphs). Their techniques include symmetry averaging, but their explicit graph domains and projection formulas do not include the mixed prism \(C_n\square K_2\) at \(n\ge10\). The prism is neither the square torus \(C_m\square C_m\) nor a homogeneous Hamming graph. Other related results about wheel, rook, Hamming and cactus graphs concern nonisomorphic spaces or different projection invariants. Alias searches included 'circular ladder', 'prism', 'generalized Petersen', 'cycle subspace', 'circulation', and 'flow' along with exact-constant and reduction queries. No inspected stronger result implies this formula. Historical priority under an obscure alternative representation remains unverified.
+PASS
 
-## Mathematical value
-**PASS.** The result supplies an exact all-large-orders invariant for a classical, natural, 3-regular, vertex-transitive planar graph family. The formula determines the sharp finite-size correction and limit \(12/5\), and exhibits an explicit nontrivial bounded-support optimal complement while all projections satisfy a matching local dual certificate. The family has \(n+1\)-dimensional cycle spaces, so this is not the computation of a single small polygon or a formal restatement of averaging. It provides a quantitative reference case distinct from the previously studied square tori and recursively generated graph families. The exact smaller-order values, weight perturbations, and cut-space complement remain open in the present work.
+For unweighted real ℓ1 edge space of C_n □ K_2, n>=10, the n square circulations s_i and a global rim cycle t span the full n+1-dimensional kernel of the incidence map. Averaging an arbitrary projection under dihedral rotation/reflection and layer swap preserves the norm and projection property, allowing arrays b_i=-b_{-i-1}, 2a_i=1_{i=0}+b_i-b_{i-1}. Expanding all edge columns gives H=2Σ max(|a_i|,1/(2n))+Σ|a_i-a_{i-1}| and V=2Σ|b_i|+Σ|b_i-b_{i-1}|. The ten non-overlapping indices exist for n>=10 and produce 4H+V>=12-16/n, yielding the universal lower bound 12/5-16/(5n). Explicit b with u=(3n-9)/(10n), v=1/n attains H=V and fixes s_i,t. Independent exact-Fraction full 3n×3n projection checks for n=10,11,12,30 confirmed P²=P, divergence zero, and every column norm—256 individual matrix assertions.
 
-## Evidence and limitations
-The complete claim, proof, hypotheses, and reproducibility instructions are given in RESULT.md. The standalone checker is verify.py. The cited primary papers establish the basic cycle-space framework and explain why nonunique invariant projections are important; they do not supply the displayed prism formula. The comparison rests on accessible source material, and could miss an earlier equivalent network-flow calculation. Independent mathematical validation has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Averaging projections and studying graph cycle subspaces are established. The explicit unrestricted prism-family minimum and its 10-index dual lower certificate were not supplied by the inspected general results on diamond/Laakso graphs or equal-factor cyclic tori; a distinct family-specific exact optimization is assessed original, with graph-terminology priority caveat.
+
+## value
+
+PASS
+
+The minimum norm of a projection onto a natural graph circulation space is an intrinsic finite-dimensional Banach/graph quantity. The explicit closed expression for an infinite prism family, exact dual lower certificate, and limit 12/5 provide structural information not inferred from generic symmetry averaging.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

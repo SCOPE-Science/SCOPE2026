@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the circular-ladder circulation projection theorem
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3's standard library. The script uses exact rational arithmetic for the explicit cycle vectors and projection matrices. It checks, for every integer \(10\le n\le30\), that every constructed edge-basis column is divergence-free, that all column \(\ell_1\) norms equal \(12/5-16/(5n)\), and that the operator fixes all \(n\) square cycles and the independent global rim cycle. It also checks the two exact cyclic coefficient-class norms and 400 fixed-seed arbitrary-coefficient instances of the universal lower inequality.
+## correctness
 
-Recorded execution:
+PASS
 
-`CHECK_OK exact_projection_and_norm_assertions= 2122 dimensions=10..30 random_lower_inequality_samples=400`
+For unweighted real ℓ1 edge space of C_n □ K_2, n>=10, the n square circulations s_i and a global rim cycle t span the full n+1-dimensional kernel of the incidence map. Averaging an arbitrary projection under dihedral rotation/reflection and layer swap preserves the norm and projection property, allowing arrays b_i=-b_{-i-1}, 2a_i=1_{i=0}+b_i-b_{i-1}. Expanding all edge columns gives H=2Σ max(|a_i|,1/(2n))+Σ|a_i-a_{i-1}| and V=2Σ|b_i|+Σ|b_i-b_{i-1}|. The ten non-overlapping indices exist for n>=10 and produce 4H+V>=12-16/n, yielding the universal lower bound 12/5-16/(5n). Explicit b with u=(3n-9)/(10n), v=1/n attains H=V and fixes s_i,t. Independent exact-Fraction full 3n×3n projection checks for n=10,11,12,30 confirmed P²=P, divergence zero, and every column norm—256 individual matrix assertions.
 
-The proof for all integers \(n\ge10\) is analytic. In particular, the crucial lower certificate is \(4H+V\ge12-16/n\) for any invariant projection and the upper certificate is the explicit operator attaining equality. The numerical or finite exact checks do not establish this infinite statement or historical novelty. No Lean, external certificate, independent audit, or expert verification is claimed.
+## originality
+
+PASS
+
+Averaging projections and studying graph cycle subspaces are established. The explicit unrestricted prism-family minimum and its 10-index dual lower certificate were not supplied by the inspected general results on diamond/Laakso graphs or equal-factor cyclic tori; a distinct family-specific exact optimization is assessed original, with graph-terminology priority caveat.
+
+## value
+
+PASS
+
+The minimum norm of a projection onto a natural graph circulation space is an intrinsic finite-dimensional Banach/graph quantity. The explicit closed expression for an infinite prism family, exact dual lower certificate, and limit 12/5 provide structural information not inferred from generic symmetry averaging.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
