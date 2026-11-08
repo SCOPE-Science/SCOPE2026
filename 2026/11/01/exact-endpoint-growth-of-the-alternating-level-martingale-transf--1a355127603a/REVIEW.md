@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer branching factor at least two and positive integer depth, the finite uniform probability model is defined explicitly. Conditional-expectation kernels and their alternating sum give the stated prefix-shell values. Strict nonvanishing signs, the exact prefix-shell probability counts, and one finite geometric sum prove the operator norm. Sign inputs attain every kernel-row bound, symmetric-kernel duality proves the \(L^1\) identity, and orthogonality of martingale differences proves the \(L^2\) statement. The independent standard-library checker passed 1,182 exact rational assertions. It checks examples; the displayed algebra is the proof for all parameters.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The relevant primary literature inspected concerns weighted \(L^2\) bounds and sparse domination for general martingale transforms, not the exact finite uniform-tree \(L^\infty\) profile. Published claim searches for the exact branch-slope, alternating Haar multipliers, tree kernels, and equivalent operator-norm formulations did not find covering statements. The most relevant identifiable historical source unavailable in full was Wittwer's paper; its available opening discusses weighted \(L^2\) norms. An old exact finite-depth calculation may exist under alternative vocabulary. Search nonmatches alone do not prove priority.
+PASS
 
-## Mathematical value — PASS
-The formula determines a natural, sharp endpoint stability invariant for the complete two-parameter family of regular finite trees. It identifies the full extremizer pattern, an exact parity-sensitive boundary term, and a branching-dependent sharp logarithmic growth coefficient in the number of leaves. In particular the norm diverges with depth whereas a constant-sign martingale multiplier stays uniformly bounded and all these transforms have \(L^2\) norm one. This is a motivated endpoint boundary phenomenon, not a numerical recomputation of a preexisting table.
+For every b>=2,m>=1 the underlying probability space has b^m equiprobable leaves, with E_k conditional expectation by first-k prefix. The alternating difference transform T=Σ_{k=1}^m (-1)^{k-1}(E_k-E_{k-1}) has exact kernel depending only on longest-common-prefix length r. Summation by parts gives K_r=(b-1-2b(-b)^r)/(b+1) for r<m and K_m=(b-1)(1+(-1)^{m-1}b^m)/(b+1). Each K_r nonzero with explicit parity sign; the shell mass (b-1)b^{-r-1} and diagonal b^{-m} produce the exact row absolute sum 2(b-1)m/(b+1)+2(b-1)(1-(-1/b)^m)/(b+1)^2. Every row shares the norm and its sign function achieves it; self-adjoint duality gives same L1 norm. Orthogonal martingale differences give L2 norm 1. Direct independent rational conditional-expectation matrices checked for b=2..4 and m=1..4; symbolic sign/geometric series prove the full infinite-parameter statement.
 
-## Limits
-The statement is for equal masses, homogeneous finite branching, and alternating depth coefficients; it is not a universal optimal-sign theorem or a classification of arbitrary filtrations. Publication priority and external mathematical validation remain separate questions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge, after implication-aware prior/source comparisons: The exact all-branching sharp formula is a narrow, motivated endpoint refinement not obtained from the inspected prior theorems; full specialist older-literature priority remains provisional.
+
+## value
+
+PASS
+
+This gives the sharp finite-depth endpoint cost of a completely natural alternating Haar/martingale multiplier on homogeneous b-ary trees, including all extremizing sign patterns and branching-dependent logarithmic amplification in the number of leaves despite L2 norm one. Such an exact endpoint benchmark is useful for martingale inequalities and shows why interior Lp/weighted bounds do not pin down L∞.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

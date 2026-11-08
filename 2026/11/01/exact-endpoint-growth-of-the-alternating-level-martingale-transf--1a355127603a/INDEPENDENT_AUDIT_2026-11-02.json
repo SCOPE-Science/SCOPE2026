@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T19:49:06.566046Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every b>=2,m>=1 the underlying probability space has b^m equiprobable leaves, with E_k conditional expectation by first-k prefix. The alternating difference transform T=Σ_{k=1}^m (-1)^{k-1}(E_k-E_{k-1}) has exact kernel depending only on longest-common-prefix length r. Summation by parts gives K_r=(b-1-2b(-b)^r)/(b+1) for r<m and K_m=(b-1)(1+(-1)^{m-1}b^m)/(b+1). Each K_r nonzero with explicit parity sign; the shell mass (b-1)b^{-r-1} and diagonal b^{-m} produce the exact row absolute sum 2(b-1)m/(b+1)+2(b-1)(1-(-1/b)^m)/(b+1)^2. Every row shares the norm and its sign function achieves it; self-adjoint duality gives same L1 norm. Orthogonal martingale differences give L2 norm 1. Direct independent rational conditional-expectation matrices checked for b=2..4 and m=1..4; symbolic sign/geometric series prove the full infinite-parameter statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lacey’s bound applies 1<p<∞ for weighted Lp and sparse domination with universal constants, not sharp L∞ finite tree norms.",
+          "Kerr and Wittwer address weighted L2 estimates."
+        ],
+        "reasoning": "An upper bound or exact weighted L2 theorem is not a sharp finite-depth endpoint equality formula; there is no implication absent new combinatorial kernel evaluation.",
+        "searches": [
+          "Lacey arxiv:1501.05818 Theorem 2.4 sparse domination and Theorem 2.6 A_p",
+          "Kerr arxiv:0906.4028 weighted L2 martingale transforms",
+          "Wittwer 2000 sharp A2 martingale transforms"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md blob e943551d4f191bee5534c093d3743d9518af34bc",
+        "SCOPE verify.py blob 6e835db3346157d0c2f6495fda79cbf6998cd72f",
+        "arxiv:1501.05818",
+        "arxiv:0906.4028",
+        "DOI:10.4310/MRL.2000.V7.N1.A1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Interior-range and weighted norm estimates do not imply exact equality at p=∞ or the number/shape of extremizers.",
+          "Orthogonality alone gives L2 norm one, but cannot yield the L∞ linear-in-m formula; row-shell signed sums are essential."
+        ],
+        "reasoning": "The exact all-branching sharp formula is a narrow, motivated endpoint refinement not obtained from the inspected prior theorems; full specialist older-literature priority remains provisional.",
+        "searches": [
+          "arxiv 1501.05818 sparse bound Lp",
+          "arxiv 0906.4028 matrix weighted L2",
+          "Wittwer 2000 martingale transform norm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The operator is a finite homogeneous Haar multiplier of alternating level signs; these definitions are classical.",
+          "Lacey and Kerr study martingale transforms in nonendpoint weighted Lp settings and do not give exact b,m row absolute sums."
+        ],
+        "reasoning": "The well-known matrix-kernel reduction is prior; its explicitly evaluated alternating shell formula, extremizer pattern and exact depth coefficient are not statements of the inspected results.",
+        "searches": [
+          "Resultary alternating martingale transform b-ary tree exact endpoint L infinity norm query",
+          "finite dyadic Haar multiplier alternating signs L infinity norm depth m",
+          "arxiv:1501.05818 martingale transform"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query surfaced other tree exposure and cyclic Hilbert endpoint records, different operators.",
+          "Independently computed exact rational row norms for all tested b,m, agreeing with the proposed closed form."
+        ],
+        "reasoning": "No exact finite-tree table or closed alternating-level norm matching these formulas found; possible classical harmonic-analysis appendices remain unchecked.",
+        "searches": [
+          "Resultary martingale tree alternating level endpoint norm",
+          "Haar multiplier finite m L infinity norm row sum table",
+          "2(b-1)/(b+1) depth martingale transform"
+        ]
+      },
+      "rationale": "Best-of-knowledge, after implication-aware prior/source comparisons: The exact all-branching sharp formula is a narrow, motivated endpoint refinement not obtained from the inspected prior theorems; full specialist older-literature priority remains provisional.",
+      "residual_risks": [
+        "Older exact Haar multiplier or finite martingale endpoint formulas may exist under different indexing terminology; bounded searches are not historical exclusion.",
+        "Uniform b-ary, equal-leaf mass and alternating level signs are essential; no general martingale multiplier result asserted.",
+        "Wittwer (2000) full text not fully read; inspected abstract addresses weighted L2, not an exact b,m endpoint formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Nonendpoint weighted inequalities, no exact finite uniform b-ary L∞ norm",
+          "evidence": "Lacey Theorems 2.4 and 2.6, 1<p<infinity weighted regime.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.05818",
+          "material_read": "OA full PDF, Theorem 2.4 sparse domination and Theorem 2.6 weighted bounds, corresponding proof sections",
+          "method": "read primary theorem/argument sections",
+          "title": "An elementary proof of the A2 bound",
+          "trigger": "Prior general martingale transform bounds"
+        },
+        {
+          "assessment": "Weighted Hilbert-space L2 boundedness, not exact unweighted finite L∞ endpoint",
+          "evidence": "Kerr 2009 Theorem 4.1 sufficient L2 boundedness.",
+          "identifier_or_url": "https://arxiv.org/pdf/0906.4028",
+          "material_read": "OA full PDF, introductory definitions and main L2 boundedness theorem statements",
+          "method": "read relevant preprint sections",
+          "title": "Martingale transforms, the dyadic shift and the Hilbert transform: a sufficient condition for boundedness between matrix weighted spaces",
+          "trigger": "Martingale transforms on dyadic trees"
+        },
+        {
+          "assessment": "Sharp A2 weighted bound, not documented as L∞ finite-depth formula; full text inaccessible in this review",
+          "evidence": "Wittwer (2000) Mathematical Research Letters 7(1), DOI and scope.",
+          "identifier_or_url": "https://doi.org/10.4310/MRL.2000.V7.N1.A1",
+          "material_read": "Publisher abstract and index description; no full proof claimed read",
+          "method": "bibliographic abstract inspection",
+          "title": "A sharp estimate on the norm of the martingale transform",
+          "trigger": "Plausible sharp norm source with general title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives the sharp finite-depth endpoint cost of a completely natural alternating Haar/martingale multiplier on homogeneous b-ary trees, including all extremizing sign patterns and branching-dependent logarithmic amplification in the number of leaves despite L2 norm one. Such an exact endpoint benchmark is useful for martingale inequalities and shows why interior Lp/weighted bounds do not pin down L∞.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older exact Haar multiplier or finite martingale endpoint formulas may exist under different indexing terminology; bounded searches are not historical exclusion.",
+    "Uniform b-ary, equal-leaf mass and alternating level signs are essential; no general martingale multiplier result asserted.",
+    "Wittwer (2000) full text not fully read; inspected abstract addresses weighted L2, not an exact b,m endpoint formula."
+  ],
+  "schema_version": 1
+}
