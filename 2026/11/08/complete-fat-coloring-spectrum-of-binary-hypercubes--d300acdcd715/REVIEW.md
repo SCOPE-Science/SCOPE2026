@@ -1,0 +1,19 @@
+# Scientific review: complete FAT-coloring spectrum of binary hypercubes
+
+## Correctness — PASS
+
+The claim is for every integer \(d\ge1\), \(k\ge2\), and real FAT parameter \(\alpha\), with all \(k\) color classes nonempty. Connectivity excludes \(\alpha=0\) for \(k>1\). The common positive integer off-color degree \(t=\alpha d\) implies \((k-1)t\le d\). Counting interclass edges from both ends proves equal class sizes, so \(k\mid2^d\) and \(k\) is a power of two. For the converse, the \(d\) coordinate columns consist of \(t\) copies of every nonzero vector of \(\mathbb F_2^r\) plus the remaining zero columns. The syndrome map is surjective and its one-coordinate changes produce exactly the claimed neighbor histogram for every vertex. Thus the construction proves all parameter cases, rather than extrapolating from computations. The one-color case and proper-coloring boundary are separately explicit. The verifier checks 106 constructed parameter triples and 14 exhaustive small instances by direct adjacency enumeration; these finite checks are corroborative, not a substitute for the general argument.
+
+## Originality — PASS (priority provisional)
+
+The nearest FAT-coloring papers are Beers–Mulas, arXiv:2510.18494, which contains the foundational definition and the equal-class/degree restrictions for connected regular graphs, and Beers–Mulas, arXiv:2604.21665, whose Section 7.2 gives product lifts with unchanged palette size. Neither of those inspected statements is the necessary-and-sufficient existence theorem for every binary-cube dimension, palette, and tolerance, nor does the former's upper bound establish attainability. Shaebani, arXiv:2511.14871 and arXiv:2512.11153, addresses other general existence and gap constructions rather than a cube-specific spectrum. Krotov–Valyuzhenich, arXiv:2311.05566, studies selected degree-limited perfect-coloring classes, not uniform off-diagonal quotient matrices for all parameters. The term *perfect coloring* or *equitable partition* encompasses the same cube objects, so a previously published coding-theoretic existence result remains a material priority risk. The linear syndrome mechanism is a familiar coding-theory technique and is not claimed as a new algorithm; the assembled all-parameter FAT theorem is the claim assessed here.
+
+## Mathematical value — PASS
+
+The binary cube is a canonical regular bipartite graph family, not an arbitrarily selected finite example. The theorem determines an entire feasibility region rather than a single numerical bound: the number of colors is restricted to powers of two, every allowable integer off-color count is attainable, and properness occurs exactly at a divisibility boundary. It gives the exact FAT chromatic number, thereby producing an unbounded gap over the ordinary chromatic number two *within a connected family*. The witness is explicit and scales to every dimension. This complete natural classification can serve as a benchmark for graph-product colorings, quotient matrices, and coding-theoretic equitable partitions; no downstream theorem is asserted.
+
+## Sources and limitations
+
+Compared primary text: arXiv:2510.18494 (FAT definition, regular-graph restrictions, graph families); arXiv:2604.21665 (product-lifting theorems); arXiv:2511.14871v2 and arXiv:2512.11153v1 (Shaebani constructions); arXiv:2606.22374 (irreducible FAT colorings); arXiv:2311.05566 (perfect-coloring eigenvalue restrictions). Historical syndrome partitions and Hamming-code special cases may imply overlapping instances. The latest revision of the first FAT paper was not completely inspected. Comprehensive specialist priority determination and independent review are outstanding. The proof does not classify all individual colorings or cover nonbinary cubes.
+
+Self-review: passed. Independent audit: not yet performed.
