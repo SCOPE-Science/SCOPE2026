@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T11:43:45.997945Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2302.06696",
+        "https://ac.cs.princeton.edu/home/",
+        "assigned RESULT.md at Git blob 0fb254e7c4f610f557191d167cb1f61b861510d7"
+      ],
+      "rationale": "Both reset Brownian and reset run-and-tumble stationary opposite-side probabilities are U(x)=e^{-kappa x}/2, with kappa=sqrt(r/D) or sqrt(r(r+2gamma))/v. Spatial integration of the log product gives exactly G_lambda(z)=exp[-lambda Li_2((1-z)/2)]. The unique dominant unit-circle singularity z=-1 has expansion G=e^{-lambda pi^2/6}[1-(lambda/2)(1+z)log(1+z)+analytic linear term+O_lambda((1+z)^2 log^2(1+z))]. Coefficient transfer gives (-1)^(n+1)lambda e^{-lambda pi^2/6}/[2n(n-1)]+O_lambda(log n/n^3); positive prefactor gives eventually negative even n for each fixed finite lambda>0. Pringsheim forbids a positive integer-valued PGF, while periodicity under p->p+2pi i forces any nonnegative-measure Laplace representation to lie on N, also impossible. Differentiation gives c2 and threshold (1-log2)/log^2 2. Independent high-precision recurrence confirms c2 and negative c120/positive c119 for lambda 0.4 and 2. The statement is about a formal geometric-ensemble transform, not physical conditional particle probabilities.",
+      "residual_risks": [
+        "An asymptotic for fixed lambda is not uniform as lambda grows with n.",
+        "Underlying Di Bello et al paper interprets its quenched transform as a current distribution on a continuum Q; the new nonrealizability result means this interpretation cannot literally be a positive probability measure for any fixed finite lambda, without invalidating appropriate thermodynamic/large-deviation limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet–Sedgewick gives the logarithmic singularity-transfer theorem and Pringsheim principle as standard analytical tools; Di Bello supplies the exact transformed function but computes moments/cumulants, not eventual Taylor coefficient signs."
+        ],
+        "reasoning": "The prior expression mathematically determines all coefficients, yet the sign asymptotic requires analysis of its singularity at z=-1 and positivity characterization. A published general theorem applied immediately to this function remains a possible stronger coverage.",
+        "searches": [
+          "https://arxiv.org/pdf/2302.06696",
+          "https://ac.cs.princeton.edu/home/",
+          "dilogarithmic combinatorial generating functions singularity analysis alternating coefficients"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2302.06696",
+        "https://ac.cs.princeton.edu/home/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Di Bello Eq. (56) already provides exact -lambda Li2((1-e^-p)/2) and discussion after Eq. (58) says extraction of full stationary current law is not pursued. Original Eq. (13) discusses continuous Q in quenched case. The new sign proof uses branch point z=-1; then periodic Laplace transforms of positive measures must be lattice-supported, contradicted by negative c2 for small lambda and infinitely negative even c_n for all lambda."
+        ],
+        "reasoning": "This is a genuine extra consequence of the published formula, not a new formula for the functional itself. A prior paper with the same explicit sign consequence would cover it even if worded differently; no such consequence verified in original PDF.",
+        "searches": [
+          "https://arxiv.org/pdf/2302.06696",
+          "https://ac.cs.princeton.edu/home/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Eq. (13) defines exp(averaged log Laplace transform), Eq. (56) is exactly the lambda dilogarithm; a fixed initial-particle configuration instead has an ordinary Poisson-binomial product from original Eq. (29–31)."
+        ],
+        "reasoning": "The quenched/geometric expression coincides algebraically with a continuous-exponent Bernoulli product, but differs from a genuine fixed-configuration PGF; the new result concerns the gap between these two object classes and is not equivalent to negative physical probabilities.",
+        "searches": [
+          "https://arxiv.org/pdf/2302.06696",
+          "Resultary: quenched current stochastically resetting particle system dilogarithm generating function negative coefficients"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original 2023 paper tables cumulants a1=1/2,a2=3/8,a3=5/24,a4=1/32,a5=-19/240; cumulants are not PGF probability masses. No original table of c_n tail signs in the inspected Sec IV/V."
+        ],
+        "reasoning": "The negative fifth cumulant is prior and does not imply nonexistence of a probability law (many genuine laws have negative high cumulants). A tail-sign theorem is different information from a cumulant table.",
+        "searches": [
+          "https://arxiv.org/pdf/2302.06696",
+          "exp minus lambda Li2 (1-z)/2 negative coefficients eventual alternating probability generating function resetting current"
+        ]
+      },
+      "rationale": "Qualified PASS for proving all-fixed-positive-lambda eventual coefficient sign alternation and literal PGF/Laplace nonrealizability of the original dilogarithmic formal expression. Di Bello et al. (2023) already derived the exact dilogarithm and called it the stationary quenched current generating functional; no discovery credit for model, transform or cumulants. The original paper does not state the sign obstruction in the read original Sec IV (Eq. 56–58).",
+      "residual_risks": [
+        "The published source labels a formal quenched Laplace expression as a current probability law; this finding is a correction of literal fixed-lambda realizability, and the physical continuum/large-system interpretation requires caution.",
+        "Earlier analysis of coefficient signs of exp[-lambda Li2((1-z)/2)] in analytic combinatorics or reset-current literature might exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE OF EXACT TRANSFORM; Eq. (56) gives dilogarithm and cumulants, does not state the nonrealizability and eventual negative coefficients in material read",
+          "evidence": [
+            "Eq. (13) exp spatially averaged log; Eq. (56) stationary -rho sqrt(D/r) Li2; Eq. (58) cumulant table and remark full distribution not extracted"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.06696",
+          "material_read": "Original full 26-page arXiv PDF searchable; abstract, Section II.B definitions (11–13), Section III Eq. (29–39), Section IV Eq. (56–58) and adjacent interpretation read; pages 1 and 11 visually inspected",
+          "method": "Full primary arXiv PDF text and screenshots",
+          "title": "Current fluctuations in stochastically resetting particle systems",
+          "trigger": "Identical original model and exact quenched stationary functional"
+        },
+        {
+          "assessment": "General singularity analysis prior method, not a model-specific resetting current sign law",
+          "evidence": [
+            "Flajolet–Sedgewick Chapter VI transfer for (1+z)log(1+z)"
+          ],
+          "identifier_or_url": "https://ac.cs.princeton.edu/home/",
+          "material_read": "Public publisher/book site and chapter VI methodology referenced; no full chapter text read this run",
+          "method": "Public book documentation",
+          "title": "Analytic Combinatorics",
+          "trigger": "General logarithmic coefficient transfer"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2302.06696",
+        "https://ac.cs.princeton.edu/home/"
+      ],
+      "rationale": "A mathematically meaningful positivity obstruction to interpreting a widely used geometric-ensemble cumulant functional as a literal finite-lambda distribution, with an all-parameter sign-tail asymptotic and an explicit small-lambda negative-coefficient witness. This distinguishes formal large-deviation transforms from actual Poisson-binomial probabilities without rejecting any physical fixed-configuration law.",
+      "residual_risks": [
+        "Do not generalize this conclusion to scaling limits or actual physical current distributions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The exact transform itself is 2023 prior work.",
+    "Oxford publisher route returned vpn_disconnected but same complete preprint was recovered through arXiv, so no material block."
+  ],
+  "schema_version": 1
+}

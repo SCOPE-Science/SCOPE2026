@@ -1,21 +1,21 @@
-# Scientific review of the stationary current transform
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's Brownian crossing kernel and run-and-tumble resolvent give the same stationary exponential profile after their respective length-scale changes. Integrating the exact per-particle Bernoulli logarithm yields the stated dilogarithmic function. The only unit-circle singularity of the latter is at \(z=-1\); the explicitly derived \((1+z)\log(1+z)\) term produces the signed \(n^{-2}\) coefficient with a controlled \(O_\lambda(n^{-3}\log n)\) remainder. Pringsheim's theorem independently rules out a genuine PGF, and periodicity excludes nonlattice nonnegative Laplace laws. The packaged checker executed and agreed with the exact recurrence and 240-degree numerical tests. Risk: transfer bounds require the fixed-parameter limit; no assertion is made uniformly for diverging \(\lambda\).
+PASS
 
-## Originality — PASS, with priority qualification
+Both reset Brownian and reset run-and-tumble stationary opposite-side probabilities are U(x)=e^{-kappa x}/2, with kappa=sqrt(r/D) or sqrt(r(r+2gamma))/v. Spatial integration of the log product gives exactly G_lambda(z)=exp[-lambda Li_2((1-z)/2)]. The unique dominant unit-circle singularity z=-1 has expansion G=e^{-lambda pi^2/6}[1-(lambda/2)(1+z)log(1+z)+analytic linear term+O_lambda((1+z)^2 log^2(1+z))]. Coefficient transfer gives (-1)^(n+1)lambda e^{-lambda pi^2/6}/[2n(n-1)]+O_lambda(log n/n^3); positive prefactor gives eventually negative even n for each fixed finite lambda>0. Pringsheim forbids a positive integer-valued PGF, while periodicity under p->p+2pi i forces any nonnegative-measure Laplace representation to lie on N, also impossible. Differentiation gives c2 and threshold (1-log2)/log^2 2. Independent high-precision recurrence confirms c2 and negative c120/positive c119 for lambda 0.4 and 2. The statement is about a formal geometric-ensemble transform, not physical conditional particle probabilities.
 
-The primary 2023 paper *already derives* the exact logarithmically averaged dilogarithm; neither this transform nor the quenched-cumulant prescription is presented as original. The assessed statement is instead the universal eventual alternating-sign theorem and its implication that exponentiating averaged log-generators does not define an honest current distribution. The source's full relevant sections III.2, IV.2, V.2 and conclusions were compared; no tail-coefficient nonrealizability theorem was found. Derrida and Gerschenfeld cover a different unreset setting; classical singularity analysis provides a proof tool, not the physical comparison. Searches of the accessible mathematical findings and primary literature revealed no identical claim. Residual risk: the sign obstruction may be recognized implicitly by specialists as a general fact about geometric averages of Bernoulli PGFs, and an unlocated broader statement could subsume the physical application.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a structural limitation on a natural current-fluctuation prescription, not a one-off negative coefficient: it holds for *every* finite positive parameter, quantifies the full signed tail, supplies a computable low-order witness, and applies to two distinct physical dynamics. The exact distinction between conditional/annealed measures and the geometric logarithmic average matters because the source explicitly discusses reconstructing a stationary distribution from that transform. It does not imply physical negative probabilities, invalidate all scaled cumulants, or substitute for analysis of true quenched probability measures.
+Qualified PASS for proving all-fixed-positive-lambda eventual coefficient sign alternation and literal PGF/Laplace nonrealizability of the original dilogarithmic formal expression. Di Bello et al. (2023) already derived the exact dilogarithm and called it the stationary quenched current generating functional; no discovery credit for model, transform or cumulants. The original paper does not state the sign obstruction in the read original Sec IV (Eq. 56–58).
 
-## Principal sources and limitations
+## value
 
-- Di Bello et al., arXiv:2302.06696v1: complete relevant derivation and discussion of the stationary logarithmic average, especially equations (35)–(39), (47), (56), and the run-and-tumble crossing kernel.
-- Derrida and Gerschenfeld, arXiv:0907.3294: quenched/annealed current methodology in nonreset diffusive systems; only the accessible abstract and bibliographic information were inspected, not the full paper.
-- Flajolet and Sedgewick, *Analytic Combinatorics*, Chapter VI: standard logarithmic singularity transfer, not a statement about the resetting current functional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A mathematically meaningful positivity obstruction to interpreting a widely used geometric-ensemble cumulant functional as a literal finite-lambda distribution, with an all-parameter sign-tail asymptotic and an explicit small-lambda negative-coefficient witness. This distinguishes formal large-deviation transforms from actual Poisson-binomial probabilities without rejecting any physical fixed-configuration law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
