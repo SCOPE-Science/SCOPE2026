@@ -1,15 +1,21 @@
-# Review: direct-sum component–pattern covariance
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Each cut event is exactly a uniform two-block direct sum. Conditional cross-cut occurrences have probability \(1/(j!(m-j)!)\) precisely when the pattern has the cut \(j\). The covariance formula follows by linearity. For \(2143\), the three coefficients are \(-1,5,-1\) divided by 24. Exact rational verification enumerates the finite range \(4\le n\le39\), and a separate symbolic inequality proves strict negativity for \(n\ge40\). Independent full permutation enumeration through order seven agrees with the formula for all small patterns. No finite test is treated as an infinite proof.
+## correctness
 
-## Originality
-**PASS, with priority uncertainty.** Acan–Pittel (arxiv:1211.0246) describe the inversion-graph component/block statistic and conditioning on inversion count; Janson–Nakamura–Zeilberger (arxiv:1312.3955) analyze pairs of pattern counts; Atkinson (doi:10.37236/1344) treats the relevant 2143 avoidance class. The directly inspected full texts of the first two do not give the component–pattern mixed covariance or its sharp sign transition. Searches for direct-sum blocks, inversion-graph connected components, the induced two-edge matching, and covariance found no stronger theorem with that implication. Older decomposition-weighted pattern enumerations remain a concrete historical-priority risk.
+PASS
 
-## Value
-**PASS.** Both total inversion-graph connectivity and forbidden induced 2K2 counts are intrinsic natural random permutation-graph statistics. The exact all-pattern formula reduces a priori pattern-shape dependence to its direct-sum fingerprint, and the first internal-only cut pattern \(2143\) has a genuinely sharp sample-size sign transition. This joint-dependence fact is not determined by marginal component enumeration or pattern-count moments.
+The inversion-graph components equal 1 plus the number of proper direct-sum cuts J_k. Conditioned on J_k, left and right position blocks are independently uniform permutations of their respective value intervals. Cross-block pattern probability is 1_{j in D(tau)}/(j!(m-j)!) instead of 1/m!, and weighting by Pr(J_k)=1/binom(n,k) proves the universal finite sum. For 2143 only j=2 is a cut, giving (-1,5,-1)/24 coefficients. Independent brute force of uniform permutations n=4..7 and exact rational evaluation of n=4..39 verified the coefficients and sign. For n>=40 the proof preserves negative endpoint terms giving -D_n and bounds interior positive B_k by binomial estimates; D_n>=n²/100 dominates 5n/48 for n>=40, so all n proved. Finite enumeration alone is not used to infer the infinite sign.
 
-## Scope and limitations
-Uniform permutations, ordinary nonconsecutive patterns. The exact-rational finite verification must be paired with the analytic tail proof for an all-size statement. Source inspections do not prove absolute historical priority and the complete 1998 primary text was not read.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Acan–Pittel state the graph-connected iff direct-sum-indecomposable characterization, and Janson–Nakamura–Zeilberger analyze the covariance of pairs of pattern occurrence counts. Neither paper treats this component-versus-pattern mixed statistic or direct-sum-cut fingerprint. The role of 2143 in skew-merged pattern classes is preexisting; no novelty asserted for its definition. Best-knowledge PASS for the full mixed covariance and sharp reversal.
+
+## value
+
+PASS
+
+The statistic couples global inversion-graph block structure with local pattern counts and reveals a surprising all-size sign reversal at a sharp finite boundary. The universal dependency only on a pattern direct-sum fingerprint is a nontrivial structural classification relevant to random permutation statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

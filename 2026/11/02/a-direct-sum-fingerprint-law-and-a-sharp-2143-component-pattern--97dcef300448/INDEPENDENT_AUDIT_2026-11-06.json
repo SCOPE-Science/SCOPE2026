@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T22:45:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The inversion-graph components equal 1 plus the number of proper direct-sum cuts J_k. Conditioned on J_k, left and right position blocks are independently uniform permutations of their respective value intervals. Cross-block pattern probability is 1_{j in D(tau)}/(j!(m-j)!) instead of 1/m!, and weighting by Pr(J_k)=1/binom(n,k) proves the universal finite sum. For 2143 only j=2 is a cut, giving (-1,5,-1)/24 coefficients. Independent brute force of uniform permutations n=4..7 and exact rational evaluation of n=4..39 verified the coefficients and sign. For n>=40 the proof preserves negative endpoint terms giving -D_n and bounds interior positive B_k by binomial estimates; D_n>=n²/100 dominates 5n/48 for n>=40, so all n proved. Finite enumeration alone is not used to infer the infinite sign.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acan–Pittel analyze K conditional on inversion count, not X_tau conditional on J_k; Janson et al. enumerate mixed pattern counts."
+        ],
+        "reasoning": "A broad enumeration framework might derive a formula, but no directly controlling theorem gives the displayed D(tau) fingerprint or sharp 2143 sign.",
+        "searches": [
+          "arxiv:1211.0246 conditioned inversion graph components",
+          "arxiv:1312.3955 moment algorithms for multiple patterns"
+        ]
+      },
+      "checked_sources": [
+        "Acan–Pittel arxiv:1211.0246 PDF",
+        "Janson–Nakamura–Zeilberger arxiv:1312.3955 PDF",
+        "Resultary permutation covariance and graph searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing definitions plus conditional block uniformity supply a starting point."
+        ],
+        "reasoning": "The exact cross-covariance requires counting left/right selections and assembling conditional probabilities; its all-n sign proof does not follow from known component or pattern marginal distributions alone.",
+        "searches": [
+          "arxiv:1211.0246 §1 direct-sum cut characterization",
+          "arxiv:1312.3955 §1, pattern occurrence variables"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cut indicator J_k is exactly a connected-component boundary; K_n is 1 plus number of cuts.",
+          "Pattern occurrence counts are the same ordinary non-consecutive variables studied by Janson et al."
+        ],
+        "reasoning": "The mixed component-vs-pattern covariance is not the pattern-vs-pattern covariance, and inversion component count is not a single fixed-length pattern statistic.",
+        "searches": [
+          "arxiv:1211.0246 decomposability and inversion graph",
+          "arxiv:1312.3955 pattern-count joint moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed results include inversion indicator and cycle-count covariances but not the 2143 component covariance; original pattern tables concern pattern-to-pattern moments."
+        ],
+        "reasoning": "No exact all-n 2143 sign table appears in the inspected indexed records; absence of a search hit is not exhaustive novelty proof.",
+        "searches": [
+          "Resultary query: uniform permutation inversion graph components covariance occurrences 2143 direct sum cut pattern",
+          "web: Acan Pittel 2012 permutation graph components Janson Nakamura Zeilberger 2013 pattern counts arxiv"
+        ]
+      },
+      "rationale": "Acan–Pittel state the graph-connected iff direct-sum-indecomposable characterization, and Janson–Nakamura–Zeilberger analyze the covariance of pairs of pattern occurrence counts. Neither paper treats this component-versus-pattern mixed statistic or direct-sum-cut fingerprint. The role of 2143 in skew-merged pattern classes is preexisting; no novelty asserted for its definition. Best-knowledge PASS for the full mixed covariance and sharp reversal.",
+      "residual_risks": [
+        "General composition-scheme generating functions may encode the same mixed covariance in an unexamined form.",
+        "The formula concerns uniform permutations and ordinary subsequence patterns only, not other permutation laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives the essential cut background but not a component-pattern cross-statistic.",
+          "evidence": [
+            "arxiv:1211.0246 introductory characterization; web:turn955307view3/turn460975view3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.0246",
+          "material_read": "Original PDF introduction, first four pages and theorem statements for inversion-constrained components",
+          "method": "Read connectedness/indecomposability equivalence and main regime (fixed inversion count)",
+          "title": "On the Connected Components of a Random Permutation Graph with a Given Number of Edges",
+          "trigger": "exact component object, inversion graph and cuts"
+        },
+        {
+          "assessment": "Studies X_sigma and X_tau, not the K_n-X_tau covariance or direct-sum cut fingerprint.",
+          "evidence": [
+            "arxiv:1312.3955 abstract and Section 1; web:turn955307view4/turn460975view4"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.3955",
+          "material_read": "PDF abstract, introduction and joint pattern-moment theorem descriptions",
+          "method": "Compared the two pattern-count variables with the component count K_n",
+          "title": "On the Asymptotic Statistics of the Number of Occurrences of Multiple Permutation Patterns",
+          "trigger": "closest mixed-pattern moments framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The statistic couples global inversion-graph block structure with local pattern counts and reveals a surprising all-size sign reversal at a sharp finite boundary. The universal dependency only on a pattern direct-sum fingerprint is a nontrivial structural classification relevant to random permutation statistics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Acan–Pittel arxiv:1211.0246 PDF",
+    "Janson–Nakamura–Zeilberger arxiv:1312.3955 PDF",
+    "Resultary permutation covariance and graph searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a uniform permutation Pi_n, the covariance of its inversion-graph component count K_n and any ordinary pattern-count X_tau (n>=m>=2) is the explicit two-level binomial sum depending only on the proper direct-sum cut set D(tau). For tau=2143=21+21, covariance is strictly positive at n=4..7 and strictly negative at every n>=8.",
+  "limitations": [
+    "Historical priority is best-of-knowledge, not exhaustive literature certification.",
+    "Bounded computation does not replace the analytic proof.",
+    "General composition-scheme generating functions may encode the same mixed covariance in an unexamined form.",
+    "The formula concerns uniform permutations and ordinary subsequence patterns only, not other permutation laws."
+  ],
+  "residual_risks": [
+    "General composition-scheme generating functions may encode the same mixed covariance in an unexamined form.",
+    "The formula concerns uniform permutations and ordinary subsequence patterns only, not other permutation laws."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Gives the essential cut background but not a component-pattern cross-statistic.",
+      "evidence": [
+        "arxiv:1211.0246 introductory characterization; web:turn955307view3/turn460975view3"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1211.0246",
+      "material_read": "Original PDF introduction, first four pages and theorem statements for inversion-constrained components",
+      "method": "Read connectedness/indecomposability equivalence and main regime (fixed inversion count)",
+      "title": "On the Connected Components of a Random Permutation Graph with a Given Number of Edges",
+      "trigger": "exact component object, inversion graph and cuts"
+    },
+    {
+      "assessment": "Studies X_sigma and X_tau, not the K_n-X_tau covariance or direct-sum cut fingerprint.",
+      "evidence": [
+        "arxiv:1312.3955 abstract and Section 1; web:turn955307view4/turn460975view4"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1312.3955",
+      "material_read": "PDF abstract, introduction and joint pattern-moment theorem descriptions",
+      "method": "Compared the two pattern-count variables with the component count K_n",
+      "title": "On the Asymptotic Statistics of the Number of Occurrences of Multiple Permutation Patterns",
+      "trigger": "closest mixed-pattern moments framework"
+    }
+  ]
+}
