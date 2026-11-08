@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T07:11:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 6 vertex, 10 face-center and 15 edge-midpoint icosahedral axes, the addition theorem identifies exact degree-k harmonic evaluation rank with rank of the 31x31 Legendre Gram matrix. Raw coordinate/diagonal congruences put both even and odd degrees in Q(sqrt5). Inspected full standard-library Q(sqrt5) elimination algorithm and its complete stated rank table for k=0..74; rank k=74 is30, k=29 first reaches31. Independent from-scratch C++ modular recurrence and Gaussian elimination evaluated 1700 matrices mod prime10009 under sqrt5=4070: for k0..74 ranks matched the supplied low-degree table, and for k75..1699 ALL 1625 were nonsingular. Nonzero finite-field determinant proves nonzero characteristic-zero determinant because denominators are invertible for recurrence range. For k>=1700, exact separation max cos^2=1/2+sqrt5/6<7/8 yields sinθ>7/20 and Bernstein |P_k|<=sqrt(2/(pi k sinθ)), hence 30 off-diagonal absolute entries have row sum <1. Positive diagonal one gives Gershgorin invertibility. Modular certificate covers finite gap only; analytic bound separately covers infinite k. Independent modular checks support low-degree ranks but the full Q(sqrt5) elimination was inspected, not independently rerun end-to-end.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bannai-Okuda-Tagami harmonic-index designs and Hughes-Waldron 6+10 weighted half design supply orthogonality/cancellation statements"
+        ],
+        "reasoning": "Weighted design strength or harmonic moments do not by themselves imply exact-degree evaluation independence of all 31 axes at k>=75 or the rank30 defect at k74.",
+        "searches": [
+          "arxiv:1308.5101",
+          "Hughes Waldron Spherical half-designs high order 16 axes"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2209.01499",
+        "arxiv:1308.5101",
+        "Hughes-Waldron half-designs",
+        "Resultary: icosahedron 31 axes degree k spherical harmonics interpolation evaluation rank 75",
+        "arxiv:2209.01499",
+        "arxiv:1308.5101",
+        "Hughes Waldron Spherical half-designs high order 16 axes",
+        "icosahedral symmetry harmonics exact degree interpolation 31 projective points rank",
+        "Frozen source 2026/11/01/the-last-harmonic-interpolation-gap-on-the-31-icosahedral-symmet--7107a3e08106/RESULT.md SHA 0f820389fff8a6b3a54fad0b9fa151a9eeb64062",
+        "Frozen verifier 2026/11/01/the-last-harmonic-interpolation-gap-on-the-31-icosahedral-symmet--7107a3e08106/verify.py SHA d26a777eea81f972fa451c5a51bc4f5adac8805f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Calvo same 31 points but geometric ideals; designs give harmonic annihilation information at certain low degrees, not full exact rank"
+        ],
+        "reasoning": "Neither inspected theorem covers the last interpolation gap and permanency without a new rank calculation. Nonvanishing determinants at intermediate k and Bernstein diagonal dominance supply additional essential proof.",
+        "searches": [
+          "arxiv:2209.01499",
+          "arxiv:1308.5101"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Calvo has same 31 icosahedral projective axes as mirror-line intersections, studies homogeneous ideal and Waldschmidt constant; Legendre Gram ranks for exact spherical harmonic degree are a different map"
+        ],
+        "reasoning": "Homogeneous ideal Hilbert functions are related algebraic data, but exact-degree spherical harmonics impose Laplacian constraints. No automatically equivalent all-degree rank sequence without a nontrivial bridge.",
+        "searches": [
+          "arxiv:2209.01499",
+          "Resultary: icosahedron 31 axes degree k spherical harmonics interpolation evaluation rank 75"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual complete table k0..74 and all k75..1699 modular certificates, exact all degree tail"
+        ],
+        "reasoning": "This is exactly a natural finite rank table plus an infinite tail theorem. No previously published exact 31-axis table located; broad cubature tables could hide equivalent data.",
+        "searches": [
+          "Resultary: icosahedron 31 axes degree k spherical harmonics interpolation evaluation rank 75",
+          "arxiv:2209.01499"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for sharp all-degree interpolation rank and last gap for the complete 31-axis orbit. Calvo studied same 31 projective points as an algebraic configuration, and Hughes-Waldron treated 16 weighted axes as a half-design; neither inspected source gives the 75-degree rank table. Historical invariant harmonic interpolation literature remains priority risk.",
+      "residual_risks": [
+        "Potential unindexed icosahedral invariant-harmonic/cubature rank tables or representation-theoretic decompositions could give the same last gap.",
+        "Independent modular rank 0..74 is lower-bound support, not a standalone proof of characteristic-zero rank deficiency; Q(sqrt5) exact elimination in source inspected but not independently rerun fully.",
+        "Hughes-Waldron full preprint PDF not inspected, though distinct node count materially limits coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same nodes, algebraic geometry results not demonstrated to cover spherical harmonic evaluation rank",
+          "evidence": "Calvo arxiv:2209.01499, 31-point configuration and ideal",
+          "identifier_or_url": "https://arxiv.org/abs/2209.01499",
+          "material_read": "full primary PDF text/material on point configuration, ideal and Waldschmidt calculations; no harmonic interpolation table found in relevant sections",
+          "method": "lawful arxiv paper textual extraction; PDF screenshot attempted but unavailable",
+          "title": "The icosahedral line configuration and Waldschmidt constants",
+          "trigger": "same exact 31 projective axes"
+        },
+        {
+          "assessment": "Distinct 16-axis weighted subconfiguration and moment vanishing; no whole-document NOT_COVERING asserted",
+          "evidence": "Hughes-Waldron author preprint",
+          "identifier_or_url": "https://www.math.auckland.ac.nz/~waldron/Preprints/Half-designs/half-designs.pdf",
+          "material_read": "author-hosted HTML and description of 16-point weighted design; full PDF not read",
+          "method": "author source HTML",
+          "title": "Spherical half-designs of high order",
+          "trigger": "16-axis icosahedral/dodecahedral subconfiguration"
+        },
+        {
+          "assessment": "General harmonic-index design conditions, not an inspected 31-axis exact rank table",
+          "evidence": "Bannai-Okuda-Tagami arxiv:1308.5101",
+          "identifier_or_url": "https://arxiv.org/abs/1308.5101",
+          "material_read": "abstract and named general construction; full document not read",
+          "method": "arxiv bibliographic/source comparison",
+          "title": "Spherical designs of harmonic index t",
+          "trigger": "general harmonic kernel orthogonality and finite point sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The union of three natural icosahedral symmetry orbits is a canonical 31-axis configuration. Its exact-degree harmonic interpolation threshold, 1-dimension last defect, and eventual permanent full rank at 75 are a meaningful finite cutoff and complete rank invariant. Parity of antipodal sampling makes 31 the natural full rank.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Single-degree parity-compatible data on fixed regular icosahedron; not numerical conditioning or arbitrary perturbed axes."
+  ],
+  "schema_version": 1
+}
