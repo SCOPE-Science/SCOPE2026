@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is the finite \(2m\)-vertex path with \(m\ge2\), symmetric jump rates \(1\) except the middle edge of rate \(0<\varepsilon\le1\), and **unit geometric edge lengths regardless of rates**. The path order/cumulative-mass duality reduces the induced \(W_1\) norm to adjacent mean gradients. Reflection reduces the central gradient to a concrete \(m\)-state tridiagonal exponential. Its reflecting limit has explicit cosine spectrum; first-order perturbation computes both the slow decay rate \(2\varepsilon/m\) and coefficient \(-(m-1)^2\varepsilon/2\). Stable-vs-slow spectral projections control the other edges uniformly in time, and the resulting limiting one-variable optimization yields the stated logarithmic maximizing time and two-term amplitude. The finite checker verifies 2,290 assertions but does not establish an infinite-family theorem by enumeration. Risk: the remainder is **fixed-\(m\)**, and no bound uniform in both path length and bridge rate is asserted.
+## correctness
 
-## Originality — PASS, qualified
-Chafaï–Joulin (2013) already prove the general birth–death intertwining and a Feynman–Kac formula for the Lipschitz semigroup norm (Corollary 3.1); this is explicitly credited as covered. Münch–Wojciechowski (arXiv 2017) establish the curvature/heat-flow characterization (Theorems 2.10 and 3.8), also covered. Landim–Loulakis–Mourragui (arXiv 2017) study general metastable wells, not the specified weak-link Wasserstein norm; Münch (arXiv 2019) studies nonnegative-curvature estimates. The assessed new fact is the explicit weak-link *global maximum* through its complete order-\(\varepsilon\) term, its maximizing-time constant, and the dimension-unbounded amplification consequence. Separate exact heat-transport laws on uniform complete bipartite, multipartite, cycle, and windmill graphs do not imply the barrier path formula because their generators have different spectra and no vanishing bridge rate. Residual priority risk: an equivalent asymptotic might occur in earlier singular-perturbation literature, particularly in formulations not indexed by Wasserstein terminology. Semantic searches and inspected primary sections did not reveal one; a failed search is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The edge-rate defect creates two metastable communicating regions. For every fixed size, the exact \(\varepsilon\log(1/\varepsilon)\) loss quantifies competition between internal equilibration and rare bridge crossing. The explicit order-\(\varepsilon\) correction and logarithmic maximizing-time constant distinguish a precise invariant from a qualitative metastability observation. The unbounded-in-dimension limit exhibits a sharp obstruction to universal induced \(W_1\) amplification bounds, despite reversibility, finite state spaces and positive bridge rates. Limits: this is not an exact elementary peak law at arbitrary \(\varepsilon\), nor a joint large-size/small-rate theorem.
+The birth–death order-preserving coupling and path Kantorovich formula reduce the induced W1 norm exactly to the maximum of adjacent positive gradients of P_t x. Reflection about the slow edge identifies its central gradient as 2e₀ᵀexp(tR_ε)z, R_ε=R₀−2εe₀e₀ᵀ. Neumann cosine eigenvectors give the ε=0 expansion; analytic perturbation of the separated slow mode gives eigenvalue 2ε/m and amplitude m−(m−1)²ε/2+O(ε²). The first fast decay has λ_m and B=(2/m)cot²(π/(2m)), satisfying Bλ_m/2=K_m. Uniform control of the interior-edge stable spectrum rules out their dominance for small ε. Balancing slow decay 2εt against fast deficit Be^(−λ_m t) localizes the global peak at log(K_m/ε)/λ_m and yields the second-order coefficient. The small-time central gradient derivative equals 2(1−ε), and at ε=1 the Dirichlet gradient generator is substochastic. Independently constructed full 2m×2m generators confirmed peak/time asymptotics over m=2..6 at ε=10^−4,10^−6. Finite numerics do not prove the spectral uniformity assertions.
 
-## Independent status
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Chafaï–Joulin 2013 already characterizes Wasserstein Lipschitz norms through birth–death gradient intertwinings; this standard reduction is explicitly not novel. The sharp global weak-bond peak height, maximizing time, logarithmic and order-ε coefficients are not found in the inspected general results.
+
+## value
+
+PASS
+
+A reversible irreducible semigroup can show arbitrarily large W1 amplification on fixed unit graph distance before convergence. The full global peak and next-order expansion quantify a natural metastable transport pathology rather than just demonstrating one short-time expanding edge.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

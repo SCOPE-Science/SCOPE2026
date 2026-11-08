@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T21:52:37.815655Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The birth–death order-preserving coupling and path Kantorovich formula reduce the induced W1 norm exactly to the maximum of adjacent positive gradients of P_t x. Reflection about the slow edge identifies its central gradient as 2e₀ᵀexp(tR_ε)z, R_ε=R₀−2εe₀e₀ᵀ. Neumann cosine eigenvectors give the ε=0 expansion; analytic perturbation of the separated slow mode gives eigenvalue 2ε/m and amplitude m−(m−1)²ε/2+O(ε²). The first fast decay has λ_m and B=(2/m)cot²(π/(2m)), satisfying Bλ_m/2=K_m. Uniform control of the interior-edge stable spectrum rules out their dominance for small ε. Balancing slow decay 2εt against fast deficit Be^(−λ_m t) localizes the global peak at log(K_m/ε)/λ_m and yields the second-order coefficient. The small-time central gradient derivative equals 2(1−ε), and at ε=1 the Dirichlet gradient generator is substochastic. Independently constructed full 2m×2m generators confirmed peak/time asymptotics over m=2..6 at ε=10^−4,10^−6. Finite numerics do not prove the spectral uniformity assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General gradient/Feynman–Kac formulas do not express the maximizing time or εlog(1/ε) coefficient for the weak-link path.",
+          "Metastable finite-state limits describe transitions between wells but not these unit-distance W1 operator-norm corrections."
+        ],
+        "reasoning": "Broad frameworks are applicable analytically but their stated consequences do not directly dominate or imply the explicit peak theorem.",
+        "searches": [
+          "Chafaï–Joulin 2013 birth–death intertwining",
+          "Landim–Loulakis–Mourragui arXiv:1703.09481",
+          "Münch 2019 arXiv:1907.13514"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, check_slow_path.py, Git tree fd2cedcbb5308fc4bddc1e2eb356801da7c9184d",
+        "Chafaï–Joulin arXiv:1011.2331, Corollary 3.1",
+        "Münch–Wojciechowski arXiv:1712.00875",
+        "Landim–Loulakis–Mourragui arXiv:1703.09481",
+        "Independent full-generator spectral optimizer for m=2..6, ε=1e−4,1e−6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Intertwining supplies the starting identity but requires perturbative analysis of the m×m reflecting generator to obtain the global logarithmic peak.",
+          "Spectral two-timescale estimates do not alone fix the order-ε amplitude without the explicit Poisson corrector."
+        ],
+        "reasoning": "The asserted new coefficient is a nontrivial specialization of established methods, not a corollary already evaluated by the cited results.",
+        "searches": [
+          "Chafaï–Joulin 2013 Cor. 3.1",
+          "Landim et al 2017 metastable Markov chains",
+          "Münch–Wojciechowski 2017 heat semigroup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Birth–death gradient intertwining expresses the W1 Lipschitz coefficient in terms of an auxiliary killed chain.",
+          "This result optimizes the same coefficient over time for a symmetric two-well slow-link chain in unweighted path geometry."
+        ],
+        "reasoning": "Compared semigroup Lipschitz gradient norm and one-dimensional Wasserstein contraction terminology; earlier Corollary 3.1 covers the norm reduction but not its specified two-term global peak.",
+        "searches": [
+          "Resultary: Wasserstein-1 Lipschitz norm transient amplification birth death chain slow bottleneck edge metastability symmetric path",
+          "Chafaï–Joulin arXiv:1011.2331 Cor. 3.1",
+          "Münch–Wojciechowski arXiv:1712.00875"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The concrete constants λ_m and K_m involve the first reflecting-half-path spectral mode and slow-mode amplitude; they are not tabulated in inspected sources."
+        ],
+        "reasoning": "No exact matching peak coefficient table found in the material read; this negative search is not historical novelty proof.",
+        "searches": [
+          "arXiv:1011.2331",
+          "arXiv:1712.00875",
+          "published Resultary search weak bond Wasserstein path peak"
+        ]
+      },
+      "rationale": "Chafaï–Joulin 2013 already characterizes Wasserstein Lipschitz norms through birth–death gradient intertwinings; this standard reduction is explicitly not novel. The sharp global weak-bond peak height, maximizing time, logarithmic and order-ε coefficients are not found in the inspected general results.",
+      "residual_risks": [
+        "An older specialized weak-link birth–death calculation or a stronger general metastable transport theorem could imply the same correction.",
+        "The result assumes fixed m, symmetric rates, one central weak bond, and unit-edge W1 cost; it is not uniform in m or an arbitrary-rate peak formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General norm/intertwining result is prior art, no explicit central slow-link logarithmic peak expansion",
+          "evidence": [
+            "Corollary 3.1 identifies birth–death Wasserstein Lipschitz semigroup coefficient through an auxiliary process."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1011.2331",
+          "material_read": "Primary accessible HTML full text, especially Corollary 3.1 and gradient/Feynman–Kac identities",
+          "method": "Read accessible arXiv HTML relevant technical sections",
+          "title": "Intertwining and commutation relations for birth–death processes",
+          "trigger": "General theorem could imply Wasserstein operator norm claim"
+        },
+        {
+          "assessment": "Curvature/heat comparison neither quantifies this weak-link two-term maximization nor eliminates negative-curvature expansion",
+          "evidence": [
+            "Heat semigroup contraction hypotheses differ from negative-curvature slow-link path."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1712.00875",
+          "material_read": "Accessible arXiv primary presentation and relevant heat-semigroup curvature sections",
+          "method": "Primary research text read for mathematical implication",
+          "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+          "trigger": "Graph curvature may constrain path W1 amplification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A reversible irreducible semigroup can show arbitrarily large W1 amplification on fixed unit graph distance before convergence. The full global peak and next-order expansion quantify a natural metastable transport pathology rather than just demonstrating one short-time expanding edge.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md, check_slow_path.py, Git tree fd2cedcbb5308fc4bddc1e2eb356801da7c9184d",
+    "Chafaï–Joulin arXiv:1011.2331, Corollary 3.1",
+    "Münch–Wojciechowski arXiv:1712.00875",
+    "Landim–Loulakis–Mourragui arXiv:1703.09481",
+    "Independent full-generator spectral optimizer for m=2..6, ε=1e−4,1e−6"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An older specialized weak-link birth–death calculation or a stronger general metastable transport theorem could imply the same correction.",
+    "The result assumes fixed m, symmetric rates, one central weak bond, and unit-edge W1 cost; it is not uniform in m or an arbitrary-rate peak formula."
+  ],
+  "schema_version": 1
+}

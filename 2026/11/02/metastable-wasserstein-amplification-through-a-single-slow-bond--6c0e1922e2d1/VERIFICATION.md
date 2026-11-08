@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python check_slow_path.py` using Python 3, NumPy and SciPy. The actual run completed with `PASS: 2290 finite comparisons / assertions; no infinite-family certification`.
+## correctness
 
-The checker builds the full vertex generator and, separately, the reflecting half-size generator. It compares adjacent heat-kernel \(W_1\) distances computed from cumulative masses with adjacent expected-position differences, checks the reduction at the central edge, reconstructs the unperturbed Fourier series, and compares numerical peak locations and heights with the two-term asymptotic. Its finite set of tests is supplementary to the written analytic proof and is not an exhaustive computation for arbitrary size, rate or time.
+PASS
 
-The asymptotic conclusions hold for every **fixed** integer \(m\ge2\) as \(\varepsilon\downarrow0\). All geometric edges retain unit length while the one central *jump rate* changes. The original Markov semigroup is symmetric, conservative and irreducible for every positive rate. No separate independent human verification has been carried out.
+The birth–death order-preserving coupling and path Kantorovich formula reduce the induced W1 norm exactly to the maximum of adjacent positive gradients of P_t x. Reflection about the slow edge identifies its central gradient as 2e₀ᵀexp(tR_ε)z, R_ε=R₀−2εe₀e₀ᵀ. Neumann cosine eigenvectors give the ε=0 expansion; analytic perturbation of the separated slow mode gives eigenvalue 2ε/m and amplitude m−(m−1)²ε/2+O(ε²). The first fast decay has λ_m and B=(2/m)cot²(π/(2m)), satisfying Bλ_m/2=K_m. Uniform control of the interior-edge stable spectrum rules out their dominance for small ε. Balancing slow decay 2εt against fast deficit Be^(−λ_m t) localizes the global peak at log(K_m/ε)/λ_m and yields the second-order coefficient. The small-time central gradient derivative equals 2(1−ε), and at ε=1 the Dirichlet gradient generator is substochastic. Independently constructed full 2m×2m generators confirmed peak/time asymptotics over m=2..6 at ε=10^−4,10^−6. Finite numerics do not prove the spectral uniformity assertions.
+
+## originality
+
+PASS
+
+Chafaï–Joulin 2013 already characterizes Wasserstein Lipschitz norms through birth–death gradient intertwinings; this standard reduction is explicitly not novel. The sharp global weak-bond peak height, maximizing time, logarithmic and order-ε coefficients are not found in the inspected general results.
+
+## value
+
+PASS
+
+A reversible irreducible semigroup can show arbitrarily large W1 amplification on fixed unit graph distance before convergence. The full global peak and next-order expansion quantify a natural metastable transport pathology rather than just demonstrating one short-time expanding edge.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
