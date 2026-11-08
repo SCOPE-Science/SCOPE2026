@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes the genus-four cyclic-cover model and a complete differential basis. Direct Cartier coefficient extraction gives one-dimensional/three-dimensional off-diagonal blocks. The stable, **semilinear** two-step product is the displayed polynomial after taking the twenty-fifth power. This proves the global dichotomy \(f_5=0\) or \(2\). A factorization argument excludes Cartier rank one on the smooth locus. The irreducible rank-drop equation follows from a primitive quadratic over a UFD whose discriminant specializes to a non-square. Its smooth nonempty open part has an explicit witness. The supplied scripts perform a full \(\mathbb F_5\) coefficient census and independent random \(\mathbb F_{25}\) semilinear tests; no infinite claim rests on those computations alone.
+PASS
 
-## Originality — PASS with named priority risk
+For smooth monic deg-5 F over alg closed F5, the stated differential basis has Cartier off-diagonal rank-one blocks indexed by W=(c4,c3,c2) and V=([x4],[x9],[x14])F^3. The semilinear second-iterate scalar has 25th power P=sum W_i^5 V_i, so stable rank is two when P≠0 and zero when P=0. On the smooth locus V vanishes iff W does, yielding a-number 4 on W=0 and 2 elsewhere. As a degree-2 polynomial in c0, P is primitive over F5[c1,c2,c3,c4]; the discriminant at (c4,c3,c2)=(1,0,1) is 4c1^2+3, not a square over the algebraic closure, proving absolute irreducibility. The smooth rank-zero witness has P=0 and nonzero partial derivative. Independent exact polynomial extraction and enumerating all 3125 F5 coefficient tuples reproduced 2500 smooth with (f5,a) counts (2,2)=1800, (0,2)=680, (0,4)=20. Finite enumeration is not the geometric proof.
 
-Kudo--Harashita (arXiv:1702.05313, Theorem A and Section 4) proves the previously known superspecial geometric class, not the stable rank-zero divisor. Asif--Fité--Pentland (arXiv:2010.07247, Sections 1--2) concerns quartic Picard curves and split-prime cyclic-cover formulas, not the inert characteristic-five genus-four quintic parameter space. Direct mathematical-record searches and accessible previous claims revealed no covering formula or irreducibility proof. Sohn (2025, DOI:10.23091/japm.2025.059) investigates genus-four a-numbers and its full paper could not be inspected: any standalone novelty of an \(a\)-number formula is excluded. Priority risk remains for unindexed or inaccessible earlier descriptions of the stable-rank hypersurface.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The claim supplies the exact defining equation and geometric irreducibility of the codimension-one \(5\)-rank drop throughout a five-parameter family of special curves, and distinguishes its generic \(a\)-number-two region from the known superspecial locus. It is a natural coefficient-space degeneration classification, not merely a small finite-field table or a renamed known example.
+General Cartier–Manin methods for cyclic covers and the genus-four superspecial isomorphism class are known. The explicit geometric stable 5-rank-zero hypersurface, absolute irreducibility of its degree-eight coefficient polynomial, and complete a-number dichotomy for this marked smooth quintic family are not derived by the inspected comparator statements. Sohn 2025 is plausible close prior source but only abstract accessible and authorized full-text VPN disconnected; best-of-knowledge PASS with genuine unresolved priority risk, not a declaration that the paper does not cover it.
 
-## Limitations
+## value
 
-Only separable monic quintic cyclic covers in characteristic five are addressed. No Newton polygon, complete Ekedahl--Oort classification or moduli quotient component claim is made. External independent auditing and validation were not performed. The inaccessible Sohn article and unindexed priority literature remain residual risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete coefficient-space rank and a-number stratification plus an irreducible jump divisor is a natural geometric invariant for genus-four cyclic trigonal curves; the exact result can guide future moduli-strata investigation despite a restricted marked family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

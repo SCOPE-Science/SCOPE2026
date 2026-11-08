@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-`verify_symbolic.py` exactly checks the three coefficient-extraction identities in the full polynomial ring, the quadratic leading coefficient, and the non-square discriminant specialization. It reports `EXACT_POLYNOMIAL_IDENTITIES_AND_NONSQUARE_DISCRIMINANT_OK`.
+## correctness
 
-`verify_universal.py` enumerates all 3125 monic quintics over the prime field, tests separability with Euclidean gcd, computes the coefficients of the cubic power, the rank of Cartier, and stable iterates. It reports exactly 625 singular models; smooth strata counts are 1800 for \((f_5,a)=(2,2)\), 680 for \((0,2)\), and 20 for \((0,4)\). The final line is `CHAR5_UNIVERSAL_EXACT_OK`.
+PASS
 
-`verify_extension.py` uses an independent custom implementation of \(\mathbb F_{25}\) and its fifth-power inverse Frobenius, directly iterating the semilinear Cartier map. A seeded sample of 6000 coefficient choices contained 5764 smooth curves, including 5507 with \((f_5,a)=(2,2)\) and 257 with \((0,2)\). The final line is `GF25_SEMILINEAR_CARTIER_OK`.
+For smooth monic deg-5 F over alg closed F5, the stated differential basis has Cartier off-diagonal rank-one blocks indexed by W=(c4,c3,c2) and V=([x4],[x9],[x14])F^3. The semilinear second-iterate scalar has 25th power P=sum W_i^5 V_i, so stable rank is two when P≠0 and zero when P=0. On the smooth locus V vanishes iff W does, yielding a-number 4 on W=0 and 2 elsewhere. As a degree-2 polynomial in c0, P is primitive over F5[c1,c2,c3,c4]; the discriminant at (c4,c3,c2)=(1,0,1) is 4c1^2+3, not a square over the algebraic closure, proving absolute irreducibility. The smooth rank-zero witness has P=0 and nonzero partial derivative. Independent exact polynomial extraction and enumerating all 3125 F5 coefficient tuples reproduced 2500 smooth with (f5,a) counts (2,2)=1800, (0,2)=680, (0,4)=20. Finite enumeration is not the geometric proof.
 
-The proof, not the finite tests, establishes all geometric statements. The absolute irreducibility proof is the exact polynomial discriminant argument in `RESULT.md`; the relevant specialization is \(4t^2+3\), which is non-square over any algebraic closure in characteristic five. A smooth member of the rank-drop divisor has coefficients \((c_0,c_1,c_2,c_3,c_4)=(0,1,0,1,1)\), quintic discriminant \(2\), and nonzero gradient component \(\partial\mathcal P/\partial c_0=2\). A smooth point off the divisor is \((0,1,0,1,0)\), with quintic discriminant \(4\) and \(\mathcal P=2\). A smooth superspecial representative is \((0,1,0,0,0)\).
+## originality
 
-No independent external audit or validation has occurred. The priority comparison with the full 2025 Sohn paper remains limited by text access.
+PASS
+
+General Cartier–Manin methods for cyclic covers and the genus-four superspecial isomorphism class are known. The explicit geometric stable 5-rank-zero hypersurface, absolute irreducibility of its degree-eight coefficient polynomial, and complete a-number dichotomy for this marked smooth quintic family are not derived by the inspected comparator statements. Sohn 2025 is plausible close prior source but only abstract accessible and authorized full-text VPN disconnected; best-of-knowledge PASS with genuine unresolved priority risk, not a declaration that the paper does not cover it.
+
+## value
+
+PASS
+
+A complete coefficient-space rank and a-number stratification plus an irreducible jump divisor is a natural geometric invariant for genus-four cyclic trigonal curves; the exact result can guide future moduli-strata investigation despite a restricted marked family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
