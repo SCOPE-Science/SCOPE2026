@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Conditional vertex ages are iid min(Exp(1),u), and edge indicators are independent given the age vector with probabilities \\(1-\\exp[-c\\min(X_i,X_j)/(N-1)]\\). The giant criterion follows from BJR Theorem 3.1 on the fixed-time bounded irreducible kernel. The moments \\(m_1=(1-e^{-2u})/2\\) and \\(m_2=(1-3e^{-2u}+2e^{-3u})/3\\) are exactly the degree-only closure inputs. The minimum kernel is compact, injective and positive semidefinite, so strict \\(m_2<\\|K\\|m_1\\) follows because \\(K\\mathbf1=1-e^{-x}\\) is not constant. Its principal eigenfunction solves the stated ODE and endpoint-atom Robin condition, giving the finite-time Bessel determinant. Coupled kernels give strict time monotonicity and stationary \\(j_{0,1}^2/4\\). The standalone verification script completed 42 symbolic/numeric assertions, supplementing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bollobás–Janson–Riordan arXiv:math/0504589 Thm 3.1 covers the general kernel spectral threshold, and §16.5 already evaluates the same infinite-time min-age spectral problem.",
+        "Crane–Ráth–Yeo arXiv:1811.07981 Definition 2.4 treats a related conditional-age graph, but its resetting mechanism is component-dependent rather than independent per vertex.",
+        "Artime’s paper gives full-time marginal degree distributions, but the phase closure in §4 uses the configuration-model recursion and does not evaluate an age-conditioned branching operator."
+      ],
+      "reasoning": "The general giant criterion subsumes the operator-norm implication, and the stationary Bessel value is previously covered. Neither inspected work supplies the particular finite-time age measure, its right-endpoint Robin eigenproblem, or the exact strict gap for Artime’s Eq. 16. The full-time correction is stronger than the known stationary comparison.",
+      "searches": [
+        "Bollobas Janson Riordan Turova delta 1 min exponential age kernel threshold",
+        "Age evolution in mean field forest fire model via multitype branching processes arxiv",
+        "time-dependent percolation threshold node resetting Bessel function exact graph"
+      ]
+    },
+    "checked_sources": [
+      "Artime (2022), arXiv:2211.01869, §§2–4, Eq. (16), https://arxiv.org/abs/2211.01869",
+      "Bollobás–Janson–Riordan (2005), arXiv:math/0504589, Theorem 3.1 and §16.5, https://arxiv.org/abs/math/0504589",
+      "Crane–Ráth–Yeo (2018), arXiv:1811.07981, §2.2, https://arxiv.org/abs/1811.07981"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Artime predicts \\(c_{\\mathrm{degree}}(1)=1.870035149252\\); the independent spectral/ODE calculation gives \\(c_*(1)=1.843805774139\\), with strict all-u proof.",
+        "Bollobás–Janson–Riordan already implies the spectral threshold for any established conditional type kernel and computes \\(j_{0,1}^2/4\\) for the equivalent stationary kernel.",
+        "The component-reset forest-fire age law of Crane–Ráth–Yeo is not the independent truncated-exponential age law of the present model."
+      ],
+      "reasoning": "The new model-specific theorem does not claim novelty of the generic BJR spectral condition or of its stationary Turova example. It identifies the exact finite-time type law (including its endpoint atom), computes the transient eigenboundary, and proves a strict global gap contradicting the source’s claimed finite-time criterion.",
+      "searches": [
+        "arXiv:2211.01869 §4 Eq. 16 and Fig. 3",
+        "arXiv:math/0504589 Theorem 3.1 §16.5 and §16.6",
+        "arXiv:1811.07981 Definition 2.4 §2.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Artime arXiv:2211.01869 §4 Eq. (16) sets the scalar degree-only condition \\(1=(2\\alpha/3r)(1-2e^{-rt}+e^{rt})/(1+e^{rt})\\).",
+        "Bollobás–Janson–Riordan arXiv:math/0504589 §16.5 derives stationary kernel \\(2\\lambda\\min(x,y)\\) with exponential ages and its J0 eigenvalue via Turova’s model.",
+        "Crane–Ráth–Yeo arXiv:1811.07981 §2.2 defines the age-driven min(x,y) random graph with conditionally independent edges."
+      ],
+      "reasoning": "The finite-time type law includes an atom of mass \\(e^{-u}\\) at u, which changes the eigenboundary to \\(\\lambda f\\prime(u)=e^{-u}f(u)\\). This gives a strict all-positive-time correction to Artime. The stationary Bessel number is mathematically equivalent to the older Turova δ=1 calculation and is therefore acknowledged as known.",
+      "searches": [
+        "Oriol Artime node deletion network percolation degree correlations Molloy Reed exact threshold",
+        "minimum-age kernel exponential ages inhomogeneous random graph giant component",
+        "Artime 2022 stochastic resetting network giant component percolation threshold Bessel first zero temporal phase transition",
+        "Bollobas Janson Riordan Turova delta 1 min exponential age kernel threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Artime §4 prints the different analytic threshold Eq. 16; no matching finite-time table appears in its relevant results.",
+        "The inspected Bollobás–Janson–Riordan §16.5 tabulates the stationary Turova threshold, not the truncated-exponential-with-atom finite-time values.",
+        "The inspected Crane–Ráth–Yeo §2.2 specifies a general min-age random-graph construction, not the corrected finite-time resetting-network critical values."
+      ],
+      "reasoning": "Scientific-source and formula searches found the equivalent stationary spectral value but no matching all-time curve or its strict comparison with the published degree-only curve. This absence is not evidence of global uniqueness; undiscovered tables remain possible.",
+      "searches": [
+        "Artime 2022 stochastic resetting network giant component percolation threshold Bessel first zero temporal phase transition",
+        "truncated exponential vertex age atoms min kernel Bessel J0 Y0 Robin boundary giant component",
+        "degree-correlation correction to Molloy Reed network with node resetting and edge creation",
+        "minimum-age kernel exponential ages inhomogeneous random graph giant component",
+        "Stochastic resetting in a networked multiparticle system Molloy Reed correction"
+      ]
+    },
+    "rationale": "The printed degree-based finite-time threshold in Artime (arXiv:2211.01869, Eq. 16) is genuinely different from the corrected phase boundary derived from the full age-conditioned graph law. The strict all-u gap and the Robin Bessel condition induced by the finite-time endpoint atom are not stated in the inspected sources. The generic inhomogeneous-graph phase criterion and the stationary Bessel constant are known from Bollobás–Janson–Riordan (arXiv:math/0504589); the specific transient correction, not those ingredients, is the assessed contribution. Implicit priority risk remains.",
+    "residual_risks": [
+      "General inhomogeneous-graph theory and the stationary Bessel constant are prior art; the originality assessment is restricted to the atom-sensitive transient correction to Artime’s stated model.",
+      "An overlooked prior calculation for the same truncated-exponential age measure or a publication correcting Artime’s finite-time threshold could supersede the new contribution.",
+      "The result does not address a joint long-time and large-N scaling window or finite-size threshold fluctuations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Degree marginal and reset/creation rates agree with the model; §4 uses an uncorrelated degree-based recursion, not a type-conditioned branching operator.",
+        "evidence": "PDF p. 3 model rates αN/2,rN; PDF pp. 6–7 Eq. (16) and claimed critical c=3/2.",
+        "identifier_or_url": "https://arxiv.org/pdf/2211.01869",
+        "material_read": "Original arXiv full-text Sections 2–4 and 6 plus the Appendix heading and opening; PDF page 7 visually inspected for Eq. (16) and Fig. 3.",
+        "method": "Primary arXiv full-text reading and PDF page inspection",
+        "title": "Stochastic resetting in a networked multiparticle system with correlated transitions",
+        "trigger": "Exact target dynamical graph and claimed percolation phase line"
+      },
+      {
+        "assessment": "General spectral criterion and stationary j_(0,1) Bessel value are known, but the specific finite-time resetting-network age law and strict published-criterion correction are not stated.",
+        "evidence": "Theorem 3.1, Section 16.5 κ_1(x,y)=\\(2\\lambda\\min(x,y)\\) and \\(\\lambda_{\\mathrm{crit}}(1)=\\)j_(0,1)^2/8.",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0504589",
+        "material_read": "Theorem 3.1 in primary full text, and Sections 16.5–16.6, including visually inspected PDF pages 122–123.",
+        "method": "Primary arXiv full-text reading and PDF pages 122–123 inspection",
+        "title": "The phase transition in inhomogeneous random graphs",
+        "trigger": "Potentially dominating general theorem and exactly equivalent stationary min-age spectral kernel"
+      },
+      {
+        "assessment": "Shows the generic min-age graph representation but studies component-dependent forest-fire resets, with a different age law, not Artime’s independent resets.",
+        "evidence": "Definition 2.4, independent edge probability \\(1-\\exp[-\\min(a_i,a_j)/n]\\); Section 2.1 component-burning mechanism.",
+        "identifier_or_url": "https://arxiv.org/pdf/1811.07981",
+        "material_read": "Abstract, introductory model description, and Definition 2.4 plus surrounding Section 2.2, with PDF page 8 visually inspected.",
+        "method": "Primary arXiv full-text reading and PDF page 8 inspection",
+        "title": "Age evolution in the mean field forest fire model via multitype branching processes",
+        "trigger": "Potentially stronger general conditional-age graph representation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fed58ac8-f392-4d90-9f98-adf9217f19e8",
+  "value": {
+    "rationale": "The theorem corrects a published all-time percolation phase criterion in a natural resetting-network process, establishing for every positive time a nonempty interval of genuine giant-component emergence misclassified by degree-only analysis. The endpoint atom changes the spectral boundary in a nontrivial way; the explicit Bessel relation and strict operator inequality make the correction global rather than a numerical spot check. The stationary constant is properly attributed to existing work.",
+    "status": "PASS"
+  }
+}
