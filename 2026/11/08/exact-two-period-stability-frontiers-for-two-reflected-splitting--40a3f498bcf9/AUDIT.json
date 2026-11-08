@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The precise two-period recurrences follow from the resolvent of a quarter-turn. Multiplying the complex state matrices gives the quoted traces and identical determinants. Exact Schur–Cohn gaps factor as positive prefactors times 1-4ab (current-scaled) or 1-(a+b)^2 (history-scaled). The corresponding monodromy has a simple -1 eigenvalue exactly at equality and one outside the unit disk beyond. Equal-history nonzero starting states cannot lie in the decaying eigenspace: their first-step ratio has unit modulus. The standalone SymPy checker reconstructs the algebra and 214 tests pass. No computation is treated as a proof of infinite iteration convergence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2607.20113: convergence under an adaptive linesearch condition, not an arbitrary prescribed alternating schedule",
+        "https://arxiv.org/abs/2609.15936: abstract restricts the backward operator to a convex subdifferential"
+      ],
+      "reasoning": "General safe-step theorems may cover subsets where each step is individually small. They do not classify the wider nonuniform current-scaled region 4ab<1 or the full previous-step region a+b<1, nor their strict separation. The skew backward operator is not a convex subdifferential, excluding the cited adaptive subdifferential framework.",
+      "searches": [
+        "\"alternating\" \"forward-reflected-backward\" stepsize",
+        "periodic step sizes forward reflected backward splitting monotone inclusion exact stability matched skew",
+        "two period forward reflected backward variable-step formula gamma_n gamma_{n-1} rotation Floquet Schur"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.18373",
+      "https://arxiv.org/abs/2607.20113",
+      "https://arxiv.org/abs/2609.15936 (abstract only)",
+      "https://arxiv.org/abs/1808.04162 (abstract/secondary quoted formula only)",
+      "Searches of published mathematical records and public web for reflected splitting, alternating steps, two-period Floquet criteria, and Schur–Cohn equivalence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shehu (2026), Theorem 1, proves sharp constant-step t=1/2 on the same matched-skew operators",
+        "Muñoz García and Roldán (2026), equations (3.5)/(4.1), use gamma_{n-1} for the reflected difference and require a linesearch in their algorithm",
+        "Ou–Themelis–Latafat (2026) describes an adaptive algorithm with A=partial f in its abstract"
+      ],
+      "reasoning": "The new result implies the shared t=1/2 boundary by setting a=b=t but is not implied in reverse: it distinguishes current and previous history weightings for a!=b and proves their exact arbitrary two-period stability and instability. No existing adaptive linesearch theorem identified implies convergence of all periodic pairs in the newly found regions.",
+      "searches": [
+        "https://arxiv.org/abs/2609.18373",
+        "https://arxiv.org/abs/2607.20113",
+        "https://arxiv.org/abs/2609.15936",
+        "forward reflected backward variable step reflection two-period skew convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2609.18373: fixed-step characteristic polynomial and exact sharp threshold t=1/2 on matched skew",
+        "https://arxiv.org/abs/2607.20113: stored-difference update with previous-step coefficient, equations (3.5) and (4.1)"
+      ],
+      "reasoning": "A two-period monodromy has a complex quadratic eigenvalue polynomial, so equivalence searches include Schur–Cohn, Floquet and reflected one-call splitting terminology. The fixed-step polynomial is the special case a=b and cannot distinguish the current-scaled from history-scaled extension. The variable-step paper gives an iteration but not either exact sharp two-period criterion.",
+      "searches": [
+        "\"forward reflected backward\" \"periodic\" \"stepsizes\" stability skew",
+        "two-period reflected gradient splitting periodic steps size product exact stability",
+        "Schur-Cohn variable step FRB split skew A=B rotation 2-period product"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/2609.18373: constant-step exact threshold and skew phase-diagram statements, not a table of two-period pairs",
+        "https://arxiv.org/abs/2607.20113: prescribed two-period critical curves do not appear in the examined source's algorithm and convergence sections"
+      ],
+      "reasoning": "The searched exact parameters were the two distinct loci 4ab=1 and a+b=1 and the -1 Floquet multiplier. No located exact tabulation or prior publication of these paired loci was found. Absence from search is not a proof of novelty.",
+      "searches": [
+        "forward reflected backward alternating positive steps geometric mean threshold product lambda_even lambda_odd 1/4 matched skew",
+        "two alternating step-size conventions forward reflected backward latest previous difference exact sum product stability A=B=skew",
+        "two-period reflected gradient splitting periodic steps size product exact stability"
+      ]
+    },
+    "rationale": "The closest published fixed-step skew result yields only the diagonal a=b case; the variable-step linesearch source defines the previous-step weighting but has no prescribed two-period sharp stability comparison. The adaptive convex-subdifferential work excludes a nonzero skew backward operator. Additional periodic/alternating and equivalent complex-polynomial searches returned no mathematical statement that implies both thresholds. Schur–Cohn and basic Floquet multipliers are not themselves claimed as novel; an equivalent unindexed specialization is a remaining risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible specialized numerical stability references may already imply the two exact two-period loci.",
+      "Full texts of some adjacent adaptive and original papers were not inspected; only hypothesis-relevant available material was examined.",
+      "The result does not assert novelty of Schur–Cohn, complexification, or the fixed-step t=1/2 special case."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers constant steps and the matched-skew obstruction; not a two-period comparison of reflection-weight conventions",
+        "evidence": [
+          "Constant-step characteristic polynomial (1+it)r^2-(1-2it)r-it and boundary t=1/2; no distinct consecutive steps in its stated theorems"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.18373",
+        "material_read": "Full public article in HTML text, including Theorems 1–4, characteristic polynomial, phase-diagram discussion and references",
+        "method": "Full-text HTML review and symbolic comparison of its fixed-step polynomial with the diagonal a=b case",
+        "title": "The sharp step-size constant for one-call reflection splittings on monotone inclusions",
+        "trigger": "Identical matched-skew operator and sharp constant-step threshold"
+      },
+      {
+        "assessment": "Defines the history coefficient used here and proves adaptive convergence; no exact prescribed two-period stability frontier found in the inspected material",
+        "evidence": [
+          "Equation (4.1) weights Bx_n-Bx_{n-1} by gamma_{n-1}; acceptance inequality (4.2) restricts its adaptive iterates"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.20113",
+        "material_read": "Full public HTML source with the algorithm equations (3.5), (4.1), variable-step acceptance condition, proof steps, and introduction and related work",
+        "method": "Inspected actual iteration and proof scope, then computed its fixed two-period monodromy independently",
+        "title": "Forward-Reflected-Backward algorithm with Linesearch",
+        "trigger": "Exact history-scaled variable-step algorithm and possible broader convergence result"
+      },
+      {
+        "assessment": "Restricts backward operator to a convex subdifferential, unlike nonzero skew J; full text remains an access limitation",
+        "evidence": [
+          "The abstract explicitly assumes A is the subdifferential of a proper lower semicontinuous convex function"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.15936",
+        "material_read": "Public abstract only; full primary text not accessible in this session",
+        "method": "Abstract and hypothesis comparison",
+        "title": "An Adaptive Linesearch-free Method for Monotone Variational Inequalities under Local Lipschitz Continuity",
+        "trigger": "Possible more general variable-step and reflection-coefficient theorem"
+      },
+      {
+        "assessment": "Foundational constant-step method; no directly inspected claim about the two-period comparison",
+        "evidence": [
+          "Constant-step convergence theorem is cited as Theorem 2.5 by the subsequent 2026 sharpness paper"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1808.04162",
+        "material_read": "Abstract and identified constant-step iteration as reproduced by later primary sources; complete original article not reviewed",
+        "method": "Comparison through original abstract and later primary papers' equations and citations",
+        "title": "A forward-backward splitting method for monotone inclusions without cocoercivity",
+        "trigger": "Original reflected-splitting scheme and classical background"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "40a3f498-bcf9-439d-a757-53632313b8a5",
+  "value": {
+    "rationale": "A canonical worst-case skew inclusion makes the interplay between the previous and current step weights mathematically consequential. Exact separate geometric- and arithmetic-mean stability thresholds explain when a stored-gradient convention preserves an unusually aggressive two-cycle and when it fails; they form a sharp diagnostic for numerical splitting design, not a contrived single-parameter numerical observation. The comparison is not a general convergence guarantee, but the precise boundary itself is a motivated structural fact.",
+    "status": "PASS"
+  }
+}
