@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T10:03:21.190307Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Translate the sent binary word to zero. The N distinct three-substitution outputs are a simple 3-uniform hypergraph on k labeled vertices; coordinate majority error is exactly degree >=H=b+1 for b=binom(k-2,2), N=2b+1. A one-vertex degree hypergeometric choice gives T1. Four edge classes relative to two vertices give T2 by selecting x common-pair edges and omitting i,j single-vertex edges. The maximum total incidences across any three vertices is N+3k-7 and is less than 3H for k>=9, bounding bad coordinates by two. For k=8 and 7, direct incident-edge maxima bound them by three and four. Exact coefficient extraction yields F3(7)=951125,F4(7)=4531,F3(8)=16003008. Binomial inversion of incidence counts I_j=binom(k,j)F_j yields every E_r. Independently recalculated T1,T2 for k=7..10, all E_r for k=7,8, the three exception counts using complementary omitted-edge dynamic programming, and three exact failure totals. The logarithmic asymptotic uses a sharp one-vertex tail and union bounds, not an independence assumption. Distinct unordered outputs, exact three different flips, k>=7 and threshold N are essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Its general theorem establishes optimal N=2binom(k-2,t-1)+1, which sets the experiment size, but does not enumerate majority-error distributions",
+          "Section III-C studies t=2 and identifies t>2 as an open counting direction"
+        ],
+        "reasoning": "A reconstruction threshold theorem has a different logical conclusion from full decoder error distribution. No inspected general theorem implies the submitted finite binomial sums or tail.",
+        "searches": [
+          "arXiv:2610.30001 Section III-C t>2 counting",
+          "fixed-weight t-substitution majority vote error distribution all k"
+        ]
+      },
+      "checked_sources": [
+        "fixed weight three substitutions reconstruction majority vote errors number observation sets 2026 Papadopoulou Yehezkeally",
+        "\"When Majority-Vote Fails\" exact t=3 Table III",
+        "hypergraph high-degree vertices intersection counts majority code reconstruction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source gives N and some k7 counts but not formulas for F1/F2 or F3 and F4 for arbitrary k",
+          "Hypergraph degree incidence bound proves no >=3 bad vertices when k>=9"
+        ],
+        "reasoning": "The threshold and elementary majority definition are premises, not enough to infer the surprisingly sharp all-k error-number cutoff or complete distribution.",
+        "searches": [
+          "Papadopoulou Yehezkeally Rameshwar Wachter-Zeh t=3 majority analysis",
+          "2024 expected number of views fixed-error reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 study Table III already has one k=7 total failure number 1819700190",
+          "The submitted E_r(k) separates errors by Hamming weight, an observable different from total failure"
+        ],
+        "reasoning": "The published k=7 total is a sum over r>0 and does not determine individual E_r or their all-length formulas.",
+        "searches": [
+          "arXiv:2610.30001 majority-vote t=3 Hamming error weight distribution",
+          "2024 On Expected Number of Views Required for Fixed-Error Sequence Reconstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known k=7 total=1819700190 explicitly acknowledged",
+          "Independent enumeration by exact F_j gives k8=649938525134752 and k9=5345935937652753076536, not present in inspected Table III"
+        ],
+        "reasoning": "A one-parameter table entry is covered and not claimed as novel; all-error-weight counts for every k require additional incidence restrictions.",
+        "searches": [
+          "\"When Majority-Vote Fails\" Table III k=7 t=3 N=21",
+          "majority three substitution k=8 k=9 table error count"
+        ]
+      },
+      "rationale": "The 2026 Papadopoulou–Yehezkeally–Rameshwar–Wachter-Zeh article supplies the worst-case N and already tabulates the total k=7,t=3 majority failure count. It primarily obtains t=2 counts and labels t>2 counting open; its inspected Section III-C and tables do not give the all-k full coordinate-error distribution, the k=8/9 exact values or the large-k probability exponent. The known k=7 total is acknowledged prior, not presented as new.",
+      "residual_risks": [
+        "Full 2024 conference text was not inspected; an implicit t=3 distribution or intersection count cannot be excluded",
+        "Other three-uniform hypergraph high-degree enumerators could contain the same finite incidence coefficients"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "N and first k7 total are established earlier; inspected t>2 section does not give E_r(k) for all lengths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.30001",
+          "material_read": "Accessible primary HTML: model and worst-case reconstruction theorem, Section III-C majority-failure counting, Table III with t=3,k=7,N=21",
+          "method": "Read original full-text HTML mathematical sections/tables",
+          "title": "When Majority-Vote Fails: Sequence Reconstruction under Fixed-Weight Substitutions",
+          "trigger": "Same authors/model, same k,t,N and numerical k=7 count"
+        },
+        {
+          "assessment": "INACCESSIBLE_COMPARISON_RISK",
+          "evidence": [
+            "No whole-document NOT_COVERING assertion; exact t=3 distribution could be discussed there."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/ITW61385.2024.10806938",
+          "material_read": "Conference abstract/bibliographic record, not complete mathematical article",
+          "method": "Abstract-level comparison only",
+          "title": "On the Expected Number of Views Required for Fixed-Error Sequence Reconstruction",
+          "trigger": "Prior expected-view analysis of same reconstruction topic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A pointwise decoding-performance distribution at the exact optimal reconstruction threshold is an independently useful finite and asymptotic coding invariant: it identifies how many coordinates fail, sharp error cutoffs and a super-exponentially rare failure event. That is materially more informative than existence of optimal decoding or a single short-block count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "fixed weight three substitutions reconstruction majority vote errors number observation sets 2026 Papadopoulou Yehezkeally",
+    "\"When Majority-Vote Fails\" exact t=3 Table III",
+    "hypergraph high-degree vertices intersection counts majority code reconstruction"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific novelty is best-of-knowledge only; residual priority and source-access risks remain explicit.",
+    "Publication withheld because public-bound metadata retains private operational provenance; no GitHub edits or import-ready sanitized files."
+  ],
+  "residual_risks": [
+    "Full 2024 conference text was not inspected; an implicit t=3 distribution or intersection count cannot be excluded",
+    "Other three-uniform hypergraph high-degree enumerators could contain the same finite incidence coefficients"
+  ],
+  "schema_version": 1
+}
