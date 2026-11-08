@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Necessity uses the forced path through an internal queried vertex, sufficiency explicitly constructs a Boolean cube using the nonleaf hull vertices, and leaf-hull inversion proves extremality. Both singleton and two-vertex boundary cases are handled. The star decomposition is proved from the simplex-skeleton lemma and graph attachments; the package includes finite brute-force and homology tests.
+
+**Originality — PASS within the inspected evidence, with residual risk.** Five primary source texts and repeated published-record and semantic-record searches were compared by implication. The older unbounded leaf-VC bounds, general-position characterizations, leafed-subtree optimization, classical subtree enumerators, and general shattering-extremality terminology are prior work. They do not, as inspected, present the exact size-capped support-to-leaf bijection together with the all-support strong-shattering equality and the higher-dimensional star topology. Other terminology could cover the principal assertion, and the review is not an exhaustive historical priority proof.
+
+**Value — PASS.** The exact description classifies all Boolean membership-label patterns rather than only maximizing leaves. Strong shattering at every support is a structural property of the concept class. The star family has two sizes of facets and nonzero reduced homology in both low and arbitrarily high degrees; this makes the result more than a leaf-count computation or a parameter substitution.
+
+**Closest known literature and limits.** Munaro (arXiv:1302.6500) covers classical connected-subgraph VC questions; Klavžar et al. (arXiv:2105.08391) cover graph Steiner general position; Baste (arXiv:2301.12783) covers bounded induced-subtree leaf objectives; Aliste-Prieto et al. (arXiv:2402.10333) cover the pre-existing subtree polynomial; and Kusch–Mészáros (arXiv:1710.03165) cover general shattering-extremal theory. The new proof is tree-specific and the topological claim is star-specific. Finite experiments are not substituted for proof. Residual historical priority risk and the absence of external mathematical review remain explicit.
+
+Self-review: passed. Independent audit: not yet performed.
