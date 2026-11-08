@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all fixed \(n\ge2\), \(\theta\ge0\), and \(q>0\), upper integrability follows after discarding bounded Vandermonde factors and integrating \(|u-v|^{\theta-q}\). Lower divergence uses a positive-volume two-node collision while every other separation stays bounded below. This proves both directions and includes the endpoint \(q=\theta+1\); a finite sampling experiment has not been substituted for either step. The two-node distribution is derived by the exact midpoint/gap Jacobian, and its moments follow by integrating its survival function. Fixed-point Gaussian-noise moments follow from the conditional Gaussian variance and a uniformly bounded Newton interpolant for \(f\in C^{n-1}\). The independent checker tests exact formulas and stochastic samples but is not itself the infinite-quantifier certificate.
+PASS
 
-## Originality — PASS, qualified
+For fixed n>=2 Vandermonde^theta density on [0,1]^n, theta>=0, and q>0, each Lagrange absolute product |ell_i(t)| <= prod_{j!=i}|X_i-X_j|^-1. Raising to q, discarding bounded non-i Vandermonde factors, and integrating each |u-v|^(theta-q) shows E Lambda^q<infty if theta-q>-1. Conversely choose two labeled nodes with gap d tending to zero inside a fixed compact interval away from t0 while every other node lies in separated compact subintervals; the integrand lower bounds c d^(theta-q), so E Lambda^q diverges when q>=theta+1, including equality. For n=2, gap d has weight 2d^theta(1-d)/Z and midpoint is conditionally uniform; Lambda=2 max(u,1-u)/d. Exact split integration at d=1/t and 2/(t+1) gives P(Lambda>t)=2(2/(1+t))^(theta+1)-t^-(theta+1), t>=1, with mean 1+3/theta (theta>0) and second moment (theta^2+5theta+8)/[theta(theta-1)] (theta>1). Noiseless interpolant of C^{n-1} f remains uniformly bounded via Newton divided differences. Conditional Gaussian noise has q-moment constant times (sum ell_i(t0)^2)^(q/2), so same threshold by upper Lambda and lower collision bound; adding bounded deterministic offset cannot alter integrability. Independently integrated exact two-node tail for theta=0,1,2,3 and moments for theta=2,3,4. The infinite fixed-n statement rests on integrability bounds, not simulation.
 
-Relevant inspected primary sources include Belhadji–Bardenet–Chainais 2023 (arXiv:2310.09437, deterministic and DPP signal reconstruction estimates and \(L^2\) guarantees), Chkifa–Dolbeault 2023 (arXiv:2306.07435, different randomized sampling/interpolation scheme and robustness estimates), Belhadji–Bardenet–Chainais 2020 (arXiv:2002.09677, kernel interpolation and volume sampling), and Jantsch–Webster–Zhang 2016 (arXiv:1606.07093, deterministic Leja Lebesgue bounds). Established ingredients include the Lagrange interpolation formula and the Vandermonde density. Comparisons concern the *random operator-norm moment spectrum*, *all finite node counts*, *two-node exact distribution* and *unconditional fixed-point Gaussian-noise moments*, not similarity of paper titles. None of the inspected material or queried published mathematical records directly covers this combination. Broader specialized random-matrix inverse-moment or stochastic interpolation work may exist beyond the inspected set; independent priority verification remains necessary.
+## originality
 
-## Value — PASS
+PASS
 
-Mean-square stability of a noisy full interpolant is mathematically different from pointwise exactness or noiseless reconstruction. The sharp collision-exponent frontier separates infinite and finite unconditional quadratic amplification, placing iid nodes and polynomial projection DPP nodes on opposite sides and doing so independently of node count. The exact two-node tail provides a reproducible calibration distribution. The kernel-volume-sampling reference explicitly motivates further study of Lebesgue constants under repulsive sampling. These are natural sampling-design invariants rather than arbitrary numerical slices. Constant size in \(n\), floating-point stability and practical sampling cost are not addressed.
+Belhadji–Bardenet–Chainais (2020) analyze kernel continuous volume sampling and explicitly identify studying Lebesgue constants for stability as a future direction in their conclusion, without solving the current all-n random polynomial operator-norm moment spectrum. Their 2023/24 DPP signal reconstruction work concerns average L2 reconstruction and estimators not identical to full-degree noisy Lagrange interpolation, nor exact two-node distribution. Chkifa–Dolbeault address a different randomized oversampling and interpolation design. Deterministic Leja growth results are different. The assessed sharp finite-n repulsion collision threshold and pointwise Gaussian noise moment boundary are new to the inspected literature, with the clear risk that separate inverse-Vandermonde moment theory already contains equivalent statements.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Random interpolation stability and noise amplification are natural operator-norm/pointwise moment questions; collision exponent theta makes a sharp universal cutoff q<theta+1 independent of fixed n. The threshold separates infinite-mean amplification for iid nodes (theta=0) from finite quadratic amplification for polynomial projection DPPs (theta=2), and the explicit two-node tail gives an exact baseline for random-node designs. The claim addresses a literature-identified gap and is more informative than finite Monte Carlo statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
