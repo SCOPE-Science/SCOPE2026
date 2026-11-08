@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fifteen unordered color-pair types, the hub color, and their Boolean support form an exact finite factor for arbitrarily many labelled petals. All 163835 nonempty reduced states are exhaustively classified by the attached transparent program, with five recurrent support profiles and only periods one, five and six. Every ordered pair is checked to return after six steps on each reduced six-cycle; frozen hubs and monochromatic petals return after five. Thus no microscopic extra period is hidden by unordered encoding. Weighted onto-counting produces six-period state population \(6(4^m-2^m)\), and five-period state population \(5+2U_m\). A separate fully labelled neighbor-update enumeration checks 81375 initial colorings for up to three petals. The finite factor, not finite-size extrapolation, proves the unrestricted result. Risks: review and code are not independent mathematical certification; the finite-support computer lemma is critical.
+## correctness
 
-## Originality — PASS (qualified)
-Scientific claim comparison found no equivalent orbit census for this graph family. The 2014 and 2016 Lyu works establish the inhibitory model and examine synchronization largely on trees. Existing complete-bipartite and complete-tripartite network classifications do not subsume friendship graphs with at least two petals; the underlying graph is not complete multipartite. Previous three-state excitation results on friendship graphs use different dynamics. Historical equivalents expressed with different oscillator language cannot be ruled out: the full early primary papers could not be accessed through available routes and require later human inspection. Failed searches alone are not novelty proof.
+PASS
 
-## Value — PASS
-The graph family is a natural infinite set of overlapping triangles with a single high-degree oscillator. Exact period-five and period-six orbit counts reveal a sharp five-petal frozen-hub threshold and a nine-petal reversal of the dominant periodic-orbit class. The exact, attained uniform transient cutoff quantifies convergence without assuming synchronization. These are structural orbit and phase-transition facts rather than arbitrary finite table entries.
+Each petal’s ordered pair evolves only from that pair and the hub, while the hub sees whether at least one unordered petal type contains blinking color 2. Thus hub state h and nonempty subset of 15 unordered types yield an exact deterministic factor on 163835 admissible states for every petal count. Independently reconstruct that entire functional graph: reduced recurrent profiles (period1,support5):2, (period5,support1):5, (period6,support1):6, (period6,support2):12, (period6,support3):6, and worst-entry times by max support 1..5 of 10,28,28,32,33. The package explicitly checks ordered-pair return after 6 steps, preventing hidden 12-period microscopic lifts; the reduced fixed support advances monochrome petals in 5 steps with hub frozen. Weighted onto-surjection formula yields N6=4^m−2^m and N5=1+2U_m/5; U_m>0 iff m>=5. Direct m<=8 counts and U_{m+1}>=5U_m, N6(m+1)<5N6(m) force permanent crossover at 9. All-m proof uses exact finite support factor and surjections rather than extrapolating small petal numbers.
 
-## Limitations and closest sources
-Lyu (2014), arXiv:1407.1103, model introduction and tree synchrony; Lyu (2016), arXiv:1610.00837, tree-time bounds. Inaccessible full texts are a documented originality risk; abstracts do not exclude any uninspected details. The isolated triangle case is already encompassed by standard complete-tripartite structures, whereas the infinite friendship family is not. The exhaustive finite lemma remains reproducible, but it is not an external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lyu supplies the finite-state firefly rule and tree synchrony results; the friendship-family all-m orbit counts and uniform exact transient ceiling via 15 unordered petal types are different, not covered by tree bounds. A complete finite quotient enumeration is a new natural classification to best knowledge, not a mere tree theorem corollary.
+
+## value
+
+PASS
+
+Complete all-m recurrent orbit census, minimum five-petal nonsynchronous freezing, sharp longest transient and nine-petal orbit predominance switch answer structurally motivated synchronization questions on a standard family of clustered triangle networks. Uniform quotient method makes finite exact classification worthwhile independently of a general cactus theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

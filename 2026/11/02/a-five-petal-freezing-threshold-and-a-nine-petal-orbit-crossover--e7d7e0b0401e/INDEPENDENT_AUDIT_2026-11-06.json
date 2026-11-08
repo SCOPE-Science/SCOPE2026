@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T10:51:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/a-five-petal-freezing-threshold-and-a-nine-petal-orbit-crossover--e7d7e0b0401e/RESULT.md at Git blob 1660f7615c9f54950575fecd01aeaac40781cecb, tree 6bc3463207d7fd6708c257303f4b44b1fbec3c34",
+        "2026/11/02/a-five-petal-freezing-threshold-and-a-nine-petal-orbit-crossover--e7d7e0b0401e/verify_fca5_friend.py at blob 939db34f9377485af5ce380f423175966946fc3f",
+        "Independent full 163835-state support-factor computation and transient maxima in independent_checks.py"
+      ],
+      "rationale": "Each petal’s ordered pair evolves only from that pair and the hub, while the hub sees whether at least one unordered petal type contains blinking color 2. Thus hub state h and nonempty subset of 15 unordered types yield an exact deterministic factor on 163835 admissible states for every petal count. Independently reconstruct that entire functional graph: reduced recurrent profiles (period1,support5):2, (period5,support1):5, (period6,support1):6, (period6,support2):12, (period6,support3):6, and worst-entry times by max support 1..5 of 10,28,28,32,33. The package explicitly checks ordered-pair return after 6 steps, preventing hidden 12-period microscopic lifts; the reduced fixed support advances monochrome petals in 5 steps with hub frozen. Weighted onto-surjection formula yields N6=4^m−2^m and N5=1+2U_m/5; U_m>0 iff m>=5. Direct m<=8 counts and U_{m+1}>=5U_m, N6(m+1)<5N6(m) force permanent crossover at 9. All-m proof uses exact finite support factor and surjections rather than extrapolating small petal numbers.",
+      "residual_risks": [
+        "Finite enumeration is exhaustive only because factor is proven exact and 15 types exhaust unordered five-color pairs; no extension to other state counts is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lyu 2014 local-global synchrony for trees with max-degree conditions; 2016 tree synchronization-time theorem."
+        ],
+        "reasoning": "Neither theorem applies to graph with m triangles (m>=1), and does not cover nonsynchronous periodic support/fixed-hub color circulation for m>=5.",
+        "searches": [
+          "Resultary: five color firefly automaton friendship graph triangles central hub periodic orbit freezing time",
+          "Lyu, Synchronization of finite-state pulse-coupled oscillators, arXiv:1407.1103, https://arxiv.org/abs/1407.1103",
+          "Lyu, Time complexity of synchronization of discrete pulse-coupled oscillators on trees, arXiv:1610.00837",
+          "Synchronous firefly automata on complete multipartite graphs (different network family)"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/02/a-five-petal-freezing-threshold-and-a-nine-petal-orbit-crossover--e7d7e0b0401e/RESULT.md at Git blob 1660f7615c9f54950575fecd01aeaac40781cecb, tree 6bc3463207d7fd6708c257303f4b44b1fbec3c34",
+        "Lyu, Synchronization of finite-state pulse-coupled oscillators, arXiv:1407.1103, https://arxiv.org/abs/1407.1103",
+        "Lyu, Time complexity of synchronization of discrete pulse-coupled oscillators on trees, arXiv:1610.00837",
+        "Synchronous firefly automata on complete multipartite graphs (different network family)",
+        "2026/11/02/a-five-petal-freezing-threshold-and-a-nine-petal-orbit-crossover--e7d7e0b0401e/verify_fca5_friend.py at blob 939db34f9377485af5ce380f423175966946fc3f",
+        "independent_checks.py enumerated all 163835 factor states and period/tail profiles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior tree synchrony conditions do not describe six-period cycles on triangular friendship graphs; fixed hub and nonsynchronous 5-period orbits require 5 monochrome petal colors."
+        ],
+        "reasoning": "Exact macro graph, 6-cycle ordered-pair monodromy and weighted onto counts furnish new steps beyond earlier tree theorems.",
+        "searches": [
+          "Resultary: five color firefly automaton friendship graph triangles central hub periodic orbit freezing time",
+          "Lyu, Synchronization of finite-state pulse-coupled oscillators, arXiv:1407.1103, https://arxiv.org/abs/1407.1103",
+          "Lyu, Time complexity of synchronization of discrete pulse-coupled oscillators on trees, arXiv:1610.00837",
+          "Synchronous firefly automata on complete multipartite graphs (different network family)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Friendship graphs are hub joins of m disjoint edges; for m>=2 nonadjacency is not transitive, so the graph is not complete multipartite, and it contains cycles."
+        ],
+        "reasoning": "Classification of synchronization on trees or complete multipartite graphs is not equivalent to classifying all F_m periodic trajectories. Isolated F_1 triangle does not establish m>=2 orbit count.",
+        "searches": [
+          "Resultary: five color firefly automaton friendship graph triangles central hub periodic orbit freezing time",
+          "Lyu, Synchronization of finite-state pulse-coupled oscillators, arXiv:1407.1103, https://arxiv.org/abs/1407.1103",
+          "Lyu, Time complexity of synchronization of discrete pulse-coupled oscillators on trees, arXiv:1610.00837",
+          "Synchronous firefly automata on complete multipartite graphs (different network family)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite factor has 5*(2^15-1)=163835 admissible macro states; package code traverses all of them and verifies recurrent-support multiplicity."
+        ],
+        "reasoning": "This is a finite exhaustive classification of a natural universal factor, not a numerical census of finitely many m; combinatorial lifting/surjections prove all m.",
+        "searches": [
+          "Resultary: five color firefly automaton friendship graph triangles central hub periodic orbit freezing time",
+          "Lyu, Synchronization of finite-state pulse-coupled oscillators, arXiv:1407.1103, https://arxiv.org/abs/1407.1103",
+          "Lyu, Time complexity of synchronization of discrete pulse-coupled oscillators on trees, arXiv:1610.00837",
+          "Synchronous firefly automata on complete multipartite graphs (different network family)"
+        ]
+      },
+      "rationale": "Lyu supplies the finite-state firefly rule and tree synchrony results; the friendship-family all-m orbit counts and uniform exact transient ceiling via 15 unordered petal types are different, not covered by tree bounds. A complete finite quotient enumeration is a new natural classification to best knowledge, not a mere tree theorem corollary.",
+      "residual_risks": [
+        "A specialized pulse-coupled-oscillator or triangular-cactus analysis might already classify friendship graphs by other terminology.",
+        "Full rigorous inference from the finite factor requires checking microscopic orientation monodromy; the package tests this on every recurrent six-cycle, but the independent full-factor check verified periods/support/tails, not a second independent orientation enumeration.",
+        "Result only for five colors and a single common hub; none of the formulas claim general cactus dynamics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model and tree synchronization; friendship graphs m>=2 contain m triangles and are not trees; no listed exact recurrent-state census for that family.",
+          "evidence": "Main local-global principle for trees, colors 3–6.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.1103",
+          "material_read": "Full 404-line accessible arXiv scientific text including rules, tree theorems and examples",
+          "method": "arXiv full rendered mathematical text",
+          "title": "Synchronization of finite-state pulse-coupled oscillators",
+          "trigger": "Exact five-state firefly local rule and tree synchrony"
+        },
+        {
+          "assessment": "Tree-specific time complexity need not imply finite-support quotient classification on friendship graphs; no whole-paper noncoverage claim based on abstract.",
+          "evidence": "Theorems are on trees and their synchronizing subcases.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.00837",
+          "material_read": "Accessible primary arXiv abstract and tree-specific theorem descriptions; complete mathematical full text not verified",
+          "method": "arXiv abstract/context comparison",
+          "title": "Time complexity of synchronization of discrete pulse-coupled oscillators on trees",
+          "trigger": "Sharp existing time-to-synchronization results for same firefly rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/a-five-petal-freezing-threshold-and-a-nine-petal-orbit-crossover--e7d7e0b0401e/RESULT.md at Git blob 1660f7615c9f54950575fecd01aeaac40781cecb, tree 6bc3463207d7fd6708c257303f4b44b1fbec3c34",
+        "Lyu, Synchronization of finite-state pulse-coupled oscillators, arXiv:1407.1103, https://arxiv.org/abs/1407.1103",
+        "2026/11/02/a-five-petal-freezing-threshold-and-a-nine-petal-orbit-crossover--e7d7e0b0401e/verify_fca5_friend.py"
+      ],
+      "rationale": "Complete all-m recurrent orbit census, minimum five-petal nonsynchronous freezing, sharp longest transient and nine-petal orbit predominance switch answer structurally motivated synchronization questions on a standard family of clustered triangle networks. Uniform quotient method makes finite exact classification worthwhile independently of a general cactus theorem.",
+      "residual_risks": [
+        "No claim for other graph families, colors or asynchronous rules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "2026/11/02/a-five-petal-freezing-threshold-and-a-nine-petal-orbit-crossover--e7d7e0b0401e/RESULT.md at Git blob 1660f7615c9f54950575fecd01aeaac40781cecb, tree 6bc3463207d7fd6708c257303f4b44b1fbec3c34",
+    "2026/11/02/a-five-petal-freezing-threshold-and-a-nine-petal-orbit-crossover--e7d7e0b0401e/verify_fca5_friend.py at blob 939db34f9377485af5ce380f423175966946fc3f",
+    "Independent full 163835-state support-factor computation and transient maxima in independent_checks.py",
+    "Lyu, Synchronization of finite-state pulse-coupled oscillators, arXiv:1407.1103, https://arxiv.org/abs/1407.1103",
+    "Lyu, Time complexity of synchronization of discrete pulse-coupled oscillators on trees, arXiv:1610.00837",
+    "Synchronous firefly automata on complete multipartite graphs (different network family)",
+    "independent_checks.py enumerated all 163835 factor states and period/tail profiles",
+    "2026/11/02/a-five-petal-freezing-threshold-and-a-nine-petal-orbit-crossover--e7d7e0b0401e/verify_fca5_friend.py"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Finite enumeration is exhaustive only because factor is proven exact and 15 types exhaust unordered five-color pairs; no extension to other state counts is implied.",
+    "A specialized pulse-coupled-oscillator or triangular-cactus analysis might already classify friendship graphs by other terminology.",
+    "Full rigorous inference from the finite factor requires checking microscopic orientation monodromy; the package tests this on every recurrent six-cycle, but the independent full-factor check verified periods/support/tails, not a second independent orientation enumeration.",
+    "Result only for five colors and a single common hub; none of the formulas claim general cactus dynamics.",
+    "No claim for other graph families, colors or asynchronous rules."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A specialized pulse-coupled-oscillator or triangular-cactus analysis might already classify friendship graphs by other terminology.",
+    "Full rigorous inference from the finite factor requires checking microscopic orientation monodromy; the package tests this on every recurrent six-cycle, but the independent full-factor check verified periods/support/tails, not a second independent orientation enumeration.",
+    "Result only for five colors and a single common hub; none of the formulas claim general cactus dynamics."
+  ]
+}
