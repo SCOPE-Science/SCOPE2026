@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated integral equations reduce in the chart around their common point to a quadratic and a cubic in three affine coordinates. The quadratic is nonsingular and the cubic factors as three distinct lines; six explicit rational directions saturate Bézout degree six, proving the entire projective fiber is the reduced union of six lines. The local complete-intersection Hilbert series gives normalization defect nine, and the direct action of coordinate permutations gives stabilizer twenty. The exact verifier replays these critical calculations; the proof covers geometric points over arbitrary extensions, not only the finite field.
+## correctness
 
-## Originality — PASS, qualified
-The full available texts of Braden–Northover (2012) and Braden–Disney-Hogg (2023) were compared at the level of geometric implications. Their characteristic-zero geometric and analytic results do not state this singular characteristic-five fiber; the later survey explicitly sets positive-characteristic extension aside. Korchmáros–Lia–Timpanella (2021) analyze this same power-sum construction only when characteristic is at least seven and the number of coordinates does not exceed characteristic minus one. The characteristic-five claim lies outside those hypotheses. Searches of mathematical-record summaries and accessible indexed literature using the equation, characteristic, six-line fiber, delta invariant and equivalent group-action terminology did not reveal an implication covering this result. This does not rule out an older unindexed account or implicit known specialization of the classical equations.
+PASS
 
-## Mathematical value — PASS
-The unique maximally symmetric genus-four curve has a natural integral canonical model. The prime equal to the number of symmetric coordinates is exactly where the standard smooth characteristic-positive classification excludes the model. The theorem determines the *entire* geometric special fiber, its local singularity and delta defect, its arithmetic points over every extension, and the exceptional degree-six symmetry action. This provides a nontrivial structural boundary instance for degeneration of an explicitly symmetric canonical curve; it is not merely a normalization convention or routine table recomputation.
+For P1,P2,P3 in P4 over F5, chart X4=1 centered at [1:...:1] eliminates P1 and yields Q=a²+b²+c²+ab+ac+bc and cubic -3(a+b)(a+c)(b+c). The conic is nonsingular (determinant 4 mod 5) and intersects the three lines transversely in the six explicit F5 projective directions; Bézout gives exact reduced degree six, and the global (1,2,3) complete-intersection degree excludes hidden components. The six rational lines meet only at P. Their tangent graded ring has Hilbert function 1,3,5,6,... versus six branches, giving delta 5+3+1=9. S5 orbit stabilizer of a direction is affine normalizer AGL1(F5) of size 20, hence six components; over F5^m point count 6(q+1)-5=6q+1. Independent modular direction computation recovered exactly six directions (script attached to execution report); finite check alone is not the geometric proof. Inspected actual RESULT.md at frozen Git commit and verify.py blob; the latter tests directions/Hilbert/S5 but cannot replace Bézout and normalization.
 
-## Remaining risks
-The result is about the literal reduction of these equations and is not identified with stable or minimal reduction of the generic curve. Some older arithmetic literature might contain an equivalent degeneration that current full-text searches did not recover. The accompanying modular certificate does not independently prove the formal complete-intersection and normalization arguments, which are supplied in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: claim-specific mathematical comparisons of exactly defined source objects against established primary results; no matching stronger implication identified in actual searched and materially read sources. The characteristic-zero symmetric Bring theorem and smooth p≥7 generalization cannot imply the p=5 reducible fiber by base change, because smoothness fails and the earlier positive-characteristic hypotheses exclude it.
+
+## value
+
+PASS
+
+The precise fiber at the exceptional bad characteristic of a canonical genus-four symmetric model is a natural deformation/boundary problem, and delta, S5 action, and point counts are mathematically useful invariants, beyond a routine degree computation; no stable reduction is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
