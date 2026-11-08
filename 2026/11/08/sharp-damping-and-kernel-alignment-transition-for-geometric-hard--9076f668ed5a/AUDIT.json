@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, Proof steps 1–5",
+      "check.py: exact derivative, overlap, and transition identities; 729 passed assertions"
+    ],
+    "rationale": "For every real 0<=beta<1 and 0<q<=1, the kernel constraint forces collinearity. Swapping input and output kernels proves the dominant branch. The exact rational radius function has positive denominator and a strictly decreasing quartic derivative numerator with opposite endpoint signs, so a unique global maximum exists and is attained. The sign factorization at the overlap modulus yields the sharp kernel-alignment threshold; envelope differentiation yields the exact minimizing damping. Rescaled simple-root expansions prove both boundary laws. The included standalone checker executed 729 exact-polynomial and finite numerical diagnostic assertions; no sampling is used as an infinite proof.",
+    "residual_risks": [
+      "Analytical statement excludes complex damping and q=0; small-q and beta-to-one error terms are pointwise, not asserted uniform."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2601.02334v2 Theorem 3.18 is a broader qualitative disk theorem, but does not give the geometric-family sharp damping envelope.",
+        "arXiv:2608.21723 Section 3.11 gives circularity for real-weighted Bergman-space shifts, with a different reproducing kernel and no Hardy damping minimum."
+      ],
+      "reasoning": "General circularity cannot fix radius size or the sign of its beta derivative. The published two-branch optimization is a starting formula from which the new nonmonotone optimal-damping transition requires an additional complete calculation.",
+      "searches": [
+        "q-Berezin number geometric weighted shift exact formula 2026 Bhattacharya Patra",
+        "q-Berezin range of weighted shift 1,beta,beta squared real negative branch optimizing pseudohyperbolic kernel",
+        "arXiv:2608.21723v1 Section 3, weighted shifts"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.02334v2 Sections 2, 3.3, Conclusion",
+      "arXiv:2608.21723v1 Introduction, Section 3 weighted-shift results",
+      "Related published research records on ordinary weighted-shift numerical radii and rank-one q-numerical radii, compared by invariant and hypotheses"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first paper gives expressions u_plus and u_minus and suggests derivative candidates, but no unique quartic root or beta-optimization theorem.",
+        "The second paper handles a different Bergman geometry, so its radius formulas do not imply the Hardy formula."
+      ],
+      "reasoning": "The previously known reduction to a scalar maximum is explicitly acknowledged. The new claim determines the maximizer uniquely and globally, tracks its sign, differentiates the optimized value with respect to a separate operator parameter, and proves a sharp minimizing envelope plus two singular boundary expansions. These conclusions are not simply restatements of the prior disk or implicit-max statements.",
+      "searches": [
+        "arXiv:2601.02334v2 Corollary 3.19 Remark 3.20",
+        "arXiv:2608.21723v1 Theorem 3.11",
+        "Exact maximizer of q-Berezin number geometrically weighted unilateral shift on Hardy H2, unique quartic root, antipodal versus collinear kernel pairs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The operator S_beta f(z)=z f(beta z) has weights beta^n, exactly the geometric case of arXiv:2601.02334v2 Corollary 3.19.",
+        "The source expresses its radius via two branch functions; it does not classify the maximizing kernel orientation or optimize beta."
+      ],
+      "reasoning": "Weighted-composition and geometric-weight-shift descriptions are identical; that equivalence was used in the comparison rather than treated as a distinct object. Ordinary numerical radii with unconstrained vectors are different invariants from q-Berezin radii with prescribed Szego-kernel overlap.",
+      "searches": [
+        "Exact maximizer of q-Berezin number geometrically weighted unilateral shift on Hardy H2, unique quartic root, antipodal versus collinear kernel pairs",
+        "Berezin numerical radius of composition f(beta z) times z with two normalized Szego kernels at prescribed inner product q, sharp parameter threshold",
+        "arXiv:2601.02334v2 Sections 2 and 3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct source comparison used arXiv:2601.02334v2 Section 3.3, including Remark 3.20, and arXiv:2608.21723 Section 3.",
+        "Semantically related research results found for ordinary geometric-weighted numerical radii, rank-one q-numerical radii, and reproducing-kernel tests of Hankel operators, but no exact q-Berezin geometric damping table or covering phase diagram."
+      ],
+      "reasoning": "The search did not locate an existing table or exact parameterized answer with the same constrained Szego-kernel tests and the same damping optimization. Absence from search results alone is not treated as a proof of novelty.",
+      "searches": [
+        "Geometric weighted shift Szego kernel testing prescribed overlap beta, q, sharp radius, low-overlap asymptotic",
+        "q-Berezin geometric weighted shift exact maximizer quartic",
+        "q-Berezin range Hardy weighted shift q first submitted 2026"
+      ]
+    },
+    "rationale": "The fully inspected Hardy-space primary source establishes only the circular range and two-branch implicit radius maximization for geometric weights. A second inspected source treats Bergman-space weighted shifts and general q-Berezin inequalities. The precise unique root, optimizing kernel alignment, complete sharp beta-minimization, and asymptotic coefficients are not stated in the relevant inspected materials and were not found in the searched research records. This is best-knowledge, not independently certified priority.",
+    "residual_risks": [
+      "A broader historical theorem on exact constrained Szego-kernel extremizers or a later unindexed version could imply this calculation; not all historical literature is exhaustively searchable.",
+      "The motivating preprint already contains the two-branch scalar formula, so the incremental contribution must be evaluated as the complete sharp parameter optimization and transition, not as discovery of a new disk identity.",
+      "Review is same-model; external priority verification and independent mathematical audit have not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS disk geometry and two branch radius expressions; does not state the final sharp beta optimizer or phase/asymptotic package.",
+        "evidence": [
+          "Section 3.3 equations (6), Corollary 3.19 and Remark 3.20; Conclusion identifies finer q-Berezin number study as future work."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.02334v2",
+        "material_read": "Sections 2 and 3.3: Lemma 2.5; Theorem 3.18; Corollary 3.19; Remark 3.20, plus conclusion",
+        "method": "Read accessible arXiv HTML full-text sections, not abstract alone",
+        "title": "q-Berezin Range of Operators in Hardy Space",
+        "trigger": "Exactly the same weighted-shift family and overlap constraint"
+      },
+      {
+        "assessment": "The weighted-shift result concerns Bergman kernels, not the Hardy geometric damping optimizer; no direct implication of the claimed transition found in inspected material.",
+        "evidence": [
+          "Section 3 theorem 3.11 and its distinct Bergman reproducing-kernel formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.21723",
+        "material_read": "Introduction and weighted-shift discussion, Section 3 Theorems 3.11 and 3.12, including adjacent motivation",
+        "method": "Read accessible source full-text rendering of relevant sections",
+        "title": "q-Berezin sectorial operators with applications to q-Berezin number inequalities and q-Berezin ranges",
+        "trigger": "Later same-topic paper with weighted shifts and q-Berezin inequalities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9076f668-ed5a-4dff-a65f-84749515739b",
+  "value": {
+    "evidence": [
+      "RESULT.md sharp damping minimizer and kernel-alignment phase formula",
+      "RESULT.md two boundary expansions",
+      "arXiv:2601.02334v2 Remark 3.20 leaves the exact parameterized radius to optimization"
+    ],
+    "rationale": "For a natural compact weighted-composition family explicitly studied in new literature, the q-Berezin radius is the relevant exact invariant. The theorem solves the previously implicit global maximization, identifies every optimizing constrained kernel pair, and gives a sharp nonmonotone optimal damping policy with an explicit transition at q=1/sqrt(2). The two quantified singular limits describe both almost-orthogonal testing and approach to the noncompact undamped shift. These are natural full-family statements with reusable extremal geometry, not arbitrary finite tests.",
+    "residual_risks": [
+      "The problem is specific to a geometrically damped Hardy shift and does not automatically generalize to arbitrary weight sequences."
+    ],
+    "status": "PASS"
+  }
+}
