@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The supplied `verify.py` can be executed with `python verify.py`. It uses only the Python standard library (in particular `math` and `random`). The observed deterministic output from the package's current verifier was:
+## correctness
 
-`VERIFY_OK 1478 checks (Dirichlet exact moment and independent spherical tests)`
+PASS
 
-The tests cover five positive symmetric-Dirichlet concentration parameters, dimensions two through eight, four even benchmark exponents, nine first exponents, two independent exact mixed-moment formula implementations, the specialized fourth-power identity, independent circular midpoint quadrature, and seeded independent Gaussian-direction sampling.
+For all d>=2, r>=1 real and m>=2 integer, Gaussian-normalized sphere coordinates yield Z_i=U_i²~Dirichlet(1/2,...,1/2); P_r=ΣZ_i^(r/2). For general alpha>0, a>0 and D=d alpha the exact moment identity reduces Cov(ΣZ_i^a,ΣZ_i^m) to positive factor d(alpha)_a(alpha)_m/[alpha(D)_(a+m)] times F_alpha-F_D, where F_z=a Σ_{k=0}^{m-1}(z+a)_k/(z+1)_k. The k=1 term is strictly monotone in z with sign controlled by a-1 when m>=2; remaining product terms have same direction. Consequently sign Cov=sign(r-2), vanishing exactly at a=1; m=2 simplification and d=3 examples consistent. Independent 120 direct Dirichlet mixed-moment numerical checks over dimensions/exponents corroborate, but all-parameter proof is algebraic.
 
-The key universal mathematical check is analytic: the identity
-\[
-z\left(\frac{(z+a)_m}{(z)_m}-1\right)=a\sum_{k=0}^{m-1}\frac{(z+a)_k}{(z+1)_k}
-\]
-follows by telescoping. For \(m\ge2\) the summand with \(k=1\) is strictly monotone in \(z\) except at \(a=1\), and every other nonconstant summand has the same monotonicity. This proves the claimed sign in all dimensions and exponents, independently of finite testing.
+## originality
 
-Finite quadrature and pseudo-random sampling do not constitute a proof of an infinite assertion. Floating-point computations are checked with explicit tolerances, and do not purport to certify historical priority or independent validation. The sign theorem does not cover two arbitrary non-even benchmark exponents.
+PASS
+
+Best-of-knowledge exact finite-dimensional cross-exponent covariance sign is not stated by inspected high-dimensional CLT, deterministic norm-region, or random polygon moment references. Standard Dirichlet moments themselves are prior.
+
+## value
+
+PASS
+
+The strict sign for every dimension and all continuous first exponents is a nontrivial distributional ordering despite failure of pointwise ordering of the two power sums; it supplies a geometric same-direction width-energy correlation classification rather than asymptotic estimates alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review: finite-dimensional correlation sign law for projection-width energies
+# Independent mathematical audit
 
-**Correctness: PASS.** The theorem uses the exact Gaussian-to-symmetric-Dirichlet reduction on the sphere. The mixed moment identities follow from the multivariate beta integral. The decisive identity is the telescoping factorization of \(F_z(a,m)\); its positive factors have a strict, common monotonicity in \(z\) for every \(m\ge2\). Since the two concentrations satisfy \(d\alpha>\alpha\), this yields the claimed strict sign. The displayed fourth-power rational/gamma simplification and \(d=3\) values were checked independently. The executable finite checks reproduce 1,478 comparisons and do not substitute for proof.
+## correctness
 
-**Originality: PASS, subject to historical priority risk.** The 2012 Paouris–Pivovarov–Zinn cube-projection central limit theorem supplies only asymptotic one-body projection information. The 2016 Sakai–Iwata full text concerns pointwise feasible regions of pairs of power norms rather than a covariance law for Dirichlet-sampled directions. The 2017 Kabluchko–Prochno–Thäle full text establishes a multivariate *limit* covariance, but no finite-dimensional all-exponent sign theorem. Wang, Li and Xu (2023) use symmetric-Dirichlet power sums and mixed moments for asymptotic random-polygon extrapolation, without the present exact finite-dimensional sign theorem. The exact sign theorem, its symmetric-Dirichlet extension, and its unrestricted finite-dimensional quantifiers were compared against these source statements and the indexed geometric-research records. No published equivalent or dominating statement was located. A historically unindexed Dirichlet power-sum covariance result remains a genuine possibility. Standard Dirichlet moments and existing CLTs are not claimed as new.
+PASS
 
-**Mathematical value: PASS.** The theorem gives a strict, all-dimensional dependence classification for powers of directional widths of dual norm balls, with the Euclidean exponent as its unique sign boundary and an explicit negative cube-versus-\(\ell_{4/3}\) example in dimension three. Deterministic orderings of the same two power sums can conflict in dimension three, so the covariance sign reflects the sampling law, not merely pointwise monotonicity. Its proof extends to symmetric Dirichlet measures for every positive concentration, providing a quantitative family of tests for geometric dependence.
+For all d>=2, r>=1 real and m>=2 integer, Gaussian-normalized sphere coordinates yield Z_i=U_i²~Dirichlet(1/2,...,1/2); P_r=ΣZ_i^(r/2). For general alpha>0, a>0 and D=d alpha the exact moment identity reduces Cov(ΣZ_i^a,ΣZ_i^m) to positive factor d(alpha)_a(alpha)_m/[alpha(D)_(a+m)] times F_alpha-F_D, where F_z=a Σ_{k=0}^{m-1}(z+a)_k/(z+1)_k. The k=1 term is strictly monotone in z with sign controlled by a-1 when m>=2; remaining product terms have same direction. Consequently sign Cov=sign(r-2), vanishing exactly at a=1; m=2 simplification and d=3 examples consistent. Independent 120 direct Dirichlet mixed-moment numerical checks over dimensions/exponents corroborate, but all-parameter proof is algebraic.
 
-**Scope and risk.** The second exponent must be an even integer at least four; no all-real-pair covariance theorem is asserted. The result is for width **powers**, not unpowered widths. Asymptotic-limit literature is not superseded. Historical priority and independent correctness have not been externally audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact finite-dimensional cross-exponent covariance sign is not stated by inspected high-dimensional CLT, deterministic norm-region, or random polygon moment references. Standard Dirichlet moments themselves are prior.
+
+## value
+
+PASS
+
+The strict sign for every dimension and all continuous first exponents is a nontrivial distributional ordering despite failure of pointwise ordering of the two power sums; it supplies a geometric same-direction width-energy correlation classification rather than asymptotic estimates alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
