@@ -1,12 +1,21 @@
-# Review of exact prime-support thresholds for non-Wieferich integers
+# Independent mathematical audit
 
-## Correctness — PASS
-The calculation is an unconditional identity: odd-prime order lifting computes the order modulo each prime power, Chinese remaindering computes the global order, and another lifting step yields the exact quotient valuation. The proof explicitly excludes the exceptional prime \(2\) and noncoprime bases. Independent direct modular computations in `verify.py` check both the full criterion and its exponent boundaries. Numerical checks do not replace the proof.
+## correctness
 
-## Originality — PASS, with remaining priority risk
-The directly inspected 2026 paper of Siegel focuses on the global asymptotic and offers conditions for squarefree integers and bounds for nonsquarefree integers. The entire four-page 1995 Franco–Pomerance article gives the order-based definition, density one for Wieferich integers, and a one-prime obstruction; it does not give the complete threshold vector. OEIS A182297 and A237292 provide membership data and an order-ratio identity, but not the claimed classification of every exponent vector at fixed prime support. Targeted mathematical searches found no matching explicit theorem. The conclusion is subject to the risk that standard prime-power lifting has previously been assembled into the same all-support formula without being indexed or titled that way.
+PASS
 
-## Mathematical value — PASS
-The exact exponent threshold \(t_p\) resolves natural membership for every integer with prescribed prime support, identifies a unique least admissible integer for each support, and computes the exact first non-Wieferich power of every odd integer. These qualitative structural statements are not direct restatements of the motivating density bound and require cross-prime order interactions. The generalized base parameter is natural. The proof is elementary; novelty and value should not be mistaken for a claim of technical depth, a new density asymptotic, or independent validation.
+For every odd p, d_p=ord_p(b) divides p-1; the odd-prime lifting-the-exponent identity gives v_p(b^(d_p u)-1)=h_p+v_p(u). Thus ord_(p^a)(b)=d_p p^max(0,a-h_p), and L=ord_n(b) is the CRT lcm. The exact p-valuation of L equals max(max_q v_p(d_q), max(0,a_p-h_p)); hence v_p(b^L-1)=max(t_p,a_p) and the quotient valuation max(0,t_p-a_p). This proves all exponent bounds and the first power without a finite cutoff. Independent integer tests of modular quotient p-adic valuations in 2489 base/odd-modulus pairs corroborate; no claims for even moduli/noncoprime bases.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact fixed-prime-support upper orthant and least qualifying power refine prior global non-Wieferich counting and specific squarefree criteria. LTE/CRT and a known multiplicative-order ratio identity are classical, but the explicit cross-prime threshold is not stated in the primary works read; its mathematical content is a global classification for every support rather than a new lifting lemma. Best-of-knowledge PASS with substantial risk of an old implicit derivation.
+
+## value
+
+PASS
+
+The order-based non-Wieferich integer condition is a natural published arithmetic classification problem. The exact threshold for every fixed odd-prime support and first qualifying power provides a complete answer to an invariant not decided by global density theorems, even though it is derived by elementary lifting/CRT rather than deep machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

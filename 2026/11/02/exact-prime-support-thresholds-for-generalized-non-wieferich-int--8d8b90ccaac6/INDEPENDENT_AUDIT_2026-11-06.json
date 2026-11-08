@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T05:56:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git snapshot 2bb782affdbe2b67a814464c5845d5160c81cfac RESULT.md blob 4e6a22c3ae7fbea215fa2ebd6ae8c72fd405c876",
+        "Git snapshot verify.py blob 4c49eacda8a228d155c1423455f127924aea2669",
+        "Independent direct order/exact modular valuations across 2489 base/modulus cases, independent_checks.py"
+      ],
+      "rationale": "For every odd p, d_p=ord_p(b) divides p-1; the odd-prime lifting-the-exponent identity gives v_p(b^(d_p u)-1)=h_p+v_p(u). Thus ord_(p^a)(b)=d_p p^max(0,a-h_p), and L=ord_n(b) is the CRT lcm. The exact p-valuation of L equals max(max_q v_p(d_q), max(0,a_p-h_p)); hence v_p(b^L-1)=max(t_p,a_p) and the quotient valuation max(0,t_p-a_p). This proves all exponent bounds and the first power without a finite cutoff. Independent integer tests of modular quotient p-adic valuations in 2489 base/odd-modulus pairs corroborate; no claims for even moduli/noncoprime bases.",
+      "residual_risks": [
+        "Even moduli and noncoprime bases excluded; no global counting density claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Franco/Pomerance 1995 gives global sparseness, order criteria for prime factors, not all exponent vectors over each support.",
+          "Siegel 2026 gives asymptotic count and squarefree/nonsquarefree structure, no displayed all-base threshold T_p."
+        ],
+        "reasoning": "Neither a global density theorem nor a sufficient obstruction explicitly computes every fixed-support exponent orthant, although the proof reduces quickly to standard LTE and CRT.",
+        "searches": [
+          "non Wieferich integers gcd(n,(b^ord_n(b)-1)/n) prime support exact threshold powers",
+          "https://math.dartmouth.edu/~carlp/PDF/paper101.pdf",
+          "https://arxiv.org/html/2610.28685v1",
+          "https://oeis.org/A182297"
+        ]
+      },
+      "checked_sources": [
+        "Git snapshot 2bb782affdbe2b67a814464c5845d5160c81cfac RESULT.md blob 4e6a22c3ae7fbea215fa2ebd6ae8c72fd405c876",
+        "Git snapshot verify.py blob 4c49eacda8a228d155c1423455f127924aea2669",
+        "Independent direct order/exact modular valuations across 2489 base/modulus cases, independent_checks.py",
+        "Franco/Pomerance 1995 Math Comp full scan, Siegel arxiv:2610.28685 2026 full article, OEIS A182297, A237292"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Siegel arxiv:2610.28685 main proposition specializes to squarefree support and asymptotics.",
+          "Franco/Pomerance 1995 discusses the complementary non-Wieferich set using order expressions."
+        ],
+        "reasoning": "The exact all-exponent threshold is stronger than squarefree predicates and supplies the precise first qualifying power. It is a straightforward corollary of odd-prime order lifting and CRT, so hidden prior equivalence remains a material novelty risk.",
+        "searches": [
+          "non Wieferich integers gcd(n,(b^ord_n(b)-1)/n) prime support exact threshold powers",
+          "https://math.dartmouth.edu/~carlp/PDF/paper101.pdf",
+          "https://arxiv.org/html/2610.28685v1",
+          "https://oeis.org/A182297"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A237292 uses multiplicative-order ratio language for gcd/Wieferich integers.",
+          "The complete formula explicitly involves the maximum cross-prime valuations v_p(ord_q(b))."
+        ],
+        "reasoning": "An order quotient identity gives an equivalent *test*, but without its p-adic expansion does not itself state the all-support threshold vectors and least-power law. These may be a classical implicit deduction.",
+        "searches": [
+          "non Wieferich integers gcd(n,(b^ord_n(b)-1)/n) prime support exact threshold powers",
+          "https://math.dartmouth.edu/~carlp/PDF/paper101.pdf",
+          "https://arxiv.org/html/2610.28685v1",
+          "https://oeis.org/A182297"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A182297 and A237292 list individual membership and related order ratios.",
+          "Direct modular tests agree for 2489 pairs but finite data cannot prove no earlier threshold formula."
+        ],
+        "reasoning": "Membership tables do not constitute the infinite classification; their existence makes checking examples mechanical, not the general support law.",
+        "searches": [
+          "non Wieferich integers gcd(n,(b^ord_n(b)-1)/n) prime support exact threshold powers",
+          "https://math.dartmouth.edu/~carlp/PDF/paper101.pdf",
+          "https://arxiv.org/html/2610.28685v1",
+          "https://oeis.org/A182297"
+        ]
+      },
+      "rationale": "The exact fixed-prime-support upper orthant and least qualifying power refine prior global non-Wieferich counting and specific squarefree criteria. LTE/CRT and a known multiplicative-order ratio identity are classical, but the explicit cross-prime threshold is not stated in the primary works read; its mathematical content is a global classification for every support rather than a new lifting lemma. Best-of-knowledge PASS with substantial risk of an old implicit derivation.",
+      "residual_risks": [
+        "Prime-support threshold follows in a short classical LTE+CRT chain and might be an old implicit corollary of an order-ratio theorem.",
+        "Even moduli and noncoprime bases excluded; no global counting density claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original non-Wieferich convention and global arguments; no exact arbitrary support threshold vector in read pages",
+          "evidence": [
+            "Order-based gcd definition and density-zero argument; does not give t_p=max_q v_p(d_q)+h_p."
+          ],
+          "identifier_or_url": "https://math.dartmouth.edu/~carlp/PDF/paper101.pdf",
+          "material_read": "Entire four-page 1995 Math Comp paper; all pages visually inspected in scan",
+          "method": "Read PDF and viewed screenshots pages 1–4",
+          "title": "On a Conjecture of Crandall Concerning the qx+1 Problem",
+          "trigger": "Original non-Wieferich definition and potential prime-support characterization"
+        },
+        {
+          "assessment": "Provides counting asymptotic and some squarefree criteria, not full fixed-prime-support power threshold",
+          "evidence": [
+            "Squarefree considerations restrict a_p=1 and do not determine all a_p upper orthants."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.28685v1",
+          "material_read": "Full accessible 2026 paper (8 PDF pages), definitions, numbered propositions and proofs; PDF theorem page visually inspected",
+          "method": "Read complete HTML plus author-accessible PDF and screenshot relevant page",
+          "title": "An Asymptotic for Non-Wieferich Numbers",
+          "trigger": "Same 2026 non-Wieferich object and possible stronger classification"
+        },
+        {
+          "assessment": "Individual membership and order-ratio identity, not all-support classification",
+          "evidence": [
+            "A237292 relates the order ratio for n and n^2; t_p formula is an explicit prime-support refinement."
+          ],
+          "identifier_or_url": "https://oeis.org/A182297",
+          "material_read": "OEIS A182297 and A237292 definitions and first tabulated terms",
+          "method": "Viewed database entries/search results",
+          "title": "Wieferich numbers (2) / multiplicative-order ratio",
+          "trigger": "Potential exact database membership"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git snapshot 2bb782affdbe2b67a814464c5845d5160c81cfac RESULT.md blob 4e6a22c3ae7fbea215fa2ebd6ae8c72fd405c876",
+        "Git snapshot verify.py blob 4c49eacda8a228d155c1423455f127924aea2669",
+        "Independent direct order/exact modular valuations across 2489 base/modulus cases, independent_checks.py",
+        "Franco/Pomerance 1995 Math Comp full scan, Siegel arxiv:2610.28685 2026 full article, OEIS A182297, A237292"
+      ],
+      "rationale": "The order-based non-Wieferich integer condition is a natural published arithmetic classification problem. The exact threshold for every fixed odd-prime support and first qualifying power provides a complete answer to an invariant not decided by global density theorems, even though it is derived by elementary lifting/CRT rather than deep machinery.",
+      "residual_risks": [
+        "Prime-support threshold follows in a short classical LTE+CRT chain and might be an old implicit corollary of an order-ratio theorem.",
+        "Even moduli and noncoprime bases excluded; no global counting density claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git snapshot 2bb782affdbe2b67a814464c5845d5160c81cfac RESULT.md blob 4e6a22c3ae7fbea215fa2ebd6ae8c72fd405c876",
+    "Git snapshot verify.py blob 4c49eacda8a228d155c1423455f127924aea2669",
+    "Independent direct order/exact modular valuations across 2489 base/modulus cases, independent_checks.py",
+    "Franco/Pomerance 1995 Math Comp full scan, Siegel arxiv:2610.28685 2026 full article, OEIS A182297, A237292"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Prime-support threshold follows in a short classical LTE+CRT chain and might be an old implicit corollary of an order-ratio theorem.",
+    "Even moduli and noncoprime bases excluded; no global counting density claimed."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no extra packages. The script compares the exact formula with independent direct order and modular-exponent computations, as well as with additional prime-support exponent tests and power-threshold checks.
+## correctness
 
-The verified output in the preparation environment was:
+PASS
 
-```
-VERIFY_OK direct_cross_checks= 3422 support_exponent_checks= 549 general_bases=2,3,5,7 power_thresholds=PASS
-```
+For every odd p, d_p=ord_p(b) divides p-1; the odd-prime lifting-the-exponent identity gives v_p(b^(d_p u)-1)=h_p+v_p(u). Thus ord_(p^a)(b)=d_p p^max(0,a-h_p), and L=ord_n(b) is the CRT lcm. The exact p-valuation of L equals max(max_q v_p(d_q), max(0,a_p-h_p)); hence v_p(b^L-1)=max(t_p,a_p) and the quotient valuation max(0,t_p-a_p). This proves all exponent bounds and the first power without a finite cutoff. Independent integer tests of modular quotient p-adic valuations in 2489 base/odd-modulus pairs corroborate; no claims for even moduli/noncoprime bases.
 
-The proof uses the odd-prime valuation identity for \(\nu_p(b^{d_pu}-1)\), the prime-power order formula and the Chinese remainder theorem. These are sufficient to prove the infinite statement without reliance on the finite tests. The modular test using \(n^2\) recovers the quotient modulo \(n\) exactly; no huge exponential integer need be stored. The verifier does not test moduli with an even prime factor or bases not coprime to the modulus. No independent audit has been performed.
+## originality
+
+PASS
+
+The exact fixed-prime-support upper orthant and least qualifying power refine prior global non-Wieferich counting and specific squarefree criteria. LTE/CRT and a known multiplicative-order ratio identity are classical, but the explicit cross-prime threshold is not stated in the primary works read; its mathematical content is a global classification for every support rather than a new lifting lemma. Best-of-knowledge PASS with substantial risk of an old implicit derivation.
+
+## value
+
+PASS
+
+The order-based non-Wieferich integer condition is a natural published arithmetic classification problem. The exact threshold for every fixed odd-prime support and first qualifying power provides a complete answer to an invariant not decided by global density theorems, even though it is derived by elementary lifting/CRT rather than deep machinery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
