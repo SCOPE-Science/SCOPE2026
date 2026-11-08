@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` in a clean Python 3 environment using only the standard library. The test independently generates the defining anti-recurrence by maintaining its increasing complementary sequence, then compares the output with a substitution-based generator for each parameter and index in the declared finite sample. It separately enumerates all states and digits for \(1\le a\le200\), confirming the algebraic three-case identity and the invariant alphabet.
+## correctness
 
-Observed successful output:
+PASS
 
-```text
-VERIFY_OK tested_greedy_terms=75000 distinct_a=8 transition_cases=5576800 a_max=200 all_exact=yes
-```
+Proof checked: interval length κ=2(a+3)+1 contains exactly one A and 2τ complement values. Removing state offset r from 1..κ yields the explicit three-branch T_j(r), with T_j(S)⊂S={4,...,κ} for every a≥1. T_1(a+6)=a+6 ensures prolongability. Inductively defining r_(τm+j−1)=T_j(r_m) yields each complement pair B_(2τm+2j−1),B_(2τm+2j), and the recurrence exactly; uniqueness follows from greedy positive coefficients. DFAO digit transition gives base-τ automaticity. Independent direct greedy vs substitution matched first 1500 terms for a=2,3,7. No single uniform-in-a automaton claimed.
 
-The generator and all comparisons use exact integer arithmetic. These computations are not an exhaustive check of unbounded parameters or indices, and they are not an independent mathematical audit. The universal conclusion follows from the combinatorial construction and symbolic inequalities in RESULT.md.
+## originality
+
+PASS
+
+Fokkink–Joshi published Theorem 4 handles A1-bounded second coefficient≤2, and proves the specific (1,3) example; its Section 5 states broader case remains open. The current all-a≥2 family is outside that theorem, with a different closed transition alphabet. Other general automaticity theorems or OEIS-specific automata could imply the family; no such source identified in bounded Resultary/web search.
+
+## value
+
+PASS
+
+Constructive automaticity for the full terminal-three coefficient family advances the named conjecture beyond the previously proved A1-bounded region, and supplies an explicit automaton and arithmetic subsequence for each a.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

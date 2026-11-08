@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof constructs one selected integer per interval of length \(\kappa=2a+7\), proves that the precise piecewise complement-pair transformation preserves the offset alphabet \(\{4,\ldots,\kappa\}\), and checks the defining anti-recurrence identity at every index. The only self-reference in the uniform substitution is the verified prolongability condition. A standalone checker compares direct greedy generation to substitution formulas for 75,000 terms and independently checks 5,576,800 parameter-state-digit transitions. Finite checks corroborate the infinite proof, not the other way around.
+## correctness
 
-**Originality: PASS, with residual priority risk.** Fokkink–Joshi's 2025 preprint / 2026 article establishes automaticity for two-term coefficient forms whose terminal coefficient is at most two, and separately exhibits the already-known individual vector \((1,3)\). The proved all-parameter family \((a,3)\) with \(a\ge2\) is outside that hypothesis and is not a special case of the individual example. Bosma et al.'s anti-bonacci cases and relevant published search results do not imply this universal terminal-three substitution. Published records and available prior claims were compared by mathematical implication; unindexed equivalent work remains possible.
+PASS
 
-**Mathematical value: PASS.** This settles a natural infinite slice of the open automaticity conjecture immediately beyond the sharp published boundedness hypothesis, with arbitrarily large first coefficient and an explicit finite-state mechanism. The offset-alphabet closure and blockwise complement identity are uniform structural lemmas, rather than a numerical instance or a mere renaming of a known sequence. The specific \((1,3)\) instance and consequences already present in earlier work are not novelty claims.
+Proof checked: interval length κ=2(a+3)+1 contains exactly one A and 2τ complement values. Removing state offset r from 1..κ yields the explicit three-branch T_j(r), with T_j(S)⊂S={4,...,κ} for every a≥1. T_1(a+6)=a+6 ensures prolongability. Inductively defining r_(τm+j−1)=T_j(r_m) yields each complement pair B_(2τm+2j−1),B_(2τm+2j), and the recurrence exactly; uniqueness follows from greedy positive coefficients. DFAO digit transition gives base-τ automaticity. Independent direct greedy vs substitution matched first 1500 terms for a=2,3,7. No single uniform-in-a automaton claimed.
 
-**Closest work and limits.** Fokkink–Joshi, *Anti-Recurrence Sequences*, arXiv:2506.13337, Section 5, Figure 7, Definition 1, Lemmas 4–5, Theorem 4 (published version *Integers* 26, A24); Bosma et al., *Using Walnut to Solve Problems from the OEIS*, arXiv:2503.04122, Section 3. The result does not treat terminal coefficients exceeding three, arbitrary vectors, minimum automaton sizes, or independent priority verification. Proof remains subject to independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fokkink–Joshi published Theorem 4 handles A1-bounded second coefficient≤2, and proves the specific (1,3) example; its Section 5 states broader case remains open. The current all-a≥2 family is outside that theorem, with a different closed transition alphabet. Other general automaticity theorems or OEIS-specific automata could imply the family; no such source identified in bounded Resultary/web search.
+
+## value
+
+PASS
+
+Constructive automaticity for the full terminal-three coefficient family advances the named conjecture beyond the previously proved A1-bounded region, and supplies an explicit automaton and arithmetic subsequence for each a.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
