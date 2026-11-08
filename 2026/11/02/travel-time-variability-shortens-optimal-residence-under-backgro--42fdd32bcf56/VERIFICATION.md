@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The analytic proof establishes the renewal formula, strict unique global Bellman-optimal residence threshold, exact Laplace-order comparison, classical limit, and small-hazard variance expansion. For finite reproducibility checks run `python3 verification/check.py` from the root of this package using only the Python 3 standard library.
+# Independent mathematical audit
 
-The script verifies 2,311 assertions including the rational Laplace factors in the exact two-law example, the corresponding analytic thresholds and exact optimized rewards, finite parameter sweeps of monotonicity and unimodality, a nonexponential strictly decreasing marginal-gain function, and convergence to the small-hazard variance coefficient. A successful script is a numerical/symbolic consistency check, not a substitute for the analytic infinite-distribution proof. No independent validation or audit was conducted.
+## correctness
+
+PASS
+
+Reconstructed Bellman A-contraction on bounded patch-entry values and stationary ratio V_t=G_mu(t)/(1-Ae^-mu t). Differentiation has sign of g(t)-A H_mu(t), and F=g/H decreases strictly from 1 to 0 because F′=mu G_mu g′/H_mu². Jensen strictness under convex-order martingale coupling gives larger A for distinct equal-mean ordered laws, forcing smaller threshold and larger A V*. Correct small-mu expansion of first-order condition yields variance difference coefficient g(t0)/(2g′(t0)(m+t0)), strictly negative; finite third moments and local C² handle remainder. Independent symbolic F′ verification and exact e^-t,mu=1 two-law thresholds and rewards passed.
+
+## originality
+
+PASS
+
+Charnov/Calcagno standard marginal-value analyses maximize gain per travel+residence mean and do not include Laplace sensitivity of a mortality-clock objective. Wajnberg et al (2006) full text studies finite deterministic remaining horizon with uniform vs triangular transit laws whose means differ; this does not imply strict equal-mean convex-order shift under exponential mortality. Explicit full-text comparison supports a distinct model/result, though prior stochastic optimal-foraging literature may contain equivalent discounted renewal formulations.
+
+## value
+
+PASS
+
+This exact global policy and convex-order comparative statics isolate a natural distributional effect absent from classical mean-based marginal-value models, with a useful small-hazard variance coefficient and counterintuitive welfare response. The finding is motivated independently of routine renewal-algebra details.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

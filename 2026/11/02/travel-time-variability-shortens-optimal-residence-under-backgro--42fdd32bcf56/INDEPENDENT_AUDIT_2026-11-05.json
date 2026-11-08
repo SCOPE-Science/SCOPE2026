@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T12:16:13.517029Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed Bellman A-contraction on bounded patch-entry values and stationary ratio V_t=G_mu(t)/(1-Ae^-mu t). Differentiation has sign of g(t)-A H_mu(t), and F=g/H decreases strictly from 1 to 0 because F′=mu G_mu g′/H_mu². Jensen strictness under convex-order martingale coupling gives larger A for distinct equal-mean ordered laws, forcing smaller threshold and larger A V*. Correct small-mu expansion of first-order condition yields variance difference coefficient g(t0)/(2g′(t0)(m+t0)), strictly negative; finite third moments and local C² handle remainder. Independent symbolic F′ verification and exact e^-t,mu=1 two-law thresholds and rewards passed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General discounted MDP and convex-order Jensen imply machinery but not automatically evaluated unique threshold across arbitrary strictly decreasing gains; classical MVT generality lacks exponential death clock."
+        ],
+        "reasoning": "General stochastic control methods cover policy optimization abstractly, but the exact distributional comparison and variance coefficient require this specific reduction and strict uniqueness.",
+        "searches": [
+          "Calcagno et al 2013/2014 J Math Biol Sections 2–5; Wajnberg 2006 stochastic DP equations; standard Bellman contraction"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s00285-013-0734-y",
+        "https://doi.org/10.1007/s00265-005-0131-7",
+        "https://doi.org/10.2307/3545404",
+        "Resultary query 2026-11-05 optimal patch residence mortality convex order"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Calcagno makes optimal residence increase with mean travel time in standard rate model. Wajnberg gives longer residence with shortening remaining lifetime, not stationary exponential-clock convex ordering."
+        ],
+        "reasoning": "Earlier results do not imply the stated opposite sensitivity from spreading travel law at fixed mean; model differences are decisive.",
+        "searches": [
+          "Calcagno Section 5.1, Wajnberg full article pp1–10, Newman 1991 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Calcagno Theorem 1 compares changes in mean travel time via rate objective; Wajnberg finite horizon model is time-varying and compares uniform/triangular with different means."
+        ],
+        "reasoning": "Discounted renewal or survival weighting is a plausible alias. Closest inspected models use different objectives/lifetime treatments and do not determine strict equal-mean convex-order response.",
+        "searches": [
+          "Charnov 1976 marginal value theorem; Calcagno et al 2013/2014 full article; Wajnberg et al 2006 full text; Newman 1991 predation hazard"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wajnberg table/figures use numerical uniform and triangular travel distributions of different means; no matching mean-preserving variation table."
+        ],
+        "reasoning": "A numerical simulation with unequal means cannot give the all-distribution strict theorem or leading variance coefficient.",
+        "searches": [
+          "Resultary semantic search mortality travel-time residence convex order; Wajnberg 2006 simulations"
+        ]
+      },
+      "rationale": "Charnov/Calcagno standard marginal-value analyses maximize gain per travel+residence mean and do not include Laplace sensitivity of a mortality-clock objective. Wajnberg et al (2006) full text studies finite deterministic remaining horizon with uniform vs triangular transit laws whose means differ; this does not imply strict equal-mean convex-order shift under exponential mortality. Explicit full-text comparison supports a distinct model/result, though prior stochastic optimal-foraging literature may contain equivalent discounted renewal formulations.",
+      "residual_risks": [
+        "Earlier discounted stochastic dynamic-programming papers may imply the exact Laplace-factor reduction.",
+        "Newman 1991 full text not independently inspected; cannot rule out similar hazard comparative statics from abstract."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLASSICAL RATE OBJECTIVE, no exponential mortality distributional comparison",
+          "evidence": "§5.1 manipulates travel time T and derives mean-based residence response; theorem refers to long-run fitness.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-013-0734-y",
+          "material_read": "Full open-access Springer HTML, sections on assumptions, Theorem 1, sensitivity, §5.1 travel-time costs",
+          "method": "Direct primary full text on Springer",
+          "title": "How optimal foragers should respond to habitat changes: a reanalysis of the Marginal Value Theorem",
+          "trigger": "Most relevant generalized marginal-value primary model"
+        },
+        {
+          "assessment": "Different deterministic finite horizon, not equal-mean convex order under exponential hazard",
+          "evidence": "Uniform vs triangular transit means (T-1)/2 and (T-2)/3; DP depends on remaining lifetime.",
+          "identifier_or_url": "https://doi.org/10.1007/s00265-005-0131-7",
+          "material_read": "Full public author-uploaded article textual transcription including model, Eq.2, travel-law means and dynamic programming, results/discussion",
+          "method": "Read author-posted full text on ResearchGate",
+          "title": "Optimal patch time allocation for time-limited foragers",
+          "trigger": "Explicit random transit durations and finite life"
+        },
+        {
+          "assessment": "RISK: complete primary paper not read; abstract describes predation/refuge energy objective and numerical policies",
+          "evidence": "Newman 1991 abstract states objective avoid death rather than maximize expected accrued predeath gain.",
+          "identifier_or_url": "https://doi.org/10.2307/3545404",
+          "material_read": "Abstract and publication details only",
+          "method": "Search for lawful public full text; abstract read",
+          "title": "Patch use under predation hazard: foraging behavior in a simple stochastic environment",
+          "trigger": "Hazard-aware foraging plausible coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This exact global policy and convex-order comparative statics isolate a natural distributional effect absent from classical mean-based marginal-value models, with a useful small-hazard variance coefficient and counterintuitive welfare response. The finding is motivated independently of routine renewal-algebra details.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strict conclusions require strict convex-order dominance of different laws with equal finite means and homogeneous gain; not just larger variance.",
+    "Small-mu expansion requires third moments and local C²; model excludes stochastic patch information."
+  ],
+  "schema_version": 1
+}

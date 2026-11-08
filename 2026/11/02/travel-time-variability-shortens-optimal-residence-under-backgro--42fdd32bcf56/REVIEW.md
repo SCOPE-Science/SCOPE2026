@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The renewal identity follows by summing geometric survival factors over identical patch visits. The Bellman operator is a strict contraction because the mortality-weighted transit survival factor is below one, making the optimized fixed threshold globally optimal, including against history-dependent alternatives. Direct differentiation shows the threshold function has strictly negative derivative for every positive time, with endpoint range from one to zero. Jensen's inequality gives strict convex-order comparison; the small-hazard expansion follows from a regular implicit equation with finite third travel moments. The exact two-law example and all 2,311 standalone checker assertions agree with the proof. The checker does not establish infinite-law correctness independently.
+## correctness
 
-**Originality — PASS within inspected evidence, with residual priority risk.** Calcagno et al. (2013) treat long-run marginal-value gain-rate optimization, not an exponentially mortal life with random transit. Newman (1991) uses predation risk and a refuge but has fixed transit and a different dynamic objective. Wajnberg et al. (2006) incorporate random transit under finite deterministic horizon but compare distributions with unequal means and do not state a convex-order threshold or first mortality expansion. The later Calcagno et al. (2025) rMVT treats mortality and risk but the available indexed text focuses on fixed transit durations; its full technical text could not be opened for complete comparison. General Bellman renewal results and Jensen's inequality are prior mathematics and not claimed as innovations. See the structured comparisons in `AUDIT.json`.
+PASS
 
-**Value — PASS.** Unlike a mere change of normalization, the result resolves a decision-design ambiguity: in a standard mortality-free patch model, mean-matched random travel schedules are indistinguishable, but an exponential mortality risk makes their variability strictly and predictably relevant throughout all decreasing resource-gain curves. The precise transform gives a sufficient statistic for residence control, and the small-mortality formula quantifies the leading variance penalty to residence time. This is a theoretical ecology result, not a claim about observed animal behavior.
+Reconstructed Bellman A-contraction on bounded patch-entry values and stationary ratio V_t=G_mu(t)/(1-Ae^-mu t). Differentiation has sign of g(t)-A H_mu(t), and F=g/H decreases strictly from 1 to 0 because F′=mu G_mu g′/H_mu². Jensen strictness under convex-order martingale coupling gives larger A for distinct equal-mean ordered laws, forcing smaller threshold and larger A V*. Correct small-mu expansion of first-order condition yields variance difference coefficient g(t0)/(2g′(t0)(m+t0)), strictly negative; finite third moments and local C² handle remainder. Independent symbolic F′ verification and exact e^-t,mu=1 two-law thresholds and rewards passed.
 
-**Limitations.** Travel intervals must be independent, patches identical, background mortality exponential, marginal gain deterministically decreasing, and rewards retained on death. The near-zero mortality expansion requires additional smoothness and third moments. Historical priority and external scientific validation are not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Charnov/Calcagno standard marginal-value analyses maximize gain per travel+residence mean and do not include Laplace sensitivity of a mortality-clock objective. Wajnberg et al (2006) full text studies finite deterministic remaining horizon with uniform vs triangular transit laws whose means differ; this does not imply strict equal-mean convex-order shift under exponential mortality. Explicit full-text comparison supports a distinct model/result, though prior stochastic optimal-foraging literature may contain equivalent discounted renewal formulations.
+
+## value
+
+PASS
+
+This exact global policy and convex-order comparative statics isolate a natural distributional effect absent from classical mean-based marginal-value models, with a useful small-hazard variance coefficient and counterintuitive welfare response. The finding is motivated independently of routine renewal-algebra details.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
