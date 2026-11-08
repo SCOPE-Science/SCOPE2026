@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "For each boundary pair the exact small-gap probability is m^2 s^2/2 and the opposite Lagrange residues are +-C_i. Global bound W<=B_m/min_i Delta_i excludes other singularities, simultaneous adjacent tiny gaps are impossible, and simultaneous disjoint tiny gaps are O(t^-4). Scaling the two local offsets by t and dominated convergence gives m^2 E[C_i^2]. Sum yields K_m(z); its positivity and the exceptional central m=2 rule are proven. Exact integration yields K_3(1/2)=9/16-log(2)/2. Tail integration proves \\(p<2\\) iff finite, and conditional independent-noise variance is sigma^2 W^2. The independent numerical checker ran successfully with 18 diagnostics, none serving as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xu–Narayan 2021 gives oversampled random norming-mesh results rather than a square interpolant sampled once per cell.",
+        "Shen–Serkh 2022 treats deterministic-node backward error and Lebesgue constants.",
+        "Filtered Chebyshev methods use fixed nodes, which cannot approach a random shared boundary."
+      ],
+      "reasoning": "Potentially broader high-probability interpolation accuracy or norming statements depend on oversampling or deterministic separation and are not universal integrability results for square random interpolation, so they do not dominate the precise tail/moment claim.",
+      "searches": [
+        "Published semantic index: stratified jittered random Lagrange interpolation one sample per cell adjacent near collision heavy tail two moment critical",
+        "Web: randomly perturbed interpolation nodes Lebesgue constant expected moment 2021",
+        "Web: randomly jittered nodes interpolation polynomial Lebesgue constant probability large 2023"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2303.14074",
+      "arxiv:2101.04043",
+      "arxiv:2212.10519",
+      "arxiv:2008.00240",
+      "arxiv:2404.10117",
+      "Published index result: Sharp monotone range defect of uniform four-point cubic Lagrange interpolation",
+      "Published index result: A sharp three-knot positivity defect for natural cubic interpolation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Almost-sure nonsingularity permits arbitrarily ill-conditioned configurations and does not imply second-moment finiteness or divergence.",
+        "High-probability near-isometry needs more samples and has no exact collision-scaling formula.",
+        "Backward stability of a computed monomial interpolant assumes a given node configuration; it does not describe the probability law of a random configuration."
+      ],
+      "reasoning": "Each prior theorem has a different quantifier, design, or performance criterion. The new claim requires simultaneously an exact independent-full-cell law, fixed-degree Lagrange weight norm, sharp tail coefficient and moment characterization; none is entailed by the inspected results.",
+      "searches": [
+        "Primary full text: arxiv:2303.14074",
+        "Primary full text: arxiv:2101.04043",
+        "Primary full text: arxiv:2212.10519",
+        "Primary full text: arxiv:2008.00240",
+        "Published semantic index: polynomial interpolation noisy data Lagrange weights random nodes colliding probability t inverse squared tail moment"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A.s. interpolation invertibility in Dell’Accio et al. does not bound inverse moments.",
+        "Lagrange evaluation-weight ℓ2 norm equals the conditional independent-noise standard deviation divided by noise standard deviation.",
+        "No inspected source reports the same one-per-cell random-coefficient distribution."
+      ],
+      "reasoning": "Reformulating the tail as a negative-moment law of a random polynomial evaluation functional, or as unconditional noise amplification, does not make it a corollary of a.s. unisolvency or fixed-node conditioning; those supply no collision-face density or sharp constant.",
+      "searches": [
+        "Published semantic index: negative moments interpolating Lagrange basis random jittered nodes one uniform per interval second moment divergence exact \\(t^{-2}\\)",
+        "Published semantic index: collision singularity of random Vandermonde inverse stratified sample polynomial interpolation tail",
+        "Web: random Vandermonde uniform perturbed grid negative moments \\(t^{-2}\\) near collision"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The search surfaced fixed-grid cubic Lagrange overshoot and natural-cubic-spline positivity-defect findings, not this stochastic coefficient law.",
+        "The full-width midpoint three-node coefficient 9/16 - (log 2)/2 is independently obtained by an exact one-dimensional integral."
+      ],
+      "reasoning": "No accessible exact risk table or stronger formula was found matching all the independent-cell sampling assumptions, vector norm, evaluation position, and asymptotic parameter. Search failure alone does not certify novelty.",
+      "searches": [
+        "Published semantic index: randomized interpolation one point per bin Lebesgue constant probability tail",
+        "Web: random interpolation Lagrange coefficients variance infinite collisions stratified",
+        "Web: stratified samples Vandermonde inverse second moment infinite expected condition number"
+      ]
+    },
+    "rationale": "Compared exact statements and implications of random interpolation unisolvency, random oversampled norming meshes, deterministic Vandermonde conditioning, filtered Chebyshev stability, and public fixed-node interpolation range defects. Those results do not imply a tail coefficient of K_m(z) or the sharp \\(p<2\\) moment cutoff for one independent uniform sample per equal cell. Specialist negative-moment literature remains a residual publication-precedence risk.",
+    "residual_risks": [
+      "A complete bibliographic search cannot exclude an unpublished or differently titled exact random-Lagrange negative-moment theorem.",
+      "A 2026 work on perturbed Chebyshev-Lobatto points has an accessible abstract discussing worst-case near collisions but inaccessible full text in the available source; its announced deterministic perturbation scope is not a decisive exact probability-law comparison.",
+      "Some older Vandermonde conditioning papers were available only through abstracts; none inspected stated a stratified randomized moment theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "A.s. unisolvency for random polynomial sampling, no random evaluation-weight tail, negative-moment cutoff, or one-per-cell collision asymptotic",
+        "evidence": [
+          "Theorem 1.1 states almost-sure nonsingularity of random sampling matrices.",
+          "Section 2 discusses polynomial unisolvency and least squares; conclusions focus on nonsingularity rather than coefficient moment risk."
+        ],
+        "identifier_or_url": "arxiv:2303.14074; https://www.math.unipd.it/~marcov/pdf/unisolv.pdf",
+        "material_read": "Complete five-page author-preprint text: theorem 1.1, proof, polynomial examples, conclusion, references; page renderings examined for first two pages",
+        "method": "Primary lawful open-access author manuscript, text and page inspection",
+        "title": "Random sampling and unisolvent interpolation by almost everywhere analytic functions",
+        "trigger": "Closest explicit random interpolation theorem and direct primary motivating source"
+      },
+      {
+        "assessment": "Requires growing oversampled meshes and provides high-probability discrete-to-continuum norm comparability, not an exact square interpolation system with one uniform point per cell or fixed-degree \\(t^{-2}\\) coefficient",
+        "evidence": [
+          "Theorem 1.1 uses mesh-cardinality exponents and probability-one asymptotic WAM statements.",
+          "Theorem 4.1 uses samples M subject to a near-isometry lower bound."
+        ],
+        "identifier_or_url": "arxiv:2101.04043",
+        "material_read": "Web-accessible full-text Introduction, Theorem 1.1, Section 3 polynomial specialization and Section 4 sampled norm equivalence",
+        "method": "Primary arXiv full text",
+        "title": "Randomized weakly admissible meshes",
+        "trigger": "Potential stronger probabilistic polynomial norming theorem"
+      },
+      {
+        "assessment": "Backward error and deterministic Vandermonde conditioning for given nodes; no random stratum-collision probability distribution",
+        "evidence": [
+          "Theorem 2.2 bounds approximation error by interpolation error plus a backward-stability term and a Lebesgue constant.",
+          "The text has no occurrence of random or probability under source search."
+        ],
+        "identifier_or_url": "arxiv:2212.10519",
+        "material_read": "Full-text Introduction, Section 2 Lemma 2.1 and Theorem 2.2, numerical conditioning discussion; text searches for random/probability",
+        "method": "Primary arXiv HTML full text",
+        "title": "On polynomial interpolation in the monomial basis",
+        "trigger": "Possible published stronger evaluation-conditioning theorem"
+      },
+      {
+        "assessment": "Fixed-node Chebyshev interpolation and de la Vallée Poussin filtering with deterministic Lebesgue bounds; does not imply random full-cell tail coefficient",
+        "evidence": [
+          "Theorem scope concerns weighted-uniform norms of filtered Chebyshev interpolation, not probabilistic nodes."
+        ],
+        "identifier_or_url": "arxiv:2008.00240",
+        "material_read": "Introduction, fundamental interpolation kernel and stated main theorem scope on fixed Chebyshev nodes",
+        "method": "Primary arXiv full text",
+        "title": "On the filtered polynomial interpolation at Chebyshev nodes",
+        "trigger": "Possible stronger bound on Lagrange noise sensitivity"
+      },
+      {
+        "assessment": "Almost-sure RBF matrix nonsingularity, different basis and no quantitative random Lagrange noise tails",
+        "evidence": [
+          "Theorem 1 asserts almost-sure nonsingularity of generalized multiquadric matrices."
+        ],
+        "identifier_or_url": "arxiv:2404.10117",
+        "material_read": "Introduction and Theorem 1 (available full text)",
+        "method": "Primary arXiv full text",
+        "title": "Random sampling and polynomial-free interpolation by Generalized MultiQuadrics",
+        "trigger": "Nearby later random nonsingularity and conditioning context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "faf8bda6-def0-4242-b4cc-b9cc04f6a6da",
+  "value": {
+    "rationale": "The result addresses the stability of almost-surely solvable exact polynomial interpolation with common one-node-per-cell random designs: a geometrically sharp collision codimension gives an exact universal critical noise-moment order and a computable coefficient at arbitrary fixed degree. The two-node cancellation and explicit three-node log constant distinguish essential geometry, and infinite unconditional noise variance despite stratification identifies a practical safeguard requirement. The conclusion is not a routine restatement of a fixed-node interpolation norm bound.",
+    "status": "PASS"
+  }
+}
