@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For c>=3 and k>=3, derive cardinality EJR-1 iff s+x_i>=L=min(k,floor(c)) for each voter; s=2 is excluded. For s=0, cost EJR-1 is equivalent to max(x_i)>c; integer budget and group quotas force the half-integer chamber and x=(floor(c),floor(c)+1). For s=1, cost EJR-1 follows from the cardinality lower bounds, leaving x_i>=L-1 and x1+x2<=c; feasible exactly in the high-cost regime. Binomial subset counts yield all three high-cost plateaus and the fractional chamber. For c<3 or k<=2, selecting both shared projects is a direct witness. Exact direct exhaustive tests cover 72 rational cells and five more k=6 cells.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Peters, Pierczyński and Skowron (2020/2021) establish satisfaction of EJR or EJR up to one project under one utility model via MES.",
+        "Kraiczy and Elkind (2023) establish adaptive MES and efficient verification of EJR for approval utilities."
+      ],
+      "reasoning": "Existence and algorithmic coverage for one satisfaction function does not imply existence or exact counting for the intersection of cost-based and cardinality-based EJR-1 outcome sets. Neither inspected result gives a two-measure phase diagram.",
+      "searches": [
+        "Proportional participatory budgeting with additive utilities 2021 MES EJR-1 arxiv",
+        "arxiv:2008.13276 Section 3.1",
+        "arxiv:2310.10215 Introduction and contributions"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2302.03672",
+      "https://arxiv.org/abs/2008.13276",
+      "https://arxiv.org/abs/2310.10215"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original incompatibility example corresponds to k=c=5, where the new formula also yields zero.",
+        "The present theorem additionally proves exact fractional windows, a mixed-project recovery threshold, and an exhaustive labeled count; one counterexample does not imply these statements."
+      ],
+      "reasoning": "The initiating proposition neither proves positive compatibility outside its witness nor classifies the strict inequality at half-integer budget thresholds. No identified stronger source subsumes the claim. Priority uncertainty remains.",
+      "searches": [
+        "arxiv:2302.03672 Proposition 3.6 proof",
+        "arxiv:2008.13276 Section 3.1",
+        "2023 2024 approval budgeting simultaneous EJR cost cardinality two voters cheap expensive threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brill et al. (2023), Definition 3.5 fixes the same EJR-1 axiom; Proposition 3.6 provides exactly one incompatible cost-cardinality profile (k=c=5).",
+        "Finite independently evaluated counts distinguish the new k=4,c=7/2 and k=4,c=4 regimes."
+      ],
+      "reasoning": "The definitions are equivalent to those in the initiating paper; the proposition supplies a single negative point rather than a formula or real-cost classification. No equivalent full chamber/census statement was identified.",
+      "searches": [
+        "simultaneous cost cardinality extended justified representation up to one project exact feasibility phase diagram rational project cost staircase",
+        "Proportionality in Approval-Based Participatory Budgeting Brill Forster Lackner Maly Peters 2302.03672 simultaneous cost-based cardinality-based EJR-1 2 voters 2 shared costly projects private cheap projects",
+        "arxiv:2302.03672 Definition 3.5 and Proposition 3.6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The explicit 2023 numerical example has two shared cost-5 and ten private unit-cost projects.",
+        "A direct exhaustive checker confirms 8 labeled outcomes at k=4,c=7/2, zero at k=4,c=4, and 32 at k=4,c=6."
+      ],
+      "reasoning": "No inspected article or indexed record contained a table of the claimed arbitrary-k, arbitrary-real-c counts. The finite verifier does not establish uniqueness in the literature.",
+      "searches": [
+        "two voter participatory budgeting joint EJR cost cardinal 2 shared expensive k private unit exact cost staircase",
+        "participatory budgeting \"EJR-1\" \"two voters\" \"cost\" \"cardinality\" threshold",
+        "arxiv:2302.03672 Proposition 3.6"
+      ]
+    },
+    "rationale": "Brill et al. (2023) already exhibit incompatibility at k=c=5. The new claim is not the existence of incompatible cost/cardinality EJR-1 instances but an all-real-cost phase diagram and exact labeled-outcome counts, including fractional compatibility and recovery. Primary literature and relevant source material were compared by logical implication; no stronger covering statement was found, subject to unindexed prior work.",
+    "residual_risks": [
+      "Equivalent unindexed work might analyze the same two-voter family, though targeted searches did not locate it.",
+      "Some later literature may state stronger intersection guarantees on restricted profiles; the exact comparison would then require reading that primary text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the k=c=5 special counterexample and general single-measure rules; no parameterized real-cost compatibility theorem or labeled census in the inspected material",
+        "evidence": [
+          "Proposition 3.6 explicitly specifies two shared cost-five projects and five unit-cost private projects per voter.",
+          "Definition 3.5 requires a strict utility improvement after adding one unselected project; it is the definition used in the proof."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.03672",
+        "material_read": "Full-text HTML: model and satisfaction definitions in Section 2; Definitions 3.1, 3.5 and 3.6, Proposition 3.6 and its entire proof in Section 3; surrounding results and Appendix A statements and proof portions; PJR contrast in Section 4 and conclusions",
+        "method": "Direct full-text HTML inspection with targeted section and phrase search",
+        "title": "Proportionality in Approval-Based Participatory Budgeting",
+        "trigger": "Same two satisfaction measures and specific two-voter incompatibility example"
+      },
+      {
+        "assessment": "Establishes one-measure EJR/EJR-1 guarantees and MES; not an intersection-cost/cardinality parameter census",
+        "evidence": [
+          "Section 3.1 describes EJR up to one project and the strict cardinality threshold in approval instances."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2008.13276",
+        "material_read": "Full-text HTML introduction and Section 3.1 definition and approval special case",
+        "method": "Direct full-text HTML section and phrase inspection",
+        "title": "Proportional Participatory Budgeting with Additive Utilities",
+        "trigger": "Original EJR framework and up-to-one definition"
+      },
+      {
+        "assessment": "Adaptive and verifiable EJR methodology for one satisfaction model, not the claimed simultaneous count",
+        "evidence": [
+          "The contributions concern adaptive MES, budget changes and verifying EJR for approval utilities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.10215",
+        "material_read": "Full-text HTML introduction, contribution summary and discussion of EJR verification",
+        "method": "Direct full-text HTML relevant-section inspection",
+        "title": "An Adaptive and Verifiably Proportional Method for Participatory Budgeting",
+        "trigger": "Potential stronger EJR coverage or general implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9a3f16ce-a0fd-4553-9d62-4fd5a8899a1e",
+  "value": {
+    "rationale": "The initiating research highlights a practical modeling conflict between spending-based and project-count-based representation. This complete controlled phase diagram shows that coexistence can turn off at an integer cost, reappear at the half-integer, and fail again, before a distinct high-cost recovery; it also counts all feasible joint outcomes exactly. The dependence on strict EJR-1 inequalities and discrete project counts supplies substantive structural information rather than just reducing the size of the original witness.",
+    "status": "PASS"
+  }
+}
