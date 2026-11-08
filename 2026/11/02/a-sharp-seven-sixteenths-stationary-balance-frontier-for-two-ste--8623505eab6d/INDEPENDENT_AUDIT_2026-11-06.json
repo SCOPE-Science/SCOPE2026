@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:54:36.994288Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git tree 0d72a368dae63de34c1100f34b93a915b1153eff, RESULT.md blob 9be10510e31a68e27685901a040afaf4e48aa1c5",
+        "Frozen verify.py blob 593cac8d61fc1c69870946215954004b5b559090; independent CASE2_OK"
+      ],
+      "rationale": "Starting from the actual frozen coefficients c0=(3κ−1)/(3−κ), c1=4(1−κ)/(3−κ), β0=2κ²/D, β1=4κ/D, β2=2/D, D=(3−κ)(1+κ), the 2×2 Markov projector reduces the first coordinate exactly to x_t=[x0+tβ2x∞]/[1+tβ2], x0=c1u+c0v and x∞=(1+κ)²m−2κu−κ²v. Since both interpolation weights are positive, all t>0 and all vertices (u,v)∈[0,1]² are in [0,1] exactly when both endpoint affine functions preserve that square. The x0 test gives κ≥1/3. The stiff endpoint is minimized at u=v=1, yielding (1+κ)²(1−m)≤1; the maximum at u=v=0 then also ≤1 because m≤1/2. Solving the interval nonemptiness gives m≥7/16; violations at small or large finite t explicitly witness necessity. Independent rational matrices and endpoint comparisons gave CASE2_OK. Finite checks are corroboration of the all-history algebraic reduction.",
+      "residual_risks": [
+        "Only exact two-state autonomous constant-step LMM with independent normalized histories. No claim of preservation for arbitrary unnormalized cone or three or more states."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source family has exact displayed coefficients and an A-stability optimization; none of the accessible abstract text gives 7/16 stationary-mass simplex diagram."
+        ],
+        "reasoning": "Numerical stability and optimized stiff-decay factor are broader method properties, but not logically the exact all-h arbitrary-history Markov positivity statement. Full competing PDF remains inaccessible.",
+        "searches": [
+          "arxiv:2610.22685 Jensen–Ketcheson–Lóczi optimized stiff LMM",
+          "Resultary semantic query: two step implicit linear multistep L-stable probability simplex two state Markov arbitrary histories seven sixteenths stationary mass"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree 0d72a368dae63de34c1100f34b93a915b1153eff, RESULT.md blob 9be10510e31a68e27685901a040afaf4e48aa1c5",
+        "Frozen verify.py blob 593cac8d61fc1c69870946215954004b5b559090; independent CASE2_OK",
+        "Jensen–Ketcheson–Lóczi arxiv:2610.22685 abstract/base coefficients",
+        "Hundsdorfer–Ruuth–Spiteri CWI report 4231",
+        "Resultary two-state SSP-SDIRK2(2) and CN positivity findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source coefficients imply the endpoint affine maps after an additional two-state stationary projector; their parameter feasibility requires solving both x0 and x∞ conditions."
+        ],
+        "reasoning": "A known A-stable family does not automatically preserve the probability simplex; the extra 7/16 bound is not a tautological A-stability corollary. Full text access limitation is recorded explicitly.",
+        "searches": [
+          "arxiv:2610.22685",
+          "Hundsdorfer Ruuth Spiteri CWI report 04231D",
+          "Resultary semantic query: two step implicit linear multistep L-stable probability simplex two state Markov arbitrary histories seven sixteenths stationary mass"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-state projection gives x_t a convex interpolation between x0 and stiff x∞; unconstrained-history positivity is equivalent to two affine square-to-interval tests."
+        ],
+        "reasoning": "General cone monotonicity and scalar decay positivity have different input quantifiers. Compared absolute monotonicity and SSP coefficients, independent two-simplex histories, and stationary-mass constraints.",
+        "searches": [
+          "Resultary semantic query: two step implicit linear multistep L-stable probability simplex two state Markov arbitrary histories seven sixteenths stationary mass",
+          "Hundsdorfer–Ruuth–Spiteri Monotonicity-preserving linear multistep methods",
+          "Loczi arxiv:1609.07858"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related tables concern one-step RK maps and Crank–Nicolson rather than this two-step history-square family."
+        ],
+        "reasoning": "An exact seven-sixteenths classification under the same arbitrary-history quantifier was not located. A failed index search alone is not proof of priority.",
+        "searches": [
+          "Resultary semantic query: two step implicit linear multistep L-stable probability simplex two state Markov arbitrary histories seven sixteenths stationary mass",
+          "Resultary SSP-SDIRK2(2) and Crank–Nicolson positivity records"
+        ]
+      },
+      "rationale": "The named optimized two-step A-/L(κ)-stable family and its coefficients are prior work, not claimed novel. The exact stationary-mass-dependent unconditional simplex preservation of the coupled two-state system with arbitrary two independent probability histories differs from scalar decay positivity for a specified starter and generic SSP monotonicity results. Main Jensen–Ketcheson–Lóczi 2026 preprint accessible as abstract but full text inaccessible through arXiv and OA, with Oxford returning vpn_disconnected, so its appendices could conceivably imply this special case; this is an explicit residual originality risk, not a fabricated definitive negative finding.",
+      "residual_risks": [
+        "Identical motivating Jensen–Ketcheson–Lóczi full preprint was inaccessible via arXiv/OA and Oxford VPN; prior implicit specialization remains a material risk.",
+        "Only exact two-state autonomous constant-step LMM with independent normalized histories. No claim of preservation for arbitrary unnormalized cone or three or more states."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The base family and stability are prior; cannot certify no Appendix all-history theorem without full text.",
+          "evidence": [
+            "arxiv:2610.22685v1, Eq.25 as cited in frozen proof; Oxford vpn_disconnected job 76de7cf86ed85dc221bb48f2f439202f"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.22685",
+          "material_read": "ArXiv and alternate OA abstract/metadata, not complete article; attempted arXiv and OA PDF/HTML but inaccessible",
+          "method": "Primary abstract and indexed author descriptions; Oxford authorized attempt",
+          "title": "Optimized linear multistep methods for stiff problems",
+          "trigger": "Exact same base two-step coefficients and possible stronger positivity theorem"
+        },
+        {
+          "assessment": "The generic SSP/monotonicity framework is not documented to contain the exact 7/16 Markov stationary mass threshold; no full-document NOT_COVERING claim.",
+          "evidence": [
+            "Hundsdorfer, Ruuth and Spiteri, CWI report 4231"
+          ],
+          "identifier_or_url": "https://ir.cwi.nl/pub/4231/04231D.pdf",
+          "material_read": "Published report abstract/framework and mathematical comparison from cited package; full document not materially read in current audit",
+          "method": "Primary report contextual source and mathematical parameter implication",
+          "title": "Monotonicity-preserving linear multistep methods",
+          "trigger": "Potential general cone monotonicity implying this result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Git tree 0d72a368dae63de34c1100f34b93a915b1153eff, RESULT.md blob 9be10510e31a68e27685901a040afaf4e48aa1c5",
+        "Frozen verify.py blob 593cac8d61fc1c69870946215954004b5b559090; independent CASE2_OK",
+        "Jensen–Ketcheson–Lóczi arxiv:2610.22685 abstract/base coefficients",
+        "Hundsdorfer–Ruuth–Spiteri CWI report 4231",
+        "Resultary two-state SSP-SDIRK2(2) and CN positivity findings"
+      ],
+      "rationale": "A complete sharp transition between feasible and infeasible positivity-preserving methods under strong Markov generator imbalance is mathematically and numerically meaningful. Quantifiers over all simplex histories and all positive steps make the seven-sixteenths boundary more than a small numerical test.",
+      "residual_risks": [
+        "Identical motivating Jensen–Ketcheson–Lóczi full preprint was inaccessible via arXiv/OA and Oxford VPN; prior implicit specialization remains a material risk.",
+        "Only exact two-state autonomous constant-step LMM with independent normalized histories. No claim of preservation for arbitrary unnormalized cone or three or more states."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git tree 0d72a368dae63de34c1100f34b93a915b1153eff, RESULT.md blob 9be10510e31a68e27685901a040afaf4e48aa1c5",
+    "Frozen verify.py blob 593cac8d61fc1c69870946215954004b5b559090; independent CASE2_OK",
+    "Jensen–Ketcheson–Lóczi arxiv:2610.22685 abstract/base coefficients",
+    "Hundsdorfer–Ruuth–Spiteri CWI report 4231",
+    "Resultary two-state SSP-SDIRK2(2) and CN positivity findings"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Identical motivating Jensen–Ketcheson–Lóczi full preprint was inaccessible via arXiv/OA and Oxford VPN; prior implicit specialization remains a material risk.",
+    "Only exact two-state autonomous constant-step LMM with independent normalized histories. No claim of preservation for arbitrary unnormalized cone or three or more states."
+  ],
+  "schema_version": 1
+}
