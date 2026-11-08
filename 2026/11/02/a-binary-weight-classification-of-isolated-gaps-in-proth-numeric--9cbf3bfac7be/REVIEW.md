@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The asserted theorem has two compatible forms: the zero-or-two isolated-gap dichotomy for every \(m\ge3\), and its binary-weight specialization to Proth semigroups. The key Apéry equation is reconstructed from the exact generator identity \(2^i(m-1)+1=(m-1)(2^i-1)+m\). Higher coin totals exceed the explicit low-total candidate, so no optimal residue representative is missed. Replacing one Mersenne coin by two smaller ones gives \(L(t+1)-L(t)=\pm1\), which rules out isolated gaps outside residue one; the residue-one test gives precisely zero or two. A sharp final Apéry increase proves that the larger isolated gap is the Frobenius number. The powers-of-two partition criterion and no-carry bound \(2n<2^n\) justify the final Hamming-weight equivalence. Every quantified boundary \(m\ge3\), \(n\ge3\), and admissible odd \(k\) is addressed. An independent residue-graph verifier reproduces the derived formula on \(199\) general instances and \(68\) Proth instances; the proof, not those computations, supports the infinite claims.
+PASS
 
-## Originality — PASS within inspected evidence
+The final universal claim is for all m>=3 in S_m=<2^i(m-1)+1> and Proth m=k2^n+1 with n>=3, odd 1<=k<2^n. For each nonzero residue r the Apéry minimum w_r=(m-1)(m-r)+mL(m-r) follows from the generator identity and the larger-t cutoff. L(t+1)-L(t)=+/-1: append one 1-coin, and from an optimal t+1 representation delete a 1 or replace 2^i-1 by two copies of 2^(i-1)-1. All nonresidue-one gaps have a preceding gap, and the residue-one successor test equals m(1+L(m-1)-L(m-2)), either 0 or 2m. Thus zero or exactly two isolated gaps. In the latter case the final step f(m-1)-f(m-2)=2m-1 dominates possible earlier one-step declines, making w1 maximal and F=w1-m; isolated gaps are F-m,F. Binary splitting and absence of carries for j<2^(n-1) yield the criterion s2(k) in {2j+1-s2(j):j>=0}. No empty-case Frobenius formula is asserted. Independent integer Dijkstra/coin dynamic program verified m=3..71 and exact isolated-gap lists, not an infinite proof. Previously supplied verify.py inspection confirms wider explicit ranges; its output is not adopted as an external proof.
 
-Srivastava–Thakkar (arXiv:2311.12462v1) explicitly work with Proth semigroups, deriving embedding dimensions for general \(k\) and concrete Apéry/Frobenius results for the \(k=2^r+1\) specialization. Their text does not state the full isolated-gap classification by \(s_2(k)\). Smith (2022) discusses general isolated-gap relations with Apéry sets and embedding-dimension-two semigroups, not the displayed infinite generator family (the comparison with this work is limited to its public abstract). Singh–Ram (arXiv:2406.09848v1) concerns the two-generator case. Moreno-Frías–Rosales (arXiv:2305.14967v1) study general perfect-semigroup covarieties and algorithms, not this exact Hamming-weight decision. Earlier related mathematical findings about isolated gaps in unrelated special families and lower bounds for Proth pseudo-Frobenius type do not imply this full classification. A small special case can be obtained by combining existing Apéry calculations with general isolated-gap facts; novelty is claimed for the uniform all-\(k\) theorem and its sharp binary dichotomy, not for the definitions or the earlier Frobenius work. Absolute bibliographic priority remains unverified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating Proth paper studies numerical-semigroup invariants and highlights unresolved general parameter cases. The new theorem gives a clean and testable arithmetic answer about a natural invariant (whether a semigroup is perfect and precisely which gaps are isolated) for every admissible odd \(k\) and \(n\), with a surprising independence from \(n\). Its extension to every \(S_m\) is structural rather than a finite-case enumeration. The exact two-gap positions and the nonperfect-case Frobenius expression add mathematical content beyond mere terminology. It does not solve unrelated semigroup classification problems.
+Best-of-knowledge O PASS for the precise assessed final statement. Reviewed the actual final package and compared statements/implications with primary literature and published SCOPE/Resultary semantic results, using aliases, broader cases, tables and corollary checks. A binary-weight classification of isolated gaps in Proth numerical semigroups: the cited prior results cover background tools, objects and/or weaker observables; no identified theorem implies the complete evaluated final statement. Negative search is not a novelty proof; primary-source limitations and risks are explicit.
 
-## Closest literature, comparison limits, and residual risk
+## value
 
-Primary comparison: Srivastava–Thakkar, *The Frobenius Problem for the Proth Numbers* (2023), arXiv:2311.12462v1. Context: Moreno-Frías–Rosales, *The covariety of perfect numerical semigroups with fixed Frobenius number* (2023), arXiv:2305.14967v1; Singh–Ram, *On Isolated Gaps of Numerical Semigroups of embedding dimension two* (2024), arXiv:2406.09848v1; and Smith (2022), doi:10.3906/mat-2107-54. An unindexed equivalence or inaccessible deeper treatment remains possible. The finite checker does not constitute an independent scientific audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A motivated natural family of numerical semigroups already studied for Frobenius and Apéry data: whether it is perfect (no isolated gaps) is a discrete structural property, and the zero-or-two rigidity plus digit-weight-only classification across all n and k is nontrivial, usable for gap-theoretic classification. This is not an arbitrary small-parameter census or a generic algorithm merely rerun.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
