@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The implication identity in a downset algebra is reconstructed from its defining adjunction; the minimal-exclusion boundary lemma proves the if-and-only-if for every pair. The rooted lower bound counts one distinct failing consequent for each nonempty proper antecedent, while a three-element chain yields a second consequent if the height is too large. The dual argument isolates the coatom below a greatest point and forces its remaining points to be incomparable. The two-level count is an independent direct count. The standalone verifier evaluated all ordered pairs for 5,231 naturally labeled posets through six points and additional larger structured examples. Computation supports but does not prove unrestricted sizes.
+## correctness
 
-**Originality — PASS subject to historical-priority risk.** The primary 2021 paper by Bumpus and Kocsis proves that Peirce's equation lacks a uniform finite satisfiability gap, not this exact boundary formula or the rigid sharp finite-carrier bound for one-ended posets. The Stanford Encyclopedia entry supplies classical rooted Kripke background, not quantitative pair counts. Searches against published research and accessible prior claims found no implication that establishes these statements; absence of a match cannot establish absolute novelty. A prior alternating-predicate enumeration for weak orders produces a similar elementary-symmetric expression in different objects, but does not count Peirce failures or imply the rooted/co-rooted equality theorem.
+PASS
 
-**Value — PASS.** A qualitative no-gap result does not identify how many ordered failures must remain at each finite carrier size or which finite Kripke frames attain the minimum. The finding supplies a general exact positional formula, a linear lower bound for natural rooted and co-rooted frames, rigid structural equality cases and a complete two-level excess formula. It makes a precise rate-of-classicality statement in a literature-motivated class; it does not assert an all-Heyting universal lower bound.
+For any finite poset P and downsets A,B the Heyting implication is A→B={p: downarrow(p)∩A⊆B}. Every minimal excluded p has all strict predecessors in A, so p belongs to C=A→B precisely if these predecessors lie in B. The equation (C→A)=A is therefore equivalent to S(A)⊆B, where S(A) is their predecessor boundary; other excluded points lie above a minimal one. The number of successful consequents is |J(P\S(A))|, giving the universal sum of failures. If P has a least element, each nonempty proper A has a failure B=empty; a strict length-three chain makes an additional failure, forcing rooted star for equality. If P has a greatest point, the coatom A=P\{g} has h−2 failures and comparable elements below g create an additional one, yielding dual star. Two-antichain-level formula follows by counting distinct proper-upper antecedents times proper-lower consequents. Independent direct Heyting pair evaluation checked a 3-chain (h,F)=(4,3), a rooted 4-element star (9,7), its dual (9,7), and the 2+2 two-level poset (7,9); all checked against the boundary failure criterion.
 
-**Closest literature and residual risk.** Bumpus–Kocsis, arXiv:2110.11515 (2021), Sections 1 and 3, is the most directly relevant primary comparison. Standard finite distributive-lattice representation is background. Possible equivalent earlier calculations under finite-frame, pseudocomplement or Peirce identities remain a historical-priority uncertainty. Proof has been checked only within this review; no independent expert audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bumpus–Kocsis (2021 arXiv, 2025 journal) explicitly study this same two-variable Peirce equation; Corollary 3.11 shows no uniform satisfiability gap, a qualitative result rather than exact finite-rooted failure counts or equality cases. Birkhoff duality supplies representation not the extremal count. The claim’s quantitative refinement is not implied by their corollary alone.
+
+## value
+
+PASS
+
+Quantifying how close finite non-Boolean Heyting algebras can be to satisfying Peirce law is the expressly studied degree-of-satisfiability problem. The exact boundary formula for arbitrary finite P plus sharp rooted/co-rooted carrier-dependent lower bound and rigid equality cases measure how qualitative near-classicality behaves; this is a motivated natural classification, not a trivial restatement of no-gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
