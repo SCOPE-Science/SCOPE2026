@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T12:51:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the fixed point of 0->01,1->00, d_i=nu_2(i+1) mod 2 and no factor 0000 occurs. For any infinite word where each L-block contains 1, equality of T-images at longer length forces equality of the T-images of its first L symbols and thereby the original words if length-L T is injective (prefix inheritance). A 10-block is determined by residues modulo 16 except for at most one multiple of 16; representing that exceptional position by 16 or 32 supplies every 10-factor in the prefix of length 42. Independent valuation-based enumeration of those complete windows found the exact (p,rho) pairs (2,2),(3,2),(5,3),(6,3),(8,5),(10,7),(11,9),(12,10),(14,13),(16,16), distinct 16 images at n=10 and the collision 000101010/010001010 at n=9. Hence injectivity at n=1 and every n>=10, not at n=2..9. Prefix experiment is finite but enumeration is exhaustive for n=10 by the residue proof; inheritance is the infinite theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general bounded-deficit complexity discussion does not supply injectivity or its precise threshold for period doubling.",
+          "Period-doubling is not the paperfolding or Thue–Morse sequence of its detailed theorems."
+        ],
+        "reasoning": "Neither the general bounded-deficit estimate nor stability on one particular automatic word implies the sharp threshold or nine exceptional tortoise counts for another.",
+        "searches": [
+          "https://arxiv.org/html/2604.25811v2",
+          "period doubling infinite word one-pass tortoise sorting factors injectivity eventually length 10 stack sorting subword enumeration"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2604.25811v2",
+        "https://ajc.maths.uq.edu.au/pdf/77/ajc_v77_p051.pdf",
+        "https://oeis.org/A275202",
+        "period doubling infinite word one-pass tortoise sorting factors injectivity eventually length 10 stack sorting subword enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published tortoise results focus paperfolding/Thue–Morse.",
+          "Resultary related period-doubling string-attractor result is a distinct covering invariant."
+        ],
+        "reasoning": "No inspected prior theorem logically entails the n10 injectivity threshold; exact n10 enumeration plus the new prefix lemma is the needed implication.",
+        "searches": [
+          "https://arxiv.org/html/2604.25811v2",
+          "https://oeis.org/A275202",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-greedy-string-attractor-of-the-period-doubling-word--344443ea5b69"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Campbell–Rampersad section 3 defines tortoise-factor complexity, sections 5 and 6 study paperfolding and Thue–Morse; binary T acts by relocating the first 1.",
+          "Defant–Kravitz is source of map, not an all-length period-doubling language count."
+        ],
+        "reasoning": "The equivalent terminology is one-step stack-sorting/tortoise equivalence of factors, distinct from ordinary factor complexity. Same tortoise invariant in a different automatic sequence does not imply the exact period-doubling threshold.",
+        "searches": [
+          "period doubling infinite word one-pass tortoise sorting factors injectivity eventually length 10 stack sorting subword enumeration",
+          "https://arxiv.org/html/2604.25811v2",
+          "https://ajc.maths.uq.edu.au/pdf/77/ajc_v77_p051.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A275202 tabulates ordinary period-doubling factor complexity p(n), with recurrence p(2j)=2p(j), p(2j-1)=p(j-1)+p(j)."
+        ],
+        "reasoning": "This known sequence covers p(n), not the tortoise-image counts rho_T(n) or eventual injection. A coincident value rho=p past n10 needs proof of image injectivity.",
+        "searches": [
+          "https://oeis.org/A275202",
+          "period doubling infinite word one-pass tortoise sorting factors injectivity eventually length 10 stack sorting subword enumeration"
+        ]
+      },
+      "rationale": "Independent statement/implication comparisons found no decisive prior coverage of the exact assessed theorem, with explicit caveats. The equivalent terminology is one-step stack-sorting/tortoise equivalence of factors, distinct from ordinary factor complexity. Same tortoise invariant in a different automatic sequence does not imply the exact period-doubling threshold.",
+      "residual_risks": [
+        "Historical one-step tortoise computations for period-doubling under another name may be unindexed.",
+        "Enumeration relies on residue-modulo-16 coverage; independently checked prefix but not mechanically formalized as a universal theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_FOUND_NOT_COVERING_SPECIFIC_PD_THRESHOLD",
+          "evidence": [
+            "Section 3 defines tortoise complexity; sections 5-6 treat paperfolding and Thue–Morse, not the full period-doubling threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.25811v2",
+          "material_read": "Full accessible HTML: introduction, definitions, section 3 complexity, sections 5 paperfolding and 6 Thue–Morse, conclusion/references",
+          "method": "arXiv HTML v2, section and reference inspection",
+          "title": "Subword enumeration up to stack-sorting equivalence",
+          "trigger": "same one-step tortoise-factor statistic in automatic words"
+        },
+        {
+          "assessment": "PRIOR_FOR_ORDINARY_COMPLEXITY_ONLY",
+          "evidence": [
+            "p(n) is pre-existing; rho_T and injectivity are different"
+          ],
+          "identifier_or_url": "https://oeis.org/A275202",
+          "material_read": "Public recurrence and initial values as identified in submitted proof",
+          "method": "database sequence comparison",
+          "title": "OEIS A275202: subword complexity of period doubling",
+          "trigger": "exact p(n) recurrence overlaps claimed sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The single-step tortoise operation on a canonical automatic word defines a genuine complexity invariant. A sharp stabilization threshold and every exceptional count give a natural exact classification, and the bounded-gap prefix lemma is reusable. The result is not just an old ordinary factor-complexity recurrence or an isolated table; the infinite threshold needs the symbolic-dynamics argument.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the binary period-doubling fixed point under one application of tortoise is covered; arbitrary automatic languages and repeated tortoise iterates are not classified."
+  ],
+  "schema_version": 1
+}
