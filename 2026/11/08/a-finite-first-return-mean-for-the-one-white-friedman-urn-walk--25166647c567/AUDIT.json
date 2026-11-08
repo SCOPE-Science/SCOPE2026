@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Exact urn transition, explicit nonnegative potential, uniform negative differential drift, bounded discrete Taylor remainders, finite-time telescoping, and exact second moment prove E tau < 380000. Checkable with the attached standalone script. The infinite proof is analytic, not computational.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:0711.2373 treats recurrence/transience for a different urn-related drift regime.",
+        "arxiv:2105.09569 gives detailed p-elephant zero-return estimates and temporal-uniform bounds, potentially offering an alternative approach to shifted levels."
+      ],
+      "reasoning": "A general first-passage theorem with sufficiently broad hypotheses could imply the present result; none of the inspected statements directly does so. The p=0 elephant zero-return estimates do not explicitly address its shifted -1 hitting time. This is recorded as a residual priority risk rather than assumed impossible.",
+      "searches": [
+        "Urn-related random walk with drift Friedman urn positive recurrent first return",
+        "Friedman urn-driven one-dimensional walk with opposite-color reinforcement starting with one white ball finite expected first return to balance; explicit time-dependent Lyapunov potential",
+        "generalized elephant walk with time dependent drift minus x/n excursion survival"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2504.14813",
+      "arxiv:2105.09569",
+      "arxiv:0711.2373",
+      "doi:10.1007/s10955-026-03646-7",
+      "published note: Critical elephant cover times: exact rare-path profiles and mean constants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2504.14813v3 Sections 4–5: recurrence is established and first-return mean is an explicit future research problem.",
+        "arxiv:2105.09569v2 Section 4, Theorem 4.1: first return to the elephant walk origin, a different level than the shifted target here."
+      ],
+      "reasoning": "Recurrence alone cannot imply finite first-return expectation. The new stopping-time estimate proves the missing integrability statement through an explicit drift supermartingale. A known broad first-passage result might provide a different derivation but was not located.",
+      "searches": [
+        "Urn-driven random walks Balaji Mahmoud Friedman positive recurrent conjecture",
+        "elephant random walk p=0 first return time finite",
+        "Friedman urn driven random walk first return finite mean positive recurrence inverse time mean reverting drift Eulerian numbers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2504.14813v3, Sec. 5 conjectures the one-white Friedman walk mean first return is finite.",
+        "arxiv:2105.09569v2, Secs. 1,4 gives first-return results for an elephant walk relative to its own origin; its p=0 first return is deterministic at 2 and subsequent zero returns have asymptotic tails."
+      ],
+      "reasoning": "Subtracting one from the Friedman position and shifting the clock produces the p=0 anti-elephant walk, but the sought Friedman return then becomes a first hitting time of level -1 after the elephant walk has returned to zero. A return-to-zero theorem with a different target does not automatically establish the stated expectation bound. Searches revealed no exact equivalent claim.",
+      "searches": [
+        "Friedman urn first return time finite mean 2026",
+        "elephant random walk p=0 first return time finite",
+        "Friedman urn-driven one-dimensional walk with opposite-color reinforcement starting with one white ball finite expected first return to balance; explicit time-dependent Lyapunov potential",
+        "Anti-elephant random walk with ghost negative initial step hitting negative one, finite mean hitting time"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2504.14813v3, Sec. 4 contains Eulerian-number one-time marginal return probabilities, but Sec. 5 leaves the first-return expectation open.",
+        "A relevant published note on critical elephant cover times treats the critical memory regime rather than the zero-memory shifted-level stopping time considered here."
+      ],
+      "reasoning": "One-time Eulerian return probabilities do not determine the first-return expectation in this time-inhomogeneous process. No directly covering table/formula was found in the inspected sources or semantic records.",
+      "searches": [
+        "Friedman urn first return time finite mean 2026",
+        "Return to zero of the Eulerian ascent Markov chain; ballot Eulerian process, first return moment finite",
+        "Eulerian urn Friedman walk positive recurrent first return mean generating function ballot"
+      ]
+    },
+    "rationale": "The motivating paper specifically conjectures finite mean first return but proves only recurrence. A new explicit uniform Lyapunov drift and moment calculation yield a quantitative finite bound; the cited elephant and urn works treat related but nonidentical hitting questions. Historical priority remains provisional.",
+    "residual_risks": [
+      "A broader first-passage or martingale-embedding theorem may imply the claim via a nontrivial reduction.",
+      "Semantic records and public search are incomplete; independent historical-priority review is still needed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_OPEN_PROBLEM_NOT_COVERING",
+        "evidence": "Section 5 states a proof of finite expected first return remains future research; Section 4 proves recurrence only.",
+        "identifier_or_url": "https://arxiv.org/html/2504.14813v3",
+        "material_read": "Full HTML sections 1–5 including urn specification, Eulerian return marginal, recurrence theorem, and Section 5 first-return conjecture.",
+        "method": "Direct primary full-text review",
+        "title": "Urn-driven random walks",
+        "trigger": "Exact source conjecture and urn transition"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_TARGET",
+        "evidence": "At p=0, first return to its own origin at 2; second zero-return asymptotic is given, not first hitting a shifted level -1.",
+        "identifier_or_url": "https://arxiv.org/html/2105.09569v2",
+        "material_read": "Introduction, model, zero-return laws, Section 4 Theorem 4.1 and its hypotheses, and p=0-specific footnote.",
+        "method": "Direct primary full-text review",
+        "title": "Counting the zeros of an elephant random walk",
+        "trigger": "Potential stronger p=0 anti-elephant return law"
+      },
+      {
+        "assessment": "DIFFERENT_DRIFT_MODEL",
+        "evidence": "Analyzes urn-reinforced walks and recurrence regimes, without first-return integrability of the one-white opposite-reinforcement Friedman model.",
+        "identifier_or_url": "https://arxiv.org/abs/0711.2373",
+        "material_read": "Introduction, classification statements, and urn-related Section 6 from lawful open-access text.",
+        "method": "Primary preprint inspection",
+        "title": "Urn-related random walk with drift \\(\\rho x^\\alpha/t^\\beta\\)",
+        "trigger": "Possible general urn-walk recurrence implication"
+      },
+      {
+        "assessment": "DISTINCT_INITIAL_RUN_REGIME",
+        "evidence": "Studies a trained initial run in an elephant model, rather than the fixed one-white Friedman first-return question.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10955-026-03646-7",
+        "material_read": "Accessible article introduction and principal first-passage model/results.",
+        "method": "Primary article HTML inspection",
+        "title": "How Long does it Take to Train an Elephant Random Walk",
+        "trigger": "Possible trained elephant first-passage coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "25166647-c567-4372-8e60-df065a34e467",
+  "value": {
+    "rationale": "Closes the specifically stated finite first-return expectation conjecture of Balaji and Mahmoud, providing an explicit integrability certificate, rather than merely reiterating the known recurrence or producing a numerical simulation. Quantitative bound is coarse but the qualitative finiteness is new relative to inspected primary results.",
+    "status": "PASS"
+  }
+}
