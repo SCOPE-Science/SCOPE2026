@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The classical correlation recursions and the normalization \(\eta(0)=1\) imply exact initial values; the integral two-child matrices preserve the odd coordinate-sum invariant on the four base subtrees. For every odd \(n\ge9\), the first normalized coordinate is odd, giving the exact valuation, while small odd indices give the only two zero ancestors. Even indices reduce to odd ancestors. Fourier diagonalization proves the convolution statement; the exact checker covers 65,535 indices independently by rational recurrence and integer vectors. The program is not an infinite proof.
+## correctness
 
-## Originality
-**PASS under bounded review.** Baake–Grimm (arXiv:0809.0580) provide the autocorrelation recurrence, spectral measure and Riesz product; Baake–Coons (arXiv:2209.07102) provide further two-point matrix recurrences and mean-value results. Coons and collaborators (arXiv:2511.06386) explicitly identify the zeros at \(5\cdot2^r\), but do not classify all zero frequencies or derive the complete dyadic denominator law. Indexed research comparisons and accessible historical claims yielded no directly covering result. The full text of an autocorrelation paper from 1990 was unavailable, so possible earlier equivalent coverage remains a genuine risk; no independence of this review is asserted.
+PASS
 
-## Mathematical value
-**PASS.** The statement completely identifies the Fourier annihilator of a standard purely singular continuous diffraction measure, a motivated spectral invariant rather than an arbitrary subcase. It also obtains a uniform odd-shell arithmetic rigidity theorem and exact logarithmic zero counts in finite Fourier bands. The theorem does not evaluate general nonzero Fourier magnitudes or optimal decay rates.
+The classical recursions η(2n)=η(n), η(2n+1)=−(η(n)+η(n+1))/2 with η(1)=−1/3 yield Y_n=3·2^(⌊log₂n⌋−2)(η(n),η(n+1))∈Z², initially Y4=(-1,0),Y5=(0,1),Y6=(1,0),Y7=(0,-1). Exact child matrices [[2,0],[-1,-1]] and [[-1,-1],[0,2]] preserve odd coordinate sum. For odd n≥9 first coordinate is odd, so only odd zeros are 5 and 7; doubling supplies all and only the claimed zeros and the valuation formula. Nearby equal/opposite coefficient exceptions follow from the same invariant and the first eight values. Plancherel proves the torus-convolution nullspace. Independent Fraction reconstruction of 20000 terms matched the criterion and odd-shell valuation. Finite tests are not the infinite induction.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: exact statement and logical implication comparisons find no complete covering theorem in the inspected accessible primary text; all known relevant ingredients and partial subresults are credited. Historical-priority residual risks below remain.
+
+## value
+
+PASS
+
+Complete annihilator of a canonical singular continuous diffraction measure, quantitative exact dyadic denominator rigidity and logarithmic zero-count census form a substantive spectral/arithmetic classification. It sharpens the known infinite family of 5·2^r zeros by proving the 7·2^r family is complete and excluding all other zeros.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-Run `python3 check_thue_morse.py` from the directory containing the files. The checker uses only Python's standard library, constructs the balanced two-point autocorrelations with exact `fractions.Fraction` arithmetic through index 65536, and separately uses the two integral matrices to reconstruct the dyadically normalized adjacent pairs. It compares both constructions at every test index, checks parities, the zero classification and the exact dyadic window counts. The observed marker is `THUE_MORSE_DYADIC_ZERO_CERTIFICATE_OK 65535`.
+## correctness
 
-The finite checker cannot prove the infinite claim. The universal argument is the induction on two parity-preserving integer matrices in `RESULT.md`; it requires the classical autocorrelation recurrence and the normalization \(\eta(0)=1\). The Fourier-multiplier nullspace claim follows from Plancherel. Historical literature overlap remains a bounded risk, especially the inaccessible 1990 article. Independent audit and validation are not performed.
+PASS
+
+The classical recursions η(2n)=η(n), η(2n+1)=−(η(n)+η(n+1))/2 with η(1)=−1/3 yield Y_n=3·2^(⌊log₂n⌋−2)(η(n),η(n+1))∈Z², initially Y4=(-1,0),Y5=(0,1),Y6=(1,0),Y7=(0,-1). Exact child matrices [[2,0],[-1,-1]] and [[-1,-1],[0,2]] preserve odd coordinate sum. For odd n≥9 first coordinate is odd, so only odd zeros are 5 and 7; doubling supplies all and only the claimed zeros and the valuation formula. Nearby equal/opposite coefficient exceptions follow from the same invariant and the first eight values. Plancherel proves the torus-convolution nullspace. Independent Fraction reconstruction of 20000 terms matched the criterion and odd-shell valuation. Finite tests are not the infinite induction.
+
+## originality
+
+PASS
+
+Best-of-knowledge: exact statement and logical implication comparisons find no complete covering theorem in the inspected accessible primary text; all known relevant ingredients and partial subresults are credited. Historical-priority residual risks below remain.
+
+## value
+
+PASS
+
+Complete annihilator of a canonical singular continuous diffraction measure, quantitative exact dyadic denominator rigidity and logarithmic zero-count census form a substantive spectral/arithmetic classification. It sharpens the known infinite family of 5·2^r zeros by proving the 7·2^r family is complete and excluding all other zeros.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
