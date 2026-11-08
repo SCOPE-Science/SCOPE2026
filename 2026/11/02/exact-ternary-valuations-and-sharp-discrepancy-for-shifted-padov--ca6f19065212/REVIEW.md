@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact integer identity \(M^{13}=I+3A\) and the initial residue vector reduce all indices to three nonzero congruence classes. Integer backward extension gives \(P_{-9}=P_{-6}=-1\); the two unit-leading-term binomial expansions yield valuations \(1+\nu_3(m+1)\), while the remaining class is exactly valuation one modulo nine. The congruence classes give periodic counting with an exact sharp error calculation, including the global witness \(N=21,t=1\). The embedded verifier reproduces nontrivial finite premises and checks up to 200,000 terms, but the infinite proof does not rest on experiments. Remaining scientific risk is the usual possibility of an overlooked proof error, not a missing computational certificate.
+## correctness
 
-**Originality — PASS within available evidence.** Full openly readable scientific texts of Rihane–Togbé (2021), Bravo (2023), and Bravo–Irmak (2024) were compared with the exact **\(3\)-adic shifted \(P_n+1\)** formula and the sharp *all-level* counting errors. The first addresses Padovan repdigit products and different indexing, the second common Padovan/Perrin values, and the third two-adic \(P_n-1\) and \(R_n+1\). None of these inspected statements yields the new theorem or its exact discrepancy spectrum. Related accessible findings on unshifted Perrin three-adic valuations, shifted Narayana binary valuations and Padovan word combinatorics concern different objects and do not logically imply this classification. Targeted record and source searches found no stronger covering theorem; this is not a priority certificate. Some historical claims and potentially unindexed literature were unavailable.
+PASS
 
-**Value — PASS.** The result is a complete valuation classification for the natural Padovan sequence at a new prime/shift, together with exact nontrivial densities and the *optimal universal counting bound* across infinitely many valuation levels. This identifies a rigid ternary periodic-lifting structure, not a one-off congruence, arbitrary slice, or finite-table recomputation. The sharp simultaneous discrepancy law gives distributional information beyond just listing valuations. The methods are elementary once the appropriate period and negative-index roots are found, and no general theorem at other primes is claimed.
+The exactly specified standard recurrence P0=P1=P2=1 has companion M satisfying M^13=I+3A with integral A. Reducing Pn+1 modulo 3 gives only n=3,4,7 (mod13). The integer backward sequence has P_-9=P_-6=-1, and in both lifted branches the j=1 binomial term is a 3-adic unit times 3(m+1), while j>=2 terms have valuation at least 2+v3(m+1); the n≡3 branch is 3 mod9. The explicit complete residue sets at every valuation level yield densities and sharp per-period extrema (including global 29/13 at N=21,t=1). Independently checked 6,001 integer terms, the M^13 identity and whole periods t=0..6; the proof, not finite checks, covers all t,n.
 
-Closest literature: Rihane–Togbé (2021), Bravo (2023), Bravo–Irmak (2024); see the references in RESULT.md. No independent external evaluation has been performed; no claim of priority against inaccessible work is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original complete shifted three-adic Padovan valuation and sharp all-level error: the examined Padovan repdigit paper uses two-adic unshifted estimates; Bravo 2023 uses negative-index Padovan values for equations with Perrin; the 2024 shifted valuation paper concerns prime 2 and opposite shifts. No inspected theorem implies the exact v3(Pn+1) branches or optimal 29/13 discrepancy. Earlier equivalent hidden congruence tables remain possible.
+
+## value
+
+PASS
+
+This classifies the natural integer recurrence at a motivated prime/shift, with two nontrivial 3-adic lifting branches and a sharp uniform discrepancy simultaneously across infinitely many levels. It is more than a periodicity observation or a fixed-length numerical table; exact density and optimal joint counting bound are directly useful for arithmetic distribution questions. No assertion for other primes or shifts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
