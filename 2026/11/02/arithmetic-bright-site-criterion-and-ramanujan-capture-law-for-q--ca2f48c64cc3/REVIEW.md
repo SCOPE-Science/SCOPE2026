@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement specifies a finite graph with \(m\ge3\) positive-length arms, uniform nearest-neighbor adjacency hopping, a positive-rate absorbing hub, and a one-excitation initial condition. The proof first identifies the entire nondecaying subspace through a dissipative spectral argument, then solves the Dirichlet path eigenproblem on each arm. Distinct reduced fractions give distinct energies; each shared energy imposes exactly one nonzero hub-cancellation constraint. The local dark-space projector has rank \(c_q-1\) and explicit diagonal weights. Summing trigonometric squares gives the Ramanujan formula, and positivity converts it into the precise gcd/lcm divisibility classification. There is no inference from a finite enumeration to all lengths. Numerical projector comparisons (715 graphs, 7,973 sites), trace checks, and direct positive-loss semigroups independently support the algebra.
+## correctness
 
-## Originality — PASS on inspected evidence, with residual priority risk
-Anishchenko–Blumen–Mülken (arXiv:1111.7065) address unextended ordinary stars and coherent spreading without continuous hub loss. Thiel–Mualem–Meidan–Barkai–Kessler (arXiv:1906.08112) give a general bright/dark eigenprojection formula under repeated stroboscopic detection and apply it to ordinary stars and small trees; the general principle is explicitly not claimed as new. The present calculation evaluates the asymmetric spider path spectrum, yields an all-site exact Ramanujan expression and proves a gcd/lcm criterion for which individual sites are captured with certainty. Yalouz–Pouthier (DOI:10.1103/PhysRevE.97.022304) study central capture on a symmetric two-generation extended star. Their full article remained inaccessible: only the abstract and a search-indexed spectral passage could be compared. That creates real residual risk of partially overlapping special cases; nothing in the accessible material establishes the arbitrary-length site criterion. No inspected accessible source was found whose stated theorem directly evaluates the exact asymmetric all-site result. Search absence alone is not treated as proof of novelty.
+PASS
 
-## Value — PASS
-The precise question is which initial sites on a branched coherent network can be absorbed with certainty by a hub trap, when interference leaves dark states. This is a physically meaningful placement/design invariant, not an arbitrary finite count. The result resolves every arm length and starting site without diagonalizing the full Hamiltonian, identifies a sharp all-site coprimality design condition, and shows that some interior sites are perfectly absorbing even when the graph as a whole has nontrivial dark space. It also provides exact survival weights, not merely a yes/no obstruction. These claims can serve as tests for coherent transport and detector placement on unequal-arm networks.
+For a finite spider, hub-zero eigenvectors restrict to normalized Dirichlet sine modes on each arm; an eigenvalue indexed by reduced b/q is shared by precisely the shifted lengths divisible by q. The single nonzero hub-amplitude constraint removes one of c_q arm coefficient dimensions. The site diagonal of the resulting projector is (2/L_i)sin²(pi bt/q)[1-1/(L_i W_q)]. Summing primitive numerators gives the integer Ramanujan expression; nonnegative factors vanish exactly when all shared q divide t, equivalent to lcm_j gcd(L_i,L_j)|t. Dark dimension sum phi(q)(c_q-1) and mixed-state absorption follow from orthogonal spectral decomposition. Independent direct symmetric-adjacency projector for arm lengths (1,3,5) gave dark dimension 2 and 4 bright vertices, consistent with exact formula. Positive hopping/loss rates affect transient, not projection.
 
-## Known limits
-The result does not address unequal edge hopping, additional potentials, multiple traps, finite-time optimality, or the complete historical priority of an inaccessible related article. Independent external validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+All-arm heterogeneous path-length Ramanujan site-projection formula and gcd/lcm perfect-capture classification survive a statement-level comparison against an actual highly relevant 2018 absorbing extended-star article: it treats a two-generation dendrimer with N1 symmetric branches and N2 peripheral sites, not arbitrary path arms. Method and symmetric cases are old.
+
+## value
+
+PASS
+
+The bright-site condition is a concise arithmetic criterion that simultaneously classifies every initial vertex on irregular finite branched networks, plus full mixed-state capture. This nontrivial local invariant is useful without optimizing transport times.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

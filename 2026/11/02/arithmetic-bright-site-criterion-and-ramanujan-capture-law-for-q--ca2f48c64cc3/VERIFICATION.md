@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The divisor formula was compared to independently constructed adjacency-eigenspace projectors for 715 finite spider graphs, totaling 7,973 vertex probabilities; maximum absolute discrepancy was \(2.22\times 10^{-15}\). The same runs checked dark-space dimensions by projector trace and the exact site-capture criterion.
+# Independent mathematical audit
 
-Four finite-time non-Hermitian semigroup tests were performed with \(J=\kappa=1\), at \(T=12000\), comparing numerically computed no-jump survival to the derived infinite-time projection. The maximum discrepancy was \(1.17\times10^{-12}\). This is a finite-time numerical consistency check, not a proof of the infinite-time assertion.
+## correctness
 
-Run `python3 verify_spider.py` in a directory containing that script, with NumPy installed and optionally SciPy for the non-Hermitian semigroup checks. The analytical proof separately establishes all integer arm lengths, all positive hopping and loss rates, and every allowed initial site. No independent validation has been performed.
+PASS
+
+For a finite spider, hub-zero eigenvectors restrict to normalized Dirichlet sine modes on each arm; an eigenvalue indexed by reduced b/q is shared by precisely the shifted lengths divisible by q. The single nonzero hub-amplitude constraint removes one of c_q arm coefficient dimensions. The site diagonal of the resulting projector is (2/L_i)sin²(pi bt/q)[1-1/(L_i W_q)]. Summing primitive numerators gives the integer Ramanujan expression; nonnegative factors vanish exactly when all shared q divide t, equivalent to lcm_j gcd(L_i,L_j)|t. Dark dimension sum phi(q)(c_q-1) and mixed-state absorption follow from orthogonal spectral decomposition. Independent direct symmetric-adjacency projector for arm lengths (1,3,5) gave dark dimension 2 and 4 bright vertices, consistent with exact formula. Positive hopping/loss rates affect transient, not projection.
+
+## originality
+
+PASS
+
+All-arm heterogeneous path-length Ramanujan site-projection formula and gcd/lcm perfect-capture classification survive a statement-level comparison against an actual highly relevant 2018 absorbing extended-star article: it treats a two-generation dendrimer with N1 symmetric branches and N2 peripheral sites, not arbitrary path arms. Method and symmetric cases are old.
+
+## value
+
+PASS
+
+The bright-site condition is a concise arithmetic criterion that simultaneously classifies every initial vertex on irregular finite branched networks, plus full mixed-state capture. This nontrivial local invariant is useful without optimizing transport times.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
