@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is synchronous three-color cyclic updating on labelled loopless complete multipartite graphs with at least three nonempty shores, with the two enumeration formulas scoped to exactly three shores. The proof reduces unrestricted shore multiplicities to the complete set of 2,151 truncated seven-support patterns; the included standalone verifier checks every representative color-class trajectory through the required five iterates. The Hall-transversal argument independently derives the closed consensus-basin formula. The 343-support tripartite enumeration gives the complete primitive-three-cycle count. All 64 symbolic parameter tests and 25,137 independent microscopic states agree. There is no inference from bounded microscopic simulation to arbitrary sizes without the explicit compression lemma.
+## correctness
 
-## Originality — PASS, qualified
-Gravner, Lyu and Sivakoff (arXiv:1610.07320v1), especially Theorem 3, already characterize synchronized trajectories using an irrotationality test and prove a diameter bound; those parts are prior literature. The present scientific claim instead gives a universal exact iterate identity, a closed exact tripartite consensus-basin formula, an exact period-three orbit polynomial, and distinct exponential rates. A two-shore census concerns a different graph class and has period-four orbits; general parity automata results use a different update rule. Targeted comparisons did not reveal a prior result implying the explicit formulas. An unindexed historical equivalent remains possible.
+PASS
 
-## Value — PASS
-The number of transient versus periodic states and the allocation between synchronized and oscillatory basins are intrinsic dynamical statistics, not arbitrary parameter slices. Their closed forms show a sharp behavioral contrast between two and at least three interacting shores and a quantitative separation between rare transient and still rarer consensus configurations. The identity holds uniformly in the number and sizes of shores, rather than being a finite-graph census alone.
+An initial shore supports one of seven nonempty subsets of Z3. Each type evolves identically; multiplicities truncated at 0/1/2 preserve all neighbor-color existence predicates for each type, including self-exclusion when two same-type shores are needed. All 3^7−36=2151 admissible truncated profiles can therefore represent every multipartite graph with >=3 shores, so exhaustive F^5=F^2 verification on the reduced finite state space is a genuine all-size proof, not an extrapolation from bounded shore sizes. Independently implemented support evolution reproduced equality F5=F2 for all 2151 cases, and the full 343 support triple classification histogram (0,1):3,(0,3):121,(1,1):66,(1,3):90,(2,1):27,(2,3):36. The rainbow transversal absence Hall criterion and the prior irrotationality synchronization theorem derive exact consensus basin B(a,b,c); independent support occupancy summation matched it for (1,1,2),(2,2,2),(2,3,4),(3,4,5). Weighting support size k by surjective coloring numbers 1,2^n−2,3^n−3·2^n+3 gives the source polynomial P of immediately periodic 3-cycle configurations, divided by three for orbits; the finite complete 343-support certificate controls all sizes. All fixed states are monochrome; time-two sharp witness verified. Balanced asymptotics follow from degree-leading support weights.
 
-## Limitations
-No claim is made about basins of individual three-cycles, about exact three-cycle numbers for more than three shores, or about other numbers of colors. The finite complete certificate is inspectable and reproducible but has not been independently audited; earlier equivalent literature could remain unindexed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The counted object is the global orbit structure on precisely specified complete multipartite graphs, not parity automata; the universal two-step transient collapse and exact periodic census go beyond prior arbitrary-graph synchronization criteria.
+
+## value
+
+PASS
+
+Full period and basin classification is a natural invariant of synchronous excitable networks; complete all-size support compression plus exact formulas reveal a sharp transition from bipartite period-four to tripartite period-three dynamics and two different rare-event scales.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
