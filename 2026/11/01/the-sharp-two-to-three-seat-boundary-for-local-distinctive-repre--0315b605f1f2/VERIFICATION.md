@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite verification and analytical boundaries
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3.9 or later. The program enumerates all election candidate-support subsets with nonempty, distinct supports on up to five labeled voters, at most five labeled candidates, and two committee seats. It independently tests the source's JR and local-exchange definitions and the theorem's feasibility criterion. It then tests seeded pseudorandom elections allowing duplicate supporter sets, and the explicit six-voter, five-candidate three-seat example.
+## correctness
 
-Observed result:
+PASS
 
-`VERIFY_OK two_seat_unique_support_profiles=211380 random_profiles_including_duplicates=18000 three_seat_distinct_support_witness=6v_5c`
+For k=2, a JR witness is exactly absence of an available supporter set containing ≥q uncovered voters. If n odd any committee containing a q-support candidate satisfies JR; if n even the distinct-q-support-set vs common-set/complement coverage dichotomy gives the exact DR feasibility test. A case split by supporter sizes proves that any JR non-DR pair has a permitted quota-deviation-decreasing one-candidate swap while a DR pair exists; the integer deviation potential then terminates at DR. For k=3, q=2, six-voter five-candidate witness with supports a={1,2,3,4},b={3,5},c={4,5},d={2,6},e={5,6}: {b,c,d} is DR; {a,b,e} is JR and Local DR but not DR because both improving a→c,d break JR. Independent direct JR/swap enumerator confirms exact witness. The finite check is only a witness; k2 unlimited proof is the case analysis.
 
-These tests are finite; the proof in RESULT.md establishes all finite electorate sizes. The source's numerical example with four seats is not replayed. No external certificate, formal proof assistant, or independent audit is claimed.
+## originality
+
+PASS
+
+Best-of-knowledge qualified PASS: exact theorem/implication compared against the stated accessible primary work and semantic published-finding records. Inaccessible plausible literature is identified as risk rather than assumed not covering.
+
+## value
+
+PASS
+
+Determining the first committee size where a published local-search representation objective can trap despite feasible exact representation is a sharp natural algorithmic boundary. The complete k2 feasibility criterion and counterexample with pairwise distinct supports at k3 are concrete reusable voting-theory facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
