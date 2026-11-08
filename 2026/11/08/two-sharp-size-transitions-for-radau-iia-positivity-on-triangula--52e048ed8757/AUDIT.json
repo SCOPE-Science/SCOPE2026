@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The three distinct Laplacian eigenvalues of triangular J(n,2) yield a unique quadratic interpolation of the Radau IIA rational filter. Independent exact-rational matrix identities validate the explicit diagonal/edge/nonedge formulas. Positivity of Q4/Q5 is proved by explicit polynomial certificates; for n>=6 a negative rational witness plus Descartes gives precisely two positive diagonal roots. E74 has a strictly negative exact cubic discriminant and hence is positive on the positive axis; monotonicity of E_n(z/n) in n extends this to all n<=74; E_n(1/5)<0 for every n>=75 and Descartes gives two simple positive roots. H_n>0 for h>0. The verifier replayed 3770 exact checks including 25 full matrix identities; finite checks do not stand in for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ketcheson–Macdonald–Gottlieb, Sections 1–3: general SSP and stability-function absolute-monotonicity restrictions; their theorem controls uniform classes of linear operators, not this family-specific exact sign pattern.",
+        "Zappavigna et al., Section 4: diagonal Padé approximants and general M-matrix sufficient conditions; [1/2] Radau IIA is not a diagonal Padé method.",
+        "Bonaventura–Della Rocca, Section 2: general monotonicity framework, with main method TR-BDF2 rather than a Johnson-graph-specific Radau classification."
+      ],
+      "reasoning": "General SSP results constrain sufficient positive-step radii but do not determine exact positivity and later recovery at large timesteps for a fixed graph family. Different Padé types cannot be substituted without comparing stability functions; neither contains the two distinct exact graph-size thresholds.",
+      "searches": [
+        "Radau IIA absolute monotonicity nonnegative matrix for strongly regular graph distance two entries polynomial",
+        "https://www.davidketcheson.info/assets/papers/implicit_ssp_postprint.pdf",
+        "https://arxiv.org/abs/1510.04303",
+        "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://www.davidketcheson.info/assets/papers/implicit_ssp_postprint.pdf",
+      "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+      "https://arxiv.org/pdf/1510.04303",
+      "https://mathworld.wolfram.com/TriangularGraph.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The focal matrix is the completed Radau IIA filter R(z)=(6-2z)/(z^2+4z+6), not diagonal [m/m] Padé, TR-BDF2, RK4 or two-stage Gauss.",
+        "Triangular J(n,2) graphs with n>=5 are not paths, cycles, Hamming graphs, or complete multipartite graphs. The n=4 octahedral member is complete multipartite, an overlap explicitly restricted to that one graph.",
+        "Exact sign formulas rely on the three eigenvalues 0,n,2(n-1), and distinguish self-transition and adjacent-transition loss at different n."
+      ],
+      "reasoning": "Neither a different numerical method on the same graph, nor the same numerical method on an unrelated graph family, directly implies the present universal conclusion. General linear absolute-monotonicity bounds do not evaluate the two exact thresholds. Publication priority remains contingent on specialist literature not retrieved.",
+      "searches": [
+        "two stage third-order Radau IIA heat propagator positivity on triangular Johnson graph J(n,2) spectral phase thresholds six and seventy five",
+        "triangular graph line graph of complete graph numerical diffusion high order implicit Runge Kutta positivity sign cutoff",
+        "Radau IIA positivity strongly regular graph numerical heat diffusion nonnegative rational propagator",
+        "https://www.davidketcheson.info/assets/papers/implicit_ssp_postprint.pdf",
+        "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Triangular graph T_n and Johnson graph J(n,2) both denote the line graph of K_n. Its Laplacian eigenvalues are 0, n, and 2(n-1).",
+        "Related exact graph-specific source statements concern RK4 on triangular graphs, a different rational/polynomial filter."
+      ],
+      "reasoning": "Aliases and the adjacency/Laplacian sign convention were explicitly matched. A formula for RK4 or fourth-order Gauss does not imply sign thresholds for the two-stage third-order Radau IIA rational map. The searched source records did not present the same paired 6/75 transition.",
+      "searches": [
+        "two stage third-order Radau IIA heat propagator positivity on triangular Johnson graph J(n,2) spectral phase thresholds six and seventy five",
+        "triangular graph line graph of complete graph numerical diffusion high order implicit Runge Kutta positivity sign cutoff",
+        "Radau IIA positivity triangular graph Johnson graph J(n,2) numerical heat equation",
+        "https://mathworld.wolfram.com/TriangularGraph.html"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The standard triangular-graph data give the adjacency eigenvalues and strongly regular parameters, not the rational Radau timestep-sign polynomials.",
+        "A semantic result for two-stage SSP-SDIRK2 concerned two-state and three-state positivity, not this Radau method; no result with the same Johnson graph, rational filter and two thresholds was among returned matches."
+      ],
+      "reasoning": "A graph spectrum database can be used to derive the formulas, but it is not itself a table of entrywise Radau sign intervals. The absence of a matched search result is limited evidence, not proof of novelty.",
+      "searches": [
+        "two stage third-order Radau IIA heat propagator positivity on triangular Johnson graph J(n,2) spectral phase thresholds six and seventy five",
+        "Radau IIA absolute monotonicity nonnegative matrix for strongly regular graph distance two entries polynomial",
+        "triangular graph line graph of complete graph numerical diffusion high order implicit Runge Kutta positivity sign cutoff",
+        "Radau IIA [1/2] Padé triangular graph exact positivity threshold 75",
+        "https://mathworld.wolfram.com/TriangularGraph.html"
+      ]
+    },
+    "rationale": "The combination of the same [1/2] Radau IIA filter, triangular graphs J(n,2), two exact size thresholds n=6 and n=75 and all three transition-entry sign bands was not covered by the inspected primary numerical-analysis literature or the returned semantic research records. General SSP/Padé bounds and graph spectra are insufficient to imply these evaluated thresholds. Residual specialist literature priority risk is explicit.",
+    "residual_risks": [
+      "Older graph-association-scheme analyses of rational heat filters or unindexed preprints may derive an equivalent classification.",
+      "The inspected primary papers provide relevant theoretical coverage but no exhaustive survey of every publication; absence of a search hit is not a novelty proof.",
+      "The first-public date is verified for the focal arXiv submission, not asserted to be the earliest publication of all underlying numerical-method ideas."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General implicit SSP theory, not an evaluated Radau IIA positivity phase diagram on triangular graphs.",
+        "evidence": "Section 2.2 relates the linear SSP coefficient to the radius of absolute monotonicity of the stability function; Section 3 optimizes time integrators, not graph-specific nonnegative kernels.",
+        "identifier_or_url": "https://www.davidketcheson.info/assets/papers/implicit_ssp_postprint.pdf",
+        "material_read": "Abstract and relevant portions of Sections 1, 2.2, 2.3 and 3, including the linear SSP coefficient and stability-function comparison (PDF pages 1, 8–9 and method discussion).",
+        "method": "Examined retrieved full-text PDF and page rendering.",
+        "title": "Optimal Implicit Strong Stability Preserving Runge–Kutta Methods",
+        "trigger": "Foundational implicit SSP and rational stability-function constraints"
+      },
+      {
+        "assessment": "Covers diagonal Padé approximants, counterexamples and sufficient conditions; does not include a Johnson triangular graph [1/2] Radau phase classification.",
+        "evidence": "Its definitions and Theorem 3 specifically use p-th diagonal Padé approximations; focal method is the subdiagonal [1/2] approximant.",
+        "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+        "material_read": "Abstract, introduction, Padé definition, and relevant Section 4 discussions and Theorem 3, including pages 1–3, 13, 17–19.",
+        "method": "Examined full-text PDF and page renderings.",
+        "title": "Essentially Negative News About Positive Systems",
+        "trigger": "General Padé sign obstructions and potential prior coverage by rational filters"
+      },
+      {
+        "assessment": "Discusses TR-BDF2 and the general absolute-monotonicity framework, not Radau IIA on J(n,2).",
+        "evidence": "arXiv v1 submitted 2015-10-14 UTC. The document main section 3 begins with the TR-BDF2 method; the Radau IIA mention is general contractivity background.",
+        "identifier_or_url": "https://arxiv.org/abs/1510.04303",
+        "material_read": "ArXiv submission record and the primary PDF abstract, Sections 1–2 and the start of Section 3, including page renderings of pages 9 and 11.",
+        "method": "Inspected original freely accessible arXiv full text and exact public submission date.",
+        "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+        "trigger": "Verified pre-2016 public numerical-positivity source and related implicit integrators"
+      },
+      {
+        "assessment": "Provides graph context, not numerical-method entrywise sign formulas.",
+        "evidence": "The vertices are two-subsets adjacent when they intersect; this matches the proof domain.",
+        "identifier_or_url": "https://mathworld.wolfram.com/TriangularGraph.html",
+        "material_read": "Definition of T_n as L(K_n)=J(n,2), and adjacency description.",
+        "method": "Inspected reference HTML content.",
+        "title": "Triangular Graph",
+        "trigger": "Graph alias and exact family definition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "52e048ed-8757-40bd-a2b1-60625ff81b47",
+  "value": {
+    "rationale": "The two independent sharp graph-size barriers for endpoint positivity are natural structural invariants of third-order implicit heat diffusion on the infinite triangular graph family. The result locates all sign-loss and sign-recovery timestep intervals with explicit low-degree polynomial equations, and proves the unexpected all-step strict positivity of every nonadjacent entry. Neither arbitrary parameter slicing nor textbook numerical evaluation: the paired thresholds require an all-n root-count and monotonicity argument.",
+    "status": "PASS"
+  }
+}
