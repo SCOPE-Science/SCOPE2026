@@ -1,19 +1,21 @@
-# Scientific review: exact circular BWT of paperfolding prefixes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The arithmetic paperfolding definition implies a precise sixteen-symbol macroblock for each pair of parity and following paperfolding bit. All four macrotype populations are established by exact counts, and the sixty-four literal seven-letter tests give twenty-eight possible prefix classes. Only four classes have mixed predecessor letters. Two split by their eighth letter, one by its eighth and sixteenth letters, and the last is sorted by the recursive shorter-word rotations. The exceptional block has the proved recurrence \(B_j=A_jB_{j-1}\), with its explicitly sorted base case. Combining all classes gives the full eighteen-block transform and \(4k-4\) maximal equal-letter runs for every \(k\ge6\). The standalone checker tests independent literal sorting up to rank nine and the complete transform and symbolic macro enumeration through rank fourteen; these finite tests are corroboration, not a proof for unbounded ranks. The domain is deliberately sentinel-free and cyclic.
+PASS
 
-## Originality — PASS, subject to priority risk
+For ordinary paperfolding p(i) determined by odd part mod 4, P_k=p(1)...p(2^k), k≥6, the word has odd number 2^(k−1)+1 of ones hence all cyclic rotations distinct. Explicit parity-indexed sixteen-symbol macroblocks K_e(x), whose type counts are (r,r,r−1,r+1), yield 28 seven-factor classes by a complete 64-case enumeration. 24 classes have fixed predecessor bit; two mixed classes sort by 8th bit, third by 8th and 16th bits, final 1101100 class by recursively comparing shorter paperfolding rotations, with B_6=1011 and B_j=A_j B_(j−1). Thus exactly eighteen explicit consecutive BWT blocks and count 4k−4 runs. Independently generated p and lexicographically sorted every literal cyclic rotation for k=6..9, reproducing the entire exact 18-block predicted string, not merely run counts; finite instances corroborate but induction handles arbitrary k.
 
-The 1994 Burrows–Wheeler report defines rotation sorting but does not derive paperfolding instances. Allouche's 1992 primary article determines paperfolding factor complexity, including twenty-eight length-seven factors, but that number alone does not determine their ordering or predecessor-bit variation in circular BWT. Frosini and collaborators' 2022 preprint develops general logarithmic run bounds for purely morphic finite words, not this exact transform or the coefficient \(4\) for regular paperfolding. The full accessible primary texts were inspected, with comparisons by mathematical implication rather than names. Search for cyclic rotation, BWT runs, paperfolding, and automatic/morphic transform alternatives did not find an equal or stronger formula. Search incompleteness and alternative conventions remain real risks, particularly if an unlocated source has an exact circular paperfolding transform.
+## originality
 
-## Value — PASS
+PASS
 
-A full explicit infinite-family Burrows–Wheeler transform formula, with sharp run count \(4k-4\) and a finite factor-class mechanism, is a motivated compressibility/indexing invariant. The formula gives all transform letters without enumerating all rotations, and separates the lone recursively sorted local class from twenty-seven fixed or short-lookahead classes. It is meaningfully stronger than a generic logarithmic upper bound, not a renamed factor-complexity theorem or a few enumerated ranks.
+The exact 18-block formula and universal run count 4k−4 are more specific than previously known paperfolding factor complexity 28 at length seven and general morphic-BWT O(log n) bounds.
 
-## Evidence and limitations
+## value
 
-The derivation appears in `RESULT.md`; the complete twenty-eight-class finite certificate is `SEVEN_GRAM_TABLE.md`, and independent finite replay is `checker.py`. Source comparisons use the original Burrows–Wheeler technical report, Allouche (1992), and the Frosini et al. (2022) freely accessible preprint. This is a self-review, not a publication-priority guarantee or an independently audited mathematical proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Circular BWT run count is a standard compressibility/indexing invariant. This entire infinite-family transform is specified by a finite macroblock mechanism and one recursive class, giving exact 4k−4 rather than merely O(log n); it is a motivated structural classification, not a few sample ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T23:51:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-circular-burrows-wheeler-transform-of-dyadic-paperfolding--9825ad558824/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-circular-burrows-wheeler-transform-of-dyadic-paperfolding--9825ad558824/checker.py",
+        "/mnt/data/scope_worker03_20261106T2340Z/independent_checks_output.txt"
+      ],
+      "rationale": "For ordinary paperfolding p(i) determined by odd part mod 4, P_k=p(1)...p(2^k), k≥6, the word has odd number 2^(k−1)+1 of ones hence all cyclic rotations distinct. Explicit parity-indexed sixteen-symbol macroblocks K_e(x), whose type counts are (r,r,r−1,r+1), yield 28 seven-factor classes by a complete 64-case enumeration. 24 classes have fixed predecessor bit; two mixed classes sort by 8th bit, third by 8th and 16th bits, final 1101100 class by recursively comparing shorter paperfolding rotations, with B_6=1011 and B_j=A_j B_(j−1). Thus exactly eighteen explicit consecutive BWT blocks and count 4k−4 runs. Independently generated p and lexicographically sorted every literal cyclic rotation for k=6..9, reproducing the entire exact 18-block predicted string, not merely run counts; finite instances corroborate but induction handles arbitrary k.",
+      "residual_risks": [
+        "Only sentinel-free circular transform of the complete dyadic prefixes k≥6, not arbitrary prefixes or sentinel-terminated BWT.",
+        "The lone recursive sorting class must preserve cyclic wrap-around and exact parity splits; examined proof handles last macro p(m)=1 and a separate k=6 base."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frosini et al. show O(log |w|) for a broad morphic family, possibly covering growth class of P_k.",
+          "Allouche analyzes factor complexity and parity, not the circular transform."
+        ],
+        "reasoning": "General big-O asymptotics subsume at most the growth order, not the exact coefficient and full transform specification; the strong novelty is the explicit infinite-family classification.",
+        "searches": [
+          "arxiv:2202.02609 full paper logarithmic BWT purely morphic",
+          "Allouche 1992 paperfolding 7-factor complexity"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-circular-burrows-wheeler-transform-of-dyadic-paperfolding--9825ad558824/RESULT.md",
+        "Resultary semantic search: paperfolding word Burrows Wheeler transform circular dyadic prefixes exact runs",
+        "https://doi.org/10.1017/S0004972700011655",
+        "https://arxiv.org/pdf/2202.02609",
+        "https://www.cs.jhu.edu/~langmea/resources/burrows_wheeler.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known BWT algorithm permits computing individual finite P_k, and known factor complexity 28 bounds classes.",
+          "New recursive sorting of the ambiguous factor 1101100 is required to derive B_k and run count exactly."
+        ],
+        "reasoning": "Neither general algorithm nor count of local factors implies the closed form without the specified cyclic order recursion.",
+        "searches": [
+          "DOI:10.1017/S0004972700011655",
+          "arxiv:2202.02609",
+          "Burrows Wheeler 1994 algorithm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Allouche 1992 gives 28 length-7 paperfolding factors, a count used in the 64-case local split.",
+          "Frosini et al. 2022 develop logarithmic BWT run bounds for broad purely morphic word classes, not the exact 18-block cyclic transform in the scientific text inspected."
+        ],
+        "reasoning": "A factor-count identity is insufficient to order equal-prefix rotations and derive their preceding-symbol string; arbitrary O(log n) rate does not force exact 4k−4.",
+        "searches": [
+          "paperfolding word Burrows Wheeler transform circular dyadic prefixes exact runs",
+          "paperfolding BWT exact 4k-4 circular rotations",
+          "Frosini Mancini Rinaldi Romana Sciortino BWT morphic words arxiv 2202.02609"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 28 seven-factors appear in Allouche and are not claimed new.",
+          "The source package SEVEN_GRAM_TABLE.md enumerates 28 local classes with exact multiplicities and predecessor rules; separately validated full BWT strings k=6..9."
+        ],
+        "reasoning": "A published seven-factor table is weaker than a table of lexicographically ordered BWT predecessor blocks; Resultary paperfolding attractors concern a different invariant.",
+        "searches": [
+          "paperfolding factor seven exact table Allouche 1992",
+          "paperfolding BWT finite rank run table",
+          "Resultary paperfolding string attractors dyadic prefixes"
+        ]
+      },
+      "rationale": "The exact 18-block formula and universal run count 4k−4 are more specific than previously known paperfolding factor complexity 28 at length seven and general morphic-BWT O(log n) bounds.",
+      "residual_risks": [
+        "A less searchable exact circular paperfolding-BWT theorem under another folding sequence convention could subsume the result; author indexing/sentinel variations need care."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "known 28 factors, no exact complete-prefix circular BWT order identified",
+          "evidence": "Allouche 1992",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972700011655",
+          "material_read": "Paperfolding word definitions, length-seven 28-factor classification and proof",
+          "method": "open Cambridge primary PDF relevant sections/pages",
+          "title": "The number of factors in a paperfolding sequence",
+          "trigger": "same word factor complexity"
+        },
+        {
+          "assessment": "general asymptotic rate, not explicit paperfolding k coefficient or 18-block word",
+          "evidence": "Frosini et al. 2022",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.02609",
+          "material_read": "Abstract, full preprint definitions, main O(log n) theorem, bispecial/circular-factor proof arguments and examples",
+          "method": "open full arXiv preprint and rendered PDF first page",
+          "title": "Logarithmic Equal-Letter Runs for BWT of Purely Morphic Words",
+          "trigger": "closest broader BWT-run theorem"
+        },
+        {
+          "assessment": "foundational transform, not paperfolding-specific run theorem",
+          "evidence": "Burrows–Wheeler 1994",
+          "identifier_or_url": "https://www.cs.jhu.edu/~langmea/resources/burrows_wheeler.pdf",
+          "material_read": "Original rotation sorting definition used by BWT; not a theorem-by-theorem inspection of the complete report",
+          "method": "original method citation and scientific definition",
+          "title": "A Block-sorting Lossless Data Compression Algorithm",
+          "trigger": "original circular BWT definition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cee6a8611931dc24cf27d27764642f895841c83e/2026/11/02/exact-circular-burrows-wheeler-transform-of-dyadic-paperfolding--9825ad558824/RESULT.md",
+        "https://doi.org/10.1017/S0004972700011655",
+        "https://arxiv.org/pdf/2202.02609",
+        "https://www.cs.jhu.edu/~langmea/resources/burrows_wheeler.pdf"
+      ],
+      "rationale": "Circular BWT run count is a standard compressibility/indexing invariant. This entire infinite-family transform is specified by a finite macroblock mechanism and one recursive class, giving exact 4k−4 rather than merely O(log n); it is a motivated structural classification, not a few sample ranks.",
+      "residual_risks": [
+        "No claim for all morphic words, other paperfolding instructions or arbitrary lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only sentinel-free circular transform of the complete dyadic prefixes k≥6, not arbitrary prefixes or sentinel-terminated BWT.",
+    "The lone recursive sorting class must preserve cyclic wrap-around and exact parity splits; examined proof handles last macro p(m)=1 and a separate k=6 base.",
+    "A less searchable exact circular paperfolding-BWT theorem under another folding sequence convention could subsume the result; author indexing/sentinel variations need care.",
+    "No claim for all morphic words, other paperfolding instructions or arbitrary lengths.",
+    "Scientific best-of-knowledge judgment, not a formal proof certificate or priority attestation; no publication authorization."
+  ],
+  "schema_version": 1
+}
