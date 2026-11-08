@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof uses an exact three-class Markov reduction, strict convexity of the mean and a regenerative rare-target argument. The standalone `checker.py` uses independent full vertex-state rational linear systems, not the derived three-class equations, to verify the mean and generating function, and independently propagates vertex-level distributions for the initial ten hitting-time probabilities. It also compares examples of nonisomorphic regular cores, boundary and interior optimization cases, and large-parameter formulas.
+## correctness
 
-Run using Python 3 (standard library only): `python checker.py`. The reviewed execution returned `PASS 5247 exact comparison and analytic-limit assertions`.
+PASS
 
-Finite-state checking is supplementary. The general topology-invariance proof depends on exact regularity, the unique optimizer on strict convexity, and the limit on independent regenerative trials with uniformly bounded failure-duration variance. No independent audit has been performed. The result does not verify any claim of global historical uniqueness.
+At every core vertex, next-step return to apex has probability q=r+(1-r)/(d+1), independent of core topology; decoys return after one step. This proves exact strong lumpability of the target, core, decoy, apex classes. Solving first-step PGF equations yields the stated rational pgf, and differentiating F=(m+L)/(1-r)+m(d+1)/(1+dr)+L-1 proves strict convexity, unique minimizer r=0 iff md(d+1)<=m+L and otherwise r*=(sqrt(md(d+1)/(m+L))-1)/(sqrt(md(d+1)/(m+L))+d). Core geometric excursions coupled by inverse uniforms give stochastic monotonicity in d. For m,d->infinity, L/m->lambda<infinity, success at each apex trial is p~1/[m sqrt(1+lambda)(1+sqrt(1+lambda))], failed-trial duration has limiting mean 2 and bounded second moment, implying T/m exponential with mean 2 sqrt(1+lambda)(1+sqrt(1+lambda)); exact mean agrees. Independently recomputed 36 exact rational full-vertex expected hitting times including nonisomorphic 2-regular C6 vs disjoint triangles; proof establishes all admissible cores.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS for full topology-invariant law and sharp pendant-count optimization and rare-target exponential asymptotics; elementary renewal identities are prior tools.
+
+## value
+
+PASS
+
+An apex connected to a regular trap and L decoy leaves is a natural search model with competing long excursions and fast failures. Exact all-deadline topology invariance, a critical pendant load, unique optimal resetting and exponential rare-target limit provide useful, motivated structural results beyond generic reset formula substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
