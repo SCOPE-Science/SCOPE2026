@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The mathematical proof is in `RESULT.md`. Run the standalone checks with Python 3 and only the standard library:
+# Independent mathematical audit
 
-```
-python3 verify_designs.py
-python3 verify_ef3.py
-```
+## correctness
 
-The captured outputs are `verify_designs.out` and `verify_ef3.out`. The direct checker validates each finite design's \(2\)-design property, enumerates full third-vertex equality/adjacency profiles for all ordered pairs, and checks all three claimed classes against examples with \(6,12,20,21,36,52,105,150,186\) flags. The independent checker computes exact first-order three-round types recursively through all ordered triples on six representative graphs. Both compare the universal design class with the Johnson graph \(J(7,3)\); the direct checker also identifies an explicit induced-claw witness in that Johnson graph.
+PASS
 
-These computations are corroboration, not a proof of the infinite all-design claim. The proof uses the design identities and game lemma to establish every quantifier. Program executions have not been independently audited; external validation is unperformed.
+EF three-round equivalence reduces to uniform first-vertex pair profiles of third-vertex equality/adjacency patterns. For r=(v-1)/(k-1), distinct adjacent flags share r-2 or k-2 common neighbors; nonadjacent flags share at most one and both types occur. All remaining single-vertex patterns are available (for k>=3 the inequality vr>2(r+k-1); for k=2,v>=4 similarly); C6 boundary handled separately. This proves profile uniformity for every design, not just enumerated examples. Two explicit rank3 triangle/edge-without-common-neighbor sentences separate rows. r>=k for k>=3 gives minimum vr=21, Fano witnesses equality; other minima 6,12. J(7,3) has same extension profile and an induced claw certifies rank4 separation from all line graphs. Independently constructed pair-type enumerator for pair designs v=3,4,5, Fano, J(7,3) and reproduced equivalences, without treating samples as general proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the complete final claim after explicit statement/implication comparison; qualified by documented priority risks. The proof supplies necessary design-specific pair geometry and exact 00-pattern bounds, which are not consequences of merely citing Levi graph and Johnson terminology.
+
+## value
+
+PASS
+
+A complete shallow model-theoretic classification of the natural flag line graph for every finite Steiner 2-design, not an arbitrary specific example. It shows exact insensitivity to design isomorphism, sharp smallest representatives, and a structurally striking Johnson-graph equivalence followed by one-rank separation. The result is usable as a low-quantifier distinguishing bound in incidence structures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
