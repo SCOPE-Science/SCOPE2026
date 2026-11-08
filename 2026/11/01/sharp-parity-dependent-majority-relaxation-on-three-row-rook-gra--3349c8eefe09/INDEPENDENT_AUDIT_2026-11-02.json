@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T19:04:55.582858Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The proof exactly reduces every labelled 3n-vertex state on K3□Kn (tie retention) to eight original column types and three row totals; the multinomial formula counts all labelled states with no duplication. I read scripts/verify_symbolic.py and both source SMT constraints and independently regenerated both complete unbounded QF_LIA counterexample formulas, byte lengths 79,340 (odd) and 94,484 (even), checked them through the installed libz3 interface and obtained UNSAT twice (≈0.66s and 3.24s). The formulas quantify arbitrary k≥1 and arbitrary integer type multiplicities; unlike finite samples, unsatisfiability with a sound integer solver proves F^5=F^3 for all odd n≥3 and F^6=F^4 for even n≥2. Parameterized three-type trajectories realize first-entry times 3 and 4 respectively, with separate exact n=2,4 counts. I checked the witnesses for several parameter values. Limits: solver soundness and encoding inspection, not a handwritten elimination proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goles–Olivos establishes eventual period ≤2 for finite symmetric threshold networks.",
+          "Kaaser et al Sections 1–3 derive general graph and module-bound voting times, not a uniform 3/4 formula for this graph.",
+          "Benjamini et al Sections 1–2 derive period-two results on unimodular networks and random graphs."
+        ],
+        "reasoning": "A general periodicity bound leaves the first-entry time arbitrary; a graph-specific bound 3 or 4 plus sharpness is a stricter independent conclusion. The general papers are credited.",
+        "searches": [
+          "Kaaser Mallmann-Trenn Natale On Voting Time of Deterministic Majority Process arxiv:1508.03519",
+          "Goles Olivos periodic behaviour generalized threshold functions 1980",
+          "Benjamini Chan O Donnell Tamuz Tan arxiv:1405.2486 majority dynamics"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen https://github.com/SCOPE-Science/SCOPE2026/blob/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/sharp-parity-dependent-majority-relaxation-on-three-row-rook-gra--3349c8eefe09/RESULT.md",
+        "scripts/verify_symbolic.py blob febe3925e8b9b9cf5b1a54f71b38da43c08f1331, SMT blobs be6204b8be1ddccf236a92691a851c8e1258b2c7/d59bd013ac31a570bb6b40bf8b0b3e79a5a80e8e",
+        "arXiv:1508.03519, pp. 1–5",
+        "arXiv:1405.2486, Sections 1–2",
+        "Goles–Olivos 1980 DOI 10.1016/0012-365X(80)90121-1",
+        "Resultary majority-dynamics search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen source gives precise identities F_{2k+1}^5=F_{2k+1}^3 and F_{2k}^6=F_{2k}^4 (all labelled states).",
+          "Prior period-two theorem states eventual period, not a universal t≤4 with the even-width delayed witness."
+        ],
+        "reasoning": "The present result strengthens the generic eventual-period statement on a concrete family, rather than being a corollary of it; the unique all-layer counts also go beyond generic bounds.",
+        "searches": [
+          "arxiv:1508.03519 deterministic majority module upper bounds",
+          "arxiv:1405.2486 unimodular graph period two",
+          "L(K3,n) voting time uniform bound sharp parity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K3□Kn is exactly the line graph of K3,n.",
+          "The eight-column-type recurrence subtracts the center bit from the row total and adds the other two bits in the column, matching all n+1 neighbors."
+        ],
+        "reasoning": "Graph isomorphism, line graph and threshold module terminology were explicitly considered; primary general theory does not state this graph-specific sharp parity census.",
+        "searches": [
+          "synchronous majority dynamics K3 cartesian Kn three row rook graph exact convergence transient parity",
+          "majority rule on line graph K3,n voter dynamics column modules three rows",
+          "L(K3,n) synchronous majority convergence two-cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned parity automata on complete multipartite graphs, governed by parity rather than majority, and rook homology papers; neither contains this dynamical count.",
+          "The source exact frequency sum has binomial(n+7,7) terms and computes every (period,entry-time) labelled layer."
+        ],
+        "reasoning": "No exact all-n table or stronger majority-census theorem was observed. Parity automata results are a different update map and cannot be substituted.",
+        "searches": [
+          "three-row rook graph K3 □ Kn exact majority transient tables fixed 2 cycles counts",
+          "Resultary search synchronous majority dynamics K3 cartesian Kn three row rook graph exact convergence transient parity"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): Goles–Olivos proves eventual period≤2 but no size-independent sharp first-entry bound; Kaaser–Mallmann-Trenn–Natale give general graph/module voting-time upper bounds, and Benjamini et al study general/unimodular/random networks. The two-row K2□Kn cousin is not the three-row eight-type dynamics. Direct implication search returned no source specifying parity-dependent sharp times 3/4 and all-layer multinomial profile census for K3□Kn.",
+      "residual_risks": [
+        "Reliance on Z3 correctness for unbounded QF_LIA UNSAT; exact source formula was inspected and regenerated independently, but no solver-independent proof certificate is provided.",
+        "Full Goles–Olivos 1980 primary body was not accessed; broad period theorem is documented via later primary literature.",
+        "Unindexed specialized three-row majority voting result might exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_IDENTIFIED_EXACT_COVERAGE",
+          "evidence": "The introduction and module bound supply a potentially related technique, not exact K3□Kn 3-versus-4 transient time or eight-type census.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.03519",
+          "material_read": "Abstract, Introduction, module-reduction definition and statements/sections related to general bounds",
+          "method": "Original arXiv PDF, targeted theorem and module sections with page image",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "Closest published voting-time and module-sensitive general theory"
+        },
+        {
+          "assessment": "GENERAL_PERIOD_TWO",
+          "evidence": "Theorem 4 provides convergence of X_{t+2}−X_t on random unimodular networks and bounded expected changes, not sharp finite rook strip times.",
+          "identifier_or_url": "https://arxiv.org/pdf/1405.2486",
+          "material_read": "Full primary PDF abstract, contents and relevant Theorem 4, Section 2 statements",
+          "method": "arXiv full-text targeted inspection plus page image",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "General finite/infinite majority period-two theorem"
+        },
+        {
+          "assessment": "PARTIAL_ACCESS_GENERAL_RESULT",
+          "evidence": "The known theorem guarantees periods ≤2; uninspected original body is a residual literature risk but no exact rook-graph result is evidenced.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Original publication bibliographic statement/secondary theorem citations only; full primary body not accessed",
+          "method": "DOI bibliographic metadata, cross-check via full later primary texts",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Foundational general eventual-period theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The fixed natural graph family K3□Kn grows unboundedly while its entire synchronous majority transient has an exact size-independent parity jump, and the polynomial-size frequency sum determines all first-entry and period layers. Uniform quantified dynamics plus sharp witnesses is substantially more informative than eventual period-two folklore or a tiny graph census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen https://github.com/SCOPE-Science/SCOPE2026/blob/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/sharp-parity-dependent-majority-relaxation-on-three-row-rook-gra--3349c8eefe09/RESULT.md",
+    "scripts/verify_symbolic.py blob febe3925e8b9b9cf5b1a54f71b38da43c08f1331, SMT blobs be6204b8be1ddccf236a92691a851c8e1258b2c7/d59bd013ac31a570bb6b40bf8b0b3e79a5a80e8e",
+    "arXiv:1508.03519, pp. 1–5",
+    "arXiv:1405.2486, Sections 1–2",
+    "Goles–Olivos 1980 DOI 10.1016/0012-365X(80)90121-1",
+    "Resultary majority-dynamics search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Synchronous 3-row rook graphs and tie-retention convention only.",
+    "Solver-assisted general proof; no independent formally checked certificate.",
+    "Original general period-two theorem not accessed in full.",
+    "Reliance on Z3 correctness for unbounded QF_LIA UNSAT; exact source formula was inspected and regenerated independently, but no solver-independent proof certificate is provided.",
+    "Full Goles–Olivos 1980 primary body was not accessed; broad period theorem is documented via later primary literature.",
+    "Unindexed specialized three-row majority voting result might exist."
+  ],
+  "schema_version": 1
+}
