@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "At column j every omitted vertex has exactly \\(s_{j-1}+s_j+s_{j+1}\\) selected neighbors. Solving the resulting local equations exhaustively gives two disjoint classes: zero/two-words with internal gaps of length zero or two and boundary zero runs at most one; and the one-only forced word \\(11(011)^m\\). Gap choices yield the exact binomial sum; free selected rows on one-columns give \\(4^{m+1}\\). The minimum-degree layer follows algebraically from \\(n=3k-2-2a+b+c\\). A standalone checker independently enumerated graph subsets for \\(n\\le9\\) and every ternary word through \\(n=12\\), plus identities through \\(n=200\\). Unbounded proof does not depend on finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 Lemma 2/Theorem 7 gives γ_2fd(\\(R_{2\\times n}\\))=\\(2\\lceil n/3\\rceil\\), a minimum-cardinality result without an all-subset count.",
+        "The 2026 follow-up Section 4/Lemma 14 states the same minimum and complexity/ILP constructions for rectangular supergrids.",
+        "The 2025 work focuses on complexity and minimum sets, not an all-coefficient generating polynomial."
+      ],
+      "reasoning": "General algorithms and an optimum-size theorem do not determine counts of distinct feasible sets at each cardinality or the exponential number of minima at \\(n\\equiv2\\pmod 3\\). Stronger graph-class scope in minimum-cardinality results therefore does not subsume this independent enumeration.",
+      "searches": [
+        "gamma_2fd R_2xn optimal sets n modulo 3 number 4 power exponential",
+        "2 fair dominating sets of rectangular supergrid graph: full classification minimum count 2025 Hung",
+        "https://iihmsp25.csie.cyut.edu.tw/Download/23-SimilarityReport.pdf",
+        "https://doi.org/10.3390/math14060947"
+      ]
+    },
+    "checked_sources": [
+      "https://iihmsp25.csie.cyut.edu.tw/Download/23-SimilarityReport.pdf",
+      "https://doi.org/10.3390/math14060947",
+      "https://arxiv.org/abs/2408.08053",
+      "https://oeis.org/A350815"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known γ_2fd specifies only the smallest exponent of \\(F_n(z)\\).",
+        "The new formula, e.g. F_5(z) has 18 minimum sets while γ_2fd(R_{2×5})=4, is extra information beyond the published minimum cardinality.",
+        "The formal exact-two-neighbor condition from the 2025 source permits the proof but is not itself an enumeration theorem."
+      ],
+      "reasoning": "Neither knowing the minimum-size value, nor possessing an algorithm constructing one optimum, nor an ordinary domination polynomial logically determines the number of all two-fair sets. The new word classification and binomial sum supply those missing data.",
+      "searches": [
+        "https://iihmsp25.csie.cyut.edu.tw/Download/23-SimilarityReport.pdf",
+        "https://doi.org/10.3390/math14060947",
+        "gamma_2fd R_2xn optimal sets n modulo 3 number 4 power exponential",
+        "2 fair dominating sets of rectangular supergrid graph: full classification minimum count 2025 Hung"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The strong product K2 ⊠ P_n is the rectangular supergrid \\(R_{2\\times n}\\), confirmed in the 2025 paper definitions.",
+        "The local condition for 2-fair is exactly two selected neighbors of each vertex outside the set; equivalently a two-perfect external-neighbor condition.",
+        "Literature searches returned other domination polynomials on chain/complete-multipartite graphs, not this external-neighbor rule on a king strip."
+      ],
+      "reasoning": "Matching graph names/aliases \\(R_{2\\times n}\\), two-row king graph, and K2 strong-product path leaves the new polynomial unaccounted for by the optimum-size statement. This is not ordinary perfect/1-fair domination; no relevant semantic equivalence implying the polynomial was found.",
+      "searches": [
+        "all two-fair dominating sets count polynomial 2 by n king's graph strong product P2 Pn, binary row multiplicities",
+        "perfect 2-domination polynomial thin king graph R_{2 x n}, enumerator all feasible sets and parity",
+        "graph strong product of K2 and path 2 fair domination polynomial",
+        "https://iihmsp25.csie.cyut.edu.tw/Download/23-SimilarityReport.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mertens arXiv:2408.08053 and OEIS A350815 enumerate ordinary king-graph dominating configurations or optima, which impose at least one—not exactly two—selected neighbors on omitted vertices.",
+        "Searches did not identify an exact table for two-fair-labelled-subset counts on \\(R_{2\\times n}\\)."
+      ],
+      "reasoning": "Ordinary domination data cannot give the exact-two-neighbor coefficient sequence by a simple parameter or index substitution. No exact table recording this 2-fair polynomial or its residue-specific minimum multiplicities was located.",
+      "searches": [
+        "https://arxiv.org/abs/2408.08053",
+        "https://oeis.org/A350815",
+        "king graph fair domination polynomial 2-fair all minimizers",
+        "number of minimum two-fair dominating sets R2xn"
+      ]
+    },
+    "rationale": "The same 2-fair parameter on the same graph is studied in Hung (2025), Section 3, Lemma 2/Theorem 7, with only the optimum cardinality. Hung (2026) Section 4/Lemma 14 likewise states the optimum size. The new claim determines the entire labelled all-set size enumerator, even support, full feasibility language, and optimum-set multiplicity in three congruence classes. Literature and comparable published claims produced no covering assertion; priority remains provisional, not certified.",
+    "residual_risks": [
+      "Potential unindexed papers on perfect or exact-multiple domination of thin king graphs could contain an equivalent enumerator.",
+      "2026 follow-up primary site returned a temporary 429 on direct open; available indexed full-text sections were inspected, but complete reread was not obtained.",
+      "Some indexed-record titles or summaries may not expose all corollaries in appendices; direct full text of unrelated-looking results was not inspected.",
+      "No independent audit or independent priority certification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes minimum cardinality \\(2\\lceil n/3\\rceil\\) for two-row supergrid but no all-feasible-set generating polynomial, exhaustive configuration classification, or minimum multiplicity formula. The PDF has an internal March 2025 submission timestamp not used as public first date.",
+        "evidence": "Section 3 lines 135–158 supplies Lemma 2 and Theorem 7; Abstract/Section 4 describe complexity and minimum-cardinality algorithms; graph definition lines 30–43 confirms strong product.",
+        "identifier_or_url": "https://iihmsp25.csie.cyut.edu.tw/Download/23-SimilarityReport.pdf",
+        "material_read": "Full accessible parsed paper, particularly abstract, graph definitions on pages 3–4, Introduction, Section 3 pages 9–11 including Lemma 2 and Theorem 7, Section 4, references",
+        "method": "Public PDF parsed text, inspected targeted theorem and surrounding sections; page-image retrieval timed out",
+        "title": "The 2-fair Domination in Extended Supergrid and Planar Graphs",
+        "trigger": "Exact same graph family and parameter; plausible covering theorem"
+      },
+      {
+        "assessment": "Reports the known minimum size and complexity/ILP treatment; no identified all-set enumerator. Access limitation adds residual historical-priority risk.",
+        "evidence": "2026 Section 4 Lemma 14 lists \\(\\gamma_{2\\mathrm{fd}}\\) for rectangular supergrids; source DOI 10.3390/math14060947.",
+        "identifier_or_url": "https://doi.org/10.3390/math14060947",
+        "material_read": "Accessible full-text indexed material including introduction, rectangular supergrid Section 4 and Lemma 14; direct MDPI open returned HTTP 429 in this run",
+        "method": "Previously fetched primary-page parsed text and indexed full-text excerpts, with targeted follow-up check; not treated as an independently reread complete PDF in this run",
+        "title": "Fair Domination on Extended Supergrid Graphs: Complexity, Linear-Time Algorithms, and ILP Formulations",
+        "trigger": "2026 follow-up by original author covering rectangular supergrids"
+      },
+      {
+        "assessment": "Counts ordinary dominating sets, not 2-fair dominating sets; different feasible-set property. Does not imply exact-two-neighbor enum.",
+        "evidence": "Mertens arXiv:2408.08053; OEIS A350815 describes king graph ordinary domination optima.",
+        "identifier_or_url": "https://arxiv.org/abs/2408.08053",
+        "material_read": "Searchable abstract and relevant description of ordinary domination polynomial, plus linked ordinary minimum-set table",
+        "method": "Open scholarly abstract and OEIS index comparison rather than complete original full text",
+        "title": "Domination Polynomials of the Grid, the Cylinder, the Torus, and the King Graph",
+        "trigger": "Strongest plausible all-coefficient graph-family domination table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2d91eca7-659c-45ba-bcc4-da5d14932306",
+  "value": {
+    "rationale": "A natural infinite-family refinement of an established two-fair domination minimum is fully classified, with all graph-subset coefficients and an exact count of optimal configurations. The nontrivial structural split into 0/2 tilings and an all-1 periodic word yields an even-support law and exponential optimum multiplicity for one residue class versus constant/linear minima in the others. This is a complete configuration enumeration for a standard supergrid family and a benchmark for higher-row enumeration, not a restatement of the known minimum.",
+    "status": "PASS"
+  }
+}
