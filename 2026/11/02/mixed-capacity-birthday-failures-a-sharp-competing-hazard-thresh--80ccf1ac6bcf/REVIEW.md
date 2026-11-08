@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The finite formulas follow from multinomial weights and occupancy truncation. Independent Poisson streams produce exact classwise Gamma waiting-time distributions. The expansions yield the critical mixed hazard and the full negligible/critical/dominant single-capacity regimes, while a maximal inequality transfers time-and-mark convergence to discrete arrivals. The uniqueness of the class-balance parameter follows from a strict monotone coupling. The standalone checker passes 2,183 deterministic assertions against two independent finite constructions. The rate assertion is limited to Poissonized log survival; it is not extended without proof.
+PASS
 
-## Originality (PASS, historically qualified)
+The exact finite law follows by multiplying truncated occupancy exponential generating functions and marking a bin already at its capacity at the next arrival. Independent rate-1/N Poisson processes for each bin give Gamma(2,N) and Gamma(3,N) first-rejection clocks. At scale N^(2/3), class-one survival log -> -alpha*x^2/2 and class-two -> -x^3/6 whenever a_N/N^(2/3)->alpha; differentiation yields the claimed marked densities. When a_N is much larger, N/sqrt(a_N) instead yields Rayleigh law and negligible class-two risk; when smaller, pure cubic-Weibull. Independent exponential waiting times and the maximal martingale inequality justify de-Poissonizing the time without changing the failing-bin mark. Coupling independent Exp variables gives strictly increasing class-one win probability and unique alpha*≈0.5521857197206905. The Poissonized fixed-alpha O(N^-1/3) log-survival is not misrepresented as a discrete clock error. Independent exact occupancy recursion agrees with all coefficients for N<=5.
 
-The primary comparison is Gouet–Hitczenko–Wesołowski, arXiv:1905.06663, which assumes the same capacity for all urns, including in its Poisson theorem. Arratia–Garibaldi–Kilian, arXiv:1310.7055, considers a fixed collision criterion; Henze, doi:10.1016/S0167-7152(98)00076-5, similarly treats one fixed occupancy threshold. The distinct contribution assessed here is the mixed-capacity first-failure trichotomy with a joint capacity mark, exact finite joint law, and sharp critical minority scaling. No matching or implication-equivalent published statement was identified in the searches performed. Broad classical occupancy Poisson approximation could yield an alternative proof of some limits, so unlocated priority and general-theorem subsumption remain real risks; a failed search does not certify novelty.
+## originality
 
-## Value (PASS)
+PASS
 
-Uniform destination choice with heterogeneous capacities is a natural overflow-reliability model. The theorem determines the sharp size at which a sparse population of weaker bins controls system failure, resolves the full crossover rather than a single mean, and quantifies which class is responsible for first failure. The invariant is natural for dimensioning systems with small underprovisioned minorities; the critical minority exponent and balance constant are not arbitrary parameter slices. This is a focused exact asymptotic classification, not a claimed general hashing-performance theorem.
+A sharp mixed-capacity first-rejection crossover, exact capacity mark and finite enumerator seem additional to common-capacity urn overflow work. The ingredients Poisson thinning, independent Gamma arrival times and competing hazards are classical and are not separately claimed as original. Broad heterogeneous occupancy literature may already derive a more general version; qualified best-of-knowledge PASS after object/implication comparison.
 
-## Limits
+## value
 
-Only capacity-one and capacity-two bins, uniform independent routing and first failure are covered. The numerical root is approximate. The related 1998 paper was available only through bibliographic/abstract material. Historical priority needs independent checking.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first failure of a heterogeneous storage system is a natural reliability/birthday statistic. A vanishing population of capacity-one bins changes its limiting scale at sharp order N^(2/3); the complete two-clock marked law and unique half-risk constant give information unavailable from homogeneous capacity models. This is a motivated exact first-event classification, not mere relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

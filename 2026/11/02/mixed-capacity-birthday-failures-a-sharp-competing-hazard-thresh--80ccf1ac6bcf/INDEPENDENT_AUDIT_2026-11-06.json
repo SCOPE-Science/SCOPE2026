@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T03:54:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact finite law follows by multiplying truncated occupancy exponential generating functions and marking a bin already at its capacity at the next arrival. Independent rate-1/N Poisson processes for each bin give Gamma(2,N) and Gamma(3,N) first-rejection clocks. At scale N^(2/3), class-one survival log -> -alpha*x^2/2 and class-two -> -x^3/6 whenever a_N/N^(2/3)->alpha; differentiation yields the claimed marked densities. When a_N is much larger, N/sqrt(a_N) instead yields Rayleigh law and negligible class-two risk; when smaller, pure cubic-Weibull. Independent exponential waiting times and the maximal martingale inequality justify de-Poissonizing the time without changing the failing-bin mark. Coupling independent Exp variables gives strictly increasing class-one win probability and unique alpha*≈0.5521857197206905. The Poissonized fixed-alpha O(N^-1/3) log-survival is not misrepresented as a discrete clock error. Independent exact occupancy recursion agrees with all coefficients for N<=5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gouet–Hitczenko–Wesołowski permit unequal sampling weights but common fixed bin capacity r; their main limit results count/describe overflow at uniform threshold.",
+          "Arratia–Garibaldi–Kilian analyze multiple birthday coincidences under one occupancy threshold."
+        ],
+        "reasoning": "Although more general in weights or collision number, neither inspected theorem simultaneously permits a mixture of capacity 1 and capacity 2 with a moving small class and reports a marked first-failure joint limit.",
+        "searches": [
+          "Resultary_Search: mixed capacity occupancy first overflow failure time capacity one two bins birthday competing hazards Weibull",
+          "arXiv:1905.06663",
+          "arXiv:1310.7055"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1905.06663",
+        "https://arxiv.org/abs/1310.7055",
+        "https://doi.org/10.1016/S0167-7152(98)00076-5",
+        "Resultary query mixed capacity occupancy first overflow failure time capacity one two bins birthday competing hazards Weibull"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Common-r limits give pure double-slot cubic Weibull or pure single-slot Rayleigh behavior.",
+          "The new a_N~N^(2/3) scaling produces survival exp(-alpha*x²/2-x³/6) and two nonzero marked densities, with a unique equal-risk alpha."
+        ],
+        "reasoning": "Neither limiting pure capacity alone fixes the crossover coefficient or joint marks; standard Poissonization can derive them, but a general published heterogeneous theorem could imply them.",
+        "searches": [
+          "Resultary_Search: mixed capacity occupancy first overflow failure time capacity one two bins birthday competing hazards Weibull",
+          "arXiv:1905.06663",
+          "arXiv:1310.7055"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "First rejection is the minimum (capacity+1)st arrival across independent thinned Poisson bins.",
+          "Common-capacity birthday collisions are special cases with a=0 or b=0; mixed first-failing class J needs two concurrent hazards."
+        ],
+        "reasoning": "The heterogeneous marked minimum is a competing-risks formulation; previously reported homogeneous collision/overflow statistics do not on their own determine its critical 2/3 crossover.",
+        "searches": [
+          "Resultary_Search: mixed capacity occupancy first overflow failure time capacity one two bins birthday competing hazards Weibull",
+          "Gouet–Hitczenko–Wesołowski arXiv:1905.06663",
+          "Arratia–Garibaldi–Kilian arXiv:1310.7055"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct small-N joint occupancy probabilities were computed by independent exact rational state enumeration; no matching finite mixed-capacity table was located in reviewed sources.",
+          "Henze treats a fixed occupancy threshold, not separate capacities and a competing first mark."
+        ],
+        "reasoning": "No exact same model/class table was identified, which cannot be taken as a novelty certificate.",
+        "searches": [
+          "Resultary_Search: mixed capacity occupancy first overflow failure time capacity one two bins birthday competing hazards Weibull",
+          "Henze 1998 DOI:10.1016/S0167-7152(98)00076-5"
+        ]
+      },
+      "rationale": "A sharp mixed-capacity first-rejection crossover, exact capacity mark and finite enumerator seem additional to common-capacity urn overflow work. The ingredients Poisson thinning, independent Gamma arrival times and competing hazards are classical and are not separately claimed as original. Broad heterogeneous occupancy literature may already derive a more general version; qualified best-of-knowledge PASS after object/implication comparison.",
+      "residual_risks": [
+        "An older generalized heterogeneous-threshold occupancy/competing-hazards theorem may directly imply the regime crossover.",
+        "The limit mechanism is a standard Poissonization argument, so originality rests on the exact heterogeneous finite and marked classification, not the technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not establish the exact mixed capacity-one/capacity-two first rejection time and class mark as stated.",
+          "evidence": "The paper allows nonuniform probabilities but posits a common capacity r; the marked first overflow between two different thresholds is absent from its principal theorem statements.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.06663",
+          "material_read": "Full lawful preprint PDF text including assumptions, main theorems, model and asymptotic scaling.",
+          "method": "Read original scholarly PDF and compared urn capacities versus sampling weights and nature of overflow event.",
+          "title": "Asymptotics of the overflow in urn models",
+          "trigger": "Closest rigorous overflow asymptotics; potentially stronger heterogeneous model"
+        },
+        {
+          "assessment": "Background embedding and same-capacity events, not the mixed-capacity class competition.",
+          "evidence": "Its collision process counts ordinary collisions at a common occupancy threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.7055",
+          "material_read": "ArXiv abstract and relevant formulation of collision-count threshold; did not claim complete reading of all proof sections.",
+          "method": "Inspected publicly accessible version and compared first failure versus accumulating equal-threshold coincidences.",
+          "title": "Asymptotic distribution for the birthday problem with multiple coincidences, via an embedding of the collision process",
+          "trigger": "Generalized birthday collisions and Poisson embedding"
+        },
+        {
+          "assessment": "No decisive claim of noncoverage from short accessible material.",
+          "evidence": "An inaccessible broader theorem may be relevant; this source is retained as a risk.",
+          "identifier_or_url": "https://doi.org/10.1016/S0167-7152(98)00076-5",
+          "material_read": "Bibliographic abstract and statement of generalized birthday setting; full text not inspected.",
+          "method": "Compared stated generalized collision parameter with the mixed capacity mark.",
+          "title": "A Poisson limit law for a generalized birthday problem",
+          "trigger": "Possible general occupancy threshold covering result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first failure of a heterogeneous storage system is a natural reliability/birthday statistic. A vanishing population of capacity-one bins changes its limiting scale at sharp order N^(2/3); the complete two-clock marked law and unique half-risk constant give information unavailable from homogeneous capacity models. This is a motivated exact first-event classification, not mere relabeling.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1905.06663",
+    "https://arxiv.org/abs/1310.7055",
+    "https://doi.org/10.1016/S0167-7152(98)00076-5",
+    "Resultary query mixed capacity occupancy first overflow failure time capacity one two bins birthday competing hazards Weibull"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only two capacity classes and uniform independent unredirected choices; no arbitrary capacity distributions.",
+    "O(N^-1/3) log-survival bound pertains to Poissonized clock, not discrete arrival index."
+  ],
+  "residual_risks": [
+    "An older generalized heterogeneous-threshold occupancy/competing-hazards theorem may directly imply the regime crossover.",
+    "The limit mechanism is a standard Poissonization argument, so originality rests on the exact heterogeneous finite and marked classification, not the technique."
+  ],
+  "schema_version": 1
+}
