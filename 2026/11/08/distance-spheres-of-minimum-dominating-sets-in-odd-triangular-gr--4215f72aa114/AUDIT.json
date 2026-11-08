@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The unique decomposition into shared edges, one alternating path and alternating cycles, together with a proved flip-distance metric, gives a bijective labeled-species enumeration. The component weights, exponential generating function, and extremal antipode formulas have been verified algebraically and by independent BFS and component-recurrence programs. Boundary k=1 is covered.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aichholzer et al., arXiv:2508.18457v1, Theorem 4.10: flip distance from alternating paths/cycles for crossing-free geometric unions, including one excess flip per cycle",
+        "Aichholzer et al., arXiv:2508.18457v1, Theorem 4.4: linear upper bound on general connected odd-matching flip graphs",
+        "Brenner et al., arXiv:2607.04687v1, Theorem 3: Hamilton-connectedness in the complete-graph one-flip case"
+      ],
+      "reasoning": "The 2025 distance theorem has a legitimate implication for the complete-graph pointwise distance metric by suitably relabeling the circular placement; it subsumes any claim that this basic distance formula is new. The accepted claim is instead the independently derived full enumerator of target matchings at each distance and exact farthest-sphere counts. The inspected more general theorems do not compute these cardinalities.",
+      "searches": [
+        "Near-perfect matching flip graph on complete odd graph exact distance distribution sphere sizes spherical growth polynomial generating function exponential exp((1-x^2)z) (1-2xz)^(-1-x/2)",
+        "Web: flip graph almost-perfect matchings distance distribution complete graph",
+        "Web: Flipping odd matchings in geometric and combinatorial settings complete graph diameter flip distance"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1208.5345v2",
+      "https://arxiv.org/abs/1401.5714",
+      "https://arxiv.org/abs/2508.18457",
+      "https://arxiv.org/abs/2607.04687",
+      "https://doi.org/10.1137/0138030"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.10 provides the componentwise distance contribution for crossing-free unions, which can be adapted directly to the complete graph; this covers distance calculation but does not enumerate unions by component type.",
+        "Theorem 3 supplies Hamilton-connectedness, which implies connectivity but no coefficient formulas.",
+        "The 2012 enumeration algorithm produces minimal edge dominating sets with incremental delay; it neither measures flip distance nor yields the claimed bivariate component count."
+      ],
+      "reasoning": "The distance metric, connectivity and diameter alone are not credited as original. Passing originality is confined to the precise all-distances coefficient enumeration and parity-sensitive antipodal multiplicities, which require the unique path/cycle labeled-block counts and exponential formula beyond the inspected prior statements.",
+      "searches": [
+        "arXiv:2508.18457v1 Theorem 4.10 and Section 4.2",
+        "arXiv:2607.04687v1 Theorem 3 and Section 3.2",
+        "arXiv:1208.5345v2 Theorem 2",
+        "Web: matching flip graph near perfect matching diameter complete graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Golovach et al., arXiv:1208.5345v2, introduction and Theorem 2: line graph domination equals edge domination and general minimal-set enumeration",
+        "Brenner et al., arXiv:2607.04687v1, Introduction and Theorem 3: exactly the same one-flip graph of almost-perfect matchings in a complete graph"
+      ],
+      "reasoning": "Identified the exact one-flip near-perfect matching representation, not merely similarly named objects. Neither source asserts a distance-sphere enumerator. The flip graph is not presented as a new model.",
+      "searches": [
+        "Minimum dominating sets triangular graph L(K_n) edge dominating matchings near perfect reconfiguration single vertex exchange",
+        "Reconfiguration of near perfect matchings of complete graphs by sliding unmatched vertex pair swapping diameter",
+        "Web: near perfect matchings complete graph swap adjacency diameter floor 3n/4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searched mathematical research records concern Euclidean matching polytopes, matching complexes, and unrelated domination questions rather than this enumerator; no matching published claim was identified.",
+        "Direct enumeration gives distance profiles for 3, 5, 7, 9, 11 vertices, reproducibly documented in the attached checker outputs."
+      ],
+      "reasoning": "No exact tabulation or generating-function identity for the distance-sphere sequence was identified in the queried records. The negative search result is evidence of limited coverage only, not proof of historical uniqueness.",
+      "searches": [
+        "Odd matchings one-flip antipodal multiplicities distance sphere counts floor three k over two",
+        "Minimum dominating sets of triangular Johnson graph J(2k+1,2) reconfiguration distance polynomial enumerator",
+        "Web: \"near-perfect matchings\" \"distance\" \"generating function\" flip",
+        "Web: \"odd matchings\" \"spheres\" \"flip graph\" distance"
+      ]
+    },
+    "rationale": "The accepted result is only the exact distance-sphere enumerator with antipodal multiplicities, not the already studied one-flip graph, its basic distance identity, or Hamiltonicity. Relevant primary full texts, several mathematically equivalent aliases, published research records and accessible prior claims did not give the coefficient distribution. Searches cannot prove uniqueness.",
+    "residual_risks": [
+      "A combinatorial cycle-index calculation equivalent to the sphere polynomial may appear in unindexed literature.",
+      "The 2025 geometric theorem already implies the pointwise distance formula; no novelty is attached to that metric identity.",
+      "The 1980 edge domination source was considered via bibliographic data and abstract, not a verified complete full-text reading."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "A general algorithm to enumerate minimal edge dominating sets; no exact distance-sphere polynomial",
+        "evidence": [
+          "Line-graph equivalence is stated in the introduction.",
+          "Theorem 2 is an enumeration-delay statement for minimal dominating sets."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1208.5345v2",
+        "material_read": "Introduction, line-graph equivalence, the minimal-dominating-set enumeration sections and Theorem 2",
+        "method": "Read the accessible arXiv full-text HTML, following the statements and adjacent explanation",
+        "title": "Generating All Minimal Edge Dominating Sets with Incremental-Polynomial Delay",
+        "trigger": "Same minimum domination/line-graph objects and enumeration literature"
+      },
+      {
+        "assessment": "Different adjacency and feasibility model; no exact-minimum triangular-graph spheres",
+        "evidence": [
+          "Dominating sets of size at most k are connected by addition or deletion, not fixed-size exchange."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1401.5714",
+        "material_read": "Abstract and statement of size-at-most-k addition/deletion model",
+        "method": "Read original arXiv abstract page and dated source record",
+        "title": "Reconfiguration of Dominating Sets",
+        "trigger": "Prior dominating-set reconfiguration framework"
+      },
+      {
+        "assessment": "Theorem 4.10 implies the underlying complete-graph pointwise distance; no sphere-count generating function stated",
+        "evidence": [
+          "Theorem 4.10 counts path edges, cycle edges and an additional flip for each alternating cycle.",
+          "Theorem 4.4 provides a general linear-length construction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2508.18457",
+        "material_read": "Introduction, Sections 3 and 4, Theorem 4.10, and relevant proof passages in appendix",
+        "method": "Read the arXiv full-text HTML rendering and compared the alternating-component implications",
+        "title": "Flipping odd matchings in geometric and combinatorial settings",
+        "trigger": "Exact one-edge flip and a potentially stronger general distance theorem"
+      },
+      {
+        "assessment": "Hamilton-connectedness of the identical state graph; no enumeration of distance spheres",
+        "evidence": [
+          "Theorem 3 states that complete-graph almost-perfect one-flip graph is Hamilton-connected.",
+          "Theorem 3 proof organizes pairs by alternating path/cycle types for Hamilton paths, not sphere sizes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.04687",
+        "material_read": "Introduction, result table, Section 3.2 and Theorem 3 proof setup",
+        "method": "Read the accessible arXiv HTML full-text page including relevant theorem and examples",
+        "title": "Hamilton paths and cycles in flip graphs of (almost-)perfect matchings",
+        "trigger": "Exact complete-graph one-flip state graph and plausible stronger structural coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4215f72a-a114-4f7b-bb9a-da27dd5b330e",
+  "value": {
+    "rationale": "The distribution of every shortest reconfiguration distance is a natural complete invariant for a vertex-transitive graph family; the generating function simultaneously yields all spheres, a closed exact diameter and parity-sensitive antipodal counts, enabling random-target analyses beyond minimum size, connectivity or a single graph metric.",
+    "status": "PASS"
+  }
+}
