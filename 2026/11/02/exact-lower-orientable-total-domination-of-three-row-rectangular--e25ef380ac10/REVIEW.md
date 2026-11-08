@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The orientation criterion is proved in both directions. Every selected component must contain a cycle, and any cycle in a path-grid strip has vertical edges in two distinct columns. This forces at least two surplus selections per occupied column run. Empty interior gaps are at most two columns and empty endpoint gaps are at most one; a missing endpoint column forces the next column to have all three selected vertices, increasing the adjacent run's surplus. The resulting inequality \(|S|\ge n+2\) covers all runs, gaps and endpoint cases. The explicitly constructed middle-row set plus the two adjacent upper-row vertices has exactly \(n+2\) elements, dominates the grid and includes a square cycle. Exact exhaustive subset tests cover all widths \(2\le n\le9\) and direct orientation enumeration checks widths two and three. Finite checks are supporting evidence only.
+## correctness
 
-## Originality — PASS, with limitations
-The closest original paper, Anderson–Dravec–Johnston–Kuenzel (2023), proves only \(n\le\operatorname{dom}_t(P_3\square P_n)\le n+2\); its cycle requirement and upper bound are already known. The new lower argument establishes equality for every width. Goto–Kobayashi (2021) computes the connected domination number of the same grid, \(n\), but does not impose cycles and does not imply this formula. The searches considered open orientable domination, cyclic-component dominating sets, and generalized stronger grid results. No covering theorem was identified, but publication priority is not independently certified. The related earlier result on vertex-deletion monotonicity for orientable total domination concerns a different graph family and implication.
+PASS
 
-## Mathematical value — PASS
-This result closes a published two-unit gap for a canonical infinite family and gives a structural explanation rather than a finite table. It distinguishes ordinary connected domination from orientation-feasible total domination and supplies a reusable column-run boundary accounting mechanism. It does not resolve wider grids or the upper orientable total domination invariant.
+PASS. For all integers n>=2, the definition minimizes directed total domination over all orientations with positive indegree at each vertex. S is feasible exactly when it closed-dominates the original graph and every connected component of G[S] has an undirected cycle: each selected vertex needs a selected predecessor; conversely orient one cycle in every component, its attached forest outward and remaining S-to-complement edges outward. The upper witness consists of every middle-row vertex plus top-row vertices in columns 1,2, forming an induced square and dominating all vertices, size n+2. For lower bound write r occupied-column runs, e empty columns and b empty boundary columns. Cyclicity forces at least two columns with >=2 selected vertices per run, with extra surplus at boundary-occupied runs; hence surplus >=2r+b. Domination of empty columns gives e<=2(r-1)+b. Therefore |S|=(n-e)+surplus>=n+2; n=1 has no valid orientation and is explicitly excluded.
 
-## Verification and limits
-Compile the bundled `verify.cpp` as C++17 and run it. Exhaustive selected-subset minima for widths two through nine are four through eleven, respectively, and independent direct orientation enumeration agrees for widths two and three. The mathematical proof, not finite enumeration, establishes the formula for unbounded width.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best-of-knowledge, with specified residual risks). Equivalent formulation is minimum cardinality of a closed-dominating vertex set with a cycle in every induced component. In the present P3xPn geometry, cycle surplus accounting yields n+2. This criterion appears as known structural observation in primary orientable domination literature. The primary general grid bounds are strictly weaker in the three-row case. Stronger currently uninspected recent versions or independently known special-case propositions could subsume this exact n+2 formula, so historical risk persists. The new n+2 formula attains the existing upper bound and sharpens its weaker lower bound. Neither known cyclic-component feasibility nor the general graph bound by itself implies n+2 without the three-row run surplus argument.
+
+## value
+
+PASS
+
+PASS. This solves the exact three-row specialization of a natural orientable total domination grid problem: earlier general bounds n<=dom_t<=n+2 leave a real gap. The all-width equality follows from a nontrivial column-run/cycle argument and the exact boundary accounting, not a brute-force table or arbitrary instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

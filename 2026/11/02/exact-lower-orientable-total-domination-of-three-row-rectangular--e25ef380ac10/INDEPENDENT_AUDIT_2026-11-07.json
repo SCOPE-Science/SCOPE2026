@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T10:49:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For all integers n>=2, the definition minimizes directed total domination over all orientations with positive indegree at each vertex. S is feasible exactly when it closed-dominates the original graph and every connected component of G[S] has an undirected cycle: each selected vertex needs a selected predecessor; conversely orient one cycle in every component, its attached forest outward and remaining S-to-complement edges outward. The upper witness consists of every middle-row vertex plus top-row vertices in columns 1,2, forming an induced square and dominating all vertices, size n+2. For lower bound write r occupied-column runs, e empty columns and b empty boundary columns. Cyclicity forces at least two columns with >=2 selected vertices per run, with extra surplus at boundary-occupied runs; hence surplus >=2r+b. Domination of empty columns gives e<=2(r-1)+b. Therefore |S|=(n-e)+surplus>=n+2; n=1 has no valid orientation and is explicitly excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Orientable total domination in graphs: Anderson, Dravec, Johnston and Kuenzel (2023), Section 4 Theorem 4.3 and Theorem 4.5 and preliminary cycle condition. (https://arxiv.org/abs/2311.16307v1)",
+          "Connected domination in grid graphs: Goto and Kobayashi (2021), connected domination for grids. (https://arxiv.org/abs/2109.14108v1)"
+        ],
+        "reasoning": "The primary general grid bounds are strictly weaker in the three-row case. Stronger currently uninspected recent versions or independently known special-case propositions could subsume this exact n+2 formula, so historical risk persists.",
+        "searches": [
+          "Resultary: lower orientable total domination P3 Cartesian product Pn rectangular grid exact n+2",
+          "web: Anderson Dravec Johnston Kuenzel Orientable total domination in graphs arxiv 2311.16307 Section 4",
+          "web: orientable total domination three row grid n+2 exact lower",
+          "GitHub SCOPE2026 code search: orientable total domination P3",
+          "https://arxiv.org/abs/2311.16307v1",
+          "https://arxiv.org/abs/2109.14108v1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2311.16307v1",
+        "https://arxiv.org/abs/2109.14108v1",
+        "GitHub audited RESULT.md/VERIFICATION.md at assigned pinned commit",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Orientable total domination in graphs: Anderson, Dravec, Johnston and Kuenzel (2023), Section 4 Theorem 4.3 and Theorem 4.5 and preliminary cycle condition. (https://arxiv.org/abs/2311.16307v1)",
+          "Connected domination in grid graphs: Goto and Kobayashi (2021), connected domination for grids. (https://arxiv.org/abs/2109.14108v1)"
+        ],
+        "reasoning": "The new n+2 formula attains the existing upper bound and sharpens its weaker lower bound. Neither known cyclic-component feasibility nor the general graph bound by itself implies n+2 without the three-row run surplus argument.",
+        "searches": [
+          "web: Anderson Dravec Johnston Kuenzel Orientable total domination in graphs arxiv 2311.16307 Section 4",
+          "web: orientable total domination three row grid n+2 exact lower",
+          "GitHub SCOPE2026 code search: orientable total domination P3",
+          "https://arxiv.org/abs/2311.16307v1",
+          "https://arxiv.org/abs/2109.14108v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Orientable total domination in graphs: Anderson, Dravec, Johnston and Kuenzel (2023), Section 4 Theorem 4.3 and Theorem 4.5 and preliminary cycle condition. (https://arxiv.org/abs/2311.16307v1)",
+          "Connected domination in grid graphs: Goto and Kobayashi (2021), connected domination for grids. (https://arxiv.org/abs/2109.14108v1)"
+        ],
+        "reasoning": "Equivalent formulation is minimum cardinality of a closed-dominating vertex set with a cycle in every induced component. In the present P3xPn geometry, cycle surplus accounting yields n+2. This criterion appears as known structural observation in primary orientable domination literature.",
+        "searches": [
+          "Resultary: lower orientable total domination P3 Cartesian product Pn rectangular grid exact n+2",
+          "web: Anderson Dravec Johnston Kuenzel Orientable total domination in graphs arxiv 2311.16307 Section 4",
+          "web: orientable total domination three row grid n+2 exact lower"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Orientable total domination in graphs: Anderson, Dravec, Johnston and Kuenzel (2023), Section 4 Theorem 4.3 and Theorem 4.5 and preliminary cycle condition. (https://arxiv.org/abs/2311.16307v1)",
+          "Connected domination in grid graphs: Goto and Kobayashi (2021), connected domination for grids. (https://arxiv.org/abs/2109.14108v1)"
+        ],
+        "reasoning": "The original preprint reports only the interval n to n+2 for width three, not an exact table for all n. Finite exhaustive n<=9 verifier cannot substitute for n arbitrary. No Resultary exact-table match surfaced.",
+        "searches": [
+          "Resultary: lower orientable total domination P3 Cartesian product Pn rectangular grid exact n+2",
+          "web: Anderson Dravec Johnston Kuenzel Orientable total domination in graphs arxiv 2311.16307 Section 4",
+          "https://arxiv.org/abs/2311.16307v1"
+        ]
+      },
+      "rationale": "PASS (best-of-knowledge, with specified residual risks). Equivalent formulation is minimum cardinality of a closed-dominating vertex set with a cycle in every induced component. In the present P3xPn geometry, cycle surplus accounting yields n+2. This criterion appears as known structural observation in primary orientable domination literature. The primary general grid bounds are strictly weaker in the three-row case. Stronger currently uninspected recent versions or independently known special-case propositions could subsume this exact n+2 formula, so historical risk persists. The new n+2 formula attains the existing upper bound and sharpens its weaker lower bound. Neither known cyclic-component feasibility nor the general graph bound by itself implies n+2 without the three-row run surplus argument.",
+      "residual_risks": [
+        "An updated journal version of the same primary paper may already sharpen m=3 or contain an uninspected all-width corollary; comparison was with explicit arXiv v1 Section 4.",
+        "The computation exhausts only finite widths; claim for all n rests on the run surplus/gap proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant and exact family, but gives lower mn/3 and upper m(n+2)/3 in suitable range, specialized m=3 to n<=dom_t<=n+2, not equality n+2. Also the preliminarily known cyclic-component requirement is acknowledged and not claimed new. A later edition might contain a tighter result and remains a priority risk.",
+          "evidence": "Anderson, Dravec, Johnston and Kuenzel (2023), Section 4 Theorem 4.3 and Theorem 4.5 and preliminary cycle condition.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.16307v1",
+          "material_read": "Primary preprint PDF initial definitions and Observation 2.1; full relevant Section 4, Theorems 4.3 and 4.5 grid bounds as rendered PDF pages",
+          "method": "Read primary published preprint mathematical statements, grid proofs and cited cycle condition; compared exact m=3 parameters",
+          "title": "Orientable total domination in graphs",
+          "trigger": "Exact same invariant, graph product and broad grid inequalities"
+        },
+        {
+          "assessment": "Connected domination requires connectivity but not cycles in every selected component and omits orientation; no direct implication to the asserted exact orientable total invariant.",
+          "evidence": "Goto and Kobayashi (2021), connected domination for grids.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.14108v1",
+          "material_read": "Accessible primary abstract and scope regarding connected domination in rectangular grids",
+          "method": "Compared undirected connected domination definition to orientation-supported cyclic components",
+          "title": "Connected domination in grid graphs",
+          "trigger": "Potential exactly solved grid domination number with connected selected set"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. This solves the exact three-row specialization of a natural orientable total domination grid problem: earlier general bounds n<=dom_t<=n+2 leave a real gap. The all-width equality follows from a nontrivial column-run/cycle argument and the exact boundary accounting, not a brute-force table or arbitrary instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An updated journal version of the same primary paper may already sharpen m=3 or contain an uninspected all-width corollary; comparison was with explicit arXiv v1 Section 4.",
+    "The computation exhausts only finite widths; claim for all n rests on the run surplus/gap proof."
+  ],
+  "schema_version": 1
+}
