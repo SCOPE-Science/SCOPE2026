@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-## Analytical proof checks
+## correctness
 
-The exact modulus identity is obtained by expanding \(|1+iy-cy^2|^2\). The bracket in the result is a convex quadratic of real \(y\), so both endpoint constraints imply the full continuous-interval constraint. Those endpoint inequalities are two closed disks. Their center-distance calculation yields \(((R+S)^2-4)/(R^2S^2)\), proving that nonempty intersection is equivalent to \(R+S\le2\). On equality, the disks are tangent at the displayed unique coefficient; the exact product factorization proves strict interior damping at nonzero frequencies. The linear normal-matrix conclusion uses unitary diagonalization and is restricted to spectral extremes on both sides.
+PASS
 
-## Reproduction
+For c=a+ib, |1+iy-cy²|²-1=y²[(a²+b²)y²-2by+1-2a]. Convexity means two endpoint checks are necessary and sufficient. Each endpoint gives a closed coefficient disk with squared center distance minus squared radii sum equal ((R+S)²-4)/(R²S²). Thus existence iff R+S<=2; external tangency gives unique c at equality. Independent SymPy verified expansion, distance, and strict-interior factorization, including asymmetry. The corollary correctly restricts operator norm to normal matrices with both extrema present.
 
-Run `python3 verify.py` with Python 3 and SymPy. The code verifies three symbolic identities and evaluates 5,959 exact-rational parameter/frequency cases plus 198 floating-point endpoint and comparison cases. It finishes with `VERIFY_OK` when the checks pass. These computational checks are supplementary, not a proof of the global assertions.
+## originality
 
-## Limits
+PASS
 
-No external or independent mathematical audit has been performed. No claims are made about nonnormal matrices, nonlinear accuracy, higher-order methods, or exact priority over all historical literature.
+Mixed positive/negative frontier and unique complex tangent optimizer are more specific than the identified one-sided/real results.
+
+## value
+
+PASS
+
+Natural exact design boundary for complex-coefficient two-stage time integrators facing both imaginary-frequency signs, quantifying improvement over real coefficients and asymmetry while proving uniqueness. This is not a routine substitution of one-sided optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T17:58:58.506880Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": "Assigned RESULT.md blob f2448786; independent SymPy computation; spectral theorem",
+      "rationale": "For c=a+ib, |1+iy-cy²|²-1=y²[(a²+b²)y²-2by+1-2a]. Convexity means two endpoint checks are necessary and sufficient. Each endpoint gives a closed coefficient disk with squared center distance minus squared radii sum equal ((R+S)²-4)/(R²S²). Thus existence iff R+S<=2; external tangency gives unique c at equality. Independent SymPy verified expansion, distance, and strict-interior factorization, including asymmetry. The corollary correctly restricts operator norm to normal matrices with both extrema present.",
+      "residual_risks": [
+        "First-order only; no nonlinear/nonnormal stability claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Real-coefficient best imaginary halfwidth 1 is covered by classical RK stability literature; current c complex allows h=2/(Omega+ + Omega-) and complex boundary optimizer"
+        ],
+        "reasoning": "General numerical optimization includes this as a special case computationally but no inspected stronger theorem states the exact mixed-sign disk-tangency identity and unique coefficient.",
+        "searches": [
+          "George Koellermeier Jung Mangan 2601.07730",
+          "real coefficient stability polynomial optimal imaginary axis Ketcheson Ahmadia",
+          "two-stage first order complex RK stability"
+        ]
+      },
+      "checked_sources": [
+        "George et al. 2601.07730 abstract and introductory mirror",
+        "Ketcheson–Ahmadia 1201.3035 bibliographic record",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-sided complex optimal region has length two in cited source; proposed mixed-sign frontier R+S<=2 with unique tangent c for both positive endpoints"
+        ],
+        "reasoning": "Both signs imposed simultaneously cannot be deduced by treating each side separately because the complex coefficient must be shared; the intersection-of-disks argument supplies missing compatibility.",
+        "searches": [
+          "George et al. 2601.07730 Theorem 1 one-sided",
+          "Ketcheson Ahmadia 1201.3035"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "George et al. abstract/available introduction discusses complex time steps and asymmetric one-sided imaginary stability; submitted frontier handles simultaneous positive and negative spectral frequencies"
+        ],
+        "reasoning": "The two-disk geometry for simultaneous signed endpoints is a distinct optimization: one-sided optimum arises as a limit S->0 or R->0, not an implication of one-sided formula without additional work.",
+        "searches": [
+          "Resultary semantic: complex quadratic stability polynomial positive negative imaginary axis radius sum optimal coefficient",
+          "arXiv 2601.07730 complex time integrators George",
+          "Ketcheson Ahmadia 1201.3035 stability polynomials"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent sympy expansion verifies quadratic modulus identity, disk center-distance identity, exact endpoint factorization; asymmetric numerical example Omega+=(2),Omega-=(1) gives c=0.9+0.3i"
+        ],
+        "reasoning": "This is a continuous analytic interval, not a finite database/table result; a catalog of RK methods does not itself imply sharp feasibility for all R,S.",
+        "searches": [
+          "Resultary semantic search complex quadratic stability frontier",
+          "stability region 1+z+cz2 positive negative imaginary interval"
+        ]
+      },
+      "rationale": "Mixed positive/negative frontier and unique complex tangent optimizer are more specific than the identified one-sided/real results.",
+      "residual_risks": [
+        "Full primary text not independently retrievable; may contain a mixed-sign theorem beyond the read introduction. General polynomial stability literature might subsume as a special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shows complex time-step stability and asymmetric examples; mixed-sign closed frontier not seen in material read",
+          "evidence": "Abstract discusses optimized complex paths; available introduction outlines asymmetric stability regions",
+          "identifier_or_url": "https://arxiv.org/abs/2601.07730",
+          "material_read": "abstract and introduction excerpts via publicly indexed mirror, not full article",
+          "method": "web search/read abstracts and ResearchGate preview",
+          "title": "Explicit complex time integrators for stiff problems",
+          "trigger": "closest complex quadratic first-order integrator"
+        },
+        {
+          "assessment": "Potential computational generalization, but no inspected exact complex mixed-sign theorem",
+          "evidence": "Primarily real polynomial stability optimization per cited package",
+          "identifier_or_url": "https://arxiv.org/abs/1201.3035",
+          "material_read": "bibliographic identification and secondary description only",
+          "method": "search and cited package references",
+          "title": "Optimal stability polynomials for numerical integration of initial value problems",
+          "trigger": "possible more general stability optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "George et al. complex integrator context",
+        "Exact disk-tangency proof"
+      ],
+      "rationale": "Natural exact design boundary for complex-coefficient two-stage time integrators facing both imaginary-frequency signs, quantifying improvement over real coefficients and asymmetry while proving uniqueness. This is not a routine substitution of one-sided optimum.",
+      "residual_risks": [
+        "Practical internal stage amplification and higher accuracy are outside scope."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The sharp two-sided imaginary-axis stability frontier for complex quadratic time integrators",
+  "limitations": [
+    "Applies to degree-2 first-order consistent polynomial with full closed imaginary interval."
+  ],
+  "schema_version": 1
+}
