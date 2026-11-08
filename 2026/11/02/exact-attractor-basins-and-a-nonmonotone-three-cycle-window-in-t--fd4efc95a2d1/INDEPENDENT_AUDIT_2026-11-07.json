@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T07:16:51.873388Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cohorts of equal initial color never split; replacing each size by min(size,2) faithfully preserves the threshold at every time. Each shore has 26 nonempty capped profiles and the exhaustive finite quotient has 676 pairs, with exact period/preperiod histogram (145,15,6,171,36,225,6,72) ordered (0,1),(0,3),(0,4),(1,1),(1,4),(2,1),(2,4),(3,1). The actual code constructs a full four-variable integer monomial census and verifies exact polynomial identities for B3 and B4; substitution of e^z-1-z for capped-2 cohorts and z for singletons is an all-a,b exponential generating-function proof, not interpolation from samples. Independently reconstructed 676 signatures and four-variable coefficient identities, and checked all-size moment/existence boundaries. All 676 signatures are covered; initial cohorts cannot split. The theorem does not classify individual fixed-point attraction basins.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff 2018 introduction defines one successor neighbor; Bello–Sivakoff 2021 concerns infinite regular trees."
+        ],
+        "reasoning": "Graph-generality at threshold one is not a stronger theorem at threshold two; same threshold on infinite regular trees differs fundamentally from finite K_(a,b) counted by label.",
+        "searches": [
+          "Gravner Lyu Sivakoff 1610.07320 arbitrary graphs threshold one CCA",
+          "Bello Sivakoff 2108.06404 regular trees higher threshold"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1610.07320",
+        "https://arxiv.org/pdf/2108.06404",
+        "Fisch, Gravner, Griffeath, Statistics and Computing 1 (1991), 23-39",
+        "Resultary: 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arbitrary-graph theorem requires one successor neighbor, while record theorem allows advancement only after at least two."
+        ],
+        "reasoning": "Changing threshold changes the dynamical map and its periods. Neither general-background theorem states or implies the 676-signature polynomial census.",
+        "searches": [
+          "Fisch Gravner Griffeath threshold-range excitable automata 1991",
+          "Gravner Lyu Sivakoff 2018 CCA Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fisch–Gravner–Griffeath 1991 introduces threshold-range model; no identical biclique coefficient identities established in checked sources."
+        ],
+        "reasoning": "Equivalence would require the same three-color successor threshold of two distinct neighbors on both shores; known one-neighbor and GHM rules are not interchangeable.",
+        "searches": [
+          "threshold-two three-color cyclic cellular automaton complete bipartite K a b exact basins periods three four",
+          "\"cyclic cellular automata\" \"complete bipartite graph\" period 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7 studies binary parity."
+        ],
+        "reasoning": "Tables of binary parity periodic orbits do not encode this three-color threshold-two map; no exact biclique basin tabulation identified in actual search results.",
+        "searches": [
+          "threshold-two three-color cyclic cellular automaton complete bipartite K a b exact basins periods three four",
+          "Resultary published parity automata period four census"
+        ]
+      },
+      "rationale": "Classical threshold-contact cyclic automata and general-graph threshold-one CCA are antecedents. Their update/graph hypotheses are inequivalent to simultaneous threshold-two three-color contact on finite bicliques; the infinite regular-tree threshold-two theory likewise cannot determine finite-biclique period counts. Resultary parity-automata four-cycle census concerns a binary parity update, not the three-color contact threshold. No statement checked implies the exact B3/B4 polynomials or the missing three-cycle window; historical 1991 model paper is a residual source risk.",
+      "residual_risks": [
+        "Full 1991 initiating paper and unindexed finite-biclique variants not exhaustively checked.",
+        "Finite exact quotient depends on faithful cohort preservation; no assertions for thresholds other than 2 or other graph families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_RULE",
+          "evidence": "CCA condition uses one neighbor in successor state; no threshold-two biclique count in examined material.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "PDF first page and introduction threshold-one rule; theorem framing",
+          "method": "ArXiv PDF, full-text opening and page screenshot",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Possible arbitrary-graph domination"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH",
+          "evidence": "Threshold contact on infinite regular trees, not a labelled K_(a,b) finite basin formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.06404",
+          "material_read": "PDF first two pages, model and scope",
+          "method": "ArXiv PDF and page screenshots",
+          "title": "Cyclic Cellular Automata and Greenberg-Hastings Models on Regular Trees",
+          "trigger": "Same threshold but different spatial graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact finite quotient yields all-size attraction probabilities, all possible periods and sharp transient time, and reveals a nonmonotone existence window in a concrete natural contact process. A complete basin census is useful beyond a tiny numerical example because it is valid for all a,b.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only a,b>=2, threshold 2, synchronous 3-color CCA; no general graph or threshold-one result.",
+    "Counts are eventually-periodic-state basins grouped by least period, not basins of each individual fixed point.",
+    "Full 1991 initiating paper and unindexed finite-biclique variants not exhaustively checked.",
+    "Finite exact quotient depends on faithful cohort preservation; no assertions for thresholds other than 2 or other graph families."
+  ],
+  "schema_version": 1
+}

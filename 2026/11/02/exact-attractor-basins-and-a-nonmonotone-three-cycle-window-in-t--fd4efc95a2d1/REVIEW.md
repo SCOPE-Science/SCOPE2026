@@ -1,19 +1,21 @@
-# Scientific review — three-color threshold-two cyclic contact dynamics on complete bipartite graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem's universe and rule are explicit: every labelled \(K_{a,b}\) with \(a,b\ge2\), synchronous contact advancement modulo three at the threshold of two *distinct opposite-shore vertices*. The initial-color cohort-preservation argument proves an all-time exact reduction to at most two representatives per initial color in each shore. This yields exactly \(26^2=676\) possible nonempty capped profile pairs, independently of shore sizes. A complete, explicitly replayable finite-state enumeration proves that all these representatives have eventual least period one, three or four and first entry time at most three. Formal integer-polynomial identities for the 676 monomial weights, followed by exponential generating-function coefficient extraction, prove the all-parameter basin formulas. No assertion about infinite graph sizes rests on sampled numerical sizes. A separate vertex-level C++ program verified 1,185,921 labelled starting states for all 25 graphs with \(2\le a,b\le6\); the standard-library Python checker also verifies formal polynomial equality and exact counts for 121 larger parameter pairs. The sharp cutoff, period-existence thresholds, nonmonotone window and uniform-in-both-sizes period-three limit follow from these exact identities.
+PASS
 
-## Originality — PASS (qualified)
+Cohorts of equal initial color never split; replacing each size by min(size,2) faithfully preserves the threshold at every time. Each shore has 26 nonempty capped profiles and the exhaustive finite quotient has 676 pairs, with exact period/preperiod histogram (145,15,6,171,36,225,6,72) ordered (0,1),(0,3),(0,4),(1,1),(1,4),(2,1),(2,4),(3,1). The actual code constructs a full four-variable integer monomial census and verifies exact polynomial identities for B3 and B4; substitution of e^z-1-z for capped-2 cohorts and z for singletons is an all-a,b exponential generating-function proof, not interpolation from samples. Independently reconstructed 676 signatures and four-variable coefficient identities, and checked all-size moment/existence boundaries. All 676 signatures are covered; initial cohorts cannot split. The theorem does not classify individual fixed-point attraction basins.
 
-The source literature originates the threshold contact rule and contains substantial periodic-activity results on spatial lattices (Fisch, Gravner and Griffeath, 1991; publicly archived April 2, 1993). Gravner, Lyu and Sivakoff (2018; arXiv:1610.07320) give a powerful arbitrary-graph theorem for **threshold-one** three-color CCA and GHM. Its one-successor-neighbor condition differs mathematically from the two-successor-neighbor condition here; in particular it does not imply the present period-four and nonmonotone size results. Bello and Sivakoff (arXiv:2108.06404) examine threshold-two-or-higher CCA on infinite regular trees, without labelled-state finite biclique formulas. Previously known exact results for threshold-one CCA on bicliques and multipartite graphs, threshold-two **GHM** on bicliques, and inhibitory oscillators are all distinguished by transition definitions and implications. Focused semantic repository searches and primary-paper searches did not uncover the claimed exact threshold-two CCA basin census. This remains a qualified best-knowledge originality assessment; unpublished or unindexed equivalent finite-graph results remain a real priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete period-stratified basin census and three-step preperiod classification are natural exact dynamical invariants for an infinite two-parameter graph family. The nonmonotone presence of three-cycles as one shore grows through sizes two, four, and six at fixed opposite size six gives a structural boundary absent from usual density heuristics. The exact formal generating-polynomial classification simultaneously explains why three-cycle attraction becomes overwhelming in the large-biclique limit. This is not a relabelling or routine specialization of the inspected threshold-one or Greenberg–Hastings results.
+Classical threshold-contact cyclic automata and general-graph threshold-one CCA are antecedents. Their update/graph hypotheses are inequivalent to simultaneous threshold-two three-color contact on finite bicliques; the infinite regular-tree threshold-two theory likewise cannot determine finite-biclique period counts. Resultary parity-automata four-cycle census concerns a binary parity update, not the three-color contact threshold. No statement checked implies the exact B3/B4 polynomials or the missing three-cycle window; historical 1991 model paper is a residual source risk.
 
-## Sources and limitations
+## value
 
-Primary full text inspected: R. Fisch, J. Gravner and D. Griffeath, *Threshold-range scaling of excitable cellular automata* (1991; DOI: 10.1007/BF01890834; arXiv `patt-sol/9304001` posted 1993-04-02); J. Gravner, H. Lyu and D. Sivakoff, *Limiting behavior of 3-color excitable media on arbitrary graphs* (2018; DOI: 10.1214/17-AAP1350; arXiv:1610.07320); J. Bello and D. Sivakoff, *Cyclic Cellular Automata and Greenberg–Hastings Models on Regular Trees* (2021; arXiv:2108.06404). The exact individual fixed-point basin decomposition is not asserted; only eventual-period strata, certain first-entry layers, and primitive orbit counts are determined. Finite verification is not independent proof of arbitrary size; the exact capped-quotient polynomial identity supplies the latter. The 1991 printed source is earlier than the day-verified 1993 archive posting, but its first public release date to the day was not established. A historical-priority uncertainty remains. Independent scientific audit has not been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact finite quotient yields all-size attraction probabilities, all possible periods and sharp transient time, and reveals a nonmonotone existence window in a concrete natural contact process. A complete basin census is useful beyond a tiny numerical example because it is valid for all a,b.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
