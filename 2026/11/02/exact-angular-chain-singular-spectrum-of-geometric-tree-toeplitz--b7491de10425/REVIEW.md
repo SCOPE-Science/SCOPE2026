@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The operator kernel is obtained directly from the defining derivative and descendant sum. At \(br^2\geq1\), a divergent root row rules out a bounded \(\ell^2\) extension; at \(br^2<1\), summing squared row norms proves Hilbert--Schmidt boundedness. Explicit wavelet-subspace isometries give the orthogonal angular decomposition and the exact block entries, allowing Schatten traces to be summed without an interchange problem in the convergence range. The critical residue uses the finite positive one-chain trace; the two-sided singular-value estimates separately use level compressions and subtree tail truncations, rather than experimental extrapolation. The attached checker passed 907 exact block-inner-product tests and three numerical full-spectrum finite-section comparisons. Infinite conclusions depend on the stated analytic argument.
+PASS
 
-## Originality
+For the rooted homogeneous b-ary tree, b>=2, geometric symbol r^depth with 0<r<1, T=Delta M_phi nabla initially on finitely supported vectors has diagonal matrix entry r^depth and strict-ancestor entry (r-1)r^(depth(v)-1). Its root row is an l2 functional iff br²<1; when it is, summing squared row masses yields the exact Hilbert–Schmidt norm [1+b(1-r)^2/(1-br²)]/(1-br²), hence compactness. The depthwise replication isometries and orthogonal complements W_k construct all wavelet angular chains, with d0=1, dk=(b-1)b^(k-1), on which T restricts to r^k times a single explicit upper-triangular A_{b,r}, diagonal r^i and upper entries (r-1)r^(j-1)b^((j-i)/2). Tail-row truncation gives exponential singular decay of A; direct-sum zeta yields Tr|T|^q=[(1-r^q)/(1-br^q)]Tr|A|^q and critical pole at q_c=log b/log(1/r), positive residue as claimed. Compression to level n and tail-rank approximation yield c j^{-gamma}<=s_j<=Cj^{-gamma}, gamma=log(1/r)/log b, proving the weak Schatten borderline and sharp threshold q>q_c. Independent finite tree matrices for (b,r,depth)=(2,0.5,4),(3,0.4,3) verified the kernel and partial Hilbert–Schmidt totals 3.5625<4 and 4.684288<5.9171597633, consistent with the exact infinite sums. Finite tests are corroboration, not the proof of the infinite decomposition.
 
-**PASS (qualified self-review).** The 2023 tree Toeplitz preprint arXiv:2301.08370v1 was inspected as a full primary source; it contains the foundational operator, spectrum, positivity and finite-rank results, not the exact angular singular-spectrum decomposition or zeta residue. The journal version's accessible abstract additionally asserts Schatten membership, which is properly treated as known qualitative coverage, not a novel conclusion. The 2009 Kazun--Szwarc tree Jacobi work establishes related harmonic reduction for another operator family, not this nonself-adjoint Toeplitz block or its singular-value zeta identity. Searches for radial Toeplitz tree singular values, Haar decomposition, approximation numbers and Schatten--Lorentz endpoints, plus mathematical record comparisons, did not locate an equivalent quantitative theorem. Missing full journal text and potentially differently named radial decomposition literature are residual risks; negative search results are not a uniqueness proof.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS (self-review).** This is a natural quantitative refinement of the operator family established in 2023: instead of qualitative compactness or membership, it supplies an explicit reproducible multiset of every singular value, sharp approximation-number exponent with matching bounds, the exact zeta generating identity and its critical residue. Branching multiplicities cause a nontrivial weak-Schatten phase transition while each radial one-chain block is in every Schatten ideal. These relations clarify spectral concentration and provide a reusable direct-sum mechanism for geometrically regular tree operators.
+General tree Toeplitz operators, spectral/positivity properties and qualitative compactness/Schatten membership are prior work. This claim gives a constructive angular chain unitary equivalence, every positive singular value by exact multiplicity, zeta-factorization residue and two-sided approximation-number asymptotics for a geometric radial symbol; these do not follow from general qualitative Schatten criteria alone. The closest journal paper may include stronger formulas than its 2023 arXiv version, a disclosed priority risk.
 
-## Limits and closest literature
+## value
 
-The 2023 journal article's complete published text was not accessible; its abstract announces compactness and Schatten criteria, so any general or qualitative Schatten conclusion is excluded from the novelty claim. The 2009 Jacobi-on-trees decomposition is a structural precedent. No claim is made for arbitrary trees, symbols or Banach exponents, nor for an elementary closed form of the one-chain singular values. Independent scientific assessment has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact decomposition and singular-value zeta pole answer natural spectral invariants of a concrete nonselfadjoint operator family; they quantify the critical Schatten dimension and compactness rate rather than restating a qualitative norm criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
