@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "The joint probabilities are reconstructed separately for j>i, j=i and j<i by conditional relative-order symmetry, maximum-of-prefix distribution and a binomial hockey-stick sum. Exact covariances follow after subtracting marginals. Row and column identities use finite telescoping sums, all boundary signs are algebraic, and strict aggregate monotonicity follows from decreasing reciprocal-binomial terms. The packaged exact verifier passed 640 checks including exhaustive enumerations through n=8. The all-n proof does not rely on that enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sokal–Zeng (arXiv:2003.08192), Eq. (2.4) counts aggregate record and excedance statistics and does cover their total joint distribution.",
+        "Eq. (2.19) counts global record/cycle categories rather than separately fixed position indicators.",
+        "Brändén–Claesson (arXiv:1102.4226) gives a universal pattern expansion, but no direct mixed indexed covariance formula in its inspected results."
+      ],
+      "reasoning": "The aggregate consequence is subsumed and is explicitly not counted as the original contribution. The stronger broad theorems viewed do not mark both absolute indices i and j, and therefore do not directly specialize to the full claimed indexed statement; computing that refinement requires further conditional probability reasoning. Historical work may encode it implicitly and remains a residual risk.",
+      "searches": [
+        "Some multivariate master polynomials for permutations set partitions and perfect matchings Sokal Zeng 2020 record excedance",
+        "arxiv:2003.08192 Section 2.1 Theorem 2.1 Section 2.3",
+        "arxiv:2210.08789 Euler-Stirling statistics",
+        "arxiv:1102.4226 mesh patterns left to right maxima excedances"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1102.4226",
+      "https://www.ms.uky.edu/~jrge/papers/Excedance.pdf",
+      "https://arxiv.org/pdf/1202.3680",
+      "https://arxiv.org/pdf/2003.08192",
+      "https://arxiv.org/pdf/2210.08789",
+      "https://arxiv.org/pdf/1411.6184"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.1 of Sokal–Zeng determines \\(\\operatorname{Cov}(R,E)\\) by differentiation; the total covariance is therefore not positioned as new.",
+        "Gnedin–Gorin treats record-dependent random permutations, while Ehrenborg–Steingrímsson handles excedance sets.",
+        "The checked sources lack an identity for \\(\\operatorname{Cov}(R_i,E_j)\\) for all absolute positions."
+      ],
+      "reasoning": "A theorem for counts jointly determines a sum of positional covariances, not each term, so the sum cannot imply a unique matrix by specialization alone. Conversely the matrix here implies the aggregate moment. This is the exact logical distinction used in accepting the indexed claim rather than rebranding a covered corollary.",
+      "searches": [
+        "arxiv:2003.08192 Theorem 2.1 rec exc",
+        "arxiv:1202.3680 record-dependent measures",
+        "arxiv:1102.4226 mesh pattern rec excedance",
+        "arxiv:2210.08789 aggregate maxima descents joint"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Record means upper left-to-right maximum; excedance means a position with its image larger than its position.",
+        "arXiv:2003.08192 defines rec and exc and generates their joint counts via Theorem 2.1.",
+        "arXiv:1102.4226 describes the record and excedance statistics as mesh-pattern sums."
+      ],
+      "reasoning": "Reversal/complement and the Foata-type Eulerian/Stirling correspondences were considered as possible aliases. They change the events and do not themselves give the covariance for the same permutation at separately specified absolute indices. Aggregate rec/exc generating functions imply the global mixed moment, but not direct position-refined matrix entries.",
+      "searches": [
+        "\"records\" \"excedances\" \"joint distribution\" permutations",
+        "\"left-to-right maxima\" \"excedances\" joint permutation",
+        "record indicators excedance indicators triangular covariance matrix random permutations",
+        "arxiv:2003.08192 Theorem 2.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches found no table matching the complete rational position-indexed matrix.",
+        "The finite checker independently computes all \\(n!\\) permutations for \\(2\\le n\\le8\\), but those values are verification rather than novelty evidence."
+      ],
+      "reasoning": "Failure of exact and semantic lookup is only negative search evidence; it does not certify uniqueness. The nearest published numerical or generating polynomials lack the claimed absolute index table in their inspected statements.",
+      "searches": [
+        "\"covariance\" \"records\" \"excedances\" permutation",
+        "\"lmax\" \"exc\" \"covariance\" symmetric group",
+        "uniform permutation cross covariance record indicator at position i with excedance at position j: -j/(n i(i-1)) for j<i, zero for j>i, diagonal 1/n-1/(i binom(n,i))",
+        "left to right record at specified index i exceeds j record indicator excedance indicator joint probability permutation exact covariance"
+      ]
+    },
+    "rationale": "After explicit primary-source comparisons and targeted index searches, no result was found stating or directly implying the complete record-position versus excedance-position covariance matrix. Important distinction: Sokal–Zeng (2020) already supplies a stronger aggregate generating function for record and excedance counts, so the total covariance and its sign reversal are not independently claimed novel. Their unindexed count-polynomial does not directly yield the pairwise absolute-position entries or the row/column sign laws. Older positional refinements remain a genuine risk.",
+    "residual_risks": [
+      "An earlier position-refined Eulerian–Stirling enumeration could encode the same matrix without the present terminology.",
+      "The strong aggregate result in arXiv:2003.08192 covers the unindexed covariance; the indexed statement must remain the essential claim.",
+      "General mesh-pattern and multivariate polynomial constructions might allow derivation of the matrix after a nontrivial further specialization not located in the inspected material.",
+      "This is same-model historical comparison, not independent novelty certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General pattern expansions encompass each statistic but do not state the covariance of the distinct absolute-position indicators or the row/column signs.",
+        "evidence": [
+          "arXiv:1102.4226, pages 1–3, mesh-pattern definitions and reciprocity theorem",
+          "The expanded functions in the displayed results are unindexed aggregate statistics."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1102.4226",
+        "material_read": "Abstract, pages 1–3, definitions of record and excedance patterns, Section 1.2 and the reciprocity theorem (page 3).",
+        "method": "Examined original arXiv PDF text and page images, including the theorem statements.",
+        "title": "Mesh Patterns and the Expansion of Permutation Statistics as Sums of Permutation Patterns",
+        "trigger": "A broad positional-pattern encoding could imply record–excedance covariance through reduction."
+      },
+      {
+        "assessment": "Counts permutations with specified excedance sets; the inspected statements do not mark upper-record positions or their mixed moments.",
+        "evidence": [
+          "Ehrenborg–Steingrímsson, Advances in Applied Mathematics 24 (2000), abstract and Sections 2–3."
+        ],
+        "identifier_or_url": "https://www.ms.uky.edu/~jrge/papers/Excedance.pdf",
+        "material_read": "Pages 284–289, abstract, Section 1, recurrence and extremal results in Sections 2–3.",
+        "method": "Examined lawful author-hosted PDF text and page image.",
+        "title": "The Excedance Set of a Permutation",
+        "trigger": "Direct enumerative control of excedance sets could subsume the indicated mixed covariance."
+      },
+      {
+        "assessment": "Classifies coherent record-dependent measures; no excedance cross-covariance is stated in the checked material.",
+        "evidence": [
+          "arXiv:1202.3680, introduction and Section 2, record-dependent measure definition and projection."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1202.3680",
+        "material_read": "Pages 1–5, introduction, record definitions, projection construction, first record-dependent lemmas and the description of main theorems.",
+        "method": "Examined original arXiv PDF text and page image; searched the text for excedance.",
+        "title": "Record-dependent measures on the symmetric groups",
+        "trigger": "The primary record-dependent probability framework could include position-indexed excursion or excedance observables."
+      },
+      {
+        "assessment": "Theorem 2.1 marks aggregate record and excedance counts, so the global covariance is prior-covered; it does not mark individual absolute positions i,j and thus does not directly specialize to the positional cross-covariance matrix or its row and column signs.",
+        "evidence": [
+          "arXiv:2003.08192, Theorem 2.1, equations (2.4) and (2.5)",
+          "arXiv:2003.08192, Section 2.3, equation (2.19) and its count-marking variables."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.08192",
+        "material_read": "Pages 5–7, Theorem 2.1 and definitions; pages 9–11, the record-and-cycle classification and the 10-variable generating polynomial.",
+        "method": "Inspected primary arXiv PDF text and screenshots of theorem and multivariate polynomial pages.",
+        "title": "Some multivariate master polynomials for permutations, set partitions, and perfect matchings, and their continued fractions",
+        "trigger": "The strongest known general joint enumeration of records and excedances may imply or dominate the claim."
+      },
+      {
+        "assessment": "Counts aggregate descents, inverse descents and several maxima/minima; no explicit index-by-index record/excedance covariance is given in the inspected theorems.",
+        "evidence": [
+          "arXiv:2210.08789, Theorems 1, 2 and 4."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.08789",
+        "material_read": "Pages 1–3, definitions and Theorems 1, 2 and 4 of the aggregate generating-function results.",
+        "method": "Inspected arXiv PDF text and page images of the relevant theorem statements.",
+        "title": "Symmetric generating functions and Euler–Stirling statistics on permutations",
+        "trigger": "A joint Euler–Stirling enumeration might encode the same mixed moment via equivalences."
+      },
+      {
+        "assessment": "The available main setup concerns excedance-type and inversion-type enumerators; no position-specific upper-record covariance in the inspected material.",
+        "evidence": [
+          "arXiv:1411.6184, introductory section."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1411.6184",
+        "material_read": "Pages 1–2, abstract, statement of Eulerian excedance enumeration and introductory objectives.",
+        "method": "Inspected arXiv PDF text and page image.",
+        "title": "Symmetric unimodal expansions of excedances in colored permutations",
+        "trigger": "An excedance generating polynomial could dominate the mixed law."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9078d393-5ce3-4955-9c63-112863fed2c5",
+  "value": {
+    "rationale": "The matrix is a complete and naturally indexed dependence classification for the interaction of the classical Stirling record statistic and Eulerian excedance statistic under a uniform permutation law. It reveals a directional zero/negative/positive pattern not visible in aggregate generating functions, yields different exact row and column sign boundaries, and clarifies the finite-size aggregate sign crossover. A positional covariance law is a motivated structural refinement of the established joint-statistics literature rather than an arbitrary table cell.",
+    "status": "PASS"
+  }
+}
