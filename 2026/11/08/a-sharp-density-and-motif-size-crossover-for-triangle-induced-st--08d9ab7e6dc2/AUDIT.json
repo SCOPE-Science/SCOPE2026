@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For every integer n≥r+1, r≥3, and 0<p<1, decomposing each triangle/centered-induced-star indicator pair by 0,1,2,3 shared vertices gives zero, zero, p^(r+2)q^C(r,2)[2-(r+1)p] for overlap two, and -(r+1)p^(r+3)q^C(r,2) for overlap three after summing over r+1 possible centers. Exact combinatorial counts produce the formula. The bracket is affine in p with unique zero when n≥r+2 and strictly negative at n=r+1; elementary differentiation yields both strict monotonicity results and direct ratio limits establish scaling. Standalone checker passed 3213 exact rational tests including exhaustive graphs n≤6, independently accumulated pair-indicator covariances n≤10, and threshold checks n≤79. These experiments corroborate; proof covers all n,r,p.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Martorana et al. (2020), sections on non-induced and induced means/variances, and complexity: overlap formulas for arbitrary fixed motifs, computationally costly for large motifs.",
+        "Ellis–Ferry (2010), non-induced single-subgraph count variance by overlaps, not mixed induced motif pair."
+      ],
+      "reasoning": "Any general exact joint-moment overlap algorithm can in principle specialize to this finite covariance. It does not directly assert the all-integer-r factorization, strict monotone critical surface, or the r/n scaling. The special case r=2 is expressly excluded. This generic-method priority risk is substantive and not dismissed by unmatched wording.",
+      "searches": [
+        "induced star triangle joint counts covariance critical edge probability 2/(r+1)",
+        "graph motifs induced K1,k triangle covariance overlap p critical p",
+        "Erdos Renyi triangle count induced star claw count covariance sign threshold G(n,p)"
+      ]
+    },
+    "checked_sources": [
+      "Schbath, Lacroix and Sagot, EURASIP J Bioinformatics Systems Biology, 2008, DOI 10.1155/2009/616234",
+      "Ellis and Ferry, Discrete Applied Mathematics, 2010, DOI 10.1016/j.dam.2009.11.012",
+      "Martorana et al., Applied Network Science, 2020, DOI 10.1007/s41109-020-00294-y",
+      "Published-result search: component–triangle covariance (different component statistic), checked against requested sign-threshold theorem",
+      "Accessible prior claim summaries on open triads, induced four-cycles, and claw/path covariances (non-identical pairs)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier r=2 open-triad/triangle identity has the same type of density switch but no conclusion for r≥3 or r/n→ρ.",
+        "Picard/Schbath overlap recurrences and 2020 general Kocay formulas can reproduce covariances after specializing the motif; no explicit theorem establishes that the critical density is monotone in both n and r or identifies the limiting scaling surface."
+      ],
+      "reasoning": "The present contribution is not just the overlap identity, which is standard. It is the exact linear bracket for all induced-star ranks and the all-parameter sharp sign/monotonicity/two-scale classification. A prior theorem directly asserting the general motifs’ sign surface would dominate it, but none was identified; remaining historical-priority risk is material.",
+      "searches": [
+        "induced star triangle joint counts covariance critical edge probability 2/(r+1)",
+        "G(n,p) covariance between triangle count and induced K1,r star count exact sign threshold n r p",
+        "induced star graphlet cross covariance triangles two motifs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schbath–Lacroix–Sagot (2008), sections 2–3: variance of connected coloured motifs, not mixed exact-topology triangle and induced K1,r counts.",
+        "Martorana et al. (2020), Eqs. (4), (6), (7), (10): generic overlap and Kocay pair-count machinery, without explicit star-size crossover."
+      ],
+      "reasoning": "Triangle means induced K3; an induced claw means induced K1,3, so those aliases were searched. The 2008 connected-colour motif is not equivalent to the prescribed exact star topology. The 2020 machinery permits evaluation but no stated sign and uniform size monotonicity.",
+      "searches": [
+        "mixed covariance number of triangles and induced stars K1,r in Erdos Renyi G(n,p) universal sign phase diagram",
+        "G(n,p) covariance between triangle count and induced K1,r star count exact sign threshold n r p",
+        "triangle induced claw covariance G(n,p) sign change zero p"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Checked accessible earlier mathematical claim summaries: an induced open-triad/triangle phase boundary (r=2); induced four-cycle/triangle; induced four-vertex claw/path; none states all r≥3 induced-star/triangle crossover.",
+        "Published-result semantic hits closest to component–triangle covariance, a distinct statistic."
+      ],
+      "reasoning": "No exact table or indexed fixed-star/triangle phase diagram surfaced. This is evidence of a bounded unsuccessful overlap search, not proof of absolute novelty; tables of motif covariances could still exist.",
+      "searches": [
+        "mixed covariance number of triangles and induced stars K1,r in Erdos Renyi G(n,p) universal sign phase diagram",
+        "G(n,p) covariance between triangle count and induced K1,r star count exact sign threshold n r p",
+        "triangle induced claw covariance G(n,p) sign change zero p",
+        "induced graphlet covariances triangle claw exact density threshold"
+      ]
+    },
+    "rationale": "Targeted searches of published results and full-text literature did not expose the uniform all-size induced-star/triangle sign boundary. The previously analyzed induced 2-star case and four-cycle or claw/path covariance concern different motif pairs or isolated ranks. General motif-overlap algorithms could evaluate fixed instances but contain no stated closed all-r transition with the monotone size/graph-order law and joint scaling limit. Thus priority is supported only at the specificity of that phase-diagram theorem; a broader implicit-coverage risk is explicitly retained.",
+    "residual_risks": [
+      "Generic induced motif overlap and Kocay formulas can algorithmically imply the exact mixed covariance for each fixed r, so strict priority of the elementary specialization is not established.",
+      "Older unindexed tables or appendices of graphlet cross-moments could contain the exact all-r phase boundary.",
+      "The PDF extraction for the non-induced variance paper was accessible text, but its visual page image was not; any unseen notation in a scanned figure is unassessed.",
+      "No independent human mathematical review has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different event: fixed vertex-colour multiset with connected induced topology, not an exact induced star; only single-colour-motif count moments. No r-dependent triangle/star joint covariance theorem in inspected material.",
+        "evidence": [
+          "Publisher lists publication 26 October 2008.",
+          "Sections 2 and 3 define connected coloured motifs and derive a variance by overlap size."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2009/616234",
+        "material_read": "Publisher full HTML abstract, introduction, definitions, and Section 3 mean/variance and overlap classification",
+        "method": "Read open-access publisher full HTML and checked how motif occurrences and overlap types are defined",
+        "title": "Assessing the Exceptionality of Coloured Motifs in Networks",
+        "trigger": "Older exact-motif variance theory in independent-edge graphs"
+      },
+      {
+        "assessment": "Counts one non-induced H with matched copies, not the cross-covariance of triangle and induced star or its sign transition.",
+        "evidence": [
+          "The authors state variance of subgraph count for a fixed graph in G(n,p) using nontrivial overlaps.",
+          "No joint induced-star/triangle phase boundary found in material read."
+        ],
+        "identifier_or_url": "https://math.iit.edu/~rellis/papers/12variance.pdf",
+        "material_read": "Public manuscript text extracted from introductory definitions and its variance-by-intersection argument; PDF page-image request was denied",
+        "method": "Examined retrievable full-text PDF transcription and identified the single non-induced motif variance theorem; PDF visual inspection unavailable",
+        "title": "Variance of the subgraph count for sparse Erdős–Rényi graphs",
+        "trigger": "Potential stronger general variance and overlap result"
+      },
+      {
+        "assessment": "General computation framework can imply finite mixed motif covariances after expansion. The sharp uniform r≥3 sign boundary, monotonicity and r/n scaling are not stated; implicit coverage remains the main priority risk.",
+        "evidence": [
+          "Equation (7) is the pair-motif moment by super-motif overlaps.",
+          "Section on induced variance uses Kocay-type transforms and notes computation is intractable for larger motifs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s41109-020-00294-y",
+        "material_read": "Publisher full HTML: previous-work section, equations (3)–(10), Kocay inversion, induced overlap operator, and complexity and experimental-result sections",
+        "method": "Read explicit 2020 analytical formulas and comparison with fixed induced graphlet counts",
+        "title": "Establish the expected number of induced motifs on unlabeled graphs through analytical models",
+        "trigger": "Potential general induced motif covariance formulas dominating the present claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "08d9ab7e-6dc2-48ca-8570-c62fd3511b1b",
+  "value": {
+    "rationale": "The triangle count is a canonical transitivity/closure statistic, whereas induced stars measure open hub-and-spoke structure. Their sign-changing co-fluctuation is a natural issue for joint graphlet significance: sparse edge densities reinforce both counts, dense regimes trade triangles against leaf independence. The theorem gives a complete all-star-size sign diagram, strict monotonicity in motif and graph sizes, and a nontrivial joint r/n scaling boundary. This is more than a single small graphlet count or a reparameterized variance formula; the uniform phase classification is the mathematically motivated contribution.",
+    "status": "PASS"
+  }
+}
