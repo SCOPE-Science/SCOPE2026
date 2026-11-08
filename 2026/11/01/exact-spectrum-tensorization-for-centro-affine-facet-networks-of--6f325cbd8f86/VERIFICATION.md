@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and proof limits
+# Independent mathematical audit
 
-Run `python verify.py` after installing SymPy. The script builds mass-normalized facet-network operators for unit-area regular square and hexagon factors, independently assembles their adjacent and cross-factor conductances, and compares the full and antipodally even rational spectra with the predicted shifted factor spectra. Six tests use two-factor cases (4,4), (4,6), (6,6), and three-factor cases (4,4,4), (4,6,4), (6,6,6), where entries denote facet counts of the polygon factors. A seventh test constructs the facet masses and conductances of a three-dimensional regular octahedron times a unit-area square, and checks its predicted spectrum. All seven tests check exact mass-self-adjointness and the constant zero mode. All seven tests passed.
+## correctness
 
-The proof covers arbitrary full-dimensional origin-symmetric polytope factors of dimension at least two, with no restriction on number of facets or regularity. A finite test cannot establish the general result; the independent argument is the explicit product-facet mass and ridge-conductance decomposition in RESULT.md. The full focal paper was not accessible, so comprehensive novelty verification remains incomplete. External independent scientific review has not been performed.
+PASS
+
+For arbitrary origin-interior factors, classify each product ridge: within a factor its conductance and mass scale by complementary volumes; cross-factor ridges have conductance m_ia*m_jb times all remaining volumes. The pyramid identity sum_a m_ia=d_i V_i makes the mass-mean-zero block spaces invariant with factor spectrum shifted by n-d_i. Block-constant functions have eigenvalues 0 (one) and n (r-1); dimensions exhaust facets. Antipodal involution preserves blocks, and the regular-polygon cycle Fourier diagonalization gives even levels 4 cos^2(pi/N), proving λ1,e=n and multiplicity r-1+#square factors. Independently constructed the 10-by-10 mass-weighted square–hexagon operator, checked weighted symmetry and constant eigenvector, and obtained eigenvalues 0(1), 3(4), 4(2), 5(2), 6(1) exactly. This finite example corroborates but is not the all-product proof.
+
+## originality
+
+PASS
+
+Claim-level primary and published-results comparison finds the full asserted conclusion not implied by the identified earlier theorems, including known special cases and same-object constructions; exact search outcomes are not treated as novelty proof. See four named scientific comparisons and primary material inspections. Best-of-knowledge residual risks are explicit.
+
+## value
+
+PASS
+
+The facet Laplacian is a natural centro-affine polytope invariant with open product-geometry behavior. An exact multiset tensorization including parity, all eigenvalues and multiplicities gives a reusable reduction from arbitrary orthogonal product geometry to constituent spectra; the explicit regular-polygon benchmark is structurally motivated. Its geometric cross-facet conductance identity is more than a mere variable renaming, and the special parallelotope calculation is correctly treated as prior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

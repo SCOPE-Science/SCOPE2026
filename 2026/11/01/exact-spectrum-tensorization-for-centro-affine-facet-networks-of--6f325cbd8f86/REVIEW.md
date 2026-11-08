@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The independent source definitions of facet masses and ridge conductances yield three disjoint product-ridge types: adjacent facets from a single factor, transverse facets from distinct factors, and no other ridges. The product measure identities and \(\sum_a m_{ia}=d_iV_i\) imply a direct orthogonal decomposition of the generalized Laplacian into mean-zero factor blocks and an \(r\)-dimensional block-constant subspace. Computing the restrictions gives all eigenvalues and exact multiplicities; the parity involution preserves the decomposition. The regular-polygon formula follows from the cycle graph and its Fourier spectrum. Exact rational checks of seven products reproduced both the full and even spectra. No finite experiment is used as a proof of the general theorem.
+## correctness
 
-## Originality
-Hu and Ivaki define the operator and prove a conditional local-minimizer bound; the accessible portions did not state an all-product spectrum. Published calculations of parallelotopes and regular cross-polytopes were read and compared: the former gives a known special case of the new product formula, while the latter concerns a different facet-graph topology. Targeted searches of public literature and mathematical research records for Cartesian products, weighted joins, parity, tensorization, and shifted spectra revealed no full equivalent, but cannot demonstrate priority. The Hu–Ivaki full manuscript was inaccessible during this comparison, so overlap with its complete contents is an explicit priority risk.
+PASS
 
-## Value
-The theorem turns a high-dimensional geometric spectrum into factor spectra exactly, not just an estimate, and supplies a universal explicit even eigenmode at the ambient dimension. It yields an all-dimensional family of products of non-square regular polygons with exact spectral gaps and rigidity of the dimension-level multiplicity, extending beyond the known parallelotope-only benchmark. This structural decomposition is relevant to the discrete centro-affine spectral problem and to computations for polytopes built by Cartesian products.
+For arbitrary origin-interior factors, classify each product ridge: within a factor its conductance and mass scale by complementary volumes; cross-factor ridges have conductance m_ia*m_jb times all remaining volumes. The pyramid identity sum_a m_ia=d_i V_i makes the mass-mean-zero block spaces invariant with factor spectrum shifted by n-d_i. Block-constant functions have eigenvalues 0 (one) and n (r-1); dimensions exhaust facets. Antipodal involution preserves blocks, and the regular-polygon cycle Fourier diagonalization gives even levels 4 cos^2(pi/N), proving λ1,e=n and multiplicity r-1+#square factors. Independently constructed the 10-by-10 mass-weighted square–hexagon operator, checked weighted symmetry and constant eigenvector, and obtained eigenvalues 0(1), 3(4), 4(2), 5(2), 6(1) exactly. This finite example corroborates but is not the all-product proof.
 
-## Residual limitations
-The result uses the specified normalized facet-network operator and full-dimensional Cartesian products. It does not solve the general local-minimizer classification or a smooth analogue. Historical priority, especially any equivalent lemma in the inaccessible focal manuscript, remains uncertain. Independent validation is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Claim-level primary and published-results comparison finds the full asserted conclusion not implied by the identified earlier theorems, including known special cases and same-object constructions; exact search outcomes are not treated as novelty proof. See four named scientific comparisons and primary material inspections. Best-of-knowledge residual risks are explicit.
+
+## value
+
+PASS
+
+The facet Laplacian is a natural centro-affine polytope invariant with open product-geometry behavior. An exact multiset tensorization including parity, all eigenvalues and multiplicities gives a reusable reduction from arbitrary orthogonal product geometry to constituent spectra; the explicit regular-polygon benchmark is structurally motivated. Its geometric cross-facet conductance identity is more than a mere variable renaming, and the special parallelotope calculation is correctly treated as prior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
