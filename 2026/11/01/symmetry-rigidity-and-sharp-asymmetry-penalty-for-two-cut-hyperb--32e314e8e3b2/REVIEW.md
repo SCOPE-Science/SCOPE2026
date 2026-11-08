@@ -1,15 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two independently truncated caps have additive exact spherical-zone, planar-disk and singular-edge contributions. Setting both angles equal recovers Hong's published equations (4.1) and (4.2). The fourth- and sixth-degree coefficients in the squared cap angles are checked by independent symbolic expansion. The fixed-area analytic implicit-function theorem removes the radius and yields a uniform \(C^2\) scaled expansion. Its separable cubic has a unique nonnegative minimizer and strictly positive Hessian, from which the compact-square uniqueness, equal-angle rigidity, one-cut comparison, and positive sharp transverse coefficient follow. The numerical check programs also replay exact formulas at high precision. The underlying proof applies on a shrinking parameter square, not over all convex bodies.
+PASS
 
-## Originality — PASS with residual priority risk
+Exact additive independent upper/lower-cap area and edge-inclusive trace-mean-curvature formulas are analytic in u_i=a_i^2 near 0. Expanding through u^3 and eliminating the area-adjusted radius yields a separable cubic as delta^-3 objective F(x1)+F(x2)+O_C(delta), with F(x)=-sqrt(3)x^2/48+pi sqrt(3)x^3/80, uniform with two derivatives on fixed [0,C]^2. Independent symbolic differentiation gives x*=10/(9pi), F(x*)=-25sqrt(3)/(2916pi^2), F"(x*)=sqrt(3)/24. Compactness confines minima to the unique positive critical point and C2 Hessian positivity yields uniqueness; exchange symmetry forces u1=u2. One-cut restriction halves the gain, the even antisymmetric Taylor expansion supplies the quadratic stiffness. Independent 65-digit evaluation of exact area/radius formulas at delta=0.03,0.015,0.0075 found two-cut cubic ratios 0.9983,0.99917,0.99958, one/two gain ratio tends 0.5, and normalized antisymmetry stiffness tends 1. This is only for the specified shrinking square, not all convex bodies or cuts.
 
-The motivating full text (Fang Hong, arXiv:2606.01771v4, Section 4, formulas (4.1)–(4.2)) uses equal cap angles, with no minimization over two free cap depths. A related fixed-area analysis of the equal-angle family already yields a critical area and cubic gain, so those diagonal conclusions are not presented as novel here. Neither the source nor that restricted diagonal analysis supplies an antisymmetric Hessian or rules out unequal minimizers. The new theorem instead optimizes the entire independently truncated two-dimensional square, proves equal-angle rigidity therein, compares one and two caps, and computes the sharp antisymmetric stiffness. Accessible relevant literature and mathematical findings were searched for independent cap angles, related bifurcations, and stronger parameter coverage, with no covering implication identified. Literature priority cannot be globally certified by a search; an unindexed independent-cap treatment would affect this assessment.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The open geometric optimization concerns total mean curvature at fixed surface area; restricting to the natural independently truncated-ball family yields a substantive minimizer-versus-symmetry-breaking question. The exact two-variable classification and positive transverse second variation show that a known symmetric candidate is not beaten by any sufficiently small asymmetric competitor, with an explicit sharp penalty. The one-cut bound additionally measures the cost of losing one of the two cap contributions. This is stronger geometrical information than evaluating the already studied diagonal branch.
+Best-of-knowledge distinct mathematical contribution after actual analogy/equivalence and stronger-coverage searches; the strongest available direct sources and their material access limits are documented, not an exhaustive priority proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Determines a real missing two-variable stability direction for a natural fixed-area hyperbolic mean-curvature variational problem, with unique symmetric minimizer, sharp transverse stiffness and one-versus-two-cap energetic comparison. The symmetric diagonal result alone cannot decide these.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-`checks/verify_two_cap_symbolic.py` independently constructs both cap functions and verifies the order-four and order-six Taylor coefficients, including fixed-area corrections and the exact stationary cubic value.
+## correctness
 
-`checks/verify_asymmetric_drums.py` evaluates the full curved-ball area and total mean curvature with 55-digit mpmath arithmetic and solves the exact area constraint for three strictly positive area excesses. It checks the strict advantage of two versus one cap, and the sign and scale of the unequal-cap penalty.
+PASS
 
-Execute from the extracted package root with `python checks/verify_two_cap_symbolic.py` followed by `python checks/verify_asymmetric_drums.py`. Dependencies are in `requirements.txt`. The analytic proof, rather than these finitely many numerical comparisons, justifies uniqueness, uniform error terms and sharpness.
+Exact additive independent upper/lower-cap area and edge-inclusive trace-mean-curvature formulas are analytic in u_i=a_i^2 near 0. Expanding through u^3 and eliminating the area-adjusted radius yields a separable cubic as delta^-3 objective F(x1)+F(x2)+O_C(delta), with F(x)=-sqrt(3)x^2/48+pi sqrt(3)x^3/80, uniform with two derivatives on fixed [0,C]^2. Independent symbolic differentiation gives x*=10/(9pi), F(x*)=-25sqrt(3)/(2916pi^2), F"(x*)=sqrt(3)/24. Compactness confines minima to the unique positive critical point and C2 Hessian positivity yields uniqueness; exchange symmetry forces u1=u2. One-cut restriction halves the gain, the even antisymmetric Taylor expansion supplies the quadratic stiffness. Independent 65-digit evaluation of exact area/radius formulas at delta=0.03,0.015,0.0075 found two-cut cubic ratios 0.9983,0.99917,0.99958, one/two gain ratio tends 0.5, and normalized antisymmetry stiffness tends 1. This is only for the specified shrinking square, not all convex bodies or cuts.
 
-The source formula comparison is to Fang Hong, arXiv:2606.01771v4, equations (4.1) and (4.2), for the equal-cap subfamily. This package has not received an independent audit.
+## originality
+
+PASS
+
+Best-of-knowledge distinct mathematical contribution after actual analogy/equivalence and stronger-coverage searches; the strongest available direct sources and their material access limits are documented, not an exhaustive priority proof.
+
+## value
+
+PASS
+
+Determines a real missing two-variable stability direction for a natural fixed-area hyperbolic mean-curvature variational problem, with unique symmetric minimizer, sharp transverse stiffness and one-versus-two-cap energetic comparison. The symmetric diagonal result alone cannot decide these.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
