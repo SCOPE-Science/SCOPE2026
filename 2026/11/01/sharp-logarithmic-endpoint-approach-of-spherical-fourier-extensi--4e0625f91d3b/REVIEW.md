@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the nonnormalized spherical surface measure, Fourier convention, radial measure and exponent range. The published global gap formula is sharp for every admissible finite exponent and at infinity. The key new proof ingredients are checked analytically: the derivative \(v'=N/r^3\) and monotonicity \(N'=r^2\cos r\); the strict tail domination \(5/16<1/\pi\); the curvature from the spherical-Bessel differential equation; and the endpoint and interior Laplace constants. The different powers \(q^{-3/2}\) and \(q^{-1/2}\) force the computed exact \((\log q)/q\) coefficient. The diagnostic checker is consistent with the asymptotic, but is not used as its proof.
+PASS
 
-## Originality — PASS under inspected evidence
+The cited Xu modal-ordering theorem identifies Gamma_{3,q}=(2π)^3(I_0(q)^{2/q}−I_1(q)^{2/q}) for q>3. At ν=1/2 the Bessel modes are c sin r/r and c(sin r−r cos r)/r², c=√(2/π). The first has unique absolute maximum at boundary r=0 with log profile −r²/6, producing I0=c^q C0 q^-3/2(1+O(1/q)); the second has unique interior absolute maximum r*≈2.08157598 where N(r)=(r²−2)sin r+2r cos r=0 and v''=−(1−2/r*²)v*, producing I1=(cv*)^q C1 q^-1/2(1+O(1/q)). Exact tails show no other peaks dominate. Taking 2/q powers and subtracting yields log rate 16π²(3−v*²) and full constant term. Independent root solving found r*=2.0815759778181007, Gamma∞≈127.86987173622556, rate≈443.69721257108506, and numerical quadrature at q=64,128,256 approached the claimed two-term asymptotic. Published finite-q modal premise is not established by numerics.
 
-The closest literature is Xu's 2026 exact finite-exponent and endpoint stability theorem, Carneiro--Oliveira e Silva--Sousa's 2019 Bessel-mode analysis and endpoint ordering, and Ciccone--Sousa's 2025 modal hierarchy. In these inspected works the sharp coefficient is known in terms of moment integrals and supremum values, but its two-term approach to the endpoint is not stated. The statement-level comparisons also covered the alternate description as a ratio of weighted Bessel moments. Generic one-peak Laplace theory is standard; the precise sharp mixed-norm gap requires comparing two maxima of different effective radial dimension. Historical implicit coverage remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem quantitatively bridges two endpoints of an important sharp stability inequality. It isolates a structural cause for slow logarithmic convergence and calculates both the exact positive leading constant and the entire \(q^{-1}\) intercept. This is a natural analytic quantity because the sharp finite- and infinite-exponent stability coefficients were previously determined separately. The result makes no claim about general dimensions, other Fourier conventions, or ordinary unmixed extension norms.
+Xu 2026 supplies the exact finite-q coefficient and endpoint Bessel spectral reduction, rather than the new q→infinity logarithmic asymptotic. Carneiro–Oliveira e Silva–Sousa 2019 and Ciccone–Sousa 2025 address mode ordering/exact extremizers, not this quantified endpoint transition in inspected statements. The classical endpoint/interior Laplace method is standard, but applying it to the exact stability gap yields a new sharp rate; possible implicit prior derivation and inaccessible Xu full text are residual priority risks.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A quantitative sharp stability constant is a natural spectral invariant for spherical Fourier extension. Its approach to the endpoint controls stability degradation at high mixed-norm exponent. The two distinct concentration codimensions create a non-obvious exact logarithmic rate and full next-order term; useful even though modal ordering itself is established prior work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

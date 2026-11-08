@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification and limits
+# Independent mathematical audit
 
-The mathematical proof is contained in `RESULT.md`. Run `python3 verify_spherical_gap.py` from the folder containing the extracted files. Standard Python checks the critical point and differentiation identities. Optional SciPy integration compares the two exact finite-exponent Bessel moment integrals with the two-term asymptotic expression; finite quadrature is illustrative, not an infinite theorem. The tested elementary identities and numerical profile checks completed successfully.
+## correctness
 
-Core mathematical verification: the norm and sharp modal-gap identities are those of [1, Theorems 1.2--1.4] with the explicit Fourier/surface normalization. The peak \(r_*\) exists uniquely in \((\pi/2,\pi)\) by the derivative-sign argument. Beyond radius four, the tail bound forbids a competing maximizer. Strict uniqueness plus the power-law radial tail permits standard Laplace localization with the stated relative errors. Expanding the \(2/q\) power yields the complete displayed \(q^{-1}\) term. The proof is analytic; the script does not provide formal machine certification.
+PASS
 
-Independent audit: not performed.
+The cited Xu modal-ordering theorem identifies Gamma_{3,q}=(2π)^3(I_0(q)^{2/q}−I_1(q)^{2/q}) for q>3. At ν=1/2 the Bessel modes are c sin r/r and c(sin r−r cos r)/r², c=√(2/π). The first has unique absolute maximum at boundary r=0 with log profile −r²/6, producing I0=c^q C0 q^-3/2(1+O(1/q)); the second has unique interior absolute maximum r*≈2.08157598 where N(r)=(r²−2)sin r+2r cos r=0 and v''=−(1−2/r*²)v*, producing I1=(cv*)^q C1 q^-1/2(1+O(1/q)). Exact tails show no other peaks dominate. Taking 2/q powers and subtracting yields log rate 16π²(3−v*²) and full constant term. Independent root solving found r*=2.0815759778181007, Gamma∞≈127.86987173622556, rate≈443.69721257108506, and numerical quadrature at q=64,128,256 approached the claimed two-term asymptotic. Published finite-q modal premise is not established by numerics.
+
+## originality
+
+PASS
+
+Xu 2026 supplies the exact finite-q coefficient and endpoint Bessel spectral reduction, rather than the new q→infinity logarithmic asymptotic. Carneiro–Oliveira e Silva–Sousa 2019 and Ciccone–Sousa 2025 address mode ordering/exact extremizers, not this quantified endpoint transition in inspected statements. The classical endpoint/interior Laplace method is standard, but applying it to the exact stability gap yields a new sharp rate; possible implicit prior derivation and inaccessible Xu full text are residual priority risks.
+
+## value
+
+PASS
+
+A quantitative sharp stability constant is a natural spectral invariant for spherical Fourier extension. Its approach to the endpoint controls stability degradation at high mixed-norm exponent. The two distinct concentration codimensions create a non-obvious exact logarithmic rate and full next-order term; useful even though modal ordering itself is established prior work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
