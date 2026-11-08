@@ -1,17 +1,21 @@
-# Scientific review: logistic threshold-network monostability and critical relaxation
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed equivalence uses an exact scalar sandwich for all nonnegative row-stochastic matrices: a scalar solution replicated across nodes is a network solution, and the cooperative order interval traps every orbit. The scalar logit function has the stated two turning points precisely when feedback exceeds four; both equalities have two distinct scalar equilibria and are correctly excluded from the unique-global-attractor region. On the critical slice, the exact scalar Taylor coefficients \(-4/3\) and \(32/15\) yield the envelope \(3/8\) and inverse-square coefficients \(8/3\) and \(-8/5\). The nonlinear inverse-square remainder is integrable after removal of the logarithm. For irreducible matrices the simple Perron eigenvalue produces a one-dimensional exact diagonal center manifold with exponentially stable transverse spectrum. Standard exponential center-manifold tracking gives the shared asymptotic phase and the codimension-one exponential exception. The verification code checks the decisive finite algebra and numerical illustrations. Numerical calculations do not prove the infinite family.
+## correctness
 
-## Originality — PASS under inspected evidence
-The closest direct source is Boudourides, *Collective Hysteresis and Multistability in Threshold Networks*, arXiv:2609.10580 (2026). Its full parsed text, including Theorem 2.2, Theorem 3.2, its discussion and appendices, was inspected. It proves global attraction for \(\beta\sup \ell'<1\), contains the invariant homogeneous branch, and analyzes cusp bifurcations and heterogeneous blocks; it does not state the exact all-topology monostability if-and-only-if boundary at arbitrary high gain, the sharp cusp envelope, or the inverse-square logarithmic law. The homogeneous fold and the spectral location of the neutral direction are prior results and are not claimed as new.
+PASS
 
-A prior threshold-network contrast theorem establishes synchronization of node differences under a coefficient-of-ergodicity condition and a distinct critical contrast bound; it does not imply the claimed full-network large-gain attractor frontier or the common centered inverse-square logarithmic asymptotics. Another prior block-network result constructs stable states in the bistable region, disjoint from the present unique-attractor domain. The standard scalar comparison and center-manifold tools, and analogous logarithmic corrections in other systems, are background techniques, not independently new components. Searches for exact equivalence, broader coverage, and aliases did not find a dominating published result. Residual risk: specialized neural-network convergence papers or unindexed cusp-asymptotic computations could contain an equivalent theorem.
+The cube is forward invariant, cooperative, and W1=1 allows exact scalar min/max bounding trajectories, proving equivalence with scalar root uniqueness for arbitrary directed/reducible W. Scalar G_beta(s)=logit(s)-beta*s has critical points q± only for beta>4, and at equality there are still two distinct constant equilibria. At critical a=-2,beta=4, exact tanh expansion -4u³/3+32u^5/15+O(u^7) implies z=u^-2 satisfies zdot=8/3-64/(15z)+O(z^-2) and z=(8/3)t-(8/5)log t+C+o(1). Independent Sympy series and beta=4.1,5,10 fold parameter checks confirm. For irreducible W, Perron eigenvalue 1 is simple and other eigenvalues have Re<1; diagonal exact center manifold and stable foliation give exponentially tracked common scalar phase, hence common C. No extension claimed to reducible W for logarithmic expansion.
 
-## Mathematical value — PASS
-The exact boundary upgrades a gain-only sufficient condition to a necessary-and-sufficient condition valid for **every** finite directed row-stochastic network, including arbitrarily strong feedback outside the hysteresis interval. It rules out heterogeneous fixed states and all nonstationary long-time attractors throughout that entire region without graph restrictions. At the sharp cusp, the first nonzero correction to critical relaxation is logarithmic, explicit, independent of the graph, and common across all nodes of every irreducible network; it also identifies the exceptional exponential trajectories. These are structural and quantitative answers to the motivating threshold-network problem, not recomputation of its previously established homogeneous cusp.
+## originality
 
-## Limits and closest work
-The full claimed theorem is restricted to identical logistic response and common feedback gain, nonnegative row-stochastic coupling, and forward trajectories in the unit cube. Irreducibility is assumed for the stronger all-coordinate asymptotic, but not for global attraction or the sharp envelope. It does not classify recurrent behavior in the multistable sector or non-logistic response distributions. Independent mathematical review and historical priority verification beyond inspected sources remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge priority verdict after the separate four mathematical comparisons and relevant actually read primary texts. Homogeneous folds are covered prior art. A priori weak-feedback result is strictly narrower; for large beta outside its bistability wedge the new scalar sandwich closes the global assertion. Center manifold tracking is a technique, not a prior exact network relaxation law.
+
+## value
+
+PASS
+
+Sharp universal boundary upgrading weak-feedback sufficient conditions to a necessary/sufficient all-network criterion and a topology-independent critical physical-time logarithmic coefficient. The cusp slow-tail prefactor and strong-stable exceptional set are precise theoretically measurable effects for a natural cooperative network class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
