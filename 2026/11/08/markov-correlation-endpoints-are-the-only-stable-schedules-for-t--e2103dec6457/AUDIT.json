@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The exact Markov-conditioned covariance update and its positivity are derived. L_s squared strongly maps any nonzero positive block pair into strict interior since trace(M(b)^-1 M(a))=2-(a-b)^2∈(-2,2). Perron–Frobenius and strict logdet concavity force rho>1; endpoint dynamics are elliptic; 67 exact-rational checks independently verify the canonical determinant and invariants.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2018 Markov-jump article gives criteria for more general switch systems but not all-interior instability for this family",
+        "Sturman–Thiffeault treats iid shear products and generalized Lyapunov bounds"
+      ],
+      "reasoning": "Generic spectral-radius criterion does not imply a uniform strictly-superunit sign for an entire correlated family without computing or proving it; the present cone/logdet proof establishes that missing sign and its exact endpoint discontinuity.",
+      "searches": [
+        "symplectic integration two-state Markov step lengths exact mean square trichotomy switching probability zero one",
+        "Markov jump linear systems mean square stability spectral radius coupled covariance operators theorem 2018",
+        "source https://doi.org/10.1155/2018/1586846",
+        "source https://doi.org/10.1007/s00332-018-9497-3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1801.01340 (full relevant geometric numerical integration sections)",
+      "doi:10.1007/s00332-018-9497-3 (full relevant moment-exponent sections)",
+      "doi:10.1155/2018/1586846 (available abstract/introduction/conclusion)",
+      "doi:10.1007/s10092-022-00457-6 (full relevant one-step formulation)",
+      "Relevant iid and periodic symplectic-Euler results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2018 source finite-horizon estimates require small scaling and do not assert all-time stationarity",
+        "Older iid result determines s=1/2 only; periodic claim gives s=0 stability in a sample",
+        "General Markov switching operator gives a tool but not an evaluated sign"
+      ],
+      "reasoning": "The theorem makes a new universal quantified assertion over every s∈(0,1), plus exact stable endpoint coexistence; no inspected prior theorem includes this as stated or as an immediate parameter-substitution consequence. Classical general spectral test requires a substantive rigidity proof.",
+      "searches": [
+        "Markov correlated symplectic Euler harmonic oscillator two-valued random time steps deterministic alternation stable but stochastic switching any positive persistence mean-square grows",
+        "symplectic integration two-state Markov step lengths exact mean square trichotomy switching probability zero one",
+        "source arxiv:1801.01340 Sections 7.1–7.2",
+        "source doi:10.1007/s00332-018-9497-3 Sections 2–5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The earlier iid symplectic-Euler moment result corresponds only to Markov stay s=1/2",
+        "Markov jump spectral criteria can express the covariance transfer but do not establish its sign for this entire parameter interval"
+      ],
+      "reasoning": "Rewriting the new claim as positive Perron radius of a regime-weighted 6x6 transfer shows that iid s=1/2 and periodic s=0 are isolated cases; neither implies every 0<s<1. General matrix form is not the strict global inequality.",
+      "searches": [
+        "Markov correlated symplectic Euler harmonic oscillator two-valued random time steps deterministic alternation stable but stochastic switching any positive persistence mean-square grows",
+        "Markov symplectic Euler variable timestep random geometric integrator correlated step noise stabilization exact rho greater than one",
+        "related iid symplectic-Euler mean-square moment theorem"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Existing iid and perfectly alternating symplectic-Euler results cover endpoint cases, not all interior correlations",
+        "Index searches returned no same two-state Markov full interval theorem"
+      ],
+      "reasoning": "A direct implication comparison reveals the known iid and periodic endpoints, not the interior continuity failure and no-stable-window theorem. No exact relevant tabulation was located; lack of a hit alone is not claimed as uniqueness.",
+      "searches": [
+        "Markov correlated symplectic Euler harmonic oscillator two-valued random time steps deterministic alternation stable but stochastic switching any positive persistence mean-square grows",
+        "Markov symplectic Euler variable timestep random geometric integrator correlated step noise stabilization exact rho greater than one",
+        "symplectic integration two-state Markov step lengths exact mean square trichotomy switching probability zero one",
+        "exact Markov symplectic-Euler moment phase-diagram comparison"
+      ]
+    },
+    "rationale": "Relevant iid and strictly periodic fixed-step results do not imply instability at every Markov interior parameter. The unique-common-invariant-metric obstruction and its exact rational two-endpoint test distinguish the statement; primary inspected finite-horizon and general Markov LMI work do not state it. Residual indirect precedence risk is disclosed.",
+    "residual_risks": [
+      "Classical Markov-switching random-matrix theorems may admit an unstated easy specialization to the exact two-step family; independent specialist precedence check outstanding.",
+      "No assertion about almost-sure growth, hitting-time behavior, general Hamiltonian nonlinearities, or arbitrary time-step correlations.",
+      "A 2018 general Markov-jump stability article was read in accessible sections, not exhaustive unpublished appendices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes symplecticity and finite-horizon/step-dependent energy estimates; does not state the all-interior Markov switching mean-square theorem",
+        "evidence": [
+          "PDF pages 13–18: symplecticity and long-time energy bound under small-step scaling",
+          "PDF page 18: p>=3/2 condition and remarks on symplectic Euler"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1801.01340",
+        "material_read": "Full-text Sections 7.1–7.2, Lemma 5, Theorem 6, Remarks 11–13, and numerical Hamiltonian sections",
+        "method": "Open-access arXiv PDF sections with page-image inspection and extracted text",
+        "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+        "trigger": "Same randomized physical-step symplectic integrator and long-time energy question"
+      },
+      {
+        "assessment": "Treats iid products of specified shear matrices and growth bounds, not two-state Markov-conditioned symplectic Euler steps",
+        "evidence": [
+          "Definition 3 and generalised exponents, Section 2.2",
+          "Grouped iid run lengths in Section 2, discussion in Section 5"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00332-018-9497-3",
+        "material_read": "Full HTML, introduction, Sections 2.2, 3.2, 4.5, and discussion",
+        "method": "Lawful Springer open-access full HTML",
+        "title": "Lyapunov Exponents for the Random Product of Two Shears",
+        "trigger": "Products of 2x2 area-preserving matrices and generalized Lyapunov moments"
+      },
+      {
+        "assessment": "Generic Lyapunov/LMI sufficient criteria for nonhomogeneous switching, not the strict all-interior no-stable-window theorem for these symplectic step matrices",
+        "evidence": [
+          "Introduction model and reported sufficient LMI criteria",
+          "Conclusions describe sufficient conditions; no named symplectic oscillator example"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2018/1586846",
+        "material_read": "Open-access article abstract, introduction, conclusions and described LMI criteria",
+        "method": "Open-access article HTML",
+        "title": "Stability Analysis for a Class of Discrete-Time Nonhomogeneous Markov Jump Systems with Multiplicative Noises",
+        "trigger": "General Markov-dependent mean-square stability conditions"
+      },
+      {
+        "assessment": "Uses additive perturbations to deterministic time integration and finite-time strong error bounds, not Markov-correlated physical time-step products",
+        "evidence": [
+          "Abstract and Section 1: U_{k+1}=psi(h,U_k)+xi_k(h)"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10092-022-00457-6",
+        "material_read": "Open-access HTML introduction and problem formulation with additive random step perturbations",
+        "method": "Lawful Springer open-access full HTML",
+        "title": "Randomised one-step time integration methods for deterministic operator differential equations",
+        "trigger": "Overlapping name of randomized one-step time integration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e2103dec-6457-4059-9f51-5a2fa2981238",
+  "value": {
+    "rationale": "Establishes an exact, motivated infinite-horizon instability phase: a bounded alternating symplectic timetable loses all mean-square stability under every nonzero positive rate of mode repetition, yet becomes bounded again under permanent freezing. This identifies a genuine correlation-sensitive design boundary rather than a routine finite experiment or new notation.",
+    "status": "PASS"
+  }
+}
