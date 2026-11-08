@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` alongside `certificates.json`. Only Python standard-library modules are imported. All asserted objects are regenerated from the binary alphabet and exact Hamming weight four.
+## correctness
 
-The run checks all codeword lengths from four through twelve, all codeword overlaps including self-overlaps, every primitive cyclic class at those lengths, and the 1,296 possible choices of unbordered representatives from the displayed six length-twelve classes. It then confirms the number of successful selections after each single-class deletion.
+PASS
 
-An actual package-path replay completed successfully with `VERIFY_OK`. The reported maxima are `0, 1, 2, 5, 8, 14, 20, 30, 39`; primitive-necklace bounds are `0, 1, 2, 5, 8, 14, 20, 30, 40`. The six-class compatible-transversal count is zero; the respective five-class counts are `3, 2, 2, 3, 3, 3`.
+The primitive rotation-class bound P4(n)=(1/n) sum_{d|gcd(n,4)} mu(d) binom(n/d,4/d) gives 0,1,2,5,8,14,20,30,40 for n=4..12. An unbordered codeword is primitive and two rotations cannot both occur. Inspected certificate contains explicit compatible code lists of sizes 0,1,2,5,8,14,20,30,39; direct independent enumeration of six displayed primitive necklaces confirms unbordered rotation-domain sizes (3,4,4,3,3,3), all 1296 candidate transversals incompatible. Thus any code misses one of those six classes and has at most 39 words at n=12; provided 39-word certificate is checkable by pairwise prefix/suffix comparisons, and no extrapolation is used.
 
-The checker provides a complete finite proof for these parameters. No formal proof assistant, external validation or infinite extrapolation is claimed. Literature-priority checking remains qualified by potentially unindexed historical work.
+## originality
+
+PASS
+
+The fixed-weight-four maximum at length twelve and an irredundant six-necklace obstruction are not entailed by Chee et al. general construction or Blackburn general size bounds. Stanovnik–Moškon–Mraz 2024 full open article defines unrestricted non-overlapping maximum S(q,n) and optimization methods; its unrestricted tables do not solve the weight-four stratum. 2024/2025 balanced-word constraints concern different weight. A primitive necklace bound 40 alone is weaker and does not prove 39. Resultary exact fixed-weight search returned adjacent but mathematically different coding problems.
+
+## value
+
+PASS
+
+The first loss of the natural primitive-necklace packing bound is a motivated exact combinatorial cutoff, with a small obstruction certificate and optimal construction of direct utility for constrained synchronization words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

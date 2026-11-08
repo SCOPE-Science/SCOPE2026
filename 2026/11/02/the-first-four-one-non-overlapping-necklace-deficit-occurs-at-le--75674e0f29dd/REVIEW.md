@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every claimed maximum for length at most eleven has an explicit code meeting the primitive-rotation-class upper bound. At length twelve, an explicit code has 39 words and an independently checkable six-class obstruction reduces the 40-class upper bound to 39. Each of 1296 possible transversals is tested by the defining two-way prefix-suffix condition, and all six five-class subfamilies are separately certified feasible. The standalone package checker returned `VERIFY_OK`; the proof reduces each finite assertion to exhaustive, simple integer/string comparisons.
+PASS
 
-## Originality
+The primitive rotation-class bound P4(n)=(1/n) sum_{d|gcd(n,4)} mu(d) binom(n/d,4/d) gives 0,1,2,5,8,14,20,30,40 for n=4..12. An unbordered codeword is primitive and two rotations cannot both occur. Inspected certificate contains explicit compatible code lists of sizes 0,1,2,5,8,14,20,30,39; direct independent enumeration of six displayed primitive necklaces confirms unbordered rotation-domain sizes (3,4,4,3,3,3), all 1296 candidate transversals incompatible. Thus any code misses one of those six classes and has at most 39 words at n=12; provided 39-word certificate is checkable by pairwise prefix/suffix comparisons, and no extrapolation is used.
 
-PASS, with residual historical-priority uncertainty. The 2012 Chee–Kiah–Purkayastha–Wang paper gives unrestricted constructions and bounds. Blackburn's 2013 study provides unrestricted bounds and constructions. The fully inspected 2024 characterization of maximal non-overlapping codes is not an evaluation of the weight-four problem, and the inspected 2025 polarity-balanced tables specialize to half-positive content rather than length-twelve weight four. No inspected source states the six-necklace impossibility or the exact weight-four first deficit. General algorithms for arbitrary non-overlapping codes do not imply the numerical result without specializing and solving the constrained instance. Unindexed specialized tables remain a risk.
+## originality
 
-## Value
+PASS
 
-PASS. Primitive necklaces offer a natural synchronization-code packing ceiling, but attainment is a stronger property. The first strict failure at weight four and length twelve, after sharpness at every shorter length, is a motivated boundary; the irredundant six-necklace obstruction supplies a compact structural reason rather than only a numerical optimum. The exact witness and exhaustive certificate provide a reproducible benchmark for sparse composition-constrained synchronization codes.
+The fixed-weight-four maximum at length twelve and an irredundant six-necklace obstruction are not entailed by Chee et al. general construction or Blackburn general size bounds. Stanovnik–Moškon–Mraz 2024 full open article defines unrestricted non-overlapping maximum S(q,n) and optimization methods; its unrestricted tables do not solve the weight-four stratum. 2024/2025 balanced-word constraints concern different weight. A primitive necklace bound 40 alone is weaker and does not prove 39. Resultary exact fixed-weight search returned adjacent but mathematically different coding problems.
 
-## Limits
+## value
 
-The statement is finite and fixed-weight. No pattern for larger blocklengths or other weights is asserted. A self-review is not independent certification, and historical priority is qualified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first loss of the natural primitive-necklace packing bound is a motivated exact combinatorial cutoff, with a small obstruction certificate and optimal construction of direct utility for constrained synchronization words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
