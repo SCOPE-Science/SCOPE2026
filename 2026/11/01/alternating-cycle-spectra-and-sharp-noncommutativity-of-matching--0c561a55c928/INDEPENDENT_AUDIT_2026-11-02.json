@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T16:09:34.776265Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For even n=2m≥4, centered simplex edge vectors satisfy Σ_{i<j}v_ij v_ij*=P_{1⊥}, checked by expanding centered vertex p_i. Matching swap involution R_M gives E_M=(I+R_M−2J/n)/(n−2), hence [E_M,E_N]=(R_M R_N−R_N R_M)/(n−2)². On a doubled shared edge k=1 or alternating 2k-cycle, W=R_M R_N has each k-th root twice, producing two eigenvalues 2i sin(2πj/k)/(n−2)² for each j, with one global zero removed on 1⊥. Thus zero iff all k≤2, sharp maximum 0 for n4, sqrt(3)/16 for n6, 2/(n−2)² for n≥8 iff a k divisible by four. For fixed base matching, pair reconnection counts give C_m=Σ_t m!/[(m−2t)!t!]; labelled alternating k-component count 2^(k−1)(k−1)! yields generating functions (1−2z)^(−1/2), and after excluding k divisible by 4 multiplies (1−16z^4)^(1/8), proving A_m formula. Edge-vectors partition into four positive joint-outcome effects with both marginals; joint measurement holds regardless of commutator. Independently exhaustively enumerated matchings n4/6/8/10 with commuting counts 3/7/25/81 and maximizing counts 0/0/48/240; finite checks corroborate exact all-n reasoning.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary 2026 paper constructs arbitrary POVMs from Parseval frames and establishes common-frame joint measurability (Proposition 3.4), not all pairwise matching commutator spectra.",
+          "Deregowska–Lewandowska Example 2.1 includes a distinct indexed vector configuration and projection-constant objective."
+        ],
+        "reasoning": "General joint-measurability theorem covers only that component, not special spectral norm sharpness and count. Abstract Halmos classification must be specialized using pair-swap permutations to obtain exact sine/equality law.",
+        "searches": [
+          "perfect matching coarse-grained Parseval frame matching commutator spectra alternating cycles",
+          "Kużel Łukasiewicz Parseval frame POVM joint measurability Proposition 3.4",
+          "Halmos Two subspaces 1969",
+          "Deregowska Lewandowska edge midpoint simplex projection constants"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/alternating-cycle-spectra-and-sharp-noncommutativity-of-matching--0c561a55c928/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/alternating-cycle-spectra-and-sharp-noncommutativity-of-matching--0c561a55c928/verify_matching_effects.py",
+        "https://link.springer.com/article/10.1007/s43037-026-00514-0",
+        "https://arxiv.org/abs/2608.08695",
+        "https://doi.org/10.1090/S0002-9947-1969-0251519-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pairing swap involutions gives [E_M,E_N]=(R_M R_N−R_N R_M)/(n−2)^2, which reduces to two k-cycles per alternating 2k component; the precise eigenmultisets and sharp n-specific norms follow.",
+          "General frame joint-measurement statement supplies compatibility but neither matching-conditioned spectral sine law nor exact maximizing partner EGF."
+        ],
+        "reasoning": "The exact theorem combines a matching-specific permutation product and labelled-component enumeration absent in inspected frame/operator literature; classical two-projection result does not state those explicit counts.",
+        "searches": [
+          "perfect matching coarse-grained Parseval frame matching commutator spectra alternating cycles",
+          "arxiv:2601.11225",
+          "arxiv:2608.08695",
+          "Halmos Two subspaces"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Common Parseval-frame partition already ensures joint measurability of marginal POVMs in Kużel–Łukasiewicz; this is not a novel general compatibility criterion.",
+          "Halmos two-subspaces theorem gives abstract two-projection cosine-sine block form but not the explicit perfect-matching alternating permutation cycles and partner counts."
+        ],
+        "reasoning": "The matching-specific spectral/cycle enumeration is a special concrete problem beyond abstract two-projection theory; frame coarse grain compatibility follows from existing general framework.",
+        "searches": [
+          "perfect matching coarse-grained Parseval frame matching commutator spectra alternating cycles",
+          "perfect matching involution product alternating cycles commutator two projections",
+          "jointly measurable noncommuting Parseval frame binary coarse grain"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The present EGF C_m and A_m are full counts for a fixed perfect matching; finite n≤10 independent exhaustive counts verify initial values.",
+          "Bounded published sources did not return a same-object commutator table or A_m coefficient formula."
+        ],
+        "reasoning": "Matching-cycle counting itself is standard, but the exact specified operator commutator spectral table and joint count at all even n were not found as a published combined theorem; no universal novelty proof follows from absent search results.",
+        "searches": [
+          "perfect matching coarse-grained Parseval frame matching commutator spectra alternating cycles",
+          "matching coarse grain commutator exact sine spectrum maximizing partner enumeration generating function",
+          "two involutions perfect matchings alternating cycle eigenvalues"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality passes for exact matching-cycle commutator eigenmultiset, all-n sharp norm and partner enumerations; pre-existing common-frame joint measurability and two-projector framework are explicitly acknowledged.",
+      "residual_risks": [
+        "Possible earlier specialized matching/operator spectrum result hidden under permutation-involution terminology; novelty best-of-knowledge.",
+        "Common-frame joint measurability is already well known; cannot claim its general form as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General joint-measurability component is covered; does not provide matching-conditioned alternating-cycle commutators or counts",
+          "evidence": "Prop. 3.4, frame-operator/POVM formulas and single-frame operator spectra",
+          "identifier_or_url": "DOI:10.1007/s43037-026-00514-0 / https://link.springer.com/article/10.1007/s43037-026-00514-0",
+          "material_read": "Entire accessible full Springer journal HTML, especially Proposition 3.4 and frame POVM constructions and spectrum sections",
+          "method": "lawful open-access publisher full HTML",
+          "title": "Operators and POVMs generated by Parseval frames",
+          "trigger": "Direct stronger Parseval-frame compatibility result"
+        },
+        {
+          "assessment": "Its configuration contains additional indexed vectors and its objective is a projection constant; no exact matching coarse-grain commutator spectrum is asserted",
+          "evidence": "Example 2.1 and full projection-constant context",
+          "identifier_or_url": "arXiv:2608.08695 / https://www.researchgate.net/publication/412115199_Maximal_Projection_Constants_and_Extremal_Vector_Configurations_Some_Conjectures_and_Examples",
+          "material_read": "Accessible full-text HTML and Example 2.1, including augmented indexed edge/diagonal vectors and projection constants",
+          "method": "lawful full-text HTML comparison",
+          "title": "Maximal Projection Constants and Extremal Vector Configurations: Some Conjectures and Examples",
+          "trigger": "Similar simplex edge-midpoint frame construction"
+        },
+        {
+          "assessment": "Abstract theorem is applicable but does not determine the special alternating-cycle enumeration",
+          "evidence": "Two-projection theorem and decomposition",
+          "identifier_or_url": "DOI:10.1090/S0002-9947-1969-0251519-5",
+          "material_read": "Classical theorem statement and algebraic cosine-sine block characterization, not full original article read",
+          "method": "theorem-level comparison only",
+          "title": "Two subspaces",
+          "trigger": "Classical general theorem for pairs of projectors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The edge-midpoint Parseval frame and perfect-matching coarse grains are canonical symmetric finite-dimensional POVMs. Translating permutation alternating-cycle data into a complete noncommutativity spectrum, sharp extremal structures and exact counts is a natural classification, and the explicit compatible-yet-noncommuting examples make a mathematically useful boundary distinction. The novel value is not a general joint-measurement assertion, which was known.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/alternating-cycle-spectra-and-sharp-noncommutativity-of-matching--0c561a55c928/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/alternating-cycle-spectra-and-sharp-noncommutativity-of-matching--0c561a55c928/verify_matching_effects.py",
+    "https://link.springer.com/article/10.1007/s43037-026-00514-0",
+    "https://arxiv.org/abs/2608.08695",
+    "https://doi.org/10.1090/S0002-9947-1969-0251519-5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only matching-selected effects from this particular centered-edge frame, n even≥4.",
+    "General common-frame joint measurability is previously known; no broader incompatibility criterion or all-frame norm bound is claimed."
+  ],
+  "schema_version": 1
+}

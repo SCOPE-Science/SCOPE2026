@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python verify_matching_effects.py` in an environment containing NumPy. The actual run returned `VERIFICATION_OK`. For each even \(n\in\{4,6,8,10\}\), the checker exhaustively enumerated all perfect matchings relative to a fixed matching, checked exact integer commutator equality and the alternating-cycle commuting criterion, and compared all complex eigenvalues from independent numerical Hermitian diagonalization with the claimed sine multiset. At \(n=12\), it exhaustively checked exact integer commutators and matching-class counts without numeric diagonalization. The enumeration totals are \(3,15,105,945,10395\); commuting-partner counts are \(3,7,25,81,331\), and sharp-maximizer counts are \(0,0,48,240,2160\). For each dimension, direct numerical frame sums also matched the orthogonal projection onto the mean-zero subspace.
+## correctness
 
-The proof of arbitrary-even-dimensional correctness is in `RESULT.md`: the Parseval second-moment identity, matching involution compression, unitary product cycle decomposition, and exponential generating function are independent analytic arguments. Finite tests do not constitute an exhaustive test of infinitely many dimensions, and tolerance-based eigenvalue comparisons do not constitute exact algebraic proofs. The eigenvalue formula has not been externally certified.
+PASS
+
+For even n=2m≥4, centered simplex edge vectors satisfy Σ_{i<j}v_ij v_ij*=P_{1⊥}, checked by expanding centered vertex p_i. Matching swap involution R_M gives E_M=(I+R_M−2J/n)/(n−2), hence [E_M,E_N]=(R_M R_N−R_N R_M)/(n−2)². On a doubled shared edge k=1 or alternating 2k-cycle, W=R_M R_N has each k-th root twice, producing two eigenvalues 2i sin(2πj/k)/(n−2)² for each j, with one global zero removed on 1⊥. Thus zero iff all k≤2, sharp maximum 0 for n4, sqrt(3)/16 for n6, 2/(n−2)² for n≥8 iff a k divisible by four. For fixed base matching, pair reconnection counts give C_m=Σ_t m!/[(m−2t)!t!]; labelled alternating k-component count 2^(k−1)(k−1)! yields generating functions (1−2z)^(−1/2), and after excluding k divisible by 4 multiplies (1−16z^4)^(1/8), proving A_m formula. Edge-vectors partition into four positive joint-outcome effects with both marginals; joint measurement holds regardless of commutator. Independently exhaustively enumerated matchings n4/6/8/10 with commuting counts 3/7/25/81 and maximizing counts 0/0/48/240; finite checks corroborate exact all-n reasoning.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality passes for exact matching-cycle commutator eigenmultiset, all-n sharp norm and partner enumerations; pre-existing common-frame joint measurability and two-projector framework are explicitly acknowledged.
+
+## value
+
+PASS
+
+The edge-midpoint Parseval frame and perfect-matching coarse grains are canonical symmetric finite-dimensional POVMs. Translating permutation alternating-cycle data into a complete noncommutativity spectrum, sharp extremal structures and exact counts is a natural classification, and the explicit compatible-yet-noncommuting examples make a mathematically useful boundary distinction. The novel value is not a general joint-measurement assertion, which was known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
