@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md: Local encoding, Nonnegative deficit transfer, Extraction of all maximizing sets",
+      "verify.py: essential_automaton, potential_and_cost_arcs, low_cost_determinant, independent_brute_histogram"
+    ],
+    "rationale": "A 7-column local predicate is equivalent to the ESI graph condition for n>=7. Tarjan SCC computation obtains the sole cyclic 117-state automaton. All 241 local transitions satisfy exact integer potential h(b)>=h(a)+3w-2, so deficit 2n-3|B| is nonnegative. Newton identities compute every coefficient of det(I-xC(t)) modulo t^5 through x-degree 117, verifying exactly 1-x^6-2x^2t-(x+x^4+x^7)t^2+x^5t^4. Formal -log determinant gives traces and all minimal deficit classes and multiplicities. Exceptional n=3..6 checked by direct graph-level enumeration. The separate verifier checks exact algebraic identities, not merely examples; its independently implemented graph predicate checks n=3..11. Limitations and quantifiers are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General k-regular ESI bound in arXiv:2606.22972v1 gives |B| <= (k-1)|V|/(2k); for cubic L_n this is 2n/3.",
+        "arXiv:2508.16338v1 concerns minimum isolation numbers of graph products, not maximum ESI sets."
+      ],
+      "reasoning": "The cubic bound covers one upper inequality but cannot prove attainability, explain the two mod-six shortfalls or count maximizing ESI sets. The isolation number has different feasible sets/objective and does not imply the result.",
+      "searches": [
+        "arXiv:2606.22972v1 Proposition 13 Corollary 14",
+        "externally supported independent sets of Cartesian products of paths and cycles; prism graphs circular ladders exact values and maximum configurations",
+        "Externally supported independence number of circular ladder prism C_n Cartesian product K_2 six-residue formula and maximum ESI-set counts"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.22972v1 (primary manuscript; relevant full text inspected)",
+      "arXiv:2508.16338v1 (abstract and metadata inspected; full text not inspected)",
+      "Published circular-ladder rational homology record dated 2026-10-11 (summary only)",
+      "Published circular-ladder three-cut-complex record dated 2026-10-11 (summary only)",
+      "Related isolation-number background: Caro–Hansberg, Filomat 2017"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known cubic inequality determines only alpha_es(L_n)<=floor(2n/3).",
+        "The exact six-residue deficit and distinct labelled maximizers require a new 117-state finite determinant identity with all x-coefficients checked.",
+        "The exact polynomial transfer enumerates all feasible sets, far more data than a scalar upper bound."
+      ],
+      "reasoning": "The new result is not a corollary or parameter-renaming of the existing general inequality: for n≡3 or 5 (mod6) it proves a strictly stronger upper bound, and for all residues it supplies constructive attainment and exact maximum-set counts. No inspected stronger graph-family theorem implies these data.",
+      "searches": [
+        "arXiv:2606.22972v1 full text: definition, Proposition 6, Proposition 13, Corollary 14",
+        "arXiv:2508.16338v1 abstract",
+        "prism graph externally supported independent set ladder isolation number independence packing 2026",
+        "Externally supported independence number of circular ladder prism C_n Cartesian product K_2 six-residue formula and maximum ESI-set counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.22972v1: ESI is independent B with every neighbor of B adjacent outside closed N[B].",
+        "The prism ESI constraint can be recast as a 7-column finite-state domination/independent-set constraint, unlike ordinary independence or graph isolation alone."
+      ],
+      "reasoning": "Searches addressed externally supported independent sets, closed-neighborhood exterior-support criteria, Cartesian products, prisms, ladders and two-layer cylinders. None of the inspected statements establishes the exact ESI prism spectrum or maximum-set counts. Transforming the definition into a local finite automaton is proved, not presumed a novelty certificate.",
+      "searches": [
+        "\"externally supported independent\" \"prism\" OR \"ladder\" OR \"Cartesian\"",
+        "\"externally supported independence\" \"C_n\" \"K_2\"",
+        "externally supported independent sets of Cartesian products of paths and cycles; prism graphs circular ladders exact values and maximum configurations",
+        "prism graph externally supported independent set ladder isolation number independence packing 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record: Complete dihedral and layer-swap homology representations of circular ladders (2026-10-11).",
+        "Published record: Sphere-wedge topology of three-cut complexes of circular ladders (2026-10-11).",
+        "Exact graph-level enumeration of small cases is reproduced in verify.py, but is not a claim about a preexisting database."
+      ],
+      "reasoning": "Closest same-graph records compute invariants of independence/topological complexes and cut complexes, not the externally supported independence polynomial. Searches found no covering exact table or online database of ESI maximizers. Absence of a retrieved table is not a proof of historical uniqueness.",
+      "searches": [
+        "Externally supported independent sets in cycle graphs; exact externally supported independence number and enumerations for cycles, paths, graph powers",
+        "alpha_es(C_n square K_2) equal maximum 2/3 n periodic six",
+        "2026 Bozovic Peterin Roux Tepeh ESI numbers prism ladder all cardinality polynomial",
+        "Externally supported independence graph 3-regular prisms n mod six periodic alpha_es equal floor(2n/3) minus parity defect"
+      ]
+    },
+    "rationale": "Full text of the June 22 2026 motivating paper (arXiv:2606.22972v1) gives ESI definitions, values for paths, cycles, wheels and other families, and a general cubic upper bound (Corollary 14). Neither that implication nor isolation-number bounds for Cartesian products determine the six-residue prism optimum, strict-deficit classes, labelled maximum-set multiplicities or complete transfer enumerator. Nine distinct actual semantic and phrase searches of mathematical research records found closest circular-ladder records about topological independence complexes or cut complexes, not ESI-set enumeration. Hence originality passes on accessible evidence but priority against unpublished/unindexed or inaccessible text remains provisional.",
+    "residual_risks": [
+      "The full text of arXiv:2508.16338v1 was not inspected, although its stated invariant is different.",
+      "Equivalent finite-state or domination enumeration might be present in unindexed or unpublished materials.",
+      "Published research-record summaries are not substitutes for full-text negative inspections; inferences are confined to their explicit scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the general cubic upper bound and various families, not the circular-ladder exact optimizer classification or full ESI enumerator.",
+        "evidence": [
+          "Corollary 14 gives alpha_es <= (k-1)|V|/(2k) for k-regular graphs.",
+          "Proposition 6 covers paths, cycles, wheels, fans and complete bipartite graphs."
+        ],
+        "identifier_or_url": "arXiv:2606.22972v1",
+        "material_read": "Full accessible online manuscript, including introductory definitions, Proposition 6 family values, Proposition 13 and Corollary 14 bounds, later extremal/tree results and references.",
+        "method": "Inspected primary full text and directly compared the formal ESI predicate and implications for 3-regular prisms.",
+        "title": "On externally supported independence number of graphs",
+        "trigger": "Exact definition and obvious possible covering theorem for ESI on cubic graphs"
+      },
+      {
+        "assessment": "Minimum isolation of Cartesian products is different; no asserted whole-document noncoverage. Uninspected details remain a residual risk.",
+        "evidence": [
+          "Public abstract concerns isolation number of graph products, including prism products, rather than ESI maximum set counts."
+        ],
+        "identifier_or_url": "arXiv:2508.16338v1",
+        "material_read": "Accessible abstract and bibliographic details only; full manuscript not obtained.",
+        "method": "Compared public abstract and stated objective/parameter against ESI maxima and counts.",
+        "title": "Isolation number: Cartesian and lexicographic products and generalized Sierpiński graphs",
+        "trigger": "Plausible broader Cartesian-product or prism theorem"
+      },
+      {
+        "assessment": "Computes rational homology representation of ordinary independence complexes, not local external-support-constrained independence polynomials.",
+        "evidence": [
+          "Record describes D_n×C_2 symmetry representations of homology."
+        ],
+        "identifier_or_url": "published research record dated 2026-10-11",
+        "material_read": "Published title and research-record summary only.",
+        "method": "Compared invariant and scope.",
+        "title": "Complete dihedral and layer-swap homology representations of circular ladders",
+        "trigger": "Same underlying family, possible stronger independence-complex coverage"
+      },
+      {
+        "assessment": "Three-cut complex homotopy is unrelated to ESI-set cardinality counts by direct implication.",
+        "evidence": [
+          "Record calculates homotopy type of ordinary three-cut complex."
+        ],
+        "identifier_or_url": "published research record dated 2026-10-11",
+        "material_read": "Published title and record summary only.",
+        "method": "Compared objects/invariants.",
+        "title": "Sphere-wedge topology of three-cut complexes of circular ladders",
+        "trigger": "Same prism graphs with plausible enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6443063c-a5fe-4a12-90b7-ce395dce3912",
+  "value": {
+    "evidence": [
+      "arXiv:2606.22972v1: general regular-graph bound",
+      "RESULT.md: six-residue formula, multiplicity census, complete transfer polynomial"
+    ],
+    "rationale": "The motivating 2026 ESI paper gives only a cubic upper bound applicable to prisms. Determining its exact attainability, two infinitely repeated strict-deficit residues and all labelled maximizers answers a natural open structural gap for a canonical cubic graph family. An exact full-size generating function provides substantially more than scalar values. The residue-dependent counts distinguish rigid and polynomially proliferating maximum configurations and are not routine deductions of the old upper inequality. The motivation is fixed by this precise graph family and invariant, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
