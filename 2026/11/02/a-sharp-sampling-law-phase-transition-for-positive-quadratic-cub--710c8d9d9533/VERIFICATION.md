@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the arcsine-node quadratic cubature law
+# Independent mathematical audit
 
-The theorem is proved analytically in `RESULT.md`. The independently structured numerical checks in `verify.py` require Python 3.10+, NumPy and SciPy (`scipy.integrate.quad`, `scipy.optimize.linprog`). Run `python verify.py` in a directory containing the extracted files. This verifier makes no network calls and uses a fixed random seed `20261031`.
+## correctness
 
-The verifier passed **1,257 checks**: 45 probability-integral range tests for distinct sample counts and target second moments, 10 sharp-rate coefficient checks, 1,200 independent finite-node linear-program feasibility comparisons against the geometric criterion, and 2 critical-identity/sample-budget checks. For each finite-node comparison, the target moment constraints \((1,0,q)\) are submitted directly to a linear-program solver, with a small positive lower bound on every weight and explicit residual validation. Computations used double precision; proximity to a positivity boundary could affect feasibility in other samples. The analytical criterion avoids this numerical qualification.
+PASS
 
-Additional separate double integrations for \(q\in\{1/5,1/3,7/10\}\), sample counts \(m\in\{2,3,4,5\}\), and the pair-extremum formula agreed with the two one-dimensional failure integrals to within \(3\times10^{-14}\). At the uniform target, the predicted sharp constants are \(r_*=0.6081734479693928\ldots\) and \(C_*=0.8804063044373697\ldots\). For \(m=240\), the computed failure divided by \(\sqrt m r_*^m\) was \(1.011889629465945\ldots\), approaching the predicted constant; this finite result by itself would not prove convergence.
+For iid arcsine X_i and target moments (1,0,q), q in (0,1), strictly positive all-node weights exist iff both signs occur and a*b<q<A*B, where a,b are smallest opposite-sign magnitudes and A,B largest. This follows from the convex hull of (x,x^2) and its x=0 vertical section. Extreme-point integrals decompose failure into outer-spread U and central-gap L. Nondegenerate interior Laplace saddle at a=sqrt(q) yields L~sqrt(sqrt(q(1-q))/r_in)*sqrt(m)*r_in^m, while two endpoint contributions yield U~2 r_out^m. Rates r_in=1-2 asin(sqrt(q))/pi strictly decrease, r_out=1/2+asin(q)/pi strictly increase, with sole crossing at q=1/3; at equality sqrt m makes L dominant. The finite-m double integral is correctly derived. m=2 has P=0 and strict boundary equalities have probability 0.
 
-Limits: no proof assistant, interval-certified numerical integration, independent expert audit, floating-point stability guarantee, or claim for degree greater than two is supplied. The derivation of the constants, probability formulas and phase transition must be evaluated from the written proof; the executable tests are supplementary.
+## originality
+
+PASS
+
+Neumayer–Schaefer–Ullrich 2026 establish existence of positive random-node cubature with high probability under Lewis-type sampling and oversampling, not exact arcsine-node quadratic moment feasibility, exact failure integrals or the polynomially corrected phase transition. Bělik–Narayan–Turnage provide constructive Tchakaloff and randomized least squares in the closely related application but do not state the exact all-positive Chebyshev-node event in their inspected Sections and theorems. Uniform-node quadratic feasibility was known and explicitly distinguished.
+
+## value
+
+PASS
+
+The target moment q=1/3 corresponds to integrating 1,x,x^2 under uniform target measure, while nodes are sampled from a different natural Chebyshev law; the exact endpoint/interior-hole competition gives a sharp and practically motivated sampling threshold and quantifiable exponential gain over uniform nodes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

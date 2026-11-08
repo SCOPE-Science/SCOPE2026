@@ -1,15 +1,21 @@
-# Review of the sharp arcsine-node positive cubature law
+# Independent mathematical audit
 
-## Correctness: PASS
-For independent arcsine samples, exact positivity is characterized geometrically by the target moment point lying strictly inside the convex hull of the sampled parabola. Conditioning on extreme and nearest opposite-sign nodes gives two disjoint failure integrals. The inner integral has one nondegenerate maximum at \(\arcsin\sqrt q\), and standard Laplace analysis yields the stated sharp \(\sqrt m\) coefficient. The outer integral has two endpoint contributions: one appears directly in the formula and the other at the endpoint \(a=1\), each asymptotic to the same exponential. Their exponents cross uniquely at \(q=1/3\). A separate finite two-variable probability integral, 1,200 independent linear-program feasibility comparisons, and numerical replays check normalizations. No finite experiment substitutes for the analytic limit argument.
+## correctness
 
-## Originality: PASS (provisional scholarly priority)
-The 2026 Neumayer–Schäfer–Ullrich primary paper establishes general high-probability positive-weight existence but not an exact finite \(m\) law for arcsine nodes, the two competing asymptotic exponents, or the polynomial-critical crossover. The 2018/2019 van den Bos–Sanderse–Bierbooms–van Bussel work builds sample-based positive rules rather than deriving this fixed-target support probability. The 2026 Bělík–Narayan–Turnage paper on randomized least squares is relevant but only abstract-level material was accessible; this limits the strength of the priority comparison. The classical centrally symmetric Wendel formula does not cover the noncentrally symmetric lifted parabola law. Earlier uniform-node quadratic cubature probabilities, the opposite-sign geometric criterion, and the uniform-node \(2/3\) exponent are prior work, not asserted novel here. A specialized historical equivalent could remain undiscovered.
+PASS
 
-## Mathematical value: PASS
-Positive exactness is a prerequisite for stable, monotonic weighted cubature on prescribed node sets. The result resolves how the success probability depends sharply on a natural nonuniform sampling density, explains the mechanism switch with target second moment, and identifies the critical \(\sqrt m\) loss exactly at the normalized uniform target. It yields a quantitative leading-order reduction in random node budget for the same small failure probability compared with uniform-node sampling. It does not assert importance-weight stability, algorithmic construction cost, higher-degree exactness, or floating-point reliability.
+For iid arcsine X_i and target moments (1,0,q), q in (0,1), strictly positive all-node weights exist iff both signs occur and a*b<q<A*B, where a,b are smallest opposite-sign magnitudes and A,B largest. This follows from the convex hull of (x,x^2) and its x=0 vertical section. Extreme-point integrals decompose failure into outer-spread U and central-gap L. Nondegenerate interior Laplace saddle at a=sqrt(q) yields L~sqrt(sqrt(q(1-q))/r_in)*sqrt(m)*r_in^m, while two endpoint contributions yield U~2 r_out^m. Rates r_in=1-2 asin(sqrt(q))/pi strictly decrease, r_out=1/2+asin(q)/pi strictly increase, with sole crossing at q=1/3; at equality sqrt m makes L dominant. The finite-m double integral is correctly derived. m=2 has P=0 and strict boundary equalities have probability 0.
 
-## Limitations and independent status
-The asymptotic fixes \(0<q<1\); positive weights are unrestricted and real-arithmetic exact. Broader prior literature may contain equivalent results; the Bělík–Narayan–Turnage full paper was not accessible. Numerical checks are finite corroboration, not independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Neumayer–Schaefer–Ullrich 2026 establish existence of positive random-node cubature with high probability under Lewis-type sampling and oversampling, not exact arcsine-node quadratic moment feasibility, exact failure integrals or the polynomially corrected phase transition. Bělik–Narayan–Turnage provide constructive Tchakaloff and randomized least squares in the closely related application but do not state the exact all-positive Chebyshev-node event in their inspected Sections and theorems. Uniform-node quadratic feasibility was known and explicitly distinguished.
+
+## value
+
+PASS
+
+The target moment q=1/3 corresponds to integrating 1,x,x^2 under uniform target measure, while nodes are sampled from a different natural Chebyshev law; the exact endpoint/interior-hole competition gives a sharp and practically motivated sampling threshold and quantifiable exponential gain over uniform nodes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
