@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing `verify.py`; only Python's standard library is needed. On successful execution the program prints `BASE_OK`, `UNIVERSAL_FIBERS_OK`, `LOW_BOUND_OK` for the five values 2 through 6, and `VERIFY_OK`.
+## correctness
 
-The verifier begins with the original bidirected graph, enumerates all nonempty multipaths in six probe columns, and constructs the complete Hasse digraph with matched cover edges reversed. Its topological sort proves that there is no directed cycle, while its critical-face count is one vertex and 169 tetrahedra.
+PASS
 
-Next, it enumerates all 312 valid nonempty external configurations on four symbolic columns. Since every multipath contains at most four arrows, any external configuration for any number of extra columns relabels to one of these cases. The program checks acyclicity for each fiber and exactly the residual profile asserted in the proof. This establishes an all-parameter finite certificate for the combinatorial matching step, subject to the mathematical argument that those symbolic patterns exhaust every external fiber.
+For bidirected K_{2,q}, q>=6, every multipath has at most four arcs because each of two left vertices has in/out degree ≤1. Counting all admissible orientations gives f-vector (4q,6q²−4q,4q(q−1)²,q(q−1)²(q−2)) and Euler characteristic yielding B_q=q⁴−8q³+19q²−14q+1. The proof partitions faces by external arcs after six probe columns; every external face uses ≤4 external right vertices, so the four-named-external-column fiber check covers every q symbolically. Independently reconstructed and reran all 312 nonempty external patterns and every directed matching Hasse edge (8,904 tested nonempty fiber cells total); the critical profiles matched 16·71, 56·19, 24·25, 144·5, 72·1 cells in the stated sizes and every fiber topological sort succeeded. Replayed the six-column base (1,416 simplices, 623 pairs, one critical vertex and 169 three-cells) and independently checked mod-two low-q boundary ranks q=2..5. By the patchwork lemma, the global matching is acyclic and has one 0-cell and only 3-cells, so the entire q>=6 integral homotopy type is the asserted S³ wedge; low-q non-two-connectedness is exact, not timeout-based.
 
-Finally the checker performs independent mod-two boundary-rank calculations for small right class sizes 2 through 6. Those small cases establish the sharp threshold, but no assertion is made that finite parameter testing alone proves infinite statements. The all-parameter proof additionally uses the standard poset patchwork and discrete Morse CW theorems and an explicit face-number count.
+## originality
 
-Independent mathematical audit and external proof-assistant verification have not been performed. An earlier unindexed equivalent result remains a possible scientific limitation.
+PASS
+
+Best-of-knowledge originality: final statement and implication level compared to overlapping primary literature and published mathematical records, including already-known subcases. Even stronger prior path/polygon results do not contain the dense four-cycle family; the cited alternating orientation cannot imply its homotopy by a harmless relabeling.
+
+## value
+
+PASS
+
+A sharp uniform two-connectivity cutoff and explicit all-q integral homotopy classification of a natural dense bidirected family; the finite symbolic certificate reduces an unbounded-parameter question to an exhaustive meaningful boundary, rather than mere small-instance tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

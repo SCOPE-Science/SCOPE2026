@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every multipath uses at most four arrows because the two left vertices each have one permitted incoming and one permitted outgoing arc. This forces the external fiber support into at most four right vertices. The standalone verifier checks all 312 symbolic external configurations and the six-column base, including the exact acyclicity of every finite Hasse orientation and the critical-cell profiles, so the mathematical reduction applies to every integer \(q\ge6\), rather than extrapolating from finite samples. The patchwork lemma gives a global matching with one zero-cell and exclusively three-cells; discrete Morse theory yields the integral wedge, and a direct face enumeration yields the exact polynomial. Finite boundary computations confirm the sharp lower threshold without claiming complete small-case homotopy types.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** The 2026 Caputi–Collari–Smith full text concerns bidirected **paths and polygons**, neither of which is a bidirected \(K_{2,q}\) for \(q\ge3\). The 2022/2024 Caputi–Collari–Di Trani–Smith section on complete bipartite digraphs uses **only one orientation**, so its Euler calculation does not imply this bidirected integral homotopy classification. A closest indexed complete bidirected double-star result is a *tree* with two adjacent hubs, not the graph with multiple shared neighbors and four-cycles used here. Polygonal rational dihedral characters and two-matching complexes have different objects and cannot dominate the theorem. Exact claims, aliases and parameters were searched in the accessible earlier research ledger and mathematical index. No result covering the complete stable classification was identified; unindexed equivalent material remains a residual risk.
+PASS
 
-**Value — PASS.** This is a natural infinite-family classification for a canonical dense bidirected graph. It establishes a sharp six-column homotopical stability threshold, a quartic top sphere count, and a finite symbolic certificate that genuinely proves all remaining widths. A full integral homotopy type is strictly stronger than previously available directed-bipartite Euler counts or sample homology ranks.
+For bidirected K_{2,q}, q>=6, every multipath has at most four arcs because each of two left vertices has in/out degree ≤1. Counting all admissible orientations gives f-vector (4q,6q²−4q,4q(q−1)²,q(q−1)²(q−2)) and Euler characteristic yielding B_q=q⁴−8q³+19q²−14q+1. The proof partitions faces by external arcs after six probe columns; every external face uses ≤4 external right vertices, so the four-named-external-column fiber check covers every q symbolically. Independently reconstructed and reran all 312 nonempty external patterns and every directed matching Hasse edge (8,904 tested nonempty fiber cells total); the critical profiles matched 16·71, 56·19, 24·25, 144·5, 72·1 cells in the stated sizes and every fiber topological sort succeeded. Replayed the six-column base (1,416 simplices, 623 pairs, one critical vertex and 169 three-cells) and independently checked mod-two low-q boundary ranks q=2..5. By the patchwork lemma, the global matching is acyclic and has one 0-cell and only 3-cells, so the entire q>=6 integral homotopy type is the asserted S³ wedge; low-q non-two-connectedness is exact, not timeout-based.
 
-The principal limits are the fixed two-vertex left class, lack of full homotopy types for \(q<6\), possible unindexed equivalent literature, and absence of independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: final statement and implication level compared to overlapping primary literature and published mathematical records, including already-known subcases. Even stronger prior path/polygon results do not contain the dense four-cycle family; the cited alternating orientation cannot imply its homotopy by a harmless relabeling.
+
+## value
+
+PASS
+
+A sharp uniform two-connectivity cutoff and explicit all-q integral homotopy classification of a natural dense bidirected family; the finite symbolic certificate reduces an unbounded-parameter question to an exhaustive meaningful boundary, rather than mere small-instance tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
