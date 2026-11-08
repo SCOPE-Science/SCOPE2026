@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducibility
-The analytical argument is in `RESULT.md`. Run `python verify_star_restart.py` with Python 3, NumPy, and SciPy. The program checks the exact rational inequalities, validates the no-restart moment identity and first-order resetting slope, evaluates representative rates and asymptotics, and constructs an independent finite-state generator whose resolvent converges to the continuum exit transform. It prints `PASS: rational, moment, asymptotic, and independent resolvent tests` on success.
+# Independent mathematical audit
 
-Finite-state checks at subdivisions of 8, 16, and 32 intervals per unit length returned the exact bare means \(17/4\) and \(13/2\) up to floating-point error for \(q=4,5\), with discounted-transform absolute errors decreasing quadratically from below \(2.4\times10^{-4}\) to below \(1.5\times10^{-5}\). They are not exhaustive and do not establish the theorem for all \(q\), nor do they constitute independent review.
+## correctness
 
-Analytical sensitivity to model assumptions is explicit: other center boundary conditions, asymmetric edge diffusivities, nonabsorbing leaves, reset overhead, or fixed-total-length rescalings require new analysis. The proof does not establish the uniqueness or exact value of the globally minimizing reset rate.
+PASS
+
+At the Kirchhoff central vertex, the edgewise solution of Du''=su with absorbing leaves gives F(s)=[csch(z)+q csch(qz)]/[coth(z)+q coth(qz)], z=ell sqrt(s/D). The series at zero yields T0=ell^2(1+q^2)/(4D) and T'0=ell^4 q^2/(24D^2)>0. The renewal identity (1-F)/(rF) is standard. At z=log4, the exact q=4 ratio before dividing by (log4)^2 is 299421/37000; the strict rational logarithm bound proves benefit, while 19q^2-75q-26>0 covers every q>=5. As q grows, csch(qz) decays exponentially and the gain ratio is asymptotic to 15/[2(log4)^2 q]. The large-rate asymptotic shows eventual divergence, giving a positive global minimizer, not uniqueness. The independent rational q4 calculation and q=5,6,10,50,100 samples agree; samples are not the infinite proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for the specific complete metric-star family with a strictly adverse weak-reset slope but a finite-rate all-q benefit and asymptotic unbounded advantage. Renewal Laplace formulas, resetting transitions and graph Brownian constructions are established prior machinery, not novel.
+
+## value
+
+PASS
+
+The theorem gives an explicit infinite topological family in which the local coefficient-of-variation restart test cannot decide global utility, with exact quantitative design at a fixed rate; this is a motivated phenomenon, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

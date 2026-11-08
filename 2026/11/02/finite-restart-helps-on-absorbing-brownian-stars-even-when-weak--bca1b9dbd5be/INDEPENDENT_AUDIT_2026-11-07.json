@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T15:50:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the Kirchhoff central vertex, the edgewise solution of Du''=su with absorbing leaves gives F(s)=[csch(z)+q csch(qz)]/[coth(z)+q coth(qz)], z=ell sqrt(s/D). The series at zero yields T0=ell^2(1+q^2)/(4D) and T'0=ell^4 q^2/(24D^2)>0. The renewal identity (1-F)/(rF) is standard. At z=log4, the exact q=4 ratio before dividing by (log4)^2 is 299421/37000; the strict rational logarithm bound proves benefit, while 19q^2-75q-26>0 covers every q>=5. As q grows, csch(qz) decays exponentially and the gain ratio is asymptotic to 15/[2(log4)^2 q]. The large-rate asymptotic shows eventual divergence, giving a positive global minimizer, not uniqueness. The independent rational q4 calculation and q=5,6,10,50,100 samples agree; samples are not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Huang (2021/2022) show discontinuous restart transitions in spherical shells, distinct geometry; Riascos et al. (2020) study discrete-time network walks with target first-passage."
+        ],
+        "reasoning": "Those works establish global phenomena or tools in other diffusion spaces; direct reduction to simultaneous absorbing metric-star leaves with this length/multiplicity law was not found.",
+        "searches": [
+          "stochastic resetting Brownian diffusion star graph absorbing edges nonmonotonic first passage reset optimal finite rate 2024 2025 2026",
+          "arXiv:2109.11101",
+          "arXiv:1910.13568"
+        ]
+      },
+      "checked_sources": [
+        "Diffusion with Stochastic Resetting — https://arxiv.org/pdf/1102.2704",
+        "Brownian Motions on Metric Graphs — https://arxiv.org/pdf/1102.4937",
+        "Random walks on networks with stochastic resetting — https://arxiv.org/pdf/1910.13568",
+        "First passage of a diffusing particle under stochastic resetting in bounded domains with spherical symmetry — https://arxiv.org/pdf/2109.11101"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General renewal identities imply equation for T_r once F is known, but do not give the sharp q=4 and q>=5 inequality, or the q-dependent asymptotic."
+        ],
+        "reasoning": "Prior results give premises and methods, not the asserted all-q finite-rate inequality as an explicit consequence without new geometric analysis.",
+        "searches": [
+          "arXiv:1102.2704",
+          "arXiv:1910.13568",
+          "arXiv:2109.11101"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Evans–Majumdar use reset first-passage renewal; Kostrykin et al. treat Brownian generators on metric graphs; neither inspected part derives this q+1 arm profile."
+        ],
+        "reasoning": "The same claim can be phrased as a coefficient-of-variation-below-one yet beneficial nonzero Poisson restart for Kirchhoff Brownian star exit; it is not equivalent merely to the general renewal formula.",
+        "searches": [
+          "Brownian diffusion finite star metric graph stochastic resetting first passage short arm long arms discontinuous optimal restart",
+          "arXiv:1102.2704",
+          "arXiv:1102.4937"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned nearest subjects on separated metric-star particles and general network dynamics, not the identical first-exit profile."
+        ],
+        "reasoning": "No exact tabulation of this continuum q-arm star formula was identified; unsuccessful discovery is not an exhaustive priority proof.",
+        "searches": [
+          "Resultary Brownian diffusion finite star metric graph stochastic resetting first passage short arm long arms",
+          "metric star Poisson resetting mean first absorption all leaves q long arms"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the specific complete metric-star family with a strictly adverse weak-reset slope but a finite-rate all-q benefit and asymptotic unbounded advantage. Renewal Laplace formulas, resetting transitions and graph Brownian constructions are established prior machinery, not novel.",
+      "residual_risks": [
+        "Broader metric-graph or branching-diffusion restart literature may contain equivalent finite-rate comparison not found by the bounded search.",
+        "The increasing graph size drives q-asymptotic gain; no fixed-resource interpretation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK",
+          "evidence": "One-dimensional reset target search and optimization, not an absorbing metric-star family.",
+          "identifier_or_url": "https://arxiv.org/pdf/1102.2704",
+          "material_read": "PDF introduction, reset first-passage setup and main formula context; page 1 screenshot",
+          "method": "arXiv PDF inspected in text and screenshot",
+          "title": "Diffusion with Stochastic Resetting",
+          "trigger": "Earliest resetting renewal principle"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK",
+          "evidence": "Characterizes graph Brownian generators; no specific reset inequality assessed.",
+          "identifier_or_url": "https://arxiv.org/pdf/1102.4937",
+          "material_read": "Abstract and foundational introduction with screenshot; not a whole-document review",
+          "method": "arXiv PDF",
+          "title": "Brownian Motions on Metric Graphs",
+          "trigger": "Same Kirchhoff graph diffusion"
+        },
+        {
+          "assessment": "DISTINCT_MODEL",
+          "evidence": "Discrete-time network target walks, not continuous edge diffusion with any-leaf absorption.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.13568",
+          "material_read": "Abstract and introduction with screenshot; not whole-document",
+          "method": "arXiv PDF",
+          "title": "Random walks on networks with stochastic resetting",
+          "trigger": "Resetting on graphs including Cayley trees"
+        },
+        {
+          "assessment": "PRIOR_GENERAL_PHENOMENON",
+          "evidence": "Concentric spheres exhibit discontinuous reset transitions, but not the claimed star law.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.11101",
+          "material_read": "Abstract and introduction with screenshot",
+          "method": "arXiv PDF",
+          "title": "First passage of a diffusing particle under stochastic resetting in bounded domains with spherical symmetry",
+          "trigger": "Prior noncontinuous restart optimality transitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem gives an explicit infinite topological family in which the local coefficient-of-variation restart test cannot decide global utility, with exact quantitative design at a fixed rate; this is a motivated phenomenon, not an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Broader metric-graph or branching-diffusion restart literature may contain equivalent finite-rate comparison not found by the bounded search.",
+    "The increasing graph size drives q-asymptotic gain; no fixed-resource interpretation."
+  ],
+  "schema_version": 1
+}

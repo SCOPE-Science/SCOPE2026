@@ -1,15 +1,21 @@
-# Review of the finite-reset improvement theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The backward boundary-value problem \(D u''=s u\), Dirichlet leaves, and Kirchhoff sum of outward derivatives uniquely give the explicit exit Laplace transform. Its Taylor coefficients give the mean, variance, and strictly positive derivative of the restarted mean at zero. Renewal yields \(T_r=(1-F(r))/(rF(r))\). At \(r=D(\log4)^2/\ell^2\), the separate exact \(q=4\) inequality and the increasing-polynomial bound for every \(q\ge5\) establish a global improvement. Hyperbolic limits establish the asymptotic ratio and positive global minimizing rate. The reproducibility checker independently compares the exact transform with finite-state resolvents and checks rational arithmetic; finite computation is not substituted for proof.
+## correctness
 
-## Originality — PASS on inspected evidence
-Evans–Majumdar's general renewal formula and Reuveni's optimal-restart identities do not impose an absorbing star geometry. Kostrykin–Potthoff–Schrader construct the underlying metric-graph Brownian process, without the Poisson restart optimization. Riascos et al. treat discrete-time network resetting (including a central Cayley-tree source), but not all-leaf absorption on the continuous metric-star family. Chen–Huang explicitly discuss finite restart benefits despite \(\mathrm{CV}<1\) and report discontinuous transitions in higher-dimensional spherical shells: those general phenomena are prior art, and novelty is confined to the exact infinite star family and its asymptotically unbounded relative gain. Searches included general, dual, and network formulations in the stated references and the published mathematical-results database. Historical priority is not independently certified; further branched-diffusion literature could contain equivalent formulas.
+PASS
 
-## Mathematical value — PASS
-The setting is a natural finite network with all absorbing leaves. The theorem supplies an infinite exact family where the common weak-restart diagnostic fails as a guide to the globally best action, not just an isolated numerical example. It proves arbitrarily large acceleration from a single explicit rate while small rates always harm, thereby quantifying geometry-induced long-excursion control. The mean-time ratio tends to zero under geometry growth, not under fixed network volume.
+At the Kirchhoff central vertex, the edgewise solution of Du''=su with absorbing leaves gives F(s)=[csch(z)+q csch(qz)]/[coth(z)+q coth(qz)], z=ell sqrt(s/D). The series at zero yields T0=ell^2(1+q^2)/(4D) and T'0=ell^4 q^2/(24D^2)>0. The renewal identity (1-F)/(rF) is standard. At z=log4, the exact q=4 ratio before dividing by (log4)^2 is 299421/37000; the strict rational logarithm bound proves benefit, while 19q^2-75q-26>0 covers every q>=5. As q grows, csch(qz) decays exponentially and the gain ratio is asymptotic to 15/[2(log4)^2 q]. The large-rate asymptotic shows eventual divergence, giving a positive global minimizer, not uniqueness. The independent rational q4 calculation and q=5,6,10,50,100 samples agree; samples are not the infinite proof.
 
-## Limits
-Exact restriction to one short edge and \(q\) edges of length \(q\ell\); equal diffusivities, Kirchhoff central vertex, absorbing ends, and independent instantaneous hub resets. No minimizer uniqueness theorem or arbitrary-star criterion is claimed. Full global historical priority remains uncertain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the specific complete metric-star family with a strictly adverse weak-reset slope but a finite-rate all-q benefit and asymptotic unbounded advantage. Renewal Laplace formulas, resetting transitions and graph Brownian constructions are established prior machinery, not novel.
+
+## value
+
+PASS
+
+The theorem gives an explicit infinite topological family in which the local coefficient-of-variation restart test cannot decide global utility, with exact quantitative design at a fixed rate; this is a motivated phenomenon, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
