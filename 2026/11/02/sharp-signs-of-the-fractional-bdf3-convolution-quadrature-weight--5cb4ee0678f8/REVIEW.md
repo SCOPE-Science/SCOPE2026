@@ -1,19 +1,21 @@
-# Scientific review: fractional BDF3 coefficient signs
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem specifies the analytic power-series branch, order range, positive timestep scaling and all integer indices. Differentiating the cubic symbol gives the three-term coefficient recurrence. The first three signs are explicit, with a strictly positive quadratic for the third. For indices 4–21, 18 exact rational Bernstein coefficient checks prove strict positivity of the rescaled negative weights; four further checks initialize a rigorous invariant interval for adjacent ratios. The interval is preserved for all indices 22 onward by the explicit corner inequalities displayed in the proof. Independent generalized-binomial coefficient comparisons check the algebraic implementation. Finite exact computation is not being substituted for the infinite induction.
+PASS
 
-## Originality
+Normalized power-series recurrence follows by logarithmic differentiation. c2=9 alpha(18alpha-7)/121 and c3=-2alpha(486 beta²-405beta+121)/1331 with negative discriminant. Exact rational Bernstein coefficients prove positive s_n=-c_n/[beta(1-beta)] for n=4..21 and the q20,q21 bounds 4/5<q<11/10. The explicit Phi_n rectangle invariance for n>=22 has positive lower corner (49n-510t)/(2420n) and positive upper slack (n+930t)/(1210n), t=1+alpha in (1,2), completing the infinite induction. Independently reconstructed all 285 positive rational Bernstein coefficients and induction corner formulas in independent_checks.py, not reliance on saved logs. h^{-alpha} positive, endpoints alpha=0,1 excluded; no solution stability follows.
 
-**PASS on inspected evidence, with residual risk.** Lubich (1986) provides the third-order fractional multistep generator; Jin–Li–Zhou (2017) provide higher-order derivative quadrature and correction analysis; Karaa (2024) establishes positivity of convolution quadratic forms, not pointwise BDF3 derivative coefficient signs. Examination of their relevant generating-function definitions, proofs and reported results did not locate the all-index BDF3 coefficient sign frontier at \(\alpha=7/18\). The contribution is narrower than the pre-existing full scheme and is not simply the second-order coefficient threshold. A specialist article containing an equivalent inequality but not surfaced by the searches remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A sharp necessary-and-sufficient nonpositive-history-weight condition is a naturally motivated kernel invariant for sign-based stability or monotonicity arguments in fractional stepping. The order-dependent exception and its exact boundary can affect whether coefficientwise monotonicity tools are available. The result is an exact classification for a standard third-order convolution symbol, not an arbitrary finite slice or unsupported numerical observation. It does not independently certify positivity of numerical solutions.
+Lubich 1986 introduced the BDF convolution quadrature symbol; Jin–Li–Zhou 2017 address high-order corrections and convergence; Karaa 2024 studies positivity of convolution quadratic forms. None of the inspected statements supplies the exact 7/18 and all-index coefficient-sign classification. A more specialized BDF3 coefficient inequality could predate this.
 
-## Closest literature and limitations
+## value
 
-The generator comes from C. Lubich, *Discretized Fractional Calculus*, DOI 10.1137/0517050. Higher-order derivative and correction schemes are treated by B. Jin, B. Li and Z. Zhou, DOI 10.1137/17M1118816. S. Karaa, DOI 10.5802/crmath.669, establishes a different quadratic-form notion of convolution positivity and explicitly treats BDF2 weights. Only the uncorrected derivative coefficients and \(0<\alpha<1\) are within scope. Independent validation and a specialist exhaustive novelty review remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp zero/nonzero sign frontier for every coefficient of a standard high-order fractional derivative discretization; it controls a basic kernel property needed when testing discrete monotonicity, and its finite-to-infinite certificate is nontrivial. The result makes no unjustified maximum-principle claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

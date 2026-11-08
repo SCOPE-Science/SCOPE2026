@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The algebraic recurrence and all polynomial positivity certificates are re-created from scratch by running `python3 verify_bdf3.py`; no external library or downloaded database is required.
+# Independent mathematical audit
 
-The program verifies 18 strict polynomial sign certificates for indices 4 through 21, four additional exact adjacent-ratio certificates for indices 20 and 21, and 285 positive Bernstein-basis rational coefficients in total. It also makes 52 independent generalized-binomial coefficient comparisons at four rational fractional orders, and exact calculations for the tail induction's two invariant-rectangle corner values and derivative inequality. The discriminant and the first three coefficients are checked exactly.
+## correctness
 
-The infinite sign claim is **not** inferred from finite enumeration. It follows from the symbolic recurrence and the invariant ratio rectangle \([4/5,11/10]\) for all indices at least 22. The proof, including the explicit inequalities, appears in `RESULT.md`.
+PASS
 
-No independent mathematical review has been performed. Neither a particular fractional PDE scheme's stability nor a maximum principle follows solely from this coefficient-sign result.
+Normalized power-series recurrence follows by logarithmic differentiation. c2=9 alpha(18alpha-7)/121 and c3=-2alpha(486 beta²-405beta+121)/1331 with negative discriminant. Exact rational Bernstein coefficients prove positive s_n=-c_n/[beta(1-beta)] for n=4..21 and the q20,q21 bounds 4/5<q<11/10. The explicit Phi_n rectangle invariance for n>=22 has positive lower corner (49n-510t)/(2420n) and positive upper slack (n+930t)/(1210n), t=1+alpha in (1,2), completing the infinite induction. Independently reconstructed all 285 positive rational Bernstein coefficients and induction corner formulas in independent_checks.py, not reliance on saved logs. h^{-alpha} positive, endpoints alpha=0,1 excluded; no solution stability follows.
+
+## originality
+
+PASS
+
+Lubich 1986 introduced the BDF convolution quadrature symbol; Jin–Li–Zhou 2017 address high-order corrections and convergence; Karaa 2024 studies positivity of convolution quadratic forms. None of the inspected statements supplies the exact 7/18 and all-index coefficient-sign classification. A more specialized BDF3 coefficient inequality could predate this.
+
+## value
+
+PASS
+
+Sharp zero/nonzero sign frontier for every coefficient of a standard high-order fractional derivative discretization; it controls a basic kernel property needed when testing discrete monotonicity, and its finite-to-infinite certificate is nontrivial. The result makes no unjustified maximum-principle claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
