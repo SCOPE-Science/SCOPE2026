@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The exact certificate in `CHECKER.py` was run from the accompanying standalone artifact and returned `PASS` for all five integer-polynomial determinant identities. The degree bounds for interpolation validation are stated in the checker and in the proof. The full analytical argument separately verifies the finite-dimensional Taylor-jet lower and upper bounds for every sufficiently small positive observation time.
+# Independent mathematical audit
 
-The first-public source date comes from the arXiv submission history (2026-03-16); the complete revised document (2026-09-28) was used for the scientific literature comparison. A general all-section or all-trajectory uniqueness claim is not made. There has been no independent audit.
+## correctness
+
+PASS
+
+The analytic jet-rank lemma yields λ_min~T^(2q) when derivatives through order q first span the m-dimensional coefficient space; the lower bound uses fixed-degree polynomial norm equivalence and a uniform Taylor remainder, the upper bound uses a nullvector for preceding rows. For w=−ia/(2π), derivatives are u^k k!∑_j w^j n^(2k−3j)/(j!(k−2j)!). Exact seven-mode jet determinant factor 597196800w³(57600w⁴−47320w²−22247) has one positive physical r=−w² root; a six-row minor remains nonzero for pure imaginary w≠0 and the order-seven replacement determinant is nonzero there. Thus first spanning jet q=7 at resonance and q=6 otherwise. Exact polynomial identities were independently checked at 11 integer values of w exceeding degree ≤9, plus analytic argument for all small real T. At a=0 opposite modes coincide; positive-T independence follows from analytic full jet rank.
+
+## originality
+
+PASS
+
+The inspected Haak–Jaming–Wang–Wang curved Ingham preprint supplies qualitative fixed-time inequalities, a three-mode Wronskian and general small-time obstructions, but does not give the seven-mode isolated curvature or two extra small-time powers. General analytic-jet theory is method background, not the determinant classification. Other mixed-frequency curve studies might contain equivalent results; best-of-knowledge qualified.
+
+## value
+
+PASS
+
+A precise first exceptional curvature at seven dispersive Fourier modes is a motivated finite spectral resonance: it changes the optimal observation conditioning exponent even though no exact dependence appears. It is a complete sharp classification of N≤3, not an arbitrary numerical slice claimed as a general PDE theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

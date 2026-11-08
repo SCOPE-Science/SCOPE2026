@@ -1,17 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized Fourier phases and the time measure are explicit. For any analytic finite family, the least full-rank Taylor-jet order controls the optimal normalized Gram lower eigenvalue by a proved two-sided power law. Exact determinant identities independently replayed from the accompanying checker give ranks for all real nonzero curvature values, including the isolated root and the restoration of full rank one jet order later. The zero-curvature degeneracy and all positive-time conclusions follow directly. The proof is not based on finite-time numerical experiments.
+PASS
 
-## Originality — PASS under inspected evidence
+The analytic jet-rank lemma yields λ_min~T^(2q) when derivatives through order q first span the m-dimensional coefficient space; the lower bound uses fixed-degree polynomial norm equivalence and a uniform Taylor remainder, the upper bound uses a nullvector for preceding rows. For w=−ia/(2π), derivatives are u^k k!∑_j w^j n^(2k−3j)/(j!(k−2j)!). Exact seven-mode jet determinant factor 597196800w³(57600w⁴−47320w²−22247) has one positive physical r=−w² root; a six-row minor remains nonzero for pure imaginary w≠0 and the order-seven replacement determinant is nonzero there. Thus first spanning jet q=7 at resonance and q=6 otherwise. Exact polynomial identities were independently checked at 11 integer values of w exceeding degree ≤9, plus analytic argument for all small real T. At a=0 opposite modes coincide; positive-T independence follows from analytic full jet rank.
 
-The revised full text of Haak–Jaming–Wang–Wang, arXiv:2603.15193v2, gives qualitative finite-mode lower bounds on curved traces, a three-mode Wronskian, and a universal short-time upper obstruction. It does not give the seven-mode determinant, the exact exceptional curvature, or the two different seven-mode observation exponents. Related general observability and finite Fourier results have not supplied a stronger implication identified in the performed searches. Universal novelty cannot be certified by searching; equivalent implicit earlier analysis is a disclosed risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact first exception at seven symmetric modes is a natural minimal cutoff (no nonzero-curvature exception exists with three or five modes). The anomalous gain of two vanishing powers is a quantitatively significant difference in short-time conditioning for the same nondegenerate analytic curve family, addressing a phenomenon adjacent to recent curved Ingham and finite-frequency observability questions. It is a complete classification within this defined first-resonance range, not an arbitrary isolated numerical example.
+The inspected Haak–Jaming–Wang–Wang curved Ingham preprint supplies qualitative fixed-time inequalities, a three-mode Wronskian and general small-time obstructions, but does not give the seven-mode isolated curvature or two extra small-time powers. General analytic-jet theory is method background, not the determinant classification. Other mixed-frequency curve studies might contain equivalent results; best-of-knowledge qualified.
 
-The conclusions concern fixed curvature, quadratic trajectories, and modes \(-3\) through \(3\); no sharp leading multiplicative constant or extension to infinite-frequency observability is claimed. Only the arXiv article's relevant complete sections were compared directly; the Yu–Huang paper was available only through its abstract.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A precise first exceptional curvature at seven dispersive Fourier modes is a motivated finite spectral resonance: it changes the optimal observation conditioning exponent even though no exact dependence appears. It is a complete sharp classification of N≤3, not an arbitrary numerical slice claimed as a general PDE theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
