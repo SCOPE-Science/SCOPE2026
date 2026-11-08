@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T02:12:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The all-positive-mass all-n proof reconstructs the free-path mass-weighted Rayleigh characterization. For w_j=j-mu with sum m_jw_j=0 and each edge difference 1, every design has lambda2<=K/V. The proposed C_i=sum_{j<=i}m_j(mu-j) has pair representation C_i=(1/M0) sum_{j<=i<l}m_jm_l(l-j)>0, and sum C_i=V, so k_i=(K/V)C_i is admissible. Coordinate differences C_i-C_{i-1}=m_i(mu-i) yield Lw=(K/V)Mw. Symmetrized M^-1/2LM^-1/2 is an irreducible symmetric Jacobi matrix, and w is a monotone eigenvector with exactly one nodal change (possibly one zero), identifying the FIRST positive eigenmode by Sturm. Equality in Rayleigh for any other allocation forces w to be a first eigenmode and the endpoint plus successive coordinate equations recover every k_i uniquely. For m constant, mu=(n+1)/2, C_i=mi(n-i)/2 and V=mn(n²-1)/12. Series springs under ±endpoint force have compliance sum_i1/k_i=(n²-1)H_{n-1}/(3K), while Cauchy-Schwarz gives the sharp uniform-stiffness minimum (n-1)²/K, yielding ratio [(n+1)/(3(n-1))]H_{n-1} ~ (log n)/3. Boundary n=2 ratio=1; n=3 the dynamic optimum is uniform and ratio=1. Independent numerical generalized eigensolvers checked 408 heterogeneous-mass instances n=2..35 against 5 random competitors each plus 2..199 equal-mass compliance identities; largest absolute spectral mismatch 8.18e-14. Finite numeric checks corroborate, not prove, the theorem. Independent seven-Git-blob tree hash calculation matched 336489d599e998689046d6c63fd62ef5a01cbe53.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wan et al. (2008), Sections II-IV and Theorems 1, 3, 5/6, optimize the Euclidean Fiedler eigenvalue of L=D-K with edge sum bound on trees and prove active-edge Fiedler differences have common magnitude; they cover the equal-mass path design.",
+          "Boyd (2006) Sections 1 and 3 formulate ordinary symmetric L with invariant uniform distribution and a fixed total edge-rate budget. It does not insert a nonuniform positive diagonal inertia M in the displayed formulation.",
+          "Fiedler (1990) article abstract states optimal ordinary algebraic connectivity of trees equals inverse graph metric variance, with each vertex counted uniformly; full original not read."
+        ],
+        "reasoning": "The general graph framework is substantive antecedent and the equal-mass parabolic profile is covered. The final theorem has arbitrary positive vertex inertias, leading to a distinct weighted mean and cumulative edge moments. No inspected source supplied the all-mass formula under the identical stiffness budget. General optimization theory alone is not the explicit result; a generalized weighted-tree theorem remains a priority risk.",
+        "searches": [
+          "Web 2026-11-04: On the structure of graph edge designs that optimize the algebraic connectivity PDF full text",
+          "Web 2026-11-04: Convex Optimization of Graph Laplacian Eigenvalues Boyd 2006 PDF",
+          "Web 2026-11-04: Absolute Algebraic Connectivity of Trees Miroslav Fiedler 1990 DOI 10.1080/03081089008817967"
+        ]
+      },
+      "checked_sources": [
+        "Wan et al. (2008), DOI 10.1109/CDC.2008.4738734, author-uploaded full accessible text, Sections II-IV and Theorems 1,3,5,6",
+        "Boyd (2006), Convex Optimization of Graph Laplacian Eigenvalues, official PDF pp.1-5, including Section 3",
+        "Fiedler (1990), DOI 10.1080/03081089008817967, publisher abstract only",
+        "Boyd, Diaconis, Xiao (2004), DOI 10.1137/S0036144503423264, abstract/author summary only",
+        "Boyd, Diaconis, Sun, Xiao (2006), Fastest Mixing Markov Chain on a Path, official author abstract",
+        "Liu et al. (2015), DOI 10.1007/s11467-015-0462-4, abstract only",
+        "Resultary semantic search 2026-11-04, three quoted queries with 18/20/18 hits, none containing exact evaluated implication"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wan/Fiedler ordinary unweighted-vertex spectral edge design implies the m_j all-equal optimum; it does not by substitution imply a generalized eigenproblem for heterogeneous m_j.",
+          "Boyd et al. (2006) solve a symmetric row-stochastic path transition model with SLEM objective, uniform stationary distribution and per-row probability constraints, not arbitrary positive masses with total spring stiffness.",
+          "Liu et al. (2015) varies mass configuration of a ring, not free-chain edge spring material."
+        ],
+        "reasoning": "The full original final finding, not its equal-mass corollary alone, is considered. Inspection established partial prior coverage of method and special case but did not show a stronger theorem whose mathematical implication forces k_i=(K/V)sum_{j<=i}m_j(mu-j), with exact endpoint compliance comparison. No claim that unread texts are NOT_COVERING.",
+        "searches": [
+          "Wan et al. 2008 complete accessible author HTML, Sections II-V (https://www.researchgate.net/publication/224367365_On_the_structure_of_graph_edge_designs_that_optimize_the_algebraic_connectivity)",
+          "Boyd (2006) official primary PDF Sections 1 and 3 pages 1-5 (https://stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf)",
+          "Boyd, Diaconis, Sun, Xiao (2006) Fastest Mixing Markov Chain on a Path author abstract https://www.web.stanford.edu/~boyd/papers/fmmc_path.html",
+          "Liu et al. (2015) harmonic oscillator ring DOI 10.1007/s11467-015-0462-4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a continuous-time reversible birth-death chain with vertex speed measure m_i and edge conductance k_i, the generator is -M^{-1}L; its positive relaxation spectrum equals the mass-spring squared-frequency spectrum exactly.",
+          "Boyd/Diaconis/Xiao (2004) describe fastest reversible mixing with a prescribed stationary distribution as an extension of convex/Semidefinite optimization, but the examined source summary has a stochastic transition normalization, rather than the prescribed total conductance K with closed form all-mass path solution."
+        ],
+        "reasoning": "The reversible birth-death reduction is an EXACT equivalence, not a different theorem. Priority would fail if earlier work solved this total-conductance stationary-measure variant for all paths, including its unique cumulative-moment optimizer. The inspected older source description establishes a broader optimization framework but not that parameter-specific theorem; risk explicitly retained.",
+        "searches": [
+          "Resultary semantic query 2026-11-04: Weighted path reversible birth-death chain fixed total conductance stationary masses maximize spectral gap, inverse mass weighted variance (20 returned)",
+          "Web 2026-11-04: birth death chains maximize spectral gap fixed total conductance arbitrary stationary distribution path explicit formula",
+          "Boyd, Diaconis, Xiao, Fastest Mixing Markov Chain on a Graph (2004), author summary https://web.stanford.edu/~boyd/papers/fmmc.html"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The main statement is an all-positive-real-parameter exact optimization theorem, not a finite census or numerical-table value.",
+          "No returned Resultary entries made an exact all-inertial-mass cumulative-moment optimizer assertion; closest titles involved other oscillator/spectral settings. The same-slot audit-ledger title check did not identify this result."
+        ],
+        "reasoning": "A table cannot by itself cover the continuous universal statement unless it encodes an exact symbolic family; none identified in the genuine limited searches. Absence of hits is not novelty proof.",
+        "searches": [
+          "Resultary 2026-11-04: Optimal free-free mass spring chain positive unequal masses fixed total spring stiffness maximize lowest nonzero eigenfrequency mass centered cumulative moment formula (18 hits)",
+          "Resultary 2026-11-04: Mass centered chain optimal stiffness parabolic springs harmonic number static compliance (18 hits)",
+          "Web 2026-11-04: optimal stiffness distribution chain of masses maximum fundamental frequency parabolic profile",
+          "Private same-slot October/November audit-ledger reviewed_title matches for spring/mass center/spectral gap (none)"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality restricted to the arbitrary unequal-positive-inertia generalized path eigenvalue optimizer; graph Fiedler method, equal-mass special case and simple harmonic-number evaluation already follow from prior work. Three genuine Resultary queries and targeted primary-text searches did not find a dominating all-mass formula, with explicit close-source and access risks.",
+      "residual_risks": [
+        "Fiedler 1990 full original tree article not read; a weighted-vertex adaptation in its references or subsequent generalization may dominate arbitrary masses.",
+        "A general reversible birth-death spectral-gap optimizer with fixed total *conductance* and given stationary distribution may subsume the exact mass-centered formula; some strongly relevant Markov-chain primary texts were accessible only as abstracts.",
+        "Equal-mass parabolic stiffness and its harmonic-number sum are consequences of published ordinary graph-edge design and should not be asserted independently novel.",
+        "Unindexed mechanical engineering theses or historic optimization treatments might include the same explicit all-mass profile."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers structural equal-mass graph-edge method; no generalized inertial mass in inspected mathematical formulation.",
+          "evidence": [
+            "Section II L=D-K eigenvalues ordinary standard inner product; Theorem 1 active edges identical Fiedler-component differences; Section IV exact tree edge design and reference to Fiedler 1990."
+          ],
+          "identifier_or_url": "doi:10.1109/CDC.2008.4738734",
+          "material_read": "Accessible author-uploaded complete HTML paper text: formulation, Theorem 1 on edge Fiedler differences, Section IV tree algorithm, Theorems 5 and 6, examples and references; in particular Euclidean unweighted graph Laplacian definition.",
+          "method": "Primary author-uploaded full-text rendering at https://www.researchgate.net/publication/224367365_On_the_structure_of_graph_edge_designs_that_optimize_the_algebraic_connectivity",
+          "title": "On the Structure of Graph Edge Designs that Optimize the Algebraic Connectivity",
+          "trigger": "Strongest directly related exact edge-budget optimal tree design; possibly covers general claim"
+        },
+        {
+          "assessment": "Establishes convex/SDP optimization and ordinary uniform-stationary process, not explicit heterogeneous-inertia path profile.",
+          "evidence": [
+            "PDF page 2 defines L=sum w_l a_l a_l^T, zero vector 1; page 5 treats symmetric continuous-time Markov generator and total edge-weight 1."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "material_read": "Original author PDF pages 1 through 5 (title/abstract, introductory L definition and Section 3 fastest mixing continuous-time symmetric process), with visual page checks on PDF pages 1 and 5. Remaining pages not asserted read.",
+          "method": "Original author-hosted PDF extracted text and visual screenshots",
+          "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+          "trigger": "Broad fixed-total-edge-weight spectral optimization potentially dominates formula"
+        },
+        {
+          "assessment": "Demonstrates equal-vertex-mass tree ancestry; full-text unavailability leaves generalized-mass priority risk.",
+          "evidence": [
+            "Publisher abstract: optimal ordinary algebraic connectivity of a tree is the reciprocal of metric tree variance of its vertices."
+          ],
+          "identifier_or_url": "doi:10.1080/03081089008817967",
+          "material_read": "Primary publisher abstract describing graph metric variance of tree with unweighted vertices; no article full text read.",
+          "method": "Taylor & Francis DOI abstract at https://www.tandfonline.com/doi/abs/10.1080/03081089008817967",
+          "title": "Absolute Algebraic Connectivity of Trees",
+          "trigger": "Historical original exact optimum on trees may generalize to arbitrary vertex masses"
+        },
+        {
+          "assessment": "Defines generic reversible stationary-distribution optimization, but the available summary does not establish the exact continuous-time path total-conductance law; substantial uninspected coverage risk.",
+          "evidence": [
+            "Stanford author summary explicitly mentions fastest reversible Markov chain extension for a given equilibrium distribution."
+          ],
+          "identifier_or_url": "doi:10.1137/S0036144503423264",
+          "material_read": "Primary SIAM Review abstract and Stanford author summary; no full text read.",
+          "method": "Published primary article abstract https://epubs.siam.org/doi/10.1137/S0036144503423264 and https://web.stanford.edu/~boyd/papers/fmmc.html",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Reversible-chain arbitrary-stationary-distribution optimization is a mathematically equivalent model class"
+        },
+        {
+          "assessment": "Ring mass-arrangement design rather than adjustable free-chain bond stiffness on path; no whole-text negative coverage conclusion.",
+          "evidence": [
+            "Article title and published 2015 bibliography locate ring nonidentical-mass effect, distinct design variables."
+          ],
+          "identifier_or_url": "doi:10.1007/s11467-015-0462-4",
+          "material_read": "Bibliographic and abstract model only; full article not read.",
+          "method": "Publisher/DOI abstract accessible via targeted web search",
+          "title": "Optimal Configuration for Vibration Frequencies in a Ring of Harmonic Oscillators: The Nonidentical Mass Effect",
+          "trigger": "Physical unequal-mass vibration optimization potentially shares objects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural finite but all-length physical spectral design problem: a fixed spring-material budget, any heterogeneous inertial masses, and free rigid translation. The complete unique allocation and closed performance envelope K/V are operationally useful without an arbitrary numerical cutoff. A weighted center produces genuinely distinct tuning from the ordinary equal-mass graph solution. The exact endpoint static compliance penalty makes a real trade-off explicit; its harmonic-number evaluation alone is elementary and not independently priority-bearing. The claim does not imply robustness, multiobjective optimality, other graph topologies or nonlinear regimes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Wan et al. (2008), DOI 10.1109/CDC.2008.4738734, author-uploaded full accessible text, Sections II-IV and Theorems 1,3,5,6",
+    "Boyd (2006), Convex Optimization of Graph Laplacian Eigenvalues, official PDF pp.1-5, including Section 3",
+    "Fiedler (1990), DOI 10.1080/03081089008817967, publisher abstract only",
+    "Boyd, Diaconis, Xiao (2004), DOI 10.1137/S0036144503423264, abstract/author summary only",
+    "Boyd, Diaconis, Sun, Xiao (2006), Fastest Mixing Markov Chain on a Path, official author abstract",
+    "Liu et al. (2015), DOI 10.1007/s11467-015-0462-4, abstract only",
+    "Resultary semantic search 2026-11-04, three quoted queries with 18/20/18 hits, none containing exact evaluated implication"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Assumes strictly positive masses and bond springs, free endpoints, n>=2 and total spring stiffness exactly K>0; no foundation, damping, branching, cycles, nonlinearity or componentwise manufacturing constraints.",
+    "Wording \"highest frequency\" refers only to the FIRST NONZERO mode and its squared eigenvalue; higher modes are not optimized.",
+    "The n finite numerical cases cannot independently establish infinite all-positive-parameter correctness; the mathematical proof does so.",
+    "Prior art covers ordinary graph Fiedler optimization and equal-mass case; any novelty is restricted to arbitrary positive inertial masses and joint characterization. Historical novelty is qualified."
+  ],
+  "residual_risks": [
+    "Fiedler 1990 full original tree article not read; a weighted-vertex adaptation in its references or subsequent generalization may dominate arbitrary masses.",
+    "A general reversible birth-death spectral-gap optimizer with fixed total *conductance* and given stationary distribution may subsume the exact mass-centered formula; some strongly relevant Markov-chain primary texts were accessible only as abstracts.",
+    "Equal-mass parabolic stiffness and its harmonic-number sum are consequences of published ordinary graph-edge design and should not be asserted independently novel.",
+    "Unindexed mechanical engineering theses or historic optimization treatments might include the same explicit all-mass profile."
+  ],
+  "schema_version": 1
+}
