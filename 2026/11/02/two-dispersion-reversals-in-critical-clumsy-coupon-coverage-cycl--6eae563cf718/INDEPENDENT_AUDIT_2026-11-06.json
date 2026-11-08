@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T09:14:39.526960Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let Y_t be number absent, start Y_0=0. Inclusion-expansion over selected coupon types gives exact return probability u_t=sum_{j=0}^m binom(m,j)q^(m-j)p^j(1-j/m)^t and Green function R(z)=sum_j w_j/(1-z(1-j/m)). Full-state holding rounds are geometric(p), and entrance-to-entrance generating function obeys R(z)=1/((1-qz)(1-F(z))). Laurent expansion R(z)=q^m/(1-z)+m sum_{j>=1}w_j/j +O(1-z) gives mean 1/(p q^m) and exact squared CV (2-p)q^m+2mp sum_j w_j/j -1. Under p=c/m the bounded binomial reciprocal converges to Poisson expectation, giving V(c)=2e^-c(1+cA(c))-1 where A(c)=sum c^j/(j j!). Its derivative has sign g(c)=-1+2c-sum_{j>=2} c^j/(j(j-1)j!), with g strictly concave, g(0)=-1,g(1)=e-2>0,g(infinity)<0. Therefore exactly two positive g roots, global min and max, and endpoint expansions V=1-2c+O(c²) as c down 0 and V=1+2/c+O(c^-2) as c tends infinity force exactly one V=1 crossing on rising branch. Independent exact one-coupon renewal computations agree, and inspected source checker independently solves finite rational hitting-time systems; numeric root brackets are illustrative. Renewal counting Fano limit takes time first, system size second.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Attrill–Garoni study first time from empty and critical completion asymptotics; Liu–Shi general infinite-server busy-period context. Neither actually inspected result states full-entrance renewal profile with two stationary points."
+        ],
+        "reasoning": "Empty-start hitting times and stationary entrance cycles are different random variables; general queueing systems can dominate finite transforms but need explicit critical specialization.",
+        "searches": [
+          "Attrill–Garoni arXiv:2605.14206 first-completion-time theorem",
+          "Liu–Shi 1996 GI^X/G/infinity busy periods",
+          "Resultary: clumsy coupon collector random refresh complete occupancy entrance renewal coefficient of variation critical p=c/m two extrema"
+        ]
+      },
+      "checked_sources": [
+        "Attrill & Garoni arXiv:2605.14206 full primary",
+        "Long arXiv:2605.14511 abstract",
+        "Roijers et al. CWI PNA-E0606 §5.2",
+        "Liu & Shi J. Appl. Prob. 33 (1996) bibliographic",
+        "Ramalhoto 1984 busy-period variance bibliographic",
+        "Resultary coupon refresh dispersion query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mean recurrence 1/(p q^m) is already an immediate inverse stationary flux; finite second moment can be related to known renewal/queue transforms. The two-extrema global analysis requires the exact critical reduction and strict concavity of g(c), not provided as a theorem in inspected references."
+        ],
+        "reasoning": "Only shape classification and renewal dispersion interpretation are attributed as the original contribution, not known flux/transform. If general busy-period theorem explicitly covers shape after mapping, originality must be revised.",
+        "searches": [
+          "Long arXiv:2605.14511",
+          "Attrill–Garoni arXiv:2605.14206",
+          "Roijers et al. queue transform",
+          "Resultary: clumsy coupon collector random refresh complete occupancy entrance renewal coefficient of variation critical p=c/m two extrema"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clumsy-coupon all-full entrance cycles can be viewed as recurrent complete-occupancy busy/idle cycles. Long gives flux p q^m, which implies mean; generic queue transforms can encode second moments."
+        ],
+        "reasoning": "Known flux and generic transform alone do not explicitly classify the critical-limit V(c) shape; equivalence to prior busy-cycle special cases remains a risk.",
+        "searches": [
+          "Resultary: clumsy coupon collector random refresh complete occupancy entrance renewal coefficient of variation critical p=c/m two extrema",
+          "Roijers–Mandjes–van den Berg 2006 queue congestion-period report §5.2",
+          "Long arXiv:2605.14511 stationary entrance flux"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No table of two exact turning points and unique threshold in critical p=c/m entrance cycles appears in inspected primary sections; numeric values 0.538585...,3.868375...,1.502861... are roots of proved equations, not ad-hoc experiments."
+        ],
+        "reasoning": "Search absence cannot establish priority; all-order calculus proof supplies independent verification.",
+        "searches": [
+          "Resultary: clumsy coupon collector random refresh complete occupancy entrance renewal coefficient of variation critical p=c/m two extrema",
+          "Roijers et al. CWI PNA-E0606 2006"
+        ]
+      },
+      "rationale": "Published primary results on the same subject and Resultary related findings were compared at the level of claimed mathematical implication; strongest already-covered components are credited and excluded from the novelty claim. The remaining specific classification appears new in actually inspected material, subject to listed source-access and indexing risks.",
+      "residual_risks": [
+        "Original queueing sources from 1984 and 1996 not fully inspected; possible equivalent specialization exists.",
+        "Critical profile concerns sequential t-to-infinity then m-to-infinity renewal counting; no joint limit or fixed-p dispersion law claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies first collection from empty and critical asymptotics, not renewal entrance-cycle two-extrema law",
+          "evidence": "Theorems 5.2–5.3",
+          "identifier_or_url": "https://arxiv.org/abs/2605.14206",
+          "material_read": "Full available arXiv PDF; first-completion definitions and Theorems 5.2 and 5.3",
+          "method": "Public primary PDF and key theorem pages inspected",
+          "title": "The clumsy coupon collector's problem",
+          "trigger": "Same clumsy coupon process, critical scaling"
+        },
+        {
+          "assessment": "General busy-period transform/moments; no explicit claim of c/m clumsy coupon V(c) two-stationary-point classification in inspected material",
+          "evidence": "§5.2 congestion periods",
+          "identifier_or_url": "https://ir.cwi.nl/pub/10841/10841D.pdf",
+          "material_read": "Full accessible CWI PDF, §5.2 and congestion-period moment discussion",
+          "method": "Read open publisher report and relevant subsections",
+          "title": "Analysis of congestion periods of an M/M/infinity-queue",
+          "trigger": "Potential hidden equivalent renewal transform"
+        },
+        {
+          "assessment": "Stationary entrance flux p q^m supplies mean; no whole-manuscript noncoverage conclusion",
+          "evidence": "Abstract on stationary all-present entry flux",
+          "identifier_or_url": "https://arxiv.org/abs/2605.14511",
+          "material_read": "Public abstract and identified stationary flux assertion",
+          "method": "arXiv abstract/metadata, not full text",
+          "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+          "trigger": "Same model stationary entrance-rate and mean"
+        },
+        {
+          "assessment": "No full-document novelty exclusion; material unresolved historical implication",
+          "evidence": "1996 J. Appl. Prob. 33,815–829",
+          "identifier_or_url": "https://doi.org/10.2307/3215361",
+          "material_read": "Bibliographic metadata and abstract-level source only",
+          "method": "Journal DOI bibliographic record; full text not obtained",
+          "title": "Busy period in GI^X/G/infinity",
+          "trigger": "General queueing busy-period variance might imply formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural nonmonotone coupon model has an exactly classified critical entrance-cycle dispersion profile with two extrema and a unique Poisson crossing. This mathematically distinguishes sub- and super-Poisson coverage counts even though both endpoint regimes approach dispersion one, not just rederives the known stationary flux or generic renewal formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Attrill & Garoni arXiv:2605.14206 full primary",
+    "Long arXiv:2605.14511 abstract",
+    "Roijers et al. CWI PNA-E0606 §5.2",
+    "Liu & Shi J. Appl. Prob. 33 (1996) bibliographic",
+    "Ramalhoto 1984 busy-period variance bibliographic",
+    "Resultary coupon refresh dispersion query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Original queueing sources from 1984 and 1996 not fully inspected; possible equivalent specialization exists.",
+    "Critical profile concerns sequential t-to-infinity then m-to-infinity renewal counting; no joint limit or fixed-p dispersion law claimed.",
+    "The existing public metadata still contains potentially sensitive operational identifiers and an inherited first_public_date tied to antecedent literature; this package has not been sanitized for publication.",
+    "Finite verifications supplement mathematical proof and do not substitute for a formal or independent external attestation."
+  ],
+  "schema_version": 1
+}

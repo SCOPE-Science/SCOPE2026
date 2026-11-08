@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite return Green function comes from an exact inclusion expansion of refreshed coordinates. The renewal identity for entrance cycles is exact, and its second-order expansion gives both moments. A binomial-to-Poisson limit handles the critical regime, while the strictly negative second derivative of the auxiliary function establishes precisely two stationary points and one dispersion crossing. An alternative rational birth-death calculation and direct transition-power check replayed 291 checks. Boundary hypotheses and sequential limits are stated.
+## correctness
 
-## Originality — PASS (provisional)
-The closest 2026 coupon-collector papers analyze first completion and stationary entrance flux. Earlier infinite-server queueing work establishes general cycle transforms and moments, so those ingredients are credited and are **not** asserted as independently new. The claim being reviewed is the complete two-extremum, one-crossing critical dispersion classification. No examined relevant full text or published mathematical record explicitly provides or implies that classification without an additional shape analysis. A relevant 1996 busy-cycle paper and some earlier variance literature could not be inspected in full, so a stronger classical result remains a real historical-priority risk, not proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The count of completed-coverage episodes is a natural observable for a nonmonotone collector. Its squared renewal-cycle coefficient of variation is the long-run entrance-count Fano factor. The sharp classification gives a surprising bounded-load sub-Poisson region, a single transition to super-Poisson fluctuations, and unique global extrema. These distinctions are not captured by stationary entrance rates or first-completion means alone.
+Let Y_t be number absent, start Y_0=0. Inclusion-expansion over selected coupon types gives exact return probability u_t=sum_{j=0}^m binom(m,j)q^(m-j)p^j(1-j/m)^t and Green function R(z)=sum_j w_j/(1-z(1-j/m)). Full-state holding rounds are geometric(p), and entrance-to-entrance generating function obeys R(z)=1/((1-qz)(1-F(z))). Laurent expansion R(z)=q^m/(1-z)+m sum_{j>=1}w_j/j +O(1-z) gives mean 1/(p q^m) and exact squared CV (2-p)q^m+2mp sum_j w_j/j -1. Under p=c/m the bounded binomial reciprocal converges to Poisson expectation, giving V(c)=2e^-c(1+cA(c))-1 where A(c)=sum c^j/(j j!). Its derivative has sign g(c)=-1+2c-sum_{j>=2} c^j/(j(j-1)j!), with g strictly concave, g(0)=-1,g(1)=e-2>0,g(infinity)<0. Therefore exactly two positive g roots, global min and max, and endpoint expansions V=1-2c+O(c²) as c down 0 and V=1+2/c+O(c^-2) as c tends infinity force exactly one V=1 crossing on rising branch. Independent exact one-coupon renewal computations agree, and inspected source checker independently solves finite rational hitting-time systems; numeric root brackets are illustrative. Renewal counting Fano limit takes time first, system size second.
 
-## Boundaries and closest literature
-The main risk is implicit prior coverage by general M/M/∞ busy-cycle results; the finite moment formulas and stationary mean are prior/elementary components rather than the distinctive claim. The theorem concerns critical \(p=c/m\) with fixed \(c\), and does not describe arbitrary time/system joint limits. All computational values are secondary to the analytic shape proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published primary results on the same subject and Resultary related findings were compared at the level of claimed mathematical implication; strongest already-covered components are credited and excluded from the novelty claim. The remaining specific classification appears new in actually inspected material, subject to listed source-access and indexing risks.
+
+## value
+
+PASS
+
+A natural nonmonotone coupon model has an exactly classified critical entrance-cycle dispersion profile with two extrema and a unique Poisson crossing. This mathematically distinguishes sub- and super-Poisson coverage counts even though both endpoint regimes approach dispersion one, not just rederives the known stationary flux or generic renewal formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
