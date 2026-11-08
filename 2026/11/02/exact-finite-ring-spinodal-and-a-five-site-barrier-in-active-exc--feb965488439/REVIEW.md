@@ -1,15 +1,21 @@
-# Scientific review: exact finite-ring spinodal
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full nonlinear mean-field equation is defined in RESULT.md; its homogeneous equilibrium has a conserved density mode and a decaying reversal mode. Direct differentiation produces a two-by-two Fourier block for each allowed wave number. The block has strictly negative trace at every nonzero wave number. Its real determinant is a positive prefactor multiplied by a function strictly increasing in the squared wave number whenever the occupancy exceeds one half. This reduces the existence of any growing mode to the first discrete harmonic and to an explicit quadratic inequality in the activity. The sign of its leading coefficient yields the universal small-ring barrier and its exact five-site onset. Implicit differentiation of the same root gives the positive order-\(N^{-2}\) finite-size shift. The accompanying checker passed 4,917 deterministic consistency assertions, including independent differentiation of the nonlinear equation. These finite checks are not offered as infinite proofs.
+PASS
 
-## Originality — PASS, qualified best-knowledge
+Direct Fourier linearization yields J(k) with negative trace for every nonzero discrete k; determinant is q times an increasing affine expression in q=1-cos(k) when phi>1/2, else positive. First allowed wave q1=2sin^2(pi/N) controls sign; expansion gives the exact quadratic and N<=4/no-go, N=5 onset and an implicit-function O(N^-2) correction. Independent differentiation and mode determinant comparisons passed on a finite grid; not a nonlinear/stochastic phase-transition proof.
 
-The closest motivating paper is Hawthorne, Woellner and Freire (2026), arXiv:2606.07823. It provides the active-exclusion mean-field model, its general Bloch Jacobian and infinite-volume long-wave spinodal. Its accessible supporting information was examined; indexed main-text material says finite-size stability is handled numerically. The claimed new content is the exact closed-form finite-ring classification, the first unstable discrete mode, the four-site obstruction, the five-site density barrier and the quantitative finite-size correction. The source's infinite-volume criterion does not imply finite-ring instability: at five sites, occupancy \(3/4\), zero unbiased diffusion and unit reversal rate, the infinite criterion permits growth above activity 8, but the finite ring is stable for all activity. Related active-exclusion and run-and-tumble studies concern hydrodynamic or differently structured particle systems, not the same exact finite-ring statement in their accessible parts. Targeted scientific searches and published-result comparisons found no direct duplicate. The 2026 main paper was not available in complete full text, so hidden coverage and other spectral classifications remain residual risks; originality is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-Finite lattice size is a natural simulation and theoretical control parameter for motility-induced phase separation. The motivating source explicitly uses numerical finite-size stability analysis. A closed finite-ring boundary replaces that numerical step in one physical lattice geometry, proves an unexpectedly sharp universal four-site exclusion, identifies the first possible five-site instability and its density cutoff, and quantifies the order-\(N^{-2}\) contraction of the infinite spinodal. This is a meaningful exact classification of a naturally arising finite system, not an arbitrary parameter-table recomputation. The claim is only for the deterministic mean-field linearization, not finite stochastic phase separation or nonlinear clustering.
+Original 2026 paper studies the same mean-field lattice system and its Bloch matrix and infinite-wavelength spinodal; novel claim is exact finite periodic wave-grid lower cutoff, density barrier N=5, explicit root and N^-2 shift. Accessible supporting information derives k->0 expansion, not full finite-N criteria. Unread main paper could implicitly imply formula; originality is best-knowledge qualified, not certified.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact first possible unstable ring size and occupancy barrier are a nontrivial finite-discreteness obstruction to continuum spinodal predictions, with controlled size correction; useful as a benchmark of deterministic mean-field lattice stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

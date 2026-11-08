@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Reproducibility
+# Independent mathematical audit
 
-The accompanying `verify.py` script requires Python 3 and no external libraries. Execute `python3 verify.py` to check the exact finite-ring Fourier block against a numerical derivative of the fully specified nonlinear mean-field equations, its trace and determinant, discrete-mode instability criteria, the five-site threshold and boundary examples. In the reviewed package it reported `PASS 4917 deterministic consistency assertions`.
+## correctness
 
-The checker is finite and numerical: it is not an exhaustive proof across all sizes and real parameters. The analytical determinant, monotonicity and quadratic-root arguments in RESULT.md establish the universal theorem. No independent audit or external certification has been performed.
+PASS
+
+Direct Fourier linearization yields J(k) with negative trace for every nonzero discrete k; determinant is q times an increasing affine expression in q=1-cos(k) when phi>1/2, else positive. First allowed wave q1=2sin^2(pi/N) controls sign; expansion gives the exact quadratic and N<=4/no-go, N=5 onset and an implicit-function O(N^-2) correction. Independent differentiation and mode determinant comparisons passed on a finite grid; not a nonlinear/stochastic phase-transition proof.
+
+## originality
+
+PASS
+
+Original 2026 paper studies the same mean-field lattice system and its Bloch matrix and infinite-wavelength spinodal; novel claim is exact finite periodic wave-grid lower cutoff, density barrier N=5, explicit root and N^-2 shift. Accessible supporting information derives k->0 expansion, not full finite-N criteria. Unread main paper could implicitly imply formula; originality is best-knowledge qualified, not certified.
+
+## value
+
+PASS
+
+The exact first possible unstable ring size and occupancy barrier are a nontrivial finite-discreteness obstruction to continuum spinodal predictions, with controlled size correction; useful as a benchmark of deterministic mean-field lattice stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
