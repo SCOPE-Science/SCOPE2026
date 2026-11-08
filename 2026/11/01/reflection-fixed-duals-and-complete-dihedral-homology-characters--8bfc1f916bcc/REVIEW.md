@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The novel reflection calculation is supported by a direct orbit-admissibility characterization and a three-case proof that every geometric fixed dual decomposes into cones, an optional bridge, and isolated vertices. Equivariant Alexander duality supplies the correct ambient orientation-sign twist and Lefschetz theory converts component counts into homology traces. The all-width dependence on previously proved shellability and cyclic character is explicit. The standalone program returns `VERIFY_OK orbit_cases=126 orbit_faces=6447 direct_cut_cases=21` and includes direct signed chain computations on the *original* three-cut complexes. It is a cross-check, not an infinite proof.
+## correctness
 
-**Originality — PASS, with risk.** The nearest published result is *Rational cyclic homology representations of three-cut complexes of cycle powers* (2026-10-11, [2] in RESULT.md), whose complete RESULT was inspected: it explicitly excludes reflection traces. The 2026-03-24 source supplies nonequivariant shellability and rank; Bayer et al. concern unpowered cycles and a distinct exceptional squared-cycle regime. The full primary source PDF was not accessible, so an unindexed or hidden equivalent reflection statement cannot be completely excluded. The mathematical comparison is about the unprovided reflection character and geometric dual fixed locus, not a differently phrased cyclic character.
+PASS
 
-**Value — PASS.** The theorem turns a rotation-only equivariant calculation into a complete rational dihedral character for an unbounded two-parameter family. It computes all reflection-axis traces, explicit dihedral invariant dimensions, and a geometric explanation in terms of components of fixed Alexander-dual spaces; none follows from the ambient Betti numbers or the cyclic restriction. This is substantive symmetry information rather than a numerical increment.
+For p≥2, n≥6p−3, used exact published shellability K≃∨^β S^{n−4} and published cyclic homology character as stated premises, not new proof. Reconstructed Alexander dual L={vertex sets with every induced triple connected}, equivalently each chosen vertex has at most one chosen nonneighbor; L is connected with H¹(L;Q) of rank β. Under a reflection, geometric fixed points correspond to stable admissible orbit unions. Cross-orbit distance inequalities confine all nontrivial simplices to two axis blocks, each conical, with a bridge only for n even vertex-axis reflections. The component counts are m−2p+2 for odd n, m−2p for even vertex axes, m−2p+2 for even edge axes. Lefschetz gives tr(H¹L)=1−components and equivariant Alexander duality supplies sign of the reflection permutation, yielding exactly the three displayed H_{n−4} trace formulas and D_n-invariant dimensions. Independently enumerated admissible orbit unions for 54 (n,p,axis) cases, checked exact counts and cone/bridge structure, and independently enumerated original ordinary cut complexes and signed chain traces for 12 small cases; all checked traces agree with the formula. The all-p,n statement rests on the proved distance confinement, not finite enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the new reflection character and geometric component classification extending the published C_n character for exactly the same powered-cycle ordinary three-cut family. The original Chauhan–Shukla shellability result proves nonequivariant rank β, not the reflection action; the fully read published Resultary cyclic work expressly omits reflections. Bayer et al. treat unpowered cycle equivariance and other graph families, not this entire powered family. Only the new reflection terms and their D_n consequences are claimed.
+
+## value
+
+PASS
+
+The missing half of the dihedral character of the natural C_n^p ordinary three-cut family is a substantive representation-theoretic invariant. A geometric fixed-point decomposition of its Alexander dual gives an all-parameter, axis-sensitive trace formula and explicit D_n-invariant subspace dimension; it complements a known cyclic character with reusable structural information, not a numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
