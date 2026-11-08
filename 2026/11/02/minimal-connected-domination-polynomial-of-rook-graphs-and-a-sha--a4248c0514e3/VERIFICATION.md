@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_rook_minimal_connected_domination.py` with Python 3.10 or newer; it uses only the standard library. The verifier performs exhaustive adjacency-based tests of domination and induced connectivity, checks every single-deletion minimality condition, compares all coefficients against the closed Stirling formula for 17 ordered small rectangles, and separately enumerates all surjective words of length at most six to corroborate the Prüfer factor.
+## correctness
 
-Observed output begins `VERIFY_OK: 17 graph orders; 1444991 nonempty subsets; Prüfer surjection checks through length 6`. The full output prints five sample exact polynomials. This computational result is independently recomputable from the embedded source and was not obtained by assuming the structural characterization while deciding graph feasibility.
+PASS
 
-Finite exhaustive checks do not certify infinitely many parameter choices, do not prove publication priority, and are not an independent audit. The infinite result follows from the written mathematical proof, including the Prüfer encoding and the minimality equivalence.
+Identify the rook graph with line graph L(K_m,n). Edge-set connectedness becomes connectivity of its occupied bipartite subgraph; domination iff all rows or all columns occupied. Minimality excludes cycles and both shores simultaneously full; if rows are full and columns are partial, occupied columns must have degree >=2. Conversely every such tree is deletion-minimal by losing an occupied row or disconnecting the chosen edges. Monotonicity and spanning-tree pruning upgrade single-deletion minimality to full inclusion-minimality. Bipartite Pruefer code has m^(c−1) row choices and c! S(m−1,c) surjective column words, proving both sums. Positive Stirling supports give cardinality intervals and missing interval n>=2m. Independent exhaustive graph check covers 5 small rectangles including (3,4).
+
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison finds no inspected stronger result covering the full final claim; known components and related earlier theorems are credited. This is not a novelty certificate.
+
+## value
+
+PASS
+
+An exact all-size coefficientwise enumeration and sharp possible-cardinality gap of inclusion-minimal connected domination sets in a canonical Cartesian-product graph family. It distinguishes inclusion-minimal from minimum and from all connected dominating subsets, and may be used in graph census and extremal connected domination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
