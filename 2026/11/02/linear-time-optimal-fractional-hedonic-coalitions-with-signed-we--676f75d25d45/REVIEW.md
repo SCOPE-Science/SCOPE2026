@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each coalition \(C\), the welfare contribution is exactly \(2W(C)/|C|\). Removing nonpositive disconnected components cannot reduce welfare. The central nonstandard lemma replaces every connected path or cycle coalition of size at least four by a positive-weight matching and singletons: alternating edge classes give the path/even-cycle inequality; rotational averaging of the \((q-1)/2\)-edge matchings gives the odd-cycle inequality. The resulting connected tiles of sizes at most three are completely enumerated by the path prefix recurrence and six nonoverlapping cycle cases, including a separate triangle case. Unrestricted exact-rational set-partition checks on 2,209 connected instances and 580 disconnected instances passed, as did the two sharpness tests. These are corroboration, not the infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge; priority risk remains)
+For any coalition C, its utilitarian welfare is exactly 2 W(C)/|C|, where W is the sum of internal signed weights. Split off nonpositive/nonconnected components without loss. Every connected coalition of size q≥4 is a path or entire cycle. On a path or even cycle, two alternating matchings of positive edges ensure a matching contribution at least P/2≥W/2≥2W/q. On an odd cycle q≥5, cyclically averaged (q−1)/2-edge matchings guarantee (q−1)P/(2q)≥2W/q. Thus an optimal partition exists with only connected blocks of sizes 1,2,3. The three-tile path recurrence and six 0-containing cycle cases, plus a triangle special case, completely optimize in O(V+E) real arithmetic/comparisons. Unweighted P3 needs size three (welfare 4/3) and K1,3 shows the max-degree-three boundary (3/2>4/3). Independent exhaustive unrestricted partition comparison verified 275 small signed path/cycle instances, not an all-graph proof.
 
-The closely matching Hanaka–Ikeyama–Ono preprint gives a magnitude-dependent weighted treewidth algorithm, not a signed-valuations strongly linear path/cycle result. Bilò et al.'s short-coalition lemma is explicitly limited to unweighted trees; Bazgan–Casel–Cazals' degree-two remark concerns unweighted density; Aziz et al.'s weighted result is an approximation algorithm. Material sections of these primary sources and the comparisons in AUDIT.json were examined. An equivalent weighted path/cycle theorem in a differently named graph-partitioning or coalition-optimization source could still exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The three-vertex structural reduction is a useful exact boundary: negative friendships and arbitrary numerical magnitudes do not increase the required size of connected optimum groups on maximum-degree-two networks. A simple weight-independent exact linear-time algorithm follows for an infinite family of heterogeneous signed coalition games, substantially more specialized than the known pseudopolynomial weighted bounded-treewidth method. The positive three-path and degree-three claw show the precise changes in structural behavior.
+Published bounded-treewidth weighted fractional-hedonic algorithms cover paths/cycles as a class but give magnitude-dependent (nW)^{O(ω)} bounds, not this strongly linear sign-independent algorithm. Prior unweighted-tree diameter-two lemmas and unweighted degree-two easy-case comments do not cover arbitrary signed cycles. No equivalent structural matching replacement was found in inspected material; historical equivalence in graph partition literature remains possible.
 
-## Scope and limitations
+## value
 
-The claim concerns symmetric real edge valuations and utilitarian welfare only. It guarantees at least one canonical optimizer, not all optimizers or their count. Complexity is arithmetic operation count; representation/bit complexity is not asserted. No independent audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp connected-triple existence threshold and signed-weight-agnostic linear-time algorithm are a robust, nontrivial classification of optimal utilitarian groups on natural degree-two networks; both P3 and claw witnesses explain why the exact cutoff and degree assumption matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

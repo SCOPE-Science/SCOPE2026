@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T02:15:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any coalition C, its utilitarian welfare is exactly 2 W(C)/|C|, where W is the sum of internal signed weights. Split off nonpositive/nonconnected components without loss. Every connected coalition of size q≥4 is a path or entire cycle. On a path or even cycle, two alternating matchings of positive edges ensure a matching contribution at least P/2≥W/2≥2W/q. On an odd cycle q≥5, cyclically averaged (q−1)/2-edge matchings guarantee (q−1)P/(2q)≥2W/q. Thus an optimal partition exists with only connected blocks of sizes 1,2,3. The three-tile path recurrence and six 0-containing cycle cases, plus a triangle special case, completely optimize in O(V+E) real arithmetic/comparisons. Unweighted P3 needs size three (welfare 4/3) and K1,3 shows the max-degree-three boundary (3/2>4/3). Independent exhaustive unrestricted partition comparison verified 275 small signed path/cycle instances, not an all-graph proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hanaka et al. cover weighted bounded-treewidth graphs in pseudo-polynomial (nW)^{O(ω)} time.",
+          "Bilò unweighted trees structural lemma; Bazgan unweighted degree-two easy cases."
+        ],
+        "reasoning": "The broader algorithm class does not dominate the stronger magnitude-independent linear-time statement on this graph subclass or its signed matching cutoff.",
+        "searches": [
+          "Hanaka Ikeyama Ono arxiv:2310.05139 Theorem 5.1",
+          "Bilò et al. JAIR 2018 Lemma 13",
+          "Bazgan Casel Cazals arxiv:2107.13282"
+        ]
+      },
+      "checked_sources": [
+        "Maximizing Utilitarian and Egalitarian Welfare of Fractional Hedonic Games on Tree-like Graphs: https://arxiv.org/abs/2310.05139",
+        "Nash Stable Outcomes in Fractional Hedonic Games: Existence, Efficiency and Computation: https://www.jair.org/index.php/jair/article/download/11211/26422/20780",
+        "Dense Graph Partitioning on Sparse and Dense Graphs: https://arxiv.org/abs/2107.13282"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General bounded-treewidth result admits arbitrary signed weights with magnitude-sensitive parameters; no derivation of a universal three-vertex block theorem.",
+          "Unweighted tree property does not supply the weighted odd-cycle rotational matching lemma."
+        ],
+        "reasoning": "The cyclic matching average and signed-component splitting give an additional algebraic statement needed for current result.",
+        "searches": [
+          "Hanaka et al. Theorem 5.1 weighted treewidth",
+          "Bilò et al. unweighted tree lemma",
+          "Aziz et al IJCAI welfare optimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Utilitarian fractional hedonic welfare is weighted within-block graph density 2W(C)/|C|; signed modularity and bounded-treewidth DP are nearby aliases."
+        ],
+        "reasoning": "The statement is about a magnitude-independent O(n) exact algorithm plus guaranteed size-three connected optimum, not about the generic density objective or approximate welfare.",
+        "searches": [
+          "Resultary: signed weighted fractional hedonic maximum degree two paths cycles utilitarian coalition size",
+          "dense graph partitioning signed weighted path cycle maximum degree two",
+          "arxiv:2310.05139"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant exact signed-degree-two classification table found in Resultary; search hits were mostly power-index voting games."
+        ],
+        "reasoning": "The claim is all-length structural and algorithmic, not a finite table; no existing exact signed path/cycle lookup was identified.",
+        "searches": [
+          "Resultary: signed weighted fractional hedonic maximum degree two paths cycles utilitarian coalition size",
+          "IJCAI 2015 Welfare Maximization in Fractional Hedonic Games"
+        ]
+      },
+      "rationale": "Published bounded-treewidth weighted fractional-hedonic algorithms cover paths/cycles as a class but give magnitude-dependent (nW)^{O(ω)} bounds, not this strongly linear sign-independent algorithm. Prior unweighted-tree diameter-two lemmas and unweighted degree-two easy-case comments do not cover arbitrary signed cycles. No equivalent structural matching replacement was found in inspected material; historical equivalence in graph partition literature remains possible.",
+      "residual_risks": [
+        "Undiscovered equivalent strong polynomial algorithm for signed weighted density clustering on degree-two graphs could predate this formulation.",
+        "All-time comparisons in real-arithmetic operation model; no encoded real bit-complexity bound; proof establishes existence, not uniqueness of optimizers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER_OBJECTS_WEAKER_COMPLEXITY",
+          "evidence": "Theorem 5.1 has magnitude dependence (nW)^{O(treewidth)}, unlike O(V+E) for arbitrary reals.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.05139",
+          "material_read": "Primary full text including definitions and weighted treewidth Theorem 5.1, inspected relevant algorithm sections",
+          "method": "Lawful OA PDF text and relevant page screenshot",
+          "title": "Maximizing Utilitarian and Egalitarian Welfare of Fractional Hedonic Games on Tree-like Graphs",
+          "trigger": "Closest same welfare objective and broad weighted bounded-treewidth algorithm"
+        },
+        {
+          "assessment": "UNWEIGHTED_TREE_SPECIAL_CASE",
+          "evidence": "The inspected lemma does not handle arbitrary signed cycles.",
+          "identifier_or_url": "https://www.jair.org/index.php/jair/article/download/11211/26422/20780",
+          "material_read": "Material primary sections covering unweighted tree diameter-two optimal welfare coalitions",
+          "method": "Lawful primary article/full PDF relevant section reading",
+          "title": "Nash Stable Outcomes in Fractional Hedonic Games: Existence, Efficiency and Computation",
+          "trigger": "Potential small-coalition structural lemma"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_WEIGHT_REGIME",
+          "evidence": "Unweighted density optimization does not imply signed odd-cycle matching dominance.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.13282",
+          "material_read": "Abstract and relevant degree-two/graph-family material, not entire proof",
+          "method": "OA paper relevant statements",
+          "title": "Dense Graph Partitioning on Sparse and Dense Graphs",
+          "trigger": "Unweighted max-degree-two remark and hardness boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp connected-triple existence threshold and signed-weight-agnostic linear-time algorithm are a robust, nontrivial classification of optimal utilitarian groups on natural degree-two networks; both P3 and claw witnesses explain why the exact cutoff and degree assumption matter.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Undiscovered equivalent strong polynomial algorithm for signed weighted density clustering on degree-two graphs could predate this formulation.",
+    "All-time comparisons in real-arithmetic operation model; no encoded real bit-complexity bound; proof establishes existence, not uniqueness of optimizers."
+  ]
+}
