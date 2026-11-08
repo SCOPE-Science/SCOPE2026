@@ -1,80 +1,92 @@
 # Exact least periods of three-term LCM quotients for an Eisenstein cubic family
 
 ## Finding
-For every positive odd integer \(m\), set \(f_m(t)=t^3+2m\), \(U_m=108m^2+1\), and \(V_m=27m^2+16\). For each integer \(n\ge0\), define the integer
+For each positive odd integer \(m\), put \(f_m(n)=n^3+2m\), \(U_m=108m^2+1\), and \(V_m=27m^2+16\). For every integer \(n\ge0\), set
 \[
 Q_m(n)=\frac{f_m(n)f_m(n+1)f_m(n+2)}{\operatorname{lcm}(f_m(n),f_m(n+1),f_m(n+2))}.
 \]
-The exact formula is
+Then
 \[
-Q_m(n)=2^{\mathbf1_{2\mid n}}\gcd(2n+6m+1,U_m)\gcd(2n+6m+3,U_m)\gcd(4n+4+3m,V_m).
+\boxed{Q_m(n)=2^{\mathbf1_{2\mid n}}
+\gcd(2n+6m+1,U_m)\gcd(2n+6m+3,U_m)
+\gcd(4n+4+3m,V_m).}
 \]
-Its **least** positive period is
+Its **least positive period** is
 \[
-P_m=2\operatorname{lcm}(108m^2+1,27m^2+16).
+\boxed{P_m=2\operatorname{lcm}(U_m,V_m).}
 \]
-The two odd moduli intersect at the prime \(7\) exactly when \(m\equiv\pm3\pmod7\):
+Moreover,
 \[
-\gcd(U_m,V_m)=\begin{cases}7,&m\equiv\pm3\pmod7,\\1,&\text{otherwise}.\end{cases}
+\gcd(U_m,V_m)=\begin{cases}
+7,&m\equiv\pm3\pmod7,\\1,&\text{otherwise}.
+\end{cases}
 \]
+In the shared-prime case, the smaller of the two 7-adic exponents is exactly one, but the larger exponent can exceed one (for example, \(m=11\) has \(\nu_7(V_m)=2\), and \(m=17\) has \(\nu_7(U_m)=4\)). The period formula includes these higher powers.
 
 ## Assumptions and scope
-The parameter \(m\) ranges over **all positive odd integers**, and the index \(n\) over all nonnegative integers. All gcd and lcm operations use positive integers. The polynomial \(f_m\) is Eisenstein at \(2\), since its constant term has exactly one factor \(2\), so this is an infinite family of irreducible cubics. This is a three-value window only; no assertion is made for longer windows or even \(m\).
+The parameter \(m\) is an arbitrary positive odd integer and \(n\ge0\). All gcds and lcms refer to positive integers. As \(2\mid 2m\) and \(4\nmid2m\), \(t^3+2m\) is Eisenstein at 2, hence irreducible over the rationals. This theorem treats exactly three consecutive values and asserts no formula for even \(m\), other polynomials, or longer windows.
 
 ## Proof
-**1. Reduction to pairwise gcds.** Write \(a=f_m(n)\), \(b=f_m(n+1)\), and \(c=f_m(n+2)\). For any positive integers with \(\gcd(a,b,c)=1\), comparison of prime valuations gives
-\[
-\frac{abc}{\operatorname{lcm}(a,b,c)}=\gcd(a,b)\gcd(b,c)\gcd(a,c).
-\]
-Here \(b-a=3n^2+3n+1\) and \(c-b=3(n+1)^2+3(n+1)+1\). Both differences are odd and congruent to \(1\) modulo \(3\). If an odd prime \(p\ne3\) divides both, their difference \(6(n+1)\) forces \(n\equiv-1\pmod p\), contradicting \(3n^2+3n+1\equiv1\pmod p\). Thus no prime divides all three terms and \(\gcd(a,b,c)=1\).
 
-**2. Adjacent pairs.** Put \(R=3n^2+3n+1\) and \(L=2n+6m+1\). Direct polynomial identities give
+**1. Triple gcd and prime-wise decomposition.** Set \(a=f_m(n)\), \(b=f_m(n+1)\), \(c=f_m(n+2)\). Their adjacent differences are
 \[
-3a-(n-1)R=L,\qquad 4R=3L^2-36mL+(108m^2+1).
+b-a=3n^2+3n+1,\qquad c-b=3(n+1)^2+3(n+1)+1.
 \]
-Since \(\gcd(a,R)\) is odd and prime to \(3\) (as \(R\equiv1\pmod3\)), these identities, together with the converse implications modulo every odd prime power, establish
+Both differences are odd and congruent to 1 modulo 3. If an odd prime \(p\ne3\) divides both, then \(p\mid6(n+1)\), so \(n\equiv-1\pmod p\), which contradicts \(3n^2+3n+1\equiv1\pmod p\). No prime divides \(a,b,c\) simultaneously. Thus \(\gcd(a,b,c)=1\). Comparing prime exponents for three integers with triple gcd one gives
 \[
-\gcd(a,b)=\gcd(a,R)=\gcd(L,U_m).
-\]
-Indeed, modulo any odd prime power other than a power of \(3\), the first identity implies that simultaneous divisibility of \(a,R\) is equivalent to simultaneous divisibility of \(L,R\), and the second identity then gives equivalence to simultaneous divisibility of \(L,U_m\) (because \(4\) is invertible). Conversely, \(L\equiv U_m\equiv0\) implies \(R\equiv a\equiv0\) by the same identities. The integers \(U_m\equiv1\pmod3\) are also odd, so no excluded prime contributes. Replacing \(n\) by \(n+1\) gives
-\[
-\gcd(b,c)=\gcd(2n+6m+3,U_m).
+\frac{abc}{\operatorname{lcm}(a,b,c)}
+=\gcd(a,b)\gcd(b,c)\gcd(a,c).
 \]
 
-**3. Distance-two pair.** Put \(u=n+1\), \(R_2=3u^2+1\), and \(L_2=8u+6m\). Then \(c-a=2R_2\), and direct identities read
+**2. Adjacent pairs.** Put \(R=3n^2+3n+1\), \(L=2n+6m+1\), and \(U=108m^2+1\). The exact polynomial identities
 \[
-3a-(u-3)R_2=L_2,\qquad 64R_2=3L_2^2-36mL_2+4(27m^2+16).
+3a-(n-1)R=L,\qquad 4R=3L^2-36mL+U
 \]
-For every odd prime \(p\ne3\), the same invertible-prime-power argument proves equality of the odd parts of \(\gcd(a,c)\) and \(\gcd(L_2,V_m)\). No factor \(3\) occurs, because \(R_2\equiv1\pmod3\). As \(V_m\) is odd, \(\gcd(L_2,V_m)=\gcd(4n+4+3m,V_m)\). Finally, \(m\) odd implies \(a,c\) have exactly one factor \(2\) when \(n\) is even (their cube terms are multiples of \(8\) and \(2m\) has valuation \(1\)); when \(n\) is odd both are odd. Thus
+show that for every odd prime \(p\ne3\) and \(j\ge1\), \(p^j\) divides both \(a,R\) exactly when it divides both \(L,U\). Here 3 and 4 are units modulo \(p^j\). Neither pairwise gcd admits a factor 2 or 3: \(R\) is odd and congruent to 1 modulo 3, and \(U\) is odd and congruent to 1 modulo 3. Hence
 \[
-\gcd(a,c)=2^{\mathbf1_{2\mid n}}\gcd(4n+4+3m,V_m).
+\gcd(a,b)=\gcd(a,R)=\gcd(L,U).
 \]
-Multiplication of the three pairwise gcd formulas completes the exact formula for \(Q_m(n)\).
+Replacing \(n\) by \(n+1\) gives \(\gcd(b,c)=\gcd(2n+6m+3,U)\).
 
-**4. Intersection of the two moduli.** Since \(U_m-4V_m=-63\), their gcd divides \(63\). Both are \(1\) modulo \(3\), so their gcd divides \(7\). Modulo \(7\), \(U_m\equiv3m^2+1\), which vanishes exactly for \(m\equiv\pm3\pmod7\). Thus the claimed intersection classification follows. In particular, if \(7\) divides both moduli, it appears to exponent exactly \(1\) in each.
-
-**5. Sharpness of the period.** The explicit formula first shows that \(T=2\operatorname{lcm}(U_m,V_m)\) is a period. We prove that each prime-power factor of \(T\) is forced by the corresponding valuation pattern \(v_p(Q_m(n))\), which every period must preserve.
-
-For \(p=2\), the valuation alternates exactly between \(1\) and \(0\), so every period is even. Now let \(p\) be an odd prime; neither modulus is divisible by \(3\). If \(p^e\Vert U_m\) and \(p\nmid V_m\), the valuation is
+**3. Distance-two pair.** Put \(u=n+1\), \(R_2=3u^2+1\), \(L_2=8u+6m\), and \(V=27m^2+16\). Then
 \[
-\min(e,v_p(2n+6m+1))+\min(e,v_p(2n+6m+3)).
+c-a=2R_2,\quad
+3a-(u-3)R_2=L_2,\quad
+64R_2=3L_2^2-36mL_2+4V.
 \]
-Its maximum \(e\) occurs exactly on **two residues modulo \(p^e\)**, separated by \(1\). The residues are distinct because \(p\) is odd. A translation by \(p^{e-1}\) cannot preserve this two-element maximum set when \(e\ge2\): otherwise a translate of one root would be the other, requiring \(p^{e-1}\equiv\pm1\pmod{p^e}\), impossible for odd \(p\) and \(e\ge2\). For \(e=1\), there are exactly two of the \(p\) residues (and \(p\ge5\)), so this valuation is nonconstant. Since its period divides \(p^e\), its least period is exactly \(p^e\).
+For every odd prime \(p\ne3\), these identities establish equality of the \(p\)-parts of \(\gcd(a,c)\) and \(\gcd(L_2,V)\); neither has a factor 3. Since \(V\) is odd, \(\gcd(L_2,V)=\gcd(4n+4+3m,V)\), by division of the first argument by 2 modulo \(V\). If \(n\) is even, both \(a\) and \(c\) have 2-adic valuation one (\(m\) odd); if \(n\) is odd, both are odd. Therefore
+\[
+\gcd(a,c)=2^{\mathbf1_{2\mid n}}\gcd(4n+4+3m,V).
+\]
+Multiplying the three pairwise formulas proves the displayed expression for \(Q_m\).
 
-If \(p^e\Vert V_m\) and \(p\nmid U_m\), the valuation equals \(\min(e,v_p(4n+4+3m))\) and reaches its maximum at exactly one residue modulo \(p^e\); this forces least period \(p^e\). In the only overlapping case, \(p=7\), both exponents equal \(1\); the valuation is \(1\) at three **distinct** residue classes modulo \(7\), one arising from each gcd. If two of these classes coincided, the relevant two pairwise gcds would both be divisible by \(7\), forcing \(7\mid\gcd(a,b,c)\), which step 1 excludes. Hence the valuation is not constant modulo \(7\) and forces period \(7\).
+**4. Overlap of odd moduli.** Because \(U-4V=-63\) and \(U\equiv V\equiv1\pmod3\), the gcd divides 7. Modulo 7 we have \(U\equiv3m^2+1\), which vanishes precisely for \(m\equiv\pm3\pmod7\); this also makes \(V\) divisible by 7. Hence \(\gcd(U,V)\) is as claimed. In particular, **at least one** of \(\nu_7(U),\nu_7(V)\) equals one if both are positive, but it is not generally true that both equal one. The examples \(m=11\) and \(m=17\) above explicitly refute the latter assertion.
 
-All prime-power periods are therefore compulsory. Since they are coprime, every positive period is a multiple of \(2\operatorname{lcm}(U_m,V_m)\), proving minimality.
+**5. Sharp least period, including all powers of 7.** The formula in the finding makes \(T=2\operatorname{lcm}(U,V)\) a period. Conversely, every period \(H\) of the integer-valued function preserves the valuation \(\nu_p(Q_m(n))\) for every prime. At \(p=2\), this valuation alternates between one and zero, forcing \(2\mid H\). For an odd prime \(p\mid UV\), note that \(p\ne3\).
+
+If \(p^e\Vert U\) but \(p\nmid V\), the valuation at \(p\) equals
+\[
+A(n)=\min(e,\nu_p(2n+6m+1))+
+\min(e,\nu_p(2n+6m+3)).
+\]
+The linear arguments differ by 2, so at odd \(p\) exactly two distinct residues modulo \(p^e\) attain the maximum \(e\). For \(e=1\) this nonempty proper set is not translation-invariant modulo \(p\). For \(e\ge2\), translation by \(p^{e-1}\) cannot preserve the two root residues (whose difference in the \(n\) variable is 1), since \(p^{e-1}\not\equiv\pm1\pmod{p^e}\). Hence the least \(p\)-power period is \(p^e\). If \(p^e\Vert V\) but \(p\nmid U\), the valuation reaches maximum \(e\) at one residue modulo \(p^e\), again forcing least local period \(p^e\).
+
+It remains to treat a shared prime, necessarily \(p=7\). Write \(e=\nu_7(U)\), \(d=\nu_7(V)\). By step 4, \(\min(e,d)=1\). The roots modulo 7 of the two \(U\)-linear factors and the \(V\)-linear factor are **pairwise distinct**: overlap would make two of \(\gcd(a,b),\gcd(b,c),\gcd(a,c)\) divisible by 7 and hence force \(7\mid\gcd(a,b,c)\), contrary to step 1. If \(e=d=1\), the 7-adic valuation is one on exactly three of the seven residue classes and zero on the other four, so its local least period is 7.
+
+If \(e\ge2\) (and therefore \(d=1\)), the valuation has maximum \(e\) exactly at the two residues modulo \(7^e\) where the respective \(U\)-linear argument vanishes modulo \(7^e\). At those roots the other two factors are prime to 7. Every other residue has valuation at most \(e-1\), except that the separate \(V\)-root class has valuation one. Since the two maximum residues differ by one in \(n\), translation by \(7^{e-1}\) cannot preserve their set. Thus the local least period is \(7^e\). If \(d\ge2\) (and \(e=1\)), the unique residue modulo \(7^d\) where the \(V\)-linear factor vanishes modulo \(7^d\) has maximal valuation \(d\), while all remaining residues have valuation at most \(d-1\), and the \(U\)-roots contribute only one. This forces local least period \(7^d\).
+
+For any prime \(p\mid UV\), the valuation function just studied depends only on \(n\pmod{p^{\max(\nu_p(U),\nu_p(V))}}\) and has that prime power as its exact least period. Any global period \(H\) is also a period of each valuation sequence and therefore is divisible by that prime power; combine these independent conditions and the evenness requirement to deduce \(T\mid H\). Since \(T\) itself is a period, it is the least positive period, as claimed.
 
 ## Verification
-The accompanying standalone Python program `verify.py` computes the original product/lcm quotient and the closed expression separately with exact integers for each odd \(1\le m\le99\) and \(0\le n<180\), totaling **9,000** comparisons. It additionally checks modulus intersection and local prime-power minimality patterns for \(m\in\{1,3,5,7,9\}\). It uses only the standard library and can be run as `python3 verify.py`. These finite tests check arithmetic and illustrative local structure; the unrestricted quantifiers are proved in the five steps above. The resulting least periods for \(m=1,3\) are \(9374\) and \(72002\), respectively.
+An independent exact-integer cross-check compared the original three-cubic product divided by their lcm with the displayed gcd formula at 700 consecutive indices for each \(m\in\{1,3,5,11,17,81,87\}\): 4,900 comparisons. Crucially, the high-7-power cases \(m=11,17,81,87\) were tested separately and their predicted maximal 7-power local periods (49, 2401, 49, 49) were all confirmed by exact residue enumeration. These finite checks corroborate the proof but do not establish its infinite quantifiers. The accompanying `verify.py` independently reproduces these regression cases as well as its existing small-parameter comparisons.
 
 ## Relationship to prior work
-Bodin and Drouin, *Around the gcd of the values of two polynomials* (first publicly posted 2024-09-02), establish resultant-based periodicity for pairwise polynomial gcds and study local valuation patterns. Dubickas, *On the least common multiple of several consecutive values of a polynomial* (2022), establishes general periodicity and a period expressed through reduced resultants. Hong and Qian analyze **quadratic** progressions in detail. These theorems motivate the object and supply broader periodicity, but their inspected statements do not give this Eisenstein cubic family's three-gcd decomposition, least period, or exact exceptional overlap at \(7\). The proof above establishes those sharper special-family statements directly.
+Bodin and Drouin, *Around the gcd of the values of two polynomials* (arXiv:2409.01224), supply general resultant-based methods and periodicity phenomena for pairwise polynomial gcds. Dubickas, *On the least common multiple of several consecutive values of a polynomial* (Algebra i Analiz 34 (2022)), proves broader periodicity bounds using reduced resultants. Hong and Qian analyze consecutive **quadratic** progressions. These general results do not, as stated, supply this family-specific exact gcd decomposition or the sharp least period including the shared-7 valuation cases. Historical priority over less accessible or unindexed special-case results remains qualified.
 
 ## Limitations
-Only positive odd \(m\) and exactly three consecutive arguments are covered. No claim is made about the least period for arbitrary cubic polynomials or for longer windows. Earlier general periodicity is not claimed as new. Mathematical originality is assessed against the cited, inspected sources and available indexed records, not against every possibly unindexed manuscript. No independent audit has been performed.
+The theorem covers precisely positive odd \(m\) and three consecutive values, not even \(m\), arbitrary cubic polynomials, or longer windows. It does not claim general polynomial-gcd periodicity as new. Finite computations support the arithmetic only; the valuation argument establishes the all-parameter theorem. No universal historical-priority certification is claimed.
 
 ## References
-1. A. Bodin and C. Drouin, *Around the gcd of the values of two polynomials*, arXiv:2409.01224 (first posted 2024-09-02), https://arxiv.org/abs/2409.01224.
-2. A. Dubickas, *On the least common multiple of several consecutive values of a polynomial*, Algebra i Analiz 34 (2022), 231–239; St. Petersburg Math. J. 34 (2023), 305–311, https://www.mathnet.ru/eng/aa1806.
+1. Arnaud Bodin and Christian Drouin, *Around the gcd of the values of two polynomials*, arXiv:2409.01224, https://arxiv.org/abs/2409.01224.
+2. Arturas Dubickas, *On the least common multiple of several consecutive values of a polynomial*, Algebra i Analiz 34 (2022), 231–239; St. Petersburg Math. J. 34 (2023), 305–311, https://www.mathnet.ru/eng/aa1806.
 3. S. Hong and G. Qian, *The least common multiple of consecutive quadratic progression terms*, arXiv:1208.5119, https://arxiv.org/abs/1208.5119.

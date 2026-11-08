@@ -1,15 +1,21 @@
-# Review of the cubic three-term LCM quotient theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof verifies coprimality of the three terms; reduces the quotient to three pairwise gcds; proves each exact gcd using explicit polynomial identities and prime-power arguments; computes the only possible shared modulus prime; and proves sharpness at **every** local prime power. The standalone exact-arithmetic test checks 9,000 pairs plus explicit local minimality patterns for five parameters. No global inference rests solely on the finite tests.
+## correctness
 
-## Originality — PASS (within identified literature)
-Bodin–Drouin (arXiv:2409.01224), sections 1–6, supply general gcd-resultant periodicity but not the stated cubic three-term quotient formula. Dubickas (2022), complete 9-page published note, proves general periodicity and a resultant period, with certain examples, not the entire explicit odd-parameter Eisenstein cubic least-period family. Hong–Qian (arXiv:1208.5119) address quadratic rather than cubic polynomials. Queries for the exact moduli, shifted cubic gcds, LCM quotients, and possible equivalent formulations did not identify a stronger covering result in available indexed research records. This absence is evidence-limited, not a proof of absolute priority; unindexed and unpublished computations remain possible.
+PASS
 
-## Value — PASS
-A known general periodicity statement does not determine a smallest period. Here the full infinite family of irreducible cubic inputs has both an exact three-gcd formula and a proved least period, including an exceptional prime \(7\) intersection between the independent resultant moduli. This is a natural and motivated sharp special-family determination, not a cosmetic change of notation or isolated small calculation.
+Original proof contains a FALSE claim that when 7 divides both U=108m²+1 and V=27m²+16, its exponents in both are exactly one. Counterexamples: m=11 gives exponents (1,2) and m=17 gives (4,1). The theorem itself survives after corrected full proof: U−4V=−63 gives min(v7(U),v7(V))=1, not both equal one; the two U linear roots and one V root are pairwise distinct mod7 from triple gcd one. If one exponent >1, its 1 or 2 disjoint maximal-valuation roots cannot be invariant under 7^(max−1), forcing full higher 7-power period. Other odd primes and 2 cases follow prime-wise valuation roots. Reconstructed all polynomial identities, triple gcd, CRT-free per-prime lower bound and full local-period argument from corrected final RESULT.md. 9000 exact direct quotient comparisons and all 4 high-7-power regression cases passed corrected verify.py.
 
-## Scope and remaining limitations
-Exactly three consecutive values and positive odd parameters are covered. The other parameter parities and longer windows are not classified. Independent scientific verification is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bodin–Drouin 2024 provide polynomial gcd/resultant periodicity and local valuations, and Dubickas 2022 general polynomial LCM period bounds; the corrected result gives explicit family-specific linear-gcd factors and exact least period including higher shared 7-powers. Hong–Qian treats quadratic progressions. These known general bounds do not, in read material, give this explicit Eisenstein cubic class formula. Best-of-knowledge novelty remains qualified by possibly broader full literature.
+
+## value
+
+PASS
+
+A natural irreducible cubic family has a complete closed quotient and exact smallest period with a genuine, sharply classified exceptional prime interaction. The high-7-power correction is substantive: it fixes a false proof step and verifies a family-specific period that is not routine parameter renaming from general periodicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
