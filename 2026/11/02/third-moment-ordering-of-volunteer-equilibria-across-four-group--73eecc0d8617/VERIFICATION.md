@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Mathematical and computational verification
+# Independent mathematical audit
 
-The exact payoff difference is derived directly from the one-volunteer rule. The proof of the all-parameter comparison relies on the rank-three four-node moment matrix and the strict sign of a third divided difference of an exponential in the group size. The two explicit examples use rational group-size weights and have been evaluated algebraically. The independent study of historical priority is not part of this verification.
+## correctness
 
-To replay the computational evidence, run `python check.py` with Python 3.9+ and no external packages. Expected output:
+PASS
 
-```
-PASS: 2330 exact-rational assertions; 210 ordered four-size support choices; two explicit sharp examples.
-```
+The replicator advantage is B Σp_n(1−x)^(n−1)−C, with a unique interior stable root for n>=2 and 0<C<B. For four sizes, difference of moment-matched laws lies in the nullspace of the 3×4 Vandermonde and equals Δm3 times signed barycentric weights. The third divided difference of q^(t−1) is (log q)^3 q^(ξ−1)/6<0 on 0<q<1, establishing ALL q and costs; at <=3 nodes full rank gives uniqueness. Independently verified exact signed tests for all 210 four-support subsets of {2,...,11} at three rational q each (630 tests), and both 4/5-size examples. Five-size U,V have moments (1,4,18,88) and G_U−G_V=q(1−q)^4/20. These finite cases are checks, not the unbounded proof.
 
-The script checks barycentric identities, sample strict generating-function inequalities, all stated moment identities, and the exact four- and five-size crossing examples. Only the analytic proof establishes universal support spacing, every interior frequency and every permitted benefit–cost ratio; finite sampling cannot do so. Source limitations and alternative formulations are recorded in `REVIEW.md` and `AUDIT.json`.
+## originality
+
+PASS
+
+Best-of-knowledge original as an exact fixed-four-support, first-two-moment-matched global equilibrium comparison plus five-support sharp counterexample; classical divided-difference algebra and Peña group-size model acknowledged. No matching Resultary prior identified; an equivalent stochastic-order treatment is a residual possibility.
+
+## value
+
+PASS
+
+A sharp low-support moment comparison answers whether skewness can select equilibria when mean and variance are held fixed; the strict all-cost-ratio result and five-support obstruction have genuine modelling and analytic relevance beyond reproducing the standard Jensen estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
