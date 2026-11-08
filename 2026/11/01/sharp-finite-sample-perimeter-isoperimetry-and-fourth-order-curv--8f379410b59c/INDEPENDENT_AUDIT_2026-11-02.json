@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T07:09:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md Git blob 13ff7ea52b0d2087d58edb8bc027f3ed3c3ef5fa",
+        "frozen checker.py Git blob feac2c993ce9350d3eddbdffd4bcd4b1f1e1b296",
+        "independent b_31 exact integral computation"
+      ],
+      "rationale": "Ordering independent arclength points yields cyclic spacings U~Beta(1,m-1), independent of uniform starting arclength S. The oriented shoelace sum gives E area=m/2 E Im(conj gamma(S) gamma(S+LU)). Fourier correlation then gives weights b_{m,k} multiplying |c_k|²-|c_-k|². Integration by parts supplies b_{m,k}>0, and 1-cos(k theta)<=k²(1-cos theta), strict almost everywhere for k>=2, bounds b_{m,k}<k b_{m,1}; arclength unit speed Parseval is sum n²|c_n|²=L²/(4pi²). Subtraction yields the explicitly nonnegative deficit with a unique zero Fourier mode n=1 beyond translation, hence exactly circles. For C4 curve, the sine Taylor remainder is bounded by |n|^7/m^{overline7}; summability from H4 gives an O_K(m^-6) total area error. Fourier signed moment sums n³,n⁵ are 2pi/L and integral kappa³/L via Frenet, proving the stated perimeter and curvature-cube coefficients; Jensen gives disk curvature equality. Independent exact b_{3,1}=1/pi check and verification of dimensional powers completed. Finite square diagnostics are not used as universal proof.",
+      "residual_risks": [
+        "C4 smoothness is needed only for shape-sensitive asymptotic expansion; the all-m inequality includes nonsmooth convex bodies.",
+        "The O_K(m^-6) remainder is body-dependent and is not uniform across a class of curves.",
+        "Curvature kappa>=0 assumption and periodic unit-speed parametrization matter in the Jensen equality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fodor–Papvári theorem concerns interior points and generalized disc-polygons rather than m boundary points and classical convex hull.",
+          "Reitzner–Schütt–Werner handle higher-dimensional simple-polytope asymptotics; Sonnleitner Hausdorff error rather than expected area."
+        ],
+        "reasoning": "Different sampling laws, dimensions and functionals do not imply an all-m sharp perimeter-normalized expected area bound.",
+        "searches": [
+          "https://arxiv.org/abs/2509.11702",
+          "arxiv:1911.05917",
+          "arxiv:2508.16442",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2509.11702",
+        "arxiv:1911.05917",
+        "doi:10.21638/11701/spbu01.2020.108",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6",
+        "Resultary QRAND query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Leading missing-area asymptotics for other models do not imply the curvature-cube fourth-order coefficient here.",
+          "The new spectral sum controls every finite m and forces disk equality; classical isoperimetry bounds area(K), but by itself does not give a sharper expectation of random inscribed hulls."
+        ],
+        "reasoning": "Prior results and the asserted inequality share geometry but not the same exact sampling functional or logical consequences.",
+        "searches": [
+          "https://arxiv.org/abs/2509.11702",
+          "arxiv:1911.05917",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boundary-arclength Dirichlet gap representation and weighted Fourier moduli are functionally different from uniformly interior sampled random polygons.",
+          "Classic disk E area is one special Fourier mode, not the sharp all-K inequality."
+        ],
+        "reasoning": "Searched equivalent Fourier/autocorrelation and random-chord formulations, and checked whether known disk formulas logically imply all convex boundaries; they do not.",
+        "searches": [
+          "expected area random inscribed polygon uniformly sampled convex boundary arclength sharp circle perimeter isoperimetric curvature cube asymptotic",
+          "random inscribed convex polygon expected area uniform boundary arc length Fourier spectral isoperimetric disk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact circle expected area for m=3 and m=4 is background, not the new spectral deficit.",
+          "Resultary ellipse sampling density minimax record optimizes a different leading error, not arclength-uniform full finite-sample E area."
+        ],
+        "reasoning": "No exact all-m boundary-arclength area deficit table found in ranked Resultary hits; indexing silence cannot certify novelty.",
+        "searches": [
+          "expected area random inscribed polygon uniformly sampled convex boundary arclength sharp circle perimeter isoperimetric curvature cube asymptotic",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6",
+          "Nikitin Polevaya 2020 mean perimeter inscribed random polygon"
+        ]
+      },
+      "rationale": "The exact Fourier spectral inequality and curvature-cube correction treat independent *boundary arclength* samples. Relevant Fodor/Papvári papers concern interior-sampled generalized L-convex hulls, Reitzner/Schütt/Werner higher-dimensional simple-polytope boundary asymptotics, and Nikitin/Polevaya mean perimeter rather than mean area. Exact circle expected areas are classical and are explicitly not claimed original. The combined all-finite-m disk optimality and C4 curvature memory remain best-of-knowledge original with unindexed older probability literature risk.",
+      "residual_risks": [
+        "An older stochastic-geometry theorem under an inscribed-polygon formula or boundary covariance alias may contain the finite-m spectral inequality.",
+        "Not all relevant primary literature was accessed as full text; do not infer priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different sampling scheme and operation from independent arclength-uniform classical convex hull; not an implication",
+          "evidence": "Primary theorem concerns random L-convex hulls of interior-distributed points.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.11702",
+          "material_read": "Full accessible primary PDF including introduction and main theorem 1.1 specifying interior sampling and generalized L-convex hulls",
+          "method": "primary PDF read",
+          "title": "On generalized disc-polygons in plane convex bodies with a higher degree of smoothness",
+          "trigger": "High-order random polygon area expansions possible stronger coverage"
+        },
+        {
+          "assessment": "Different dimension/shape and leading asymptotics, not verified full-document exclusion",
+          "evidence": "No claim in read main statement of all-m planar sharp Fourier deficit.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+          "material_read": "Main statement and abstract level concerning higher-dimensional simple-polytope volume loss",
+          "method": "primary main-statement comparison",
+          "title": "The Convex Hull of Random Points on the Boundary of a Simple Polytope",
+          "trigger": "Boundary sampling comparison"
+        },
+        {
+          "assessment": "Asymptotic optimum density for ellipse compromise rather than uniform arclength E area all m",
+          "evidence": "Optimization concerns sampling distribution and leading error, not exact fixed m disk optimality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6",
+          "material_read": "Resultary indexed title and scientific abstract",
+          "method": "indexed abstract",
+          "title": "Unique minimax area–perimeter sampling law for random polygons in ellipses",
+          "trigger": "Same random-inscribed-polygon topic and area/perimeter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2509.11702",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6",
+        "frozen RESULT.md"
+      ],
+      "rationale": "The random boundary hull and missed area are natural stochastic-convexity invariants. An exact sharp finite-sample perimeter isoperimetric inequality holding for *every* convex planar body, with unique disk equality and an explicit positive spectral stability deficit, is a substantive refinement over the deterministic isoperimetric inequality. The curvature-cube correction identifies the first shape-dependent asymptotic memory beyond the universal perimeter term, which can be useful to later boundary sampling studies.",
+      "residual_risks": [
+        "No claims for uniform interior sampling, density-optimized samples, arbitrary nonsmooth curvature corrections or uniform remainder."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "C4 smoothness is needed only for shape-sensitive asymptotic expansion; the all-m inequality includes nonsmooth convex bodies.",
+    "The O_K(m^-6) remainder is body-dependent and is not uniform across a class of curves.",
+    "Curvature kappa>=0 assumption and periodic unit-speed parametrization matter in the Jensen equality.",
+    "An older stochastic-geometry theorem under an inscribed-polygon formula or boundary covariance alias may contain the finite-m spectral inequality.",
+    "Not all relevant primary literature was accessed as full text; do not infer priority certification.",
+    "No claims for uniform interior sampling, density-optimized samples, arbitrary nonsmooth curvature corrections or uniform remainder."
+  ],
+  "schema_version": 1
+}

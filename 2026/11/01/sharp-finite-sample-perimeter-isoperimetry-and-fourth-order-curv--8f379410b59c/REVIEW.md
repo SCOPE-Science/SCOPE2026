@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the exact beta distribution of cyclic gaps, the Fourier correlation identity for a unit-speed boundary, a strict positivity comparison of the beta-sine multiplier against the first harmonic, and Parseval's constant-speed identity. The resulting spectral deficit is nonnegative and vanishes precisely for a translated circular parametrization. For a fixed C4 convex boundary, a globally bounded sine remainder and weighted Parseval justify summing the expansion. Frenet's formulas give the exact signed cubic and quintic Fourier moments, including the curvature-cube correction. The standalone checker passes 184 finite diagnostics; these support, but do not replace, the analytic proof. Residual correctness risks are the standard assumptions of periodic C4 unit-speed regularity and the distinction between sampled boundary and sampled interior, both explicit in the result.
+## correctness
 
-## Originality — PASS, subject to historical-priority uncertainty
-The closest accessible primary sources investigate interior-point generalized disc-polygon hulls (Fodor–Papvári, arXiv:2509.11702), leading random boundary-hull volume for higher-dimensional simple polytopes (Reitzner–Schütt–Werner, arXiv:1911.05917), or random inscribed-polygon perimeter (Nikitin–Polevaya, 2020). Their asserted results do not imply a sharp, all-sample-size expected-AREA extremum over arbitrary planar convex bodies, a nonnegative Fourier deficit, or the exact curvature-cube correction. The classical uniform-circle expectation is acknowledged as prior art. Indexed claims on ellipse sampling and Hausdorff approximation optimize different losses. Historical accounts of random inscribed polygons are extensive, so unindexed older sharp inequalities or asymptotic expansions remain priority risks.
+PASS
 
-## Value — PASS
-The finite-sample constant is a sharp stochastic isoperimetric benchmark for **every** sample size rather than the much weaker ordinary area isoperimetric bound; its spectral deficit quantitatively identifies exactly which Fourier shape modes cause strict loss. The asymptotic demonstrates that the first-order expected missing area cannot identify smooth convex shape at fixed perimeter, whereas the next curvature-cube coefficient distinguishes a circle from every other smooth convex body. Both conclusions are motivated by random boundary approximation, not a contrived finite calculation.
+Ordering independent arclength points yields cyclic spacings U~Beta(1,m-1), independent of uniform starting arclength S. The oriented shoelace sum gives E area=m/2 E Im(conj gamma(S) gamma(S+LU)). Fourier correlation then gives weights b_{m,k} multiplying |c_k|²-|c_-k|². Integration by parts supplies b_{m,k}>0, and 1-cos(k theta)<=k²(1-cos theta), strict almost everywhere for k>=2, bounds b_{m,k}<k b_{m,1}; arclength unit speed Parseval is sum n²|c_n|²=L²/(4pi²). Subtraction yields the explicitly nonnegative deficit with a unique zero Fourier mode n=1 beyond translation, hence exactly circles. For C4 curve, the sine Taylor remainder is bounded by |n|^7/m^{overline7}; summability from H4 gives an O_K(m^-6) total area error. Fourier signed moment sums n³,n⁵ are 2pi/L and integral kappa³/L via Frenet, proving the stated perimeter and curvature-cube coefficients; Jensen gives disk curvature equality. Independent exact b_{3,1}=1/pi check and verification of dimensional powers completed. Finite square diagnostics are not used as universal proof.
 
-## Boundaries of assessment
-No independent mathematical audit or external certification was performed. The checker is finite and diagnostic only, and a failed literature search does not prove global novelty. References in `RESULT.md` identify the scientific points of comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact Fourier spectral inequality and curvature-cube correction treat independent *boundary arclength* samples. Relevant Fodor/Papvári papers concern interior-sampled generalized L-convex hulls, Reitzner/Schütt/Werner higher-dimensional simple-polytope boundary asymptotics, and Nikitin/Polevaya mean perimeter rather than mean area. Exact circle expected areas are classical and are explicitly not claimed original. The combined all-finite-m disk optimality and C4 curvature memory remain best-of-knowledge original with unindexed older probability literature risk.
+
+## value
+
+PASS
+
+The random boundary hull and missed area are natural stochastic-convexity invariants. An exact sharp finite-sample perimeter isoperimetric inequality holding for *every* convex planar body, with unique disk equality and an explicit positive spectral stability deficit, is a substantive refinement over the deterministic isoperimetric inequality. The curvature-cube correction identifies the first shape-dependent asymptotic memory beyond the universal perimeter term, which can be useful to later boundary sampling studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
