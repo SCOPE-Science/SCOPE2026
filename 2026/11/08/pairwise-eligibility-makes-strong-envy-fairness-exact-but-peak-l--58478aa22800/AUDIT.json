@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary common-positive job sizes and eligibility at most two, the most recent job assigned to the higher of two pair-specific loads is an EF1 deletion witness, proving the prefixwise online invariant. For unit jobs, bidirectional strong EF1 is equivalent to pair-split imbalance at most one; unit strong EFX coincides. These assignments are exactly orientations of the simple graph of odd pair multiplicities with base loads consisting of forced singles and even half-splits. Necessity and sufficiency of the peak-load inequalities follow from capacities and a capacitated Hall integral matching. The star has exact fair makespan n−1 and unconstrained optimum 2 for n≥3. The accompanying independent enumeration reproduces 3375 exhaustive n=3 parameter profiles, 3500 seeded n=4 profiles and 1200 online streams. These finite checks support but do not replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Biburger--Megow--Shahkarami give weak online EF1 for general eligible jobs, not strong online EF1.",
+        "Their strong-EF1 negative example and online three-machine obstruction require eligibility sets larger than two.",
+        "Sun--Wang--Li focus ordinary fairness in graphical goods/chores, not pair-restricted strong fairness and its optimal makespan."
+      ],
+      "reasoning": "Neither the general weak online guarantee nor general strong-EF1 nonexistence implies the positive rank-two strong EF1 and EFX theorem. Conversely ordinary EF1 may be more restrictive in unrelated directions, so no implication can be inferred from the word EF1 alone.",
+      "searches": [
+        "Strong eligibility-aware EF1 on graph pair-eligible unit chores with parallel jobs: exactly balanced counts per pair and maximum load minimum via odd-edge orientation, subset density formula",
+        "Offline optimal peak load among all unit-size strongly EF1 chore allocations on pairwise eligibility multigraph, odd multiplicity simple graph orientations and induced subgraph density Hall exact formula",
+        "https://arxiv.org/abs/2610.08064",
+        "https://arxiv.org/pdf/2602.18098"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.08064",
+      "arxiv:2602.18098",
+      "doi:10.1016/0016-0032(65)90340-6",
+      "doi:10.3233/FAIA251225",
+      "https://lemon.cs.elte.hu/egres/open/Orientation_with_degree_bounds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical Hakimi/Frank--Gyárfás degree-bounded orientation gives the Hall feasibility criterion once an orientation instance has been identified.",
+        "The motivating fairness paper does not assert the pair-splitting and odd-multiplicity fairness equivalence used to create this orientation instance."
+      ],
+      "reasoning": "The capacity bound alone is established prior art and is not claimed new. The fair-unit-allocation bijection, prefixwise rank-two strong-EF1/EFX, and fairness-cost example together are not direct corollaries of the classical orientation theorem without the new pairwise interpretation and proof.",
+      "searches": [
+        "Minimax orientation with prescribed vertex lower bounds b_i and odd edge graph H exact maximum (b(S)+E_H(S))/|S| floor ceil Hakimi",
+        "doi:10.1016/0016-0032(65)90340-6",
+        "https://lemon.cs.elte.hu/egres/open/Orientation_with_degree_bounds",
+        "arxiv:2610.08064"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Under unit pair eligibility, strong-EF1/EFX is precisely equal or one-off pair splitting; the resulting residual assignment is an orientation problem.",
+        "The first source establishes general strong-EF1 impossibility with an eligibility-three job, not the rank-two characterization.",
+        "The second source uses ordinary graphical chores EF1, which compares a different set of assigned jobs."
+      ],
+      "reasoning": "The novelty is not the known two-agent load-balancing greedy or a renamed ordinary EF1 theorem: the combined statement is prefixwise strong fairness for an entire pair-eligible system, exact characterization of all unit strong-fair allocations, and the optimal peak-load/price law. No examined source gives this precise implication.",
+      "searches": [
+        "Online strong EF1 EFX for two-eligible task chores; exact unit-size minimum makespan from odd multiplicity graph orientation and capacitated Hall",
+        "Online unit job allocation rank-two eligibility strong EFX per pair alternating jobs, sharp rank threshold three",
+        "arxiv:2610.08064",
+        "arxiv:2602.18098"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed record about graph cover-free matchings concerns a different invariant, and the two-preference-type stochastic-dominance result concerns assignment lotteries.",
+        "The 2026 online fairness and graphical orientation primary papers do not tabulate the strong-fair optimal peak load on pair-eligibility multigraphs."
+      ],
+      "reasoning": "The finite enumeration in verify.py is an independent computational check, not a discovery obtained from a known table. No matched published table or record gives the formula or the star price.",
+      "searches": [
+        "Online strong EF1 EFX for two-eligible task chores; exact unit-size minimum makespan from odd multiplicity graph orientation and capacitated Hall",
+        "Offline optimal peak load among all unit-size strongly EF1 chore allocations on pairwise eligibility multigraph, odd multiplicity simple graph orientations and induced subgraph density Hall exact formula",
+        "Online unit job allocation rank-two eligibility strong EFX per pair alternating jobs, sharp rank threshold three"
+      ]
+    },
+    "rationale": "The October 2026 motivating source proves that strong EF1 can be impossible for larger eligibility hyperedges and gives a three-machine online obstruction using a job eligible for all three. Its examined Sections 5 and Appendix D do not derive the rank-two positive online theorem, the exact unit fair-makespan formula, or the diverging fair-makespan example. The recent graphical-chores primary article examines ordinary envy and equitability, not the pair-restricted strong definition. Classical bounded-orientation feasibility is expressly credited. Actual topical literature and indexed research-record queries returned no covering theorem. This is evidence for best-knowledge originality, not proof of uniqueness.",
+    "residual_risks": [
+      "An unindexed scheduling or fair-orientation paper may already specialize strong EF1 to rank-two eligibility and derive the same formula.",
+      "The original 1965 degree-orientation paper was not read in full; its classical characterization is openly credited, so there is no originality assertion about that step.",
+      "A related result may use different terms such as pairwise weak envy, eligible-edge balance, or bipartite edge assignment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: negative constructions use three-way eligibility; the published positive online result is weak rather than strong EF1.",
+        "evidence": [
+          "Section 5 defines pairwise strong envy and separates it from weak envy.",
+          "Appendix D uses an all-three-eligible job in the online obstruction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.08064",
+        "material_read": "Full HTML including definitions and Section 5, Appendix D on strong-EF1 existence and online limitations",
+        "method": "Read source text and compared eligibility hyperedge cardinalities and both-sided strong-envy quantifiers",
+        "title": "Online Fair Division under Eligibility Constraints",
+        "trigger": "Same strong/weak eligibility-aware EF1 notion, recent primary source"
+      },
+      {
+        "assessment": "NOT_COVERING: addresses graph orientations but not this pairwise strong-EF1 and exact fair makespan statement.",
+        "evidence": [
+          "Uses ordinary graphical fairness and equitability.",
+          "Does not supply the online rank-two strong EF1 or induced-subgraph optimal peak-load formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2602.18098",
+        "material_read": "Introduction and methodological sections plus Section 5 on chore fairness",
+        "method": "Read PDF text and examined selected PDF pages visually; compared formal ordinary-envy definition to pair-restricted strong fairness",
+        "title": "Fair Orientations: Proportionality and Equitability",
+        "trigger": "Same graph orientation of restricted goods and chores"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: implies orientation feasibility after reduction, not the rank-two strong-fairness reduction itself.",
+        "evidence": [
+          "Upper vertex-degree orientation existence has an induced-edge-capacity characterization.",
+          "Classical graph lemma is explicitly attributed in RESULT.md."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0016-0032(65)90340-6",
+        "material_read": "Bibliographic statement and modern degree-bounded orientation theorem summary, not the original full paper",
+        "method": "Compared the classical capacity-Hall condition with the fairness reduction",
+        "title": "On the degrees of the vertices of a directed graph",
+        "trigger": "Classical exact degree-bounded orientation lemma potentially implies the load formula"
+      },
+      {
+        "assessment": "NOT_COVERING to the extent inspected: focus is ordinary chore EFX/EF1 rather than eligibility-aware strong EF1.",
+        "evidence": [
+          "Ordinary fairness includes the entire assigned chores value, unlike both-sided pair-restriction."
+        ],
+        "identifier_or_url": "https://doi.org/10.3233/FAIA251225",
+        "material_read": "Accessible article summary and relevant textual introduction/definitions",
+        "method": "Compared ordinary graphical EF1 definition and objective rather than treating title match as novelty evidence",
+        "title": "Polynomial-Time Algorithms for Fair Orientations of Chores",
+        "trigger": "Graph chores, EF1, complexity and orientation comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "58478aa2-2800-430c-8543-e00440cb440e",
+  "value": {
+    "rationale": "The source distinguishes weak from strong envy and proves severe online impossibility in general, making minimal eligibility rank a motivated boundary. A fully general positive strong-EF1 guarantee for every prefix at rank two, a complete explicit unit-allocation classification, an exact peak-load invariant with polynomial-time construction, and an unbounded fairness cost answer substantive existence, characterization, efficiency and computation questions. No general graph orientation theorem is falsely claimed new.",
+    "status": "PASS"
+  }
+}
