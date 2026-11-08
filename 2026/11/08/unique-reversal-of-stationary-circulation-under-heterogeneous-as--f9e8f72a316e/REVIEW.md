@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+
+The complete theorem is derived from the specified payoff-to-aspiration transition rule without asymptotic approximations. For the four-state ring, the direct edge-product ratio is \(R=F/G\), with \(F-G=t(P+Qt)\) verified by polynomial expansion. The integral-average monotonicity argument proves, for all \(a>b>0\), \(\beta>0\), \(B>0\) other than one, the strict opposite signs of \(P,Q\). Positivity of all transition probabilities establishes irreducibility and ensures the cycle criterion and stationary-current sign equivalence. At \(B=1\) or \(a=b\), the cycle criterion gives detailed balance. An exact-arithmetic checker directly reconstructs the transition matrices, stationary vectors, edge currents and two special multiplier identities. Mathematical limits: only \(N=2\), the stated symmetric target/sensitivity and mutation-free update; the general proof is analytic, not extrapolated from a finite grid.
+
+## Originality — PASS, subject to residual literature risk
+
+Foster–Knight–Krapohl (arXiv:2606.31740, sections 2 and 4, and the conclusion) specifies the original heterogeneous public-goods payoff and aspiration rule but examines the long-run **mean cooperation**, not cycle-wise reversibility. The classic homogeneous count-process works of Du et al. (2014, 2015) describe birth–death detailed balance; a count chain cannot represent the oriented heterogeneous action square. Zhou et al. (arXiv:1809.01967; Nature Communications 2021) study strategy selection and heterogeneous population/update structure, not the exact aspiration-dependent microscopic flux or its unique zero. Foster et al. (arXiv:2605.23513) derive product-measure stationarity for **introspection**, which uses counterfactual payoffs rather than the aspiration flip. Relevant published-finding corpus semantic searches and 133 accessible own prior claims found no implication-equivalent result. Standard Kolmogorov criteria and rational stationary equations are acknowledged prior tools. Residual risk: incomplete indexing, and an inaccessible step-level public-goods aspiration article; full independent novelty assessment is unperformed.
+
+## Mathematical value — PASS
+
+A stationary cooperation fraction does not reveal whether the stochastic dynamics obey detailed balance. The smallest heterogeneous population has four microstates and supports a nonzero circulating current; the theorem supplies its complete qualitative phase boundary for all positive contributions and sensitivity, an explicit entropy-production characterization, and exact zero/current-reversal witnesses. The threshold occurs at positive aspirations in the genuine social-dilemma range \(1<r<2\), so the phenomenon is not an arbitrary high-return specialization. The explicit \(r=4\) identity adds a sensitivity-independent structural law rather than a numerical curve fit. This is a motivated dynamical classification, not a claimed universal large-population theorem.
+
+Self-review: passed. Independent audit: not yet performed.
