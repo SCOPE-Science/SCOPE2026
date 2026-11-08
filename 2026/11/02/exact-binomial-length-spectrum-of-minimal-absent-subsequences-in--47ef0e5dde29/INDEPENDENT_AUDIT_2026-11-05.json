@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:12:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m≥1 and the scattered subsequence order, the leftmost embedding of a word u into (01)^m uses exactly c(u)=|u|−(# adjacent 01 transitions) blocks. Internal deletion changes this block cost by zero precisely for neighborhoods 010 or 101; endpoint deletion leaves cost unchanged precisely at initial/terminal 01. Thus minimal absence equals c=m+1 with those local configurations excluded. Four-state transfer on 00,01,10,11 and matrix (I−T)^−1 yields the stated rational F(x,z), and its positive-binomial expansion gives H_m(m+1+j)=binom(m+2−j,2j+1) on 0≤j≤floor((m+1)/3). I independently generated every candidate binary word for m=1..7 and checked absence and all one-deletions: histograms m1 {2:3}, m2 {3:4,4:1}, m3 {4:5,5:4}, m4 {5:6,6:10}, m5 {6:7,7:20}, m6 {7:8,8:35,9:6}, m7 {8:9,9:56,10:21}. The formal transfer and coefficient algebra, not these finite cases, cover all positive m. Replacing z=1 gives the stated total recurrence and dominant λ.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manea et al give optimal algorithms for arbitrary input words, potentially producing the spectrum by running their enumeration. Troníček abstract announces an algorithm for number of minimal absent subsequences."
+        ],
+        "reasoning": "General algorithmic computability does not logically supply a closed formula and uniform generating function. The abstract-only Troníček comparison cannot eliminate possible specialized coverage; it remains a material risk rather than a fabricated negative full-text finding.",
+        "searches": [
+          "arxiv:2504.21471 minimal absent subsequences enumeration",
+          "Tronicek On Problems Related to Absent Subsequences 2023 DOI:10.1007/978-3-031-49614-1_26"
+        ]
+      },
+      "checked_sources": [
+        "Manea et al, arxiv:2504.21471 primary article",
+        "Kosche et al, arxiv:2108.13968 primary article",
+        "Adamson et al, arxiv:2407.18599 title/abstract distinction all absent vs minimal",
+        "Troníček 2023 DOI:10.1007/978-3-031-49614-1_26 (abstract only; Oxford VPN disconnected)",
+        "Resultary semantic query: minimal absent scattered subsequences alternating binary words (01)^m binomial length distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Manea–Ringleb–Siemer–Winkler discuss minimal/shortest enumeration, Kosche–Koß–Manea–Siemer give canonical absent conditions, Adamson et al count all absent subsequences at fixed length, and Troníček abstract states minimal-count algorithm."
+        ],
+        "reasoning": "The fixed-family exact histogram and bivariate rational formula are not stated in materially read primary sources and are not immediate numerical corollaries of general algorithms or all-absent statistics. Troníček could still dominate via unseen calculations; disclose as unresolved priority risk without failing solely for access.",
+        "searches": [
+          "arxiv:2504.21471",
+          "arxiv:2108.13968",
+          "arxiv:2407.18599",
+          "DOI:10.1007/978-3-031-49614-1_26"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General subsequence universality and absent-subsequence arch decompositions are natural aliases for greedy embedding cost. Kosche et al describe general absent-subsequence structural criteria."
+        ],
+        "reasoning": "The exact alternating profile counts distinct minimal absent scattered subsequence words, not embeddings or all absent words. Existing general structural criteria alone do not numerically give the length-refined binomial law without the specialized transfer/coefficient argument.",
+        "searches": [
+          "minimal absent scattered subsequences alternating binary words (01)^m binomial length distribution",
+          "arxiv:2108.13968 absent subsequences words canonical embedding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary found a Fibonacci extremal count of shortest absent subsequences and a separate binary subsequence-universality generating function, neither the distribution of *minimal* absent scattered subsequences for every (01)^m."
+        ],
+        "reasoning": "No exact binomial array/generating-function match was identified; the missing inaccessible 2023 full text prevents a definitive historical statement.",
+        "searches": [
+          "minimal absent scattered subsequences alternating binary words (01)^m binomial length distribution",
+          "Resultary: Fibonacci extremals for shortest absent subsequences of binary words"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with substantive source-access uncertainty: earlier general absent-subsequence papers give automata and enumeration methods but not, in read material, a closed binomial length profile for the complete alternating family. Troníček 2023 explicitly gives an algorithm for counting minimal absent subsequences; a matching specialization could be hidden in its inaccessible full text, but no displayed abstract theorem establishes coverage. Thus priority is qualified and explicitly not certified.",
+      "residual_risks": [
+        "Troníček 2023 is highly relevant but its full text was not obtained; it may contain the same special-case closed formula.",
+        "Counts concern scattered minimal absence of even alternating words only, not general periodic families or distinct embeddings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No explicit alternating (01)^m binomial length spectrum located in inspected material.",
+          "evidence": [
+            "The core results concern algorithms and worst-case output size, whereas the submitted formula is a fixed-family closed coefficient extraction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.21471",
+          "material_read": "Primary arXiv HTML introduction, definitions, main enumeration complexity statements and relevant conclusion.",
+          "method": "Original article HTML full-text examination of relevant sections",
+          "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+          "trigger": "General minimal-absent enumeration algorithms for arbitrary words."
+        },
+        {
+          "assessment": "Provides general characterizations but not an explicit coefficient table matching the displayed family in read material.",
+          "evidence": [
+            "General criteria do not by themselves evaluate this special transfer matrix."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.13968",
+          "material_read": "Primary arXiv HTML definitions, embedding/arch decomposition and main structural results.",
+          "method": "Read original arXiv HTML sections",
+          "title": "Absent Subsequences in Words",
+          "trigger": "General minimal and shortest absent subsequence criteria and embeddings."
+        },
+        {
+          "assessment": "Cannot determine whether this paper contains or implies the alternating special-case spectrum; not recorded as NOT_COVERING.",
+          "evidence": [
+            "Abstract explicitly says counting minimal absent subsequences, creating a genuine possibility of overlap."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-49614-1_26",
+          "material_read": "2023 publication abstract and bibliographic metadata only; no primary PDF theorem/proof pages available. arXiv/OA attempts did not yield the full text.",
+          "method": "Publisher/RG abstract; Oxford authorized access request returned vpn_disconnected, job 0d0b5fcc98cd8ba63f6b780c08095117; no bypass",
+          "title": "On Problems Related to Absent Subsequences",
+          "trigger": "Plausibly contains exact counts for same minimal-absent statistic."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The infinite canonical alternating family makes the exact length distribution, extreme absent lengths and exponential enumeration output size natural intrinsic invariants of a fundamental string family. Its binomial spectrum and shortest-layer versus total-growth contrast can inform precise enumeration complexity; it is more than a generic implementation of an existing algorithm.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Manea et al, arxiv:2504.21471 primary article",
+    "Kosche et al, arxiv:2108.13968 primary article",
+    "Adamson et al, arxiv:2407.18599 title/abstract distinction all absent vs minimal",
+    "Troníček 2023 DOI:10.1007/978-3-031-49614-1_26 (abstract only; Oxford VPN disconnected)",
+    "Resultary semantic query: minimal absent scattered subsequences alternating binary words (01)^m binomial length distribution"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The scientific conclusion applies only to the precise RESULT.md claim and hypotheses, with the priority and boundary risks specified in the axes.",
+    "Finite calculations corroborate the mathematical proofs, not a general unbounded experimental assertion.",
+    "Public-file provenance was not sanitized; no publication approved."
+  ],
+  "residual_risks": [
+    "Troníček 2023 is highly relevant but its full text was not obtained; it may contain the same special-case closed formula.",
+    "Counts concern scattered minimal absence of even alternating words only, not general periodic families or distinct embeddings."
+  ],
+  "schema_version": 1
+}
