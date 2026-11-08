@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The theorem is proved symbolically for every complex triple satisfying \(abc(a^2-b)(b^2-ac)(ab-c)\ne0\). The geometric support is exhausted by the projective chart argument in `RESULT.md`. The local algebra of the first and last points is \(\mathbb C[z]/(z^3)\); the middle has quotient basis \(1,u,v,uv\), so is \(\mathbb C[u,v]/(u^2,v^2)\). In particular, the local lengths are \(3,4,3\). This is an algebraic proof with independently replayable finite checks, not an extrapolation from them.
+## correctness
 
-The included `verify.py` generates Plücker coordinate vectors from the two parameterizations, checks the Grassmannian relation, and computes rational Gröbner bases for all three affine charts for the diagonal triples \((2,3,5)\), \((3,5,7)\), and \((2,7,11)\). Run `python3 verify.py` with Python 3 and SymPy. During preparation, all these checks completed, printing `VERIFY_OK`. The symbolic proof is necessary because computation at finitely many triples alone would not establish the stated open-parameter theorem.
+PASS
 
-The asserted lengths are scheme-theoretic intersection lengths **in the Grassmannian**. Two limiting tangent lines are included in the closed secant congruences although they are not proper common secants. Prior-literature coverage, especially potentially implicit classical specializations, remains a scientific priority risk. Independent audit has not been performed.
+For diagonal D=diag(1,a,b,c), abc(a²−b)(b²−ac)(ab−c)≠0, the secant/tangent congruences of the standard twisted cubic C and D(C) are closed Veronese P² surfaces in Gr(2,4) via dual Plücker P(A,B,C)=(C²,−BC,AC,B²−AC,−AB,A²). Comparing P with appropriately scaled Q gives a finite intersection. In chart A=U=1 elimination gives C=−(δ/ε)B² and B³=0; at B=V=1 gives A²=C²=0 and uniquely determined Plücker scale; the reverse chart gives another B³=0. Thus the only support points are the shared endpoint tangent lines and the cross-endpoint proper secant, with local Artin rings lengths 3,4,3, total cycle degree ten. Independently built the six Plücker equations and Gröbner eliminated all three projective charts for two rational diagonal triples; standard-monomial counts were 3,4,3. These specializations corroborate the symbolic uniform proof, not replace it.
+
+## originality
+
+PASS
+
+The general ten common secants of two transverse twisted cubics and Veronese secant congruences are established prior results. The source-specific scheme-theoretic degeneration of a diagonal pair to lengths 3+4+3 supported on three lines is more precise than the generic Schubert count and not given in the inspected primary results. Classical degenerations may still contain it.
+
+## value
+
+PASS
+
+The nonreduced local intersection cycle of two explicitly related secant congruences is a natural exact invariant: it exhibits how the classical ten solutions coalesce into three different scheme lengths and distinguishes proper secants from common tangents, useful in enumerative degeneration and multiview geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

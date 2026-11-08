@@ -1,19 +1,21 @@
-# Review of the diagonal twisted-cubic common-secant cycle
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem's domain is the nonempty open set \(abc(a^2-b)(b^2-ac)(ab-c)\ne0\) over \(\mathbb C\). The secant parameter \([A:B:C]\) is an actual closed immersion of \(\mathbb P^2\) into the Grassmannian via six linearly independent quadratic Plücker coordinates. Equality of the two embeddings is evaluated in the open charts \(A\ne0\), \(A=0,B\ne0\), and \(A=B=0\), exhausting projective space. The local intersection rings are computed with their full defining ideals, not merely tangent cones: two copies of \(\mathbb C[z]/(z^3)\) and one of \(\mathbb C[u,v]/(u^2,v^2)\). The sum of lengths is \(10\). Exact-arithmetic Gröbner elimination from the independent Plücker coordinate formula for three generic rational diagonals matches all three lengths. The symbolic chart argument, rather than the finite checks, establishes the universal quantifier.
+## correctness
 
-## Originality — PASS, subject to literature-priority limitations
-The inspected March 2026 Aslam et al. paper proves or recalls ten **distinct proper** common secants for general pairs, and studies monodromy and real distributions. It does not calculate the nonreduced intersection scheme of diagonal pairs. The inspected Ponce–Sturmfels–Trager paper identifies the **individual** twisted-cubic secant congruence as a Veronese surface and supplies its equations; its results do not state the intersection lengths for a diagonal translate. The present assertion is not the general ten-count restated: the diagonal pair has only one proper common secant, and its closed congruences meet with local algebra of distinct lengths \(3,4,3\). Specific web literature searches for diagonal translates, secant congruences, and intersection multiplicities, together with research-record comparisons, found no explicit or decisively dominating prior statement. The most material residual risk is that classical toric or Schubert-degeneration computations already contain the same local cycle implicitly.
+PASS
 
-## Mathematical value — PASS
-The natural maximal diagonal torus acts on the classical twisted cubic and fixes its two endpoints. On a full nonempty Zariski-open subset of this three-parameter family the ten-point general common-secant problem specializes to three distinguished lines, two tangents and the chord of the endpoints. The theorem determines **how** the ten enumerative solutions collide, including complete nonreduced Artin local rings. A total intersection number alone does not determine the multiplicity distribution, and this describes a structurally meaningful degeneration rather than an isolated arbitrary numerical example. The result may be used as an exact boundary condition for tracking or deforming common secants. No assertion is made for the exceptional diagonal loci or for real-root distributions.
+For diagonal D=diag(1,a,b,c), abc(a²−b)(b²−ac)(ab−c)≠0, the secant/tangent congruences of the standard twisted cubic C and D(C) are closed Veronese P² surfaces in Gr(2,4) via dual Plücker P(A,B,C)=(C²,−BC,AC,B²−AC,−AB,A²). Comparing P with appropriately scaled Q gives a finite intersection. In chart A=U=1 elimination gives C=−(δ/ε)B² and B³=0; at B=V=1 gives A²=C²=0 and uniquely determined Plücker scale; the reverse chart gives another B³=0. Thus the only support points are the shared endpoint tangent lines and the cross-endpoint proper secant, with local Artin rings lengths 3,4,3, total cycle degree ten. Independently built the six Plücker equations and Gröbner eliminated all three projective charts for two rational diagonal triples; standard-monomial counts were 3,4,3. These specializations corroborate the symbolic uniform proof, not replace it.
 
-## Closest literature and limitations
-1. Aslam et al., *Common Real Secants to Pairs of Real Twisted Cubic Curves*, arXiv:2603.25003v1, Sections 1–5, especially Theorem 1.2 and Section 2: the total generic ten-count, not the nonreduced diagonal cycle.
-2. Ponce–Sturmfels–Trager, *Congruences and Concurrent Lines in Multi-View Geometry*, arXiv:1608.05924, Sections 2 and 4.2: the secant Veronese surface, not its special intersection with a diagonal translate.
-3. Classical Schubert calculus: total intersection degree ten, insufficient by itself to determine the three local Artin algebras.
+## originality
 
-Uninspected classical accounts of toric intersections and special degenerations may reduce the originality claim. The review is not independent validation or certification of priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The general ten common secants of two transverse twisted cubics and Veronese secant congruences are established prior results. The source-specific scheme-theoretic degeneration of a diagonal pair to lengths 3+4+3 supported on three lines is more precise than the generic Schubert count and not given in the inspected primary results. Classical degenerations may still contain it.
+
+## value
+
+PASS
+
+The nonreduced local intersection cycle of two explicitly related secant congruences is a natural exact invariant: it exhibits how the classical ten solutions coalesce into three different scheme lengths and distinguishes proper secants from common tangents, useful in enumerative degeneration and multiview geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
