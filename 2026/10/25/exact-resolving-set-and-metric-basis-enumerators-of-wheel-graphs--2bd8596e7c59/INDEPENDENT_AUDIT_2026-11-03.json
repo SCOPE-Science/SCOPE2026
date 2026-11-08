@@ -1,0 +1,180 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T08:07:59.991792Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md SHA f01a9e67368fae7e19e72a3d30c15a1222b031f6",
+        "Assigned verify_wheel.py SHA cfea93ad0da2751534c7bb71acc8d54ae4eeae38",
+        "Independent direct-distance census m=7..15, 65,408 rim subsets; exact-rational coefficient comparison m=7..400",
+        "Badekara Sooryanarayana, Suma A. S., Chandrakala S. B., Certain Varieties of Resolving Sets of A Graph, J. Indones. Math. Soc. 27 (2021), 103-114, DOI 10.22342/jims.27.1.881.103-114, Theorems 7.1, 7.2, 7.11."
+      ],
+      "rationale": "With T selected rim vertices, an unselected rim u has distance ones at precisely its selected neighboring rim vertices, zeros if itself selected and twos elsewhere; the hub has ones to all rim landmarks. If |T|<=2, at least five unselected rim vertices must share at most four binary signatures and cannot all be resolved; for |T|>=3 every omitted rim vertex differs from the hub because it has at most two selected rim neighbors. Empty-signature duplicates arise from two cyclic zero-runs with at least three zeros; nonempty duplicate signatures for m>=7 arise from neighbors of the same selected rim vertex separated by 00100, which is exactly two long (>=2) gaps adjacent in selected-vertex order. Thus admissible gaps are 0..3 with at most one 3 and cyclically nonadjacent long gaps. For k selected vertices there are k/(k-j)*binom(k-j,j) independent j-position long-gap choices on the cycle C_k; each long gap contributes u^2, with option for exactly one 3 contributing factor (1+j*u), while other gaps contribute (1+u)^(k-j). m/k marks/demarks a selected start, deriving all c_{m,k} as integers and P_m=(1+z)R_m. Gap capacity m<=floor(5k/2)+1 yields beta=ceil(2(m-1)/5)=floor(2(m+1)/5), with attainable patterns; deficits at most 2 at minimum k yield the five residue formulas by direct coefficient extraction. Independent BFS-free shortest-path signature enumeration checked all 65,408 rim subsets m=7..15 (with hub equivalence by proof) and every coefficient; separate exact rational computation checked minimum coefficients and integer base formulas m=7..400. Exact SHA-1 Git object reconstruction matched the eight-file assigned source tree. Neither finite check proves m unbounded: that rests on the combinatorial proof. Scope excludes m<7, nonwheel or unlabeled automorphism-orbit counts.",
+      "residual_risks": [
+        "The proof of the cyclic independent-set count is short but essential; computational checks cannot establish its identity for all k.",
+        "The 2021 gap theorem is not original, and mathematical novelty is confined to evaluation of counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benjamin Bergougnoux, Oscar Defrain, Fionn Mc Inerney, Enumerating minimal solution sets for metric graph problems, arXiv:2309.17419v2 (2024), abstract, introduction and main enumeration theorems. Establishes general Trans-Enum equivalence and algorithms for minimal resolving sets, not these wheel all-size coefficients.",
+          "Published Resultary: Resolving sets and the resolving polynomial of chain graphs (2026-10-04), full RESULT.md, Resultary/2026 30553b031b4a. Applies to bipartite chain graphs (nested neighborhoods), which do not include ordinary wheels with rim cycles.",
+          "Badekara Sooryanarayana, Suma A. S., Chandrakala S. B., Certain Varieties of Resolving Sets of A Graph, J. Indones. Math. Soc. 27 (2021), 103-114, DOI 10.22342/jims.27.1.881.103-114, Theorems 7.1, 7.2, 7.11. Covers the gap test and scalar metric dimension."
+        ],
+        "reasoning": "General minimal-set enumeration problems treat inclusion-minimal solutions, while the proposed polynomial also counts nonminimal resolving supersets at every size. Chain graphs are bipartite, whereas W_m has triangles, so no direct graph-family specialization. The 2021 characterization dominates the admissibility test, but the evaluated labeled subset counts and residue-class base multiplicities require a substantive cyclic independent-set enumeration.",
+        "searches": [
+          "Resultary: wheel graph metric dimension minimal resolving sets count by size cycle gap enumeration",
+          "Resultary published: resolving-set polynomial of connected chain graphs, October 2026",
+          "web: all wheel graphs resolving sets by cardinality polynomial",
+          "arXiv:2309.17419 full PDF wheel-specific term and main results"
+        ]
+      },
+      "checked_sources": [
+        "B. Shanmukha, B. Sooryanarayana, K. S. Harinath, Metric dimension of wheels, Far East J. Appl. Math. 8 (2002), 217-229, Theorem 2.1.",
+        "Badekara Sooryanarayana, Suma A. S., Chandrakala S. B., Certain Varieties of Resolving Sets of A Graph, J. Indones. Math. Soc. 27 (2021), 103-114, DOI 10.22342/jims.27.1.881.103-114, Theorems 7.1, 7.2, 7.11.",
+        "Benjamin Bergougnoux, Oscar Defrain, Fionn Mc Inerney, Enumerating minimal solution sets for metric graph problems, arXiv:2309.17419v2 (2024), abstract, introduction and main enumeration theorems.",
+        "S. A. U. H. Bokhary et al., On the metric basis in wheels with consecutive missing spokes, AIMS Mathematics 5 (2020), 6221-6232, DOI 10.3934/math.2020400.",
+        "Antonio González with D. Garijo and A. Márquez, Counting resolving sets in graphs, Bordeaux Workshop on Identifying Codes slides (2011), first sections on bases-counting.",
+        "Published Resultary: Resolving sets and the resolving polynomial of chain graphs (2026-10-04), full RESULT.md, Resultary/2026 30553b031b4a.",
+        "Resultary searches for wheel polynomial/count equivalents returned other graph families, not a matching wheel exact coefficient formula."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Badekara Sooryanarayana, Suma A. S., Chandrakala S. B., Certain Varieties of Resolving Sets of A Graph, J. Indones. Math. Soc. 27 (2021), 103-114, DOI 10.22342/jims.27.1.881.103-114, Theorems 7.1, 7.2, 7.11. Theorem 7.11 permits precisely the relevant local zero-run configurations after translation.",
+          "B. Shanmukha, B. Sooryanarayana, K. S. Harinath, Metric dimension of wheels, Far East J. Appl. Math. 8 (2002), 217-229, Theorem 2.1. supplies beta(W_m) but does not assert B_m or P_m.",
+          "Benjamin Bergougnoux, Oscar Defrain, Fionn Mc Inerney, Enumerating minimal solution sets for metric graph problems, arXiv:2309.17419v2 (2024), abstract, introduction and main enumeration theorems. addresses enumeration complexity for minimal sets; no wheel-specific exact formula."
+        ],
+        "reasoning": "The 2021 criterion implies the admissible configurations, but it does not state or directly numerically specialize to the closed generating sum: deriving it requires counting independent j-subsets of the cyclic gap positions, marking an optional unique length-three gap, tracking the remaining free 0/1 gaps, and applying the m/k distinguished-root quotient. The five residue-dependent polynomial formulas are further nontrivial deficit coefficient evaluations. If an unknown earlier paper already evaluated this combinatorial count, novelty would fail; none of the inspected primary texts establishes that implication as an explicit prior formula.",
+        "searches": [
+          "2021 JIMS PDF section 7 pp.108-114 and Theorem 7.11",
+          "2002 Far East J. Appl. Math. full author-uploaded text Theorem 2.1",
+          "2024 Bergougnoux et al. full arXiv PDF main results",
+          "2020 AIMS publisher full publication and abstract plus author-uploaded availability attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Badekara Sooryanarayana, Suma A. S., Chandrakala S. B., Certain Varieties of Resolving Sets of A Graph, J. Indones. Math. Soc. 27 (2021), 103-114, DOI 10.22342/jims.27.1.881.103-114, Theorems 7.1, 7.2, 7.11. Its Theorem 7.11 gives the rim-gap feasibility conditions, not exact counts.",
+          "B. Shanmukha, B. Sooryanarayana, K. S. Harinath, Metric dimension of wheels, Far East J. Appl. Math. 8 (2002), 217-229, Theorem 2.1. Theorem 2.1 fixes beta(W_m), not the number of bases."
+        ],
+        "reasoning": "The gap-signature constraints and the 2021 iff condition describe essentially the same resolving subsets, so their prior structural characterization is explicitly credited. The audited conclusion instead evaluates for every k the labeled weight enumerator, with the hub factor (1+z), and derives the five closed formulas for the number of minimum bases. Those enumerators are not stated in the full wheel results actually read; a decidable feasibility test can be enumerated but does not itself furnish the evaluated closed coefficients.",
+        "searches": [
+          "Resultary: metric basis counts wheel graph resolving set polynomial total subsets every cardinality exact combinatorial formula independent gaps",
+          "web: \"wheel graph\" \"resolving polynomial\" formula number bases",
+          "web: \"wheel graph\" \"minimal resolving sets\" enumeration count",
+          "2002 Metric dimension of wheels full author-uploaded text; 2021 Certain Varieties of Resolving Sets of A Graph full PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "B. Shanmukha, B. Sooryanarayana, K. S. Harinath, Metric dimension of wheels, Far East J. Appl. Math. 8 (2002), 217-229, Theorem 2.1. Gives beta only.",
+          "Badekara Sooryanarayana, Suma A. S., Chandrakala S. B., Certain Varieties of Resolving Sets of A Graph, J. Indones. Math. Soc. 27 (2021), 103-114, DOI 10.22342/jims.27.1.881.103-114, Theorems 7.1, 7.2, 7.11. Theorem 7.2 gives beta only, and Theorem 7.11 an iff gap test.",
+          "Antonio González with D. Garijo and A. Márquez, Counting resolving sets in graphs, Bordeaux Workshop on Identifying Codes slides (2011), first sections on bases-counting. Presents general counting of graph metric bases, not an exact ordinary-wheel enumerator in the inspected content."
+        ],
+        "reasoning": "The searched exact tables and relevant published graph-family results do not exhibit the coefficient formula c_{m,k} nor the five B_m classes. This is limited priority evidence, not a proof of novelty from failed searches.",
+        "searches": [
+          "web: \"resolving polynomial\" \"wheel graph\"",
+          "web: \"number of metric bases\" \"wheel\" exact",
+          "web: \"resolving set polynomial\" wheel",
+          "Resultary semantic search: number of metric bases of wheel graphs by residue mod 5",
+          "Wolfram MathWorld: Minimal Resolving Set, Wheel Graph"
+        ]
+      },
+      "rationale": "A best-of-knowledge PASS only for the closed labeled all-cardinality wheel resolving-set polynomial and five explicit metric-basis multiplicity formulas. Ordinary-wheel metric dimension was known in 2002, and an essentially equivalent rim-gap admissibility characterization is in 2021; neither is counted as new. The inspected older primary texts do not supply the coefficient evaluation or five multiplicities, while the broad minimal-solution enumeration work provides algorithms/complexity rather than this all-size closed form. Related published resolving-polynomial results concern chain graphs, not wheels. No worldwide priority guarantee: nonindexed literature and especially an unknown older enumeration under a different term remain genuine risks.",
+      "residual_risks": [
+        "2021 JIMS Theorem 7.11 entirely covers the feasibility predicate; some may regard the enumerator as a natural (but nontrivial) elaboration of this prior result.",
+        "An earlier exact enumeration or five-class metric-basis count might be present under another name or in nonindexed metric-dimension literature.",
+        "The full 2020 missing-spoke-wheel article could not be read; its abstract describes a different graph object and scalar/exchange results.",
+        "The 2011 counting-resolving-sets workshop presentation was only partially inspected; it discusses general basis counts and no wheel instance found in accessible text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior scalar metric dimension beta(W_m) and essentially equivalent gap feasibility test are covered by Theorems 7.2 and 7.11; exact all-cardinality labeled resolving polynomial and metric-basis multiplicity formulas are not stated.",
+          "evidence": [
+            "Badekara Sooryanarayana, Suma A. S., Chandrakala S. B., Certain Varieties of Resolving Sets of A Graph, J. Indones. Math. Soc. 27 (2021), 103-114, DOI 10.22342/jims.27.1.881.103-114, Theorems 7.1, 7.2, 7.11.",
+            "Theorem 7.2 (PDF p.108) gives beta; Theorem 7.11 (PDF p.110) supplies iff conditions on gaps; later theorems cover varieties of resolving sets, not their complete cardinality counts."
+          ],
+          "identifier_or_url": "https://scispace.com/pdf/certain-varieties-of-resolving-sets-of-a-graph-2hgmutuqif.pdf",
+          "material_read": "Complete accessible 12-page PDF parsed text, with section 7 Theorems 7.1-7.20 checked and page images visually inspected for pp.109-110 (PDF pages 7-8).",
+          "method": "Read and compared the full primary wheel section including original theorem statements; inspected PDF page images for mathematical symbols.",
+          "title": "Certain Varieties of Resolving Sets of A Graph",
+          "trigger": "Exact ordinary-wheel resolving-set feasibility and gap characterization from the same objects and parameters"
+        },
+        {
+          "assessment": "Derives metric dimension by rim size and constructs bases, without deriving total numbers of metric bases or all resolving sets.",
+          "evidence": [
+            "B. Shanmukha, B. Sooryanarayana, K. S. Harinath, Metric dimension of wheels, Far East J. Appl. Math. 8 (2002), 217-229, Theorem 2.1.",
+            "Theorem 2.1 (printed p.219 onward) separates rim sizes modulo five; proof uses example bases and induction, no counting generating polynomial."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/267657439_Metric_dimension_of_wheels",
+          "material_read": "Entire author-uploaded article transcription, pp.217-229, especially Theorem 2.1 and proof, subsequent wheel-combination theorems and conclusion.",
+          "method": "Read full accessible primary article transcription and searched for number-of-bases/count expressions.",
+          "title": "Metric dimension of wheels",
+          "trigger": "Original wheel metric-dimension paper possibly providing exact base counts"
+        },
+        {
+          "assessment": "General algorithmic results on inclusion-minimal resolving sets and complexity, no wheel coefficient formula; no occurrence of wheel in paper text.",
+          "evidence": [
+            "Benjamin Bergougnoux, Oscar Defrain, Fionn Mc Inerney, Enumerating minimal solution sets for metric graph problems, arXiv:2309.17419v2 (2024), abstract, introduction and main enumeration theorems.",
+            "The abstract explicitly states equivalence with minimal hypergraph transversal enumeration rather than all-cardinality wheel enumerators."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.17419",
+          "material_read": "Full 26-page arXiv text available; read introduction, definitions, statements of main enumeration results, and searched entire PDF for wheel.",
+          "method": "Primary arXiv PDF text and visual first-page screenshot, with whole-PDF term search.",
+          "title": "Enumerating minimal solution sets for metric graph problems",
+          "trigger": "Potential general theorem dominating exact counts of resolving sets"
+        },
+        {
+          "assessment": "Addresses altered wheel family W(n,k) with k consecutive missing spokes and metric dimension/exchange property, not in its inspected abstract an ordinary-wheel all-cardinality resolving polynomial; full-text coverage remains a residual risk.",
+          "evidence": [
+            "S. A. U. H. Bokhary et al., On the metric basis in wheels with consecutive missing spokes, AIMS Mathematics 5 (2020), 6221-6232, DOI 10.3934/math.2020400.",
+            "Publisher abstract specifies deleting consecutive spokes and computing minimum dimension/exchange behavior, not full subset count."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/article/10.3934/math.2020400",
+          "material_read": "Official publisher publication details, abstract, graph-family definition, figures/titles and reference list; full math text was not available through the exposed HTML and an author-uploaded page was rate-limited.",
+          "method": "OA publisher HTML and limited alternate author-uploaded page; no whole-document noncoverage claim.",
+          "title": "On the metric basis in wheels with consecutive missing spokes",
+          "trigger": "Published wheel-related metric-basis source and plausible parameter specialization"
+        },
+        {
+          "assessment": "Exact all-size polynomial is for chain graphs, not odd-cycle-containing wheel graphs; neither formula covers the other by direct graph specialization.",
+          "evidence": [
+            "Published Resultary: Resolving sets and the resolving polynomial of chain graphs (2026-10-04), full RESULT.md, Resultary/2026 30553b031b4a.",
+            "RESULT.md defines connected chain graph with bipartition A union B and nested twin classes, excluding wheel W_m with triangles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-resolving-sets-and-the-resolving-polynomial-of-chain-graphs--30553b031b4a",
+          "material_read": "Fetched full RESULT.md from public published record; read finding, assumptions, four-state recurrence, distance analysis and proof excerpt.",
+          "method": "Read primary published record and verified the bipartite nested-neighborhood domain.",
+          "title": "Resolving sets and the resolving polynomial of chain graphs",
+          "trigger": "Closest published collection hit with a full resolving-set enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Badekara Sooryanarayana, Suma A. S., Chandrakala S. B., Certain Varieties of Resolving Sets of A Graph, J. Indones. Math. Soc. 27 (2021), 103-114, DOI 10.22342/jims.27.1.881.103-114, Theorems 7.1, 7.2, 7.11.",
+        "B. Shanmukha, B. Sooryanarayana, K. S. Harinath, Metric dimension of wheels, Far East J. Appl. Math. 8 (2002), 217-229, Theorem 2.1.",
+        "Benjamin Bergougnoux, Oscar Defrain, Fionn Mc Inerney, Enumerating minimal solution sets for metric graph problems, arXiv:2309.17419v2 (2024), abstract, introduction and main enumeration theorems.",
+        "Published Resultary: Resolving sets and the resolving polynomial of chain graphs (2026-10-04), full RESULT.md, Resultary/2026 30553b031b4a.",
+        "Independent all-size coefficients vs direct graph resolving condition m=7..15"
+      ],
+      "rationale": "A complete natural invariant of an important elementary graph family, the generating polynomial counts resolving landmark designs at every cardinality, not just the previously known minimum count. The five exact formulas for numbers of distinct minimum sets demonstrate real modulo-five fluctuations (e.g. m=10:35, m=11:11, m=12:96) at comparable sizes, quantify redundancy and available optimal configurations, and permit exact benchmark or random-design probabilities. The long-gap independent-cycle structure is a motivated combinatorial technique, not merely a parameter renaming or a one-instance tabulation. A closed form is a self-contained useful contribution even if previous structural feasibility is known; no downstream general theorem is required.",
+      "residual_risks": [
+        "Specific applicability to landmark design is mathematical motivation rather than an experimentally verified external use.",
+        "The result is limited to ordinary wheel graphs; no claim is made to all wheel-related networks, automorphism classes or inclusion-minimal resolving families."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only one assigned record, independently reviewed; no source Git writes or dispatcher closeout.",
+    "Historical 05:04 gap is unchanged and not backfilled.",
+    "Full primary-text access for one related missing-spoke paper remained limited; exact residual risk recorded.",
+    "Current publication plan is not ready, despite scientific three-axis acceptance."
+  ],
+  "schema_version": 1
+}

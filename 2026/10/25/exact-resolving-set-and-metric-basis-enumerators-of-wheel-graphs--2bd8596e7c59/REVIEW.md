@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The distance-signature reduction is verified directly: a rim landmark has distance one exactly to adjacent unselected rim vertices, while the hub cannot distinguish two rim vertices. Three or more rim landmarks always distinguish the hub. Equal empty signatures correspond exactly to two centers of unselected triples; equal nonempty signatures correspond exactly to cyclic `00100`. These imply the explicit independent long-gap condition, and the root-selection double count \(m/k\) with the cycle independent-set formula yields the coefficient expression. The minimum size and the five metric-basis counting formulas follow by the maximal gap capacity and extracting deficits of at most two. Independent BFS-based exhaustive computations and exact-integer recurrence checks are recorded in the verifier outputs.
+PASS
 
-## Originality — PASS with residual bibliographic risk
+With T selected rim vertices, an unselected rim u has distance ones at precisely its selected neighboring rim vertices, zeros if itself selected and twos elsewhere; the hub has ones to all rim landmarks. If |T|<=2, at least five unselected rim vertices must share at most four binary signatures and cannot all be resolved; for |T|>=3 every omitted rim vertex differs from the hub because it has at most two selected rim neighbors. Empty-signature duplicates arise from two cyclic zero-runs with at least three zeros; nonempty duplicate signatures for m>=7 arise from neighbors of the same selected rim vertex separated by 00100, which is exactly two long (>=2) gaps adjacent in selected-vertex order. Thus admissible gaps are 0..3 with at most one 3 and cyclically nonadjacent long gaps. For k selected vertices there are k/(k-j)*binom(k-j,j) independent j-position long-gap choices on the cycle C_k; each long gap contributes u^2, with option for exactly one 3 contributing factor (1+j*u), while other gaps contribute (1+u)^(k-j). m/k marks/demarks a selected start, deriving all c_{m,k} as integers and P_m=(1+z)R_m. Gap capacity m<=floor(5k/2)+1 yields beta=ceil(2(m-1)/5)=floor(2(m+1)/5), with attainable patterns; deficits at most 2 at minimum k yield the five residue formulas by direct coefficient extraction. Independent BFS-free shortest-path signature enumeration checked all 65,408 rim subsets m=7..15 (with hub equivalence by proof) and every coefficient; separate exact rational computation checked minimum coefficients and integer base formulas m=7..400. Exact SHA-1 Git object reconstruction matched the eight-file assigned source tree. Neither finite check proves m unbounded: that rests on the combinatorial proof. Scope excludes m<7, nonwheel or unlabeled automorphism-orbit counts.
 
-The closest source, Sooryanarayana–Suma–Chandrakala (2021), already provides the metric dimension and a gap-based if-and-only-if feasibility theorem (Theorem 7.11). Neither is new here. The assessed claim is **only** the explicit all-cardinality resolving-set polynomial and the five exact metric-basis multiplicity formulas; these are not stated or counted in the inspected wheel section of that paper. Bergougnoux–Defrain–Mc Inerney (2023) address general algorithmic enumeration, not the wheel coefficient formulas. The 2020 missing-spoke-wheel paper addresses a different graph family. Searches of indexed literature and accessible research records did not uncover the specific complete formula. An unindexed equivalent enumeration or an unstated easy prior specialization remains possible; this is a priority risk rather than proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The formula determines a natural complete counting invariant, refining the known scalar metric dimension at every cardinality, with an explicit integer sum suitable for exact evaluation. The residue-class result in particular counts every minimum landmark configuration rather than just its size; for instance, consecutive rim sizes have sharply different basis multiplicities. The transfer from local collision constraints to cyclic independent-set enumeration explains that variation and is useful for enumerating landmark designs. This is not merely a restatement of the known minimum or the gap admissibility test.
+A best-of-knowledge PASS only for the closed labeled all-cardinality wheel resolving-set polynomial and five explicit metric-basis multiplicity formulas. Ordinary-wheel metric dimension was known in 2002, and an essentially equivalent rim-gap admissibility characterization is in 2021; neither is counted as new. The inspected older primary texts do not supply the coefficient evaluation or five multiplicities, while the broad minimal-solution enumeration work provides algorithms/complexity rather than this all-size closed form. Related published resolving-polynomial results concern chain graphs, not wheels. No worldwide priority guarantee: nonindexed literature and especially an unknown older enumeration under a different term remain genuine risks.
 
-## Scope and limits
+## value
 
-The conclusions require at least seven rim vertices and use ordinary graph-distance resolving sets. Exact calculations for finite instances corroborate, but do not substitute for, proof for arbitrary order. Indexed-source coverage is incomplete and priority remains open to independent scrutiny.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete natural invariant of an important elementary graph family, the generating polynomial counts resolving landmark designs at every cardinality, not just the previously known minimum count. The five exact formulas for numbers of distinct minimum sets demonstrate real modulo-five fluctuations (e.g. m=10:35, m=11:11, m=12:96) at comparable sizes, quantify redundancy and available optimal configurations, and permit exact benchmark or random-design probabilities. The long-gap independent-cycle structure is a motivated combinatorial technique, not merely a parameter renaming or a one-instance tabulation. A closed form is a self-contained useful contribution even if previous structural feasibility is known; no downstream general theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
