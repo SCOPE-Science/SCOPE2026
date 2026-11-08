@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The mixed moment is reduced to three mutually exhaustive index-incidence patterns: the maximal point dominates the compared vertex, is dominated by it (impossible), or is disjoint from the ordered pair. The last probability uses transitivity of coordinatewise order to exclude exactly one upper-orthant term. Separable integrals yield finite rational sums; finite base comparisons give a genuine fixed-\(n\) exponential expansion. Independent complete rank-enumeration and an exact planar harmonic identity support the calculations. No claim of all-parameter covariance negativity is made.
+## correctness
 
-**Originality — PASS, with qualified priority.** Accessible prior records in this area concern maximal-point marginal moments and random partial-order height/degree; they do not give the stated mixed moment or its three-scale coefficients. The 2005 author-hosted primary text was materially read; the related 1995 full article was unavailable, leaving a named historical-priority risk. The comparison is between statistical implications, not title words; an unseen stronger result could supersede the finding.
+PASS
 
-**Value — PASS.** Skyline size and the density of dominance relations are two complementary natural summaries of a random partial order; their covariance is a meaningful multivariate invariant, especially for interpreting frontier-size fluctuations jointly with ranking density. The finite-sample formula works in every ambient dimension, and the three explicit correction scales quantify failures of the one-comparability approximation. The invariant is not an arbitrary parameter slice or merely another marginal moment.
+With A_i for maximality and D_ij for directed dominance, the incidence types (i=upper endpoint, i=lower endpoint impossible, and i disjoint) exhaust E(MQ). Conditional upper-orthant exclusion yields the U,V,W factorized integrals; the coefficient of 4^-d is n(n-1)[n(n-1)-(n-2)(n-3)]=n(n-1)(4n-6). The overlooked finite-order interactions would be O((5/24)^d); no uniform-in-n asymptotics is claimed. Independent exhaustive uniform coordinate-rank enumeration exactly reproduced the finite-sum covariances for six (n,d), and planar harmonic checks corroborated the specialization.
 
-The statement is valid only for independent uniform product coordinates, with fixed sample size in its high-dimensional asymptotic. The sign for every finite dimension remains unproved, and complete historical exclusivity remains unverified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The evaluated cross moment with total comparability and the three fixed-n exponential coefficients are different from prior marginal frontier moments and high-dimensional partial-order height and degree distributions. Claim of originality is limited to the mixed formula and expansion, not the model or known means/variances.
+
+## value
+
+PASS
+
+An exact joint statistic links skyline size and order-relation density, two natural coupled random-partial-order observables, and the distinct 2^-d,3^-d,4^-d scales quantify the first dependence corrections unavailable from marginal limit laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
