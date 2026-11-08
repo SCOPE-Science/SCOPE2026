@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument applies to every integer \(n\ge2\), every real \(t\ge1\), and every real Hilbertian pullback. The general quadratic form is reduced by averaging inequalities, without assuming symmetry of an arbitrary competitor. The exact dual-functional expression for \(U(\beta)\) and the full clipped-cube vertex description for \(V(\beta)\) hold throughout the admitted domain. Cauchy–Schwarz makes the first objective branch nonincreasing; an explicit strictly positive derivative controls the second. Equality at the branch-crossing coefficient gives the formulas and the unique invariant optimizer. Symbolic differentiation gives the opposite strict parity trends. The supplied exact-rational checker replayed successfully for 72 parameter cases and 8,530 assertions; finite tests are not the infinite proof.
+PASS
 
-## Originality — PASS, with limitations
+Every real ellipsoid sandwich can be averaged over coordinate permutations because the clipped norm is invariant and the quadratic inequalities are linear, reducing the global infimum to Q_beta=||x||_2^2+beta(sum x_i)^2. The dual norm calculation gives U=max{(1+(n−1)beta)/(1+n beta), nt^2/(1+n beta)}, crossing at beta0=(nt^2−1)/(n−1). Full vertex enumeration of the convex clipped cube gives V=v0+beta/t^2 for beta>=beta0, including even-dimension balanced cube vertices; for beta<=beta0 Cauchy–Schwarz makes the product nonincreasing and for beta>=beta0 its derivative strictly positive. Thus beta0 is the unique permutation-invariant optimum and direct algebra gives the parity-dependent rational formulas, t=1 endpoints and asymptotic limits. Independent exact-rational enumeration checked 15 (n,t) cases and both sides of beta0, plus symbolic derivative factorizations. Finite tests supplement the all-n,t argument.
 
-Actual searches for centrally slab-clipped hypercubes, directional-sum maximum norms, permutation-invariant Banach–Mazur ellipsoids, duality, and parity found no result that supplies the stated two-branch unrestricted-distance formula. Zhang–Meng–Wu (arXiv:2207.05499v1) concern coordinate \(\ell_p^3\) spaces; Deza–Hiriart-Urruty–Pournin (arXiv:2011.05607v1) use the coordinate-absolute-sum slab, not the signed sum; Gotoh–Uryasev (2015) use signed-coordinate-unconditional polyhedral norm families. Closely related published halfcube/capped-hypercube calculations determine John or Löwner ellipsoids of different bodies, and a related clipped-crosspolytope distortion formula does not convert into the present result by polarity. All three directly plausible published complete result texts were compared on their hypotheses and conclusions. The familiar low-dimensional endpoints are excluded from novelty claims. Older unindexed ellipsoid sandwich literature remains a historical-priority risk; search nonmatches are not proof of global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A two-sided diagonal cut is a natural one-constraint deformation of the cube, unlike an arbitrary hand-picked polytope. The theorem identifies an explicit optimal invariant ellipsoid and exact Euclidean distortion for *all* dimensions and all slab widths in a natural closed parameter range. The sign of its variation unexpectedly reverses between even and odd dimensions, with sharp distinct limiting laws. It answers a natural Banach-space invariant question rather than merely checking a numerical example. No stronger downstream theorem or independent certification is claimed.
+Qualified original all-dimensional exact Banach–Mazur formula for a central TWO-SIDED signed-sum clipped cube. Full Deza–Hiriart-Urruty–Pournin primary PDF describes polytopal balls interpolating cube/crosspolytope and computes their face structures and volumes, not this signed-diagonal slab nor its optimal ellipsoid sandwich. Other exact small-dimensional, unconditional and one-sided cap families differ either in norm/geometry or the optimization objective. A general ellipsoid-averaging technique is an ingredient but not the evaluated parity-reversal theorem.
 
-## Remaining boundaries
+## value
 
-No result is claimed for \(t<1\), unequal normal weights, complex scalars, or globally unique unrestricted optimizer. The checker is finite. Previous exact results on a different clipped crosspolytope are not subsumed, and no conclusion about them is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The body is the cube under a single canonical diagonal measurement constraint, so its Euclidean distortion is a natural Banach–Mazur invariant rather than an arbitrary norm. A full n,t evaluation and the surprising even/odd reversal identify exact geometric behavior inaccessible from standard cube/crosspolytope endpoints, with a constructive invariant optimal form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

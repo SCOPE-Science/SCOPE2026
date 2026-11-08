@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T08:44:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md steps 1–6 and full vertex classification",
+        "pinned artifacts/verify_slab.py inspected, not relied on as proof"
+      ],
+      "rationale": "Every real ellipsoid sandwich can be averaged over coordinate permutations because the clipped norm is invariant and the quadratic inequalities are linear, reducing the global infimum to Q_beta=||x||_2^2+beta(sum x_i)^2. The dual norm calculation gives U=max{(1+(n−1)beta)/(1+n beta), nt^2/(1+n beta)}, crossing at beta0=(nt^2−1)/(n−1). Full vertex enumeration of the convex clipped cube gives V=v0+beta/t^2 for beta>=beta0, including even-dimension balanced cube vertices; for beta<=beta0 Cauchy–Schwarz makes the product nonincreasing and for beta>=beta0 its derivative strictly positive. Thus beta0 is the unique permutation-invariant optimum and direct algebra gives the parity-dependent rational formulas, t=1 endpoints and asymptotic limits. Independent exact-rational enumeration checked 15 (n,t) cases and both sides of beta0, plus symbolic derivative factorizations. Finite tests supplement the all-n,t argument.",
+      "residual_risks": [
+        "Global uniqueness of nonsymmetric optimum is not claimed; t<1 and complex scalars outside domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deza arXiv:2011.05607 studies face vectors, volumes and boundary volume of cube/crosspolytope interpolants, not a globally optimal ellipsoid ratio.",
+          "Zhang arXiv:2207.05499 is restricted to classical coordinate l_p^3 spaces; present arbitrary-n directional sum norm is not their family.",
+          "Related published Resultary quadratic l1/linfty mixtures employ squared terms and unconditional norms."
+        ],
+        "reasoning": "General ellipsoid methods and John/Löwner calculations for different one-sided capped cubes do not provide both sharp outer and inner bounds of the actual centrally cut cube; no direct dominating theorem found in read sources.",
+        "searches": [
+          "Deza–Hiriart-Urruty–Pournin Polytopal Balls Arising in Optimization arXiv:2011.05607",
+          "Zhang–Meng–Wu Banach–Mazur Distance from l_p^3 to l_infty^3 arXiv:2207.05499",
+          "Gotoh–Uryasev DOI 10.1007/s10107-015-0899-9",
+          "Published Resultary clipped-cube and Hilbert distortion query"
+        ]
+      },
+      "checked_sources": [
+        "Deza–Hiriart-Urruty–Pournin arXiv:2011.05607 full 16-page PDF",
+        "Zhang–Meng–Wu arXiv:2207.05499 abstract/metadata",
+        "Gotoh–Uryasev DOI 10.1007/s10107-015-0899-9 bibliographic hypotheses",
+        "Resultary published search for slab-clipped cubes and signed sum Banach–Mazur"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The polar of Deza rho_{d,k} is intersection (k beta_d)∩gamma_d, i.e. |x|_1<=k, a coordinate-absolute-sum condition.",
+          "Current two-sided signed-sum slab is a non-unconditional body; the optimal beta depends on t and produces opposite parity derivatives."
+        ],
+        "reasoning": "Polarity interchanges intersection and convex hull but cannot turn |sum x_i| into sum |x_i| by a parameter change. Thus existing unconditional norm distance formulas do not imply the current all-dimensional theorem.",
+        "searches": [
+          "Deza arXiv:2011.05607 equation (2), Figure 2, eq.(3)",
+          "Gotoh–Uryasev DOI 10.1007/s10107-015-0899-9",
+          "Zhang arXiv:2207.05499 abstract and norms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact body K=[−1,1]^n∩{|Σx_i|<=t^{-1}}, dual to convex hull of coordinate functionals and ±t1.",
+          "Deza et al. define rho_{d,k}=conv(beta_d ∪ k^{-1} gamma_d), with unconditional sign-permutation symmetry; our body has only permutation plus global sign symmetry."
+        ],
+        "reasoning": "Neither coordinatewise absolute sum nor unrestricted sign symmetry can be exchanged with a single signed coordinate sum without changing K and its extremal vertices.",
+        "searches": [
+          "Published Resultary semantic query (current run): Banach Mazur distance Hilbert ellipsoid centrally clipped cube diagonal slab max infinity norm sum coordinates parity",
+          "central diagonal two-sided cube clipping |sum_i x_i| <= h exact Banach Mazur ellipsoid",
+          "Deza–Hiriart-Urruty–Pournin arXiv:2011.05607 §1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known endpoint n=2,t=1 corresponds to the regular hexagon and is not claimed independently new.",
+          "Published polyhedral norm tables and Resultary search candidates did not list the displayed even/odd rational formula over all n and real t>=1."
+        ],
+        "reasoning": "Low-dimensional endpoint equality does not imply the full parameter surface and strict opposite parity variation; table-search absence is not a novelty certificate.",
+        "searches": [
+          "Published Resultary semantic query (current run): Banach Mazur distance Hilbert ellipsoid centrally clipped cube diagonal slab max infinity norm sum coordinates parity",
+          "Banach Mazur centrally clipped cubes parity table ellipsoid signed sum",
+          "arXiv:2011.05607 figures and tables"
+        ]
+      },
+      "rationale": "Qualified original all-dimensional exact Banach–Mazur formula for a central TWO-SIDED signed-sum clipped cube. Full Deza–Hiriart-Urruty–Pournin primary PDF describes polytopal balls interpolating cube/crosspolytope and computes their face structures and volumes, not this signed-diagonal slab nor its optimal ellipsoid sandwich. Other exact small-dimensional, unconditional and one-sided cap families differ either in norm/geometry or the optimization objective. A general ellipsoid-averaging technique is an ingredient but not the evaluated parity-reversal theorem.",
+      "residual_risks": [
+        "Potential older unindexed optimal-ellipsoid calculation for diagonal central cuts of hypercubes.",
+        "No statement about unique globally nonsymmetric optimal ellipsoid or t<1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_AS_STATED",
+          "evidence": [
+            "The polar body (k beta_d)∩gamma_d constrains sum_i |x_i|, not |sum_i x_i|. The paper computes combinatorics/volume, not Banach–Mazur ellipsoidal distortion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.05607",
+          "material_read": "Full 16-page PDF, §1–2 definition rho_{d,k}=conv(beta_d ∪ k^{-1}gamma_d), polar eq.(3), geometry and stated f-vector/volume targets; page 3 visual inspected",
+          "method": "Original PDF text and screenshot",
+          "title": "Polytopal Balls Arising in Optimization",
+          "trigger": "Closest apparent cube-intersection source"
+        },
+        {
+          "assessment": "DIFFERENT_FAMILY",
+          "evidence": [
+            "Parameter is p for a 3-dimensional coordinate norm, not arbitrary n and a single signed-sum slab."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.05499",
+          "material_read": "Title, abstract and stated classical norm family; no claim of full PDF reading in this execution",
+          "method": "ArXiv bibliographic/abstract comparison",
+          "title": "Banach–Mazur Distance from l_p^3 to l_infty^3",
+          "trigger": "Similar exact Hilbert distortion problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "pinned RESULT.md vertex class and finite-dimensional optimization",
+        "Deza arXiv:2011.05607 motivation for polytopal norms"
+      ],
+      "rationale": "The body is the cube under a single canonical diagonal measurement constraint, so its Euclidean distortion is a natural Banach–Mazur invariant rather than an arbitrary norm. A full n,t evaluation and the surprising even/odd reversal identify exact geometric behavior inaccessible from standard cube/crosspolytope endpoints, with a constructive invariant optimal form.",
+      "residual_risks": [
+        "The theorem addresses only a diagonal signed-sum slab and n>=2,t>=1."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real finite dimensions n>=2 and t>=1; no assertion for oblique slices, t<1 or all nonsymmetric optimizer uniqueness.",
+    "Primary comparison to unconditional clipped norms is a different object; priority remains best-of-knowledge."
+  ],
+  "schema_version": 1
+}
