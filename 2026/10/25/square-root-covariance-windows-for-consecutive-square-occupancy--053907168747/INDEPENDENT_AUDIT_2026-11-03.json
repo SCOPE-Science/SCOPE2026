@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T10:53:32.467870Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact multinomial factorial moments give normalized coincidence R_{m,n} and Cov=E[X_r]E[X_s](R−1). Cancellation yields a strictly decreasing-in-n exact ratio R_{m,n+1}/R_{m,n}=m(m−2)/(m−1)^2 (1+rs/((n+1)(n+1−r−s))), which makes the positive n-set one contiguous finite interval. Uniform fixed-r,s expansion on compact t=n/m>0 gives logR=F(t)/m+G(t)/m²+O(m⁻³), F=−t+(r+s−1)−rs/t, G=−2t+[3(r+s)−1]/2−rs(r+s−1)/(2t²). For r=a²,s=(a+1)², lambda=a(a+1), the double-root identity F=−(t−lambda)²/t and G(lambda)=1 yield m²logR→1−z²/lambda, and E[X_r]E[X_s]/m²→exp(−2lambda)lambda^(r+s)/(r!s!). The signed limits on either side of ±sqrt(lambda) and one-interval property trap endpoints lambda m±sqrt(lambda m)+o(sqrt m). Independently checked symbolic G(lambda)=1, direct exact multinomial enumeration across 12 (m,n) pairs totaling 584260 allocations, 680 exact one-step recurrences, and 45 80-digit finite-scaling approximations. These bound/finite checks support, not replace, the proof for arbitrary fixed a,m→∞. The theorem correctly leaves z=±sqrt(lambda) signs open and excludes a growing with m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barbour–Gnedin analyze infinite heterogeneous-box schemes and limiting covariance/normal approximations; their stated hypotheses and limits do not directly cover the finite uniform equal-load fixed-density double-zero limit.",
+          "Kahn–Neiman negative association controls specified monotone competing-urn events, not nonmonotone exact-count indicators for two different positive loads.",
+          "Bobecka et al Section 5.2.2 treats uniform-box occupancy via factorial moments and univariate limiting laws; the relevant extracted section does not assert the mixed critical covariance window."
+        ],
+        "reasoning": "The directly inspected broader limit theorems do not mathematically imply the claimed second-order fixed-r,s covariance at positive density; nevertheless uninspected appendices or general cumulant identities might yield it, recorded as risk.",
+        "searches": [
+          "arXiv:0809.4387",
+          "arXiv:1001.0610",
+          "Bobecka et al (2013) 10.1017/S0963548312000545",
+          "Resultary: fixed-box occupancy pair count covariance leading limit for two exact levels n/m lambda r s nonmonotone correlation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0806.1007, Theorem 3 sparse approximation and definitions",
+        "arXiv:0809.4387, infinite occupancy normal approximation and limiting covariance",
+        "arXiv:1001.0610, competing urn negative association",
+        "Bobecka et al 2013 DOI 10.1017/S0963548312000545, OA manuscript Section 5.2.2",
+        "Resultary:93dddb2be813 complete published RESULT.md",
+        "Resultary:0606274d4166 complete published RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The leading log coincidence coefficient F(t)=−t+(r+s−1)−rs/t becomes −(t−lambda)^2/t for successive squares and is identically zero only at t=lambda.",
+          "Even with the exact finite ratio known, generic first-order covariance, sign log-concavity, or sparse-regime Poisson approximation does not supply the needed second-order coefficient G(lambda)=1 without further expansion.",
+          "The submitted expansion yields m^2 log R -> 1−z^2/lambda, followed by explicit signed covariance limit and one-interval trapping."
+        ],
+        "reasoning": "Compared hypotheses and mathematical implications, not word matches. The additional m^{-2} expansion is the decisive step beyond known moment formulas and leading degeneracy; older formulas potentially containing it remain a bounded priority risk.",
+        "searches": [
+          "Resultary: Finite multinomial occupancy frequencies covariance of number of boxes with r balls and s balls normalized joint ratio strict log concavity sign discriminant density",
+          "Resultary: fixed-box occupancy pair count covariance leading limit for two exact levels n/m lambda r s nonmonotone correlation",
+          "arXiv:0806.1007",
+          "arXiv:0809.4387",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same exact-frequency counts X_r appear as strict r-way ties in Eaton–Godbole–Sinclair; the relevant multivariate approximation assumes n/m tends to zero.",
+          "Joint-event factorial moments reproduce the normalized coincidence ratio R_{m,n}; these familiar formulas by themselves do not assert the m^{-2} boundary profile.",
+          "The criticality equation (r+s−1)^2=4rs reduces to (sqrt(s)-sqrt(r))^2=1, giving consecutive positive integer squares."
+        ],
+        "reasoning": "Alternative occupancy and tie-count labels identify the same variables, but their inspected statements do not give the claimed second-order equality case, the signed order-one limit, or endpoint scale.",
+        "searches": [
+          "Resultary: consecutive square occupancy floor sqrt n random shifts covariance local square root windows square indicator correlations square gaps",
+          "Resultary: Finite multinomial occupancy frequencies covariance of number of boxes with r balls and s balls normalized joint ratio strict log concavity sign discriminant density",
+          "arXiv:0806.1007",
+          "arXiv:0809.4387"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary full RESULT.md for Cov(K,X_r) classifies sign across one frequency but not the pair Cov(X_r,X_s).",
+          "Published Resultary full RESULT.md for the precision matrix of nonempty-box indicators concerns {box nonempty}, not occupancy-frequency counts for r,s>0.",
+          "The exact factorial-moment counting identity is acknowledged as prior/common machinery, not newly discovered."
+        ],
+        "reasoning": "No checked table or published exact all-consecutive-square critical profile was found; absence of a database hit does not prove novelty or that a classic table lacks an implicit expansion.",
+        "searches": [
+          "Resultary: consecutive square occupancy floor sqrt n random shifts covariance local square root windows square indicator correlations square gaps",
+          "Resultary: Finite multinomial occupancy frequencies covariance of number of boxes with r balls and s balls normalized joint ratio strict log concavity sign discriminant density",
+          "Resultary: one switch covariance law occupancy richness and frequency counts",
+          "Resultary: consecutive square occupancy positive covariance interval m n critical scaling",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement/implication comparison found the classical factorial moments and known sparse/infinite-box occupancy frequency results, but no identified theorem yielding the fixed-density consecutive-square double-zero m^{-2} expansion with order-one signed profile and sharp sqrt(m) covariance-window endpoints. Full inspected published Resultary records instead treat Cov(occupied richness,X_r) and covariance/precision of nonempty-box indicators. General exact mixed-factorial moments can make the argument short, so historical priority remains provisional, particularly older finite-urn expansions and a 2013 factorial-cumulant treatment.",
+      "residual_risks": [
+        "Older finite uniform urn occupancy texts or a prior exact pair-frequency theorem may already carry an equivalent second-order mixed-covariance expansion, perhaps under generating functions.",
+        "Bobecka and coauthors 2013 factorial-cumulant machinery may imply the limit as an unstated corollary; full proof and appendix coverage not exhaustively excluded.",
+        "Resultary and title/semantic/index search do not prove absence of implicit equivalences; best-of-knowledge priority only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 3 sparse multivariate approximation assumes n/N tends to zero rather than n/m->a(a+1)>0; it does not directly state the target critical window.",
+          "evidence": [
+            "Theorem 3 sparse-scaling condition n much smaller than N, and strict r-way tie definition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0806.1007",
+          "material_read": "Primary PDF introduction, definitions, statements and proof context including Theorem 3 sparse n/N regime, and relevant page 14; not an assertion that every page was exhaustively reviewed",
+          "method": "Opened arXiv PDF, inspected parsed primary text and page images",
+          "title": "Competition between Discrete Random Variables, with Applications to Occupancy Problems",
+          "trigger": "Exactly r-occupied box counts appear as strict r-way ties"
+        },
+        {
+          "assessment": "Treats infinitely many heterogeneously weighted boxes with regular-variation assumptions, not the claimed finite equal-box second-order tangency scaling.",
+          "evidence": [
+            "Infinite-box probability frequencies and CLT/standardized covariance context."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0809.4387",
+          "material_read": "Primary PDF introduction, joint central limit theorem hypotheses, Section 5 limiting covariance and related asymptotic discussion; inspected page 9 and first page imagery",
+          "method": "arXiv PDF textual inspection with page images",
+          "title": "Small counts in the infinite occupancy scheme",
+          "trigger": "Joint frequency count fluctuations and covariance"
+        },
+        {
+          "assessment": "Monotone urn-event negative-dependence result does not force sign of nonmonotone exact-load count variables.",
+          "evidence": [
+            "Theorems concern competing-urn negative association and ordered/threshold occupancy events, not signed Cov(X_r,X_s)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1001.0610",
+          "material_read": "Primary PDF introductory theorem statements, negative association assumptions and early proof discussion; pages 0 and 2 inspected as images",
+          "method": "arXiv PDF parsed text and page screenshots",
+          "title": "Conditional negative association for competing urns",
+          "trigger": "Potential stronger sign theorem for occupancy events"
+        },
+        {
+          "assessment": "The relevant reviewed section states general factorial moments and marginal asymptotic results, not explicitly the claimed second-order mixed occupancy covariance; possible derivation from wider machinery remains a material risk.",
+          "evidence": [
+            "Section 5.2.2 uniform balls in boxes, factorial-moment identity (5.16), and one-level limit theorems."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0963548312000545",
+          "material_read": "Relevant extracted primary manuscript Section 5.2.2 uniform occupancy, equation (5.16) and nearby one-level normal limit discussion; full paper and all appendices not exhaustively inspected",
+          "method": "Lawful OA author-manuscript PDF textual extraction; image access partially limited",
+          "title": "Asymptotic Normality Through Factorial Cumulants and Partition Identities",
+          "trigger": "Same uniform occupancy model and possible stronger general factorial moment expansion"
+        },
+        {
+          "assessment": "Classifies Cov(K,X_r), where K counts nonempty boxes; does not imply the specific two distinct exact-load covariance boundary.",
+          "evidence": [
+            "Proof sums indicator covariances for K and X_r; sign transition across r, different statistic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813/RESULT.md",
+          "material_read": "Complete published RESULT.md, finding, proof, assumptions, limits and relationship to prior",
+          "method": "GitHub connector retrieved and read frozen public RESULT.md text",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "Same finite uniform occupancy distribution and signed covariance"
+        },
+        {
+          "assessment": "Deals with covariance and precision of binary per-box nonempty indicators, not cross-frequency X_r, X_s.",
+          "evidence": [
+            "Theorem concerns I_i=1{box i occupied}, C_ij and entrywise inverse C^{-1}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166/RESULT.md",
+          "material_read": "Complete published RESULT.md, theorem, proof, assumptions and limits",
+          "method": "GitHub connector retrieved and read frozen public RESULT.md text",
+          "title": "Occupied-box indicators have a strictly positive precision matrix",
+          "trigger": "Same multinomial occupancy dependence and precision geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The discriminant degeneracy (r+s−1)²=4rs has a natural exact-integer classification: r and s must be consecutive positive squares, making the parameter family canonical rather than arbitrary. It produces a genuinely unresolved leading-covariance double zero in an intrinsically important occupancy frequency statistic. The new signed order-one limit and sharp sqrt(m)-width sign window resolve the natural critical region that first-order asymptotics cannot determine. The result is useful in dependence and frequency-count calculations without requiring any broader general theorem or paper-sized extension; not merely another log-concavity observation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:0806.1007, Theorem 3 sparse approximation and definitions",
+    "arXiv:0809.4387, infinite occupancy normal approximation and limiting covariance",
+    "arXiv:1001.0610, competing urn negative association",
+    "Bobecka et al 2013 DOI 10.1017/S0963548312000545, OA manuscript Section 5.2.2",
+    "Resultary:93dddb2be813 complete published RESULT.md",
+    "Resultary:0606274d4166 complete published RESULT.md",
+    "Assigned frozen Git RESULT.md, AUDIT.json, REVIEW.md, SLOGAN.txt, METADATA.json, VERIFICATION.md and verify_occupancy_boundary.py; seven Git blob SHA1 IDs checked"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed positive integer a and iid uniformly allocated balls, m>=3, n>=a²+(a+1)².",
+    "Signed limit does not determine eventual finite-size sign at z=±sqrt(lambda).",
+    "No statement about uniform a->infinity, nonuniform box laws or distributional CLT.",
+    "Finite checks do not prove the infinite family; proof uses exact ratio, uniform Taylor remainder and interval property.",
+    "No external expert or formal Lean verification; scientific audit is best of knowledge."
+  ],
+  "residual_risks": [
+    "Older finite uniform urn occupancy texts or a prior exact pair-frequency theorem may already carry an equivalent second-order mixed-covariance expansion, perhaps under generating functions.",
+    "Bobecka and coauthors 2013 factorial-cumulant machinery may imply the limit as an unstated corollary; full proof and appendix coverage not exhaustively excluded.",
+    "Resultary and title/semantic/index search do not prove absence of implicit equivalences; best-of-knowledge priority only."
+  ],
+  "schema_version": 1
+}

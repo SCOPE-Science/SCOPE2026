@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact multinomial factorial-moment calculation yields the ratio (3). Its adjacent ratios strictly decrease as in (4). The explicit expansion (5)--(7), with a uniform remainder for fixed loads and positive density, has the critical second-order constant \(1\) and quadratic profile \(1-z^2/\lambda\). Combining it with the two means gives the covariance limit, and sign trapping plus finite unimodality gives the endpoint asymptotics. The standalone program completed 3242 finite exact/high-precision assertions. Finite replay is not used as proof of the unbounded theorem.
+PASS
 
-## Originality (PASS, provisional historical priority)
+The exact multinomial factorial moments give normalized coincidence R_{m,n} and Cov=E[X_r]E[X_s](R−1). Cancellation yields a strictly decreasing-in-n exact ratio R_{m,n+1}/R_{m,n}=m(m−2)/(m−1)^2 (1+rs/((n+1)(n+1−r−s))), which makes the positive n-set one contiguous finite interval. Uniform fixed-r,s expansion on compact t=n/m>0 gives logR=F(t)/m+G(t)/m²+O(m⁻³), F=−t+(r+s−1)−rs/t, G=−2t+[3(r+s)−1]/2−rs(r+s−1)/(2t²). For r=a²,s=(a+1)², lambda=a(a+1), the double-root identity F=−(t−lambda)²/t and G(lambda)=1 yield m²logR→1−z²/lambda, and E[X_r]E[X_s]/m²→exp(−2lambda)lambda^(r+s)/(r!s!). The signed limits on either side of ±sqrt(lambda) and one-interval property trap endpoints lambda m±sqrt(lambda m)+o(sqrt m). Independently checked symbolic G(lambda)=1, direct exact multinomial enumeration across 12 (m,n) pairs totaling 584260 allocations, 680 exact one-step recurrences, and 45 80-digit finite-scaling approximations. These bound/finite checks support, not replace, the proof for arbitrary fixed a,m→∞. The theorem correctly leaves z=±sqrt(lambda) signs open and excludes a growing with m.
 
-Eaton--Godbole--Sinclair (arXiv:0806.1007) treat the exact-count vector in a sparse Poisson regime. Barbour--Gnedin (arXiv:0809.4387) treat infinitely many heterogeneous boxes and joint normal approximation. Related exact finite pair-count work establishes the normalized ratio and its first-order fixed-density covariance but leaves the consecutive-square double zero unresolved. The new second-order critical profile and square-root sign window are not implications of those results. Old printed occupancy literature may contain a comparable expansion; no independent priority certification is asserted.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The entire infinite family of successive-square load pairs has a degenerate first-order covariance at one density. The new order-one signed profile resolves what happens inside the shrinking density boundary layer and quantifies its diverging square-root-width positive interval. This is a natural critical phenomenon, rather than a generic specialization of a first-order sign formula.
+Best-of-knowledge statement/implication comparison found the classical factorial moments and known sparse/infinite-box occupancy frequency results, but no identified theorem yielding the fixed-density consecutive-square double-zero m^{-2} expansion with order-one signed profile and sharp sqrt(m) covariance-window endpoints. Full inspected published Resultary records instead treat Cov(occupied richness,X_r) and covariance/precision of nonempty-box indicators. General exact mixed-factorial moments can make the argument short, so historical priority remains provisional, particularly older finite-urn expansions and a 2013 factorial-cumulant treatment.
 
-## Limits
+## value
 
-Fixed \(a\), uniform independent ball placements, and integer \(n\ge r+s\) are required. The signs exactly on the limiting boundary and historical priority are unresolved. At \(z=\pm\sqrt\lambda\), the displayed covariance limit is zero and does not decide eventual finite-size signs.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The discriminant degeneracy (r+s−1)²=4rs has a natural exact-integer classification: r and s must be consecutive positive squares, making the parameter family canonical rather than arbitrary. It produces a genuinely unresolved leading-covariance double zero in an intrinsically important occupancy frequency statistic. The new signed order-one limit and sharp sqrt(m)-width sign window resolve the natural critical region that first-order asymptotics cannot determine. The result is useful in dependence and frequency-count calculations without requiring any broader general theorem or paper-sized extension; not merely another log-concavity observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
