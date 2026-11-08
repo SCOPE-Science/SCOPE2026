@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T08:05:33.841254Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The period-doubling fixed point μ(0)=01, μ(1)=00 has p_j=1 iff ν2(j+1) is odd, so prefix weight H(n)=Σ_{r>=1}(-1)^(r-1) floor(n/2^r). For factor [a,a+ℓ) its excess H(a+ℓ)-H(a)-H(ℓ) is the alternating sum of binary carries γ_{2i-1}-γ_{2i} for a+ℓ. A positive term γ_{2i-1}-γ_{2i}=1 requires x_{2i-1}=1 for x=a+ℓ, hence excess <= number Q(x) of set odd-position binary digits. The least x with Q(x)>=t is 2(4^t-1)/3; the half x/2=(4^t-1)/3 doubled gives exactly t alternating carry pairs and attains it. Equality at this minimal x forces a=ℓ=(4^t-1)/3 by the binary carry transition constraints, yielding uniqueness. Thus Δ(N)=floor(log_4(3N/2+1)), with dyadic boundary from threshold inequalities. Independent exhaustive factor-endpoint calculations over all initial prefixes through N=1400, including unique witnesses at 2,10,42,170,682, agreed. The all-N result is a symbolic carry proof, not an extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prefix-normal characterization is universal but computes this object only given its factor-maxima; 2-regular Abelian complexity concerns infinite-word factor classes rather than endpoint maxima within P_N."
+        ],
+        "reasoning": "The broader framework does not directly imply the explicit threshold and uniqueness without the carry argument.",
+        "searches": [
+          "Fici Liptak On Prefix Normal Words PDF",
+          "Parreau Rigo Rowland Vandomme arXiv:1405.3532 automatic word Abelian complexity",
+          "Cicalese Liptak Rossi arXiv:1811.06273"
+        ]
+      },
+      "checked_sources": [
+        {
+          "assessment": "Develops normal form/equivalence and factor maximum, not specific automatic fixed-point closed form",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.12405",
+          "title": "On Prefix Normal Words"
+        },
+        {
+          "assessment": "Different aggregate infinite-language statistic, with possible implicit specialized formula as residual risk",
+          "identifier_or_url": "https://arxiv.org/abs/1405.3532",
+          "title": "A new approach to 2-regularity of l-Abelian complexity of 2-automatic sequences"
+        },
+        {
+          "assessment": "Different infinite word with distinct witness lengths",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-unbounded-prefix-normal-defect-of-the-ordinary-paperfolding-word--a7708413f1f3",
+          "title": "Unbounded prefix-normal defect of ordinary paperfolding word"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prefix-normal form is defined by max ones factors; the prior theorem gives general existence but does not identify the periodic-doubling maximum or quantify carry structure."
+        ],
+        "reasoning": "Specializing a universal definition is not coverage of the exact closed formula; no known theorem from searched sources forces the displayed threshold by itself.",
+        "searches": [
+          "Fici Liptak 2018 PDF sections 2 and 5",
+          "automatic sequence 2-regular complexity 2014 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fici–Lipták arXiv:1805.12405 establishes prefix-normal form from maximum factor counts; no period-doubling specialization in searched text.",
+          "Resultary paperfolding defect applies to a different fixed point and witnesses."
+        ],
+        "reasoning": "Alternate names include jumbled index density defect and maximum ones discrepancy, but no source matched all-prefix 2(4^t-1)/3 thresholds.",
+        "searches": [
+          "web: period-doubling prefix normal defect maximum excess carry thresholds",
+          "web exact search \"period-doubling\" \"prefix normal\"",
+          "Resultary: period doubling word prefix normal defect maximal excess carry thresholds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary paperfolding has unbounded defect via L_m≈2^m/3 but for another word. No matching period-doubling table 2,10,42,... found."
+        ],
+        "reasoning": "A finite automata table could list small values, but the proved all-N formula and unique first witness require infinite justification.",
+        "searches": [
+          "Resultary ordinary paperfolding prefix-normal defect",
+          "Resultary period-doubling exact greedy string attractor",
+          "web period doubling prefix normal threshold"
+        ]
+      },
+      "rationale": "Fici–Lipták's prefix-normal theory gives the maximum-one-factor function, prefix-normal forms and general equivalence notions, not the exact fixed period-doubling prefix defect or first locations. The published Resultary ordinary paperfolding deficit concerns a different 2-automatic word; the Resultary period-doubling string attractor concerns a different invariant. A general 2-regular Abelian-complexity theorem describes factor frequency classes in the infinite language, not exact initial-prefix endpoint optimization. No actual prior implication identifying the 4-adic threshold was found; specialized automatic-word papers remain possible.",
+      "residual_risks": [
+        "A specialized thesis or article on jumbled complexity of the period-doubling word may encode an equivalent all-prefix result.",
+        "Full original Abelian-complexity paper was not inspected; narrow equivalence under a transform remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Develops normal form/equivalence and factor maximum, not specific automatic fixed-point closed form",
+          "evidence": "Theorem 1 relates maximum factor ones to prefix-normal form for arbitrary finite words.",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.12405",
+          "material_read": "Full PDF retrieved; Introduction, Section 2, Section 5 and conclusion read via text; pages 2 and 10 visually inspected",
+          "method": "public arXiv PDF plus screenshot",
+          "title": "On Prefix Normal Words",
+          "trigger": "origin of exact invariant and potential all-word formulas"
+        },
+        {
+          "assessment": "Different aggregate infinite-language statistic, with possible implicit specialized formula as residual risk",
+          "evidence": "Studies Abelian equivalence classes rather than initial-prefix maximum over both length and start.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.3532",
+          "material_read": "Public abstract and title, not full text",
+          "method": "arXiv metadata and targeted search",
+          "title": "A new approach to 2-regularity of l-Abelian complexity of 2-automatic sequences",
+          "trigger": "possible dominating period-doubling automata theorem"
+        },
+        {
+          "assessment": "Different infinite word with distinct witness lengths",
+          "evidence": "Length floor(2^m/3) vs period-doubling threshold 2(4^t-1)/3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-unbounded-prefix-normal-defect-of-the-ordinary-paperfolding-word--a7708413f1f3",
+          "material_read": "Resultary theorem summary only, not full proof",
+          "method": "Resultary semantic search",
+          "title": "Unbounded prefix-normal defect of ordinary paperfolding word",
+          "trigger": "similar named invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical automatic infinite word, the all-prefix maximum violation of prefix normality is a natural jumbled-index invariant. The exact logarithmic defect, sharp thresholds and unique carry witnesses quantify a structured divergence from prefix-normal behavior rather than a routine reformulation. Its bounds distinguish finite prefixes from the full infinite language.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "assessment": "Develops normal form/equivalence and factor maximum, not specific automatic fixed-point closed form",
+      "identifier_or_url": "https://arxiv.org/pdf/1805.12405",
+      "title": "On Prefix Normal Words"
+    },
+    {
+      "assessment": "Different aggregate infinite-language statistic, with possible implicit specialized formula as residual risk",
+      "identifier_or_url": "https://arxiv.org/abs/1405.3532",
+      "title": "A new approach to 2-regularity of l-Abelian complexity of 2-automatic sequences"
+    },
+    {
+      "assessment": "Different infinite word with distinct witness lengths",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-unbounded-prefix-normal-defect-of-the-ordinary-paperfolding-word--a7708413f1f3",
+      "title": "Unbounded prefix-normal defect of ordinary paperfolding word"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Result applies to finite initial prefixes of specified 0->01,1->00 word; no formula for each individual length maximum or arbitrary binary automatic word."
+  ],
+  "residual_risks": [
+    "A specialized thesis or article on jumbled complexity of the period-doubling word may encode an equivalent all-prefix result.",
+    "Full original Abelian-complexity paper was not inspected; narrow equivalence under a transform remains possible."
+  ],
+  "schema_version": 1
+}

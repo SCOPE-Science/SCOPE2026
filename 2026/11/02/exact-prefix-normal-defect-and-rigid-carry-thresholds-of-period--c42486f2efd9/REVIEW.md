@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The morphism recurrences identify the \(1\)-positions with positive indices of odd \(2\)-adic valuation. The alternating floor formula converts each factor-prefix difference to an alternating binary-carry sum. Pairing carries bounds the excess by the number of set odd-position bits of the total endpoint, and their least possible total is the explicit geometric threshold. Equal summands realize every threshold, and the equality conditions force the unique first witness. Direct exhaustive checks through length \(4096\) are reproducible with `checker.py` and are not substituted for the general proof. No assumptions about arbitrary other morphic words are used.
+PASS
 
-## Originality — PASS, with residual historical risk
+The period-doubling fixed point μ(0)=01, μ(1)=00 has p_j=1 iff ν2(j+1) is odd, so prefix weight H(n)=Σ_{r>=1}(-1)^(r-1) floor(n/2^r). For factor [a,a+ℓ) its excess H(a+ℓ)-H(a)-H(ℓ) is the alternating sum of binary carries γ_{2i-1}-γ_{2i} for a+ℓ. A positive term γ_{2i-1}-γ_{2i}=1 requires x_{2i-1}=1 for x=a+ℓ, hence excess <= number Q(x) of set odd-position binary digits. The least x with Q(x)>=t is 2(4^t-1)/3; the half x/2=(4^t-1)/3 doubled gives exactly t alternating carry pairs and attains it. Equality at this minimal x forces a=ℓ=(4^t-1)/3 by the binary carry transition constraints, yielding uniqueness. Thus Δ(N)=floor(log_4(3N/2+1)), with dyadic boundary from threshold inequalities. Independent exhaustive factor-endpoint calculations over all initial prefixes through N=1400, including unique witnesses at 2,10,42,170,682, agreed. The all-N result is a symbolic carry proof, not an extrapolation.
 
-The closest framework is Fici–Lipták's prefix-normal factor-count invariant (2011); their examined paper gives the general concept and algorithms but no all-prefix exact threshold for the period-doubling word. Parreau–Rigo–Rowland–Vandomme (2014) analyze Abelian complexity of the infinite period-doubling language, rather than the location-restricted prefix excess and unique first attainment. Cicalese–Lipták–Rossi (2018) treat infinite prefix-normal forms and related examples but do not state this theorem in their accessible full text. A closely related research record proves *unbounded* prefix-normal defect for the distinct ordinary paperfolding word; it neither implies an exact bound for period doubling nor describes its carry rigidity. Published-record searches were negative for an equivalent theorem, but no search proves universal novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The sharp step function identifies exactly how long an initial automatic-word prefix must be before any length admits a prescribed deficit from prefix normality. It resolves all \(N\), not only a handful of iterates, and gives unique first-attainment witnesses. This quantifies the failure of prefix-normality for a classical automatic word and gives a transparent binary-carry explanation for the threshold sequence, directly connected to jumbled indexing and prefix-normal forms.
+Fici–Lipták's prefix-normal theory gives the maximum-one-factor function, prefix-normal forms and general equivalence notions, not the exact fixed period-doubling prefix defect or first locations. The published Resultary ordinary paperfolding deficit concerns a different 2-automatic word; the Resultary period-doubling string attractor concerns a different invariant. A general 2-regular Abelian-complexity theorem describes factor frequency classes in the infinite language, not exact initial-prefix endpoint optimization. No actual prior implication identifying the 4-adic threshold was found; specialized automatic-word papers remain possible.
 
-## Scope and remaining risks
+## value
 
-Only one infinite word and its initial finite prefixes are covered; no full lengthwise profile is claimed. An unidentified equivalent older argument cannot be ruled out. Finite checker tests are supporting evidence rather than an infinite certificate. No independent mathematical assessment has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a canonical automatic infinite word, the all-prefix maximum violation of prefix normality is a natural jumbled-index invariant. The exact logarithmic defect, sharp thresholds and unique carry witnesses quantify a structured divergence from prefix-normal behavior rather than a routine reformulation. Its bounds distinguish finite prefixes from the full infinite language.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
