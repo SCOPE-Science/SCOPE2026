@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T01:40:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The RESULT.md renewal equation has transform H_x(s)/(1-rH_nu(s)); exponential tilting gives a positive finite-mean renewal kernel and a genuine e^{-lambda t} tail, not just a Laplace pole. The strictly increasing parametrization r=D theta^2/(1-q_L(theta)) and objective lambda=D theta^2 q/(1-q), q=p exp(-theta)+(1-p)exp(-L theta), are correct for p=c/L^2. The two nondegenerate charts theta=u/L and theta=v have unique maxima u=1.593624260040... and v=2; a uniform intermediate-scale bound excludes third competing global maxima. Height crossing gives c*=e^2 C/4, C=u^2/(exp(u)-1), and c_L=c*+K/L^2+O(L^-3) with K=(e^2/4)c*(2u)-c*^2/e^2. The finite-L coexistence uniqueness is local near c*. Bounded independent numerical branch optimizations at L=60 and 240 confirm both competing scalings, not an infinity proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General renewal/restart results apply to the process, without explicitly optimizing the sparse c/L² exponential rate over r or c_L."
+        ],
+        "reasoning": "Broader restarting frameworks subsume the transform, not the specified singular global asymptotics without additional analysis.",
+        "searches": [
+          "arXiv:1910.07993 stochastic resetting review",
+          "Mendez Flaquer-Galmes Campos stochastic resetting random positions first passage"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.11897 full HTML",
+        "arXiv:2401.01125 full HTML",
+        "arXiv:1910.07993 review",
+        "Resultary semantic query: Brownian diffusion resetting to two locations rare near-target probability c/L^2 optimal exponential survival decay rate first-order discontinuous reset-rate transition",
+        "Frozen SCOPE RESULT.md and verify_tail_crossover.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier work obtains the same two-reset-site model and mean first-passage optimization, but its objective is integrated survival rather than the exponential decay pole."
+        ],
+        "reasoning": "The prior renewal formula does not logically specify which branches globally maximize the survival exponent; its statements do not directly imply this c/L² coexistence result.",
+        "searches": [
+          "arXiv:2311.11897 section III-V",
+          "arXiv:2401.01125 mean first passage distributions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-site resetting survival transform is identical to the established renewal transform; the new optimization objective is lambda, not E[T]."
+        ],
+        "reasoning": "The renewal identity is prior mathematics; its mere availability does not compute the two-scale global exponential-rate optimum. The asserted phase diagram could be rederived from it but was not located as a stated result.",
+        "searches": [
+          "Brownian diffusion resetting to two locations rare near-target probability c/L^2 optimal exponential survival decay rate first-order discontinuous reset-rate transition",
+          "arXiv:2311.11897 renewal equation (3)",
+          "arXiv:2401.01125 resetting to random positions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct exact c_*, K survival-exponent table among retrieved Resultary top matches; relevant MFPT plots have a different objective."
+        ],
+        "reasoning": "This is a continuous optimization asymptotic rather than a preexisting integer table; negative search hits are not evidence of absolute novelty.",
+        "searches": [
+          "Resultary semantic search: Brownian diffusion resetting to two locations rare near-target probability c/L^2 optimal exponential survival decay rate first-order discontinuous reset-rate transition",
+          "Julián-Salgado Dagdug Boyer Diffusion with two resetting points parameter phase diagram"
+        ]
+      },
+      "rationale": "The source explicitly uses a known two-reset renewal transform but optimizes the long-time exponential survival exponent, not MFPT or finite-horizon success. Independent comparisons of the specific c/L^2 sparse-reset scaling, globally competing theta~1/L vs theta~2 branches, and first finite-distance coexistence correction did not locate a prior theorem implying this full assertion. PASS best-of-knowledge with residual priority risk.",
+      "residual_risks": [
+        "The general renewal method potentially contains the singular phase diagram as an unstated consequence; exhaustive literature priority is not established.",
+        "The finite-L coexistence uniqueness is proved only locally near c*."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Core transform anticipated; stated optimal-rate jump concerns mean passage time, not the specific sparse-reset survival-exponent global switch.",
+          "evidence": [
+            "Two-location renewal identity; MFPT objective and parametric phase diagrams are established."
+          ],
+          "identifier_or_url": "arXiv:2311.11897",
+          "material_read": "Full accessible arXiv HTML introduction, renewal transform and MFPT optimization sections III-V",
+          "method": "Primary article HTML and theorem/equation comparison",
+          "title": "Diffusion with two resetting points",
+          "trigger": "Exact same two reset locations and renewal transform"
+        },
+        {
+          "assessment": "Different optimization target; cannot infer absence of all survival-exponent specializations.",
+          "evidence": [
+            "Brownian reset-position and first passage framework."
+          ],
+          "identifier_or_url": "arXiv:2401.01125",
+          "material_read": "Accessible full arXiv HTML relevant model, mean first-passage and fluctuations sections",
+          "method": "HTML text comparison",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Broader reset-position distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural change of objective from mean first passage to survival exponential tail creates a sharp, analytically specified first-order optimizer transition, with nontrivial two-scale geometry and the finite-L coexistence correction. Distinct enough from standard constant-reset tuning to be useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The general renewal method potentially contains the singular phase diagram as an unstated consequence; exhaustive literature priority is not established.",
+    "The finite-L coexistence uniqueness is proved only locally near c*.",
+    "Only the frozen assigned source-tree package was assessed; no repository edits, external expert attestation or Lean certification are claimed.",
+    "All finite computations are diagnostic; analytical arguments support all limiting conclusions."
+  ],
+  "schema_version": 1
+}
