@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The algebraic proof is self-contained in `RESULT.md`. It establishes the affine reciprocal transformation, the attracting positive four-cycle, the four-coordinate strict majorization for every real \(r>1\) and \(0<L<H\), and the resulting population mean/extremum comparisons. The symbolic partial-sum gaps explicitly exhibit the strict sign conditions.
+## correctness
 
-The complete standalone `verify.py` uses Python standard-library exact fractions. Executing `python verify.py` produces `41615 exact-rational assertions passed across 640 parameter triples.` This checks the recurrence, cycles, six schedule permutations, majorization, extremal and mean comparisons, higher convex powers and the exact rational illustrative example. Testing a finite rational grid is not a proof for all real-valued parameters and is not described as one.
+PASS
 
-Independently checkable sample: growth factor \(r=2\); capacities \(L=1/3\) and \(H=1\). The grouped orbit multiset is \(\{5/7,5/9,5/11,5/13\}\), the alternating one \(\{3/5,3/5,3/7,3/7\}\). The strict arithmetic-mean gap is exactly \(584/45045\), and the grouped minimum is \(5/13<3/7\).
+For r>1 and 0<L<H, reciprocation gives y(t+1)=(y(t)+(r−1)/K(t))/r, so the four-step contraction has a positive globally attracting orbit. Four cyclic weighted sums (1,r,r²,r³) give decreasing partial-sum gaps δ(r²−r), δ(r−1)², δ(r²−r) divided by r⁴−1, where δ=(r−1)(L^−1−H^−1)>0. Equal total sums and strict Karamata convexity of 1/y prove higher grouped arithmetic biomass mean but strictly lower trough and higher peak; six arrangements fall into exactly two rotations. Independent exact-fraction calculation for r=2,L=1/3,H=1 reproduced reciprocal gaps (4/15,2/15,4/15,0) and biomass mean difference 584/45045. These checks are examples, not real-parameter proof.
 
-The literature comparison addresses the *statement* of strict inverse-biomass convex order and simultaneous mean/trough conflict, not the already established recurrence or periodic solution. General historical novelty and external replication have not been independently validated. Full texts of two plausible later works were unavailable, so the priority evidence is bounded accordingly.
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS for the four-coordinate strict inverse-biomass convex-order theorem and opposed mean/trough ranking, NOT for the Beverton–Holt periodic solution, the general mean formula, or previously studied harvesting optimization. The full Yang–Sacker article contains the generic period-four average formula but not a quantified inverse-biomass majorization. Substantive uncertainty remains from permutation/harvest work not inspected in full.
+
+## value
+
+PASS
+
+Convex-order is a structurally reusable mathematical comparison that ranks every strictly convex functional of inverse biomass, and the opposing mean-versus-trough ranking exposes a real, natural optimization conflict among ALL two-low/two-high four-season schedules. Neither a routine normalization nor an arbitrary sample statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
