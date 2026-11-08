@@ -1,19 +1,21 @@
-# Review of the third-coefficient Hardy support transition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The reduction of a bounded coefficient functional on analytic \(H^{1/2}\) to fourth powers of unit \(H^2\) polynomials uses the published outer-extremal theorem and the fact that only the first four root coefficients enter the functional. The finite-dimensional objective is exactly the cubic-convolution expression in `RESULT.md`. The small-parameter upper bound through \(t=1/5\), the strict transverse Hessian sign for \(t<1/2\), and the rational competitor at \(47/100\) have been checked independently of numerical optimization. Continuity, compactness, and uniform local strictness then establish a separated, non-binomial optimizer at the first departure. Supplementary reproducible checks are in `CHECK.py`; they are not offered as a proof of the infinite statements.
+PASS
 
-The infimum definition does not identify \(t_*\) numerically. The argument does not classify all maximizers at coexistence or later regimes.
+Published outer-extremal premise reduces the H^(1/2) functional to fourth powers of a norm-one H2 cubic and the exact objective A^4+t(4A^3D+12A^2BC+4AB^3). Binomial restricted optimum x/(1-3x^2)=t; s=A^2+D^2 bound gives global uniqueness through t=1/5. Cauchy-Schwarz eliminating C,D gives transverse quadratic 2(9x^2-1)/((1-3x^2)(1+x^2)^2), strictly negative until t=1/2; rational competitor at t=47/100 plus strictly positive Q(x)=33x^4+66x^2-47x+8 proves earlier global departure. Uniform local stability and compactness supply separated coexistence at first t_*. Independent exact rational checks passed. Outer-extremal published theorem full proof was inaccessible (Oxford VPN disconnected), so this nonstandard input is used as a cited theorem rather than independently reproved.
 
-## Originality — PASS relative to inspected evidence
+## originality
 
-Brevig–Søvik (arXiv:2610.21788v1) proves the outer-extremal structural theorem but not a sharp mixed third-coefficient support function or metastable optimizer transition. Brevig–Saksman (arXiv:1905.09547) obtains individual coefficient extrema, while Brevig–Grepstad–Instanes (arXiv:2011.07790) analyzes fixed-constant-term coefficient problems, solving the first-coefficient regime and leaving higher orders open for \(0<p<1\). Those statements do not imply the coexistence threshold proved here. Previously obtained sharp support formulas involving different coefficient pairs do not determine the cubic-convolution metastability mechanism for \(a_0+t a_3\).
+PASS
 
-Searching for Hardy \(H^{1/2}\) mixed first/third coefficient support, optimizer coexistence, third-order Taylor coefficient stability and related formulations found no covering statement. These searches are not a proof of universal novelty: a previously unindexed equivalent or more general result remains possible.
+Previously established Hardy quasi-Banach outer extremizers are a necessary premise, not new here. Earlier papers address individual coefficients or fixed-constant-term coefficient problems, whereas the first global departure in the mixed a0+t a3 support functional before local binomial instability, with rational strict parameter bounds and coexistence of a separated optimizing branch, is not implied by those inspected statements. The inaccessible complete 2026 outer extremal paper remains a premise-verification and priority risk; its accessible abstract identifies the required general theorem.
 
-## Value — PASS
+## value
 
-The problem asks when the sharp linear support functional \(a_0+t a_3\) first ceases to have a two-term fourth-power maximizer. The proof locates the first global departure strictly before the binomial's local-instability point, and proves that a distinct family of optimizers arrives with a positive shape gap. This coexistence provides genuinely qualitative information about the sharp coefficient body's exposed extremals, not just a numerical or normalization improvement. The exact critical parameter and complete support function remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+First global optimizer departure while the binomial remains locally stable, and positive-distance coexisting maximizers, describe genuinely nonconvex exposed-point geometry in a natural Hardy coefficient body. Sharp rational brackets identify a qualitative phase separation without claiming the exact numerical t_* or full later optimizer census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
