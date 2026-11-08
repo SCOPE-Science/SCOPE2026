@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T07:50:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/a-rank-polynomial-and-concentration-law-for-rota-baxter-operator--8dc86f8c6c1c/RESULT.md (Git blob eb263b1055771ef06a4aae01af6251bdc9122d68)",
+        "2026/11/02/a-rank-polynomial-and-concentration-law-for-rota-baxter-operator--8dc86f8c6c1c/verify.py (Git blob 4debaaf23a13641d0e505338fa92a3cb9bae2548)",
+        "2026/11/02/a-rank-polynomial-and-concentration-law-for-rota-baxter-operator--8dc86f8c6c1c/METADATA.json (Git blob 83c20f084f5db9e5a1a4e9d7b6d5351ec0ae8d0a)",
+        "2026/11/02/a-rank-polynomial-and-concentration-law-for-rota-baxter-operator--8dc86f8c6c1c/AUDIT.json (Git blob 7d01d46614e1f6ca9585b4c245251687e330f77a)",
+        "/mnt/data/scope_worker03_20261106T0738Z/independent_checks_output.txt"
+      ],
+      "rationale": "The descendant subtree vectors S_i form a unitriangular basis. Black rows equal -S_i; modulo their span a white row is the sum of S_c for its white children. These sets are disjoint for distinct white parents, so rank counts all black vertices plus white vertices with white children. Labeled species of colored rooted trees give B/W EGFs and the full rank polynomial. In a uniform Prüfer tree, degree(i)=1+Bin(n-1,1/(n+1)), and conditional white leaf probability 2^{-deg(i)} yields exact mean. Pairwise covariance is O(1/n) because Prüfer counts are multinomial and adjacency probability 2/(n+1), yielding Var(D)=O(n), L² limit. Independent full colored-tree enumeration matches polynomial coefficients and exact mean for all n=1..5; this is finite corroboration.",
+      "residual_risks": [
+        "The finite computations alone do not establish unrestricted hypotheses, parameter domains or infinite quantifiers; proof reconstruction supplies those steps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The spectral theorem restricts eigenvalues to 0 and -lambda and bounds Rota–Baxter index; the 2018 classification counts trees but does not provide the complete histogram of actual linear-map ranks."
+        ],
+        "reasoning": "Eigenvalue support alone cannot determine matrix rank because Jordan multiplicities remain free; the tree statistic supplies what the broad spectral result lacks.",
+        "searches": [
+          "Gubarev arXiv:2006.02654 §6.1 and main theorem",
+          "Gubarev arXiv:1811.08219 main classification"
+        ]
+      },
+      "checked_sources": [
+        "Gubarev, arXiv:1811.08219 Theorem 1/Corollary 2 two-colored rooted trees, total operator count",
+        "Gubarev, arXiv:2006.02654 §6.1 Proposition 1 Rota–Baxter index of K^n, not a rank census",
+        "Resultary semantic query rank polynomial concentration nonzero-weight Rota–Baxter on direct sum fields; nearest 2026/10/4/SCOPE-weight-zero-rota-baxter-operators-on-the-four-dimensional-exteri--6ed2dc859a4a applies different algebra/weight"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previous total count is 2^n(n+1)^{n-1}, which equals P_n(1); spectral index is n for K^n. Neither recovers the polynomial P_n(t) from a single value."
+        ],
+        "reasoning": "The new equalities require nontrivial identification of kernel ranks and marked-rooted-tree analysis, not an automatic specialization of a stronger enumerator.",
+        "searches": [
+          "Gubarev arXiv:1811.08219 Corollary 2",
+          "arXiv:2006.02654 Proposition 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The discovered result on weight-zero RB maps on an exterior algebra differs both in algebra and weight. Gubarev’s bijection is a premise but the inspected count is ungraded, not a kernel-rank polynomial."
+        ],
+        "reasoning": "Rank under the tree encoding is a genuinely finer statistic than operator cardinality; no primary rank distribution was located, without treating absence as proof.",
+        "searches": [
+          "\"Rank distribution polynomial Rota Baxter operators direct sum fields rooted colored trees nullity\"",
+          "Gubarev arXiv:1811.08219",
+          "Resultary 2026/10/4/SCOPE-weight-zero-rota-baxter-operators-on-the-four-dimensional-exteri--6ed2dc859a4a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite coefficients n<=5 were independently reproduced by complete Cayley-tree enumeration, not copied from a known published table."
+        ],
+        "reasoning": "This is an all-n finite-operator enumeration and asymptotic law; tables of operator counts do not imply rank coefficients.",
+        "searches": [
+          "\"Rota-Baxter rank polynomial operators field sum distributions\"",
+          "Resultary 11 relevant ranked results"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty of the precise final theorem survives comparison with relevant antecedents and currently indexed mathematical literature, but not exhaustive historical priority. Rank under the tree encoding is a genuinely finer statistic than operator cardinality; no primary rank distribution was located, without treating absence as proof.",
+      "residual_risks": [
+        "Gubarev’s full original tree construction is the main ingredient; the nullity statistic could be implicit in a previous combinatorial enumeration.",
+        "No central limit theorem, optimal variance constant, or statement for weight zero is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS BIJECTION AND TOTAL, NOT RANK DISTRIBUTION",
+          "evidence": "Rooted two-colored trees correspond to nonzero-weight operators, count 2^n(n+1)^{n-1} established.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.08219",
+          "material_read": "Theorem 1, Corollary 2, colored tree encoding and operator matrix rules",
+          "method": "primary full-text PDF opened, relevant classification pages and page image examined",
+          "title": "Rota–Baxter operators on a sum of fields",
+          "trigger": "same algebra and complete prior operator classification"
+        },
+        {
+          "assessment": "GENERAL SPECTRAL CONSTRAINT, NO RANK ENUMERATOR",
+          "evidence": "§6.1 identifies RB-index n, not distribution of ranks or EGF.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.02654",
+          "material_read": "Abstract, main theorem and §6.1 Sum of fields, Proposition 1",
+          "method": "primary public PDF opened and corresponding page image examined",
+          "title": "Spectrum of Rota–Baxter operators",
+          "trigger": "same operators, possible stronger rank implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gubarev, arXiv:1811.08219 Theorem 1/Corollary 2 two-colored rooted trees, total operator count",
+        "Gubarev, arXiv:2006.02654 §6.1 Proposition 1 Rota–Baxter index of K^n, not a rank census",
+        "Resultary semantic query rank polynomial concentration nonzero-weight Rota–Baxter on direct sum fields; nearest 2026/10/4/SCOPE-weight-zero-rota-baxter-operators-on-the-four-dimensional-exteri--6ed2dc859a4a applies different algebra/weight"
+      ],
+      "rationale": "The full matrix-rank distribution on a natural, all-field finite algebra is useful beyond the known scalar count of operators or bounds on minimal polynomial degree. It gives exact finite enumerators and a universal typical-rank law, with explicit nullity statistic that can support further random-operator questions.",
+      "residual_risks": [
+        "The value is for the exactly scoped theorem, not an assertion of broader applications not proved here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gubarev, arXiv:1811.08219 Theorem 1/Corollary 2 two-colored rooted trees, total operator count",
+    "Gubarev, arXiv:2006.02654 §6.1 Proposition 1 Rota–Baxter index of K^n, not a rank census",
+    "Resultary semantic query rank polynomial concentration nonzero-weight Rota–Baxter on direct sum fields; nearest 2026/10/4/SCOPE-weight-zero-rota-baxter-operators-on-the-four-dimensional-exteri--6ed2dc859a4a applies different algebra/weight",
+    "2026/11/02/a-rank-polynomial-and-concentration-law-for-rota-baxter-operator--8dc86f8c6c1c/RESULT.md (Git blob eb263b1055771ef06a4aae01af6251bdc9122d68)",
+    "2026/11/02/a-rank-polynomial-and-concentration-law-for-rota-baxter-operator--8dc86f8c6c1c/verify.py (Git blob 4debaaf23a13641d0e505338fa92a3cb9bae2548)",
+    "2026/11/02/a-rank-polynomial-and-concentration-law-for-rota-baxter-operator--8dc86f8c6c1c/METADATA.json (Git blob 83c20f084f5db9e5a1a4e9d7b6d5351ec0ae8d0a)",
+    "2026/11/02/a-rank-polynomial-and-concentration-law-for-rota-baxter-operator--8dc86f8c6c1c/AUDIT.json (Git blob 7d01d46614e1f6ca9585b4c245251687e330f77a)",
+    "/mnt/data/scope_worker03_20261106T0738Z/independent_checks_output.txt"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Gubarev’s full original tree construction is the main ingredient; the nullity statistic could be implicit in a previous combinatorial enumeration.",
+    "No central limit theorem, optimal variance constant, or statement for weight zero is established."
+  ],
+  "schema_version": 1
+}

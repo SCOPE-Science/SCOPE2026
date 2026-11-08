@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python verify.py` using Python 3 and its standard library. It enumerates all candidate finite-dimensional matrices satisfying the defining Rota–Baxter equation, both over the fields of sizes two and three, at sizes one through four. Independently, it enumerates every Prüfer-coded rooted labeled tree and nonroot coloring through size five and obtains matrix rank from the proved tree statistic. A third exact-rational implementation calculates the marked rooted-tree functional-equation coefficients and checks the full polynomial at evaluation points sufficient to identify all coefficients through degree five. It verifies the exact mean formula against the complete finite enumerations. The expected terminating line is `VERIFY_OK`.
+# Independent mathematical audit
 
-The computations are exhaustive only at the stated finite sizes. The code is not a general symbolic proof; the general kernel-basis argument, labeled exponential formula, and covariance bound are provided in RESULT.md. No independent audit has been performed.
+## correctness
+
+PASS
+
+The descendant subtree vectors S_i form a unitriangular basis. Black rows equal -S_i; modulo their span a white row is the sum of S_c for its white children. These sets are disjoint for distinct white parents, so rank counts all black vertices plus white vertices with white children. Labeled species of colored rooted trees give B/W EGFs and the full rank polynomial. In a uniform Prüfer tree, degree(i)=1+Bin(n-1,1/(n+1)), and conditional white leaf probability 2^{-deg(i)} yields exact mean. Pairwise covariance is O(1/n) because Prüfer counts are multinomial and adjacency probability 2/(n+1), yielding Var(D)=O(n), L² limit. Independent full colored-tree enumeration matches polynomial coefficients and exact mean for all n=1..5; this is finite corroboration.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty of the precise final theorem survives comparison with relevant antecedents and currently indexed mathematical literature, but not exhaustive historical priority. Rank under the tree encoding is a genuinely finer statistic than operator cardinality; no primary rank distribution was located, without treating absence as proof.
+
+## value
+
+PASS
+
+The full matrix-rank distribution on a natural, all-field finite algebra is useful beyond the known scalar count of operators or bounds on minimal polynomial degree. It gives exact finite enumerators and a universal typical-rank law, with explicit nullity statistic that can support further random-operator questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
