@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is quantified for every prime, extension exponent, and odd index. The integer \(b=(q^{n-1}-1)/(q+1)\) is integral, and \(b\equiv-1\pmod p\). The pole-weight inequality explicitly establishes that the witness is a regular differential. The Cartier formula follows by expanding \(y^{j_0}=(y^{q^2}-x^m)^{j_0}\), with the unique nonzero binomial term selected by the exponent congruence; the coefficient of every transition in the witness chain is a nonzero unit. The calculation produces \(\mathcal C^{tn-1}(\omega)=-dx\ne0\). The upper bound uses maximality of the stated family and Garcia--Tafazolian Theorem 3.3, both stated with their exact extension field. The completed checker verifies the rules and chain on multiple finite cases, but numerical checks are explicitly not proofs of infinite quantified claims. Risks: the upper bound depends on the cited maximality theorem, not a new elementary computation; there is no claim about intermediate ranks.
+PASS
 
-## Originality — PASS (historical priority qualified)
+For p prime, t>=1, q=p^t, odd n>=3, curve y^(q²)−y=x^m with m=(q^n+1)/(q+1), the pole weights at infinity and genus g=(q−1)(q^n−q)/2 give a holomorphic monomial basis. The chosen b=(q^(n−1)−1)/(q+1) is integral, and ω=x^(p^(t−1)b−1)y^(p^(t−1))dx has pole order ≤2g−2. Apply the explicit monomial Cartier rule: t−1 y-exponent reductions, one transition −x^(p^(t(n−1)−1)−1)dx, then t(n−1)−1 further x reductions yield C^(tn−1)(ω)=−dx ≠0 (sign equals + in characteristic 2). The general upper bound C^(tn)=0 follows by cited Garcia–Tafazolian theorem 3.3 for this ABQ family maximal over F_(q^(2n)). Thus nilpotency index is exactly tn, not merely a bound. Independent finite exact witness-chain arithmetic checked six (p,t,n) triples including (2,2,3),(3,2,3),(5,1,3) and confirms scalar −1 mod p. Finite checks do not certify full upper bound, which is a prior published theorem.
 
-Shafighi's original full manuscript gives a basis and computes the single Cartier rank (equivalently the \(a\)-number), not the last nonzero iterate. Garcia--Tafazolian gives \(\mathcal C^{tn}=0\) for maximal curves but no matching nonvanishing. The explicit witness establishes the missing converse for this family. The 2026 work of Almeida Filho--Tafazolian--Vieira does compute sharp nilpotency but for a different family \(y^p-y=xR(x)\), not \(y^{q^2}-y=x^m\); Groen's Artin--Schreier cover results similarly concern degree-\(p\) coverings. Published-record searches for equation aliases, nilpotency, higher Cartier powers and exact Serre-type indexes found no equivalent or stronger covering result. No finite search can prove global priority. Residual risk: a general theorem for monomial additive covers or a reinterpretation of an earlier Cartier calculation could imply the result without matching terminology.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact nilpotency exponent is a global geometric invariant of the Cartier action, finer than the already known \(a\)-number and a direct sharpness test for the field-of-maximality bound. The formula is uniform in all primes, all powers of the characteristic, and all allowed odd indices; it supplies a canonical explicit terminal differential rather than an isolated computational example. It also gives a nonzero last higher Cartier rank in a natural family of maximal curves, aligning with questions currently studied in higher-Cartier-rank literature.
+PASS qualified for sharpness C^(tn−1)≠0 and explicit witness in this specific degree-q² maximal curve family, with Garcia–Tafazolian general upper bound and Shafighi monomial Cartier calculations fully credited. Read relevant primary texts; no exact same witness/index assertion identified in inspected sections, although implicit consequences of existing basis formulas remain a priority risk.
 
-## Scope and closest literature
+## value
 
-Sources: Shafighi, arXiv:2610.15266v1 (full manuscript, definition, basis, Cartier rule and main a-number result); Garcia--Tafazolian, *Acta Arith.* 135 (2008), Theorem 3.3 (full article); Almeida Filho--Tafazolian--Vieira, arXiv:2610.17476v1 (full introductory and main-results sections); Groen, arXiv:2208.06504 (higher Cartier-power statements). The source on maximality is Abdón--Bezerra--Quoos (2009), as cited by Shafighi. The result has not undergone independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact last nonzero Cartier iterate is a natural sharp invariant of a distinguished maximal-curve family, refining the general maximal-curve bound and the known a-number. It identifies maximal possible nilpotent length uniformly for every p, t and odd n and supplies an explicit differential witness for later Hasse–Witt and stratification comparisons; no full intermediate rank table is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Verification state
+# Independent mathematical audit
 
-The exact nilpotency claim was checked against the explicit differential \(\omega=x^{p^{t-1}b-1}y^{p^{t-1}}dx\), the monomial Cartier transformation, and the cited maximal-curve upper bound. Its central nonzero identity is \(\mathcal C^{tn-1}(\omega)=-dx\). No independent audit is represented.
+## correctness
 
-## Exact-arithmetic reproducibility
+PASS
 
-Execute `python3 verify.py` with Python 3 standard library. The included program enumerates all holomorphic monomial differentials for the twelve parameter triples `(p,t,n)` in its `main` function; independently derives the Cartier arrow, checks all nonzero images remain regular, verifies its coefficient never vanishes modulo \(p\), calculates every monomial's terminating chain length, and checks that the proposed witness has terminal output \(-dx\) after exactly \(tn-1\) applications. The packaged run returned `VERIFY_OK`.
+For p prime, t>=1, q=p^t, odd n>=3, curve y^(q²)−y=x^m with m=(q^n+1)/(q+1), the pole weights at infinity and genus g=(q−1)(q^n−q)/2 give a holomorphic monomial basis. The chosen b=(q^(n−1)−1)/(q+1) is integral, and ω=x^(p^(t−1)b−1)y^(p^(t−1))dx has pole order ≤2g−2. Apply the explicit monomial Cartier rule: t−1 y-exponent reductions, one transition −x^(p^(t(n−1)−1)−1)dx, then t(n−1)−1 further x reductions yield C^(tn−1)(ω)=−dx ≠0 (sign equals + in characteristic 2). The general upper bound C^(tn)=0 follows by cited Garcia–Tafazolian theorem 3.3 for this ABQ family maximal over F_(q^(2n)). Thus nilpotency index is exactly tn, not merely a bound. Independent finite exact witness-chain arithmetic checked six (p,t,n) triples including (2,2,3),(3,2,3),(5,1,3) and confirms scalar −1 mod p. Finite checks do not certify full upper bound, which is a prior published theorem.
 
-## Proof boundaries
+## originality
 
-The computation is exhaustive only for the twelve explicit finite instances; the proof for all primes and all exponents consists of the symbolic chain and the known maximal-curve bound in `RESULT.md`. No finite computation establishes absolute literature priority or determines all intermediate Cartier ranks. The external source on maximality is used with attribution; no source's complete article is redistributed.
+PASS
+
+PASS qualified for sharpness C^(tn−1)≠0 and explicit witness in this specific degree-q² maximal curve family, with Garcia–Tafazolian general upper bound and Shafighi monomial Cartier calculations fully credited. Read relevant primary texts; no exact same witness/index assertion identified in inspected sections, although implicit consequences of existing basis formulas remain a priority risk.
+
+## value
+
+PASS
+
+The exact last nonzero Cartier iterate is a natural sharp invariant of a distinguished maximal-curve family, refining the general maximal-curve bound and the known a-number. It identifies maximal possible nilpotent length uniformly for every p, t and odd n and supplies an explicit differential witness for later Hasse–Witt and stratification comparisons; no full intermediate rank table is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
