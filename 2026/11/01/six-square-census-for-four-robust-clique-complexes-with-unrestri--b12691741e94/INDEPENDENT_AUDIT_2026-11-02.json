@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T09:55:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The square sequence starts at C4, then glues each new C4 exactly along an existing edge or two-edge path. The recursion tests all edges and neighbor pairs; exact graph isomorphism after Weisfeiler–Lehman prescreen removes duplicates, and cycle rank equals number of added squares. Graphs remain bipartite, so every 7-set contains an independent 4-set and the four-robust clique complex has faces only up to size 6. Each face is tested directly against all independent 4-subsets. The inspected verifier builds greedy matched edges for every face, enumerates every oriented Hasse incidence and verifies acyclicity, leaving one critical zero-cell and only dimension-five cells. Independently reran the entire graph-generation, face-enumeration and acyclic matching census for all 1,628 isomorphism classes in approximately 21 seconds: levels [1,2,7,29,179,1410], face totals [15,94,1032,10617,136973,1968168], level Betti sums [0,0,3,60,1098,19210], level6 positive classes 1396 and max beta 20, and 9,103,719 directed Hasse incidences total. Separately decoded all 1,628 rows of actual census.csv and checked aggregates. These complete finite checks prove the explicitly bounded six-square classification, not any infinite-length conjecture.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A broader all-length statement exists only at threshold three or under edge-only gluing at threshold four; corner gluing permits smaller vertex counts at fixed square count."
+        ],
+        "reasoning": "Neither published theorem dominates the unrestricted k=4 six-square result. The conjecture is not a prior proof; the audit explicitly refuses to extrapolate to seven or more squares.",
+        "searches": [
+          "arXiv:2602.11365 Theorem 2 and Corollary 3",
+          "Resultary semantic mathematical-finding search: four robust clique complexes square sequences edge and two path gluing six square finite census"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.11365v4 full relevant sections",
+        "Resultary semantic mathematical-finding search: four robust clique complexes square sequences edge and two path gluing six square finite census",
+        "arXiv:1912.12605",
+        "arXiv:2408.07646",
+        "Source CSV 1,628 row independently parsed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exactly threshold-4 corner gluing is a special case of the source conjecture, not its proven edge-only corollary. The 6-square row has 1,410 classes, including 1,269 with fewer than 14 vertices of six edge-only gluings."
+        ],
+        "reasoning": "A conjecture can state a prospective result but does not supply the checked integral homotopy certificate. The already-proved edge-only subfamily is acknowledged and not counted as novel itself.",
+        "searches": [
+          "arXiv:2602.11365 Definition 8 Theorem 2 Corollary 3 Conjecture 5",
+          "Resultary semantic mathematical-finding search: four robust clique complexes square sequences edge and two path gluing six square finite census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Filakovský treats these same square sequences and four-robust complex: Theorem 2 proves threshold 3 for unrestricted square gluing and Corollary 3 handles all thresholds for edge-only gluing. Threshold 4 with corner gluing is Conjecture 5, not a proved equivalent theorem."
+        ],
+        "reasoning": "The audited statement is a finite initial-range proof for a specific genuine case of Conjecture 5, while known theorems do not cover all its corner-glued examples.",
+        "searches": [
+          "Resultary semantic mathematical-finding search: four robust clique complexes square sequences edge and two path gluing six square finite census",
+          "arXiv:2602.11365 Definition 8, Theorem 2, Corollary 3, Conjecture 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The CSV contains 1,628 unique graph6 entries with levels 1..6 and exact beta5, face-count and Morse data. Primary Conjecture 5 does not supply this complete graph6 six-square table."
+        ],
+        "reasoning": "Full finite cutoff classifications can independently matter even if the conjectured infinite pattern remains open; a preexisting partial grid example does not imply the all-isomorphism census.",
+        "searches": [
+          "arXiv:2602.11365 grid-like examples and Conjecture 5",
+          "Resultary semantic mathematical-finding search: four robust clique complexes square sequences edge and two path gluing six square finite census",
+          "Actual census.csv parsed from source blob ccb1aaec80f9c61f49613868362708ab44fd22b4"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: final statement and implication level compared to overlapping primary literature and published mathematical records, including already-known subcases. A conjecture can state a prospective result but does not supply the checked integral homotopy certificate. The already-proved edge-only subfamily is acknowledged and not counted as novel itself.",
+      "residual_risks": [
+        "Unindexed complete finite enumerations could exist; public title searches are not a historical completeness proof.",
+        "No claim of arbitrary-length k=4 conjecture; any longer-length statement remains unproved.",
+        "The entire finite census was actually rerun here, but the underlying proof of the computational certificate still relies on correct implementation of exact generation and acyclicity, checked separately by reading the code."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing unrestricted theorem at k=3 and edge-only theorem for all k; unrestricted k=4 wedge remains conjectural, making six-square census a finite rigorous test",
+          "evidence": "arXiv:2602.11365v4, Definition 8, Theorem 2, Corollary 3, Conjecture 5",
+          "identifier_or_url": "https://arxiv.org/abs/2602.11365",
+          "material_read": "Primary full HTML around Definition 8, Theorem 2, Corollary 3 and Conjecture 5, with hypotheses and proofs compared",
+          "method": "Primary arXiv full-text HTML",
+          "title": "The Topology of k-Robust Clique Complexes in Grid-like Graphs",
+          "trigger": "Exact same k-robust clique complex and unrestricted edge/path square gluing"
+        },
+        {
+          "assessment": "General collapsibility framework has no identified six-square graph6 classification",
+          "evidence": "arXiv:1912.12605",
+          "identifier_or_url": "https://arxiv.org/abs/1912.12605",
+          "material_read": "Abstract, framework and theorem-level coverage comparison",
+          "method": "Primary literature abstract/theorem comparison",
+          "title": "Collapsibility of simplicial complexes of hypergraphs",
+          "trigger": "General robust clique/discrete-Morse method could dominate finite census"
+        },
+        {
+          "assessment": "Grid-specific total-cut classification does not enumerate all unrestricted square-sequence four-robust clique complexes",
+          "evidence": "arXiv:2408.07646",
+          "identifier_or_url": "https://arxiv.org/abs/2408.07646",
+          "material_read": "Abstract and available grid-specific result descriptions",
+          "method": "Related primary source metadata/abstract",
+          "title": "Total cut complexes of grid graphs",
+          "trigger": "Alexander-dual graph complexes near this domain"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unrestricted corner-gluing case is an explicitly named open conjectural family of natural four-robust clique complexes. Its complete initial six-square isomorphism census gives a substantial, useful finite boundary (1,628 types, with exact integral homotopy decompositions) and many non-edge-only examples. It is not an arbitrary tiny sample or just a field Betti table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Bounded to square-sequence lengths one through six; all existing corner/edge gluing options and isomorphism classes within that range exhausted, but no statement for seven or more squares. Literature residual: Unindexed complete finite enumerations could exist; public title searches are not a historical completeness proof. No claim of arbitrary-length k=4 conjecture; any longer-length statement remains unproved. The entire finite census was actually rerun here, but the underlying proof of the computational certificate still relies on correct implementation of exact generation and acyclicity, checked separately by reading the code.",
+  "schema_version": 1
+}
