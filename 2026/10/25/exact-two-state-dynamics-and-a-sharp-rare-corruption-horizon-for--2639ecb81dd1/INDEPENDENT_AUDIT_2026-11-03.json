@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T12:47:33.693911Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A=(1,...,1)^T and exact normalized scalar Kaczmarz projects immediately to selected b_i in {0,delta}. At x=0, a corrupt selection occurs iff H>=s-k+1; at x=delta, a clean selection iff H<=k-1. H is hypergeometric for uniform without-replacement sampling, giving P=[[1-p,p],[q,1-q]] and, when p+q>0, unique stationary law pi=p/(p+q), eigenvalue ell=1-p-q and covariance delta^2 pi(1-pi)ell^j. For odd s=2r+1<=c the support H=0,...,s is positive and disjoint/partition/overlap of tails yields strictly positive/zero/negative ell by k relative to r+1. At median two tails partition for any admissible s, giving iid Bernoulli outputs, geometric first-hit time for p>0, almost-sure repeated errors and exact p=0 iff s>=2c+1. Under beta fixed <1/2, c_s/m_s=beta+o(1/s), s^2/m_s->0, the log finite-population/binomial mass ratio is o(1) uniformly, and the upper half-binomial tail is first mass times (1-beta)/(1-2beta), yielding C_beta=sqrt(2beta(1-beta))/(sqrt(pi)(1-2beta)) and kappa_beta=-0.5log(4beta(1-beta)). Independent exact subset enumeration for m=3..9 checked 29,564 assertions; a 50,000/1,000/11 benchmark and asymptotic ratios checked separately. No finite check is used to establish infinite-time or asymptotic claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai et al 2026 PDF Algorithm 1.1 chooses update row from all m rows separately from subsample; its update can be skipped.",
+          "Battaglia–Ma 2025 Algorithm 1/2 draws from all threshold-admissible rows, not precisely the sampled kth rank.",
+          "Haddock et al 2020 develops full-pool quantile threshold theory."
+        ],
+        "reasoning": "Broader convergence statements for different stochastic kernels cannot be specialized to the exact every-step two-state transitions of the rank-equality sampler. Logarithmic-in-time scaling overlaps the exponential horizon in order, but neither its prefactor nor the rank correlation sign follows from those results. General bounds are credited, not claimed novel.",
+        "searches": [
+          "https://arxiv.org/html/2009.08089v2",
+          "https://arxiv.org/pdf/2507.15185",
+          "https://arxiv.org/html/2505.00258v2",
+          "subsampled QRK exact finite-horizon logarithmic sample size"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2308.07987 full HTML (Algorithm 2 and V-D)",
+        "arxiv:2009.08089v2 accessible full HTML",
+        "arxiv:2507.15185v2 PDF introductory pages 1–3 and Algorithm 1.1",
+        "arxiv:2505.00258v2 selected full HTML sections 1.2,4.2,6",
+        "Swartworth 2023 dissertation indexed metadata, full text unavailable",
+        "Resultary semantic published records top 15 per three queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact equality row is present as Haddock–Ma–Rebrova Algorithm 2; qualitative spikes and future-theory problem appear in V-D.",
+          "Cai et al 2026 explicitly distinguish their all-pool row selection from the 2023 subset update.",
+          "Swartworth dissertation may be relevant but only metadata and contents were accessible; authorized retrieval VPN disconnected."
+        ],
+        "reasoning": "No inspected theorem has hypotheses and conclusions that entail the exact two-state stationary covariance, sign reversal, median iid threshold, hypergeometric first-hit and exact large-sample prefactor. The constant-fraction model is a special case of QRK motivation but not an explicit corollary of the compared different algorithms. Possible unexamined overlapping dissertation theorem is a documented residual risk, not silently dismissed.",
+        "searches": [
+          "https://arxiv.org/abs/2308.07987",
+          "https://arxiv.org/html/2009.08089v2",
+          "https://arxiv.org/pdf/2507.15185",
+          "https://arxiv.org/html/2505.00258v2",
+          "https://escholarship.org/uc/item/3j7494h8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a binary all-ones scalar system the sampled order statistic is equivalently a hypergeometric label vote; at odd median the label depends only on subset majority.",
+          "Haddock–Ma–Rebrova 2023 V-D recognizes sampling rare events but does not write this two-atom sample-majority exact law in the inspected full text."
+        ],
+        "reasoning": "Checked alternate formulations as binary majority vote, hypergeometric tail, iid Bernoulli median output, two-state Markov covariance and first-hit distribution. These identities are reconstructible from the same model but the inspected prior math only supplies the selected update algorithm and heuristic; no actual prior theorem with equivalent complete content found.",
+        "searches": [
+          "quantile randomized Kaczmarz subsampled sample median exact two-state Markov chain iid corruption hypergeometric waiting time",
+          "finite-population hypergeometric majority vote odd quantile rank correlation sign sample Kaczmarz",
+          "https://arxiv.org/abs/2308.07987 (Algorithm 2, V-D)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Three Resultary searches returned nearby but unrelated Markov count, order-statistic, and quantile calculations; none was a sampled-rank Kaczmarz exact table.",
+          "No primary article/table identified as already specifying hypergeometric transition probabilities and the constant-level odd-median horizon for all model parameters."
+        ],
+        "reasoning": "This is an analytic method-specific theorem rather than a standard tabulated scalar invariant. Semantic nonhits cannot establish priority and no universal database of the process is assumed.",
+        "searches": [
+          "quantile randomized Kaczmarz subsampled sample median exact two-state Markov chain iid corruption hypergeometric waiting time",
+          "finite-population hypergeometric majority vote odd quantile rank correlation sign sample Kaczmarz",
+          "corrupted linear system sampled residual order statistic exponential rare corruption horizon",
+          "Resultary semantic top-15 for each query"
+        ]
+      },
+      "rationale": "Same equality-row algorithm and qualitative small-sample rare spikes are known from Haddock–Ma–Rebrova (2023), but its full accessible Section V-D gives heuristics rather than the displayed exact hypergeometric two-state Markov law, rank-dependent stationary correlation phase, iid median process, finite-population safe cutoff, and sharp square-root-prefactor horizon. Later general sample-size and error-horizon theorems apply to different row-selection mechanisms, and published-record semantic searches returned no matching theorem. This is a limited, best-of-knowledge special-case originality decision, not novelty certification; the potentially relevant Swartworth dissertation could not be fully read.",
+      "residual_risks": [
+        "Swartworth 2023 QuantileRK dissertation was not fully read; repository access 429 and authorized retrieval VPN disconnected.",
+        "Unindexed specialist work may present the same binary majority-vote law or its sharp tail constant under different terminology.",
+        "Hypergeometric probabilities and binomial-tail asymptotics are classical; originality is the integrated analysis of this precisely defined stochastic algorithm, not those formulas themselves.",
+        "Source algorithm uses ambiguous tie indexing, but both-valued scalar tie choice produces identical iterate within each residual class."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The method and qualitative rare spikes precede the claim; the inspected sections do not establish the two-state exact law, independence phase, rank-sign classification or sharp rare-event prefactor.",
+          "evidence": "Algorithm 2 lines 228–244 projects to sampled residual equal to quantile; V-D lines 245–270 gives heuristic, sampling-corruption difficulty, and observed spikes; conclusion lines 271–274 explicitly invites theory.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.07987",
+          "material_read": "Full 278-line accessible primary text, especially sections III–VI, Algorithm 2, and V-D lines 225–274.",
+          "method": "Read the algorithm text and compare rank-equality selection, sample-size hypotheses, finite-time claims, and theoretical versus heuristic statements.",
+          "title": "On Subsampled Quantile Randomized Kaczmarz",
+          "trigger": "Same selected equality-row Algorithm 2, Section V-D small-sample setting."
+        },
+        {
+          "assessment": "Supplies foundational QRK, corruption avoidance and sample-size discussion; these are not the exact finite-population equality-rank transition law or temporal covariance.",
+          "evidence": "Section 2 defines QuantileRK and Section 4 describes sample-size/quantile implementation; source targets convergence guarantees rather than exact two-atom residual dynamics.",
+          "identifier_or_url": "https://arxiv.org/html/2009.08089v2",
+          "material_read": "Accessible full HTML; method, core convergence statements, sections 2 and 4.2/4.3 on sample size and quantile choice were reviewed.",
+          "method": "Compared its quantile thresholded/random row acceptance with exact projection to the sampled equality rank in the scalar binary system.",
+          "title": "Quantile-based Iterative Methods for Corrupted Systems of Linear Equations",
+          "trigger": "Foundational quantile Kaczmarz method; possible dominance by general convergence theorem."
+        },
+        {
+          "assessment": "Algorithm 1.1 selects an additional update row from all m rows after estimating a threshold from a subset, and can retain an iterate. It is not the every-step sampled order-statistic equality-row method. No whole-PDF noncoverage assertion.",
+          "evidence": "PDF page 2 Algorithm 1.1 independently selects r_{k+1} from [m] and conditions projection on a threshold; pages 2–3 explicitly distinguish Haddock–Ma–Rebrova 2023 subset-selected update; Theorem summary yields logarithmic T bounds but not identical transition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.15185",
+          "material_read": "Primary PDF introductory pages 1–3, including full Algorithm 1.1, model comparison and stated finite-horizon main contribution; page 2 visually inspected.",
+          "method": "Read exact random selections and whether update row comes from subsample or full row set; compared finite-horizon theorem statements.",
+          "title": "On the Subsample Size of Quantile-Based Randomized Kaczmarz",
+          "trigger": "2026 published sharp finite-horizon sample-size results with overlapping parameters."
+        },
+        {
+          "assessment": "Its full-set accepted-index rule and bounds on noise-induced error horizon differ from the sampled quantile equality update, so the cited theorems do not imply the exact Bernoulli horizon or rank sign phase; no claim that all text was line-by-line inspected.",
+          "evidence": "Section 1.2, Algorithms 1 and 2 choose random accepted row from full m residuals; Section 4.2 estimates expected error horizons, not geometric first corrupted iterate.",
+          "identifier_or_url": "https://arxiv.org/html/2505.00258v2",
+          "material_read": "Accessible full HTML portions: Sections 1.2, 2, 4.2, selected proof and comparison passages, and conclusion.",
+          "method": "Compared Algorithm 1/2 accepted-row quantile intervals and expected error bounds with two-state sampled equality-rule process and exact first-hit law.",
+          "title": "Quantile-RK and Double Quantile-RK Error Horizon Analysis",
+          "trigger": "Potentially stronger 2025 error-horizon analysis."
+        },
+        {
+          "assessment": "INACCESSIBLE PLAUSIBLE SOURCE. No whole-document noncoverage conclusion; remaining priority risk is explicitly retained.",
+          "evidence": "Search entry identifies 2023 dissertation, with chapters on QuantileRK; Oxford authorized endpoint reported vpn_disconnected; no thesis theorem read.",
+          "identifier_or_url": "https://escholarship.org/uc/item/3j7494h8",
+          "material_read": "Indexed bibliographic abstract and indexed table of contents only; primary dissertation full text inaccessible.",
+          "method": "Searched for a lawful dissertation PDF/preprint, attempted the repository page (HTTP 429), then authorized institutional retrieval; VPN reported disconnected. No bypass or automated retry.",
+          "title": "Efficient Algorithms for Linear Regression and Spectrum Estimation",
+          "trigger": "Swartworth 2023 dissertation names QuantileRK sample size and quantile selection; plausible overlap."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sampled equality-quantile algorithm is a natural specific small-sample variant explicitly highlighted as lacking complete theory by Haddock–Ma–Rebrova 2023 V-D. The rank-sensitive sign reversal distinguishes persistence/independence/anticorrelation; median iid behavior makes long-run rare corruption exact, and s>=2c+1 supplies an absolute finite-population no-error cutoff. The sharp s^-1/2 exp(-kappa s) constant distinguishes a reliable-looking finite experiment from almost-sure recurrence and quantifies observation windows. The conclusion is only a motivated exact scalar benchmark, not an assertion of broad practical matrix convergence. Elementary hypergeometric and Stirling tools alone do not establish value; the model-specific dynamical interpretation and complete parameter/boundary classification do.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2308.07987 full HTML (Algorithm 2 and V-D)",
+    "arxiv:2009.08089v2 accessible full HTML",
+    "arxiv:2507.15185v2 PDF introductory pages 1–3 and Algorithm 1.1",
+    "arxiv:2505.00258v2 selected full HTML sections 1.2,4.2,6",
+    "Swartworth 2023 dissertation indexed metadata, full text unavailable",
+    "Resultary semantic published records top 15 per three queries"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Swartworth 2023 QuantileRK dissertation was not fully read; repository access 429 and authorized retrieval VPN disconnected.",
+    "Unindexed specialist work may present the same binary majority-vote law or its sharp tail constant under different terminology.",
+    "Hypergeometric probabilities and binomial-tail asymptotics are classical; originality is the integrated analysis of this precisely defined stochastic algorithm, not those formulas themselves.",
+    "Source algorithm uses ambiguous tie indexing, but both-valued scalar tie choice produces identical iterate within each residual class."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": [
+    "All statements concern a scalar all-ones row matrix, two right-hand-side values, independent uniform without-replacement subsets, and an equality-at-sampled-kth-residual selection; no multi-dimensional convergence is claimed.",
+    "Strict rank sign phase assumes odd s<=c; degenerate stationary cases and p+q=0 are explicitly excluded from stationary covariance uniqueness.",
+    "Asymptotic constant requires fixed beta<1/2, c_s/m_s=beta+o(1/s), and s^2/m_s->0, not a uniform result as beta approaches 1/2.",
+    "Independent tests cover finite instances only; proofs are conditional on exact hypergeometric sampling and the analytic Stirling/falling-factorial bounds.",
+    "Full Swartworth dissertation inaccessible; originality best of knowledge.",
+    "Publication withheld because source METADATA.json and AUDIT.json have internal provenance fields, and complete source-guarded neutral replacement bytes were not prepared. No public file generated."
+  ]
+}
