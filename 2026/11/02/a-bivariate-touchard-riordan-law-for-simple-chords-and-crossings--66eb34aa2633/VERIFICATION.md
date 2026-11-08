@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-From the same directory run `python3 verify.py`; no third-party dependency or network access is required. The verifier directly enumerates every perfect matching with \(2\le n\le7\), computing its cyclic simple-chord and geometric crossing counts, and compares each entire joint count dictionary with the polynomial prediction. It separately checks the matching counts in cycle graphs, and verifies the Touchard–Riordan numerator cancellation, nonnegativity, normalization, and first and second exact rational moments for \(2\le n\le13\).
+## correctness
 
-Successful output terminates with `ALL 372 EXACT ASSERTIONS PASSED`. For \(n=7\), the exhaustive sample consists of 135,135 matchings; the six full enumerations together cover 146,598 matchings. These are **finite** checks only. The complete bivariate polynomial follows for all \(n\ge2\) from the explicit marked-boundary-pair deletion and cycle-matching bijection in `RESULT.md`. The classical crossing second moment is documented in the references to that proof.
+PASS
 
-## Interpretation and limits
+For uniform matchings of 2n labeled points on a convex circle, reconstructed s^S=product over all 2n boundary-adjacent potential chords [1+(s-1)I_e]. Only endpoint-disjoint marked boundary chords can coexist; such chords cross no other chords and their removal preserves the entire crossing statistic of the remaining cyclically ordered endpoints. Exactly c_{n,k}=2n/(2n-k)*binom(2n-k,k) k-edge matchings of C_{2n} exist, giving the full polynomial sum c_{n,k}(s-1)^k T_{n-k}(q). The single/double simple-chord inclusion probabilities and the standard Touchard–Riordan crossing second moment give ES, VarS, EX, VarX and Cov(S,X)=-2n(n-1)/[3(2n-1)]; division yields Corr=-sqrt(5/(n+3)) for every n>=2, including perfect negative correlation at n2. Independently enumerated all 3,15,105,945,10,395,135,135 matchings for n2..7 and checked each of the five exact moment identities. The unrestricted generating-polynomial identity has an all-size marked-deletion proof independent of these counts.
 
-The verifier does not search the literature, demonstrate independence, certify originality, check the infinite theorem by enumeration, or prove the classical Touchard–Riordan formula. A separate independent audit has not been performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: compared the exact statement and its logical implications with the cited same-object published results and accessible full texts; prior covered portions are acknowledged, and inaccessible high-relevance papers are recorded explicitly rather than presumed not covering. See four structured checks and source inspections.
+
+## value
+
+PASS
+
+A joint exact enumerator and negative-correlation identity for two natural but structurally distinct statistics are useful beyond either classical marginal. The marked-chord deletion method gives all conditional crossing laws for designated nonintersecting boundary chords, and the simple closed correlation shows a concrete local-to-global dependence at every n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T17:15:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md at frozen Git tree",
+        "assigned proof/checker and independent arithmetic/BFS/enumeration as recorded"
+      ],
+      "rationale": "For uniform matchings of 2n labeled points on a convex circle, reconstructed s^S=product over all 2n boundary-adjacent potential chords [1+(s-1)I_e]. Only endpoint-disjoint marked boundary chords can coexist; such chords cross no other chords and their removal preserves the entire crossing statistic of the remaining cyclically ordered endpoints. Exactly c_{n,k}=2n/(2n-k)*binom(2n-k,k) k-edge matchings of C_{2n} exist, giving the full polynomial sum c_{n,k}(s-1)^k T_{n-k}(q). The single/double simple-chord inclusion probabilities and the standard Touchard–Riordan crossing second moment give ES, VarS, EX, VarX and Cov(S,X)=-2n(n-1)/[3(2n-1)]; division yields Corr=-sqrt(5/(n+3)) for every n>=2, including perfect negative correlation at n2. Independently enumerated all 3,15,105,945,10,395,135,135 matchings for n2..7 and checked each of the five exact moment identities. The unrestricted generating-polynomial identity has an all-size marked-deletion proof independent of these counts.",
+      "residual_risks": [
+        "Uses a classical crossing-variance formula correctly credited to the Touchard–Riordan/Flajolet–Noy literature; enumeration stops at n7. Cyclic adjacency includes the boundary pair 1,2n, unlike open linear short-chord variants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet–Noy gives marginal component and crossing formulas and crossing variance n(n-1)(n+3)/45; Paguyo separately treats crossings CLT and simple-chord Poisson approximation."
+        ],
+        "reasoning": "The inspected broader generating functions do not include a second variable marking *cyclic boundary chords simultaneously with crossings*. Some published general multivariate matching transformation might still dominate; specific proof not located.",
+        "searches": [
+          "Flajolet–Noy 2000 full PDF Sections 1-2",
+          "Paguyo 2021 full PDF",
+          "Pilaud–Rué arXiv:1307.6440",
+          "bivariate generating polynomial simple chords crossing pairs random chord diagrams covariance Touchard Riordan"
+        ]
+      },
+      "checked_sources": [
+        "Flajolet–Noy RR-3914 full PDF",
+        "Paguyo arXiv:2104.01134 full relevant sections",
+        "Acan arXiv:1501.01489 abstract",
+        "Resultary: bivariate generating polynomial simple chords crossing pairs random chord diagrams covariance Touchard Riordan"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The negative covariance requires the conditional crossing count E[X|one fixed simple chord]=(n-1)(n-2)/6, which follows from deletion; the claimed correlation combines this with exact published marginal variances."
+        ],
+        "reasoning": "Published marginal distributions do not determine covariance. Boundary deletion together with the known crossing polynomial makes the result elementary to derive but not a direct restatement of a cited theorem.",
+        "searches": [
+          "Flajolet–Noy RR-3914 Theorem 3",
+          "Paguyo arXiv:2104.01134 Sections crossings/simple chords"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bivariate transform is equivalent to exact joint law of cyclic simple boundary chords and crossings; classical Touchard–Riordan counts crossings only, and Acan/Paguyo study simple chords separately."
+        ],
+        "reasoning": "Knowing the crossing polynomial T_n and simple-chord marginal does not itself specify joint dependence; marked deletion additionally gives conditional distribution of residual crossings.",
+        "searches": [
+          "bivariate generating polynomial simple chords crossing pairs random chord diagrams covariance Touchard Riordan",
+          "Flajolet–Noy INRIA RR-3914",
+          "Paguyo arXiv:2104.01134",
+          "Acan arXiv:1501.01489"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact n2..7 matchings joint census reproduces the stated covariance; inspected literature gives crossings marginal and separate simple-chord stats, not the full (S,X) table."
+        ],
+        "reasoning": "The entire joint table is computable by the new polynomial identity at every n. Finite tables are illustrations, not evidence of global originality by themselves.",
+        "searches": [
+          "bivariate generating polynomial simple chords crossing pairs random chord diagrams covariance Touchard Riordan",
+          "Flajolet–Noy 2000 Section 2",
+          "Paguyo exact marginal formulas"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality: compared the exact statement and its logical implications with the cited same-object published results and accessible full texts; prior covered portions are acknowledged, and inaccessible high-relevance papers are recorded explicitly rather than presumed not covering. See four structured checks and source inspections.",
+      "residual_risks": [
+        "A general bivariate rook-polynomial/Touchard–Riordan marking identity may have appeared under another terminology, potentially covering the elegant deletion formula.",
+        "The formula uses a published crossing second moment rather than deriving the difficult classical Touchard–Riordan moment cancellation afresh."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical exact crossing marginal variance and diagrams by components; no exact second variable for cyclic simple chords in inspected analysis",
+          "evidence": "Theorem 3: EX=n(n-1)/6, VarX=n(n-1)(n+3)/45; separate Section 1 components",
+          "identifier_or_url": "INRIA RR-3914, https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "14-page full PDF, Sections 1 and 2, Theorem 3 and formula (5) for Touchard–Riordan polynomial; page screenshot inspected",
+          "method": "full-text PDF with visual page inspection",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Same chord model and exact crossing moments"
+        },
+        {
+          "assessment": "Separate marginal limit theorems and moments; does not directly state joint generating polynomial or exact correlation in inspected sections",
+          "evidence": "Abstract states separate crossing normal limit and simple-chord Poisson approximation",
+          "identifier_or_url": "arXiv:2104.01134",
+          "material_read": "Relevant full PDF Sections 2-3 with crossing moments and cyclic simple-chord Poisson approximation",
+          "method": "full-text arXiv PDF",
+          "title": "Convergence Rates of Limit Theorems in Random Chord Diagrams",
+          "trigger": "Same cyclic simple-chord and crossing statistics"
+        },
+        {
+          "assessment": "Relevant random-chord background; absence of full text prevents categorical whole-document noncoverage",
+          "evidence": "Abstract treats intersection graph degree, core and random diagram asymptotics",
+          "identifier_or_url": "arXiv:1501.01489",
+          "material_read": "Primary abstract and bibliographic scope only, not full text",
+          "method": "arXiv abstract",
+          "title": "On a Uniformly Random Chord Diagram and its Intersection Graph",
+          "trigger": "Same chord objects, intersection graph and simple chord statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "reviewed exact mathematical final theorem and motivation in assigned RESULT.md"
+      ],
+      "rationale": "A joint exact enumerator and negative-correlation identity for two natural but structurally distinct statistics are useful beyond either classical marginal. The marked-chord deletion method gives all conditional crossing laws for designated nonintersecting boundary chords, and the simple closed correlation shows a concrete local-to-global dependence at every n.",
+      "residual_risks": [
+        "Limited to circular uniform matchings with cyclic simple chords; nonuniform chord laws and open linear endpoint conventions differ."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uses a classical crossing-variance formula correctly credited to the Touchard–Riordan/Flajolet–Noy literature; enumeration stops at n7. Cyclic adjacency includes the boundary pair 1,2n, unlike open linear short-chord variants.",
+    "Limited to circular uniform matchings with cyclic simple chords; nonuniform chord laws and open linear endpoint conventions differ.",
+    "A general bivariate rook-polynomial/Touchard–Riordan marking identity may have appeared under another terminology, potentially covering the elegant deletion formula.",
+    "The formula uses a published crossing second moment rather than deriving the difficult classical Touchard–Riordan moment cancellation afresh."
+  ],
+  "schema_version": 1
+}
