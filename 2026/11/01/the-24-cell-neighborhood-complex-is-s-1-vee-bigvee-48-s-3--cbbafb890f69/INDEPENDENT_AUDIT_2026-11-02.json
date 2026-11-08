@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T09:02:08.974702Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 125816363858ca22d7007674480011da9d3ec1e0",
+        "Pinned RESULT.md blob 125816363858ca22d7007674480011da9d3ec1e0",
+        "Pinned verify_24cell.py blob ddd341b6b5ace35e44e73798694b3643c52fab11",
+        "Pinned homology_f2.py blob 746948df9f6e5e187fc5aca12c0b30f65918a6d9"
+      ],
+      "rationale": "The exact graph is the 24-root D4 polytope graph with vertices +/-e_i+/-e_j and Euclidean inner-product-one adjacency (96 edges, degree eight). By the definition of Lovasz open-neighborhood complex, every face is a nonempty subset of one of its 24 neighbor sets; independent reconstruction deduplicates the complete 5088 faces, with f-vector (24,264,960,1608,1344,672,192,24). Applying the explicit ordered 24-pivot elementary pairing to every available face yields 2519 disjoint pairs, leaving exactly one critical 0-cell, one critical 1-cell, 48 critical 3-cells. Independent complete traversal of all 22128 Hasse cover incidences after reversing matched arrows topologically sorts all 5088 faces, proving the matching acyclic (not merely a greedy cancellation log). The resulting Forman CW complex has one 0-cell, one 1-cell and 48 3-cells, with no 2-cells. All maps S2 -> S1 are null because pi_2(S1)=0, so the *integral homotopy type*, not just F2 Betti numbers, is S1 wedge 48 S3. The separate mod-2 boundary ranks 23,240,720,840,504,168,24 provide consistency only. Exact finite one-graph certification is exhaustive.",
+      "residual_risks": [
+        "Formal proof in general case remains mathematical argument; finite checks do not constitute formal certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shukla arXiv:1802.04526 theorems are bounded by degree 3 or graph class of 4-regular circulants; D4-root graph has degree 8. Csorba et al. provide relations among functors, not a D4 enumeration; hypercube family does not contain the graph."
+        ],
+        "reasoning": "No identified general homotopy formula applies with matching object/hypotheses. Generic graph-to-complex equivalences do not compute the number 48 or the mixed dimensions.",
+        "searches": [
+          "24-cell graph Lovasz open neighborhood complex homotopy S1 wedge 48 S3",
+          "Shukla 2018 max degree <=3 and 4 regular circulant neighborhood complex classification",
+          "Csorba Lange Schurr Wassmer 2003 box neighborhood complex homotopy",
+          "Resultary neighborhood complexes of hypercubes"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md blob 125816363858ca22d7007674480011da9d3ec1e0",
+        "Pinned verify_24cell.py blob ddd341b6b5ace35e44e73798694b3643c52fab11",
+        "Pinned homology_f2.py blob 746948df9f6e5e187fc5aca12c0b30f65918a6d9",
+        "Independent exact 5088-face/2519-pair Hasse DAG reconstruction",
+        "Shukla arXiv:1802.04526 primary PDF relevant theorems",
+        "Csorba et al. arXiv:math/0310339 (general equivalence)",
+        "Resultary:f4b41c9ffb3d same-graph independence complex",
+        "Resultary query: 24-cell graph Lovasz open neighborhood complex homotopy S1 wedge 48 S3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted 5088-face incidence analysis and complete acyclic 2519-pair matching are specific to the 24-cell; older generic homotopy comparisons do not provide them."
+        ],
+        "reasoning": "An equivalence between neighborhood and box constructions transfers already-known homotopy types but does not determine them from graph parameters alone; its existence cannot imply this explicit mixed wedge.",
+        "searches": [
+          "24-cell graph Lovasz open neighborhood complex homotopy S1 wedge 48 S3",
+          "arXiv:1802.04526 graph maximum degree at most three",
+          "arXiv:math/0310339 neighborhood box complex comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Open-neighborhood/common-neighbor/Lovasz complex all use subsets having a common *open* neighbor in the degree-eight 24-cell graph. Box and Hom(K2,G) models may be homotopy-related but no identical calculation appears in cited comparisons."
+        ],
+        "reasoning": "A D4 root graph is not the 4-cube (16 vertices degree4) or 24-cell *independence* complex, despite shared graph names. The equivalent Hom/box language was searched for a possible dominating exact result.",
+        "searches": [
+          "24-cell graph Lovasz open neighborhood complex homotopy S1 wedge 48 S3",
+          "24-cell root graph D4 Hom(K2,G) neighborhood common neighbor complex",
+          "\"24-cell\" \"Lovasz neighborhood complex\" \"48\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published same-graph *independence* complex result is wedge 31 S2 and 21 S3, which is not the common-neighbor relation; published other-graph neighborhood examples have different f-vectors."
+        ],
+        "reasoning": "Same input alone is not same invariant: the faces are governed by common open neighbors, unlike independent vertex sets. No exact 24-cell neighborhood homotopy entry was located.",
+        "searches": [
+          "24-cell graph Lovasz open neighborhood complex homotopy S1 wedge 48 S3",
+          "Resultary The 24-cell graph independence complex is a mixed wedge of 31 two-spheres and 21 three-spheres",
+          "\"24-cell graph\" \"neighborhood complex\" \"S1\""
+        ]
+      },
+      "rationale": "PASS: the same-graph Resultary 24-cell independence complex describes an entirely different simplicial complex. General neighborhood-box equivalences and Shukla low-degree/circulant classifications do not imply the exact degree-8 D4 root-graph wedge. No exact prior open-neighborhood 24-cell result identified; priority provisional.",
+      "residual_risks": [
+        "An uncatalogued exact homotopy computation for the 24-cell open-neighborhood graph could exist.",
+        "Same-graph Resultary independence complex was accessible as summary only, but its definition is categorically different."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_BY_HYPOTHESES",
+          "evidence": [
+            "The 24-cell graph is 8-regular, outside both asserted finite-degree classes."
+          ],
+          "identifier_or_url": "arXiv:1802.04526",
+          "material_read": "Primary PDF main theorems and exact degree/circulant hypotheses read",
+          "method": "Read PDF theorem statements and scope",
+          "title": "Homotopy type of neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs",
+          "trigger": "Potential general classification of neighborhood complexes"
+        },
+        {
+          "assessment": "GENERAL_EQUIVALENCE_ONLY",
+          "evidence": [
+            "No 24-cell-specific computation is substantiated from accessible material."
+          ],
+          "identifier_or_url": "arXiv:math/0310339",
+          "material_read": "Main abstract and the relationship of neighborhood and box complexes as cited by pinned scientific text; full primary article not independently fetched",
+          "method": "Reviewed general theorem context from cited result",
+          "title": "Box complexes, neighborhood complexes, and the chromatic number",
+          "trigger": "Equivalent Hom/box formulations could dominate"
+        },
+        {
+          "assessment": "DIFFERENT_COMPLEX",
+          "evidence": [
+            "Independence complex asks for pairwise nonadjacent subsets; open-neighborhood complex asks for a common graph neighbor."
+          ],
+          "identifier_or_url": "Resultary:2026/10/11/SCOPE-the-24-cell-graph-independence-complex-is-a-mixed-wedge-of-31-tw--f4b41c9ffb3d",
+          "material_read": "Published semantic summary and source identification; not full text",
+          "method": "Resultary record search/summary",
+          "title": "The 24-cell graph independence complex is a mixed wedge of 31 two-spheres and 21 three-spheres",
+          "trigger": "Same exact graph, potential competing topological table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 125816363858ca22d7007674480011da9d3ec1e0",
+        "Pinned verify_24cell.py blob ddd341b6b5ace35e44e73798694b3643c52fab11",
+        "Pinned homology_f2.py blob 746948df9f6e5e187fc5aca12c0b30f65918a6d9"
+      ],
+      "rationale": "PASS: The exceptional self-dual 24-cell graph is a canonical high-symmetry D4 root configuration. Its open-neighborhood complex has a non-obvious mixed-dimensional integral homotopy type S1 wedge 48 S3, a natural exact topological invariant which cannot be read off from its f-vector or a known low-degree graph classification. Complete explicit Morse reduction makes the one-object calculation substantial.",
+      "residual_risks": [
+        "Value is for the exact stated object and invariant, not a claim of a new general theory."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md blob 125816363858ca22d7007674480011da9d3ec1e0",
+    "Pinned verify_24cell.py blob ddd341b6b5ace35e44e73798694b3643c52fab11",
+    "Pinned homology_f2.py blob 746948df9f6e5e187fc5aca12c0b30f65918a6d9",
+    "Independent exact 5088-face/2519-pair Hasse DAG reconstruction",
+    "Shukla arXiv:1802.04526 primary PDF relevant theorems",
+    "Csorba et al. arXiv:math/0310339 (general equivalence)",
+    "Resultary:f4b41c9ffb3d same-graph independence complex",
+    "Resultary query: 24-cell graph Lovasz open neighborhood complex homotopy S1 wedge 48 S3"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Ordinary nonequivariant integral homotopy for the one specified D4 root graph, not an automorphism representation or deformation family.",
+    "Mod-two homology by itself would not establish homotopy; acyclic matching and attaching map do."
+  ],
+  "residual_risks": [
+    "An uncatalogued exact homotopy computation for the 24-cell open-neighborhood graph could exist.",
+    "Same-graph Resultary independence complex was accessible as summary only, but its definition is categorically different."
+  ],
+  "schema_version": 1
+}

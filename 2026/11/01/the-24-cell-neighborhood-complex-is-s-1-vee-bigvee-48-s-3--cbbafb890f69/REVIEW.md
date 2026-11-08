@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex coordinates and adjacency are exact integers. The 24 open neighborhoods have size eight; enumerating all their nonempty subsets gives all 5088 faces and the stated \(f\)-vector. The explicitly ordered pivot algorithm pairs 2519 codimension-one incidences; the final 5088-vertex directed Hasse graph contains no cycle, verified by full topological sorting of all 22128 incidences. The unmatched cells are exactly one in dimensions zero and one and 48 in dimension three. Discrete Morse theory gives a CW model with those cells, and the 48 attaching maps \(S^2\to S^1\) vanish because \(\pi_2(S^1)=0\). A separate mod-two chain-rank check reproduces the predicted Betti numbers. The proof is integral, not merely finite-experiment evidence or rational Betti numbers.
+## correctness
 
-## Originality — PASS, with recorded residual risk
-Searches used common-neighbor, Lovász, box, Hom-complex, 24-cell, F4 and D4-root formulations, compared claims and implications rather than titles alone. The source closest on the exact graph computes its *independence* complex; that does not imply its neighborhood complex. General box-complex equivalences give no 24-cell rank computation. Shukla's exact homotopy theorem addresses degree at most three and four-regular circulants, whereas the graph here has degree eight; Kahle treats random graphs. No complete matching result was identified in the inspected material. The full same-graph indexed independence paper was not accessible, so an incidental equivalent computation elsewhere in it or in uncatalogued work remains a publication-priority risk; this is not presented as a proof of global novelty.
+PASS
 
-## Value — PASS
-The 24-cell is the canonical exceptional self-dual regular four-polytope. Its graph neighborhood complex is a natural algebraic-topological invariant motivated by graph-coloring obstructions and by the comparison of box and Lovász constructions. Its seven-dimensional facets conceal a nontrivial one-dimensional loop and 48 independent three-spheres. The complete integral homotopy type gives substantially more than a face count or a mod-two Betti table, and contrasts with the distinct published same-graph independence complex. No new chromatic-number bound, equivariant classification or general family theorem is claimed.
+The exact graph is the 24-root D4 polytope graph with vertices +/-e_i+/-e_j and Euclidean inner-product-one adjacency (96 edges, degree eight). By the definition of Lovasz open-neighborhood complex, every face is a nonempty subset of one of its 24 neighbor sets; independent reconstruction deduplicates the complete 5088 faces, with f-vector (24,264,960,1608,1344,672,192,24). Applying the explicit ordered 24-pivot elementary pairing to every available face yields 2519 disjoint pairs, leaving exactly one critical 0-cell, one critical 1-cell, 48 critical 3-cells. Independent complete traversal of all 22128 Hasse cover incidences after reversing matched arrows topologically sorts all 5088 faces, proving the matching acyclic (not merely a greedy cancellation log). The resulting Forman CW complex has one 0-cell, one 1-cell and 48 3-cells, with no 2-cells. All maps S2 -> S1 are null because pi_2(S1)=0, so the *integral homotopy type*, not just F2 Betti numbers, is S1 wedge 48 S3. The separate mod-2 boundary ranks 23,240,720,840,504,168,24 provide consistency only. Exact finite one-graph certification is exhaustive.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS: the same-graph Resultary 24-cell independence complex describes an entirely different simplicial complex. General neighborhood-box equivalences and Shukla low-degree/circulant classifications do not imply the exact degree-8 D4 root-graph wedge. No exact prior open-neighborhood 24-cell result identified; priority provisional.
+
+## value
+
+PASS
+
+PASS: The exceptional self-dual 24-cell graph is a canonical high-symmetry D4 root configuration. Its open-neighborhood complex has a non-obvious mixed-dimensional integral homotopy type S1 wedge 48 S3, a natural exact topological invariant which cannot be read off from its f-vector or a known low-degree graph classification. Complete explicit Morse reduction makes the one-object calculation substantial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
