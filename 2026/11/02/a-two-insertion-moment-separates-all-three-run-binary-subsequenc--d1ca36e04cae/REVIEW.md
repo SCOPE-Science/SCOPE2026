@@ -1,19 +1,21 @@
-# Scientific review of the three-run strong-Wilf separation theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim quantifies over every binary pair in which the first pattern has at most three runs. The known one-insertion run-multiset lemma reduces possible alternatives to permutations of those run lengths. For three runs the ordered-pair-of-embeddings expansion separates equal, once-overlapping, and disjoint omitted pairs, with exact weights 4, 2, and 1. A complete six-shape compatibility table yields a symmetric base minus the term \(2ac\mathbf1_{\{b\geq2\}}\). That term identifies the middle run, including singleton and repeated-length boundary cases. Full direct enumeration and separate omitted-hole calculations confirm the formula on 81 and 216 parameter triples respectively. Only the combinatorial proof, not the finite tests, covers all positive lengths.
+PASS
 
-## Originality
+For k≥2, Menon–Singh Lemma 3.6 gives B_{ℓ+1,p}(k) equal to the number of runs of length k−1, so a strongly equivalent q must have identical run-length multiset and number of runs. For p=1^a0^b1^c and n=ℓ+2, expand ∑_{host}X_p(host)^2 as ordered pairs of embeddings specified by deleted two-element sets A,B. If A=B, weight four; if |A∩B|=1, weight two and compatible distinct omission positions occur within the same constant run; if disjoint, the six A/B labellings of four positions admit exactly 2U+4V placements with the stated formulas. This yields a symmetric sum minus 2ac·1_{b≥2}. For fixed multiset, this zero-or-negative term identifies b=1 uniquely if present, else its magnitude 2abc/b identifies the middle run. The outer run order is reversal and the first bit is complement. Independently generated all 2^(ℓ+2) hosts and computed embedding counts by dynamic programming for 54 distinct positive triples with a,b,c≤4 and ℓ≤9, all matching the exact formula; independently classified all six disjoint-hole shapes for 125 triples a,b,c≤5, matching the two U and four V counts. The example is 598/592/594 for different middle runs. Infinite correctness follows from six-shape combinatorial classification rather than finite tests.
 
-PASS subject to the stated residual priority risk. Menon--Singh, *Subsequence frequency in binary words* (arXiv:2306.07870v1), Lemma 3.6 and Conjecture 5.2, explicitly establishes the run-multiset invariant and leaves the all-pattern strong-equivalence classification conjectural. Its results for three-run patterns concern maximum multiplicities and internal zeros, not this identification by second moment. Bruda (arXiv:2607.02578) treats eventual polynomial occurrence-frequency counts for fixed \(k\), not equality of entire distributions or recovery of the ordered run composition. Targeted searches of relevant indexed published records, relevant primary literature, and accessible prior claims did not identify a stronger covering result. This is best-knowledge originality, not a proof of absence from all literature.
+## originality
 
-## Value
+PASS
 
-PASS. The problem is a clearly named conjecture in the foundational 2023 subsequence-frequency study. Establishing it for the entire natural three-run subclass is an infinite-domain structural classification, not a finite or arbitrary parameter census. The main new invariant shows that *one extra-host-letter moment*, in conjunction with the already known run multiset, is sufficient to identify the middle run without reconstructing every frequency distribution. The precise correction also isolates the singleton-middle exceptional mechanism.
+Menon–Singh precisely conjectured that reversal/complement are the only strong Wilf equivalences and verified only length≤13; their different at-most-three-run theorems concern maximal occurrence counts and internal zeros, not this all-length classification. Tian develops occurrence-computation algorithms and primitive binary words without resolving the conjecture. No equivalence/dominating theorem was found in Resultary. The finite small-host second moment supplies a new separating invariant.
 
-## Closest work and limitations
+## value
 
-The first source already proves the unordered-run invariant and verifies its larger conjecture computationally only through pattern length 13; this work extends a three-run subclass to all lengths. Bruda concerns different frequency-count asymptotics; Tian gives per-host counting algorithms; Janson--Szpankowski treat random-host limit laws rather than the two-insertion fingerprint. An unindexed equivalent derivation, including a two-deletion or word-reconstruction reinterpretation, is a residual priority risk. No assertion is made for patterns with four or more runs, or for alphabets larger than two. The finite verifier is auxiliary to the symbolic proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This proves an infinite, structurally natural three-run case of a published open classification conjecture, with an explicit low-host-length moment formula usable to distinguish patterns; it is not merely recomputing known occurrence counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

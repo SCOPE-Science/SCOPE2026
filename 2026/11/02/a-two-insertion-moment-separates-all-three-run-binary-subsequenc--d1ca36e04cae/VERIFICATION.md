@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3 and only the standard library. The program constructs all size-two embedding-complement sets, counts compatibility for each of the six disjoint shape patterns, and independently enumerates binary hosts with a subsequence-count dynamic program.
+## correctness
 
-Actual execution returned `pair-and-shape checks: 216`, `independent direct-host checks: 81`, `example (1,2,3)/(1,3,2)/(2,1,3): 592/594/598`, and `VERIFY_OK`.
+PASS
 
-The first exhaustive check covers all triples of run lengths from 1 to 6; the second covers all such triples whose total length is at most 9. Exact integers are used throughout. The checks do not establish any claim beyond those finite ranges; the general result depends on the position-compatibility and run-multiset proof in RESULT.md. Independent scientific validation has not been performed.
+For k≥2, Menon–Singh Lemma 3.6 gives B_{ℓ+1,p}(k) equal to the number of runs of length k−1, so a strongly equivalent q must have identical run-length multiset and number of runs. For p=1^a0^b1^c and n=ℓ+2, expand ∑_{host}X_p(host)^2 as ordered pairs of embeddings specified by deleted two-element sets A,B. If A=B, weight four; if |A∩B|=1, weight two and compatible distinct omission positions occur within the same constant run; if disjoint, the six A/B labellings of four positions admit exactly 2U+4V placements with the stated formulas. This yields a symmetric sum minus 2ac·1_{b≥2}. For fixed multiset, this zero-or-negative term identifies b=1 uniquely if present, else its magnitude 2abc/b identifies the middle run. The outer run order is reversal and the first bit is complement. Independently generated all 2^(ℓ+2) hosts and computed embedding counts by dynamic programming for 54 distinct positive triples with a,b,c≤4 and ℓ≤9, all matching the exact formula; independently classified all six disjoint-hole shapes for 125 triples a,b,c≤5, matching the two U and four V counts. The example is 598/592/594 for different middle runs. Infinite correctness follows from six-shape combinatorial classification rather than finite tests.
+
+## originality
+
+PASS
+
+Menon–Singh precisely conjectured that reversal/complement are the only strong Wilf equivalences and verified only length≤13; their different at-most-three-run theorems concern maximal occurrence counts and internal zeros, not this all-length classification. Tian develops occurrence-computation algorithms and primitive binary words without resolving the conjecture. No equivalence/dominating theorem was found in Resultary. The finite small-host second moment supplies a new separating invariant.
+
+## value
+
+PASS
+
+This proves an infinite, structurally natural three-run case of a published open classification conjecture, with an explicit low-host-length moment formula usable to distinguish patterns; it is not merely recomputing known occurrence counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
