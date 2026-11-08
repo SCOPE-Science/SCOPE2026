@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Exact greedy weak-descent characterization, complete classification of permissible saturated edges under adjacent transposition, budget-to-length proof, and rational diagonal enumeration; boundary swap positions and k=1 included. Exhaustive finite checks match all stated formulas but are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hirota–Sakai (2023) presents output-sensitive general MCS algorithms.",
+        "Conte et al. (2023) presents a compact representation supporting generic enumeration and membership queries."
+      ],
+      "reasoning": "A general algorithm computes any chosen instance, but does not in itself state a symbolic theorem on all exponents, lengths and counts or imply the sharp unbounded gap without nontrivial analysis. No inspected stronger structural theorem subsumes this classification.",
+      "searches": [
+        "two permutation powers with single adjacent swap, maximal common subsequences equal length or shorter, minimal common supersequence",
+        "A Fast Algorithm for Enumerating Maximal Common Subsequences arxiv 2307.10552",
+        "A Compact DAG for Storing and Searching Maximal Common Subsequences arxiv 2307.13695"
+      ]
+    },
+    "checked_sources": [
+      "Sakai 2018 DOI 10.4230/LIPIcs.CPM.2018.1",
+      "Hirota–Sakai arXiv:2307.10552",
+      "Conte et al. arXiv:2307.13695",
+      "Accessible earlier statements concerning ternary swapped permutation powers, reversed permutation powers and cyclically conjugate powers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sakai (2018) studies MCS algorithms over arbitrary inputs, without the presented closed form.",
+        "Ternary adjacent-swap powers (a prior special case) have only longest maximals; reversed-permutation powers have a different relative permutation; cyclic-block conjugates yield exactly two maximals."
+      ],
+      "reasoning": "The new q>=4 classification is not a relabeling of q=3, because the length difference (q-3)(k-1) becomes positive. Neither reversal nor conjugacy of disjoint alphabet blocks entails the adjacent-transposition relation for every q and position.",
+      "searches": [
+        "maximal common subsequences repeated permutation words swap adjacent symbols P^k Q^k saturated descents",
+        "Maximal Common Subsequence Algorithms Sakai CPM 2018",
+        "maximal common subsequences repeated permutation powers reversal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sakai (2018), Section 2 and 5: insertion maximality and general enumeration, not the adjacent-swap power structure.",
+        "Previously established ternary swapped-period MCS classification has all maximal words longest; it does not imply the variable-length law for q>=4."
+      ],
+      "reasoning": "Aliases tested include maximal common subsequence, saturated common subsequence, permutation powers, adjacent transposition, and repetition. Adjacent-swap powers have exact multigraded length spectrum absent from the inspected generic treatments; q=3 alone collapses all r to the same length and does not entail it.",
+      "searches": [
+        "maximal common subsequences of adjacent transposition permutations repeated k times, exact binomial number binomial 2k k, all maximal lengths",
+        "maximal common subsequences",
+        "arxiv:2307.10552"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Existing swapped ternary powers produce the same central-binomial total; its presence alone is not identified as a novelty claim.",
+        "The present exact distribution records every r, including r<k, impossible to see from the ternary length collapse."
+      ],
+      "reasoning": "The central binomial sequence alone is known; the original part is its coincidence with a complete q>=4 multigraded MCS classification and non-longest maximals. No published exact table for that combined object was found.",
+      "searches": [
+        "binomial central coefficient number of maximal common subsequences two strings conjugate powers q alphabet",
+        "MCS of repeated permutation words: lengths and central binomial coefficients"
+      ]
+    },
+    "rationale": "Full classification is not a direct instance stated by the inspected general MCS literature, or implied by accessible earlier ternary and reversal-power statements; the novel portion is the length-resolved q>=4 phenomenon, not the previously known central binomial sequence alone. Residual unindexed-literature risk remains.",
+    "residual_risks": [
+      "Fraser–Irving–Middendorf (1996) generic MCS paper was identified but primary full text not materially inspected; a previously unnoticed specialized result may exist.",
+      "Similarity search and index absence cannot certify novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General algorithms; no adjacent-swap permutation power enumerator in inspected material",
+        "evidence": [
+          "LIPIcs CPM 2018 Article 1, general MCS algorithms and definitions"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2018.1",
+        "material_read": "Introduction, insertion characterization and algorithmic sections, including Section 5",
+        "method": "Open-access primary PDF with text and page inspection",
+        "title": "Maximal Common Subsequence Algorithms",
+        "trigger": "General maximal-common-subsequence characterization, earliest motivating source"
+      },
+      {
+        "assessment": "No symbolic adjacent-swap periodic classification stated in inspected material",
+        "evidence": [
+          "arXiv:2307.10552, algorithmic framework for arbitrary strings"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.10552",
+        "material_read": "Abstract, introduction, algorithm statements, and relevant characterization sections; terminology matches inspected",
+        "method": "ArXiv open-access full text and selected pages",
+        "title": "A Fast Algorithm for Enumerating Maximal Common Subsequences",
+        "trigger": "Direct general MCS enumeration and possible stronger result"
+      },
+      {
+        "assessment": "A generic DAG/algorithm, not the formula for the one-swap power family",
+        "evidence": [
+          "arXiv:2307.13695, compact DAG for MCS"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.13695",
+        "material_read": "Introduction, DAG construction and theorem statements, conclusion",
+        "method": "Conference open-access primary PDF, text search and page inspection",
+        "title": "A Compact DAG for Storing and Searching Maximal Common Subsequences",
+        "trigger": "Generic compact representation might imply an exact spectrum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "97ed6865-77cc-4130-af93-fcd85780307e",
+  "value": {
+    "rationale": "Exact infinite-family classification of all maximal generators of a common-subsequence language, with a genuinely unbounded shortest-maximal/longest gap and an exact stratified count that collapses to a central binomial total. This sharp separation is structurally informative for MCS enumeration.",
+    "status": "PASS"
+  }
+}
