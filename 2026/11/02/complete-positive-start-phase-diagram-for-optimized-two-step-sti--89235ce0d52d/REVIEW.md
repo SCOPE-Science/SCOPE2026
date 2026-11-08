@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source coefficients are reconstructed as the scalar recurrence. The exact discriminant, sign boundaries, two-root positive-start characterization and endpoint calculation prove the complete nonnegative-start classification without an unproved numerical extrapolation. The symbolic and high-precision standalone checker reproduces the algebra and representative cases.
+## correctness
 
-**Originality — PASS (self-review, not independently certified).** A direct full-text comparison with the 2026 source identifies the coefficient formula, but not the all-start positivity cone. Older 2002 and 2010 primary monotonicity studies treat broader bounds and specific numerical starting methods, not the complete positive-history classification for these 2026 optimized coefficients. Accessible older numerical findings cover single backward-Euler or exact starters and a different two-state Markov-history question; none implies the full half-line/singleton/empty phase diagram. Standard characteristic-root formulas are credited. Residual risk: an older implicit two-step positivity theorem might subsume the diagram after a nontrivial specialization, or an unpublished equivalent may exist.
+PASS
 
-**Mathematical value — PASS.** Positivity preservation of decay approximations is a natural numerical stability requirement. Rather than testing one arbitrary startup, the finding settles all positive startup histories, identifies a unique largest step size robust to every positive startup, and reveals a structurally different measure-zero island of indefinitely positive behavior that is destroyed by any positive startup perturbation. These boundaries inform the choice and error sensitivity of startup schemes. It is not a general nonlinear SSP or roundoff result.
+Recomputed the implicit LMM coefficient substitution into y[n+2]=Ay[n+1]-By[n], discriminant Delta=4(1+k)^3[(1+k)-2(1-k)z]/[(3-k)(1+k)+2z]^2, and exact sign boundaries za=(1-k^2)/k, zb=(3k-1)(1+k)/(2k^2), zc=(1+k)/(2(1-k)). The identities zb-za=(1+k)^2(2k-1)/(2k^2), zc-zb=(1+k)(2k-1)^2/[2k^2(1-k)] give regime ordering. Roots solve the recurrence: for two nonnegative roots all-start ratios are w>=lambda_-, for A>=0,B<=0 all w>0, when A<0,B<0 the negative root dominates unless w=positive root, and conjugate nonreal roots eventually oscillate negative. A=B=0 at (k,z)=(1/2,3/2); sign-change derivatives give unique maximizer. Independent SymPy exact checks of 7 identities and representative numerical replays corroborated, not substitute for infinite-index root argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS: Jensen–Ketcheson–Lóczi 2026 supplies the optimized LMM coefficient family, not the all-positive-start phase diagram. Prior monotonicity-preserving LMM work and single-starter thresholds are credited; neither examined source entails this complete set of independently initialized positive histories, singleton eigenmode strip and optimum at kappa=1/2. A broader classic monotonicity criterion might imply some cases, but not identified.
+
+## value
+
+PASS
+
+PASS: classifies the strong practical requirement of positivity for any independently initialized two-step scalar history and determines sharp optimum within a recently optimized stiff-method family, including a subtle fragile-tuned positivity strip; mathematical motivation is numerical positivity, not mere recurrence algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

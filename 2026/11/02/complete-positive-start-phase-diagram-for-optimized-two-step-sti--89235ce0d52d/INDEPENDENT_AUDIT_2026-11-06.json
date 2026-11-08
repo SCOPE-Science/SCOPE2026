@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T13:58:02.603126Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Recomputed the implicit LMM coefficient substitution into y[n+2]=Ay[n+1]-By[n], discriminant Delta=4(1+k)^3[(1+k)-2(1-k)z]/[(3-k)(1+k)+2z]^2, and exact sign boundaries za=(1-k^2)/k, zb=(3k-1)(1+k)/(2k^2), zc=(1+k)/(2(1-k)). The identities zb-za=(1+k)^2(2k-1)/(2k^2), zc-zb=(1+k)(2k-1)^2/[2k^2(1-k)] give regime ordering. Roots solve the recurrence: for two nonnegative roots all-start ratios are w>=lambda_-, for A>=0,B<=0 all w>0, when A<0,B<0 the negative root dominates unless w=positive root, and conjugate nonreal roots eventually oscillate negative. A=B=0 at (k,z)=(1/2,3/2); sign-change derivatives give unique maximizer. Independent SymPy exact checks of 7 identities and representative numerical replays corroborated, not substitute for infinite-index root argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hundsdorfer–Ruuth–Spiteri (2002), *Monotonicity-preserving linear multistep methods*, concerns general coefficient monotonicity in selected start models.",
+          "Hundsdorfer–Mozartova–Spijker (2010) covers step size restrictions for boundedness and monotonicity, with distinct startup hypotheses."
+        ],
+        "reasoning": "Broad monotonicity theory can supply reusable inequalities but an exact sharp all-positive ratio-cone and its optimization for this specific 2026 coefficient family was not shown in inspected theorem summaries.",
+        "searches": [
+          "Resultary semantic: Optimized two-step L kappa stiff integrator all-positive starts positivity phase diagram",
+          "CWI MAS-R0210 (2002)",
+          "CWI 16707B (2010)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.22685",
+        "CWI MAS-R0210",
+        "CWI 16707B",
+        "frozen RESULT.md 0fa259ff15f70affc3a4ebb6e8915e4a8aa9efc7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier studies supply the rational A,B coefficients and A-stability, not sign preservation of arbitrary positive histories.",
+          "The theorem uses exact discriminant/root sign cases to distinguish all starts, a half-line, a singleton and none."
+        ],
+        "reasoning": "Linear-stability (spectral magnitude) does not imply componentwise nonnegativity; extra characteristic-root and start-coefficient analysis is essential.",
+        "searches": [
+          "Resultary semantic: Optimized two-step L kappa stiff integrator all-positive starts positivity phase diagram",
+          "arXiv:2610.22685",
+          "CWI MAS-R0210"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jensen–Ketcheson–Lóczi arXiv:2610.22685 Cor.4.2 gives coefficients optimized for A- and L(k)-stability, not this all-start positivity cone.",
+          "Resultary nearest published records concern Lanczos, BDF2, SOR and different schemes."
+        ],
+        "reasoning": "Positivity for an exact-solution or backward-Euler starter is strictly weaker than positivity for every independently positive y0,y1; no identity of claims follows.",
+        "searches": [
+          "Resultary semantic: Optimized two-step L kappa stiff integrator all-positive starts positivity phase diagram",
+          "arXiv:2610.22685",
+          "Resultary: Optimized two-step L kappa stiff integrator all-positive starts positivity phase diagram"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The parameter set is two-dimensional continuous (kappa,z), with an exact boundary locus and single tuned eigenmode strip.",
+          "Coefficient tables in arXiv:2610.22685 specify LMM weights but not permissible arbitrary positive two-step starts."
+        ],
+        "reasoning": "No finite coefficient table alone gives the infinite-time cone constraints or unique all-start optimal kappa.",
+        "searches": [
+          "Resultary semantic: Optimized two-step L kappa stiff integrator all-positive starts positivity phase diagram",
+          "arXiv:2610.22685"
+        ]
+      },
+      "rationale": "PASS: Jensen–Ketcheson–Lóczi 2026 supplies the optimized LMM coefficient family, not the all-positive-start phase diagram. Prior monotonicity-preserving LMM work and single-starter thresholds are credited; neither examined source entails this complete set of independently initialized positive histories, singleton eigenmode strip and optimum at kappa=1/2. A broader classic monotonicity criterion might imply some cases, but not identified.",
+      "residual_risks": [
+        "Classical monotonicity-preserving LMM literature may contain an equivalent specialization not identified in partial full-text coverage.",
+        "Only scalar positive decay at constant step; not a nonlinear SSP or matrix positive semigroup theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_COEFFICIENTS_PRIOR, NOT_SAME_ALL_START_CONE; source properly credited",
+          "evidence": [
+            "arXiv:2610.22685, Corollary 4.2 and equation (25)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.22685",
+          "material_read": "Accessible full arXiv primary HTML with Corollary 4.2 and equation (25), inspected coefficients and stability optimization",
+          "method": "Compared optimization objective and start conditions and verified substitution into A,B",
+          "title": "Optimized linear multistep methods for stiff problems",
+          "trigger": "Exactly the same LMM coefficient family"
+        },
+        {
+          "assessment": "PARTIALLY_INSPECTED; remaining possibility of applicable broader positivity criterion is a residual risk",
+          "evidence": [
+            "Hundsdorfer–Ruuth–Spiteri 2002 CWI report MAS-R0210"
+          ],
+          "identifier_or_url": "https://ir.cwi.nl/pub/4231/04231D.pdf",
+          "material_read": "Bibliographic details and cited Sections/selected descriptions; complete PDF not claimed read",
+          "method": "Compared announced scope and start models with this independent positive-start classification",
+          "title": "Monotonicity-preserving linear multistep methods",
+          "trigger": "General positivity/monotonicity could subsume recurrence tests"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: classifies the strong practical requirement of positivity for any independently initialized two-step scalar history and determines sharp optimum within a recently optimized stiff-method family, including a subtle fragile-tuned positivity strip; mathematical motivation is numerical positivity, not mere recurrence algebra.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.22685",
+    "CWI MAS-R0210",
+    "CWI 16707B",
+    "frozen RESULT.md 0fa259ff15f70affc3a4ebb6e8915e4a8aa9efc7"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the optimized two-step stiff linear multistep family with 0<=kappa<1 and scalar positive decay z>0, exactly classify all positive starting ratios w=y1/y0 that keep every iterate nonnegative: low-kappa half-line above smaller positive root, mid-kappa all-positive and half-line zones, kappa=1/2 all-positive through z=3/2, and high-kappa all-positive then a unique tuned positive eigenratio interval; the all-start threshold U(kappa) has unique maximum 3/2 at kappa=1/2.",
+  "limitations": [
+    "Independent positive arbitrary initial values and all-index nonnegativity, zero later iterates permitted.",
+    "Optimal robust threshold differs from positivity of a single numerically initialized history."
+  ],
+  "residual_risks": [
+    "Classical monotonicity-preserving LMM literature may contain an equivalent specialization not identified in partial full-text coverage.",
+    "Only scalar positive decay at constant step; not a nonlinear SSP or matrix positive semigroup theorem."
+  ],
+  "schema_version": 1
+}
