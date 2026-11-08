@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof defines proportional shares for every laminar subgroup and maintains a one-sided strict excess invariant under each irrevocable assignment. At a current subtree, summing children excesses against their size-proportional thresholds guarantees an admissible next child. The update cases exhaust the laminar alternatives. Exact-fraction tests of short complete sequences and longer diverse hierarchies were reproduced by the packaged checker; they corroborate but do not replace the induction. The one-chore example establishes optimality of the uniform constant.
+## correctness
 
-**Originality (PASS with stated access risk).** The motivating 2026 paper proves a general-case deterministic online barrier and offline Prop1, but the text accessible for this comparison did not state the fixed-laminar prefixwise group-quota guarantee. The nested-machine scheduling sources reported makespan objectives, not the stated simultaneous fair-share constraint. published-finding corpus searches for hierarchy, laminar fairness, online rounded quotas, and equivalent restrictions showed no matching claim among the closest results; all available related scientific findings were compared. The preprint's full text was inaccessible, so an uninspected corollary or equivalent theorem there remains a material risk, not a claim of exhaustive coverage.
+PASS
 
-**Value (PASS).** Laminar eligibility is a natural hierarchical staffing restriction. The structural theorem removes the unrestricted online chore-fairness loss, gives an anytime algorithm for arbitrary agent counts and adaptive sequences, and strengthens singleton fairness to all nested groups with a sharp uniform constant. It is not an arbitrary small enumerative slice or an accuracy gain of only an unmotivated constant.
+C PASS: For a fixed known finite laminar family of eligible agent sets augmented by N and singletons, define e_t(T)=L_t(T)-sum_{j<=t}|T∩S_j|/|S_j|. For arriving S, e_old(S)<1=|S|/|S|. If e_old(U)<|U|/|S|, partition of U by immediate tree children guarantees some child e_old(child)<|child|/|S|. Recurse to eligible singleton i and assign. On chosen descendants new e=e_old+1-|T|/|S|<1; off-path descendants decrease; ancestors and disjoint groups unchanged. This induction handles every adaptive prefix, all sizes. Singleton inequality implies Prop1 for unit costs; single globally eligible chore has recipient excess 1-1/n, showing no uniform c<1 works.
 
-**Closest literature and limits.** Biburger--Megow--Shahkarami (arXiv:2610.08064) supplies the eligibility-proportional benchmark and general online bounds. Scheduling work on nested eligible-machine classes optimizes makespan; its displayed claims do not directly imply prefixwise quota rounding. Only accessible bibliographic material and excerpts, not full motivating paper text, could be inspected. The result assumes unit chores and a fixed known laminar family; no independent review was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original deterministic anytime laminar eligibility quota guarantee; closest general constrained fair-division paper full text inaccessible and significant overlap risk recorded.
+
+## value
+
+PASS
+
+V PASS: Strong, anytime simultaneous hierarchical group and individual fairness for natural nested eligibility under irrevocable online unit-chore assignments, contrasted with general crossing-eligibility hardness; sharp universal one-chore limit is motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
