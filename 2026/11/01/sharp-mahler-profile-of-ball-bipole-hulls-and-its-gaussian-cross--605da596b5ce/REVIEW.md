@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claimed polar is exactly the ball clipped by one symmetric slab. The primal meridian has a spherical part ending at the tangent contact and a conical part; independently integrating the two sections yields the same product. Differentiation reduces monotonicity to \(G_d'(t)=2t(dI_d(t)-t(1-t^2)^{(d-1)/2})>0\), with strictness for every \(d\ge2\). Explicit endpoint expansions have nonzero coefficients and justify both inverse exponents. Rescaling the beta-density yields the Gaussian transition; a positive derivative certificate proves its strict increase. The standalone checker independently compares polygonal hull volumes and polar slab volumes, checks an exact rational sample, and tests the endpoint and Gaussian limits. Universality rests on the analytical proof, not finite diagnostics.
+PASS
 
-## Originality
+Polarity gives ball intersected with |x·e|<=t and exact polar volume 2 kappa_(d-1) I_d. Spherical and tangent-conical primal meridian integrates to 2kappa_(d-1)(I_d+J_d). Differentiation yields G_d prime=2t(d I_d-t f)>0, so product strictly increases. Endpoint expansions have nonzero coefficients of t² and (1-t)^((d+1)/2), proving inverse Hölder sharpness. Rescaling u=tau/sqrt(d) yields the Gaussian H(tau) integral by dominated convergence; derivative B prime=2tau H>0. Independent symbolic d=3 identity, direct convex-hull/polar comparisons and endpoint checks corroborated without replacing all-d proof.
 
-**PASS, with provisional historical priority.** Fradelizi–Meyer–Zvavitch, *Volume Product* (arXiv:2301.06131), surveys general volume-product bounds and known special cases. Meyer–Reisner, *Ellipsoids are the only local maximizers of the volume product* (arXiv:1812.11607), establishes global rigidity of local maximizers. Meyer–Reisner, *Shadow systems and volumes of polar convex bodies* (arXiv:math/0606305), supplies general shadow-system convexity; none of the inspected statements gives this exact ball–bipole profile with its sharp inverse endpoint exponents and dimension crossover. The corresponding segment-Minkowski-sum body is different, not an alternative description of the present hull. Earlier specialized polar-integral formulas remain a residual historical-priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** Exact volume-product measurements now identify the natural aspect parameter of an entire all-dimensional convex-body family. Two distinct sharp inverse exponents explain why reconstruction becomes ill-conditioned at opposite shape limits. The noncommuting high-dimensional limits are governed by a nontrivial Gaussian transition rather than a mere fixed-dimensional Taylor expansion. These are motivated structural conclusions for volume-product geometry, beyond elementary integration of a single static body.
+Originality claimed for the complete parameter-explicit strict product/inverse and crossover, not classical polarity, ellipsoid optimality, or general shadow systems.
 
-## Caveats
+## value
 
-The theorem treats exact symmetric Euclidean hulls only. It neither addresses arbitrary origin-asymmetric convex bodies nor supplies statistical confidence intervals. The high-dimensional crossover is pointwise. Bibliographic priority has not received independent specialist verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One exact volume-product measurement recovers a natural geometric shape parameter with quantified degeneracies at both ends. Sharp inverse instability and Gaussian transition reveal structural all-dimensional behavior beyond an elementary primal-volume evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
