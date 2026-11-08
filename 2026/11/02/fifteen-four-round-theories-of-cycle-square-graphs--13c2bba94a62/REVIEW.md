@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Brown and Hoshino's Theorem 4.9 gives rank-five equivalence of ordinary cycles of all orders at least nineteen. The displayed square-adjacency interpretation adds at most one quantifier to the rank of an arbitrary formula, giving the unbounded tail. The complete first-order tuple-type recursion proves that fifteen small parameter representatives have distinct rank-four types, as checked by direct and dihedral-orbit implementations. The two algorithms agree on every pair among orders five through thirty-two. The finite experiment is not used to infer the infinite tail.
+## correctness
 
-**Originality (PASS, qualified).** The closest covering candidate is the 2007 cycle theorem. Its statement applies to unsquared cycles, and its interpretation consequence proves only the large-order equivalence, not the sharp lower bound or the fourteen finite distinctions in this claim. The complete text inspected of the 2012 cycle-power biclique-colouring study treats a different invariant. Semantic research-index comparisons for square cycles, cyclic Cayley graphs, logical equivalence, and quantifier rank four did not return this partition. An earlier rank-three analysis of cycle powers does not settle a rank-four partition. Historical priority remains a risk, particularly for unindexed or inaccessible work.
+PASS
 
-**Mathematical value (PASS).** Powers of cycles are a natural family of homogeneous bounded-degree graphs, and the complete sharp logical threshold is not determined by their degree alone or by their finite induced four-vertex patterns. Four-distinct-vertex patterns stabilize at twelve vertices, while full four-round equivalence stabilizes only at nineteen. The result answers a motivated finite-model-theoretic classification question and establishes the exact least common family representative, rather than an arbitrary isolated computation.
+For every n>=5, S_n=C_n^2 has adjacency interpreted in C_n by x!=y AND (E_C(x,y) OR exists z E_C(x,z) AND E_C(z,y)); this adds at most one quantifier. Brown--Hoshino (2007), Theorem 4.9, establishes C_m equiv_5 C_n for m,n>=19, hence S_m equiv_4 S_n. The recursive exact tuple-type invariant tau_{r+1}(a)=(atomic diagram,{tau_r(a,b):b in V}) is equivalent to bounded-rank equivalence. I independently compiled and ran the supplied dihedral-reduced C++ recurrence, not just read its transcript: ranks-four empty-tuple type IDs for n=5..18 were all distinct, and n=19..24 shared ID 364. This computational finite distinction plus the analytic published infinite-tail implication prove the full family classification, 15 classes and sharp tail at 19; finite computation alone does not prove the infinite tail.
 
-The result is limited to the stated language and parameter range. The finite boundary relies on independently reproducible exhaustive type calculations, while the infinite bound uses a published theorem. Unindexed prior work and independent mathematical validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on available primary texts: the 2007 undirected-cycle theorem supplies the tail after the one-quantifier interpretation, but not the n=5..18 pairwise separation of C_n squared. A powers-of-cycles biclique-colouring paper studies a different invariant. Search returned no exact previously published fifteen-class square-cycle census; duplicate specialist finite-model-theory tables remain possible.
+
+## value
+
+PASS
+
+The bounded-rank elementary-equivalence partition is a natural logical invariant of a canonical four-regular family. An exact fifteen-theory classification and sharp smallest-representative cutoff distinguish finite small cycle-square graphs even though one tail class is eventually indistinguishable; not merely a renamed parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

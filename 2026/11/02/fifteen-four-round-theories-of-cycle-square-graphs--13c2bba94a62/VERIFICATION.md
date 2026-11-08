@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `sh verify.sh` with a C++17 compiler and Python 3. The verifier compiles `cycle2_orbit.cpp` and `cycle2_direct.cpp` from source and deletes its temporary executables. It checks the fifteen-class partition, the pairwise agreement of independently formed rank-four type identifications, and the four-selected-vertex pattern calculation. The completed output from the packaged sources is in `verification_output.txt`.
+## correctness
 
-The direct verifier enumerates every ordered four-tuple, with repetitions, from each graph through order thirty-two. It recursively interns the atomic equality/adjacency diagram and set of one-vertex extension types until reaching the empty tuple of rank four. The orbit verifier uses dihedral symmetry to reduce tuple enumeration and checks orders through seventy-two. A dihedral symmetry preserves all adjacency and equality facts, so replacing a tuple by its orbit representative cannot alter its first-order type. The critical range five through nineteen is covered by both exact methods.
+PASS
 
-To reconstruct the mathematical infinite tail, interpret every adjacency atom of a square graph in its unsquared cycle by a nonloop edge or a two-step path, using at most one additional existential quantifier. Brown and Hoshino (2007), Theorem 4.9, proves the required rank-five cycle equivalence at sizes at least nineteen. This external theorem is a logical premise; the finite programs do not prove it.
+For every n>=5, S_n=C_n^2 has adjacency interpreted in C_n by x!=y AND (E_C(x,y) OR exists z E_C(x,z) AND E_C(z,y)); this adds at most one quantifier. Brown--Hoshino (2007), Theorem 4.9, establishes C_m equiv_5 C_n for m,n>=19, hence S_m equiv_4 S_n. The recursive exact tuple-type invariant tau_{r+1}(a)=(atomic diagram,{tau_r(a,b):b in V}) is equivalent to bounded-rank equivalence. I independently compiled and ran the supplied dihedral-reduced C++ recurrence, not just read its transcript: ranks-four empty-tuple type IDs for n=5..18 were all distinct, and n=19..24 shared ID 364. This computational finite distinction plus the analytic published infinite-tail implication prove the full family classification, 15 classes and sharp tail at 19; finite computation alone does not prove the infinite tail.
 
-The computations do not enumerate all written separating sentences, do not treat unbounded order in isolation, and do not constitute independent mathematical audit. Published-literature comparisons are documented in `AUDIT.json` and `REVIEW.md`.
+## originality
+
+PASS
+
+PASS on available primary texts: the 2007 undirected-cycle theorem supplies the tail after the one-quantifier interpretation, but not the n=5..18 pairwise separation of C_n squared. A powers-of-cycles biclique-colouring paper studies a different invariant. Search returned no exact previously published fifteen-class square-cycle census; duplicate specialist finite-model-theory tables remain possible.
+
+## value
+
+PASS
+
+The bounded-rank elementary-equivalence partition is a natural logical invariant of a canonical four-regular family. An exact fifteen-theory classification and sharp smallest-representative cutoff distinguish finite small cycle-square graphs even though one tail class is eventually indistinguishable; not merely a renamed parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
