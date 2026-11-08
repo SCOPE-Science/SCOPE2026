@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify_cube_tail.py` with NumPy and SciPy installed. The program is standalone and requires no input data. It constructs all twelve cube edges, computes their intersections with generic central planes, and takes planar convex hull areas; this is separate from the convolution-based proof. It compares 1,958 nondegenerate orientations, checking areas and vertex counts; the maximum absolute discrepancy is below \(5\times10^{-15}\). It checks two limiting angular integrals and their exact formulas. It also independently integrates finite-tolerance Haar areas for six tolerances and confirms convergence of the joint quadratic constants and conditional polygon split. The script ends in `PASS: independent checks`.
+## correctness
 
-The analytic proof supplies universal statements and \(O(\varepsilon^3)\) error; numerical tests alone could not. No independent mathematical audit is reported. Calculations are reproducible to usual floating-point tolerance, but quadrature roundoff is not a certified rational enclosure.
+PASS
+
+The claim fixes the side-two cube, Haar normal U on S², intrinsic central section area and polygon side count. Coarea of three independent uniform coordinates yields A=4/a−(b+c−a)_+²/(abc) for a≥b≥c≥0; the face criterion is four sides iff a≥b+c. Ball equality normals are exactly the twelve two-coordinate diagonals. Near each one x=a−b,y=c give spherical Jacobian 1/√2+O(x+y) and a uniformly positive first-order deficit g=4x (y≤x), 2(y+x²/y) (y>x). Uniform radial error O(ε²) yields O(ε³) integrated remainder. Direct integration of cone regions yields areas 1/32 (quad) and (π+2)/64 (hex); 48 adjacent chamber sectors divided by 4π prove the two ε² constants and the conditional angular uniform law. Independently reconstructed 40 generic edge-plane intersection polygons and their hull areas against the analytic formula, max error 2.67e−15; a finite check only corroborates the analytic proof. Boundary normals have measure zero.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinctive claim is the exact joint leading Haar near-max area/polygon-type constants and rescaled angular distribution, not Ball maximum or global cube-section side counts. Primary Melbourne–Roberto provides near-equality stability but no directional limit cone or sharp measure constant; Lonke studies unconditional face-count distributions; Ambrus classifies critical orientations. A published exact random box hexagon law is unconditional and mathematically cannot alone imply the area-conditioned limit. Unindexed stereological small-deficit formulas are a residual historical-priority risk.
+
+## value
+
+PASS
+
+The classical cube slicing extremizers are a natural test case for precise quantitative stability. The exact exponent, two different polygon-sector coefficients and piecewise homogeneous angular limit give structural statistical information not available from a generic stability inequality; useful as an exact near-extremal random-geometry benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem has an exact normalized domain: the side-two cube, Haar normal on \(S^2\), Euclidean area and polygon side count. The exact density/coarea identity gives \(A=4/a-(b+c-a)_+^2/(abc)\); an independent twelve-edge-intersection polygon construction reproduced it for 1,958 orientations to a maximum discrepancy below \(5\times10^{-15}\). The angular maximizers and sharp maximum are the classical Ball theorem. Around each of twelve maximizers, (signed, ordered) normal coordinates have spherical Jacobian \(1/\sqrt2+O(x+y)\). The exact area formula expands uniformly as a positive piecewise-homogeneous first-order deficit, yielding radial boundaries with \(O(\varepsilon^2)\) error. Its two limiting cone sectors have exact areas \(1/32\) and \((\pi+2)/64\); 48 chamber copies and sphere area \(4\pi\) prove the joint coefficients, full conditional angular limit and \(O(\varepsilon^3)\) remainder. The standalone verifier independently evaluates the finite-threshold Haar probability by quadrature and shows convergence to the coefficients. Finite verification is not used as a universal proof.
+PASS
 
-## Originality
+The claim fixes the side-two cube, Haar normal U on S², intrinsic central section area and polygon side count. Coarea of three independent uniform coordinates yields A=4/a−(b+c−a)_+²/(abc) for a≥b≥c≥0; the face criterion is four sides iff a≥b+c. Ball equality normals are exactly the twelve two-coordinate diagonals. Near each one x=a−b,y=c give spherical Jacobian 1/√2+O(x+y) and a uniformly positive first-order deficit g=4x (y≤x), 2(y+x²/y) (y>x). Uniform radial error O(ε²) yields O(ε³) integrated remainder. Direct integration of cone regions yields areas 1/32 (quad) and (π+2)/64 (hex); 48 adjacent chamber sectors divided by 4π prove the two ε² constants and the conditional angular uniform law. Independently reconstructed 40 generic edge-plane intersection polygons and their hull areas against the analytic formula, max error 2.67e−15; a finite check only corroborates the analytic proof. Boundary normals have measure zero.
 
-**PASS, subject to historical-priority risk.** The closest primary work [Ball/Melbourne–Roberto] establishes maximum, equality and coarse stability, but not sharp small-deficit Haar probabilities, their leading constants or the polygon-type split. Ambrus identifies critical orientations. Fodor–González Merino, first public 2025-11-03, treats Gaussian-weighted diagonal sections in growing dimensions, not random near-equality events. Lonke and the published rectangular-box hexagon law give *unconditional* polygon frequencies, not conditional section-area tails. The relevant full results and methods were checked at the level of their actual mathematical statements. An earlier calculation under another stereological formulation may nevertheless exist.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The cube is the sharp classical equality example for an important slicing theorem. A precise random-orientation near-extremal probability with exponent two, a fully explicit nontrivial coefficient, and the limiting division between two different polygon-combinatorial types quantifies the geometry hidden by general stability bounds. The limiting piecewise-homogeneous angular region records the mechanism, not merely a single numeric constant. It is a self-contained exact benchmark with geometric and probabilistic use.
+Best-of-knowledge distinctive claim is the exact joint leading Haar near-max area/polygon-type constants and rescaled angular distribution, not Ball maximum or global cube-section side counts. Primary Melbourne–Roberto provides near-equality stability but no directional limit cone or sharp measure constant; Lonke studies unconditional face-count distributions; Ambrus classifies critical orientations. A published exact random box hexagon law is unconditional and mathematically cannot alone imply the area-conditioned limit. Unindexed stereological small-deficit formulas are a residual historical-priority risk.
 
-## Scope and limitations
+## value
 
-The result is three-dimensional, central, Haar-invariant and asymptotic in the near-maximal area tolerance. It is not an all-threshold distribution and does not imply a universal-dimensional stability theorem. An independent mathematical audit has not been performed; prior-art completeness cannot be absolute.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The classical cube slicing extremizers are a natural test case for precise quantitative stability. The exact exponent, two different polygon-sector coefficients and piecewise homogeneous angular limit give structural statistical information not available from a generic stability inequality; useful as an exact near-extremal random-geometry benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
