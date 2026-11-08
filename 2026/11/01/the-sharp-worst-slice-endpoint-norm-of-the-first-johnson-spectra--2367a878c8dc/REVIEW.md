@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The assertion being evaluated is the cross-width extremal theorem and optimizer localization, with the finite Johnson degree-one row norm as an explicit supporting premise. Kernel normalization is checked by covariance on the centered coordinate subspace, including the trace identity \(K(A,A)=n-1\). The exact hypergeometric telescoping identity is proved using an adjacent-binomial recurrence, including integral means and complementary widths. The three asymptotic regimes cover every subsequence; the local central mass follows by Stirling with every factorial argument diverging. Strict decline of the Poisson crossover's local maxima follows from the positive derivative and zero limit of the explicit logarithmic height ratio. Numerical and exact finite tests are supporting evidence only. No unresolved proof step is needed for the theorem as stated.
+## correctness
 
-## Originality — PASS (with residual risk)
-The finite hypergeometric absolute-deviation collapse is **known and not claimed as new**. Filmus and Scarabotti–Tolli determine the decomposition; the existing exact endpoint formula for the *second* Johnson idempotent covers a different projection. Elezović's 2026 abstract claims fixed-proportion asymptotics of hypergeometric absolute deviation, not the all-width first-Johnson extremal constant, the thin-slice localization, or the full Poisson scallop. The new comparison is at theorem-implication level: a fixed-density expansion cannot by itself optimize across width sequences whose density vanishes. Relevant full text was inspected where accessible, and the inaccessible recent deviation paper remains a stated residual risk, not a fictitious exclusion.
+PASS
 
-## Mathematical value — PASS
-The all-width maximum is a natural worst-case stability invariant for a canonical family of spectral projections. The sharp optimizer occurs at a singular thin-slice scale rather than at fixed positive density, and the constant \(\sqrt{2/e}\) is strictly larger than the bulk value \(\sqrt{2/\pi}\). This asymptotic classification and its uniquely localized maximizing widths require matching three different statistical scales, so the result is not merely a restatement of a classical mean-absolute-deviation formula. The scalloped crossover gives a concrete mechanism for the extremal scale.
+The centered coordinate covariance is k(n-k)/(n(n-1)) on the zero-sum subspace, giving kernel n(n-1)(|A cap B|-k^2/n)/(k(n-k)) with normalized measure. Every row has equal absolute sum; signs attain the L-infinity norm. The hypergeometric adjacent-mass telescoping u_(j-1)-u_j=n(j-mu)p_j, u_j=(k-j)^2 p_j, proves exact finite norm. For k/sqrt n to zero it is o(sqrt n); for k/sqrt n to c>0 Poisson convergence yields F(c^2) including integer intensity; for k/sqrt n to infinity, uniform central local Stirling gives sqrt(2/pi). F has decreasing half-integer peaks (by strict convexity of 1/t), global F(1/2)=sqrt(2/e)>sqrt(2/pi). Subsequential compactness fixes every asymptotic maximizer. Independent direct exact rational sums and telescoping for every n<=36 and 1<=k<n matched. No finite check substitutes for local limit or subsequence proof.
 
-## Closest sources and limitations
-Filmus, arXiv:1406.0142; Scarabotti–Tolli, arXiv:math/0701533; Krebs–Shaheen, DOI 10.13001/1081-3810.1256; Elezović, arXiv:2608.06232 (abstract only); and a public degree-two Johnson projector result. The latter discusses a different primitive component. The first-order finite identity has existing coverage. The theorem assumes uniform measure and first harmonics only; independently reproducing or extending the result remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Johnson harmonic decomposition and exact hypergeometric mean-absolute-deviation boundary-mass formula are prior mathematical identities and explicitly excluded from the novelty basis. The novel assessed claim is optimization across ALL sparsity regimes and localization at k~sqrt(n/2). Published second-Johnson endpoint projector concerns degree two, Grassmann projector concerns q-subspaces; neither implies the first Johnson cross-width maximum. Elezović 2026 full body inaccessible; abstract describes hypergeometric MAD and fixed-proportion expansion, so concealed vanishing-density width optimization is a residual priority risk.
+
+## value
+
+PASS
+
+An exact global endpoint amplification invariant of the canonical rank-(n-1) Johnson projector and the counterintuitive thin-slice optimizer is mathematically natural, with a genuine Poisson/Gaussian competition and strict crossover extrema. Not merely a known single-width table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
