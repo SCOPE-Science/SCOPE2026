@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces each leader to the exact scalar \(u=\tanh(\beta u/4)\) equation, explicitly enumerates all full equilibria by a triangular recursion, counts unstable eigenvalues from a triangular Jacobian, and identifies every basin by recursive variation of constants. The equality case \(\beta=4\) is a globally attracting nonhyperbolic boundary, and hyperbolic persistence is stated only for \(\beta>4\). Independent computational sampling of representative feedforward matrices passed, but is not an infinite proof.
+## correctness
 
-**Originality — PASS with residual source-access risk.** Exact overlap searches for source identifiers, acyclic/follower-network equivalents, the \(3^s\) and \(2^s\) counts, basin-cylinder formulations, and stronger general sigmoidal-network results found no exact covering statement in the accessible material. The motivating threshold-network abstract establishes multistability and persistence for equitable block reductions but does not document arbitrary-strength feedforward cascade classification or exact basin volumes. A complete accessible 2026 study of coupled feedforward/feedback regulatory motifs instead numerically samples fixed three-node Hill-gate circuits. The arXiv full text and some relevant older full texts could not be read, so publication priority is not certified.
+PASS
 
-**Value — PASS.** One-way hierarchical influence is a natural non-equitable counterpart to block-symmetric network coupling. The theorem yields a complete, sharp phase diagram, exact index census and all basin sets for arbitrarily many followers at arbitrarily strong feedforward weights, together with a graph-robustness theorem for the entire finite equilibrium skeleton. The result is not merely a numerical example, a named restatement of weak-coupling persistence, or an arbitrary finite-size count; its basin probabilities give a precise intervention interpretation of autonomous source agents.
+The scalar fixed-point equation u=tanh(beta*u/4) has one globally attracting root for beta<=4 and 3 hyperbolic roots for beta>4. Acyclic follower recursion determines unique followers for each leader root assignment; the full Jacobian is triangular with leader index signs and follower -1 diagonals. Variation-of-constants inductively forces every follower to its input limit, hence the exact complete basin sets, including saddle equality cylinders. For beta>4 compact cube plus local IFT at all finite hyperbolic equilibria excludes additional nearby equilibria. Sampled two-leader two-follower numeric nine-equilibria and index checks at beta=4.6,8 independently corroborated the finite examples.
 
-The key limits are the restrictions to logistic response, autonomous leader loops, feedforward descendants, and the smaller robustness claim for perturbed networks. Plausible prior general-network stability literature was compared but some full texts remain inaccessible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source model and logistic scalar bistability are known; the claim limits novelty to arbitrary feedforward follower weights, full all-equilibria index and basin partition and robust equilibrium census. Existing block-based and small-circuit sources partly overlap, and the directly motivating arXiv full text remained inaccessible.
+
+## value
+
+PASS
+
+An arbitrary-size non-equitable directed network family has a full dynamical phase portrait and exact basin-volume law with sharp bifurcation threshold and robust count, useful as a rigorous reference case in multistable influence/network models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
