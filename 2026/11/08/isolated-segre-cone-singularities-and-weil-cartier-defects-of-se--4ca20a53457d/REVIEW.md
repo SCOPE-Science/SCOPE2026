@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** Each standard affine coordinate chart is explicitly identified with the normal rank-one \(2\times(n-2)\) determinantal cone; this gives an exhaustive reduced singular locus, its multiplicity, local class group and local canonical obstruction. A separate toric ray calculation yields the free global class group and the exact integral Cartier lattice. Sample exact arithmetic and finite-field enumeration reproduce these formulas without being treated as an infinite proof.
+
+**Originality — PASS, provisional.** Clarke–Hoşten–Kushnerchuk–Oldekop (arXiv:2312.10010, full-text Section 3, especially Proposition 3.2 and Theorem 3.6) concern degrees and principal \(A\)-determinants rather than global Picard groups or local Segre-cone singularities. Oldekop (arXiv:2606.16482, indexed abstract only) concerns Euler stratifications and delta-matroids. The closest accessible public research concerns other toric families with local class-group computations. An earlier independent result concerning scalings of the same second hypersimplex gives a maximum-likelihood-degree formula; it does not imply the intrinsic singularity and divisor-group classification. The 2026 full text and potentially equivalent classical squarefree-Veronese treatments could not be exhaustively compared, and this remains a concrete priority risk.
+
+**Mathematical value — PASS.** The same infinite family is currently studied through ML degrees and Euler stratifications. The classification gives the complete intrinsic singular locus and scheme-independent local model, all multiplicities, integral Weil–Cartier quotient, and a sharp geometric transition from Gorenstein nodal to non-\(\mathbb Q\)-Gorenstein singularities. These are natural birational and divisor-theoretic invariants that do not follow as statements from an ML-degree table.
+
+**Limitations.** This covers reduced singularities of the normal complex projective toric variety, not the Jacobian scheme or arbitrary perturbations outside nonzero coordinate scalings. The inaccessible 2026 full text leaves historical priority provisional; independent validation remains absent.
+
+Self-review: passed. Independent audit: not yet performed.
