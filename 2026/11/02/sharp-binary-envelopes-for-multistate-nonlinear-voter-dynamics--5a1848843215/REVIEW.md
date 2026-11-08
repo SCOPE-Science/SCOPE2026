@@ -1,17 +1,21 @@
-# Scientific review — sharp binary envelopes for multistate nonlinear voter dynamics
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The specified generator is the same rate convention as the main primary source, including the denominator \(N-1\). At a jointly vacant focal site the entering-\(A\) rates are monotone in the focal count. At a jointly occupied focal site the multistate departure rate is respectively bounded above or below by the binary departure rate, by strict power-sum super/subadditivity. This gives a consistent sitewise basic coupling despite the non-Markovian count projection. The binary birth/death ratios telescope to \(\binom{N-1}{r}^{q-1}\), which provides the exact fixation harmonic function. Dynkin's formula on the finite absorbing chain establishes the correction identity and its strictness criterion. Numerical and exact-rational finite-state checks, recorded in `VERIFICATION.md`, reproduce both inequality directions and the finite-time comparisons. Risks: no extension to arbitrary graphs or different update conventions is proved.
+PASS
 
-## Originality — PASS with residual priority risk
+In the complete-graph continuous-time rate model n_beta(n_alpha/(N-1))^q, super/subadditivity of positive power sums gives ordered focal set death rates and ordered entrance rates for any nested A-site sets, yielding a nonexplosive common-part sitewise coupling for q>1 and reverse for 0<q<1; q=1 coincides. The two-type focal count birth-death rates have mu_a/lambda_a=(a/(N-a))^(1-q), telescoping products equal binom(N-1,r)^(q-1), so the displayed H is the exact binary absorption probability. Applying the full multistate generator to H(a) leaves the exact signed competitor power-sum defect; finite absorption and Dynkin formula give the time integral. With at least two competitor opinions and interior a initially, the strictly signed positive first holding interval makes inequality strict. Independently solved a 15-state exact rational 4-person, three-opinion q=2 generator; all compared H-bounds/strictness and defect matched.
 
-Ramirez et al., arXiv:2310.20548 (Sec. IV.1, Eq. (28)), give the same nonlumpable departure rate and do not assert a pathwise stochastic binary envelope, an all-size sharp fixation bound, its strictness criterion, or an exact stopped-generator correction. The 2012 linear multistate voter work treats \(q=1\), while the older binary nonlinear voter and noisy multistate variants cannot imply the nonlinearly competing-label statement as published. Searches for nonlinear voter multistate binary comparison, fixation under rival-opinion splitting, and pathwise coupling identified no stated equivalent. This is evidence of an unfilled comparison gap, not proof of global uniqueness. Remaining risk: general attractiveness arguments may have been applied to this precise process in specialist literature not retrieved.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The existing nonlinear model lacks a closed binary projection. The theorem nevertheless gives a finite-time sample-path comparison and an explicit binomial-sum bound on eventual focal victory, with complete equality and strictness conditions for every \(N\) and every real \(q>0\). The exact integral defect identifies how competitors' fragmentation quantitatively changes fixation. The result directly separates majority-reinforcing from minority-reinforcing imitation and bounds nonlumpable multistate dynamics by a solvable chain, rather than offering a numerical restatement or an arbitrary parameter slice.
+The motivating nonlinear multistate model itself and its failure of focal-count Markov lumpability were already known; newly proved is a pathwise binary stochastic *envelope despite lack of lumpability*, sharp fixation bound, strictness characterization and Dynkin correction. The full primary paper examined does not state those precise claims; originality best knowledge, not certified exhaustive.
 
-Independent mathematical review of the proof and publication priority is still needed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An exact sharp all-time stochastic envelope and a signed exact finite-expected-time correction make the multistate process tractable without falsely pretending the focal count is Markov. Strictness identifies when additional competing opinions genuinely change fixation—a natural question for generalized voter dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

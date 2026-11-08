@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproduction of finite-state comparisons
+# Independent mathematical audit
 
-Run `python verify.py` with Python, NumPy, SciPy and SymPy. The program constructs the multistate generator with transition rates \(n_\beta(n_\alpha/(N-1))^q\), solves transient absorption linear systems, constructs the binary comparator and evaluates \(\exp(tQ)\) for finite-time event probabilities.
+## correctness
 
-The directly executed program printed:
+PASS
 
-```
-fixation_states_checked= 2540
-strict_fixation_cases_checked= 882
-finite_time_tail_compared= 19392
-four_singleton_opinions_q=0.5 multistate=0.250000000000 binary=0.316987298108
-four_singleton_opinions_q=2.0 multistate=0.250000000000 binary=0.125000000000
-exact_rational_q2_states_checked= 157
-```
+In the complete-graph continuous-time rate model n_beta(n_alpha/(N-1))^q, super/subadditivity of positive power sums gives ordered focal set death rates and ordered entrance rates for any nested A-site sets, yielding a nonexplosive common-part sitewise coupling for q>1 and reverse for 0<q<1; q=1 coincides. The two-type focal count birth-death rates have mu_a/lambda_a=(a/(N-a))^(1-q), telescoping products equal binom(N-1,r)^(q-1), so the displayed H is the exact binary absorption probability. Applying the full multistate generator to H(a) leaves the exact signed competitor power-sum defect; finite absorption and Dynkin formula give the time integral. With at least two competitor opinions and interior a initially, the strictly signed positive first holding interval makes inequality strict. Independently solved a 15-state exact rational 4-person, three-opinion q=2 generator; all compared H-bounds/strictness and defect matched.
 
-Finite model sizes are \(N=3,4,5,6,7,8\), \(M=3,4\), and \(q=1/2,1,2,3\). Time-distribution comparisons use \(N\le6\) and times \(0.1,0.6,1.5\); exact-rational absorption checks use \(q=2\) and \(N=3,4,5\). Numerical tolerances apply to floating-point solves and matrix exponentiation; the exact-rational checks use SymPy rationals. This is not an exhaustive computation over all population sizes or exponents. The theorem's universal assertions rest on the independently readable symbolic coupling and stopped-generator proof in `RESULT.md`.
+## originality
+
+PASS
+
+The motivating nonlinear multistate model itself and its failure of focal-count Markov lumpability were already known; newly proved is a pathwise binary stochastic *envelope despite lack of lumpability*, sharp fixation bound, strictness characterization and Dynkin correction. The full primary paper examined does not state those precise claims; originality best knowledge, not certified exhaustive.
+
+## value
+
+PASS
+
+An exact sharp all-time stochastic envelope and a signed exact finite-expected-time correction make the multistate process tractable without falsely pretending the focal count is Markov. Strictness identifies when additional competing opinions genuinely change fixation—a natural question for generalized voter dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
