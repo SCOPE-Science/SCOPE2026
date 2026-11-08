@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T02:52:37.467024Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inspected all seven actual blobs (RESULT.md proof, SLOGAN, AUDIT, REVIEW, METADATA, VERIFICATION, verify.py) at the assigned frozen Git tree. For the Lebesgue-conditioned top cell A=[1/2,1), the dyadic zero-prefix level L is a nearest-neighbor walk until first hit of level zero: q moves up, p moves down. Doubling from L=0 reinjects with geometric law Pr(L=j)=2^-j-1; halving moves to level one. The bounded first-passage PGF h_j(z)=r(z)^j with r=z(p+q r²), r=(1-sqrt(1-4pqz²))/(2qz), gives R(z)=z[q r+p/(2-r)] exactly. On the principal branch r(rho)=a=sqrt(p/q), rho=(2sqrt(pq))^-1; for p<4/5 a<2, so neither branchpoint coincides with a pole: local singular coefficients at ±rho yield n^-3/2 rho^-n(c_++(-1)^n c_-) with c_± exactly as in the theorem and 0<c_-<c_+. At p=4/5 the positive root equals 2, yielding R(z)~(2sqrt2)^-1(1-z/rho)^-1/2 and (4/5)^n/(2sqrt(2pi n)). For p>4/5 only, z0=2/(p+4q)<rho is a true pole on the smaller-root sheet (the algebraic candidate z0 for p<4/5 belongs to the other sheet); derivative r'(z0)=(p+4q)^2/(p-4q) gives residue K=p(p-4q)/(p+4q)^2, no competing same-modulus singularity. At p=1 direct R=z/(2-z) gives 2^-n, and at p=1/2 R(1)=1 with sqrt singularity, tail ~sqrt(2/(pi n)); for p<1/2 R(1)=p(3-4p)/(2-3p), so defect and mean boundaries are consistent. Finite exact rational independent walk vs PGF comparison for p=1/3,1/2,3/5,4/5,9/10,1 and all n≤24 agreed, with critical symbolic limit sqrt2/4 and high-n coefficient ratios corroborating the three regimes. Infinite proof comes from explicit PGF and complex singularity transfer, not finite tests; asymptotics are fixed-p, not uniform in p.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Monthus position correlation has 4/5 eigenvalue competition, but it is a different observable; B37/B42 miss the pole regime for the geometric-reset absorption law.",
+          "Brevitt–Klages treats a broader open family with hole epsilon, gives F_00(s) explicitly and analyzes G_00 poles of return Green function; epsilon=0 gives p=1/2 recurrence boundary, not the p=4/5 first-return coefficient transition.",
+          "Yan et al. focus on invariant density and position autocorrelation, not this first-return coefficient asymptotic."
+        ],
+        "reasoning": "A broader two-parameter recurrence formula is indeed known and a direct algebraic input; it does not present the specified coefficient-phase diagram. The same 4/5 parameter in correlations is not covering, but substantially limits novelty. An unstated immediate derivative of a closed form is not mistakenly called an independently novel generating function.",
+        "searches": [
+          "arxiv:2409.19999 Sections IV, VI.5, Appendix B.3",
+          "arxiv:2607.19084 Section 2.2 eqs (18)-(28)",
+          "arxiv:2308.09269/Chaos 34 023128 sections II-III",
+          "Pelikan random map return times probability first return distributions random doubling halving"
+        ]
+      },
+      "checked_sources": [
+        "C. Monthus (2025), J. Stat. Mech. 013212, DOI:10.1088/1742-5468/adaa6c; https://arxiv.org/abs/2409.19999",
+        "S. Brevitt and R. Klages (2026), arXiv:2607.19084; https://arxiv.org/abs/2607.19084",
+        "J. Yan et al. (2024), Chaos 34, 023128, DOI:10.1063/5.0176310; https://webspace.maths.qmul.ac.uk/r.klages/papers/rds_chaos.pdf",
+        "S. Pelikan (1984), DOI:10.1090/S0002-9947-1984-0722776-1 (bibliography/abstract only)",
+        "Resultary semantic searches: Pelikan first-return 4/5; random interval map first hitting/return geometric reset (2026-11-03 UTC)",
+        "Git source RESULT.md, REVIEW.md, AUDIT.json and exact 7-blob tree SHA 5238a55f8065284f969a0d180ce3dbd03cff1a9e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For p>4/5, at z0=2/(p+4q) on the small-root sheet r(z0)=2 and R(z) has residue p(p-4q)/(p+4q)^2, giving pure geometric coefficients; Monthus B37 asserts n^-3/2 times (4pq)^(n/2) in this parameter range and cannot imply the correct statement.",
+          "At p=4/5, r(rho)=2 and R(z)~(2sqrt2)^-1(1-z/rho)^-1/2; both ±branchpoints and nonzero alternating term are needed below threshold.",
+          "Brevitt–Klages eq 24 determines all coefficients in principle, but its analyzed pole eq 25 arises from G_00=1/(1-F_00), a different singularity from the return-mass F_00; no stated uniform first-return asymptotic follows simply by parameter substitution into their QSD theorems."
+        ],
+        "reasoning": "The prior exact generating function logically contains the information, so priority risk is significant. The distinct stated tail result requires selecting the correct analytic sheet and competing singularities, extracting the critical inverse-square-root law, and keeping both parity branches. Those results explicitly correct the previously stated all-chaotic-parameter n^-3/2 assertion, and are not a direct parameter specialization of the prior asymptotic theorem.",
+        "searches": [
+          "Monthus JSTAT 2025 Appendix B eqs B35-B44, VI.5 eqs 210–211",
+          "Brevitt–Klages 2026 eqs (20)-(27) F_00(s) and G_00(s)",
+          "arxiv:2607.19084 (Flajolet-Sedgewick named in section 4.2)",
+          "Pelikan random map first return top cell 4/5 pole branchpoint asymptotic first return"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Monthus B38 gives A(z)=1/(2-r(z)) for a geometrically initialized walk, an exact first-passage component; the present first-step mixture is z(qr+pA).",
+          "Brevitt–Klages (2026) eq 24 with epsilon=0 is EXACTLY the present generating function R_p(z), although no claimed coefficient tail law is stated there."
+        ],
+        "reasoning": "The initial-state first-return distribution and its full PGF were already given by prior exact transforms. Novelty is only the corrected coefficient asymptotic statement: subcritical ±branchpoint parity, critical n^-1/2, supercritical pole residue. It is derivable by singularity analysis of known GFs, and this proximity is explicit; the prior claims do not give the correct three regimes and Monthus has an incompatible tail assertion.",
+        "searches": [
+          "Pelikan random map first return top cell 4/5 pole branchpoint asymptotic first return",
+          "Cecile Monthus Pelikan random map 2409.19999 Appendix B 3 291 292 296 absorption first passage",
+          "Brevitt Klages arXiv:2607.19084 Section 2.2 F_00 first-return equation (24)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieved exact geometric first-exit law for ultradiscrete Selkov map (2026/10/11/...013f8b0ac9e5), which concerns a different dynamical map and survivor-area statistic.",
+          "Resultary retrieved Gaussian crossover of random grid collapse (2026/10/11/...8b0f31630fa6), a discrete grid discrepancy for two expanding maps, not return-mass tails of the Pelikan map.",
+          "No retrieved exact table of Pelikan p-indexed first-return asymptotic coefficients or equivalent matching formula; negative semantic search alone has no novelty force."
+        ],
+        "reasoning": "The distinct named published findings involve different maps, initial measures and observables. The first-return GF already exists in primary published articles, so there is no claim of database novelty for the exact transform; coefficient asymptotics must be compared to primary source consequences, not just titles.",
+        "searches": [
+          "Resultary Search query: Pelikan random map doubling halving first return time upper binary cell generating function pole square root 4/5 parity asymptotics",
+          "Resultary Search query: random interval map first hitting return times geometric reset walk absorption n^-3/2 n^-1/2 exponential threshold",
+          "random interval map first hitting return times geometric reset walk absorption n^-3/2 n^-1/2 exponential threshold"
+        ]
+      },
+      "rationale": "Qualified best-knowledge PASS ONLY for the explicit, sharp FIRST-RETURN coefficient trichotomy and parity constants, not for the dyadic reset walk, exact first-return PGF, p=4/5 in another observable, or generic singularity transfer. Both Monthus B38 and especially Brevitt–Klages eq 24 (epsilon=0) already provide the exact generating function. Independently compared their claims: Monthus B37/B42 state incorrect uniform branchpoint asymptotic above 4/5; Brevitt–Klages analyze G_00 and QSDs, not the full coefficient asymptotics of F_00. The nontrivial pole vs branchpoint sheet switch and parity-preserving transfer yield the explicitly new corrected statement. Direct prior transformations are the decisive, frankly recorded priority/proximity risk; neither an unsuccessful search nor unpublished formula alone proves novelty.",
+      "residual_risks": [
+        "Both Monthus B38 and Brevitt–Klages 2026 eq (24) already give the exact PGF, so coefficient asymptotics might be considered a straightforward unstated consequence; unindexed prior transfer analysis could cover the entire three-regime law.",
+        "The 4/5 phase boundary is known for a different observable (position correlations); do not claim the parameter itself is new.",
+        "Original Pelikan 1984 full text not inspected; abstract only; no whole-paper noncoverage claim.",
+        "Searches of published findings are nonexhaustive and no literature priority is certified.",
+        "Near-threshold p depending on n is outside the theorem; independent rational and numeric samples are not proof of the infinite asymptotics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact algebraic averaged absorption transform is prior (B38), as is p=4/5 for positional correlations (210–211). B37/B42 state branchpoint n^-3/2 absorption asymptotic even for p>4/5, but the finite sum of weighted excursions has factor (sqrt(p/q)/2)^(j+1), invalid for p>=4/5; the correct first-return coefficient trichotomy is not stated there. Prior transform is an important near-coverage risk, not new.",
+          "evidence": [
+            "Full text Eq B35 defines geometrically averaged absorption A(t), Eq B38 gives transform 1/(2r_+(s)-1) equivalent to 1/(2-r_p(z)); Eq B37 incorrectly extends branchpoint time tail across p=4/5.",
+            "Sec VI.5 eqs 210–211 give p=4/5 crossover for connected position correlations, not first-return mass."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/388434124_Explicit_dynamical_properties_of_the_Pelikan_random_map_in_the_chaotic_region_and_at_the_intermittent_critical_point_towards_the_non-chaotic_region",
+          "material_read": "Author-uploaded, full-text HTML reproduction of published paper: sections on reset times (III–IV, reset count), position correlations VI.5, Appendix B.3 including eqs B35–B47; examined Eq B37, B38, B42 and comparison with B44 and position-correlation eqs 210–211.",
+          "method": "Read complete accessible relevant primary sections and equation contexts on author-uploaded full-text reproduction; verified singularity domain of the geometric sum from the source formula.",
+          "title": "Explicit dynamical properties of the Pelikan random map in the chaotic region and at the intermittent critical point towards the non-chaotic region",
+          "trigger": "Same random map, its exact geometric averaged absorbing-walk PGF, and stated asymptotic apparently spanning the proposed new crossover."
+        },
+        {
+          "assessment": "Eq (24) at epsilon=0 already equals the audited FIRST-RETURN generating function, so R_p(z) is NOT an original formula. Eqs 25–27 analyze pole and branchpoint of G_00=1/(1-F_00) for an open system, not the first-return coefficient law or p=4/5 threshold of F_00. No explicit parity constants or three first-return tail regimes identified in the relevant full text. Exact PGF strongly constrains novelty; remaining coefficient-extraction claim requires a genuine distinction.",
+          "evidence": [
+            "Section 2.2 eq (21) one-step walk root, eq (23) geometric reinjection law, eq (24) F_00(s)=p(1-epsilon)s/(2-r)+qsr, which specializes exactly to the present PGF.",
+            "Eqs (25)–(27) concern singularities of G_00(s), and state for epsilon=0 the return Green radius R=1 and recurrence boundary p=1/2, not the coefficient singularity of F_00 at p=4/5."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/410698414_Quasi-stationary_and_quasi-ergodic_distributions_in_the_Pelikan_random_map",
+          "material_read": "Author-posted complete preprint full-text reproduction: introduction, Sec 2.2 eqs 18–28 and singularities, Sec 3–4 discussion of quasi-stationary laws and generating-function radius, conclusion.",
+          "method": "Read full-text formulae and domains; specialize first-return formula F_00(s) at open-hole epsilon=0 and distinguish its singularities from those of return Green function G_00(s).",
+          "title": "Quasi-stationary and quasi-ergodic distributions in the Pelikan random map",
+          "trigger": "Recent same-family primary work with generating functions of first-return and singularities; possible broader-parameter coverage."
+        },
+        {
+          "assessment": "Found invariant density, ergodicity-breaking and position autocorrelation analysis, not this precise initial-top-cell first-return distribution nor coefficient trichotomy. This does not prove absence from every related work.",
+          "evidence": [
+            "Paper introduction describes precise objectives: invariant density and autocorrelation under parameter variation; abstract emphasizes weak ergodicity breaking and correlation decay.",
+            "Section II defines random doubling/halving and p=1/2 critical anomalous dynamics."
+          ],
+          "identifier_or_url": "https://webspace.maths.qmul.ac.uk/r.klages/papers/rds_chaos.pdf",
+          "material_read": "Lawful author-hosted full PDF, title and abstract, introduction, Section II description of map and invariant density, paper scope Sec III autocorrelations and Section IV overview (text and first page visual screenshot inspected).",
+          "method": "Read text of full accessible primary article sections and inspect PDF page image; compare observables and exact initial law.",
+          "title": "Transition to anomalous dynamics in a simple random map",
+          "trigger": "Primary 2024 analysis of the exact map and its dynamical observable scope."
+        },
+        {
+          "assessment": "Primary original focuses on absolutely continuous invariant densities and ergodic components according to abstract. Full text was not inspected, so priority residual risk remains.",
+          "evidence": [
+            "1984, Trans. AMS 281, pp 813–825, DOI above; abstract on invariant densities and ergodic components."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1984-0722776-1",
+          "material_read": "Bibliographic record, abstract and citation context only; original full text not obtained.",
+          "method": "Checked mathematical bibliographic abstract and citation metadata, no unsupported whole-paper noncoverage conclusion.",
+          "title": "Invariant densities for random maps of the interval",
+          "trigger": "Original historical model and potential unindexed first-return priority."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The top dyadic cell is a canonical natural recurrence set for the Pelikan doubling/halving process, and return-mass tails are a standard exact statistic needed to quantify excursion lengths. The result corrects a substantive all-p>1/2 n^-3/2 absorption-tail extrapolation in Monthus 2025 (Appendix B) and determines an otherwise unstated 4/5 mechanism change: parity-sensitive n^-3/2 below, inverse-square-root n^-1/2 at collision, and a pole-controlled pure exponential above, including exact constants and a deterministic endpoint. The exponential rate and polynomial prefactor affect long excursions by unbounded factors. This is not a new model or generating function and does not claim broader novelty, but a motivated sharp exact classification that remains useful independently of another downstream theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All three asymptotic laws hold for each fixed p; no uniform crossover for p=p(n) near 4/5.",
+    "Averaged initial law is uniform on A and annealed map choices; not quenched trajectories or nonuniform density.",
+    "First-return PGF is known (Brevitt–Klages 2026 eq 24 at epsilon=0 and Monthus geometrically averaged absorption), so the scientific novelty is only the newly explicit sharp coefficient asymptotics and correction, with substantial priority proximity.",
+    "Original Pelikan 1984 full text was not inspected; uncertainty of unindexed equivalent coefficient analyses remains.",
+    "Finite computations are corroborating only; no Lean/expert validation is implied."
+  ],
+  "schema_version": 1
+}
