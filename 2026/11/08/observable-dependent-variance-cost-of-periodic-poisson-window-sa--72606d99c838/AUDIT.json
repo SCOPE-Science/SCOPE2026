@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For each t, the unit-window intensity is lambda. Two overlapping windows have independent Poisson decomposition, giving exact Charlier cross moments r! lambda^r J_v(t)^r. The L2 expansion and finite 1-lag dependence justify the limiting integrated covariance and CLT. Jensen gives the uniform-intensity lower bound. A nonzero Fourier coefficient of a nonconstant periodic intensity proves strict convexity for every chaos order r>=2 and only affine h may tie. Parseval evaluates the factorial-second-moment penalty exactly. Reproducibility script verify.py reports 324 finite exact and numerical diagnostics; finite tests are not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Veraart 2023 defines periodic trawls using stationary homogeneous Lévy bases and lag-periodic kernels; its sample mean and autocovariance CLTs do not vary a nonstationary arrival intensity.",
+        "Barndorff-Nielsen et al. 2014 derive general stationary-trawl covariance identities."
+      ],
+      "reasoning": "These sources cover broad stationary dependence and inference, but not the physically time-averaged all-L2 observable minimizer for cyclostationary Poisson arrivals with fixed unit-window margins. A future more-general source could still dominate.",
+      "searches": [
+        "Poisson moving average functional Fourier Charlier covariance periodic weighted estimator asymptotic variance",
+        "Veraart 2023 periodic trawl processes sample mean central limit theorem",
+        "\"integer-valued trawl processes\" covariance"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2603.09089",
+      "https://shephard.scholars.harvard.edu/sites/g/files/omnuum7741/files/GeneralTrawlPaper.pdf",
+      "https://arxiv.org/html/2303.04121v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Stewart–Sahani Sections 3 and 7: construction and open question for oscillatory rates.",
+        "2014 stationary trawl theory: count covariance and infinitely divisible structure.",
+        "2023 periodic-trawl model: stationary lag-modulated correlation and discrete-sampling estimator CLTs."
+      ],
+      "reasoning": "The claimed target-specific variance identity, Jensen nonlinearity rigidity, and exact factorial-moment Fourier penalty are not implied by the listed results as published. Generic Poisson independence and Fourier Parseval furnish a proof here but are not counted as novel ingredients.",
+      "searches": [
+        "Stewart Sahani 2603.09089 oscillating intensity asymptotic variance",
+        "inhomogeneous Poisson periodic intensity moving window count covariance Charlier spectral variance",
+        "Veraart 2303.04121 periodic trawl asymptotic normality covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The relevant equivalent viewpoint is a periodically modulated M/D/infinity occupancy process, or a moving count of nonhomogeneous Poisson arrivals; the source model differs from stationary trawl counts.",
+        "Poisson-Charlier orthogonality itself is classical but does not include a minimization over intensity profiles."
+      ],
+      "reasoning": "The result equivalently optimizes physical-time variance of nonlinear Poisson occupancy observables. The stationary-trawl formulas do not imply the sign or equality rigidity of that profile optimization without additional calculations.",
+      "searches": [
+        "periodically modulated Poisson process sliding window counts time-averaged nonlinear function asymptotic variance optimal uniform intensity",
+        "inhomogeneous Poisson periodic intensity moving window count covariance Charlier spectral variance",
+        "\"periodic trawl processes\" Veraart 2023 asymptotic sample mean"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact Fourier penalty or the all-observable equality classification appeared in inspected published text or targeted literature searches.",
+        "The finite rational computations check identities but do not establish a literature database absence."
+      ],
+      "reasoning": "The result is an analytic stochastic-process formula, not a tabulated enumeration. Existing generic covariance tables are not proof that the exact nonlinear profile optimum was previously published.",
+      "searches": [
+        "periodically modulated Poisson process sliding window counts time-averaged nonlinear function asymptotic variance optimal uniform intensity",
+        "periodic intensity Poisson sliding windows asymptotic variance of integrated nonlinear functions uniform modulation optimal Charlier Jensen",
+        "\"Poisson Charlier\" \"periodic intensity\" \"asymptotic variance\""
+      ]
+    },
+    "rationale": "Primary motivating full text asks about oscillatory base rates rather than solving their variance optimum; primary 2014 stationary trawl covariance theory and 2023 stationary periodic-kernel trawl CLTs concern different statistical claims. The proved Poisson–Charlier overlap formula plus sharp Jensen equality yields a new-looking all-observable optimization and an explicit second-factorial Fourier constant. Targeted literature queries and claim-level comparisons found no covering statement. Priority remains provisional since broad cyclostationary theory may contain an equivalent general theorem.",
+    "residual_risks": [
+      "A general cyclostationary point-process theorem may subsume the exact Charlier-overlap variance formula and optimization even though it was not located.",
+      "Only a bounded literature search was performed; definitive priority needs independent expert review.",
+      "The result does not address event-indexed sampler efficiency or non-Poisson multivariate targets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces point-process sampler and asks oscillatory-rate question; does not report sharp universal nonlinear-observable variance optimum or exact second-factorial-moment Fourier penalty",
+        "evidence": "Section 7 discusses oscillatory baseline intensities as a future direction; no Charlier/Jensen minimizer statement among reported results.",
+        "identifier_or_url": "https://arxiv.org/html/2603.09089",
+        "material_read": "Full accessible HTML: setup, window count distribution, Sections 3 and 7; especially discussion of oscillatory baseline rates and expected variance effects",
+        "method": "Compared model object, intensity assumptions, variance functional and claimed statements",
+        "title": "Sampling on Discrete Spaces with Temporal Point Processes",
+        "trigger": "Recent motivating research explicitly poses oscillatory baseline sampling rates as an open efficiency issue"
+      },
+      {
+        "assessment": "Background stationary trawl covariance theory is relevant and credited, but does not state a universal optimization over periodic deterministic arrival-rate profiles",
+        "evidence": "2014 theory treats homogeneous Lévy basis and stationary trawl counts; published covariance formulas are for those processes rather than all observables under cyclostationary arrival modulation.",
+        "identifier_or_url": "https://shephard.scholars.harvard.edu/sites/g/files/omnuum7741/files/GeneralTrawlPaper.pdf",
+        "material_read": "Open author-manuscript PDF: introduction, general autocovariance/properties section and later representation/discussion pages; inspected source page images for context",
+        "method": "Compared stationary trawl covariance and infinite-server representation with explicitly time-varying intensity and nonlinear physical-time averaged functionals",
+        "title": "Integer-valued trawl processes: A class of stationary infinitely divisible processes",
+        "trigger": "Natural published generalization of moving-window count processes, plausible covariance domination"
+      },
+      {
+        "assessment": "Periodic lag kernel yields a stationary trawl model, not a nonhomogeneous periodic Poisson *arrival* rate with constant one-time Poisson count marginals. The reported CLTs do not establish the intensity-profile Jensen optimum or exact Fourier penalty.",
+        "evidence": "Definition 5 builds process with homogeneous Lévy basis and deterministic periodic lag kernel; Sections 4 and 6 prove CLTs for discretely sampled means, covariances and estimators.",
+        "identifier_or_url": "https://arxiv.org/html/2303.04121v2",
+        "material_read": "Full accessible 2023 HTML, Sections 1–2 model construction, Section 4 sample mean/autocovariance CLTs, Section 6 GMM CLT and appendices",
+        "method": "Compared stationarity, definition of periodicity, source of randomness, observed statistics, and theorem implications",
+        "title": "Periodic trawl processes: Simulation, statistical inference and applications in energy markets",
+        "trigger": "Title and CLTs for periodic processes could potentially dominate the claimed variance law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "72606d99-c838-4cb2-9c93-c3209b49e7e7",
+  "value": {
+    "rationale": "The motivating sampler literature explicitly asks whether oscillatory baseline intensity affects efficiency. The simultaneous minimization of variance for all nonlinear count observables with a sharp affine exception is a structural answer, while the closed-form nonnegative spectral penalty supplies a natural precise effect size for estimating second factorial moments. This distinction is not a routine normalization artifact and does not follow from optimizing the linear count alone.",
+    "status": "PASS"
+  }
+}
