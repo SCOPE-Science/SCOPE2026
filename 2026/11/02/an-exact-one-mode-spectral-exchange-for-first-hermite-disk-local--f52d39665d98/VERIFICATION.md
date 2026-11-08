@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The exact eigenvalue integration and sign calculation are fully stated in `RESULT.md`. A self-contained Python 3 program (`check_selection.py`) uses only the standard library, performs exact rational checks on 6,219 instances plus 15 supplementary Stirling estimates, and prints `PASS 6234 finite exact rational and supplementary asymptotic assertions` on successful execution. Reproduce with `python check_selection.py`.
+## correctness
 
-These are finite consistency checks. Infinite-dimensional completeness is built into the specified first-excited Landau basis; all radii are handled by the exact sign identity and a strict two-step comparison; the asymptotic statement follows analytically from uniform Stirling estimates. At integer-area cutoffs, a spectral projector is not uniquely selected, and the noninteger trace-norm identity must not be applied. The known underlying diagonalization and eigenvalue integral are credited to Abreu–Gröchenig–Romero. No independent audit has been performed.
+PASS
+
+Radial angular orthogonality diagonalizes T_x; Gamma integration gives a0=1-e^-x(1+x), aj=G_j+e^-x*x^j*(j-1-x)/j! for j>=1. Symbolic subtraction independently verifies the stated exact increment for j=0..19, and its sign has one upward step per unit interval. The strict comparison a_(k+1)<a_(k-1) closes the only nonadjacent ordering gap, yielding the stated unique rank k+1 selection; positive integer x=k produces exactly two zero adjacent gaps, with threefold degeneracy. A rank-one exchange yields two nonzero projection-difference eigenvalues +/-1; Stirling on the Poisson mass supplies uniform k^-3/2 gain. Finite checks at half-integers k=1..14 agree.
+
+## originality
+
+PASS
+
+Abreu–Gröchenig–Romero 2019 prove the full radial eigenfunction diagonalization and eigenvalue integral (Proposition 4.1/Lemma 4.2), observe one degeneracy (Remark 4.3), and prove O(sqrt N) trace-norm comparisons but do not in the inspected full HTML Sections 4–5 state the first-Hermite every-radius one-mode selection, exact gain or triple ties. Their Gaussian r=0 monotonicity corollary does not imply the r=1 nonmonotone ordering. Qualify for possible unindexed specialized spectral calculations.
+
+## value
+
+PASS
+
+The physically canonical first-excited Landau level has a non-monotone mode ordering absent from the Gaussian ground state. Identifying exactly the exchanged mode, triple cutoff ties and persistent operator-level distance provides a useful precise sharpening of the known finite WH comparison, not a restatement of the integral spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
