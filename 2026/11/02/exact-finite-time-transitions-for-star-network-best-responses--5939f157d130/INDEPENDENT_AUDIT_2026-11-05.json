@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T18:46:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a leaf-first sweep, independent leaf best responses give c' = F(c)=max(0,1-sδ+sδ²c). F is increasing, so c_0=1 gives the sharp worst case for every initial leaf state. With a=1-sδ and b=sδ², the untruncated recurrence y_r=b^r+a(b^r−1)/(b−1), or 1+ra if b=1, crosses zero first at ceil(log Theta/log b) (or ceil(1/(sqrt(s)−1))), and clipping preserves the first crossing. At δ<=1/s the starting hub-one state approaches its positive/interior or boundary equilibrium without attaining it. A final leaf-only sweep reaches (0,1,..,1) when δ>1/s. The one-sweep condition sδ(1−δ)>=1 is possible first at s=4; endpoints yield logarithmic laws. A successful random word of r full leaf-first blocks followed by s leaves has probability (s!)^(r+1)/(s+1)^(r(s+1)+s), proving geometric absorption tail from ANY state. Uniform random permutation places the hub after K uniform leaves K=0..s, yielding the deactivation probability. An independent exact Fraction-based sweep check reproduced the hub cutoff in rational cases for s=2..11 and denominators <=14; finite tests do not prove real-parameter formulas.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior 2014 Example 2 identifies equilibrium, while the 2026 study has approximate simulation plots and convergence in probability; neither cited theorem fixes a leaf-first exact integer cutoff."
+        ],
+        "reasoning": "Established equilibrium and convergence results are weaker than exact hitting, but the simple scalar recurrence makes mathematical contribution primarily a sharp quantified specialization, not a new general dynamical principle.",
+        "searches": [
+          "Misiak Dziubiński 2026 arXiv:2602.15986 full model and star sections",
+          "Bramoullé Kranton D’Amours 2014 DOI:10.1257/aer.104.3.898",
+          "general contraction and asynchronous convergence games"
+        ]
+      },
+      "checked_sources": [
+        "Misiak–Dziubiński 2026 arXiv:2602.15986 primary model/results",
+        "Bramoullé–Kranton–D’Amours 2014 DOI:10.1257/aer.104.3.898",
+        "Resultary star-best-response semantic search 2026-11-05"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known equilibrium at δ≥1/s does not give a finite hitting time: exactly at δ=1/s the hub sequence s^(−r) remains positive. A numerical ε-hit criterion always fires and hence cannot certify exact hitting."
+        ],
+        "reasoning": "The δ=1/s contrast supplies a decisive logical difference from equilibrium and tolerance convergence; the all-initial-state random-word tail requires an additional constructive schedule argument.",
+        "searches": [
+          "Misiak Dziubiński 2026 full abstract/model/results Sections 2–3",
+          "Bramoullé et al 2014 star equilibrium Example 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The deterministic scheme reduces to the affine clipped scalar Gauss–Seidel iteration F; the source numerical convergence rate is tolerance-based and uses random order."
+        ],
+        "reasoning": "Exact first-zero is a hitting-time theorem rather than the same as asymptotic convergence or random-order tolerance time. Explicit aliases searched, no direct established equivalent found.",
+        "searches": [
+          "Resultary: star network public goods best response dynamics leaf first finite time exact convergence random asynchronous",
+          "arXiv:2602.15986 Misiak Dziubiński random-order best response public good networks",
+          "Gauss Seidel star best response exact finite hitting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches are unrelated network stabilization/consensus problems; none lists the all-degree star first-zero formula."
+        ],
+        "reasoning": "No exact star cutoff table located in the inspected database; that negative result is bounded.",
+        "searches": [
+          "Resultary star-network best-response exact finite hitting query (top 10)",
+          "star s=4 delta=1/2 one sweep optimum previous network games",
+          "star public goods game convergence logarithm both endpoints"
+        ]
+      },
+      "rationale": "Published 2014 network-game results already give the star Nash equilibrium, and the 2026 source studies the same stochastic best response and numerical tolerance-based convergence. The assessed result is the exact order-specific first hitting index and endpoint asymptotics, plus a positive-probability all-state absorption-word tail and exact single-permutation hub deactivation probability. These do not follow from the earlier equilibrium existence or tolerance-based experiments, although some pieces are elementary iteration and related order-specific coordinate-descent results could overlap.",
+      "residual_risks": [
+        "A previous unindexed Gauss–Seidel/clipped affine recurrence study may contain the cutoff despite a different title.",
+        "Stochastic geometric bound is valid but coarse and not an exact expected hitting time."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies stochastic order and approximate slow convergence, not assessed deterministic exact leaf-first first-zero index.",
+          "evidence": [
+            "Paper treats random-order convergence and numerical tolerance-based stopping; the star is among its examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.15986",
+          "material_read": "Accessible primary HTML, model Sections 2.1–2.3, 3.2 and star/complete-bipartite numerical examples, including tolerance definition.",
+          "method": "Primary paper section and text reading.",
+          "title": "Convergence rates of random-order best-response dynamics in public good games on networks — Misiak and Dziubiński (2026)",
+          "trigger": "Same strategic-substitutes best-response and star network"
+        },
+        {
+          "assessment": "Covers Nash equilibrium and activity threshold; these are acknowledged as prior and not novel.",
+          "evidence": [
+            "Equilibrium of an s-leaf star can be hub inactive with leaves active; paper discusses equilibrium, not this exact specified sweep hitting index."
+          ],
+          "identifier_or_url": "https://doi.org/10.1257/aer.104.3.898",
+          "material_read": "Accessible model description and star equilibrium Example 2, not exhaustive article proof.",
+          "method": "Published article/model description.",
+          "title": "Strategic Interaction and Networks — Bramoullé, Kranton and D’Amours (2014)",
+          "trigger": "Original linear substitutes public-good star game"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise distinction between approaching equilibrium and hitting it exactly is a natural question for continuously-valued public-goods games. A canonical star exhibits a sharp δ=1/s transition, logarithmic first-zero divergence at both ends, a previously unquantified one-sweep degree threshold, and an exact random asynchronous absorption certificate. These separate scheduling protocols and answer a motivated dynamical gap, not a generic recurrence exercise without context.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Random-permutation one-pass probability concerns first hub zero, not complete equilibrium convergence.",
+    "Uniform random asynchronous geometric tail is conservative, while exact deterministic count depends on leaf-first order.",
+    "A previous unindexed Gauss–Seidel/clipped affine recurrence study may contain the cutoff despite a different title.",
+    "Stochastic geometric bound is valid but coarse and not an exact expected hitting time."
+  ],
+  "schema_version": 1
+}

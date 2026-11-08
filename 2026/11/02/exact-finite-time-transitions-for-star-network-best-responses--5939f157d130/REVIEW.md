@@ -1,23 +1,21 @@
-# Scientific review: exact finite-time transitions for star-network best responses
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof covers all star degrees \(s\ge2\), all real parameters \(0<\delta<1\), all initial actions in \([0,1]\), and each specified update schedule separately. Every leaf-first hub update is exactly \(F(c)=\max\{0,1-s\delta+s\delta^2c\}\), so monotonicity makes initial hub activity one the worst case. The untruncated affine recurrence determines the *first* exact zero, including its resonance at \(s\delta^2=1\). The equilibrium classification is separately checked; the random-asynchronous theorem follows from a positive-probability absorbing finite update word, not an unsupported convergence assumption. The first-pass permutation formula counts hub positions exactly, including equality boundaries.
+PASS
 
-Independent exact-rational checks in `verifier.py` cover 82,953 parameter cases, threshold and resonance examples, 27 small permutation cases with complete order enumeration, and arbitrary-state absorbing update words. The universal proof does not rely on the finite tests.
+For a leaf-first sweep, independent leaf best responses give c' = F(c)=max(0,1-sδ+sδ²c). F is increasing, so c_0=1 gives the sharp worst case for every initial leaf state. With a=1-sδ and b=sδ², the untruncated recurrence y_r=b^r+a(b^r−1)/(b−1), or 1+ra if b=1, crosses zero first at ceil(log Theta/log b) (or ceil(1/(sqrt(s)−1))), and clipping preserves the first crossing. At δ<=1/s the starting hub-one state approaches its positive/interior or boundary equilibrium without attaining it. A final leaf-only sweep reaches (0,1,..,1) when δ>1/s. The one-sweep condition sδ(1−δ)>=1 is possible first at s=4; endpoints yield logarithmic laws. A successful random word of r full leaf-first blocks followed by s leaves has probability (s!)^(r+1)/(s+1)^(r(s+1)+s), proving geometric absorption tail from ANY state. Uniform random permutation places the hub after K uniform leaves K=0..s, yielding the deactivation probability. An independent exact Fraction-based sweep check reproduced the hub cutoff in rational cases for s=2..11 and denominators <=14; finite tests do not prove real-parameter formulas.
 
-## Originality — PASS, subject to residual priority risk
+## originality
 
-Closest primary literature: Misiak and Dziubiński, [*Convergence rates of random-order best-response dynamics in public good games on networks*](https://arxiv.org/abs/2602.15986), February 17, 2026. Its Sections 2.1–2.3 and 3.2.2 establish the random best-response model and numerical convergence patterns, including the star as a complete bipartite graph. The source uses an approximate stopping tolerance, not an exact first-hit classification. It does not give the sharp leaf-first sweep cutoff, two equal-coefficient endpoint logarithms, four-leaf one-sweep threshold, exact random-permutation deactivation probability, or uniform finite-hit geometric tail proved here.
+PASS
 
-The earlier paper Bramoullé, Kranton and D'Amours, [*Strategic Interaction and Networks*](https://doi.org/10.1257/aer.104.3.898), American Economic Review 104 (2014), Example 2, **already gives the star's unique equilibrium and its activity threshold**. No novelty is claimed for equilibrium identification alone. Its equilibrium and spectral theorems do not supply a finite transient first-zero index under a specified update protocol. Source and conceptual searches did not identify an exact equivalent. Related results on generic coordinate iteration or unindexed studies of star scheduling may exist and remain a genuine priority risk.
+Published 2014 network-game results already give the star Nash equilibrium, and the 2026 source studies the same stochastic best response and numerical tolerance-based convergence. The assessed result is the exact order-specific first hitting index and endpoint asymptotics, plus a positive-probability all-state absorption-word tail and exact single-permutation hub deactivation probability. These do not follow from the earlier equilibrium existence or tolerance-based experiments, although some pieces are elementary iteration and related order-specific coordinate-descent results could overlap.
 
-## Mathematical value — PASS
+## value
 
-Exact convergence times answer a concrete question left open by tolerance-based network game simulations: when can a continuous-action best-response game reach the exact equilibrium in finitely many updates? The all-degree result distinguishes the equilibrium transition \(\delta=1/s\), the sharp spectral resonance \(\delta=1/\sqrt{s}\), and a degree-four onset of one-sweep hub deactivation. Near both the emergence and disappearance of the hub-inactive phase, the worst-case sweep count diverges logarithmically with the same sharp coefficient \(1/\log s\). The random-order results give a rigorously positive exact-hitting probability and tail guarantee, not just a numerical appearance of convergence. The star is a canonical high-degree network example already examined by both primary sources. The quantitative result is self-contained and potentially useful for scheduling and interpreting exact versus tolerance-based convergence.
+PASS
 
-## Limits and residual risks
+The precise distinction between approaching equilibrium and hitting it exactly is a natural question for continuously-valued public-goods games. A canonical star exhibits a sharp δ=1/s transition, logarithmic first-zero divergence at both ends, a previously unquantified one-sweep degree threshold, and an exact random asynchronous absorption certificate. These separate scheduling protocols and answer a motivated dynamical gap, not a generic recurrence exercise without context.
 
-Only the specified unweighted stars and homogeneous \(0<\delta<1\) game are covered. Worst-case deterministic sweep counts are not random expected hitting times. The random geometric upper tail is conservative. The random-permutation formula is for *hub* deactivation in one pass; it is not the probability that all actions have reached equilibrium in that pass. Published equilibrium classification is prior work, not a finding here. An unindexed equivalent transient analysis might limit priority. This is not independent validation.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
