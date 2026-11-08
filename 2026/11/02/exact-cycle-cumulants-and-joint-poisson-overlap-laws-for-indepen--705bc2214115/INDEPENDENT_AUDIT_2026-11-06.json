@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T04:54:53.317972Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent uniform labeled spanning trees of K_n, the Cayley forest-extension count yields P(H subset T)=n^(−|H|) product(component sizes) for any host forest, with exact one-edge probability 2/n and two-edge probabilities 3/n² or 4/n². Peeling a leaf of a *tree-index* forest, conditionally on the other trees, gives E[X_ab|T_b]=2(n−1)/n=μ independent of T_b; hence all distinct-index forest product moments factor and their mixed cumulants vanish. The two-edge inclusion kernel on host K_n edges has line-graph spectrum μ (one), 1/n (n−1) and 2(n−1)/n² (n(n−3)/2). Traces give the stated exact positive cycle cumulant (n−1)/n^ell+[n(n−3)/2]*(2(n−1)/n²)^ell. Independent exact SymPy traces confirmed n=3..8, ell=3,4,5. For each fixed pair-index factorial multiindex, vertex-disjoint distinct host-edge assignments contribute 2^R+O(1/n); intersecting hosts are O(1/n), and repeated hosts across different pair classes demand ≥3 distinct trees and contribute O(1/n). This establishes mixed factorial moments and fixed-q joint independent Poisson(2) convergence, not finite-sample independence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "James et al. derive scalar union-edge deficit asymptotics across many independent trees, more trees but only one aggregate.",
+          "Janson (1986) abstract includes intersections/unions of multiple trees and thus a plausible dominating source; its full article was inaccessible after OA and institutional attempts."
+        ],
+        "reasoning": "A scalar sum of pair overlaps has the same limiting Poisson law under rare multiple intersections but does not determine the joint labeled distribution or finite-index-cycle cumulants; an uninspected broader Janson theorem could still dominate part of the finding.",
+        "searches": [
+          "arXiv:1701.06208",
+          "doi:10.1017/S0305004100066111"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2501.18570",
+        "arXiv:1701.06208",
+        "doi:10.1017/S0305004100066111",
+        "frozen RESULT.md tree c1ece26ab0b7550223151de6eb0fdddd5ee23444"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pairwise Poisson convergence does not logically imply asymptotic independence, since dependent vectors can share the same marginals.",
+          "Union-edge aggregate Poisson convergence alone does not establish coordinates or exact finite-sample cyclic mixed moments.",
+          "The new factorial-moment argument and line-graph spectral calculation are needed beyond these prior statements; the complete older Janson paper was unavailable so the exact comparison remains qualified."
+        ],
+        "reasoning": "The published scalar/marginal statements do not imply the new vector statement without additional moment estimates.",
+        "searches": [
+          "arXiv:2501.18570 Theorem 3 and Remark 3",
+          "arXiv:1701.06208",
+          "doi:10.1017/S0305004100066111"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bóna and Wagner’s accessible primary article proves a *single* pair-overlap Poisson(2) law and forest containment counts, not the labeled vector of all q choose 2 overlaps or exact simple index-cycle cumulants.",
+          "No precise match identified in published SCOPE semantic results."
+        ],
+        "reasoning": "The pair-overlap limit is a marginal of the claimed joint law and must not be credited as new. Index-cycle trace identities and joint factorial moment comparison add information not determined by one-dimensional marginals.",
+        "searches": [
+          "arXiv:2501.18570",
+          "Resultary: pair overlap independent uniform Cayley trees Poisson joint cumulants cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing two-tree edge-intersection enumerators and Poisson limits are not a table of all simple cycle mixed cumulants of the pair-index graph.",
+          "The stated formula is uniform in every finite simple index cycle length and host order n, not a small numerical lookup."
+        ],
+        "reasoning": "The exact eigenvalue trace formula gives analytical cumulants for all n,ell (ell≤q), so no known data-table recomputation supplies the theorem.",
+        "searches": [
+          "arXiv:2501.18570 Section 2",
+          "arXiv:1701.06208"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of statements rather than titles: close primary results supply tools, partial parameter regimes or weaker scalar/qualitative conclusions but do not directly cover this particular exact claim. Inaccessible plausible broader results are named and retained as specific historical-priority risks, not treated as automatic failure.",
+      "residual_risks": [
+        "Complete text of Janson’s 1986 multitreelike intersection/union theorem was inaccessible after legal OA attempts and institutional access disconnected; it may contain a dominating multivariate statement.",
+        "Only fixed q joint limit; exact cycle formula restricted to simple cycles of distinct tree indices. Pairwise zero covariance is not independence.",
+        "Other general multivariate Poisson dependency results might imply the joint weak limit, but they do not immediately supply the exact finite cyclic cumulants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes key building-block single-pair results; its inspected claims do not assert multivariate labeled pair-index joint law or exact simple index-cycle mixed cumulants.",
+          "evidence": [
+            "arXiv:2501.18570, Lemma 1, Theorem 3, Remark 3; https://arxiv.org/abs/2501.18570."
+          ],
+          "identifier_or_url": "arXiv:2501.18570",
+          "material_read": "Complete accessible arXiv HTML primary manuscript: introduction, Section 2 Cayley forest count Lemma 1, pair-overlap Poisson theorem, and Remark 3 on ≥3 trees sharing a single host edge; relevant passages read directly.",
+          "method": "arXiv full-text HTML and full-PDF rendered page inspection",
+          "title": "On the intersection of pairs of trees",
+          "trigger": "same uniform Cayley tree pair overlap and forest probabilities"
+        },
+        {
+          "assessment": "The principal result is scalar union deficit with a stronger k=O(n^α) regime; it does not state the labeled vector law or exact cycle cumulants in the inspected theorem and proofs.",
+          "evidence": [
+            "James, Larson, Montealegre & Salmon, arXiv:1701.06208v3."
+          ],
+          "identifier_or_url": "arXiv:1701.06208",
+          "material_read": "Complete 17-page arXiv PDF accessed; introduction and Theorems 1.1–1.2 were read directly including page-image verification, and Section 3 proofs of scalar union-edge deficit bounds were inspected.",
+          "method": "arXiv full-PDF text with screenshot of Theorem 1.2 and selected proof sections",
+          "title": "Unions of random trees and applications",
+          "trigger": "multiple-tree union deficit could imply overlap joint law"
+        },
+        {
+          "assessment": "Plausible old stronger theorem: cannot conclude NOT_COVERING from abstract alone; residual scientific priority comparison explicitly unresolved.",
+          "evidence": [
+            "Janson (1986), Math Proc Camb Philos Soc 100, 319–330, doi:10.1017/S0305004100066111."
+          ],
+          "identifier_or_url": "doi:10.1017/S0305004100066111",
+          "material_read": "Publisher abstract and citation context only; complete paper inaccessible.",
+          "method": "publisher abstract; lawful institutional access unavailable",
+          "title": "Random trees in a graph and trees in a random graph",
+          "trigger": "original 1986 multiple-tree intersection/union limit may dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Overlaps between many independent trees form a natural network of correlated combinatorial statistics. Pairwise overlaps are exactly uncorrelated despite strictly positive cycle-index higher cumulants; asymptotic independent Poisson coordinates then reveal the decay of those dependencies. Explicit exact dependence at every finite n combined with a complete fixed-q limit is a motivated structural result beyond a scalar two-tree overlap law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Complete text of Janson’s 1986 multitreelike intersection/union theorem was inaccessible after legal OA attempts and institutional access disconnected; it may contain a dominating multivariate statement.",
+    "Only fixed q joint limit; exact cycle formula restricted to simple cycles of distinct tree indices. Pairwise zero covariance is not independence.",
+    "Other general multivariate Poisson dependency results might imply the joint weak limit, but they do not immediately supply the exact finite cyclic cumulants."
+  ],
+  "schema_version": 1
+}

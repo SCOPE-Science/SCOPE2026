@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` in the directory containing the seven files. The standalone program uses only Python's standard library (`fractions`, `itertools`, `heapq`). It evaluates exact integer powers and rational expressions for the host-edge matrix and checks its spectrum at host sizes from three through eight, for powers two through five. It independently enumerates all labeled trees on three and four vertices via Prüfer words, then computes exact forest, triangle and four-index-cycle moments by direct products. Positivity and the explicit third-cumulant polynomial are checked for several additional host sizes.
+## correctness
 
-The actual replay of the supplied script produced `VERIFY_OK 82 exact assertions; all Prufer trees through 4 vertices tested`. Exact computations have no floating-point tolerance or random seeds.
+PASS
 
-Proof limits: finite checks do not certify any all-order result. The argument establishing all finite host sizes is the Cayley-forest formula combined with an explicit incidence-matrix spectral decomposition. The full joint weak limit is proved using uniformly bounded mixed factorial moments and moment determinacy, not by simulation. Only self-review has been performed; no external mathematical audit is represented.
+For independent uniform labeled spanning trees of K_n, the Cayley forest-extension count yields P(H subset T)=n^(−|H|) product(component sizes) for any host forest, with exact one-edge probability 2/n and two-edge probabilities 3/n² or 4/n². Peeling a leaf of a *tree-index* forest, conditionally on the other trees, gives E[X_ab|T_b]=2(n−1)/n=μ independent of T_b; hence all distinct-index forest product moments factor and their mixed cumulants vanish. The two-edge inclusion kernel on host K_n edges has line-graph spectrum μ (one), 1/n (n−1) and 2(n−1)/n² (n(n−3)/2). Traces give the stated exact positive cycle cumulant (n−1)/n^ell+[n(n−3)/2]*(2(n−1)/n²)^ell. Independent exact SymPy traces confirmed n=3..8, ell=3,4,5. For each fixed pair-index factorial multiindex, vertex-disjoint distinct host-edge assignments contribute 2^R+O(1/n); intersecting hosts are O(1/n), and repeated hosts across different pair classes demand ≥3 distinct trees and contribute O(1/n). This establishes mixed factorial moments and fixed-q joint independent Poisson(2) convergence, not finite-sample independence.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of statements rather than titles: close primary results supply tools, partial parameter regimes or weaker scalar/qualitative conclusions but do not directly cover this particular exact claim. Inaccessible plausible broader results are named and retained as specific historical-priority risks, not treated as automatic failure.
+
+## value
+
+PASS
+
+Overlaps between many independent trees form a natural network of correlated combinatorial statistics. Pairwise overlaps are exactly uncorrelated despite strictly positive cycle-index higher cumulants; asymptotic independent Poisson coordinates then reveal the decay of those dependencies. Explicit exact dependence at every finite n combined with a complete fixed-q limit is a motivated structural result beyond a scalar two-tree overlap law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

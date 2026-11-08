@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim includes explicit definitions, all quantifiers and normalization, exact forest/cycle identities, and a fixed-dimension joint limit. Cayley forest containment proves uniform edge-set bounds. Leaf integration establishes every index-forest moment; the incidence-matrix spectrum gives the exact trace for cycles. Counting labeled host-edge assignments proves all mixed factorial limits, including possible repeated host edges across different pair classes. The finite checker passed 82 exact assertions, including complete small-tree enumerations; it is supporting evidence, not an infinite proof.
+PASS
 
-## Originality — PASS (provisional historical priority)
+For independent uniform labeled spanning trees of K_n, the Cayley forest-extension count yields P(H subset T)=n^(−|H|) product(component sizes) for any host forest, with exact one-edge probability 2/n and two-edge probabilities 3/n² or 4/n². Peeling a leaf of a *tree-index* forest, conditionally on the other trees, gives E[X_ab|T_b]=2(n−1)/n=μ independent of T_b; hence all distinct-index forest product moments factor and their mixed cumulants vanish. The two-edge inclusion kernel on host K_n edges has line-graph spectrum μ (one), 1/n (n−1) and 2(n−1)/n² (n(n−3)/2). Traces give the stated exact positive cycle cumulant (n−1)/n^ell+[n(n−3)/2]*(2(n−1)/n²)^ell. Independent exact SymPy traces confirmed n=3..8, ell=3,4,5. For each fixed pair-index factorial multiindex, vertex-disjoint distinct host-edge assignments contribute 2^R+O(1/n); intersecting hosts are O(1/n), and repeated hosts across different pair classes demand ≥3 distinct trees and contribute O(1/n). This establishes mixed factorial moments and fixed-q joint independent Poisson(2) convergence, not finite-sample independence.
 
-Bóna–Burghart–Wagner (arXiv:2501.18570v4) give the scalar pair-overlap law and an all-trees-common-host-edge estimate. James–Larson–Montealegre–Salmon (arXiv:1701.06208v3) give a stronger scalar union-deficit Poisson law, which includes Janson's earlier result. None of the inspected statements determines the labeled joint overlap vector or the exact all-cycle mixed-cumulant spectrum. Searches over aliases, general coverage, equivalent aggregates and possible tables found no direct statement. Janson's full 1986 source was inaccessible, and unindexed general multivariate Poisson theory could subsume part of the limit; neither risk is claimed resolved.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The family of pair intersections of independent trees has a natural index graph. The theorem characterizes both its exact finite-size dependence via a positive cumulant on every simple cycle and its asymptotic independent-Poisson behavior. This separates dependence visible only in cyclic higher moments from the classical scalar overlap and scalar union-deficit laws, supplying structural information across all fixed network sizes.
+Best-of-knowledge comparison of statements rather than titles: close primary results supply tools, partial parameter regimes or weaker scalar/qualitative conclusions but do not directly cover this particular exact claim. Inaccessible plausible broader results are named and retained as specific historical-priority risks, not treated as automatic failure.
 
-## Boundaries
+## value
 
-The host is the complete labeled graph, the number of trees is fixed for the limit, and the exact cycle formula requires a simple index cycle. There is no finite-sample multivariate independence claim and no multivariate total-variation rate. No independent review was undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Overlaps between many independent trees form a natural network of correlated combinatorial statistics. Pairwise overlaps are exactly uncorrelated despite strictly positive cycle-index higher cumulants; asymptotic independent Poisson coordinates then reveal the decay of those dependencies. Explicit exact dependence at every finite n combined with a complete fixed-q limit is a motivated structural result beyond a scalar two-tree overlap law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
