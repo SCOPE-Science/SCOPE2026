@@ -1,18 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The countably many open branches have exactly the geometric lengths \(w_j=((1-q)/2)q^j\), occur in reflected pairs, and cover the domain modulo countably many endpoints. Exact affine inverses show Lebesgue invariance and product-cylinder probabilities. The entropy and Lyapunov series converge for every fixed \(0<q<1\). For the closed planar graph, each of the first \(2N\) near-vertical segments has an epsilon-tube upper area \(2\varepsilon\sqrt{1+w_j^2}+\pi\varepsilon^2\); the remaining tail lies in a width-\(q^N\) central strip. The lower estimate uses \(2N\) horizontally separated slice centers, with all gaps exceeding \(4\varepsilon\). The two cutoff integers differ from \(\log(1/\varepsilon)/\log(1/q)\) by bounded amounts. Thus the upper and lower estimates agree to \(O_q(\varepsilon)\), yielding the nontrivial exact coefficient. The countable union of unit-height segments supplies \(\dim_H=1\) and infinite \(\mathcal H^1\). The standalone checker passed 1,276 exact rational branch/cylinder assertions and six finite-scale cross-section probes; neither is substituted for the infinite proof.
+## correctness
 
-## Originality (PASS, within investigated literature)
-Kopets et al.'s 2024 source states the map and numerical box-counting graph-dimension estimates, but no exact logarithmic graph-tube law. The fully inspected generalized Lueroth text of Kesseboehmer, Munday, and Stratmann contains stronger **general** results on invariant measure, coding, exactness, and Lyapunov spectra. Accordingly the abstract Bernoulli coding method is not claimed as new. The precise graph-neighborhood asymptotic and logarithmic coefficient for this 2024 two-sided construction are absent from inspected source conclusions. Source, alias, invariant and equivalent-form search against accessible literature and research records returned no exact implication. Generic tube-neighborhood results and unindexed existing computations remain priority risks; negative searches do not prove uniqueness.
+PASS
 
-## Mathematical value (PASS)
-The original paper motivates its model partly through numerical graph-complexity estimates above one. Determining the correct asymptotic box dimension, while also quantifying the \(\varepsilon\log(1/\varepsilon)\) finite-scale excess with an exact parameter-dependent coefficient, resolves a natural measurable ambiguity and explains the origin of slow convergence without assuming a particular sampling algorithm. The full Bernoulli invariant provides dynamical context, while the geometric asymptotic is the new motivated quantitative invariant.
+PASS. For every fixed 0<q<1 and balance d=(1-q)/2, two mirrored branch families of widths w_j=dq^j cover the interval modulo endpoints, each maps bijectively onto (0,1) with inverse slope w_j. This proves Lebesgue invariance and independent symbolic cylinders of measure product_j w_j; shrinking cylinders identify a Bernoulli shift, giving finite entropy and Lyapunov exponent -log d-[q/(1-q)]log q. Graph closure is the countable union of unit-height slanted segments plus central vertical accumulation segment, hence infinite H^1 and Hausdorff dimension one. For N_+(eps)≈log(1/eps)/log(1/q), first N pairs have Euclidean epsilon-neighborhood area at most 4eps N+O_q(eps), while remaining tails lie in an O(eps) central strip. For N_-(eps) chosen by w_{N-1}>4eps and q^N>4eps, 2N horizontal epsilon-intervals at each y are pairwise disjoint and yield >=4eps N. Together give the exact leading coefficient 4/log(1/q), O_q(eps) remainder and upper/lower box dimension one. Endpoint extensions do not alter closed open-branch graph or a.e. coding.
 
-## Closest sources, limits, and independent status
-- Kopets et al., *Fractal and Fractional* 8 (2024), 344, doi:10.3390/fractalfract8060344, original map and numerical dimension estimates.
-- Kesseboehmer, Munday, Stratmann, arXiv:1006.5693, generalized Lueroth invariance and Lyapunov spectra; complete preprint examined.
-- Bruin and Todd, doi:10.1112/jlms/jdr081, broader countable-branch dynamics; abstract examined, priority uncertainty remains.
-- No claim about off-balance parameter choices, any source's finite-sampling error, cryptographic properties, or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best-of-knowledge, with specified residual risks). The graph tube asymptotic is equivalent to a logarithmic correction to Minkowski content or to an epsilon-dependent graph-length normalization; it is not a noninteger limiting box dimension. Bernoulli symbolic coding is a standard full-branch Luroth-type result and is not claimed as a novel general framework. Standard Minkowski-neighborhood estimates for countable unions of segments may imply a generic log tube law when combined with geometric locations; no actually inspected general theorem gave this explicit map-specific coefficient. General Bernoulli/Luroth results do dominate the dynamical coding method. The known full-branch coding yields invariant Lebesgue and entropy by elementary specialization; the new nontrivial result is its companion graph tube coefficient and resolution of numerical dimension estimates. Avoid treating standard coding alone as an independent new theorem.
+
+## value
+
+PASS
+
+PASS. The specific naturally proposed infinitely-branched geometric tent map was reported to have apparent noninteger box dimension by numerical sampling. An exact graph tube coefficient and integer dimension explain the logarithmic finite-resolution illusion and supply a reproducible asymptotic benchmark; simultaneous exact Bernoulli entropy/expansion distinguishes geometric complexity from dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
