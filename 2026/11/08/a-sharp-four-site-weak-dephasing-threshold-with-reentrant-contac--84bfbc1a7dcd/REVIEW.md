@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The exact closed Hermitian four-site correlation equation is derived from the specified Lindblad operators, whose stationary solution is unique even at zero dephasing by boundary observability. Exact elimination of its sixteen real equations gives both the zero-dephasing current and the polynomial sign of its right derivative. Polynomial coefficients provide an elementary strict one-root proof and controlled weak- and strong-contact asymptotics. `VERIFY.py` reproduces both exact symbolic identities and independently checks normalization against the full spin Lindbladian; its finite tests do not replace the proof.
+
+**Originality: PASS, qualified.** The closest source is Jacob et al., arXiv:2407.21715, especially their full-text Sections 4, 5.1 and 5.2: they derive the model and exact results for two and three sites, but for larger systems give a truncation that fails at very small dephasing rather than an exact four-site onset criterion. Žnidarič–Horvat, arXiv:1207.5952, provide the general two-point closure but analyze disordered thermodynamic conductivity instead of this finite-size polynomial boundary. A fixed-dephasing bound comparing tilt values does not determine the derivative in the dephasing parameter. Relevant literature searches and published-finding semantic comparisons uncovered no stronger result with the same implication; unpublished or differently indexed coverage remains possible.
+
+**Value: PASS.** Four sites is the first chain size at which the nearest-neighbor-coherence approximation ceases to be exact. The result resolves a physically meaningful question that the approximation cannot answer at zero dephasing: whether an arbitrarily weak bath helps or harms stationary transport. The derived nonmonotone reservoir-dependence is structurally different from the linear contact thresholds of two- and three-site systems. The result is not presented as a complete finite-dephasing optimal-control theorem.
+
+**Limits:** Exact length four, ideal Markovian end driving, equal reservoirs, uniform pure dephasing, linear tilt. The onset sign is not a global optimization statement. Numerical maximizer values are illustrative rather than uniqueness claims. Literature coverage outside inspected sources remains a publication risk.
+
+Self-review: passed. Independent audit: not yet performed.
