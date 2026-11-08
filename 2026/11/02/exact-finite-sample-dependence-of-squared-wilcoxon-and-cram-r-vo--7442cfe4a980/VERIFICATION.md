@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof derives the finite-population quadratic-form covariance by decomposing zero-row-sum symmetric kernels into constant, first-order, and degenerate second-order components. The coefficients follow by sampling without replacement; no limit theorem is used for the finite-sample statements.
+# Independent mathematical audit
 
-Run `python3 check_rank_energy.py` from the package directory. This checker uses only the Python standard library, enumerates every binary word of each split for \(3\le N\le11\), and compares the exact mean, covariance, and both variances. It also checks the strict covariance sign and the equality classification. Observed: `PASS: exact enumeration N=3..11, every 1<=a<N; 486 rational assertions`.
+## correctness
 
-Finite tests do not establish the all-size theorem: the algebraic proof in RESULT.md does. Historical-priority comparison is incomplete where cited primary full texts are inaccessible. No independent audit has been performed.
+PASS
+
+The fixed-composition null makes Y_i=X_i−a/N exchangeable with ∑Y_i=0. W² and abT are quadratic forms in centered ranks and cumulative-sum kernel; splitting symmetric zero-row-sum matrices into scalar, diagonal-linear and zero-diagonal degenerate components gives the exact mixed fourth moment and both variances. The determinant identity VZ−2U²=N(2ab−N)(N+2)(ab+1−N) yields positive correlation and equality iff min(a,b)=1; leading terms give 3/sqrt(10). Independent exact-rational enumeration for every sample split N=3..10 verified covariance and variances.
+
+## originality
+
+PASS
+
+The exact finite-population covariance, variances, strict positivity and perfect-correlation singleton boundary supplement classical marginal rank-statistic theory. Pettitt 1979 is a highly relevant inaccessible primary full text; it remains a material residual originality risk rather than an access-based fail.
+
+## value
+
+PASS
+
+Wilcoxon and Cramér–von Mises are canonical rank tests; their exact finite-sample joint magnitude dependence, universal positive correlation and singleton perfect-correlation classification are meaningful for combining or comparing two-sided tests, beyond separate null moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

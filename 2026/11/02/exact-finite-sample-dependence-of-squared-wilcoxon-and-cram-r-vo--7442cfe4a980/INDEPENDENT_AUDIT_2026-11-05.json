@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T22:09:18.417178Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed-composition null makes Y_i=X_i−a/N exchangeable with ∑Y_i=0. W² and abT are quadratic forms in centered ranks and cumulative-sum kernel; splitting symmetric zero-row-sum matrices into scalar, diagonal-linear and zero-diagonal degenerate components gives the exact mixed fourth moment and both variances. The determinant identity VZ−2U²=N(2ab−N)(N+2)(ab+1−N) yields positive correlation and equality iff min(a,b)=1; leading terms give 3/sqrt(10). Independent exact-rational enumeration for every sample split N=3..10 verified covariance and variances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Curry–Dang–Sang arxiv:1802.06332 abstract compares a different finite-sample rank statistic with classical CvM, and studies marginal moments and asymptotics."
+        ],
+        "reasoning": "Marginal covariance and power analyses do not directly specify the mixed fourth moment of W and T, but an unknown stronger theorem in Pettitt could.",
+        "searches": [
+          "Pettitt 1979 Two Sample Cramer Von Mises Type Rank Statistics",
+          "Curry Dang Sang 2018 rank based Cramer von Mises type test"
+        ]
+      },
+      "checked_sources": [
+        "Pettitt, JRSS B 41(1), 46-53 (1979), DOI:10.1111/j.2517-6161.1979.tb01056.x, abstract only",
+        "Curry–Dang–Sang arxiv:1802.06332 abstract",
+        "SciPy two-sample Cramer von Mises definition",
+        "Resultary fixed-composition run-transition dependence record (different statistic)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pettitt summary explicitly studies linear-rank score decomposition.",
+          "The claim gives a new fourth-order cross-moment under one fixed-composition sample and derives a universal 3/sqrt(10) limit."
+        ],
+        "reasoning": "A sum-of-squares representation of T does not automatically give the covariance formula without cross-score fourth moments; more complete prior formulas might imply it, and that possibility is flagged.",
+        "searches": [
+          "Pettitt 1979 Wilcoxon score components CvM",
+          "Curry Dang Sang rank based CvM 2018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pettitt publisher summary says weighted Cramér–von Mises statistics decompose into squares of linear rank statistics, with Wilcoxon among the examples."
+        ],
+        "reasoning": "That decomposition could facilitate a mixed-moment evaluation but the accessible summary does not itself state the displayed covariance or correlation boundary; cannot exclude content in unread full article.",
+        "searches": [
+          "Wilcoxon squared rank sum and two-sample Cramer von Mises permutation null covariance correlation exact finite sample",
+          "Pettitt 1979 weighted Cramer von Mises linear rank decomposition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SciPy formula for the standardized two-sample CvM criterion provides the classical statistic, not joint finite sample covariance with Wilcoxon square.",
+          "Resultary fixed-composition run-transition covariance concerns distinct indicators."
+        ],
+        "reasoning": "No exact covariance table found in these searches; entire Pettitt paper not reviewed so database noncoverage cannot be asserted.",
+        "searches": [
+          "two sample cramer von mises wilcoxon correlation squared rank sum joint null covariance",
+          "Wilcoxon squared CvM permutation finite sample exact covariance 3/sqrt10"
+        ]
+      },
+      "rationale": "The exact finite-population covariance, variances, strict positivity and perfect-correlation singleton boundary supplement classical marginal rank-statistic theory. Pettitt 1979 is a highly relevant inaccessible primary full text; it remains a material residual originality risk rather than an access-based fail.",
+      "residual_risks": [
+        "Pettitt (1979) full article not read; publisher access requires human verification and could contain the exact mixed-moment identity.",
+        "Anderson (1962) full primary article not accessed; old joint permutation moment formulas may imply result.",
+        "The theorem is under a common continuous null only and describes moments, not power or tails."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "POSSIBLE related decomposition; cannot conclude whole-document noncoverage",
+          "evidence": [
+            "Summary describes CvM statistics as sums of squares of linear rank statistics with Wilcoxon, Mood, normal, Savage examples.",
+            "Full joint finite-sample Wilcoxon-square covariance was not verifiably read."
+          ],
+          "identifier_or_url": "https://academic.oup.com/jrsssb/article/41/1/46/7027475",
+          "material_read": "Publisher abstract/summary only; full article not accessible; institutional authorization returned verification interruption",
+          "method": "Publisher landing page and authorized institutional attempt",
+          "title": "Two-Sample Cramér-Von Mises Type Rank Statistics",
+          "trigger": "Same two-sample CvM and its Wilcoxon-score components"
+        },
+        {
+          "assessment": "RELATED different statistic and separate mean/variance asymptotics, not proof of full-document noncoverage",
+          "evidence": [
+            "Abstract states different finite-sample statistic, same expectation and variance as classical criterion, and asymptotic analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1802.06332",
+          "material_read": "ArXiv abstract (full text unavailable via attempted HTML route)",
+          "method": "ArXiv abstract",
+          "title": "A rank-based Cramér-von-Mises-type test for two samples",
+          "trigger": "Related rank-based quadratic two-sample test"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Wilcoxon and Cramér–von Mises are canonical rank tests; their exact finite-sample joint magnitude dependence, universal positive correlation and singleton perfect-correlation classification are meaningful for combining or comparing two-sided tests, beyond separate null moments.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The proof depends on a specific normalized T and continuous common null with no ties.",
+    "Pettitt 1979 full text inaccessible due verification interruption; possible prior exact joint-moment coverage remains a priority risk.",
+    "Pettitt (1979) full article not read; publisher access requires human verification and could contain the exact mixed-moment identity.",
+    "Anderson (1962) full primary article not accessed; old joint permutation moment formulas may imply result.",
+    "The theorem is under a common continuous null only and describes moments, not power or tails."
+  ],
+  "schema_version": 1
+}

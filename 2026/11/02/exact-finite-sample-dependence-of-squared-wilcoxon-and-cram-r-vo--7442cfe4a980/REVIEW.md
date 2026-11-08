@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is the exact covariance of squared centered Wilcoxon rank sum with the specified two-sample Cramér–von Mises statistic, together with the finite variances, correlation boundary and interior asymptotic. Uniform permutation-null sampling follows from the common continuous null. The proof reconstructs both statistics as quadratic forms of a centered fixed-composition indicator vector. It gives the constant/linear/degenerate decomposition, the exact hypergeometric coefficients, explicit kernel traces, and the all-size positive factorization. A distinct proof of the \(N=3\) endpoint uses the vanishing degenerate component. The numerical checker exhaustively evaluates 486 exact rational assertions over all splits through total size 11; this is supplementary rather than a substitute for the analytic proof. Risk: arithmetic transcription or overlooked scaling is mitigated by enumeration using the original rank formulas, not kernel formulas.
+PASS
 
-## Originality — PASS, with residual historical risk
+The fixed-composition null makes Y_i=X_i−a/N exchangeable with ∑Y_i=0. W² and abT are quadratic forms in centered ranks and cumulative-sum kernel; splitting symmetric zero-row-sum matrices into scalar, diagonal-linear and zero-diagonal degenerate components gives the exact mixed fourth moment and both variances. The determinant identity VZ−2U²=N(2ab−N)(N+2)(ab+1−N) yields positive correlation and equality iff min(a,b)=1; leading terms give 3/sqrt(10). Independent exact-rational enumeration for every sample split N=3..10 verified covariance and variances.
 
-Actual searches of published research records for squared Wilcoxon versus Cramér–von Mises, permutation-bridge quadratic forms, and rank-test mixed fourth moments returned no equivalent theorem; top general analogues concern run-transition covariances, permutations or different two-sample test settings. Previously recorded relevant findings were compared by claim and aliases. The closest own findings compute runs–Cramér–von Mises covariance and runs–Wasserstein covariance, not the squared Wilcoxon–Cramér–von Mises fourth-order interaction. The inspected Alvarez-Andrade et al. (2015) and Ramdas et al. (2015) full-text portions concern asymptotic empirical-process and test-family connections, not the exact finite mixed fourth moment. Curry et al. (2018) studies a different rank-based statistic and CvM marginal moments; it does not assert the displayed mixed covariance in the inspected sections. Pettitt (1979) is the closest historical title since it treats weighted CvM rank statistics and linear rank scores including Wilcoxon. Its full text was inaccessible; therefore historical uniqueness remains unproved, and this status does not certify that inaccessible material is non-covering.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The squared Wilcoxon statistic represents the magnitude of a natural two-sided rank-sum test, while Cramér–von Mises is a classical omnibus quadratic two-sample test. The unconditional signed covariance vanishes by reversal symmetry and hence conceals substantial nonlinearly shared fluctuation. The result gives an exact positive finite-sample covariance for every split, a sharp perfect-correlation boundary for singleton samples, and a nonzero universal asymptotic correlation of \(3/\sqrt{10}\). This information can be used in null covariance calibration of combined statistics; neither finite-dimensional arithmetic checks nor novelty alone are invoked as the reason for value. The result does not provide the full joint distribution or exact combined-test tail probabilities.
+The exact finite-population covariance, variances, strict positivity and perfect-correlation singleton boundary supplement classical marginal rank-statistic theory. Pettitt 1979 is a highly relevant inaccessible primary full text; it remains a material residual originality risk rather than an access-based fail.
 
-## Sources and limitations
+## value
 
-Anderson (1962), DOI 10.1214/aoms/1177704477, original CvM criterion; full text unavailable. Pettitt (1979), DOI 10.1111/j.2517-6161.1979.tb01056.x, abstract plus reference list accessible; open access full text unavailable and institutional retrieval interrupted by verification. Alvarez-Andrade, Bouzebda, and Lachal (2015), arXiv:1505.07345, pages 1–3 and 9 inspected, covering integrated empirical processes. Ramdas, García Trillos, and Cuturi (2015), arXiv:1509.02237, pages 1–4 inspected, covering relations among two-sample tests. Curry, Dang, and Sang (2018), arXiv:1802.06332, pages 1–5 inspected, covering rank-based CvM-type tests and their relation to the classical criterion. Literature could contain prior equivalent fourth-order cross-moments not retrieved here. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Wilcoxon and Cramér–von Mises are canonical rank tests; their exact finite-sample joint magnitude dependence, universal positive correlation and singleton perfect-correlation classification are meaningful for combining or comparing two-sided tests, beyond separate null moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
