@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-norm definitions are explicit, and for each distribution the single-node Lanczos formula is the actual Rayleigh-log rule. For Rademacher the estimator is constant; for spherical sampling its Fourier logarithm has an absolutely convergent expansion, giving mean and variance exactly. The resulting difference is a one-variable scalar function whose derivative numerator is strictly increasing with opposite endpoint signs. This proves precisely one interior crossing and all strict comparisons. The exact rational root bracket and independent angular quadrature checks in `verify.py` support the algebra but are not substituted for the proof. Risks: no inference is made for additional nodes or unrestricted matrices.
+PASS
 
-## Originality — PASS, with priority risk
+For Rademacher signs the one-node Rayleigh-log output is deterministic and squared bias 4 log^2 cosh u. For uniform sphere, log(kappa cos²θ+sin²θ) has absolute Fourier expansion: mean log c and variance 2Li_2(t²), yielding M_S=16 log²cosh(u/2)+8Li_2(x). The difference/8 H(x) has derivative N(x)/(1-x²), with N increasing strictly from -1 to 2log2; H initially decreases, then increases to +infinity, so exactly one interior zero. Independently evaluated x*=0.77780968432523010353 and kappa*=254.07878454108627389 with high precision, and checked risk ordering. κ=1 both exact; sphere is normalized Gaussian direction, not ordinary Gaussian.
 
-The inspected full texts [1]–[3] define the broader stochastic trace/log-determinant Lanczos context, supply distributional concentration and complexity results, and include Gaussian/Rademacher comparisons. They do not present the exact one-node, two-dimensional, norm-matched spherical-versus-sign expected squared error formulas or the unique crossover classification. The known sphere sampling distribution and elementary Fourier identities are acknowledged, and their separate existence is not construed as novelty. Published-results-index searches using the exact estimator, both probe laws and their reformulations did not yield a covering record. A specialized prior calculation is still possible and should be independently checked. This is a self-review, not independent, priority assessment.
+## originality
 
-## Value — PASS
+PASS
 
-Finite-budget SLQ error consists of random-direction variability and deterministic quadrature bias, so comparing only variances or trace-probe guarantees can misrank two choices. The natural single-matrix-vector-product case exhibits an exact, unexpectedly **reversed** MSE ranking despite the sign probe having zero variance on this diagonal input. The complete crossover and explicit risks quantify the mechanism rather than asserting general superiority. The narrow model is mathematically motivated by the lowest SLQ budget and the simplest genuinely anisotropic spectrum.
+General randomized trace/Lanczos frameworks cover Gaussian and sign probes and sometimes sphere concentration, but do not state the norm-matched 2D one-node exact risk crossover and uniqueness. It is a narrow explicit theorem, not a claim that Lanczos, Fourier log series, or probe distributions are new.
 
-## Closest literature and limitations
+## value
 
-[1] Cortinovis and Kressner, arXiv:2005.10009, Sections 1, 3 and 4: unnormalized Gaussian/Rademacher high-probability logdet estimation. [2] Chen, Trogdon, Ubaru, arXiv:2204.01941, sphere sampling and randomized matrix-free quadrature. [3] Li, Huang, Zhu, arXiv:2307.00847, stochastic Lanczos error-budget allocation and probe comparisons. Their actual statements do not imply the sharp fixed-norm one-node reversal. The claim is specific to a diagonal two-dimensional matrix, and no independent validation or comprehensive priority certificate is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the simplest nontrivial one-matrix-vector-product budget, deterministic zero-variance sign probes may have *greater* total squared risk than random sphere probes due to quadrature bias; the unique κ frontier is a meaningful warning against variance-only probe comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

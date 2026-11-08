@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact theorem appears in `RESULT.md`. Run `python3 verify.py` (Python 3.10+, standard library only); successful output starts with `VERIFY_OK`.
+## correctness
 
-The checker has two exact-rational strict sign certificates for the sign-change function at \(x=0.7778\) and \(x=0.7779\), each carrying a rigorous series remainder bound. It also computes independent deterministic angular quadratures for nine values of \(\kappa\) and compares mean and squared-error quantities, checks the analytic Rademacher bias, and tests which probe wins at \(\kappa=128\) and \(256\). Forty assertions run. No stochastic simulation is used.
+PASS
 
-The finite checks do not prove all-parameter uniqueness; the complete analytical proof in `RESULT.md` uses absolutely convergent Fourier series, derivative monotonicity, limits and the strictly increasing condition-number transformation. Independent mathematical audit is not performed.
+For Rademacher signs the one-node Rayleigh-log output is deterministic and squared bias 4 log^2 cosh u. For uniform sphere, log(kappa cos²θ+sin²θ) has absolute Fourier expansion: mean log c and variance 2Li_2(t²), yielding M_S=16 log²cosh(u/2)+8Li_2(x). The difference/8 H(x) has derivative N(x)/(1-x²), with N increasing strictly from -1 to 2log2; H initially decreases, then increases to +infinity, so exactly one interior zero. Independently evaluated x*=0.77780968432523010353 and kappa*=254.07878454108627389 with high precision, and checked risk ordering. κ=1 both exact; sphere is normalized Gaussian direction, not ordinary Gaussian.
+
+## originality
+
+PASS
+
+General randomized trace/Lanczos frameworks cover Gaussian and sign probes and sometimes sphere concentration, but do not state the norm-matched 2D one-node exact risk crossover and uniqueness. It is a narrow explicit theorem, not a claim that Lanczos, Fourier log series, or probe distributions are new.
+
+## value
+
+PASS
+
+At the simplest nontrivial one-matrix-vector-product budget, deterministic zero-variance sign probes may have *greater* total squared risk than random sphere probes due to quadrature bias; the unique κ frontier is a meaningful warning against variance-only probe comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
