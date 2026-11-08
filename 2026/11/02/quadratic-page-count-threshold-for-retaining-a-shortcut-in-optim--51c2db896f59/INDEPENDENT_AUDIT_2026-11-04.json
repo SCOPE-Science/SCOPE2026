@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T22:18:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On 1^perp the Laplacian inverse trace is strictly convex in independently weighted edges (nonzero edge perturbation gives nonzero symmetric H), and disconnected limits diverge. Unique optimum is invariant under hub exchange and page permutations, forcing uniform spoke t>0. Nonzero Laplacian eigenvalues: 2t multiplicity m-1, (m+2)t, mt+2z. Budget share y=Rz/B reduces trace to (2S/B)[K_m/(1-y)+1/(1+ky)], K_m=m²(m+1)/(2(m+2)), k=4S/R-1. Strict convexity and derivative at zero give critical R=4S/(K_m+1), equal to printed formula. Independent exact symbolic/arithmetic threshold check for m=2..11 confirms identity; analytic proof covers all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General weighted graph optimization and fixed-conductance join formulas address broader objects but different optimization quantifiers."
+        ],
+        "reasoning": "General convexity does not imply exact m,R,S edge-deletion phase boundary; fixed-weight resistance differs from optimal independently allocated conductances.",
+        "searches": [
+          "Ghosh Boyd Saberi 2006 conference and 2008 journal",
+          "resistance distances and Kirchhoff indices in graph joins 2025/2026"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "https://doi.org/10.1137/050645452"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strict inverse-trace convexity, page/hub symmetry and three spectral modes are known-method inputs."
+        ],
+        "reasoning": "The nearest prior supplies a method not the claimed sharp closed-form theorem; if a prior example with an isomorphic graph and prices exists, priority could be affected.",
+        "searches": [
+          "Ghosh Boyd Saberi 2006/2008",
+          "resultary query minimizing total effective resistance graph book K2 join independent set conductance edge price cutoff hub"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General electrical-resistance design is strictly convex and can be solved via SDP; book support cutoff is not one of the worked cases."
+        ],
+        "reasoning": "Equivalence to a one-dimensional convex objective comes from additional graph symmetry and spectrum; this specialization requires calculation and establishes explicit sharp threshold not stated in source.",
+        "searches": [
+          "minimizing total effective resistance graph book K2 join independent set conductance edge price cutoff hub",
+          "Ghosh Boyd Saberi SIAM Review 2008"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Worked primary examples contain trees, wheels and barbell graphs; no tabulation of book network R_c(m,S) in inspected sections."
+        ],
+        "reasoning": "Not a table recomputation of scalar resistance; all independent allocations, optimized support and exact conductances are determined.",
+        "searches": [
+          "Ghosh Boyd Saberi SIAM Review 2008 full PDF",
+          "search book graph effective resistance conductance price threshold"
+        ]
+      },
+      "rationale": "Ghosh–Boyd–Saberi prove the general convex effective-resistance design framework and several symmetric examples; their relevant primary sections treat trees, wheels and barbell examples rather than this priced book-network threshold. A general SDP allows computation but does not automatically state the explicit edge-support cutoff. Best-of-knowledge originality PASS for exact network parameter law.",
+      "residual_risks": [
+        "Older graph-join resistance literature may include an equivalent priced edge support condition under different terminology.",
+        "General convex programming could make the formula derivable, but it was not found expressly covered in inspected primary examples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_NOT_EXPLICIT_BOOK_THRESHOLD",
+          "evidence": [
+            "Convex total-resistance optimization and multiple graph examples, no discovered K_2 join independent-set page-count edge deletion law."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Full accessible 2008 primary PDF, spectral/optimization setup and analytical example sections including barbell and wheel",
+          "method": "PDF text extraction and first-page screenshot; reviewed relevant examples",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Same total effective-resistance objective and independently designed conductances"
+        },
+        {
+          "assessment": "EARLIER_METHOD_PRIOR",
+          "evidence": [
+            "The general framework predates this result; exact day of original online proceedings not verified."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "Bibliographic proceedings details, abstract and cited scope as reported; separate full-text primary journal version read",
+          "method": "Bibliographic and primary comparison",
+          "title": "Minimizing Effective Resistance of a Graph (conference version)",
+          "trigger": "Potential earliest source of same design method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact phase boundary determines when a shortcut should be removed despite positive electrical conductance, with nontrivial m^-2 price scaling and an explicit globally optimal allocation. This is an interpretable network-design optimization result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older graph-join resistance literature may include an equivalent priced edge support condition under different terminology.",
+    "General convex programming could make the formula derivable, but it was not found expressly covered in inspected primary examples.",
+    "A full independent listing/reconstruction of the entire record Git tree was not obtained; file-blob identities from frozen assigned commit are inspected and matched, and assigned record-tree SHA retained.",
+    "Public source METADATA/AUDIT contains operational run IDs and inherited first_public_date; no unchanged source package is cleared for public release.",
+    "Finite computations corroborate only checked instances; external mathematical certification not claimed."
+  ],
+  "schema_version": 1
+}

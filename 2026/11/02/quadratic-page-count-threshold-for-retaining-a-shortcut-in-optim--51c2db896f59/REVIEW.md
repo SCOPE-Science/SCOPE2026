@@ -1,19 +1,21 @@
-# Review of the priced book-network resistance allocation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a global theorem over every integer \(m\ge2\), \(S,R,B>0\) and independent nonnegative edge conductances. The proof checks feasibility and connectivity, strict matrix-inverse trace convexity, the injective edge-to-Laplacian map, unique symmetry reduction, all nonzero eigenvalues and their multiplicities, and an exact strictly convex scalar derivative with its one-sided boundary condition. The reported radical formula has positive denominators precisely in the interior case. Equality \(R=R_c\) is included in the deleted regime. Exact-rational and unrestricted numerical tests from the included verifier were executed and passed; these are corroboration, not proof.
+PASS
 
-## Originality — PASS, qualified
+On 1^perp the Laplacian inverse trace is strictly convex in independently weighted edges (nonzero edge perturbation gives nonzero symmetric H), and disconnected limits diverge. Unique optimum is invariant under hub exchange and page permutations, forcing uniform spoke t>0. Nonzero Laplacian eigenvalues: 2t multiplicity m-1, (m+2)t, mt+2z. Budget share y=Rz/B reduces trace to (2S/B)[K_m/(1-y)+1/(1+ky)], K_m=m²(m+1)/(2(m+2)), k=4S/R-1. Strict convexity and derivative at zero give critical R=4S/(K_m+1), equal to printed formula. Independent exact symbolic/arithmetic threshold check for m=2..11 confirms identity; analytic proof covers all parameters.
 
-The complete 2008 Ghosh–Boyd–Saberi PDF was inspected in its introductory formulation and analytical graph-family sections (trees, wheels and barbells); the accessible 2006 proceedings paper was also inspected. Their general strict-convexity/symmetry methods imply that the present optimization is tractable but do not state the specific budget-price transition. A later graph-join result gives fixed-weight resistance information rather than optimization; available coverage was partial. Database searches for shortcut deletion, Kirchhoff minimization, \(K_2\)-join graphs, and equivalent parallel two-edge routes did not reveal a theorem implying the stated threshold. A distinct priced book-network log-determinant problem optimizes a different spectral functional and cannot imply this trace-pseudoinverse threshold. Residual risk: unindexed or inaccessible specialized electrical-network design sources might contain a stronger equivalent formulation.
+## originality
 
-## Value — PASS
+PASS
 
-The result is a natural complete classification of the direct-connection support on a network family with overlapping cycles, together with exact globally optimal conductances, minimum objective and a nontrivial \(m^{-2}\) price scale. The equal-price two-page versus three-page transition is operationally clear, and the analysis distinguishes total-resistance minimization from other spectral design objectives. The endpoint asymptotics quantify how a cheaply supplied shortcut can have diverging conductance while receiving vanishing expenditure. This is more informative than a numerical SDP solution or an arbitrary finite evaluation.
+Ghosh–Boyd–Saberi prove the general convex effective-resistance design framework and several symmetric examples; their relevant primary sections treat trees, wheels and barbell examples rather than this priced book-network threshold. A general SDP allows computation but does not automatically state the explicit edge-support cutoff. Best-of-knowledge originality PASS for exact network parameter law.
 
-## Limits and closest literature
+## value
 
-The result requires the two spoke families to share a single price and restricts the graph to a book. Independently published absolute priority has not been established. See the cited Ghosh–Boyd–Saberi works and the graph-join comparison in `RESULT.md`; the accompanying originality checks record their different logical coverage.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact phase boundary determines when a shortcut should be removed despite positive electrical conductance, with nontrivial m^-2 price scaling and an explicit globally optimal allocation. This is an interpretable network-design optimization result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

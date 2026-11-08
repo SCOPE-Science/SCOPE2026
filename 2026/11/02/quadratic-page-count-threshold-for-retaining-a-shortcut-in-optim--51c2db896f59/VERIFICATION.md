@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the book-network resistance theorem
+# Independent mathematical audit
 
-The proof in `RESULT.md` is analytic. The script `verify_book_resistance.py` was executed with Python 3, NumPy and SciPy. It reported:
+## correctness
 
-- Exact rational inversions of \(L+\mathbf1\mathbf1^{\mathsf T}/n\) for \(15\) parameter instances, all matching the proposed inverse-spectrum trace.
-- \(49\) budget and spectral equalities and \(49\) support-threshold decisions, all matching.
-- \(980\) asymmetric positive-budget feasible comparisons, none better than the proven optimum.
-- \(15\) unrestricted nonlinear numerical optimization attempts, with matching objective values or noncontradictory numerical termination.
-- Equal-price retention for the two-page graph and deletion for \(3\le m\le44\).
+PASS
 
-The finite tests do not exhaust unbounded integer \(m\) or continuous price parameters. The matrix-inverse strict-convexity and scalar first-order analysis are the proof. No independent mathematical audit or exhaustive literature priority determination has been performed.
+On 1^perp the Laplacian inverse trace is strictly convex in independently weighted edges (nonzero edge perturbation gives nonzero symmetric H), and disconnected limits diverge. Unique optimum is invariant under hub exchange and page permutations, forcing uniform spoke t>0. Nonzero Laplacian eigenvalues: 2t multiplicity m-1, (m+2)t, mt+2z. Budget share y=Rz/B reduces trace to (2S/B)[K_m/(1-y)+1/(1+ky)], K_m=m²(m+1)/(2(m+2)), k=4S/R-1. Strict convexity and derivative at zero give critical R=4S/(K_m+1), equal to printed formula. Independent exact symbolic/arithmetic threshold check for m=2..11 confirms identity; analytic proof covers all parameters.
+
+## originality
+
+PASS
+
+Ghosh–Boyd–Saberi prove the general convex effective-resistance design framework and several symmetric examples; their relevant primary sections treat trees, wheels and barbell examples rather than this priced book-network threshold. A general SDP allows computation but does not automatically state the explicit edge-support cutoff. Best-of-knowledge originality PASS for exact network parameter law.
+
+## value
+
+PASS
+
+The exact phase boundary determines when a shortcut should be removed despite positive electrical conductance, with nontrivial m^-2 price scaling and an explicit globally optimal allocation. This is an interpretable network-design optimization result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
