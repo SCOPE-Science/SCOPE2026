@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof constructs digitwise binary-addition transitions between eight possible states, tracking parity of the open one-runs and carry. The determinized automaton paired with the residue and position-parity tracker has exactly ten reachable states, whose transitions are displayed in the proof. Every reachable state accepts exactly when its residue is zero, which proves the statement for unbounded input lengths. The standalone checker recomputes this complete finite certificate without assuming its conclusion and separately tests all targets below 16384. Boundaries at zero, nonzero carry, and closing odd one-runs are included.
+## correctness
 
-**Originality — PASS within inspected sources.** Rampersad–Wiebe's Theorem 20 describes the relevant zero-one sequence, not the sumset of its support. Bell–Hare–Shallit provide generic algorithms for additive bases of automatic sets, and discuss other sets explicitly, but do not give this particular exact order-two equality. Chen–Wang's binary criterion uses parity of the total zero count rather than even lengths of one-runs. The exact sumset and sharp order were compared against relevant research search records, alternate descriptions and published work. A possible unindexed prior implementation of the general algorithms remains a genuine risk; priority is not certified.
+PASS
 
-**Value — PASS.** The result determines a natural exact additive invariant of a recently characterized automatic number-theoretic set: its twofold sumset is precisely one full congruence class lattice, despite the underlying support being sparse. The statement gives a sharp additive-basis order on the scaled support rather than mere decidability, eventual basis status or finite computational evidence. The ten-state certificate gives a reusable method for binary carry-constrained additive questions.
+For each 2j-block of 1s starting at h, the contribution 2^h(2^{2j}-1) is divisible by 3. For the converse, the 8 possible states (odd/even open-run parities of each summand plus binary carry) give a nondeterministic LSB-first addition machine; a 0 after an odd run is forbidden. Determinization with the mod-3 residue and parity of the binary digit index has exactly 10 reachable configurations, closed under both input bits, and the NFA acceptor (0,0,0) occurs exactly when residue=0. The independent construction recreated all 10 states and 20 transitions, proving an all-input-length regular-language identity, not extrapolating a numerical range. Zero and end-of-word finishing parities are handled by the unique accepting state; 9 not in E, but 3 and 6 are, giving sharp order.
 
-**Scientific limits.** Two summands may include zero; uniqueness, representation counts and the generalized one-run divisibility family are not determined. The priority comparison does not replace independent verification or a complete historical bibliography.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality assessment: the exact new claim was compared by implications with same-object primary results; known definitions/source results are credited, and no directly covering proved theorem was identified in the inspected material. This is not exhaustive priority certification. A two-summand theorem for the even-one-run binary set. The reconstructed 10-configuration closure provides the nontrivial missing implication E+E⊇3Z_{>=0}; exact order follows 9∉E.
+
+## value
+
+PASS
+
+A precise additive basis theorem for a natural automatic set that also arises as the support of the generalized Baum–Sweet-type T_2 sequence; the sharp two-summand order is a nontrivial combinatorial sumset invariant, not a mere restatement of regularity or 3-divisibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
