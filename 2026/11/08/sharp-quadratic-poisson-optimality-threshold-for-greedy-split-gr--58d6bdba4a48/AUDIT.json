@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For all integers \\(2\\le a\\le b\\) the clique-size process has internal probability (x-1)/(2b-2a+3x+4k-1). Every internal choice skips a clique-size state and adds exactly one deficit unit. The all-cross probability is an exact telescoping-in-state product; vertex-label symmetry makes the conditional maximum matching uniform, giving whole-output total variation by disjoint supports. For \\(b\\ge4a\\) an independent uniform sequence couples the visited internal choices to Bernoulli probabilities (x-1)/(2b); visits, skips and Le Cam inequality yield the explicit \\(a(a-1)(14a-5)/(24b^2)\\) bound. Logarithmic product estimates establish the sharp quadratic transition. Exact labeled enumeration, rational recursions, inequalities and numerical total variation pass VERIFY_OK 11717 assertions; finite tests corroborate but the general theorem follows from the displayed proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dyer–Frieze–Pittel (1993) analyze sparse random graphs and random labeled trees, obtaining different large-graph asymptotic regimes.",
+        "Bal–Bennett preprint (2016) and Gamarnik–Goldberg (2009) analyze regular or locally tree-like graph sequences; complete split graphs have an unbounded high-degree clique and are not regular.",
+        "The 1991 Dyer–Frieze paper is a plausible predecessor but its abstract does not assert this exact special-family formula; its full argument was not accessible."
+      ],
+      "reasoning": "Broad performance and approximation theorems do not imply the exact additive Poisson law or the whole-law total-variation identity. General algorithmic formulas could in principle subsume a special case, so inaccessible full text remains a priority risk.",
+      "searches": [
+        "\"random greedy matching general graph exact finite distribution\"",
+        "https://doi.org/10.1214/aoap/1177005436",
+        "https://doi.org/10.1002/rsa.3240020104",
+        "https://arxiv.org/abs/1603.09232"
+      ]
+    },
+    "checked_sources": [
+      "Arnosti, Greedy Matching in Bipartite Random Graphs, doi:10.1287/stsy.2021.0082",
+      "Dyer–Frieze–Pittel, The Average Performance of the Greedy Matching Algorithm, doi:10.1214/aoap/1177005436",
+      "Dyer–Frieze, Randomized Greedy Matching, doi:10.1002/rsa.3240020104 (abstract only)",
+      "Bal–Bennett, The Matching Process and Independent Process in Random Regular Graphs and Hypergraphs, arXiv:1603.09232 (abstract/model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arnosti (2021) studies random edge choices on randomly generated bipartite instances, whereas K_a joined to an independent set contains clique-clique edges; bipartite theorems cannot directly apply.",
+        "Dyer–Frieze–Pittel (1993) obtain large sparse-random-input results and no parameter-uniform fixed complete split-graph distribution.",
+        "The present proof derives an explicit state-dependent coupling and its \\(b\\ge4a\\) bound, not a direct substitution into a previously located theorem."
+      ],
+      "reasoning": "The general Poisson approximation for small independent Bernoulli events is imported, but the state coupling, exact product, full-output identity, and defect threshold are additional nontrivial consequences of the complete split-graph dynamics.",
+      "searches": [
+        "https://doi.org/10.1287/stsy.2021.0082",
+        "https://doi.org/10.1214/aoap/1177005436",
+        "\"sharp quadratic greedy matching split graph total variation\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Greedy edge-choice equivalent to uniform random feasible edge selection, or random ordering of edges accepting each available edge; neither standard equivalence supplies the particular exact split-graph law.",
+        "Arnosti (2021), Secs. 1–4, defines RANDOM-EDGE on bipartite random input but does not evaluate greedy split-graph deficit distributions."
+      ],
+      "reasoning": "Alias search covered greedy matching, random-edge sequential matching and random sequential adsorption of dimers. These identify the same algorithm, not an antecedent theorem for the fixed nonbipartite complete split graphs.",
+      "searches": [
+        "\"random edge greedy matching split graph Poisson deficit\"",
+        "\"complete split graph sequential random matching optimality probability\"",
+        "\"random sequential adsorption dimers split graph clique independent set\"",
+        "https://doi.org/10.1287/stsy.2021.0082"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact finite table or classification stating the full bivariate a,b probability product, conditional injection law, and critical b/a^2 Poisson regime was located in the inspected sources.",
+        "Direct exact small-size graph enumeration verifies the constructed formula, but this is corroboration rather than evidence of originality."
+      ],
+      "reasoning": "The asserted all-parameter identity is not a recomputation of a known table according to the checked source material. A negative search by itself is not proof of novelty.",
+      "searches": [
+        "\"complete split graph greedy matching probability exact product\"",
+        "\"split graph random maximal matching distribution table\"",
+        "\"Poisson random maximal matching split clique independent\""
+      ]
+    },
+    "rationale": "The assessed claim is not the classical greedy algorithm or the classical Poisson approximation theorem. It is the fixed complete split-graph exact product, the conditional uniform injection law, whole-output total variation identity, and explicit quadratic Poisson-deficit transition. The two closely related full papers inspected address random bipartite inputs and sparse random graph/tree inputs, neither of which logically implies the split-graph statement. Searches revealed no matching exact law, although historical priority is not certified and the complete 1991 predecessor was inaccessible.",
+    "residual_risks": [
+      "Uninspected portions of the 1991 Randomized Greedy Matching paper may contain stronger formulas or reductions.",
+      "The full historical literature on exact greedy matchings of dense split graphs is not exhaustively available.",
+      "The error bound is not asserted to have best constants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover clique-internal edge losses or exact split-graph Poisson and total variation laws",
+        "evidence": [
+          "Bipartite random-input model, RANDOM-EDGE vs RANDOM-VERTEX and RANKING, online 2021-11-02."
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/stsy.2021.0082",
+        "material_read": "Publisher full open PDF, abstract, introduction, theorem statements and their hypotheses, accompanying method and appendix descriptions; publisher publication-date page",
+        "method": "Read accessible PDF text and first-page and internal-page renderings, compared objects and theorems",
+        "title": "Greedy Matching in Bipartite Random Graphs",
+        "trigger": "Same uniform feasible-edge greedy algorithm under the name RANDOM-EDGE"
+      },
+      {
+        "assessment": "Asymptotic random-graph and random-tree results do not assert the exact split-graph deficit law",
+        "evidence": [
+          "The random input and sparsity hypotheses differ; no complete split-graph specialization or whole-output variation identity found."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/aoap/1177005436",
+        "material_read": "Open author-accessible page with the article introduction and the four principal theorem statements, including sparse random graph and random-tree regimes",
+        "method": "Read available full-text rendering, checked theorem hypotheses against fixed split graph",
+        "title": "The Average Performance of the Greedy Matching Algorithm",
+        "trigger": "Foundational analysis of same randomized greedy matching procedure"
+      },
+      {
+        "assessment": "Abstract does not show the target formula; full historical-priority comparison unresolved",
+        "evidence": [
+          "Algorithmic performance on broad graph classes may contain results not visible in the abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Publisher index and abstract only; complete text not obtained",
+        "method": "Checked scholarly abstracts and searched open/full access variants",
+        "title": "Randomized Greedy Matching",
+        "trigger": "Classical foundational randomized greedy matching paper; potentially general fixed-graph coverage"
+      },
+      {
+        "assessment": "Sparse or regular input regime does not directly cover dense nonregular complete split graphs",
+        "evidence": [
+          "Random regular graphs and hypergraphs rather than complete split graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1603.09232",
+        "material_read": "Public bibliographic abstract and model description",
+        "method": "Compared degree conditions and graph sequence regimes",
+        "title": "The Matching Process and Independent Process in Random Regular Graphs and Hypergraphs",
+        "trigger": "Related random greedy matching limit theorems"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "58d6bdba-4a48-4672-9741-d3cf93b4aa76",
+  "value": {
+    "rationale": "Uniform-edge greedy maximal matching has a natural additive-optimality risk in a complete split graph: choosing a clique-internal edge destroys one potential cross match. The exact probability of losing zero matches, the full-law approximation by uniform optimum injections, and Poisson fluctuations at b on the order of \\(a^2\\) quantify algorithmic reliability in a high-imbalance regime. The \\(b/a^2\\) threshold and \\(b\\ge4a\\) error bound supply natural phase information for an infinite two-population graph family; this is not merely a generic approximation theorem or one finite-table entry.",
+    "status": "PASS"
+  }
+}
