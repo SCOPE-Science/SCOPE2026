@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Complete infinite-family proof: all-horizon monotonicity follows from mandatory passage through the preceding level, and finite-horizon Bellman recursion selects the parent; the depth chain is then exact. The first-passage continued fraction and mean difference recurrence are algebraic identities. Binary-tree CLT couples the reflected walk below an unreflected inward-biased walk with a uniformly bounded mean gap of at most 40. Higher-branching exponential law follows from leaf regeneration, exact gambler ruin success probability, uniform cycle second moments, and a renewal Laplace transform. Standalone verify.py gave 2,538 exact Bellman-state/PGF checks and numerical finite-state mean comparisons. No finite test is used as a proof of h-to-infinity convergence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1911.05170 Theorem 1.1 bounds arbitrary finite graph hitting time by min(3|E|,n^2), Proposition 3.4 bounds adjacent-target hitting by 9 in subcubic graphs, Section 5 discusses nonrecurrence of infinite four-regular trees.",
+        "Zhang, DOI 10.1007/s11464-019-0784-6, Theorem 1.1 gives recursive moments for continuous-time birth-death processes on trees; these can cover the mean after a separate reduction but not the explicit distributional classification stated in this claim."
+      ],
+      "reasoning": "The choice-walk source is stronger in graph generality but weaker about exact leaf-to-root distributions; its existing drift boundary does not entail the Gaussian and exponential limit shapes without new analysis. The Zhang theorem covers general moments of a specified birth-death process, not optimization over offered neighbors or all-horizon stochastic dominance; it does not state this pair of limits. Standard renewal and CLT theorems are openly used as ingredients.",
+      "searches": [
+        "\"The Power of Two Choices for Random Walks\" full arxiv:1911.05170",
+        "\"Moments of first hitting times for birth-death processes on trees\" 2019",
+        "\"two choices\" random walk regular tree \"exponential\" hitting root",
+        "power of k choices hitting root regular tree depth linear exponential critical branching"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1911.05170",
+      "https://arxiv.org/pdf/1911.05170",
+      "https://doi.org/10.4230/LIPIcs.ITCS.2020.76",
+      "https://math0.bnu.edu.cn/~zhangyh/pdf/article_048.pdf",
+      "https://doi.org/10.1007/s11464-019-0784-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 3.4 at arXiv:1911.05170 implies the coarse binary-tree estimate E T <= 9h; Section 5 explains why higher degree permits outward drift. Neither implies, as a stated conclusion, the law of T beyond those bounds.",
+        "Zhang gives general first moments, so the mean recursion alone is not counted as original; the full package includes optimality for every deadline plus two different distributional limits."
+      ],
+      "reasoning": "The prior choice-walk framework and drift bound are genuinely stronger on some axes (general graphs) and the prior moment theory can reproduce one ingredient. They do not directly subsume the integrated exact controlled-tree stochastic optimality and opposite asymptotic distributions. General birth-death exponential limit theorems may make the limit proof routine once the policy reduction is known; this remains a priority and significance risk rather than concealed novelty.",
+      "searches": [
+        "The Power of Two Choices for Random Walks proposition 3.4 section 5 section 7",
+        "Moments of first hitting times for birth-death processes on trees theorem 1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1911.05170, Sec. 2 defines two iid uniformly offered neighbors with replacement; Sec. 3.2 gives parent-directed 5/9 transition probability.",
+        "The new tree policy induces a one-dimensional depth birth-death chain, with inward probability (2b+1)/(b+1)^2 and leaf reflection, so gambler ruin and renewal representations are valid reformulations."
+      ],
+      "reasoning": "A search for the model under the aliases choice random walk, two-offer controlled walk, nearest-parent control, reflected biased birth-death hitting, and regular-tree root hitting uncovered the framework and standard auxiliary processes, but not an explicit all-deadline optimal finite-rooted-tree Gaussian/exponential theorem. Their equality of models is established by the radial reduction, rather than claimed from title similarity.",
+      "searches": [
+        "optimal choice random walk on full binary tree leaf to root Gaussian hitting time",
+        "exponential hitting time optimal two-neighbor choice on ternary rooted tree",
+        "\"choice random walk\" binary tree root hitting time two choices bias",
+        "biased birth death chain reflecting boundary exponential hitting time limiting exponential distribution gambler ruin"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The public arXiv source arXiv:1911.05170 contains the relevant degree-dependent drift comparison, but not the tree first-passage fluctuation laws in its inspected sections.",
+        "The closest identified public birth-death-tree theory, DOI 10.1007/s11464-019-0784-6, treats general hitting-time moments, not the stated all-horizon controlled-tree distributional classification."
+      ],
+      "reasoning": "Targeted public-source searches and statement-level comparison did not identify a matching exact table or theorem. This search outcome is not an exhaustive priority certification.",
+      "searches": [
+        "two-choice walk finite regular trees root hitting phase transition exponential law",
+        "choice random walks tree leaf-to-root first passage central limit law regular branching",
+        "boundary branching degree two choice walk geometric hitting distribution",
+        "\"two-choice\" \"binary tree\" \"hitting time\" \"with replacement\""
+      ]
+    },
+    "rationale": "The full pertinent 2019 choice-walk article already identifies the 5/9 inward probability at degree three and outward bias on a four-regular infinite tree; neither qualitative observation is claimed. The assessed result goes beyond both by proving a common policy optimizes every deadline on finite b-ary trees, determining the complete finite-depth first-passage generating function, and deriving Gaussian versus exponential normalized limit laws with exact constants. Zhang (2019) supplies general first-passage moment identities, limiting novelty of the mean alone, but does not state the controlled-walk fluctuation classification. Targeted public-literature negative searches supply only best-knowledge corroboration, not a uniqueness certificate.",
+    "residual_risks": [
+      "An unexamined general birth-death metastability theorem could prove an equivalent exponential limit as an immediate specialization after the model reduction.",
+      "An overlooked previous exact choice-walk leaf-to-root fluctuation result could establish priority despite negative targeted searches.",
+      "The 2019 source pre-establishes the degree boundary itself, so the novelty claim must remain restricted to stochastic optimality plus exact distributional classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the underlying choice model, qualitative inward/outward degree boundary, and general bounds; the inspected material contains no exact finite-depth root-hitting PGF or Gaussian/exponential leaf-start limit theorem.",
+        "evidence": [
+          "arXiv:1911.05170 pp. 1-3 introduce the model and main results; pp. 8-9 give the 5/9 drift, pp. 11-12 discuss four-regular transience; pp. 22-24 discuss hitting-strategy optimization."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1911.05170",
+        "material_read": "Full article retrieved (30-page PDF); examined introduction/results, definitions in Section 2, Proposition 3.4 and its proof in Section 3.2, tree strategy in Section 4, recurrence remark in Section 5, and hitting strategy framework in Section 7.",
+        "method": "Direct PDF text inspection with page-image check of title page and targeted section navigation",
+        "title": "The Power of Two Choices for Random Walks",
+        "trigger": "Exact underlying two-offer walk model; subcubic versus 4-regular drift and optimal hitting policy"
+      },
+      {
+        "assessment": "Theorem 1.1 covers moment recurrences for specified continuous-time tree birth-death processes; no offered-neighbor optimization or the stated discrete-time tree fluctuation classification located. General theory remains a source of potential implicit reductions.",
+        "evidence": [
+          "DOI 10.1007/s11464-019-0784-6; article pp. 833-835 states its moment theorem and model; Sections 2-3 provide first-moment and higher-moment tools."
+        ],
+        "identifier_or_url": "https://math0.bnu.edu.cn/~zhangyh/pdf/article_048.pdf",
+        "material_read": "PDF extracted text of main theorem, introduction, first-moment recurrence and later sections inspected by searches for distributional and choice terms.",
+        "method": "Primary author-hosted PDF text, including Theorem 1.1 and Section 2; page-image endpoint unavailable",
+        "title": "Moments of first hitting times for birth-death processes on trees",
+        "trigger": "Potential stronger generic first-passage theorem on regular trees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9ae9b5e3-1b86-40f4-ac89-25ec60904433",
+  "value": {
+    "rationale": "The exact optimal controlled-tree hitting law, including the rational full finite-height distribution and an infinite-family Gaussian-to-exponential fluctuation transition at the smallest branching change, is a motivated quantitative completion of the source paper’s qualitative subcubic-versus-higher-degree observation. It identifies both mean scaling (linear versus exponential in height) and uncertainty shape (concentrated versus memoryless), and gives a precise benchmark for graph-based stochastic control. These are not arbitrary small-parameter numerical constants or a simple re-expression of an existing table; the model is canonical and the result covers all fixed integer branching factors b>=2.",
+    "status": "PASS"
+  }
+}
