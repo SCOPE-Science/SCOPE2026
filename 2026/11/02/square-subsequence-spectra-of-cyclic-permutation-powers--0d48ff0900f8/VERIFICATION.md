@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility checks
 
-Run with Python 3 and only its standard library:
+# Independent mathematical audit
 
-```sh
-python3 verify.py
-```
+## correctness
 
-Observed output from the accompanying source file:
+PASS
 
-```text
-VERIFY_OK literal_parameter_cases=24 distinct_square_roots=861 formal_identity_coefficients=780 q=2..8
-```
+For a target a1...aL in infinite repeated increasing permutation, greedy earliest embedding uses one initial period plus one new period exactly at each weak descent a_{i+1}≤a_i; greediness is optimal. A square uu therefore costs 1+2r(u)+s(u) periods, giving a necessary/sufficient criterion for every q≥2,k,m≥1, including k=1 and equality. The weighted cyclic weak-descent trace tr(M(z²)^{m−1} M(z)), M(t)=(1−t)U+tJ, has rational generating function via nilpotency of strict-upper U and rank-one determinant/inverse formula. For extremal roots |u|≤q floor(k/2) by symbol multiplicities; cyclic increasing runs have length≤q, forcing d=r+s≥floor(k/2), equality only the q rotations of full-period words and exactly one even-k admissible rotation. Independently enumerated literal host square subsequences and criterion for (q,k)=(2,7),(3,4),(4,3), including q=3,k=4 spectrum (3,9,17,15,6,1); no finite cutoff mistaken for all-parameter proof.
 
-The literal test enumerates indexed subsequences of each host and collects the distinct roots of even-length subsequences whose halves agree; a separate candidate enumeration uses the proved weak-descent threshold. It checks actual root sets, not merely equal totals. The cases are \(q=2\) through \(k=7\), \(q=3\) through \(k=5\), \(q=4,5\) through \(k=3\), and \(q=6,7,8\) through \(k=2\), all periods from \(1\) to each bound. A distinct transfer-state program computes the weak-descent cost distribution for each root length, checks exact algebraic coefficients in the cleared rational identity for \(q=2,\ldots,7\), \(k\le12\), and root length \(m\le9\), including zeros.
+## originality
 
-This is exhaustive only within the enumerated parameter windows. The uniform theorem beyond these windows follows from the printed proof, not computational extrapolation. No external independent audit has been carried out.
+PASS
+
+Inoue/Inenaga/Bannai's general longest square subsequence algorithms solve a different optimization problem on arbitrary input strings, not count all distinct square roots of periodic ordered hosts. Bannai–I–Köppl give periodic-subsequence algorithms; shuffle-square theory uses an interleaving rather than concatenated square. The exact all-q rational length enumerator and extremal root multiplicities were not identified in those earlier main results. An unindexed special-host formula remains possible.
+
+## value
+
+PASS
+
+The repeated increasing-permutation word is a canonical structured host; an exact necessary/sufficient subsequence-square criterion, rational bivariate spectrum and precise longest-root multiplicity solve a complete and motivated discrete-word enumeration, not a mere implementation of a general LSS algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
