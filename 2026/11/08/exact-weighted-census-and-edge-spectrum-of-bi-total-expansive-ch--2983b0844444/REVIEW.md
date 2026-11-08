@@ -1,0 +1,11 @@
+# Review: finite-chain expansive correspondence census
+
+**Correctness — PASS.** Row-minimum and column-minimum antitonicity are proved equivalent to the two explicitly stated confluence quantifiers; compulsory/allowed cells then give a disjoint weighted partition. A one-cell-at-a-time admissible extension proves absence of gaps in the complete edge spectrum. The minimal and penultimate coefficients and the entropy sandwich have independent direct proofs. Exhaustive finite checks are supplementary and do not replace the symbolic argument.
+
+**Originality — PASS, qualified by access risk.** The 2026 Fine-selection paper supplies the notion of expansive relations, not this two-chain weighted normal form, complete size spectrum or entropy rate. The closest indexed publications are a strict-order chain theorem, a different two-interaction modal-frame census on one chain, and a one-sided FIK count. Their statements differ in axioms, domains and/or attainable sizes; no observed result gives the present explicit weight distribution by implication. Only indexed summaries, rather than the full text, were accessible for these three comparison records, so an unrecognized stronger theorem remains a historical-priority risk. Search non-retrieval is not taken as a novelty proof.
+
+**Value — PASS.** Expansive relations are the relevant multivalued morphisms in intuitionistic-modal model constructions, and bi-totality is the natural full-coverage requirement. The exact weighted distribution (rather than a small finite census), the gap-free size spectrum with sharp multiplicities, and a quantitative entropy deficit describe the complete size range and scarcity of these morphisms for arbitrary pairs of finite chains. They are structural and enumerative data for a motivated class, not an arbitrary parameter slice.
+
+**Limits.** No claims for arbitrary posets, strict-only orders or unbounded-chain asymptotic constants. The direct finite checker covers all rectangular matrix shapes with both dimensions at most four. The inaccessible full texts of the three closest indexed mathematical records remain originality risks. Independent review has not been conducted.
+
+Self-review: passed. Independent audit: not yet performed.
