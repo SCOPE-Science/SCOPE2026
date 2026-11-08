@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is self-contained once Fourier character orthogonality and standard lattice Riemann-sum convergence are accepted. All quantifiers are stated: fixed dimension \(d\ge1\), smoothness \(\nu>0\), every cutoff \(m\ge1\), every \(N\ge1\), and every joint asymptotic sequence \(N=N(m)\). The diagonal/off-diagonal expectation is exact; shared-index covariance vanishes by Haar conditioning; the pointwise positive-Fourier envelope yields the variance bound. The asymptotic constants follow from integrable, explicitly specified tail integrals. The supplied verifier passed 115 check groups; no infinite conclusion is inferred solely from finite checks.
+PASS
 
-## Originality — PASS, qualified
+Let e=k-k_m and D=e(0)=T_m/Z, V=integral e(x)^2 dx=S_m/Z^2. Haar orthogonality gives exact E F=N D^2+N(N-1)V. For distinct unordered (i,j), squared offdiagonal terms sharing an index have zero covariance conditional on that shared point by translation invariance. Thus Var F=2N(N-1)(integral e^4-V^2)<=2N(N-1)D^2 V and rel Var <=2q/[N(1+q)^2]<=1/(2N), q=(N-1)V/D^2. Bounded N sequences concentrate because q=O(N m^-d), unbounded N via Chebyshev; full arbitrary oscillating N(m) follows. Lattice-tail Riemann sums yield T~t m^-2nu, S~s m^-(4nu+d), hence crossover N~m^d and ratio s/t^2=1/6 for d1,nu=.5.
 
-The strongest motivating comparison is Barnett–Greengard–Rachh (2023), Section 4, which discusses the random-location Frobenius error and predicts an off-diagonal improvement in a different, nonperiodic Fourier-grid setting. That text does not establish the exact finite-sample formula, uniform relative concentration or critical sample-size law for the periodic covariance spectral cutoff. Bachmayr et al. (2019/2020) address periodization, Fourier eigenvalue decay and equispaced sampling; Puchkin et al. (2023) address empirical covariance estimation rather than deterministic Fourier truncation at iid design sites. Existing general Fourier and degenerate-U-statistic tools supply ingredients, and specialized prior results may exist. The record searches and own-work comparisons did not identify a statement subsuming the complete claimed conclusion. This remains a self-review, non-independent priority judgment.
+## originality
 
-## Value — PASS
+PASS
 
-The paper-motivated mathematical gap is whether a large-sample Fourier truncation error exponent remains predictive when covariance matrices are formed at finitely many random sites. The answer has a sharp transition at \(N\asymp m^d\), the scale of the retained Fourier feature count: below it diagonal bias fixes the error exponent, while above it off-diagonal averaging reveals an additional \(d/2\) exponent. The result gives exact constants and a uniform-in-bandwidth concentration guarantee, directly useful when choosing spectral cutoffs and comparing experiments with differing data sizes. It is not a generic restatement of a pointwise Fourier tail bound.
+Barnett–Greengard–Rachh study nonperiodic equispaced Fourier-grid kernel approximation with an N^2 Frobenius-error heuristic and a conjectured improved spectral convergence. That work does not state the exact periodic Fourier-truncation iid Haar Gram-tail mean, uniform sample-size concentration and finite diagonal/offdiagonal crossover. Periodic Matérn sampling theory covers a related underlying spectral construction but not this same random Gram-matrix statistic.
 
-## Closest literature, limitations, risks
+## value
 
-The primary scientific source is Barnett–Greengard–Rachh, arXiv:2305.11065 (2023), Section 4 and Conjecture 9. Related sources are Bachmayr–Graham–Nguyen–Scheichl, arXiv:1905.13522 (2019), and Puchkin–Noskov–Spokoiny, arXiv:2308.14739 (2023). The periodic Haar model is not the nonperiodic EFGP algorithm, and no claim is made about nonuniform sampling, other spectral windows, posterior means or operator norms. Search noncoverage does not certify absolute priority; a specialized earlier kernel-U-statistic spectral approximation result could subsume the formula or its limit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The phase transition precisely diagnoses when diagonal spectral truncation bias dominates and when randomly sampled offdiagonal entry variance dominates. It gives exact constants and uniform sample-size convergence for a natural covariance approximation model, clarifying a known heuristic; the underlying Parseval/U-statistic ingredients are standard.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

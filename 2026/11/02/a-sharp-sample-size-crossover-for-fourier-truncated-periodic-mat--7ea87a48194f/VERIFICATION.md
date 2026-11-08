@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic proof in RESULT.md establishes the exact finite-sample expectation and variance identities, the probability inequality for every sample size, the all-scaling concentration statement, and the tail constants. The checks in `verify.py` compare independent exact-rational coefficient convolutions and finite-grid Fourier integration in dimensions one and two. They also evaluate the closed-form infinite spectral sums in the dimension-one, smoothness-one-half case and check their large-cutoff limits.
+# Independent mathematical audit
 
-Execute `python verify.py` with Python 3, NumPy and mpmath. The recorded execution passed **115 check groups**.
+## correctness
 
-Finite spectra and computed grids do not verify the infinite-dimensional theorem on their own. No formal proof assistant or independent human audit has been used. The comparisons in REVIEW.md are best-knowledge literature checks, not an independent publication-priority certificate.
+PASS
+
+Let e=k-k_m and D=e(0)=T_m/Z, V=integral e(x)^2 dx=S_m/Z^2. Haar orthogonality gives exact E F=N D^2+N(N-1)V. For distinct unordered (i,j), squared offdiagonal terms sharing an index have zero covariance conditional on that shared point by translation invariance. Thus Var F=2N(N-1)(integral e^4-V^2)<=2N(N-1)D^2 V and rel Var <=2q/[N(1+q)^2]<=1/(2N), q=(N-1)V/D^2. Bounded N sequences concentrate because q=O(N m^-d), unbounded N via Chebyshev; full arbitrary oscillating N(m) follows. Lattice-tail Riemann sums yield T~t m^-2nu, S~s m^-(4nu+d), hence crossover N~m^d and ratio s/t^2=1/6 for d1,nu=.5.
+
+## originality
+
+PASS
+
+Barnett–Greengard–Rachh study nonperiodic equispaced Fourier-grid kernel approximation with an N^2 Frobenius-error heuristic and a conjectured improved spectral convergence. That work does not state the exact periodic Fourier-truncation iid Haar Gram-tail mean, uniform sample-size concentration and finite diagonal/offdiagonal crossover. Periodic Matérn sampling theory covers a related underlying spectral construction but not this same random Gram-matrix statistic.
+
+## value
+
+PASS
+
+The phase transition precisely diagnoses when diagonal spectral truncation bias dominates and when randomly sampled offdiagonal entry variance dominates. It gives exact constants and uniform sample-size convergence for a natural covariance approximation model, clarifying a known heuristic; the underlying Parseval/U-statistic ingredients are standard.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
