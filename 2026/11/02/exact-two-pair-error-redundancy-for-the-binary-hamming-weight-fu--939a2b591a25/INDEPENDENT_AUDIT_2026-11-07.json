@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T19:49:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two pair-read errors require cyclic pair distance at least five between codewords of different information weight. The exact pair-shadow identity d_pair(x,y)=|T∪(T−1)| for difference support T handles ≥4 changed message bits immediately (n≥5). For three changed message bits, suffix difference 101 or 111 gives two additional fresh suffix edges; for two, different weights force ±2 and suffix 010 supplies two fresh edges; for one, suffix 101 or 111 touches four suffix-adjacent cyclic edges and at least one changed prefix edge is outside that set when k≥2. These cases exhaust all pairs. Any r≤2 suffix fails comparing 0^k with a 1 in last information position: all differences lie in ≤3 consecutive positions and touch ≤4 pair reads; k=1 needs total block length ≥5 and 00000/11111 attains it. An independent cyclic pair-distance enumerator checked all unequal-weight message pairs for k=2..9 (106,762 pairs at k=9), with exact minimum five. The infinite-length guarantee rests on the edge argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xia–Liu–Chen establishes broad bounds and examples, but its inspected main claims do not explicitly give the present 3-bit ordinary-weight optimal construction.",
+          "Singh–Singh 2026 adds simultaneous data protection, a stronger requirement not imposed here; its full text could hide the exact weaker special case."
+        ],
+        "reasoning": "A general stronger function-correcting theorem might dominate a special case without matching wording. Full accessible 2023 and 2025 sources were checked; the inaccessible 2026 source is a significant risk.",
+        "searches": [
+          "arXiv:2312.16271 general function-correcting symbol-pair bounds",
+          "arXiv:2609.10989 FCSPC data protection",
+          "arXiv:2503.12894 b-symbol read functions"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2312.16271 relevant primary PDF theorems",
+        "https://arxiv.org/abs/2503.12894 relevant sections and Table 2",
+        "https://arxiv.org/abs/2502.16983 Hamming-weight results",
+        "https://arxiv.org/abs/2609.10989 abstract; institutional full text blocked",
+        "Resultary search on ordinary weight + pair metric + two errors"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A Hamming-metric weight-redundancy result cannot by itself prove an optimal cyclic-pair metric redundancy.",
+          "For symbol-pair weight the protected function counts nonzero overlapping pairs, which is not equal to the ordinary message Hamming weight."
+        ],
+        "reasoning": "Known theorems address nearby but different functions/metrics; the key risk is an implicit special case in an uninspected general pair-code theorem, not mere shared names or parameters.",
+        "searches": [
+          "arXiv:2312.16271 full text specialized pair functions",
+          "arXiv:2503.12894 full text b symbol weight",
+          "arXiv:2502.16983 ordinary weight Hamming metric"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The function-correcting condition requires separation only for different ordinary Hamming weights; full-message decoding or pair-weight correction is strictly stronger/different.",
+          "The suffix uses w mod4; any prescribed function of the ordinary information weight may use distinct four-residue labels, but the metric is cyclic pair reads."
+        ],
+        "reasoning": "Compared both function-value graph-coloring and code-distance formulations, rather than confusing symbol-pair weight with ordinary Hamming weight.",
+        "searches": [
+          "binary Hamming weight function correcting code two symbol pair read errors systematic redundancy 3",
+          "binary Hamming weight function symbol-pair 2 errors three check bits",
+          "function correcting codes cyclic pair distance d>=5 ordinary weight"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The optimal redundancy 3 for all k≥2 is not a finite-length table; 2025 b-symbol-weight tables concern a different function.",
+          "Published Resultary pair-code result 2026/9/8/SCOPE080 concerns ordinary cyclic linear symbol-pair codes, not systematic weight-function protection."
+        ],
+        "reasoning": "Nearby pair-code tabulations cannot be imported by parameter matching alone; no exactly matching ordinary-weight table was identified.",
+        "searches": [
+          "binary Hamming weight function correcting code two symbol pair read errors systematic redundancy 3",
+          "r_weight^2(k)=3 symbol pair code ordinary weight",
+          "symbol-pair function correcting redundancy table two errors"
+        ]
+      },
+      "rationale": "Different exact metrics/functions must be distinguished: Ge et al 2025 study ordinary Hamming weight but Hamming channel, Singh–Singh–Yaakobi 2025 study b-symbol read channels with b-symbol weight; Xia–Liu–Chen 2023 develop general pair function correcting codes. A prior general construction COULD imply this ordinary-weight cyclic-pair r=3 special case, but no such implication was established in the inspected full 2023 and 2025 texts. Singh–Singh 2026 full text inaccessible (VPN disconnected), leaving a material priority risk; only abstract available. Best-of-knowledge originality qualified.",
+      "residual_risks": [
+        "Directly relevant Singh–Singh 2026 complete article inaccessible through arXiv/OA and authorized institutional access (VPN disconnected); implicit specialization cannot be excluded.",
+        "A general theorem in Xia–Liu–Chen 2023 may entail this 4-periodic construction after nontrivial specialization; no equivalence established by inspected statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "broad framework precedes this claim; no inspected statement directly gives ordinary-weight r=3",
+          "evidence": "Functions and bounds for pair-weight/distribution settings; metric is cyclic symbol pair.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.16271",
+          "material_read": "primary PDF including core definitions, main bounds and specialized functions, with page image",
+          "method": "full accessible PDF text and inspected main theorem pages",
+          "title": "Function-Correcting Codes for Symbol-Pair Read Channels",
+          "trigger": "directly matching metric and function-correcting framework"
+        },
+        {
+          "assessment": "studied b-symbol-weight function and different outputs; same ordinary-weight optimum not inferred",
+          "evidence": "Protected function is nonzero overlapping-read weight rather than ordinary Hamming weight.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.12894",
+          "material_read": "primary PDF relevant definitions, theorem statements, section 8 and Table 2, with page image",
+          "method": "PDF full text relevant sections",
+          "title": "Function-Correcting Codes for b-Symbol Read Channels",
+          "trigger": "b=2 and potentially weight-function specialization"
+        },
+        {
+          "assessment": "ordinary Hamming function but Hamming errors rather than cyclic pair-read errors",
+          "evidence": "Different distance requirement despite shared function.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.16983",
+          "material_read": "PDF main results and §5, with page image",
+          "method": "arXiv PDF text",
+          "title": "Optimal redundancy of function-correcting codes",
+          "trigger": "ordinary Hamming-weight function"
+        },
+        {
+          "assessment": "cannot infer full-text noncoverage; prioritized residual risk",
+          "evidence": "Abstract emphasizes data protection and locally pair-bounded/pair-weight functions; no theorem-level ordinary-weight comparison available.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.10989",
+          "material_read": "abstract and metadata only; full arXiv/PDF and OA attempts unsuccessful; authorized Oxford retrieval returned vpn_disconnected",
+          "method": "arXiv abstract and documented institutional access failure",
+          "title": "Data Protection in Function-Correcting Symbol-Pair Codes: Redundancy Bounds and Protection Profiles",
+          "trigger": "most recent same-metric paper, general construction may imply result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact constant redundancy for a basic information statistic under overlapping-read errors is a natural coding-theory design target; three check bits are proven both necessary and sufficient for every k≥2, with an explicit four-periodic systematic encoder. It is a sharp structural guarantee distinct from full-message recovery, not an isolated numerical bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For systematic binary encoding to protect the ordinary information Hamming-weight function against at most two cyclic symbol-pair read errors, the minimum redundancy is r=4 for k=1 and r=3 for every k≥2; for k≥2 append (w mod2,⌊w/2⌋ mod2,w mod2), where w is information weight.",
+  "limitations": [
+    "Directly relevant Singh–Singh 2026 complete article inaccessible through arXiv/OA and authorized institutional access (VPN disconnected); implicit specialization cannot be excluded.",
+    "A general theorem in Xia–Liu–Chen 2023 may entail this 4-periodic construction after nontrivial specialization; no equivalence established by inspected statements."
+  ],
+  "schema_version": 1
+}

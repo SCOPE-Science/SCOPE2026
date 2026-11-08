@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement includes cyclic pair-indexing, two-error separation \(d_{\mathrm{pair}}\ge5\), systematic normalization, the ordinary information-weight function, and the exceptional length-one case. The proof partitions all pairs of distinct-weight messages by the number of differing message positions, checks the exact suffix differences and identifies two new pair edges for the even two-flip and odd three-flip cases. The one-flip case produces four suffix edges plus a necessarily new message edge when \(k\ge2\). A last-coordinate argument excludes every suffix of length at most two even when nonlinear. The length-one bound is the blocklength bound. A standalone exhaustive program checks all different-weight message pairs through length eleven and the lower-bound configurations. Residual risk: human error in the proof is not ruled out by finite computation; no independently verified formal proof is claimed.
+PASS
 
-## Originality — PASS, qualified
+Two pair-read errors require cyclic pair distance at least five between codewords of different information weight. The exact pair-shadow identity d_pair(x,y)=|T∪(T−1)| for difference support T handles ≥4 changed message bits immediately (n≥5). For three changed message bits, suffix difference 101 or 111 gives two additional fresh suffix edges; for two, different weights force ±2 and suffix 010 supplies two fresh edges; for one, suffix 101 or 111 touches four suffix-adjacent cyclic edges and at least one changed prefix edge is outside that set when k≥2. These cases exhaust all pairs. Any r≤2 suffix fails comparing 0^k with a 1 in last information position: all differences lie in ≤3 consecutive positions and touch ≤4 pair reads; k=1 needs total block length ≥5 and 00000/11111 attains it. An independent cyclic pair-distance enumerator checked all unequal-weight message pairs for k=2..9 (106,762 pairs at k=9), with exact minimum five. The infinite-length guarantee rests on the edge argument.
 
-The precise contribution is the optimal redundancy three and concrete four-periodic suffix for **ordinary message Hamming weight** with two cyclic symbol-pair errors. The 2025 Ge–Xu–Zhang–Zhang text treats ordinary weight but Hamming channel; the accessible 2025 Singh–Singh–Yaakobi text treats b-symbol weight in a symbol-read metric, not ordinary Hamming weight. The Xia–Liu–Chen and September 2026 Singh–Singh abstracts concern general pair function-correcting codes; their full texts were inaccessible, so coverage cannot be excluded from abstracts alone. Targeted semantic-record and literature searches found no statement whose hypotheses and conclusions imply this exact result. An implicit specialization of older general constructions is a material residual risk; independent historical priority verification is outstanding. The claim is accepted under the stated incomplete-access comparison, not as certified unique.
+## originality
 
-## Value — PASS
+PASS
 
-Determining the exact redundancy for a standard information invariant in the two-read-error regime is a natural coding-theoretic task. Three check bits independent of message length are both sufficient and necessary, with a nontrivial run/edge geometry argument. This result distinguishes ordinary Hamming weight from the overlapping-read weight studied in earlier bounds and gives a direct deployable encoder for function-only recovery. It does not purport to solve more general noisy data protection or high-error reconstruction.
+Different exact metrics/functions must be distinguished: Ge et al 2025 study ordinary Hamming weight but Hamming channel, Singh–Singh–Yaakobi 2025 study b-symbol read channels with b-symbol weight; Xia–Liu–Chen 2023 develop general pair function correcting codes. A prior general construction COULD imply this ordinary-weight cyclic-pair r=3 special case, but no such implication was established in the inspected full 2023 and 2025 texts. Singh–Singh 2026 full text inaccessible (VPN disconnected), leaving a material priority risk; only abstract available. Best-of-knowledge originality qualified.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Exact constant redundancy for a basic information statistic under overlapping-read errors is a natural coding-theory design target; three check bits are proven both necessary and sufficient for every k≥2, with an explicit four-periodic systematic encoder. It is a sharp structural guarantee distinct from full-message recovery, not an isolated numerical bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
