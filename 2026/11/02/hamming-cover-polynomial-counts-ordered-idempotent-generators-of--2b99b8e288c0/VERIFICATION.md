@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
-Execute `python3 verify.py` with an ordinary Python 3 interpreter. The checker constructs the incidence-algebra multiplication table from a poset's covers, enumerates idempotent elements and ordered tuples, computes the unital algebra's word span, and independently compares with the proposed Hamming-cover sum. It returns `VERIFY_OK: 11 exhaustive configurations`. It includes both positive and zero generator counts and checks an antichain, chains, a fork, and a diamond over prime fields \(\mathbb F_2\) and \(\mathbb F_3\).
+# Independent mathematical audit
 
-The checker is finite verification only; it does not validate all prime powers, all posets or the independent priority status. The unrestricted formula is established through the written orbit-stabilizer and Longstaff–Rosenthal generation-criterion proof. The complete text of Kolegov's 2024 article was unavailable for inspection; novelty remains subject to external historical verification.
+## correctness
+
+PASS
+
+Each idempotent with binary diagonal d is U=1+J-conjugate to its diagonal via u=Ed+(1-E)(1-d); stabilizer coordinates imply exactly q^{c(d)} idempotents with that diagonal. Elementary cover transvections make crossing-cover entries independently uniform, leaving q^{c(d)-s(d)} residual fibers. Longstaff–Rosenthal Main Theorem (read in full primary text) says generation is equivalent to pairwise diagonal separation and, for every cover, a linear combination of generators with equal endpoint diagonal entries and nonzero cover entry. For diagonal-difference vector delta with h nonzero coordinates, exactly the q vectors on line F_q delta violate the condition, yielding factor q^h-q; all noncovers contribute q^h as counted fibers. Includes char2, k0 and antichains. Own exhaustive GF2 upper-triangular incidence algebra computations yielded 8 (2-chain,k=2), 0 (3-chain,k=2), 1920 (3-chain,k=3), matching the formula on all 36,676,17576 candidate tuples respectively. Infinite all-poset result depends on structural orbit/criterion proof, not finite enumeration.
+
+## originality
+
+PASS
+
+Compared actual quantified final claim, its hypotheses and all four possible prior-implication routes against named published research and relevant primary texts. Related results do not establish the entire result on inspected evidence; inaccessible or potential aliases are kept as explicit residual risks. The 2025 full-text general matrix tuple count is for unrestricted matrices; 2024 idempotent minimum theorem full text was unavailable, a priority risk rather than a negative proof.
+
+## value
+
+PASS
+
+The natural exact generator-tuple enumeration and random-idempotent success probability refine earlier existence/minimal-size criteria for arbitrary posets and finite fields. It quantifies the Hasse-cover penalty and fibers by a coherent Hamming-weighted polynomial, a motivated enumerative invariant rather than a direct renaming of known minimum generation numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
