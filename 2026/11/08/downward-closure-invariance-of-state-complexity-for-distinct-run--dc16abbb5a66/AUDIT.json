@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Explicit quotient-language equivalences for constant and nonconstant accepted prefixes, including return-to-first-run case; unique generator classes counted by boundary indices, and all other quotients distinguished. Independent complete-language enumeration checks each residual and the state count on 280 configurations (61,585 accepted words). Finite tests supplement universal combinatorial proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guyot arXiv:2407.10355v1 introduction and Sections 1–3 address root/substitution operations on down-closed languages.",
+        "Brzozowski et al arXiv:0912.1034 deals with generic closure-operation bounds.",
+        "Guyot, arXiv:2407.10355v1, Proposition 2.5 gives a conjugate-language downward closure for V_q with all letter multiplicities one, and Proposition 2.6 proves exactly q²−q+3 states for that specialization."
+      ],
+      "reasoning": "Guyot explicitly covers the a_i=1 specialization of the closure state count, so this is credited as known. It does not determine the arbitrary multiplicity vector or equality with the original conjugacy automaton. Generic upper bounds do not imply these strengthened statements.",
+      "searches": [
+        "state complexity downward closure conjugacy cyclic rotations distinct run word",
+        "downward closure cyclic shifts state complexity finite word",
+        "On state complexity for subword-closed languages Guyot 2024"
+      ]
+    },
+    "checked_sources": [
+      "https://socs.uoguelph.ca/~dgabric/papers/GeneralizedDeBruijn.pdf",
+      "https://arxiv.org/pdf/2407.10355",
+      "https://arxiv.org/abs/0912.1034",
+      "https://arxiv.org/abs/1903.05442"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gabric et al., Theorem 1 and Theorem 3, target the maximum over words and sets of fixed-length words; no formula for downwards closure.",
+        "Guyot (2024) Proposition 2.5 identifies a special root language with the downward closure of conjugates of a word with one copy of each letter; Proposition 2.6 counts its states as q²−q+3.",
+        "Own two-run C(0^a1^b) exact state complexity equals 2ab+3 but has no down-closure claim and no distinct-symbol q-generalization."
+      ],
+      "reasoning": "Guyot Proposition 2.6 implies exactly one parameter slice, all a_i=1, of the closure result. The q=2 conjugacy count covers a different slice and language. Neither implies the general vector-valued equality, which uses a new quotient classification.",
+      "searches": [
+        "https://socs.uoguelph.ca/~dgabric/papers/GeneralizedDeBruijn.pdf, Sections 1 and 3",
+        "https://arxiv.org/pdf/2407.10355, Introduction, Sections 1–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Earlier binary two-run conjugacy result gives 2ab+3, but not a closure computation.",
+        "Gabric–Holub–Shallit 2019 derives maximum over all conjugacy words, not closure invariance."
+      ],
+      "reasoning": "Guyot 2024 gives the all-a_i=1 special case of the closure formula, so an equal-parameter special case is known. The claim made here requires arbitrary positive run sizes and equality to the conjugacy-language complexity; neither is derived from the cited special case or binary conjugacy calculation.",
+      "searches": [
+        "state complexity minimal DFA cyclic conjugacy of words with multiple distinct symbol runs q blocks formula sum pairwise run length products",
+        "complete DFA state complexity downward scattered-subsequence closure of the cyclic rotations of one-run-per-symbol word and preservation of conjugacy quotient count",
+        "state complexity downward closure cyclic shifts conjugacy language subword closure automata 2024"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A316936 concerns a global maximum for binary conjugacy, not this family-specific closure result.",
+        "Retrieved record matches concern other automata or unrelated word invariants."
+      ],
+      "reasoning": "No exact database entry or tabulation of the claimed closure-invariance family was identified; a failed search is not a uniqueness guarantee.",
+      "searches": [
+        "subword closure conjugate languages distinct run letters exact quadratic state count",
+        "cyclic conjugates downward closure minimal automaton state complexity",
+        "A316936 maximum state complexity conjugates"
+      ]
+    },
+    "rationale": "The main contribution is the arbitrary positive run-vector formula and equality of minimal DFA sizes before and after scattered-subsequence closure. Guyot (2024, Propositions 2.5–2.6) already establishes the all-run-lengths-one specialization for the downward closure of conjugates of a word of pairwise distinct letters: its complexity is q²−q+3; this special case is expressly not claimed new. An earlier two-run conjugacy calculation supplies q=2 for the unclosed language only. Neither prior statement implies the full multirun identity; residual equivalence remains a risk.",
+    "residual_risks": [
+      "The all-unit run-vector specialization is previously known (Guyot 2024, Prop. 2.6); this result claims only the full nonunit extension and closure invariance.",
+      "Possible unindexed equivalence for arbitrary positive run lengths and a prior general reduction from the unit case.",
+      "No independent human audit; finite verification does not establish infinite quantifiers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Global extremal bounds and characterization, no exact closure-invariance family claim observed",
+        "evidence": [
+          "Theorem 1 maximizes sc(C(w)) for arbitrary w; Theorem 3 bounds fixed-length language complexity; Theorem 4 concerns generalized de Bruijn extremizers."
+        ],
+        "identifier_or_url": "https://socs.uoguelph.ca/~dgabric/papers/GeneralizedDeBruijn.pdf",
+        "material_read": "Introduction, theorem statements, generalized de Bruijn section, state complexity section and proof discussion (pages 1–8)",
+        "method": "Primary PDF text and page screenshots",
+        "title": "Generalized de Bruijn words and the state complexity of conjugate sets",
+        "trigger": "Same cyclic-conjugacy automata, potential stronger extremal coverage"
+      },
+      {
+        "assessment": "Propositions 2.5–2.6 directly cover the all-run-lengths-one specialization of the downward conjugacy closure and establish state count q²−q+3. No arbitrary positive run-vector formula or equality with original conjugacy count is supplied.",
+        "evidence": [
+          "Definition V_q=c_1...c_q with distinct letters in Section 2.1; Proposition 2.5 identifies sqrt(down(V_q³)) with down(C(V_q)); Proposition 2.6 calculates q²−q+3 quotients.",
+          "The current statement extends from all a_i=1 to all positive run vectors and also compares two distinct languages."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.10355",
+        "material_read": "Full introduction and preliminaries; Section 2.2, especially Propositions 2.5 and 2.6 and their proofs on pages 8–9; operator scope in Sections 2–3.",
+        "method": "Primary PDF text and page screenshots",
+        "title": "On the State Complexity of Square Root and Substitution for Subword-Closed Languages",
+        "trigger": "Primary 2024 study of subword-closed complexity and potentially broader closure results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dc16abbb-5a66-4a63-afa6-daed42677d25",
+  "value": {
+    "rationale": "Natural circular-word subsequence language family, exact invariant under an often complexity-changing operation, full q-ary run-vector classification and constructive quotient representation. Motivated by automata state cost for subsequence queries and relation to conjugacy-state bounds.",
+    "status": "PASS"
+  }
+}
