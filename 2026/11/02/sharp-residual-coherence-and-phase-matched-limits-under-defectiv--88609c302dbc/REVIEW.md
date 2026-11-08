@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The independent successive waiting periods are defective with escape mass \(p\), so the number of finite waits is geometric and the final reset time \(L\) is finite almost surely. The characteristic function \(p/(1-F(z))\) follows from an absolutely convergent geometric series on the unit circle; coupling the last reset before observation to the final reset gives the trace-norm error bound. Since \(|F(z)|\le1-p\), the coherence multiplier cannot vanish. A two-step hazard realizes every opposite-phase multiplier in the sharp range. The Cesàro theorem follows from finite-dimensional spectral dephasing, with the nonstationarity criterion proved by the strictly positive asymptotic consecutive-step difference. The square-hazard example has exact telescoping survival, an explicit logarithmic transform, and a justified \(O(t^{-1})\) bound. No unproved infinite-time extrapolation from simulations is used.
+## correctness
 
-**Originality — PASS, qualified.** Wald et al., arXiv:2410.11497v1, Secs. II and IV and Appendix C, establish the reset model, last-renewal formulation and the no-reset escape mechanism, but do not state the exact moving-orbit theorem, its sharp coherence retention envelope/attainability, or the reset-independent Cesàro classification. The later arXiv:2410.11497v3 was checked as well. Carollo–Wald arXiv:2601.13367v1 provides quantum-reset dynamical maps and non-Markovianity results, but not these asymptotic phase bounds. Michelitsch et al. arXiv:2409.08394v1 treats classical resetting random walks, not phase coherence. The closely related existing record on stationary two-qubit Bernoulli reset resonances concerns nonsummable constant hazards and does not cover this defective-renewal limit. Generic renewal-theory reformulations are a remaining publication-priority risk, not a proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** A natural open issue in fast-decaying quantum reset hazards is what replaces a steady state. The new theorem answers with a full finite-dimensional moving-orbit classification, a protocol-independent nonzero coherence floor that is simultaneously sharp, and a complete fixed-escape design interval for opposite eigenphases. The exact strictly positive square-hazard qubit witness is a reproducible benchmark showing nonconvergence and surviving time-averaged dephasing. This is a structural result motivated by observable quantum coherence, not an isolated substitution or table recomputation.
+First-reset distribution has defective masses f_k with total 1−p; independently restarted waits give a geometric number K of finite waits before escape, so L=sum_{j≤K} X_j<∞ a.s. and E[z^L]=pΣF(z)^K=p/(1−F(z)), with denominator bounded away from zero. Coupling last observed reset with ultimate reset yields ||U^{-t}rho_tU^t−sigma||_1≤2P(L>t). Eigenbasis multiplication multiplies off-diagonal rho_ij by G(u_j/u_i), and triangle bounds on 1−F give the sharp nonzero floor. Two-stage r0=q,r1=(1−p−q)/(1−q),r_n=0 afterwards exhaust [p/(2−p),1] at z=−1. Nonzero G for all phases proves convergence iff commuting; Cesàro averaging removes gaps. For r_n=(n+2)^−2, telescoping p=1/2, f_k=1/[2k(k+1)], E[K²]=3 gives P(L>t)≤3/t. Independent finite recurrence and direct transform truncation checks corroborate, not replace, these all-time arguments.
 
-**Limitations and closest literature.** These are unitary complete resets from a common state, with \(p>0\); the result does not address general quantum channels or nonsummable resetting. The stronger general last-renewal framework may lead to the same formulas by different arguments, and priority requires human checking of the broader literature. The 2018 constant-rate reset work was compared at abstract level, not asserted to be exhaustively excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior discrete quantum reset work already has age renewal, last-reset propagation, and nonstationarity examples. The exact moving orbit filter, nonzero phase-independent coherence floor, complete fixed-escape attainable interval at opposite phase, iff convergence and reset-independent dephased Cesàro state are additional conclusions. Some may be implied by classical defective renewal theory but combined quantified quantum characterization not identified.
+
+## value
+
+PASS
+
+The theorem distinguishes mere escape probability from residual observable quantum coherence and gives a sharp, attained obstruction to loss of off-diagonal information, with exact stationary/oscillatory dichotomy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
