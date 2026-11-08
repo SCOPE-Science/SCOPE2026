@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For compact scaled ranks, exact binomial and two-coordinate multinomial formulas imply the random class intensities converge in L1 at rate \\(O(n^{-\\gamma/2}+n^{\\gamma-1})\\); the diagonal variance is \\(O(n^{-\\gamma})\\) and cross-label covariances are \\(O(n^{-1})\\). Explicit \\(e^{-np_j/2}\\) binomial bounds justify uniform rank-tail truncation. The probability of any relevant repeated future label is \\(O(n^{-\\gamma})\\), enabling exact one-draw conditional Laplace factorization. Its Taylor and Riemann errors are \\(O(n^{\\gamma-1})\\), yielding quenched marked Poisson convergence with the stated compact Lipschitz rate. The y=cx^{-a} Jacobian gives \\(\\mathrm{Gamma}(r-\\gamma,1)\\). The included standard-library checker passed 1710 exact/numerical assertions, which do not stand in for the asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2602.13938, Theorem 2 (Gaussian functional random outer measures over macroscopic subsets)",
+        "arXiv:2308.01739, Sections 5 and 7–8 (conditional and multivariate unmarked record limits)"
+      ],
+      "reasoning": "The 2023 record results are broad in frequency sequences but describe unmarked time arrival processes; their greater parameter generality does not cover the rank-resolved assertion. The 2026 outer-measure paper concerns Gaussian fields of occupancy counts over macroscopic intervals; its statistic and asymptotic scale differ from rare marked records. A general marked PPP theorem would cover this contribution if located, and remains a priority risk.",
+      "searches": [
+        "Limit theorems random outer measures infinite urn schemes disjoint interval intersections occupancy covariance joint missing mass Boolean combinations",
+        "Records in infinite occupancy scheme Derbazi Gnedin Marynych rank marked process extension",
+        "arXiv:2602.13938 Theorem 2",
+        "arXiv:2308.01739 Theorems 2–3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2308.01739",
+      "https://arxiv.org/pdf/2602.13938",
+      "https://arxiv.org/abs/2602.13938",
+      "2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac",
+      "2026/10/11/SCOPE-exponential-alphabet-crossover-for-zipf-normalized-expanding-map--9738a052e9b1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2308.01739 proves Poisson behavior after integrating out the box index.",
+        "arXiv:2602.13938 proves an FCLT for counting urns indexed by unions of time intervals."
+      ],
+      "reasoning": "Integrating the new rank intensity over x gives exactly the previously available unmarked r-record rate, making the relationship explicit. The reverse implication lacks any information about how events distribute over j/n^gamma or about Gamma(r-gamma,1) popularity marks. The explicit fixed-n conditional Lipschitz Laplace error rate also is not stated in the compared source results. Thus the new full assertion is not a logical corollary solely of the previously published unmarked limit statements.",
+      "searches": [
+        "Quenched marked Poisson point process of species novelty record times jointly with Zipf probability rank j / n^alpha in microscopic future window after n samples",
+        "Unseen species newly discovered in short window asymptotic rank distribution time independent marked Poisson process conditional on observed past",
+        "Records in infinite occupancy scheme Derbazi Gnedin Marynych rank marked process extension",
+        "arXiv:2308.01739 Proposition 5, Theorems 2–3",
+        "arXiv:2602.13938 Theorem 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2308.01739, Sections 5 and 7–8 (conditional and multivariate unmarked record limits)",
+        "arXiv:2308.01739 has marginal time processes, not a label-coordinate intensity or Gamma-law statement in the inspected theorem and proof sections."
+      ],
+      "reasoning": "The projection deleting label ranks recovers a prior unmarked theorem, but its converse is false: the same unmarked Poisson times can be assigned arbitrarily different label marks. Thus the new marked law, Gamma shape and compact-test rate are not equivalent formulations of the prior time-only theorem.",
+      "searches": [
+        "Quenched marked Poisson point process of species novelty record times jointly with Zipf probability rank j / n^alpha in microscopic future window after n samples",
+        "Unseen species newly discovered in short window asymptotic rank distribution time independent marked Poisson process conditional on observed past",
+        "Records in infinite occupancy scheme Derbazi Gnedin Marynych rank marked process extension",
+        "arXiv:2308.01739 Section 5 and Section 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac gives exact missing-mass covariance and sign reversal, not conditional rank-time point-process limits.",
+        "Published result 2026/10/11/SCOPE-exponential-alphabet-crossover-for-zipf-normalized-expanding-map--9738a052e9b1 is about Zipf-normalized expanding maps and Hausdorff dimension, not occupancy record marks."
+      ],
+      "reasoning": "The claim is an asymptotic conditional random-measure theorem, not a finite database entry; reviewed nearby published results do not tabulate or imply its normalized-rank intensity or gamma mark distribution.",
+      "searches": [
+        "Zipf infinite urn sample n reference sample m sublinear new species missing mass Poisson rare critical size n^(1-alpha) novelty count",
+        "Poisson limit count of unseen species in additional small sample n^beta regular variation Karlin",
+        "2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac",
+        "2026/10/11/SCOPE-exponential-alphabet-crossover-for-zipf-normalized-expanding-map--9738a052e9b1"
+      ]
+    },
+    "rationale": "The central close source arXiv:2308.01739 does prove short-window Poisson arrival times, their joint r-class independence and a Poissonized quenched theorem. This finding does not claim those facts. It retains the normalized label/rank mark jointly with arrival time and supplies a class-specific gamma popularity law and an explicit quantitative conditional compact-test bound for discrete fixed-window samples; a point process without label marks cannot logically determine the joint rank distribution. The new 2026 outer-measure Gaussian field concerns large time segments, not the marked microscopic record problem. Targeted published-result and primary-literature comparisons found no explicit covering theorem; broader marked-process priority remains a risk.",
+    "residual_risks": [
+      "An older or less searchable general theorem on *marked* rare occupancy records could include this exact Zipf case; no independent historical-priority certification is claimed.",
+      "The 2023 unmarked records article shares much of the underlying Poissonization technique, so the new contribution is restricted to the rank-popularity marks and fixed-window conditional rate rather than unmarked Poisson times.",
+      "General regularly varying or random frequency sequences have not been established; finite tests cannot prove the infinite result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers Poisson r-record times, joint class independence and conditional unmarked convergence; inspected text has no normalized label/rank marks or Gamma mark theorem",
+        "evidence": [
+          "arXiv:2308.01739, pp. 1–2, 9–10, 14–15; Proposition 5 and Theorems 2–3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.01739",
+        "material_read": "PDF abstract, introduction, Section 5 Proposition 5 and proof, Section 7 Theorem 2 and proof, Section 8 Theorem 3 and discussion",
+        "method": "Read primary-text theorem, definitions and proof passages, including exact conditional history and integrated record-intensity formulas",
+        "title": "Records in the Infinite Occupancy Scheme",
+        "trigger": "Same objects and near-identical short-window r-record time limit; crucial strongest competitor"
+      },
+      {
+        "assessment": "Macroscopic Gaussian random fields for occupancy statistics, not marked post-history microscopic r-record processes",
+        "evidence": [
+          "arXiv:2602.13938, pp. 1–2, 9–12, 17, Theorem 2 and Corollary 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2602.13938",
+        "material_read": "PDF abstract and introduction, Gaussian FCLT statements and applications around Theorem 2 and Corollary 5",
+        "method": "Read primary text describing the time-indexed occupancy random outer measure, normalizations and finite-union interval indexing",
+        "title": "Limit theorems for a class of random outer measures in infinite urn schemes",
+        "trigger": "Recent literature source on infinite-urn random functional limit fields"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "bf48a72a-817e-4e4a-9e45-516b2a315a08",
+  "value": {
+    "rationale": "Label-popularity composition of short-window rare species arrivals is mathematically and statistically natural: time-only occupancy record laws do not tell whether new or r-th seen species came from comparatively common versus exceptionally rare labels. The mark law changes systematically from Gamma(1-gamma,1) to Gamma(r-gamma,1), is independent of the uniform event-time mark, and comes with a concrete conditional finite-window Laplace accuracy estimate. This supplies information for ranked-vocabulary sampling and conditional rare-event inference, not merely a renamed count theorem.",
+    "status": "PASS"
+  }
+}
