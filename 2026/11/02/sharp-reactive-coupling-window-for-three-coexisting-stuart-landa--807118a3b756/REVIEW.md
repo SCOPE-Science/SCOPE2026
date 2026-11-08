@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The two equilateral chiral branches and the synchronous branch satisfy the original full system directly. The exact six-dimensional determinant factorization is independently derived and checked for both chiralities. The complex quadratic has a positive-real-part root at zero reactive coupling, a unique possible imaginary-axis crossing for positive dissipative coupling, and a stable large-reactive-coupling limit exactly when growth exceeds six times dissipative coupling. The crossing is transverse away from the sharp tangency. The synchronous branch has two strictly stable transverse blocks for every positive real coupling. Minimizing the exact crossing ratio gives the sharp universal threshold and finite growth band. The checker executes determinant, crossing, growth-window and sample-spectrum checks; finite tests do not replace the all-parameter proof.
+PASS
 
-## Originality
+The globally complex-diffusive triangle has always stable synchrony (zero phase exponent; spatial mode quadratic with negative trace and positive determinant). Splay states with a=β−3p>0 have full real Jacobian polynomial λ(λ+2a){[λ²+(2a−3p)λ−3ap]²+9q²(λ+a)²}. Solving the only nonzero imaginary crossing yields a>3p and |q|²=p(2a−3p)²/[3(a−3p)]. Transversality changes stability at this threshold; minimizing F(β/p)=(2β/p−9)²/[3(β/p−6)]=8+4(β/p−15/2)²/[3(β/p−6)] gives sharp |q|/p>2√2 and the exact β window. Need ω,ω−3q both nonzero for genuine periodic orbits, otherwise attracting phase circles. Independently tested five full Jacobian spectra, plus source symbolic characteristic polynomial was inspected.
 
-**PASS under the inspected evidence, with residual historical risk.** Zhao and Uchida (arXiv:2610.08239v1) give polygon existence and numerically sampled transverse spectra in a different eight-site heterogeneous regime, not an analytic identical-triad stability boundary. Zou and Zhan (2009, DOI 10.1137/09075398X) treat real-only diffusion, whose globally coupled splay requires repulsive coupling to be stable; the positive-real, large-reactive regime is absent. Schneider (2013, DOI 10.1098/rsta.2012.0472) uses a real diffusion coefficient and delayed Pyragas control; its stabilization does not imply instantaneously coupled stability without delay. Kemeth et al. (arXiv:2010.06221) analyze two-cluster center-manifold bifurcations near synchrony, not the triangular three-phase branch. Related previously recorded results for purely imaginary coupling or nonidentical triads do not imply the strict positive-real-coupling growth window. A targeted comparison of exact formulas, aliases and stronger coverage did not yield this result; this is not proof of absolute historical novelty.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The system's positive real coupling is synchronizing, yet sufficiently strong reactive coupling makes two additional equilateral rotating-wave orbits stable in the full space. More sharply, all three can attract simultaneously only after a universal ratio threshold, and even then only for a *bounded* interval of common growth, with exact endpoints. This yields an explicit, experimentally meaningful phase-competition boundary not obtained from the zero-order-parameter existence condition alone. It is a natural complete stability classification for two canonical branches, not an arbitrary parameter slice. It does not claim global basins or nonlinearity at the boundaries.
+The rotating splay branches and general polygon dynamics are established, especially Zhao/Uchida 2026; real-coupling and delayed-control stability also predate this finding. In the inspected primary 33-page full text, finite M=8 heterogeneous polygon spectra and numerical transverse stability do not supply the exact M=3 identical-growth all-parameter p>0 reactive ratio 2√2 nor simultaneous three-attractor interval. Related published engineered phase model has different nonlinear coupling. Priority qualified against unindexed special triangle results.
 
-## Residual limitations
+## value
 
-The main result is local, in the exactly identical three-site complex-diffusive model. General oscillator-network and equivariant-Hopf literature may contain an equivalent theorem under different parameterizations. The inspected historical comparisons are substantial but not exhaustive. An independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact reactive threshold and bounded growth window answer a natural synchrony-versus-splay multistability question in the complete full six-dimensional system; positive real coupling does not rule out coexisting three attracting waves. This is a meaningful structural phase diagram, not a mere linearization sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
