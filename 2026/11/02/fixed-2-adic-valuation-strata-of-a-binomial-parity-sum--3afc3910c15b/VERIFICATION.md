@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or newer. The script is self-contained and uses only the standard library; success prints `VERIFY_OK binomial=2000 binary_words=262143 depths=0..17`.
+## correctness
 
-The executable checks: the defining fourth-order integer recurrence and its initial values; repeated companion states modulo two at distance five and modulo four at distance ten; the resulting modular patterns; positivity of the first 256 recurrence values; direct Lucas-parity evaluation of the binomial sum for indices zero through 1999 versus a separately evaluated run-length product; the rational generating functions for valuation zero and one by exact integer polynomial recurrences; and complete valuation histograms for every binary word of each length zero through 17. The latter checks visit 262,143 binary words across all lengths and verify each histogram totals the correct power of two.
+PASS
 
-These are finite checks, not a proof of periodicity or of the asymptotic law. Invertibility of the recurrence shift plus the explicit returning states supplies infinite periodicity; formal decomposition of arbitrary binary words supplies the generating functions; and the dominant-pole argument supplies the infinite asymptotics. The binomial-sum/run-length equality for all indices is the cited published Theorem 13 of Rampersad and Wiebe (2023). The proof does not assume that numeric checks certify that earlier result.
+Theorem 13 of Rampersad–Wiebe (2023) directly supplies the sum-to-binary-run-product identity, with S(0..3)=1 and recurrence S(l)=S(l-1)+S(l-2)-S(l-3)+S(l-4). The four-dimensional recurrence has determinant +/-1, so explicit state returns modulo 2 at step 5 and modulo 4 at step 10 prove full periodicity: run weights valuation 0 unless l=4 mod 5, valuation 1 exactly l=4 mod 10. Binary-run decomposition yields A(t,z)=(1+R)/(1-t(1+R)), hence G0=(1+t+t^2+t^3)/Q and G1=t^4(1-t^5)/((1+t^5)Q^2). For fixed v, every R_j is rational modulo 2^(v+1); the k=v term has the unique positive highest-order pole at rho, giving a_r(v)~c_v r^v rho^-r. Independently enumerated all binary words for r=0..12; zero- and one-valuation sequences matched (r=10 gives 881 and 138). Neither bounded check alone proves rationality or asymptotics.
 
-The overlap comparison identifies the known OEIS A124312 zero-valuation baseline and the non-covering OEIS A118898 table. No independent scientific audit or external proof certification is represented by this report.
+## originality
+
+PASS
+
+The published sum identity and zero valuation enumerator are prior. New assessment is valuation-one rational series and fixed-higher-v exact rational/asymptotic hierarchy.
+
+## value
+
+PASS
+
+Higher divisibility strata of a natural published binomial parity sum form a meaningful arithmetic refinement. The squared pentanacci denominator for valuation one and polynomial r^v inflation at every fixed valuation provide exact quantitative information for infinitely many indices, beyond the previously known parity baseline.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
