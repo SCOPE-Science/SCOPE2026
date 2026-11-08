@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every order 2 through 5, rooted Euler circuits and all invertible shift-register feedback maps enumerate the same complete set of canonical cycles; order five yields exactly 2048. Greedy arches equal the largest universal scattered-subsequence length by an explicit missed-word witness, and a separate suffix next-occurrence dynamic program agrees on every cut. The exhaustive 2048-row CSV is independently regenerated, every de Bruijn length-order window is checked, and the reversal/complement orbit counts sum exactly to the total. No generalization beyond the finite range is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A known published-finding corpus record gives a bivariate generating function for the distribution of universality indices among *all binary words*",
+        "Another record determines an insertion distance over all full-support binary words"
+      ],
+      "reasoning": "The generating-function law for all binary words and the insertion-distance optimum do not determine the distribution after imposing the de Bruijn property, cyclic quotienting, cut optimization or symmetry quotienting. No implication from those broader statements supplies the claimed conditional counts.",
+      "searches": [
+        "de Bruijn sequence \"subsequence universality index\" cycles count binary 5",
+        "de Bruijn sequence \"subsequence\" \"arch factorization\"",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.05324",
+      "https://www.researchgate.net/publication/408522101_Necklaces_and_Lyndon_words_in_colexicographic_order",
+      "https://doi.org/10.3233/FI-222159",
+      "https://debruijnsequence.org/db/home",
+      "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+      "2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949",
+      "fe114578-f77d-4808-a98b-8866561f65ed"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gabrić–Sawada 2026 constructs a particular de Bruijn sequence with constant amortized time, rather than analyzing every de Bruijn cycle",
+        "Kosche et al. 2023 address generic subsequence absence without reported order-five conditioned cycle distribution in accessible abstract",
+        "The earlier 2,048-cycle MCS result measures maximal closed substring occurrences for one fixed canonical cut"
+      ],
+      "reasoning": "Efficient construction of a specified cycle cannot imply a census over all cycles; general algorithmic characterization makes the census computable but does not assert its values. The earlier MCS statement is neither equivalent to nor stronger than a cut-optimized subsequence-universality distribution.",
+      "searches": [
+        "arXiv:2607.05324 Section 5 de Bruijn sequence",
+        "Kosche Koß Manea Siemer Absent Subsequences in Words shortest absent subsequences",
+        "2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+        "fe114578-f77d-4808-a98b-8866561f65ed"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kosche et al., Absent Subsequences in Words (2023): generic minimal/shortest absent subsequences and arch factorization",
+        "Direct comparison of Euler circuits and shift-register generators shows the classification is intrinsic to binary cyclic de Bruijn sequences"
+      ],
+      "reasoning": "The invariant may be equivalently described by the length of shortest absent scattered subsequence (plus/minus one) or by number of greedy full-alphabet arches; queries using those aliases identified no result on the complete 2,048-cycle conditional distribution or reversal/complement orbit refinement.",
+      "searches": [
+        "de Bruijn order five shortest absent subsequences greedy arch count distribution 512 1536 10 11",
+        "de Bruijn cyclic words subsequence universality index 2048 shortest absent subsequence cyclic 10 11 12 13",
+        "de Bruijn sequences \"scattered subsequences\" shortest absent subsequences",
+        "de Bruijn sequences \"arches\" subsequence universal distinct cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The public de Bruijn construction project lists exact cycle constructions and properties, without this cut-dependent subsequence table",
+        "Existing exact order-five de Bruijn census counts maximal *closed substrings*, not absent *scattered subsequences*"
+      ],
+      "reasoning": "A numerical search of exact entries and related archives did not identify a matching table. The 2,048-cycle MCS table and the present 512/1536 universality split are different invariants, and neither is a deterministic arithmetic transform of the other on the cited evidence. Unindexed private or supplementary tables cannot be excluded.",
+      "searches": [
+        "\"de Bruijn\" \"subsequence universality\" \"512\" \"1536\"",
+        "\"de Bruijn\" \"shortest absent subsequence\" \"cycle\"",
+        "order five de Bruijn sequences 2048 subsequence universality 10 11 12 13",
+        "https://debruijnsequence.org/db/home",
+        "fe114578-f77d-4808-a98b-8866561f65ed"
+      ]
+    },
+    "rationale": "Source and claim comparisons identify no published theorem giving the first order-five optimal-cut dichotomy 512/1536 or its symmetry-refined 528-class census. The strongest relevant prior results concern a single de Bruijn generation algorithm, generic absence algorithms, unconditional binary-word indices, or a different MCS invariant; none implies the conditional census. Priority risk from unindexed numerical work is expressly retained.",
+    "residual_risks": [
+      "The full text and supplements of Kosche et al. (2023) were not accessible in the inspected route, hence a hidden de Bruijn-specific census cannot be ruled out.",
+      "Exact computational tables that are not indexed or published publicly could predate this calculation.",
+      "No independent external priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not assert or derive the cut-optimized scattered-subsequence universality distribution over all binary de Bruijn cycles.",
+        "evidence": [
+          "https://www.researchgate.net/publication/408522101_Necklaces_and_Lyndon_words_in_colexicographic_order",
+          "Section 5, Corollary 19: constant-amortized-time generation of the Grandmama de Bruijn sequence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.05324",
+        "material_read": "Full text available as author-posted text on ResearchGate; introduction, de Bruijn application Section 5, final remarks and references, plus full-text search for subsequence.",
+        "method": "Read full accessible author-uploaded text, including Section 5 and proof/application statements; searched for subsequence terminology.",
+        "title": "Necklaces and Lyndon words in colexicographic order",
+        "trigger": "Fresh 2026 primary paper on generation of necklaces and de Bruijn cycles; exact same binary de Bruijn objects."
+      },
+      {
+        "assessment": "Known general algorithmic concepts are compatible with present computation; uninspected full text leaves a priority risk for a hidden de Bruijn table.",
+        "evidence": [
+          "https://journals.sagepub.com/doi/10.3233/FI-222159",
+          "https://fi.episciences.org/12396"
+        ],
+        "identifier_or_url": "https://doi.org/10.3233/FI-222159",
+        "material_read": "Accessible journal abstract, metadata and keyword list; primary complete PDF not available in the current access route.",
+        "method": "Read journal bibliographic and abstract material and supplementary indexing; no whole-document negative-coverage assertion.",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Directly relevant notion of shortest absent scattered subsequences and greedy arch factorization."
+      },
+      {
+        "assessment": "Establishes foundational de Bruijn objects, not the cut-sensitive shortest absent subsequence census.",
+        "evidence": [
+          "https://debruijnsequence.org/db/home"
+        ],
+        "identifier_or_url": "https://debruijnsequence.org/db/home",
+        "material_read": "Home page discussion of Euler-cycle construction, de Bruijn definitions, available algorithms and sequence properties.",
+        "method": "Read linked project introduction and descriptions of listed properties.",
+        "title": "De Bruijn Sequence and Universal Cycle Constructions",
+        "trigger": "Independent reference for cycle model, standard enumeration and constructing distinct binary de Bruijn cycles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4cfde61e-da1f-4103-86ab-314c39b24271",
+  "value": {
+    "rationale": "Contiguous universality is the defining property of de Bruijn cycles; best-cut subsequence universality is a distinct natural strength of that same object. Order five is the first order with nonconstant optimal-cut strength, establishing an exact qualitative boundary. The full 2048-cycle and 528-symmetry-class classifications quantify the split and provide independently reproducible data, not a single arbitrary numerical example.",
+    "status": "PASS"
+  }
+}
