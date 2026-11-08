@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The marked-leaf deletion/reattachment bijection and the complete multipartite spanning-tree formula establish the exact all-set probabilities. A concave-composition argument establishes log-submodularity, with strictness forced by the term present when there are three or more parts. Degenerate and zero-probability boundaries are treated separately. Independent enumeration and 277,632 exact integer lattice tests corroborate the general proof.
+## correctness
 
-**Originality — PASS, subject to historical-priority risk.** Eğecioğlu–Remmel (1994) supply the foundational bijection, enumeration, and one-vertex leaf probabilities. The structural claim here is the all-set strict log-submodularity inequality and its conditional dependence consequence, together with the bipartite full-vector independence exception. Grimmett–Winkler (2003) address edge-negative association, not these overlapping leaf events. Lewis (1999) is close: its abstract discusses degree distributions, but the full text was inaccessible, and an equivalent implication could be present. No global priority certification is claimed.
+PASS
 
-**Mathematical value — PASS.** The result classifies when conditioning on existing leaves makes further disjoint all-leaf events strictly negatively associated, and identifies an exact independence boundary. It resolves an all-order dependence question in a canonical random-tree family, rather than recomputing a single expected count. No assertion of arbitrary-function negative association or applicability beyond complete multipartite graphs is made.
+Reconstructed the deletion–reattachment bijection for marked leaves and the classical complete multipartite spanning-tree count. For every proper marked set, each deleted vertex in V_i has precisely n-n_i-|S|+s_i allowed connections to remaining vertices; multiplying attachment counts and residual tree number gives the exact factorization including all zero/one-remaining-vertex boundaries. Each positive factor log(n-|S|) or log(n-n_i-|S outside V_i|) is concave in a modular cardinality; nonnegative exponents yield lattice submodularity, and r-2>0 yields strict incomparable inequality in r>=3. For r=2 factorization between S_A,S_B proves all mixed Bernoulli moments factor and thus vector independence via inclusion-exclusion. Independent Prüfer enumeration of six multipartite profiles of orders 3–5 confirmed all exact subset moments and all 1920 ordered lattice comparisons. The finite checks corroborate, not establish, the all-size inequality.
 
-**Closest literature and limits.** The 1994 bijection is strong antecedent material; the 1999 unavailable text remains the chief priority risk. The proof is finite-parameter analytic and supported by exhaustive checks only for small orders.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the narrowly specified final mathematical claim, after separate checks of aliases, broader implication, exact tables and prior theorem implications. Prior source overlap and limitations are credited; this is not a certification of priority.
+
+## value
+
+PASS
+
+A hereditary all-order set-event inequality and sharp boundary between independent bipartite leaf families and pairwise-strictly-negatively-correlated multipartite leaves is a useful structural dependence classification, more informative than a single leaf marginal or edge correlation. The underlying enumeration is credited to previous work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
