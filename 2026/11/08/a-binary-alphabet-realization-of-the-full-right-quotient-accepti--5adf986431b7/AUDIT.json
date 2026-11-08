@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For k>=2 and r>=2, the powers (sigma,1)^k and ((sigma,1)(tau,0))^(k-1) independently generate the full counter because gcd(k,k-1)=1; cycle and adjacent transposition then generate S_k. Every group element has a positive word, proving reachability, two input minimalities, accepted-word stabilizer projection, quotient final set and quotient minimality. The unary low range comes from Rauch-Holzer, and both zero cases are explicit. Standalone finite checker replayed 45 parameter cases successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 unrestricted-alphabet theorem gives the positive spectrum but constructs ternary witnesses",
+        "The 2022 unary classification is bounded by the product of input accepting-state counts"
+      ],
+      "reasoning": "An arbitrary-alphabet spectrum does not imply a binary-alphabet spectrum. Its existence witness permits three generators; the new simultaneous two-generator full group is necessary for the claimed fixed-alphabet strengthening.",
+      "searches": [
+        "arxiv:2605.10852 Section 3 Theorem 3.1",
+        "arxiv:2208.14731 Section 3.7 Corollary 32",
+        "right quotient permutation automata binary accepting state complexity"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.10852 (full relevant Section 2–3)",
+      "https://arxiv.org/pdf/2208.14731 (full relevant Section 3.7 and visually inspected Corollary 32)",
+      "https://arxiv.org/abs/2605.13385 (abstract-level comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "German: all positive values attainable over nonunary alphabets via a 3-letter witness",
+        "Rauch and Holzer: unary values exactly [1,mn]",
+        "New proof: sigma and sigma*tau have coprime orders k and k-1, generating an independent clock with two letters"
+      ],
+      "reasoning": "The previous unrestricted claim neither constrains nor guarantees a fixed two-letter alphabet; the unary theorem supplies a sharp failure at alphabet size one. The new direct product lemma implies the stronger fixed-binary assertion; the converses do not follow from cited results.",
+      "searches": [
+        "arxiv:2605.10852 Lemmas 4-7",
+        "arxiv:2208.14731 Corollary 32",
+        "\"A Unary-to-Nonunary Transition\" binary alphabet two letters"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "German Section 3 uses three independently acting generators on the cartesian product",
+        "The contemporary binary theorem found by related searches is for reversal"
+      ],
+      "reasoning": "Equivalence could arise from a binary simulation of the source paper’s quotient automata. Our two generators are (cycle,one clock step) and (transposition,no clock step). The source’s three letters induce (cycle,0), (transposition,0), (identity,1) separately, and neither the paper nor the reversal abstract states a two-letter quotient simulation.",
+      "searches": [
+        "\"binary alphabet\" \"right quotient\" \"permutation automata\" spectrum",
+        "arxiv:2605.10852 (Section 3)",
+        "arxiv:2605.13385 (abstract)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results identify the ternary 2026 preprint and the 2022/2023 unary article, without a matching binary spectrum theorem",
+        "Directly inspected source theorems are constructive parameter families, not tables"
+      ],
+      "reasoning": "No exact tabulation of the fixed binary right-quotient accepting-state spectrum was identified. That absence is not evidence of uniqueness, but the inspected strongest published theorems do not cover the new alphabet threshold.",
+      "searches": [
+        "\"right quotient\" \"permutation automata\" \"binary\" \"accepting state complexity\"",
+        "\"right quotient\" \"permutation automata\" \"two-letter\" spectrum",
+        "arxiv:2605.10852"
+      ]
+    },
+    "rationale": "Primary full-text comparison identifies an explicit independent third clock letter in the May 2026 right-quotient spectrum construction, while the new construction replaces it with the nontrivial coprime-order two-generator direct-product argument. No cited primary theorem implies fixed binary universality; the earlier unary theorem rules out a one-letter universal spectrum. Targeted searches and available prior-claim records yielded no dominating or equivalent binary result. Residual risk is possible prior implicit binary reduction.",
+    "residual_risks": [
+      "An older or unindexed implicit two-generator alphabet reduction may exist",
+      "Reversal-paper comparison is abstract level only; it is a different operation",
+      "No external independent priority verification"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves unrestricted-alphabet positive spectrum with a third independent clock letter, but does not prove that the same complete spectrum is realized over a binary alphabet or that two is sharp",
+        "evidence": [
+          "Section 3, three-letter generators (cycle, transposition, independent clock)",
+          "Section 3, Lemmas 4–7 on minimality, stabilizer and quotient finals",
+          "https://arxiv.org/abs/2605.10852"
+        ],
+        "identifier_or_url": "arxiv:2605.10852 / https://arxiv.org/abs/2605.10852",
+        "material_read": "Full accessible HTML Section 2 (definitions, quotient transformation) and Section 3 (Theorem 3.1, full explicit three-letter construction and Lemmas 4–7); abstract, introduction and boundaries",
+        "method": "Direct primary HTML text inspection and comparison of group-generated transformations, accepted-word stabilizer, and alphabet size",
+        "title": "A Unary-to-Nonunary Transition in the Accepting-State Spectrum of Right Quotient for Permutation Automata",
+        "trigger": "Strongest directly relevant published complete spectrum, with ternary high-range witnesses"
+      },
+      {
+        "assessment": "Gives the unary [1,mn] spectrum and the necessity of at least two letters for unbounded outcomes, not a fixed binary construction",
+        "evidence": [
+          "Corollary 32 and concluding note, printed page 188",
+          "https://arxiv.org/pdf/2208.14731"
+        ],
+        "identifier_or_url": "arxiv:2208.14731 / https://arxiv.org/pdf/2208.14731",
+        "material_read": "Full relevant PDF quotient section 3.7, including Lemmas 28–31 and Corollary 32 on page 12 (PDF index 11); original PDF page visually inspected",
+        "method": "Primary PDF text extraction with direct visual inspection of quotient theorem page",
+        "title": "On the Accepting State Complexity of Operations on Permutation Automata",
+        "trigger": "Exact unary case and earlier open larger-alphabet question"
+      },
+      {
+        "assessment": "Binary witness is for reversal, not the right quotient construction; an implication to the present claim is not apparent",
+        "evidence": [
+          "ArXiv abstract specifies reversal, not quotient",
+          "https://arxiv.org/abs/2605.13385"
+        ],
+        "identifier_or_url": "arxiv:2605.13385 / https://arxiv.org/abs/2605.13385",
+        "material_read": "ArXiv abstract and subject/operation description only; no unsupported full-text exclusion claimed",
+        "method": "Bibliographic and abstract comparison of reversal versus right quotient",
+        "title": "Exact Accepting-State Spectrum for Reversal of Permutation Automata",
+        "trigger": "Potential competing binary-alphabet result by the same author in the same month"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5adf9864-31b7-47ef-a863-a5dd2d8d2239",
+  "value": {
+    "rationale": "The alphabet size is a meaningful structural complexity parameter: earlier unary bounds are finite, and the previously known unrestricted positive spectrum was witnessed by three letters. This closes the minimum alphabet threshold exactly at two for every positive input pair and provides an explicit clock-coupled two-generator group mechanism useful beyond this exact witness family.",
+    "status": "PASS"
+  }
+}
