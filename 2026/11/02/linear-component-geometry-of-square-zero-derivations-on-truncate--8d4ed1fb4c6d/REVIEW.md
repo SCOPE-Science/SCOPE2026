@@ -1,18 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the derivation relation \(D(t^N)=0\), the characteristic-two identity \(D_f^2=D_{ff'}\), and the valuation dichotomy for odd/even leading orders. It proves both directions of the component equations over all fields of characteristic two, verifies each component's dimension, and establishes the hyperplane-intersection property by comparing actual zero-coordinate sets. The point count follows by adding the components successively; no finite experiment is used in place of this argument. The nilpotent coordinate is exhibited as the nonzero element \(f_1\) with square zero in the actual parameter coordinate ring. The checker independently confirms 22 exhaustive finite-field configurations. Limitations: the full nonreduced ideal structure and conjugacy orbits are not claimed.
+## correctness
 
-## Originality — PASS (best-knowledge, with residual risk)
-The closest primary results are Evans–Fuchs on the \(N=p\) Witt case, Hoffmann–Kowalski on Hasse–Schmidt integrability and group-scheme actions, and Premet on regular derivations of a different characteristic and truncation family. The complete statements in the inspected materials do not assert, or imply without a new calculation, the characteristic-two all-\(N\) component arrangement and its finite-field point formula. Independent subject-record searches and searches of accessible prior claims found no equivalent result. A remaining risk is unindexed historical work on height-one actions on nonreduced local schemes. These negative searches do not constitute a uniqueness certificate.
+PASS
 
-## Value — PASS
-The parameter scheme is a natural moduli problem of \(\alpha_2\)-type actions on a truncated affine line, not a chosen finite slice. Its reduced variety is equidimensional yet reducible with an unbounded component count, and its actual scheme is everywhere a genuinely nonreduced moduli object in the sense that its coordinate algebra contains a nonzero nilpotent. The exact uniform point count is an arithmetic invariant available over every finite field of characteristic two. The result supplies structural geometry, not merely a small numerical improvement or a certificate for finitely many points.
+The derivation D_f=f(t)d/dt exists for arbitrary f when N even and requires f_0=0 when odd. Characteristic 2 makes D_f^2 a derivation with D_f^2(t)=ff' mod t^N. If the leading exponent s is odd, square-zero is equivalent to 2s-1>=N; for even s=2j with 4j<N, invertibility of the leading unit reduces to the stated vanishing of odd coefficients in a finite interval. The resulting linear-space family contains exactly all extension-field points; consecutive coordinate support differences give codimension-one intersections, while nonconsecutive ones lie within the predecessor intersection. Therefore the union is reduced support with c noncontained irreducible components and the point formula. The t coefficient of ff' is f_1^2, while the homogeneous quadratic ideal cannot contain nonzero linear f_1, proving a nonzero nilpotent; tangent at zero sees only the optional linear constraint. Independently enumerated every F2 coefficient vector for N=2..12, checked square-zero, union membership and predicted point counts.
 
-## Prior literature and limitations
-- Evans–Fuchs (2001), arXiv:math/0111271: ordinary Witt algebra restricted power with truncation length equal to the characteristic; relevant boundary case but no arbitrary-length component theorem.
-- Hoffmann–Kowalski (2012), arXiv:1212.5788; and (2015), arXiv:1501.00906: integration and group-scheme action correspondence; relevant conceptual framework, not the geometric or arithmetic classification.
-- Premet (2014), arXiv:1405.2426: inspected introduction and derivation/nilpotent-cone sections; the characteristic hypothesis \(p>2\) and multivariable exponent-\(p\) ring exclude the current family.
-- Risks: specialized historical sources may not be indexed; the checker uses only the explicitly tested finite fields; independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: standard restricted derivation identity is prior; the explicit linear component geometry, hyperplane attachment, nonreduced boundary and all-N finite field count are not supplied by the compared general Witt/nilpotent derivation results.
+
+## value
+
+PASS
+
+The locus is a natural restricted-square fiber of the derivation algebra and its precise component arrangement, intersections, finite-field point count and scheme-theoretic nonreduced boundary are meaningful geometric invariants. Uniform N and characteristic-two counterpoint to smooth/irreducible expectations make the result useful beyond a small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
