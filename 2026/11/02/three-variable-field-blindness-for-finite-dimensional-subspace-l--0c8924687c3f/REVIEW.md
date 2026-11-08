@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof maintains the complete ordered-pair orbit profile (both subspace dimensions and the intersection dimension), then uses the field-independent three-subspace normal form to transfer any third-subspace extension, preserving pair profiles without a decreasing game counter. The nine block types are the eight one-dimensional membership types and the two-dimensional triple of lines, and their existence follows by direct-sum splitting and graph-of-isomorphism reduction (Etingof et al., Section 5.3). The dimension-separating sentence genuinely uses just two reusable variable names. The four-variable separator is an antichain of four lines in dimension two over a field with three elements, absent over a field with two. Re-executed checkers verify pair-extension support and three-pebble refinement on named finite examples, not the infinite theorem. **Risk:** the proof depends on the classical three-subspace normal form, for which a complete constructive argument and its cited source are provided.
+## correctness
 
-## Originality — PASS, qualified
-The closest mathematical source, Etingof et al. (arXiv:0901.0827, Section 5.3), proves the three-subspaces decomposition but does not make the game-theoretic statement. Grohe–Otto (CSL 2012) supplies finite-variable pebble-game methods but no projective subspace-lattice field-equivalence theorem. Herrmann–Tsukamoto–Ziegler (arXiv:1607.03315, Section 3) uses larger coordinatizing frames and enriched lattice operations; it does not assert pure-inclusion three-variable equivalence. Full-depth three-variable equivalence is strictly stronger in the depth dimension than a bounded quantifier-rank-three field-blindness statement, and the exact dimension classification does not follow from that bounded statement. Searches under subspace inclusion, projective-geometric lattices, D4 decomposition, and bounded-variable logic revealed no covering result. **Residual risk:** an unlocated stronger finite-variable theorem for modular projective geometries may subsume the result; negative searches alone do not prove priority.
+PASS
 
-## Value — PASS
-The theorem gives a complete, natural, all-depth classification of field-independent logical theories on an unbounded family of finite-dimensional geometric lattices. It identifies the precise variable boundary (three versus four) at which field-size information first becomes visible and explains the collapse structurally through a representation-finite \(D_4\) normal form. This goes beyond checking a few sentences or routine finite examples. The result is specifically sensitive to the relational signature; richer structures are not claimed.
+For finite-dimensional F^d, GL_d-orbits of ordered pairs (U,V) are determined by (dim U,dim V,dim U∩V). Etingof et al. D4 injective-arm triple-subspace decomposition is direct sums of eight 1D membership patterns and one diagonal 2D pattern over any field. For an arbitrary third-pebble move, transfer the complete triple pattern over the other field then align the surviving pair using GL_d. This preserves every atomic equality and inclusion relation and the pair profile without a diminishing rank parameter, so yields unrestricted-round noncounting three-pebble equivalence. Strict-chain height is definable with two reusable variables and separates d≠e. Four mutually incomparable lines in F_3^2 but only three in F_2^2 separate at width four. Independent span-generated enumeration of ALL subspaces over F_2 and F_3 in dimensions 2 and 3 reproduced identical two-pebble pair-profile/third-extension supports (5 vs 6 subspaces in d2, 16 vs 28 in d3); finite check corroborates, not proves all dimensions/fields.
 
-## Scope and limitations
-This review supports only the stated pure-inclusion result for finite-dimensional spaces over arbitrary fields. Computation is corroborative, historical priority is qualified, and independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after inspecting the assigned theorem, searching the relevant published Resultary findings and primary literature, and comparing equivalence, broader results, exact tables and logical implications. One can derive the audited claim using prior D4 classification plus a new/explicit pebble invariant; the D4 paper itself does not state or use the logical theorem. A still-undiscovered general width-three modular-geometry theorem could subsume it. The prior representation theorem provides a critical lemma, but none of the inspected specific statements makes the logical dimension-only FO^3 equivalence and four-variable sharpness conclusion. General logical machinery alone does not calculate the game invariant. Priority is not certified; the named residual source-access and prior-coverage risks remain.
+
+## value
+
+PASS
+
+The exact finite-variable expressive threshold for an entire natural family of incidence structures distinguishes dimension-sensitive information from field-coordinate information, despite the underlying full lattices permitting coordinatization. It classifies unbounded-quantifier-rank FO^3 theories, not merely a single quantifier-rank test or routine field-size count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
