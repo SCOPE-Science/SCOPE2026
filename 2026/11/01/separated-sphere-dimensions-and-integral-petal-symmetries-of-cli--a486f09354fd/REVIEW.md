@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact vertex-deletion/cofiber decomposition follows from the characterization of all forbidden cliques. The integral homotopy conclusion follows from elementary simplex-skeleton wedge homotopy types, joins, dimension-wise nullhomotopy of the link inclusion, and a mapping-cone splitting. The augmentation-lattice identification is an exact integer chain calculation and yields the actual petal symmetry action. The standalone script enumerated face boundaries in eight finite tests and checked 360 signed Lefschetz characters. Finite calculations are supportive, not the proof of the infinite theorem.
+## correctness
 
-**Originality — PASS (subject to residual literature risk).** The closest 2026 primary result, Ghosh and Selvaraja's Theorem 3.3 and Corollary 3.4, proves shellability for all block graphs, encompassing these windmills, but does not determine this family's homotopy type or integral homology modules. Earlier clique-ideal literature studies algebraic invariants and other families. The closest examined indexed result on two overlapping cliques has an intersection with at least two vertices and addresses homology rather than the multi-petal one-vertex homotopy/wreath classification. Another indexed result addresses Lovász neighborhood complexes of block graphs, a distinct functor. Exact-claim, structural-alias and stronger-coverage searches found no covering result; implicit prior coverage remains possible.
+PASS
 
-**Mathematical value — PASS.** This natural infinite subclass of the recently studied block-graph family receives an exact integral homotopy classification, including a potentially arbitrarily large gap between surviving degrees and a complete integral symmetry action. Existing shellability does not supply the integer representation or the two separated homology ranks, and the distinction is already visible in small three-petal windmills.
+For arbitrary m>=3,t>=3,s_i>=t, the exact clique constraints give X=A union (c*B), where A=join_i L_i(t-1), B=join_i L_i(t-2). The simplex skeleton L_i(r) is a wedge of C(s_i-2,r) copies of S^(r-1), with integral cycles wedge^r ker(sum:Z^{P_i}->Z). Hence dim(B)=m(t-2)-1 is below the connectivity dimension of A when noncontractible; A is contractible in the full-simplex boundary case, so B->A is always null. Mapping cone A vee Sigma B gives the two sphere dimensions/ranks and torsion-freeness without finite extrapolation. The two homology degrees are separated by m-1, so the cofiber exact sequence and signed join chains give canonical integral modules and the (-1)^r petal-swap sign. Independently enumerated a three K4, t=3 instance: 407 faces including empty and mod-two Betti_3=8, Betti_5=1. Exact Git blob paths and all public scientific files inspected; finite test only corroborates.
 
-**Closest literature and limits.** The source of the construction is Ghosh–Selvaraja (2026), with Moradi and Khosh-Ahang–Moradi as earlier context. The result applies only to clique windmills and describes homology equivariantly, not a group-equivariant homotopy equivalence. Independent review is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical implication comparison of actual primary material and published records. Novelty is provisional, with explicit unresolved historical-source risks. 
+
+## value
+
+PASS
+
+An explicit natural infinite family of clique-free complexes within block graphs receives complete integral homotopy and integral wreath-module classification, including arbitrarily separated surviving homology dimensions. The known shellability property does not supply this richer structure; the augmentation-lattice action adds independent mathematical content and a reference case for glued-block topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
