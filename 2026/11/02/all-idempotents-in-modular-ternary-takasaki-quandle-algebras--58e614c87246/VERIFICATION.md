@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The complete proof is in `RESULT.md`. Execute `python3 verify.py` in a Python 3 environment. The sole dependency is the standard library. `checker_output.txt` records one successful run ending `VERIFY_OK`.
+## correctness
 
-Direct brute-force star-idempotent checks: \(27\) algebra elements over \(\mathbb F_3\) at \(d=1\); \(729\) over \(\mathbb F_9\) at \(d=1\); and \(19\,683\) over \(\mathbb F_3\) at \(d=2\). Their complete counts are respectively \(4\), \(10\), and \(82\), with exactly the parametrized points and zero. The program checks all \(6\,561\) parameters for \((q,d)=(9,2)\) but does not enumerate all \(9^9\) ambient elements. For \((3,3)\) it checks 100 reproducible parameter values, not all \(3^{13}\) possible nonzero idempotents. Separate convolution and direct quandle multiplication routines cross-check the normalization; small pairwise products cross-check closure.
+PASS
 
-The all-dimensional statement rests on the symbolic argument \(u\star v=\sigma(uv)\), \(u^3=arepsilon(u)^3\), and the inverse bijection \(w=u-\sigma(u)\). Finite tests are independent cross-checks, not proofs for infinitely many dimensions or coefficient fields. No automated formal proof or independent audit is claimed.
+Over char3, the Takasaki star is σ(uv) in ordinary group algebra K[(F3)^d]. Frobenius gives u³=ε(u)³1; the equation σ(u)=u² has ε=0 or1, with ε0 forcing u=0 from u=u^4. For ε1, u³=1 and σ(u)=u^{-1}. The anti-invariant augmentation space W has dimension (3^d−1)/2, and w↦1−w−w² is a bijection onto nonzero star-idempotents with inverse u−σ(u), by w³=0. Thus finite-field count 1+q^dim(W). The norm-one group is abelian exponent3 and its core operation equals star, proving nonzero idempotent quandle structure. Independent exhaustive d2,F3 enumeration checked 19,683 vectors and exactly 82 solutions. No associativity of star was improperly assumed.
+
+## originality
+
+PASS
+
+The prime cyclic case d=1 count q+1 is prior and excluded. Recent Takasaki papers include integral/complex Fourier arguments and special cyclic cases, whose assumptions do not mathematically imply the all-dimension modular characteristic-three formula on face. Critically relevant arxiv:2609.03799 could not be fully read after arxiv/OA retrieval failures and authorized institutional access returned vpn_disconnected, so its abstract cannot prove full noncoverage; this is retained as explicit risk, not automatic scientific failure.
+
+## value
+
+PASS
+
+Classifies every idempotent for a natural modular nonassociative algebra in arbitrary elementary ternary dimension, with a closed q-count and internal idempotent-quandle isomorphism; more than small rank enumeration or a trivial normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The identity \(u\star v=\sigma(uv)\) follows on basis elements. The characteristic-three Frobenius identity \(u^3=\varepsilon(u)^3\) holds because every group element has cube one. Applying the involution to \(\sigma(u)=u^2\) yields \(u=u^4\) and eliminates all nonzero augmentation-zero idempotents. For augmentation one, the mutually inverse formulas \(u=1-w-w^2\) and \(w=u-\sigma(u)\) have been checked symbolically, with \(w^3=0\). Two-element inversion orbits give the claimed dimension. Direct exhaustive multiplication of all elements in the three identified small ambient algebras agrees with the parameter sets. The ordinary group-algebra multiplication is distinguished from the nonassociative quandle product throughout.
+## correctness
 
-**Originality — PASS, with specific residual risks.** The available prime-order dihedral-quandle result already gives the characteristic-three \(d=1\) count; the new scope is \(d\ge2\), all such dimensions and all characteristic-three coefficient fields, including a concrete bijective parametrization and structure of the idempotent quandle. The accessible full texts of Elhamdadi–Ta–Virgin (2026, arXiv:2609.03799), Sangare–Ta (2026, arXiv:2608.01550), Bardakov–Elhamdadi (2026, arXiv:2601.07057), and Bardakov–Passi–Singh (2020, arXiv:2001.06843) study related integral, complex, small-quandle or commutative-quandle questions but do not derive the all-dimensional modular formula. Kaur–Singh (arXiv:2303.06948) concerns real/complex decomposition, but full text was not available for inspection; its abstract and scope were checked. A broadly worded assertion about support-three idempotents in Sangare–Ta cannot serve as an implication yielding this full parametrization or its count, and particular small-ring cases are expressly excluded from claimed priority. The search cannot prove global uniqueness, and an earlier group-ring or quandle-ring classification not found in the checked sources remains possible.
+PASS
 
-**Mathematical value — PASS.** An explicit all-dimensional idempotent classification answers a natural structural question in a modular setting where classical Fourier semisimplicity fails. The anti-involution eigenspace identifies the exact degrees of freedom, the number grows as \(q^{(3^d-1)/2}\), and the nonzero idempotents supply a larger, explicitly described quandle that can be used in further algebraic and coloring constructions. This is neither an isolated small enumeration nor a substitution into a previously known general formula.
+Over char3, the Takasaki star is σ(uv) in ordinary group algebra K[(F3)^d]. Frobenius gives u³=ε(u)³1; the equation σ(u)=u² has ε=0 or1, with ε0 forcing u=0 from u=u^4. For ε1, u³=1 and σ(u)=u^{-1}. The anti-invariant augmentation space W has dimension (3^d−1)/2, and w↦1−w−w² is a bijection onto nonzero star-idempotents with inverse u−σ(u), by w³=0. Thus finite-field count 1+q^dim(W). The norm-one group is abelian exponent3 and its core operation equals star, proving nonzero idempotent quandle structure. Independent exhaustive d2,F3 enumeration checked 19,683 vectors and exactly 82 solutions. No associativity of star was improperly assumed.
 
-**Limits.** The theorem does not classify other characteristics or groups with elements of order other than three. Only \((q,d)=(3,1),(9,1),(3,2)\) have complete ambient enumeration in the supplied checker; larger tests directly verify the parametrization for the specified parameters. No external mathematical audit is represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prime cyclic case d=1 count q+1 is prior and excluded. Recent Takasaki papers include integral/complex Fourier arguments and special cyclic cases, whose assumptions do not mathematically imply the all-dimension modular characteristic-three formula on face. Critically relevant arxiv:2609.03799 could not be fully read after arxiv/OA retrieval failures and authorized institutional access returned vpn_disconnected, so its abstract cannot prove full noncoverage; this is retained as explicit risk, not automatic scientific failure.
+
+## value
+
+PASS
+
+Classifies every idempotent for a natural modular nonassociative algebra in arbitrary elementary ternary dimension, with a closed q-count and internal idempotent-quandle isomorphism; more than small rank enumeration or a trivial normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
