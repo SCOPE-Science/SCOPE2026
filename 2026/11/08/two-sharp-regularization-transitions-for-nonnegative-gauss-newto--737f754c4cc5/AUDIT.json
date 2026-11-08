@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Identity (1) follows by expanding the NGN step against the SPD quadratic. Endpoint spectral variance inequality is sharp on actual extremal eigenspaces for every allowed H. The scalar rational objective has an affine derivative numerator, proving all branch/uniqueness claims; differentiation in sigma proves the unique minimax scale; AM-GM with an attainable endpoint mixture proves necessity and sufficiency of the objective-monotonicity frontier. Exact witness H=diag(1,10), sigma=2, squared coordinates (950,13) yields 41/31. The packaged standalone verifier passed 37,727 exact-rational and deterministic numerical assertions; finite checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang–Qi [3] Theorem 2.1 controls a generalized fixed-spectral-ratio stepsize and long-run norm contraction, not the NGN regularization-dependent worst one-step objective.",
+        "Published 2026 scaled-Polyak theorem [2] gives the large-sigma doubled-Polyak boundary and an optimal fixed-multiplier minimax factor, but no finite-sigma NGN branch transition."
+      ],
+      "reasoning": "Already-known limiting constants and general optimizer convergence are not claimed new. The exact bound with finite sigma and its two sharp parameter changes is not a corollary simply by taking a constant gamma in prior statements; it requires optimizing the spectral mean jointly with the effective multiplier.",
+      "searches": [
+        "Gauss Newton adaptive gradient sigma/(1+sigma norm grad squared/(2f)) quadratic exact descent threshold condition number",
+        "agnostic Polyak gradient step two times Polyak quadratic energy amplification Kantorovich inequality",
+        "regularized Polyak harmonic mean stepsize exact objective factor",
+        "arXiv:2407.04914v1 §2",
+        "published-finding corpus record 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2407.04358v1",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789/RESULT.md",
+      "https://arxiv.org/html/2407.04914v1",
+      "published-finding corpus semantic searches for NGN stepsize, finite-sigma quadratic objective envelope, doubled Polyak and related moment/Kantorovich formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The NGN source proves safe convergence claims for convex losses with arbitrary regularization but does not assert one-step objective monotonicity; a one-step objective spike is compatible with long-run convergence.",
+        "The fixed-scaled-Polyak envelope has the same large-sigma condition-number barrier and the same best possible objective factor, but optimizes a distinct constant-multiplier family.",
+        "The new claim provides an exact sharp finite-sigma function Q_sigma(a,b), including the switching surface (b-a)sigma(1+a sigma)=2."
+      ],
+      "reasoning": "The claim is not the generic objective-spike fact, the classical Kantorovich inequality or the doubled-Polyak limit. It characterizes a different coupled family for every finite sigma, with exact equality cases. No inspected source covers that characterization; historical overlap remains a stated residual risk.",
+      "searches": [
+        "non-negative Gauss Newton NGN Orvieto Xiao quadratic objective increase monotonicity condition number 3+2sqrt(2) step",
+        "Gauss Newton adaptive gradient sigma/(1+sigma norm grad squared/(2f)) quadratic exact descent threshold condition number",
+        "agnostic Polyak gradient step two times Polyak quadratic energy amplification Kantorovich inequality",
+        "regularized Polyak harmonic mean stepsize exact objective factor",
+        "arXiv:2407.04358v1 equations (7),(9)-(11),(14)-(15)",
+        "arXiv:2407.04914v1 equations (4),(6)-(10)",
+        "published-finding corpus record 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789 sections Main theorem and Proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "NGN [1] formula gamma=sigma/(1+sigma ||grad f||^2/(2f)) becomes sigma/(1+sigma m) on centered SPD quadratics.",
+        "Closest public scaled-Polyak theorem [2] uses alpha=(gamma/2) S1/S2 with fixed gamma and has envelope 1-gamma+gamma^2(a+b)^2/(16ab); our alpha=sigma/(1+sigma m) has state-dependent effective gamma=2sigma m/(1+sigma m)."
+      ],
+      "reasoning": "The two update maps are related through a state-dependent multiplier, but are not one fixed-parameter rule. The published fixed-gamma supremum optimizes the spectral variance at a different fixed mean and cannot be substituted as a sharp coupled finite-sigma supremum. No result with the same fixed-sigma two-branch envelope was located.",
+      "searches": [
+        "non-negative Gauss Newton NGN Orvieto Xiao quadratic objective increase monotonicity condition number 3+2sqrt(2) step",
+        "Gauss Newton adaptive gradient sigma/(1+sigma norm grad squared/(2f)) quadratic exact descent threshold condition number",
+        "NGN stepsize Orvieto Xiao",
+        "non-negative Gauss Newton on SPD quadratic",
+        "published-finding corpus record 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+        "arXiv:2407.04358v1 §2.1/§2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search yielded public scaled-Polyak record 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789 as closest exact two-moment objective frontier, but no NGN fixed-sigma formula."
+      ],
+      "reasoning": "No exact table/database or earlier accessible record reproducing the two-branch NGN envelope, optimal sigma, or safe finite-sigma boundary was identified. This is evidence of searched non-overlap, not a proof of global uniqueness.",
+      "searches": [
+        "non-negative Gauss Newton NGN Orvieto Xiao quadratic objective increase monotonicity condition number 3+2sqrt(2) step",
+        "NGN stepsize Orvieto Xiao",
+        "non-negative Gauss Newton on SPD quadratic",
+        "regularized Polyak harmonic mean stepsize exact objective factor"
+      ]
+    },
+    "rationale": "The assessed novelty is the exact state-coupled fixed-sigma NGN objective envelope in all SPD dimensions, its slow-mode to mixed-mode regularization transition, its unique minimax regularization and the sharp finite-sigma objective-descent threshold. The already known 3+2 sqrt(2) doubled-Polyak boundary, optimal fixed-gradient-descent factor, and endpoint spectral moment inequality are explicitly excluded. Primary source and closest stronger-looking public fixed-scaled-Polyak RESULT.md were compared at the statement and proof level.",
+    "residual_risks": [
+      "An older specialist paper might express the same fixed-sigma NGN bound as a regularized harmonic-mean target-value step under different terminology.",
+      "The coincidence of the asymptotic doubled-Polyak threshold and minimax objective factor with existing literature must not be misconstrued as new.",
+      "Independent audit not performed; finite verifier tests do not certify all spectral dimensions by exhaustion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_METHOD_NOT_COVERING_EXACT_FIXED_SIGMA_QUADRATIC_ENVELOPE",
+        "evidence": "First public 2024-07-05; the source states sigma/(1+sigma||grad f||²/(2f)), regularity and long-run convergence, plus scalar quadratic examples. No matrix-spectrum all-state NGN objective frontier observed in inspected relevant sections.",
+        "identifier_or_url": "https://arxiv.org/html/2407.04358v1",
+        "material_read": "arXiv version 1 HTML: abstract; Section 2 derivation and stepsize bounds; Section 3 generalized Gauss–Newton perspective excerpts; Section 4 stochastic formulation and fundamental lemmas; find searches for quadratic/monotonicity/condition number",
+        "method": "read actual primary HTML passages and equations (7), (9)-(11), (14)-(15), (21); compared objective and asymptotic statements",
+        "title": "An Adaptive Stochastic Gradient Method with Non-negative Gauss-Newton Stepsizes",
+        "trigger": "The source introducing the exact algorithm whose fixed-regularization objective behavior is assessed"
+      },
+      {
+        "assessment": "CLOSEST_PRIOR_LIMITING_CONSTANTS_BUT_FINITE_SIGMA_NOT_COVERED",
+        "evidence": "Theorem Q_gamma=1-gamma+gamma²(a+b)²/(16ab) for constant gamma; exact doubled-Polyak kappa=3+2sqrt2; no finite-sigma NGN Q_sigma(a,b).",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789/RESULT.md",
+        "material_read": "Full publicly posted RESULT.md including setting, main theorem, proof, minimax calibration, relation to prior work and limitations",
+        "method": "fetched GitHub repository file and compared matrix-step formulas and quantifier implications",
+        "title": "Sharp one-step objective frontier for scaled Polyak steps on SPD quadratics",
+        "trigger": "published-finding corpus exact prior with same limiting condition-number barrier and same best minimax objective factor"
+      },
+      {
+        "assessment": "DIFFERENT_FIXED_SPECTRAL_RATIO_METHOD_NOT_FINITE_SIGMA_NGN",
+        "evidence": "Steps are gamma times a fixed generalized Rayleigh quotient; theorem controls weighted error distance. No NGN harmonic-mean sigma dependence or finite-sigma two-branch objective envelope in inspected sections.",
+        "identifier_or_url": "https://arxiv.org/html/2407.04914v1",
+        "material_read": "arXiv version 1 HTML: introduction, Section 2 definition (4),(6)-(10), Theorem 2.1 and proof of spectral contraction",
+        "method": "inspected actual theorem and family formula with fixed gamma and psi(A)",
+        "title": "Analytic analysis of the worst-case complexity of the gradient method with exact line search and the Polyak stepsize",
+        "trigger": "Potentially broader parameterized spectral-gradient results on SPD quadratics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "737f754c-4cc5-4213-900a-8c7bfdbbc57e",
+  "value": {
+    "rationale": "An exact all-state objective guarantee is motivated by the NGN source claim of hyperparameter-robust convergence: convergence need not imply per-step loss decrease. The theorem gives a full unique minimax calibration, a structural mode switch in worst-case states, and a separate sharp regularization cutoff for transient loss spikes, all dimension-independent and attainable. This is a natural optimization-method benchmark, beyond a single numerical example or retitling of a known fixed Polyak step.",
+    "status": "PASS"
+  }
+}
