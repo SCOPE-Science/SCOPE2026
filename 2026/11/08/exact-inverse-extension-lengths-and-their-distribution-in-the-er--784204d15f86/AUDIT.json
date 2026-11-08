@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3 and nonempty proper S, reverse a decrements the earliest cyclic run start while positive, whereas nonexpanding reverse b cannot decrement it. The first growth therefore costs at least r inverse rotations and one inverse b. The word b a^r attains this bound, and equality forces its uniqueness. A disjoint binary-membership count gives 2^(n-2), (r+1)2^(n-r-2), and n-1 subsets in the three ranges. Independent subset-power BFS checks 4070 cases, and word enumeration verifies 492 uniqueness cases. The finite checks are not substituted for the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Miccinesi (2026) proves sufficient sign certificates for extension by at most n-1 in general synchronizing automata and in Section 8.1 argues that the Černý family has some subsets that violate this cutoff.",
+        "The 2026 survey examines reset/avoidance/subset bounds, not a closed labeled Černý all-subset inverse-extension length classification."
+      ],
+      "reasoning": "The certificate condition is sufficient and does not determine the exact length for every subset, the uniqueness of shortest words, or the number of stuck subsets. A broad proof of existence of stuck subsets is strictly weaker than their complete explicit classification.",
+      "searches": [
+        "arXiv:2609.21603 sections 4, 6, 8.1, appendices",
+        "arXiv:2608.24245 Sections 2 and 3",
+        "Černý subset inverse extension length formula all n"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.21603",
+      "https://arxiv.org/abs/1704.08233",
+      "https://arxiv.org/abs/2608.24245"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 certificate establishes a one-sided sufficient condition and shows some Černý subsets are stuck; the new theorem establishes the value E_n(S) for every nonempty proper S and gives a unique optimum and closed count for each threshold.",
+        "Preimage complexity theorems concern algorithmic decision problems for arbitrary DFAs, which have different quantifiers and do not specify this exact description for the fixed family.",
+        "Forward rank and avoidance profiles of the Černý family concern the image of Q or avoidance of prescribed targets and do not imply the first strictly increasing preimage word for arbitrary S."
+      ],
+      "reasoning": "Same automaton, same subset variable, and the equivalent preimage definitions were compared, not merely titles. A general algorithm permitting computation of minext is not a theorem asserting its exact symbolic closed form or histogram. The antecedent of Miccinesi’s sufficient condition is not known to cover all subsets, and the paper explicitly allows exceptional subsets.",
+      "searches": [
+        "arXiv:2609.21603 Theorem 1 and Section 8.1",
+        "arXiv:1704.08233 Theorem 3 and bounded-length sections",
+        "arXiv:2608.24245 survey of avoidance and subset synchronization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Berlinkov, Ferens and Szykuła formulate inverse-image extensibility and bounded-length decision problems, and give one illustrated Černý instance; no all-subset shortest-word formula or histogram was found in the inspected problem statements and proofs.",
+        "The new statement can equivalently be formulated as the minimum reverse-path distance in the power automaton to a subset of larger size, or the minimum length of a word strictly shrinking the inverse image of the complement."
+      ],
+      "reasoning": "By complementation, the identity (Q minus S) w^{-1}=Q minus (S w^{-1}) shows that strict inverse growth of S is equivalent to strict inverse shrinkage of its complement, not forward-image compression; standard avoidance and total extension are different predicates. The general decision algorithms do not imply the explicit all-subset length distribution without a specialized proof.",
+      "searches": [
+        "\"Černý\" \"extending word\" \"subsets\" \"exact\" lengths",
+        "\"Černý\" \"minext\" \"subset\" \"n-1\" \"boundary\"",
+        "arXiv:1704.08233 Sections 1.2, 2, and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact all-state inverse-extension-length table or formula was found in the relevant inspected primary literature.",
+        "The displayed formula partitions all 2^n-2 nonempty proper subsets, rather than reproducing a finite-state example or enumerating the results of an existing table."
+      ],
+      "reasoning": "A computational table for finitely many n, even if present, would not establish the all-n result. The four-state example in the 2017 paper illustrates the definition but does not cover arbitrary n and S. The search result is not itself evidence of nonexistence; an undiscovered earlier formula remains a priority risk.",
+      "searches": [
+        "\"Černý\" \"minext\" \"subset\" \"n-1\" \"boundary\"",
+        "\"Černý\" \"extending word\" \"subsets\" \"exact\" lengths",
+        "arXiv:1704.08233 illustrative four-state example"
+      ]
+    },
+    "rationale": "Specific primary full texts and equivalent formulations were compared. The 2026 closest paper proves existence of exceptional subsets but not the exact values, unique shortest words or full histogram; the 2017 preimage paper gives general decision complexity and a finite example. An equivalent stronger all-subset classification was not found; historical priority remains provisional.",
+    "residual_risks": [
+      "An unpublished or unindexed specialist result might already derive the special-case distribution.",
+      "The general-purpose preimage decision algorithms can calculate these lengths on fixed inputs; this work claims a symbolic classification, not algorithmic decidability.",
+      "An overlooked equivalent lemma using forward complement wording could dominate the result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Overlaps on invariant and motivation but the inspected material does not state or imply the new closed all-subset formula and histogram.",
+        "evidence": "Theorem 1 gives a sign-based sufficient short-extension test; Section 8.1 derives existence of Černý stuck subsets from reset-threshold arithmetic, without classifying those subsets.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.21603",
+        "material_read": "Full publicly accessible paper text including introduction, main certificate theorem, Section 6 sharpness, Section 8.1, and relevant appendices.",
+        "method": "Statement/quantifier comparison of per-subset certificate and stuck-set existence against exact shortest-length, uniqueness and distribution claims.",
+        "title": "Certificates for short extending words in a finite automaton",
+        "trigger": "Same inverse-extension invariant and discussion of Černý-family subsets beyond the n-1 cutoff"
+      },
+      {
+        "assessment": "Gives decision complexity and one illustrative example but not the all-n, every-S formula or the count by threshold.",
+        "evidence": "Section 1 gives the min-preimage setting; a four-state Černý instance has a shortest extending word, and the paper studies broader decision complexity.",
+        "identifier_or_url": "https://arxiv.org/abs/1704.08233",
+        "material_read": "Public full text, with its introductory Černý 4-state example, Problem 3, Section 2 bounded preimage decision complexity, and relevant subset-size cases.",
+        "method": "Comparison of the precise extension predicate, arbitrary-automaton decision results and example to the entire classical Černý family.",
+        "title": "Preimage problems for deterministic finite automata",
+        "trigger": "Foundational definitions and general bounded-length inverse extension, potentially stronger algorithmic coverage."
+      },
+      {
+        "assessment": "Contains related broad challenges and bounds; no equivalent exact distribution was found.",
+        "evidence": "Survey distinguishes forward reset/avoidance/compression and subset synchronization from arbitrary-target minimal preimage expansion.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.24245",
+        "material_read": "Public full survey, especially sections introducing the Černý conjecture, avoidance, compression, and subset synchronization.",
+        "method": "Checked that adjacent invariants do not provide the exact inverse-growth profile on arbitrary target subsets.",
+        "title": "Synchronizing Automata: Open Problems",
+        "trigger": "A contemporaneous broad survey that could cover equivalent avoidance, compression or subset synchronization claims."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "784204d1-5f86-4a02-abf0-856539260659",
+  "value": {
+    "rationale": "The per-subset shortest inverse-extension length is the natural local invariant underlying the synchronization extension method. Determining every value and unique optimal word for an extremal classical family, together with a complete all-n histogram and exact identification of all n-1 subsets violating the short-extension threshold, sharpens a specifically motivated structural gap in recent certificate work. This is a complete family-wide classification, not a cosmetic variant of a single preimage example or a new claim about general reset bounds.",
+    "status": "PASS"
+  }
+}
