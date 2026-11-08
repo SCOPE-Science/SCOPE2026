@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T07:09:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md Git blob 0d7e0e25d36381343de934d48734b2a761649331",
+        "frozen verify.py Git blob 3712df7e39eb976d0c555f042a46b4c1ba235f8e",
+        "independent SymPy n=3 rational integration"
+      ],
+      "rationale": "For x=(t,z), |t|<=delta=1-a, perpendicular cross-section is an (n-1)-ball of squared radius 1-(a+|t|)^2. Its coordinate variance is radius²/(n+1). Slice integrals yield axial delta² B2/B0. Integration by parts of (1-(a+t)^2)^{(n+1)/2} against t makes the perpendicular variance equal axial plus a delta B1/B0, and implies gap=a E|X1|. Let nu_a(ds) ∝ s (1-s)^k(1+a+delta s)^k ds; the derivative of log weight g_a(s)=k(1-s)/(1+a+delta s) is strictly decreasing in s, so d_a(B2/B1)=Cov_nu(s,g_a(s))<0. Thus B1/B2 strictly increases and so does A=1+a B1/(delta B2). The exact endpoint beta integrals give c_n and (n+5)/4. Thin-lens beta ratios give axial~8 delta²/[(n+3)(n+5)] and transverse~2delta/(n+3). Independent rational n=3 moment polynomials matched every displayed exact eigenvalue. No finite sampling is used to prove all-n monotonicity.",
+      "residual_risks": [
+        "n>=2, two congruent balls and uniform full-dimensional Lebesgue measure only.",
+        "a=1 has no interior and is only an asymptotic limit; the normalizations are unit-radius."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Drach–Solanes–Tatarko and Drach–Tatarko address geometric isoperimetric/intrinsic-volume extremality of lens families.",
+          "Resultary lens mean width computes support averaging, not the uniform interior second-moment eigenvalues."
+        ],
+        "reasoning": "Neither intrinsic-volume ordering nor one-valued mean width entails a covariance tensor ratio or its monotonicity.",
+        "searches": [
+          "https://arxiv.org/abs/2603.08132",
+          "arxiv:2511.11901",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mean-width-of-a-symmetric-lens-in-every-dimension--80ec085cfff6"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1301.5515",
+        "https://arxiv.org/abs/2603.08132",
+        "arxiv:2511.11901",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mean-width-of-a-symmetric-lens-in-every-dimension--80ec085cfff6",
+        "Resultary QLENS query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fixed-section integral for perpendicular covariance uses an extra squared radius factor absent from mean-width formulas.",
+          "General intrinsic-volume extremality does not imply the sign of Cov_nu(s,g_a(s)), which proves the strict all-n ratio law."
+        ],
+        "reasoning": "The claimed contribution goes beyond obtainable classical 3D formulas to the all-dimensional eigenvalue gap and sharp monotone envelopes.",
+        "searches": [
+          "https://arxiv.org/abs/2603.08132",
+          "arxiv:1301.5515",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mean-width-of-a-symmetric-lens-in-every-dimension--80ec085cfff6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lens covariance follows slice-weighted second moments rather than mean width, volume or mixed-volume functionals.",
+          "The exact identity perp-parallel=a E|X1| and strict ratio monotonicity require a particular weighted beta-measure comparison."
+        ],
+        "reasoning": "Search and comparison included classical mechanical inertia formulations and covariance tensor equivalents.",
+        "searches": [
+          "intersection congruent Euclidean balls lens uniform covariance anisotropy variance ratio monotone any dimension",
+          "moment of inertia of spherical lenses intersection two balls axial transverse covariance any dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finch 2013 gives volume, area and mean width for spherical lens configurations; elementary 3D inertia remains potential prior background.",
+          "No exact all-n B1/B2 anisotropy formula appeared among ranked Resultary hits."
+        ],
+        "reasoning": "Numerical overlap of volume formulas is not an exact table of covariance anisotropy; lack of hits does not prove originality.",
+        "searches": [
+          "intersection congruent Euclidean balls lens uniform covariance anisotropy variance ratio monotone any dimension",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mean-width-of-a-symmetric-lens-in-every-dimension--80ec085cfff6",
+          "arxiv:1301.5515"
+        ]
+      },
+      "rationale": "Classical spherical-cap integration can recover n=3 inertia values and is not claimed original. Compared resultaries for lens mean width and translated-lens mixed-volume monotonicity, and papers on intrinsic-volume extremality; none logically yields the strict covariance anisotropy bijection and sharp all-dimensional beta moment envelopes. Best-of-knowledge PASS with substantial older inertia/cap literature residual priority risk.",
+      "residual_risks": [
+        "Older mechanical-inertia formulas or tomography papers may contain the same n-dimensional covariance identity under other names.",
+        "The full contents of all potentially relevant classical sources were not exhaustively inspected; avoid priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical lens geometry background; 3D moments not priority claimed",
+          "evidence": "Related geometric integrals but not inspected as covering exact all-n monotonic covariance theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.5515",
+          "material_read": "Background statement and relevant sphere-intersection volume/area formulas; not a verified whole-document inertia exclusion",
+          "method": "source comparison/abstract and listed sections",
+          "title": "Mutually Equidistant Spheres that Intersect",
+          "trigger": "Classical congruent-ball lens integrals and potential inertia prior"
+        },
+        {
+          "assessment": "Different valuation and monotonic width, not automatically the covariance tensor",
+          "evidence": "Support-function averaging yields mean width rather than interior t²-weighted density moments.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mean-width-of-a-symmetric-lens-in-every-dimension--80ec085cfff6",
+          "material_read": "Resultary indexed abstract and formula summary",
+          "method": "indexed abstract",
+          "title": "Mean width of a symmetric lens in every dimension",
+          "trigger": "Exactly same symmetric two-ball lens family"
+        },
+        {
+          "assessment": "No observed covariance eigenvalue identity; insufficient inspection to exclude every appendix",
+          "evidence": "The principal theorem concerns volume/surface extremality among lambda-convex bodies, not specified covariance component ratio.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.08132",
+          "material_read": "Available introductory/abstract results on lens extremality; full source coverage not asserted",
+          "method": "primary-source abstract/main-statement comparison",
+          "title": "A reverse isoperimetric inequality in three-dimensional space forms",
+          "trigger": "Congruent lens geometric extremality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2603.08132",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mean-width-of-a-symmetric-lens-in-every-dimension--80ec085cfff6",
+        "frozen RESULT.md"
+      ],
+      "rationale": "The uniform-volume covariance ellipsoid of a symmetric Euclidean lens is natural in convex geometric probability, tomography and estimating center separation from bulk measurements. The exact tensor identity and all-dimensional strict bijective anisotropy-distance law, optimal constants and distinct thin-lens powers provide a substantive structural theorem beyond elementary volume formulas or a three-dimensional table.",
+      "residual_risks": [
+        "No assertion about curvature-constrained bodies, unequal radii, or nonuniform distributions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=2, two congruent balls and uniform full-dimensional Lebesgue measure only.",
+    "a=1 has no interior and is only an asymptotic limit; the normalizations are unit-radius.",
+    "Older mechanical-inertia formulas or tomography papers may contain the same n-dimensional covariance identity under other names.",
+    "The full contents of all potentially relevant classical sources were not exhaustively inspected; avoid priority certification.",
+    "No assertion about curvature-constrained bodies, unequal radii, or nonuniform distributions."
+  ],
+  "schema_version": 1
+}

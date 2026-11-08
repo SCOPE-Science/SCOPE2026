@@ -1,17 +1,21 @@
-# Scientific assessment: symmetric-ball-lens covariance anisotropy
+# Independent mathematical audit
 
-## Correctness — PASS
-The final single claim concerns the covariance eigenvalues of the normalized uniform-volume distribution on the intersection of two congruent closed unit balls in \(\mathbb R^n\), \(n\ge2\), separated by \(2a\), \(0\le a<1\). The cross-section is an \((n-1)\)-ball with radius \(\sqrt{1-(a+|t|)^2}\). Integrating its perpendicular coordinate variance gives the factor \(1/(n+1)\). The integration-by-parts boundary terms vanish at both ends, yielding the exact covariance-gap identity. The derivative of the size-biased density has a strictly decreasing score, so its covariance with the coordinate is negative for all \(0<a<1\). Consequently the exact ratio and its rescaled version increase strictly. Two independent beta-integral endpoint calculations give the sharp constants, the thin-lens rates, and the three-dimensional rational formulas. The included checker passed 412 exact-rational and high-precision integration checks; numerical tests are not offered as infinite proofs.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The primary motivating material is Drach–Solanes–Tatarko (2026, arXiv:2603.08132v1), which studies reverse isoperimetric inequalities for \(\lambda\)-convex lenses in three-dimensional constant-curvature spaces, not their uniform-volume inertia/covariance tensors. Drach–Tatarko (2025, arXiv:2511.11901v1) proves extremal statements for mean width and intrinsic volumes, not strict covariance-ratio monotonicity. Finch (2013, arXiv:1301.5515v1, Section 1) supplies classical symmetric-lens volume, surface-area and mean-width formulas; its formulas do not directly imply the all-dimensional covariance-ratio claim. A separately inspected published all-dimensional mean-width formula addresses a different functional. Mathematical-record searches and recoverable earlier geometry claims supplied no match to the specific all-dimensional strict monotonicity plus sharp envelopes.
+PASS
 
-There is a real residual priority risk: classical inertia formulas for spherical caps already allow the dimension-three covariance to be reconstructed, and a wider historical mechanics literature might hide the general monotonicity in another notation. The isolated dimension-three rational formula and ordinary slice integration are **not** represented as intrinsically novel. The nontrivial proposed contribution is the exact all-dimensional gap identity together with the strict size-biased monotonicity, globally sharp parameter envelopes, and thin-lens eigenvalue rates. A failed search alone is not proof of novelty.
+For x=(t,z), |t|<=delta=1-a, perpendicular cross-section is an (n-1)-ball of squared radius 1-(a+|t|)^2. Its coordinate variance is radius²/(n+1). Slice integrals yield axial delta² B2/B0. Integration by parts of (1-(a+t)^2)^{(n+1)/2} against t makes the perpendicular variance equal axial plus a delta B1/B0, and implies gap=a E|X1|. Let nu_a(ds) ∝ s (1-s)^k(1+a+delta s)^k ds; the derivative of log weight g_a(s)=k(1-s)/(1+a+delta s) is strictly decreasing in s, so d_a(B2/B1)=Cov_nu(s,g_a(s))<0. Thus B1/B2 strictly increases and so does A=1+a B1/(delta B2). The exact endpoint beta integrals give c_n and (n+5)/4. Thin-lens beta ratios give axial~8 delta²/[(n+3)(n+5)] and transverse~2delta/(n+3). Independent rational n=3 moment polynomials matched every displayed exact eigenvalue. No finite sampling is used to prove all-n monotonicity.
 
-## Mathematical value — PASS
-The lens is the canonical extremal member of an active family of curvature-constrained convex bodies. A complete covariance anisotropy law answers a natural shape-statistics question that volume, area, surface, or mean width do not resolve. It distinguishes the axial and transverse second-moment scales, proves the covariance ellipsoid becomes progressively more eccentric, gives sharp dimension-indexed bounds for every separation, and makes the half-separation recoverable from the covariance ratio. This is a structural parameter classification across all dimensions, not an arbitrary point evaluation or marginal numerical improvement. It does not assert any unproved extremality among general convex bodies.
+## originality
 
-## Limits and closest coverage
-The domain is precisely equal-radius two-ball intersections with full-dimensional uniform measure. Neither asymmetric lenses nor curved-space models are treated. The principal overlap risk is reformulation through classical cap moment-of-inertia expressions; those provide dimension-specific moments but no identified all-dimensional monotonicity theorem. There has been no independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classical spherical-cap integration can recover n=3 inertia values and is not claimed original. Compared resultaries for lens mean width and translated-lens mixed-volume monotonicity, and papers on intrinsic-volume extremality; none logically yields the strict covariance anisotropy bijection and sharp all-dimensional beta moment envelopes. Best-of-knowledge PASS with substantial older inertia/cap literature residual priority risk.
+
+## value
+
+PASS
+
+The uniform-volume covariance ellipsoid of a symmetric Euclidean lens is natural in convex geometric probability, tomography and estimating center separation from bulk measurements. The exact tensor identity and all-dimensional strict bijective anisotropy-distance law, optimal constants and distinct thin-lens powers provide a substantive structural theorem beyond elementary volume formulas or a three-dimensional table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
