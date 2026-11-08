@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Gaussian reproducing-kernel trace identity yields a manifestly nonnegative angular defect and an exact monomial gamma-shift series. Gamma stochastic monotonicity controls the shape-shift term by the fixed integer charge; the midpoint gamma ratio supplies \(k^2/(4n)\); exponential tails reduce the weighted gamma sum to \(\log(R^2)+O(1)\). The pointwise angular inequality \(D_k\le k^2D_1\), dominated convergence, and Fatou's lemma establish both the finite- and infinite-energy cases. The checker passes 26 supplementary numeric assertions. The proof explicitly covers all integer angular charges and all \(L^2\) profiles.
+## correctness
 
-**Originality — PASS, provisional.** Accessible primary full text of Kisil (2021, arXiv:2108.13710) provides an abstract coherent-state and convolution framework, not the charge-resolved disk-growth Hilbert–Schmidt asymptotic. Galbis (2021, arXiv:2102.02031) proves operator-norm estimates for radial selfadjoint Fock Toeplitz operators, not the angular defect. Rodriguez Rodriguez (2022, arXiv:2206.11557) concerns quasi-radial symbol algebras on weighted ball Bergman spaces, not expanding Gaussian Fock disks. A related angular \(H^1\) logarithmic leakage theorem in harmonic Fock-type spaces is conceptually close but does not imply this analytic Fock Schatten identity. Searches for angular charge, Fourier mode, Toeplitz, logarithmic Hilbert–Schmidt and Schatten deficits found no decisive stronger coverage. Residual risk: a general nonlocal-quadratic-form theorem may indirectly recover this coefficient.
+PASS
 
-**Mathematical value — PASS.** The new statement identifies the exact universal cost of nontrivial angular winding in a natural coherent-state localization model, including a complete \(H^1\) regularity cutoff for arbitrary angular profiles. The coefficient is not the ordinary area or perimeter spectral term: it survives only after comparing the charged and radial Hilbert–Schmidt energies. This separates angular topological structure from radial boundary leakage, and the fixed-charge estimate extends by a nontrivial uniform domination argument to profiles with infinite angular energy.
+For disk-supported sigma(r,theta)=A(theta), the Fock reproducing kernel gives the positive Gaussian double-integral Hilbert-Schmidt quadratic form; angular Fourier rotation diagonalizes it into S_k(R). The monomial e_n shift coefficient is gamma(n+1+k/2,R^2)/sqrt(n!(n+k)!). Stochastic monotonicity bounds the shifted incomplete-gamma telescoping contribution by k, and 1-Gamma(n+1+k/2)^2/(Gamma(n+1)Gamma(n+k+1))~k^2/(4n). The weighted gamma cutoff sum is log(R^2)+O_k(1). Thus D_k/log R->k^2/2. Inequality 1-cos(k phi)<=k^2(1-cos phi) plus dominated convergence proves finite H1 energies and Fatou proves +infty otherwise, including unbounded L2 angular symbols via HS extension. Independent gamma evaluations for charges 1,2,5 at x=500,2000,8000 confirmed the slopes k^2/4 in log x.
 
-**Scope and risks.** The theorem uses Gaussian Fock normalization and growing concentric disks. It does not establish a uniform remainder in the angular Fourier index, nor any higher-dimensional version. Historical priority remains provisional and independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of final mathematical statement and implications; background results and exact prior coverage distinguished from the stated contribution. No inspected result logically yields the k^2/2 coefficient for every angular Fourier mode in disk-growing Gaussian Fock space. The common Gaussian Hilbert-Schmidt identity is explicitly treated as standard.
+
+## value
+
+PASS
+
+A sharp H1 threshold for all complex L2 angular profiles identifies the exact regularity cost of a singular angular profile under growing coherent-state disk localization. The coefficient k^2/2 for phase vortices and divergence for rough angular classes is a natural, quantitative functional-analytic invariant that can be reused for Schatten localization problems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

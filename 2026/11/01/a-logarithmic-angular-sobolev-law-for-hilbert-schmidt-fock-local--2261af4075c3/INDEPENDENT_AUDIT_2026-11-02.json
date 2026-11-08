@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T15:55:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md cd74a5735643f6b5668a9c71a17165da1c7c68c3, proof steps 1-4; checker.py blob 8a4f9430a0cdb9f2d2ab896174924c0ba10bb340; private independent gamma-ratio calculations for 3 charges and 3 radii."
+      ],
+      "rationale": "For disk-supported sigma(r,theta)=A(theta), the Fock reproducing kernel gives the positive Gaussian double-integral Hilbert-Schmidt quadratic form; angular Fourier rotation diagonalizes it into S_k(R). The monomial e_n shift coefficient is gamma(n+1+k/2,R^2)/sqrt(n!(n+k)!). Stochastic monotonicity bounds the shifted incomplete-gamma telescoping contribution by k, and 1-Gamma(n+1+k/2)^2/(Gamma(n+1)Gamma(n+k+1))~k^2/(4n). The weighted gamma cutoff sum is log(R^2)+O_k(1). Thus D_k/log R->k^2/2. Inequality 1-cos(k phi)<=k^2(1-cos phi) plus dominated convergence proves finite H1 energies and Fatou proves +infty otherwise, including unbounded L2 angular symbols via HS extension. Independent gamma evaluations for charges 1,2,5 at x=500,2000,8000 confirmed the slopes k^2/4 in log x.",
+      "residual_risks": [
+        "Fixed charge O_k(1) is not uniform in k, but the separate exact D_k<=k^2D_1 domination supplies the required uniform summability. One complex dimension, Euclidean disk and Gaussian weight only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kisil Section 5.1 Eq.5.1 defines localization operators; Proposition 5.8 treats Hilbert-Schmidt representations. Galbis concerns norm of bounded integrable *radial selfadjoint* Fock symbols; Rodriguez concerns Bergman spaces rather than analytic Gaussian Fock Hilbert-Schmidt angular defects."
+        ],
+        "reasoning": "Operator-calculus machinery contains the Gaussian kernel identity as standard background but the reviewed first-order logarithmic H1 coefficient for disk angular discontinuities requires a separate asymptotic calculation.",
+        "searches": [
+          "Kisil Cross-Toeplitz Operators 2108.13710 Section 5 and Section 6",
+          "Galbis Norm estimates Fock Toeplitz 2102.02031",
+          "Rodriguez Rodriguez Bergman Toeplitz algebras 2206.11557"
+        ]
+      },
+      "checked_sources": [
+        "Kisil arXiv:2108.13710v3, relevant full-text sections 5/6",
+        "Galbis arXiv:2102.02031 abstract and scope only",
+        "Rodriguez Rodriguez arXiv:2206.11557 abstract and scope only",
+        "Resultary indexed Fock radial spectral filter 2026/10/11/0bc5b54dc8b5",
+        "Resultary 2026/09/19 half-Sobolev Hilbert eigenstrips ba346044db55"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kisil provides a general representation of operators, not the fixed-charge gamma-ratio asymptotic or sharp extended-real H1 criterion; a separate eigenstrip H1/2 result does not imply the Fock angular H1 constant."
+        ],
+        "reasoning": "No inspected result logically yields the k^2/2 coefficient for every angular Fourier mode in disk-growing Gaussian Fock space. The common Gaussian Hilbert-Schmidt identity is explicitly treated as standard.",
+        "searches": [
+          "arxiv:2108.13710 Proposition 5.8 Section 5.1",
+          "arxiv:2102.02031 abstract",
+          "Resultary half-Sobolev Hilbert eigenstrips"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kisil full accessible article introduces localization/Toeplitz operators by coherent-state transforms and a Hilbert-Schmidt operator–integrated representation correspondence; inspected propositions do not calculate a disk-growth angular energy defect."
+        ],
+        "reasoning": "The H1 threshold is an exact logarithmic Fourier-mode defect law, not merely generic Hilbert-Schmidt class membership or a bounded-symbol norm inequality.",
+        "searches": [
+          "Bargmann Fock Hilbert Schmidt Toeplitz disk angular vortex logarithmic Sobolev energy deficit",
+          "Fock Toeplitz Gaussian Hilbert Schmidt angular H1 logarithmic defect growing disk",
+          "arxiv:2108.13710"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits: SCOPE half-Sobolev law for truncated diagonal Hilbert eigenstrips (different operator/H1/2 energy) and logarithmic spectral filter for smooth radial Fock Toeplitz (different radial Dixmier-trace invariant)."
+        ],
+        "reasoning": "Neither indexed record has the same angular L2 disk localization and H1 Fourier energy. A matching table was not found, which is not an exhaustive novelty certificate.",
+        "searches": [
+          "Bargmann Fock Hilbert Schmidt Toeplitz disk angular vortex logarithmic Sobolev energy deficit",
+          "Fock angular vortex Schatten2 k2 over 2 logarithmic radius table"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of final mathematical statement and implications; background results and exact prior coverage distinguished from the stated contribution. No inspected result logically yields the k^2/2 coefficient for every angular Fourier mode in disk-growing Gaussian Fock space. The common Gaussian Hilbert-Schmidt identity is explicitly treated as standard.",
+      "residual_risks": [
+        "A general nonlocal quadratic-energy Gamma-limit or semiclassical Toeplitz asymptotic theorem not located in searches could imply the result.",
+        "Only the relevant portions of Kisil were read closely; the other two operator-theory papers were scope-screened rather than fully read.",
+        "Numerical fixed charges do not prove infinite Fourier-mode dominated convergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NONCOVERING",
+          "evidence": [
+            "Section 5.1 gives localization/Toeplitz integral; Proposition 5.8 gives integrated representation of arbitrary Hilbert–Schmidt operators; Theorem 6.8 gives PDO conjugacy. None states growing disk cutoff, angular Fourier weights or H1 defect coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2108.13710v3",
+          "material_read": "Primary open arXiv full HTML accessible: introduction, Sections 5.1–5.3 and 6.1–6.3 sampled at mathematical definitions, Proposition 5.5, Proposition 5.8 and Theorem 6.8. Other sections were not read line-by-line.",
+          "method": "Primary HTML sections and mathematical formulas, not abstract alone",
+          "title": "Cross-Toeplitz Operators on the Fock–Segal–Bargmann Spaces and Two-Sided Convolutions on the Heisenberg Group",
+          "trigger": "Potential general Hilbert–Schmidt Fock Toeplitz formula dominating the claimed asymptotic"
+        },
+        {
+          "assessment": "LIMITED_READ_NOT_COVERING_ON_ABSTRACT_ONLY",
+          "evidence": [
+            "Abstract explicitly specifies radial bounded integrable selfadjoint symbols and operator-norm estimates; not evidence about a whole uninspected paper."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.02031",
+          "material_read": "ArXiv abstract and scope only; full paper not inspected",
+          "method": "Abstract source; scope comparison only",
+          "title": "Norm estimates for selfadjoint Toeplitz operators on the Fock space",
+          "trigger": "Possibly covering Fock Toeplitz norm/trace estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Analytic gamma-ratio/weighted harmonic sum and exact Fourier orthogonality; Kisil coherent-state Toeplitz framework."
+      ],
+      "rationale": "A sharp H1 threshold for all complex L2 angular profiles identifies the exact regularity cost of a singular angular profile under growing coherent-state disk localization. The coefficient k^2/2 for phase vortices and divergence for rough angular classes is a natural, quantitative functional-analytic invariant that can be reused for Schatten localization problems.",
+      "residual_risks": [
+        "Does not extend to higher Fock dimensions, arbitrary domain shapes or other radial weights; no such applications are asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite independent checks corroborate only the stated cases; all-dimensional or asymptotic conclusions rest on the cited mathematical proofs.",
+    "Historical novelty is a best-of-knowledge assessment, not external certification.",
+    "Publication withheld because public metadata contains operational identifiers."
+  ],
+  "schema_version": 1
+}
