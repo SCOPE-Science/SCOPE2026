@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify_knight_complex.py` in a clean directory with Python 3.9 or later; it requires no third-party packages. The script constructs the knight graphs directly from coordinate moves, checks that every edge is symmetric, enumerates the full face posets by two independently coded methods, and compares the enumerations exactly. It builds every Morse matching pair by deterministic vertex toggling, constructs the entire directed Hasse diagram, verifies that the global directed graph is acyclic by consuming all nodes with Kahn's algorithm, and verifies the critical masks and dimensions.
+## correctness
 
-The same program independently applies all eight geometric board symmetries, verifies graph-adjacency preservation, computes oriented fixed-face signed Lefschetz traces, and checks the indicated dihedral character decompositions and invariant dimensions. It verifies that boards of size one and two have no knight edges and that the central vertex of the three-by-three graph is isolated. The successful recorded run ended in the literal string `VERIFY_OK`, saved in `verification_output.txt`.
+PASS
 
-These finite exhaustive checks prove the bounded mathematical claim through the explicit matching and Lefschetz argument; they do not establish a formula for arbitrary larger boards. A scientific literature search does not prove uniqueness of the result.
+The finite nonperiodic n×n knight attack graph has row-column squares and |Δrow|,|Δcol|=(1,2); Ind consists of all nonattacking sets, not just maximal placements. At n<=2 no edges, and at n=3 the center is isolated, so all these complexes are contractible. Independently regenerated both exhaustive face sets for n=4,5 (1,365 and 55,213 augmented faces), the source-specified maximal-toggle sequential Morse matchings (680 and 27,605 pairs), and all 5,788/353,749 Hasse cover orientations; both are acyclic. Removing the augmented empty-face pair leaves a single 0-cell and respectively five/three critical 3-cells, proving the integral S3 wedges. Signed fixed-face Lefschetz sums for all 8 geometric square symmetries independently yield characters (5,-1,1,-1,3,3,-1,-1) and (3,1,-1,1,-1,-1,-1,-1); direct inner products give A1+2B1+E and A2+E. The unverified larger boards and equivariant homotopy type are not inferred.
+
+## originality
+
+PASS
+
+Direct comparison of distinct graph/complex or fixed-locus objects and their known implications: First noncontractible square-knight complexes and a dihedral homology transition. Inspected sources and Resultary searches below support a best-of-knowledge novelty finding, not a worldwide priority guarantee.
+
+## value
+
+PASS
+
+The knight graph is a canonical non-grid move graph, and the exact first noncontractible square board size and contrasting D4 third-homology representations resolve natural structural questions about its entire independence complex. The claimed representation transition is not implied by the known maximum knight count, and complete finite classifications through a meaningful first topological threshold have independent use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

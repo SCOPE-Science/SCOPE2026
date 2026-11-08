@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-An explicit complete augmented acyclic face-poset matching is given for each of the two finite boards. Every face and every Hasse cover is checked, and after removing the augmented empty-simplex pair there is one critical vertex and exclusively critical three-cells (five or three). Discrete Morse theory thus proves integral sphere-wedge homotopy, not just field homology. The signed simplicial Lefschetz formula, independently checked against all eight actual geometric actions, determines the full dihedral rational representation. Two independently implemented enumerators agree on the face sets. Reproducible source and exact output are included. The claim is restricted to board sizes at most five.
+PASS
 
-## Originality — PASS, subject to stated residual risk
+The finite nonperiodic n×n knight attack graph has row-column squares and |Δrow|,|Δcol|=(1,2); Ind consists of all nonattacking sets, not just maximal placements. At n<=2 no edges, and at n=3 the center is isolated, so all these complexes are contractible. Independently regenerated both exhaustive face sets for n=4,5 (1,365 and 55,213 augmented faces), the source-specified maximal-toggle sequential Morse matchings (680 and 27,605 pairs), and all 5,788/353,749 Hasse cover orientations; both are acyclic. Removing the augmented empty-face pair leaves a single 0-cell and respectively five/three critical 3-cells, proving the integral S3 wedges. Signed fixed-face Lefschetz sums for all 8 geometric square symmetries independently yield characters (5,-1,1,-1,3,3,-1,-1) and (3,1,-1,1,-1,-1,-1,-1); direct inner products give A1+2B1+E and A2+E. The unverified larger boards and equivariant homotopy type are not inferred.
 
-Bode–Harborth (2000) was materially inspected at the primary publisher facsimile, especially its p. 212 square-board table and the sections on hexagonal/triangular pieces. It tabulates maximum square-board knight numbers, not the complex of all configurations or its homotopy and dihedral character. Bode–Harborth (2003) concerns triangular/hexagonal independence numbers. Closest indexed classifications of Cartesian square grids, regular hypercubes, and rook/matching complexes use different graph adjacencies, and none implies these two knight-board results. Actual searches of mathematical research records for knight-graph topology, equivalences, and exact multiplicities showed no statement covering the claim. There is residual uncertainty from unindexed sources and the inaccessible full text of the 2003 article; a negative search is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-These are the two smallest noncontractible square-board knight complexes. The exact homotopy type is a natural refinement of classical packing numbers: the first two nonzero types are wedges of *the same sphere dimension*, yet their multiplicities decrease from five to three. The geometric dihedral action changes more strongly, from \(A_1\oplus2B_1\oplus E\) to \(A_2\oplus E\), eliminating all invariant rational homology. This is a self-contained topological and equivariant benchmark for the canonical knight-attack graph family, not an arbitrary parameter slice or a restatement of maximum-placement counts.
+Direct comparison of distinct graph/complex or fixed-locus objects and their known implications: First noncontractible square-knight complexes and a dihedral homology transition. Inspected sources and Resultary searches below support a best-of-knowledge novelty finding, not a worldwide priority guarantee.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The knight graph is a canonical non-grid move graph, and the exact first noncontractible square board size and contrasting D4 third-homology representations resolve natural structural questions about its entire independence complex. The claimed representation transition is not implied by the known maximum knight count, and complete finite classifications through a meaningful first topological threshold have independent use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
