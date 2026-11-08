@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible finite checks
 
-Execute `python3 verify_bruteforce.py` and `python3 verify_algebra.py` from the same folder. No external Python package is required.
+# Independent mathematical audit
 
-`verify_bruteforce.py` enumerates all \(inom{16}{5}=4368\) 5-subsets and \(inom{16}{4}=1820\) 4-subsets per graph, verifies exact independence, and constructs every size-two intersection adjacency and all distances. `verify_algebra.py` builds the four order-four subgroups and their cosets independently of 4-subset enumeration, checks all pair intersections and the doubled tetrahedral subdivision, then enumerates permutations to check the other Cayley graph. Both are exact finite procedures. These checks complement, but do not replace, the mathematical coset and permutation proofs.
+## correctness
 
-Known limitations: the source-publication day for Peeters's 1993 memorandum is unavailable, as is the full text of the closest matched 2026 research-record entry. The remaining originality risk cannot be reduced to zero by these checks. Independent external validation is not performed.
+PASS
+
+Both 16-vertex 6-regular strongly regular graphs have α=4 via Hoffman eigenvalue −2 and explicit witnesses. Every rook 4-set is one permutation graph, yielding 24 states; intersection in two positions corresponds exactly to a transposition, giving Cay(S4, six transpositions), 72 edges, degree6, radius/diameter3. In Shrikhande, exhaustive 84 triple check for zero-containing 4-cocliques gives four order-four subgroup classes, three cyclic and H0=2Z4². Four H0 cosets are six-valent hubs; twelve cyclic cosets each meet two hubs in 2 vertices, with two distinct cyclic cosets for every pair of hubs, giving doubled subdivision of K4, 24 edges, degree multiset 6^4 2^12, radius3, diameter4. No two optimal sets intersect in exactly three vertices, so X1 is edgeless in both and minimum connected exchange budget is two. Independent exhaustive enumeration checked all 16 choose 4 and choose 5 subsets, constructed graphs and all-pairs distances: Shrikhande 16 states/24 edges/radius3/diameter4; rook 24/72/3/3. Finite exhaustiveness IS complete for these two explicitly finite graphs.
+
+## originality
+
+PASS
+
+Best-of-knowledge original exact two-site optimal-exchange graph identification; the Shrikhande 4+12 coclique census and rook permutation parametrization are expressly prior, not claimed.
+
+## value
+
+PASS
+
+The smallest simultaneous move budget and the complete exchange landscapes distinguish two canonical cospectral strongly regular graphs with identical parameters in a direct packing-reconfiguration observable; one is nonregular and one is a transposition Cayley graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

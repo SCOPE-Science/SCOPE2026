@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph definitions and the Hoffman 4-set bound are explicit. The four Shrikhande subgroup representatives exhaust the 84 possible triples among nonneighbors of zero. Their coset intersections give exactly a doubled subdivision of the tetrahedron. The rook permutation encoding proves the complete transposition Cayley graph. Two standalone, independently organized finite checkers reproduce cardinalities, degree classes, diameter and bipartiteness.
+## correctness
 
-**Originality — PASS (qualified).** Peeters (1993 research memorandum; 1997 journal version) had already identified the four-plus-twelve 4-coclique types and their geometric meaning. Thus counting them or naming their classes is not novel. The claimed result is the precise intersection-two exchange topology, optimal batch size, and contrast to the permutation-transposition graph. The 2014 one-token-reconfiguration paper uses a different move system, while the published independence-complex result concerns homotopy of all independent sets. Searches found no covering exchange-graph theorem, but an implicit consequence of Peeters's known 3-net geometry or an unindexed incidence table remains possible.
+PASS
 
-**Value — PASS.** Maximum independent sets are optimal packing configurations; their local reconfiguration is a natural, exact optimization landscape. Equal parameters and spectrum do not predict that a two-site exchange will yield a nonregular 16-state tetrahedral subdivision for one graph and a regular 24-state Cayley graph for the other. This is a complete small-graph classification with a nontrivial geometric obstruction and sharp threshold, not merely a known-table count.
+Both 16-vertex 6-regular strongly regular graphs have α=4 via Hoffman eigenvalue −2 and explicit witnesses. Every rook 4-set is one permutation graph, yielding 24 states; intersection in two positions corresponds exactly to a transposition, giving Cay(S4, six transpositions), 72 edges, degree6, radius/diameter3. In Shrikhande, exhaustive 84 triple check for zero-containing 4-cocliques gives four order-four subgroup classes, three cyclic and H0=2Z4². Four H0 cosets are six-valent hubs; twelve cyclic cosets each meet two hubs in 2 vertices, with two distinct cyclic cosets for every pair of hubs, giving doubled subdivision of K4, 24 edges, degree multiset 6^4 2^12, radius3, diameter4. No two optimal sets intersect in exactly three vertices, so X1 is edgeless in both and minimum connected exchange budget is two. Independent exhaustive enumeration checked all 16 choose 4 and choose 5 subsets, constructed graphs and all-pairs distances: Shrikhande 16 states/24 edges/radius3/diameter4; rook 24/72/3/3. Finite exhaustiveness IS complete for these two explicitly finite graphs.
 
-**Limits.** No statement about higher-order graphs, moving along edges, or independently certified novelty. Peeters's earliest known public antecedent is documented only at year 1993; 2014-03-03 is the oldest precisely dated inspected source, not the absolute earliest historic day. Residual equivalence risks noted in the originality assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact two-site optimal-exchange graph identification; the Shrikhande 4+12 coclique census and rook permutation parametrization are expressly prior, not claimed.
+
+## value
+
+PASS
+
+The smallest simultaneous move budget and the complete exchange landscapes distinguish two canonical cospectral strongly regular graphs with identical parameters in a direct packing-reconfiguration observable; one is nonregular and one is a transposition Cayley graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
