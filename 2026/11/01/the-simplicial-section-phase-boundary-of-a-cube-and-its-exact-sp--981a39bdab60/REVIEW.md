@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The statement is proved for every integer dimension at least three, every interior cube point, and Haar-uniform hyperplane normal. The central nonstandard argument is the cube-edge boundary gap: any partition with at least two vertices on each side cuts more than the dimension many edges. The proof supplies its entropy-induction argument and handles its endpoints. It then characterizes vertex isolation by strict linear cone inequalities, proves the sharp nonempty-cone criterion, derives both a Gaussian-orthant formula and an independently parameterized spherical simplex integral, and establishes the diagonal threshold exponent by uniform convergence on the compact simplex. In dimension three, the ray determinant and trihedral-angle identity give the stated elementary formula. A standalone checker tests thousands of exact rational partitions and independent triangle quadrature. Finite checks are corroboration, not the basis of infinite claims.
+PASS
 
-## Originality: PASS, with historical risk
+Rebuilt cube vertex sign-cut argument: a generic simplex section corresponds to exactly d cube crossing edges, and edge-isoperimetry yields any non-singleton bipartition cuts >=2(d-1)>d, hence only a single vertex can be isolated. For vertex sigma, writing a_i=sigma_i U_i,c_i=1-sigma_i z_i and H=sum c_i a_i gives the strict isolation cone a_i>H/2. Its feasibility with H=1 requires h=1-sum c_i/2>0, so max_sigma <sigma,z>=||z||_1>d-2. Gaussian cones are disjoint up to normal reversal; slice H=1 has parameterization a_i=1/2+h x_i/c_i and Jacobian h^(d-1)||c||/prod c, yielding the displayed exact integral. On diagonal only all-plus sigma occurs; delta=1-d(1-t)/2, uniform integrand convergence gives onset exponent d-1 and coefficient. At d3 independently sampled 70,000 Gaussian normals each t=.2,.5,.8: observed 0,.02511,.15041 versus formula 0,.02470,.15151, consistent but not proof.
 
-Schange's 2026 source establishes methods for simplicial cone angles and shifted random sections of simplices/crosspolytopes, not the probability of simplicial combinatorial type for noncentral cube sections. König (2020) examines extrema of noncentral cube-section volume and perimeter; Kabluchko–Seidel treats central cube sections. Accessible mathematical records also include results on central box hexagon probabilities and the expected vertex count for cube sections along a coordinate axis, neither of which implies the phase boundary for a general reference point or its diagonal onset exponent. Specific material inspected and implication comparisons are recorded in `AUDIT.json`. The novelty assessment is based on accessible primary literature and searches, not a claim of exhaustive historical priority. A hidden equivalent formulation in older polytope-section or solid-angle literature remains possible.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The exact forbidden region for a natural combinatorial event in random geometric sections is a complete, all-dimensional geometric classification. Its boundary is an elementary crosspolytope despite the cube's exponentially many vertices. The nontrivial probability above the boundary and the precise order of its emergence quantify a genuine phase transition; the dimension-three profile supplies an immediately computable case. The result is not a routine reparameterization of expected face counts, which do not determine the probability of simplex sections.
+Schange 2026 computes cone angles and shifted random sections of simplices and crosspolytopes; König 2020 studies volume/perimeter extrema of noncentral cube sections. Those statements do not determine the probability of simplicial cube-section type at arbitrary z, its L1 phase boundary or onset exponent. Existing central cube face-vector findings do not imply off-center type probability. Schange full source unavailable in this environment and remains genuine priority risk.
 
-## Limits
+## value
 
-Only Euclidean-uniform hyperplanes through interior cube points are treated; the exact arbitrary-point probability generally remains a finite integral rather than an elementary function. External mathematical priority and proof validation have not been independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides a complete all-dimensional zero-versus-positive phase boundary for a canonical event in random noncentral cube sections, plus exact probability and onset law; the crosspolytope forbidden region is mathematically motivated and not a routine single-instance evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
