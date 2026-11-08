@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructed and checked: for each nonedge i,j, the 10-norm witness has Dirichlet energy u_i+b_i+u_j+b_j <=2, giving SLEM>=4/5. Balanced K_{m,...,m} core adjacency eigenvalues d,0,-m yield exact 2x2 blocks: B_d has (1,1/5), B_0 has (4/5,-1/5), and both 4I +/-5B_{-m} are PSD for every r>=2. Equality at a complete-bipartite core forces b=2/5, zero core holding and a common cross-part weight; both row constraints demand p=q. For star cores the center row sum exceeds 1. Exact standalone checker passed 9681 Rayleigh checks, 36 full constructed matrices and spectral-block checks, and 156 unequal parameter incompatibilities. These finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. (2007) prove general automorphism/SDP reductions; no analytic private-leaf corona theorem is stated in inspected sections.",
+        "Jafarizadeh (2020, later OA manuscript arxiv:2501.02421) proves invariance under clique lift, which replaces base vertices by cliques with complete cross-block edges. A one-leaf corona has no such complete cross-block adjacency."
+      ],
+      "reasoning": "General algorithms solve each finite instance but do not logically supply the claimed closed constant, universal lower bound or balance iff. Clique lifting creates cross-edges incident to all clone vertices, whereas a private leaf is adjacent only to its own core vertex, so the stated reduction is not directly applicable.",
+      "searches": [
+        "fastest mixing Markov chain on helm graphs, wheel graphs with pendant leaves and symmetric stochastic transition matrices exact spectral gap",
+        "fastest mixing Markov chain on complete bipartite graph corona with one pendant leaf at every core vertex; optimal SLEM four fifths",
+        "balanced complete multipartite corona random walk fastest mixing eigenvalue 0 adjacency spectral 4/5",
+        "fastest mixing Markov chain with pendant leaves at every vertex complete bipartite core independent leaf layer",
+        "source:arxiv:2501.02421",
+        "source:arxiv:0709.0955"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.0955",
+      "doi:10.1137/S0036144503423264",
+      "arxiv:2501.02421",
+      "doi:10.1016/j.laa.2015.11.032",
+      "claim record 99b49e26-9aef-4eda-8717-6b14dfeb0e32",
+      "claim record 2a148a4a-1936-404c-959f-a2bbc6af6a5f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The generalized-corona spectral work concerns characteristic, Laplacian and signless-Laplacian polynomials of fixed unweighted graphs, per its available abstract/introduction; no variable transition-weight SLEM optimization is described there. Full primary text was not accessible.",
+        "Clique-with-pendants optimum from opaque ID 2a148a4a-1936-404c-959f-a2bbc6af6a5f requires complete core, excluded by the universal nonedge obstruction.",
+        "Sunlet formula from opaque ID 99b49e26-9aef-4eda-8717-6b14dfeb0e32 covers the four-cycle special case only."
+      ],
+      "reasoning": "Even if general corona spectral factorization is imported, an unrestricted global SLEM optimization and saturation characterization do not follow without the new Rayleigh and feasibility arguments. The strongest closest prior special case is precisely acknowledged; the current quantified lower bound and all larger balanced complete multipartite cores do not follow from it. Inaccessibility of the original spectral paper leaves a qualified priority risk, not a decisive contradiction.",
+      "searches": [
+        "fastest mixing Markov chain on complete bipartite graph corona with one pendant leaf at every core vertex; optimal SLEM four fifths",
+        "fastest mixing Markov chain with pendant leaves at every vertex complete bipartite core independent leaf layer",
+        "source:doi:10.1016/j.laa.2015.11.032",
+        "source:arxiv:2501.02421",
+        "claim-record:99b49e26-9aef-4eda-8717-6b14dfeb0e32",
+        "claim-record:2a148a4a-1936-404c-959f-a2bbc6af6a5f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2004 Boyd et al. use a general SDP and compute bare K_{m,n}, not K_{m,n} with private leaves; see sections 1.1 and 7.1 of the full paper.",
+        "2007 Boyd et al. section 5.4 treats bare multipartite and wheel graph kernels, not the graph corona.",
+        "Prior sunlet statement with opaque ID 99b49e26-9aef-4eda-8717-6b14dfeb0e32 directly covers the single K_{2,2} corona; this special case is credited."
+      ],
+      "reasoning": "The eigenvalue optimization objective is the same, but the exact feasible graph and quantified family differ: the additional pendant layer changes the spectrum and row constraints. C4=K_{2,2} is already covered, while neither a sunlet formula for cycle cores nor the bare complete-bipartite formulas imply all K_{m,m} coronas or the arbitrary-core universal obstruction.",
+      "searches": [
+        "fastest mixing symmetric stochastic kernel one leaf attached to each vertex of complete bipartite graph K m n",
+        "exact spectral norm fastest mixing on pendant corona of balanced complete multipartite graph",
+        "optimal SLEM 4/5 sunlet four cycle corona complete bipartite",
+        "source:arxiv:0709.0955",
+        "source:doi:10.1137/S0036144503423264",
+        "universal four-fifths lower bound fastest mixing Markov chain private pendant leaf one leaf per graph vertex",
+        "complete bipartite corona Kp q one pendant leaf per vertex fastest mixing exact equality balanced sides"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic-index closest hit 2026/10/11/SCOPE-spectral-john-ellipsoids-of-vertex-and-edge-transitive-fractiona--443f302b065c is about ellipsoids of matching polytopes, not spectral-norm optimization of private-leaf stochastic chains.",
+        "Search hit 2026/9/18/SCOPE-spectral-booksize-equality-balanced-multipartite--75d8398c42c7 concerns a spectral booksize bound, not mixing optimization.",
+        "The preceding C4 sunlet calculation has exact optimal SLEM 4/5 but no table for arbitrary balanced multipartite cores.",
+        "Closest final equality-query index hit 2026/10/11/SCOPE-balanced-anomaly-in-the-minkowski-asymmetry-of-complete-bipartit--d8f52c73c4c4 is about a spanning-tree polytope, not a Markov-chain SLEM optimum; the other top hits address unrelated graph invariants."
+      ],
+      "reasoning": "Search results included thematically similar complete multipartite graph invariants but no exact optimization table for the specified corona family. Failure to retrieve a table is only partial evidence of originality, not uniqueness proof.",
+      "searches": [
+        "fastest mixing symmetric stochastic kernel one leaf attached to each vertex of complete bipartite graph K m n",
+        "exact spectral norm fastest mixing on pendant corona of balanced complete multipartite graph",
+        "optimal SLEM 4/5 sunlet four cycle corona complete bipartite",
+        "search:fastest mixing Markov chain corona product graph leaves pendant edge weights optimum spectral gap",
+        "search:fastest mixing Markov chain complete multipartite graph with pendant leaf each vertex",
+        "universal four-fifths lower bound fastest mixing Markov chain private pendant leaf one leaf per graph vertex",
+        "complete bipartite corona Kp q one pendant leaf per vertex fastest mixing exact equality balanced sides"
+      ]
+    },
+    "rationale": "Targeted semantic-index searches and comparison with the accessible own scientific claims found only a previously established four-cycle sunlet special case and adjacent fastest-mixing families. The general SDP, bare multipartite graph, clique-lift, and fixed-corona spectral results do not imply the universal four-coordinate Rayleigh obstruction together with multipartite sharpness and the complete-bipartite balance iff. Priority remains qualified by indexing and full-text access limits.",
+    "residual_risks": [
+      "Generalized corona spectral source DOI 10.1016/j.laa.2015.11.032 was available only in abstract/introduction; an inaccessible but plausible source cannot be conclusively excluded.",
+      "Search-index coverage may omit some exact FMMC special-graph calculations, particularly an unpublished K_{m,m} corona family result.",
+      "The previously established C4 sunlet instance is not new and is explicitly credited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the general SDP and bare bipartite core, not a corona with distinct private leaves",
+        "evidence": [
+          "Boyd–Diaconis–Xiao, SIAM Review 46 (2004), DOI 10.1137/S0036144503423264, pp. 667–689; section 7.1."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "PDF title page, sections 1.1, 7.1, adjacent general optimization discussion, and full-text searches for pendant and bipartite",
+        "method": "Read searchable PDF pages and visually inspected first page; checked the actual K_{m,n} optimal formula in section 7.1",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Same uniform-stationary SLEM objective and explicit complete-bipartite precedent"
+      },
+      {
+        "assessment": "Gives the convex symmetry reduction and bare core calculations; no identified private-leaf corona SLEM formula",
+        "evidence": [
+          "Boyd–Diaconis–Parrilo–Xiao, arxiv:0709.0955 (2007), SIAM J. Optim. 20 (2009), sections 1, 5.4.2–5.4.4."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "PDF first page and relevant sections 1.1 and 5.4.2–5.4.4 including complete multipartite, complete bipartite and wheel examples; full-text searches for corona and pendant",
+        "method": "Read searchable full PDF sections and visually inspected first page; searched keywords across 28-page paper",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Possible symmetry-based general formula dominating a new graph-family optimum"
+      },
+      {
+        "assessment": "Clique lifting makes full interclique links and is distinct from private-leaf attachments; no matching exact result found",
+        "evidence": [
+          "Jafarizadeh, IEEE TSIPN 6 (2020), 88–104; OA copy later posted as arxiv:2501.02421, section 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2501.02421v1",
+        "material_read": "Open full HTML article, especially theorem 1, contribution outline, clique-lift definition, sections 3 and 7; full-text searches for pendant, leaf and complete bipartite",
+        "method": "Inspected accessible article HTML and theorem statements, compared the graph-operation hypotheses with private leaves",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+        "trigger": "Potential later broad construction subsuming attached leaf structures"
+      },
+      {
+        "assessment": "The accessible material studies unoptimized fixed adjacency and Laplacian polynomials; cannot certify absence of an unexpected SLEM corollary in inaccessible later pages",
+        "evidence": [
+          "Fiuj Laali–Haj Seyyed Javadi–Kiani, Linear Algebra Appl. 493 (2016), 411–425, DOI 10.1016/j.laa.2015.11.032."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2015.11.032",
+        "material_read": "Available publisher-indexed abstract and first introduction paragraphs; requested original full-text page but publisher redirected to inaccessible endpoint",
+        "method": "Compared stated fixed-graph characteristic-polynomial targets; attempted original full-text retrieval and sought lawful accessible copies",
+        "title": "Spectra of generalized corona of graphs",
+        "trigger": "Exact same graph operation and possible spectral implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "55183c1b-b853-452b-a5d5-69f1043778da",
+  "value": {
+    "rationale": "The four-coordinate spectral obstruction applies to arbitrary noncomplete core graphs independently of automorphisms and is sharp for every balanced complete multipartite core (a natural unbounded network family). The exact bipartite balance iff discriminates attainable and unattainable cases, with a unique fully specified optimum in the balanced case. It is a structural infinite-family mixing design result rather than an arbitrary small benchmark or parameter restatement; a previously covered C4 special case is excluded from the novel scope.",
+    "status": "PASS"
+  }
+}
