@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof gives an explicit unimodular transform of the reduced Ramanujan matrix to a diagonal matrix with rank-one perturbation. Local module generators and relations are fully solved at primes dividing and not dividing the modulus, including the boundary cases \(m=1\), \(a=1\), and \(h=0\). Sorting primewise elementary divisors gives the global Smith form. The determinant and every modular rank follow independently from the same presentation. All 29 complete enumerations of minor determinantal divisors, 149 exact determinants, and 1192 modular ranks in the included verifier agree.
+PASS
 
-## Originality — PASS, residual risk disclosed
+For all n>=2 and rows/columns indexed by divisors d,e>1, Ramanujan gcd/Mobius identity and integral divisor-incidence matrix E give integral equivalence B_n~D-1b^T (b_d=-mu(d)). Over the local DVR Z_(ell), generators x_d obey d x_d=w=sum b_d x_d. Eliminating ell-unit divisors then higher ell-power generators gives the precise exponent multiset: for ell|n=ell^a m, T=tau(m), h=v_ell(phi(m)), start T copies 1..a, remove one 1 and raise one a to a+h if h>0; for ell outside n only v_ell(phi(n)) survives. Padding and multiplying sorted local exponents yields full integral Smith factors; determinant and mod-ell ranks follow. Independent implementation of Ramanujan sums as sum_{t|gcd(d,e)} t mu(d/t), with SymPy Smith normal form computed separately, matched the formula for every modulus n=2..100 (99 cases), including primes dividing phi(n) but not n. The finite test is independent corroboration of the infinite local module proof.
 
-The first source supplies the classical arithmetic/supercharacter setting, the 2021 full-divisor matrix paper establishes a determinant result, and the 2023 full-table paper addresses orthogonality and symmetric functions. The squarefree reduced-matrix Smith classification is already known and is **not** claimed original. The present claim is the all-modulus classification for nonsquarefree moduli, where arbitrary prime powers, mixed valuations and the boosted local cyclic factor require additional module analysis. No source examined states or immediately implies that exact nonsquarefree Smith spectrum. A general unpublished or unlocated theorem on supercharacter-table Smith forms remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Integer Smith factors classify the cokernel and every modular kernel, which cannot be read off from determinant or rational invertibility. The result supplies a uniform solution for all divisors and all integer moduli, including nontrivial prime-power ramification, and proves a sharp rank formula for every residue characteristic. Extending squarefree moduli to arbitrary valuations is a structurally motivated complete classification, not an increment of a numerical table.
+Schlage-Puchta 2021 computes the determinant for the full divisor-indexed Ramanujan matrix; it is not the reduced d,e>1 submatrix and gives no integral SNF. Fowler–Garcia–Karaali and Shareshian–Sundaram present established supercharacter and full-divisor Ramanujan tables. The known squarefree reduced specialization is acknowledged. The assessed all-moduli local exponent recipe is strictly finer than any determinant or rational rank statement.
 
-## Limits
+## value
 
-This is not a classification of Ramanujan matrices over arbitrary finite rings, or all Fourier minors. Verification is finite and is not a proof of the universal formula; that is supplied by the displayed presentation. Literature coverage cannot guarantee global uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete invariant-factor classification of a naturally arithmetically indexed integral matrix captures torsion group structure unavailable from determinant or modular ranks alone. It covers every composite modulus and gives explicit boosted local exponents, so it is an independently reusable exact arithmetic fact rather than a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

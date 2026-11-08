@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with an ordinary Python 3 installation; no third-party libraries are needed. This script uses the standard library only. Its matrix entries come from the gcd/totient form of Ramanujan sums, not the incidence-matrix diagonalization used by the proof.
+## correctness
 
-For each integer modulus from 2 through 30, it enumerates every square minor, computes its exact integer determinant with Bareiss elimination, forms determinantal divisors, and compares the resulting Smith invariant factors with the primewise theorem. For all moduli from 2 through 150 it separately computes exact determinants and compares the claimed formula; over the primes 2, 3, 5, 7, 11, 13, 17, and 19 it checks 1192 modular ranks using finite-field Gaussian elimination.
+PASS
 
-Observed replay:
+For all n>=2 and rows/columns indexed by divisors d,e>1, Ramanujan gcd/Mobius identity and integral divisor-incidence matrix E give integral equivalence B_n~D-1b^T (b_d=-mu(d)). Over the local DVR Z_(ell), generators x_d obey d x_d=w=sum b_d x_d. Eliminating ell-unit divisors then higher ell-power generators gives the precise exponent multiset: for ell|n=ell^a m, T=tau(m), h=v_ell(phi(m)), start T copies 1..a, remove one 1 and raise one a to a+h if h>0; for ell outside n only v_ell(phi(n)) survives. Padding and multiplying sorted local exponents yields full integral Smith factors; determinant and mod-ell ranks follow. Independent implementation of Ramanujan sums as sum_{t|gcd(d,e)} t mu(d/t), with SymPy Smith normal form computed separately, matched the formula for every modulus n=2..100 (99 cases), including primes dividing phi(n) but not n. The finite test is independent corroboration of the infinite local module proof.
 
-`VERIFY_OK: 29 complete determinantal-divisor Smith checks; 149 exact determinants; 1192 modular ranks.`
+## originality
 
-This provides exact finite checks, not an exhaustive proof for every modulus. The universal proof is the elementary local module computation in RESULT.md. No independent audit has been performed.
+PASS
+
+Schlage-Puchta 2021 computes the determinant for the full divisor-indexed Ramanujan matrix; it is not the reduced d,e>1 submatrix and gives no integral SNF. Fowler–Garcia–Karaali and Shareshian–Sundaram present established supercharacter and full-divisor Ramanujan tables. The known squarefree reduced specialization is acknowledged. The assessed all-moduli local exponent recipe is strictly finer than any determinant or rational rank statement.
+
+## value
+
+PASS
+
+The complete invariant-factor classification of a naturally arithmetically indexed integral matrix captures torsion group structure unavailable from determinant or modular ranks alone. It covers every composite modulus and gives explicit boosted local exponents, so it is an independently reusable exact arithmetic fact rather than a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

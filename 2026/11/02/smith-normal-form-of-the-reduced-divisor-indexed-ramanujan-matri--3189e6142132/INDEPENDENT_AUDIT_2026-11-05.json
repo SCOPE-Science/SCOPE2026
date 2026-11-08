@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:52:16.948331Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/smith-normal-form-of-the-reduced-divisor-indexed-ramanujan-matri--3189e6142132/RESULT.md",
+        "Git blob 6daad30a8c27cfe1f8210292085c1f1704125bb6",
+        "Git tree 3e8188c3373da54193465e14ba920708c2840890",
+        "independent_checks.py RAMANUJAN_SNF n=2..100"
+      ],
+      "rationale": "For all n>=2 and rows/columns indexed by divisors d,e>1, Ramanujan gcd/Mobius identity and integral divisor-incidence matrix E give integral equivalence B_n~D-1b^T (b_d=-mu(d)). Over the local DVR Z_(ell), generators x_d obey d x_d=w=sum b_d x_d. Eliminating ell-unit divisors then higher ell-power generators gives the precise exponent multiset: for ell|n=ell^a m, T=tau(m), h=v_ell(phi(m)), start T copies 1..a, remove one 1 and raise one a to a+h if h>0; for ell outside n only v_ell(phi(n)) survives. Padding and multiplying sorted local exponents yields full integral Smith factors; determinant and mod-ell ranks follow. Independent implementation of Ramanujan sums as sum_{t|gcd(d,e)} t mu(d/t), with SymPy Smith normal form computed separately, matched the formula for every modulus n=2..100 (99 cases), including primes dividing phi(n) but not n. The finite test is independent corroboration of the infinite local module proof.",
+      "residual_risks": [
+        "No assertion for full divisor matrix (including 1), generalized finite-ring characters or arbitrary principal submatrices.",
+        "Correctness of integral change-of-generators is essential; it was traced in RESULT.md and tested against independent integer SNF."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schlage-Puchta theorem and proof calculate full Ramanujan divisor matrix determinant; classical supercharacter/divisor orthogonality supplies identities."
+        ],
+        "reasoning": "Even stronger full-matrix rational nonsingularity does not dominate the reduced matrix integral cokernel; no inspected theorem computes these local elementary divisors.",
+        "searches": [
+          "doi:10.1007/s00013-021-01643-8",
+          "arxiv:1201.1060",
+          "arxiv:2305.12007"
+        ]
+      },
+      "checked_sources": [
+        "Git blob 6daad30a8c27cfe1f8210292085c1f1704125bb6",
+        "Git tree 3e8188c3373da54193465e14ba920708c2840890",
+        "independent_checks.py RAMANUJAN_SNF n=2..100",
+        "Schlage-Puchta full OA article doi:10.1007/s00013-021-01643-8",
+        "Resultary Ramanujan search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Determinant is product of all Smith factors, not their individual invariant factors; reduced determinant (phi(n)/n)prod_{d>1}d also cannot reconstruct full SNF."
+        ],
+        "reasoning": "The local raised exponent a+nu_ell(phi(m)) is not supplied by cited determinant/supercharacter results, so the asserted conclusion is not an automatic corollary.",
+        "searches": [
+          "doi:10.1007/s00013-021-01643-8",
+          "arxiv:2305.12007"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schlage-Puchta 2021 Theorem 1 concerns det C_n on all divisors and equals ±n^(tau(n)/2); the assessed B_n deletes divisor 1 from both axes."
+        ],
+        "reasoning": "Full determinant does not imply reduced Smith invariant factors, and deleting indices is not a unimodular equivalence. An unlocated reduced-SNF table remains possible.",
+        "searches": [
+          "Smith normal form Ramanujan divisor matrix reduced remove unit divisors matrix integral invariant factors arbitrary n",
+          "Smith normal form reduced divisor Ramanujan sum matrix SNF invariant factors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary square-zero-radical Ramanujan rank result pertains to matrices on finite commutative rings, not reduced divisor-indexed ordinary Ramanujan sums.",
+          "Independent direct Smith tests n=2..100 include examples n=12 and n=36."
+        ],
+        "reasoning": "No equivalent reduced-matrix database/table located; absence is not a proof of novelty.",
+        "searches": [
+          "Smith normal form Ramanujan divisor matrix reduced remove unit divisors matrix integral invariant factors arbitrary n",
+          "Resultary rank formula for Ramanujan matrices with square-zero radical"
+        ]
+      },
+      "rationale": "Schlage-Puchta 2021 computes the determinant for the full divisor-indexed Ramanujan matrix; it is not the reduced d,e>1 submatrix and gives no integral SNF. Fowler–Garcia–Karaali and Shareshian–Sundaram present established supercharacter and full-divisor Ramanujan tables. The known squarefree reduced specialization is acknowledged. The assessed all-moduli local exponent recipe is strictly finer than any determinant or rational rank statement.",
+      "residual_risks": [
+        "A specialized integer-matrix theorem, not found, might cover the same rank-one diagonal perturbation and yield this local SNF.",
+        "Full texts of Fowler–Garcia–Karaali and Shareshian–Sundaram were not read for this audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full matrix determinant and rational injectivity; no reduced d,e>1 Smith factors in inspected article",
+          "evidence": [
+            "turn821338view3",
+            "turn222175view2"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00013-021-01643-8",
+          "material_read": "full article HTML including Theorem 1, proof block decomposition and Corollaries 2-3",
+          "method": "open-access publisher HTML",
+          "title": "A determinant involving Ramanujan sums and So’s conjecture",
+          "trigger": "same Ramanujan divisor-indexed matrix"
+        },
+        {
+          "assessment": "Potential background generalized Fourier matrix; no whole-document exclusion",
+          "evidence": [
+            "package RESULT.md reference"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1201.1060",
+          "material_read": "bibliographic identification and contextual title only; full manuscript not opened",
+          "method": "arXiv metadata / package bibliography",
+          "title": "Ramanujan sums as supercharacters",
+          "trigger": "arithmetic matrix framework"
+        },
+        {
+          "assessment": "No whole-document noncoverage claimed; priority risk retained",
+          "evidence": [
+            "package RESULT.md reference"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.12007",
+          "material_read": "bibliographic comparison via package and search, not full text",
+          "method": "arXiv bibliographic search",
+          "title": "Ramanujan sums and rectangular power sums",
+          "trigger": "potential full-divisor table coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/smith-normal-form-of-the-reduced-divisor-indexed-ramanujan-matri--3189e6142132/RESULT.md",
+        "Schlage-Puchta full OA article doi:10.1007/s00013-021-01643-8",
+        "Resultary Ramanujan search"
+      ],
+      "rationale": "The complete invariant-factor classification of a naturally arithmetically indexed integral matrix captures torsion group structure unavailable from determinant or modular ranks alone. It covers every composite modulus and gives explicit boosted local exponents, so it is an independently reusable exact arithmetic fact rather than a parameter renaming.",
+      "residual_risks": [
+        "The abstract Smith rank-one perturbation reduction uses standard module theory; the substantive value resides in explicit uniform local exponents rather than the routine SNF definition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Ordinary Ramanujan sums, principal deletion of divisor 1 from both indices, all n>=2."
+  ]
+}
