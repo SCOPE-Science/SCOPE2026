@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The claimed space is the unordered weight-three graph configuration space; the comparison theorem and all-vertex reduced Świątkowski quasi-isomorphism apply because the dodecahedral graph has no isolated vertices. The integral degree-three boundary has precisely 9,120 columns and 22,800 possible rows, with no chain group in degree four. The standalone reconstruction produces 9,094 integral unit pivots and 26 exact independently checked kernel elements. Every kernel witness is a genuine integer cycle, so \(H_3\cong\mathbb Z^{26}\). An independent characteristic-two rank computation agrees. Risk: the published comparison quasi-isomorphism is assumed; no chain-level independent derivation of that theorem is attempted.
+
+**Originality — PASS on inspected evidence.** Related published results supply the general chain model, dimension bounds, asymptotic formulas, and homological degree-two formulas, not this fixed graph/weight/degree integral invariant. The nearest indexed dodecahedral configuration result covers two particles; nearby three-particle calculations use other graphs. The audit records actual literature and mathematical-index comparisons, including equivalent object names, broader-coverage candidates, table searches and implication checks. Residual risk: unindexed or unpublished equivalences might cover the result; a negative search is not a priority proof.
+
+**Value — PASS.** The graph is the canonical highly symmetric 20-vertex cubic planar dodecahedral skeleton. The group in degree three is the first top-degree invariant of three moving unordered particles, a case not fixed by the two-particle calculation or general bounds. The exact rank 26 requires substantial integral boundary reduction and supplies a reproducible comparison datum in graph-configuration homology. The value is the motivated exact natural invariant itself, not a claimed general classification or downstream theorem.
+
+**Limitations.** No claim is made for lower homology, the cohomology ring, graph-braid presentations, further particle counts or equivariant structure. Source accessibility and publication-priority risks are reported. Independent review has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
