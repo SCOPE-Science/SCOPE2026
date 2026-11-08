@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The observed-set partition gives J_n exactly; algebra yields Delta_1=2(pq)^2 and Delta_2=pq[-2(pq)^2+7pq-1]. For moderate dominance both terms of the general difference are positive. For larger dominance, after division by positive qp^n the increment H_n is strictly increasing: its difference has two leading terms with positive sum by ((1+p)p^4-(2p-1))=(p^2+p-1)(p^3+p-1)>0, and a third strictly positive term. H_n tends to 1, establishing the unique trough sign phase. The asymptotic 1/4 excursion is established by p^n approaching 1/2. Continuity yields strict finite sign patterns in all positive richness dimensions. The exact standard-library checker replays 512 checks; finite checks are not substitutes for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wolda (1981) Monte Carlo curves involve large log-series faunas and fixed finite sample sizes.",
+        "Cao et al. (2002) introduce mean Jaccard autosimilarity; only abstract accessible.",
+        "Chase et al. (2011) use uniform species-pool sampling conditioned on richness."
+      ],
+      "reasoning": "The broad statements that Jaccard depends on sample size, or that richness-conditioned uniform sampling increases expected similarity, neither determine the nonlinear exact all-n heterogeneity phase law nor rule out its nonmonotone regime. The inaccessible Cao full text is a priority risk, not an affirmative noncoverage finding.",
+      "searches": [
+        "autosimilarity Jaccard sampled biological communities two species local extrema sample size",
+        "Wolda 1981 two species expected Jaccard similarity two identical sampling replicates nonmonotone probability abundance phase",
+        "doi:10.1890/0012-9615(2002)072[0041:COECTP]2.0.CO;2",
+        "doi:10.1890/ES10-00117.1"
+      ]
+    },
+    "checked_sources": [
+      "https://ecoevol.ufg.br/adrimelo/div/Wolda1981.pdf",
+      "https://doi.org/10.1890/0012-9615(2002)072[0041:COECTP]2.0.CO;2",
+      "https://www.robertkcolwell.org/publications/7597.pdf",
+      "https://doi.org/10.1890/ES10-00117.1",
+      "https://doi.org/10.1086/520117"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation (1) and sign theorem in RESULT.md are deductions from the independent two-category sample-set law.",
+        "Chao et al. (2005) discuss possible overestimation in high-dominance undersampling but do not in the inspected material provide a sharp sample-effort sign theorem.",
+        "Chase et al. (2011) assume equal species selection probabilities."
+      ],
+      "reasoning": "Prior qualitative bias and numerical curves motivate this object but do not imply the sharp transition at (1+sqrt(sqrt(41)-6))/2, unique trough phase, or the arbitrarily-rich positive-mass extension. The most closely named primary paper was not inspected beyond abstract; no historical uniqueness conclusion is claimed.",
+      "searches": [
+        "expected intersection-over-union of two independent categorical samples self-similarity two turning points",
+        "expected Jaccard autosimilarity between independent rarefied samples nonmonotone in sample size skewed rare species p two species",
+        "doi:10.1111/j.1461-0248.2004.00707.x",
+        "doi:10.1890/ES10-00117.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wolda (1981) studies null expected similarity of independent same-pool samples.",
+        "Chao et al. (2005) distinguish incidence Jaccard from corrected abundance-based similarity."
+      ],
+      "reasoning": "The claimed quantity is E[|A∩B|/|A∪B|] over two independently sampled observed sets. It is not a ratio of expected intersections/unions, a corrected abundance similarity, or a single-sample richness covariance. No inspected equivalent statement contains the closed threshold or full phase rule.",
+      "searches": [
+        "expected Jaccard autosimilarity between independent rarefied samples nonmonotone in sample size skewed rare species p two species",
+        "expected intersection-over-union of two independent categorical samples self-similarity two turning points",
+        "doi:10.1007/BF00344966",
+        "doi:10.1111/j.1461-0248.2004.00707.x"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wolda Figure 2 uses simulated samples of size 100 to 5000 from log-series faunas of 150 to 750 species.",
+        "No found exact matching two-species threshold entry in inspected published tables."
+      ],
+      "reasoning": "The new exact all-n phase classification is not a recomputation of the Wolda sampled data table; nonetheless uninspected appendices or other literature could overlap.",
+      "searches": [
+        "Cao 2002 Jaccard autosimilarity exact threshold abundance log sqrt 41",
+        "similarity indices sample size and diversity Wolda 1981 expected maximum curves",
+        "doi:10.1007/BF00344966"
+      ]
+    },
+    "rationale": "The exact two-species threshold, the all-effort orientation-and-uniqueness phase theorem, and the arbitrary-richness persistence are not direct implications of the inspected primary literature. The closest autosimilarity article was only accessible in abstract, leaving a material unresolved historical-priority risk, explicitly noted rather than silently treated as negative coverage.",
+    "residual_risks": [
+      "The complete Cao–Williams–Larsen (2002) paper was unavailable; it may contain a stronger or exactly equivalent result in material not inspected.",
+      "The reviewed related literature is not exhaustive; an old sample-similarity calculation could imply the phase statement without title-level matching.",
+      "The two-species phase law should not be projected as a theorem for general richness; only finite sign-pattern persistence is proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_BACKGROUND_NOT_EXACT_COVERAGE_IN_READ_MATERIAL",
+        "evidence": [
+          "Samples drawn without replacement from log-series faunas of 150 to 750 species; sizes 100, 200, 500, 1000, 5000.",
+          "Figure 2 displays numerical expected-similarity curves; no exact two-species threshold in the inspected material."
+        ],
+        "identifier_or_url": "https://ecoevol.ufg.br/adrimelo/div/Wolda1981.pdf",
+        "material_read": "First-page abstract and methods, index definitions, Figure 2 graphical panel on p. 299, including sample-size and fauna settings",
+        "method": "Legal openly available PDF text and visual page inspection",
+        "title": "Similarity Indices, Sample Size and Diversity",
+        "trigger": "First primary study of expected same-fauna random-sample similarity and sample-size variation"
+      },
+      {
+        "assessment": "PLAUSIBLE_UNINSPECTED_COVERAGE_RISK",
+        "evidence": [
+          "Reports empirical relation of replicate Jaccard autosimilarity with sampling and observed richness.",
+          "The accessible abstract does not supply the exact all-n two-species phase formula; full-text noncoverage cannot be inferred."
+        ],
+        "identifier_or_url": "https://doi.org/10.1890/0012-9615(2002)072[0041:COECTP]2.0.CO;2",
+        "material_read": "Publisher date, full abstract, bibliography; complete scientific sections not accessible",
+        "method": "Publisher HTML; lawful-access attempts did not yield complete article",
+        "title": "Comparison of Ecological Communities: The Problem of Sample Representativeness",
+        "trigger": "Exact same phrase Jaccard autosimilarity among replicate ecological surveys"
+      },
+      {
+        "assessment": "RELATED_BIAS_AND_DIFFERENT_CORRECTED_INDICES",
+        "evidence": [
+          "Discusses possible overestimated similarity in undersampled high-dominance communities.",
+          "Introduces abundance-based alternatives and studies sample-size effects; the inspected material does not imply a two-category exact all-effort phase theorem."
+        ],
+        "identifier_or_url": "https://www.robertkcolwell.org/publications/7597.pdf",
+        "material_read": "Full PDF acquired; introduction on pp. 148–149, index definitions on p. 151, and sample-size experiments on p. 156, with page images examined",
+        "method": "Author-provided open PDF, extracted text, and visual page inspection",
+        "title": "A new statistical approach for assessing similarity of species composition with incidence and abundance data",
+        "trigger": "Direct primary literature on sample-size bias and Jaccard incidence and abundance indices"
+      },
+      {
+        "assessment": "UNIFORM_CONDITIONAL_RICHNESS_MODEL_NOT_DOMINATING",
+        "evidence": [
+          "Expected overlap α1α2/γ under uniform sampling and an increasing relationship for fixed γ.",
+          "Does not assume arbitrarily skewed iid species abundance draws with random observed richness."
+        ],
+        "identifier_or_url": "https://doi.org/10.1890/ES10-00117.1",
+        "material_read": "Open article introduction and null-model derivation section, including expected shared species and Figure 1 context",
+        "method": "Publisher open full-text HTML",
+        "title": "Using null models to disentangle variation in community dissimilarity from variation in α-diversity",
+        "trigger": "Calculates null expected Jaccard similarity in a uniform pool"
+      },
+      {
+        "assessment": "RELEVANT_MEASUREMENT_APPLICATION_NOT_DECISIVE",
+        "evidence": [
+          "Studies mean similarity standardization among simulated assemblages and estimation bias, not any stated exact two-species Jaccard phase law in the abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1086/520117",
+        "material_read": "Publisher abstract and supplemental-material listing only",
+        "method": "Publisher HTML abstract",
+        "title": "Effects of Sample Standardization on Mean Species Detectabilities and Estimates of Relative Differences in Species Richness among Assemblages",
+        "trigger": "Follow-on ecological effort-standardization study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5f54779a-3bfc-44ee-8fc7-10f8a4286dba",
+  "value": {
+    "rationale": "Jaccard autosimilarity between surveys of the same assemblage is a standard ecological proxy for sample representativeness and effort standardization. This exact phase law identifies when expected similarity is noninjective and counter-monotone in sampling effort, with a closed abundance threshold, a uniqueness theorem for the trough, an almost 25-percentage-point excursion, and strictly positive arbitrary-richness realizations. Such a mathematical boundary informs interpretation and choice of sampling effort; it is not merely a renaming or one-off numerical counterexample.",
+    "status": "PASS"
+  }
+}
