@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The finite Markov generator yields exact drifts LZ=epsilon(1/2-Z), LD=-(1+c)D and quadratic variation Gamma(Z)=s H/4 with H=epsilon/2+c(X+Y-2XY). The stationary L(D^2) identity gives E(D^2)<=s/[2(1+c)] and a transient exponential bound. For epsilon/s tending to a finite lambda, Taylor remainders after time acceleration by 1/s are O(max(1/a,1/b)); integrated D^2 vanishes, implying tightness and convergence to the unique Jacobi martingale problem. Stationarity and its unique Beta(2lambda,2lambda) invariant give the critical joint limit. At zero and infinite ratios the exact two-spin covariance equation and stationary variance give the endpoints. Exact rational Markov generator checks replayed 2664 assertions for all part sizes 1..4 and refresh fractions 1/2,1/3,2/3; those are supplementary to the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Choi–Cox 2013 PDF pp.1–4 studies zero-mutation voter dynamics on general graphs; its generator has no refresh term.",
+        "Blythe 2010 PDF pp.1–4 treats random-copying/coalescence and consensus without ergodic refresh.",
+        "Mori–Hisakado–Nakayama 2018 PDF pp.5–8, 12 and appendix: many agents per network node, with within-node copying and an approximate multivariate model."
+      ],
+      "reasoning": "General no-mutation Wright–Fisher reduction does not itself supply a positive-mutation stationary Beta distribution or complete-bipartite arbitrary-ratio normalization. Mori et al. use a different microscopic copying/mutation model. Such general frameworks could motivate or facilitate an independent derivation, which remains a priority risk but was not found to state a directly dominating theorem.",
+      "searches": [
+        "arxiv:1311.5786",
+        "arxiv:1006.1557",
+        "arxiv:1810.05643",
+        "noisy voter model on heterogeneous network beta distribution effective population size 2016 2022",
+        "voter model complete bipartite quasi-stationary beta Wright Fisher diffusion effective population size"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2112.01478",
+      "https://arxiv.org/pdf/1311.5786",
+      "https://arxiv.org/pdf/2409.05722",
+      "https://arxiv.org/pdf/1810.05643",
+      "https://arxiv.org/pdf/1006.1557",
+      "earlier mathematical findings on fixed-core star and synchronous bipartite models",
+      "mathematical-result records searched for noisy-voter and bipartite diffusion laws"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pymar–Rivera pp.2–6 (introduction, formal model, stated theorems): Bernoulli and Gaussian/noise-regime results, not critical Beta.",
+        "Chen–Choi–Cox pp.1–4: martingale convergence for the unnoised density.",
+        "Aljovin et al. pp.1–4: exact noisy complete-graph equilibrium and quantitative Wright–Fisher approximation.",
+        "Mori et al. pp.5–8: different network-community update mechanism.",
+        "Earlier synchronous-bipartite result differs in cross-part independence."
+      ],
+      "reasoning": "The claim requires all: asymmetric arbitrary diverging K_{a,b}, continuous-time fair refresh at epsilon~lambda(1/a+1/b), time-process convergence, both part densities becoming the SAME Beta limit, and finite pair correlation identities. The inspected exact prior statements fail at least one premise, model, or assertion; none implies the conjunction without additional derivation.",
+      "searches": [
+        "arxiv:2112.01478",
+        "arxiv:1311.5786",
+        "arxiv:2409.05722",
+        "arxiv:1810.05643",
+        "continuous-time asynchronous noisy voter on complete bipartite K_{a,b}, stationary opinion densities collapse to shared Beta(2lambda,2lambda) at weak-noise epsilon/(1/a+1/b)->lambda, Wright-Fisher diffusion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pymar–Rivera 2021/2024 PDF pp.1–6: general noisy-voter density regimes and named graph families; no critical bipartite diagonal-Beta law found.",
+        "Aljovin–Jara–Xiang 2024 PDF pp.1–4 treats noisy voting on K_n and its univariate Wright–Fisher limit.",
+        "Previously recorded synchronous-bipartite result: synchronous independent Beta laws, not asynchronous joint diagonal laws."
+      ],
+      "reasoning": "The natural equivalent formulation is degree-weighted stationary noisy-voter density together with the synchronization of both parts; on K_{a,b}, the random-walk stationary density is exactly (X+Y)/2. A complete-graph univariate law is not a theorem on K_{a,b}; the synchronous independent-Beta law is not equivalent to the asynchronous diagonal limit.",
+      "searches": [
+        "continuous-time asynchronous noisy voter on complete bipartite K_{a,b}, stationary opinion densities collapse to shared Beta(2lambda,2lambda) at weak-noise epsilon/(1/a+1/b)->lambda, Wright-Fisher diffusion",
+        "weak noise voter process complete bipartite arbitrary imbalance common beta limit time-scaled Wright Fisher diffusion",
+        "\"noisy voter\" \"complete bipartite\" \"Beta\"",
+        "arxiv:2112.01478",
+        "arxiv:2409.05722"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mathematical-record searches returned no exact table/result for this model, normalization and joint law.",
+        "Earlier distinct results treat a fixed-core star and synchronous bipartite noise, but neither states the both-parts-diverge asynchronous critical limit."
+      ],
+      "reasoning": "The object is a continuum-time path limit and parametric stationary law, rather than a discrete numerical entry. No surveyed dataset or table supplies the asserted function of all part sizes and noise intensities; absence of a search hit is evidence of coverage checked, not a proof of absolute priority.",
+      "searches": [
+        "continuous-time asynchronous noisy voter on complete bipartite K_{a,b}, stationary opinion densities collapse to shared Beta(2lambda,2lambda) at weak-noise epsilon/(1/a+1/b)->lambda, Wright-Fisher diffusion",
+        "weak noise voter process complete bipartite arbitrary imbalance common beta limit time-scaled Wright Fisher diffusion",
+        "noisy voter model stationary covariance complete bipartite graph asynchronous copy fair noise two point correlation",
+        "noisy voter model complete multipartite stationary two point covariance magnetization variance",
+        "noisy voter complete bipartite stationary beta parameter exact covariance"
+      ]
+    },
+    "rationale": "Inspected general unnoised voter-density diffusion limits (Chen–Choi–Cox 2013; Blythe 2010), noisy-voter ordered and disordered regimes (Pymar–Rivera first posted 2021), complete-graph noisy-voter Wright–Fisher equilibration (Aljovin–Jara–Xiang 2024), and a distinct multi-agent-per-node network model (Mori–Hisakado–Nakayama 2018). None of their examined statements implies the specific all-imbalance K_{a,b} noisy-bipartite process and its diagonal critical stationary Beta law with exact finite correlation identities. Previously recorded mathematical findings include synchronous bipartite independent-Beta limits and a fixed-core star Beta limit; both differ materially in update rule or growth regime. Scientific-record searches found no stronger/equivalent covering result. Residual risk: general diffusion reduction/mutation extensions could independently yield the conclusion, and priority is not independently certified.",
+    "residual_risks": [
+      "General random-copying diffusion machinery plus a nontrivial mutation perturbation might lead to independent rediscoveries not surfaced by searches.",
+      "Only selected relevant text sections and title-page screenshots of highly plausible full papers were materially inspected; exhaustive article-by-article priority review is not claimed.",
+      "Semantic mathematical-record search cannot establish universal uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related general noise-scale results, but the critical Beta and arbitrary unbalanced bipartite process are not asserted in the inspected theorems.",
+        "evidence": [
+          "PDF pp.1–6; source find returned no Beta and no complete bipartite theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2112.01478",
+        "material_read": "Abstract, introduction pp.1–3, model and principal results pp.3–6; searched PDF for bipartite and Beta terminology.",
+        "method": "Read full-text PDF sections using page-level text and inspected title-page screenshot.",
+        "title": "Asymptotic behaviour of the noisy voter model density process",
+        "trigger": "Exact source model and order-disorder boundary"
+      },
+      {
+        "assessment": "Pure voter-model diffusion with zero mutation; no positive-noise invariant Beta claim.",
+        "evidence": [
+          "PDF pp.1–4, generator eq. (1.2), no mutation term in model."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1311.5786",
+        "material_read": "Abstract and mathematical model, main limiting framework pp.1–4; searched mutation terminology.",
+        "method": "Full-text PDF section inspection and title-page screenshot.",
+        "title": "On the convergence of densities of finite voter models to the Wright-Fisher diffusion",
+        "trigger": "Potential broad domination of diffusion limit"
+      },
+      {
+        "assessment": "Covers complete graph not arbitrary bipartite networks; noisy Wright–Fisher relation strongly overlaps method but does not directly imply new graph family.",
+        "evidence": [
+          "PDF pp.1–4 explicitly says complete graph on n vertices."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2409.05722",
+        "material_read": "Abstract and model, introductory main-result scope pp.1–4; searched bipartite terminology.",
+        "method": "Full-text PDF section inspection and title-page screenshot.",
+        "title": "Thermalization and convergence to equilibrium of the noisy voter model",
+        "trigger": "Nearest noisy diffusion and Beta equilibrium"
+      },
+      {
+        "assessment": "Distinct many-agents-per-site copying model including within-node imitation, not the vertex-level K_{a,b} fair-refresh model.",
+        "evidence": [
+          "PDF model section III specifies N_i agents per node, local imitation and influence parameters theta_1,theta_2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1810.05643",
+        "material_read": "Abstract, model section III pp.5–8, conclusion p.12, appendix B; searched complete bipartite.",
+        "method": "Full-text PDF targeted section inspection and title-page screenshot.",
+        "title": "A voter model on networks and multivariate beta distribution",
+        "trigger": "Potential stronger multi-community beta result"
+      },
+      {
+        "assessment": "General coalescence-driven random copying and effective size, but no fair-refresh stationary limit.",
+        "evidence": [
+          "PDF pp.1–4 and zero mutation model."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1006.1557",
+        "material_read": "Abstract, process, main results pp.1–4; searched mutation.",
+        "method": "Full-text PDF section inspection and title-page screenshot.",
+        "title": "Ordering in voter models on networks: Exact reduction to a single-coordinate diffusion",
+        "trigger": "Older universal single-coordinate reduction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7e5c560b-003d-4b9f-a371-077758b26552",
+  "value": {
+    "rationale": "In a bipartite network with two diverging but arbitrarily unequal populations, this identifies the exact critical mutation scale s=1/a+1/b, the full path-level Wright–Fisher limit, a shared (rather than independent) critical Beta opinion density, and two endpoint regimes; it quantifies the change caused by asynchronous versus synchronous updating. This is a natural stochastic-process scaling problem; the explicit finite pair correlations supply nonasymptotic checks and identify effective population size. It does not rely on arbitrary slices or small numerical gains.",
+    "status": "PASS"
+  }
+}
