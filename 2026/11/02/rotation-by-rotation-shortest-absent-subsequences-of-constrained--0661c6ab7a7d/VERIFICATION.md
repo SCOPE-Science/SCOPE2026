@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-## Reproduction
-Run `python3 verify_rotations.py` using Python 3's standard library. The successful replay produced:
+# Independent mathematical audit
 
-```
-VERIFY_OK gap_cycles= 318 gap_roots= 7359 tested_length_m_plus_1_words= 9484688 fibonacci_roots= 602
-```
+## correctness
 
-The exhaustive gap check includes every admissible ordered cyclic gap tuple with two through ten ones and all indexed roots. A separate dynamic state-counting method counts absent subsequences independently of candidate enumeration. The Fibonacci test covers indices three through eleven. The infinite assertion follows from the written combinatorial proof, not from extrapolating these computations. Independent mathematical validation was not performed.
+PASS
+
+The alternating-pair embedding bounds universality at m, and the pair-merging lemma reduces length-(m+1) absent candidates to monotone strings. Gap prefix-sum criteria leave exactly 1, 2, or 3 candidates, with root partition (t,2t,2(m-t)). The Fibonacci morphism preserves the three forbidden cyclic factors. Independently enumerated all 72 admissible ordered gap tuples and 1,122 roots for 2<=m<=7; literal subsequence membership reproduced the entire predicted absent sets for every tested root. The restricted-cycle inductive proof, not the finite test, establishes all m.
+
+## originality
+
+PASS
+
+Best-of-knowledge differentiated same-object formulations and stronger-coverage implications; no confirmed statement-level coverage found. This is a qualified priority decision, not evidence of exhaustive absence.
+
+## value
+
+PASS
+
+A natural rotation-resolved statistic of absent scattered subsequences on constrained cyclic and Fibonacci words; the formula distinguishes which roots have one, two, or three shortest absences and makes an arrangement-independent cyclic invariant. This refines mere universality index, not a trivial spelling change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
