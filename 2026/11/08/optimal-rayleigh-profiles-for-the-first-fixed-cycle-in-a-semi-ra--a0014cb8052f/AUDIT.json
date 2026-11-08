@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Componentwise proof checks all trees (including zero-edge components and small diameter) and cyclic components to give the sharp a_l/e bound. Under an unsuccessful history the conditional hit rate is exactly a_l/n. The path-template policy reaches the bound with expected O(1) wasted rounds up to O(sqrt(n)); summing hazard deficits yields uniform O(n^-1/2). Exhaustive graph tests through six vertices and explicit sharp witnesses corroborate but do not replace the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 theorem bounds construction time up to slowly diverging factors.",
+        "The 2024 corollary identifies the sqrt(n) scale but does not give a limiting survival function.",
+        "The 2026 limited-choice paper treats triangles and cliques, not an all-cycle exact first-hit profile."
+      ],
+      "reasoning": "Statements with more general fixed target graphs but only threshold exponents are weaker, not stronger, with respect to the new exact constant and uniform limiting law. General random graph arrival models are not equivalent to adaptive full-choice construction.",
+      "searches": [
+        "any cycle detection optimal semi random builder graph subgraph 2018 Behague Gao",
+        "arxiv:1805.02259v2 Theorem 1.10",
+        "doi:10.1002/jgt.23202 Corollary 1",
+        "arxiv:2610.33854v1 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.33854v1, Section 4",
+      "arxiv:2105.07034v4, Theorems 1.1–1.2",
+      "arxiv:1805.02259v2, Theorem 1.10",
+      "doi:10.1002/jgt.23202, Corollary 1",
+      "previously documented triangle theorem 3f7ee943-c2f2-4aa1-9860-73e9c52eee37",
+      "semantic research index: cover-free path/cycle counts and weak rainbow C4 saturation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The triangle profile 1-exp(-2x^2/3) coincides with the new l=3 specialization and is explicitly not presented as new.",
+        "Exponent-1/2 assertions are compatible with many distinct Rayleigh constants and also with non-Rayleigh limits.",
+        "The all-l theorem relies on the sharp bound a_l(G)<=((2l-2)/(2l-3))e(G), absent from the compared source claims."
+      ],
+      "reasoning": "The previous l=3 statement neither quantifies nor controls exposures for l>=4. None of the cited broader scale theorems logically implies the claimed constant. A previously unlocated exact-shape theorem is the main residual historical risk.",
+      "searches": [
+        "semi-random graph optimal Rayleigh triangle 4/3 exposure paths",
+        "arxiv:2105.07034v4 Theorem 1.2",
+        "doi:10.1002/jgt.23202 Corollary 1",
+        "documented earlier triangle claim 3f7ee943-c2f2-4aa1-9860-73e9c52eee37"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A fixed C_l is a fixed 2-degenerate target; arxiv:2105.07034 proves threshold exponent 1/2 only.",
+        "The previous triangle result covers the l=3 specialization, not the all-l sharp coefficient."
+      ],
+      "reasoning": "We searched both the exact survival profile and its dual optimal threshold formulation; fixed-subgraph threshold exponents do not imply a Rayleigh probability law or length-dependent constant.",
+      "searches": [
+        "Optimal first simple cycle C_l creation in full-choice semi-random graph process Rayleigh limiting hitting time 2(l-1)/(2l-3) disjoint paths",
+        "optimal first fixed cycle length k C_k semi random post positional process exact Rayleigh survival exp(-(k-1)/(2k-3)x^2)",
+        "arxiv:2105.07034v4 Theorems 1.1–1.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned path/cycle record concerns cover-free families; the rainbow C4 record studies weak saturation.",
+        "The candidate includes the exact all-integer-l sequence (l-1)/(2l-3), not a finite graph census."
+      ],
+      "reasoning": "No queried database or table covered the claimed exact cycle-hitting law; the indexed objects named in the closest hits do not share the sampling experiment or invariant. This negative search is not itself proof of priority.",
+      "searches": [
+        "semi random graph C4 C5 first occurrence sharp hitting time constant builder",
+        "exposure bound vertices completing cycle length k from one additional edge 2(k-1)/(2k-3) path",
+        "first 4 cycle under online graph process 3/5 Rayleigh survival",
+        "2026-09-17 indexed record: cover-free-family counts for paths, cycles and wheels",
+        "2026-09-17 indexed record: weak rainbow cycle saturation"
+      ]
+    },
+    "rationale": "The all-fixed-cycle-length sharp exposure constant and optimal finite-window Rayleigh profile are not stated in the inspected 2018, 2021, 2024 and 2026 model/threshold papers. A documented l=3 theorem is acknowledged as covered; the theorem for all l>=4 requires the new tree-center versus cyclic-component extremal comparison and online path-template construction. Novelty is provisional, not certified by negative search.",
+    "residual_risks": [
+      "Historical priority may be subsumed by an unlocated theorem on optimal adaptive creation of arbitrary unicyclic graphs or sharp cycle profiles.",
+      "The l=3 instance is known in the accessible earlier claim and is not independently novel; new scope lies in the arbitrary fixed l>=4 cases.",
+      "No human/independent originality review was conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not directly covering the exact all-length cycle Rayleigh profile",
+        "evidence": "Article local-property section titles 4.1 Triangles, 4.2 K4, 4.3 clique lower bounds, with threshold constructions.",
+        "identifier_or_url": "https://arxiv.org/html/2610.33854v1",
+        "material_read": "Introduction, model definitions/results, Section 4 local subgraph results including triangle construction and related statements",
+        "method": "Full accessible arXiv HTML article, direct section comparison",
+        "title": "Between the Semi-Random Process and G(n,p)",
+        "trigger": "Recent 2026 paper supplies immediate full-choice limiting model."
+      },
+      {
+        "assessment": "Establishes exponent n^(1/2) for fixed cycles without profile or multiplicative constant",
+        "evidence": "The authors explicitly focus on correct exponent rather than multiplicative constants in Introduction.",
+        "identifier_or_url": "https://arxiv.org/html/2105.07034v4",
+        "material_read": "Full HTML introduction/main Theorems 1.1, 1.2, Corollary 1.3, proof outline and graph sections",
+        "method": "Primary open-access preprint full article sections and theorem statements",
+        "title": "Subgraph Games in the Semi-Random Graph Process and Its Generalization to Hypergraphs",
+        "trigger": "Any fixed graph target including C_l could imply a stronger general result."
+      },
+      {
+        "assessment": "No direct exact optimal first-cycle profile across all lengths",
+        "evidence": "Theorem 1.10 is a generic degeneracy-based n^(d-1)/d slowly-diverging-factor upper bound.",
+        "identifier_or_url": "https://arxiv.org/html/1805.02259v2",
+        "material_read": "Full HTML introduction, Sections 1.3 and 5 online fixed-graph theorems",
+        "method": "Primary accessible full arXiv HTML",
+        "title": "Semi-random graph process",
+        "trigger": "Foundational online model and fixed-subgraph bounds."
+      },
+      {
+        "assessment": "Only order sqrt(n) for fixed cyclic targets; does not supply exact coefficient/profile",
+        "evidence": "Corollary 1 bounds construction between sqrt(n)/f(n) and sqrt(n)f(n).",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/jgt.23202",
+        "material_read": "Open-access journal introduction, Theorem 3 and Corollary 1 with proof",
+        "method": "Publisher-hosted full text, direct relevant section reading",
+        "title": "On the Pre- and Post-Positional Semi-Random Graph Processes",
+        "trigger": "Corollary about any fixed cyclic target might dominate the new cycle law."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a0014cb8-052f-4cf4-a0f6-f20823cdfe6d",
+  "value": {
+    "rationale": "First-cycle formation in the semi-random graph model is a central local-subgraph threshold observable. The theorem determines the entire first-hit distribution, sharp l-dependent coefficient, and an online optimal policy, substantially refining previously established scale-only results. The universal extremal exposure lemma is independently structural: it explains exactly why disjoint paths with 2l-3 edges are optimal templates for every fixed cycle length.",
+    "status": "PASS"
+  }
+}
