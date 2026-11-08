@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact two-point Rademacher Rayleigh distribution proves bias and variance for all 2x2 SPD orientations and every integer probe count. The sign of the continuous risk derivative is governed by the strictly increasing \\(H(t)=U(t)/(rtB(t))\\), which has limits \\(2/B_0\\) and infinity; thus only endpoint maxima and a unique possible interior minimum occur. This establishes both sharp critical sample thresholds with all equality and boundary cases. The 80,540 finite checks test, but do not replace, this analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ubaru–Chen–Saad Corollary 4.5 bounds logdet error via general Lanczos step count and probe count.",
+        "Li et al. Theorem 4.1 optimizes sufficient probe/step error budgets for generally asymmetric quadrature nodes, not matrix rotations.",
+        "Chen–Trogdon–Ubaru prove uniform spectral-sum error bounds and use spherical vectors as baseline, rather than an exact 2D Rademacher phase diagram."
+      ],
+      "reasoning": "Sufficient or global upper bounds do not logically determine the equalities or sharp exact extremizers of the present orientation-dependent finite-sample risk. An exact MSE may be evaluated using their algorithm, but the extremal classification is not entailed by the stated results.",
+      "searches": [
+        "randomized numerical linear algebra stochastic Lanczos quadrature exact bias variance Gaussian Rademacher trace inverse",
+        "arxiv:2307.00847 sections 3 and 4, theorem 4.1",
+        "doi:10.1137/16M1104974 sections 3 and 4.3",
+        "arxiv:2204.01941 spectral-sum approximation section 3"
+      ]
+    },
+    "checked_sources": [
+      "Ubaru–Chen–Saad (2017), SIAM J. Matrix Anal. Appl. 38:1075–1099, doi:10.1137/16M1104974, Algorithm 1 and section 4.3",
+      "Cortinovis–Kressner (2020 preprint), arXiv:2005.10009, matrix-logarithm and determinant trace estimates",
+      "Chen–Trogdon–Ubaru (2022 preprint), arXiv:2204.01941, section 3",
+      "Li–Han–Huang–Wathen–Zhu (2023 preprint), arXiv:2307.00847, sections 2–5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017 algorithm provides a general random-probe quadrature construction but not a sharp MSE equality for every orientation.",
+        "The 2020 paper bounds randomized trace errors, typically for the exact matrix function, while one-node SLQ adds nonlinear Rayleigh-quadrature bias.",
+        "The 2023 paper has a distinct optimization variable: number of Krylov steps and probes under upper bounds rather than orientation at fixed one node."
+      ],
+      "reasoning": "The exact expression and monotonicity proof are additional deductions requiring two-point distribution analysis and a nontrivial extremizer comparison. Neither a weaker generic high-probability inequality nor the general method statement entails the sharp risk equality or both thresholds. Known elementary moment identities are acknowledged, not claimed as original.",
+      "searches": [
+        "doi:10.1137/16M1104974 Algorithm 1 and Corollary 4.5",
+        "arxiv:2005.10009 section 4.1 determinant trace concentration",
+        "arxiv:2307.00847 Theorem 3.2 and Theorem 4.1",
+        "joint quadrature bias Monte Carlo variance phase transition Rademacher log-determinant one step"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ubaru–Chen–Saad 2017 Algorithm 1 prescribes Rademacher SLQ but does not present exact angular law.",
+        "Hadamard-row trace and tensor-sign trace publications study linear trace probes with different designs, not the biased nonlinear one-node logarithm.",
+        "Semantically closest search hits concern unrelated two-dimensional optimality and Lanczos semigroup positivity; no same object/functional/quantified statement surfaced."
+      ],
+      "reasoning": "The two-point Bernoulli law is readily reconstructible from the SLQ definition; the claimed addition is the exact worst-orientation and best-orientation transitions for all eigenvalue ratios and integer sample counts. Analogy to a trace estimator is not enough to imply logarithmic quadrature bias. An unlocated equivalent two-point optimization remains possible.",
+      "searches": [
+        "one-node Lanczos log determinant Rademacher two by two exact mean squared error angle orientation sample size threshold robust worst case",
+        "single Gauss quadrature node logdet SPD Rademacher sign probe 2x2 optimal orientation minimax mean square risk",
+        "orientation dependent one step stochastic Lanczos quadrature log determinant Rademacher probes exact mean square error two by two",
+        "Lanczos",
+        "logdet",
+        "log-determinant",
+        "matrix logarithm",
+        "quadrature",
+        "Rademacher"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No relevant row of numerical matrices, exact-formula catalog or tabulated threshold was located in the inspected published-finding corpus hits or the named SLQ papers.",
+        "Examined quadrature comparisons concern jittered integration or sliced covariance metrics rather than one-node log-determinant SLQ."
+      ],
+      "reasoning": "The claim is an exact continuum classification, not merely a previously published tabulated value. Absence from the searched tables is not treated as a proof of novelty.",
+      "searches": [
+        "sharp orientational worst-case one-node log determinant Lanczos quadrature bias variance 2-by-2 Rademacher sign probes",
+        "stochastic matrix log determinant estimation one-step quadrature coordinate system orientation optimal sampling mean squared error threshold",
+        "trace probe",
+        "Rademacher",
+        "quadrature"
+      ]
+    },
+    "rationale": "The checked 2017 SLQ construction, 2020 trace concentration, 2022 matrix-free quadrature and 2023 asymmetric-node analyses provide general algorithms, probability bounds or budget-allocation guarantees, not the exact joint orientation-risk two-point law and its complete two-threshold extremizer classification. The extra monotonicity and endpoint-equality analysis is not a formal special case of their published bound statements. Actual semantic searches found no equivalent record, but no uniqueness assertion is made; unsearched specialist two-point treatments remain a risk.",
+    "residual_risks": [
+      "An older specialist treatment of the equivalent two-point Bernoulli log-Rayleigh distribution or Rademacher SLQ could already contain the full angular optimization; semantic searches and four primary comparisons are not an exhaustive novelty proof.",
+      "Literature not retrieved in full may include the same thresholds under alternative notation; independent domain-expert priority assessment is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same algorithm family but no exact one-node planar orientation MSE or extrema in inspected relevant sections",
+        "evidence": "Algorithm 1 specifies Rademacher probes and m-step Lanczos; Corollary 4.5 is an additive high-probability logdet bound; electronic publication date October 3, 2017.",
+        "identifier_or_url": "https://www.cs.cornell.edu/courses/cs6241/2020sp/readings/Ubaru-2017-fast.pdf",
+        "material_read": "Full-text 2017 article; Algorithm 1 in section 3, Theorem 4.1, section 4.3 and Corollary 4.5; title/date page inspected",
+        "method": "PDF full-text reading including page image for section 3",
+        "title": "Fast Estimation of tr(f(A)) via Stochastic Lanczos Quadrature",
+        "trigger": "Originating algorithm, fair Rademacher probes and log-determinant bounds"
+      },
+      {
+        "assessment": "Concentration for stochastic matrix-function traces is distinct from exact MSE of the one-node nonlinear Rayleigh-log estimator",
+        "evidence": "arXiv:2005.10009, May 20, 2020; focus on Gaussian/Rademacher trace tail bounds and combined Lanczos estimates.",
+        "identifier_or_url": "https://arxiv.org/abs/2005.10009",
+        "material_read": "Original manuscript full text, introduction, trace concentration statements and determinant application, section 4.1",
+        "method": "Author-accessible public arXiv full-text examination",
+        "title": "On randomized trace estimates for indefinite matrices with an application to determinants",
+        "trigger": "Potential stronger general Rademacher trace estimates and log determinant result"
+      },
+      {
+        "assessment": "Guarantees spectral approximations and uniform bounds; does not determine exact angle-dependent two-point logdet MSE and extrema",
+        "evidence": "arXiv:2204.01941, first posted April 5, 2022; spectral-sum concentration analysis in section 3.",
+        "identifier_or_url": "https://arxiv.org/html/2204.01941v3",
+        "material_read": "Full-text public HTML, probability model, trace bounds, spectral-sum error analysis and conclusion",
+        "method": "Read original paper HTML, including section 3 uniform bounds and Rademacher versus spherical probe discussion",
+        "title": "Randomized matrix-free quadrature: unified and uniform bounds for stochastic Lanczos quadrature and the kernel polynomial method",
+        "trigger": "Plausible broader spectrum and spectral-sum theory"
+      },
+      {
+        "assessment": "Budget allocation of quadrature and sampling sufficient error bounds is not optimization over eigenbasis orientation at one Lanczos node",
+        "evidence": "arXiv:2307.00847, July 3, 2023; Theorem 4.1 gives sufficient m,N choices, not a sharp 2D risk equality.",
+        "identifier_or_url": "https://arxiv.org/abs/2307.00847",
+        "material_read": "Full accessible primary full text, especially sections 2–5, Theorems 3.2 and 4.1 and experiments",
+        "method": "Public arXiv HTML full-text sections and theorem comparisons",
+        "title": "An Analysis on Stochastic Lanczos Quadrature with Asymmetric Quadrature Nodes",
+        "trigger": "Optimizes SLQ probe count and iteration count; possible dominating risk phase diagram"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9c172b7c-0f19-4bd3-9525-89a6db93c65d",
+  "value": {
+    "rationale": "The exact two-dimensional benchmark exposes a practically meaningful bias floor that adding probes cannot defeat, despite vanishing stochastic variance, and sharply distinguishes the two sampling thresholds for best versus worst coordinate orientations. The motivated complete optimization addresses how one-step Krylov depth and probe budget interact; it is not a claimed high-dimensional algorithm or arbitrary isolated numerical sample. The precise limiting constants can guide sanity checks of general SLQ estimates.",
+    "status": "PASS"
+  }
+}
