@@ -1,0 +1,11 @@
+# Review of the parity-lattice rectangular-box theorem
+
+**Correctness — PASS.** The proof fixes the lattice and interior boundary conventions and obtains every successive minimum directly from the available parity vectors and a rank obstruction. Character orthogonality then yields an exact point count. The resulting signed defect identity establishes the complete integer parameter classification, including equality, and gives the real isotropic bands. The 274 exact test cases independently check small parameter boundaries and rank thresholds, while all-dimensional validity follows from the proof rather than enumeration.
+
+**Originality — PASS (subject to historical priority).** Wang and Xue (arXiv:2610.41125v1, Remark 8.2) give the three-dimensional \([-2,2]^3\) counterexample but not the complete anisotropic integer-box and isotropic real-radius classifications. Freyer and Lucas (2022, Proposition 1.5) cover only the two-dimensional lattice-polygon lower bound. Focused searches for even-sum lattice boxes, their successive minima, parity product formulas, and the lower bound found no published statement that covers the full new classification. A narrow possibility of an overlooked equivalent counting result remains.
+
+**Mathematical value — PASS.** The negative example raised by the 2026 source has a natural anisotropic and scale family. Its exact failure locus is not arbitrary: it depends only on equality of the two largest integer half-sides and a lattice-character parity, with complete equality cases. The continuous scale analysis reveals an infinite family of sharply located failure windows whose lengths decay like a precise inverse power. It also shows failure exists in every dimension at least three, even where isotropic boxes cannot fail. This is a complete geometric boundary for a natural family of a recently refuted inequality, rather than another isolated counterexample.
+
+**Limitations.** The proof is specific to the even-coordinate-sum lattice and axis-aligned boxes, and does not repair the disproved general lower bound. The literature comparison relies on publicly accessible primary materials and a finite set of searchable research records, so universal priority is not certified.
+
+Self-review: passed. Independent audit: not yet performed.
