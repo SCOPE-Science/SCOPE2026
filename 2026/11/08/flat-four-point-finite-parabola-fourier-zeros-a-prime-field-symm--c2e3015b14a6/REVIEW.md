@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The complete all-prime proof uses the four-unit antipodal-matching lemma, finite-field matching determinant, an odd-order phase incompatibility excluding three simultaneous matchings, and a sine-magnitude argument excluding off-line zeros when a parallel matching is active. Explicit nondegenerate coefficients attain every stated stratum. Exact integer-based computational corroboration in `artifacts/verify.py` passed 104626 checks, including exhaustive prescribed discrete phase alphabets for primes five and seven. Computation is not an infinite proof.
+
+**Originality — PASS, provisional.** Fiorentino and Weigert's 2022 full primary text studies complete-basis total supports but not this all-prime fixed-support flat-amplitude dichotomy. Li's 2026 abstract gives an unrestricted four-site bound \(p+2\) and line rigidity, not the stricter flat bound \(p\) and centrality criterion; the preprint's full text was inaccessible, so uninspected specializations are the principal priority risk. Closest mathematical records covering one-dimensional four-sparse prime Fourier transforms and two-dimensional Cartesian rectangles were read in full; their premises do not include the odd-prime parabola four-site geometry. No absence of a result is inferred solely from search failure.
+
+**Mathematical value — PASS.** Four equal-energy sites define a constrained sparse-state uncertainty problem for complete prime-dimensional mutually unbiased bases. The four-site support geometry creates an exact growing gap between a full \(p\)-point zero line and at most two isolated zeros, together with a sharp improvement from the unrestricted four-site upper bound. This determines all realizable zero counts, rather than only existence of sparse recovery. The result does not cover unequal amplitudes, other sparsities, or nonstandard MUB families.
+
+**Closest literature and limitations.** See the source-specific comparisons and limitations in `RESULT.md` and the structured audit. A closely related 2026 manuscript could not be read in full; it is not characterized as globally noncovering. No independent mathematical validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
