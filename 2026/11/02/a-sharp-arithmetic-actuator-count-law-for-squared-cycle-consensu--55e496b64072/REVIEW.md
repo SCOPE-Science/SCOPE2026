@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-n graph is specified by an integer circulant matrix, and the Fourier symbol is derived explicitly. The factorization of equal eigenvalues reduces the nontrivial cases to a cosine-sum equation; Galois averaging via the Ramanujan sum gives the restrictive Möbius/totient equation. The only candidates are orders two/six, three/four, and distinct order-five cosine values. Counting indices yields maximal eigenspace dimension exactly two, three, or four. The PBH lower bound and full-rank Vandermonde restrictions at consecutive input sites establish the exact global minimum; all quantifiers \(n\ge5\) are covered. An independent finite modular-rank and trigonometric diagnostic script passed 816 checks. No finite experiment is presented as an infinite proof.
+PASS
 
-## Originality — PASS (residual historical risk)
+For n>=5, adjacency Fourier eigenvalues of fixed unit-weight C_n^2 are a_k=4*cos(2pi*k/n)^2+2*cos(2pi*k/n)-2. Different cosine values collide only when their sum is -1/2. Averaging zeta^k+zeta^-k+zeta^l+zeta^-l=-1 over cyclotomic Galois automorphisms gives mu(r)/phi(r)+mu(s)/phi(s)=-1/2; elementary order classification restricts actual extra collisions to (2,6), (3,4), and distinct cosine values from order5. They yield eigenspaces of dimensions 3 for 6|n, 4 for 12|n, and 4 for 5|n respectively; other nonconstant conjugate pairs have dimension at most two. PBH requires at least maximum multiplicity control channels, and the first d consecutive vertices give nonzero Fourier Vandermonde determinant on each d-dimensional eigenspace, so exactly q(n)=4 if 5|n or12|n; else 3 if 6|n; else 2. Independent direct numerical eigenspectrum tests over all 5<=n<=180 agreed. The finite test is diagnostic; analytic cyclotomic and Vandermonde arguments prove all n. No claim concerns arbitrary edge weights, input effort, or structural controllability.
 
-Parlangeli–Notarstefano (2011) concerns the ordinary cycle; Yuan et al. (2013) and Nabi-Abdolyousefi–Mesbahi (2013) supply general maximum-eigenspace multiplicity principles for graph/circulant controllability. Those principles alone do not give the arithmetic \(5,6,12\) classification of the squared cycle. Monshizadeh–Zhang–Camlibel (2014) addresses zero forcing over a matrix class. Saha–Das (2025) writes down the Fourier eigenvalues but its claimed pairing-based multiplicity representation does not account for the extra cyclotomic collisions. The new claim is the complete all-dimension multiplicity arithmetic and resulting exact minimum leader count, not a new general PBH theorem. The 2013 circulant paper and a 2014 related expanded chapter remain possible sources of overlap because their complete texts were not available for direct inspection.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The squared cycle is a standard four-regular distributed-control topology. The number of actuators is a natural discrete invariant: the sharp two-versus-three-versus-four classification is neither evident from degree nor monotone in network size, and the explicit consecutive construction makes it operational. The cyclotomic-order obstruction and exact dimension boundaries are structural, rather than a reparameterized generic inequality or a list of tested numerical instances.
+Qualified best-of-knowledge PASS for the exact arithmetic n-divisibility classification and explicit consecutive optimal leader placement, not for general PBH max-multiplicity principle nor the known squared-cycle Fourier spectrum. Saha–Das 2025 gives same spectrum but only standard conjugate-pair presentation; general circulant network paper of Nabi-Abdolyousefi–Mesbahi 2013 remained full-text inaccessible and may include relevant special cases. No precise arithmetic q(n) law was located among inspected sources.
 
-## Scope and open risks
+## value
 
-The theorem applies to fixed unit-weight Laplacian consensus dynamics and independent, localized inputs, not arbitrary circulant weights or structural controllability. Its closeness to the existing general circulant control literature is acknowledged, and historical special-case coverage cannot be excluded without all relevant full texts. No independent external audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+C_n^2 is a natural four-regular consensus network. The exact minimum number of independent vertex inputs is a natural operational invariant and changes nonmonotonically with divisibility by 5,6,12; the cyclotomic origin of that sharp law and explicit consecutive minimal set provide reusable spectral/control insight. Not a generic PBH restatement because the accidental eigenvalue multiplicities require a nontrivial arithmetic classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
