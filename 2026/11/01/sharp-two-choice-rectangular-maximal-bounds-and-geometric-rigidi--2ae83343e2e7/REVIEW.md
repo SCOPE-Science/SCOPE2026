@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact complex scalar identity (1) in `RESULT.md` gives nonnegative deficits for all \(0<\theta<1\); summing over integers is justified by \(\ell^2\) summability. Vanishing local deficits forces exactly a one-sided geometric tail, excluding two-sided growth by the \(\ell^2\) condition. The dimension-\(d\) upper bound follows by positive coordinatewise maximal iteration and Fubini; tensor-product rays attain it. `CHECK.py` independently checks rational specializations and equality, but infinite and continuum assertions are proved analytically.
+## correctness
 
-**Originality (PASS, with risk).** The September 2026 full-text synchronous-cube maximal theorem proves a dimension-free upper bound for a different family, not an exact independently selected rectangular bound. The October 2026 full-text maximal-norm paper concerns symmetric semigroups and continuous centered maximal functions, not the directed weighted two-point discrete model. Searches for weighted two-choice maximal norms, tensorized rectangular maxima, local deficit identities and geometric extremizers did not locate the same claim. Related records on maximal gradients, one-dimensional scale thinning, and three-point averaging were checked for mathematical implication, not mere title differences. Unindexed two-scale computations remain a genuine priority risk.
+PASS
 
-**Value (PASS).** Independent coordinate selection is the smallest nontrivial model of a strong rectangular maximal family; even though each coordinate has only two possible kernels, the sharp norm grows exponentially with dimension, contrasting with the synchronous-cube dimension-free theory. The exact normalization profile, one-dimensional equality rigidity and nonnegative local deficit identity make this a reusable benchmark, rather than an unmotivated single numerical constant.
+On complex ℓ²(Z^d), for each coordinate one may choose I or (1−θ)I+θS_j, 0<θ<1, independently. With c=θ/(2−θ) the universal scalar identity |u|²+c|v|²−|(1−θ)u+θv|²=c|(2−θ)u−(1−θ)v|² holds for complex u,v. Consequently |u|²+c|v|²−max{|u|²,|(1−θ)u+θv|²}=c min{|v|²,|(2−θ)u−(1−θ)v|²}≥0; summing with u=f(n),v=f(n−1) yields the exact ℓ² deficit and the 1D norm sqrt(2/(2−θ)). Equality forces at each n either f(n−1)=0 or f(n)=ρ f(n−1), ρ=(1−θ)/(2−θ)∈(0,1); an ℓ² nonzero solution has a leftmost nonzero index and thereafter a single nonvanishing geometric ray. Every such translated scaled ray attains the bound, so rigidity is complete in dimension one. For d≥1 positive averaging and commutation imply pointwise |R_{θ,d}f|≤M_d…M_1|f|; Fubini and the 1D estimate give upper norm (2/(2−θ))^{d/2}, while tensor products of 1D rays attain it. Independent exact SymPy expansion at θ=2/5 verified the scalar polynomial identity, squared norm 5/4, and the published package checker contains additional rational-weight checks; no finite trial is used to prove the all-weight/all-d conclusion.
 
-The result does not give sharp constants for conventional cube averaging, arbitrary \(p\), or more than two lengths. Related general abstract maximal inequalities may imply upper bounds but do not give the inspected exact constant and equality classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality judgment for the exact scoped final claim, after mathematical prior-work implication comparison. Existing discrete centered synchronous cube and continuous symmetric semigroup maximal theorems have different kernels, scopes and quantifiers; no covering sharp weighted two-choice norm theorem was retrieved.
+
+## value
+
+PASS
+
+Independent coordinate selection is the simplest nontrivial strong rectangular discrete maximal family. The exact exponentially growing dimension dependence, all-parameter weight profile and complete one-dimensional geometric optimizer/deficit identity provide a reusable benchmark distinguishing strong rectangular from synchronous cube maximal behavior; the result is an infinite-dimensional sharp inequality, not a trivial finite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
