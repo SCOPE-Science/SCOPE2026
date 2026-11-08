@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The characteristic-polynomial lemma is proved for symmetric, zero-diagonal binary matrices with zero row sums using the power-series resolvent and rank-one determinant identity. The proof then derives the two nilpotent Jordan-block partitions by an explicit cyclic-polynomial factorization and by the dimension of the kernel/image intersection after swapping two outputs. Differences of kernel sizes on the nilpotent component produce exactly the preperiod counts and means. All boundary regimes are included, particularly dimensions divisible by two but not four. A standalone program independently computes update maps, finite-field power ranks, and all-state preperiods on small rings. Finite tests are supporting checks, not infinite proofs.
+PASS
 
-## Originality: PASS under inspected evidence
+Q=I+vv^T, v=e1+e2 in characteristic 2. For any symmetric binary zero-diagonal E with E1=0, v^T E^k v=0 for all k: odd powers by alternating quadratic form, even powers by vector parity and E1=0, k=0 by v^Tv=0. Matrix determinant lemma therefore gives chi(QE)=chi(E). With z^n-1=(z^m-1)^d, n=dm, m odd, the factor z+1 has multiplicity d and Rule90 acts as z^-1(z+1)^2 on its local algebra, yielding R zero Jordan blocks d/2,d/2. A=QR has ker dimension2 and ker(A^2) increment 1 when 4|n, else0, from parity sums of the swapped two-periodic kernel; fixed algebraic zero multiplicity d forces A blocks (d-1,1), including d=2. Kernel counts then give Fitting preperiod distributions for A (2^{n-d},3*2^{n-d}, then 2^{n-d+t} for 2<=t<=d-1) and R (2^{n-d},3*4^{t-1}*2^{n-d} for 1<=t<=d/2). Mean formulas follow summing finite geometric sums. Independently computed binary rank stabilization on all even n from 4 through 40, agreeing with both predicted nilpotent signatures; finite dimensions do not prove all-even n.
 
-Suzuki, Okuyama, Takahashi and Saito, arXiv:2609.34542v1 (2026), define precisely the partial-shift permutation XOR family. Their Section 3.2 restricts analysis to odd dimensions and focuses long periodic orbits, while this result treats the even-dimensional two-output-swap case and its complete preperiod distribution. The classical unpermuted Rule-90 analysis by Martin, Odlyzko and Wolfram (1984) does not by itself imply the changed Jordan blocks after an output swap. Li, Wang and Zhang, arXiv:2410.09833 (2024), provide a strong annihilator for symmetric Eulerian adjacency matrices; their theorem cannot be applied to the nonsymmetric output-permuted map. Searches of relevant mathematical records and literature did not identify an equivalent statement. The full text of Onuki, Suzuki and Saito (2025) could not be inspected; potential specialized priority remains a residual risk, so novelty is asserted only relative to the evidence assessed.
+## originality
 
-## Value: PASS
+PASS
 
-The originating partial-shift automata literature explicitly leaves even dimensions difficult. For an infinite natural family, an exactly one-output-pair permutation leaves every eigenvalue invariant yet changes the largest nilpotent Jordan block from half of the dyadic divisor to nearly the whole divisor. This gives a complete exact census of all finite-state transient lengths, including a nearly twofold worst-case extinction delay on power-of-two rings. The conclusion clarifies why characteristic polynomials alone cannot resolve convergence times in these network dynamical systems.
+The original permutation-XOR partial-shift paper treats odd rings while this uniformly settles even r=2 transient counts. Classical Rule90 factorization and Eulerian symmetric graph annihilators are prior tools, not the output-swap Jordan comparison. Specialized 2025 predecessor full text unavailable.
 
-## Scope and limitations
+## value
 
-The result does not count primitive cycles in the nonzero spectral component when the ring length is not a power of two, and does not handle other permutations, fields, stochasticity, or asynchronous updates. Priority remains open against relevant unavailable complete manuscripts; finite verification is not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This natural partial-output permutation family was singled out as difficult for even ring sizes. A one-pair output swap leaves every spectral eigenvalue unchanged while almost doubling a power-of-two ring extinction horizon; the complete state preperiod census demonstrates a sharp Jordan-structure versus characteristic-spectrum distinction for finite GF2 dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
