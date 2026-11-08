@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T07:50:04.236215Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_a=B(ae₁,1)∩B(−ae₁,1), 0≤a<1, section integration yields area 2(acos a−a√(1−a²)). The two-branch support h(θ)=1−a cosθ for θ≤acos a, and √(1−a²)sinθ otherwise, gives polar area by 2∫h(θ)^{-2}dθ = (π+4a)/(1−a²)^{3/2}. The derivative is 2H(a)/(1−a²)^{5/2}; H(0)=H(1−)=0, H′(0)<0, H′ positive near 1, and H″=16acos a−6π√(1−a²) changes sign exactly once, forcing H<0. The affine scaling x/(1−a), y/√(2(1−a)) converges to |X|+Y²≤1 and Mahler product 4(π+4)/3. Independently numerically integrated both polar support branches for a=0,.125,.4,.7,.9 and matched closed formula. Strict all-a monotonicity is proved analytically, not by sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blaschke–Santaló provides universal upper π², planar Mahler provides general lower 8, neither yields 4(π+4)/3 as family sharp lower.",
+          "Meyer–Reisner establish reciprocal polar-volume convexity in shadow systems, not this explicit strict derivative under disk intersection."
+        ],
+        "reasoning": "General inequalities bound the answer but do not determine the familywise decreasing profile and unattained affine lens limit.",
+        "searches": [
+          "Mahler volume product two equal overlapping disks intersection symmetric circular lens polar area monotonicity"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/math/0606305v2",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mean-width-of-a-symmetric-lens-in-every-dimension--80ec085cfff6",
+        "https://arxiv.org/abs/1301.5515",
+        "https://arxiv.org/abs/1507.01481",
+        "Resultary query: Mahler volume product two equal overlapping disks intersection symmetric circular lens polar area monotonicity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full published mean-width lens RESULT.md identifies support branches 1−a cosθ and √(1−a²)sinθ.",
+          "New polar area evaluates ∫h^{-2}, leading to (π+4a)/(1−a²)^{3/2}; strict sign of derivative and parabolic limit require additional reasoning."
+        ],
+        "reasoning": "Shared support h is prior; integrating the inverse square and proving monotonicity is not a direct corollary of the first-power width formula.",
+        "searches": [
+          "Mahler volume product two equal overlapping disks intersection symmetric circular lens polar area monotonicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meyer–Reisner 2006 is a general convex-polar shadow-system theorem; no formula for this symmetric equal-disk lens or strict separation derivative is stated in inspected sections.",
+          "Published symmetric-lens mean-width theorem uses exactly this h(θ) but integrates h rather than h^{−2}."
+        ],
+        "reasoning": "The polar-area integral is a different functional; the first-power mean width does not imply an inverse-square area or exact Mahler product.",
+        "searches": [
+          "Mahler volume product two equal overlapping disks intersection symmetric circular lens polar area monotonicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned related symmetric lens mean-width, convex-body Mahler examples and intersecting disk area, no exact lens polar-area product table."
+        ],
+        "reasoning": "No matching exact database located; geometric literature is large so priority remains bounded.",
+        "searches": [
+          "Mahler volume product two equal overlapping disks intersection symmetric circular lens polar area monotonicity"
+        ]
+      },
+      "rationale": "Exact lens support branches and general polarity theory are prior. The computed inverse-square polar area, strict monotonicity and affine parabolic lens extremal are not stated in inspected primary records; historical geometric-priority risk persists.",
+      "residual_risks": [
+        "The exact polar-area integral might be implicit in older lens/quermassintegral literature; no priority guarantee.",
+        "The a=1 original lens is degenerate; only a rescaled full-dimensional limit has the stated lower Mahler product."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GENERAL_NOT_EXACT_LENS",
+          "evidence": [
+            "General convexity of reciprocal polar volume for shadow systems; no exact symmetric planar two-disk intersection profile."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0606305v2",
+          "material_read": "Arxiv HTML introduction, main convexity theorem, and application statements",
+          "method": "Primary arXiv HTML, relevant theorem statements and introductory application material",
+          "title": "Shadow systems and volume of polar convex bodies",
+          "trigger": "Potential general polarity and monotonicity theorem"
+        },
+        {
+          "assessment": "PRIOR_SUPPORT_FUNCTION_ONLY",
+          "evidence": [
+            "Mean width is spherical average of h (first power); the Mahler product needs integral of inverse square of h and a new derivative sign argument."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mean-width-of-a-symmetric-lens-in-every-dimension--80ec085cfff6",
+          "material_read": "Full public RESULT.md including support derivation and spherical average proof",
+          "method": "Primary published result full RESULT.md via GitHub connector",
+          "title": "Mean width of a symmetric lens in every dimension",
+          "trigger": "Exactly same lens support function and monotonicity but different invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp full family-specific Mahler product profile for canonical symmetric two-disk intersections, exhibiting a nontrivial affine parabolic limiting extremal; quantitatively stronger than the broad universal 8≤product≤π² bounds for this family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only centrally symmetric two congruent planar disks; a=1 excluded as degenerate; no arbitrary intersections or higher-dimensional Mahler claim."
+  ],
+  "schema_version": 1
+}

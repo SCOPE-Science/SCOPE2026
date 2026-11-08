@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the planar symmetric lens product
+# Independent mathematical audit
 
-The claim is analytically proved in `RESULT.md`. In particular, the universal strict derivative sign comes from the explicit expressions for \(H'\) and \(H''\) and their endpoint signs, not from a finite test.
+## correctness
 
-Run `python verify.py` with a standard Python 3 interpreter. No third-party dependencies are required. The checker independently integrates primal vertical sections and polar radial sections at 10 parameter values, checks continuity at the support-function branch boundary, checks derivative and product signs at deterministic rational grid points, and tests endpoint behavior. Its observed successful output is `PASS: 2045 deterministic geometric/numerical assertions; analytic proof required for all parameters.` The finite checks neither establish an infinite-domain theorem on their own nor amount to independent mathematical review.
+PASS
 
-The first source date is independently identifiable as 2006-06-13 on arXiv:math/0606305v1. The cited source predates the archival classification cutoff. The general polar-volume and mean-width sources are acknowledged as prior work; no undocumented independent certification or absolute historical priority is claimed.
+For K_a=B(ae₁,1)∩B(−ae₁,1), 0≤a<1, section integration yields area 2(acos a−a√(1−a²)). The two-branch support h(θ)=1−a cosθ for θ≤acos a, and √(1−a²)sinθ otherwise, gives polar area by 2∫h(θ)^{-2}dθ = (π+4a)/(1−a²)^{3/2}. The derivative is 2H(a)/(1−a²)^{5/2}; H(0)=H(1−)=0, H′(0)<0, H′ positive near 1, and H″=16acos a−6π√(1−a²) changes sign exactly once, forcing H<0. The affine scaling x/(1−a), y/√(2(1−a)) converges to |X|+Y²≤1 and Mahler product 4(π+4)/3. Independently numerically integrated both polar support branches for a=0,.125,.4,.7,.9 and matched closed formula. Strict all-a monotonicity is proved analytically, not by sampling.
+
+## originality
+
+PASS
+
+Exact lens support branches and general polarity theory are prior. The computed inverse-square polar area, strict monotonicity and affine parabolic lens extremal are not stated in inspected primary records; historical geometric-priority risk persists.
+
+## value
+
+PASS
+
+A sharp full family-specific Mahler product profile for canonical symmetric two-disk intersections, exhibiting a nontrivial affine parabolic limiting extremal; quantitatively stronger than the broad universal 8≤product≤π² bounds for this family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

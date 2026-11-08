@@ -1,15 +1,21 @@
-# Scientific review: sharp Mahler-product monotonicity of symmetric planar circular lenses
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometric domain is precisely the origin-symmetric intersection of two unit disks at \(\pm ae_1\), \(0\le a<1\). Vertical sections yield its area, and the exact two-branch support function gives polar area by angular integration of its inverse square. The tangent half-angle identity evaluates the nontrivial polar integral. After differentiation, the derivative sign is controlled by \(H(a)\); its second derivative \(16\arccos a-6\pi\sqrt{1-a^2}\) has a unique sign change, and the derivative and endpoint signs prove \(H(a)<0\) for all \(0<a<1\). Affine rescaling proves the parabolic-lens limit. A standard-library numerical verifier passed 2,045 deterministic checks; those tests corroborate but do not replace the universal proof.
+## correctness
 
-## Originality — PASS, with bounded historical risk
-The closest mathematical research record, *Mean width of a symmetric lens in every dimension*, gives the same support branches, which are acknowledged, but obtains mean width from the **first** power of support. The new polar area requires the **inverse square**, and the sharp product monotonicity further needs the independent sign argument. Finch's three-dimensional symmetric-lens geometry does not provide this planar polar product. Meyer–Reisner (2006) address general shadow-system polar convexity, while Böröczky–Makai–Meyer–Reisner (2015) give global planar volume-product estimates, not this exact one-parameter ordering. Broader and alternative published-finding corpus and literature searches found no covering theorem. The possibility of an equivalent hidden in unindexed classical polar-area sources remains a genuine originality risk, not a proved negative.
+PASS
 
-## Mathematical value — PASS
-The Mahler product is a central affine-invariant convex-geometric quantity, and intersections of congruent disks are a canonical family of convex lenses. The theorem establishes the sharp entire parameter order, a nontrivial strictly positive family-specific gap above the global planar Mahler lower constant, and identifies its nondegenerate affine parabolic-limit extremal geometry. This distinguishes it from a formula for a single arbitrary numerical parameter. It does not imply a general Mahler inequality or a higher-dimensional analogue.
+For K_a=B(ae₁,1)∩B(−ae₁,1), 0≤a<1, section integration yields area 2(acos a−a√(1−a²)). The two-branch support h(θ)=1−a cosθ for θ≤acos a, and √(1−a²)sinθ otherwise, gives polar area by 2∫h(θ)^{-2}dθ = (π+4a)/(1−a²)^{3/2}. The derivative is 2H(a)/(1−a²)^{5/2}; H(0)=H(1−)=0, H′(0)<0, H′ positive near 1, and H″=16acos a−6π√(1−a²) changes sign exactly once, forcing H<0. The affine scaling x/(1−a), y/√(2(1−a)) converges to |X|+Y²≤1 and Mahler product 4(π+4)/3. Independently numerically integrated both polar support branches for a=0,.125,.4,.7,.9 and matched closed formula. Strict all-a monotonicity is proved analytically, not by sampling.
 
-## Scope and limitations
-The limit at \(a=1\) is only via affine blow-up; the degenerate original intersection has no finite polar area. No unequal-radius, higher-dimensional or multiple-ball result is asserted. No independent audit is represented by this review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact lens support branches and general polarity theory are prior. The computed inverse-square polar area, strict monotonicity and affine parabolic lens extremal are not stated in inspected primary records; historical geometric-priority risk persists.
+
+## value
+
+PASS
+
+A sharp full family-specific Mahler product profile for canonical symmetric two-disk intersections, exhibiting a nontrivial affine parabolic limiting extremal; quantitatively stronger than the broad universal 8≤product≤π² bounds for this family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
