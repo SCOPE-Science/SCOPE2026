@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exhaustive enumeration from definitions: 96 GC-balanced four-mers, 8 self-RC, 44 two-word RC orbits, 4 internally swap-conflicting orbits, 40 eligible orbit vertices, 100 conflict edges, and five connected components. Direct enumeration of every component subset gives independent-set maxima (2,3,2,3,1) with counts (3,12,3,12,4). This proves 22 and 5184; a 22-word construction passes every pairwise shadow test. A separate composition-first recursive solver confirms these outputs and the comparison 25. All scripts are supplied.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "R. Gabrys, E. Yaakobi, O. Milenkovic, Codes in the Damerau Distance for Deletion and Adjacent Transposition Correction, arxiv:1601.06885 (2016), abstract, introductory contributions, Section II and Section III, pages 1–3.",
+        "N. Bennenni, K. Guenda, S. Mesnager, New DNA Cyclic Codes over Rings, arxiv:1505.06263 (2015), introduction and theorems on reverse-complement cyclic/skew cyclic codes, pages 1–3 and 14–16.",
+        "The 2016 paper explicitly restricts its main analysis to binary alphabets; its principal results concern constructions and asymptotic redundancy rather than the exact joint-constraint four-mer enumeration."
+      ],
+      "reasoning": "A theorem for all quaternary one-swap codebooks with strict RC closure and exact GC-content would dominate this result, but no such coverage appeared in the inspected primary texts. Bounds or constructions for unrelated stronger edit channels cannot automatically imply this exact optimum or extremizer count.",
+      "searches": [
+        "length-four DNA codes one adjacent transposition error complement strand closure exact optimum",
+        "Gabrys et al. 2016 Section II and III binary alphabet and adjacent transposition",
+        "Bennenni et al. 2015 Sections 2–3 reverse complement cyclic codes"
+      ]
+    },
+    "checked_sources": [
+      "O. D. King, Bounds for DNA codes with constant GC-content, arxiv:math/0306197 (2003), introductory definitions and Proposition 1, pages 1–2.",
+      "R. Gabrys, E. Yaakobi, O. Milenkovic, Codes in the Damerau Distance for Deletion and Adjacent Transposition Correction, arxiv:1601.06885 (2016), abstract, introductory contributions, Section II and Section III, pages 1–3.",
+      "N. Bennenni, K. Guenda, S. Mesnager, New DNA Cyclic Codes over Rings, arxiv:1505.06263 (2015), introduction and theorems on reverse-complement cyclic/skew cyclic codes, pages 1–3 and 14–16.",
+      "H. M. Kiah, G. J. Puleo, O. Milenkovic, Codes for DNA Storage Channels, arxiv:1410.8837 (2014), pages 1–5, read/profile channel and GC-content definitions.",
+      "Published research-record matches for exact adjacent-swap/GC/RC queries described in the three searchable query strings."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "O. D. King, Bounds for DNA codes with constant GC-content, arxiv:math/0306197 (2003), introductory definitions and Proposition 1, pages 1–2.",
+        "R. Gabrys, E. Yaakobi, O. Milenkovic, Codes in the Damerau Distance for Deletion and Adjacent Transposition Correction, arxiv:1601.06885 (2016), abstract, introductory contributions, Section II and Section III, pages 1–3.",
+        "H. M. Kiah, G. J. Puleo, O. Milenkovic, Codes for DNA Storage Channels, arxiv:1410.8837 (2014), pages 1–5, read/profile channel and GC-content definitions.",
+        "Previously recorded length-four DNA deletion and Hamming extremer results do not imply an adjacent-swap decoding-ball separation theorem: neither channel contains the other for all pairs of four-mers."
+      ],
+      "reasoning": "No inspected prior result yields both an upper bound of 22 for all eligible strand-paired one-swap codebooks and an attaining set, much less the exact 5184 extremizer census. Hamming distance, deletion ambiguity and read-profile equivalences have different conflict graphs.",
+      "searches": [
+        "four nucleotide length four GC content two Watson Crick reverse-complement closed single adjacent transposition correcting code maximum 22 5184",
+        "King arxiv:math/0306197 Proposition 1, d=1 and all d",
+        "Gabrys arxiv:1601.06885 Section III transposition/deletion construction",
+        "Kiah arxiv:1410.8837 sequence-profile channel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "O. D. King, Bounds for DNA codes with constant GC-content, arxiv:math/0306197 (2003), introductory definitions and Proposition 1, pages 1–2.",
+        "R. Gabrys, E. Yaakobi, O. Milenkovic, Codes in the Damerau Distance for Deletion and Adjacent Transposition Correction, arxiv:1601.06885 (2016), abstract, introductory contributions, Section II and Section III, pages 1–3.",
+        "The channel equals correctability in the graph of closed, at-most-one adjacent-swap balls; this is not a Hamming-distance bound because a one-swap pair can have Hamming distance two while other Hamming-two pairs are outside the channel."
+      ],
+      "reasoning": "The matching equivalent is an exact independent-set/capacity problem on four-mer swap balls with RC-invariant, no-fixed-vertex constraints. Classical GC/Hamming/RC formulations do not identify adjacent swaps, and the binary Damerau constructions do not determine this constrained quaternary capacity or census.",
+      "searches": [
+        "four nucleotide length four GC content two Watson Crick reverse-complement closed single adjacent transposition correcting code maximum 22 5184",
+        "DNA GC-balanced length 4 adjacent-swap one-transposition correction reverse-complement 22 codewords",
+        "King (2003) arxiv:math/0306197",
+        "Gabrys et al. (2016) arxiv:1601.06885"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related published research records include binary single-0-deletion-or-adjacent-transposition code sizes through length seven and independent classifications of short DNA deletion codes, which use distinct alphabets or error balls.",
+        "King (2003) provides Hamming-distance tables and bounds, not adjacent-swap optimum tables."
+      ],
+      "reasoning": "The reported 22/5184 does not appear in the checked exact parameter tables or published research-record summaries. An absent table entry is evidence only within that checked scope, not a general novelty proof.",
+      "searches": [
+        "four nucleotide length four GC content two Watson Crick reverse-complement closed single adjacent transposition correcting code maximum 22 5184",
+        "DNA GC-balanced length 4 adjacent-swap one-transposition correction reverse-complement 22 codewords",
+        "length-four DNA codes one adjacent transposition error complement strand closure exact optimum"
+      ]
+    },
+    "rationale": "An exact comparison distinguishes this 4-ary length-four GC=2 Watson–Crick-closed one-adjacent-swap channel from previously studied Hamming, edit/deletion, binary transposition and sequence-profile channels. The relevant pre-2016 primary full texts were materially inspected in stated sections and no theorem establishing either 22 as the exact maximum or 5184 as the full extremizer count was found. A wider priority review remains outstanding.",
+    "residual_risks": [
+      "An uninspected quaternary adjacent-transposition thesis or restricted-channel table may contain the same small-instance capacity or classify the optima.",
+      "The original 2016 transposition work has later revisions; only materially compared sections support the specific statement-level contrast.",
+      "No independent historical-priority audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Hamming distance and reverse-complement distance, not correction of one adjacent swap or closed-codebook extremizer count",
+        "evidence": [
+          "O. D. King, Bounds for DNA codes with constant GC-content, arxiv:math/0306197 (2003), introductory definitions and Proposition 1, pages 1–2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0306197",
+        "material_read": "Abstract, introduction, code definitions, Proposition 1 and upper-bound discussion, PDF pages 1–2; first PDF page screenshot",
+        "method": "Public full-text preprint and PDF text plus page image",
+        "title": "Bounds for DNA codes with constant GC-content",
+        "trigger": "Direct source for two-GC composition and Watson–Crick constraints"
+      },
+      {
+        "assessment": "The adjacent-swap model is relevant, but the concrete development explicitly restricts to the binary alphabet, with general constructions, not quaternary four-mer GC/RC exact extremizers",
+        "evidence": [
+          "R. Gabrys, E. Yaakobi, O. Milenkovic, Codes in the Damerau Distance for Deletion and Adjacent Transposition Correction, arxiv:1601.06885 (2016), abstract, introductory contributions, Section II and Section III, pages 1–3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1601.06885",
+        "material_read": "Full PDF abstract, introduction, Section II definitions, and Section III construction setup, pages 1–3; first PDF page screenshot",
+        "method": "Public full-text preprint and PDF text plus page image",
+        "title": "Codes in the Damerau Distance for Deletion and Adjacent Transposition Correction",
+        "trigger": "Closest pre-2016 paper specifically studying adjacent transpositions motivated by DNA storage"
+      },
+      {
+        "assessment": "Algebraic cyclic/skew-cyclic constructions and Hamming/edit-distance properties, no exact quaternary one-swap four-mer capacity classification",
+        "evidence": [
+          "N. Bennenni, K. Guenda, S. Mesnager, New DNA Cyclic Codes over Rings, arxiv:1505.06263 (2015), introduction and theorems on reverse-complement cyclic/skew cyclic codes, pages 1–3 and 14–16."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1505.06263",
+        "material_read": "Full-text abstract, introduction, Section 2 examples and Section 3 reverse-complement/skew cyclic theorems, PDF pages 1–3,9,14–16; first PDF page screenshot",
+        "method": "Public full-text preprint, PDF text find and page image",
+        "title": "New DNA Cyclic Codes over Rings",
+        "trigger": "Potentially stronger reverse-complement DNA codes using edit metrics"
+      },
+      {
+        "assessment": "The observations are multisets of substrings/profile vectors, rather than full-word one-swap outputs",
+        "evidence": [
+          "H. M. Kiah, G. J. Puleo, O. Milenkovic, Codes for DNA Storage Channels, arxiv:1410.8837 (2014), pages 1–5, read/profile channel and GC-content definitions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1410.8837",
+        "material_read": "Abstract, introduction, DNA profile output model and balanced-GC definitions, PDF pages 1–5; first PDF page screenshot",
+        "method": "Public full-text preprint, PDF text and page image",
+        "title": "Codes for DNA Storage Channels",
+        "trigger": "DNA balanced content and error-correction channel possibly implies short profile codes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "70adcf81-57b1-42d8-888f-aab4623e0a5a",
+  "value": {
+    "rationale": "Exact capacity plus complete labeled extremizer count for the conjunction of fixed half-GC composition, Watson–Crick strand pairing, exclusion of self-paired strands, and a physically motivated adjacent-transposition edit. A complete five-component finite classification and the unconstrained 25-word comparison identify a nonzero strand-symmetry cost; exact small-block designs are useful beyond generic asymptotic coding bounds.",
+    "status": "PASS"
+  }
+}
