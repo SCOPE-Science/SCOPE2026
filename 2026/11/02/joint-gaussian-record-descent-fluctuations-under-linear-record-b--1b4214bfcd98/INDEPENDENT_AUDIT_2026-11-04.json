@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T22:02:15.445454Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under record-bias weight theta^R with theta=lambda*n for fixed lambda>0, the independent rank insertion U_i law yields record indicators B_i=1{U_i=i} and descent indicators X_i=1{U_{i+1}<=U_i}, a bounded 1-dependent triangular array. The proof computes exact r_i,p_i,j_i=Pr(X_i=X_{i+1}=1), derives the finite covariance -theta*n*(n-1)/[2(theta+n-1)^2] by exponential-family differentiation of known ED, and integrates Riemann-limit variances: Sigma11=lambda log(1+1/lambda)-lambda/(1+lambda), Sigma12=-lambda/[2(1+lambda)^2], Sigma22=(6lambda^2+4lambda+1)/[12(1+lambda)^3]. Its conditional three-rank argument gives strict positive definiteness; gap-separated blocks of n^(1/4) produce the Lindeberg–Cramer–Wold joint Gaussian limit. Independent weighted permutation enumeration for n=2..7 and theta=1/2,2,3 verified exact means/covariances; symbolic integration checked the descent variance integrand; these finite tests are not an n->infinity proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General 1-dependent CLT is a tool, not automatically the computed lambda-dependent covariance.",
+          "Published fixed-theta marginal CLTs do not imply linear-theta bivariate CLT, and known linear-theta permuton limit is only first-order."
+        ],
+        "reasoning": "No inspected stronger limit theorem with both records and descents in theta=lambda*n regime implies the explicit matrix as a corollary; general probabilistic machinery is credited.",
+        "searches": [
+          "Bouvel Nicaud Pivoteau arXiv:2409.01692v1 §§3–5",
+          "Féray arXiv:1201.2157",
+          "Borodin–Diaconis–Fulman arXiv:0904.3740"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and checker.py at assigned source tree",
+        "Bouvel–Nicaud–Pivoteau arXiv:2409.01692v1 full primary PDF §§3–5",
+        "Auger et al arXiv:1605.02905 abstract",
+        "Borodin–Diaconis–Fulman arXiv:0904.3740 abstract",
+        "Resultary record-bias CLT query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previously known ED=n(n-1)/(2(theta+n-1)) implies exact Cov(R,D) by theta differentiation, which the submission explicitly acknowledges.",
+          "Separate marginal means and fixed-theta normal limits do not determine linear-theta joint fluctuations or the nonzero off-diagonal covariance."
+        ],
+        "reasoning": "The final bivariate CLT requires new simultaneous asymptotic variance and dependence analysis; no originality is asserted for differentiation identity or CLT machinery.",
+        "searches": [
+          "Bouvel Nicaud Pivoteau main means, fixed-theta normal theorem, linear-theta permuton theorem",
+          "Auger et al arXiv:1605.02905"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Foata/Ewens correspondences can recast record count but an exact joint transform preserving adjacent descents is not supplied by the inspected fixed-theta results.",
+          "Independent-rank construction is prior; here used to derive a bivariate 1-dependent array under theta=lambda*n."
+        ],
+        "reasoning": "Checked aliases record-biased, Ewens-transformed permutation statistics, one-dependent descent processes; the matching parameter regime and joint observable were not covered in primary passages read.",
+        "searches": [
+          "Resultary: record-biased permutations descents records joint central limit linear parameter theta n",
+          "Bouvel Nicaud Pivoteau arXiv:2409.01692v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite joint Stirling-Euler-Mahonian identities may imply some moments but do not in inspected material list this n-scaled covariance matrix."
+        ],
+        "reasoning": "No exact linear-bias bivariate Gaussian covariance table located; historical permutation-statistics tables remain a residual search risk.",
+        "searches": [
+          "Resultary record bias joint Gaussian descents query",
+          "arXiv:2409.01692v1 fluctuations",
+          "Butler arXiv:2305.11273"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the explicit bivariate n^(1/2) CLT and strictly negative correlation at theta=lambda*n. Bouvel–Nicaud–Pivoteau give independent rank representation and exact record/descent means, fixed-theta marginal Gaussian results, and theta=lambda*n permuton/first-order statistics. The exact mixed covariance alone is a short derivative of an earlier mean and is NOT claimed new. No inspected primary theorem provides the joint covariance and fluctuation law in the linear record-bias regime.",
+      "residual_risks": [
+        "A less prominent asymptotic of the joint Stirling–Eulerian generating function may contain equivalent linear-tilt fluctuations.",
+        "Marginal first moments and finite covariance are prior or routine derivatives; distinct new content rests on joint CLT and asymptotic covariance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MEANS_FIXED_THETA_AND_PERMUTON_NOT_BIVARIATE_LINEAR_CLT",
+          "evidence": "Independent ranks, exact means and fixed-theta marginals given; theta=lambda*n permuton result does not state the explicit joint covariance/CLT.",
+          "identifier_or_url": "arXiv:2409.01692v1",
+          "material_read": "Full 36-page primary PDF; Sections 3.2,4.1–4.3,5 and key proofs materially read",
+          "method": "Public arXiv PDF",
+          "title": "Record-biased permutations and their permuton limit",
+          "trigger": "Identical probability weighting and both record and descent statistics"
+        },
+        {
+          "assessment": "PRIOR_MEANS",
+          "evidence": "Do not claim record/descent exact means new; no full-source noncoverage assertion.",
+          "identifier_or_url": "arXiv:1605.02905",
+          "material_read": "Abstract and cited expectation identity; full text not materially read",
+          "method": "Public arXiv bibliography and abstract",
+          "title": "Analysis of Algorithms for Permutations Biased by Their Number of Records",
+          "trigger": "Earlier exact record and descent expectation formulas"
+        },
+        {
+          "assessment": "GENERAL_METHOD_NOT_EXPLICIT_LINEAR_RECORD_BIAS",
+          "evidence": "General dependence method does not itself specify this statistic/covariance.",
+          "identifier_or_url": "arXiv:0904.3740",
+          "material_read": "Abstract and summary of model, not whole proof",
+          "method": "Public arXiv abstract",
+          "title": "On adding a list of numbers (and other one-dependent determinantal processes)",
+          "trigger": "General 1-dependence and descent asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Linear record bias creates order-n records and a nontrivial permuton. The order-sqrt(n) joint record–descent Gaussian covariance and strict negative correlation provide a natural second-order law for a canonical permutation model; explicit covariance cannot be inferred from separate first moments or marginal CLTs.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and checker.py at assigned source tree",
+    "Bouvel–Nicaud–Pivoteau arXiv:2409.01692v1 full primary PDF §§3–5",
+    "Auger et al arXiv:1605.02905 abstract",
+    "Borodin–Diaconis–Fulman arXiv:0904.3740 abstract",
+    "Resultary record-bias CLT query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only theta=lambda*n for fixed positive lambda, not lambda tending to 0 or infinity.",
+    "No convergence rate or functional CLT is claimed; general 1-dependent CLT is prior."
+  ],
+  "residual_risks": [
+    "A less prominent asymptotic of the joint Stirling–Eulerian generating function may contain equivalent linear-tilt fluctuations.",
+    "Marginal first moments and finite covariance are prior or routine derivatives; distinct new content rests on joint CLT and asymptotic covariance."
+  ],
+  "schema_version": 1
+}
