@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Conditional Euclidean norm multiplier is exactly (1-sAB)^2+sB^2 for a two-dimensional skew rotation. Uniform marginals force the one-parameter p coupling, giving Q_p(s) by exhaustive four-case algebra. The p-optimum is the sign of s(b-a)^2[-1+s(a+b)^2/2]; the maximum stable step follows from endpoint affine-fractional ratios, with a single quartic sign crossing reduced to u²-2u-4. The global rate inequality is strict for 2<u<4 and antithetic fails to contract for u≥4. Actual standard-library checker replays 837 exact-rational assertions; finite tests are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gorbunov et al. analyze sample-dependent stages with one shared index (S-SEG), and two independent indices (I-SEG), not intermediate dependent pairs.",
+        "Yoon and Loizou focus on high-probability gap and a.s. last-iterate guarantees for S-SEG and I-SEG; inspected sections contain no general stage-coupling optimum."
+      ],
+      "reasoning": "General convergence rates for fixed same/independent variants do not imply optimality under arbitrary jointly distributed stage indices or the exact contrast between stable-step and fastest-rate objectives; 2026 full-text specialist overlap is a residual risk.",
+      "searches": [
+        "Antithetic sampling stochastic extragradient mean-square stability interpolation bilinear games randomized gains coupling",
+        "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf Sections 1.2, 3 and 4",
+        "https://arxiv.org/abs/2608.06182"
+      ]
+    },
+    "checked_sources": [
+      "https://proceedings.mlr.press/v108/mishchenko20a/mishchenko20a.pdf",
+      "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf",
+      "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf",
+      "https://proceedings.neurips.cc/paper_files/paper/2024/file/df658fe5097f65485ad80b06e6cb30dd-Paper-Conference.pdf",
+      "https://arxiv.org/abs/2608.06182"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact update with distinct coefficients is (1-eta² AB)I - eta B J, while same-sample literature fixes B=A and independent-sample literature imposes independence.",
+        "Flip-flop shuffling changes sample order across updates and includes anchoring, rather than arbitrary two-call covariance inside an unanchored update."
+      ],
+      "reasoning": "Neither the p=1 special case, p=1/2 special case, nor epoch-wise reshuffling controls the p=0 cross-stage pair at fixed marginals. Their reported inequalities do not prove which endpoint maximizes the stable squared step, nor the phase switch at r=(1+sqrt(5)+sqrt(2+2sqrt(5)))/2 or same-sample global fastest tuning.",
+      "searches": [
+        "https://proceedings.mlr.press/v108/mishchenko20a/mishchenko20a.pdf Algorithm 1",
+        "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf eq. (2), Appendix A",
+        "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf Sections 3–4",
+        "https://proceedings.neurips.cc/paper_files/paper/2024/file/df658fe5097f65485ad80b06e6cb30dd-Paper-Conference.pdf Sections 1–2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The joint-uniform binary law is equivalent to one mixing parameter p between same and antithetic draws.",
+        "Li equation (2) and Mishchenko Algorithm 1 require the predictor and corrector to share the same index; their formulas specialize only to p=1."
+      ],
+      "reasoning": "Changing only terminology to antithetic draws, opposite samples, coupled two-call oracles, or random reshuffling does not identify a documented prior statement of the all-p law and ratio frontier. The same-sample single-endpoint expression alone is covered background.",
+      "searches": [
+        "Antithetic versus same-sample stochastic extragradient bilinear game two positive gain values optimal oracle coupling phase transition step size threshold",
+        "Two-point bilinear minimax game stochastic extragradient alternating and antithetic correlated oracle stages same sample opposite sample sharp mean-square stability 2.8900536",
+        "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf eq. (2)",
+        "https://proceedings.mlr.press/v108/mishchenko20a/mishchenko20a.pdf Algorithm 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned related indexed findings include a deterministic sequential implicit-proximal bilinear stability frontier and a normal-operator deterministic extragradient minimax rate, not the two-stage stochastic oracle-coupling law.",
+        "The exact witness 10/9 versus 37/36 versus 17/18 and the root (1+sqrt(5)+sqrt(2+2sqrt(5)))/2 were not found in the inspected comparisons."
+      ],
+      "reasoning": "No exact table or database entry with the coupled binary-oracle theorem was identified. Absence from a partial search does not prove novelty; comparison relies on distinct mathematical updates and quantifiers.",
+      "searches": [
+        "Stochastic extragradient oracle sample coupling covariance rearrangement perfect antithetic phase transitions",
+        "Exactly optimal coupling of two unbiased oracle draws across predictor and corrector stages stochastic extra-gradient, a,b positive, phase threshold sqrt(2)/(a+b)",
+        "Stochastic extragradient phase transition between comonotone and countermonotone oracle sample coupling and maximal stable step 1.2/1",
+        "https://proceedings.neurips.cc/paper_files/paper/2024/hash/df658fe5097f65485ad80b06e6cb30dd-Abstract-Conference.html"
+      ]
+    },
+    "rationale": "The new assertion compares all cross-stage couplings of two uniform oracle values for equal-step stochastic extragradient, proves a sharp switch and safe-step heterogeneity boundary, and distinguishes fastest tuned contraction from largest allowable step. Existing studies principally analyze identical or independent stage samples and other shuffled/implicit algorithms, so their stated results do not entail the optimized coupled-law phase diagram. Search incompleteness remains a risk.",
+    "residual_risks": [
+      "A previously published antithetic predictor/corrector coupling theorem could exist outside inspected primary papers and public index results.",
+      "Only selected sections of broad papers were read closely; no absolute originality or independent mathematical audit is asserted.",
+      "The result is deliberately restricted to two equally probable positive scalar game components; its significance for large-dimensional coupled games remains unproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers same-sample versus independent-sample stability motivation, not optimization over antithetic or intermediate joint laws for two stage calls",
+        "evidence": "Algorithm 1 explicitly samples one index reused in both stages; Section 2 contrasts two independent random instances of the stochastic operator.",
+        "identifier_or_url": "https://proceedings.mlr.press/v108/mishchenko20a/mishchenko20a.pdf",
+        "material_read": "Abstract, introduction and related work, Algorithm 1 and 2, Section 2 implicit-update argument and stated assumptions",
+        "method": "Accessible PMLR full-text extraction and visual page inspection, including the update equations",
+        "title": "Revisiting Stochastic Extragradient",
+        "trigger": "Original same-sample modification of stochastic extragradient on bilinear games"
+      },
+      {
+        "assessment": "Analyzes shared-sample SEG and averaging/restarting; the two different cross-stage oracle values with arbitrary coupling do not occur in equation (2). The same-sample factor is not claimed new.",
+        "evidence": "Equation (2) and its explanatory paragraph explicitly reuse the single coefficient in predictor and corrector; appendix discusses the shared-sample maximum step.",
+        "identifier_or_url": "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf",
+        "material_read": "Abstract and introduction, equation (2) definition, interpolation discussion, theorem context and appendix excerpt on maximum same-sample step size",
+        "method": "Accessible primary full-text extraction, section-level searches, and first-page visual inspection",
+        "title": "On the Convergence of Stochastic Extragradient for Bilinear Games using Restarted Iteration Averaging",
+        "trigger": "Exact bilinear random matrix analysis and same-sample stepsize bounds may dominate the proposed scalar case"
+      },
+      {
+        "assessment": "The source's arbitrary sampling controls the sampled operator within S-SEG; its I-SEG variant requires independent draws. Neither is the general fixed-marginal dependent pair used here.",
+        "evidence": "Section 1.2 writes S-SEG with one shared random index, then I-SEG with two independent indices; Appendix E treats mini-batches within the same-sample method.",
+        "identifier_or_url": "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf",
+        "material_read": "Sections 1–4 describing S-SEG, I-SEG, arbitrary sampling, paper-specific update equations, related work and appendix table of contents",
+        "method": "37-page primary PDF text extraction and visual inspections of pages 3 and 7",
+        "title": "Stochastic Extragradient: General Analysis and Improved Rates",
+        "trigger": "Arbitrary-sampling theorem might indirectly cover all joint oracle couplings"
+      },
+      {
+        "assessment": "Flip-flop and random reshuffling arrange the order of updates across an epoch and retain the same component in each two-stage SEG update. They do not imply the asserted per-update predictor/corrector coupling phase law.",
+        "evidence": "Sections 1.1–2 identify same-sample SEG-US, SEG-RR, SEG-FF and anchoring, all involving component reuse inside one update.",
+        "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/2024/file/df658fe5097f65485ad80b06e6cb30dd-Paper-Conference.pdf",
+        "material_read": "Introduction, Sections 1.1–2, pseudocode overview of shuffled same-sample methods and convergence results",
+        "method": "Primary 80-page PDF text extraction, page-one and page-two visual inspection",
+        "title": "Stochastic Extragradient with Flip-Flop Shuffling & Anchoring: Provable Improvements",
+        "trigger": "Shuffling could implement negative pairwise dependence in a related two-client setting"
+      },
+      {
+        "assessment": "Relevant comparison of same-sample and independent-sample schemes, but the inspected sections do not supply the intermediate fixed-marginal coupling family or the sharp two-component threshold. Remaining full-text overlap risk acknowledged.",
+        "evidence": "The stated variants are S-SEG and I-SEG, and the abstract centers high-probability gap and a.s. convergence rather than optimizing dependence for a scalar bilinear factor.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.06182",
+        "material_read": "Abstract, introduction, prior-work discussion and table-of-contents statements",
+        "method": "Public arXiv HTML full-text rendering and targeted search for coupling and antithetic terms",
+        "title": "On Same-Sample and Independent-Sample Stochastic Extragradient for Monotone Variational Inequalities",
+        "trigger": "Subsequent specialist work directly comparing two standard stage-sampling regimes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d9c93a5e-d1fe-4847-9967-0ce7b9220039",
+  "value": {
+    "rationale": "This solves the natural unbiased two-call oracle pairing decision completely on the smallest nontrivial finite-sum bilinear game, not merely a renamed stable-rate bound. A sharp heterogeneity threshold selects antithetic versus shared pairing for maximal admissible step, while same-sample remains best at jointly optimized contraction. The exact rational example demonstrates that antithetic pairing converges when both conventional shared and independent pairing diverge at equal two-call cost. It provides a meaningful reference counterexample and motivates further multi-component coupling designs without claiming their solution.",
+    "status": "PASS"
+  }
+}
