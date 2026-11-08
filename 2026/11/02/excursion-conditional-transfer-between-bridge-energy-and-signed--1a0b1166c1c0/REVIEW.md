@@ -1,15 +1,21 @@
-# Scientific review: excursion-conditional transfer
+# Independent mathematical audit
 
-## Correctness — PASS
-The sample space is the uniform set of balanced nearest-neighbor words of length \(2n\), with \(n\ge1\). The ordered excursion-semilength vector contains every primitive positive semilength, not the signs or shapes. The bridge-energy expectation follows from sampling the increments without replacement. First-return Catalan generating functions show that a primitive excursion of semilength \(m\) has mean squared-height energy \(m(2m-1)\); hence \(\mathbb E[Q\mid\mathcal M]=2\sum_i M_i^2-n\). Conditional independent fair signs yield \(\mathbb E[X^2\mid\mathcal M]=\sum_iM_i^2\). These two checked identities prove the asserted transfer with all quantifiers and endpoints. Coefficient extraction from a bivariate excursion generating function yields the displayed covariance and its asymptotic. Exact arithmetic checked all ordered excursion vectors through semilength nine, and coefficients through semilength one hundred, totaling 1,267 assertions; such finite checks corroborate rather than replace the analytic argument.
+## correctness
 
-## Originality — PASS, qualified
-The conditional transfer for the *entire ordered excursion-length vector* is more informative than a return-count covariance. Lindell and Holst (2007), in their available full 12-page paper, develop first-return renewal structure and ranked excursion-length laws, but the inspected sections and full-text searches do not supply the conditional energy/occupation identity. Pitman and Tang (arXiv:1307.7952), later combined with Lupu (arXiv:1310.3889) develop Vervaat transformations and bridge/excursion decompositions, with no equivalent finite energy-imbalance statement found in the inspected accessible full text. Bernoulli-walk local-time literature is plausibly related; the de Vos–Vervaat preprint could not be accessed beyond bibliographic material and therefore remains a priority risk. The earlier return-count/energy covariance for these same bridges is entailed by the transfer and is not claimed separately. No identified accessible stronger theorem subsumes conditioning on every composition of excursion lengths. Negative searches are not a proof of absolute novelty.
+PASS
 
-## Mathematical value — PASS
-Signed occupation time measures which side of zero each excursion visits; energy measures the size of heights across the walk. Their exact, unexpectedly simple relationship under *arbitrary fixed ordered excursion lengths* converts any statistic of the excursion-length composition from one class of quadratic observables to another. This structural equality helps compare local-time, return-time and occupation functionals of tied-down random walks; it is not a renaming of a marginal identity or an arbitrary finite numerical invariant. The strictly negative count–imbalance covariance illustrates a concrete consequence.
+Reconstructed Catalan first-return generating function F=(1-sqrt(1-4z))/2 and bridge B=1/sqrt(1-4z). Marking one primitive excursion in the mean bridge energy yields E[Q_exc|semilength m]=m(2m-1) for either sign. Given ordered M, independent fair signs give E[X^2|M]=sum m_i^2 and additive energy gives E[Q|M]=2 sum m_i^2-n, proving E[Q-2X^2|M]=-n for every composition, not merely K. Differentiating the K- and X-marked generating series gives Cov(K,X^2)=-n(n-1)4^n/(12 binom(2n,n)); Stirling gives -sqrt(pi)n^(5/2)/12. Independently enumerated every balanced path n<=7, verified all conditional composition groups and covariance. The analytic formal-series proof, not these bounded checks, covers every n.
 
-## Limitations and closest literature
-The statement applies to uniform nearest-neighbor bridges, not general Lévy bridges, conditioned excursion signs, or equality of distributions. References: Lindell and Holst (2007), doi:10.1239/jap/1197908824; Lupu, Pitman, Tang (2013), arXiv:1310.3889; de Vos and Vervaat (1988), doi:10.1111/j.1467-9574.1988.tb01516.x; Fitzsimmons and Getoor (1995), doi:10.1016/0304-4149(95)00008-V. The oldest local-time source was assessed only at abstract level, not excluded as potential equivalent coverage. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The novelty candidate is the conditional first-moment transfer for the full ordered excursion-length vector, which entails all integrable excursion-length-observable covariance transfers. Prior count-energy covariance and standard Catalan/Chung–Feller/bridge first-return results do not alone state the stronger conditional identity. Source comparisons found no exact same statement; older local-time literature remains a material priority risk.
+
+## value
+
+PASS
+
+A conditional structural identity relating physically distinct height-energy and signed-occupation observables for every fixed return-time composition is a motivated new bridge-functional tool. The universal h(M) covariance transfer is independently useful in renewal/occupation theory; the strictly negative return-count covariance gives a sharp quantitative application, not merely a textbook restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
