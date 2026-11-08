@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:52:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md full analytic five-step proof and formulas, blob d8d93570f59eec186062c456525119e9df72ede2",
+        "verify.py inspected at blob 7d8096bc716d01bcb8ce8aeeb517dec23e05465d",
+        "Independent 450-step absorbing-chain recurrence E N=5.464101615137756 vs 2(1+sqrt 3)=5.464101615137754"
+      ],
+      "rationale": "For independent equal-scale Mittag–Leffler waiting times of indices α,β∈(0,1), the even normalized log-rate exponential-mixture densities make P(D<R)=1/2 by symmetry of the rate difference. The embedded jump/reset mark law (1/4,1/4,1/2) gives the killed-walk root r=2−√3, finite E N=2(1+√3) and a 2-step success probability 1/8, hence exponential N tail. Conditional on each finite mark/sign path, event durations remain independent with type-dependent regularly varying index δ=α+β and tail constants αC/δ, βC/δ; a polynomial-in-N bound and its geometric tail justify dominated stopped-sum asymptotics. This yields P(T>t)~2(1+√3)t^(−δ)/(Γ(1−α)Γ(1−β)), delay-type fractions α/δ and β/δ, the exact Laplace recurrence and E T=E N E[min(D,R)] finite exactly when δ>1. This concerns renewed clocks at each event and a discrete +1 target only.",
+      "residual_risks": [
+        "The stopped-sum dominated-convergence step depends on the asserted uniform regularly varying type-tail bound, not on a numerical test.",
+        "Stationary renewal reset with nonresampled clocks or continuous-space target lies outside the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Zhang–Liu study renewal reset with continuous-space jump distributions and first-arrival expressions; available abstract does not establish the exact discrete +1 law or marked delay constant.",
+          "Stopped-sum heavy-tail theory gives a generic technique but does not calculate this event-type-dependent N or conditional delay labels."
+        ],
+        "reasoning": "A broad theorem could automate convolution but cannot eliminate the need for the exact embedded walk/race computation; inaccessible Li fulltext remains a priority risk.",
+        "searches": [
+          "Li Zhang Liu arXiv:2609.09738 competing jump reset clocks propagator first arrival",
+          "Denisov Foss Korshunov Bernoulli 2010 randomly stopped subexponential sums"
+        ]
+      },
+      "checked_sources": [
+        "Butt–Georgiou–Scalas 2023 DOI 10.1007/s13540-023-00161-4",
+        "Ascione–Caputo arXiv:2602.16521",
+        "Li–Zhang–Liu arXiv:2609.09738 abstract",
+        "Mainardi 2014 DOI 10.3934/dcdsb.2014.19.2267",
+        "Denisov–Foss–Korshunov Bernoulli 16(2010) DOI 10.3150/10-BEJ251",
+        "Resultary semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Spectral mixture is old; the identity P(D<R)=1/2 for differing indices was explicitly conjectural in Butt et al.",
+          "Competing clocks reset walk first-hit transformed by h(u) and EN not stated in inspected accessible Li material."
+        ],
+        "reasoning": "None of the inspected published assertions directly implies the complete four-part finding, though unavailable same-model text requires cautious qualification.",
+        "searches": [
+          "Butt et al 2023 Section 5 Conjecture 5.1",
+          "Li Zhang Liu arXiv:2609.09738 abstract",
+          "Mainardi 2014 log-rate spectral mixture"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Butt et al. identify min-clock exponent α+β and pose equal-scale unequal-index fairness as Conjecture 5.1, not an established identity.",
+          "Ascione–Caputo analyze fractional queues and unspecified race probabilities, not the stopped lattice first-arrival law."
+        ],
+        "reasoning": "Recast as competing renewal hazard with marked heavy tails: the fairness identity and target-specific EN yield details not implied by cited queue papers.",
+        "searches": [
+          "Butt Georgiou Scalas Queuing models with Mittag-Leffler inter-event times DOI 10.1007/s13540-023-00161-4 Conjecture 5.1",
+          "Ascione Caputo arXiv:2602.16521",
+          "Resultary search competing Mittag Leffler clocks first arrival"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A known min-tail exponent is not an exact first-arrival formula or target-dependent preconstant.",
+          "No exact lattice target +1 parameterized entry surfaced from Resultary."
+        ],
+        "reasoning": "This is not known-table recomputation: the two stochastic mechanisms differ and require a new mixture symmetry calculation.",
+        "searches": [
+          "Butt Georgiou Scalas 2023 Conjecture 5.1",
+          "Resultary: Mittag Leffler competing clocks heavy tail reset lattice first hitting"
+        ]
+      },
+      "rationale": "Qualified PASS: the fair race at equal scales resolves an explicit prior conjecture, and the marked lattice-target first-arrival tail adds a precise coefficient and mean boundary beyond general renewal-reset or queueing precedents. Same-model competing-clock first-arrival paper was not fully accessible and remains a material priority risk.",
+      "residual_risks": [
+        "Li–Zhang–Liu full text is a plausible significant overlap source but was inaccessible via arXiv/OA and authorized Oxford session (vpn_disconnected; job 6aae9a8e2a9c649a4a51bc070a0bad7a).",
+        "General marked-subexponential first passage results may imply parts of the calculation; the exact special-case formula should be checked further by a human."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING min-tail exponent ONLY; fair race explicitly conjectured",
+          "evidence": "Conjecture 5.1 asks about unequal α,β and equal scales; min-clock δ known.",
+          "identifier_or_url": "doi:10.1007/s13540-023-00161-4",
+          "material_read": "Open full article HTML, tail index result and Section 5 Conjecture 5.1",
+          "method": "primary full-text HTML reading",
+          "title": "Queuing models with Mittag-Leffler inter-event times",
+          "trigger": "same competing Mittag-Leffler clock race"
+        },
+        {
+          "assessment": "RELATED METHOD, NOT LATTICE RESET FIRST-ARRIVAL",
+          "evidence": "Queue setting and unknown race parameter versus target-specific marked hitting time.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.16521",
+          "material_read": "Open arXiv HTML sections 2.3–2.7, scaling statements",
+          "method": "full-text HTML subsection reading",
+          "title": "Scaling limits for some Mittag-Leffler queues",
+          "trigger": "Mittag-Leffler race probability and queues"
+        },
+        {
+          "assessment": "PRIORITY RISK: FULL-TEXT COMPARISON INCOMPLETE; no whole-document NOT_COVERING assertion",
+          "evidence": "Published Sept 9 2026; continuous-space jumps per abstract; cannot rule out a discretized special case in unread full text.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.09738",
+          "material_read": "Public abstract and accessible indexing; full arXiv HTML/PDF unavailable, alternative OA unavailable",
+          "method": "abstract plus attempted lawful OA/arXiv fulltext; authorized Oxford attempt returned vpn_disconnected",
+          "title": "Intermittent continuous-time random walks under renewal reset mechanism",
+          "trigger": "most plausible overlapping same-model competing renewal reset first-arrival"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md marked regular variation proof",
+        "Butt et al. min-tail theorem and fairness conjecture"
+      ],
+      "rationale": "The observable +1 first-arrival distribution under a natural equal-scale two-fractional-clock search has an exact nontrivial phase transition at α+β=1, new fair-race identity, and marked rare-delay attribution. These are natural stochastic-mechanism questions, not arbitrary parameter substitutions.",
+      "residual_risks": [
+        "Applies to a specific nearest-neighbour lattice mechanism; no universal continuous CTRW claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Qualified, bounded best-of-knowledge originality; not a formal proof certificate or guarantee of absolute historical priority.",
+    "No public scientific source files changed; publication_plan is staged and not executed."
+  ],
+  "schema_version": 1
+}
