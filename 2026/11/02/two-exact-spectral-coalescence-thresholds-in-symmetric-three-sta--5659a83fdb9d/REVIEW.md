@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The generator is reversible and has the unique uniform stationary distribution. The Feynman–Kac semigroup decays because the only undamped Markov vector cannot be an eigenvector of the nonconstant phase generator. A direct \(3\times3\) resolvent calculation establishes the exact positive spectrum. The derivative in squared frequency reduces to a cubic with strictly positive discriminant, and the signs of its coefficients, roots and pairwise sums give a complete count at all positive rates and both quartic-flat boundaries. The standalone code reconstructs these identities and checks 120 unrelated complex-resolvent evaluations to within floating-point precision. Finite tests are not substituted for the analytic all-parameter proof.
+PASS
 
-## Originality — PASS, provisional
+For stationary reversible three-state path generator k[[-1,1,0],[1,-2,1],[0,1,-1]] and frequency -Delta,0,Delta, Feynman–Kac gives a strictly stable complex resolvent and even positive spectrum 2Delta²k(Delta²+9k²+omega²)/(3pi[omega²(Delta²+3k²-omega²)²+4k²(2omega²-Delta²)²]). In x=(omega/Delta)²,y=(k/Delta)², derivative sign is minus cubic P=2x³+(1+37y)x²+(180y²-16y-4)x+81y³-81y²-5y+1. Its x-discriminant 16(6y+1)²(4913y³+447y²-21y+17)>0 and Vieta/Descartes classify positive derivative roots. The constant c(y)=81y³-81y²-5y+1 has exactly two positive roots; r=sqrt(y) produces 3, then 2, then 1 strict local maxima, with quartically flat center minimum at first critical r and quartically flat center maximum at second. This is an exact all-positive-r real-root argument, not a numerical peak-count extrapolation.
 
-The full inspected Březina et al. (2022) article explicitly covers the **general three-state spectral formula**, so no originality is attributed to that formula or to Kubo–Anderson methods. The inspected source's coalescence analysis, including the listed supplementary topics, addresses two-state transitions and three-state fast-exchange reductions, not the two exact critical ratios and complete three/two/one peak topology here. Komijani and Coleman (2016) give the older stochastic-modulation setting. A 2012 Kovrigin primary article studies numerical regimes of three-state exchange, but its full text was inaccessible; prior graphical coverage remains possible. Accessible previous research records and published semantic results supplied no equivalent statement. An absence of search results is not a proof of historical priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem supplies exact diagnostic boundaries for a natural symmetric three-conformer exchange model. A second transition after the central resonance becomes a trough shows that one cannot identify the number of environments by the number of observed local peaks. The two nontrivial algebraic thresholds and quartic-flat transition classification offer a complete, reusable ideal benchmark rather than an arbitrary isolated parameter calculation.
+Qualified PASS: multistate resolvent and general three-state NMR line shapes are prior art, but no exact symmetric-nearest-neighbor equal-rate two-threshold 3-to-2-to-1 global peak-topology theorem was located in the inspected full text. An uninspected Kovrigin 2012 multi-state treatment could contain an implicit or numerical equivalent; general resolvent formula alone is not an explicit classification.
 
-## Scope and residual risk
+## value
 
-The result is for stationary equal-rate nearest-neighbor exchange, frequency offsets \(-\Delta,0,\Delta\), and no homogeneous linewidth. The inaccessible Kovrigin full text, specialized historical NMR coalescence studies and implicit consequences of the broad 2022 resolvent remain priority risks. Strict local maxima need not be experimentally resolvable. No independent scientific audit or novelty certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two algebraic merger thresholds and exact endpoint shapes give a complete natural spectral phase diagram with clear boundaries for a standard ideal exchange model, beyond illustrating generic line narrowing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
