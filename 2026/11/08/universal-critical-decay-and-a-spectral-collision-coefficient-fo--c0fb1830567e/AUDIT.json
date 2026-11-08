@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The statement fixes graph, normalization, probabilities and the exact equality threshold. A positive Perron functional is monotone; uniform propagation gives a strict drift contradiction unless it tends to zero. The primitive linearization contracts the transverse profile, so x_t/a_t tends to the Perron vector. Direct expansion and symmetric adjacency identity reduce the nonlinear quadratic coefficient to K=delta[1-delta(1+1/rho)/2]sum v_i^3>0, and inverse-amplitude telescoping gives t x_i(t)->v_i/K. The packaged checker passes 3,084 graph-parameter algebra/Taylor checks and 5 long critical simulations; these finite checks are supporting evidence, not the proof. Exclusions of zero initial state and delta=1 are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Prasse–Van Mieghem 2019 Eq. (2) is Euler-discrete with an additive infection term and quadratic loss diag(x) beta A x; the product-hazard recurrence instead includes simultaneous-neighbor contact pair products.",
+        "Prasse–Van Mieghem 2020 Definition 1 and Section 1 treat continuous-time NIMFA, not the full nonlinear probability-product update.",
+        "The exact derived difference in quadratic Perron coefficient is factor 1-delta(1+1/rho)/2, strictly different from one for the stated parameters."
+      ],
+      "reasoning": "A stronger continuous-time or additive-discrete NIMFA result does not automatically subsume the claim: it concerns a different map whose Taylor quadratic term lacks the beta^2 neighbor-pair collision term and has different recovery-contact interaction. Their bounds and near-threshold formulas do not imply the coefficient of this product map via merely identifying linear thresholds. General center-manifold methods offer a reusable technique but no source found states this precise global result.",
+      "searches": [
+        "NIMFA critical polynomial time decay",
+        "near threshold NIMFA continuous time discrete time nonlinear contact probability critical amplitude",
+        "https://arxiv.org/abs/1903.08027",
+        "https://doi.org/10.1007/s00285-020-01542-6",
+        "https://arxiv.org/abs/2402.10166"
+      ]
+    },
+    "checked_sources": [
+      "https://www.cs.cmu.edu/~jure/pubs/virus-tissec.pdf",
+      "https://arxiv.org/abs/2607.14048",
+      "https://arxiv.org/abs/1903.08027",
+      "https://doi.org/10.1007/s00285-020-01542-6",
+      "https://doi.org/10.1002/andp.202400078",
+      "https://arxiv.org/abs/2402.10166"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Product recursion and threshold beta/delta=1/rho are already explicit in Chakrabarti et al. (2008) and Dung–Phuc (2026). Those findings are cited as premises, not claimed anew.",
+        "The 2008 proof of exponential decay is restricted to beta/delta<1/rho; its upper linear comparison has spectral radius exactly 1 at equality and supplies no polynomial constant.",
+        "The 2019 Euler map and 2020 ODE have quadratic coefficient delta sum v_i^3, unlike the product map coefficient delta[1-delta(1+1/rho)/2]sum v_i^3.",
+        "Granell 2024 discusses structural differences among discrete spreading closures but does not state this fixed-finite-network coefficient."
+      ],
+      "reasoning": "Strict subcritical exponential contraction does not imply equality-case global extinction or t^{-1} decay. Supercritical fixed-point existence does not give the equality-case rate. The distinguishing derived coefficient depends on second-order neighbor collisions absent from additive dynamics, so known NIMFA critical results do not cover it by identity. The new claim is the exact all-nonzero-initial-data critical profile for the original product map.",
+      "searches": [
+        "https://arxiv.org/abs/2607.14048",
+        "https://www.cs.cmu.edu/~jure/pubs/virus-tissec.pdf",
+        "https://arxiv.org/abs/1903.08027",
+        "https://doi.org/10.1007/s00285-020-01542-6",
+        "https://doi.org/10.1002/andp.202400078"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chakrabarti et al. 2008 Eq. (7) is exactly the same product probability map; Theorems 3–4 and Appendix A establish strict subcritical extinction and exponential rate, not critical sharp t^{-1} asymptotics.",
+        "Dung–Phuc 2026 Eq. (2) restates that map and Sections 3–5 study global versus community spectral thresholds; there is no displayed equality-case decay constant.",
+        "No matching equality-case product-hazard result was located in the queried public mathematical records."
+      ],
+      "reasoning": "Equivalence was checked at the level of the full nonlinear recurrence and the exact parameter boundary, not simply by matching the word SIS. The closest same-model articles supply the input equation and strict inequality threshold, but the requested positive critical prefactor is neither their stated theorem nor an immediate implication of their strict-inequality results. A generic one-dimensional parabolic t^{-1} law is known, but does not fix this graphwise coefficient or establish the global basin on its own.",
+      "searches": [
+        "discrete time network SIS extinction at equality R0=1 Perron vector asymptotic critical",
+        "discrete-time SIS product model critical threshold polynomial decay exact coefficient 1/t Perron",
+        "Chakrabarti SIS model equation 7 critical convergence rate beta delta eigenvalue 1/n asymptotic",
+        "https://www.cs.cmu.edu/~jure/pubs/virus-tissec.pdf",
+        "https://arxiv.org/abs/2607.14048"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2008 article tabulates epidemic network spectral properties and visualizes strict-subthreshold trajectories, but has no table of critical quadratic coefficients.",
+        "The 2026 motivating paper tables the local threshold set in synthetic and observed networks, not exact critical decay amplitudes.",
+        "The present statement is an all-graphs analytic identity rather than one specific tabulated numerical invariant."
+      ],
+      "reasoning": "A known network eigenvalue table or threshold dataset cannot imply the sharp decay constant without both the normalized Perron-vector cubic moment and the nonlinear collision projection. No exhaustive published table or analytical formula coincident with that expression was found in the inspected sources.",
+      "searches": [
+        "network nonlinear discrete time epidemic model critical power law decay universal amplitude eigenvector",
+        "critical extinction 1/t exact prefactor for infection probability product model Chakrabarti spectral radius",
+        "https://www.cs.cmu.edu/~jure/pubs/virus-tissec.pdf"
+      ]
+    },
+    "rationale": "The 2008 and 2026 original product-map papers give the recurrence and threshold but not a global all-initial-conditions critical t^{-1} coefficient; the 2019 Euler and 2020 continuous-time NIMFA literature analyzes genuinely different second-order nonlinearities. The new content is the explicit all-graphs product-collision prefactor and exact global critical profile, not known spectral thresholds, the generic one-dimensional parabolic law, or continuous-time NIMFA. Unindexed exact-product treatments are a residual risk.",
+    "residual_risks": [
+      "An unindexed or differently titled analysis of the exact 2008 nonlinear product map may already contain the equality-case coefficient.",
+      "Generic parabolic-map theory supplies the broad t^{-1} mechanism; novelty is restricted to the explicit globally valid coefficient and model-specific correction.",
+      "The 2024 related discrete/continuous comparison was read by relevant sections rather than every appendix; no same-map same-parameter formula was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same model and known spectral threshold, but stated exponential rate only for strictly subcritical regime; no computed t^{-1} constant at equality",
+        "evidence": [
+          "Eq. (7), Theorems 3–4 on pp. 11–12, appendix proofs and future-direction discussion on p. 19"
+        ],
+        "identifier_or_url": "https://www.cs.cmu.edu/~jure/pubs/virus-tissec.pdf",
+        "material_read": "Full 26-page accessible author-hosted primary PDF; inspected Sections 3–7, Theorems 1–4, Appendix A and conclusion",
+        "method": "Read text and page image, checked equality and decay claims, equations (7)–(9), and strict inequalities",
+        "title": "Epidemic Thresholds in Real Networks",
+        "trigger": "Original identical product-hazard recursion and possible stronger original theorem"
+      },
+      {
+        "assessment": "Exact same update; contribution is comparison of local/global community threshold values, not critical temporal asymptotic",
+        "evidence": [
+          "First public posting 15 July 2026; Eq. (2), Definitions 1–3, Theorem 1, Section 4, conclusions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.14048",
+        "material_read": "Accessible article full text, Sections 1–5 and stated theorem, numerical experiment tables and model equation",
+        "method": "Compared equation (2), model definition, threshold definition, community theorem and conclusion",
+        "title": "An Epidemic Threshold Set for Networks",
+        "trigger": "Newest motivating primary paper with identical nonlinear update and threshold"
+      },
+      {
+        "assessment": "Discrete time but its infection law is additive Euler NIMFA; no equivalent quadratic collision or model transform",
+        "evidence": [
+          "Definition 1 and equation (2): (1-q_i)x_i+(1-x_i)sum_j w_ij x_j"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1903.08027",
+        "material_read": "Full accessible arXiv HTML; inspected abstract and sections with defining equations, assumptions, convergence and conclusion",
+        "method": "Equation-level comparison to product probability map",
+        "title": "The Viral State Dynamics of the Discrete-Time NIMFA Epidemic Model",
+        "trigger": "Plausibly stronger discrete-time network SIS analysis"
+      },
+      {
+        "assessment": "Relevant near-threshold method, but continuous-time NIMFA rather than product-hazard discrete recursion",
+        "evidence": [
+          "Definition 1, Eqs. (1)–(4) and near-threshold analysis of the ODE"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00285-020-01542-6",
+        "material_read": "Full open-access journal HTML; inspected abstract, governing equations, threshold sections and surrounding analysis",
+        "method": "Identified continuous-time ODE and scope of exact time-dependent analysis",
+        "title": "Time-dependent solution of the NIMFA equations around the epidemic threshold",
+        "trigger": "Near-threshold temporal asymptotic likely to dominate generic claims"
+      },
+      {
+        "assessment": "Explains why discrete vs continuous contact conventions differ; no covering critical prefactor",
+        "evidence": [
+          "Section 3 discrete- vs continuous-time models, distinguishing recovery/reinfection and finite time steps"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/andp.202400078",
+        "material_read": "Public HTML literature review sections comparing discrete and continuous spreading closures",
+        "method": "Compared model features and limits of equivalence claims",
+        "title": "Probabilistic Discrete-Time Models for Spreading Processes in Complex Networks: A Review",
+        "trigger": "Known model-equivalence and discrete-contact subtleties"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c0fb1830-567e-4a47-8e15-f31746b832a9",
+  "value": {
+    "rationale": "The source literature defines a sharp spectral epidemic threshold but leaves the actual extinction speed at that threshold unresolved for the product-hazard map. A universal vertexwise prefactor for arbitrary connected graphs is a useful prediction for critical infection persistence; its surprising reduction of neighborhood collision sums to rho and a cubic Perron moment is structural. The exact contrast with additive/continuous NIMFA shows a substantive modeling consequence of simultaneous-contact probability products. This is not merely a renaming of a known strict-subcritical criterion.",
+    "status": "PASS"
+  }
+}
