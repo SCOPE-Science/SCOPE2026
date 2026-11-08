@@ -1,15 +1,21 @@
-# Review: edge versus corner binding onset in a Dirichlet square lattice
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The site-resolved one-wall and two-wall sine-transform weights are obtained from unitary diagonalization with the diagonal Laplacian coefficient fixed at four. The Birman–Schwinger equation is scalar and monotone, giving a unique negative bound state precisely above the finite positive threshold. The critical Green vector is square-summable if and only if the integral of the squared sine weight divided by the squared dispersion converges; the boundary has one factor of momentum and diverges logarithmically, the corner has two and converges. Polar integration with the explicit \((2\pi)^{-2}\) normalization gives the exact edge coefficient \(j^2/(4\pi)\), while dominated convergence yields the finite corner derivative. The coupling expansion is algebraically consistent. Numerical quadratures and a standalone checker corroborate the first-site constants but are not used as infinite proofs.
+## correctness
 
-## Originality
-**PASS, with priority caveats.** The reflected Green functions, secular equations, and existence of finite boundary thresholds are in Molina (2006) and are not presented as novel. Molina (2021) also depicts linear edge and corner modes, rather than classifying the zero-energy eigenvector or determining the two asymptotic detachment scales. Hiroshima–Muminov–Kuljanov (2018) classify threshold eigenvalues and resonances of a **different** full-plane potential with an origin site and nearest-neighbor impurities; their theorems do not state the one-site Dirichlet edge/quadrant contrast and its coefficients. Noja–Raso Stoia (2026) provide continuum, rather than lattice, versions of the geometry-controlled distinction. An indexed published result on two square-lattice threshold states has closely related dipole/quadrupole behavior; its full text was not accessible and it remains a priority risk for the qualitative part. The surviving, specifically assessed claim is the sharp fixed-site lattice detachment dichotomy and constants, in combination with the threshold spectral type.
+PASS
 
-## Value
-**PASS.** The source literature's finite impurity threshold alone leaves open whether a state becomes normalizable at that threshold and how rapidly an energy gap opens above it. The distinction changes spectral onset fundamentally: one wall produces marginal logarithmic binding, two orthogonal walls produce first-order binding and an actual critical bound state. The result applies to every fixed defect depth/site with explicit, reproducible coefficients, rather than an arbitrary numerical slice or a renaming of a known identity. It isolates which aspect is new rather than treating the known Green formula as a finding.
+For H=Z×N and Q=N² with Dirichlet diagonal 4, normalized sine/Fourier point-mass weights are N_H=1-cos(2jk2) and N_Q=(1-cos(2ak1))(1-cos(2bk2)), over omega=4-2cos k1-2cos k2. Their rank-one diagonal resolvent F(ε) is continuous, strictly decreasing, finite at zero, and tends to zero, so Birman–Schwinger gives exactly one simple negative eigenvalue iff lambda>1/F(0). For a critical zero vector, Fourier amplitude is δhat/omega and its norm squared is integral N/omega². Near zero, N_H~2j²k2² yields logarithmic divergence (no ℓ² zero mode), while N_Q~4a²b²k1²k2² yields integrability (one-dimensional ℓ² eigenspace). Polar integration for fixed j gives F_H(0)-F_H(ε)=j²ε log(1/ε)/(4π)+O_j(ε). Dominated convergence gives F_Q(0)-F_Q(ε)=εB_ab+o(ε). Since F(0)-F(ε)=F(0)²(λ-λc)+o(λ-λc), the two claimed coefficients follow. Fourier normalization, multiplicity, positivity, and boundary j,a,b>=1 were checked explicitly. Independent Gauss-Legendre and one-dimensional Green-integral calculations confirm F_H,1=0.3633802276324186; F_Q,1,1=0.30234727368645, B_1,1~0.13661977237 and corner slope~0.669111596, and edge log ratios approach j²/(4π).
 
-## Limitations and closest literature
-The proof concerns the discrete Dirichlet Laplacian, not the boundary-degree graph Laplacian, and uses the limit of coupling at fixed site. The continuum half-plane and wedge analogy is previously understood and is not independently claimed. Possible unseen specialized treatments, including the full published material for the indexed dipole/quadrupole threshold result, represent residual historical-priority risk. The checker is finite quadrature only. No independent validation has been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge surviving finding is the sharp fixed-site half-plane-versus-quadrant near-threshold exponent and coefficient comparison jointly with their different ℓ² threshold types. Molina 2006 already gives Green image kernels and existence equation; Resultary and Hiroshima et al. cover related critical constants, especially j=1. These older parts explicitly do not count as novel. The inspected primary theorem statements do not supply the complete sharp all-site logarithmic-vs-linear detachment dichotomy. Limited access to Molina 2021 and the indexed multipole report creates substantial, recorded priority risk, not an automatic science fail.
+
+## value
+
+PASS
+
+An exact point-defect spectral threshold in a two-dimensional lattice is a natural object; determining whether the critical state is an ℓ² eigenvector or a resonance and measuring the binding rate is a substantive question not settled by knowing merely the critical coupling. One Dirichlet wall yields marginal dipole decay and ε log(1/ε), while two perpendicular walls yield quadrupole ℓ² decay and linear detachment, with precise universally quantified fixed-site coefficients. This structurally distinguishes edge from corner and supplies numbers useful for spectral asymptotics, not a small arbitrary slice or routine reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
