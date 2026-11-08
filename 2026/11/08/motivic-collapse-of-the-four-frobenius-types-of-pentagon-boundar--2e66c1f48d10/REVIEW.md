@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+The geometric classification is exhausted by the ten \((-1)\)-curves and twelve five-cycles of the degree-five del Pezzo surface. The program recomputes all 120 oriented cycles and checks their integral determinant and anticanonical sum; the general proof uses the classical Petersen configuration and finite-field Galois twisting. Every Frobenius type in the stabilizer \(D_5\) is either the identity, a five-cycle, or a double transposition in the full \(S_5\). Three independent geometric blowup/blowdown presentations yield exact classes of the complete surfaces. The normalization/conductor identity yields the exact boundary classes, including the nontrivial degree-two étale point in reflection type, and their subtraction proves the two classes in \(K_0(\operatorname{Var}_{\mathbb F_q})\), not merely after counting points. The localization sequence and unimodular boundary Picard basis give the cohomology and pentagon orientation eigenvalues. The verifier checks finite examples and the symbolic scissors but does not replace these proofs.
+
+## Originality — PASS, with limitations
+
+Harpaz (2015) already proves the characteristic-zero \(D_5\) classification and the integral Picard basis; Banwait–Fité–Loughran (2016) analyze complete del Pezzo surface Frobenius types; Boitrel (2023) gives finite-field degree-five surface blowup models. Harpaz's quadratic and split affine equations already imply the respective \(q^2-1\) and \(q^2+1\) point counts in odd characteristic. Moreover, Harpaz Proposition 3.2.8 already identifies \(H_c^2\) with the orientation-sign character in characteristic zero. These antecedents are explicitly excluded from the new-contribution claim. The asserted increment is a unified, exact equality in the *unlocalized Grothendieck ring* for **every** finite-field pentagon pair, including characteristic two, which collapses four marked Galois types to two motivic types while extending the familiar cohomological orientation description to all finite characteristics. Relevant full texts and targeted source/alias/parameter searches have not identified this statement; specialist cluster \(A_2\) motivic literature remains a real priority risk, so absence from searches is not historical proof.
+
+## Mathematical value — PASS
+
+The open surface is a natural Picard-trivial log K3 boundary complement of a canonical degree-five del Pezzo compactification. Its Galois pair classification has four classes but the motivic invariant sees exactly two, a meaningful structural collapse not visible from the complete-surface point counts alone. The stronger Grothendieck-ring identity retains finite étale degree-two information that is lost upon passing to geometric classes. It determines the extension-field point counts and zeta functions as consequences; the degree-two orientation cohomology component is already known over characteristic-zero fields. The result is a complete motivated arithmetic classification of a natural family, not an arbitrary finite table or a rebranding of a published point count.
+
+## Closest sources and remaining risks
+
+The strongest source is Harpaz, *Geometry and arithmetic of certain log K3 surfaces* (arXiv:1511.01285; Sections 3.3–3.4), especially Proposition 3.2.8, Lemma 3.3.10, and the split/quadratic affine models. It contains the geometric and Galois classification, but no identified complete finite-field Grothendieck-ring formula. Banwait–Fité–Loughran (arXiv:1606.00300) treats Frobenius of *proper* del Pezzo surfaces. Boitrel (arXiv:2304.05328) covers the blowup realizations, not the pentagon-complement class. Residual risks: a source using cluster charts, boundary tori or motivic language may provide equivalent coverage; primary source coverage is not exhaustive. No independent mathematical audit occurred.
+
+Self-review: passed. Independent audit: not yet performed.
