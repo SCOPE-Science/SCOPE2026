@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The bilinear Fourier-product equation follows by evaluating basis multiplication. Idempotent-phase propagation is finite and exact. The product law on the root coordinates gives closure and a concrete isomorphism, not merely an enumeration. Surjectivity of right translations inside fixed support uses odd cyclic orders. Arbitrary subquandles cannot cross support strata because their right translations must be onto. Ideals are exactly downward support unions because every target of smaller support is reached by a right multiplier using square-root coordinates. The trivial-group case and inclusion conventions are explicit. The standalone checker independently tests literal algebra multiplication and brute-force ideal closure.
+
+## Originality — PASS, with a material priority risk
+Zhang's 2026 Fourier equation and an earlier complete complex idempotent enumeration are treated as prior. Their support/phase parameterizations do not state the product-algebra isomorphism, maximal-subquandle classification, or full ideal lattice, which require an additional induced-operation and ideal-reachability argument. Elhamdadi–Nunez–Singh–Swain treat integral rings of specified coverings, not the complex finite odd core idempotent magma. Searches under semilattice, shelf, zero-adjoined core, Dedekind ideal lattice, and quandle-subset aliases found no directly equivalent result. The prior explicit parametrization does make the new classification relatively accessible, and an equivalent historical semilattice description cannot be excluded.
+
+## Mathematical value — PASS
+The question whether idempotents of a quandle algebra themselves form a quandle is established as meaningful by earlier covering-quandle work. For complex odd-order cores the full set is **not** a quandle, but the complete maximal connected-quandle structure is now determined. Its ideal lattice is an intrinsically defined lattice with a precise Dedekind-number count; this cannot be read off a scalar idempotent census alone. It identifies the original quandle as a natural subquandle of the unique full-support augmentation-one fiber, separating idempotent enumeration from algebraic organization.
+
+## Closest literature and limitations
+The principal closest result is the earlier exact root-choice and Peirce-multiplicity census for the same complex core algebras; it covers the counting ingredients but does not explicitly classify multiplication, maximal quandle strata, or ideals. Zhang (2026) already proves the Fourier equation; Elhamdadi–Nunez–Singh–Swain (2022) prove a related quandle property in a different integral covering setting. Restricted to finite abelian odd-order groups over \(\mathbb C\). The two-sided ideals here are subset ideals in the idempotent magma, not linear ideals of the ambient algebra. Finite tests are not universal proofs. Historical priority beyond the inspected material remains open.
+
+Self-review: passed. Independent audit: not yet performed.
