@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "For a colour fibre S of cardinality a in K_n minus a matching, each same-colour degree is a-1 or a-2. Thus every fibre with a<=d+1 is allowed, none with a>=d+3 is allowed, and one with a=d+2 is allowed precisely when it is a disjoint union of (d+2)/2 entire deleted edges; this forces even d. The exceptional colours and missing-edge assignments are unique and disjoint. Their labelled count is C(k,r)t!/(s!^r(t-rs)!) and each residual colour has <=d+1 vertices, giving B_{d+1}(n-2sr,k-r). Polynomial identity follows from infinitely many integer palette sizes. The r=1 exceptional configurations have degree n-d-1 and leading coefficient C(t,(d+2)/2); every r>=2 and every repeat among residual colours reduces polynomial degree. Brute original-neighbourhood checker independently verified 608 parameter profiles for n<=8, every matching size, d<=n, and k=1..4; a second finite difference test corroborates the degree claim through n=10. Finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Asgarli et al. Theorem 2.1: a universal sum over edge contractions with bounded monochromatic degree.",
+        "Humpert work predates the 2026 paper and already defines the degree-chromatic object.",
+        "Wood survey treats defective-color existence and bounds, not a matching-deleted-clique named-colour enumeration in the inspected abstract."
+      ],
+      "reasoning": "The all-graph contraction expression subsumes the counting problem formally but requires a sum over every eligible edge subset. It is not the stated exceptional-class classification or the closed binomial sum involving only deleted matching edges; the parity equality and first-difference coefficient are additional structural consequences. The claim does not present the general DCP definition or contraction sum as new. An older unexamined result with an explicit equivalent specialization remains possible.",
+      "searches": [
+        "arXiv:2605.05550v1 Theorem 2.1 contraction formula",
+        "doi:10.37236/518 Humpert chromatic quasisymmetric function",
+        "doi:10.37236/7406 Wood defective/clustered colouring survey",
+        "\"defective chromatic polynomial\" \"complete multipartite\" exact"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2605.05550v1",
+      "https://arxiv.org/abs/2605.05550",
+      "https://doi.org/10.37236/518",
+      "https://doi.org/10.37236/7406",
+      "https://oeis.org/A385437",
+      "https://oeis.org/A332496"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published record 2026/9/19/SCOPE-acyclic-signatures-complete-graphs-minus-matching--c164cb9690e5 studies acyclic orientation imbalance, a different invariant.",
+        "Other related findings concern rainbow edge-connectivity and vertex forcing, not local same-colour defect counts.",
+        "Asgarli et al. Theorem 2.1 can be specialized in principle, but neither the 2026 v1 section 5 family of trees nor section 6 invariant comparisons state the matching-deleted dense family result."
+      ],
+      "reasoning": "The prior acyclic signature uses orientations; a perfect-matching deletion does not make its factorial signature imply a degree-constrained vertex-colouring count. Ordinary chromatic results correspond only to d=0 and cannot establish all odd d or the even thresholds. Universal contraction sum explains computability, while the new claim proves an explicit fibre classification and exact sharp leading difference beyond merely quoting that sum.",
+      "searches": [
+        "Defective chromatic polynomial of cocktail party graphs parity odd defect identical to complete graph",
+        "complete graph with matching removed 1-defective 2-defective coloring exact number and coincidence",
+        "graph with complement a matching defective chromatic polynomial even defect exceptional colour classes",
+        "published-finding corpus published record \"Factorial acyclic signatures for complete graphs minus a matching\"",
+        "arXiv:2605.05550v1 sections 2,5,6",
+        "\"degree chromatic polynomial\" \"matching\" \"complete graph\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Asgarli et al. define d-defective as maximum same-colour degree <=d (arXiv:2605.05550v1, Definitions 1.1 and Theorem 2.1).",
+        "Humpert formulation shifts index: P_{d+1}(G,k) equals chi_d(G;k) (arXiv:2605.05550v1 Introduction).",
+        "No exact matching-deleted clique or odd-even statement was found in the inspected primary v1 text and cited search results."
+      ],
+      "reasoning": "The alternate name degree-chromatic polynomial and 1-improper colourings use the same count after a one-unit index shift. Matching-deleted complete graphs are also cocktail-party graphs when the matching is perfect. The present claim is an exact formula and parity threshold for named vertex colorings, not a graph chromatic number, matching polynomial, acyclic orientation or edge coloring. Title/keyword differences alone are not novelty evidence.",
+      "searches": [
+        "Defective chromatic polynomial of cocktail party graphs parity odd defect identical to complete graph",
+        "complete graph with matching removed 1-defective 2-defective coloring exact number and coincidence",
+        "graph with complement a matching defective chromatic polynomial even defect exceptional colour classes",
+        "\"degree chromatic\" \"even\" \"odd\" \"matching\"",
+        "\"defective chromatic\" \"cocktail party\"",
+        "arXiv:2605.05550v1 sections 1-6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A385437 enumerates proper vertex colorings of a crown graph with interchangeable colours, not degree-bounded named-vertex colourings of K_n minus a matching.",
+        "OEIS A332496 concerns arbitrary non-proper colorings of an unlabeled-vertex complete graph minus one edge with an exact number of colours, not the local defect bound."
+      ],
+      "reasoning": "Neither checked sequence defines the same labelled graph/defect/palette count; a small-order numeric agreement would not cover the all-parameter theorem. No exact database entry giving the matching-deleted-clique DCP formula was identified by the actual queries.",
+      "searches": [
+        "site:oeis.org \"defective chromatic\" cocktail party",
+        "site:oeis.org matching deleted complete graph defective colorings",
+        "OEIS A385437",
+        "OEIS A332496"
+      ]
+    },
+    "rationale": "The original 2026 paper gives a general contraction sum and asks what the defective family detects; it does not state the explicit matching-deleted-clique exceptional-fibre bijection, parity blindness at odd defect, or sharp binomial leading coefficient. Generic universal enumerations logically permit specialization but do not supply this structural reduction by mere parameter substitution. Searches of a published mathematical-record index and the accessible primary paper, older degree-chromatic and defective-colouring literature, and sequence repositories found no covering explicit theorem. Historical priority remains provisional and the v2 full text could be read only in part.",
+    "residual_risks": [
+      "Final revision arXiv:2605.05550v2 could not be inspected end-to-end, though v1 full text and v2 metadata/initial sections were examined.",
+      "General contraction formula logically encompasses the family; priority of the structural closed form and parity consequence is provisional, not independently established.",
+      "Other uncatalogued formulas for quasi/degree-chromatic invariants could contain the same specialization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General contraction and tree/reconstruction results found; no matching-deleted clique parity enumeration identified in the portions inspected",
+        "evidence": [
+          "arXiv:2605.05550v1, Sections 1-2, 5-6; Theorem 2.1 and Question 1.2; no cocktail-party occurrence in HTML search"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.05550v1",
+        "material_read": "Abstract, Definitions 1.1, full Theorem 2.1 proof, selected arguments in Sections 3-6 (tree examples, invariant comparisons, concluding question), and references",
+        "method": "Full HTML navigation, text search for cocktail and complete multipartite, and inspection of theorem and family descriptions",
+        "title": "Defective chromatic polynomials (initial manuscript)",
+        "trigger": "Same invariant and possible dominating all-graph theorem"
+      },
+      {
+        "assessment": "Consistent scope with the initial manuscript; later portions not comprehensively inspected, leaving priority uncertainty",
+        "evidence": [
+          "arXiv:2605.05550v2, abstract and bibliographic submission history (2026-09-28)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.05550",
+        "material_read": "Submission record, abstract, main introduction and initial HTML portion (definitions, contraction theorem and degree-sequence arguments); later revised text inaccessible",
+        "method": "arXiv abstract metadata and partial HTML; read earlier full-text version separately",
+        "title": "Defective chromatic polynomials (2026 final revision)",
+        "trigger": "Potential revised source that may dominate the specialization"
+      },
+      {
+        "assessment": "Same general polynomial exists under older shifted indexing, but no inspected exact matching-deleted-clique specialization",
+        "evidence": [
+          "Humpert 2011 abstract; arXiv:2605.05550v1 Introduction"
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/518",
+        "material_read": "Publisher abstract and 2026 primary paper discussion of Humpert indexing",
+        "method": "Bibliographic page and comparison of definition with primary 2026 text",
+        "title": "A quasisymmetric function generalization of the chromatic symmetric function",
+        "trigger": "Older degree-chromatic definitions and possible broader polynomial"
+      },
+      {
+        "assessment": "Existence, minimum palettes, sparse family classes; no matching-deleted-clique counting claim visible in abstract",
+        "evidence": [
+          "Wood, Electronic Journal of Combinatorics DS23 (2018) abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/7406",
+        "material_read": "Survey abstract and stated focus",
+        "method": "Journal survey landing page",
+        "title": "Defective and Clustered Graph Colouring",
+        "trigger": "Broader defect-colouring theory"
+      },
+      {
+        "assessment": "Crown graph, proper coloring, interchangeable colours; different graph and invariant",
+        "evidence": [
+          "OEIS A385437 definition"
+        ],
+        "identifier_or_url": "https://oeis.org/A385437",
+        "material_read": "Definition, comments, and parameter conventions",
+        "method": "Database entry HTML",
+        "title": "OEIS A385437",
+        "trigger": "Potential exact graph-colouring table"
+      },
+      {
+        "assessment": "Unlabeled-vertex arbitrary colouring count with no local defect restriction; not covering",
+        "evidence": [
+          "OEIS A332496 definition"
+        ],
+        "identifier_or_url": "https://oeis.org/A332496",
+        "material_read": "Definition and comments",
+        "method": "Database entry HTML",
+        "title": "OEIS A332496",
+        "trigger": "Almost-complete graph colouring table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "988c9363-7068-41dd-8fa8-5bf767182c45",
+  "value": {
+    "rationale": "The motivating 2026 research asks how much structural information the defective family contains. In a dense natural two-parameter family, the theorem shows infinite uniform odd-defect blindness and an exact even-defect detection threshold. The first new coefficient is a concrete binomial count of missing-edge subsets, and the full named-colour formula counts every valid assignment for every defect, not merely extremal palettes. The parity switch is a nontrivial structural description of all monochromatic classes and not a textbook restatement of chromatic number or universal contraction.",
+    "status": "PASS"
+  }
+}
