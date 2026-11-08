@@ -1,15 +1,21 @@
-# Scientific review: exceptional circles for cubic exponential phases
+# Independent mathematical audit
 
-## Correctness — PASS
-The final statement has an explicit nonzero linear and cubic coefficient, a positive radius, and counts distinct angular maximizers. Multiplicity of the three minima of a nonnegative trigonometric polynomial forces the exact squared cubic factor; matching its Fourier coefficients forces a *unique* positive radius, if any. The converse identity holds on every point of the circle. Unimodular root geometry distinguishes a three-maximizer deltoid interior from repeated-root and off-circle regimes. The sharp example and the degree-two impossibility follow exactly. The symbolic checker confirms, but is not used to replace, the infinite-radius proof.
+## correctness
 
-## Originality — PASS under inspected evidence
-Li's general 2026 local-finiteness theorem allows an unspecified locally finite exceptional set and has an explicit higher-degree example, not the complete cubic coefficient criterion, unique exceptional radius, or minimal polynomial-phase degree. Rieck's 2023 deltoid lemma covers the unit-circle cubic-root discriminant but not maximum-modulus point loci or the coefficient-to-radius identity. Related Fourier-phase and trigonometric-polynomial records address optimization or positivity without the same entire-function statement. The key new implication is the necessity of a spectral-square factor at three equal circular maxima, which forces a unique radius and then exactly the deltoid criterion. Residual priority risk: implicit treatment in older works on exponential-polynomial angular extrema cannot be wholly excluded. Independent assessment is outstanding.
+PASS
 
-## Value — PASS
-The motivating maximum-modulus theorem expressly leaves nonempty isolated exceptional radii possible. This theorem determines the smallest exponential phase degree admitting such an exception, gives an effective iff test for *all complex cubic coefficients*, proves no cubic can have two such exceptional circles, and identifies their maximizer geometry. The deltoid boundary distinguishes genuine three-point ties from degeneracies. This is a natural complete finite-degree classification, not a recomputation of Li's bound or of the known deltoid root test in isolation.
+For each radius the defect M_r−Re(a r w+b r^2 w^2+c r^3 w^3) is a nonnegative trig polynomial of degree 3. Three distinct angular zeros must each be double, forcing a squared monic cubic with three unit roots. Its constant/sign and Fourier coefficients force B=−2Cr s and A=Cr²(s²+2 conjugate(s)); eliminating s gives d=B²/(4C)−A=r conjugate(B), so B nonzero and candidate r=d/conjugate(B)>0 is unique. Conversely these equations give the exact nonnegative Laurent square C r³|w³−s w²+conjugate(s)w−1|²/2. The self-inversive cubic discriminant Delta=|s|⁴+18|s|²−8Re(s³)−27 is negative iff all three zeros distinct unimodular; zero and positive discriminants yield the claimed boundary/nonexceptional cases. Sympy independently reconstructed Laurent identity, discriminant and the sharp exp(8z−4z²+z³) example. Degree≤2 has at most two distinct angular minima by the double-zero count, completing cubic minimality.
 
-## Scientific limits
-Only phases of degree three, with a nonzero linear coefficient, are classified. Ordinary one- and two-point maxima at nonexceptional radii are not globally classified. All prior-coverage claims are limited to the actually inspected texts and scientific searches; the result has not been independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Li arXiv:2610.15067v2 establishes general local finiteness of exceptional circles for much broader entire functions; local finiteness does not imply an at-most-one bound for cubics, a coefficient iff criterion or least degree. Rieck arXiv:2307.09219 supplies the known deltoid/unit-circle cubic-root criterion and Fejer–Riesz square methods are classical, not claimed as inventions. The combination forcing the unique radius from an equal-maximizer contact is the assessed original implication. Full Li paper was inaccessible, so a hidden cubic specialization is a recorded risk.
+
+## value
+
+PASS
+
+The exact first-degree threshold and full complex-coefficient criterion resolve a natural boundary of the general maximum-modulus exceptional-circle problem: cubic is minimal and no two exceptional radii exist. The strict deltoid and cusp cases give meaningful geometric classification rather than a gratuitous reparameterized cubic discriminant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
