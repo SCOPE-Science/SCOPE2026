@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T10:09:00.572301Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For C_r from 1->101,0->000, m=3^r, and V_r=C_r0^m, the cutwise shortest proper border equals 2m at cuts 0,m, equals 1 at zero-padding or equal-neighbor cuts, and otherwise equals 2*3^{v3(i)}. The structural recurrence C_{r+1}=C_r0^mC_r, palindrome and no-adjacent-ones properties, plus the 0101/1010 block pattern at nontrivial triadic transitions show a 2*3^j border that is itself unbordered (0^{3^j}C_j or reverse), proving minimality; counting transitions establishes multiplicities 2^{r-j}. Longer factors of C_{r+1} have border length length-2m from the 2m periodicity. Independent naive conjugate-prefix/suffix checks for r=0..4 confirm exact spectrum and boundary r=0; source checker.py independently covers r up to 6. Finite cases merely corroborate the unbounded block argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holub–Müller classify special conjugacy patterns; Goč et al focus number of unbordered factors for other infinite words."
+        ],
+        "reasoning": "No read stronger theorem yields all shortest border lengths for the finite padded Cantor iterates.",
+        "searches": [
+          "Holub–Müller Fully bordered words full PDF Sections 1–3",
+          "Goč–Mousavi–Shallit arxiv:1211.1301"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and checker.py at 2c8d98134d9930cd11887f086cc209007a54248d",
+        "Holub and Müller arXiv:1504.02222 full PDF",
+        "Goč–Mousavi–Shallit arXiv:1211.1301",
+        "Resultary semantic triadic local period search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two unbordered conjugates and maximum unbordered length partly follow from known qualitative frameworks; values 2*3^v3(i) at all other cuts are not implied."
+        ],
+        "reasoning": "New claim explicitly isolates the complete pointwise spectrum, rather than presenting the two exceptional unbordered cuts alone as new.",
+        "searches": [
+          "Holub–Müller 2015 Theorems 1–3",
+          "Source RESULT.md structural local-period proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holub–Müller define local period by borders of conjugates and characterize fully bordered binary words."
+        ],
+        "reasoning": "Definitions coincide after convention check; their qualitative two-unbordered theorem does not give this exact 3-adic cutwise formula.",
+        "searches": [
+          "Cantor word C_r 0^{3^r} shortest border cyclic conjugate 3-adic local period (Resultary query)",
+          "Holub–Müller 2015 arxiv:1504.02222"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No Cantor-specific table in full inspected Holub–Müller material or Resultary hits; Resultary surfaced unrelated closed-rich word tables."
+        ],
+        "reasoning": "Search absence cannot exclude an unpublished table, which remains a priority caveat.",
+        "searches": [
+          "Resultary semantic search triadic local periods finite Cantor blocks",
+          "Holub–Müller 2015 PDF full text find Cantor"
+        ]
+      },
+      "rationale": "Holub–Müller Fully bordered words supplies the cyclic local-period notion and qualitative two-unbordered-conjugate framework but not the inspected pointwise 3-adic Cantor array. Goč–Mousavi–Shallit treat enumerations of unbordered factors for other automatic sequences, including period doubling; their theorem does not imply this explicit position-by-position array. Unindexed Cantor local-period computations remain a priority risk.",
+      "residual_risks": [
+        "A specialized earlier table of Cantor-word shortest cyclic borders could exist outside indexed sources.",
+        "Only finite complete morphism iterates C_r0^{3^r} are covered; no claim about all Cantor-word factors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant qualitative two-unbordered-conjugate theorem, no evaluated position-by-position finite Cantor spectrum",
+          "evidence": [
+            "Definition of shortest border/cyclic local period and structural characterization of two unbordered conjugates"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.02222",
+          "material_read": "Full accessible eight-page PDF, definitions, main Theorems 1–2 and proofs; rendered first page inspected",
+          "method": "Full-text PDF reading and page image inspection",
+          "title": "Fully bordered words",
+          "trigger": "Defines precisely local periods via borders of all conjugates"
+        },
+        {
+          "assessment": "Different words and global unbordered counts, not exact Cantor cyclic cut spectrum",
+          "evidence": [
+            "Abstract names automatic sequences and unbordered-factor counts"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.1301",
+          "material_read": "Abstract and identified focus on Thue–Morse, Rudin–Shapiro, period doubling; full article not reread in this run",
+          "method": "Public bibliographic search and source references",
+          "title": "On the Number of Unbordered Factors",
+          "trigger": "Automatic-word and unbordered-factor enumeration alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete cyclic local-period spectrum is a natural word-combinatorial invariant tied precisely to triadic substitutions, with nontrivial multiplicity counts and an extremal unbordered-factor consequence. The pointwise law goes beyond the qualitative existence of exactly two unbordered rotations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md and checker.py at 2c8d98134d9930cd11887f086cc209007a54248d",
+    "Holub and Müller arXiv:1504.02222 full PDF",
+    "Goč–Mousavi–Shallit arXiv:1211.1301",
+    "Resultary semantic triadic local period search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A specialized earlier table of Cantor-word shortest cyclic borders could exist outside indexed sources.",
+    "Only finite complete morphism iterates C_r0^{3^r} are covered; no claim about all Cantor-word factors."
+  ],
+  "schema_version": 1
+}

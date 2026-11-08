@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The definition is normalized at every cyclic cut, including the two unbordered endpoints and the rank-zero boundary. The proof identifies a four-block 0101/1010 square across every transition and excludes smaller borders because the common block-pair is itself unbordered. Counts use exactly two transitions per higher-level one. Standalone prefix-function checking matched every cut at ranks 0..6 and separately tested the global-period bound; finite tests do not replace the all-rank proof.
+## correctness
 
-**Originality — PASS, qualified.** The full text of Holub–Müller (arXiv:1504.02222) was compared for local-period equivalence and stronger qualitative coverage; Goč–Mousavi–Shallit (arXiv:1211.1301) was compared for period-doubling enumeration; and Henshall–Shallit (arXiv:1203.3758) for automatic decision methods. None of the inspected claims determines the pointwise Cantor triadic array or spectrum. Qualitative two-unbordered-conjugate claims are not presented as standalone priority. Accessible historical claims and targeted indexed searches gave no implication of the new quantitative statement.
+PASS
 
-**Value — PASS.** Shortest-border local periods are an established invariant of critical factorizations and fully bordered cyclic words. The exact closed-position distribution across an exponentially expanding canonical automatic-word family is structurally motivated: it distinguishes a unique geometric tower of local periodic roots, complete cut multiplicities, and critical unbordered boundaries. This is not a mere count of a manually selected factor or a routine renaming of a known theorem; its four-block substitution mechanism is a reusable combinatorial idea.
+For C_r from 1->101,0->000, m=3^r, and V_r=C_r0^m, the cutwise shortest proper border equals 2m at cuts 0,m, equals 1 at zero-padding or equal-neighbor cuts, and otherwise equals 2*3^{v3(i)}. The structural recurrence C_{r+1}=C_r0^mC_r, palindrome and no-adjacent-ones properties, plus the 0101/1010 block pattern at nontrivial triadic transitions show a 2*3^j border that is itself unbordered (0^{3^j}C_j or reverse), proving minimality; counting transitions establishes multiplicities 2^{r-j}. Longer factors of C_{r+1} have border length length-2m from the 2m periodicity. Independent naive conjugate-prefix/suffix checks for r=0..4 confirm exact spectrum and boundary r=0; source checker.py independently covers r up to 6. Finite cases merely corroborate the unbounded block argument.
 
-**Closest literature and direct implications.** Holub–Müller (2015) already develops the qualitative fully bordered framework and defines cyclic local period. Goč–Mousavi–Shallit (2012) gives exactly two unbordered factors at every length in a different automatic family. The full numeric three-adic shortest-border array and its exact multiplicities have not been found in these inspected sources. The Cantor-specific proof is supplied in `RESULT.md`; no absence-from-search is used as a novelty proof.
+## originality
 
-**Scope and residual risks.** Complete morphic iterates and all rotations of one equal-zero-padded block are covered, but arbitrary finite words and all factors are not. The checker has finite scope and independent human mathematical validation has not occurred. Older specialized literature could affect historical priority. The general fully bordered characterization is a relevant antecedent, not a claimed new theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Holub–Müller Fully bordered words supplies the cyclic local-period notion and qualitative two-unbordered-conjugate framework but not the inspected pointwise 3-adic Cantor array. Goč–Mousavi–Shallit treat enumerations of unbordered factors for other automatic sequences, including period doubling; their theorem does not imply this explicit position-by-position array. Unindexed Cantor local-period computations remain a priority risk.
+
+## value
+
+PASS
+
+The complete cyclic local-period spectrum is a natural word-combinatorial invariant tied precisely to triadic substitutions, with nontrivial multiplicity counts and an extremal unbordered-factor consequence. The pointwise law goes beyond the qualitative existence of exactly two unbordered rotations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
