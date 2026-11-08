@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "All-n formula from independent sink subsets and exact conditioning removal. Exhaustive symbolic low-order cases n=3..7 with strictly positive discriminants for n=6,7 on 0<u≤1/4. Rational n=8 witness has cubic discriminant -548120008099593420688656. Checker performs 81 exact assertions; no finite experiment substitutes for universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 Theorem 4.3 proves unconditioned all-orientations real-rootedness on claw-free graphs, not real-rootedness after excluding cyclic orientations with independent directional bias.",
+        "2026 Proposition 3.21 proves every uniformly sampled acyclic cycle has real-rooted sink enumerator."
+      ],
+      "reasoning": "Neither assertion implies weighted conditioning preserves roots, and the C8 counterexample shows it does not. The 2019 orientation paper supplies general sink-polynomial context but not a bias-threshold theorem.",
+      "searches": [
+        "published-finding corpus: cycle sink polynomial weighted acyclic orientations real rooted threshold counterexample eight vertices",
+        "arxiv:2610.41502 Theorem 4.3, Proposition 3.21",
+        "arxiv:1910.10920 acyclic orientation polynomials"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.41502",
+      "https://doi.org/10.1371/journal.pone.0223233",
+      "https://arxiv.org/abs/1910.10920",
+      "https://doi.org/10.1007/BF02507029"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 Proposition 3.21 establishes the fair (p=1/2) statement; our p=1/10 example is outside that premise.",
+        "2019 PLOS article studies crossings and longest runs in linear iid Bernoulli sequences, with no asserted polynomial root cutoff for conditional circular sequences."
+      ],
+      "reasoning": "The old results neither dominate the entire p-parameter family nor imply the sharp minimum C8. The C8 polynomial follows directly from the exact independent-sink expansion; root-sign comparison is an additional specific calculation.",
+      "searches": [
+        "arxiv:2610.41502 Proposition 3.21 and Theorem 4.3",
+        "doi:10.1371/journal.pone.0223233 2019 full text",
+        "published-finding corpus: acyclic orientations of cycle biased edge weights number of sinks loses real rootedness first C8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 result covers only the uniform acyclic orientation law of cycles; it contains no common edge-direction bias parameter.",
+        "The result is equivalent to a circular Bernoulli 1-to-0 run count conditional on a nonconstant word."
+      ],
+      "reasoning": "The same random variable has a cyclic-run interpretation. In the uniform case existing even-binomial polynomials apply. With preconditioning bias p≠1/2, weights differ within equal-sink-count levels, so the old polynomial no longer yields the same conditional law.",
+      "searches": [
+        "published-finding corpus: acyclic orientations of cycle biased edge weights number of sinks loses real rootedness first C8",
+        "Web: biased acyclic orientations cycles sink count generating polynomial real rooted",
+        "arxiv:2610.41502 §3.4, Proposition 3.21"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned record specified the rational cubic coefficients 6561, 556956, 6389766, 21523356, its negative discriminant, or the universal ≤7 classification.",
+        "The Inoue–Aki abstract describes general circular run generating functions but its complete text was inaccessible."
+      ],
+      "reasoning": "The exact parameter-specialized table might be implicit in classic circular-run enumeration; it is not presented as a prior numerical table. The originality claim is the proven sharp real-rootedness cutoff, not the routine distribution enumerator.",
+      "searches": [
+        "published-finding corpus: non-real roots acyclic sink polynomial cycle asymmetric orientation bias conditional cyclic Bernoulli runs",
+        "Web: cyclic Bernoulli number of success runs conditioned on both outcomes real rooted",
+        "Web: joint distributions numbers success runs linear circular Inoue Aki 2005"
+      ]
+    },
+    "rationale": "The 2019 acyclic-orientation work and October 2026 cycle real-rootedness theorem address uniform orientations. The new biased-then-conditioned sampling law has a sharp C8 loss of real-rootedness; this is not a corollary of their uniform-parameter claims. The prior 2005 circular runs article was abstract-only, so historical priority remains a risk.",
+    "residual_risks": [
+      "Full text of Inoue and Aki (2005) was not accessible, so an implicit or explicit historical root observation cannot be ruled out.",
+      "Full text of Hwang et al. (2019) not independently inspected this execution; compared abstract and later paper.",
+      "A classical unpublished or unindexed run-polynomial classification may contain this sharp threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers uniformly sampled acyclic cycles and unconditioned claw-free all-orientation laws, not independent common directional bias followed by conditioning",
+        "evidence": [
+          "2026 Proposition 3.21 shows uniform cycle acyclic sink real-rootedness",
+          "2026 Example 3.20 gives an unweighted non-cycle line graph counterexample"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.41502",
+        "material_read": "Full accessible HTML §§3.4 and 4, especially Proposition 3.21, Theorem 4.3 and Example 3.20, and the abstract and introduction",
+        "method": "Read source statements, explanations, proof and cycle enumeration; compared both normalization and direction-bias assumptions",
+        "title": "Sink polynomials of line graphs and weighted matching polynomials",
+        "trigger": "Nearest direct real-rooted acyclic cycle theorem and claw-free all-orientation theorem"
+      },
+      {
+        "assessment": "The article computes joint crossings/longest-run laws for linear sequences, rather than sharp real-rootedness of conditionally acyclic cyclic sink-count polynomials",
+        "evidence": [
+          "First public publication October 1, 2019",
+          "Its stated setting uses n independent Bernoulli trials on a line"
+        ],
+        "identifier_or_url": "https://doi.org/10.1371/journal.pone.0223233",
+        "material_read": "Open-access 2019 text including abstract, introduction, recurrence and initial crossing decomposition",
+        "method": "Read full-text HTML material on n-length linear Bernoulli runcharts and compare conditioning and circular structure",
+        "title": "Joint distribution for number of crossings and longest run in independent Bernoulli observations",
+        "trigger": "2019 literature-led probabilistic runs/crossings model with independent Bernoulli trials"
+      },
+      {
+        "assessment": "Does not establish a weighted biased cyclic counterexample in the material accessible; full-text priority comparison limited",
+        "evidence": [
+          "First arXiv public October 24, 2019; sink-set generating function"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.10920",
+        "material_read": "Abstract, bibliographic information and definition-level description; full original preprint not retrieved",
+        "method": "Compared advertised graph orientation polynomial and scope from arXiv abstract and later 2026 full-text discussion",
+        "title": "Acyclic orientation polynomials and the sink theorem for chromatic symmetric functions",
+        "trigger": "Foundational named acyclic sink polynomial literature"
+      },
+      {
+        "assessment": "Plausible exact distribution precursor; no accessible statement addresses sharp complex-root threshold, residual risk explicitly retained",
+        "evidence": [
+          "2005 abstract covers circular success-run generating functions and higher moments"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF02507029",
+        "material_read": "Springer accessible abstract and bibliographic metadata only; complete text inaccessible",
+        "method": "Compared stated circular-run joint generating function program, without a whole-document noncoverage assertion",
+        "title": "Joint distributions of numbers of success runs of specified lengths in linear and circular sequences",
+        "trigger": "Potential stronger prior enumerator in identical circular Bernoulli setting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4996f0d1-708b-4341-a1b8-318bbf2ce496",
+  "value": {
+    "rationale": "The sharp smallest biased cycle where conditional acyclic sink-law real-rootedness breaks is a motivated boundary of the 2026 theorem. It demonstrates that probabilistic preconditioning bias can destroy a strong Poisson-binomial regularity that persists under uniform acyclic sampling on cycles of every length, with an explicit exact certificate.",
+    "status": "PASS"
+  }
+}
