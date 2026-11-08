@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The proof establishes the exact weighted-Bergman monomial moments and the positive gap separating the top radial disk eigenvalue. Endpoint differentiation of the trace-class moving-boundary operator produces the second-order eigenvalue perturbation series. The one-sign-change polynomial \(P_n(T)\) has positive value at \(T=1\), which proves positivity for all \(0<T<1\) and hence strict ordering of the Fourier Hessian coefficients. These are analytical arguments and apply to all stated parameters and fixed bounded real mean-zero profiles.
+# Independent mathematical audit
 
-Run `python verify.py` in the package directory with the scientific Python dependencies specified in `requirements.txt`. The checker was run from the package source directory and completed 212 independent supplementary finite checks: beta-integral spectral identities, coefficient ordering, finite Toeplitz-matrix eigenvalue finite differences, and fixed-area discretization. Replaying the exact embedded files and rerunning the checker provides reproducibility but is not an infinite-dimensional proof or an independent validation.
+## correctness
 
-For \(c=1\), \(T=1/2\), \(h(\theta)=\cos(2\theta)\), the predicted quadratic deficit is \(\varepsilon^2/32\). The remainder is \(O(|\varepsilon|^3)\) for each fixed bounded profile; it is not claimed uniformly over arbitrary shapes. Historical priority remains provisional and the strongest prior second-variation comparison is arXiv:2411.16010, Section 4.1. Independent mathematical audit and validation have not been performed.
+PASS
+
+The radial coordinate x=r²/(1-r²) makes hyperbolic area affine and therefore exactly constant for mean-zero h. Weighted Bergman orthonormal monomials e_n=sqrt((c+1)_n/n!)z^n have disk eigenvalues I_T(n+1,c), with strict gaps lambda0-lambdan=(1-T)^c S_n(T). For fixed bounded h, sufficiently small deformations keep every radius in a compact interval inside the disk; exponentially decaying weighted monomial moments justify trace-norm-analytic perturbation of the isolated simple top eigenvalue. Endpoint differentiation gives the first-derivative coupling c²w_n T^n(1-T)^{2c+2}|hhat_n|² and second diagonal derivative -c(c+1)(1-T)^{c+2}||h||². The Rayleigh–Schrödinger formula yields the exact B_n. The polynomial P_n(T)=w_n S_{n+1}(T)-T w_{n+1}S_n(T) has coefficients with one change from nonnegative to negative and P_n(1)=v_{n+1}>0, hence P_n(T)>0 on (0,1), proving strict spectral order. Independently checked beta integral identities and strict B_n increase for 156 (c,T,n) settings; finite sections do not prove trace-class analyticity.
+
+## originality
+
+PASS
+
+The most relevant primary full PDF Gómez–Kalaj–Melentijević–Ramos 2024 arXiv:2411.16010, Section 4.1 Lemma 4.7 (page 29), was inspected: it perturbs analytic f0+epsilon*g and reoptimizes its level-set domain Omega_epsilon; its Hessian K_alpha[f] is signal-side, not the top-eigenvalue shape Hessian for an independently prescribed moving domain. Ramos–Tilli gives global disks as optimizers, and Gómez et al provides stronger global quadratic stability, but neither inspected theorem supplies the full B_n spectrum or optimal B2. A hidden duality between the two second variations remains a genuine originality risk.
+
+## value
+
+PASS
+
+Quantitative stability for analytic wavelet/Bergman concentration is a recognized nontrivial problem. Resolving every Fourier-mode curvature of the optimized operator norm and the least positive mode is a natural local refinement not provided merely by uniqueness/global deficit bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

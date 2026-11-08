@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T04:13:22.702749Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen source RESULT.md @ fa0dd07483a4394faaf98eefa5bf698841050495",
+        "Frozen verification script @ 9ca74e2f9b4060909df12af96e6ad8c65558a8f0",
+        "Independent finite/symbolic test script sha256 calculated on disk at closeout"
+      ],
+      "rationale": "The radial coordinate x=r²/(1-r²) makes hyperbolic area affine and therefore exactly constant for mean-zero h. Weighted Bergman orthonormal monomials e_n=sqrt((c+1)_n/n!)z^n have disk eigenvalues I_T(n+1,c), with strict gaps lambda0-lambdan=(1-T)^c S_n(T). For fixed bounded h, sufficiently small deformations keep every radius in a compact interval inside the disk; exponentially decaying weighted monomial moments justify trace-norm-analytic perturbation of the isolated simple top eigenvalue. Endpoint differentiation gives the first-derivative coupling c²w_n T^n(1-T)^{2c+2}|hhat_n|² and second diagonal derivative -c(c+1)(1-T)^{c+2}||h||². The Rayleigh–Schrödinger formula yields the exact B_n. The polynomial P_n(T)=w_n S_{n+1}(T)-T w_{n+1}S_n(T) has coefficients with one change from nonnegative to negative and P_n(1)=v_{n+1}>0, hence P_n(T)>0 on (0,1), proving strict spectral order. Independently checked beta integral identities and strict B_n increase for 156 (c,T,n) settings; finite sections do not prove trace-class analyticity.",
+      "residual_risks": [
+        "Only fixed bounded real profiles and small epsilon; no global uniform shape stability or unbounded-profile remainder asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Global uniqueness and sharp stability govern all shapes but are coarse scalar inequalities; Section 4.1 gives a different signal-side Hessian."
+        ],
+        "reasoning": "A global inequality alone does not determine strict B_n ordering, eigenvalue curvature or local optimal second harmonic; a strong duality could carry it only after additional computation.",
+        "searches": [
+          "arxiv:2205.07998 global wavelet Faber Krahn",
+          "arxiv:2411.16010 Theorem 1.1 and Lemma 4.7"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2411.16010",
+        "https://arxiv.org/abs/2205.07998",
+        "https://arxiv.org/abs/2401.04659",
+        "Resultary semantic query: Bergman localization operator hyperbolic disk shape Hessian Fourier eigenvalue second variation stability",
+        "Frozen source audited at tree 0f00967a240ca8f5fd06abc59be8e8a4c5949830"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior functional K_alpha[f0+eps*g] incorporates induced Omega_eps; the new functional Lambda(Omega_eps)=sup_f int_Omega_eps |f|² has a different perturbation variable."
+        ],
+        "reasoning": "Neither displayed prior second variation nor global deficit formula logically entails the n-th eigenvalue shape coefficient without new operator perturbation analysis.",
+        "searches": [
+          "Gómez et al arXiv:2411.16010 Section 4.1 Lemma 4.7 equation (4.4)",
+          "Ramos–Tilli arXiv:2205.07998"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wavelet and weighted Bergman optimizers are equivalent under the standard unitary realization. The 2024 Hessian varies a holomorphic signal and its induced level set; here the domain boundary varies independently and the signal is optimized by an eigenvalue."
+        ],
+        "reasoning": "Compared functional arguments and derivative operations, not only a shared disk parameter.",
+        "searches": [
+          "Bergman localization operator hyperbolic disk shape Hessian Fourier eigenvalue second variation stability",
+          "arxiv:2411.16010 Section 4.1 Lemma 4.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest equispaced Bergman pole angle Hessian concerns a discrete pole placement functional; not localization of variable subsets."
+        ],
+        "reasoning": "No exact precomputed B_n sequence located; infinite-mode analytic statement is not a finite database lookup.",
+        "searches": [
+          "Bergman localization operator hyperbolic disk shape Hessian Fourier eigenvalue second variation stability",
+          "Fourier Hessian B_n weighted Bergman localization angular perturbation eigenvalue"
+        ]
+      },
+      "rationale": "The most relevant primary full PDF Gómez–Kalaj–Melentijević–Ramos 2024 arXiv:2411.16010, Section 4.1 Lemma 4.7 (page 29), was inspected: it perturbs analytic f0+epsilon*g and reoptimizes its level-set domain Omega_epsilon; its Hessian K_alpha[f] is signal-side, not the top-eigenvalue shape Hessian for an independently prescribed moving domain. Ramos–Tilli gives global disks as optimizers, and Gómez et al provides stronger global quadratic stability, but neither inspected theorem supplies the full B_n spectrum or optimal B2. A hidden duality between the two second variations remains a genuine originality risk.",
+      "residual_risks": [
+        "The full 2025 published revision of Gómez et al was not retrieved, but full 43-page arXiv preprint, relevant Section 4.1 and Lemma 4.7, was materially read; an implicit dual spectral calculation or revisions could weaken priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_VARIATIONAL_FUNCTIONAL: perturb the analytic signal g and readjust its maximizing observation level set; does not directly give fixed-domain top eigenvalue Fourier Hessian",
+          "evidence": [
+            "Lemma 4.7 states Hessian of K_alpha[f0+epsilon*g] with Omega_epsilon={u_epsilon>threshold}, not independent arbitrary boundary h."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2411.16010",
+          "material_read": "Full 43-page PDF, sections 1, 4.1 and Lemma 4.7 page 29 including equations (4.1)-(4.9)",
+          "method": "Read PDF text with page-28 visual screenshot of Lemma 4.7",
+          "title": "Uniform stability of concentration inequalities and applications",
+          "trigger": "Closest stronger global stability and second-variation theorem"
+        },
+        {
+          "assessment": "COVERED_ONLY_GLOBAL_OPTIMALITY: hyperbolic disks uniquely maximize concentration but no Fourier second-variation spectrum",
+          "evidence": [
+            "Sharp inequality for fixed hyperbolic area and uniqueness of disk maximizers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.07998",
+          "material_read": "Full HTML paper main results and proof inspected in literature retrieval; arXiv abstract corroborated",
+          "method": "Primary paper HTML/text",
+          "title": "A Faber–Krahn inequality for wavelet transforms",
+          "trigger": "Same operator and global maximizer"
+        },
+        {
+          "assessment": "OTHER_SPECTRAL_NORM: Hilbert–Schmidt functional does not determine largest eigenvalue Hessian",
+          "evidence": [
+            "Hilbert–Schmidt norm squares sum of eigenvalue squares, not supremum eigenvalue."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.04659",
+          "material_read": "Abstract and paper topic",
+          "method": "Bibliographic/abstract comparison",
+          "title": "The quantitative isoperimetric inequality for the Hilbert–Schmidt norm of localization operators",
+          "trigger": "Related spectral localization functional"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "For every alpha>-1, 0<T<1 and fixed bounded mean-zero real angular profile, the optimized top eigenvalue of weighted Bergman disk localization has the stated O(epsilon³) Fourier-resolved shape deficit; B1=0<B2<... with explicitly sharp second-harmonic coefficient and translation kernel.",
+        "Originality comparisons and mathematical proof from frozen RESULT.md"
+      ],
+      "rationale": "Quantitative stability for analytic wavelet/Bergman concentration is a recognized nontrivial problem. Resolving every Fourier-mode curvature of the optimized operator norm and the least positive mode is a natural local refinement not provided merely by uniqueness/global deficit bounds.",
+      "residual_risks": [
+        "A local second-order result only, not a new global inequality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Originality is a qualified best-knowledge judgment after actual Resultary, primary-literature and mathematical implication comparisons, not a formal priority or expert certificate. Public-file metadata privacy prevents publication; source evidence retained unchanged.",
+  "schema_version": 1
+}
