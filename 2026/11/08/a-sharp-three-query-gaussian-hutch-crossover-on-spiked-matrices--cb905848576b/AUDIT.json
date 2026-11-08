@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The conditional Gaussian quadratic-form identity gives twice the expected squared Frobenius norm of the projected residual. For one spike, the projection is a rank-one perturbation of a rank-(d-1) orthoprojector, giving exact chi-square-ratio moments. In dimension four an exact Beta(1/2,3/2) integral gives rational moments and variances; Descartes plus sign brackets prove one positive threshold. For fixed d, Gaussian rescaling and an integrable dominated expansion give the leading linear coefficient with O_d(1) remainder. Standalone code checks 396 identities/numerical cases; those finite tests do not establish the infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2010.09649 proves general positive-semidefinite trace-estimation query complexity, not this fixed-budget exact risk ordering.",
+        "https://arxiv.org/abs/2109.10659 develops adaptive allocation and Nyström++ with error guarantees, not a closed form for the specified three Gaussian products."
+      ],
+      "reasoning": "A general stochastic trace-estimation error guarantee or a statement that faster spectral decay favors deflation does not imply an exact dimension-four equality threshold or the asymptotic rare-miss coefficient. The general variance representation contains but does not resolve the necessary parameter-dependent expectation. No stronger published result explicitly implying this full quantitative statement was found in the inspected primary sections.",
+      "searches": [
+        "trace estimator Hutch++ low rank sketch Gaussian probes finite sample variance eigenvalues Hutchinson",
+        "PSD trace estimation two-pass Hutch++ Nyström++ one sample Gaussian spectrum risk and Hutchinson",
+        "Gaussian Hutch++ one rank-one sketch one Gaussian residual probe exact variance on two by two positive semidefinite matrix spectral condition number crossover with three Gaussian Hutchinson probes"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2010.09649",
+      "https://arxiv.org/abs/2109.10659",
+      "https://arxiv.org/abs/1603.05988",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553228/",
+      "https://ar5iv.labs.arxiv.org/html/2109.10659",
+      "2026/10/4/SCOPE-exact-off-diagonal-curvature-leakage-in-adahessian-s-hessian-rms--22bdee1af96c",
+      "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248",
+      "2026/9/19/SCOPE-skewness-splits-flat-chaos-gaussianization--78000fe178d9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2010.09649: Hutch++ estimator definition, unbiased split and conditional variance control; it already supplies the basic variance-reduction machinery.",
+        "https://arxiv.org/abs/2109.10659: Gaussian Hutchinson variance formula, partitioning of query budget and experiments for slow/fast spectral decay.",
+        "https://arxiv.org/abs/1603.05988: different deflation setting for inverse-trace estimation with spectral eigenvector deflation."
+      ],
+      "reasoning": "Published general identities imply the conditional variance starting point but not, without additional exact integration, the sharp fixed-budget decision boundary or its unique root; source experiments state trends but do not imply exact pointwise superiority over the entire one-spike parameter range. Earlier inverse-trace eigenvector deflation is mathematically related but does not evaluate this randomized Hutch++ sketch. The work makes no claim to have invented deflation or the Gaussian quadratic variance identity.",
+      "searches": [
+        "Hutch++ optimal stochastic trace estimation Meyer Musco Woodruff one column Gaussian residual Frobenius variance",
+        "Improved variants Hutch++ Persson Cortinovis Kressner flat spectrum query allocation Gaussian variance",
+        "Deflation as a Method of Variance Reduction for Estimating the Trace of a Matrix Inverse Gambhir Stathopoulos Orginos"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2010.09649 Algorithm 1 and variance-reduction analysis: conditional Gaussian residual-Frobenius formula, not evaluated for a random one-column spiked sketch.",
+        "https://arxiv.org/abs/2109.10659 Algorithm 1, equation (2), sections 1-3: spectral tradeoff and allocation, not exact spiked-matrix crossover."
+      ],
+      "reasoning": "The result is equivalently an exact two-dimensional Gaussian/chi-square ratio moment evaluation under an anisotropic one-column sketch, followed by a same-cost variance comparison. The general pre-existing conditional variance formula reduces the work to an integral but does not itself give the rational variance, unique polynomial root, or rare-sketch leading constant. Searches on these equivalent objects and parameter expressions found no directly matching published claim.",
+      "searches": [
+        "Hutch++ exact Gaussian variance rank-one sketch spiked diagonal SPD matrix eigenvalues kappa one one one threshold 4.568",
+        "rank one Hutch++ covariance residual trace estimator rare sketch asymptotic linear in top eigenvalue dimension four three queries",
+        "one dimensional Gaussian sketch deflated trace estimator two eigenvalues exact expected residual Frobenius norm",
+        "Hutch++ rank one sketch exact variance eigengap smallest dimension three queries"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/2109.10659 synthetic experiments cover 5000-dimensional algebraically decaying spectra and display aggregate relative errors rather than the claimed exact 4-by-4 Gaussian ratio.",
+        "Search results in the published mathematical-result index returned unrelated finite-query Gaussian and deflation problems, including 2026/10/4/SCOPE-exact-off-diagonal-curvature-leakage-in-adahessian-s-hessian-rms--22bdee1af96c and 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248."
+      ],
+      "reasoning": "The precise threshold is a root of an explicit quintic derived by integration; the relevant published experiments and retrieved records do not supply its value, exact variance comparison, or equivalent lookup table. Non-detection in a database is not a proof of uniqueness.",
+      "searches": [
+        "finite-query trace estimation Hutch++ Hutchinson crossover flat spectrum anisotropic 2x exact risk",
+        "randomized matrix trace estimation exact low-rank deflation variance cross-over and small query budget",
+        "Hutch++ Gaussian variance spike condition number Hutchinson cross over 2x 4x"
+      ]
+    },
+    "rationale": "The published conditional-residual variance identity and qualitative sketch-allocation tradeoff are acknowledged as prior results. The checked primary work does not evaluate the one-spike Gaussian-sketch beta integral, prove the exact three-query d=4 comparison and unique algebraic crossover, or derive the fixed-dimension sharp linear leading coefficient. This is a narrower model-specific quantitative result, not a novel estimator or general query-complexity improvement. An unindexed predecessor remains a risk.",
+    "residual_risks": [
+      "Specific spiked-Gaussian moment integrals may appear in unindexed sketching literature or appendices not discovered in targeted searching.",
+      "General conditional variance representation is old; novelty is restricted to its exact special-model evaluation, unique same-budget threshold and fixed-d sharp asymptotic coefficient.",
+      "Available source inspection is not a complete exhaustive search of every older trace-estimation paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact construction and broader complexity statements, but no closed spiked-Gaussian small-budget crossover or sharp rare-miss constant",
+        "evidence": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553228/",
+          "https://arxiv.org/abs/2010.09649"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8553228/",
+        "material_read": "Algorithm 1, Section 1.2, theoretical variance analysis, synthetic experiments and related prior work, in accessible full-text HTML",
+        "method": "Read primary accessible HTML and compared estimator formulas, query accounting, results, experiments and main theorem against the one-spike target",
+        "title": "Hutch++: Optimal Stochastic Trace Estimation",
+        "trigger": "Exact algorithm and conditional variance are essential antecedents"
+      },
+      {
+        "assessment": "Qualitative flat/decaying spectrum tradeoff and general variance identities are earlier, but precise finite-dimensional polynomial crossing and fixed-d asymptotic coefficient are not stated",
+        "evidence": [
+          "https://ar5iv.labs.arxiv.org/html/2109.10659",
+          "https://arxiv.org/abs/2109.10659"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2109.10659",
+        "material_read": "Introduction, Algorithm 1, equation (2), allocation analysis, Sections 2-3 and relevant appendices in accessible full-text HTML",
+        "method": "Compared general Gaussian formula, statistical loss, fixed versus adaptive sample allocation, spectral examples and appendices to exact d=4 claim",
+        "title": "Improved variants of the Hutch++ algorithm for trace estimation",
+        "trigger": "Potential domination through adaptive allocation, Gaussian variance and more detailed spectral experiments"
+      },
+      {
+        "assessment": "Distinct object and estimator; a residual risk remains because the paper was not used to exclude every possible appendix formula",
+        "evidence": [
+          "https://arxiv.org/abs/1603.05988"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1603.05988",
+        "material_read": "Open abstract and available searchable explanatory material; not a full-text exclusion",
+        "method": "Compared spectral eigenvector deflation of inverse trace to a random one-column Hutch++ projection",
+        "title": "Deflation as a Method of Variance Reduction for Estimating the Trace of a Matrix Inverse",
+        "trigger": "Older deflation precedent that could cover a special variance calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cb905848-576b-4c96-a15d-f4c34c77ad33",
+  "value": {
+    "rationale": "The equal three-matvec constraint makes the deflation-versus-direct-sampling comparison mathematically natural: two sketch-building products are an opportunity cost on flatter spectra. Dimension four is the first setting in which three generic queries are below the dimension, and the exact unique transition is a nontrivial finite-budget tuning boundary. Rare missed-spike sketches create linear rather than bounded asymptotic variance at every fixed dimension, explaining the qualitative mechanism in quantitative form. A complete, exact algorithm-selection benchmark may inform budget allocation and test implementations without claiming a universal estimator.",
+    "status": "PASS"
+  }
+}
