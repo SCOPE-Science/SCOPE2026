@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For every nonempty eligible update batch S, each internal moved edge contributes at most one successor-neighbor count because kappa>=3; boundary successor edges P then satisfy P>=sum theta-|I|. Exactly P boundary edges become monochromatic and Q equal-color boundary edges cease to be, so delta Phi=P-Q>=2P-|B|>=sum_S(2theta_v-degree_v). Finite edge budget implies the claimed global update and round bounds. Tripartite three-cycles and bipartite two-color cycles show the two excluded boundaries. Exact finite tests on the embedded verifier passed 1,319,754 full trajectories and 5,001 partial update checks, plus other tests; the proof, not enumeration, establishes all finite sizes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles–Martínez (1991), published abstract: monotone scalar automata networks and cycles of length one or two",
+        "Matamala–Goles (1997), abstract: general cyclic automata on finite graphs, transient and period bounds; full text inaccessible",
+        "Muñoz–Nuño (2026), relevant model section and high-threshold empirical observations"
+      ],
+      "reasoning": "The monotone binary/symmetric threshold-network potential does not imply global fixation of this oriented multicolor rule, and its permitted two-cycles show that the update mechanisms differ. The 1997 finite-graph cyclic-automata article is the closest possible broader source, but only an abstract was accessible and it does not establish a specific majority-threshold covering theorem. This comparison carries explicit residual priority risk; it is not reported as a full-text exclusion.",
+      "searches": [
+        "\"Dynamic Behavior of Cyclic Automata Networks\" \"threshold\"",
+        "\"cyclic cellular automaton\" \"potential function\" \"edges\"",
+        "\"cyclic dominance\" \"strict majority\" \"Lyapunov\"",
+        "Goles–Martínez, Lyapunov functionals for automata networks defined by cyclically monotone functions (1991)",
+        "Matamala–Goles, Dynamic behavior of cyclic automata networks (1997)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.37990v1 primary PDF relevant sections",
+      "Fisch–Gravner–Griffeath 1991 primary PDF relevant sections",
+      "arXiv:2108.06404 primary PDF relevant sections",
+      "Matamala–Goles 1997 title/abstract only",
+      "Goles–Martínez 1991 abstract",
+      "Epperlein–Siegmund 2013 public abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 paper observes no oscillatory examples at high thresholds in sampled Moore tori, a statement with different quantifiers.",
+        "The 1991 paper gives wave-propagation cutoffs and high-threshold fixation discussion on lattice families, not the claimed graph-independent proof in inspected passages.",
+        "The 2021 paper treats almost-sure behavior from random states on infinite regular trees.",
+        "An exact complete-graph census proves cases for complete graphs but does not assert a Lyapunov inequality on arbitrary graphs.",
+        "The 1997 full text could not be inspected, so its implication relationship remains a specifically named priority risk."
+      ],
+      "reasoning": "Neither sampled outcomes nor random-start almost-sure results imply every-orbit deterministic bounds, and complete-graph classifications do not imply arbitrary-graph classifications. The 1997 source is not declared noncovering without primary full-text access. The proof itself supplies a new explicit inequality checked directly against the underlying update definition.",
+      "searches": [
+        "arXiv:2610.37990v1 full text, threshold sections",
+        "Fisch–Gravner–Griffeath 1991, high-contact threshold results",
+        "Bello–Sivakoff arXiv:2108.06404, infinite-tree fixation theorems",
+        "complete-graph three-color cyclic automaton exact orbit census",
+        "Matamala–Goles 1997 abstract and bibliographic record"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.37990v1, Eq. (1) and Sec. V B, threshold sweep",
+        "Fisch–Gravner–Griffeath (1991), definitions and discussion of high-threshold fixation",
+        "Bello–Sivakoff arXiv:2108.06404v1, Theorems 1.1–1.4"
+      ],
+      "reasoning": "The newly proved statement uses a strict Lyapunov inequality for every finite configuration and every eligible simultaneous update batch. The inspected sources give model definitions, lattice phenomenology or random-initial-state fixation; these are not equivalent to a per-vertex-update edge-energy inequality with an all-configurations O(|E|) bound. Binary strict-majority rules can have period-two orbits, so the oriented three-color condition cannot be omitted.",
+      "searches": [
+        "\"cyclic cellular automata\" \"strict majority\" \"monochromatic\" edge potential",
+        "\"cyclic cellular automaton\" \"more than half\" neighbors converges frozen",
+        "\"cyclic cellular automata\" \"majority\" \"fixed point\"",
+        "Fisch–Gravner–Griffeath 1991, sections on rules and bootstrap fixation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact table or theorem found in the inspected 2026 source, 1991 CCA paper and 2021 tree paper.",
+        "Nearby indexed claims concerned binary parity automata, Rule-128 transients and three-color traveling stripes rather than universal fixation for arbitrary undirected graphs."
+      ],
+      "reasoning": "The theorem is a quantified inequality for every graph and coloring, not a finite table value. The accessible exact-claim and parameter searches did not identify an indexed formula or theorem implying the claimed graph-wide Lyapunov bound. Search absence does not establish absolute novelty.",
+      "searches": [
+        "\"cyclic cellular automata\" \"monochromatic edges\"",
+        "three-color Moore threshold five global convergence at most two times lattice area",
+        "finite graph cyclic automaton predecessor threshold energy count",
+        "semantic mathematical-record search for strict-majority potential, sharp tripartite boundary and exact update budget"
+      ]
+    },
+    "rationale": "The novelty assessed is the graph-independent quantified strict-majority edge-potential inequality, its arbitrary eligible batch robustness, the sharp tripartite boundary and the explicit all-state stabilization bound. Same-model searches compared aliases and both stronger/nearby theorems, and no accessible prior source shown to imply this exact combination was identified. The 1997 original finite-graph work remains a named unresolved historical-priority risk because its full text was inaccessible; no absolute priority certification is claimed.",
+    "residual_risks": [
+      "Matamala–Goles (1997), the closest finite-graph cyclic-automata predecessor, could not be fully inspected; unpublished equivalent high-threshold specializations remain possible.",
+      "Broad potential-function literature may have an equivalent proof not located by phrase and implication searches.",
+      "Results for the exact half-degree case or Moore threshold four are not asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same 3-color Moore rule; presents numerical threshold outcomes and period symmetries, not the finite-graph strict-majority potential inequality in inspected relevant passages.",
+        "evidence": [
+          "arXiv:2610.37990v1, Eq. (1), Secs. II and V B, Supplement Sec. S4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.37990",
+        "material_read": "Primary PDF title and abstract, update definition, selected results and threshold passages, and cited references",
+        "method": "Direct PDF text inspection with page-image cross-check and targeted searches for threshold, potential and fixation",
+        "title": "Symmetry-resolved periods in a cyclic-dominance automaton: separating intrinsic from lattice-induced periodicity",
+        "trigger": "Identical three-color eight-neighbor rule and high-threshold outcome discussion"
+      },
+      {
+        "assessment": "Prior model and large-scale high-threshold fixation discussions acknowledged; inspected material does not state an every-finite-graph update-budget theorem.",
+        "evidence": [
+          "Fisch, Gravner and Griffeath (1991), pp. 23–25 and high-threshold discussion"
+        ],
+        "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/papers/fgg.pdf",
+        "material_read": "Primary PDF definitions pp. 23–25, discussion of fixed/high thresholds and bootstrap-fixation regime in relevant sections, and references",
+        "method": "Direct open-access publisher-author PDF text inspection and page-image check",
+        "title": "Threshold-range scaling of excitable cellular automata",
+        "trigger": "Original family, contact thresholds and possible fixation precedents"
+      },
+      {
+        "assessment": "Theorems concern almost-sure fixation/fluctuation on infinite trees from product-measure initial states, not deterministic finite-graph bounds.",
+        "evidence": [
+          "Bello and Sivakoff (2021), introduction and Theorems 1.1–1.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.06404",
+        "material_read": "Primary PDF pp. 1–3: definition and Theorems 1.1–1.4; related-work discussion",
+        "method": "Direct arXiv PDF text inspection and page-image check",
+        "title": "Cyclic cellular automata and Greenberg–Hastings models on regular trees",
+        "trigger": "Same successor contact rule formulated on graphs and rigorous fixation precedents"
+      },
+      {
+        "assessment": "The abstract mentions general transient/period bounds and is a residual priority risk. No whole-paper NOT_COVERING claim or invented text inspection.",
+        "evidence": [
+          "Matamala and Goles (1997), abstract and journal bibliographic record"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0166-218X(97)84104-2",
+        "material_read": "Abstract, title, DOI and bibliographic description only; full primary article unavailable",
+        "method": "Open/preprint and repository searches; publisher access not available; institutional retrieval attempt did not supply content",
+        "title": "Dynamic behavior of cyclic automata networks",
+        "trigger": "Strongest plausible historical all-finite-graph theorem"
+      },
+      {
+        "assessment": "General potential methods acknowledged; different threshold-neural model whose admitted 2-cycles distinguish it from a strict successor-move Lyapunov theorem.",
+        "evidence": [
+          "Goles and Martínez (1991), published abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0404020",
+        "material_read": "Public abstract and model hypothesis (cyclic monotonicity in a real scalar map)",
+        "method": "Published abstract and bibliographic information inspection",
+        "title": "Lyapunov functionals for automata networks defined by cyclically monotone functions",
+        "trigger": "Potential-function literature for symmetric threshold automata"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "26f0a8ed-a68e-4f9c-bb2e-4b2de4c50df5",
+  "value": {
+    "rationale": "The 2026 source motivates high-threshold cyclic-dominance fixation, and the theorem supplies an all-configurations structural global stabilization criterion with a linear edge-budget, heterogeneous thresholds and arbitrary synchronous eligible batches. It identifies a necessary universal sharp boundary via a nontrivial three-color periodic family and a structurally different binary case. This is not a textbook majority conclusion: binary synchronous majority updates can oscillate, while the cyclic successor constraint forbids reciprocal edge contributions.",
+    "status": "PASS"
+  }
+}
