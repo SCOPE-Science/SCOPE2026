@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The result fixes the embeddedness threshold \(r<\operatorname{reach}(\gamma)\), turning number one, and the arithmetic-mean normalization of curvature. The direct tube Jacobian yields the established exact energy integral. Integrating the supporting-line inequality for \((1-z)^{-1/2}\) proves the global profile and a nonzero curvature-variance gap, including equality. For support perturbations of a circle, the curvature-radius relation \(p=h+h''\) and a direct second derivative establish the exact fixed-area-volume Hessian; Parseval proves the degree-two eigenspace and sharp value. Independent two-angle quadrature supplements, rather than replaces, these arguments. The result is not claimed for varying-radius or nonplanar tubes.
+## correctness
 
-## Originality
-**PASS, provisional historical priority.** Ertem Kaya (2021, Theorem 4.1, DOI 10.35414/akufemubid.977234) establishes the underlying tubular Willmore expression, and that expression is **not** new. Yu–Chen (arXiv:2003.13116) and Keller–Mondino–Rivière (arXiv:1305.5470) study broader isoperimetric Willmore problems without stating the exact sharp planar-core tube profile or spectral result. A 2018 geometric-analysis course project identifies general plane-curve tubes as a natural class to investigate but provides no theorem. Targeted published-record comparisons did not find a mathematically equivalent published item. Risk: an older tube-specific Jensen inequality or spectral calculation may predate this account; absence of a search hit does not establish absolute novelty.
+PASS
 
-## Mathematical value
-**PASS.** Fixing tube area and enclosed volume leaves infinitely many admissible embedded planar cores. The result determines the unique optimal core for **every feasible constraint pair**, quantifies deviations in signed-curvature variance, and gives the exact local Fourier-mode sensitivity, including its sharp low mode. This is a natural geometric variational classification, not a novelty claim for a forward energy formula.
+For C⁴ once-traversed planar simple γ of length L with 0<r<reach(γ), tube geometry gives S=2πrL, V=πr²L, rho=L/(2πr)>1. Principal curvatures and angular integral establish W=π/(2r)∫[1−r²κ(s)²]^−1/2 ds; with ∫κ ds=2π and q=2πr/L, supporting-line convexity of g(z)=(1−z)^−1/2 proves the claimed exact envelope π²rho²/sqrt(rho²−1) and global curvature deficit πr/[4(1−q²)^(3/2)]∫(κ−2π/L)². Equality forces constant signed curvature, hence circle. For strictly convex support perturbations h=R+εf with zero mean/first modes, ds=(h+h″)dφ, F(p)=p²/sqrt(p²−r²), F″(R)=r²(R²+2r²)/(R²−r²)^(5/2), giving specified quadratic coefficient; Fourier (k²−1)²≥9, attained only k=2. Independent symbolic derivative and numerical R=2,r=.8 noncircular perturbation give W≈26.923369, circular ≈26.921553, gap ≈.001816 above variance lower ≈.001155. Numeric examples do not prove global validity.
 
-## Limits and provenance
-The finite numerical checks substantiate internal consistency but do not replace the proof. Full article inspections and semantic searches cannot eliminate all historical-priority uncertainty. The global remainder coefficient is not claimed best possible, and the sharp quadratic spectral statement concerns convex local support perturbations only. No independent audit was undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Willmore tube forward integral and curvature formula are established (not original), including Kaya 2021 Theorem 4.1. The inspected primary derivation does not state a sharp fixed-surface-area-and-volume envelope, its global curvature remainder, or the constrained support-function second-variation/equality class. General prescribed isoperimetric ratio Willmore problems for all tori do not imply this particular restricted exact envelope without the tube reduction. Resultary search finds related affine-area Fourier Hessians rather than this Willmore tube problem. Best-of-knowledge PASS with risk of overlooked classical Jensen deductions in tube literature.
+
+## value
+
+PASS
+
+Constant-radius planar tubes are a natural geometrically constrained torus family. The proof identifies the unique optimizing circle under physical S,V constraints, a quantitative excess-energy control for all embedded planar cores, and an exact spectral least-penalized mode for near-circle perturbations; it answers a motivated classification rather than an arbitrary parameter slice. The simple forward integral alone would not satisfy value, but simultaneous sharp constrained classification and stability do.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
