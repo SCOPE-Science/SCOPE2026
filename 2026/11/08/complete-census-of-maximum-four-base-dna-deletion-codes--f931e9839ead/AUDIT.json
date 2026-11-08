@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For exactly 256 labeled four-base words, reverse complementation has 16 fixed words and 120 nonfixed two-word orbits; all 120 two-word orbits are internally single-deletion compatible. Their finite compatibility graph has edges precisely when full deletion shadows are disjoint, establishing a code/clique bijection. The packaged C++17 recurrence exhaustively certifies 0 twelve-orbit cliques and exactly 44 eleven-orbit cliques with safe greedy-coloring upper-bound pruning, using no optimization heuristic. A genuinely separate standard-library Python Bron-Kerbosch maximal-clique enumeration reproduces the 44 complete lists, excludes larger maximal cliques, checks nine group orbits (seven size four, two size eight), and intersects codebooks to identify exactly two compulsory reverse-complement pairs. The actual packaged sources and data were compiled/executed and cross-checked. No infinite extrapolation is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "D'yachkov et al. (2003) defines reverse-complement deletion-similarity codes but reports general asymptotic/construction questions, not the classification; https://www.renyi.hu/~elp/Evol/DNATut-JCombOpt03.pdf",
+        "King (2003) gives Hamming-distance/GC-content reverse-complement constraints, with a distinct confusability relation; https://arxiv.org/abs/math/0306197",
+        "The 2005 full paper treats broader-length rate bounds and specific examples, and contains no stated comprehensive enumeration of four-mer size-22 optimizers."
+      ],
+      "reasoning": "General code-existence or Hamming-distance bounds cannot imply 44 labeled maximizers of the deletion-compatibility graph, nor the exact group and intersection invariants. The 2005 source is acknowledged as broader on size, not on the new structural parameters.",
+      "searches": [
+        "single deletion correcting DNA codes reverse-complement invariant maximum finite length",
+        "all maximum reverse complementary DNA 4-letter deletion codes codebook classification group action",
+        "arxiv:math/0306197",
+        "doi:10.1023/B:JOCO.0000017385.39168.0d"
+      ]
+    },
+    "checked_sources": [
+      "https://www.renyi.hu/~elp/Evol/DNATut-JCombOpt03.pdf",
+      "https://www.researchgate.net/publication/225807128_On_DNA_codes",
+      "https://arxiv.org/abs/math/0306197",
+      "https://doi.org/10.1134/S0032946006020104"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published example is exactly one of the 44 fully enumerated codebooks; the paper asserts that 22 is largest but does not enumerate all optimal choices in its Examples 5/6 and Remark 4.",
+        "The one-page 2006 remark is bibliographically identifiable but full text was unavailable; no claim of noncoverage based only on its metadata is made."
+      ],
+      "reasoning": "Knowing that a maximum is 22, or specifying one 22-word witness, cannot determine whether it has 1, 44, or any other number of labeled extremizers, nor their orbit and mandatory-core structure. The new invariant needs the explicit complete finite classification supplied here.",
+      "searches": [
+        "On DNA Codes Example 5 11 pairs Watson Crick maximum 22 enumerate all optimal codes common AAAA CCCC",
+        "2005 On DNA Codes n=4 size22 all optimal codebooks symmetry classes",
+        "doi:10.1134/S0032946006020104"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "D'yachkov et al. (2005), Example 5, presents 11 reverse-complement pairs and Remark 4 states the size-22 optimum; author-uploaded full text https://www.researchgate.net/publication/225807128_On_DNA_codes",
+        "Complete one-deletion shadow-disjointness is equivalent to pairwise deletion similarity at most two for length-four words; no difference of channel is being used to claim novelty."
+      ],
+      "reasoning": "The 2005 source covers the maximum value 22 exactly under the same mathematical definitions, but an extremal size and one witness do not entail the number or structure of all maximizers. The new claim is the exhaustive 44/9/compulsory-pair classification.",
+      "searches": [
+        "DNA reverse complement closed single deletion correcting code finite exact length four five optimum size",
+        "2005 On DNA Codes n=4 size22 all optimal codebooks symmetry classes",
+        "doi:10.1007/s11122-006-0004-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "D'yachkov et al. (2005), Example 5 is a single 22-word code table and Example 6 an ordinary 24-word deletion code expressly excluded from their DNA model; Remark 4 omits optimum proofs, not a published census.",
+        "Closest research records concern ternary/quinary deletion codes or binary length-six optima without the quaternary strand-closure condition; no record returned 44/9 or compulsory pairs."
+      ],
+      "reasoning": "The closest same-parameter published table is an example, not an enumeration of every optimum. Other returned finite-code tables differ materially in alphabet, symmetry constraint, channel, or length; their output does not imply the new 44-class census.",
+      "searches": [
+        "quaternary DNA codes 4-mer deletion similarity two reverse complement 44 maximum codes 9 equivalence classes",
+        "length four 11 Watson Crick strand pairs deletion code maximum census"
+      ]
+    },
+    "rationale": "The exact maximum size 22 for this very same model is expressly credited to D'yachkov et al. (2005), Example 5 and Remark 4, and is not counted as a discovery. Their inspected text gives a single size-22 construction and asserts optimality, but not the complete number 44 of labeled optima, their nine equivalence classes, or the two compulsory pairs. Historical searches and closest available published records did not supply the latter characterization; a one-page 2006 remark remains inaccessible and is a named priority risk.",
+    "residual_risks": [
+      "The full one-page 2006 remark to the same-model 2005 paper was inaccessible; its precise content could affect historical-priority comparison.",
+      "Search-index coverage of older tables and unpublished collections is not complete; numerical nonappearance is not proof of novelty.",
+      "No independent human review or scientific certification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS prior optimum 22 and witness; does not state the asserted complete 44-code census, symmetry or compulsory pair characterization in inspected text",
+        "evidence": [
+          "Example 5 displays 11 complementary pairs, Example 6 displays 24 ordinary words, Remark 4 asserts both sizes are optimal without proving them; Section 6.2 concerns constructions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11122-006-0004-3",
+        "material_read": "Author-uploaded full-text reproduction, especially definitions, section 2, Examples 5/6, Remark 4, broader theorems; searched for enumerative claims",
+        "method": "Read searchable full HTML text at https://www.researchgate.net/publication/225807128_On_DNA_codes, including full examples and surrounding discussion",
+        "title": "On DNA Codes",
+        "trigger": "Exact same four-letter deletion model and claimed optimum size 22"
+      },
+      {
+        "assessment": "Motivates and specifies the model; no finite length-four optimum census in inspected paper",
+        "evidence": [
+          "Definition 1 requires strand pairs, excludes fixed reverse-complements, and bounds pairwise deletion similarity; Sections 6-8 discuss general constructions and applications."
+        ],
+        "identifier_or_url": "https://www.renyi.hu/~elp/Evol/DNATut-JCombOpt03.pdf",
+        "material_read": "Full PDF extracted text with visual inspection of page 6 and review of definition and conclusion",
+        "method": "Read full-text PDF, definition in Section 5 and preliminary results in Sections 6-8; visual PDF screenshot checked",
+        "title": "Exordium for DNA Codes",
+        "trigger": "Foundational definition of reverse-complement deletion-similarity DNA codes"
+      },
+      {
+        "assessment": "DIFFERENT distance model, not coverage of deletion-graph extremizer classification",
+        "evidence": [
+          "ArXiv v1 timestamp 2003-06-12; abstract and introduction specify Hamming rather than length-three deletion shadows."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0306197",
+        "material_read": "ArXiv first posted 2003-06-12, definitions and statement of Hamming and GC restricted code models",
+        "method": "Read arXiv text and its definition of Hamming reverse-complement constraint",
+        "title": "Bounds for DNA codes with constant GC-content",
+        "trigger": "Archival predecessor on DNA reverse-complement code design, exact first-public evidence"
+      },
+      {
+        "assessment": "UNRESOLVED source: cannot conclude the remark does not contain a competing statement",
+        "evidence": [
+          "2006 journal 42(2):166, DOI 10.1134/S0032946006020104; no accessible full text was obtained."
+        ],
+        "identifier_or_url": "https://doi.org/10.1134/S0032946006020104",
+        "material_read": "Only bibliographic metadata; complete paper not accessible",
+        "method": "Searched arXiv/OA and author posting; authorized institutional PDF route was unavailable",
+        "title": "Remark on On DNA Codes",
+        "trigger": "One-page remark by the authors on the closest same-model paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f931e983-9ead-407a-8a66-35e4bff82629",
+  "value": {
+    "rationale": "At the first small quaternary case explicitly treated in the original DNA deletion-code literature, prior work establishes the maximum code size but leaves the full optimal design space undescribed. The finite classification determines all 44 labeled maximum codebooks, their nine symmetry types, and two unavoidable homopolymer pairs, resolving a natural structurally motivated question relevant to selecting additional constraints on optimal designs. It is not an arbitrary parameter substitution or a routine increment of a previous enumeration: it classifies the complete extremal family of a published exact model. No thermodynamic advantage is claimed.",
+    "status": "PASS"
+  }
+}
