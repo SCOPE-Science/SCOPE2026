@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives total domination in \(L(K_n)\) directly from the two forbidden components of the selected-edge graph (two isolates or a standalone selected edge). Component counting forces the known optimum to have one isolate and \(q\) three-vertex paths for \(n=3q+1\). Removing any selected edge exposes exactly three valid replacements, two of them slides. Path-center rotations and isolated-label swaps generate all rooted partitions, establishing slide connectivity, hence exchange connectivity; permutation transitivity and the handshake lemma give the counts. The independently formulated standalone tester exhaustively validates \(n=4,7\) and checks local moves for \(n=10,13,16\). No finite test is used as a proof of the infinite theorem.
+PASS
 
-## Originality — PASS with residual priority risk
+For n=3q+1, q>=1, a selected-edge graph H on K_n totally dominates L(K_n) iff it has at most one isolated ground vertex and no isolated single-edge component. Component and forest counting force exactly one ground isolate plus q disjoint P3 components at size 2q. On deleting edge ab from path a-b-c, valid replacements other than ab are ac, ub, uc (u the isolate); exactly ac and ub meet ab. Thus degrees are 6q for unrestricted exchanges and 4q for slides. Center-changing slides together with singleton/leaf swaps generate all rooted triple partitions: connectedness follows, and S_n-transitivity and handshake give N=n!/(2^q q!), 3qN and 2qN edges. Independently enumerated all length-2q open-neighborhood total dominators for n=4,7, obtaining N=12,630 with uniform degree pairs (6,4),(12,8). This is corroboration, not the all-q proof.
 
-OEIS A304561 [1] states the optimum family and its cardinality; those are explicitly credited and excluded from the novelty claim. Alikhani–Fatehi–Mynhardt [2] use addition/deletion moves with varying sizes. The survey of Mynhardt–Nasserasr [3] explains jump and slide models but does not give the special fixed-minimum triangular total-domination exchange/slide theorem. Targeted published and mathematical-record searches covered Johnson/triangular/line-graph aliases, total edge domination, exact tables, and related reconfiguration descriptions; accessible historical claims address other domination parameters or graph families. Their known minima and adjacent models do not logically imply the new move degrees or connectivity. An unindexed flip graph of rooted three-set partitions remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Fixed-size reconfiguration changes the question from counting static optimal monitors to constructive reachability among them. The theorem completely determines the local move type and regularity of two natural reconfiguration graphs, quantifies the exact difference between permissive jumps and constrained slides, and proves that slide connectivity survives the restriction for infinitely many graph orders. The result is an infinite structural characterization, not a routine restatement of the preexisting optimum count.
+OEIS A304561 (Howroyd 2018) explicitly predates the optimal configuration family and count, so they are excluded. The assessed claim is the complete fixed-size replacement classification, both degrees, and connectivity under the slide constraint. The related published total-domination reconfiguration paper uses additions/deletions at threshold size and the survey treats other domination reconfiguration schemes. Resultary search for Johnson/triangular total dominating token sliding/jumping returned neighboring domination results but no identical statement. A pre-existing unlabeled rooted-triple partition flip theorem is an unresolved but not decisively covering priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Minimum total domination determines a natural family of optimal monitoring configurations; reachability via local moves is not mechanically implied by its cardinality. The theorem computes all local moves and gives an infinite family of connected regular exchange and stricter slide graphs, quantifying exactly qN non-slide moves. It is a complete structural reconfiguration result, not a numerical restatement of the known static count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
