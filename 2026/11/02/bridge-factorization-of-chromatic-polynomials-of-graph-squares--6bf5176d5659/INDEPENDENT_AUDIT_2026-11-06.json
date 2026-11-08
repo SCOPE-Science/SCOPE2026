@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T02:57:13.700685Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual assigned 2026/11/02/bridge-factorization-of-chromatic-polynomials-of-graph-squares--6bf5176d5659/RESULT.md",
+        "actual assigned 2026/11/02/bridge-factorization-of-chromatic-polynomials-of-graph-squares--6bf5176d5659/verify.py",
+        "Independent_math_checks.py counts graph-square named colorings by direct backtracking and independently decomposes all bridges; 2,316 equality checks across all connected labelled graphs on <=5 vertices, q=2..4. Reconstructed Git SHA1 from all seven actual blobs."
+      ],
+      "rationale": "Cut-edge contraction yields a tree of bridge-free components. When attaching a fresh graph H at c in old A to vertex a in H, all new square edges connect a to N_A[c] and each neighbor of a to c; both closed neighborhoods are cliques. For q large, a has q-deg_A(c)-1 colors; among H^2 colorings fixing a, fraction (q-1-deg_H(a))/(q-1) avoid old c color on its neighbors. This gives exact factor P_H(q)*(q-deg_A(c)-1)*(q-deg_H(a)-1)/(q(q-1)); products telescope into falling factorials with bridge counts, yielding a polynomial identity by infinitely many q. Chromatic number follows from positivity thresholds and singleton case. Independently enumerated exact named-color counts for all connected labelled graphs n<=5, palettes q=2,3,4: 2,316 agreements; finite tests only corroborate general induction.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Suvagiya arXiv:2609.20204 studies exact square chromatic and list-chromatic numbers on cactus graphs; Agnarsson 2003 treats chordal chromatic polynomial products."
+        ],
+        "reasoning": "Knowing only chi(G^2) cannot imply the full polynomial. Chordal clique-gluing identities are a proof method, not the exact general arbitrary-core square-count product established here.",
+        "searches": [
+          "chromatic polynomial square of bridged graph bridge block factorization exact coloring count vertex degree product",
+          "distance two graph coloring cactus graph square chromatic polynomial block tree"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md/verify.py at frozen tree ae7b091...",
+        "Agnarsson 2003 DOI:10.7146/math.scand.a-14421 primary PDF lemma 2.1",
+        "Suvagiya arXiv:2609.20204v1 cactus results",
+        "Resultary semantic search chromatic polynomial square of bridged graph bridge block factorization exact coloring count vertex degree product"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Agnarsson 2003 Lemma 2.1 contains the classical clique polynomial quotient; structural graph-square cross-boundary edges differ from a naive square of individual cores."
+        ],
+        "reasoning": "Established clique-gluing can simplify an alternate proof, but the factor requires an exact accounting of distance-two cross edges and per-attachment falling factorials not explicitly present in inspected references.",
+        "searches": [
+          "chromatic polynomial square of bridged graph bridge block factorization exact coloring count vertex degree product",
+          "clique sum graph square bridge factor chromatic polynomial arbitrary graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Agnarsson On chordal graphs and their chromatic polynomials (2003) Lemma 2.1 clique-gluing P_G=P_A P_B / P_intersection; standard chromatic polynomial clique sums."
+        ],
+        "reasoning": "A specialized clique-sum after graph squaring can produce parts of this formula. The candidate provides a closed bridge-core factor for arbitrary graph squares and handles nonchordal cores without assuming the square is decomposable by a fixed clique graph sum.",
+        "searches": [
+          "chromatic polynomial square of bridged graph bridge block factorization exact coloring count vertex degree product",
+          "chromatic polynomial graph square bridge block cut decomposition attached components"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct source checker exhausts all connected labelled graphs up to five vertices; independent program confirms 2,316 graph/palette values, and formula holds for arbitrary finite simple graphs."
+        ],
+        "reasoning": "A small graph-coloring database would not supply all-size induction or arrangement independence. No exact published table directly covers this theorem.",
+        "searches": [
+          "chromatic polynomial square of bridged graph bridge block factorization exact coloring count vertex degree product",
+          "database chromatic polynomials graph square small graphs bridge 2 distance coloring"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for universal graph-square bridge-core product with endpoint falling factorials, not for general clique-gluing of ordinary chromatic polynomials. The proof uses established named-color symmetry and clique-sum principles; prior cactus square results address only chromatic thresholds.",
+      "residual_risks": [
+        "Some more general chromatic-polynomial clique-sum/decomposition formula under graph powers may imply this theorem in full; exact published priority not certified.",
+        "Published bridge factorization variants may use clique separators rather than bridge deletion terminology.",
+        "The evaluation of core-square polynomials remains computationally hard for arbitrary cores; theorem is a factorization, not a polynomial-time algorithm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Clique-gluing is prior; no explicit universal graph-square bridge-core product read in relevant material. Other unexamined sections are a residual risk.",
+          "evidence": [
+            "Lemma 2.1 gives clique-gluing ordinary chromatic polynomial identity."
+          ],
+          "identifier_or_url": "https://doi.org/10.7146/math.scand.a-14421",
+          "material_read": "Primary published PDF opened; initial pages and the clique-gluing lemma and chordal assumption inspected via PDF page image/text.",
+          "method": "lawful public PDF with page-image screenshot",
+          "title": "On chordal graphs and their chromatic polynomials",
+          "trigger": "Closest prior general chromatic-polynomial product via clique-sums"
+        },
+        {
+          "assessment": "Establishes square coloring numbers in cactus subclass; exact named-color polynomial not established from inspected material.",
+          "evidence": [
+            "Cactus-specialized chromatic thresholds and list-coloring are different invariants."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.20204",
+          "material_read": "Abstract and relevant theorem description examined, not entire article.",
+          "method": "arXiv metadata/available excerpts",
+          "title": "Two-distance and list-two-distance coloring of cacti: the subcubic case and the C5 obstruction",
+          "trigger": "Same graph square distance-two coloring, cactus blocks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "assigned RESULT.md/verify.py at frozen tree ae7b091...",
+        "Agnarsson 2003 DOI:10.7146/math.scand.a-14421 primary PDF lemma 2.1",
+        "Suvagiya arXiv:2609.20204v1 cactus results",
+        "Resultary semantic search chromatic polynomial square of bridged graph bridge block factorization exact coloring count vertex degree product"
+      ],
+      "rationale": "A clean all-connected-graph exact factorization from bridge-free core square-polynomials and local endpoint degrees is mathematically useful for distance-two coloring enumeration, even with nonchordal cores. Arrangement invariance produces explicit nonisomorphic square-chromatically equivalent graphs and a sharp chromatic-number corollary. Not a trivial chromatic-number restatement because counts and polynomial structure are retained.",
+      "residual_risks": [
+        "Some more general chromatic-polynomial clique-sum/decomposition formula under graph powers may imply this theorem in full; exact published priority not certified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only ordinary graph-square named-colorings of finite connected simple graphs; no list-coloring polynomial or higher power extension. Polynomial identity follows from sufficiently large palettes, not from finite checks.",
+    "All novelty judgments are best-of-knowledge, not proof of absence from literature.",
+    "Existing source package public metadata contains private provenance; no publication change-set is ready."
+  ],
+  "schema_version": 1
+}

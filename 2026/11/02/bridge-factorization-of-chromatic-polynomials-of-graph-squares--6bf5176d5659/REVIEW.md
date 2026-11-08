@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The bridge-tree induction is exact because old-to-new distance-two adjacencies consist solely of the new endpoint against the old endpoint's closed neighborhood and the old endpoint against the new endpoint's neighbors. Both these neighborhoods form cliques in their respective squared graphs, and permutation symmetry of named colors gives the factor with its precise denominator. Successive attachments accumulate the falling factorial with the correct core degree and bridge multiplicity; polynomial equality follows from infinitely many admissible palettes. The chromatic-number corollary handles the singleton and no-bridge boundaries. A direct independent standard-library verifier reproduces the polynomial counts for 3,088 labelled-connected graph/palette instances on at most five vertices and 340 random block-tree instances. Finite agreement corroborates but does not establish the infinite statement. Mathematical risks are primarily accidental omission of cross-bridge distance-two edges; the full proof explicitly enumerates those edges.
+PASS
 
-## Originality: PASS (qualified)
+Cut-edge contraction yields a tree of bridge-free components. When attaching a fresh graph H at c in old A to vertex a in H, all new square edges connect a to N_A[c] and each neighbor of a to c; both closed neighborhoods are cliques. For q large, a has q-deg_A(c)-1 colors; among H^2 colorings fixing a, fraction (q-1-deg_H(a))/(q-1) avoid old c color on its neighbors. This gives exact factor P_H(q)*(q-deg_A(c)-1)*(q-deg_H(a)-1)/(q(q-1)); products telescope into falling factorials with bridge counts, yielding a polynomial identity by infinitely many q. Chromatic number follows from positivity thresholds and singleton case. Independently enumerated exact named-color counts for all connected labelled graphs n<=5, palettes q=2,3,4: 2,316 agreements; finite tests only corroborate general induction.
 
-Suvagiya (2026; arXiv:2609.20204v1) proves chromatic and choice **numbers** of cactus squares, not their chromatic polynomials or a general bridge-core factorization. Agnarsson (2003, DOI:10.7146/math.scand.a-14421) supplies classical clique-gluing technology and chordal-graph chromatic-polynomial results, but its inspected text does not state the nonchordal, arbitrary-square bridge factorization and arrangement equivalence. General chromatic-polynomial clique-sum technology is acknowledged and not itself claimed as new. Searches covering bridge-square polynomials, two-distance enumerators, chromatic equivalence, and core decomposition did not reveal an equivalent theorem. However, derived equivalences can be hidden under other formulations, and the available searches are not a conclusive priority audit.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-An arbitrary connected graph's two-distance coloring enumerator reduces exactly to independent bridge-free core enumerators and explicit local falling factorials; bridge-tree shape disappears once local attachment data are fixed. This is an infinite structural factorization rather than a finite recomputation, creates an explicit family of chromatically equivalent but nonisomorphic squared graphs (triangle-core path versus star), and gives an exact chromatic-number decomposition on general graphs. These consequences go beyond the known cactus-square minimum palette size and can be used whenever a graph has many bridges, including nonchordal cores.
+Best-of-knowledge PASS for universal graph-square bridge-core product with endpoint falling factorials, not for general clique-gluing of ordinary chromatic polynomials. The proof uses established named-color symmetry and clique-sum principles; prior cactus square results address only chromatic thresholds.
 
-## Closest sources and limits
+## value
 
-Suvagiya, *Two-distance and list-two-distance coloring of cacti* (2026), https://arxiv.org/abs/2609.20204, Sections 1–5 inspected. Agnarsson, *On chordal graphs and their chromatic polynomials* (2003), https://doi.org/10.7146/math.scand.a-14421, introduction and clique-gluing discussion inspected. General named-color chromatic-polynomial identities are background. The claim does not concern higher distance powers or list-coloring counts. Historical priority remains provisional and independent audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A clean all-connected-graph exact factorization from bridge-free core square-polynomials and local endpoint degrees is mathematically useful for distance-two coloring enumeration, even with nonchordal cores. Arrangement invariance produces explicit nonisomorphic square-chromatically equivalent graphs and a sharp chromatic-number corollary. Not a trivial chromatic-number restatement because counts and polynomial structure are retained.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

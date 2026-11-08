@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 using only the standard library. The program constructs ordinary graph squares from the original distance-two adjacency rule, enumerates proper named-colorings by a backtracking search, deletes edges to discover bridges, and independently calculates the product formula from those components. Successful output includes:
+## correctness
 
-```
-ALL_CONNECTED_LABELLED_GRAPHS_THROUGH_FIVE_OK 3088
-RANDOM_BLOCK_TREES_EXACT_COLORINGS_OK 340
-NONISOMORPHIC_BRIDGE_TREES_SAME_CHROMATIC_POLYNOMIAL_WITNESS_OK
-NONCHORDAL_SIX_CYCLE_BRIDGE_WITNESS_OK
-VERIFY_OK
-```
+PASS
 
-The first check covers every connected labelled simple graph on one through five vertices with two, three, four, and five named colors. The randomized check is deterministic from its fixed seed and covers 340 additional graph/palette instances. The triangle-core example yields 192 four-colorings of both squares, with graph diameters seven and five; two length-six cycles joined by one bridge yield 768 four-colorings of the square. Numerical tests are finite sanity checks, not a proof of the theorem for all graphs. The preceding mathematical induction provides that proof; independent assessment remains unperformed.
+Cut-edge contraction yields a tree of bridge-free components. When attaching a fresh graph H at c in old A to vertex a in H, all new square edges connect a to N_A[c] and each neighbor of a to c; both closed neighborhoods are cliques. For q large, a has q-deg_A(c)-1 colors; among H^2 colorings fixing a, fraction (q-1-deg_H(a))/(q-1) avoid old c color on its neighbors. This gives exact factor P_H(q)*(q-deg_A(c)-1)*(q-deg_H(a)-1)/(q(q-1)); products telescope into falling factorials with bridge counts, yielding a polynomial identity by infinitely many q. Chromatic number follows from positivity thresholds and singleton case. Independently enumerated exact named-color counts for all connected labelled graphs n<=5, palettes q=2,3,4: 2,316 agreements; finite tests only corroborate general induction.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for universal graph-square bridge-core product with endpoint falling factorials, not for general clique-gluing of ordinary chromatic polynomials. The proof uses established named-color symmetry and clique-sum principles; prior cactus square results address only chromatic thresholds.
+
+## value
+
+PASS
+
+A clean all-connected-graph exact factorization from bridge-free core square-polynomials and local endpoint degrees is mathematically useful for distance-two coloring enumeration, even with nonchordal cores. Arrangement invariance produces explicit nonisomorphic square-chromatically equivalent graphs and a sharp chromatic-number corollary. Not a trivial chromatic-number restatement because counts and polynomial structure are retained.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
