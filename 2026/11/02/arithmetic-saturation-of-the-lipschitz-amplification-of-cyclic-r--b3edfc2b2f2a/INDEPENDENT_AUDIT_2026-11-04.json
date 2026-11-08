@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T07:43:26.311097Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/arithmetic-saturation-of-the-lipschitz-amplification-of-cyclic-r--b3edfc2b2f2a/RESULT.md",
+        "2026/11/02/arithmetic-saturation-of-the-lipschitz-amplification-of-cyclic-r--b3edfc2b2f2a/VERIFICATION.md",
+        "2026/11/02/arithmetic-saturation-of-the-lipschitz-amplification-of-cyclic-r--b3edfc2b2f2a/check_median.py"
+      ],
+      "rationale": "For real n-site signals and odd cyclic windows m=2r+1<=n, all strict-order chambers have selector Jacobians J with one 1 in each row. Their exact ell_p operator norm is max_j c_j^(1/p), and continuity through order ties makes the largest chamber norm the global two-input Lipschitz constant. All m windows containing a chosen site select it iff each has exactly r below-signs. Consecutive-window comparison imposes chi_j=chi_(j+k) on sites 1..n-1 with k=n-m; the k residue chains contribute weights q or q+1 when 2r=qk+t. This establishes the iff subset-sum a(q+1)+bq=r, 0<=a<=t, 0<=b<=k-t, including n=m separately. n odd and n>=4r+1 admit explicit balancing; n=m+1 yields maximal column count r+1, and direct witness gives count 6 for (n,r)=(10,3). Infinity-norm 1 follows median monotonicity and constant translations. Independent bitmask enumeration for small r,n reproduced the multiplicities; finite tests do not prove the universal claim.",
+      "residual_risks": [
+        "The theorem is about odd-window cyclic equal-coordinate ell_p norms. It does not classify all non-saturating norms, even windows, weights, or noncyclic boundary conditions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yli-Harja abstract concerns threshold decomposition and cascades; Fam-Lee abstract concerns monotone envelopes and iteration; Maragos-Schafer abstract concerns max-min representations.",
+          "The stack-filter full primary 1991 paper was not accessible through OA or authorized Oxford access (VPN disconnected)."
+        ],
+        "reasoning": "General stack/max-min representations of order statistics may yield generic upper bounds, but do not by themselves calculate the simultaneous maximal selector multiplicity on a finite cycle. A hidden equivalent theorem in the inaccessible source remains a real priority risk.",
+        "searches": [
+          "Stack-filter weighted median deterministic properties Yli-Harja et al DOI:10.1109/78.80823",
+          "Fam and Lee DOI:10.1109/31.192431",
+          "Maragos and Schafer 1987 max-min morphological filters"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1406.1717v1",
+        "https://doi.org/10.1109/31.192431",
+        "https://doi.org/10.1109/78.80823",
+        "https://arxiv.org/abs/math/0612422",
+        "Resultary semantic query: Sharp Lipschitz norm for running median on cyclic sequence length n window 2r+1 saturation maximal coordinate multiplicity equality cyclic medians"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Risk and sorting theorems do not imply a two-input norm ratio. One-input monotone envelope does not supply the existence of a common sign assignment saturating all windows."
+        ],
+        "reasoning": "Prior elementary median nonexpansivity in ell_infinity and generic m^(1/p) column-count upper bound are acknowledged; their strict equality cases are the additional conclusion.",
+        "searches": [
+          "Arias-Castro-Donoho 2006/2009 moving-median edge statistics",
+          "Suomela 2014 median-filter sorting",
+          "Fam-Lee 1989 window-overlap bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary nearest hits are cyclic convolution/shift norm results, not nonlinear median selector-column saturation.",
+          "Suomela §1 and abstract treat reduction of median FILTER COMPUTATION to piecewise sorting; no second-input exact Lipschitz norm."
+        ],
+        "reasoning": "Binary threshold/stack representations may encode the same finite sign-balancing problem, but the inspected public statements of median complexity and statistical risk do not assert or imply the k-chain subset-sum equivalence for all n,r.",
+        "searches": [
+          "Resultary semantic search: Sharp Lipschitz norm for running median on cyclic sequence length n window 2r+1 saturation maximal coordinate multiplicity equality cyclic medians",
+          "Arias-Castro and Donoho, arXiv:math/0612422",
+          "Suomela, arXiv:1406.1717"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The searched indexed mathematics hits contain no specified all-n cyclic median norm table.",
+          "The 1989 overlapping-window result is about monotone envelopes, not a stated exact all-parameter amplification table."
+        ],
+        "reasoning": "No directly covering exhaustive table was found; absence from returned search is not evidence of historical novelty. Mathematical classification was independently proved from selector-column balancing.",
+        "searches": [
+          "Resultary: Sharp Lipschitz norm for running median on cyclic sequence length n window 2r+1 saturation maximal coordinate multiplicity equality cyclic medians",
+          "finite cyclic median Lipschitz 2r+1 parity norm subset sum",
+          "median filter overlapping input-output interdependencies 1989"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality qualified by primary literature, prior methods and named residual priority risks; the final evaluated theorem is not established or logically implied by the cited comparator statements.",
+      "residual_risks": [
+        "Historical full-text access blocked for Yli-Harja et al. (1991); this could contain a differently formulated combinatorial saturation condition.",
+        "All subcritical exact norms remain undetermined outside specific cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithmic complexity rather than exact two-input ell_p Lipschitz characterization",
+          "evidence": [
+            "§1 says median filtering is equivalent to piecewise sorting in computational complexity; no Jacobian-column saturation statement in reviewed contribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1406.1717v1",
+          "material_read": "Abstract, §1 problem and contribution, sorting-based reduction and algorithm outline",
+          "method": "Accessible full-text HTML; identified result, argument sections and references read",
+          "title": "Median Filtering is Equivalent to Sorting",
+          "trigger": "Same running-median operator and all window widths"
+        },
+        {
+          "assessment": "Abstract gives monotone-envelope and finite-breakdown bounds, not enough material to rule out implicit related theorem",
+          "evidence": [
+            "Fam and Lee, IEEE Trans Circuits and Systems 36 (1989), 1143-1146; DOI:10.1109/31.192431"
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/31.192431",
+          "material_read": "Publisher/university bibliographic record and complete abstract (full primary text not obtained)",
+          "method": "Bibliographic record and abstract only",
+          "title": "Effects of Window Overlapping on Input/Output Interdependencies in Median Filters",
+          "trigger": "Relevant overlap-induced dependencies"
+        },
+        {
+          "assessment": "Inaccessible plausible source; no whole-document noncoverage conclusion",
+          "evidence": [
+            "Yli-Harja, Astola, Neuvo (1991), IEEE Trans Signal Processing 39, 395-410"
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/78.80823",
+          "material_read": "Full abstract and bibliographic record only; OA copy not located; authorized Oxford reported VPN disconnected",
+          "method": "OA/publisher metadata and abstract; institutional attempt failed",
+          "title": "Analysis of the properties of median and weighted median filters using threshold logic and stack filter representation",
+          "trigger": "Potentially equivalent binary-stack reduction"
+        },
+        {
+          "assessment": "Not a demonstrated statement about deterministic cyclic two-input amplification",
+          "evidence": [
+            "Arias-Castro and Donoho, 2006 preprint / 2009 journal"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0612422",
+          "material_read": "Accessible abstract and research scope on statistical denoising error",
+          "method": "Accessible abstract and research overview",
+          "title": "Does median filtering truly preserve edges better than linear filtering?",
+          "trigger": "Median smoothing perturbation literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/arithmetic-saturation-of-the-lipschitz-amplification-of-cyclic-r--b3edfc2b2f2a/RESULT.md",
+        "specific predecessor comparisons in originality axis"
+      ],
+      "rationale": "Sharp worst-case two-signal stability of a running-median smoother is a natural quantity distinct from denoising risk or signal total variation. The complete equality classification exposes arithmetic/parity obstructions and the exact short-even-cycle loss, useful for choosing window/boundary topology. A natural infinite-family exact instability threshold is neither a single toy instance nor a restatement of an evident median nonexpansivity bound.",
+      "residual_risks": [
+        "The theorem is about odd-window cyclic equal-coordinate ell_p norms. It does not classify all non-saturating norms, even windows, weights, or noncyclic boundary conditions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem is about odd-window cyclic equal-coordinate ell_p norms. It does not classify all non-saturating norms, even windows, weights, or noncyclic boundary conditions.",
+    "Historical full-text access blocked for Yli-Harja et al. (1991); this could contain a differently formulated combinatorial saturation condition.",
+    "All subcritical exact norms remain undetermined outside specific cases."
+  ],
+  "schema_version": 1
+}
