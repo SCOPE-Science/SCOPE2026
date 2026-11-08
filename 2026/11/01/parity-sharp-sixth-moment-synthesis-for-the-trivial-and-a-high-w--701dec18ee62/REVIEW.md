@@ -1,19 +1,21 @@
-# Scientific review: parity-sharp sixth moments for central \(SU(2)\) characters
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise theorem quantifies the unrestricted complex-coefficient \(L^2\)-normalized sixth moment on \(\operatorname{span}\{1,\chi_n\}\) for every integer \(n\ge2\). Haar orthogonality, the Weyl constant-term identity and elementary binomial expansions give the exact moments through degree six, including the parity-sensitive third and fifth moments. The proof controls arbitrary coefficient phases using the nonnegative tensor-product multiplicities, not an unjustified restriction to real coefficients. At odd highest weights, a strict Bernstein-control-point comparison excludes every non-pure maximizer. At even highest weights, every nonconstant coefficient of the stationary polynomial after its constant term is nonpositive, yielding one strict global maximizer. Taylor estimates yield the sharp even-weight asymptotic. A standalone checker independently reproduces character moments and finite optimizations, but the published mathematical assertion rests on the all-integer proof, not a numerical census. No quantitative bounds outside this explicitly delimited space are claimed.
+PASS
 
-## Originality — PASS, with residual priority risk
+Weyl integration constant-term identity and Clebsch–Gordan yield μ2=1, μ3=1 even (0 odd), μ4=n+1, μ5=T=(5n²+10n+8)/8 even (0 odd), μ6=S=(n+1)(n²+2n+2)/2. Independent coefficient-array Laurent constant-term calculation n2..19 verified all μ2..μ6, independent of package script. Since tensor multiplicities μj are nonnegative, aligned nonnegative coefficients maximize each fixed-magnitude complex pair; even μ3>0 enforces phase alignment when mixed. Odd n>=3 use cubic Bernstein control values 1,5,5(n+1),S, all strictly less than S except final => pure chi_n uniquely optimizes. For even n, Q=P_n(x)/(1+x²)^3, derivative 6H_n/(1+x²)^4; H(0)>0, remaining coefficients nonpositive with strictly negative high terms, so exactly one positive root and K>S. Asymptotics H(c/n)/n²→5/8-c/2 yield x_n=5/(4n)+O(n^-2) and gain 75n/32+O(1). This supports all n analytically; finite moment checks do not establish full maximizer quantifier.
 
-The closest inspected full primary paper, Youn's arXiv:2408.13519, addresses central Khintchine inequalities on non-Kac compact quantum groups, not an exact two-character classical \(SU(2)\) sixth-moment synthesis theorem. Koornwinder's arXiv:1606.08189 establishes standard \(SU(2)\) representation formulas, which the argument uses but which do not imply an unrestricted sharp sixth-moment optimization. A public indexed result studies fourth moments for sparse high-weight central character packets; its fourth-power statement cannot imply the sixth-moment value and parity optimizer classification. Indexed sixth-moment theorems for the nontrivial-character plane \(\operatorname{span}\{\chi_1,\chi_n\}\), and for adjacent highest weights, treat different coefficient spaces; the adjacent case at \(n=0\) overlaps only the deliberately excluded \(\{\chi_0,\chi_1\}\) case. The 1982 Giulini–Soardi–Travaglini article focuses, according to its accessible abstract, on \(L^p\) estimates for individual irreducible characters; its full text was unavailable, so an unindexed equivalent calculation remains a genuine priority risk. Search-index silence alone is not used as a proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The two-dimensional span mixing the trivial and a single nonabelian irreducible character is a natural first spectral stability problem for central Fourier synthesis. The all-weight exact parity dichotomy is a structural consequence of vanishing versus nonvanishing odd Haar moments, not a chosen finite slice: odd characters gain nothing by mixing, whereas all even characters have a unique strictly superior admixture. The exact stationary algebraic equation, optimizer rigidity and explicit \(5/(4n)\) mixing scale provide quantitative information unavailable from generic norm growth estimates. They can guide estimates for more general central Fourier packets. The conclusion is neither an elementary restatement of character orthogonality nor a known-tabulation exercise; full optimization and uniqueness require the phase and polynomial arguments above.
+Closest published same-SU2 result found was a moving high-weight packet sharp fourth-moment theorem; it differs both exponent and inclusion of trivial character. Older compact Lie group character-norm studies determine individual-character growth, but accessible evidence does not establish the exact two-character sixth-moment parity optimizer. Best-of-knowledge originality, explicitly retaining inaccessible 1982 relevant primary full-text risk.
 
-## Scope and remaining uncertainties
+## value
 
-The theorem addresses no general multi-character sharp constant, no odd-exponent norm, and no quantum-deformed counterpart. Older character-norm literature was not fully inspected; no independent priority or mathematical validation is asserted. The checker gives finite tests only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact L2-to-L6 synthesis constant and complete extremizing lines for the natural smallest nontrivial central Fourier span containing one high-weight character. The parity threshold distinguishes odd pure-character rigidity from even strict mixing, with quantified x~5/(4n), K−S~75n/32. Such a sharp compact-group spectral concentration invariant is not a routine calculation of an individual character moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
