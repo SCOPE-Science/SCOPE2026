@@ -1,19 +1,21 @@
-# Scientific review of the rational genus-three two-division kernel classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem applies to every odd prime power and all ordered smooth coefficients. The quartic-root set is a regular Klein-four torsor, so Frobenius has exactly two possibilities per quartic (identity or double transposition). The four-to-one parameter map counts the split quartics exactly. The genus-three Jacobian two-torsion has the standard even-subset symplectic model, in which the fixed-class counts are \(64,16,16\); the complement-switching classes in the \(2^4\) case are essential and are explicitly included. All \(135\) maximal isotropic subspaces are partitioned into \(105\) matching and \(30\) affine-structure types. Independent Burnside/centralizer reasoning yields the fixed affine counts \(30,6,14\), while direct matching analysis yields \(105,9,25\). Thus the final kernel counts \(135,15,39\), parameter frequencies, and quadratic descent bound follow for arbitrary odd \(q\). The standalone program checks the complete finite symplectic census and \(5{,}934\) finite-field coefficient pairs over fourteen fields, including nonprime fields. Finite computations are corroboration, not the infinite proof.
+PASS
 
-## Originality — PASS, with priority limitations
+For every odd q and smooth ordered coefficients (a,b), Frobenius commutes with the regular Klein-four action on each reciprocal quartic, so a quartic contributes identity or 2^2 involution, never a 4-cycle; splitting count is S=(q-1-gcd(4,q-1))/4 and nonsplit U=q-2-S. The hyperelliptic even-subset/complement 6-dimensional symplectic model gives 135 geometric maximal isotropic 3-spaces. The 105 perfect-matching subgroups are distinct; the other 30 are the S8/AGL(3,2) affine spaces. Their fixed-point counts follow from invariant matchings (105,9,25) and affine centralizers (30,6,14), hence 135,15,39. Group descent is Frobenius invariance, not an assumption of individually rational generators; rational 2-torsion sizes 64,16,16 are independently reproduced. The claimed ordered-pair frequencies include q=3 empty case and every kernel splits over q². Verified actual RESULT.md and verify_isotropic.py at their frozen blob hashes and independently enumerated 64 even-subset classes/135 isotropic subspaces and three Frobenius actions. Finite-field script examples do not prove all q; the analytic group action does.
 
-The closest motivating article is Borówka–Shatsila, arXiv:2308.07038v1: its Theorem 3.3 and Propositions 4.2–4.3 establish the curve and its quotient/Prym geometry, but the materially inspected Sections 3–4 do not present rational maximal isotropic two-division subgroup counts or an all-prime-power frequency census. Ohashi–Onuki–Kudo–Yoshizumi–Nuida, arXiv:2401.10500v3, Proposition 2.3, gives the standard geometric total of \(135\), not the \(15/39\) arithmetic split for this family. Müller–Reitsma, arXiv:2211.03372, studies rational torsion algorithms over \(\mathbb Q\), not this family-specific finite-field isogeny-kernel descent. Searches for full-claim and synonymous formulations (Frobenius-stable Lagrangians, Göpel/affine kernels, genus-three Richelot) found no statement implying the entire table. The possibility of equivalent work under another parametrization or in unindexed classical theory remains a residual priority risk; absence of search hits is not a proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a principally polarized genus-three Jacobian, Frobenius-stable maximal isotropic subgroups determine rational \((2,2,2)\)-isogeny kernel choices. The natural two-dimensional Klein-four family has an interesting arithmetic distinction: both nonsplit Frobenius types yield \((\mathbb Z/2\mathbb Z)^4\) rational two-torsion, yet have respectively \(15\) and \(39\) rational kernels. The theorem gives the complete coefficient frequencies and identifies the affine-type kernel contribution, which is invisible to perfect-matching counts alone. Such a complete classification is pertinent to arithmetic isogeny graphs and descent, without asserting new computational algorithms or distinct isogeny targets.
+The 135 geometric kernels and the genus-three family with Klein-four automorphisms are established prior knowledge. The assessed new object is the ordered-coefficient Frobenius-stable Lagrangian census, the 15 versus 39 distinction despite equal rational 2-torsion, and the matching/affine splits. Target-level isogeny classification is not claimed. Primary geometric paper was inspected; no inspected stronger theorem yields these arithmetic strata.
 
-## Limitations
+## value
 
-Results count literal ordered coefficients and rational subgroup schemes, not moduli points, distinct targets, or full Jacobian torsion. The quartic-normal-form source is over \(\mathbb C\), while this proof directly verifies the finite-field statement in every odd characteristic. No independent mathematical audit or external certification has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An all-odd-field arithmetic descent classification of 135 natural maximal-isotropic kernels, with exact coefficient frequencies and the 15/39 discrepancy at identical rational 2-torsion rank, supplies a structurally motivated invariant useful in genus-three rational (2,2,2)-isogeny enumeration. The distinction is not a textbook count of all 135 geometric kernels and does not depend on an unproved application.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
