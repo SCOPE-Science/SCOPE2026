@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof and domain are in `RESULT.md`. Run `python verify_power_kernel.py` after installing `requirements.txt` (NumPy and SciPy). The script checks the explicit two-node linear-system solution, symmetric/antisymmetric squared-norm identity, kernel-mean derivative, Gaussian specialization and numerical ridge asymptotic constants. It passed **109 deterministic checks** in the stated environment.
+## correctness
 
-The exact collision-tail and nugget limits are **analytical claims**. Finite integration and floating-point comparisons are diagnostic and are not independent proofs of infinite-tail exponents or exhaustive original-publication uniqueness. The kernel is two-node power-exponential on the unit interval, with fixed parameters and exact quadrature weights. The alpha-two Gaussian specialization is known; the critical alpha-three-halves transition and the all-roughness phase diagram constitute the present new mathematical claim.
+PASS
 
-Independent scientific review, independent reproduction and independent verification channels have not been performed.
+Diagonalizing the two-node Gram matrix gives a symmetric bounded component and antisymmetric denominator 1-exp(-λ|δ|^α). The mean difference m(u+δ/2)-m(u-δ/2)=m′(u)δ+o(δ), yielding weight blow-up proportional to |δ|^(1-α) when α>1. Gaussian noise therefore has one-sided regularly varying tails with exponent β=1/(α-1) and constant (σ/λ)^β Γ((β+1)/2)/√π ∫|m′|^β. Integrability gives finite second moment iff α<3/2, including logarithmic divergence at α=3/2. The nugget integral reduces to ∫ d²/(η+λd^α)² dd, giving the stated log coefficient or gamma-product power coefficient for α>3/2; bounded Lipschitz noiseless contribution cannot alter tail leading terms. Independently checked kernel-mean/weight collision scaling at α=1.25,1.75,2.0 via direct numerical integration; no numerical test is a uniform proof.
+
+## originality
+
+PASS
+
+The α=2 Gaussian collision case is explicitly known and not claimed original. Prior kernel quadrature studies bound fixed-design weight magnitudes in terms of separation or discuss selected Nyström subspaces, without the complete iid collision-tail all-exponent law, threshold 3/2 and exact ridge coefficients. Earlier specialized collision analysis is a residual priority risk.
+
+## value
+
+PASS
+
+Near-coincident iid nodes create a sharp variance phase transition and exact heavy-tail/regularization asymptotics for a canonical probabilistic numerical integration rule; the threshold matters for when sampling variance exists and how much nugget stabilization costs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

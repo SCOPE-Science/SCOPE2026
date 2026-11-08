@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T00:44:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Diagonalizing the two-node Gram matrix gives a symmetric bounded component and antisymmetric denominator 1-exp(-λ|δ|^α). The mean difference m(u+δ/2)-m(u-δ/2)=m′(u)δ+o(δ), yielding weight blow-up proportional to |δ|^(1-α) when α>1. Gaussian noise therefore has one-sided regularly varying tails with exponent β=1/(α-1) and constant (σ/λ)^β Γ((β+1)/2)/√π ∫|m′|^β. Integrability gives finite second moment iff α<3/2, including logarithmic divergence at α=3/2. The nugget integral reduces to ∫ d²/(η+λd^α)² dd, giving the stated log coefficient or gamma-product power coefficient for α>3/2; bounded Lipschitz noiseless contribution cannot alter tail leading terms. Independently checked kernel-mean/weight collision scaling at α=1.25,1.75,2.0 via direct numerical integration; no numerical test is a uniform proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karvonen et al. treat positivity and magnitudes of weights for fixed designs; general separation-radius bounds do not specify the iid small-ball distribution of X-Y or exact noise tails."
+        ],
+        "reasoning": "Sampling-based Nyström and generic Bayesian quadrature bounds do not directly imply exact two-node expected M_eta regularity threshold and coefficients.",
+        "searches": [
+          "Karvonen Kanagawa Särkkä 2019 Theorem 5",
+          "arxiv:2301.09517 Nyström quadrature",
+          "Resultary: iid two node kernel quadrature collision noise power exponential roughness alpha 3/2 moment threshold"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1007/s11222-019-09901-0 full Springer HTML",
+        "arxiv:1812.08509",
+        "arxiv:2301.09517",
+        "arxiv:1706.03369",
+        "Resultary power-kernel quadrature query",
+        "SCOPE RESULT.md verify_power_kernel.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier Gaussian α=2 results provide β=1 and η^(-1/2), while the new α-dependent proof has β varying and critical log divergence at 3/2."
+        ],
+        "reasoning": "The older fixed-design magnitude bounds cannot recover the exact averaged stochastic coefficients without the midpoint/spacing Jacobian, noise-moment integration, and numerator cancellation; special α=2 cannot imply all α.",
+        "searches": [
+          "arxiv:1812.08509 Theorem 5 separation radius",
+          "arxiv:2301.09517 sampled quadrature",
+          "alpha=2 Gaussian kernel quadrature collision tails"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The antisymmetric Gram eigenmode has denominator 1-k; conditioning-number estimates alone ignore the canceling numerator m(X)-m(Y)=O(|X-Y|)."
+        ],
+        "reasoning": "The Gaussian kernel special case α=2 is included but previously known; the general power-exponential family has a distinct continuous regularity parameter, tail law and threshold.",
+        "searches": [
+          "Resultary: iid two node kernel quadrature collision noise power exponential roughness alpha 3/2 moment threshold",
+          "arxiv:1812.08509 Bayesian quadrature weights separated nodes",
+          "Gaussian two-node collision tail α=2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A known Gaussian α=2 one-sided Cauchy tail and square-root nugget coefficient is a single specialization, not a table of α-dependent laws."
+        ],
+        "reasoning": "No all-α exact previously tabulated coefficient matching the gamma-product formula was located in bounded searches. Negative search alone is not a novelty theorem.",
+        "searches": [
+          "iid colliding nodes kernel quadrature alpha 3/2 logarithmic nugget coefficient",
+          "Resultary: iid two node kernel quadrature collision noise power exponential roughness alpha 3/2 moment threshold"
+        ]
+      },
+      "rationale": "The α=2 Gaussian collision case is explicitly known and not claimed original. Prior kernel quadrature studies bound fixed-design weight magnitudes in terms of separation or discuss selected Nyström subspaces, without the complete iid collision-tail all-exponent law, threshold 3/2 and exact ridge coefficients. Earlier specialized collision analysis is a residual priority risk.",
+      "residual_risks": [
+        "An earlier Gaussian two-node collision analysis already covers α=2; that portion must not be represented as novel.",
+        "Prior specialized power-exponential random-design stability literature could contain similar collision threshold results, not exhaustively ruled out.",
+        "The theorem is for only two iid uniform nodes and Gaussian errors, not generic high-node optimal cubature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides fixed-design positivity/separation framework rather than the specific iid two-node α-dependent noise-tail and nugget phase diagram",
+          "evidence": [
+            "Published October 4, 2019; theorem concerns weight magnitudes and separation radius"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11222-019-09901-0",
+          "material_read": "Full open-access Springer HTML, including weight-magnitude results and theorem discussion",
+          "method": "Publisher full text reading",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "Same Bayesian quadrature weights and separation theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Near-coincident iid nodes create a sharp variance phase transition and exact heavy-tail/regularization asymptotics for a canonical probabilistic numerical integration rule; the threshold matters for when sampling variance exists and how much nugget stabilization costs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An earlier Gaussian two-node collision analysis already covers α=2; that portion must not be represented as novel.",
+    "Prior specialized power-exponential random-design stability literature could contain similar collision threshold results, not exhaustively ruled out.",
+    "The theorem is for only two iid uniform nodes and Gaussian errors, not generic high-node optimal cubature."
+  ],
+  "schema_version": 1
+}

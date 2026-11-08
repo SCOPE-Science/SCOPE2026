@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All quantities, expectations, kernel mean, original-versus-nugget weights and independent observations are explicitly defined in `RESULT.md`. Exact diagonalization proves the weight formulas, and uniform collision expansions of the continuously differentiable kernel mean produce a reciprocal-power noise coefficient. The Gaussian tail integral establishes both one-sided limits with the stated \(\Gamma\)-constant; layer-cake integration establishes the endpoint moment divergence. A local rescaling of the positive collision-distance integral proves the \(\alpha=3/2\) logarithmic transition and the all-\(\alpha\) beta-integral coefficients. Conditional noise variance establishes the exact threshold for finite second moments. Direct numerical integration reproduced the critical and supercritical constants; 109 deterministic script checks passed. The numerical checks corroborate but do not prove the quantified claims.
+PASS
 
-## Originality — PASS, with residual priority risk
+Diagonalizing the two-node Gram matrix gives a symmetric bounded component and antisymmetric denominator 1-exp(-λ|δ|^α). The mean difference m(u+δ/2)-m(u-δ/2)=m′(u)δ+o(δ), yielding weight blow-up proportional to |δ|^(1-α) when α>1. Gaussian noise therefore has one-sided regularly varying tails with exponent β=1/(α-1) and constant (σ/λ)^β Γ((β+1)/2)/√π ∫|m′|^β. Integrability gives finite second moment iff α<3/2, including logarithmic divergence at α=3/2. The nugget integral reduces to ∫ d²/(η+λd^α)² dd, giving the stated log coefficient or gamma-product power coefficient for α>3/2; bounded Lipschitz noiseless contribution cannot alter tail leading terms. Independently checked kernel-mean/weight collision scaling at α=1.25,1.75,2.0 via direct numerical integration; no numerical test is a uniform proof.
 
-The motivating 2023 Nyström/kernel-quadrature study treats broader random sampling and convex subspace constructions; the 2018 weight-magnitude paper gives separation-sensitive general bounds. Neither of the inspected relevant sections gives the sharp iid two-node, noise-induced, **all-roughness** \(\alpha=3/2\) threshold, its logarithmic ridge coefficient, or the full tail-power family. A prior isolated \(\alpha=2\) Gaussian result already contains the Cauchy tail and square-root nugget coefficient: those statements are **explicitly not claimed new** and cannot imply a nontrivial phase boundary at \(\alpha=3/2\). The new theorem is the full regularity-dependent classification and its critical law. Search did not prove absolute novelty, and earlier specialized probabilistic-kernel numerical analysis may overlap.
+## originality
 
-## Value — PASS
+PASS
 
-Kernel quadrature weight magnitudes control robustness under noisy evaluations, and iid nodes can collide without being deliberately selected. A complete quantitative phase diagram shows exactly when ordinary data noise makes mean-squared quadrature error infinite and when adding a nugget incurs logarithmic versus power-law amplification. This gives a meaningful, reproducible regularity-dependent stability benchmark rather than a generic two-by-two formula or arbitrary numerical instance. The critical exponent and endpoint law do not follow from the previously available single Gaussian point.
+The α=2 Gaussian collision case is explicitly known and not claimed original. Prior kernel quadrature studies bound fixed-design weight magnitudes in terms of separation or discuss selected Nyström subspaces, without the complete iid collision-tail all-exponent law, threshold 3/2 and exact ridge coefficients. Earlier specialized collision analysis is a residual priority risk.
 
-## Closest literature and scientific limits
+## value
 
-Closest sources are Hayakawa–Oberhauser–Lyons, arXiv:2301.09517; Karvonen–Kanagawa–Särkkä, arXiv:1812.08509; and Briol et al., arXiv:1706.03369. The proof is exact only for two independent uniform points, exact kernel means and Gaussian errors. It does not establish optimal regularization, general-node asymptotics or universal publication priority. A complete independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Near-coincident iid nodes create a sharp variance phase transition and exact heavy-tail/regularization asymptotics for a canonical probabilistic numerical integration rule; the threshold matters for when sampling variance exists and how much nugget stabilization costs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
