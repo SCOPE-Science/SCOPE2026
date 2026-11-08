@@ -1,19 +1,21 @@
-# Review: winding-sector sizes and exchanges for prism three-colourings
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The invariant \(w\) is preserved by a proper single-vertex recolouring. The fixed-vertex and cycle-weight theorem of Cereceda–van den Heuvel–Johnson establishes connectivity of a sector whenever \(|3w|<n\); extremal sectors are frozen. The explicit two-orientation transfer matrix has eigenvalues \(z^{-1}+1+z\) and \(z^{-1}-1+z\); its Laurent coefficient proves the exact sector size \(6t_n(3w)\). Marking a recolourable upper vertex yields the exact degree sum and the edge count \(6n(t_{n-1}(3w)+t_{n-2}(3w))\). Exhaustive independent graph construction through \(n=10\) and separate Laurent calculations through \(n=30\) reproduce the conclusions, but the universal theorem is proved mathematically. The general reachability theorem is relied upon and acknowledged.
+PASS
 
-## Originality
+For labelled P_n=C_n square K_2 and three named colours n>=3, oriented rim increments sum to 3w. Every face weight is zero, so both rims share winding. A legal single-site recolouring requires all three neighbors share a colour and preserves the winding. Using rung state epsilon=bottom-top in +/-1, the two-state transfer B(z) with entries z+z^-1, z, z^-1 yields N_n(w)=6[z^(3w)](z^-1+1+z)^n for |3w|<=n and w congruent n mod 2. Marked vertex matrix M=2J yields E_n(w)=6n(t_(n-1)(3w)+t_(n-2)(3w)). The established Cereceda/van den Heuvel/Johnson theorem identifies fixed vertices via cyclically oriented cycles, which do not occur when |3w|<n; hence one connected component per nonextremal winding. Extremal winding has six frozen configurations per direction. Independent direct explicit-colouring BFS for n=3..7 matched counts and edges; infinite theorem uses transfer and cited reachability, not enumeration alone.
 
-**PASS, with historical-priority risk.** The general reachability decision theorem, cycle-weight invariant, chromatic-polynomial total and the existence of frozen three-colourings are previously known. Cereceda, van den Heuvel and Johnson, *Finding Paths Between 3-Colourings* (LSE-CDAM-2007-31; DOI: 10.1002/jgt.20514), supply the essential general component criterion, but the inspected full-text passage gives no closed formula for the number of states or recolouring edges in each prism winding sector. Their earlier papers on connectedness and bipartite mixing likewise do not present the two coefficient formulas. The later prism chromatic-polynomial literature gives the total number of colourings, not the sectorwise numbers of edges. A known general theorem used as an ingredient does not independently imply those enumeration formulas without the new transfer calculations. Possible coverage in historical Potts/height-function work remains a residual risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The three-colour reconfiguration graph is a natural finite-state model for local recolouring dynamics. Connectivity alone does not quantify the mass or mobility of individual topologically obstructed sectors. Exact component orders and edges for every circular length yield a full, parameter-uniform state-space census, distinguish truly frozen components from large winding sectors, and permit quantitative comparisons of local constrained dynamics. The numbers are not arbitrary finite-instance data and the entire infinite family is treated.
+General three-colouring connectedness and winding obstruction, including the fixed-vertex/cycle-weight reachability theorem, are already known and explicitly credited. The separate closed formula for every winding-sector vertex count, recolouring edge count, and full component census is not in the material read from that primary proof nor the prism chromatic-polynomial literature.
 
-## Scope, sources, and remaining risks
+## value
 
-The exact formulas apply to named colours and one-vertex moves only. The general reachability mechanism is known and specifically credited. The first day-specific public research source used here is Bonsma–Cereceda–van den Heuvel–Johnson, 2007-08-15 (DOI: 10.1016/j.endm.2007.07.073); the detailed later criterion appears in Cereceda–van den Heuvel–Johnson (DOI: 10.1002/jgt.20514), with an earlier research report dated December 2007 without a verified exact day. Accessible author-posted full text of the detailed work was inspected, as were the closest public abstracts/records. Historical equivalent counts remain possible, and no independent scholarly adjudication has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full weighted component-order and component-edge census refines connectivity to exact reconfiguration structure of natural prism graphs at all circumferences. Counts distinguish named colours and single-vertex recolourings, and handle extremal singleton states sharply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

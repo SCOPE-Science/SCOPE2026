@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification accompanying the proof
 
-Run `python3 check_components.py` and `python3 check_transfer.py` with Python 3 and the standard library. These are separate, self-contained implementations.
+# Independent mathematical audit
 
-`check_components.py` generates named proper three-colourings directly as legal ordered pairs of rung colours. It enumerates every one-vertex recolouring, performs a complete breadth-first connected-component partition, computes the winding and counts sector edges. Its exhaustive tests cover the prism lengths \(3\le n\le10\), including the frozen triangular prism and multiples of three. Successful run terminates with `PRISM_DIRECT_COMPONENTS_PASS`.
+## correctness
 
-`check_transfer.py` constructs the two-orientation Laurent transfer matrix and the marked recolourability transfer independently. It checks exact integer polynomial coefficients at every winding for \(3\le n\le30\), and separately cross-checks a six-state colour-pair matrix for \(3\le n\le9\). Successful run terminates with `PRISM_LAURENT_TRANSFER_PASS`.
+PASS
 
-Both programs were executed on these complete source files and passed. The mathematical proof for all integer \(n\ge3\) relies on the general established three-colour reachability theorem and the explicit Laurent-transfer identity. Computational checks are finite corroboration only; they do not prove infinite-family novelty or replace full historical comparison. A separate scholarly audit has not been performed.
+For labelled P_n=C_n square K_2 and three named colours n>=3, oriented rim increments sum to 3w. Every face weight is zero, so both rims share winding. A legal single-site recolouring requires all three neighbors share a colour and preserves the winding. Using rung state epsilon=bottom-top in +/-1, the two-state transfer B(z) with entries z+z^-1, z, z^-1 yields N_n(w)=6[z^(3w)](z^-1+1+z)^n for |3w|<=n and w congruent n mod 2. Marked vertex matrix M=2J yields E_n(w)=6n(t_(n-1)(3w)+t_(n-2)(3w)). The established Cereceda/van den Heuvel/Johnson theorem identifies fixed vertices via cyclically oriented cycles, which do not occur when |3w|<n; hence one connected component per nonextremal winding. Extremal winding has six frozen configurations per direction. Independent direct explicit-colouring BFS for n=3..7 matched counts and edges; infinite theorem uses transfer and cited reachability, not enumeration alone.
+
+## originality
+
+PASS
+
+General three-colouring connectedness and winding obstruction, including the fixed-vertex/cycle-weight reachability theorem, are already known and explicitly credited. The separate closed formula for every winding-sector vertex count, recolouring edge count, and full component census is not in the material read from that primary proof nor the prism chromatic-polynomial literature.
+
+## value
+
+PASS
+
+A full weighted component-order and component-edge census refines connectivity to exact reconfiguration structure of natural prism graphs at all circumferences. Counts distinguish named colours and single-vertex recolourings, and handle extremal singleton states sharply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
