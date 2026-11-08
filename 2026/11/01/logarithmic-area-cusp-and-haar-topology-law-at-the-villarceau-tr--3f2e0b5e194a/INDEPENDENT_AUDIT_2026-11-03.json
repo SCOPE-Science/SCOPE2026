@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T07:45:20.167872Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In an inclined central plane with coordinates (u cos beta,v,u sin beta), a radial ray has quadratic intersection rho^2-2R sqrt(1-sin^2 beta cos^2 phi) rho+(R^2-r^2)<=0. Because the root product R^2-r^2>0, admissible intervals avoid the origin. For R sin beta<r all angles are allowed (annulus); above this threshold they form two components, each a disk. The area is 2R integral_0^{2pi} sqrt(1-s^2 cos^2 phi) sqrt((r^2-R^2 s^2 cos^2 phi)_+)dphi. It decreases strictly from 4pi Rr to 2pi r^2; at beta*=asin(r/R) the integral evaluates to 4r sqrt(R^2-r^2)+4R^2 asin(r/R). Near each of two degenerate angles, integrating sqrt((r^2 t^2+delta)_+) gives -(delta/(2r))log(|delta|/r^2) plus O(delta), for delta=r^2-R^2 sin^2 beta. Delta=-2Rr sqrt(1-(r/R)^2)(beta-beta*)+O((beta-beta*)^2), yielding the common coefficient 4(R^2-r^2) multiplying (beta-beta*)log|beta-beta*| and derivative tending to minus infinity. A Haar normal has |n_z| uniform, hence beta density sin beta and the topology probabilities; change of variables gives f_A(a)|log(|a-A*|/R^2)| -> (r/R)/(4(R^2-r^2)). Independent high-precision integrals for (R,r)=(2,1),(3,2) recovered area constants and cusp slopes 11.99999987 versus 12, and 19.99999983 versus 20. Full proof is local analytic, not a numerical extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General toric section equations and classical Villarceau circles are known.",
+          "The radial quadratic in the audited proof computes central sections of the solid, not projections/shadows or noncentral surface intersections."
+        ],
+        "reasoning": "A general exact area integral might imply the cusp after substantial local analysis; no retrieved broader theorem directly states the explicit logarithmic coefficient or Haar pushforward density. Classical tangency is excluded from independent originality.",
+        "searches": [
+          "general torus plane section implicit quartic and elliptic integrals",
+          "Villarceau circles angle torus tangency",
+          "Resultary torus plane area probability"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 8fb8411221ed9e9b41853bd2282e2c5e608ad38a and check.py 812256ba39df6077c37d999737c26bbe6bf13531",
+        "García Monera–Monterde Journal for Geometry and Graphics 2011 15:93-99 full PDF",
+        "Resultary two semantic queries for torus Villarceau area cusp and Haar topology",
+        "Independent high precision central-section integrals and cusp slope extraction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2011 article page 94 gives double-tangent plane, its circular section and two moon-shaped pieces.",
+          "The new area expansion involves a saddle integral absent from the geometric construction."
+        ],
+        "reasoning": "Knowing an intersection is double tangent and the transition topology gives neither the coefficient of (beta-beta*) log|beta-beta*| nor the two-sided density zero. Both require quantitative integration.",
+        "searches": [
+          "Monera Monterde 2011 critical Villarceau plane versus area cusp",
+          "Moroni toric section equations ring torus",
+          "Haar central plane distribution torus section topology"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Monera–Monterde 2011 establishes Villarceau double tangency and the two circles, i.e. the threshold geometry.",
+          "Its 7-page PDF builds a torus from congruent moon-shaped Villarceau-section pieces; it does not present local solid section area/density asymptotics in inspected text."
+        ],
+        "reasoning": "Classical topology and critical angle are prior-covered, but the two-sided logarithmic area asymptotic with a numerical coefficient and pushforward Haar area-density behavior are further quantitative statements.",
+        "searches": [
+          "Building a Torus with Villarceau Sections Garcia Monera Monterde 2011",
+          "toric section solid torus oblique central plane area logarithmic cusp",
+          "Resultary Villarceau Haar topology singular area"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Monera–Monterde (2011), §2 explicitly gives the double tangent plane and two circles, proving critical geometry not new.",
+          "No exact area-cusp table or two-sided density limit found in compared source."
+        ],
+        "reasoning": "Prior circle/angle formulas cannot be counted as original; the exact log coefficient is the distinctive claimed invariant. Search failure is not proof of exhaustive priority.",
+        "searches": [
+          "Villarceau torus double tangent angle formula table",
+          "torus inclined plane section area integral elliptic integral cusp",
+          "Resultary exact Villarceau logarithmic area"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of precisely the stated additional conclusion, not of its acknowledged classical object or method. Logarithmic area cusp and Haar topology law at the Villarceau transition is not directly implied by the strongest inspected primary theorem; exact comparisons and accessible source passages appear in the four structured checks. Inaccessible sources are identified as residual risks, not counted as negative whole-document evidence.",
+      "residual_risks": [
+        "Older solid-torus sectional area formulas in stereology or geometric design could contain an implicit log expansion; no historical priority guarantee.",
+        "Critical limit not uniform as r/R approaches 0 or 1; conditional density requires Haar-unoriented central planes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers classical angle, circles, construction; no solid section area logarithmic asymptotic or Haar density identified",
+          "evidence": "Journal for Geometry and Graphics 15 (2011) pp.93-99; §2 page 94 z=b/sqrt(a²-b²) y.",
+          "identifier_or_url": "https://www.heldermann-verlag.de/jgg/jgg15/j15h1mone.pdf",
+          "material_read": "Entire accessible seven-page journal PDF inspected for its introduction, §2 double-tangency equation, circular pieces, construction and references",
+          "method": "PDF textual inspection and screenshot of journal page 94",
+          "title": "Building a Torus with Villarceau Sections",
+          "trigger": "Exact same torus and Villarceau critical section"
+        },
+        {
+          "assessment": "Potential general equations for toric sections; exact area-asymptotic priority remains uncertain",
+          "evidence": "Online mathematical exposition cited by research source.",
+          "identifier_or_url": "https://www.lucamoroni.it/toric-sections/",
+          "material_read": "Bibliographic description and topic; no claim of whole full-text inspection",
+          "method": "Source metadata/topical comparison only",
+          "title": "The toric section: intersection of a torus with a plane",
+          "trigger": "General implicit torus-plane intersection context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural topology change in central planar torus sections generates a nonanalytic but explicitly quantifiable area singularity. Its coefficient and the corresponding vanishing Haar section-area density are useful precise invariants of stereological section statistics, going beyond the familiar Villarceau circle geometry. The exact topology probabilities and ratio dependence add a motivated geometric probability classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical Villarceau circles and angle are not novelty claims.",
+    "Local two-sided formula only at fixed 0<r<R, with numerical comparisons not an infinite proof."
+  ],
+  "schema_version": 1
+}
