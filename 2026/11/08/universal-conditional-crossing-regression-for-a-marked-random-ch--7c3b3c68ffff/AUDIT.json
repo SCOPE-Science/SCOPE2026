@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For each feasible integer t, conditional uniform matching exchangeability gives internal/internal or internal/bridge crossing probability 1/3 and bridge/bridge crossing probability 1/2. Summing these over p=(a-t)/2, q=(b-t)/2 and t bridge chords gives an exact formula whose t^2 coefficient vanishes. Algebra yields slope (2n-3)/12. Full finite matching enumeration for n=3..7 confirms 291 exact assertions, with all-size correctness furnished by the independent combinatorial proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet–Noy (2000), introduction and crossing enumeration discussion, treats global crossing-count distributions, not a marked degree conditional mean.",
+        "Acan (2015), Section 2 pp.4–5, studies marked-chord degree distribution and its moments rather than conditional global crossing means."
+      ],
+      "reasoning": "Global Touchard–Riordan crossing polynomials refine diagrams by total crossing count, but do not by themselves encode the degree of a specified chord and its two complementary arc sizes. Acan's Section 2 refines degree by arc size without conditioning total crossings on degree. More general multivariate historical refinements remain a recognized potential source of implicit coverage.",
+      "searches": [
+        "Flajolet Noy Analytic Combinatorics of Chord Diagrams global crossings generating functions",
+        "Touchard Riordan crossing polynomial multivariate chord marked degree",
+        "\"random chord diagram\" \"crossings\" \"conditioned\" \"degree\"",
+        "\"uniformly random chord diagram\" \"marked chord\" \"conditional expectation\"",
+        "\"chord diagrams\" \"joint\" \"crossings\" \"degree\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1501.01489",
+      "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+      "https://arxiv.org/pdf/2104.01134",
+      "https://arxiv.org/abs/1501.01489",
+      "https://arxiv.org/abs/2104.01134"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Acan (2015), Section 2 pp.4–5, studies marked-chord degree distribution and its moments rather than conditional global crossing means.",
+        "Flajolet–Noy (2000), introduction and crossing enumeration discussion, treats global crossing-count distributions, not a marked degree conditional mean.",
+        "The known mixed covariance constrains only the inner product of a degree with its conditional mean, leaving nonlinear conditional means possible."
+      ],
+      "reasoning": "Separate distributions and the exact mixed covariance would establish an average linear trend, not the claimed equality for each feasible degree. In contrast, a complete marked-chord refined joint crossing generating function could imply the claim, so implicit historical coverage remains possible.",
+      "searches": [
+        "exact conditional expectation total number of crossings in random chord diagram given marked chord degree and arc length, linear regression",
+        "covariance total chord intersections with degree of a distinguished chord, perfect matching pairings circle",
+        "pairings matching crossing count conditional number of bridges between arcs linear expectation",
+        "joint moments crossing count and degree of specified chord in random chord diagram",
+        "Acan 2015 degree mean variance Section 2",
+        "Flajolet Noy global crossing number moments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acan (2015), Section 2 pp.4–5, studies marked-chord degree distribution and its moments rather than conditional global crossing means.",
+        "Paguyo (2021), introduction and limit-theorem sections, studies global crossings and simple chord statistics, not the pointwise regression."
+      ],
+      "reasoning": "Equivalently, the conditional expected edge count in the random circle intersection graph with the distinguished vertex removed is an affine function of that vertex's degree, with slope independent of the vertex chord span. Acan gives degree marginals and Paguyo global count approximations, not this conditional law. An exact covariance does not establish a pointwise regression.",
+      "searches": [
+        "\"random chord diagram\" \"crossings\" \"conditioned\" \"degree\"",
+        "\"uniformly random chord diagram\" \"marked chord\" \"conditional expectation\"",
+        "\"chord diagrams\" \"joint\" \"crossings\" \"degree\"",
+        "arxiv:1501.01489v1 Section 2",
+        "arxiv:2104.01134v1 Introduction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary works have no table jointly indexed by fixed-chord complementary arc sizes, its crossing degree, and the expected remaining crossing count.",
+        "Closest semantic records concern geometric chords, inversion incidence, and model-theoretic quotient chord diagrams, not the present probability law."
+      ],
+      "reasoning": "Exact pointwise means at all feasible t are not determined by tabulated marginal degree distributions or unconditional crossing moments. No matching exact table was identified, but this is not proof that none exists.",
+      "searches": [
+        "uniform random chord diagrams matching chord span length number of crossings covariance profile and threshold sign arc length",
+        "random chord diagrams crossing number simple chords length distribution correlation crossings",
+        "random perfect matching crossing count chord length span conditional crossings",
+        "uniform random chord diagram crossing number local geometric length correlation",
+        "\"random chord diagram\" \"crossings\" \"conditioned\" \"degree\"",
+        "\"uniformly random chord diagram\" \"marked chord\" \"conditional expectation\"",
+        "\"chord diagrams\" \"joint\" \"crossings\" \"degree\""
+      ]
+    },
+    "rationale": "The inspected primary full texts establish individual degree moments and total crossing moments but not the entire pointwise conditional prediction of the remaining global crossings given the marked degree. The identity is not logically implied by a covariance (only one averaged moment); the universal slope is a stronger conditional statement. Historical implicit-coverage risk remains.",
+    "residual_risks": [
+      "A sufficiently refined classical multivariate pairing enumeration could imply the pointwise formula without explicit mention.",
+      "The strongest source inspection focuses on relevant sections; it is not a theorem of global novelty.",
+      "Only the conditional first moment is asserted, not the conditional distribution or higher moments."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING inspected contribution: no conditional remaining-edge count given marked degree in statements examined",
+        "evidence": "arXiv:1501.01489v1, Section 2, equations (2.1) and (2.2), and Theorem 2.1.",
+        "identifier_or_url": "https://arxiv.org/pdf/1501.01489",
+        "material_read": "Full open-access 27-page PDF, particularly introduction and Section 2 pages 3–5, degree moments and asymptotic theorem.",
+        "method": "Direct full-text reading and rendered-page comparison of moment statements",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Same probability model and specified-chord degree"
+      },
+      {
+        "assessment": "Global crossing-count moment machinery; no marked-chord degree-conditioned regression found in inspected sections",
+        "evidence": "INRIA RR3914 (2000), global chord crossing enumeration.",
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Research report introduction and crossing-number generating-function discussion, including relevant formula pages.",
+        "method": "Direct open-access PDF text and page-image inspection",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Earlier global crossing enumeration and moment framework"
+      },
+      {
+        "assessment": "Global distributional approximations; no finite marked-chord conditional mean in inspected material",
+        "evidence": "arXiv:2104.01134, introductory global crossing statistics.",
+        "identifier_or_url": "https://arxiv.org/pdf/2104.01134",
+        "material_read": "Open-access arXiv PDF abstract, introduction, and initial crossing-statistic limit-theorem sections.",
+        "method": "Direct PDF full-text reading of relevant material plus rendered-page inspection",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Global crossing limit laws and potential crossing-correlation refinements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7c3b3c68-ffff-4ef0-a9d1-3666d67f69fe",
+  "value": {
+    "rationale": "The marked chord degree is a local degree, and remaining crossing pairs are a natural global edge statistic. Arc imbalance materially changes the marked-degree distribution, yet the full conditional expected remaining-edge count has a universal slope across all spans. The structural cancellation for all feasible degree levels is not a routine consequence of marginal means or covariance, and gives exact finite-size local-to-global prediction.",
+    "status": "PASS"
+  }
+}
