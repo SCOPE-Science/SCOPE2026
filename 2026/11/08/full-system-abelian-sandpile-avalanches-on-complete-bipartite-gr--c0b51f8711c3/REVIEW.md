@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The domain \(a,b\ge2\), sink and drive positions, one-toppling maximum, bijection and matrix-tree normalization are explicit. The least-action comparison with the maximal stable state bounds every odometer by one. The exact equality class is equivalent to recurrence on the graph with the old sink deleted and the drive vertex made the new sink; the converse recurrence proof uses the forbidden-subconfiguration criterion. The exact Green-function solution supplies the mean. Two separate executable finite checks passed on ten sizes. Their limited ranges are reported and not treated as a proof for arbitrary graph order.
+
+**Originality: PASS on examined evidence, with priority risk.** Dukes–Le Borgne (2012) and Aval et al. (2013) treat recurrent-state and parking-function descriptions on the same complete bipartite family; Selig–Zhu (2024) adds state classification. The examined statements do not entail the explicit fixed-source full avalanche count or \(e^{-1}\) activity fraction. Austin et al. (2016) establish the general at-most-one-toppling lemma, which is explicitly credited, and give avalanche-polynomial calculations for other graph families. A published general burning/deletion identity or specialized exact coefficient may exist outside the examined papers; no claim of exhaustive uniqueness is made. The new result is not the already-known one-toppling property alone.
+
+**Mathematical value: PASS.** The exact count classifies a natural system-spanning avalanche event on an infinite, canonical interacting network family, gives its exact finite stationary likelihood, and connects it structurally to spanning trees on a vertex-deleted graph. The asymptotic law distinguishes event probability \(\sim1/(en)\) from a nonvanishing fraction \(\(e^{-1}\)\) of mean toppling activity. This measures a physically relevant rare-event contribution that is not determined by recurrent-state counts alone.
+
+The result is restricted to the stated finite, uniform, one-sink stationary sandpile. Scientific priority remains provisional pending broader external comparison, and independent scientific validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
