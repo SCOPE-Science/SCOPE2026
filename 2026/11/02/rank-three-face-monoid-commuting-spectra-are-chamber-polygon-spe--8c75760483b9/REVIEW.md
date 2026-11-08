@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Sign-coordinate comparison gives commutation precisely for compatible covectors; the common-upper-face principle, face-by-face Möbius inversion, and polygon-cone interval values prove the exact formula for all nonnegative tuple arities. Vandermonde independence proves the converse. The two six-plane examples are certified by exact row determinants, exhaustive face generation and independent pair/triple graph censuses. Numerical experiments alone are not used as an infinite-family proof.
+## correctness
 
-## Originality
-PASS relative to evidence inspected. Petersen's 2015 Proposition 5.3 already gives the commuting/common-face characterization and is explicitly acknowledged. The literature on face monoids and their algebras supplies the Tits product and standard posets but did not yield the asserted rank-three complete chamber-size transform, its inverse, or the same-face-vector/different-commuting-profile witness in the inspected material. An earlier type-A centralizer result covers commuting pairs in that different family, not this classification. A broader unlocated oriented-matroid enumeration is a residual publication-priority risk. Originality is not independently certified.
+PASS
 
-## Mathematical value
-PASS. The sequence of natural semigroup commuting-tuple invariants is shown to be equivalent to a concrete geometric chamber statistic. It detects second moments not encoded by the face vector and produces explicit generic hyperplane arrangements with equal face numbers but unequal commuting probability. This supplies a motivated structural boundary for face-number-only enumerations, not an arbitrary special-case recalculation.
+Sign-vector Tits multiplication is commutative exactly when no opposite signs occur. Finite pairwise-compatible faces compose to a unique smallest common upper face, so tuples partition by their join. Mobius inversion on ray, polygon-edge, and chamber intervals gives local terms 2^k-1, 4^k-2·2^k+1 and (2m+2)^k-m4^k+m2^k-1. Summing and double counting chamber-edge incidence sum m*n_m=2*f2 yields the formula, including k=0 and k=1. Distinct bases 1,2,4,2m+2 are linearly independent by Vandermonde, proving the converse. The independent integer-sign face enumeration of two six-row matrices checks all 123 faces and C2=2103/2119; it is exhaustive for those generic arrangements, not a substitute for the general proof.
 
-## Limits
-Only rank-three finite essential central real arrangements are covered. Finite integer computation certifies the displayed examples; the all-arity identity has a separate general proof. Independent mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: common-upper-face commutativity in a Tits left regular band is established (Petersen Prop. 5.3); the rank-three all-arity polygon-side transform, its inverse, and the sharp same-face-vector counterexample go beyond the structural commutativity criterion. Search evidence found no dominating counting theorem but uninspected oriented-matroid enumerations remain a risk.
+
+## value
+
+PASS
+
+PASS: a natural all-arity algebraic statistic of a canonical rank-three arrangement monoid is exactly equivalent to a geometric chamber polygon spectrum, and concrete generic arrangements disprove the tempting face-vector determination. This is a structural classification with a motivated counterexample, not merely a small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
