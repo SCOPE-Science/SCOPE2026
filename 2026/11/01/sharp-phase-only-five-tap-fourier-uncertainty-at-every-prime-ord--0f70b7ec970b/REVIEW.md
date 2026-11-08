@@ -1,11 +1,21 @@
-# Review of the five-tap phase-only Fourier-zero bound
+# Independent mathematical audit
 
-**Correctness (PASS).** The two modulus equations obtained from three hypothesized sampled roots have coefficients in the cyclotomic integer ring. Reducing their vanishing Sylvester resultant modulo the ramified prime yields the nonzero integer 900 modulo any prime at least seven. The constructive half supplies a two-root factor and proves the remaining coefficients have modulus one using a factored exact inequality; the seventh-order boundary is controlled by an explicit cubic interval and all higher primes by the fifth-root cosine identity. The exceptional fifth-order witness is the fifth cyclotomic polynomial. An independent executable recalculates the exact determinant and tests sampled witnesses. Finite testing is not substituted for the analytic proof.
+## correctness
 
-**Originality (PASS, bounded).** The sharp unrestricted support uncertainty theorem allows four zeros with five arbitrary coefficients, whereas the new theorem places an equal-modulus restriction. The inspected phase-only results on supports of sizes three and four do not imply the five-tap claim. The inspected length-five fourth-moment result concerns a distinct optimization functional, and the inspected self-inversive polynomial work addresses unit-circle root location rather than prime-order grid zeros under five unit-modulus coefficients. No direct coverage was located in the actual record and primary-literature searches; undiscovered equivalent results in phase-code or cyclotomic theory remain possible.
+PASS
 
-**Mathematical value (PASS).** This is a sharp classification of a natural uncertainty invariant at the first five-tap consecutive support. It eliminates two of the four ordinary uncertainty-theorem zeros at every prime at least seven, identifies a genuine exceptional prime, and supplies a new uniform resultant mechanism with an explicit sharpness construction. The proof does not simply rename or reuse the four-tap antipodal-pair argument.
+PASS: With three hypothetical distinct p-th-root zeros A,B,C of a quartic with all five coefficient moduli one, write u for fourth root, s=A+B+C,t=AB+AC+BC. Leading and constant coefficient moduli force |u|=1. Modulus conditions |s+u|=|t+us|=1 imply two quadratics in u over cyclotomic integers. Their resultant must vanish but reduction modulo (1−ζ_p) gives the explicit integer resultant 900, nonzero for every prime p≥7. An independent SymPy determinant evaluation returned exactly 900. The proposed symmetric five-coefficient witness P=(z²−2cz+1)(z²+(2c+a)z+1), c=cos(2π/p), uses a=α+i√(1−α²); the factored discriminant (independently checked symbolically) and the p=7 cubic bound or p≥11 cosine bound show unit moduli. Complete grid evaluation at eighteen primes through 1009 found only Fourier zeros ±1. For p=5, 1+z+z²+z³+z⁴ has four nontrivial fifth-root zeros. These are universal algebraic proofs; finite grids are corroborative.
 
-**Scope and limitations.** Fixed consecutive support, prime cyclic groups only, maximum cardinality rather than full zero-pattern classification. Results have not undergone independent audit or external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best of knowledge): Tao’s prime-cyclic support-uncertainty theorem allows four zeros for any coefficients of support five but does not impose equal nonzero magnitudes. The published complete four-tap phase-only classification and consecutive-quadrinomial parity theorem concern length four and cannot force this five-tap bound. Lalín–Smyth studies all-root unit-circle location of self-inversive polynomials, not prescribed prime-order zeros with all coefficient magnitudes one; the length-five continuous merit factor concerns a different statistic. Earlier phase-code/cyclotomic sequence literature could contain an equivalent trick but no directly covering implication was found.
+
+## value
+
+PASS
+
+PASS: The first five-consecutive-tap equal-amplitude sharp Fourier-zero maximum for every prime exhibits a structural reduction of attainable zeros from unrestricted four to two, with a genuine exception at p=5 and an exact universal obstruction via cyclotomic resultant plus explicit sharpness. This is a natural invariant in phase-only finite Fourier uncertainty; not a trivial renaming of length-four antipodal cancellation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

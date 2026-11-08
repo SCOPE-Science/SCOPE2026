@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T19:04:55.582876Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: With three hypothetical distinct p-th-root zeros A,B,C of a quartic with all five coefficient moduli one, write u for fourth root, s=A+B+C,t=AB+AC+BC. Leading and constant coefficient moduli force |u|=1. Modulus conditions |s+u|=|t+us|=1 imply two quadratics in u over cyclotomic integers. Their resultant must vanish but reduction modulo (1−ζ_p) gives the explicit integer resultant 900, nonzero for every prime p≥7. An independent SymPy determinant evaluation returned exactly 900. The proposed symmetric five-coefficient witness P=(z²−2cz+1)(z²+(2c+a)z+1), c=cos(2π/p), uses a=α+i√(1−α²); the factored discriminant (independently checked symbolically) and the p=7 cubic bound or p≥11 cosine bound show unit moduli. Complete grid evaluation at eighteen primes through 1009 found only Fourier zeros ±1. For p=5, 1+z+z²+z³+z⁴ has four nontrivial fifth-root zeros. These are universal algebraic proofs; finite grids are corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tao Theorem 1.1: |supp f|+|supp fhat|≥p+1 for all coefficients; it bounds five-supported zeros by four but does not impose |a_j|=1.",
+          "Lalín–Smyth Theorem 1 treats all roots of a self-inversive polynomial on the unit circle, a distinct coefficient/root constraint.",
+          "Published four-sparse phase-only theorem exactly classifies at most two zero samples for support four."
+        ],
+        "reasoning": "Neither the broader unrestricted Fourier theorem nor geometric self-inversive root theorem supplies the five equal-modulus coefficient obstruction or matching construction.",
+        "searches": [
+          "Tao uncertainty principle cyclic groups prime order arxiv:math/0308286",
+          "Krahmer Pfander Rashkov arxiv:math/0611493 Fourier uncertainty",
+          "Lalin Smyth arxiv:1201.0774 self inversive zeros",
+          "Resultary phase only four sparse uncertainty prime cyclic groups"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen https://github.com/SCOPE-Science/SCOPE2026/blob/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/sharp-phase-only-five-tap-fourier-uncertainty-at-every-prime-ord--0f70b7ec970b/RESULT.md",
+        "arXiv:math/0308286 (Tao)",
+        "Resultary phase-only four-sparse theorem full RESULT.md blob 680d36a881b0b7107298f2305fe10a3f4eff4fb9",
+        "arXiv:1201.0774 (Lalín–Smyth)",
+        "arXiv:math/0611493 (Krahmer–Pfander–Rashkov)",
+        "Resultary five-tap Fourier zero query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unrestricted sharp inequality permits four zero characters for five nonzero coefficients; equal modulus eliminates any third via resultant mod cyclotomic prime.",
+          "The published 4-term antipodal-zero lemma does not imply a 5-term upper bound because a zero of five unit vectors need not split into antipodal pairs."
+        ],
+        "reasoning": "The extra equal-amplitude hypothesis yields a genuinely stronger conclusion than unrestricted support uncertainty; the five-term obstruction is not a formal corollary of four-term classification.",
+        "searches": [
+          "arxiv:math/0308286 Tao prime Fourier support theorem",
+          "Resultary full four sparse phase-only uncertainty theorem",
+          "arxiv:1201.0774 Lalin Smyth unit circle zero criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Support five on Z_p with Fourier convention + sign is exactly polynomial evaluation at p-th roots; reversing sign permutes zero locations only.",
+          "Prior phase-only four-term results use antipodal-pair geometry and length four, not the five-term coefficient resultant."
+        ],
+        "reasoning": "Unimodular filters, phase coding, roots-of-unity lacunary polynomials and support uncertainty are compared as equivalent descriptions, with no checked prior all-prime five-term theorem.",
+        "searches": [
+          "prime cyclic group five consecutive unimodular coefficients Fourier zeros phase only uncertainty",
+          "phase-only five-tap sequence harmonic nulls unimodular five-term polynomial roots of unity",
+          "five equal amplitude coefficients three distinct prime-power Fourier zeros cyclotomic resultant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned 3-tap and 4-tap exact zero classifications, and a 5-tap fourth-moment optimum, not a 5-tap discrete zero census.",
+          "Finite sample witness checks p=7 through 1009 are not a completeness table."
+        ],
+        "reasoning": "No known exact five-tap prime Fourier zero lookup/table was located; the theorem rests on the independent resultant argument, not on missing catalog entries.",
+        "searches": [
+          "phase only five tap pth root Fourier zero maximum prime p table",
+          "Resultary search prime cyclic group five consecutive unimodular coefficients Fourier zeros phase only uncertainty"
+        ]
+      },
+      "rationale": "PASS (best of knowledge): Tao’s prime-cyclic support-uncertainty theorem allows four zeros for any coefficients of support five but does not impose equal nonzero magnitudes. The published complete four-tap phase-only classification and consecutive-quadrinomial parity theorem concern length four and cannot force this five-tap bound. Lalín–Smyth studies all-root unit-circle location of self-inversive polynomials, not prescribed prime-order zeros with all coefficient magnitudes one; the length-five continuous merit factor concerns a different statistic. Earlier phase-code/cyclotomic sequence literature could contain an equivalent trick but no directly covering implication was found.",
+      "residual_risks": [
+        "Sequence-design literature may contain a less discoverable equivalent five-tap phase-null result.",
+        "No statement for arbitrary five-element supports or composite modulus.",
+        "No formal/Lean certificate; resultant and inequalities checked mathematically and symbolically."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_LOWER_BOUND_NOT_EQUAL_MODULUS",
+          "evidence": "For five nonzero coefficients Tao bound allows at most four zeros; theorem has no equal-modulus sharp two-zero constraint.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0308286",
+          "material_read": "Original seven-page arXiv primary paper full theorem statement, proof and discussion of support cardinalities, page image",
+          "method": "arXiv legal full PDF, targeted theorem inspection",
+          "title": "An uncertainty principle for cyclic groups of prime order",
+          "trigger": "Foundational sharp prime cyclic Fourier uncertainty covering support size"
+        },
+        {
+          "assessment": "FOUR_TERM_NOT_FIVE_TERM",
+          "evidence": "At four nonzero terms the zero sum has antipodal pairs; no analogous reduction for five terms so it cannot prove five-tap obstruction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-phase-only-four-sparse-uncertainty-over-prime-cyclic-groups--def07c3297e4/RESULT.md",
+          "material_read": "Complete full RESULT.md proof, including perfect-matching rigidity and central symmetry criterion",
+          "method": "Original published Git blob sha 680d36a881b0b7107298f2305fe10a3f4eff4fb9",
+          "title": "Phase-only four-sparse uncertainty over prime cyclic groups",
+          "trigger": "Closest published phase-only exact root-count theorem"
+        },
+        {
+          "assessment": "DIFFERENT_ROOT_CONSTRAINT",
+          "evidence": "Classifies sufficient/necessary conditions for all polynomial zeros on the unit circle; does not bound three distinct p-th-root zeros of arbitrary five equal-coefficient-modulus polynomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/1201.0774",
+          "material_read": "Original 16-page arXiv PDF abstract, Theorem 1 (p. 3), related corollaries and application context; page image",
+          "method": "Original arXiv PDF targeted full-text reading",
+          "title": "Unimodularity of zeros of self-inversive polynomials",
+          "trigger": "Potential dominating all-unit-circle quartic theorem"
+        },
+        {
+          "assessment": "GENERAL_STFT_PARTIAL",
+          "evidence": "Fourier support counting and STFT with unrestricted complex coefficients, not phase-only five-tap exact max; full-text comparative risk retained.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0611493",
+          "material_read": "Abstract and relevant theorem references/related discussion, not full primary proof in this run",
+          "method": "Lawful arXiv abstract and targeted source context",
+          "title": "Uncertainty in time-frequency representations on finite Abelian groups and applications",
+          "trigger": "Potential broader support uncertainty results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The first five-consecutive-tap equal-amplitude sharp Fourier-zero maximum for every prime exhibits a structural reduction of attainable zeros from unrestricted four to two, with a genuine exception at p=5 and an exact universal obstruction via cyclotomic resultant plus explicit sharpness. This is a natural invariant in phase-only finite Fourier uncertainty; not a trivial renaming of length-four antipodal cancellation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen https://github.com/SCOPE-Science/SCOPE2026/blob/51887558ff7887d12d6a42e86c919e57bc40151c/2026/11/01/sharp-phase-only-five-tap-fourier-uncertainty-at-every-prime-ord--0f70b7ec970b/RESULT.md",
+    "arXiv:math/0308286 (Tao)",
+    "Resultary phase-only four-sparse theorem full RESULT.md blob 680d36a881b0b7107298f2305fe10a3f4eff4fb9",
+    "arXiv:1201.0774 (Lalín–Smyth)",
+    "arXiv:math/0611493 (Krahmer–Pfander–Rashkov)",
+    "Resultary five-tap Fourier zero query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly five consecutive nonzero equal-modulus coefficients on cyclic prime orders p≥5.",
+    "Classifies maximum zero count, not all possible patterns or phase vectors.",
+    "Sequence-design literature may contain a less discoverable equivalent five-tap phase-null result.",
+    "No statement for arbitrary five-element supports or composite modulus.",
+    "No formal/Lean certificate; resultant and inequalities checked mathematically and symbolically."
+  ],
+  "schema_version": 1
+}
