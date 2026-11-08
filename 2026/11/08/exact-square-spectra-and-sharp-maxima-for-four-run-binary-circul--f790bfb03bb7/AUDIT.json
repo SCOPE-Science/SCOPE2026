@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For a length-at-most-n circular factor, at most four cyclic transitions occur. Every mixed XX therefore has exactly three or four transitions, forcing a cyclic two-run root. The four explicit three-transition cases are necessary and sufficient, and the four-transition split cases have exactly min(a,c)-1 or min(b,d)-1 roots when opposite runs match. The monochromatic count follows from maximal run lengths. The sharp maximum is established by a direct parity inequality and constructive witnesses in every residue class. Actual standalone checker replay matched full literal-square sets for exhaustive 5,985 run tuples through length 21 and 300 independent modular-index tests. Finite tests supplement, not establish, the all-length statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hamai Theorem 1.1 yields universal floor(3n/2), while this theorem yields complete four-parameter equality and sharp maximum approximately 3n/4 on an exactly four-run domain.",
+        "Li-Song gives 5n/3 and Charalampopoulos et al. 1.8n general bounds."
+      ],
+      "reasoning": "A general upper bound cannot imply a sharper exact count for each prescribed tuple; no case classification or exact four-run maximum appears in the inspected sources. Hamai proved the global conjecture; this work makes no claim to that conjecture.",
+      "searches": [
+        "arxiv:2609.32084 general circular square 3n/2",
+        "arxiv:2605.12215 general circular square 5n/3",
+        "doi:10.4230/LIPIcs.CPM.2026.6"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1708.00639",
+      "https://doi.org/10.4230/LIPIcs.CPM.2026.6",
+      "https://arxiv.org/abs/2605.12215",
+      "https://arxiv.org/abs/2609.32084"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 general results bound all circular words but give no four-run conditional equality statements.",
+        "Previous four-run Abelian-square result counts words with equal Parikh halves; it does not imply exactly which XX factors occur."
+      ],
+      "reasoning": "The precise implication comparison is general bound => S <= floor(3n/2), whereas new classification => S <= floor(3n/4) with a stricter congruence correction for exactly four binary runs, plus exact values for every (a,b,c,d). The latter does not follow from the former. The Abelian count is for a non-equivalent invariant.",
+      "searches": [
+        "arxiv:2609.32084 theorem squares circles Rauzy circuits",
+        "arxiv:2605.12215 main theorem",
+        "four-run binary Abelian-square content counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The ordinary circular square is a literal factor XX; earlier four-run Abelian-square results group by equal letter-count halves, which is strictly weaker.",
+        "Earlier searchable four-run string-attractor classification concerns factor-hitting sets, not squared-factor counts."
+      ],
+      "reasoning": "Neither Abelian-square content counts nor attractor cardinalities reconstruct the number of distinct literal squares. Direct run-length formula and exact mixed square language differ in object and invariant, beyond renaming.",
+      "searches": [
+        "circular binary square factors four runs exact formula",
+        "circular words alternating four runs number distinct square factors",
+        "distinct squares circular words circular square counts Hamai Li Song Charalampopoulos",
+        "number of squares in circular word with 4 runs exactly two alternating 0-runs and 1-runs",
+        "exact number of distinct square factors in four-run binary circular words 0^a1^b0^c1^d",
+        "ordinary squares vs Abelian squares four-run word content"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Amit-Gawrychowski Lemma 1 enumerates distinct squares for a different alternating-run family with many runs, not the four-run class.",
+        "No matched table in the inspected indexed research records describes literal square counts of four-run binary circular words; closest same-family table concerned Abelian-square contents."
+      ],
+      "reasoning": "Parameter-free universality bounds and a different run family do not provide an exact table whose entries determine this closed form. The absence of an indexed hit is a limited negative search, not a proof of priority.",
+      "searches": [
+        "four-run binary circular distinct squares exact table",
+        "square factor circular run-length spectrum",
+        "arxiv:1708.00639 circular count families"
+      ]
+    },
+    "rationale": "The primary relevant circular-square papers establish universal bounds, extremal constructions and graph-theoretic methods, not the full four-parameter four-run square spectrum or the exact residue-sensitive extremal maximum. Indexed comparisons and accessible previous scientific claim identifiers disclose Abelian-square and string-attractor results for four-run binary words, which do not imply this literal-square classification. The result is assessed original within checked accessible sources, not certified historically unique.",
+    "residual_risks": [
+      "An unindexed or otherwise inaccessible older four-run formula could independently establish the same result.",
+      "The mathematical proof has not been independently peer-reviewed or machine-certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General bounds and Fibonacci-like constructions; its example family is not exactly four cyclic runs, and the inspected theorems do not classify four-run binary square sets.",
+        "evidence": [
+          "Section 2 defines circular squares; Section 3 Lemma 1 counts the special family f_k, which has numerous alternating runs; general section gives global bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.00639",
+        "material_read": "Online arXiv article sections 1-3, including its definition, construction and Lemma 1, and the opening of the upper-bound discussion.",
+        "method": "Read full online source sections and compare circular-factor convention, run patterns, object parameters and count conclusions.",
+        "title": "Distinct Squares in Circular Words",
+        "trigger": "Original general circular-square count and examples could imply a four-run subcase."
+      },
+      {
+        "assessment": "Provides global 1.8n bound and Fibonacci lower construction, not an exact four-run spectrum; the global inequalities cannot imply the four-run parameter dependence.",
+        "evidence": [
+          "The abstract and Section 1 state CS(n) <= ceil(1.8n); Section 3 uses Fibonacci building blocks; Section 6 concerns an unrestricted universal conjecture."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2026.6",
+        "material_read": "Open full-text HTML abstract, introduction, definitions, preliminary Fibonacci square fact, opening of lower-bound section, and final remarks.",
+        "method": "Inspect relevant accessible HTML sections and theorem/conjecture statements; compare count conventions, scopes and object parameters.",
+        "title": "Improved Bounds on the Maximum Number of Distinct Squares in Circular Words",
+        "trigger": "Closest contemporary general-square bound and full circular-factor convention."
+      },
+      {
+        "assessment": "Proves universal S <= 5n/3 with no exact four-run formula; four positive run parameters and the equality cases are not determined.",
+        "evidence": [
+          "The main theorem explicitly bounds arbitrary circular words by 5n/3 and subsequent sections use circuit counting. First posted 2026-05-12."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.12215",
+        "material_read": "Online arXiv text including introduction, definitions and Rauzy-graph preliminaries, main theorem statement and section headings; detailed later proof not exhaustively inspected.",
+        "method": "Compare the accessible main theorem and circular square convention against the exact four-run class.",
+        "title": "A Tighter Upper Bound for the Number of Distinct Squares in Circular Words",
+        "trigger": "Earliest public source of the selected contemporary research direction and sharper count bound."
+      },
+      {
+        "assessment": "Its universal S <= floor(3n/2) is a major prior result. It does not state or algebraically determine S for four-run words, and does not yield the sharp four-run maximum floor(3n/4) with its residue correction.",
+        "evidence": [
+          "Theorem 1.1 proves S <= floor(3n/2) for arbitrary circular words, using Rauzy circuits rather than parameterized four-run enumeration; no four-run case is stated. First submitted 2026-09-25."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.32084",
+        "material_read": "Online arXiv text including introduction, definitions, main theorem, circuit lemmas, exceptional-case argument, and closing proof section excerpts.",
+        "method": "Inspect full accessible online source at relevant named sections and compare the theorem, its quantified scope and proof structure.",
+        "title": "The Tight Upper Bound on the Number of Distinct Squares in Circular Words",
+        "trigger": "Potential dominating stronger theorem: a now-proven universal sharp bound."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f790bfb0-3bb7-44ac-8e90-a7d9f444b6f0",
+  "value": {
+    "rationale": "Four-run binary circles constitute the first nontrivial binary circular class beyond two-run periodic necklaces. Synchronization of opposite runs creates a striking four-way jump in mixed-square counts; all mixed squares are characterized. The sharp all-length maximum is a residue-sensitive natural invariant with explicit extremal witnesses and shows half the sharp universal coefficient. The full infinite classification is useful as a structural benchmark for square-rich circular-word families, not a routine finite computation.",
+    "status": "PASS"
+  }
+}
