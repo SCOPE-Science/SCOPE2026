@@ -1,21 +1,21 @@
-# Review of the exact fixed-orientation hexagon covering law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The convex-analytic reduction is exact: the hexagonal gauge is the maximum of its six facet linear forms. The triangle-cover lemma is a complete continuous-coverage certificate because a common point of three centered covering translates, with each of the triangle's three vertices covered, produces six convex triangles tiling the fundamental half-square. Both explicitly constructed witness points lie in the same half-square and have equal gauge distance to its three triangle vertices. The remaining square corner is excluded by one facet functional, and all other integer points are excluded by the Euclidean unit-disk containment of the hexagon. These lower and upper bounds coincide for every orientation, including the branch transition and endpoints. The global equality classes follow from exact monotonicity of two trigonometric branches. The self-contained analytic proof, not finite testing, establishes the theorem.
+PASS
 
-The independent diagnostic source `verify.py` was executed with Python's standard library and returned `PASS: 119356 deterministic covering-profile diagnostics`; it reproduces lattice witness distances, pointwise square coverage, angle constants and monotonicity checks. It is supporting evidence only.
+The Minkowski functional is max(|u|+|v|/sqrt3,2|v|/sqrt3) after inverse rotation. Reflection and quarter-turn of the lattice and sixth-turn of the hexagon reduce angles to [0,pi/12]. Two explicit points p_A and p_B within the fundamental triangular half-square are at distance exactly branch A or B from 0,e1,e2 in their respective regimes, with crossover tan(theta)=(4-sqrt3)/13. A triangle-cover lemma follows by tiling each triangle with six subtriangles whose vertices are original corners, edge midpoints and the common intersection witness, all lying in some convex translates. Central reflection covers the other half-square. For the reverse bound, a supporting linear form controls e1+e2 and every noncorner lattice point is Euclidean distance >=1 from a witness, greater than the candidate radius <1. Trigonometric monotonicity gives the unique cusp minimum. Independent 181x181 square-grid lower estimates at 5 angles agree with formulas within 0.015; that diagnostic is not the universal proof.
 
-## Originality — PASS, with residual priority risk
+## originality
 
-Fei Xue's 2019 full paper (Theorem 4, proof of hexagon case) and the published general regular-polygon extension both solve the much coarser problem of the smallest dilation covering **uniformly over all orientations**. The latter's hexagon value equals the **maximum** of the present exact function. Neither supplies its fixed-orientation minimum, its two distinct active mechanisms, or the nonsymmetric optimizing angle; knowing a maximum cannot entail this function or its minimum. The 2026 full paper of Codenotti–Freyer–Krivokuća establishes general covering and Minkowski-sum inequalities, not the particular sharp angular profile. Targeted searches for the branch constant, algebraic minimum, square-lattice norm equivalence and rotation classification did not identify an equivalent statement. This is best-knowledge originality, not a claim of exhaustive historical priority. An older treatment under hexagonal norm covering or Voronoi critical vertices may exist.
+PASS
 
-## Mathematical value — PASS
+Fei Xue computes the worst-over-rotations lattice point covering dilation for the hexagon and an all-even-polygon related theorem gives the same worst case. Those results do not fix the pointwise orientation profile or the smaller optimizing orientation; exact match could exist in normed-plane Voronoi or lattice covering literature, retained as priority risk.
 
-For a natural rigid body/lattice pair, optimization over orientation is a distinct geometric invariant from orientation-robust covering. The exact continuous profile reveals two competing critical-hole configurations, a genuine branch-switch cusp, and a uniquely determined symmetry-breaking optimum (two orientations per period), not an arbitrary extra decimal or an unmotivated finite slice. The closed form can serve as a benchmark for anisotropic lattice covering optimization and exact critical-hole computations.
+## value
 
-## Closest literature and limitations
+PASS
 
-F. Xue (2019), *On the Lattice Point Covering Problem in Dimension 2*, DOI 10.37236/8245; *Exact lattice-point covering radii for all regular polygons with two modulo four sides* (2026-10-04); G. Codenotti, A. Freyer and K. Krivokuća (2026), arXiv:2606.14442. The result pertains only to rotations of Euclidean regular hexagons against \(\mathbb Z^2\), not optimal lattice selection or nonregular polygons. Exact first publication under a different phrasing remains uncertain; independent validation has not been conducted.
+The fixed-orientation covering radius and its non-axis-aligned optimal alignment are natural shape-versus-lattice invariants. An exact sharp profile and cusp/minimizer answer a meaningful question hidden by a worst-orientation extremum, and the constructive covering and obstruction certificates are reusable.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
