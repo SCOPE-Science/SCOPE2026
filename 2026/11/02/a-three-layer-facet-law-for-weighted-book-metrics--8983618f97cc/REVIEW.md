@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact dual ball is \(|s|\le t\), \(|x_i|\le1\), and \(|x_i-s|\le1\), because every leaf-leaf metric constraint follows from the base-hub bounds. Slicing by \(s\) produces affine hyperrectangles over each of the two signs. A leaf interior to a slice can be perturbed; away from \(s=-t,0,t\), the hub coordinate and all leaf endpoints can be perturbed together, excluding every other extreme point. The three endpoint families are extreme by coordinate and hub saturation. The counts are \(3\cdot2^n\) for \(0<t<2\) and \(2^n+2\) for \(t=2\). Exact spanning-tree enumeration gives full vertex-set agreement for eighteen rational finite cases and is only a cross-check.
+## correctness
 
-## Originality — PASS, with bibliographic risk
-The published 2022 unweighted book-graph result already covers the \(t=1\) count, and symmetric edge polytope formulas cover the \(t=2\) endpoint: **neither endpoint is independently novel**. The precise new claim is the uniform, continuous **weighted hub-edge** classification, including all positive lengths below one and the singular transition at two. Inspected primary graph-polytope papers treat fixed unweighted metrics. The most relevant published alternative metric families change every same-part distance simultaneously, or perturb an equilateral matching, and cannot be specialized to this family. No inspected result asserts the complete weighted law; earlier unindexed or differently worded weighted-book work remains possible.
+PASS
 
-## Value — PASS
-A book graph is a standard family for facet enumeration, and the number of facets of a finite Lipschitz-free unit ball is a natural dual-polyhedral invariant. The exact phase law across an entire continuous metric deformation, together with an exhaustive classification, explains when the unit ball changes combinatorial structure, beyond merely recomputing two known graph endpoints. The invariant is exact in all dimensions and for every allowed real parameter.
+For each n>=2 and real 0<t<=2, the finite vertex metric has only hub-edge, spoke, and leaf-pair distances. All dual unit-ball constraints reduce to |s|<=t and |x_i|<=1, |x_i-s|<=1; each leaf-leaf bound <=2 is redundant. For s>=0, fiber x_i in [s-1,1]; for s<=0, [-1,s+1]. An interior leaf can perturb independently. When hub 0<s<t (or -t<s<0), choosing opposite small hub perturbations and moving the appropriate active leaf endpoints gives a nontrivial midpoint decomposition. At s=0, any corner x_i=+/-1 forces each midpoint summand hub to have a fixed sign while their average is zero; hence both hubs zero. At s=+/-t all endpoint choices are extreme by the active hub constraint. Therefore vertices are exactly three 2^n layers for 0<t<2 and two singleton boundary layers plus 2^n zero-layer corners when t=2. Polar duality between Lip_0 and finite Lipschitz-free balls transfers vertices to facets: 3*2^n vs 2^n+2. The excluded t=0 collapses two distinct metric points. Independently solved complete rational active-inequality intersections for n=2,3 and t=1/4,1,7/4,2, recovering exactly 12/6 and 24/10 vertices, respectively.
 
-## Closest literature and limitations
-Braun–Bruegge (arXiv:2201.13303, Section 4) is closest at the unweighted point; Higashitani–Jochemko–Michałek (arXiv:1807.07678) covers the graph endpoint, and Gordon–Petrov (arXiv:1608.06848) offers general metric-polytope context. Another published result on snowflaked complete bipartite metrics changes both hub and leaf within-part distances and does not dominate the weighted book claim. The proof is restricted to a finite real vertex metric with two equally connected hubs, unit spokes, and interleaf distances exactly two. Independent confirmation and more exhaustive bibliographic discovery are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The t=1 unweighted book and t=2 redundant-edge bipartite graph counts are previously known and not claimed new. The surviving claim is a continuum 0<t<2 of one-edge weighted metric polytope vertex classifications including t<1, and a sharp facet jump at exactly t=2. Primary unweighted symmetric-edge-polytope results and three semantically close published metric families were compared by the actual parameter constraints; none logically specializes to the entire one-hub-edge path.
+
+## value
+
+PASS
+
+Facet count and dual potential classification are canonical finite-dimensional Lipschitz-free geometry invariants, and an exact parameter-induced combinatorial transition at a redundant-edge boundary is mathematically motivated. It is not a mere unweighted graph recount: a full open interval of nongeneric metrics has a rigid facet spectrum and sharply loses 2^{n+1}-2 facets at its endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

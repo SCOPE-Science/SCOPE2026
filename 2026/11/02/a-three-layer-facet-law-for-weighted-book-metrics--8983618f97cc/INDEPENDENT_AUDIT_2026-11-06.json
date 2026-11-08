@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T10:58:40.940433Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each n>=2 and real 0<t<=2, the finite vertex metric has only hub-edge, spoke, and leaf-pair distances. All dual unit-ball constraints reduce to |s|<=t and |x_i|<=1, |x_i-s|<=1; each leaf-leaf bound <=2 is redundant. For s>=0, fiber x_i in [s-1,1]; for s<=0, [-1,s+1]. An interior leaf can perturb independently. When hub 0<s<t (or -t<s<0), choosing opposite small hub perturbations and moving the appropriate active leaf endpoints gives a nontrivial midpoint decomposition. At s=0, any corner x_i=+/-1 forces each midpoint summand hub to have a fixed sign while their average is zero; hence both hubs zero. At s=+/-t all endpoint choices are extreme by the active hub constraint. Therefore vertices are exactly three 2^n layers for 0<t<2 and two singleton boundary layers plus 2^n zero-layer corners when t=2. Polar duality between Lip_0 and finite Lipschitz-free balls transfers vertices to facets: 3*2^n vs 2^n+2. The excluded t=0 collapses two distinct metric points. Independently solved complete rational active-inequality intersections for n=2,3 and t=1/4,1,7/4,2, recovering exactly 12/6 and 24/10 vertices, respectively.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The snowflake family varies all same-part distances simultaneously.",
+          "Complete multipartite interpolation varies every within-part distance; weighted-book varies only d(a,b), keeps d(z_i,z_j)=2."
+        ],
+        "reasoning": "Those stronger-looking dimension-general counts have incompatible distance-identification equations and do not dominate this single-edge-varying family in the interior parameter range.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-sharp-facet-count-transitions-for-snowflaked-complete-bipartite--e855a74da4ce",
+          "Resultary 2026/10/11/SCOPE-sharp-facet-jumps-for-interpolated-complete-multipartite-lipschi--5c07b142df09"
+        ]
+      },
+      "checked_sources": [
+        "Braun–Bruegge arXiv:2201.13303 Section 4 (full HTML)",
+        "Higashitani–Jochemko–Michałek arXiv:1807.07678 (partial primary)",
+        "Gordon–Petrov arXiv:1608.06848 (general polytope theory)",
+        "Resultary: three 2026/10/11 metric facet entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unweighted complete bipartite graph case is t=2; book graph is t=1.",
+          "Generic Lipschitz polytope face techniques do not give a direct specialization for nongeneric varying one-edge finite metrics."
+        ],
+        "reasoning": "The claimed formula has distinct interior and endpoint branches. General polarity is a tool, not an existing explicit formula; unweighted endpoint counts do not mathematically imply the full continuum facet classification.",
+        "searches": [
+          "arXiv:1807.07678 symmetric edge polytopes",
+          "arXiv:1608.06848 combinatorics Lipschitz polytope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Braun and Bruegge Section 4 counts facets of unweighted symmetric edge polytopes for path-bundle/book graphs (t=1).",
+          "This finite-vertex weighted polytope changes the single hub distance while spokes stay one and leaves stay two."
+        ],
+        "reasoning": "Unweighted symmetric edge polytopes use unit edge lengths; their t=1 numerical specialization is covered, not the claimed full real t interval or endpoint transition as a weighted theorem.",
+        "searches": [
+          "Resultary: weighted book facet metrics; Braun Bruegge arXiv:2201.13303"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Equilateral disjoint-short-pair metrics keep all cross-pair distances one, unlike two-unit separated book leaves.",
+          "Matching queries yielded related but different metric classes, not a table of weighted-book facets."
+        ],
+        "reasoning": "No found exact database entry covers variable sole hub edge. Search absence is not evidence of mathematical novelty; analytic comparison with retrieved entries is the support.",
+        "searches": [
+          "Resultary facets weighted book K_{2,n} Lipschitz-free 3*2^n",
+          "Resultary 2026/10/11/SCOPE-facet-enumeration-for-equilateral-metrics-with-independently-sho--3bd6d7048744"
+        ]
+      },
+      "rationale": "The t=1 unweighted book and t=2 redundant-edge bipartite graph counts are previously known and not claimed new. The surviving claim is a continuum 0<t<2 of one-edge weighted metric polytope vertex classifications including t<1, and a sharp facet jump at exactly t=2. Primary unweighted symmetric-edge-polytope results and three semantically close published metric families were compared by the actual parameter constraints; none logically specializes to the entire one-hub-edge path.",
+      "residual_risks": [
+        "An unindexed earlier weighted-book or dual-potential vertex classification could coincide with the interior formula.",
+        "No assertion of novelty for t=1,t=2 graph specializations, polarity or elementary midpoint tools."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS t=1 special case, not a weighted real hub-length parameter",
+          "evidence": "Path families, Section 4; symmetric edge polytope derived from unweighted graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.13303",
+          "material_read": "arXiv full HTML main theorem and Sections 2/4 path-bundle graph facet enumeration and hypotheses",
+          "method": "Read accessible full paper HTML; compared graph weights and scope",
+          "title": "Facets of Symmetric Edge Polytopes for Graphs with Few Edges",
+          "trigger": "Same unweighted book graph, possible direct coverage"
+        },
+        {
+          "assessment": "Covers conceptual t=2 endpoint but no support for continuum from inspected material",
+          "evidence": "All edge roots correspond to unweighted graph metrics.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.07678",
+          "material_read": "Primary abstract/selected mathematical descriptions of unweighted graph symmetric-edge polytopes",
+          "method": "ArXiv page plus results referenced in frozen package",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Endpoint K_{2,n} graph is a known special case"
+        },
+        {
+          "assessment": "Related family; not the same one-hub-edge varied metric",
+          "evidence": "Same-part distances are all varied jointly, including leaf-leaf distances.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-facet-count-transitions-for-snowflaked-complete-bipartite--e855a74da4ce",
+          "material_read": "Resultary published abstract and explicit formulas with common within-part t",
+          "method": "Resultary semantic result comparison, not a full-paper read",
+          "title": "Sharp facet-count transitions for snowflaked complete bipartite metrics",
+          "trigger": "Potential dominating parameter family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Facet count and dual potential classification are canonical finite-dimensional Lipschitz-free geometry invariants, and an exact parameter-induced combinatorial transition at a redundant-edge boundary is mathematically motivated. It is not a mere unweighted graph recount: a full open interval of nongeneric metrics has a rigid facet spectrum and sharply loses 2^{n+1}-2 facets at its endpoint.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Braun–Bruegge arXiv:2201.13303 Section 4 (full HTML)",
+    "Higashitani–Jochemko–Michałek arXiv:1807.07678 (partial primary)",
+    "Gordon–Petrov arXiv:1608.06848 (general polytope theory)",
+    "Resultary: three 2026/10/11 metric facet entries"
+  ],
+  "disposition": "passed",
+  "limitations": "Only finite vertex metric n>=2 and 0<t<=2; not a geodesic metric graph, t=0 not a metric on the named distinct points; no other face numbers.",
+  "residual_risks": [
+    "An unindexed earlier weighted-book or dual-potential vertex classification could coincide with the interior formula.",
+    "No assertion of novelty for t=1,t=2 graph specializations, polarity or elementary midpoint tools."
+  ],
+  "schema_version": 1
+}
