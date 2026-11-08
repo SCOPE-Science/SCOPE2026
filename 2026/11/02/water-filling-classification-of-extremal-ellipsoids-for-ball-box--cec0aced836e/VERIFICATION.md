@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The complete analytic proof is in `RESULT.md`; this file describes auxiliary checks rather than a separate correctness certification. Running `python3 ball_box_waterfill_verify.py` with the Python standard library checks three exact rational water-level examples, every signed corner and contact covariance in each finite test, and 216 parameter configurations in dimensions 2 through 8 (including 216,000 random admissible points). The script terminates with `PASS` when these checks succeed.
+## correctness
 
-The complete infinite-dimensional parameter statement (for fixed integer \(d\ge3\) and continuously varying positive cap widths) follows from the strict-concavity box optimization, affine Löwner contact identities and explicit all-point quadratic containment in the mathematical proof. The random checks cannot establish containment for every point or certify originality; they are reproducibility and implementation checks. No external independent validation has been performed.
+PASS
+
+Reflection invariance forces both unique extremal ellipsoids to be centered and diagonal. The candidate inscribed ellipsoid with cap semiaxes lies inside the ball since a_i≤1. Strictly concave log-volume/KKT gives z_i=min(a_i²,t) for the inscribed box, and signed corner contact vectors sum to the identity for its Löwner ellipsoid. For all x in K, split ∑x_i²/m_i² into ||x||²/t plus active-cap corrections and use ∑min(a_i²,t)=1 to bound it by d, giving H⊂K⊂L(H). Water-level existence, ties, S≤1, equality cases are checked. Independent exact rational KKT checks used 501 cap configurations; they are corroboration only.
+
+## originality
+
+PASS
+
+Güler–Gürtuna Theorem 6.1 determines a centered single slab and supplies a contact criterion; arbitrary orthogonal multicaps and exact equality L(K)=L(H) with a water-filled box are not implications of the inspected single-cut statement without a new containment argument. Other Resultary ellipsoid results concern polytopes and different cap geometries. Possible general optimum-design theorem remains a priority risk.
+
+## value
+
+PASS
+
+A parameter-complete exact shape, contact skeleton, and sharp transitions for a natural ball-box intersection supplies useful geometric optimization data beyond a single-slab formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
