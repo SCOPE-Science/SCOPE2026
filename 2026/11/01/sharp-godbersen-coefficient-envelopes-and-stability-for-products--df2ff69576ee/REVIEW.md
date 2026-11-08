@@ -1,15 +1,21 @@
-# Mathematical review: sharp reflected mixed-volume envelopes for planar products
+# Independent mathematical audit
 
-## Correctness — PASS
-For every full-dimensional planar convex factor the normalized mixed-area polynomial is \(1+2r_it+t^2\), with \(r_i\in[1,2]\) by the planar Rogers--Shephard bounds and with rigid endpoints (central symmetry and triangle). Products of orthogonal factor sums yield the exact coefficient formula by Fubini. Coefficientwise monotonicity yields both absolute sharp bounds. The elementary-symmetric expansion and Maclaurin inequalities imply the fixed-average optimal envelope; the requisite strict term is \(e_2\) in even degrees and \(e_3\) in odd interior degrees. Convexity of each balanced coefficient as a function of \(r\) yields the globally sharp affine remainder, attained at the all-centrally-symmetric endpoint. Continuity of an interpolation from a triangle to its centered difference body establishes complete parameter realization, and a local lattice central limit theorem plus Stirling gives the central-index asymptotic. The supplied independent finite rational tests run successfully but do not establish the infinite theorem.
+## correctness
 
-## Originality — PASS, with residual priority uncertainty
-The 2026 global Godbersen theorem and 2026 equality/higher-order study establish stronger general *absolute* coverage but do not imply sharp coefficient envelopes, sharp factorwise Rogers--Shephard-deficit coefficients or the fixed-average optimization for arbitrary products of planar convex factors. A publicly accessible exact profile for one-vertex simplex truncations concerns a nonproduct class, while the publicly accessible Cartesian-product theorem for the two-body Bézout coefficient concerns a different mixed-volume quotient. Full mathematical statements and proof material were compared, not merely titles. Targeted mathematical-record searches and literature queries found no equivalent or stronger numerical characterization; absence of a match is not proof of priority. Classical product identities might have appeared implicitly in older literature.
+PASS
 
-## Value — PASS
-The geometric object and target invariant are canonical following the general Godbersen inequality. The result supplies an exact coefficientwise classification in every even dimension for *all* planar-factor products and every index, sharp global factor-deficit stability with equality classes, the complete fixed-mean profile, parameter attainability, and the sharp exponential central-index decay. These are structural and quantitative facts not supplied by the general inequality or its equality case; they go substantially beyond isolated examples or routine parameter substitution, although the proof uses classical inequalities.
+Planar Steiner polynomial vol_2(Q+t(-Q)) = area(Q)(1+2r t+t^2), Rogers-Shephard/Brunn-Minkowski give r in [1,2] with triangle/symmetric endpoints. Fubini gives product generating function, and normalized mixed-volume coefficients equal [t^k] product / binom(2m,k). Coefficientwise monotonicity gives extreme envelopes; Maclaurin inequalities for elementary symmetric polynomials bound by equal-r polynomial, with strictness for all interior k. Convexity of F_k(s) yields sharp affine chord deficit, equality only at all-endpoints away from k=1,2m-1. Continuous Minkowski interpolation realizes any r_i. Independent exact rational convolution checked all 2916 (m=2..5, r_i in {1,3/2,2}) nontrivial coefficient comparisons, sharp bound and equality implications. Central coefficient identities checked for m=2,5,10,30; local CLT with variance 1/3 gives sqrt(3*pi*m/2)*(3/8)^m. Finite checks support but do not replace the analytic all-m proof.
 
-## Scientific limits
-No global claim for nonproduct bodies, no metric near-simplex stability and no independent historical-priority certification. The coefficient sharpness is relative to the explicitly stated factorwise deficit, not a universal geometric distance. All finite tests are corroborating calculations only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Universal Godbersen inequality and equality for simplices is known, but a product-specific multivariate generating polynomial and optimal affine deficit slope for every coefficient are not supplied by the accessed prior statements. Comparison to related exact product Bézout coefficients concerns another mixed-volume functional. Unindexed tensorization and inaccessible full texts remain risks.
+
+## value
+
+PASS
+
+A complete sharp coefficientwise profile for all dimensions in a natural product class, optimal fixed-average optimization and sharp factor deficit slope form a substantive structural comparison with general Godbersen bounds, not merely reproducing one known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
