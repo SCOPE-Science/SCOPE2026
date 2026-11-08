@@ -1,19 +1,21 @@
-# Review of the sparse logarithmic critical-point cover
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all integer degrees \(q\ge3\) and all \(\epsilon\notin\{0,\epsilon_q\}\), the proof gives the exact degree-\(q\) rational covering, derivative numerator with only simple roots, full finite/infinite ramification divisors, discriminant factor separating genuine collision from infinity, and a three-branch-value degree-\(q\) collision cover. Riemann–Hurwitz accounts for all ramification. Connectedness plus a \((q-1)\)-cycle and a transposition bridging the fixed sheet forces \(S_q\) twice. The independent finite symbolic replay is a consistency test, not the infinite proof. Residual correctness risk: applications using only very-affine fibers must remove resonance and branch values; the theorem explicitly distinguishes the compactified covers.
+PASS
 
-## Originality — PASS with identified priority uncertainty
+For q>=3 and epsilon≠0,epsilon_q, the rational Euler critical-point map R_epsilon(t)=−t f’/f has degree q because numerator and denominator are coprime. Differentiation yields numerator 1+q²epsilon t^{q−1}+(q−1)²epsilon t^q, whose q finite zeros are simple except epsilon_q. Infinity has local index q−1 over −q. Elimination yields D_q(r,epsilon), and the parameter map E_q(r)=epsilon_q(r+1)^q/(r^{q−1}(r+q)) has exactly 0, infinity, epsilon_q as branch values with partitions (q),(q−1,1),(2,1^{q−2}); degree and total ramification meet Riemann–Hurwitz. The rational covers are connected and the cycle of length q−1 with a transposition connecting its fixed label generates full S_q. Independent exact symbolic differentiation/discriminant calculations for q=3..8 agree; all-q proof follows from symbolic formulas and divisor argument, not finite q checks. Resonant infinity branch is not a finite very-affine collision.
 
-In Goertz–Sturmfels–Telen (arXiv:2610.29204v1), Example 6.4 treats the same sparse supports but states bidegrees and leading coefficient forms rather than the fiberwise critical-point monodromy and full three-value ramification passport. Classical trinomial discriminants recover the displayed collision equation, so this alone is not claimed as an original contribution; the accepted claim is the *joint universal branched-cover/monodromy classification*. The inspected full text and targeted searches did not identify the complete statement. A classical Belyi map with the same passport may implicitly cover the coefficient-side description; that is a remaining literature-priority risk. Arithmetic Galois results for fixed trinomials do not imply geometric monodromy of this rational exponent cover.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The support \(\{0,1,q\}\) is the minimal primitive sparse one-variable support beyond a binomial in the new logarithmic \(A\)-discriminant framework. The theorem gives exact global branching and permutation behavior of the entire critical-point family, distinguishing true collisions from degree-loss artifacts. Uniform full-symmetric monodromy for every smooth coefficient, rather than merely generic coefficients or a finite degree example, gives a structurally motivated description useful for continuation of Euler-critical points.
+Goertz–Sturmfels–Telen 2026 Logarithmic A-Discriminant supplies highly relevant general discriminant geometry and trinomial support Example 6.4. Vidunas (Mathematics 2025, 13(1), 156, Example 1) explicitly gives the degree-q Shabat polynomial (1−s)^{q−1}(1+(q−1)s), which is EXACTLY epsilon_q/E_q(r) after s=1/(r+1). Hence the Belyi passport and its S_q monodromy are known up to Möbius transformations and cannot count as novel independently. The assessed residual contribution is the identification of this family as the finite collision-parameter correspondence of f_epsilon=1+t+epsilon t^q and the all-smooth-epsilon Euler critical-point cover with q distinct finite collisions and an infinity branch. Goertz–Sturmfels–Telen 2026 supplies highly relevant general discriminant geometry; full Example 6.4 inaccessible, leaving serious possible broader coverage. Best-of-knowledge PASS for the coupled Euler-critical statement only, never independent priority for the classical Belyi passport.
 
-## Boundaries and evidence
+## value
 
-The principal reference is arXiv:2610.29204v1, §6 Example 6.4; this work does not assert generality beyond primitive trinomials \(\{0,1,q\}\). The exact symbolic program checks degrees \(3\le q\le8\) and its outputs are separately described in VERIFICATION.md. No independently conducted mathematical audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The motivated geometric content is the all-q, all-smooth-epsilon relationship between logarithmic Euler critical-point branching, finite collisions, and the classical Shabat three-point cover; the passport itself is prior work. The combined identification and the distinction between finite collisions and the noncollision infinity branch are structural information not encoded solely by the known abstract Belyi family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
