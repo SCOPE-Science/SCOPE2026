@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and proof boundaries
+# Independent mathematical audit
 
-The theorem concerns real vertex functions modulo constants on the stated seven-vertex tree. Every positive root-edge weight is included. The proof identifies gradients with weighted \(\ell_1^6\), then symmetrizes all right inverses, determines the only free parameter, evaluates all six weighted columns, and minimizes their maximum over every real parameter. The sharp interior peak is established by direct differentiation. These are exhaustive analytic arguments, unlike finite tests.
+## correctness
 
-Run `python verify_tv_h2.py` in Python 3 with no additional packages. Expected result: `PASS 2200 exact rational column/optimization comparisons`, including the endpoint tests shown in its output. The script constructs six extended gradient columns from the explicit extension and checks their weighted \(\ell_1\) norm against the theorem for rational weights and candidates.
+PASS
 
-For an additional nonsymmetric consistency check, install NumPy and SciPy, then run `python verify_tv_h2_lp.py`. The separate linear program minimizes the operator norm over twelve arbitrary internal linear coefficients and tests ten selected positive weight ratios. The solver's numerical agreement is not a certificate for all real parameters and is not a replacement for symmetrization.
+For homogeneous real weighted l1 variation on the seven-vertex two-level binary tree, integration identifies gradients modulo constants with weighted l1^6. Any linear trace right inverse gives a projection of the six-dimensional gradient space; averaging under root-preserving automorphisms cannot increase its norm, and leaves one scalar mixing parameter t. The exact root- and leaf-edge columns have norms A=t+2(1-t)/rho and B=(3+(rho-1)t)/2 for 0<=t<=1. Clipping off [0,1] decreases both absolute column norms. Their minimax yields the three branches at rho=1,4/3, and differentiation gives unique interior maximum at rho=4-2sqrt(2). I independently reconstructed all six gradient columns using rational leaf traces and verified the maximum at nine rational weights; no appeal to old PASS or a finite simulation as proof.
 
-The archived source evidence compares the endpoint claim with a known \(1<p<\infty\) theorem and other kinds of trace right inverses; it cannot rule out every unindexed equivalent weighted-projection calculation. No independent audit has been performed.
+## originality
+
+PASS
+
+Fefferman–Klartag investigates radially weighted binary-tree Sobolev extension for 1<p<infinity, not endpoint p=1, and does not supply this seven-vertex sharp constant. Infinite-tree trace results of Björn et al. concern different norms; finite star metric Lipschitz extension results do not imply weighted edge variation. Bounded searches in published findings did not find a dominating exact weighted projection constant, but a disguised classical l1 projection constant remains possible.
+
+## value
+
+PASS
+
+This is the smallest full binary tree with interacting branching levels, a natural endpoint gap of the Fefferman–Klartag extension problem. The exact nonmonotone profile and both mixing transitions give a usable benchmark for sharp endpoint trace extension, not a routine reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

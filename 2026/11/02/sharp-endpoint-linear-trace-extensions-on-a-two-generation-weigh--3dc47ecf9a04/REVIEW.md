@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The gradient coordinates are an isometric identification with weighted real \(\ell_1^6\). The trace-quotient operator norm equals the weighted column norm of the extension-induced projection. Averaging over the full rooted-tree automorphism group proves that *all* eligible linear extensions can be reduced, without increasing their norm, to the stated one-parameter family. Both exact column sums, the clipping argument for unrestricted real parameters, the minimax crossing, endpoint cases, and the derivative determining the global maximum have been reconstructed analytically. The embedded exact-rational checker passes 2,200 matrix-column comparisons; a separate unrestricted linear program agrees at ten representative weights. Numerical or finite tests are supporting evidence, not a substitute for the universal proof.
+PASS
 
-## Originality
+For homogeneous real weighted l1 variation on the seven-vertex two-level binary tree, integration identifies gradients modulo constants with weighted l1^6. Any linear trace right inverse gives a projection of the six-dimensional gradient space; averaging under root-preserving automorphisms cannot increase its norm, and leaves one scalar mixing parameter t. The exact root- and leaf-edge columns have norms A=t+2(1-t)/rho and B=(3+(rho-1)t)/2 for 0<=t<=1. Clipping off [0,1] decreases both absolute column norms. Their minimax yields the three branches at rho=1,4/3, and differentiation gives unique interior maximum at rho=4-2sqrt(2). I independently reconstructed all six gradient columns using rational leaf traces and verified the maximum at nine rational weights; no appeal to old PASS or a finite simulation as proof.
 
-**PASS, qualified by literature coverage.** Fefferman--Klartag, arXiv:2301.13792, is the nearest primary source: its full-tree radial trace problem is for \(1<p<\infty\), not the \(p=1\) sharp depth-two formula, and its final remarks explicitly identify endpoint extensions as outside the proved theory. Björn--Björn--Gill--Shanmugalingam, arXiv:1304.0566, treats weighted infinite-tree function-space extensions, not this sharp finite quotient projection constant. Kazaniecki--Wojciechowski, arXiv:1903.01100, concerns a different geometric trace problem, although it makes clear that linear right inverses at \(p=1\) are a substantive issue. Searches for alternative labels such as minimal weighted-\(\ell_1\) projections, four-leaf boundary variation extensions, and the exact critical weight did not reveal this formula. Relevant recent sharp star-metric Lipschitz extension constants concern a different pointwise Lipschitz norm and are not implication results for tree total variation. An earlier general projection-table or disguised isomorphic result remains a genuine risk; neither an empty search nor an unrelated title proves global priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The problem is the smallest full binary tree where two levels of trace extension interact; it is a natural endpoint specialization of an established family, not an arbitrary parameter slice. The complete sharp profile proves a nonmonotone amplification gap, an interior unique worst weight, and a geometric collapse of optimal internal-child values at a second transition. It gives an explicit reproducible benchmark for endpoint linear extension, without pretending to resolve unbounded tree depths.
+Fefferman–Klartag investigates radially weighted binary-tree Sobolev extension for 1<p<infinity, not endpoint p=1, and does not supply this seven-vertex sharp constant. Infinite-tree trace results of Björn et al. concern different norms; finite star metric Lipschitz extension results do not imply weighted edge variation. Bounded searches in published findings did not find a dominating exact weighted projection constant, but a disguised classical l1 projection constant remains possible.
 
-## Limits and external verification
+## value
 
-The theorem is only for the real scalar homogeneous \(p=1\) tree and positive common root-edge weights; it does not imply a universal all-depth extension theorem. Review by a mathematically independent party has not occurred. Closest risk: an equivalent finite-dimensional weighted-\(\ell_1\) projection result in literature not indexed under trace extension.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the smallest full binary tree with interacting branching levels, a natural endpoint gap of the Fefferman–Klartag extension problem. The exact nonmonotone profile and both mixing transitions give a usable benchmark for sharp endpoint trace extension, not a routine reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
