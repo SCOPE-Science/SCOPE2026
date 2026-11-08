@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Four-state de Bruijn matrices exactly encode cyclic preimages, including n=1 and n=2. Entrywise capping at two is a semiring homomorphism preserving trace==1. Independent code constructs all 410 capped product matrices and verifies the 410-coordinate exact integer vector identity T^3 sum_{j=0}^{14} q_j T^(14-j)f=0. Its formal-series recurrence and initial terms prove the rational formula for every n>=1. A second independent direct evaluator checks every binary input through length 18.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Powley (2009), Chapter 9: de Bruijn count for specified target configurations.",
+        "Powley–Stepney (2010): homogeneous configuration counts; Jen (1989): specified linear blocks."
+      ],
+      "reasoning": "These methods can evaluate a specified cyclic target, but a general algorithm for individual fibres is not a closed all-length enumeration of all outputs of singleton multiplicity. General rationality of regular-language counts also would not give the exact polynomials without an actual calculation.",
+      "searches": [
+        "rule 54 cellular automaton cyclic one-step preimage counts maximum inverse fibers finite ring",
+        "cellular automata preimage multiplicity distribution de Bruijn finite periodic boundaries",
+        "Powley Stepney Counting Preimages Homogeneous Configurations 2010"
+      ]
+    },
+    "checked_sources": [
+      "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+      "https://www.cs.york.ac.uk/nature/group/theses/EdPowley.pdf",
+      "https://pure.york.ac.uk/portal/en/publications/counting-preimages-of-homogeneous-configurations-in-1-dimensional/",
+      "https://arxiv.org/abs/1305.6533",
+      "https://wpmedia.wolfram.com/uploads/sites/13/2018/02/14-1-2.pdf",
+      "https://www.oldcitypublishing.com/journals/jca-home/jca-issue-contents/jca-volume-5-number-4-5-2010/jca-5-4-5-p-353-381/",
+      "https://cellular.solves.ca/gardens-of-eden"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jen (1989) establishes Rule 54 image forbidden blocks; this detects zero versus nonzero predecessors, not precisely one.",
+        "Powley (2009) and Powley–Stepney (2010) work with prescribed targets, while the claim sums over all target patterns subject to exactly-one inverse.",
+        "Fukś (2003) examines preimage sequences of selected local patterns."
+      ],
+      "reasoning": "Knowing image admissibility is insufficient to distinguish singleton from multiple preimages. Even if a transfer-matrix formula can compute each fixed-target inverse count, one must still solve the global trace-one word enumeration to obtain the degree-14 generating function; the compared sources do not state that enumeration.",
+      "searches": [
+        "Rule 54 cyclic one-step unique predecessor outputs count generating function and periodic Garden-of-Eden",
+        "Rule 54 image unique preimage enumeration period length first-step cellular automata 0 0 0 3 12 15 24 49",
+        "Rule 54 Jen 1989 finite complement image language and preimage multiplicity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A singleton-fibre target is a vertex of indegree one in the finite Rule 54 global map; equivalently its four-state de Bruijn product has trace one.",
+        "Jen (1989) preimage recurrences count individual finite blocks."
+      ],
+      "reasoning": "The equivalent forms were searched against the published mathematics index and published primary literature. Those fixed-output or forbidden-word statements do not themselves enumerate every cyclic word satisfying a trace-one constraint.",
+      "searches": [
+        "number of length-n periodic outputs of elementary cellular automaton Rule 54 having exactly one preimage, exact generating function recurrence",
+        "Rule 54 cyclic one-step unique predecessor outputs count generating function and periodic Garden-of-Eden",
+        "Rule 54 unique preimage finite cyclic necklace in-degree one output count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published research index searches returned no directly equivalent numerical series; the closest Rule54 hit concerns a different separable-field system.",
+        "Elementary CA Zoo online Garden-of-Eden census concerns zero-predecessor configurations, not an all-length singleton-output formula."
+      ],
+      "reasoning": "The searches did not locate a database or table exactly covering this sequence. Such searches cannot rule out unindexed historic tables; this remains a priority risk.",
+      "searches": [
+        "number of length-n periodic outputs of elementary cellular automaton Rule 54 having exactly one preimage, exact generating function recurrence",
+        "Rule 54 image unique preimage enumeration period length first-step cellular automata 0 0 0 3 12 15 24 49",
+        "Rule 54 cellular automaton Garden of Eden image counts finite ring singleton outputs table"
+      ]
+    },
+    "rationale": "Primary available Rule 54 preimage literature counts prescribed blocks/outputs or characterizes image admissibility, whereas this theorem counts the entire singleton-fibre target subset for every cyclic length using a newly exhibited 410-state exact integer recurrence. published mathematical record source and alias searches found no equivalent or stronger all-length distribution. Absence of search hits is not novelty proof; unknown older unindexed data and an inaccessible full journal paper remain risks.",
+    "residual_risks": [
+      "Unindexed earlier exact small-sequence compilations might contain this full or equivalent closed form.",
+      "The complete Powley–Stepney (2010) journal full text was not verified; its author abstract and closely related doctoral thesis were inspected.",
+      "De Bruijn preimage methods are established; priority is claimed for this exact complete singleton-output series, not for the general technique.",
+      "Independent human historical and scientific checks have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts preimages of fixed finite linear words and describes permitted Rule 54 image blocks; no full cyclic singleton-output generating function in inspected material",
+        "evidence": [
+          "Jen (1989), Section 5.1 and Appendix A: a finite forbidden-block description of Rule 54 image; block preimage recurrence depends on specified pattern."
+        ],
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+        "material_read": "The Rule 54 image characterization and the block-preimage recurrence in pp. 444–446, with the relevant Appendix A pp. 453–454",
+        "method": "Accessed primary PDF and inspected text and page images for those sections",
+        "title": "Enumeration of Preimages in Cellular Automata",
+        "trigger": "Rule 54 one-step preimage recurrences, potential higher-covering theory"
+      },
+      {
+        "assessment": "Provides foundational cyclic transfer-matrix counting for individually specified outputs, not a closed generating function enumerating all single-predecessor outputs",
+        "evidence": [
+          "Powley (2009), Chapter 9: homogeneous and specified-output preimage counts, transfer methods."
+        ],
+        "identifier_or_url": "https://www.cs.york.ac.uk/nature/group/theses/EdPowley.pdf",
+        "material_read": "Chapter 9 material on fixed configuration preimage counts and de Bruijn matrix techniques",
+        "method": "Read accessible primary thesis sections in HTML-extracted/PDF text; page-image screenshot was unavailable for the large PDF",
+        "title": "Global properties of cellular automata",
+        "trigger": "De Bruijn trace counts for arbitrary cyclic outputs might dominate the candidate"
+      },
+      {
+        "assessment": "The explicit subject is a homogeneous target rather than singleton-fibre cardinalities across all targets; inaccessible full journal remains historical risk",
+        "evidence": [
+          "Powley and Stepney (2010), public author and publisher abstracts describe two methods of counting preimages of a given homogeneous configuration."
+        ],
+        "identifier_or_url": "https://pure.york.ac.uk/portal/en/publications/counting-preimages-of-homogeneous-configurations-in-1-dimensional/",
+        "material_read": "University of York abstract, bibliographic details and article scope; no comprehensive examination of the journal full text",
+        "method": "Read author-institution page and publisher abstract, compared with the openly available thesis",
+        "title": "Counting Preimages of Homogeneous Configurations in 1-Dimensional Cellular Automata",
+        "trigger": "Potential general all-output preimage enumerator"
+      },
+      {
+        "assessment": "Studies sequences of preimage counts for selected words and iterate counts, not the number of cyclic outputs with precisely one immediate predecessor",
+        "evidence": [
+          "Fukś (2003), Complex Systems 14, 29–43; arXiv:1305.6533 v1 uploaded 2013-05-28."
+        ],
+        "identifier_or_url": "https://wpmedia.wolfram.com/uploads/sites/13/2018/02/14-1-2.pdf",
+        "material_read": "Paper introduction and concrete recurrence analysis of preimages of selected elementary configurations; arXiv version record",
+        "method": "Opened full lawful open-access journal article and arXiv abstract; visually inspected available journal page",
+        "title": "Sequences of Preimages in Elementary Cellular Automata",
+        "trigger": "Formulae for Rule 54 may imply the singleton generating function"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c2f1f9b3-c735-46ef-bceb-84c4a4cba176",
+  "value": {
+    "rationale": "Singleton-predecessor target counts give the exact number of unambiguously reconstructible outputs of a standard nonlinear cellular automaton on every finite cyclic ring, a natural finer invariant than image cardinality or forbidden blocks. The explicit nontrivial rational series and complete finite-state integer certificate address a motivated inverse-problem gap; this is not a small cutoff extension, relabeling, or claimed general theorem beyond Rule 54.",
+    "status": "PASS"
+  }
+}
