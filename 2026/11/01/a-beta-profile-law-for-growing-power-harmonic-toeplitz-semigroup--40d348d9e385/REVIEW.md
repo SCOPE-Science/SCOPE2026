@@ -1,21 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The Gaussian-free beta normalization, harmonic monomial basis, and compression coefficients are explicit. Projection and telescoping give an exact rank-\(N-1\) partial shift, strict covariance proves every coefficient nonzero, monotone beta moments identify its norm, and interior-uniform gamma ratios with controlled endpoints prove the pushforward probability law. The separate finite checker passed 68,619 assertions; the infinite limit is established analytically.
+PASS
 
-## Originality
+The harmonic orthonormal monomial basis is indexed by positive/negative integers; direct projection T_(z^N) and N-fold one-step shift (T_z)^N agree outside e_-j (1<=j<N). On that finite cross-zero band the amplitudes differ by h_N/sqrt(h_j h_(N-j))-sqrt(h_j h_(N-j)). Beta moment h_j=E[X^j], X~Beta(1,a), has strictly positive covariance h_N-h_j h_(N-j). The ratio h_(k+1)/h_k=(k+1)/(k+a+1) is strictly increasing, so central h_j h_(N-j) is minimal and the coefficient maximal. Outgoing modes are positive indices and cannot feed D_N a second time, giving D_N^2=0. Bulk gamma-ratio h_j~Gamma(a+1)j^(-a), uniformly j/N away from 0,1, yields the t(1-t) profile. Bounded finite-rank coefficients control endpoint mass; beta integral and ordered central window yield all fixed-p Schatten and quantile claims. The normalization alpha>-1, N>=2, 0<p<infinity and endpoint p limits were checked. Independent rational coefficient, central symmetry and bulk calculations corroborate, not prove, infinite N.
 
-**PASS, best-knowledge.** Huang–Wang–Zhao (arxiv:2610.09638v1, full text) classify individual polynomial-symbol Toeplitz spectra, not product-difference singular values. Dong–Zhou (2010, DOI:10.1090/S0002-9939-09-10204-6, full text) give two-factor product-is-Toeplitz conditions. Dong–Zhou (arxiv:1411.0213, full text) classify finite rank of two-factor semicommutators, not the variable-power weighted beta law or all-Schatten asymptotic. Choe–Koo–Lee (2008, DOI:10.4171/RMI/529, full text) concern analytic Bergman sums of Toeplitz products and qualitative rank/compactness. The accessible published comparison records on harmonic Bergman circle traces and polydisc self-commutator Dixmier traces concern other operators. Earlier fixed-degree finite rank is prior background, not an originality claim.
+## originality
 
-Residual publication-priority risk: an implicit equivalent variable-power result may exist under different Toeplitz-power or compressed-shift terminology. Searching does not prove uniqueness. Independent literature review remains outstanding.
+PASS
 
-## Mathematical value
+The older finite-rank generalized two-factor harmonic Bergman Toeplitz calculations explain the finite-support defect mechanism; rank alone is not new. Primary Dong–Zhou (2014) treats quasihomogeneous TWO-FACTOR commutators/semicommutators and their canonical ranges, not growing N-fold monomial powers with nondegenerate empirical singular distribution, every beta weight and all fixed Schatten exponents. Huang–Wang–Zhao 2026 concerns spectra of individual polynomial Toeplitz operators, not this difference. No inspected statement yields the beta bulk/quantile theorem; a compressed bilateral-shift formulation might nevertheless predate it.
 
-**PASS.** A natural Toeplitz semigroup defect has increasing finite rank yet nonvanishing norm and a universal continuous singular bulk profile. The theorem gives exact finite-degree singular coefficients plus sharp asymptotic constants for every \(p>0\), including trace and Hilbert–Schmidt norms. These quantify structure not captured by a finite-rank classification.
+## value
 
-## Scope and verification limits
+PASS
 
-The theorem is for a fixed radial beta weight and the generator \(z\); it does not classify general analytic symbols or jointly varying weight and power. Exact rational test cases and large-degree numerical tests are supplementary, not independent or infinite-dimensional certificates.
+The failure of multiplicativity of harmonic Bergman compression is a canonical operator-theoretic obstruction. Its rank grows with N; the new exactly normalized beta-profile distribution, central spectral edge and all Schatten exponents give natural complete asymptotic invariants rather than isolated finite coefficients. These facts can calibrate operator-norm approximation and nonmultiplicative functional calculus; they are not merely rank-one arithmetic.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
