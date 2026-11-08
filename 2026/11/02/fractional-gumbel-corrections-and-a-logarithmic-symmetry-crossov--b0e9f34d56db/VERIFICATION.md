@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python3 checker.py` from the folder containing the extracted research files (Python 3 standard library only). The program exits nonzero upon any failed assertion. The delivered checker passed 77 assertions, comprising 20 independent exact-state/transfer comparisons over four even cycle sizes, nine independently derived exact expectation comparisons using rational arithmetic, 27 scaled-profile checks at three offsets and three size levels, 18 logarithmic-crossover checks, and three analytical maximum-constant identities.
+## correctness
 
-The finite exact checks compare the circular transfer with direct enumeration of every possible attempted/unattempted edge state. Expectation comparisons use both polynomial time integration and vertex-uncovered-event inclusion-exclusion; they share no transfer-matrix code. Numerical convergence checks are diagnostics, not certificates of asymptotic correctness. The infinite-size results rest on the analytic eigenvalue expansion, explicit far-tail bound, and dominated convergence in the accompanying proof. The 1995 nonidentical circular-runs article was not fully accessible, so historical priority is not externally certified.
+PASS
+
+The first attempt on each edge determines coverage and is independent exponential. A vertex is uncovered iff both incident edges have not yet attempted. The absence of adjacent unattempted edges is exactly the cyclic transfer trace tr([M(q_a)M(q_b)]^{n/2}), with trace 1-q_a q_b and determinant q_a q_b(1-q_a)(1-q_b). The dominant eigenvalue has log lambda_plus=-2u+us+O(u^2) for u=e^{-x}/n and s=(u^alpha+u^beta). Multiplying by n/2 proves the pointwise rates, while the proof's far-left bound via n/2 disjoint vertex conditions and an integrable exponential envelope justify uniform Kolmogorov and L1 limits. Integrating CDF differences gives Gamma coefficients for mean; the κ window follows from n^{±epsilon_n/2}->e^{±κ/2}. Independently enumerated exact cyclic edge-state probabilities versus rational transfer traces for n=4,6,8,10.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the sharp fractional, mean, Kolmogorov and logarithmic near-symmetry coefficients only. The model and first-order Poisson/Gumbel approximation are older. Full text of a highly relevant 1995 nonidentical circular-runs paper was not obtained; possible equivalent higher-order result is a genuine historical-priority risk, but its accessible abstract does not state the claimed fractional correction.
+
+## value
+
+PASS
+
+The exact rate of convergence to Gumbel on a natural alternating coverage model changes continuously with the weaker rate; the logarithmic near-symmetry crossover reveals two competing rare failures and fixes sharp finite-size Kolmogorov and expectation coefficients, quantities needed for quantitative reliability/coverage prediction. Not a restatement of a finite transfer matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

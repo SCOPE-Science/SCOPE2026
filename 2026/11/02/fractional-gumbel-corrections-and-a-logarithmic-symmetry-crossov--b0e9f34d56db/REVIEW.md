@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Independent exponential first edge-attempt times turn complete coverage into the event of no adjacent failed edges. The two-by-two circular transfer trace has exactly computed eigenvalues. A uniform expansion log(lambda+)=-2u+us+O(u^2), explicit far-left exponential bounds, and dominated convergence in supremum/L1 establish the fractional and near-symmetry limits, optimal Kolmogorov constants, and expectation coefficients. The packaged checker independently passed 77 exact-rational and asymptotic assertions; numerical tests are supporting checks rather than proofs.
+## correctness
 
-**Originality — PASS, with literature risk.** The claim is the asymmetric sharp first Gumbel correction for an alternating-rate edge-cover-time process, its optimal Kolmogorov and mean coefficients, and a moving-rate logarithmic symmetry crossover. Finite exact circular-run distributions and the first-order Poisson/Gumbel phenomenon are expressly excluded from originality. The inspected relevant primary results do not give these particular periodic triangular-array coefficients. Residual priority risk is nonzero due to inaccessible full text of a plausible 1995 paper. The closest scientific comparisons are Krapivsky (2022) on random sequential covering; Koutras, Papadopoulos and Papastavridis (1995) on nonidentical circular runs; Inoue and Aki (2005) on iid circular runs; and Petrauskienė and Čekanavičius (2010) on iid two-run Poisson approximations. Exact finite circular run counting is treated as known, not a priority claim.
+PASS
 
-**Value — PASS.** Periodic heterogeneity changes the universal Gumbel convergence rate from square-root order to an arbitrary fractional exponent determined by the weaker rate, and reveals a logarithmic crossover when two rare-run mechanisms compete. Sharp Kolmogorov and expectation coefficients quantify this effect for a natural cyclic coverage/reliability process; these are meaningful distributional quantities not inferred from first-order limits or finite enumeration alone.
+The first attempt on each edge determines coverage and is independent exponential. A vertex is uncovered iff both incident edges have not yet attempted. The absence of adjacent unattempted edges is exactly the cyclic transfer trace tr([M(q_a)M(q_b)]^{n/2}), with trace 1-q_a q_b and determinant q_a q_b(1-q_a)(1-q_b). The dominant eigenvalue has log lambda_plus=-2u+us+O(u^2) for u=e^{-x}/n and s=(u^alpha+u^beta). Multiplying by n/2 proves the pointwise rates, while the proof's far-left bound via n/2 disjoint vertex conditions and an integrable exponential envelope justify uniform Kolmogorov and L1 limits. Integrating CDF differences gives Gamma coefficients for mean; the κ window follows from n^{±epsilon_n/2}->e^{±κ/2}. Independently enumerated exact cyclic edge-state probabilities versus rational transfer traces for n=4,6,8,10.
 
-**Limits.** Even alternating-rate cycles only; no nonperiodic environment theorem. A fully resolved original-paper comparison with *Runs on a circle* (1995) was not possible; definitive historical priority remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the sharp fractional, mean, Kolmogorov and logarithmic near-symmetry coefficients only. The model and first-order Poisson/Gumbel approximation are older. Full text of a highly relevant 1995 nonidentical circular-runs paper was not obtained; possible equivalent higher-order result is a genuine historical-priority risk, but its accessible abstract does not state the claimed fractional correction.
+
+## value
+
+PASS
+
+The exact rate of convergence to Gumbel on a natural alternating coverage model changes continuously with the weaker rate; the logarithmic near-symmetry crossover reveals two competing rare failures and fixes sharp finite-size Kolmogorov and expectation coefficients, quantities needed for quantitative reliability/coverage prediction. Not a restatement of a finite transfer matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
