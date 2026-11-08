@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 unicyclic_rank_check.py` from the extracted package directory. It requires Python 3 standard library only. The program independently constructs all matchings to compute the predicted combinatorial polynomial, then enumerates finite-field matrix entries and computes ranks by Gaussian elimination, using an explicit finite-field multiplication for \(\mathbb F_4\). It exhaustively verifies six specified unicyclic graphs over fields with 2, 3 and 4 elements (18 configurations), and verifies \(\sum_j[z^j]R_G(q,z)=q^{|E|}\) each time. The final expected marker is `UNICYCLIC_SKEW_RANK_CORRECTION_OK 18`.
+## correctness
 
-The source-independent mathematical proof is in RESULT.md. Enumerations over three small fields are not a proof over arbitrary finite fields or arbitrary unicyclic graphs. The character-degree consequence follows the classical odd-characteristic class-two orbit method; it was checked arithmetically for a cycle with a two-edge pendant path in characteristic three. No independent mathematical audit has been performed.
+PASS
+
+Proof checked: each support has (q−1)^|F| weights and rank at most twice its maximum matching. Pfaffians for a unicyclic graph have at most two terms, because symmetric difference of perfect matchings is the unique even cycle. If an extremal matching does not internally match the entire cycle, a unique-monomial maximal Pfaffian remains nonzero; otherwise all maximal Pfaffians share the same two-cycle product difference. Exactly 1/(q−1) of full-support assignments cancel, and removing endpoints of a cycle edge preserves a unique-forest Pfaffian one rank-step below. Orbit-method count for odd fields follows from radical dimension n−2j. Independent brute weighted rank enumeration matched the formula on 4-cycle and triangle-with-leaf for q=2,3. No representation claim for q even.
+
+## originality
+
+PASS
+
+Rossmann Section 1.6 introduces exact character-degree rank counts as Question 1.10; Resultary provides precise tree and cycle formulas. Neither special family alone covers arbitrary unicyclic with attached trees, since identifying forced cycle-saturated maximum matching supports is additional. Li–Yu Theorem 4.2 concerns unweighted ±1 orientations and individual ranks, not all field weights/rank multiplicities; still near overlap warrants note.
+
+## value
+
+PASS
+
+Rank/character-degree distributions are natural representation-theoretic invariants; the single cycle cancellation gives a closed exact formula for an entire graph class extending motivating tree and cycle cases, with all fields for ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

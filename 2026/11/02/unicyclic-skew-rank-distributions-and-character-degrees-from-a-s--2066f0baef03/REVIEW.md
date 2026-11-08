@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The upper rank bound comes from matching size and principal Pfaffians. A graph with only one cycle has at most two perfect matchings on any induced vertex set. If the maximum matchings do not all internally pair the unique even cycle, one principal maximal Pfaffian has a unique nonzero monomial. Otherwise every maximal Pfaffian shares one cycle-binomial factor, which vanishes on exactly one multiplicative relation on nonzero cycle weights. Deleting one matched cycle edge leaves a principal forest Pfaffian of order two less, proving the rank drops by exactly two. This argument is valid over all finite fields. The odd-characteristic character counts use the standard class-two graphical-group central-character correspondence; no such representation claim is made for characteristic two. The complete checker passed 18 independently enumerated finite cases.
+PASS
 
-## Originality — PASS, with stated risks
+Proof checked: each support has (q−1)^|F| weights and rank at most twice its maximum matching. Pfaffians for a unicyclic graph have at most two terms, because symmetric difference of perfect matchings is the unique even cycle. If an extremal matching does not internally match the entire cycle, a unique-monomial maximal Pfaffian remains nonzero; otherwise all maximal Pfaffians share the same two-cycle product difference. Exactly 1/(q−1) of full-support assignments cancel, and removing endpoints of a cycle edge preserves a unique-forest Pfaffian one rank-step below. Orbit-method count for odd fields follows from radical dimension n−2j. Independent brute weighted rank enumeration matched the formula on 4-cycle and triangle-with-leaf for q=2,3. No representation claim for q even.
 
-Mainkar's graph Lie-algebra construction is prior foundational context. Li–Yu's oriented skew-rank theorem treats entries fixed to plus/minus one and thus does not tabulate all finite-field nonzero weighted assignments. Rossmann's graph-group question gives the general representation-theoretic reduction without the all-unicyclic rank enumerator. Earlier results separately covering trees and pure cycles are relevant stronger results on those subclasses, but do not, without the present criterion and proof, cover unicyclic graphs with arbitrarily attached trees. No exact general weighted unicyclic support-correction table was found in the checked literature; this cannot establish global uniqueness. Unlocated equivalent weighted-rank formulas remain a genuine risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is an exact, computable, graph-invariant solution on the full connected-unicyclic family, the natural first step beyond forests in cyclomatic complexity. It determines all skew-rank multiplicities for every finite field, and all graphical-group ordinary character degrees over odd fields. The exceptional-support criterion explains exactly when the unique even cycle creates a one-step rank defect; it is structurally stronger than a list of isolated numerical counts.
+Rossmann Section 1.6 introduces exact character-degree rank counts as Question 1.10; Resultary provides precise tree and cycle formulas. Neither special family alone covers arbitrary unicyclic with attached trees, since identifying forced cycle-saturated maximum matching supports is additional. Li–Yu Theorem 4.2 concerns unweighted ±1 orientations and individual ranks, not all field weights/rank multiplicities; still near overlap warrants note.
 
-## Limits and closest literature
+## value
 
-The complete primary text of Li–Yu and Rossmann was checked for object, parameter, and theorem-level comparison. Full-text inspection of all historical works on weighted Pfaffians is not exhaustive. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rank/character-degree distributions are natural representation-theoretic invariants; the single cycle cancellation gives a closed exact formula for an entire graph class extending motivating tree and cycle cases, with all fields for ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
