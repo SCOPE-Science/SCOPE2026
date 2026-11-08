@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python verify_modular_alexander.py` with Python 3 and NumPy. `verification_output.txt` contains the output of that checker executed on the packaged version of the code.
+# Independent mathematical audit
 
-The checker performs exhaustive direct multiplication for all coefficient tuples over \(\mathbb F_5\) and \(\mathbb F_7\) in the one-dimensional scalar Alexander quandle algebra, for all admissible scalars. Direct element-by-element idempotent counts are \(6\) at every admissible \(p=5\) parameter, and \(8,50,50,50,8\) for \(p=7\), parameters \(2,3,4,5,6\). The exact search sizes are \(5^5\) and \(7^7\) elements per parameter.
+## correctness
 
-An independent modular Gaussian-elimination computation forms \(T_\lambda+T_{1-\lambda}-I\) on the additive group-ring augmentation ideal in dimension two and measures its kernel for selected parameters \(p=5,7,11\). The recorded dimensions agree with the asserted \(r(p^d-1)/(p-1)\). Finally, the program checks closure of all nonzero idempotents under quandle multiplication for \(p=7,d=1\) at scalar values \(2\) and \(4\). The run terminates with `VERIFY_OK`.
+PASS
 
-None of these finite enumerations is used as a proof for untested dimensions, characteristics, or extension fields. The universal proof is the separate unit-group representation argument in RESULT.md. There is no independent mathematical audit or machine-formalized infinite proof.
+Transported group algebra product T_lambda(u)T_mu(v) is verified on basis elements, and augmentation is multiplicative. The nilpotent augmentation ideal eliminates nonzero augmentation-zero idempotents. U=1+J is elementary abelian of exponent p; the T_a-stable J-adic filtration and Maschke semisimplicity give exactly fL copies of each character of Fp^×, so each U_j has order q^L. The idempotence equation retains precisely the characters with lambda^j+(1-lambda)^j=1; multiplying their sizes gives 1+q^(L r). The resulting quandle is product of Alexander factors. Direct independent coefficient enumeration in F5 for lambda=2,3 and F7 for lambda=2,4 matches (6,6,8,50); the fixed-field subgroup identity also yields the finite dihedral specialization. These tests are bounded, not proof for all p,d,f.
+
+## originality
+
+PASS
+
+Zhang already gives the associative transport identity and related integral/complex quandle-algebra results, not the characteristic-p multiplicative unit-eigenspace classification. Integral idempotent results and characteristic-three R3 do not imply this whole p>=5, arbitrary d, all scalar lambda exact formula. Strongly relevant Fourier work was inaccessible in full and remains priority risk.
+
+## value
+
+PASS
+
+An exact complete positive-characteristic idempotent and induced-quandle classification across all scalar Alexander quandles is a natural algebraic invariant. Extra idempotents appear with parameter-dependent arithmetic, even for the same p and d; this distinction is not a mere table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

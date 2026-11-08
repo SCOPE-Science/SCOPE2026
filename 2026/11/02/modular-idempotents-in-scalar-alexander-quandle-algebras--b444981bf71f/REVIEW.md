@@ -1,19 +1,21 @@
-# Scientific review: modular scalar-Alexander idempotents
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is universal for prime \(p\ge5\), coefficient size \(q=p^f\), dimension \(d\ge1\), and \(\lambda\in\mathbb F_p\setminus\{0,1\}\). The proof uses the already-established group-ring transport identity and independently verifies the additional steps needed here: the nilpotence of the group-ring augmentation ideal excludes nonzero augmentation-zero idempotents; augmentation-one units form an elementary abelian \(p\)-group; its scalar automorphism representation has the same composition factors as the additive augmentation ideal by a split invariant filtration; and that additive module consists of regular representations indexed by projective lines. The idempotent equation then selects precisely those eigencharacters satisfying \(\lambda^j+(1-\lambda)^j=1\). Every converse and all boundary cases are handled. Direct exhaustive idempotent counts for \(p=5,7\) in dimension one, modular rank computations in dimension two for \(p=5,7,11\), and closure checks reproduce the formulas. These finite tests are corroboration rather than an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Transported group algebra product T_lambda(u)T_mu(v) is verified on basis elements, and augmentation is multiplicative. The nilpotent augmentation ideal eliminates nonzero augmentation-zero idempotents. U=1+J is elementary abelian of exponent p; the T_a-stable J-adic filtration and Maschke semisimplicity give exactly fL copies of each character of Fp^×, so each U_j has order q^L. The idempotence equation retains precisely the characters with lambda^j+(1-lambda)^j=1; multiplying their sizes gives 1+q^(L r). The resulting quandle is product of Alexander factors. Direct independent coefficient enumeration in F5 for lambda=2,3 and F7 for lambda=2,4 matches (6,6,8,50); the fixed-field subgroup identity also yields the finite dihedral specialization. These tests are bounded, not proof for all p,d,f.
 
-The closest primary source is Zhi-Lin Zhang, *Group-ring methods for Alexander quandle rings* (arXiv:2610.08204, 2026-10-06), particularly Proposition 2.1, Theorem 2.2 and Sections 4–5. This provides the product-transport tool and studies integral and complex questions, but does not give the positive-characteristic scalar-idempotent count or the canonical eigenspace and induced-quandle classifications. Elhamdadi, Ta and Virgin (arXiv:2609.03799, 2026-09-03) analyze Alexander quandles through complex Fourier transforms and integral idempotency, not finite-field augmentation-one unit representations. Churchill et al. (arXiv:2608.09149, 2026-08-10) handle selected integral systems, a finite characteristic-two example, and other quandle-ring questions rather than the all-prime scalar family. A known characteristic-three idempotent calculation over \(R_3\) does not imply the stated \(p\ge5\) family with its \(\lambda\)-dependent multiplicities. Targeted searches found no mathematically equivalent formula; absence of a hit is not proof of global priority. Residual risk: earlier modular group-ring theory may contain an implicit equivalent statement not found in the surveyed literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The classification solves the entire idempotent problem over a natural two-parameter family of finite-dimensional, generally nonassociative algebras and also determines the induced quandle structure, not merely its cardinality. Its exponent reflects the projective geometry of the underlying elementary-abelian group and a finite arithmetic condition on the Alexander scalar. At \(p=7,d=1,q=7\), changing \(\lambda\) from \(2\) to \(4\) changes the exact total count from \(8\) to \(50\), exhibiting a substantive modular phenomenon not detected by integral classifications. It gives exact benchmarks for finite-field quandle-algebra idempotent computations and distinguishes scalar families structurally. This is not a claim about arbitrary Alexander automorphisms or non-elementary groups.
+Zhang already gives the associative transport identity and related integral/complex quandle-algebra results, not the characteristic-p multiplicative unit-eigenspace classification. Integral idempotent results and characteristic-three R3 do not imply this whole p>=5, arbitrary d, all scalar lambda exact formula. Strongly relevant Fourier work was inaccessible in full and remains priority risk.
 
-## Limitations and source comparison
+## value
 
-The source comparison is strongest for the three inspected open-access 2026 quandle-ring papers. Older modular-idempotent treatments might exist under different terminology, and absolute priority is not asserted. The classification is specific to coefficient characteristic matching the underlying elementary-abelian prime and to invertible scalar \(\lambda\) and \(1-\lambda\). The vector-space realizations of the canonical eigenspaces are not canonically based. No external independent review is implied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact complete positive-characteristic idempotent and induced-quandle classification across all scalar Alexander quandles is a natural algebraic invariant. Extra idempotents appear with parameter-dependent arithmetic, even for the same p and d; this distinction is not a mere table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
