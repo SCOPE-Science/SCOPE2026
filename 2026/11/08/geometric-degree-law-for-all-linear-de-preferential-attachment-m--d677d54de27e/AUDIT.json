@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The source kernel is normalized and equals rejection sampling from a uniform candidate with acceptance 1-d_i/D. Conditional first-rejection probability is exactly 1/n regardless of prior state, yielding independent Bernoulli trials. Exponential concentration plus dyadic Borel--Cantelli establishes R_N/log N -> m a.s. Histogram TV is bounded by 2R_N/N. Uniform recursive vertex indegrees are sums of independent Bernoulli variables: Poisson limit at birth-rank fraction u, integration over u gives the shifted geometric law. McDiarmid concentration and discrete tightness upgrade expected marginals to almost-sure total-variation convergence. Standalone rational and sampled checks corroborate every finite kernel identity; they are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bandyopadhyay--Sen (arXiv:2508.18144v2), §1.2.1 eq. for m>1 and §2.1.2 Theorems 2.5--2.6 plus the immediately following remark stating no known m>1 empirical law.",
+        "Bandyopadhyay--Joshi (arXiv:2512.12408), §2.1 Theorem 2.1 item 4 explicitly restricts the empirical degree formula to m=1."
+      ],
+      "reasoning": "The motivating model covers the exact parameters but has fixed-vertex asymptotics, not the m>1 empirical law. The follow-up considers a broader shifted linear family, but its explicit empirical limit is stated only for m=1. Neither is a stronger theorem implying this exact result as read.",
+      "searches": [
+        "Bandyopadhyay Sen 2025 De-Preferential Attachment Random Graphs Theorem 2.6 remark unable derive limit m>1 empirical degree distribution; solution geometric(m/(m+1))",
+        "\"de-preferential\" \"m>1\" \"degree distribution\" geometric 2026",
+        "\"Bandyopadhyay\" \"Sen\" \"geometric\" \"m\" empirical degree distribution",
+        "published research-record repository semantic query: linear anti-preferential sequential attachment rate (1 - degree/totaldegree)/(n-1), asymptotic geometric degree law m>=2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2508.18144v2, full-text arXiv HTML (model, m>1 theorems and explicit remark)",
+      "arXiv:2512.12408, full-text accessible arXiv page (generalized model and explicit m=1 restriction)",
+      "arXiv:2007.05438, background recursive graph comparator",
+      "published research-record repository published records from actual semantic searches",
+      "Accessible own ledger version p0001_g000076, existing recoverable claim texts used for deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bandyopadhyay--Sen (arXiv:2508.18144v2), §1.2.1 eq. for m>1 and §2.1.2 Theorems 2.5--2.6 plus the immediately following remark stating no known m>1 empirical law.",
+        "Bandyopadhyay--Joshi (arXiv:2512.12408), §2.1 Theorem 2.1 item 4 explicitly restricts the empirical degree formula to m=1.",
+        "For the uniform m-out recursive attachment process, independent Bernoulli increments yield a Poisson--exponential mixture and the shifted geometric law. This comparison law does not itself control the biased model."
+      ],
+      "reasoning": "m=1 result is a special case of the present theorem, but it does not imply the m≥2 theorem. Fixed-vertex laws cannot determine the empirical law of a uniform random vertex. Uniform m-out geometric law cannot itself imply biased-model convergence without the new pathwise coupling. No inspected prior source entails both the claimed coupling and the previously missing m>1 limit.",
+      "searches": [
+        "Bandyopadhyay Sen 2025 De-Preferential Attachment Random Graphs Theorem 2.6 remark unable derive limit m>1 empirical degree distribution; solution geometric(m/(m+1))",
+        "\"Bandyopadhyay\" \"Sen\" \"geometric\" \"m\" empirical degree distribution",
+        "linear de-preferential attachment random graphs m>1 limiting degree distribution geometric 2025 2026",
+        "Section 2.1.2 arXiv:2508.18144 and section 2.1 arXiv:2512.12408"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bandyopadhyay--Sen (arXiv:2508.18144v2), §1.2.1 eq. for m>1 and §2.1.2 Theorems 2.5--2.6 plus the immediately following remark stating no known m>1 empirical law.",
+        "For the uniform m-out recursive attachment process, independent Bernoulli increments yield a Poisson--exponential mixture and the shifted geometric law. This comparison law does not itself control the biased model.",
+        "published research-record repository closest result a published mathematical result treats a uniform Cayley tree, not the prescribed sequential biased kernel."
+      ],
+      "reasoning": "Tested geometric law, uniform random recursive multigraph, coupling/rejection thinning aliases. A uniform-comparison limit alone cannot imply the biased limit; the proved O(log N) coupling supplies that implication. No equivalent m>1 de-preferential statement was found.",
+      "searches": [
+        "linear de-preferential sequential attachment rate (1 - degree/totaldegree)/(n-1), asymptotic geometric degree law m>=2",
+        "multiedge uniform attachment graph degree distribution shifted geometric number children m attachment edges, strong coupling to linear de-preferential",
+        "\"de-preferential\" \"multiple\" \"degree distribution\" geometric law",
+        "published research-record repository semantic query: multiedge uniform attachment graph degree distribution shifted geometric number children m attachment edges, strong coupling to linear de-preferential"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published research-record repository searches returned nearby but different records: a published mathematical result (deterministic degree spread) and a published mathematical result (uniform recursive-tree root/path-length covariance).",
+        "Neither listed record stores a degree-limit table for this multigraph; no matching existing table or database record surfaced."
+      ],
+      "reasoning": "This is an asymptotic probability law, not a finite census. Search found no exact matching stored law; search absence by itself is not proof of uniqueness.",
+      "searches": [
+        "linear de-preferential sequential attachment rate (1 - degree/totaldegree)/(n-1), asymptotic geometric degree law m>=2",
+        "Bandyopadhyay Sen 2025 De-Preferential Attachment Random Graphs Theorem 2.6 remark unable derive limit m>1 empirical degree distribution; solution geometric(m/(m+1))",
+        "linear de-preferential attachment random graphs m>1 limiting degree distribution geometric 2025 2026",
+        "published research-record repository semantic query: linear de-preferential attachment random graphs m>1 limiting degree distribution geometric 2025 2026"
+      ]
+    },
+    "rationale": "The precise m>1 empirical-degree limiting law is identified as unresolved in the paper defining the same linear multigraph kernel. Its later generalized-paper comparator explicitly restricts the displayed empirical formula to m=1. The new exact rejection-coupling theorem proves this m>1 limit and a pathwise O(log N) histogram perturbation from uniform attachment. published research-record repository and targeted literature queries returned no covering m>1 theorem. General older random-graph coupling literature remains a priority risk, so this is same-model provisional novelty, not independent certification.",
+    "residual_risks": [
+      "An older or differently titled theorem on strong coupling of nearly uniform recursive graph kernels could subsume the m>1 conclusion; search is not an exhaustive priority guarantee.",
+      "The later generalized manuscript has an inconsistent no-parallel-edge statement despite displaying a sequential probability formula; only the original multigraph kernel is claimed.",
+      "Independent mathematical and historical-priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the proposed m>1 empirical-degree limit; paper explicitly leaves it unresolved; m=1 geometric result known",
+        "evidence": [
+          "Bandyopadhyay--Sen (arXiv:2508.18144v2), §1.2.1 eq. for m>1 and §2.1.2 Theorems 2.5--2.6 plus the immediately following remark stating no known m>1 empirical law."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2508.18144v2",
+        "material_read": "Model and seed §1.1, degrees and linear transition §1.2.1, Theorems 2.3--2.6 and remark §2.1, proof section overview, references",
+        "method": "Read available full-text arXiv HTML around definitions, theorem statements and the explicitly unresolved case",
+        "title": "De-Preferential Attachment Random Graphs",
+        "trigger": "Same exact multigraph model and sequential attachment kernel"
+      },
+      {
+        "assessment": "NOT_COVERING m>1 empirical limit; source states empirical law only for m=1. Its no-multiple-edge wording also differs from original multigraph convention.",
+        "evidence": [
+          "Bandyopadhyay--Joshi (arXiv:2512.12408), §2.1 Theorem 2.1 item 4 explicitly restricts the empirical degree formula to m=1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2512.12408",
+        "material_read": "Introduction/model §1.2, linear definitions §1.2.1, Theorem 2.1 and explicit m=1 qualification, discussion/proof §3",
+        "method": "Read directly accessible full-text arXiv page, including formulas for m>1 and empirical-law qualification",
+        "title": "Generalised De-Preferential Random Graphs",
+        "trigger": "Later generalized theta-alpha linear model could dominate the special kernel"
+      },
+      {
+        "assessment": "Background on distinct weighted recursive graph maximum-degree question; not a theorem about the specified biased empirical law",
+        "evidence": [
+          "For the uniform m-out recursive attachment process, independent Bernoulli increments yield a Poisson--exponential mixture and the shifted geometric law. This comparison law does not itself control the biased model."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.05438",
+        "material_read": "Abstract and opening discussion of random recursive models/degree statistics",
+        "method": "Read public arXiv text in targeted literature check",
+        "title": "The maximal degree in random recursive graphs with random weights",
+        "trigger": "Uniform-recursive graph comparator and potential prior geometric law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d677d54d-e27e-4fb4-9b15-80e8095fb99b",
+  "value": {
+    "rationale": "The source paper explicitly leaves the multi-edge empirical degree law unconjectured. Determining this intrinsic degree distribution for every fixed multiplicity m>=2, together with a quantitative pathwise coupling via rare rejections, addresses a concrete motivated gap in a probabilistic evolving network model. This is not a textbook substitution or arbitrary subcase; the result provides a transfer mechanism for further empirical observables, though no such extensions are asserted.",
+    "status": "PASS"
+  }
+}
