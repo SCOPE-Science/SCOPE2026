@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T20:13:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen source 2026/11/02/birthday-to-coverage-negative-regression-with-sharp-covariance-d--5b6258e3fa64/RESULT.md, blob 57fde4c37e4f238dd84dd141a7e9ab2565fe5f30",
+        "Frozen source code 2026/11/02/birthday-to-coverage-negative-regression-with-sharp-covariance-d--5b6258e3fa64/verify_coupon.py"
+      ],
+      "rationale": "For m>=2 uniform iid coupons, conditioning on first repeat B=t<=m leaves m-t+1 unseen types, and future coupon discoveries have independent geometric waiting times with parameters j/m. The endpoint B=m+1 implies C=m. Adjacent conditional laws couple with difference G_{m-t+1,m}-1>=0 (last endpoint separately), establishing strictly decreasing stochastic regression and negative quadrant dependence for all increasing tails. The exact birthday probability and harmonic conditional mean give covariance as a finite sum. With B/sqrt(m) Rayleigh and uniform exponential tails, the conditional mean difference D_m(B)=sum_{j=1}^{B-2} j/(m-j) is asymptotic B^2/(2m), and uniform integrability controls rare large B. Rayleigh moments E[R],E[R^2],E[R^3] yield Cov(B,C)/sqrt(m)->-sqrt(pi/8). Using Var(B)/m->(4-pi)/2 and Var(C)/m^2->pi^2/6 gives m Corr(B,C)->-sqrt(3/(2pi(4-pi))). All claimed exceptional and normalization cases are handled.",
+      "residual_risks": [
+        "The asymptotic moment exchange requires the proof’s exponential birthday tail and separate high-B error estimate; finite checks cannot establish the limit.",
+        "The assertion about covariance of increasing unbounded transforms assumes the required product moment exists, as stated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical general occupancy results include collision and coverage limit distributions under broad sampling models."
+        ],
+        "reasoning": "Potential generic joint occupancy characterization may imply this special uniform iid mixed fact, but no verified theorem with the displayed negative regression plus constants was found in material read.",
+        "searches": [
+          "Flajolet Gardy Thimonier 1992 birthday coupon collector",
+          "Peter Neal 2008 generalized coupon collector birthday",
+          "Flajolet Sedgewick 2009"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query birthday first repeated coupon collection last unseen negative dependence conditional distribution covariance Rayleigh",
+        "Flajolet and Sedgewick Analytic Combinatorics 2009 Chapter II Examples II.10–II.11",
+        "Myers Wilf arXiv:math/0304229",
+        "Flajolet Gardy Thimonier 1992 birthday paradox coupon collectors caching algorithms",
+        "Peter Neal 2008 generalized coupon collector problem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two independent coupon collectors or adjacent species-discovery covariance describe different joint variables."
+        ],
+        "reasoning": "Those published statements do not imply monotone C|B on a shared sequence without the conditional geometric decomposition; classical marginal facts are credited.",
+        "searches": [
+          "Myers Wilf arXiv:math/0304229",
+          "Flajolet Sedgewick 2009 Chapter II",
+          "Resultary successive species discovery covariance missing mass"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical birthday waiting-time and coupon completion distributions are one-dimensional marginals; claim is their same-sample conditional joint order and mixed covariance."
+        ],
+        "reasoning": "Knowledge of both marginals does not fix the dependence or mixed covariance; same-stream coupling is essential.",
+        "searches": [
+          "birthday first repeated coupon collection last unseen negative dependence conditional distribution covariance Rayleigh",
+          "Flajolet Sedgewick Analytic Combinatorics birthday coupon collector",
+          "Myers Wilf 2003 coupon collectors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact m=2,3,4 covariances and general finite-sum formula checked; searched sources largely give marginals and coupon wait distributions."
+        ],
+        "reasoning": "No known published table of these mixed covariance constants was identified, although absence from a book was not claimed.",
+        "searches": [
+          "birthday first repeated coupon collection last unseen negative dependence conditional distribution covariance Rayleigh",
+          "Myers Wilf arXiv:math/0304229"
+        ]
+      },
+      "rationale": "Marginal birthday Rayleigh and coupon-collector geometric waiting-time laws are classical. Conditional strict stochastic regression between first duplicate and complete collection on the same iid sequence, their exact mixed covariance and sharp sqrt(m) and 1/m correlation constants are the assessed additions. Known two-independent-collector studies and marginal limit theorems do not by themselves imply these mixed facts. Best-of-knowledge PASS qualified by older joint-occupancy literature not fully read.",
+      "residual_risks": [
+        "The full 2009 Flajolet–Sedgewick monograph was not exhaustively inspected; a mixed birthday/coverage joint-covariance lemma could be implicit in classical occupancy methods.",
+        "Flajolet–Gardy–Thimonier (1992) and Holst occupancy papers are plausible broader treatments; title/abstract comparisons are not whole-text noncoverage claims.",
+        "Resultary matches show related negative-dependence occupancy findings, but semantic retrieval is not comprehensive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different cross-collector or repeated-completion statistic in material read",
+          "evidence": "Does not by those statements determine covariance between first duplicate and coverage on one stream.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0304229",
+          "material_read": "Abstract and selected discussion of several collectors and repetitions; entire paper not used to prove noncoverage",
+          "method": "Public arXiv bibliographic/selected primary passages",
+          "title": "Some New Aspects of the Coupon-Collector’s Problem",
+          "trigger": "Nearby coupon-collector dependence work"
+        },
+        {
+          "assessment": "Classical marginals prior; coverage of mixed result not fully decidable",
+          "evidence": "Rayleigh birthday law and coupon waiting-time methods are not original to audited claim.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/AnaCombi/anacombi.html",
+          "material_read": "Indexed chapter topic descriptions and relevant cited marginal-formula passages; complete book not read",
+          "method": "Author-hosted book index and selected primary material",
+          "title": "Analytic Combinatorics, Examples II.10–II.11",
+          "trigger": "Primary classic treatment of both birthday and coupons"
+        },
+        {
+          "assessment": "Large-n generalized coupon completion and birthday extensions; whole-text implications unknown",
+          "evidence": "Focuses limiting completion time via unseen-coupon count, not visibly same-stream mixed covariance.",
+          "identifier_or_url": "https://research.lancaster-university.uk/en/publications/the-generalized-coupon-collector-problem/",
+          "material_read": "Research-directory abstract and original publication metadata",
+          "method": "Published research abstract",
+          "title": "The generalized coupon collector problem",
+          "trigger": "Potential broad occupancy theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary semantic query birthday first repeated coupon collection last unseen negative dependence conditional distribution covariance Rayleigh",
+        "Flajolet and Sedgewick Analytic Combinatorics 2009 Chapter II Examples II.10–II.11",
+        "Myers Wilf arXiv:math/0304229",
+        "Flajolet Gardy Thimonier 1992 birthday paradox coupon collectors caching algorithms",
+        "Peter Neal 2008 generalized coupon collector problem"
+      ],
+      "rationale": "The first repeat and final coverage times are canonical linked stopping times, yet their joint negative regression is not determined by their well-known marginals. A sharp mixed covariance and correlation law characterizes a natural stochastic dependence scale and is meaningful independently of an overarching theorem.",
+      "residual_risks": [
+        "The leading negative covariance may be recoverable from an uninspected classical joint occupancy result; the value rests on conditional order and explicit sharp constants as a combined theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform iid draws only; not multivariate negative association or nonuniform coupon probabilities.",
+    "Full historical priority for 1992–2009 joint occupancy methods not established."
+  ],
+  "schema_version": 1
+}
