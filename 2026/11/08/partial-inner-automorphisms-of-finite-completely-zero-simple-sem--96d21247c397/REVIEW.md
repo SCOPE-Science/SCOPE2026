@@ -1,0 +1,18 @@
+# Scientific assessment: partial inner automorphisms of finite completely zero-simple semigroups
+
+## Correctness — PASS
+The proof begins with the defining condition \((uv)x=x=x(uv)\), deriving the exact domain \(\{0\}\cup\mathcal H_{i\mu}\) for each possible nontrivial map and the necessary sandwich-index and group-coefficient constraints. Normalized multiplication gives \(x\mapsto w^{-1}xw\), and the explicit inverse choice of coefficients realizes every group-conjugation label between every pair of regular group classes. All other generators are zero-component identities or the global identity. Composition realizes Brandt multiplication; the special regular one-entry case accounts for the already-present global identity. This proves every finite-group, finite-index, regular-zero-matrix case. Thirteen finite instances were exhaustively reproduced by a standalone checker; exhaustive small cases are corroboration, not a replacement for the proof.
+
+## Originality — PASS, with stated historical priority risk
+The closest inspected article, Araújo et al. (arXiv:2605.00041v1), defines partial inner automorphisms in Section 3, describes completely simple **nonzero** Rees matrices in Theorem 4.2, and specifically states the Rees zero-matrix case is unaddressed in Problem 7.5. The present finite completely zero-simple classification depends on the support count of nonzero sandwich entries and describes every partial inner map, the entire inverse monoid, and its complete isomorphism invariant. These statements are not covered by the cited nonzero-matrix theorem without further work. A 2023 predecessor arXiv:2301.04252 historically contains the earlier partial-inner theory; the 2023 v1 full text was not fully inspected, so unrecognized earlier implicit coverage remains a residual risk. A finite-dimensional matrix-ring partial inner automorphism computation concerns a different semigroup from the Rees zero-matrix family. No equivalent all-finite-zero-Rees classification was identified in the queried mathematical records or published material. Neither failed search nor separate classification of nonzero Rees matrices proves priority absolutely.
+
+## Mathematical value — PASS
+This gives a complete structural answer for the finite case of a specifically posed published open problem. It identifies which Rees presentation features survive under a natural inverse-monoid invariant (only the number of nonzero sandwich entries and the central quotient of the group), gives exact orders, and supplies a concrete pair of nonisomorphic completely zero-simple semigroups with isomorphic partial inner automorphism monoids. It treats all finite regular zero patterns, not an isolated small numerical case. No claim is made for general infinite zero-matrix semigroups or all partial automorphisms.
+
+## Source comparison and limitations
+- Primary source: J. Araújo et al., *The Inverse Monoid of Partial Inner Automorphisms of a Semigroup*, arXiv:2605.00041v1 (first posted 2026-04-28), Sections 3 and 4, Problem 7.5; inspected full text at https://arxiv.org/pdf/2605.00041.
+- Earlier precursor: J. Araújo et al., arXiv:2301.04252, first public 2023; inspected bibliographic abstract and available public record, not a complete historic 2023 v1. Retained as priority risk.
+- Distinct 2026 invariant: J. Araújo et al., *Complete Mappings of Semigroups*, arXiv:2608.25092, abstract; its Hall-type existence questions are not partial-inner monoid classification.
+- Complementary background: standard Rees 0-matrix structure and Green-class facts in Clifford–Preston.
+
+Self-review: passed. Independent audit: not yet performed.
