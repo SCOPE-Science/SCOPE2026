@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Finite-sample equality follows by the ℓ∞/ℓ1 quotient-norm dual for the full-row-rank affine moment matrix. Projected absolute deviations satisfy uniform a.s. LLN on the compact direction and median-shift domain, with positive limit c_d. Multivariate CLT and a rigorous uniform squeeze prove the chi limit and Rayleigh circle tail. Independent seeded primal/dual linear programs passed 72 cases; none is used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.32699v1, Theorem 1.1 and Remark 2.6 and Corollary 2.13 give a general existence guarantee with m>=34 tau^{-2} gamma n log(4n/delta).",
+        "arxiv:2609.09506 §3.3 defines an explicit randomized least-squares vector; it does not optimize the maximum absolute relative correction.",
+        "arxiv:1502.03562 Definition 1 and §2 focus on near-equal positive weights on controlled spherical points."
+      ],
+      "reasoning": "The published existence bounds are logically weaker: they neither identify the minimum feasible tolerance nor force a nondegenerate limiting feasibility probability at t/sqrt(m). The least-squares construction optimizes a different objective. Earlier spherical-design existence does not quantify the random sample tolerance.",
+      "searches": [
+        "random spherical points nearly equal weights exact first moments weighted centroid positive quadrature asymptotic tolerance",
+        "random point clouds approximate spherical designs weighted one design sharp central limit probabilistic positive weights",
+        "spherical t epsilon designs random points asymptotic weight perturbation probability first harmonic",
+        "arxiv 2610.32699 Neumayer Schäfer Ullrich random positive weights Richter Tchakaloff 2026 spherical design"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.32699v1",
+      "arxiv:2609.09506",
+      "arxiv:1502.03562",
+      "doi:10.1002/rsa.21087",
+      "doi:10.7146/math.scand.a-10655",
+      "sharp negative-weight failure rates for affine randomized least-squares quadrature (claim comparison)",
+      "two-mechanism positive quadratic quadrature feasibility theorem (claim comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.32699v1 Corollary 2.13: a one-sided sufficient m bound for prescribed tau and failure probability.",
+        "Wendel, doi:10.7146/math.scand.a-10655: random convex-hull containment characterizes existence of some nonnegative weights but not near equality.",
+        "Fu–Wang–Yan §3 Eq. (3.3) already gives c_d, which is therefore explicitly treated as known in the new result."
+      ],
+      "reasoning": "A nonsharp finite-sample sufficient inequality cannot imply the exact limiting distribution or sharp constant. A convex-hull containment event may hold while all exact weights require a large relative adjustment; it cannot imply the box threshold. The c_d formula is background, not claimed original.",
+      "searches": [
+        "random nodes positive weights Richter Tchakaloff rules optimal positive quadrature Neumayer Schäfer Ullrich arxiv 2610.32699",
+        "Wendel 1962 theorem probability origin inside convex hull m uniform sphere formula 2^(-m+1) sum binomial",
+        "optimal infinity norm calibration weights asymptotic law empirical sample mean"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.32699v1 §2.3, Lemma 2.12, Corollary 2.13: LP feasibility and sufficient nonsharp box concentration, not its optimal value law.",
+        "Fu–Wang–Yan doi:10.1002/rsa.21087 §3: sphere projected-absolute-moment constant but deterministic node minimax, without moment-correcting weights."
+      ],
+      "reasoning": "The equivalent LP dual expression involves the empirical median absolute deviation in each projected direction. Neither exact formula coupled to a random chi-law nor the circle Rayleigh threshold was identified in the checked source sections; titles/keywords alone were not used as exclusion.",
+      "searches": [
+        "random uniform sphere i.i.d. nodes smallest relative l-infinity weight perturbation enforcing exact spherical 1-design zero centroid chi distribution",
+        "min sup norm perturbation equal weights satisfying first moment zero random spherical points dual median absolute deviation",
+        "minimum L infinity correction reweighting sample mean zero sample points asymptotic distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published result “Exact spherical isotropization of subspace-isotropic measures” concerns Wasserstein isotropization of subspace-supported distributions, not random-node box-calibrated quadrature.",
+        "The previously compared sharp negative-weight rate theorem concerns a fixed least-squares quadrature rule on random interval nodes, not the minimal infinity-norm correction for uniform spherical points.",
+        "The previously compared quadratic-moment feasibility theorem concerns arbitrary nonnegative weights on an interval, without a near-equal box constraint."
+      ],
+      "reasoning": "Searches compared mathematical statement and covered parameters including one-design, smallest max norm correction, chi/Rayleigh limit, sample geometry, and weight positivity. None of the closest records states a dominating version. The finite set of returned records cannot itself establish absolute uniqueness.",
+      "searches": [
+        "sharp circle random 1-design moment matching near-equal positive weights Rayleigh chi-square asymptotic feasibility threshold",
+        "spherical one design random points minimal box tolerance near equal weights critical Rayleigh chi calibration",
+        "Neumayer Schafer Ullrich 34 tau inverse square n log probability strong sharper spherical t design threshold"
+      ]
+    },
+    "rationale": "The precise random minimum box radius is not the concentration bound from Neumayer–Schäfer–Ullrich, the least-squares weights from Bělík–Narayan–Turnage, or the unrestricted positive-hull condition of Wendel. Its exact LP dual and fixed-d chi limit are not implied by the compared published claims. Real targeted searches found no covering result; unindexed generic calibration theory remains a priority risk.",
+    "residual_risks": [
+      "General survey-sampling calibration and empirical-process limit theorems may contain a dominating generic specialization not indexed by the targeted search.",
+      "Full original primary text for the classical convex-hull paper was not read; only its well-established theorem was compared.",
+      "Sharpness pertains to this precise minimax relative-box metric, iid uniform points, fixed ambient dimension, and degree-one exactness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING of sharp asymptotic optimum box-width distribution; provides only broad concentration-based sufficiency",
+        "evidence": [
+          "Theorem 1.1: m≥134 gamma n log(4n/delta), box weights 1/2 to 3/2",
+          "Corollary 2.13: m≥34 tau^{-2} gamma n log(4n/delta), no distribution of minimum tau"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.32699v1",
+        "material_read": "Full-text Introduction §1.1 (Theorem 1.1), §2.3 (Remark 2.6, Lemma 2.12 context, Corollary 2.13 and proof), and related-work discussion around Remark 2.11",
+        "method": "Open-access HTML; mathematical statement and proof comparison",
+        "title": "Random nodes with positive weights: Richter–Tchakaloff rules and optimal positive quadrature",
+        "trigger": "Exactly matching random nodes, positive weights, and almost-equal box constraints"
+      },
+      {
+        "assessment": "NOT_COVERING: proves concentration for a particular least-squares weight construction; not minimum infinity-norm box radius or chi law",
+        "evidence": [
+          "Equation (3.7) gives least-squares weights using empirical Gram matrix",
+          "§1.1 discusses weight concentration and positivity for that construction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.09506",
+        "material_read": "Full text introduction contributions §1.1, setup §2, §3.3 on least-squares weight formula and limits",
+        "method": "Open-access paper text; compare exact objective, assumptions and implication",
+        "title": "Constructive Tchakaloff results and well-conditioned quadrature through randomized least squares",
+        "trigger": "Closest contemporary random positive quadrature and weight concentration"
+      },
+      {
+        "assessment": "NOT_COVERING of independent uniform random nodes or the limiting smallest feasible box radius",
+        "evidence": [
+          "Definition 1 near-equal positive weights",
+          "§1 and §2 concern prescribed enclosure neighborhoods and approximation properties"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1502.03562",
+        "material_read": "Abstract, §1 Definition 1 and introductory aims, §2 formulation on neighborhoods of exact spherical designs",
+        "method": "Open-access parsed paper text with selective section reading",
+        "title": "Spherical t_epsilon-Designs for Approximations on the Sphere",
+        "trigger": "Prior explicit concept of spherical designs with nonuniform positive weights"
+      },
+      {
+        "assessment": "NOT_COVERING: optimizing node configurations for max projection sums, not reweighting a random node set into exact degree-one cubature",
+        "evidence": [
+          "§3 Eq. (3.3) records c_d",
+          "§3 Eq. (3.1) minimizes a directional projection energy over node configurations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.21087",
+        "material_read": "Open-access full text Introduction and §3 asymptotic results, especially Eq. (3.1)–(3.3)",
+        "method": "Full-text mathematical comparison",
+        "title": "On the minimax spherical designs",
+        "trigger": "Uses same spherical first absolute-moment constant and max directional projection quantities"
+      },
+      {
+        "assessment": "NOT_COVERING as stated of near-equal box constraint; full-original-document priority comparison remains limited",
+        "evidence": [
+          "The Wendel formula gives a halfspace/convex-hull event for randomly oriented spherical nodes, not a bound on individual weights"
+        ],
+        "identifier_or_url": "https://doi.org/10.7146/math.scand.a-10655",
+        "material_read": "Public theorem statement and formula via secondary overview; original primary full text not inspected",
+        "method": "Compare established convex-hull implication, explicitly mark access limitation",
+        "title": "A Problem in Geometric Probability",
+        "trigger": "Classical exact feasibility probability for existence of unrestricted positive centroid weights"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9be4d444-603c-4788-8052-5dfe9a06ec0e",
+  "value": {
+    "rationale": "The actual minimum near-equal weight tolerance on a random spherical degree-one cubature is a natural numerical design parameter left open by the motivating general existence theorem. Exact finite-sample optimization geometry and the sharp circle confidence threshold m ε²→(π²/4)log(1/δ) for fixed δ answer a practical probabilistic calibration question; the result is not merely a cosmetic constant substitution.",
+    "status": "PASS"
+  }
+}
