@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T07:15:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/sharp-three-state-separation-and-an-exact-census-for-two-step-bi--539b7b3c53df/RESULT.md",
+        "2026/11/02/sharp-three-state-separation-and-an-exact-census-for-two-step-bi--539b7b3c53df/verify.py"
+      ],
+      "rationale": "All 2-state maps are constant or permutations; differing terminal symbol or terminal-run parity exactly decides 2-state separation of a pair of binary 2-rotations. Four explicit 3-state tables cover identical-letter prefixes and alternating prefixes. The latter is proved for all suffix lengths by a closed 31-state product transition graph in each alternating case, not just finite word sampling. Count the disjoint run cases to obtain displayed even/odd C_n and 5/12 limit; independent 16-map and 31-state checks matched.",
+      "residual_risks": [
+        "No universal word-length cutoff inferred from n<=12 enumeration: the 31-state closed product automaton supplies the all-B proof; two-state 16-map argument and exact terminal-run census apply to arbitrary n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Propositions 4–5 give separators from near-position differences, not 3 states for all two-rotations; manuscript quotes Nicol bound 2 min(k,n-k)+1 = 5 at k=2"
+        ],
+        "reasoning": "A 5-state upper bound is weaker than the claimed 3. Nicol full text could contain an improvement not visible in the material read, so residual risk is explicit.",
+        "searches": [
+          "Resultary: minimal DFA separating binary word from two position cyclic rotation three states count",
+          "web: Demaine Eisenstat Shallit Wilson Remarks on Separating Words 2011; Nicol Further Remarks on Separating Words 2026",
+          "Nicol arXiv:2608.30928",
+          "Demaine 2011 Propositions 4,5"
+        ]
+      },
+      "checked_sources": [
+        "Demaine et al. 2011 full-text PDF sections 1,4.1,5.2",
+        "Nicol 2026 arXiv abstract; full-text retrieval blocked",
+        "Jirásková–Okhotin 2008 RAIRO journal abstract",
+        "Resultary semantic search on two-step cyclic rotation (8 nonmatching hits)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The example 0010/1000 is already known and is not separately claimed novel; package gives all lengths n>=3 plus exact 5/12 limit"
+        ],
+        "reasoning": "Neither the inspected 2011 results nor the 2026 abstract entails the exact all-n classification and density. Missing 2026 proof prevents a conclusive exclusion of implicit coverage.",
+        "searches": [
+          "Resultary: minimal DFA separating binary word from two position cyclic rotation three states count",
+          "web: Demaine Eisenstat Shallit Wilson Remarks on Separating Words 2011; Nicol Further Remarks on Separating Words 2026",
+          "Demaine 2011 §5.2 Proposition 9; Nicol abstract 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Demaine: explicit 0010/1000 separator and general conjugate families requiring Ω(log n); Nicol abstract: shift-dependent bounds"
+        ],
+        "reasoning": "The general lower bound uses unrestricted shifts and does not contradict a constant bound for shift exactly 2; a 3-state witness example is a previously known special case, credited.",
+        "searches": [
+          "Resultary: minimal DFA separating binary word from two position cyclic rotation three states count",
+          "web: Demaine Eisenstat Shallit Wilson Remarks on Separating Words 2011; Nicol Further Remarks on Separating Words 2026",
+          "Demaine et al 2011 §5.2",
+          "Nicol 2026 arXiv:2608.30928"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaustive census n=3..12 agrees with formula; two-state maps all 16 tested"
+        ],
+        "reasoning": "No matching published exact C_n table was located in sources searched; DFA tables from general cyclic-shift language complexity concern different invariants. Absence of a match is not a novelty proof.",
+        "searches": [
+          "Resultary: minimal DFA separating binary word from two position cyclic rotation three states count",
+          "web: Demaine Eisenstat Shallit Wilson Remarks on Separating Words 2011; Nicol Further Remarks on Separating Words 2026",
+          "binary word rotation 2 separation counts 5/12 DFA exact table"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after comparison of exact implications, including identified prior special cases and qualified source access; the exact claimed package-wide conclusion was not found covered by inspected text.",
+      "residual_risks": [
+        "Nicol 2026 full text inaccessible: Oxford job returned vpn_disconnected; may contain an equivalent k=2 corollary.",
+        "A specialized unpublished automata census might cover the same binary shift."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit 3-state example and general conjugate-word lower bounds with variable shift; no fixed k=2 uniform 3-state census in read sections. Whole-document noncoverage not asserted.",
+          "evidence": "Section 5.2 Proposition 9 Ω(log n) applies to general conjugacies; fixed two-shift subclass not implied.",
+          "identifier_or_url": "https://web.mit.edu/dwilson/www/papers/desw.pdf",
+          "material_read": "Full-text indexed PDF sections 1, 4.1, 5.2 including Propositions 4,5,9 and example 0010/1000; visual screenshot attempt returned HTTP 500",
+          "method": "lawful OA PDF text and targeted find",
+          "title": "Remarks on Separating Words (Demaine, Eisenstat, Shallit, Wilson, 2011)",
+          "trigger": "Foundational definition and explicit example 0010/1000 exactly in claimed subfamily"
+        },
+        {
+          "assessment": "Describes shift-arithmetic bounds, no accessible proof confirming precise k=2 sharp count; material historical-priority risk remains.",
+          "evidence": "2026-08-31 abstract announces conjugate-word bounds but not a k=2 sharp 3-state classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.30928",
+          "material_read": "ArXiv abstract and available web-indexed HTML search excerpt; direct full-text and lawful mirror failed; authorized Oxford returned vpn_disconnected",
+          "method": "arXiv abstract/OA attempt, Oxford authorization preserved",
+          "title": "Further Remarks on Separating Words (Nicol, 2026)",
+          "trigger": "Highly relevant same conjugate-separation invariant, possible dominating bound"
+        },
+        {
+          "assessment": "Studies automaton state complexity of a language cyclic-shift operation, not a minimal DFA separating two fixed words.",
+          "evidence": "Different quantifiers and object: language operation rather than prescribed pair separation.",
+          "identifier_or_url": "https://doi.org/10.1051/ita:2007038",
+          "material_read": "Journal title, abstract and invariant definitions",
+          "method": "publisher web abstract",
+          "title": "State Complexity of Cyclic Shift (Jirásková–Okhotin, 2008)",
+          "trigger": "Possible alias via cyclic-shift operation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sharp three-state separation and an exact census for two-step binary rotations",
+        "web: Demaine Eisenstat Shallit Wilson Remarks on Separating Words 2011; Nicol Further Remarks on Separating Words 2026"
+      ],
+      "rationale": "A fixed two-letter rotation is a natural primitive subproblem of word separation. A complete all-length three-state theorem, two-state obstruction classification and exact limiting 5/12 census are independently reusable finite-automata facts, not merely a single example or table reprint.",
+      "residual_risks": [
+        "Nicol 2026 full text inaccessible: Oxford job returned vpn_disconnected; may contain an equivalent k=2 corollary."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No universal word-length cutoff inferred from n<=12 enumeration: the 31-state closed product automaton supplies the all-B proof; two-state 16-map argument and exact terminal-run census apply to arbitrary n.",
+    "Scientific PASS is best-of-knowledge, not public certification. All publication operations withheld, not_ready, because public provenance/status files need verified sanitization."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-06.md",
+      "INDEPENDENT_AUDIT_2026-11-06.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing `verify.py` and `certificate.tsv`. The script requires only the standard Python library and checks all 62 certificate rows, consisting of 31 reachable states for each alternating two-symbol prefix. It reconstructs both three-state maps, the pair-state evolution, the regular-language phase recognizer and every outgoing transition, then checks the comparison Boolean against the language phase. This exhaustively proves the finite commutation lemma for arbitrary-length suffixes. It does not rely on previously produced output.
+## correctness
 
-As an independent diagnostic, it enumerates all 16 complete two-state binary transition tables, all words of lengths three through fourteen, and four explicit three-state machines, checking the analytic two-state criterion and exact count formula. A total of 32,724 unequal rotation pairs were tested. The output in `verification_output.txt` is a record of a successful actual replay, not a substitute for the finite-closure proof.
+PASS
 
-The theorem concerns arbitrary finite input length but only a binary alphabet and a two-position cyclic shift. Related publication priority has not been independently certified; no external audit has been performed.
+All 2-state maps are constant or permutations; differing terminal symbol or terminal-run parity exactly decides 2-state separation of a pair of binary 2-rotations. Four explicit 3-state tables cover identical-letter prefixes and alternating prefixes. The latter is proved for all suffix lengths by a closed 31-state product transition graph in each alternating case, not just finite word sampling. Count the disjoint run cases to obtain displayed even/odd C_n and 5/12 limit; independent 16-map and 31-state checks matched.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality after comparison of exact implications, including identified prior special cases and qualified source access; the exact claimed package-wide conclusion was not found covered by inspected text.
+
+## value
+
+PASS
+
+A fixed two-letter rotation is a natural primitive subproblem of word separation. A complete all-length three-state theorem, two-state obstruction classification and exact limiting 5/12 census are independently reusable finite-automata facts, not merely a single example or table reprint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

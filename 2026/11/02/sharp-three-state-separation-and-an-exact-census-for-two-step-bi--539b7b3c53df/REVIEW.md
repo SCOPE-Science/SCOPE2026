@@ -1,15 +1,21 @@
-# Scientific review: two-step rotation separation
+# Independent mathematical audit
 
-## Correctness
-PASS. The infinite upper bound is supported by four explicit three-state machines. For identical-letter two-symbol prefixes, a cyclic permutation and a constant transition prove distinct terminal states directly. For alternating prefixes, the complete 31-state product closure in `certificate.tsv` proves that two fixed machines fail simultaneously exactly when the two words coincide. The state quadruples track both concatenation orders, and the three-phase recognizer tracks the regular language of commuting suffixes. All outgoing transitions are included and verified against the definitions; this is an exhaustive finite proof for arbitrary suffix lengths, not an extrapolation from finite word enumeration. The lower bound classifies all two-state maps as permutations or constants. The exact census follows by counting disjoint end-run cases. The independent short-word enumeration confirms the formulas through length fourteen.
+## correctness
 
-## Originality
-PASS under accessible primary literature and mathematical-record comparisons, with finite residual priority risk. Nicol's August 31, 2026 paper introduced the conjugate-pair extremal function and gives an explicit five-state bound for a two-step rotation, not the exact three-state result or density. Demaine et al. (2011) give the already-known length-four example `0010`/`1000`, but not this infinite classification. Tran's 2023 treatment addresses a different every-start-state separation requirement. Neither language-of-conjugates state complexity nor factor-frequency separation is the same invariant. Semantic research-index searches for two-step rotation, three-state separation, transformation-monoid commutation, and exact density found no equivalent claim. This is not a guarantee against unpublished or unindexed priority.
+PASS
 
-## Value
-PASS. The result makes a natural constant-shift specialization of a 2026 quantitative separating-words problem exact for every length, improving the explicit five-state bound to the optimal three-state bound. Its complete labeled-word classification is not a single small example: a positive limiting proportion, exactly \(5/12\), provably needs all three states. The proof introduces a compact reusable finite transformation witness for commuting two-letter prefixes; the value does not depend on an unrelated application or a conjectured extension.
+All 2-state maps are constant or permutations; differing terminal symbol or terminal-run parity exactly decides 2-state separation of a pair of binary 2-rotations. Four explicit 3-state tables cover identical-letter prefixes and alternating prefixes. The latter is proved for all suffix lengths by a closed 31-state product transition graph in each alternating case, not just finite word sampling. Count the disjoint run cases to obtain displayed even/odd C_n and 5/12 limit; independent 16-map and 31-state checks matched.
 
-## Closest work and limitations
-The 2011 three-state length-four pair is pre-existing and explicitly credited. The result neither improves unrestricted separating-word asymptotics nor addresses shifts other than two, larger alphabets, automata with restricted transition classes, or nondeterministic separation. A related 2014 paper about separation via factor occurrences was only inspectable at abstract level, with no direct same-parameter coverage established. The executable certificate has been checked within this report; independent mathematical auditing and full publication-priority certification have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparison of exact implications, including identified prior special cases and qualified source access; the exact claimed package-wide conclusion was not found covered by inspected text.
+
+## value
+
+PASS
+
+A fixed two-letter rotation is a natural primitive subproblem of word separation. A complete all-length three-state theorem, two-state obstruction classification and exact limiting 5/12 census are independently reusable finite-automata facts, not merely a single example or table reprint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
