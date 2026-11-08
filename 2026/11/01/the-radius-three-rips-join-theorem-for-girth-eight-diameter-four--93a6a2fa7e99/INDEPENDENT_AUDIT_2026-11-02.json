@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T10:02:30.696343Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For finite connected simple bipartite diameter-exactly-four graphs without 4- or 6-cycles, opposite-side distances are 1 or 3; same-side distances are 2 or 4. At threshold 3 the flag complex is literally L_A*L_B. A same-side clique of size >=3 with pairwise distinct centers would give a 6-cycle; uniqueness of centers is from no 4-cycles. The block-simplex expansion with separate apex for each neighbor center collapses both to L_A and to original G (descending free-face order), including leaves/forest case. Consequently L_A and L_B have homotopy type of G and K_3 ≃ Σ(G∧G) ≃ wedge^{b²}S³, b=e-n+1. Adamaszek 2011 Prop 2.2 at r=2 requires girth>=7, so K_2 collapses to K_1 and actual inclusion preserves integral H1; K_4 is full simplex. The barcodes n-1 [0,1) in H0, b [1,3) in H1, b² [3,4) in H3 follow with integral free groups; no torsion or extrapolation. Independent exact first-principles GQ(2,2) duad-syntheme reconstruction gives both factors (15 vertices,45 edges,15 triangles), each 16 loops, hence 256 three-spheres. For order (s,t), incidence counts n=(st+1)(s+t+2), e=(st+1)(s+1)(t+1), yielding b=s²t²; q=3 gives 6561. No equivariant statement is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop 2.2 needs girth >=3r+1; r=3 requires 10 and fails to cover girth-eight GQ incidence graphs.",
+          "The Tutte-Coxeter special case is only one (s,t)=(2,2) graph; the all-(s,t) formula strictly exceeds its parameter domain."
+        ],
+        "reasoning": "Neither a general stability theorem whose hypothesis excludes r=3 nor a single order-2 computation dominates the new radius-three all-graph claim.",
+        "searches": [
+          "Vietoris Rips radius 3 girth 8 diameter 4 bipartite generalized quadrangle incidence graph join homotopy full persistence",
+          "arxiv:1104.0433 Proposition 2.2 girth 3r+1",
+          "arxiv:2607.06524 generalized polygon approximation radius two"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 frozen source tree 25aa9a44c5e59b52d596ac3f956da17b4cd4d9c0 RESULT.md, verify.py, crosscheck.py, verification_output.txt",
+        "arXiv:1104.0433v3 §§2–3, Proposition 2.2",
+        "Resultary/2026 October 11 published finding 9454ecd0bd54 complete RESULT.md",
+        "Resultary semantic query: Vietoris Rips radius 3 girth 8 diameter 4 bipartite generalized quadrangle incidence graph join homotopy full persistence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier 9454ecd0bd54 constructs duad/syntheme factors and 256 spheres for one 30-vertex graph, explicitly disclaims uniform generalized-quadrangle treatment.",
+          "New proof supplies uniform L_A≃G≃L_B using no C4/C6 and computes complete integer barcodes for each eligible graph."
+        ],
+        "reasoning": "The earlier example follows as a corollary of this claim, not conversely; known radius-two collapse is acknowledged as a premise, not presented as the novel part.",
+        "searches": [
+          "Vietoris Rips radius 3 girth 8 diameter 4 bipartite generalized quadrangle incidence graph join homotopy full persistence",
+          "Adamaszek 2011 girth 3r+1 graph square",
+          "Resultary/2026 9454ecd0bd54 full RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At K3, the radius-three graph is a complete bipartite join between the two distance-two collinearity graphs; both neighborhood clique factors collapse to the incidence graph.",
+          "Adamaszek, arxiv:1104.0433, §2 Prop 2.2: graph powers, but only low-scale high-girth stability."
+        ],
+        "reasoning": "Checked graph powers, Levi graph, common-neighbor clique, and finite generalized-quadrangle aliases; none of the read broad statements asserts the general join equivalence. An absent index hit is not novelty proof.",
+        "searches": [
+          "Vietoris Rips radius 3 girth 8 diameter 4 bipartite generalized quadrangle incidence graph join homotopy full persistence",
+          "clique complexes graph power generalized quadrangle incidence graph homotopy join",
+          "neighborhood complex collinearity point and line graphs girth eight"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact earlier rank 256 for Tutte-Coxeter is known (published RESULT, blob f2e3be85591f2972314c20c047ed8ca2b16c5407).",
+          "Independent direct reconstruction of GQ(2,2) two 15-vertex factors yields rank 16 each, so 256; the structural theorem predicts 6561 for W(3)."
+        ],
+        "reasoning": "Explicitly mark the 256 special case as covered. A known singleton tabulation does not provide the unbounded formula or all-graph persistence.",
+        "searches": [
+          "Vietoris Rips radius 3 girth 8 diameter 4 bipartite generalized quadrangle incidence graph join homotopy full persistence",
+          "GQ(2,2) 256 three-spheres generalized quadrangle (3,3) 6561",
+          "published Resultary 9454ecd0bd54"
+        ]
+      },
+      "rationale": "PASS as a bounded best-of-knowledge comparison: the earlier complete 2026 Tutte-Coxeter/GQ(2,2) proof already covers exactly the 256-sphere instance, but does NOT assert the all-graph or all-order (s,t) classification. Adamaszek 2011 Prop 2.2 only reaches radius 2 at girth 8 (radius 3 needs girth at least 10). Generalized-polygon approximation and first-homology persistence statements do not subsume the new Rips threshold-3 join argument. No stronger relevant published result surfaced in searched indexed records. An alternative unindexed incidence-complex homotopy formula remains possible.",
+      "residual_risks": [
+        "Possible earlier unindexed higher-dimensional generalized-quadrangle/collinearity-complex join theorem; targeted database search cannot rule it out.",
+        "The finite W2 check is a corroborating example, not verification of the universal graph quantifiers; latter rests on the neighborhood-block collapse."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE_ONLY",
+          "evidence": "Proposition 2.2 proves r2 but cannot handle r3 at girth 8.",
+          "identifier_or_url": "https://arxiv.org/html/1104.0433v3",
+          "material_read": "Sections 1–3, especially Proposition 2.2 proof and girth threshold; cycle powers section",
+          "method": "Read open arXiv HTML primary text, checked r=2 and r=3 inequalities",
+          "title": "Clique complexes and graph powers",
+          "trigger": "Possible dominating graph-power collapse theorem"
+        },
+        {
+          "assessment": "COVERS_ONLY_SPECIAL_CASE",
+          "evidence": "256 on Tutte-Coxeter, no all-orders formula; explicitly not novel here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-scale-3-rips-complex-of-the-tutte-coxeter-graph-is-a-wedge-o--9454ecd0bd54",
+          "material_read": "Full RESULT.md including definitions, proof, verification, assumptions and explicit scope",
+          "method": "Fetched and read frozen source blob f2e3be85591f2972314c20c047ed8ca2b16c5407",
+          "title": "The scale-3 Rips complex of the Tutte–Coxeter graph is a wedge of 256 three-spheres",
+          "trigger": "Exact same filtration at GQ(2,2)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The claim identifies a nontrivial uniform structural reason for a sharp Rips dimension jump and gives a complete integral persistence classification on a natural class (girth-8, diameter-4 bipartite graphs), including all finite generalized quadrangles rather than a single computed sample. Fourth-power homology counts are useful exact incidence-geometry invariants and were not mechanically implied by the known order-(2,2) example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 frozen source tree 25aa9a44c5e59b52d596ac3f956da17b4cd4d9c0 RESULT.md, verify.py, crosscheck.py, verification_output.txt",
+    "arXiv:1104.0433v3 §§2–3, Proposition 2.2",
+    "Resultary/2026 October 11 published finding 9454ecd0bd54 complete RESULT.md",
+    "Resultary semantic query: Vietoris Rips radius 3 girth 8 diameter 4 bipartite generalized quadrangle incidence graph join homotopy full persistence"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Graph shortest-path metric only on finite vertices; connected bipartite diameter exactly 4 and girth>=8, no equivariant homotopy claim.",
+    "An order-(s,t) generalized quadrangle assertion is conditional on existence of that incidence structure."
+  ],
+  "residual_risks": [
+    "Possible earlier unindexed higher-dimensional generalized-quadrangle/collinearity-complex join theorem; targeted database search cannot rule it out.",
+    "The finite W2 check is a corroborating example, not verification of the universal graph quantifiers; latter rests on the neighborhood-block collapse."
+  ],
+  "schema_version": 1
+}
