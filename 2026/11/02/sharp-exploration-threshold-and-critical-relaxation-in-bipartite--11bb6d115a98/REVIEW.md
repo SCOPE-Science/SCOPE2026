@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact continuous-time two-action Q-learning equation is reconstructed from the per-edge mismatch reward and the logit transformation. A boundedness estimate ensures no escape and interiority. The entropy-augmented payoff potential is strict, so only equilibria occur in omega-limit sets. Within a complete bipartite part all equilibrium logits are identical; a positive strictly concave scalar fixed-point composition yields exactly one nonzero positive equilibrium branch below the threshold and none at or above it. The Jacobian gives all transverse modes and stable or saddle classification. A weighted maximum norm supplies global exponential contraction for temperatures above the sharp spectral threshold, and the linear mode proves rate optimality. At criticality the simple center eigendirection yields a negative cubic projection, with its coefficient independently recomputed and numerically checked. The center-manifold theorem and exponential tracking give the generic leading \(t^{-1/2}\) limit; the codimension-one stable-manifold exception is explicit. Parameter-dependent expansion gives the square-root branch amplitude. The proof covers all finite positive part sizes, but no claims are made for noninterior initial data or discrete-time stochastic algorithms.
+PASS
 
-The verifier executed from the currently prepared `verify.py` package: 480 numerical field/free-energy checks, 400 weighted-norm steps, 15 nonzero-branch checks, three critical scaling integrations, and 100 cubic projection numerical checks, all passing. These are not substituted for the proof.
+For the specified continuous-time two-action entropy-regularized Q-learning, log-odds satisfy z_i dot=−T z_i−J Σ_{j∼i}tanh(z_j/2). An entropy-augmented potential has derivative Σ_i p_i(1−p_i)(∂_i P)^2≥0 and logits stay bounded, hence omega-limits lie among equilibria. Stationary part symmetry reduces to a strictly concave positive scalar fixed-point map with derivative J²ab/(4T²) at zero; this yields exactly one equilibrium for T≥Tc=J sqrt(ab)/2 and three below. Linear Jacobian spectra establish polar stability and origin saddle; a weighted max-norm Dini inequality gives exponential contraction at exact worst-case rate T−Tc above threshold. At equality, the simple center eigenvector (sqrt b on A, −sqrt a on B) has cubic coefficient −Tc(a+b)/24, yielding generic t^{-1/2} with a stable-manifold exception and sqrt(Tc−T) polar onset. Independent cubic projections at (a,b)=(1,1),(2,5),(3,7) corroborated coefficient and sign.
 
-## Originality — PASS, subject to literature priority risk
+## originality
 
-The nearest directly relevant primary sources are Hussain and Belardinelli (arXiv:2312.11943), who study average learning stability in regular random-payoff networks, and Hussain et al. (arXiv:2307.13922), whose Theorem 3.2 states a graph-max-degree sufficient condition for unique QRE. Those do not assert the necessary-and-sufficient \(J\sqrt{ab}/2\) boundary, all three finite-network QRE, a sharp weighted contraction norm, or the precise critical trajectory coefficient. Fedele and Unguendoli (arXiv:1204.4420) and Fedele (arXiv:1310.7615) describe related **static** bipartite statistical mechanics; existing static symmetry-breaking predictions are acknowledged rather than claimed. Auletta et al. (arXiv:1207.2908) study a discrete-time stochastic all-logit Markov chain instead of the continuous-time deterministic ODE. Ansah (DOI:10.1063/5.0331428, 2026) gives a related bipartite Glauber mean-field stationary bifurcation and local stability, but its spin-flip macroscopic vector field differs from Q-learning logits and does not supply the sharp Q-learning critical trajectory coefficient or global weighted contraction. The abstract of Melo (DOI:10.1007/s00199-021-01385-2) establishes broad QRE uniqueness criteria without settling the time-asymptotic coefficient. Relevant mathematical-record searches and the accessible prior claims did not identify an equivalent all-in-one theorem; lack of a search result is not a uniqueness certificate. Residual specialist-priority risk remains.
+PASS
 
-## Mathematical value — PASS
+Best-of-knowledge originality attaches to the combined precise theorem, excluding acknowledged prior special cases/general definitions. Previously known QRE uniqueness criteria imply uniqueness in some high-temperature regimes but not sharp necessity, two polar attracting equilibria for every subcritical T, or the coefficient in generic t^{-1/2} decay. The stationary mean-field analogy does not imply contraction of the distinct Q-learning ODE. Residual primary-source and equivalence risks are retained.
 
-For fixed positive part sizes, the theorem explains a structural transition in the learning process: a **sharp** spectral exploration boundary, coexistence of two differentiated stable outcomes below it, an exact high-exploration convergence exponent, and slow critical decay whose constant distinguishes the two population sizes. The dependence on geometric rather than maximum degree improves understanding of heterogeneous bipartite networks compared with general sufficient network bounds. The dynamical coefficient quantifies a substantively motivated convergence bottleneck, not a parameter-substitution exercise or restatement of static Curie–Weiss fluctuations.
+## value
 
-## Scope and residual limits
+PASS
 
-The proof is for identical temperature and symmetric mismatch rewards on finite complete bipartite graphs, with strictly interior initial profiles. The result is not a convergence theorem for arbitrary reinforcement-learning implementations or noisy update schemes. Existing general QRE uniqueness and statistical-mechanics treatments may use related formulations; the accessible comparisons did not find direct implication, but specialist priority has not been externally adjudicated.
+Exact finite-network exploration threshold, stable and unstable basins, sharp high-exploration contraction, and exceptional critical relaxation rate are dynamical quantitative facts needed to distinguish exploration schedules. A single unified theorem covers all finite complete bipartite graph sizes without appealing to thermodynamic limits.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

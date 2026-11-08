@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the mathematical result
+# Independent mathematical audit
 
-The self-contained source file `verify.py` uses only the Python standard library. Run `python3 verify.py` and expect a line reporting PASS for 480 numerical reward-gradient/free-energy checks, 400 high-temperature weighted contraction steps, 15 polarized root/onset comparisons, three critical-relaxation integrations, and 100 numerical cubic-coefficient checks. The second line reports the observed ratios of critical center amplitudes to their \(t^{-1/2}\) prediction at time 2000, for three graph sizes.
+## correctness
 
-The calculations compare two independent representations of the Q-learning reward-gradient field and finite-difference derivatives of the potential; integrate the full vector ODE by fourth-order Runge–Kutta; solve positive scalar fixed-point equations by bisection; and numerically project the cubic Taylor term onto the normalized center direction. All embedded test assertions passed prior to packaging.
+PASS
 
-**Proof-level checks:** the log-odds equation follows exactly from payoff differences; the potential derivative is a nonnegative sum of squares; all trajectories are bounded in logits. The positive fixed-point map is strictly concave, giving exact equilibrium count. Its derivative at the positive fixed point is less than one, giving stable transverse eigenvalues. The weighted Dini maximum-norm derivative gives the optimal global exponential bound. The critical center projection has coefficient \(-T_c(a+b)/24\), with \(q\cdot q=2ab\); hence the exact leading square-root time coefficient is \(\sqrt{12/[T_c(a+b)]}\) for the normalized amplitude. The unfolding gives the two opposing \(\sqrt{T_c-T}\) branches.
+For the specified continuous-time two-action entropy-regularized Q-learning, log-odds satisfy z_i dot=−T z_i−J Σ_{j∼i}tanh(z_j/2). An entropy-augmented potential has derivative Σ_i p_i(1−p_i)(∂_i P)^2≥0 and logits stay bounded, hence omega-limits lie among equilibria. Stationary part symmetry reduces to a strictly concave positive scalar fixed-point map with derivative J²ab/(4T²) at zero; this yields exactly one equilibrium for T≥Tc=J sqrt(ab)/2 and three below. Linear Jacobian spectra establish polar stability and origin saddle; a weighted max-norm Dini inequality gives exponential contraction at exact worst-case rate T−Tc above threshold. At equality, the simple center eigenvector (sqrt b on A, −sqrt a on B) has cubic coefficient −Tc(a+b)/24, yielding generic t^{-1/2} with a stable-manifold exception and sqrt(Tc−T) polar onset. Independent cubic projections at (a,b)=(1,1),(2,5),(3,7) corroborated coefficient and sign.
 
-Finite-step computations cannot certify all real parameters or the infinite family. Smooth center-manifold existence and exponential tracking are standard local dynamical-systems results invoked analytically. The theorem concerns the continuous-time deterministic ODE only. No independent external audit has been conducted.
+## originality
+
+PASS
+
+Best-of-knowledge originality attaches to the combined precise theorem, excluding acknowledged prior special cases/general definitions. Previously known QRE uniqueness criteria imply uniqueness in some high-temperature regimes but not sharp necessity, two polar attracting equilibria for every subcritical T, or the coefficient in generic t^{-1/2} decay. The stationary mean-field analogy does not imply contraction of the distinct Q-learning ODE. Residual primary-source and equivalence risks are retained.
+
+## value
+
+PASS
+
+Exact finite-network exploration threshold, stable and unstable basins, sharp high-exploration contraction, and exceptional critical relaxation rate are dynamical quantitative facts needed to distinguish exploration schedules. A single unified theorem covers all finite complete bipartite graph sizes without appealing to thermodynamic limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
