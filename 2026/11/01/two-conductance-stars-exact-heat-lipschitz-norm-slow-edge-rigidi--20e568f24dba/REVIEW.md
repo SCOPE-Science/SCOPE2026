@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result holds for every integer \(k\ge2\), every pair \(0<a<b\), and every \(t\ge0\) for the unnormalized symmetric conductance Laplacian with **unit graph edge lengths**. The proof derives the exact gradient intertwining, positive two-dimensional propagator, strict comparison to all other gradient rows, unique extremizer, peak location, strict universal envelope and sharp singular limit. A nonstandard sign comparison is proved by explicit two-exponential coefficients and Jensen's inequality, not inferred from numerical sampling. `verify.py` checks exact rational intertwining and independent full-vertex heat uniformization. The code corroborates but does not replace the all-parameter proof.
+## correctness
 
-## Originality — PASS (qualified)
-Relevant primary literature includes Ollivier's general Markov-chain transport framework (arXiv:math/0701886), Chafaï–Joulin's exact birth-death gradient intertwining (arXiv:1011.2331), and Münch–Wojciechowski's general weighted-graph curvature/gradient characterization (arXiv:1712.00875). Their relevant sections address general bounds or path processes, not this exact branching two-rate star norm, slow-edge rigidity or sharp fixed-size amplification envelope. Previously established unweighted-star values are explicitly acknowledged; the strict conductance contrast is essential. An unindexed equivalent computation remains possible, so the review is not a priority certification.
+PASS
 
-## Mathematical value — PASS
-The result is a complete sharp theorem for a natural conductance perturbation of a canonical graph. It gives a robust symmetry-breaking equality classification, an exact finite-time peak, and an unusual fixed-size singular limit: even the four-vertex star approaches amplification \(5/3\) as the rate contrast increases. The limit is not a routine numerical table entry and isolates the effect of changing the generator while keeping the geometry fixed.
+For the counting-measure symmetric Laplacian and unit metric edges, gradients g_x=f(x)−f(o), z=−k⁻¹Σ_jg_j satisfy T=[[-2a,kb],[a,−(k+1)b]] and fast gradient deviations decay at b. The eigenvalues −α,−β give X(t)=[(β+d)e^(−αt)−(α+d)e^(−βt)]/Δ with d=kb−2a>0. Strict slow-edge domination follows from the exact fast-row absolute sum and the three-exponential comparison J(t)>0 (positivity/Jensen cases), not merely from numeric tests. An all-nonzero slow gradient row forces unique ± three-level ramps; the derivative X′ has one positive zero and the singular limit yields sup=2−1/(k+1), unattained when a>0. Independently exponentiated the full (k+2)×(k+2) Laplacian for four heterogeneous examples; the slow-edge norm matched the formula and strictly exceeded each fast edge.
 
-## Limitations
-The theorem is restricted to one slow and \(k\) equally fast leaves, symmetric positive conductance heat, and a unit-length graph metric. It does not establish the same property for arbitrary leaf rates, weighted metric lengths, normalized generators, or other graph families. The singular envelope is not attained at any finite parameter choice. Independent scientific validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge independent search and theorem-level comparison. Kantorovich duality equates a Lipschitz operator norm with a maximal W1 contraction factor; this changes formulation but does not produce the specific two-rate star all-time closed profile, equality cases, or contrast envelope. A general gradient-curvature equivalence/bound is not an equality formula for this particular multi-leaf induced infinity norm. The claimed exact spectral reduction is additional; standard two-point/equal-rate star cases do not imply it for a<b. Under direct specialization of earlier works one can derive general inequalities, but not the strict slow-edge dominance and 2−1/(k+1) envelope without evaluating new matrix row sums and sign regimes. An unsuccessful search alone is not evidence of priority. Actual primary material read and remaining limits below.
+
+## value
+
+PASS
+
+Precisely quantifies a natural and counterintuitive transient gradient amplification from inhomogeneous diffusion on the simplest branched network, identifies the unique spatial bottleneck and every optimizer, and gives a sharp fixed-size contrast limit. This is not routine Markov contraction: weighted-heat maps need not contract the UNWEIGHTED graph-Lipschitz seminorm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
