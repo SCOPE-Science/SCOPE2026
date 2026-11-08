@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T23:14:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md exact recurrences, all cases and filtration proof",
+        "Frozen verify.py checks entire repeating-state orbits, facets and prefixes",
+        "Independent simulation of 19,525 star configurations and exact simplex face sets"
+      ],
+      "rationale": "From exact recurrences b_i(t+1)=b_i(t)-1_{b_i(t)>0}+H_t, c(t+1)=c(t)-nH_t+|L_t|, before first center firing b_i=max(a_i-t,0), c=h+Σmin(t,a_i). If s<n hub never fires and initial firing leaf simplex Δ(I) contains all later sets. If s>=n, a first hub firing at finite τ exists; concomitant leaves R={a_i>τ}, then every leaf fires at τ+1. Until an all-vertex event, subsequent hub firing supports shrink within R; if no simultaneous firing, eventually hub fires alone with center mass s, next all leaves fire and for s>=2n hub also fires, contradiction. Conversely full simultaneous firing requires >=2n chips by conservation. Hence exact Δ(V)∪Δ(R∪{z}) in middle and Δ(all) for high s. R=∅ iff τ>=max_i a_i, equivalent for M>0 to s-m<n; M=0 boundary also works. All time prefixes have one simplex or an isolated center plus leaf simplex; only disconnected case gives one infinite H0 barcode born τ (M>0) or t=1 (M=0). Independent exhaustive grid n<=5, h and each a_i<=4 checked all exact firing-face sets on 19,525 configurations; code original finite n<=7 was inspected. Infinite statement depends on recurrences, not grid.",
+      "residual_risks": [
+        "Only bidirected stars; definition uses threshold chips>=outdegree and no sink, not standard dissipative sandpile.",
+        "Empty realization interpreted as no positive-degree reduced persistence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Riihimäki–Smith principal classified digraph families include directed paths and cycles, not bidirected stars.",
+          "Older firing pattern restrictions focus on periodic behavior and do not give all transient-time avalanche facets."
+        ],
+        "reasoning": "Neither relevant topology paper nor broad periodic theorem states a stronger complete all-chip bidirected-star avalanche/persistence classification.",
+        "searches": [
+          "Resultary: bidirected star avalanche complex parallel chip firing simplicial complex exact facets persistence",
+          "Riihimäki–Smith full accessible manuscript",
+          "Scully–Jiang–Zhang Firing Patterns in Parallel Chip-Firing Game (2014)",
+          "Ji–Li–Wang 2024 arXiv:2407.15889"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query Resultary: bidirected star avalanche complex parallel chip firing simplicial complex exact facets persistence",
+        "Riihimäki–Smith primary full text avalanche definitions and main families",
+        "Scully–Jiang–Zhang 2014 periodic firing theorems"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eventual period-two firing alone does not fix first-time τ or whether transient center firing support R is empty.",
+          "The claimed exact union includes a transient center simplex and timed persistence onset, which require additional recurrence proof."
+        ],
+        "reasoning": "Even if star periodic dynamics is elementary, the all-initial-data transient avalanche complex and barcode need nontrivial quantified classification beyond known eventual firing restrictions.",
+        "searches": [
+          "Resultary: bidirected star avalanche complex parallel chip firing simplicial complex exact facets persistence",
+          "Riihimäki–Smith definition and principal path/cycle theorem",
+          "Scully–Jiang–Zhang periodic firing theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complex records all simultaneously firing supports, including transient states; it is not a multipath complex.",
+          "The same recurrence can be described as a two-step eventual star firing pattern, but this does not automatically enumerate every transient support."
+        ],
+        "reasoning": "Searched star sandpile firing-support topology, avalanche simplices and degree-zero persistence aliases; distinguished state dynamics from transient simplicial complex.",
+        "searches": [
+          "Resultary: bidirected star avalanche complex parallel chip firing simplicial complex exact facets persistence",
+          "Riihimäki–Smith arXiv:2606.26786, definition and theorem list",
+          "Resultary bidirected double-star multipath record 9525e342e100"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching all-chip mass threshold s>=2n, S0 condition s-m<n, or complete birth-time table in inspected prior work.",
+          "Resultary similar word “bidirected double-star” refers to arc multipaths and homotopy, not firing."
+        ],
+        "reasoning": "Comparison is on graph orientation, firing rule, invariant, quantifiers and exact criterion, rather than titles alone; no exhaustive priority claim.",
+        "searches": [
+          "Resultary: bidirected star avalanche complex parallel chip firing simplicial complex exact facets persistence",
+          "Resultary bidirected star avalanche complex parallel chip firing exact facets persistence",
+          "Riihimäki–Smith original example families"
+        ]
+      },
+      "rationale": "Best-of-knowledge first all-initial-data exact transient avalanche complex classification for bidirected stars. Riihimäki–Smith primary full text defines the same firing-support avalanche complexes but studies oriented paths and cycles, not this bidirected-star facet theorem. Scully–Jiang–Zhang periodic-pattern and Ji–Li–Wang graph-period results give eventual firing dynamics, not exact simplicial union including finite transient or full time-prefix persistence. Published Resultary bidirected double-star hit concerns multipath complexes (different invariant) and is not covering.",
+      "residual_risks": [
+        "A classical bidirected-star transient classification may make the dynamics a known corollary under different terminology.",
+        "General firing-period results do not themselves settle the transient topology but may simplify a proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING bidirected star exact all-chip theorem",
+          "evidence": "The paper introduces support complexes and computes paths/cycles; no bidirected star classification appears.",
+          "identifier_or_url": "https://www.researchgate.net/publication/408106934_Avalanche_homology_of_digraphs_via_sandpile_dynamics",
+          "material_read": "Full accessible ResearchGate manuscript text: definition and firing rule (§2, unstable chips>=outdegree), main path/cycle results, discussion; searched star occurrences",
+          "method": "Accessible primary full-text rendering read in definitions, principal theorems, discussion and targeted term search.",
+          "title": "Avalanche homology of digraphs via sandpile dynamics",
+          "trigger": "Foundational same avalanche complex and potential general digraph theorem"
+        },
+        {
+          "assessment": "NOT_COVERING full transient avalanche complex and barcode",
+          "evidence": "Periodicity constraints do not determine all transient firing subsets or first center activation.",
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2421",
+          "material_read": "Full public text relevant periodic firing theorem and recurrent-pattern sections",
+          "method": "Public full-text theorem/section inspection; priority comparison by statements.",
+          "title": "Firing Patterns in the Parallel Chip-Firing Game",
+          "trigger": "General theory of parallel firing patterns that might imply exact star result"
+        },
+        {
+          "assessment": "NOT_ADJUDICATED full text; no evidence of avalanche-complex facet theorem",
+          "evidence": "Cited theory concerns periods, not explicit transient star complex.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.15889",
+          "material_read": "Abstract, graph period and atomic firing statement scope",
+          "method": "Abstract/metadata scope inspected; not falsely called a full manuscript read.",
+          "title": "Periods and atomic firing sequences of parallel chip-firing games on directed graphs",
+          "trigger": "Potential general directed firing-period statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Riihimäki–Smith motivation for avalanche topology of firing sets",
+        "Sharp exact all-data facet and barcode theorem"
+      ],
+      "rationale": "Complete exact simplicial classification for the first naturally branched bidirected graph and *arbitrary* nonnegative chips is an independently useful structural baseline for the recently introduced avalanche complex. It gives sharp total mass threshold 2n, exact two-component criterion, and complete H0 persistence birth times; these are genuine topology-through-transient-dynamics results rather than routine final-period counts.",
+      "residual_risks": [
+        "No claim for larger branched trees, orientations or sandpile with sink; elementary model but breadth over all chip vectors is substantive."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only bidirected stars; definition uses threshold chips>=outdegree and no sink, not standard dissipative sandpile.",
+    "Empty realization interpreted as no positive-degree reduced persistence.",
+    "A classical bidirected-star transient classification may make the dynamics a known corollary under different terminology.",
+    "General firing-period results do not themselves settle the transient topology but may simplify a proof.",
+    "No claim for larger branched trees, orientations or sandpile with sink; elementary model but breadth over all chip vectors is substantive.",
+    "No live GitHub edits, scientific repair files or publication operations were performed. Publication not_ready is a privacy/metadata transport block, not a scientific FAIL.",
+    "Continuity cursor never certifies proof or original publication."
+  ],
+  "schema_version": 1
+}
