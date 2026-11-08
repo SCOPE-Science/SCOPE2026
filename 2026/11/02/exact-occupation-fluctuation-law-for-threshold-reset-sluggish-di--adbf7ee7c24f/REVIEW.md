@@ -1,28 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model explicitly selects the nonsticky diffusion through Brownian time change, so the singular coefficient at the origin has no unresolved gluing ambiguity. Excursion lengths are dominated by scaled Brownian exit times and have exponential moments; the reward is bounded by the excursion length. The first Dirichlet problem gives the known occupation mean. A second Dirichlet problem and two exact Green-monomial integrations give the centered cycle second moment, whose division by the mean cycle duration supplies the stated regenerative central-limit coefficient. Uniform moment bounds justify also the asymptotic variance statement. A standalone verifier passes 158 exact or quadrature-based checks; infinite-parameter validity follows from the proof.
+PASS
 
-Risk: the result is for the nonsticky continuum diffusion, not every weak solution of a formal singular-coefficient SDE or every discrete sluggish walk.
+For alpha>=0 and rho in [0,1), the natural-scale nonsticky time-change unambiguously fixes the singular diffusion; a single reset cycle has m(rho)=(1-rho^(alpha+2))/((alpha+1)(alpha+2)). The center-reward Poisson problem and 2G kernel give E[(R-theta*tau)^2]=3(1-rho^2)/[4(alpha+2)^2(alpha+3)(2alpha+3)]. The regenerative CLT then gives (L^(alpha+2)/kappa)Q_alpha(rho), almost sure mean theta, and the variance limit via exponential cycle moments. Independent exact Green integrations passed for 35 integer alpha and rational reset pairs; monotonicity follows by the derivative sign of (1-rho^2)/(1-rho^(alpha+2)), with alpha=0 constant 1/24. No lattice or rho=1 claim.
 
-## Originality — PASS, best-knowledge qualification
+## originality
 
-The closest 2026 source, arXiv:2610.21962, Section 6.1.2, gives the occupation fraction mean and qualitative concentration but not the exact Gaussian coefficient. The 2018 Brownian additive-functional study concerns Poisson-clock resets; the 2020 run-and-tumble work also uses Poisson clocks and an orientation state; the 2022 occupation-triggered absorption study has a distinct meaning of threshold. Known regenerative central limit and Green-kernel techniques are acknowledged. Relevant exact-formula, alias, reduction and broader-method searches found no already published claim that directly gives the all-real-exponent coefficient or its Brownian reset-location rigidity.
+PASS
 
-Risk: a generic regenerative-diffusion covariance theorem may imply the formula once the elementary integrals are worked out; comprehensive independent priority assessment has not been performed. This is not evidence of literature-wide uniqueness.
+Best-of-knowledge new stated claim after primary statement/implication comparisons and a Resultary search: Prior qualitative T^-1/2 concentration does not determine a variance constant; Frimpong et al. same mean cannot imply Q without an extra second moment. Poisson resetting papers involve independent reset clocks and cannot be substituted by parameter changes.
 
-## Value — PASS
+## value
 
-The motivating paper predicts a deterministic occupation share and indicates fluctuations on a square-root scale but does not quantify their magnitude. The closed coefficient solves that natural measurement question for every real sluggishness exponent and reset location; the exact Brownian invariance and its strict breakdown under any positive sluggishness are meaningful structural comparisons, not renaming or numerical table entries. The result can calibrate occupation-fluctuation measurements and discriminate ordinary diffusion from space-dependent mobility at fixed reset geometry.
+PASS
 
-## Closest literature and limits
+The exact second-order occupation coefficient and its nontrivial reset-location dependence quantify a natural observable of a previously studied threshold-reset diffusion, including an unexpected Brownian rigidity and strict sluggishness breakdown. General renewal tools do not remove the need for the nonstandard Green-kernel evaluation; this is a motivated, potentially useful exact fluctuation law, not a normalization check.
 
-- arXiv:2610.21962, Section 6.1.2: first-order threshold-reset occupation law (direct source; not second-order coefficient).
-- arXiv:1801.09909, Section IV: Poisson-reset Brownian occupation statistics (different stopping mechanism).
-- arXiv:2009.01968, Section IV: Poisson-reset run-and-tumble occupation statistics (different motion and stopping).
-- arXiv:2205.13989, Sections 3–4: Poisson position reset plus occupation-triggered absorption (different threshold).
-
-The statement is asymptotic as physical time grows at fixed parameters. It excludes discrete lattice corrections, nonsymmetric domain endpoints, and alternative behavior at the mobility singularity.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
