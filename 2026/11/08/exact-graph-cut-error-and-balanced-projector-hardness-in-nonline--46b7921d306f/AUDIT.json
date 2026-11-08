@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The triangular quadratic ODE has an exact flow. Direct projected-map evaluation gives \\(\\mathcal F-\\mathcal S=(-\\delta Q_Su,hC_S(u))\\) and \\(\\mathcal F-\\mathcal H=(-\\delta Q_Su,0)\\); the first iteration at time slice 2 is exactly the residual difference evaluated at \\(u=(1+\\delta)\\mathbf1\\) and \\(u=\\mathbf1\\). The squared norms and small-h ratio follow without discarded terms. The polynomial-time reduction at \\(h=1\\) maps minimum bisection threshold B exactly to squared-error threshold \\(n/2+9B^2\\), with NP membership; forest dynamic programming is proved by induction on rooted subtrees. CHECK.py independently passed 430 exact-rational tests and six balanced-projection comparisons. No finite test is used as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tan et al., arxiv:2610.21680v1, abstract and §2–§4: qualitative error orders and a general residual bound; introduction states projector-space construction is not the subject",
+        "Gander and Petcu, doi:10.1051/proc:082508: linear-problem Krylov-enhanced method",
+        "Jin, Lin, Zhou, doi:10.1137/23M1619733: optimization of coarse propagators"
+      ],
+      "reasoning": "General mixed-error estimates do not present the exact graph-indexed selection objective or complexity boundary. The older linear Krylov analysis has no nonlinear quadratic mixed term; coarse-propagator optimization chooses a different design variable.",
+      "searches": [
+        "projection enhanced parareal optimal subspace NP hard graph partition nonlinear quadratic solver",
+        "nonlinear Krylov enhanced parareal exact fine coarse solver nonadditivity error quadratic vector fields",
+        "parareal nonlinear quadratic ODE graph cut projection rank choosing projection NP hard"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.21680",
+      "https://arxiv.org/abs/1708.06411",
+      "https://doi.org/10.1051/proc:082508",
+      "https://doi.org/10.1137/23M1619733",
+      "https://arxiv.org/abs/1404.0117"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.21680v1 equations (4), (6)–(8), (26)–(27): different projection maps and mixed nonlinear term",
+        "arxiv:1708.06411 abstract: minimum bisection is NP-hard",
+        "doi:10.1051/proc:082508 abstract: linear Krylov-enhanced parareal"
+      ],
+      "reasoning": "The individual established facts imply neither a specific numerical-method hardness statement without a reduction nor the new exact squared-error vector without choosing the quadratic flow and coarse map. Conversely this theorem does not strengthen Tan et al. general nonlinear bounds and does not reprove NP-hardness of bisection.",
+      "searches": [
+        "site:arxiv.org/html/2610.21680 mixed difference Theorem projection based parareal",
+        "parareal projection nonlinear polynomial cross terms exact graph bisection",
+        "minimum bisection NP-complete minimum bisection problem Garey Johnson 1979"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.21680v1, §2.2–§2.3: two split and modified projection maps",
+        "arxiv:2610.21680v1, §4: general mixed nonlinear difference",
+        "arxiv:1708.06411: classical minimum-bisection problem"
+      ],
+      "reasoning": "The raw mixed quadratic cut is an algebraic specialization of the established nonadditivity term, but the exact two-slice parareal error difference and its balanced-projector decision equivalence require the constructed maps and one-step recurrence. No earlier direct formulation of that combined claim was identified.",
+      "searches": [
+        "parareal two-step graph bisection NP-complete coordinate projection nonlinear mixed quadratic flow splitting minimum balanced cut",
+        "orthogonal projection split coarse map F(Px)+G((I-P)x) quadratic graph cut bisection",
+        "parareal projection nonlinear coarse solver orthogonal additivity graph cut projector selection"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible published-record search returned projection and graph optimization results, but no exact numerical-method error table for this family",
+        "The identity holds for every finite unweighted graph and every positive step size, not just enumerated examples"
+      ],
+      "reasoning": "No exact numerical lookup table is used. The all-graph identity and projection optimization are symbolic, while the checker only tests finite examples.",
+      "searches": [
+        "arxiv:2610.21680 Tan Xu Zhang Su Projection-Based Parareal for Nonlinear Initial-Value Problems",
+        "balanced graph cut minimum bisection projection selection parareal first-iteration error",
+        "parareal projected coarse correction first nonexact point h^(p+2) graph polynomial interaction"
+      ]
+    },
+    "rationale": "The primary paper proves general nonlinear mixed-residual comparisons and error orders, whereas the assessed theorem constructs a zero-preserving order-p graph-coupled IVP, computes an exact two-time-point parareal squared-error objective, reduces its balanced coordinate-projection optimization to minimum bisection, and isolates polynomial-time forest tractability. General source formulas and classical bisection hardness are acknowledged as ingredients rather than new discoveries. No covering exact numerical-method/graph-cut selection statement emerged from the actual published-record and literature searches; remaining priority limits are disclosed.",
+    "residual_risks": [
+      "Full text beyond the accessed relevant sections of the 2026 primary paper could not be fetched again; a hidden related projection-selection result remains a priority risk.",
+      "Older projection-optimization and graph-partition literature may have an equivalent algorithmic reduction not identified by available searches.",
+      "The graph-cut optimization is a new constructed bridge, not a new general theorem about minimum bisection; its novelty is narrower than any broader general nonlinear projection-error theory."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHED_GENERAL_INGREDIENTS_NOT_IDENTIFIED_AS_COVERING_EXACT_GRAPH_BISECTION_CLAIM",
+        "evidence": [
+          "§2.2–§2.3 defines maps S and H and notes their nonlinear difference; §4 defines mixed difference",
+          "§1 says projector-space construction not addressed and announces relative asymptotic error orders"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.21680",
+        "material_read": "arXiv HTML title, abstract, introduction, scheme definitions (2),(4)–(8), finite-step exactness, convergence recurrence, and section 4 residual formulas through (27); later HTML inaccessible on retry",
+        "method": "Direct primary HTML reading and direct formula comparison; later page-opening attempts failed",
+        "title": "Projection-Based Parareal for Nonlinear Initial-Value Problems",
+        "trigger": "Same two numerical schemes and identical projection parameters; highest-priority overlap source"
+      },
+      {
+        "assessment": "LINEAR_SETTING_ONLY_AS_ESTABLISHED_BY_ABSTRACT; FULL_TEXT_PRIORITY_RISK_RETAINED",
+        "evidence": [
+          "Article title and abstract identify a linear-problem projection analysis, rather than the tested quadratic graph-coupled flow"
+        ],
+        "identifier_or_url": "https://doi.org/10.1051/proc:082508",
+        "material_read": "Primary journal abstract and bibliographic information; full text not inspected",
+        "method": "Publisher open-access abstract examination",
+        "title": "Analysis of a Krylov Subspace Enhanced Parareal Algorithm for Linear Problems",
+        "trigger": "Original projection-enhanced parareal framework"
+      },
+      {
+        "assessment": "SUPPORTS_CLASSICAL_NP_HARDNESS; DOES_NOT_ASSERT_PARAREAL_EMBEDDING",
+        "evidence": [
+          "Abstract explicitly identifies minimum bisection as NP-hard and studies tree families"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.06411",
+        "material_read": "Original preprint abstract and results summary, not full text",
+        "method": "Direct mathematical bibliographic and abstract comparison",
+        "title": "On Minimum Bisection and Related Cut Problems in Trees and Tree-Like Graphs",
+        "trigger": "Hardness premise and tree-related tractability boundary"
+      },
+      {
+        "assessment": "OPTIMIZES_COARSE_PROPAGATORS_NOT_BALANCED_COORDINATE_PROJECTORS_IN_ABSTRACT",
+        "evidence": [
+          "The study proposes a procedure for coarse propagators with stability and consistency, not a graph-encoded projector objective"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/23M1619733",
+        "material_read": "Publisher abstract and metadata, full paper not inspected",
+        "method": "Title, abstract and optimization variable comparison",
+        "title": "Optimizing Coarse Propagators in Parareal Algorithms",
+        "trigger": "Potential broader projection/design-optimization result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "46b7921d-306f-4def-8846-18af61dd75bf",
+  "value": {
+    "rationale": "The projector-choice problem explicitly left open in the motivating parareal study can encode an NP-complete minimum-bisection instance even for a globally solvable polynomial flow, a zero-preserving order-p coarse solver and two slices. The exact error formula, connected-component zero-defect criterion, polynomial-time forest boundary, and divergent small-h ratio offer structural guidance on when projection selection is intrinsically combinatorial and when the modified variant avoids the cut penalty. This is not a routine numerical lookup or a generic textbook stability bound.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,19 @@
+# Review of exact graph-cut error and balanced-projector hardness
+
+## Correctness — PASS
+
+The exact fine map follows by integration of the triangular quadratic ODE. The two projected maps are evaluated directly, giving residuals \((-\delta Q_Su,hC_S(u))\) and \((-\delta Q_Su,0)\). The first parareal iteration at the second coarse time point is an exact difference of these residuals at the first old and new points. Homogeneity of the graph cut polynomial gives the stated error vectors with no asymptotic approximation. Squared Euclidean norms give the gap exactly. The minimum-bisection decision equivalence at \(h=1\), polynomial verification of a bisection, and the forest subtree-count recurrence establish the computational claims. A standalone `CHECK.py` construction passed 430 exact-rational algorithm and forest checks plus six balanced-projection comparisons. The finite tests are not the proof of the universal statements.
+
+## Originality — PASS, with historical-priority limits
+
+Tan, Xu, Zhang, and Su (arXiv:2610.21680v1) already define the split and modified projection maps and analyze a general mixed nonlinear term. The new claim is not the existence of that term, or the NP-hardness of minimum bisection, but an explicit **algorithmic two-time-point squared-error identity** for order-\(p\), zero-preserving coarse maps, showing that choosing the best rank-constrained coordinate projector is exactly an NP-complete graph partition problem, with a forest tractability boundary and a sharp small-step gap. Gander and Petcu study linear-problem Krylov enhancement; Jin, Lin, and Zhou optimize coarse propagators rather than balanced coordinate projector selection. Fernandes, Schmidt, and Taraz discuss minimum bisection, which supplies the classical hardness premise but not the numerical-method reduction. Published mathematical records searched under parareal, graph-cut projection, bisection, nonlinear splitting, and the primary article identifier did not yield a covering statement. A related result hidden outside the accessible portions of the most relevant source or in older projection literature remains possible; no claim of exhaustive historical priority is made.
+
+## Value — PASS
+
+The motivating nonlinear parareal analysis leaves the construction of projection spaces open. The exact formula identifies a clear obstruction to selecting a best projector by generic cheap optimization: even a globally solvable quadratic IVP, smooth zero-preserving order-\(p\) coarse maps, and just two coarse intervals encode minimum bisection. It also identifies a useful solvable boundary (forests), characterizes zero-cost projections by connected components, and quantifies an arbitrarily large small-step ratio between the split and modified variants on connected interaction graphs. The result informs projector design rather than merely repeating general error estimates.
+
+## Closest prior work and limits
+
+The closest primary analysis is Tan et al., *Projection-Based Parareal for Nonlinear Initial-Value Problems* (2026), especially the two definitions of the projected maps, their mixed-difference identity, and first-inexact-time asymptotics. The numerical construction is deliberately narrow: coordinate projections, a triangular polynomial ODE, two time points and exact arithmetic. No statement is made for arbitrary orthogonal or Krylov-history projections, or for hardware cost and finite-precision implementations. The synthetic coarse map is a mathematically valid order-\(p\) approximation, not an identified commercial or conventional Runge--Kutta integrator. Classical min-bisection NP-completeness is not independently proved here; its known theorem is used as a reduction source. Independent mathematical validation has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
