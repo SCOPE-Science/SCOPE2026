@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The conditional-Gaussian representation by the nonnegative perpetuity \(V=2DE+UV'\) is established from backward Poisson inter-event durations. Each truncated conditional variance is affine in each independent squared reset multiplier; successive convex-order replacements and \(L^1\) convergence prove the infinite comparison. Multiplication by independent \(Z^2\) transfers the order to stationary squared displacement. Generator and perpetuity moment recursions agree and yield the sharp kurtosis endpoints with strict equality cases. The source code's 365 checks independently corroborate moment normalizations, central densities, and stochastic simulations. Finite checks are explicitly not used as infinite proofs.
+## correctness
 
-## Originality — PASS (with residual priority risk)
-The 2022 fixed-multiplier paper already supplies the deterministic stationary Fourier product and kurtosis \(6/(1+u)\), and its results are NOT presented as new. The 2024 partial-reset work paper assumes a fixed contraction and studies energetic cost of implemented resetting; it does not establish distribution-wide comparison over random contraction laws. The random-amplitude study of 2021 develops general resetting-amplitude mechanisms but does not establish the present all-convex squared-Brownian-displacement ordering under fixed \(\mathbb E A^2\). Searches of accessible mathematical research records, the claim-focused available literature, and the relevant previous source titles/claims did not identify exact coverage. This is a best-knowledge scientific assessment, not exhaustive publication certification; general perpetuity convex-order theory is an explicit potential subsumption risk.
+PASS
 
-## Mathematical value — PASS
-A naturally fixed mean-square localization budget \(u=\mathbb E[A^2]\) leaves all candidate protocols with the same stationary position variance. The finding nevertheless solves the universal protocol extremal problem simultaneously for all convex squared-position losses, supplies uniquely attainable endpoints, and reveals opposite rankings for subquadratic and superquadratic absolute-position moments. Thus it distinguishes physically different strategies hidden by the shared mean-square localization observable; the result is not just a known fixed-multiplier formula.
+For independent Poisson reset factors U=A² in [0,1], E U=u in (0,1), the stationary Brownian position is a centered Gaussian variance mixture with V=2D sum_{j>=0} E_j product_{i=1}^j U_i. The L1-convergent truncations are separately affine with nonnegative slopes in each independent U_i, so finite coordinate convex-order replacement and the Lipschitz stop-loss limit prove the unrestricted convex-order comparison of V. Multiplication by independent Z² preserves it for X². The generator recurrence gives EX²=2D/[r(1-u)], standardized fourth moment 6(1-u)/(1-E U²); strict Jensen and chord equality give unique deterministic and {0,1} endpoints. The opposite p<2 versus p>2 moment rankings and density-at-origin ordering follow by convexity/concavity of the appropriate variance power. Our separate exact Fraction computations checked x²=15/7 and three kurtosis normalizations; finite checks do not replace the infinite-perpetuity argument.
 
-## Limitations
-No inference about physical thermodynamic work, first-passage optimality, noisy estimation, correlated or signed contractions, or non-Poisson resets. A broader stochastic affine-recursion ordering theorem might imply the principal mathematical inequality. Publication priority and external replication remain unverified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fixed-multiplier Fourier-product and kurtosis 6/(1+u) occur in Tal-Friedman–Roichman–Reuveni (2022) and are expressly not new. Dahlenburg–Chechkin–Schumer–Metzler treats additive random-amplitude and ballistic multiplicative regimes, not this universal convex-order comparison for stationary Brownian squared displacement at fixed E A². The all-law distributional extremizers, equality cases and opposing diagnostics are not implied by those inspected statements; a general convex-order theorem for random-coefficient perpetuities remains a meaningful priority risk.
+
+## value
+
+PASS
+
+At identical stationary position variance, different random reset protocols have sharply different tail and convex-loss risk. Determining all-law unique extremizers and sub/superquadratic reversal is an intrinsic, potentially reusable stochastic-control comparison, not the known scalar kurtosis calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
