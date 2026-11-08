@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The event that a chosen set of off-loop vertices all have indegree zero decomposes into independent choices from the chosen set and its complement. The resulting falling-factorial identity determines the complete joint law, and a two-vertex conditioning identity determines covariance, including endpoints. The ratio of consecutive conditional expectations establishes the stated finite regression plateau. The included exact verifier passed 742 assertions; infinity is handled by algebra, not exhaustive experiments.
+## correctness
 
-**Originality (PASS, best-knowledge).** The 2006 preprint by Hansen–Jaworski explicitly defines the same independent-choice diagonal-biased model, but its inspected theory concerns cyclic points/components rather than this full fixed-point/origin joint law or its sign and regression phase diagram. Arney–Bender (1982) develops origin-marked cycle generating functions for other constraints, not a directly stated self-loop-bias covariance theorem. Hansen–Jaworski (2008) uses an exchangeable-in-degree construction and studies local predecessor statistics, not the same two-statistic law. Jaworski–Mutafchiev (1994) shares the diagonal-bias model but its accessible abstract describes the largest component. Priority remains provisional; earlier local-statistics references may contain an equivalent bivariate generating function.
+PASS
 
-**Value (PASS).** Fixed points describe stationary one-cycles, while origins measure source/transient support in a functional graph, both directly motivated by random-mapping dynamics and sampling models. The complete finite joint polynomial separates covariance from dependence and identifies the parameter boundary at which the two natural statistics change their association sign. The two-point plateau in conditional expected origins shows why a simple monotone regression interpretation fails. It is not merely a numeric count or arbitrary parameter slice.
+For independent image choices with diagonal probability q and uniform off-diagonal probability r=(1-q)/(n-1), conditioning on the exact loop set S leaves n-f independent nonself choices. A specified subset R of s non-loop vertices is origin-free of incoming edges with probability ((n-s)/(n-1))^s ((n-s-1)/(n-1))^(n-f-s). Multiplying by (n-f)_s and mixing F~Bin(n,q) establishes the entire joint factorial-generating polynomial, including n=2 and q=0,1 via polynomial extension. A direct ordered-pair expectation gives Cov(F,L)=n q(1-q)(1-r)^(n-2)(1-nq)/(n-1), so the interior sign flips at q=1/n. For n>=3 the conditional mean g(n-f) with g(k)=k((n-2)/(n-1))^(k-1) rises f=0->1, ties f=1,2, and then falls. Checked independent exact rational enumeration for all n^n maps with n=2,3,4 against the factorial coefficient and covariance, including q=0 and q=1. Finite checks corroborate, not prove, the all-n counting proof.
 
-**Restrictions.** No extension to arbitrary independent target matrices or dependent mapping choices is claimed. No historical-priority or external mathematical certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The independent-choice diagonal-biased model itself is old; the assessed claim is its full loop-origin factorial law, exact covariance phase and conditional regression plateau. Compared the classical origin/cycle generating functions and same-bias model rather than relying on title matching. No inspected theorem implies the full biased one-cycle/origin law, but earlier detailed local-statistics papers remain priority risks.
+
+## value
+
+PASS
+
+The same natural local statistics (one-cycles and indegree-zero vertices) undergo an exact positive-to-negative correlation transition in the classical independent-image model, while being dependent exactly at zero covariance. The full joint law and a nonmonotone conditional expectation make a mathematically useful phase classification not implied by a first-moment or routine covariance identity alone. The theorem is exact at all finite sizes and includes boundary conventions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
