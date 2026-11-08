@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Fixing the number of zero slots before any one makes embedding the target with its unique marker equivalent to membership of its insertion index in an explicitly derived integer interval. The ordered intervals cover all target indices exactly under the three claimed endpoint/gap inequalities. Each interval has at most \(s\) indices; the construction with prefixes \(x_j=\min\{js-1,k-1\}\) attains the resulting lower bound. An arithmetic-geometric mean lower bound and a balanced integer construction establish the global optimum. For fixed-marker optimizers, a reversible bounded-slack bijection yields the coefficient; equality at a square forces the unique host. The included finite verifier checks 227017 literal hosts and 52 fixed-marker counting profiles. Boundary \(k=1\), one-marker hosts, zero-run endpoints, and perfect-square rigidity were included.
+PASS
 
-## Originality — PASS (qualified)
+PASS. Each host 1 preceded by x zeros permits exactly a contiguous interval of target marker positions i with x-(z-k+1)<=i<=x. Ordered intervals cover i=0,...,k-1 iff first/last boundaries and consecutive gaps <=s=z-k+2. At fixed r ones, rs>=k gives sharp length k-2+r+ceil(k/r), attained by x_j=min(js-1,k-1). Integer min of r+s with rs>=k is ceil(2sqrt k), giving global length. At the fixed optimum the bounded slacks alpha,beta,gamma telescope to rs-k and enumerate precisely coefficient (1+...+y^(s-1))^2(1+...+y^s)^(r-1); equality AM–GM yields unique host when k=t^2. Independently literal-enumerated every binary host through the optimum for k<=9, finding counts 1,2,5,1,7,2,18,6,1, and verified exclusions of shorter lengths. The all-k proof is analytical, not finite extrapolation.
 
-The comparison is at statement/implication level. The published full-universality results of Barker et al. (arXiv:2003.04629) and Adamson (arXiv:2304.04583) require all binary target words, not precisely the weight-one stratum. Fleischmann et al. (arXiv:2202.07981) study near-full target sets with a controlled number missing, not exact sparse target coverage. Published work on full-universality insertion radius, global universality distribution, and shortest absent subsequences does not imply the two-parameter optimal host formula or its restricted-language optimizer count. Targeted database and literature searches did not reveal equivalent classifications. Residual risk: an earlier shortest-common-supersequence analysis of all one-hot words or an unindexed specialized covering theorem could imply the result; no claim of exhaustive historical priority is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Uniform one-marker patterns form a canonical fixed-composition stratum within the scattered-subsequence spectrum. Their common-supersequence optimum asks how to trade marker copies against zero slots, which has a sharp square-root transition rather than the linear doubling seen in full binary universality. The theorem solves the full unbounded family, not a selected finite case: exact length, every fixed-marker optimum, an explicit optimizer enumerator, and rigid square cases. These distinctions can be used as exact benchmarks for composition-restricted subsequence covering and pattern indexing.
+PASS, best of knowledge. General subsequence universality asks for every k-letter binary word and cannot be specialized without new analysis to the sparse language with exactly one 1. Existing Barker et al, Adamson and Fleischmann et al results count or enumerate universal/full or nearly universal words. The present constrained-target optimum, complete fixed-marker enumerator and square rigidity are not direct consequences of their inspected assertions. A special case of older shortest-common-supersequence literature remains a plausible historical risk.
 
-## Limits
+## value
 
-No extension to higher target Hamming weights is proved. The standalone checker only confirms finite cases, not mathematical originality or the infinite quantifiers. Unindexed SCS specializations may exist; independent external audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The one-marker language is a natural lowest nontrivial Hamming-weight slice of subsequence universality. Exact optimal length and classification/counting of all optimizers under fixed marker number, including perfect-square uniqueness, are independently useful benchmarks and a structural starting point for multiple-marker languages; no claim of the latter is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

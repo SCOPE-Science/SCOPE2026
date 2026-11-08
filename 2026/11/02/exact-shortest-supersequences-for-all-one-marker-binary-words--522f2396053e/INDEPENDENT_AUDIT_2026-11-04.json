@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T19:56:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-shortest-supersequences-for-all-one-marker-binary-words--522f2396053e/RESULT.md",
+        "2026/11/02/exact-shortest-supersequences-for-all-one-marker-binary-words--522f2396053e/verify_onehot.py",
+        "Git tree 1e80880f16934f5d9ae9e76953b953bb1d374c5e"
+      ],
+      "rationale": "PASS. Each host 1 preceded by x zeros permits exactly a contiguous interval of target marker positions i with x-(z-k+1)<=i<=x. Ordered intervals cover i=0,...,k-1 iff first/last boundaries and consecutive gaps <=s=z-k+2. At fixed r ones, rs>=k gives sharp length k-2+r+ceil(k/r), attained by x_j=min(js-1,k-1). Integer min of r+s with rs>=k is ceil(2sqrt k), giving global length. At the fixed optimum the bounded slacks alpha,beta,gamma telescope to rs-k and enumerate precisely coefficient (1+...+y^(s-1))^2(1+...+y^s)^(r-1); equality AM–GM yields unique host when k=t^2. Independently literal-enumerated every binary host through the optimum for k<=9, finding counts 1,2,5,1,7,2,18,6,1, and verified exclusions of shorter lengths. The all-k proof is analytical, not finite extrapolation.",
+      "residual_risks": [
+        "Does not solve targets with two or more ones; finite tests only k<=9 independently."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full-universality target family has 2^k words, whereas the assessed family has only k weight-one words. Complete full-universal-word classification does not specify exact minimum to cover only this subfamily."
+        ],
+        "reasoning": "A dominating requirement yields bounds on full-universal hosts, not the sharp restricted-host optimum or exact restricted optimizer counts.",
+        "searches": [
+          "Barker Fleischmann Harwardt Manea Nowotka Scattered Factor-Universality of Words arxiv 2003.04629",
+          "Adamson Ranking and Unranking k-subsequence universal words arxiv 2304.04583"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2003.04629",
+        "https://arxiv.org/abs/2304.04583",
+        "Resultary semantic published-record search with actual claim-specific queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A one-marker required language excludes 2^k-k other possible target words; almost-full universality with bounded missing words is not equivalent because missing target count grows exponentially."
+        ],
+        "reasoning": "Previous full and nearly universal results do not logically force the exact one-marker interval criterion, bounded-slack polynomial or unique square-case optimum.",
+        "searches": [
+          "Scattered Factor-Universality of Words full k universal binary",
+          "m-nearly k-universal words Simon congruence arxiv 2202.07981"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target i-position constraints are equivalent to a finite interval-cover problem where each host 1 gives a window of at most s marker positions."
+        ],
+        "reasoning": "This gives a direct equivalence but is not the classical full k-subsequence universality predicate.",
+        "searches": [
+          "one hot binary subsequence common supersequence all k words with one 1",
+          "minimal binary host containing all sparse weight one subsequences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent literal host counts for k<=9 match coefficient formula, but Resultary hits concerned full universality and shortest absent subsequences rather than fixed one-marker coverage."
+        ],
+        "reasoning": "No equivalent parameterized H_k/C_kr table was found; unpublished or older constrained-cover tables remain possible.",
+        "searches": [
+          "one-marker subsequence supersequence count k square unique optimizer",
+          "Resultary closed form binary subsequence universality distribution"
+        ]
+      },
+      "rationale": "PASS, best of knowledge. General subsequence universality asks for every k-letter binary word and cannot be specialized without new analysis to the sparse language with exactly one 1. Existing Barker et al, Adamson and Fleischmann et al results count or enumerate universal/full or nearly universal words. The present constrained-target optimum, complete fixed-marker enumerator and square rigidity are not direct consequences of their inspected assertions. A special case of older shortest-common-supersequence literature remains a plausible historical risk.",
+      "residual_risks": [],
+      "source_inspections": [
+        {
+          "assessment": "The available definitions require all words as scattered factors, not only one 1",
+          "evidence": "Coverage of unrestricted universality does not directly entail sharp restricted-target optimal host lengths.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+          "material_read": "Available full-paper web-indexed introduction, definitions and summary; full text open redirected to access challenge",
+          "method": "Read available indexed material, not entire manuscript",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Potential broader existing subsequence-universality theorem"
+        },
+        {
+          "assessment": "Enumeration concerns full k-universal hosts, not the k one-marker target family",
+          "evidence": "Possible hidden restricted-case corollary remains unverified.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+          "material_read": "Abstract and theorem summary only",
+          "method": "Read abstract; no whole-document noncoverage claim",
+          "title": "Ranking and Unranking k-subsequence universal words",
+          "trigger": "Potential enumeration already covering one-marker hosts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/exact-shortest-supersequences-for-all-one-marker-binary-words--522f2396053e/RESULT.md",
+        "Natural mathematical quantity and limitations explicitly defined therein"
+      ],
+      "rationale": "PASS. The one-marker language is a natural lowest nontrivial Hamming-weight slice of subsequence universality. Exact optimal length and classification/counting of all optimizers under fixed marker number, including perfect-square uniqueness, are independently useful benchmarks and a structural starting point for multiple-marker languages; no claim of the latter is made.",
+      "residual_risks": [
+        "Fixed-r count assumes labeled distinct binary strings, not symmetry quotients.",
+        "Does not solve targets with two or more ones; finite tests only k<=9 independently."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Earlier shortest-common-supersequence results may have studied precisely all binary weight-one words.",
+    "Fixed-r count assumes labeled distinct binary strings, not symmetry quotients.",
+    "Does not solve targets with two or more ones; finite tests only k<=9 independently."
+  ],
+  "schema_version": 1
+}

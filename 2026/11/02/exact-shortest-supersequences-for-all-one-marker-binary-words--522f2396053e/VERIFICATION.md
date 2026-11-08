@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` establishes the theorem for every integer \(k\ge1\) and \(r\ge1\). The code `verify_onehot.py` is an independent brute-force check that uses literal subsequence embeddings rather than the marker-interval proof as its oracle. It then separately verifies the interval criterion and coefficient-based counting predictions.
+## correctness
 
-Run after extracting the embedded files:
+PASS
 
-```
-python3 verify_onehot.py
-```
+PASS. Each host 1 preceded by x zeros permits exactly a contiguous interval of target marker positions i with x-(z-k+1)<=i<=x. Ordered intervals cover i=0,...,k-1 iff first/last boundaries and consecutive gaps <=s=z-k+2. At fixed r ones, rs>=k gives sharp length k-2+r+ceil(k/r), attained by x_j=min(js-1,k-1). Integer min of r+s with rs>=k is ceil(2sqrt k), giving global length. At the fixed optimum the bounded slacks alpha,beta,gamma telescope to rs-k and enumerate precisely coefficient (1+...+y^(s-1))^2(1+...+y^s)^(r-1); equality AM–GM yields unique host when k=t^2. Independently literal-enumerated every binary host through the optimum for k<=9, finding counts 1,2,5,1,7,2,18,6,1, and verified exclusions of shorter lengths. The all-k proof is analytical, not finite extrapolation.
 
-The executed checker reported:
+## originality
 
-```
-VERIFY_OK checked_hosts=227017 k_global=1..11 optimal_counts={1: 1, 2: 2, 3: 5, 4: 1, 5: 7, 6: 2, 7: 18, 8: 6, 9: 1, 10: 27, 11: 9} fixed_marker_profiles=52 integer_witness_k=1..2000
-```
+PASS
 
-It enumerates all host strings of length at most \(L_k\) for \(1\le k\le11\), checks all \(k\) targets for each host, verifies the interval characterization, checks no shorter host covers, and compares the count of minimizers with the formula. It additionally enumerates all fixed-marker composition classes with \(1\le k\le8\), supported \(r\) and host length at most 19, and tests arithmetic/construction identities for \(1\le k\le2000\). These finite checks do not prove claims outside their finite ranges and do not establish novelty. Independent scientific auditing has not occurred.
+PASS, best of knowledge. General subsequence universality asks for every k-letter binary word and cannot be specialized without new analysis to the sparse language with exactly one 1. Existing Barker et al, Adamson and Fleischmann et al results count or enumerate universal/full or nearly universal words. The present constrained-target optimum, complete fixed-marker enumerator and square rigidity are not direct consequences of their inspected assertions. A special case of older shortest-common-supersequence literature remains a plausible historical risk.
+
+## value
+
+PASS
+
+PASS. The one-marker language is a natural lowest nontrivial Hamming-weight slice of subsequence universality. Exact optimal length and classification/counting of all optimizers under fixed marker number, including perfect-square uniqueness, are independently useful benchmarks and a structural starting point for multiple-marker languages; no claim of the latter is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
