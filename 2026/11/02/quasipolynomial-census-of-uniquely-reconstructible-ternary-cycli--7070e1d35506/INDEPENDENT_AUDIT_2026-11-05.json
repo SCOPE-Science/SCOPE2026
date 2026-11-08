@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T22:52:46.707899Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A matrix is realizable exactly when its positive-degree directed support is Eulerian and connected. BEST with indistinguishable parallel ordered transitions gives W(K)=n τ prod_i(d_i-1)! /prod_ij K_ij!, so Q(K)=W(K)/n is a lower bound on rotation classes and is exactly one class when Q=1 and gcd of edge multiplicities is one; repeated simple directed cycles with Q<1 are handled explicitly. Three-symbol circulation is uniquely expressible via t plus reciprocal counts a,b,c, loops at each vertex, and opposite orientation. The arborescence τ=ab+ac+bc+t(a+b+c)+t² yields loop multiplication by prod binom(l_i+s_i-1,s_i-1). Exhaustive nonloop cases and monotonicity under increments of reciprocal pairs reduce all eligible singleton profiles to the disjoint families in RESULT.md. Independently symbolically expanding the critical monotonicity ratio after nonnegative-variable substitution produces 55 nonnegative monomials in the t>=1 two-reciprocal case and 17 in the t=0 two-reciprocal case; thus the all-size inequalities do not rely only on sample data. Direct indexed ternary word enumeration with necklace rotation quotient independently reproduced U1..U12 = 3,6,11,24,45,64,93,114,139,168,201,226, agreeing with the period-six quasipolynomial.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General BEST/Whittle counting formulas can in principle evaluate the profile-by-profile necklace multiplicities, but no inspected earlier theorem performs the all-size 3-symbol singleton classification.",
+          "The 2022 paper concerns loopless digraphs with one edge-distinguished Euler tour and a varying number of vertices; its parameter cannot be specialized to recover a ternary fixed-label multigraph with arbitrary loops and repeated transitions."
+        ],
+        "reasoning": "Broader general enumeration methods are acknowledged; mathematical implication of the complete quasipolynomial would require fresh support classification and loop-case handling.",
+        "searches": [
+          "Jacquet Knessl Szpankowski 2012 Theorems on balanced matrices and Markov types",
+          "Grisales Labelle Posada Dimitrov 2022 one Eulerian tour",
+          "Obscura Acosta Tomescu 2024 uniqueness/safety"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md SHA 57c13399d224fcb9a17f76ac97f51a014382d269",
+        "Independent exhaustive words n1..12 in independent_checks.py and independent symbolic polynomial coefficient positivity",
+        "Jacquet Knessl Szpankowski 2012 full primary manuscript DOI 10.1109/TIT.2012.2191476",
+        "Grisales Labelle Posada Dimitrov 2022 full JIS paper",
+        "Obscura Acosta Tomescu arxiv:2208.08522 full primary PDF",
+        "Resultary semantic search for ternary cyclic Markov unique profiles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact type-class formula computes multiplicity at any given K, but deciding and enumerating exactly the Q<=1 profiles requires a nontrivial global integer classification.",
+          "The 2012 asymptotic ~n^6 for all types cannot determine a quadratic singleton subset."
+        ],
+        "reasoning": "No general prior formula automatically yields the stated period-six count; direct classification of circulation and loops is necessary.",
+        "searches": [
+          "BEST theorem and Whittle type class formula",
+          "Jacquet et al 2012 Markov type asymptotics",
+          "Obscura Acosta Tomescu 2024 edge uniqueness algorithm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The profile is a cyclic order-two Markov type, equivalent to a balanced directed multigraph with indistinguishable parallel transitions.",
+          "A unique Eulerian circuit in the edge-distinguished sense is a different criterion: distinct identical labeled arcs may lead to one necklace despite several edge permutations."
+        ],
+        "reasoning": "Explicitly compared Eulerian necklace versus indexed words, looped multigraph circuit uniqueness versus edge-distinguished paths, and alphabet-label preservation. The earlier broad criteria do not evaluate the sought profile census.",
+        "searches": [
+          "Resultary: ternary cyclic Markov transition profile unique Eulerian necklace reconstruction quasipolynomial",
+          "Jacquet Knessl Szpankowski 2012 Counting Markov Types Balanced Matrices and Eulerian Graphs",
+          "Obscura Acosta Tomescu arxiv:2208.08522"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked 2012 tables cover all balanced matrices rather than the subset yielding exactly one rotation necklace.",
+          "Direct small-word counts through n=12 match the new expression, but are independent calculations and not found in prior tables read."
+        ],
+        "reasoning": "No inspected exact table supplies U_n= n²+9n-26+eps for all n; older unindexed sequence tables remain possible.",
+        "searches": [
+          "Jacquet et al 2012 enumeration of ternary balanced matrices",
+          "2022 Journal of Integer Sequences unique Euler tour tables",
+          "Resultary ternary cyclic Markov search"
+        ]
+      },
+      "rationale": "Jacquet–Knessl–Szpankowski determine counts/asymptotics of all balanced ternary Markov types and cite Whittle type-class counting, but uniqueness among rotation classes is a sharply different restricted property. Grisales et al count loopless edge-distinguished unique Eulerian-tour digraphs as vertex number changes; Obscura Acosta–Tomescu provide a general edge-distinguished Euler circuit uniqueness/safety criterion, not the count of 3-labeled profiles with loops and identical parallel transitions. The exact singleton-profile quasipolynomial and classification are not contained in the inspected primary theorems.",
+      "residual_risks": [
+        "An unindexed Eulerian necklace enumeration in classical information-theory or integer-sequence literature may be equivalent to the evaluated quasipolynomial.",
+        "Only 3 labeled symbols and order-two cyclic pair profiles are covered; no reconstruction under label permutations or reversal or other alphabet sizes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts all Markov type matrices and asymptotic Eulerian realizable subset, not uniqueness-of-necklace profiles",
+          "evidence": [
+            "General cyclic Markov type count differs from U_n and has higher growth degree."
+          ],
+          "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/it12-types.pdf",
+          "material_read": "Full 21-page author manuscript in text; PDF page image inspected; theorem and application sections on balanced matrices/type classes",
+          "method": "Read primary mathematical derivations and compare counted objects",
+          "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+          "trigger": "Same balanced ternary cyclic transition matrices and Whittle counts"
+        },
+        {
+          "assessment": "Counts loopless digraph structures with edge-distinguished unique tours, not fixed three labels with loops/indistinguishable transitions",
+          "evidence": [
+            "Main statement varies vertex count and assumes different arc model; does not imply ternary Markov profile quasipolynomial."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL25/Dimitrov/dim4.pdf",
+          "material_read": "Full 11-page primary PDF and its statements, including main enumeration and graph assumptions; PDF image inspected",
+          "method": "Read mathematical proof and parameter domains",
+          "title": "Digraphs With Exactly One Eulerian Tour",
+          "trigger": "Plausible direct equivalent under Eulerian circuit uniqueness"
+        },
+        {
+          "assessment": "Algorithmic uniqueness criteria for edge-distinguished circuits, no count of cyclic ternary transition profiles",
+          "evidence": [
+            "General algorithm does not supply all-length census; identification of parallel identical transitions changes equivalence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.08522",
+          "material_read": "Full 9-page primary PDF in text, theorem and graph assumptions, PDF image inspected",
+          "method": "Read relevant uniqueness/safety definitions and theorem",
+          "title": "Simplicity in Eulerian Circuits: Uniqueness and Safety",
+          "trigger": "Stronger uniqueness characterization might imply singleton necklace count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cyclic Markov counts are natural sufficient statistics for circular symbolic data. Knowing which matrices uniquely reconstruct the word up to rotation is a meaningful identifiability invariant. The complete finite-alphabet support classification and explicit all-length degree-two period-six count distinguish this property from the much larger set of all Markov types.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen RESULT.md SHA 57c13399d224fcb9a17f76ac97f51a014382d269",
+    "Independent exhaustive words n1..12 in independent_checks.py and independent symbolic polynomial coefficient positivity",
+    "Jacquet Knessl Szpankowski 2012 full primary manuscript DOI 10.1109/TIT.2012.2191476",
+    "Grisales Labelle Posada Dimitrov 2022 full JIS paper",
+    "Obscura Acosta Tomescu arxiv:2208.08522 full primary PDF",
+    "Resultary semantic search for ternary cyclic Markov unique profiles"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An unindexed Eulerian necklace enumeration in classical information-theory or integer-sequence literature may be equivalent to the evaluated quasipolynomial.",
+    "Only 3 labeled symbols and order-two cyclic pair profiles are covered; no reconstruction under label permutations or reversal or other alphabet sizes."
+  ],
+  "schema_version": 1
+}

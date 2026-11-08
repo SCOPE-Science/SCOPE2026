@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verify.py` and `python3 crosscheck.py` from the directory containing both scripts. Both use only Python's standard library.
+## correctness
 
-The first verifier enumerates all realizable balanced transition profiles through length 25 using the integral-flow normal form, independently computes each number of cyclic rotation classes with a directed matrix-tree/BEST formula followed by Burnside's lemma, and compares the structural classification and closed formula. It separately constructs the exact cross-multiplied monotonicity polynomials using integer polynomial arithmetic and confirms coefficientwise nonnegativity after each of two necessary variable shifts. It printed `VERIFY_OK` when run from the final source files.
+PASS
 
-The second program builds all indexed ternary circular words through length 12, computes complete cyclic adjacent-pair profiles, reduces words to a lexicographically least rotation and counts one-necklace profile fibers. It printed `CROSSCHECK_OK` when run from the final source files.
+A matrix is realizable exactly when its positive-degree directed support is Eulerian and connected. BEST with indistinguishable parallel ordered transitions gives W(K)=n τ prod_i(d_i-1)! /prod_ij K_ij!, so Q(K)=W(K)/n is a lower bound on rotation classes and is exactly one class when Q=1 and gcd of edge multiplicities is one; repeated simple directed cycles with Q<1 are handled explicitly. Three-symbol circulation is uniquely expressible via t plus reciprocal counts a,b,c, loops at each vertex, and opposite orientation. The arborescence τ=ab+ac+bc+t(a+b+c)+t² yields loop multiplication by prod binom(l_i+s_i-1,s_i-1). Exhaustive nonloop cases and monotonicity under increments of reciprocal pairs reduce all eligible singleton profiles to the disjoint families in RESULT.md. Independently symbolically expanding the critical monotonicity ratio after nonnegative-variable substitution produces 55 nonnegative monomials in the t>=1 two-reciprocal case and 17 in the t=0 two-reciprocal case; thus the all-size inequalities do not rely only on sample data. Direct indexed ternary word enumeration with necklace rotation quotient independently reproduced U1..U12 = 3,6,11,24,45,64,93,114,139,168,201,226, agreeing with the period-six quasipolynomial.
 
-The proof for all lengths is the explicit BEST-factorial and monotonicity argument in RESULT.md. Finite checks do not establish all-length statements on their own. Historical priority and completeness of external literature are not independently certified.
+## originality
+
+PASS
+
+Jacquet–Knessl–Szpankowski determine counts/asymptotics of all balanced ternary Markov types and cite Whittle type-class counting, but uniqueness among rotation classes is a sharply different restricted property. Grisales et al count loopless edge-distinguished unique Eulerian-tour digraphs as vertex number changes; Obscura Acosta–Tomescu provide a general edge-distinguished Euler circuit uniqueness/safety criterion, not the count of 3-labeled profiles with loops and identical parallel transitions. The exact singleton-profile quasipolynomial and classification are not contained in the inspected primary theorems.
+
+## value
+
+PASS
+
+Cyclic Markov counts are natural sufficient statistics for circular symbolic data. Knowing which matrices uniquely reconstruct the word up to rotation is a meaningful identifiability invariant. The complete finite-alphabet support classification and explicit all-length degree-two period-six count distinguish this property from the much larger set of all Markov types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

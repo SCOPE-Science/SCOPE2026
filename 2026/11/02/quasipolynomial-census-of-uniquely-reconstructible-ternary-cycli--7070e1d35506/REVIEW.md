@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is stated for every ternary circular word length, with alphabet labels fixed and equivalence only under cyclic rotations. A balanced profile has a circular realization precisely when its active directed support is connected. The exact number of indexed words in each profile comes from the directed matrix-tree/BEST formula after quotienting equal arcs; consequently the number of necklaces is bounded below by its normalized expression. The proof separates periodic directed simple-cycle exceptions from primitive one-necklace profiles. Flow conservation yields a unique off-diagonal normal form. Its tree factor, factorial ratios and loop-binomial factors are computed explicitly, and a nonnegative-polynomial comparison rules out every remaining core configuration. The eleven disjoint families of one-necklace profiles sum to the asserted six-residue formula. The two delivered checkers passed: exact BEST/Burnside versus the classification through length 25 and direct-word versus the result through length 12. These finite checks are corroboration, not a substitute for the symbolic all-length argument.
+PASS
 
-## Originality — PASS, qualified
+A matrix is realizable exactly when its positive-degree directed support is Eulerian and connected. BEST with indistinguishable parallel ordered transitions gives W(K)=n τ prod_i(d_i-1)! /prod_ij K_ij!, so Q(K)=W(K)/n is a lower bound on rotation classes and is exactly one class when Q=1 and gcd of edge multiplicities is one; repeated simple directed cycles with Q<1 are handled explicitly. Three-symbol circulation is uniquely expressible via t plus reciprocal counts a,b,c, loops at each vertex, and opposite orientation. The arborescence τ=ab+ac+bc+t(a+b+c)+t² yields loop multiplication by prod binom(l_i+s_i-1,s_i-1). Exhaustive nonloop cases and monotonicity under increments of reciprocal pairs reduce all eligible singleton profiles to the disjoint families in RESULT.md. Independently symbolically expanding the critical monotonicity ratio after nonnegative-variable substitution produces 55 nonnegative monomials in the t>=1 two-reciprocal case and 17 in the t=0 two-reciprocal case; thus the all-size inequalities do not rely only on sample data. Direct indexed ternary word enumeration with necklace rotation quotient independently reproduced U1..U12 = 3,6,11,24,45,64,93,114,139,168,201,226, agreeing with the period-six quasipolynomial.
 
-Jacquet, Knessl and Szpankowski, *Counting Markov Types* (2010), evaluate the ternary balanced-matrix generating function. Their fuller paper, *Counting Markov Types, Balanced Matrices, and Eulerian Graphs* (2012), distinguishes connected realized profiles from disconnected balance solutions, supplies asymptotic type counts, and cites a general exact type-class formula. The present claim does not merely count balanced matrices: it counts profiles whose **fiber modulo cyclic rotation has cardinality exactly one** and gives a complete all-length classification and degree-two quasipolynomial. These results are not asserted in the inspected articles, and their general identities do not give the evaluated single-necklace count without the additional factorial-rigidity classification.
+## originality
 
-Grisales, Labelle, Posada and Dimitrov (2022) enumerate loopless digraphs with one edge-distinguished Euler tour as vertex count varies; Obscura Acosta and Tomescu (2023 preprint, 2024 journal article) characterize uniqueness of edge-distinguished Eulerian circuits. Neither directly counts cyclic ternary bigram profiles with repeated **indistinguishable** transitions and self-loops as edge count varies. Relevant indexed research results on binary linear adjacent-pair spectra and ternary strict ranking feasibility were compared by their claims, not only titles. None implies this statement. Residual risk: unindexed historical work on circular word reconstruction or specialized Markov-type fiber enumerators may have the same sequence.
+PASS
 
-## Value — PASS
+Jacquet–Knessl–Szpankowski determine counts/asymptotics of all balanced ternary Markov types and cite Whittle type-class counting, but uniqueness among rotation classes is a sharply different restricted property. Grisales et al count loopless edge-distinguished unique Eulerian-tour digraphs as vertex number changes; Obscura Acosta–Tomescu provide a general edge-distinguished Euler circuit uniqueness/safety criterion, not the count of 3-labeled profiles with loops and identical parallel transitions. The exact singleton-profile quasipolynomial and classification are not contained in the inspected primary theorems.
 
-An exact adjacent-pair spectrum is a classical and practically motivated finite-resolution observation of circular words. Distinguishing a uniquely reconstructible profile from one with multiple necklaces is a substantive reconstruction invariant, not the mere number of admissible profiles. The exact answer in every length, structural characterization, and explicit period-six correction identify a sparse quadratic set within a larger degree-six class of realizable ternary Markov types. The proof also handles nonprimitive repeated cycles, for which an indexed-word singleton count would be misleading.
+## value
 
-## Limits and closest literature
+PASS
 
-The claim is for a three-symbol alphabet and complete cyclic ordered-pair counts. It does not provide class-size distributions for nonunique profiles, a general alphabet formula, or independent priority certification. Named source inspections and reproducible computations provide same-author methodological checks but cannot replace independent scientific review.
+Cyclic Markov counts are natural sufficient statistics for circular symbolic data. Knowing which matrices uniquely reconstruct the word up to rotation is a meaningful identifiability invariant. The complete finite-alphabet support classification and explicit all-length degree-two period-six count distinguish this property from the much larger set of all Markov types.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
