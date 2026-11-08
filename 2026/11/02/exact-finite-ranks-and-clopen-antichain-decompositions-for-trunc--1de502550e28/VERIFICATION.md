@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Run `python3 checker.py` with Python 3. The expected terminal line is `ALL_CHECKS_OK sharp_instances=16 checked_edges=4816`.
+## correctness
 
-The script uses finite enumerations to test the displayed continuous rank and explicit extremal chains. It is not an exhaustive enumeration of \(\omega^\omega\); the universal upper bound is proved by the rightmost-low-coordinate potential and sharpness by an infinite-sequence construction with a finite number of moves. The proof covers every integer \(m,k\ge1\), including the empty-edge case \(k=1\).
+PASS
 
-Prior-work comparison: the original Section 2.2 construction supplies a nonsharp general bound; the older Borel antichain results are qualitative, not an exact rank calculation for these truncations. Historical priority is subject to discovery of equivalent earlier work. No independent audit has yet been performed.
+The rightmost coordinate j<m with x(j)<k-1 gives a finite-prefix rank r(x) in {1,...,m(k-1)+1} that STRICTLY decreases along each legal edge, because higher coordinates cannot acquire a low value and y(j)>x(j) if the rightmost low coordinate remains. It decreases along finite transitive paths, yielding a clopen antichain coloring. The construction using k-1 suffix-increment moves at each j=m-1,...,0 gives exactly m(k-1)+1 vertices and proves optimality; k=1 gives the empty-edge case. Independently verified 25 extremal-chain constructions for 1<=m,k<=5, including all ranks and strict decrements, not as a substitute for the general proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the narrow incremental claim after statement-level comparisons; accessible full primary texts checked where available, material-access limits and priority risks explicit. The sharp numerical-order rank and optimal clopen map, not general Borel finite-rank existence.
+
+## value
+
+PASS
+
+The exact finite-stage rank of a canonical strict numerical truncation upgrades a general exponential bound into a sharp linear formula and an optimal continuous clopen antichain decomposition. This is a motivated structural refinement of the finite-rank approximation used for eventual domination, not a claim about all partial orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

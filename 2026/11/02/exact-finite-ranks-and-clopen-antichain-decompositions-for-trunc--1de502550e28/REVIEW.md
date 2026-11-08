@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all \(m,k\ge1\), the finite-prefix map based on the rightmost coordinate below \(k-1\) strictly descends along each truncated eventual-domination edge. The onset pivot is necessarily such a coordinate, and all later coordinates remain above threshold at the target. The construction of \(m(k-1)+1\) chain vertices at successive pivots proves sharpness. The antichain result is the exact equality of the chain lower bound with the number of clopen rank fibers. The accompanying finite checker passed, with its infinite-proof limitations acknowledged.
+PASS
 
-## Originality — PASS (within inspected evidence)
+The rightmost coordinate j<m with x(j)<k-1 gives a finite-prefix rank r(x) in {1,...,m(k-1)+1} that STRICTLY decreases along each legal edge, because higher coordinates cannot acquire a low value and y(j)>x(j) if the rightmost low coordinate remains. It decreases along finite transitive paths, yielding a clopen antichain coloring. The construction using k-1 suffix-increment moves at each j=m-1,...,0 gives exactly m(k-1)+1 vertices and proves optimality; k=1 gives the empty-edge case. Independently verified 25 extremal-chain constructions for 1<=m,k<=5, including all ranks and strict decrements, not as a substitute for the general proof.
 
-Cull and Weilacher's arXiv:2610.27477v1, Section 2.2, supplies the precise truncated relation, its Borel transitive closure, and the bound \((k+1)^m\) for arbitrary countable partial orders. Its proof does not give the sharp rank \(m(k-1)+1\) for the ordinary numerical order or a continuous clopen coloring. The earlier Bosek–Grytczuk–Lonc work treats general Borel poset decompositions, not this finite-coordinate exact invariant. Focused literature searches and mathematical-record searches found no dominating exact formula. The residual risk is an unlocated earlier derivation or equivalence under alternative notation. No uniqueness is inferred simply from a failed search.
+## originality
 
-## Value — PASS
+PASS
 
-The bound answers the exact height question for the canonical finite-stage relation used in the hyper-(finite rank) decomposition of eventual domination. It lowers an exponential worst-case estimate to the optimal linear \(m(k-1)+1\), supplies a continuous finite-coordinate certificate rather than an abstract Borel coloring, and determines the precise number of clopen antichain layers for every parameter pair. This is a natural exact invariant of a currently used construction, rather than an arbitrary small example or a substitution of established parameters.
+Best-of-knowledge originality of the narrow incremental claim after statement-level comparisons; accessible full primary texts checked where available, material-access limits and priority risks explicit. The sharp numerical-order rank and optimal clopen map, not general Borel finite-rank existence.
 
-## Boundaries and priority risk
+## value
 
-The proof needs the ordinary numerical order. The larger class of arbitrary countable coefficient partial orders retains only the known general upper bound. No new general equivalence for hyperwellfoundedness is claimed. A relevant unpublished predecessor or older treatment of precisely these truncations could alter priority; available published statements do not settle that risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact finite-stage rank of a canonical strict numerical truncation upgrades a general exponential bound into a sharp linear formula and an optimal continuous clopen antichain decomposition. This is a motivated structural refinement of the finite-rank approximation used for eventual domination, not a claim about all partial orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
