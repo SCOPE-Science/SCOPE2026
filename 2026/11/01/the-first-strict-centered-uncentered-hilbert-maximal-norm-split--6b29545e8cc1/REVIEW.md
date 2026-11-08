@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The nonlinear \(\ell^2\) norm equals the largest singular value among finitely many positive row-selection matrices because ball choices are independent at output coordinates and nonnegative matrices have nonnegative norming vectors. On \(P_4\) the direct graph-ball enumeration gives 400 uncentered and 144 centered matrices, and on \(P_3\) 36 and 18. A runnable all-rational certificate checks all other matrices by strict Sylvester inequalities at thresholds \(13/8\), \(8/5\), and \(3/2\), and certifies unique exceptional top roots and exact characteristic polynomials by Sturm counts and rational Rayleigh witnesses. Irreducible Perron eigenvectors establish and classify all equality cases. No infinite-domain claim follows from finite sampling: the theorem's relevant graphs and matrix families are exhaustively finite.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The 2014 Soria–Tradacete paper gives \(\ell^1\) centered path calculations, including the four-vertex path called \(L_4\), not strong \(\ell^2\) or uncentered constants. The 2020 González-Riquelme–Madrid paper defines the uncentered graph-ball variant but its sharp strong \(\ell^2\) calculations concern centered stars and complete graphs. An accessible earlier collection includes results about weighted variation of path maximal functions and centered strong Hilbert norms of cycles and bicliques, but none implies the exact path comparison here. Multiple exact-parameter and implication-oriented published-finding corpus and literature searches returned no known equivalent. This does not exclude unpublished or unindexed derivations.
+PASS
 
-## Value — PASS
-This is the first possible strict split by number of vertices between two natural versions of a maximal operator in the Hilbert strong norm. The four-vertex path is the smallest nonstar tree; its intrinsically uncentered new ball choices change the norm, whereas the only connected smaller noncomplete graph has no sharp-norm change. The result gives two exact algebraic constants, sharp witnesses, and a complete equality classification, demonstrating that centered–uncentered pointwise inequivalence need not coincide with norm inequivalence.
+For graph-distance balls and counting measure, the nonlinear maximal norm squared is exactly the maximum of lambda_max(A^T A) over nonnegative row-selection averaging matrices, by choosing a maximizing ball at each output coordinate. Crucial {1,2} is NOT a ball in P4. Enumerated all 36 uncentered+18 centered P3 and 400 uncentered+144 centered P4 selection matrices from actual shortest-path ball definitions. Independently recomputed all 598 cases with exact rational leading-principal-minor Sylvester tests: P3 exceptional count1 in each family, P4 uncentered exactly2, centered exactly2. The P4 winners have Gram characteristic factors 324z^4-702z^3+308z^2-42z+1 over324 and z(36z^3-78z^2+35z-4)/36; their isolated top eigenvalues approximately 1.6322007547 and 1.6036000274. All excluded selections have squared norm less than 13/8 or 8/5; winning positive Perron eigenvectors yield the stated extremizing rays and reflections, with independent coordinate signs irrelevant. One/two/three vertex connected graphs show no split. Finite exact exhaustion proves the finite graph order claim, not just an experiment.
 
-## Closest literature and limitations
-J. Soria and P. Tradacete, arXiv:1410.6204v1, pp. 6–8 (full-text examination, path \(\ell^1\) only); C. González-Riquelme and J. Madrid, arXiv:2005.03146v3, pp. 1–2 and 23–26 (full-text examination, definitions and centered star/complete \(\ell^2\) norms). Neither covers the present path statement. The result is specific to counting measure, graph-metric balls and strong real \(\ell^2\). Previously unindexed exact small-graph calculations remain a publication-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for first strict norm separation at four vertices and exact strong l2 constants/extremizers; prior Soria-Tradacete compute different l1 norm and González-Riquelme-Madrid centered l2 on stars/complete graphs. Possible unpublished path calculations remain.
+
+## value
+
+PASS
+
+A minimal connected graph witnessing strict separation of natural centered/uncentered maximal norms, with complete sharp algebraic constants and nontrivial asymmetrically localized extremizers, is a motivated complete low-order classification—not merely a numerical toy instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

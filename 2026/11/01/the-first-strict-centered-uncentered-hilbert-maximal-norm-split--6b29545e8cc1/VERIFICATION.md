@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,7 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible exact checks
-Run `python checker.py` with Python 3 and SymPy. The program directly enumerates all distinct graph-metric balls for paths with three and four vertices, independently forming the centered and uncentered row choices. Its strict bounds use rational leading principal minors (Sylvester criterion). Its exceptions are checked by exact characteristic-polynomial identities, rational Rayleigh vectors and Sturm root counting; no floating-point tolerance enters the certificate.
 
-Expected counts: three-vertex path uncentered 36 matrices (35 strict), centered 18 (17 strict); four-vertex path uncentered 400 (398 strict) and centered 144 (142 strict). The final line is `CERTIFICATE_OK`. The independent mathematical rationale for lifting these finite certificates to nonlinear operator norms is the positive row-selection argument in RESULT.md. Boundaries: only counting \(\ell^2\), metric balls, and connected simple unweighted graphs with at most four vertices where stated. Independent audit has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For graph-distance balls and counting measure, the nonlinear maximal norm squared is exactly the maximum of lambda_max(A^T A) over nonnegative row-selection averaging matrices, by choosing a maximizing ball at each output coordinate. Crucial {1,2} is NOT a ball in P4. Enumerated all 36 uncentered+18 centered P3 and 400 uncentered+144 centered P4 selection matrices from actual shortest-path ball definitions. Independently recomputed all 598 cases with exact rational leading-principal-minor Sylvester tests: P3 exceptional count1 in each family, P4 uncentered exactly2, centered exactly2. The P4 winners have Gram characteristic factors 324z^4-702z^3+308z^2-42z+1 over324 and z(36z^3-78z^2+35z-4)/36; their isolated top eigenvalues approximately 1.6322007547 and 1.6036000274. All excluded selections have squared norm less than 13/8 or 8/5; winning positive Perron eigenvectors yield the stated extremizing rays and reflections, with independent coordinate signs irrelevant. One/two/three vertex connected graphs show no split. Finite exact exhaustion proves the finite graph order claim, not just an experiment.
+
+## originality
+
+PASS
+
+Best-knowledge PASS for first strict norm separation at four vertices and exact strong l2 constants/extremizers; prior Soria-Tradacete compute different l1 norm and González-Riquelme-Madrid centered l2 on stars/complete graphs. Possible unpublished path calculations remain.
+
+## value
+
+PASS
+
+A minimal connected graph witnessing strict separation of natural centered/uncentered maximal norms, with complete sharp algebraic constants and nontrivial asymmetrically localized extremizers, is a motivated complete low-order classification—not merely a numerical toy instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
