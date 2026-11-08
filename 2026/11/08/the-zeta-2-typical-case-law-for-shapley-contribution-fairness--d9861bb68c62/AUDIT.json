@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For every n and real s>0, exact resource-feasibility optimization gives A=sum(phi_i/v_i), where phi_i is reconstructed from max-coalition threshold games. Summation by parts yields the rank-ratio identity. Conditional beta order statistics give the gamma-ratio expectation; Dirichlet normalized spacings and elementary finite telescoping give the exact H_n^(2), 2n/(n+1), and 3n(3n+5)/[4(n+1)(n+2)] instances. A deterministic quantile-grid Riemann argument includes explicit rank-end tail bounds. The DKW deviation bound plus summable exceptional probabilities and pair-coefficient control prove a.s. and L1 convergence. Tonelli yields the positive limiting series. Standalone verify.py produced PASS 1137 checks, including independent permutation enumeration, exact rational checks and finite simulations; no finite simulation is claimed to prove a limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bei et al. (2026), Theorems 4.1 and 4.6, provide worst-case order bounds and exact fixed-instance computation, not a stochastic expectation or limit under iid productivities.",
+        "Bachrach et al. (2014), Theorem 3, gives polynomial-time Shapley computation for reliability extensions, not an approximation-ratio distribution."
+      ],
+      "reasoning": "A stronger general formula for expected optimum under any productivity law would subsume the result, but neither inspected primary source asserts one. Worst-case logarithmic guarantees do not settle whether the iid exact mean remains bounded, its value, or its pathwise monotonicity.",
+      "searches": [
+        "\"Shapley fairness\" \"average case\" linear values",
+        "\"max game\" \"Shapley value\" random values uniform expectation",
+        "fair division by contribution Shapley fairness single good uniform random valuations asymptotic expected price of fairness pi squared over six",
+        "Shapley fairness one divisible item n iid uniform agent values sum 1/j^2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.16743",
+      "https://ifmas.csc.liv.ac.uk/Proceedings/aamas2014/aamas/p29.pdf",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bei et al. (2026), Lemma 4.2 and Section 4.3, establish the deterministic max-game decomposition and the factor sum(phi_i/v_i); these steps are reused and expressly not novel.",
+        "Bachrach et al. (2014), Lemma 4 and Theorem 3, calculate fixed-weight Shapley values; they do not use iid power transformations as allocation-productivity uncertainty."
+      ],
+      "reasoning": "The new claim starts where the exact deterministic factor ends: conditioning on normalized order statistics, evaluating its full finite-n expectation, deriving special rational identities, and proving the coupled strong law with the limiting digamma curve. Neither the deterministic formula nor O(log n) worst-case ratio logically entails a fixed constant typical-case limit. It is nevertheless possible an older probabilistic calculation implies these corollaries; that is a specifically recorded residual risk.",
+      "searches": [
+        "Fair Division by Contribution A Shapley Value Perspective Bei Lu Wu Zhou 2606.16743",
+        "\"Shapley value\" \"maximum game\" \"uniform\" order statistics",
+        "\"Shapley fairness\" \"pi^2/6\" \"uniform\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bei et al. (2026), Section 4.1, gives per-agent max-game Shapley values for fixed productivities, not their stochastic population expectation or limit.",
+        "Bachrach, Savani and Shah (2014), Section 4, computes Shapley indices for fixed weights and failure probabilities."
+      ],
+      "reasoning": "The candidate could be rephrased as the expected smallest no-transfer scalar that implements max-game Shapley payoffs, or as the mean of a weighted rank-ratio functional of uniform order statistics. Searches explicitly included both formulations and the zeta(2) and second-order harmonic names. Exact max-game Shapley formulas alone do not imply the new population-law claims without order-statistic calculations and an almost-sure argument.",
+      "searches": [
+        "Fair Division by Contribution A Shapley Value Perspective Bei Lu Wu Zhou 2606.16743",
+        "one divisible good max welfare cooperative Shapley contribution fairness exact approximation sorted productivity harmonic expected uniform values zeta 2",
+        "fair division by contribution Shapley fairness single good uniform random valuations asymptotic expected price of fairness pi squared over six",
+        "Shapley fairness one divisible item n iid uniform agent values sum 1/j^2",
+        "\"Shapley fairness\" \"pi^2/6\" \"uniform\"",
+        "\"expected\" \"Shapley\" \"zeta(2)\" \"fair division\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected articles present fixed-weight Shapley formulas and approximation bounds, but no finite-n table of the gamma-ratio expected optimum, no H_n^(2) identity for this ratio, and no parameterized digamma curve."
+      ],
+      "reasoning": "The analytic statistic is a continuous-distribution expectation for arbitrary n and s rather than a finite census; a known Shapley value table could at most support individual deterministic profiles, not the all-n probabilistic identity. Search absence is not treated as proof of uniqueness.",
+      "searches": [
+        "Fair Division by Contribution A Shapley Value Perspective Bei Lu Wu Zhou 2606.16743",
+        "one divisible good max welfare cooperative Shapley contribution fairness exact approximation sorted productivity harmonic expected uniform values zeta 2",
+        "fair division by contribution Shapley fairness single good uniform random valuations asymptotic expected price of fairness pi squared over six",
+        "\"Shapley\" \"uniform\" \"sum\" \"1/k^2\" divisible resource"
+      ]
+    },
+    "rationale": "The 2026 primary paper supplies the fixed-profile max-game Shapley formula, exact allocation feasibility and worst-case logarithmic bounds; those premises are explicitly credited. Its inspected introduction, all of Section 4, conclusion and Appendix B do not state the iid power-productivity exact expectation, second-order harmonic law, pathwise stochastic ordering or almost-sure/mean digamma limit. The 2014 max-games paper computes Shapley payoffs under fixed weights and agent-failure reliabilities but not the no-transfer fairness approximation or distributions over weights. Searches of a published mathematical-results index and web literature were conducted for max-game, Shapley fairness, uniform order statistics, harmonic-order-two and digamma aliases. No equivalent or dominating statement was identified, subject to the residual unindexed-prior-work risk.",
+    "residual_risks": [
+      "An unindexed article may already compute the same expected max-game Shapley inverse-value sum or the corresponding order-statistic harmonic laws.",
+      "A general probabilistic Shapley/fairness paper not returned by the actual searches could imply the result despite different terminology.",
+      "The result assumes uncapped single-good production and does not claim priority over the fixed-profile decomposition of the primary source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS fixed-productivity Shapley decomposition, exact ratio and worst-case structural bounds; no matching random-productivity means or convergence laws found in inspected material.",
+        "evidence": [
+          "https://arxiv.org/abs/2606.16743",
+          "Initial public arXiv date June 15, 2026"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.16743",
+        "material_read": "Accessible full HTML paper: introduction, preliminaries, Section 4.1 to 4.3, conclusion, appendix B, references (with key source lines 9-63, 307-434, 509-559).",
+        "method": "Direct line-by-line reading and comparison of definitions, Lemma 4.2, Observation 4.4, Theorem 4.1, Theorem 4.6 and Appendix B.",
+        "title": "Fair Division by Contribution: A Shapley Value Perspective",
+        "trigger": "Same welfare-game, Shapley fairness and linear divisible-item approximation"
+      },
+      {
+        "assessment": "COVERS fixed-weight max-games and polynomial Shapley computation; it does not study the optimal no-transfer SVF ratio or iid power-weight means.",
+        "evidence": [
+          "https://ifmas.csc.liv.ac.uk/Proceedings/aamas2014/aamas/p29.pdf",
+          "AAMAS 2014, pp. 29-36"
+        ],
+        "identifier_or_url": "https://ifmas.csc.liv.ac.uk/Proceedings/aamas2014/aamas/p29.pdf",
+        "material_read": "PDF introduction, Definitions 1 and 2, Section 4 power-index derivations, fixed-weight Lemma 4, Theorem 3 and closing discussion, including visual page inspection.",
+        "method": "Primary PDF text and page image inspection of max-game definitions and Shapley-index results.",
+        "title": "Cooperative Max Games and Agent Failures",
+        "trigger": "Earlier treatment of exactly the same max-coalition characteristic function"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d9861bb6-8c62-4383-aa5c-8a775ceb703c",
+  "value": {
+    "rationale": "The exact expectation and a.s. constant quantify how much resource must be scaled to realize contribution-weighted Shapley entitlements for a natural random productivity model. The surprising H_n^(2) rather than H_n dependence separates iid typical performance from the logarithmic worst-case; the full one-parameter power family gives an exact finite-n gamma expression, pathwise stochastic order, closed limiting curve and asymptotic high-heterogeneity growth. This is a motivated and naturally dimensioned resource-allocation invariant, not an arbitrary finite slice or a restatement of the deterministic Shapley formula. The result also gives explicit benchmarks for simulations of contribution-fair resource allocation.",
+    "status": "PASS"
+  }
+}
