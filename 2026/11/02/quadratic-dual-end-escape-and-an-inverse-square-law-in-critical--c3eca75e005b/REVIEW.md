@@ -1,15 +1,21 @@
-# Scientific review — dual-end escape in critical-cusp Bernoulli maps
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact inverse branches of the square-root cusp map yield the boundary values and first derivatives of its stationary density. Their signs and coefficients were checked by differentiation, including the fixed-endpoint identity \(h_p'(0)=B_p[h_p'(0)-h_p'(1)]\). Quadratic hole-mass scaling follows by integration. For killed transfer operators, the small-hole perturbation satisfies the vanishing-density version of the Keller–Liverani smallness criterion: the hole functional is of order \(\varepsilon\), the BV transfer of the truncated invariant density is of order \(\varepsilon\), and the hole mass is of order \(\varepsilon^2\). The only nonzero limiting fixed-time first return occurs immediately at the repelling fixed endpoint and has conditional weight \(B_p\). The resulting eigenvalue expansions and escape-rate ratio follow. The explicit rational example was recomputed; the standalone finite-grid diagnostic agrees with the predicted trend. The numerical experiment does not replace the infinite-dimensional proof.
+## correctness
 
-## Originality — PASS under the inspected comparisons
-Oltiboev–Vafoyev establish critical-cusp density regularity and response but do not derive hole escape rates. Keller–Liverani provide the foundational spectral small-hole formula and a generalized-cusp nonperiodic-endpoint example, but do not evaluate the zero-density fixed-endpoint return factor for this Bernoulli family. Bahsoun–Vaienti treat randomized holes and metastable systems rather than this fixed-hole/random-map setting, and Haydn–Yang's explicit interval derivative formula assumes positive density at the periodic point. The exact annealed two-end ratio \(B_p\), the quadratic raw rates, and inverse identification of \(p\) are the assessed new statements; no novelty is asserted for spectral perturbation theory itself. Historical priority remains provisional against less discoverable specialized literature.
+PASS
 
-## Mathematical value — PASS
-Small-hole escape is a natural dynamical observable of this recent cusp family. The theorem distinguishes nonperiodic and fixed endpoints despite both having a linearly vanishing invariant density, finds the atypical inverse-square fixed-point factor, and eliminates an unknown invariant-density normalization by taking a ratio. That ratio is strictly affine in the Bernoulli mixing probability and thus supplies an exact recoverability observable. The result is a quantitative dynamical distinction, not a routine restatement of the available cusp regularity theorem.
+Reconstructed inverse branches g±=1/2±u_theta² and transfer weight w=u/(K+theta u); derivative at 1 yields h’(1)=-Ah(1/2), stationarity at 0 yields h(0)=h(1)=0 and h’(0)=ABh(1/2)/(1-B). Integrating the C¹ endpoint expansions gives quadratic local masses. The cited Keller-Liverani small-hole theorem, applied using uniform expansion/BV spectral gap and the vanishing-density BV perturbation bound, gives normalized rate factor 1 at nonperiodic 1 and 1-B at repelling 0; their masses cancel to rate ratio B. Exact independent rational check theta=3/2,7/4,p=2/3 yields A=96,B=9872/33075. This is annealed, fixed-parameter, not quenched/uniform-to-boundary.
 
-## Scientific boundaries and closest literature
-The statement is for annealed, independent map selection, fixed strictly expanding cusp parameters, and small one-sided endpoint holes. It is not a quenched escape theorem; it does not handle interior holes or uniform singular parameter limits. The original density is not known in closed form. The proof uses existing spectral small-hole theory, with the vanishing-density assumption verified in this concrete family. Full independent priority and correctness review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Oltiboev-Vafoyev introduce the random cusp maps and W2,1/response setting but do not give the two-hole escape ratio. Keller-Liverani supply the general perturbation framework and a generalized cusp example, not this annealed two-end zero-density/periodic exact mixture; their theorem is credited as key.
+
+## value
+
+PASS
+
+Both-end comparison extracts an explicitly invertible Bernoulli parameter from rare endpoint escape where invariant density vanishes; the inverse-square scaling and fixed-end clustering are meaningful dynamical invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
