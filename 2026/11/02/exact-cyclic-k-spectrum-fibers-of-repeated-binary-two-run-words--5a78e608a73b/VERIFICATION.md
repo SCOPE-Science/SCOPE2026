@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later; no nonstandard libraries or external files are required. The program builds actual cyclic substring multisets, groups all binary necklaces of lengths at most 16, and compares the resulting inverse class sizes with an independently evaluated totient–binomial formula for every eligible two-run periodic target. A separate constructor redistributes run lengths using a deterministic pseudo-random seed and compares read multisets directly.
+## correctness
 
-Observed execution:
+PASS
 
-```text
-VERIFY_OK exhaustive_parameter_k_cases=568 cyclic_necklaces_examined=8914 independent_constructed_words=26160 max_exhaustive_n=16 max_constructed_t=6
-```
+PASS. Every cyclic k-spectrum determines lower spectra, the numbers of zero/one symbols and the t occurrences each of 01 and 10. Presence of short factors y x^s y pins all runs shorter than k-1 to the source length, whereas x^{k-1} enforces long-run lower bounds. With fixed totals, mixed k-windows cannot see redistributions of excess above k-1 and the monochromatic windows have fixed counts. Allowed ordered run-pair vectors are therefore weak compositions with totals t max(a-k+1,0) and t max(b-k+1,0); Burnside over simultaneous cyclic shifts gives the stated totient/binomial formula. Nonuniform vs constant excess vectors show k_unique=1+max(a,b). Independent exhaustive partitions of all binary necklaces up through n=12 for every k and valid a,b,t agreed with formula; this is corroboration, the all-n proof is by run structure and Burnside.
 
-The exhaustive ranges are finite and do not establish an infinite theorem by themselves. The general statement instead follows from the run-detection and Burnside arguments in `RESULT.md`. No independent scientific audit has been performed.
+## originality
+
+PASS
+
+Best-knowledge PASS for periodic two-run cyclic exact inverse-fiber formula. Ota–Manada study the exact circular frequency setting, but their explicit Assumption 1 requires all length-n rotations distinct, hence excludes source period a+b<n when t>=2. Gabrys–Milenkovic study coded linear substring spectra, not exact periodic cyclic necklace fibers.
+
+## value
+
+PASS
+
+PASS. It gives the complete inverse solution set for an important concrete imprimitive cyclic-word family and the exact shortest reconstructing read length, useful independently of a general assembly theorem. The threshold and all-fiber size are natural, not arbitrary numeric slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

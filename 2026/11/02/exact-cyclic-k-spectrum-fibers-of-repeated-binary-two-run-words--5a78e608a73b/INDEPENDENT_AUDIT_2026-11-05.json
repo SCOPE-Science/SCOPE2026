@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T16:11:31.311035Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Every cyclic k-spectrum determines lower spectra, the numbers of zero/one symbols and the t occurrences each of 01 and 10. Presence of short factors y x^s y pins all runs shorter than k-1 to the source length, whereas x^{k-1} enforces long-run lower bounds. With fixed totals, mixed k-windows cannot see redistributions of excess above k-1 and the monochromatic windows have fixed counts. Allowed ordered run-pair vectors are therefore weak compositions with totals t max(a-k+1,0) and t max(b-k+1,0); Burnside over simultaneous cyclic shifts gives the stated totient/binomial formula. Nonuniform vs constant excess vectors show k_unique=1+max(a,b). Independent exhaustive partitions of all binary necklaces up through n=12 for every k and valid a,b,t agreed with formula; this is corroboration, the all-n proof is by run structure and Burnside.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gabrys–Milenkovic arXiv:1804.04548 cover linear coded reconstruction and repeat replacement; Resultary two-multispectrum classification pertains a different linear observation."
+        ],
+        "reasoning": "Neither yields counts of necklace inverse fibers for all k and arbitrary run lengths, even though both belong to the broader string-reconstruction field.",
+        "searches": [
+          "https://arxiv.org/pdf/1804.04548",
+          "Resultary: exact binary two multispectrum code size and singleton classification"
+        ]
+      },
+      "checked_sources": [
+        "https://www.jstage.jst.go.jp/article/transfun/advpub/0/advpub_2023TAP0015/_pdf",
+        "https://arxiv.org/pdf/1804.04548",
+        "Resultary: exact binary two multispectrum code size and singleton classification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic Eulerian de Bruijn graph counting can reconstruct cyclic words, but deriving the explicit two-independent weak-composition orbit formula requires the run-boundary characterization."
+        ],
+        "reasoning": "The exact factor counts and sharp uniqueness threshold are not immediate from the checked general algorithmic condition, particularly because Ota–Manada exclude repeated source rotations.",
+        "searches": [
+          "https://www.jstage.jst.go.jp/article/transfun/advpub/0/advpub_2023TAP0015/_pdf",
+          "https://arxiv.org/pdf/1804.04548"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ota–Manada Sec.2 Assumption 1: any two length-n substrings of the circular input must be distinct. For (0^a1^b)^t with t>=2, there are repeated rotations by period a+b."
+        ],
+        "reasoning": "Related cyclic inverse methods explicitly assume primitive input; they cannot be applied directly to the stated imprimitive family.",
+        "searches": [
+          "binary circular substring k spectrum repeated 0^a1^b necklace inverse fiber Burnside unique reconstruction lengths",
+          "https://www.jstage.jst.go.jp/article/transfun/advpub/0/advpub_2023TAP0015/_pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ota–Manada consider MAW reconstruction of primitive circular binary strings; published source did not provide binomial Burnside fiber counts for imprimitive two-run necklaces."
+        ],
+        "reasoning": "No checked exact table matches the cyclic k-spectrum fiber sequence (3,2,2): (8,2,1) or (4,2,3): (184,10,4,1).",
+        "searches": [
+          "binary circular substring k spectrum repeated 0^a1^b necklace inverse fiber Burnside unique reconstruction lengths",
+          "https://www.jstage.jst.go.jp/article/transfun/advpub/0/advpub_2023TAP0015/_pdf"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for periodic two-run cyclic exact inverse-fiber formula. Ota–Manada study the exact circular frequency setting, but their explicit Assumption 1 requires all length-n rotations distinct, hence excludes source period a+b<n when t>=2. Gabrys–Milenkovic study coded linear substring spectra, not exact periodic cyclic necklace fibers.",
+      "residual_risks": [
+        "General de Bruijn Euler-tour formulas might imply the same very-specialized Burnside count under a less explicit wording.",
+        "No noisy, linear or reversal-identified reconstruction is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Excludes imprimitive repeated necklaces and gives algorithms/uniqueness, not these all-k inverse fiber cardinalities",
+          "evidence": "Sec.2 Assumption 1 (page 2) and reconstruction framework",
+          "identifier_or_url": "https://www.jstage.jst.go.jp/article/transfun/advpub/0/advpub_2023TAP0015/_pdf",
+          "material_read": "Complete accessible 10-page J-STAGE PDF text; introduction, Sec.2 Assumption 1 and reconstruction condition/algorithm sections",
+          "method": "read primary PDF and checked paragraph around Assumption 1",
+          "title": "A Reconstruction of Circular Binary String Using Substrings and Minimal Absent Words",
+          "trigger": "same cyclic substring-frequency reconstruction"
+        },
+        {
+          "assessment": "Different linear coded setting and asymptotic redundancy aims; does not give periodic circular inverse counts",
+          "evidence": "Abstract and introduction",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.04548",
+          "material_read": "17-page arXiv PDF abstract, introduction and reconstruction/codebook setup",
+          "method": "read PDF searchable text and title-page screenshot",
+          "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+          "trigger": "related exact multiset substring coding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. It gives the complete inverse solution set for an important concrete imprimitive cyclic-word family and the exact shortest reconstructing read length, useful independently of a general assembly theorem. The threshold and all-fiber size are natural, not arbitrary numeric slices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "a,b>=1; t>=2; 2<=k<=n, cyclic exact multiplicity-preserving k-windows; reversal and complementation are NOT equivalences.",
+    "Finite length<=12 checks are corroboration only; all-n proof depends on run-structure argument."
+  ],
+  "schema_version": 1
+}
