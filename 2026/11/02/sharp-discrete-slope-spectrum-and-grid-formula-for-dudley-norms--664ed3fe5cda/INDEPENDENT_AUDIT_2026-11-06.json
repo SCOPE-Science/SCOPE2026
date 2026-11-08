@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T11:58:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The lifted polytope Q with |f|<=1-b and |df|<=b projects exactly onto BL sum norm unit ball. Any nonconstant extreme f has a unique lift and 0<b<1; tight-edge components must contain anchors or permit constant translation perturbations. If no tight component has both sign anchors, a two-sided b perturbation along integer tight paths contradicts vertexhood. Thus an opposite-sign anchored tight path yields 2(1-b)=k b with integer 1<=k<=diameter, forcing b=2/(k+2) and parity-grid vertices. For every such k, a clipped distance-to-u function is a vertex due to tight-geodesic constraints plus negative anchors. Feasible grid labels and polytope extremal support prove the dual formula, and path DP follows by exact last-state recursion in O(n^3). Independent rational DP-grid comparisons on paths n=2..6 and direct small polytope calculations corroborate. Sum norm, signed masses, and zero-seminorm constants are treated distinctly.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General finite-metric LP methods yield computable dual norms already; this all-graph theorem sharpens by an exact integer slope spectrum, parity-grid feasible formulas, and path O(n³) DP.",
+          "General representation theorems do not automatically supply graph-specific integer k restrictions without this tight-anchors argument."
+        ],
+        "reasoning": "No novelty claim about mere LP computability; nontrivial new classification is not an immediately quoted special case of inspected finite-metric framework.",
+        "searches": [
+          "Hille Theewis arxiv:2206.12234 finite weighted Dirac Fortet Mourier computational methods",
+          "Hille Theewis arxiv:2305.08500 finite bounded Lipschitz extreme points"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and CHECKER.py",
+        "Hille–Theewis arxiv:2305.08500 inspected finite-space full-text sections",
+        "Hille–Theewis arxiv:2206.12234 bibliographic scope",
+        "Bredies–Chirinos Rodriguez–Naldi arxiv:2304.14039 bibliographic scope",
+        "Jabłoński–Marciniak-Czochra arxiv:1304.3501 alternative max norm",
+        "Resultary semantic query: Dudley bounded Lipschitz sum norm finite graph metric extreme points quantized slopes parity grid dynamic program"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite metric polytope is known; current proof explicitly exploits unit-edge integral tight increments and opposite anchors to derive b=2/(k+2).",
+          "Bredies et al treat a Lipschitz-only seminorm ball, with different normalization."
+        ],
+        "reasoning": "The quantified discrete structural theorem goes beyond a generic LP statement; finite-metric frameworks are credited and novelty narrowed accordingly.",
+        "searches": [
+          "arxiv:2305.08500 Section 6 finite metric spaces",
+          "arxiv:2206.12234 finite LP general methods",
+          "arxiv:2304.14039 Lipschitz unit ball"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hille–Theewis 2023 gives general finite-metric extreme-point descriptions and norming sets, but the inspected finite-space discussion does not state unit-edge diameter slope quantization and realization of all k.",
+          "Related Lipschitz seminorm ball differs from the sum of supremum and Lipschitz seminorm used here."
+        ],
+        "reasoning": "Searched flat/Fortet–Mourier/Dudley aliases and compared the normalization precisely rather than classifying all extreme-point literature as unrelated.",
+        "searches": [
+          "Dudley bounded Lipschitz sum norm finite graph metric extreme points quantized slopes parity grid dynamic program",
+          "bounded Lipschitz unit ball finite metrics Fortet Mourier extreme points graph shortest path",
+          "flat distance graph metric parity slope vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary surfaced equiradial-star Dudley norm and other graph Lipschitz-free facet calculations, not the exact sum-norm all-unit-edge graph extreme slope spectrum.",
+          "Seven small graph vertices checked in original CHECKER.py; independently reproduced path norm DP against direct parity-label search."
+        ],
+        "reasoning": "A finite database is not the unrestricted result and cannot establish the quantization proof.",
+        "searches": [
+          "Dudley bounded Lipschitz sum norm finite graph metric extreme points quantized slopes parity grid dynamic program",
+          "Resultary Dudley finite star metrics exact dual norm"
+        ]
+      },
+      "rationale": "Best-of-knowledge after actual Resultary search, direct primary theorem comparison and mathematical equivalence tests. None of the inspected statements logically dominates the complete final claim; sources and access risks below qualify historical-priority uncertainty.",
+      "residual_risks": [
+        "A stronger theorem in an uninspected portion of broader extreme-point literature may subsume the quantization statement.",
+        "Finite path DP is not asserted asymptotically superior to all generic graph LP solvers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Found general theory but not the unit-edge graph diameter-indexed complete slope realization or parity-grid path DP in inspected section.",
+          "evidence": [
+            "Finite-metric discussion Section 6, normalizations carefully distinguished."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.08500",
+          "material_read": "Accessible full-text HTML, section on finite metric spaces and extreme-point discussion, including finite-space characterization.",
+          "method": "Read primary full-text relevant sections",
+          "title": "Norming and dense sets of extreme points of the unit ball in spaces of bounded Lipschitz functions",
+          "trigger": "Direct topic: extreme points of BL sum-norm ball"
+        },
+        {
+          "assessment": "Generic LP computability credited; no whole-paper absence claimed.",
+          "evidence": [
+            "General finite weighted Dirac measures handled by finite LP methodology."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.12234",
+          "material_read": "Bibliographic abstract and described finite linear programming scope; no entire primary text inspection in this run.",
+          "method": "Literature search",
+          "title": "Explicit expressions and computational methods for the Fortet–Mourier distance to finite weighted sums of Dirac measures",
+          "trigger": "Potential dominating general finite-metric formula"
+        },
+        {
+          "assessment": "Distinct norm normalization, so no direct claim implication established.",
+          "evidence": [
+            "Lipschitz unit ball rather than sup norm plus Lipschitz seminorm."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.14039",
+          "material_read": "Bibliographic abstract and scope of Lipschitz (not BL sum) ball.",
+          "method": "Literature comparison",
+          "title": "On extreme points and representer theorems for the Lipschitz unit ball on finite metric spaces",
+          "trigger": "Extremal characterization alternative"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This sharp structural classification links graph diameter to all attainable extreme-point slopes of a standard probability-metric dual ball. Exact grid values and path dynamic programming offer a reusable discrete framework beyond mere generic LP computability; all allowed slopes are attained. The result applies to natural unit-edge graph metrics, not arbitrary chosen slices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real finite connected unit-edge graphs, >=2 vertices; arbitrary weighted metrics and uniform polynomial complexity for general graph grid maximization excluded."
+  ],
+  "schema_version": 1
+}

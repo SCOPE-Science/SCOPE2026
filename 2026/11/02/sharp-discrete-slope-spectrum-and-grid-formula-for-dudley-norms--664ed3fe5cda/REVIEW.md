@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The lifted-polytope proof derives a necessary opposite-sign anchored tight-edge component, whence the integer slope equation and complete graph-diameter bound. It constructs an actual extremal Lipschitz function for every integer slope via truncated distance profiles. Polytope duality then proves the norm identity, while a prefix-state induction gives the path recursion. The accompanying exact-rational checker provides finite supplementary comparisons, not a substitute for proof. Boundary cases include two vertices, arbitrary signs and nonzero total mass.
+## correctness
 
-## Originality
-PASS, qualified. The closest primary treatment of extreme points in bounded-Lipschitz sum-norm spaces is Hille–Theewis, arXiv:2305.08500v1. The related computational article arXiv:2206.12234 develops polyhedral LP methods for arbitrary finite metric spaces, so general computability is known. Neither inspected paper states the graph-diameter-indexed complete slope spectrum, realizability of each slope, or the parity-grid maximization statement. Other closely related studies concern the Lipschitz seminorm alone (arXiv:2304.14039) or a maximum-norm rather than sum-norm constraint (arXiv:1304.3501). Earlier equivalent characterizations remain a bibliographic risk.
+PASS
 
-## Mathematical value
-PASS. The result converts a general bounded-Lipschitz extremal problem into a sharp integer-valued structural classification on all finite unit-edge graphs, with every allowed slope attained. The arbitrary-signed-mass dual formula is a direct exact application, and paths yield a transparent exact-arithmetic cubic-time algorithm. The work is a graph-specific structural refinement, not an unsupported claim of superior complexity over generic LP.
+The lifted polytope Q with |f|<=1-b and |df|<=b projects exactly onto BL sum norm unit ball. Any nonconstant extreme f has a unique lift and 0<b<1; tight-edge components must contain anchors or permit constant translation perturbations. If no tight component has both sign anchors, a two-sided b perturbation along integer tight paths contradicts vertexhood. Thus an opposite-sign anchored tight path yields 2(1-b)=k b with integer 1<=k<=diameter, forcing b=2/(k+2) and parity-grid vertices. For every such k, a clipped distance-to-u function is a vertex due to tight-geodesic constraints plus negative anchors. Feasible grid labels and polytope extremal support prove the dual formula, and path DP follows by exact last-state recursion in O(n^3). Independent rational DP-grid comparisons on paths n=2..6 and direct small polytope calculations corroborate. Sum norm, signed masses, and zero-seminorm constants are treated distinctly.
 
-## Limitations
-Unit-edge real finite graphs only; weighted metrics can have different extreme slopes. The general graph labeling formula is not asserted polynomial-time. Bibliographic searches cannot exclude every earlier equivalent characterization; independent assessment has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge after actual Resultary search, direct primary theorem comparison and mathematical equivalence tests. None of the inspected statements logically dominates the complete final claim; sources and access risks below qualify historical-priority uncertainty.
+
+## value
+
+PASS
+
+This sharp structural classification links graph diameter to all attainable extreme-point slopes of a standard probability-metric dual ball. Exact grid values and path dynamic programming offer a reusable discrete framework beyond mere generic LP computability; all allowed slopes are attained. The result applies to natural unit-edge graph metrics, not arbitrary chosen slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
