@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-ball representation is exact for the five-cycle. Independent row selection reduces the nonlinear \(\ell^2\) norm to 243 finite matrix norms. A standalone rational certificate shows \(\tau I-A^{\mathsf T}A\) positive definite for all 238 nonwinning choices at \(\tau=1463/1000\); the five remaining choices are graph rotations. Their Perron restriction has a characteristic cubic whose root lies strictly above \(\tau\). The positive eigenvector gives active averaging balls and the entire equality class. The proof covers every real input, including zero coordinates and arbitrary signs. No finite sampling is used to infer a statement about an infinite graph family.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The October 22, 2014 preprint of Soria–Tradacete studies sharp graph maximal bounds but its inspected scopes and sections do not give this five-cycle strong \(\ell^2\) norm; the 2020 González-Riquelme–Madrid preprint gives strong \(\ell^2\) norms for stars and complete graphs. The closest accessible previous local result concerns the four-cycle and does not imply the five-cycle statement. Published-research semantic searches for the exact fifth-cycle algebraic constant, equivalent spectral formulation, and extremizer geometry found no covering result. Index incompleteness remains a publication-priority risk, not a mathematical proof of novelty.
+PASS
 
-## Value — PASS
-The five-cycle is the smallest noncomplete odd cycle and the first diameter-two odd cycle with three distinct centered ball sizes. Its exact strong-type constant fills a natural gap between the classical complete/star examples and the even four-cycle. The mixed three-scale maximizer and complete classification of alternating two-peak extremizers are structurally informative, not merely a numerical bound for an arbitrary induced subgraph. The finite result does not claim a general cycle theorem.
+For real unweighted centered-ball maximal operator on C5, each vertex may choose one of radii 0,1,2, giving an exact max of 3^5=243 row-wise averaging matrices. Nonnegative Gram matrices permit positive Perron extremizers. Rational LDL positivity at tau=1463/1000 is a finite exhaustive certificate for all 238 nonwinning patterns; the other five are rotations of (2,2,0,1,0). The winner reduces on (a,a,b,c,b) to the generalized cubic 225t^3-390t^2+91t-4, whose isolated Perron root t is 1.465662645..., and strict active-ball inequalities and simplicity classify the five rays up to scaling/signs. Independently reconstructed all 243 matrices and eigenvalues: exactly five maximizers; next squared norm 1.461197014917107 < tau < 1.465662645093066. This exhaustive finite computation supports the finite C5 theorem; it does not extrapolate to other graph sizes.
 
-## Independent verification and limitations
-The exhaustive finite certificate is included as `verify_c5.py`, and the proof's determinant and root steps are given in `RESULT.md`. Unindexed equivalent results could exist; general cycles, weights, and other exponents remain outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Graph-ball maximal bounds on finite graphs and sharp ell-2 results for complete graphs and stars do not determine the noncomplete odd cycle C5 or classify its maximizing radius patterns. Search against published records found other C5 function-space invariants and C4 comparisons, not an equivalent C5 strong ell-2 extremizer result. Priority qualified against unindexed finite graph calculations.
+
+## value
+
+PASS
+
+The five-cycle is the smallest nontrivial odd cycle outside complete/star cases. The exact sharp constant and all extremizers are natural graph operator invariants, a reusable benchmark for maximal-operator inequalities and symmetry versus nonlinearity. Although finite, the 243-choice spectral competition and exact algebraic certificate are not a bare textbook substitution or arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
