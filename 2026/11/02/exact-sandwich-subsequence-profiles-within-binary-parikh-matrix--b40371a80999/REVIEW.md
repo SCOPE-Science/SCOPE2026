@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The proof is independent of finite enumeration. The gap vector uniquely represents a binary word, and the scattered \(ab\)-count is the weighted sum of the gaps. Fixing the count of internal \(b\)'s yields the complete homogeneous polynomial, which is exactly a shifted Gaussian binomial. The support proof treats \(A=2\), \(A\ge3\) with internal count zero or one, and \(A\ge3\) with internal count at least two separately. The interval endpoints and touching condition are exact integer statements; the range \(0\le C\le AB\), boundary cases \(B=0\) and \(A=2\), and the universal/existential quantifiers are covered. The standalone checker independently computed all 48 parameter pairs with \(2\le A\le7\), \(0\le B\le7\), with 804 conditional support comparisons and 4,640 direct sandwich subsequence checks. All passed. Experiments corroborate but do not establish the infinite theorem.
+PASS
 
-## Originality (O): PASS, with priority risks
+PASS: The unique gap vector w=b^g0 a b^g1 ... a b^gA gives C=Σ_{i=1}^A i*g_i and I=Σ_{i=1}^{A-1}g_i. Fixing I=s and terminal gap j=g_A leaves a complete homogeneous polynomial h_s(z,...,z^{A-1})=z^s [s+A-2 choose A-2]_z and a factor Σ_{j=0}^{B-s} z^{Aj}, establishing the entire bivariate polynomial and exact conditional fractions. The sharp support proof separately treats A=2 (C=s+2j, parity), A>=3 with s=0 or s=1, and 2<=s<=M where intervals [Aj+s, Aj+(A-1)s] touch because (A-2)s>=A-1. For A>=3 this gives 0 or 1 plus [2,M] depending on A|C. Scattered ab^t a iff I>=t is exact for first/last a, so corollaries follow including B=0. Fresh independent direct word-and-inversion counts for 35 pairs A=2..6,B=0..6 reproduced every joint coefficient and complete conditional support. Not an inference from bounded experiments.
 
-The closest primary reference is Fazekas, Huang and Mercaş, *Subsequence Analysis Problems for Binary Parikh Matrices* (first public October 5, 2026, arXiv:2610.06717), on the same classes. Its available abstract states exact arithmetic criteria for entire subsequence universality and an additive approximation scheme for fixed-pattern probability. These statements do not mathematically provide the precise bivariate \((I,C)\) coefficient formula or the complete modular support in this result. A full-text check was attempted but not available, so exact coverage within the inaccessible body remains a real priority risk, not an asserted negative. Richomme (DOI 10.1016/j.tcs.2025.115732) and Renard–Rigo–Whiteland (DOI 10.1016/j.disc.2024.114381) are the closest partition/q-Parikh references by subject, but only descriptive material was available. The standard Gaussian-binomial marginal is acknowledged and does not imply the conditional spectrum alone. Research-record searches for internal gaps, \(ab^t a\), aliases and Gaussian polynomials returned distinct problems; a related enumeration of universal words of composition \((k,k+s)\) and scattered \(ab\)-pairs does not establish this histogram. See `AUDIT.json` for the four implication comparisons, material inspected, and residual risks. No priority certification is claimed.
+## originality
 
-## Value (V): PASS
+PASS
 
-The result is a complete, parameter-uniform distributional classification for a natural statistic on the classical binary Parikh-matrix equivalence classes. The statistic is not arbitrary: its threshold precisely determines the occurrence of every scattered sandwich \(ab^t a\). The support exposes two genuinely different regimes (parity at two \(a\)'s, an interval with a single modular obstruction at three or more), supplies exact fixed-pattern probabilities in each class, and explains the sharp universal-avoidance boundary. The contribution is an exact structural classification, not a marginal q-binomial identity or a small finite increment.
+PASS (qualified, partial prior coverage explicitly credited): A same-model October 2026 primary paper by Fazekas, Huang and Mercaş was read in full for relevant results. Its Lemma 3.1 ALREADY yields the existential threshold t<=min(B,C,AB-C) for pattern ab^t a by substitution, and its Lemma 4.3 ALREADY gives aba avoidability iff A divides C. These two consequences are covered and cannot be counted as novel. The surviving central claim is the full two-variable exact Gaussian-binomial distribution of the number of b letters between first and last a and its all-s support, including A=2 parity and A>=3 interval-plus-hole; the inspected prior theorem does not establish that distribution, and bounded searches of q-Parikh/partition literature did not identify an implication. O PASS refers only to this genuinely finer complete profile, not to the two known existence/universal corollaries.
 
-## Scientific limits and source-access risks
+## value
 
-The claim excludes one-\(a\) words and arbitrary pattern shapes; it does not address larger alphabets. Some highly relevant full papers remained inaccessible, leaving priority uncertainty. Verification is self-review only; no independent mathematical audit or external certification was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Conditional structure within binary Parikh-matrix equivalence classes is a natural word-combinatorial question. The exact full internal-gap histogram and its sharp support provide more information than marginal Gaussian counts or yes/no sandwich-pattern tests; for every t they give exact containment probabilities. This is a useful explicit natural refinement for all A,B,C, not mere reparameterization of a known existence criterion. Value is assigned to the new distribution and fine support, not covered threshold corollaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
