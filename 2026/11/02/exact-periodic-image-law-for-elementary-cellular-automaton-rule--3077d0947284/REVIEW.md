@@ -1,19 +1,21 @@
-# Review: Exact periodic image law for elementary cellular automaton Rule 30
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns indexed binary rings of every length \(n\ge1\), with simultaneous Rule 30 local update \(x_{i-1}\oplus(x_i\lor x_{i+1})\). Each output symbol induces a deterministic inverse step on the four adjacent-input pairs; an output has a same-period predecessor precisely if the resulting transformation has a fixed point. This also handles the one-cell and two-cell rings. The two inverse maps generate a completely enumerated monoid of 41 transformations, 30 of which accept. The exact polynomial identity follows from the verified first 49 rational-series coefficients because the unfactored 41-state adjugate numerator difference has degree at most 48. The formal coefficient identity then yields the stated recurrence, and root moduli yield the asymptotic law. `verify.py` regenerates `certificate.json` and returns `VERIFY_OK`; independently brute-forced images through length 17, and the implied missing-state values match the published Faulkenberry census for every length through 27. These finite checks do not replace the rational-series proof.
+PASS
 
-## Originality — PASS (historical priority qualified)
+Local backward-pair maps T0=(0,2,3,3), T1=(2,0,1,1) reconstruct each same-period input iff their cyclic composition fixes a pair. Independently regenerated the complete 41-transformation closure (30 accepting fixed-point states) from these maps and its first 49 image-count coefficients; each matched the claimed rational series P/Q. For the 41-state transfer matrix, H(z)/D(z) has deg H<=40, deg D<=41; QH-PD has degree<=48, so equality of coefficients 0..48 establishes the rational identity at ALL n. Newton sums of t^3-t^2-2 establish b_n=(s_n+1-2*1_{3|n})/2 and its dominant-root asymptotics. Finite direct ring counts through n<=17 are diagnostic only; n=1,2 repeat-neighbor boundaries explicitly covered.
 
-The central object is **same-period cyclic image cardinality**, not open-boundary block preimage count. Jen (1989), *Enumeration of Preimages in Cellular Automata*, relevant inspected full-text pages, gives four finite-window preimages for Rule 30 with boundary freedom: that does not cover one-step image counts of indexed rings for all lengths. Wolfram's 2019 primary discussion shows individual finite-ring graphs but not the displayed rational all-length image series. Faulkenberry (2016), Appendix A Table 6, supplies a genuine 27-length cyclic Rule 30 Garden-of-Eden census; all 27 entries are exactly consistent with the formula, but the inspected thesis sections provide finite data, not an all-length derivation, recurrence or asymptotic. The Elementary CA Zoo provides selected finite checks. Targeted published-result searches for the exact sequence, dominant root, generating-function factor, image-cardinality aliases and the broader transformation-monoid formulation did not identify an equivalent or stronger all-length theorem. The original 1983 Wolfram manuscript was not read in full and unindexed exact literature remains a residual historical-priority risk. There is no claim that the underlying finite-state enumerator, the finite counts, or left permutivity is new.
+## originality
 
-## Value — PASS
+PASS
 
-The one-step finite-ring image size is a natural invariant quantifying how far a fundamental left-permutive cellular automaton is from surjectivity **at the same finite period**. The explicit all-length formula distinguishes exact-period realizability from bi-infinite surjectivity and turns previously published 27-term numerical observations into a proved rational series, recurrence, and sharp exponential missing-output rate. It answers a meaningful family-wide reachability-count question without requiring a downstream dynamical theorem.
+No covering all-n formula found among materially inspected Rule-30 primary records; the preimage/window theorem of Jen and finite orphan table of Faulkenberry have different quantifiers. The all-n rational image and exponential orphan laws are assessed new subject to an unindexed older automata enumeration.
 
-## Scientific scope and risk
+## value
 
-Only the indexed one-step Rule 30 image is counted. Individual predecessor multiplicities, multistep images, period distribution of dynamics, noise, and global questions about Rule 30 are not established. Historiographic precedence is provisional pending independent literature auditing; self-review is not external mathematical certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact global image census for a canonical nonlinear cellular automaton turns a finite-state reachability obstruction into a proved all-length recurrence and sharp exponential loss; finite orphans alone do not yield the infinite law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

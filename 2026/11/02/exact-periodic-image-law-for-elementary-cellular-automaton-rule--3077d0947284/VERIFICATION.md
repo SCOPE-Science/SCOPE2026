@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the Rule 30 cyclic image law
+# Independent mathematical audit
 
-Run `python3 verify.py` with `certificate.json` present in the same directory. Both files are self-contained except for the Python standard library. The checker prints `VERIFY_OK` if every assertion succeeds.
+## correctness
 
-The exact checks are: generation of all 41 distinct monoid transformations from the two inverse maps; closure and all 82 labeled transitions; acceptance of exactly 30 fixed-point transformations; exact comparison against every transformation, transition, bit, polynomial coefficient, and 49 stored series coefficients; equality of the first 49 coefficients of the 41-state rational series with the claimed rational formula; direct exhaustive binary-ring enumeration for each length from 1 through 17; and consistency of the formula for lengths 1 through 27 with the independently published May 2016 finite Rule 30 census of Faulkenberry, Table 6.
+PASS
 
-The infinite proof uses an explicit degree bound. The 41-state rational series has a numerator of degree at most 40 and denominator of degree at most 41. The claimed rational function has numerator and denominator of degree 7. Their cross-multiplied difference has degree at most 48, and the exact 49-coefficient comparison proves this polynomial vanishes identically. Therefore the check of finitely many integer coefficients certifies a formal all-length identity rather than merely extrapolating a numeric trend. The document `RESULT.md` gives the pair-state equivalence, the algebra to the recurrence, and the root-asymptotic deduction.
+Local backward-pair maps T0=(0,2,3,3), T1=(2,0,1,1) reconstruct each same-period input iff their cyclic composition fixes a pair. Independently regenerated the complete 41-transformation closure (30 accepting fixed-point states) from these maps and its first 49 image-count coefficients; each matched the claimed rational series P/Q. For the 41-state transfer matrix, H(z)/D(z) has deg H<=40, deg D<=41; QH-PD has degree<=48, so equality of coefficients 0..48 establishes the rational identity at ALL n. Newton sums of t^3-t^2-2 establish b_n=(s_n+1-2*1_{3|n})/2 and its dominant-root asymptotics. Finite direct ring counts through n<=17 are diagnostic only; n=1,2 repeat-neighbor boundaries explicitly covered.
 
-This is a reproducible exact computational certificate and a self-review, not a separately performed independent mathematical audit. The public literature record may contain an equivalent earlier result not identified by the cited comparisons.
+## originality
+
+PASS
+
+No covering all-n formula found among materially inspected Rule-30 primary records; the preimage/window theorem of Jen and finite orphan table of Faulkenberry have different quantifiers. The all-n rational image and exponential orphan laws are assessed new subject to an unindexed older automata enumeration.
+
+## value
+
+PASS
+
+Exact global image census for a canonical nonlinear cellular automaton turns a finite-state reachability obstruction into a proved all-length recurrence and sharp exponential loss; finite orphans alone do not yield the infinite law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
