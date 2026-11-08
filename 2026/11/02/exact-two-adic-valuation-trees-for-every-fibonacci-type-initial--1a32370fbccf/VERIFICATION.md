@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproducible checks
-Run `python3 verify.py` with Python 3.8 or newer. No packages beyond the Python standard library are needed. The script constructs the second-order recurrence by exact integer additions and does not use the interpolation formula to generate its values. It verifies \(48\) primitive starting pairs modulo eight across \(11\) successive divisibility levels, checks exact counts of qualifying residues and the multiplier-period identity, and tests \(2760\) further signed pairs against the low-valuation branch classifications.
+# Independent mathematical audit
 
-Expected completed output:
+## correctness
 
-```text
-VERIFY_OK primitive_classes_mod8=48 unbounded_classes=24 modular_censuses=528 additional_integer_pairs=2760
-```
+PASS
 
-The infinite isometry and unique-root claim are established in the mathematical proof, not by these finite checks. The two-adic root is determined modulo each \(2^m\) by checking the unique zero class at divisibility \(2^{m+3}\). An exact zero term has valuation \(+\infty\). No independent mathematical audit has been performed.
+The exact identities M^3=I+2M and M^6=5I+8M yield the binomial interpolation G_r(t)=5^{-t}U_{6t+r}; the first j=1 difference term has precisely 2-adic valuation 3+nu2(z-w), every higher term at least 5+nu2(z-w). Hence G_r is a scaled isometry and its image is U_r+8Z_2; finite-residue bijections prove existence and uniqueness of tau when 8|U_r, and U_r=4 mod8 gives bounded valuation exactly 2. Modulo-2 period-three and M^6 mod4 produce the other five classes; the coefficient-parity involution proves 24 of 48 initial pairs per case. Independently enumerated 48 primitive mod-8 pairs, verifying all six low classes and modular uniqueness through level 11. This is an infinite proof plus finite corroboration, not extrapolation.
+
+## originality
+
+PASS
+
+Compared exact statements, hypotheses and consequences against indexed published findings and primary literature, without treating unsuccessful searches as proof of priority.  Best-of-knowledge originality survives because the observed prior results do not entail the entire exact claim.
+
+## value
+
+PASS
+
+The complete exact divisibility-index valuation tree for every Fibonacci-type starting pair is a natural generalization of Fibonacci/Lucas p-adic valuations. It identifies a rigid unique 2-adic lifting branch, sharp modular densities and a transparent bounded/unbounded dichotomy, facts useful to recurrence divisibility and p-regularity studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
