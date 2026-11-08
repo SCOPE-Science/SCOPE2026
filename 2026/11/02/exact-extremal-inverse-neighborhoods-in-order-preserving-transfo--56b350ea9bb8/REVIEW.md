@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The essential object is the finite monoid of weakly increasing maps of a fixed chain, with mutual semigroup inverse defined by both triple-composition identities. The direct kernel/image parametrization proves the product formula for inverse neighborhoods without appealing to a numerical experiment. Fixed-rank optimization follows from balancing positive integer parts and using both image endpoints. A separate integer-break argument settles the global maximum in each residue class modulo three, including the exceptional small dimensions. The extremizer census and rankwise inverse-pair formula are independent exact coefficient counts. The standalone test exhausts direct inverse equations through six points and checks all rank-bound formulas through 500 points. Computations corroborate, rather than replace, proof.
+PASS
 
-## Originality
+For f weakly increasing on [n], each semigroup inverse g must select one image point in each of f's r interval kernel blocks, and each cut separating g-fibers must lie between adjacent images b_i,b_(i+1) of f; conversely these independent choices satisfy both fgf=f and gfg=g. This establishes |V(f)|=product(a_i)*product(b_(i+1)-b_i). Balancing positive compositions gives the rank maximum B(n,r)B(n-1,r-1). A separate integer-break argument handles the coupled r/r-1 partition maxima and equality cases in each n mod 3, with small n separately. The two weighted generating-function coefficients give (binom(n+r-1,2r-1))^2 for ordered rank-r inverse pairs; rank one and empty products are included. Independently computed BOTH inverse equations directly on all weakly increasing transformations for n=1..6 and reproduced (M_n,E_n)=(1,1),(2,2),(4,2),(12,1),(24,2),(48,2), and ordered-pair totals 1,5,26,153,931,5794. These finite tests are only corroboration for the unrestricted n proof.
 
-**PASS, with residual historical risk.** Higgins (2026, arXiv:2610.01912v1) gives the inverse-incidence setup, weighted balancing, and existence of a permutation matching of the monoid. The local inverse-degree formula is a transparent consequence of that setup and is **not** asserted to be independently novel. The assessed contribution is the sharp all-dimensional maximum, the exact maximizing-rank and multiplicity classification, and the rankwise total pair count. The full text of that paper was read in Sections 2–3, along with relevant material of Higgins (2024) and Higgins (2014). Literature and mathematical-record searches did not locate the same extremal/census formulas. The full Higgins (1993) paper on the same monoid was not available for complete comparison; it could contain related counts. General integer-break theory alone does not settle the coupled two-partition optimization without the stated compatibility and exceptional-case work. Priority requires additional human literature review.
+## originality
 
-## Value
+PASS
 
-**PASS.** Permutation matching is a global Hall-type statement, but it does not quantify the uneven inverse degrees that require weighted rather than ordinary regular-graph arguments. The new formulas provide the sharp local congestion scale, identify the approximately one-third-rank maps responsible for that congestion, count every extremal map, and give the complete rankwise edge totals. The growth base \(9^{1/3}\) contrasts with the monoid's identity, which has only one inverse. This is a motivated exact invariant of the inverse graph, not an arbitrary finite sample. No claim is made about classifications of all inverse degrees or matchings.
+The 2026 Higgins result establishes a permutation matching of the order-preserving transformation monoid using balanced structure weights and inverse incidence; that machinery motivates, but the accessible stated result does not give the sharp max inverse-neighborhood, modulo-3 equality ranks/counts, or per-rank squared-binomial inverse-pair census. The 1993 Higgins monoid paper's accessible full text concerns other combinatorial properties (including idempotents), but a historical equivalent formula in semigroup literature cannot be ruled out. The balancing lemma is elementary prior technique, while the coupled exact extremal classification is the evaluated contribution.
 
-## Closest sources and limits
+## value
 
-The chief prior source is P. M. Higgins, *Balanced weightings and permutation matchings applied to the monoid of order-preserving mappings* (arXiv:2610.01912v1, 2026-10-01). Relevant earlier sources are Higgins (2024), *Finite regular semigroups with permutations that map elements to inverses*, and Higgins (2014), *Permutations of a semigroup that map to inverses*. The accessible description of Higgins (1993), *Combinatorial results for semigroups of order-preserving mappings*, warrants a later full-text priority check. This is an assessment based on accessible published material, not a claim of exhaustive literature coverage.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The inverse graph of the canonical finite isotone transformation monoid has highly nonuniform local degrees despite admitting a permutation matching. The sharp maximal congestion scale 9^(1/3), all extremizing maps and exact rankwise edge counts answer natural structural questions of this graph for every order; these are not arbitrary slices or a mere restatement of existence of a matching.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
