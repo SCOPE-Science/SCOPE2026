@@ -1,0 +1,173 @@
+{
+  "correctness": {
+    "rationale": "Exact rank of a connected signed incidence matrix follows from its one-dimensional possible left nullspace along a spanning tree and sign consistency; pseudoforest formula is exact for all q,k. Independent edge hashes yield independent Poisson limits of fixed cycle lengths with lambda_l=c^(2l)/(2l); the uniform subcritical cycle tail and absence of complex components yield total Poisson mean -log(1-c²)/2. Exponential PGF gives (1-c²)^1/4. For c>=1, balanced short cycles provide upper bound tending to zero. Eight exhaustive rational rank enumerations and five numerical samples passed when checker rerun. The critical result does not rely on simulations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.05384 Theorem 1.3 and Proposition 6.1: fixed positive singular-value threshold fails",
+        "Coja-Oghlan et al. 2022: normalized rank, not P(full rank)",
+        "arXiv:2609.02978: OSE with growing logarithmic stack count"
+      ],
+      "reasoning": "Vanishing smallest singular values and asymptotically full normalized rank are compatible with any strictly between-zero-and-one limiting full-rank probability. Growing-stack OSE guarantees do not specialize to exactly two stacks.",
+      "searches": [
+        "Well-invertible column subsets of sparse matrices are rare Huang Rudelson Tikhomirov 2026",
+        "The rank of sparse random matrices normalized rank Coja Oghlan 2022",
+        "SparseStack Is an Optimal Oblivious Subspace Embedding arXiv 2609.02978",
+        "random 2-sparse signed incidence matrix subspace embedding rank deficiency Poisson cycles graph orientation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.20195",
+      "https://arxiv.org/html/2508.21189",
+      "https://arxiv.org/abs/2607.05384",
+      "https://arxiv.org/abs/2609.02978",
+      "https://doi.org/10.1007/s00453-009-9308-1",
+      "https://arxiv.org/abs/1511.07813",
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21085"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jeendgar–Flint–Anzt investigate distortion and rounding on GPUs",
+        "Camaño et al. introduce model but not rank survival at two blocks",
+        "Huang–Rudelson–Tikhomirov prove O(1) lower-singular bound impossible, which is not rank deficiency",
+        "Daudé–Ravelomanana analyze signed satisfiability over a different random graph"
+      ],
+      "reasoning": "The new theorem asks for exact P(rank SU=k), a zero-versus-positive event on a coordinate frame, and identifies a sharp c=1 phase boundary with fourth-root subcritical value. Neither floating-point distortion, OSI lower bounds, a normalized-rank theorem, nor non-bipartite XOR satisfiability directly implies that exact function.",
+      "searches": [
+        "arXiv 2606.20195 SparseStack coherent embedding rank",
+        "arXiv 2508.21189 SparseStack Definition 1.7",
+        "arXiv 2607.05384 rank injection sparse",
+        "Daudé Ravelomanana Random 2 XORSAT Phase Transition Algorithmica 2011",
+        "Camanho Epperly Meyer Tropp SparseStack two CountSketch blocks signed collision probability rank (1-c^2)^(1/4)",
+        "Random signed bipartite multigraph incidence matrix subcritical cycle Poisson full column rank limit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1511.07813 relates random 2-XOR clauses to signed multigraph constraints; connected signed incidence rank uses the same balanced-cycle condition but requires unbalanced unique cycles",
+        "Daudé–Ravelomanana 2011 gives exp(c/2)(1-2c)^(1/4) for a different non-bipartite model"
+      ],
+      "reasoning": "A signed bipartite incidence rank law can be translated into XOR consistency conditional on a pseudoforest, but the published non-bipartite XOR formulas do not give the two-part, independently hashed, with-replacement distribution. The passage to exact row/column rank is a substantive specialized calculation; older equivalent enumerations remain possible.",
+      "searches": [
+        "Gaussian low precision stochastic rounding sparse CountSketch subspace embeddings collision probabilities and exact worst-case distortion",
+        "two block SparseStack CountSketch coherent coordinate subspace exact probability full column rank balanced signed cycles bipartite random graph (1-c^2)^(1/4)",
+        "random bipartite graph 2 xorsat probability satisfiable signed cycles limiting",
+        "2-Xor revisited: satisfiability and probabilities of functions arXiv:1511.07813"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2606.20195, 2508.21189 and 2607.05384 do not tabulate exact two-block full-column-rank probabilities",
+        "The classical published non-bipartite 2-XORSAT probability is exp(c/2)(1-2c)^(1/4), not the two-block signed bipartite value",
+        "Exact-rational small cases supplied with the result: (q,k)=(2,2) has 56 full-rank outcomes in 64 equally likely relative-sign/hash configurations"
+      ],
+      "reasoning": "No directly covering published rank table was found among searched sketch, signed incidence and XOR sources. The paper-source comparison and exact finite enumeration support the specific numerical identity; failure to find a table cannot establish novelty.",
+      "searches": [
+        "rank loss of 2-nonzero per column random sketch double collision high coherence",
+        "arXiv:2607.05384 SparseStack signed incidence exact full rank two blocks graph cycle law",
+        "Camanho Epperly Meyer Tropp SparseStack two CountSketch blocks signed collision probability rank (1-c^2)^(1/4)",
+        "Random signed bipartite multigraph incidence matrix subcritical cycle Poisson full column rank limit",
+        "rank full probability signed cycle bipartite CountSketch numerical table"
+      ]
+    },
+    "rationale": "Searches of signed graph incidence, sparse sketch rank, exact finite/full-rank models, 2-XOR counterparts, published-record and accessible original claims identified analogous component-rank and random-XOR facts but no direct statement or stronger implication establishing the exact bipartite two-block SparseStack full-rank law. Strongly relevant Huang et al. 2026 proves small minimum singular value, which does not imply exact rank deficiency. Daudé–Ravelomanana 2011 provides a related non-bipartite XOR satisfiability expression, not the bipartite two-bucket sketch law. Priority is qualified, not claimed independently certified.",
+    "residual_risks": [
+      "Old bipartite 2-XOR signed multigraph enumerations might already imply or state the same asymptotic expression under different terminology.",
+      "Full closed publisher text of Daudé–Ravelomanana 2011 was not retrieved; its abstract supplies a close but different formula.",
+      "Semantic literature search and inspected prior records cannot establish uniqueness or eliminate every unpublished priority claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: measures sketch distortion and rounding, not exact rank-loss law at constant two stacks",
+        "evidence": [
+          "arXiv:2606.20195, Definition 3 and §2.2, lines defining SparseStack",
+          "arXiv:2606.20195 abstract and empirical results on coherent inputs"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.20195",
+        "material_read": "Introduction, §2.2, related-work discussion and empirical summary, from accessible full HTML text",
+        "method": "Read parsed arXiv page and compare the stated OSE measure and experimental distribution",
+        "title": "Randomized Sketching is Robust to Low-Precision Rounding on GPUs",
+        "trigger": "Direct 2026 source for sparse GPU sketches on coherent subspaces and a two-stack specialization"
+      },
+      {
+        "assessment": "NOT_COVERING: defines iid blocks and OSI bounds with logarithmic stack count; no two-block exact probability",
+        "evidence": [
+          "arXiv:2508.21189v1 Definition 1.7 and discussion of constant sparsity"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2508.21189",
+        "material_read": "Introduction, Definition 1.7, Imported Theorem 1.8, §3.1 and constant-sparsity discussion; relevant appendices checked via section navigation",
+        "method": "Read HTML full-text relevant statements and construction; compare parameters and conclusions",
+        "title": "Faster Linear Algebra Algorithms with Structured Random Matrices",
+        "trigger": "Original fixed-block SparseStack construction and subspace-injectivity question"
+      },
+      {
+        "assessment": "NOT_COVERING in the implication sense: smallest singular value tending to zero is compatible with exact full column rank; cannot determine limiting rank probability",
+        "evidence": [
+          "arXiv:2607.05384 Theorem 1.3, Corollary 1.6, Proposition 6.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.05384",
+        "material_read": "Introduction Theorem 1.3, Definition 1.4, §6 Proposition 6.1 and proof discussion from full parsed text",
+        "method": "Compare least-singular-value target and matrix ensemble with exact rank event",
+        "title": "Well-invertible column subsets of sparse matrices are rare",
+        "trigger": "Close 2026 theorem explicitly excluding constant-sparsity OSI"
+      },
+      {
+        "assessment": "NOT_COVERING: growing stack count and OSE high-probability guarantee, not two-block rank survival",
+        "evidence": [
+          "arXiv:2609.02978 abstract and main theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.02978",
+        "material_read": "Abstract, introduction and main theorem statement in accessible parsed full text",
+        "method": "Compare log-sized stacks and positive OSE bounds to fixed two-stack exact rank distribution",
+        "title": "SparseStack Is an Optimal Oblivious Subspace Embedding",
+        "trigger": "More recent SparseStack result that could subsume random two-block ranks"
+      },
+      {
+        "assessment": "CLOSEST MECHANISM; its complete-graph no-repeat model yields exp(c/2)(1-2c)^(1/4), not the two-part-with-replacement SparseStack rank formula; a bipartite adaptation is a priority risk",
+        "evidence": [
+          "Daudé and Ravelomanana, Algorithmica 59 (2011), publisher abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00453-009-9308-1",
+        "material_read": "Accessible publisher abstract and bibliographic statement of non-bipartite random-XOR formula",
+        "method": "Compare event, sample graph and limiting formula directly",
+        "title": "Random 2 XORSAT Phase Transition",
+        "trigger": "Classical signed cycle solvability probability with a similar fourth-root asymptotic"
+      },
+      {
+        "assessment": "Provides analogous signed-cycle algebra and enumeration; no inspected theorem for two-block balanced bipartite SparseStack rank law. Exact equivalent from elsewhere remains possible.",
+        "evidence": [
+          "arXiv:1511.07813 §2.1–2.2 and §§3–4 description"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.07813",
+        "material_read": "Introduction, §§2.1–2.2 and multigraph modeling in parsed full text",
+        "method": "Compare general 2-XOR satisfiability and formula multigraphs to bipartite incidence column rank",
+        "title": "2-Xor revisited: satisfiability and probabilities of functions",
+        "trigger": "Older formula-enumeration work on signed multigraph cycle consistency"
+      },
+      {
+        "assessment": "NOT_COVERING: normalized-rank limit does not determine an O(1) nullity event or exact full-rank probability",
+        "evidence": [
+          "Coja-Oghlan et al., Random Structures & Algorithms, published April 23 2022, abstract and §1"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21085",
+        "material_read": "Abstract, introduction and cited full normalized-rank description",
+        "method": "Compare normalized rank with exact probability of zero nullity",
+        "title": "The rank of sparse random matrices",
+        "trigger": "Potential dominating theorem on sparse-matrix ranks"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d38d2e5f-fb34-4a53-8580-d31ea9029d61",
+  "value": {
+    "rationale": "The exact probability of rank preservation for an important sparse-sketch family on its most coherent fixed subspace is an operational natural reliability invariant. It reveals a c=1 full-rank survival threshold and nontrivial losses for any fixed 0<c<1, yields a numerical necessary oversampling threshold for 95% rank success, and provides exact finite component probabilities usable as verification oracles. Rank failure cannot be inferred from prior vanishing smallest-positive-singular-value results. This is not just a parameter renaming or a single-pair collision estimate.",
+    "status": "PASS"
+  }
+}
