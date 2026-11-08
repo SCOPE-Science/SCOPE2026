@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact algebra derives the unique sign-symmetric two-cycle, the normalized two-branch Jacobians, a cubic characteristic polynomial, and a Schur-reduction factorization. All parenthesized factors have strict positive signs for 0<beta<1, yielding precise stability 0<beta<4−sqrt(15) and strict instability above; beta at equality has a double unit-circle Floquet root and is unclassified nonlinearly. The standalone extracted algebra/differentiation/numeric checker succeeded; finite checks do not substitute for continuum proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2210.02070v1, Sections 2–3 (https://arxiv.org/abs/2210.02070)",
+        "arXiv:2608.20638v1, Sections 2–3 (https://arxiv.org/abs/2608.20638)",
+        "arXiv:2610.27321v1, Section 3 and Appendix A (https://arxiv.org/abs/2610.27321)",
+        "Published finding: Sharp partial-adaptivity phase transition in scalar Padam."
+      ],
+      "reasoning": "Bock–Weiß and Fong–Yang divide by the square root of a second-moment EMA, not by the moment itself multiplied by another first-moment buffer. Itin's 2-state kinetic-map theorem treats a frozen preconditioner and cannot directly imply stability of the independently evolving second-moment direction. The Padam historical-max rule has a different state variable and power normalization; no reported general theorem dominates the exact 4−√15 threshold.",
+      "searches": [
+        "FlexGrad root free exponential moving average optimizer deterministic scalar quadratic stable period two cycle EMA beta momentum second moment",
+        "stable two cycle normalized gradient Adam RMSProp scalar quadratic critical momentum coefficient 4 minus sqrt 15",
+        "nonvanishing limit cycle on quadratic for Adam-style normalized exponential moving average first second moments",
+        "Search: Adam optimizer normalized square moment momentum period two bifurcation stability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.09203v1, Section 5 (https://arxiv.org/html/2610.09203)",
+      "arXiv:2210.02070v1, Sections 2–3 (https://arxiv.org/abs/2210.02070)",
+      "arXiv:2608.20638v1, Sections 2–3 (https://arxiv.org/abs/2608.20638)",
+      "arXiv:2610.27321v1, Section 3 and Appendix A (https://arxiv.org/abs/2610.27321)",
+      "Published finding: Exact cycle-stability frontier for scalar SAM with EMA momentum",
+      "Published finding: Sharp partial-adaptivity phase transition in scalar Padam",
+      "Published finding: Exact chattering band and transverse spectrum of constant-step Lion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.09203v1, Section 5 (https://arxiv.org/html/2610.09203)",
+        "arXiv:2210.02070v1, Sections 2–3 (https://arxiv.org/abs/2210.02070)",
+        "arXiv:2610.27321v1, Section 3 and Appendix A (https://arxiv.org/abs/2610.27321)"
+      ],
+      "reasoning": "The original EMA source supplies the defining recurrences and |s|≤sqrt(v), not cycle behavior. Adam results already show cycling but use m/sqrt(v) or m/(sqrt(v)+epsilon), whereas our map is |s|s/v. The kinetic-map condition has no adaptive v coordinate, so it does not imply this three-dimensional Floquet cubic and its Schur boundary. The generic possibility of cycles is explicitly credited as known.",
+      "searches": [
+        "Comparison against arXiv:2610.09203v1 Section 5 exact update and Lemma 2",
+        "Comparison against arXiv:2210.02070v1 Section 3 cycle and Jacobian",
+        "Comparison against arXiv:2610.27321v1 Theorem 1 reduced kinetic map"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.09203v1, Section 5 (https://arxiv.org/html/2610.09203)",
+        "Published finding: Exact cycle-stability frontier for scalar SAM with EMA momentum."
+      ],
+      "reasoning": "The semantically adjacent SAM update has no adaptive EMA squared-gradient denominator. FlexGrad's numerator is the absolute first-moment product divided by the second EMA moment. Neither reparametrization of SAM nor the cumulative FlexGrad formula gives the present three-state map or cubic Floquet spectrum.",
+      "searches": [
+        "FlexGrad Barros Defazio Guigues EMA root free",
+        "\"FlexGrad\" exponential moving average scalar quadratic cycle",
+        "\"4-sqrt(15)\" optimizer cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-finding searches returned similar optimizer-cycle titles but no exact EMA FlexGrad entry or 4−√15 threshold.",
+        "Accessible earlier and current claim ledgers were searched for the exact source id arXiv:2610.09203 and the name FlexGrad; no matching source or claim was found."
+      ],
+      "reasoning": "The absence of a returned match is not a proof of novelty; the specific exact-cycle polynomial and threshold were not located in the inspected holdings. The finding is not a parameter readout from an existing identified table.",
+      "searches": [
+        "FlexGrad Barros Defazio Guigues EMA root free",
+        "\"FlexGrad\" exponential moving average scalar quadratic cycle",
+        "\"4-sqrt(15)\" optimizer cycle",
+        "FlexGrad Barros Defazio Guigues EMA root free"
+      ]
+    },
+    "rationale": "The exact coefficient polynomial, double-negative-unit-multiplier critical point and Schur frontier are for a three-state EMA rule with a linear second-moment denominator. The motivating source proves neither this cycle nor the classification. Close Adam, normalized-optimizer and kinetic-map claims concern a square-root denominator, a fixed preconditioner, or a different update map; no analyzed stronger result implies this exact statement. Historical priority of unindexed computations is a residual risk.",
+    "residual_risks": [
+      "Historical unindexed analytical studies of a similar three-state normalized moment map could contain the exact decay threshold.",
+      "Unseen unpublished results or different optimizer formulations with a proved exact conjugacy have not been ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exact map but no theorem on the equal-buffer scalar quadratic orbit or its critical momentum decay",
+        "evidence": [
+          "arXiv:2610.09203v1, Section 5 (https://arxiv.org/html/2610.09203)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.09203",
+        "material_read": "Full relevant Section 4: Algorithms 1–2 and theorems; Section 5: EMA recurrences, mirror-style update, Lemma 2 and limits in Section 7",
+        "method": "Primary arXiv HTML, reading mathematical formulas and claimed scope",
+        "title": "FlexGrad: A Root-Free Approach to Adaptive Step Sizes",
+        "trigger": "The originating October 2026 EMA design"
+      },
+      {
+        "assessment": "Adam has square-root second-moment normalization and different Floquet data; general existence of cycles is known, exact new rule not covered",
+        "evidence": [
+          "arXiv:2210.02070v1, Sections 2–3 (https://arxiv.org/abs/2210.02070)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.02070",
+        "material_read": "Primary PDF pages 1–5 (printed) including introduction, Algorithm 1, period-two formula, and Jacobian analysis",
+        "method": "Opened primary PDF and inspected source page images and parsed text",
+        "title": "Non-Convergence and Limit Cycles in the Adam optimizer",
+        "trigger": "Closest classical period-two theory for an adaptive moment optimizer"
+      },
+      {
+        "assessment": "Adaptive Adam edge dynamics uses m/(sqrt(v)+epsilon); no implication to |s|s/v with coevolving EMA v",
+        "evidence": [
+          "arXiv:2608.20638v1, Sections 2–3 (https://arxiv.org/abs/2608.20638)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.20638",
+        "material_read": "Primary arXiv full-text sections 1–3, normalization equations, and relevant technical dynamics statements",
+        "method": "Read primary arXiv text and searched exact recurrences",
+        "title": "Provable Edge-of-Stability for Adam on a One-Dimensional Quadratic",
+        "trigger": "A recent strong scalar-quadratic Adam dynamics theorem"
+      },
+      {
+        "assessment": "Two-state reduced kinetic maps lack an independently coevolving squared-gradient EMA, so no exact coverage of the three-state claim",
+        "evidence": [
+          "arXiv:2610.27321v1, Section 3 and Appendix A (https://arxiv.org/abs/2610.27321)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.27321",
+        "material_read": "Primary full text Section 3 Theorem 1, Appendix A proof, and Section 6.2 discussion of preconditioned Adam maps",
+        "method": "Read arXiv text mathematical formulas and implications",
+        "title": "Physics-Inspired Optimizers beyond the Edge of Stability: Period-Two Orbits and Delayed Instability",
+        "trigger": "An October 2026 general periodic-orbit stability criterion for kinetic maps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7d168379-a51c-4687-93fb-d111eea626d5",
+  "value": {
+    "rationale": "The optional EMA variant lacks the cumulative variant's convex convergence theorem. This exact, parameter-free stability threshold and nonzero quadratic loss floor give a motivated benchmark for whether normalized moment modulation actually suppresses chattering. The cycle remains finite and nonvanishing for every positive fixed learning rate in a nonempty decay range, yet turns repelling above an exact algebraic boundary; this is a meaningful local dynamical classification rather than a generic first-iterate deduction.",
+    "status": "PASS"
+  }
+}
