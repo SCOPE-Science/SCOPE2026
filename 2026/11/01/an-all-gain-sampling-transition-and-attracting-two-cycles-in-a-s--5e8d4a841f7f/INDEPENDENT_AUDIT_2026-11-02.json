@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T22:10:32.108021Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, Steps 1–4, blob 0bee785e2b624cc96e60d10613881b311ae7240d",
+        "Actual checker.py blob 83253f43688017d16e52cbcfdce09d27627b11a1",
+        "Independent_check_script_sha256=beb97032be09ee553ab8695378778f4d6be0ed7c28eda0279db40d8fcd4a2663"
+      ],
+      "rationale": "The exact implicit sample equation z+r(1-alpha)f(z)=alpha x is strictly increasing in z for every monotone Lipschitz f; the mesh map is well defined. Subtracting two instances gives m(sigma)=(beta-r(alpha-beta)sigma)/(1+r(1-alpha)sigma), strictly decreasing in secant slope sigma in [0,L]; -1<m(L) iff (1+beta)>rL(2alpha-1-beta). Therefore if d=2alpha-1-beta<=0 any finite gain contracts; otherwise rL<(1+beta)/d is uniform sharp, with f(y)=Ly a boundary counterexample. For tanh at rcrit, every nonzero |F(x)|<|x| and analytic expansion F(x)=-x+c x^3+O(x^5), c=(1+beta)d^3/(3alpha(1-beta)^3), implies asymptotic (2ck)^(-1/2). The odd map has the unique antisymmetric branch because tanh(z)/z decreases from 1 to 0; derivative sech^2 z<tanh(z)/z makes its two-step multiplier <1. Independent SymPy calculation rederived m and c identities exactly. Local, not global, attraction of supercritical branch is proved.",
+      "residual_risks": [
+        "The tanh branch is not proved globally attracting for gains above rcrit.",
+        "Only scalar monotone globally Lipschitz activation and fixed-period sampling; no multineuron statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chiu 2013 has a sufficient Lipschitz/Gronwall stability theorem for mixed-argument neural networks, not an all-supercritical bifurcation theorem (accessible abstract/relevant indexed sections).",
+          "Chiu–Pinto–Jeng 2014 abstract describes sufficient global convergence for a general mixed-argument recurrent network.",
+          "Oztepe–Karakoç 2026 treats retarded conformable neural networks."
+        ],
+        "reasoning": "The named broad models do not in their inspected portions provide the exact scalar no-upper-gain sampling threshold plus the cubic/tanh branch classification. Inaccessible full 2014 paper cannot be categorically ruled out and is retained as risk.",
+        "searches": [
+          "Piecewise constant mixed advanced retarded argument scalar tanh negative feedback gain independent sampling threshold flip two cycle critical decay",
+          "doi:10.1155/2013/196139",
+          "doi:10.1007/s10440-013-9863-y",
+          "doi:10.3390/math14132406"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1002/mana.201300127",
+        "doi:10.1007/s10440-013-9863-y",
+        "doi:10.1155/2013/196139",
+        "doi:10.3390/math14132406"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Linear mixed-argument necessary/sufficient zero tests could dominate the f=Ly special case.",
+          "The all-supercritical tanh branch is a nonlinear existence, uniqueness-in-antisymmetric-class, and stability statement, not a consequence of linear zero stability."
+        ],
+        "reasoning": "Treat linear zero-stability as established antecedent. The surviving combined theorem adds uniform nonlinear secant control and critical/supercritical quantitative dynamics. Potential general flip theorems establish local bifurcation qualitatively but not automatically global sharp all-gain branch.",
+        "searches": [
+          "doi:10.1002/mana.201300127",
+          "doi:10.1155/2013/196139",
+          "Piecewise constant mixed advanced retarded argument scalar tanh negative feedback gain independent sampling threshold flip two cycle critical decay"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chiu–Jeng 2015 published abstract explicitly advertises necessary/sufficient zero stability for scalar mixed piecewise-constant arguments.",
+          "The exact nonlinear secant criterion incorporates arbitrary monotone f and the entire supercritical tanh flip branch."
+        ],
+        "reasoning": "A mixed-type DEPCAG linear stability threshold may be equivalent to the linear f(y)=Ly boundary, which is antecedent and not claimed as the sole novelty. The nonlinear global contraction and critical/two-cycle laws are logically additional; the 2015 full text remains a priority risk.",
+        "searches": [
+          "Piecewise constant mixed advanced retarded argument scalar tanh negative feedback gain independent sampling threshold flip two cycle critical decay",
+          "doi:10.1002/mana.201300127"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest indexed result is a critical flip law for a different positive rational discrete map.",
+          "No indexed exact sampler-phase table or tanh amplitude law from this scalar model identified."
+        ],
+        "reasoning": "No overlapping exact formula recovered in current searches; failed searches alone provide no priority proof. The critical cubic law is derived explicitly, rather than inferred from sampled orbit plots.",
+        "searches": [
+          "Piecewise constant mixed advanced retarded argument scalar tanh negative feedback gain independent sampling threshold flip two cycle critical decay",
+          "critical tanh mixed advanced retarded sampling gain independent phase cutoff"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the full stated claim, not individual standard subclaims; strongest accessible primary comparison, specific logical distinctions, and residual risks below. Search absence is not novelty certification.",
+      "residual_risks": [
+        "2015 Chiu–Jeng may contain exactly the linear cutoff, which this review treats as prior antecedent; full text unavailable.",
+        "2014 Chiu–Pinto–Jeng full text unavailable; may cover a stronger nonlinear special case.",
+        "Institutional PDF tool invocation was blocked by safety controls; no bypass attempted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Could cover sharp linear subcase; full nonlinear comparison unverified.",
+          "evidence": "Abstract advertises necessary/sufficient zero stability in the scalar mixed argument setting.",
+          "identifier_or_url": "doi:10.1002/mana.201300127",
+          "material_read": "Published abstract and bibliographic statement only",
+          "method": "Published abstract search; authorized Oxford acquisition blocked by safety policy",
+          "title": "Stability of Oscillatory Solutions of Differential Equations with General Piecewise Constant Arguments of Mixed Type",
+          "trigger": "Same mixed-type scalar argument, possibly dominant zero-stability theorem"
+        },
+        {
+          "assessment": "Risk of broader nonlinear coverage unresolved; abstract says global convergence under sufficient criteria.",
+          "evidence": "Direct mixed advanced–retarded recurrent system and global convergence wording.",
+          "identifier_or_url": "doi:10.1007/s10440-013-9863-y",
+          "material_read": "Published abstract and bibliographic data only",
+          "method": "Published abstract search; authorized Oxford tool blocked",
+          "title": "Existence and Global Convergence of Periodic Solutions in Recurrent Neural Network Models with a General Piecewise Alternately Advanced and Retarded Argument",
+          "trigger": "Broad neural model potentially specializable to this scalar negative feedback"
+        },
+        {
+          "assessment": "No observed exact all-gain/sample-phase nonlinear flip law, but no full-document noncoverage claim.",
+          "evidence": "Gronwall/Lipschitz sufficient stability versus exact nonlinear flip regime.",
+          "identifier_or_url": "doi:10.1155/2013/196139",
+          "material_read": "Abstract and indexed theorem descriptions; not complete source in current run",
+          "method": "Published text search",
+          "title": "Existence and Global Exponential Stability of Equilibrium for Impulsive Cellular Neural Network Models with Piecewise Alternately Advanced and Retarded Argument",
+          "trigger": "Closest accessible general network antecedent"
+        },
+        {
+          "assessment": "Delayed conformable network sufficient Lyapunov conditions; not the exact scalar phase diagram.",
+          "evidence": "Different delay geometry and nonlinear scheme.",
+          "identifier_or_url": "doi:10.3390/math14132406",
+          "material_read": "Accessible article abstract and theorem description",
+          "method": "Publisher HTML/search",
+          "title": "Discrete-Time Stability Analysis of Neural Networks with Piecewise Constant Arguments",
+          "trigger": "Recent named reference on sampled neural stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Current-run Resultary query Piecewise constant mixed advanced retarded argument scalar tanh negative feedback gain independent sampling threshold flip two cycle critical decay",
+        "Named primary sources in originality/source_inspections"
+      ],
+      "rationale": "The natural question is robustness of negative feedback to arbitrarily high gain under an implicit future sampling phase. The exact sampling cutoff and sharp lower-phase gain ceiling, followed by a computable critical slowing law and a stable sign-alternating orbit for every supercritical tanh gain, give a motivated nonlinear structure not merely standard algebra.",
+      "residual_risks": [
+        "2015 Chiu–Jeng may contain exactly the linear cutoff, which this review treats as prior antecedent; full text unavailable.",
+        "2014 Chiu–Pinto–Jeng full text unavailable; may cover a stronger nonlinear special case.",
+        "Institutional PDF tool invocation was blocked by safety controls; no bypass attempted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The tanh branch is not proved globally attracting for gains above rcrit.",
+    "Only scalar monotone globally Lipschitz activation and fixed-period sampling; no multineuron statement.",
+    "2015 Chiu–Jeng may contain exactly the linear cutoff, which this review treats as prior antecedent; full text unavailable.",
+    "2014 Chiu–Pinto–Jeng full text unavailable; may cover a stronger nonlinear special case.",
+    "Institutional PDF tool invocation was blocked by safety controls; no bypass attempted.",
+    "Literature comparison is best-of-knowledge and does not establish absolute historical priority."
+  ],
+  "schema_version": 1
+}

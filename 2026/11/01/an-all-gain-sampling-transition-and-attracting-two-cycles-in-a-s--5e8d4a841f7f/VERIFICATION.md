@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The standalone `checker.py` uses Python 3.10+ and the standard library only. Execute from a directory containing this file with `python checker.py`. A successful invocation reports 2841 finite checks. The checks include 200 rational secant identities at three assertions each, 480 numerical implicit-sampling checks at three assertions each, 160 supercritical-cycle cases at five assertions each, and a separate 120000-step critical-decay test.
+## correctness
 
-The mesh root is located by bisection; the numerical checks use floating-point tolerances appropriate to their finite resolution. The exact rational tests do not depend on approximating exponentials. The analytical proof independently derives the implicit map, proves strict contraction for all admissible activation secants, derives the sharp linear-activation boundary and the nonlinear two-cycle, and establishes the critical \(k^{-1/2}\) convergence rate by inverse-square increments. Finite arithmetic does not prove universal quantifiers or historical priority.
+PASS
 
-Scientific limits: the result assumes a scalar nonimpulsive network, constant mesh and coefficients, and monotone Lipschitz negative feedback. Critical rates and two-cycles are specific to the sigmoid. The conclusion concerns local stability of the supercritical two-cycle. Independent audit has not been performed.
+The exact implicit sample equation z+r(1-alpha)f(z)=alpha x is strictly increasing in z for every monotone Lipschitz f; the mesh map is well defined. Subtracting two instances gives m(sigma)=(beta-r(alpha-beta)sigma)/(1+r(1-alpha)sigma), strictly decreasing in secant slope sigma in [0,L]; -1<m(L) iff (1+beta)>rL(2alpha-1-beta). Therefore if d=2alpha-1-beta<=0 any finite gain contracts; otherwise rL<(1+beta)/d is uniform sharp, with f(y)=Ly a boundary counterexample. For tanh at rcrit, every nonzero |F(x)|<|x| and analytic expansion F(x)=-x+c x^3+O(x^5), c=(1+beta)d^3/(3alpha(1-beta)^3), implies asymptotic (2ck)^(-1/2). The odd map has the unique antisymmetric branch because tanh(z)/z decreases from 1 to 0; derivative sech^2 z<tanh(z)/z makes its two-step multiplier <1. Independent SymPy calculation rederived m and c identities exactly. Local, not global, attraction of supercritical branch is proved.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the full stated claim, not individual standard subclaims; strongest accessible primary comparison, specific logical distinctions, and residual risks below. Search absence is not novelty certification.
+
+## value
+
+PASS
+
+The natural question is robustness of negative feedback to arbitrarily high gain under an implicit future sampling phase. The exact sampling cutoff and sharp lower-phase gain ceiling, followed by a computable critical slowing law and a stable sign-alternating orbit for every supercritical tanh gain, give a motivated nonlinear structure not merely standard algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

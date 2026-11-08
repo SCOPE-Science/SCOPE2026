@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact in-interval solution yields one strictly monotone implicit sampling equation, so existence and uniqueness are global. A two-input secant identity gives the mesh multiplier exactly, including its dependence on the sampling fraction and monotone activation slope. The sufficient global convergence criterion follows from a uniform absolute-value contraction; the linear activation attains its sharp boundary. For hyperbolic tangent, the strict critical contraction, cubic coefficient, inverse-square relaxation, antisymmetric two-cycle equation, and strictly stable multiplier were proved analytically. The included checker completed 2841 finite consistency assertions. These finite checks are corroboration only; the proof uses exact algebra and convergence arguments.
+PASS
 
-## Originality — PASS, with historical-priority risk
+The exact implicit sample equation z+r(1-alpha)f(z)=alpha x is strictly increasing in z for every monotone Lipschitz f; the mesh map is well defined. Subtracting two instances gives m(sigma)=(beta-r(alpha-beta)sigma)/(1+r(1-alpha)sigma), strictly decreasing in secant slope sigma in [0,L]; -1<m(L) iff (1+beta)>rL(2alpha-1-beta). Therefore if d=2alpha-1-beta<=0 any finite gain contracts; otherwise rL<(1+beta)/d is uniform sharp, with f(y)=Ly a boundary counterexample. For tanh at rcrit, every nonzero |F(x)|<|x| and analytic expansion F(x)=-x+c x^3+O(x^5), c=(1+beta)d^3/(3alpha(1-beta)^3), implies asymptotic (2ck)^(-1/2). The odd map has the unique antisymmetric branch because tanh(z)/z decreases from 1 to 0; derivative sech^2 z<tanh(z)/z makes its two-step multiplier <1. Independent SymPy calculation rederived m and c identities exactly. Local, not global, attraction of supercritical branch is proved.
 
-The July 2026 Oztepe–Karakoç article treats delayed conformable neural networks and proves sufficient Lyapunov stability conditions. The complete accessible primary text of Chiu (2013), particularly its model, Theorem 9 and Corollary 12, establishes sufficient global-exponential stability for impulsive and nonimpulsive advanced–retarded networks but not the sharp gain-independent scalar phase cutoff or the nonlinear supercritical orbit. The 2014 Chiu–Pinto–Jeng and 2015 Chiu–Jeng papers are exceptionally relevant; only their published abstracts and bibliographic descriptions could be inspected. The 2015 abstract advertises necessary/sufficient stability tests for scalar mixed arguments, so the linear stability boundary is **not** asserted as a new independent theorem. Their full-text inaccessibility leaves a priority risk for the stronger combined nonlinear claim. Related indexed research records were searched under the exact formulas, equivalent sample–hold descriptions, sigmoid flip cycles, and gain-uniform stability; no recorded result was found to imply this complete claim. Absence of a database hit alone is not a proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The distinction is motivated by whether an implicitly sampled inhibitory network can tolerate arbitrarily strong gain: the exact sampling phase, not only gain magnitude, separates bounded and unbounded robustness. The same boundary also predicts whether a natural saturating activation settles, slows algebraically, or develops a stable oscillation. The full all-supercritical-gain cycle existence and stability statement adds a nonlinear structural outcome beyond a linear calculation, and the critical algebraic exponent quantifies the loss of exponential convergence.
+Best-of-knowledge PASS for the full stated claim, not individual standard subclaims; strongest accessible primary comparison, specific logical distinctions, and residual risks below. Search absence is not novelty certification.
 
-## Closest literature and limitations
+## value
 
-See the primary references and the structured comparison in `AUDIT.json`. The central caveat is access to the complete 2014 and 2015 papers, alongside possible special-case results in older scalar hybrid-equation literature. The work does not address multineuron systems, general oscillatory attractors, global attraction of the period-two branch, or nonmonotone activations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural question is robustness of negative feedback to arbitrarily high gain under an implicit future sampling phase. The exact sampling cutoff and sharp lower-phase gain ceiling, followed by a computable critical slowing law and a stable sign-alternating orbit for every supercritical tanh gain, give a motivated nonlinear structure not merely standard algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
