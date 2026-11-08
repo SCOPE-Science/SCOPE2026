@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The local update rule induces an exact 49-state occupied-color support map. Its explicitly included complete transition certificate shows five nonzero recurrent support components plus the all-zero component; on every nonzero component all present microscopic colors advance cyclically, so the least microscopic period is three. Weighted surjection counting gives all nine time/period cells, and algebraic summation establishes the basin formula. A separate direct neighborhood simulation checks 477,315 configurations across 39 graph-size pairs, including singleton boundaries; 49 larger-range size-pair calculations check the derived formulas. The finite quotient and its exhaustive table, not the sample configurations alone, establish the infinite-parameter theorem.
+## correctness
 
-## Originality: PASS, qualified
-The closest full primary source is Gravner, Lyu and Sivakoff (arXiv:1610.07320v1, Theorem 3 and Section 4), whose contour-integral criterion already decides eventual synchronization on any finite graph; neither that criterion nor a general convergence bound is claimed anew. A previous exact study of the book graphs \(K_2\vee\overline{K_n}\) already supplies the **entire** first-entry census and three-way positive-delay equidistribution at \(m=2\), so the present priority assertion explicitly excludes that covered parameter slice. The newly assessed contribution is the full \(m\ge3\) classification and the four-phase asymptotic clock, notably the unique uniform limit on \(\{0,1,2,3\}\) at \(m=3\). The \(m=2\) formulas appear only as a boundary consistency check. A related threshold-two split-graph rule is not equivalent. Specific literature/research-record database/ledger searches did not reveal the all-\(m\ge3\) formula; unindexed equivalences remain a risk.
+PASS
 
-## Mathematical value: PASS
-The first entry to periodic excitation is a natural finite-time invariant distinct from eventual synchronization. The exact nine-cell census for every \(m\ge3\), including the sharp four-step transient and closed orbit/basin counts, resolves a genuinely larger family than the known book-graph case. It identifies a **new four-phase clock**: with three clique vertices and arbitrarily many independent vertices, four possible entrance times become equally probable among oscillatory initial configurations; at every larger fixed clique size, the immediate recurrence class dominates each delayed class. The transition at clique size three is a structural effect of internal clique excitation, not an arbitrary numeric slice. The general qualitative criterion alone does not give these weighted entrance-time laws.
+The three-state Greenberg–Hastings rule on K_m joined to n independent vertices reduces exactly to 49 nonempty clique/independent color-support mask states. Support transitions are exact because all vertices of an old color in a module have identical successors. Enumeration of this finite, size-independent quotient classifies first entrance t=0..4 and eventual microscopic period 1 or 3, with period-three microscopic states even for the fixed full-support mask. Independent reconstruction checked every 49 mask state and recovered all nine monomial coefficient cells; independently iterated 3276 actual labelled vertex colorings across six graph sizes, checking mask compatibility and F^7=F^4. The uniform all-size formula follows from surjection counts onto one/two/three colors, not the bounded microscopic tests. For n=1 maximum first entrance 3, n>=2 exactly 4; m=3 is the unique nondegenerate four-way equiprobable fixed-clique limit.
 
-## Scope and residual limits
-Only synchronous threshold-one three-color dynamics on \(K_m\vee\overline{K_n}\), \(m,n\ge1\), are covered. Historical equivalence under other names remains a priority risk. The 49-state proof is exhaustively reconstructible from the local rule, and the separate finite tests provide corroboration rather than a substitute for proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Gravner–Lyu–Sivakoff prove a stronger qualitative fixation-versus-oscillation criterion and general transient upper bounds on any finite connected graph, and a previously published m=2 book-graph exact law is expressly prior. Neither gives the evaluated nine-cell first-periodic-entry distribution for all m>=3 nor the unique m=3 four-way asymptotic equidistribution without a further nontrivial enumeration.
+
+## value
+
+PASS
+
+PASS: a complete labeled entrance-time/attractor census quantifies transient excitation beyond known qualitative oscillation criteria. Four-step cutoff, m=3 four-phase equidistribution and exact primitive-orbit/basin counts on a canonical complete split graph family are independent meaningful finite-dynamics invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

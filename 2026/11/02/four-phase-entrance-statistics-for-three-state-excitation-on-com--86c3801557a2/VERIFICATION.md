@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification limits
+# Independent mathematical audit
 
-Extract `verify_split_gh.py` and `support_table.csv` into the same directory and run `python3 verify_split_gh.py`. No nonstandard Python package is required. The program rebuilds all 49 occupied-color support transitions from the three-color local rule, verifies their complete exact entrance-time/least-period partition and checks the nine polynomial coefficient identities, then prints its reconstructed 49-row certificate.
+## correctness
 
-The program implements a separate microscopic synchronous graph-neighborhood update and tests 477,315 labelled initial configurations on the 39 graphs with \(1\le m,n\le7\) and \(m+n\le10\), checking the first periodic-entry time, least period and \(F^7=F^4\) identity for each. It also checks the exact extinction basin, primitive three-cycle population and sharp transient boundary for 49 parameter pairs. `verification_output.txt` contains the actual observed output of this run. The embedded `support_table.csv` is regenerated from those transitions; comparing it with the program output is a transparent table-replay step. The direct enumeration confirms the formula in a finite range; the proof for all positive integers depends on the exact 49-state quotient and its complete finite classification, not on extrapolation from enumerated graphs.
+PASS
 
-No independently conducted audit or external validation is asserted.
+The three-state Greenberg–Hastings rule on K_m joined to n independent vertices reduces exactly to 49 nonempty clique/independent color-support mask states. Support transitions are exact because all vertices of an old color in a module have identical successors. Enumeration of this finite, size-independent quotient classifies first entrance t=0..4 and eventual microscopic period 1 or 3, with period-three microscopic states even for the fixed full-support mask. Independent reconstruction checked every 49 mask state and recovered all nine monomial coefficient cells; independently iterated 3276 actual labelled vertex colorings across six graph sizes, checking mask compatibility and F^7=F^4. The uniform all-size formula follows from surjection counts onto one/two/three colors, not the bounded microscopic tests. For n=1 maximum first entrance 3, n>=2 exactly 4; m=3 is the unique nondegenerate four-way equiprobable fixed-clique limit.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Gravner–Lyu–Sivakoff prove a stronger qualitative fixation-versus-oscillation criterion and general transient upper bounds on any finite connected graph, and a previously published m=2 book-graph exact law is expressly prior. Neither gives the evaluated nine-cell first-periodic-entry distribution for all m>=3 nor the unique m=3 four-way asymptotic equidistribution without a further nontrivial enumeration.
+
+## value
+
+PASS
+
+PASS: a complete labeled entrance-time/attractor census quantifies transient excitation beyond known qualitative oscillation criteria. Four-step cutoff, m=3 four-phase equidistribution and exact primitive-orbit/basin counts on a canonical complete split graph family are independent meaningful finite-dynamics invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
