@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "FSBP and upwind spatial recurrence independently constructed; Fourier trace/determinant exact. Squared Schur disk inequality factors as an explicit quadratic in x=1-cos(theta), and endpoint/small-phase necessity completes an if-and-only-if theorem. At crossover p=2,q=1, Cayley-Hamilton proves G(z)^2=zI and hence the exact two-step shift; local verify.py passed 1938 checks. Closed-unit-disk boundary follows by continuity. No numerical experiment substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Original FSBP general stability theorem concerns continuous-time energy; 2026 paper focuses flux differencing and accuracy; older DGSEM Fourier dispersion paper concerns polynomial operators."
+      ],
+      "reasoning": "General-purpose semidiscrete energy theorems do not cover forward Euler, and polynomial DGSEM spectra do not imply the exponential-shape parameter transition without a new reduction. An uninspected older exponential DG treatment remains a nonzero historical risk.",
+      "searches": [
+        "Two-node exponential function-space summation-by-parts upwind advection periodic eigenvalue coth growth exact positivity Courant CFL",
+        "Exponential-fitted SBP diagonal-norm operator two endpoints logarithmic mean CFL and stiffness for transport",
+        "\"function space\" \"exponential\" \"time step\" \"forward Euler\" \"summation by parts\"",
+        "\"exponential\" \"von Neumann\" \"two node\" \"discontinuous Galerkin\" stability",
+        "discontinuous Galerkin finite elements exponential shape functions forward Euler stability periodic upwind flux exact CFL analysis"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.30272v1",
+      "arxiv:2203.05479v2",
+      "doi:10.1137/100807211 (abstract only)",
+      "published-finding corpus semantic searches for forward-Euler, CFL, FSBP, resonance, shift and exponential bases",
+      "52 accessible own archived claim/source rows for this week"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.30272v1 publishes entropy-conservative flux differencing, explicit higher-order numerical integrators; arXiv:2203.05479v2 publishes FSBP norm/exactness; Gassner–Kopriva (2011) polynomial DGSEM dispersion."
+      ],
+      "reasoning": "The new theorem requires combining a *specific* exponential two-point FSBP spatial operator with a forward-Euler Schur disk test and identifying the exceptional p=2,q=1 regime. Neither source statement entails that classification without additional mathematical work.",
+      "searches": [
+        "Two-node exponential function-space summation-by-parts upwind advection periodic eigenvalue coth growth exact positivity Courant CFL",
+        "Exponential-fitted SBP diagonal-norm operator two endpoints logarithmic mean CFL and stiffness for transport",
+        "\"function space\" \"exponential\" \"time step\" \"forward Euler\" \"summation by parts\"",
+        "\"exponential\" \"von Neumann\" \"two node\" \"discontinuous Galerkin\" stability",
+        "discontinuous Galerkin finite elements exponential shape functions forward Euler stability periodic upwind flux exact CFL analysis"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full-text arXiv:2610.30272v1 sections 2.3, 3, 5; arXiv:2203.05479v2 sections 2-3,6-7; published-finding corpus nearest hits listed in private prior checks."
+      ],
+      "reasoning": "Neither FSBP operator existence nor semidiscrete entropy stability is logically equivalent to the exact fully discrete all-Fourier forward Euler threshold; the resonance additionally determines the square of the amplification operator. No equivalent expression seen.",
+      "searches": [
+        "Two-node exponential function-space summation-by-parts upwind advection periodic eigenvalue coth growth exact positivity Courant CFL",
+        "Exponential-fitted SBP diagonal-norm operator two endpoints logarithmic mean CFL and stiffness for transport",
+        "\"function space\" \"exponential\" \"time step\" \"forward Euler\" \"summation by parts\"",
+        "\"exponential\" \"von Neumann\" \"two node\" \"discontinuous Galerkin\" stability",
+        "discontinuous Galerkin finite elements exponential shape functions forward Euler stability periodic upwind flux exact CFL analysis"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest IDs for Lanczos-exponential positivity, heat-lattice positivity, SSP-SDIRK Markov positivity; own accessible 52 claims."
+      ],
+      "reasoning": "These repositories/records include no matching closed-form shape-parameter CFL or two-step periodic shift under aliases checked. Absence in a finite database is not uniqueness proof.",
+      "searches": [
+        "Two-node exponential function-space summation-by-parts upwind advection periodic eigenvalue coth growth exact positivity Courant CFL",
+        "Exponential-fitted SBP diagonal-norm operator two endpoints logarithmic mean CFL and stiffness for transport",
+        "\"function space\" \"exponential\" \"time step\" \"forward Euler\" \"summation by parts\"",
+        "\"exponential\" \"von Neumann\" \"two node\" \"discontinuous Galerkin\" stability",
+        "discontinuous Galerkin finite elements exponential shape functions forward Euler stability periodic upwind flux exact CFL analysis"
+      ]
+    },
+    "rationale": "Primary 2026 full accessible text, earlier foundational FSBP full text, polynomial DGSEM abstract and published published-finding corpus/own-claim comparisons show no identified implication covering the sharp exponential forward-Euler all-phase frontier and exact two-step shift. This is a best-knowledge noncoverage assessment, not proof of uniqueness; historical uncertainty remains.",
+    "residual_risks": [
+      "An older exponential-fitting DG Fourier stability result not located by searched aliases might imply the claimed parametric formula.",
+      "Full-text Gassner–Kopriva (2011) and other broad dispersion analyses not exhaustively inspected; polynomial limit is pre-existing background.",
+      "Claim is spectral all-phase CFL, not strong energy stability; readers must not conflate them."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces and analyzes the underlying spatial method; no identified exact two-node exponential forward-Euler all-phase frontier or shift identity",
+        "evidence": "arXiv:2610.30272v1 sections 2.3, 3 and 5; 2026-10-21 first public",
+        "identifier_or_url": "https://www.paperpeel.com/paper/2610.30272",
+        "material_read": "Full accessible HTML sections 2.3, 3.1-3.4 and 4-5, including time-integrator descriptions and exponential-space examples",
+        "method": "Read equation definitions, FSBP conservation/entropy statements, constructions and section 5 time integration; searched for forward Euler and periodic spectral thresholds",
+        "title": "Summation-by-parts operators for general function spaces: Flux differencing, entropy stability, and accuracy",
+        "trigger": "Exact new 2026 FSBP flux-differencing basis and possible coverage of its forward-Euler stability"
+      },
+      {
+        "assessment": "Framework and semidiscrete stability exist; no covering exact uniform forward-Euler CFL or two-step shift in inspected sections",
+        "evidence": "arXiv:2203.05479v2 sections 2,3,6.2,7.1",
+        "identifier_or_url": "https://arxiv.org/html/2203.05479v2",
+        "material_read": "HTML full-text sections 2-3, 6.2 and 7.1, with searched text for Euler and amplification",
+        "method": "Compared FSBP conditions, exponential examples and SSPRK(3,3) integration; checked whether it gives a forward Euler Fourier classification",
+        "title": "Summation-by-parts operators for general function spaces",
+        "trigger": "Foundational FSBP quadrature/exactness and linear advection potentially stronger prior"
+      },
+      {
+        "assessment": "Potential reference for polynomial limit but full text not inspected; no claim of full-document noncoverage",
+        "evidence": "Publisher abstract, SIAM J Sci Comput 33 (2011)",
+        "identifier_or_url": "https://doi.org/10.1137/100807211",
+        "material_read": "Public publisher abstract, not full text",
+        "method": "Compared object (polynomial DGSEM versus exponential FSBP), observables (dispersion versus all-phase forward Euler CFL) and parameter coverage",
+        "title": "A Comparison of the Dispersion and Dissipation Errors of Gauss and Gauss–Lobatto Discontinuous Galerkin Spectral Element Methods",
+        "trigger": "Classical polynomial DGSEM Fourier dispersion may imply a special-case mode"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dbc43078-a8f5-42a2-849e-0e7c43e2d8ec",
+  "value": {
+    "rationale": "Exact natural CFL classification for a new entropy-stable nonpolynomial spatial flux-differencing family. It reveals an unexpected positive forward-Euler window for nonzero exponential shape despite the zero polynomial all-grid threshold, pinpoints long-wave/fast-mode transition, and identifies a unique nondissipative shift resonance that changes the interpretation of apparently safe time stepping.",
+    "status": "PASS"
+  }
+}
