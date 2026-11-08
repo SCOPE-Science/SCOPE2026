@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-plane proof derives the absolute-point configurations without coordinatization. The polarity-induced involution on each nonabsolute line supplies the parity restriction; counting the lines through an absolute point yields an oval in odd order, and the minimum-blocking-set argument yields a line of absolute points in even order. The resulting exact point-type and distinct-neighbor tables show a single exceptional empty nonneighbor category at each of orders two and three. Explicit formulas using exactly two reusable symbols separate the four phases. A two-pebble strategy matches unary types, equality, and adjacency, and has a legal matching reply for each positive neighbor or nonneighbor type, for an arbitrary number of rounds. The two finite verification programs independently corroborate the geometry and logical fixed-point claims for eleven prime-power orders, without replacing the universal proof.
+PASS
 
-## Originality — PASS, with residual historical risk
+A polarity sends each absolute point to a tangent containing no other absolute point. An involution on each nonabsolute line forces intersection with absolute set parity q+1. For odd q the q+1 absolute points are an oval; its tangent classification gives A,E,I point sets and exact counts of distinct R-neighbors by type. For even q every line meets the q+1-point blocking set, forcing it to be a line; its pole and remaining points define A,C,N types and exact R-neighbor support. Nonneighbor support within I vanishes only at odd q=3, and within N only at even q=2. The two-symbol formulas for each unary type and phase separator are legal by variable rebinding, and a symmetric permanent two-pebble strategy matches equality, relation and type using positivity support, proving equivalence at all depths. Independent q=2,3,5,7 coordinatized graph construction reproduced the type/neighborhood support; arbitrary eligible planes follow from geometry, not finite tests.
 
-The primary orthogonal-polarity graph sources establish the classical construction, induced subgraph and extremal properties, and independent-set and eigenvalue questions; the 2016 source explicitly considers the loop-added relation. The inspected papers do not classify the unrestricted-depth two-variable theories. The previous relevant incidence-geometry classification employs a different point-line relational signature and four variables; neither implication follows from its statement. Searches for polarity, absolute-point, looped adjacency, two-variable equivalence, parity cases, and pebble games in published research records did not identify a dominating result. Negative searches do not prove historical uniqueness; an unidentified general theorem on finite-variable theories of rank-three incidence structures remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result classifies an infinite family uniformly over every finite projective plane supporting an orthogonal polarity, including possible non-Desarguesian examples. It isolates four exact logical phases using only a loop-retaining adjacency relation, proves their sharp minimum distinguishing width, and identifies the geometric reason for each small-order exception. The interplay of polarity-involution parity, oval/nucleus geometry, and unrestricted pebble games supplies a motivated structural explanation rather than an isolated finite calculation.
+The Erdős–Rényi–Sós / Brown orthogonal polarity graph and its absolute-point geometry, as well as finite two-pebble characterization, are classical. The all-eligible-plane exact four-phase FO2 equivalence classification with loops and its two sharp small-order exceptions were not identified in inspected graph/spectral or model theory results. No novelty is attributed to the separate geometry or pebble-game technique.
 
-## Scope and limitations
+## value
 
-The signature is a **symmetric binary relation with loops**, not the customary loopless polarity graph, a two-sorted incidence geometry, or a counting-quantifier language. Existence of eligible polarities is assumed. The computations cover selected coordinatized prime-power orders and do not exhaust all projective planes. Historical priority and mathematical correctness have not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides a complete natural logical classification for incidence-derived graph structures across arbitrary projective planes, showing exactly which parity and small-size information survives unrestricted two-variable logic. It is a motivated quantifier-width/invariance boundary that is not a routine count from the original graph definition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
