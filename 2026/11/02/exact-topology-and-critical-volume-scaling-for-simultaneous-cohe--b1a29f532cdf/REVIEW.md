@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Gaussian coherent-state normalization is exact. For every measurable fixed-volume region the minimum of the two energies is no larger than their average; superlevel rearrangement maximizes that average; reflection makes the two energies equal in the unique superlevel optimizer. The derivative of the logarithmic mixture profile has exactly the required one-peak/two-peak alternatives. Integrating transverse balls yields the exact critical volume, its monotonicity, and the beta-function coefficient; dominated convergence yields the large-separation constant. The delivered pure-Python numerical checker passed 44 assertions; no finite check was treated as proof of an infinite claim.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Nicola–Tilli optimize both the signal and observing set for a single STFT concentration quantity and show the optimizer is a ball. Galbis obtains radial-symbol Toeplitz norm bounds. Neither statement implies the two **prescribed** coherent-state minimax superlevel, its separation-dependent connectedness transition, or the exact high-dimensional critical-volume scaling. Two-Gaussian mixture mode bifurcation is acknowledged as prior mathematical background; the targeted new statement is the complete observation-volume topology law including sharp threshold and large-separation asymptotics. A plausible Gaussian-mixture primary source could be viewed only at abstract level, so historical priority is not absolutely settled.
+PASS
 
-**Mathematical value — PASS.** The theorem answers a natural robust simultaneous phase-space observation problem with a unique optimal design for every area and separation. It gives an exact criterion for whether the detector region must have two components, proves monotonicity of the critical area, and identifies its unexpected dimension-dependent \(2q-1/2\) onset exponent alongside a different large-separation exponent. These are global design consequences, not just numerical tests or a low-order special case.
+PASS. Normalized coherent-state intensities are probability Gaussians centered at ±a e1. The min of two integrals is bounded by the average, and bathtub rearrangement uniquely maximizes the average; reflection about Re z1=0 equalizes the two integrals. With g_a(x)=log cosh(2ax)−x², g_a′=2a tanh(2ax)−2x has a unique positive critical point only when a>1/sqrt(2); superlevel cross-sections are Euclidean balls. At the midpoint threshold two open components meet in their closures, giving a unique A_c. Integration yields the explicit cross-section formula. Rescaling g_a=μ x²−(1+μ)² x⁴/3+O(x⁶), x∼sqrt(3μ), gives the beta-integral coefficient 3^q Gamma(q)/(sqrt(pi) Gamma(2q+1/2)) and exponent 2q−1/2; scaling by a gives 2/q! at infinity. Recomputed small-μ quadratures in q=1,2,3 with independent code; finite ratios approach the theoretical coefficients; proof covers all q≥1, a≥0, A>0.
 
-**Scope and limitations.** The result assumes exactly two equally weighted coherent states with common isotropic Gaussian width. Topology is for the unique canonical open representative, since arbitrary null-set changes need not preserve connectivity. The source and database comparisons cannot establish absolute historical novelty. No independent validation was claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. Nicola–Tilli optimize the signal jointly with a single localization region; their ball theorem cannot give the optimum for the minimum of two fixed targets. Galbis treats radial Fock Toeplitz symbols, not two separated prescribed coherent-state intensities. Two-Gaussian mixture mode bifurcation is old; the exact volume threshold, monotonicity and dimension-dependent asymptotic for the robust two-state objective are the assessed addition. No directly covering primary statement identified, but older Gaussian mixture level-set calculations may coincide.
+
+## value
+
+PASS
+
+PASS. It solves the natural simultaneous localization of two prescribed Fock states over all fixed-volume detectors, giving a unique design, exact topological phase boundary, strict critical-volume monotonicity and sharp dimension-dependent critical/large-separation regimes; these are useful exact geometric quantities and not routine reformulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

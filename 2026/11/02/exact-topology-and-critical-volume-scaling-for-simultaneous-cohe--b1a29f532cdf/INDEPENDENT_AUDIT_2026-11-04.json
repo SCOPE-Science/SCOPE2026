@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T20:59:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/02/exact-topology-and-critical-volume-scaling-for-simultaneous-cohe--b1a29f532cdf/RESULT.md (blob 8d241afcc88cf775f62b8f2d43fe7b7ed81a748a)",
+        "2026/11/02/exact-topology-and-critical-volume-scaling-for-simultaneous-cohe--b1a29f532cdf/check_coherent_phase.py",
+        "source RESULT.md pinned blob 8d241afcc88cf775f62b8f2d43fe7b7ed81a748a"
+      ],
+      "rationale": "PASS. Normalized coherent-state intensities are probability Gaussians centered at ±a e1. The min of two integrals is bounded by the average, and bathtub rearrangement uniquely maximizes the average; reflection about Re z1=0 equalizes the two integrals. With g_a(x)=log cosh(2ax)−x², g_a′=2a tanh(2ax)−2x has a unique positive critical point only when a>1/sqrt(2); superlevel cross-sections are Euclidean balls. At the midpoint threshold two open components meet in their closures, giving a unique A_c. Integration yields the explicit cross-section formula. Rescaling g_a=μ x²−(1+μ)² x⁴/3+O(x⁶), x∼sqrt(3μ), gives the beta-integral coefficient 3^q Gamma(q)/(sqrt(pi) Gamma(2q+1/2)) and exponent 2q−1/2; scaling by a gives 2/q! at infinity. Recomputed small-μ quadratures in q=1,2,3 with independent code; finite ratios approach the theoretical coefficients; proof covers all q≥1, a≥0, A>0.",
+      "residual_risks": [
+        "Point-set topology of arbitrary null-set representatives can differ; only canonical open superlevels have the stated topology.",
+        "Independent quadrature at finite μ only corroborates, does not prove asymptotics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nicola–Tilli Theorem 1.1 maximizes over signal and observation region with a ball extremizer, not the fixed pair minimax objective.",
+          "Galbis concerns radial symbols and single-signal estimates."
+        ],
+        "reasoning": "Neither prior result optimizes a single observation set for two prescribed antipodal coherent states and does not yield the two-component critical volume.",
+        "searches": [
+          "arXiv:2106.03423 Nicola Tilli Faber Krahn short-time Fourier transform",
+          "arXiv:2102.02031 Galbis Toeplitz norm estimates"
+        ]
+      },
+      "checked_sources": [
+        "source RESULT.md pinned blob 8d241afcc88cf775f62b8f2d43fe7b7ed81a748a",
+        "https://arxiv.org/abs/2106.03423",
+        "https://arxiv.org/abs/2102.02031",
+        "https://arxiv.org/abs/1702.05066",
+        "Resultary: Bargmann Fock coherent states two Gaussian peaks equal worst-case localization fixed volume topology critical volume separation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-signal global ball theorem is an upper envelope for a different optimization order.",
+          "Two-modal threshold is a necessary ingredient, but the integral volume law requires an additional transverse-volume and beta integral calculation."
+        ],
+        "reasoning": "Exact topology+critical volume cannot be inferred from the cited prior statements alone.",
+        "searches": [
+          "arXiv:2106.03423 Theorem 1.1 prescribed signal versus two fixed signals",
+          "arXiv:1702.05066 Gaussian mixture maximum modes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": "Mixture modality transitions describe number of modes, whereas the claim fixes Euclidean region volume at a saddle level and computes its geometric measure with asymptotics.",
+        "reasoning": "The mixture of the two normalized Gaussian densities is exactly the optimizer density; this is a valid alias. Modal bifurcation implies separation a>1/sqrt(2) but does not by itself determine the critical measure and its q-dependent scaling.",
+        "searches": [
+          "Bargmann Fock coherent states two Gaussian peaks equal worst-case localization fixed volume topology critical volume separation",
+          "two normal equal Gaussian mixture highest density region connectedness topology critical level"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic matches concerned Wigner positivity and unrelated Fock kernels; not a matching high-density volume threshold table.",
+          "Améndola–Engström–Haase arXiv:1702.05066 studies Gaussian mixture mode counts."
+        ],
+        "reasoning": "No inspected exact prior table for A_c(a,q), coefficients or topology for all observation volumes; search noncoverage is not a priority proof.",
+        "searches": [
+          "Gaussian mixture modes two Gaussian symmetric equal covariance high density volume q dimension",
+          "Resultary: Bargmann Fock coherent states two Gaussian peaks equal worst-case localization fixed volume topology critical volume separation"
+        ]
+      },
+      "rationale": "PASS, qualified. Nicola–Tilli optimize the signal jointly with a single localization region; their ball theorem cannot give the optimum for the minimum of two fixed targets. Galbis treats radial Fock Toeplitz symbols, not two separated prescribed coherent-state intensities. Two-Gaussian mixture mode bifurcation is old; the exact volume threshold, monotonicity and dimension-dependent asymptotic for the robust two-state objective are the assessed addition. No directly covering primary statement identified, but older Gaussian mixture level-set calculations may coincide.",
+      "residual_risks": [
+        "An older exact Gaussian-mixture high-density-level-set integral may subsume the presented transition even if described outside coherent-state language.",
+        "Some plausible mixture papers were available only at abstract level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP_ONLY",
+          "evidence": [
+            "The theorem permits optimizing the signal itself; its extremizing ball does not solve fixed two-target minimax observation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.03423",
+          "material_read": "Accessible full HTML article; objective, main theorem and extremizers; compared the order of signal versus region optimization.",
+          "method": "Read full-text web publication",
+          "title": "The Faber–Krahn inequality for the short-time Fourier transform",
+          "trigger": "Potentially dominating exact Fock localization theorem"
+        },
+        {
+          "assessment": "LIMITED_ACCESS_NONCOVERAGE_NOT_CERTIFIED",
+          "evidence": [
+            "Radial Toeplitz norm estimates do not themselves state two-Gaussian critical superlevel volume."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.02031",
+          "material_read": "Relevant theorem and abstract-level formulation; full published proof not verified this run.",
+          "method": "Open bibliographic/abstract and compare cited theorem",
+          "title": "Norm estimates for selfadjoint Toeplitz operators on the Fock space",
+          "trigger": "Fock energy concentration comparisons"
+        },
+        {
+          "assessment": "RELATED_PRIORITY_RISK",
+          "evidence": [
+            "Modes are not volume of high-density regions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1702.05066",
+          "material_read": "Abstract and mode-count formulation, not a complete audit of all appendices.",
+          "method": "Read accessible bibliographic/abstract",
+          "title": "Maximum Number of Modes of Gaussian Mixtures",
+          "trigger": "Same two-Gaussian mixture mode transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/02/exact-topology-and-critical-volume-scaling-for-simultaneous-cohe--b1a29f532cdf/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/exact-topology-and-critical-volume-scaling-for-simultaneous-cohe--b1a29f532cdf"
+      ],
+      "rationale": "PASS. It solves the natural simultaneous localization of two prescribed Fock states over all fixed-volume detectors, giving a unique design, exact topological phase boundary, strict critical-volume monotonicity and sharp dimension-dependent critical/large-separation regimes; these are useful exact geometric quantities and not routine reformulations.",
+      "residual_risks": [
+        "No extension claimed to unequal weights, anisotropy, or three or more states."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two equal-width and equal-priority prescribed coherent states; canonical open superlevel topology only.",
+    "Limited primary mixture-mode full text creates historical priority uncertainty.",
+    "Point-set topology of arbitrary null-set representatives can differ; only canonical open superlevels have the stated topology.",
+    "Independent quadrature at finite μ only corroborates, does not prove asymptotics.",
+    "An older exact Gaussian-mixture high-density-level-set integral may subsume the presented transition even if described outside coherent-state language.",
+    "Some plausible mixture papers were available only at abstract level."
+  ],
+  "schema_version": 1
+}
