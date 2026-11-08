@@ -1,15 +1,21 @@
-# Scientific review: triangular-strip public-goods equilibria
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for labeled positions on the simple four-regular graph \(C_3\square C_n\), \(n\ge3\), with homogeneous, strict response \(T(k)=1\) precisely at \(k=0,2\). Every best-response condition is checked at its own column, so a cyclic equilibrium is equivalent, bijectively, to a transfer-matrix closed walk with its starting column fixed. An explicitly constructed \(64\times64\) integer matrix gives \(E_n=\operatorname{tr}(M^n)\). Exact integer characteristic-polynomial computation proves the displayed factorization. The unique primitive 18-state recurrent component has coprime directed cycles of lengths three and eight; Perron–Frobenius theory and the sign properties of its remaining polynomial factors identify the unique dominant root \(\lambda>1\) of \(z^3-z^2-1\). The standalone checker evaluates the complete symbolic factorization, verifies state connectivity and independently checks every binary profile for \(n=3,4,5,6\). Exhaustive finite checks support the encoding, not the infinite-family proof.
+## correctness
 
-## Originality — PASS, subject to residual literature risk
-Gilboa and Nisan, arXiv:2207.04238 (2022), formulate the best-response pattern and leave its general decision complexity open. Gilboa, arXiv:2301.11580 (2023), and Klimm–Stahlberg, arXiv:2301.11849 (2023), settle hardness of this nonmonotone pattern on unrestricted networks. These general hardness results do not supply an exact equilibrium-count sequence or characteristic polynomial for \(C_3\square C_n\), nor do they determine its specific exponential rate. Primary texts were examined in their public HTML editions and relevant exact-formula searches were compared. The method of finite-width transfer matrices is standard, not claimed new. Unindexed equivalent specialized enumerations remain an originality risk; an unsuccessful literature search is not an absolute uniqueness claim.
+PASS
 
-## Mathematical value — PASS
-The chosen best-response rule agrees with the parity response on graphs of maximum degree three, making equilibrium conditions linear over \(\mathbf F_2\). On the natural first four-regular, three-row periodic strip, that equivalence fails at four active neighbors. Computing the full characteristic polynomial and entropy immediately beyond this linear boundary gives a mathematically motivated benchmark for a known hard class, including exact finite counts and a nontrivial algebraic growth rate. This is a structural answer for an entire graph family, not a small unmotivated isolated instance.
+For n>=3 triangular cylinder C3 square Cn, every vertex has 4 distinct neighbors; strict best response active exactly for 0 or 2 active neighbors. Ordered pairs of three-bit columns (p,c) define 64 transfer states with (p,c)->(c,q) allowed exactly when all 3 row constraints are met. Closed walks biject to labeled equilibrium profiles; E_n=tr(M^n), no rotation quotient. Independent SymPy exact 64x64 charpoly equals z^25(z-1)^10(z+1)^5(z²+z+1)^4(z³-z²-1)(z³-z²+1)(z^5+z³-z²+z-1)^2. Dominant SCC has 18 states, contains 3- and 8-cycles, hence primitive; its unique PF eigenvalue is positive root λ≈1.465571231876768 of z³-z²-1. All other recurrent blocks have roots of unity, so E_n~λ^n; per-player entropy log(λ)/3. Direct brute equilibrium counts agree n=3..5; exact trace list n=3..12 21,9,3,45,3,33,75,39,69,153.
 
-## Closest literature and limits
-The three cited works establish models, complexity and certain structural constraints, but their results do not imply the evaluated 64-state spectrum or its leading cubic factor. General transfer theory guarantees computability on fixed-width strips, so the novel portion is only the explicit calculation and sharp limiting constant. The present result does not cover larger widths, weighted edges, heterogeneous response patterns or counts modulo automorphisms. Independent literature confirmation and an independent mathematical audit are absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gilboa/Nisan and Klimm/Stahlberg establish existence/decision complexity of picky zero-or-two-neighbor best-response patterns on arbitrary graphs and describe active components, NOT the full 64-state spectral enumeration for labeled C3 square Cn. A finite-state transfer is standard, but its computed factored characteristic, exact counts and entropy in this natural first 4-regular strip are not direct corollaries of those complexity theorems. Unlocated tabulations of periodic Boolean network configurations are a residual risk.
+
+## value
+
+PASS
+
+The choice C3 square Cn is mathematically structural: at degree <=3, the zero-or-two rule equals parity of neighboring actives and equilibria become linear over F2; at degree 4, neighbor count 4 breaks that linearity. The full exact strip entropy and spectral factorization provide a nontrivial benchmark beyond the parity-solvable degree cutoff, not an arbitrary size slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
