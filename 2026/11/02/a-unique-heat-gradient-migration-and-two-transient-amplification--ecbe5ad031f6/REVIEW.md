@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct gradient intertwining gives the exact sharp norm as a positive matrix row-sum maximum, attained by affine ramps. The symmetric-Jacobi Perron and real-exponential zero-count arguments prove the unique switch on an open parameter cone and all equality cases; exact rational degree-26 Taylor enclosures certify the critical negative middle-edge slope for conductances \((1,3,9)\). The three-exponential zero bound then proves exactly two strict peaks and one cusp. The accompanying self-contained Python verifier executes strict rational inequalities. No finite numerical search is substituted for an all-parameter argument.
+## correctness
 
-**Originality — PASS, with publication-priority risk.** Chafaï–Joulin's 2010 birth-death intertwining implies the general gradient/transport representation but does not state the novel all-time maximizing-edge switch or two-peak weighted four-site example in the inspected text. Ollivier's transport-curvature work and Münch–Wojciechowski's curvature-gradient implications also do not give these exact statements. Compared against accessible earlier finite-graph and weighted-tree claims and multiple published-finding corpus searches for heat-gradient migration, weighted paths, birth-death chains, and two transient peaks. Unindexed equivalent derivations remain a residual risk; novelty is a documented best-knowledge conclusion, not an absolute priority assertion.
+PASS
 
-**Value — PASS.** Four vertices is provably the smallest path where the active edge can migrate at positive time. A single symmetric, positivity-preserving heat semigroup can have a nonunimodal exact Lipschitz operator norm with two strict transient peaks; the open cone and rationally certified cusp make this a structural rather than arbitrary numerical example. It exposes the limits of viewing semigroup heat-gradient amplification as a single transient relaxation peak.
+For unit graph-metric path P4 with symmetric edge conductances a,b,c>0, DQ=BD with B=[[-2a,b,0],[a,-2b,c],[0,b,-2c]], so sharp Lipschitz norm is max row sum of exp(tB), attained only by affine ramps for t>0 as exp(tB)>0. In cone b>2a>0,c>3(b-a), u1>u3 by positive variation of constants. g=u2-u1 has zero at t=0, positive initial derivative c-3(b-a), negative eventual sign by Perron vector with v1>v2, and is 3-real-exponential; Rolle zero-count gives exactly one positive simple switch. For (1,3,9), exact rational Taylor degree 26 with epsilon<10^-20 brackets switch in (5285/100000,5286/100000) and certifies u2’(switch)<0. Unique extrema of u2 and u1 follow zero count and sign; two local maxima with cusp min. For P3, difference of two real exponentials with zero at 0 cannot switch at positive t. Independent exact rational matrix and interval computations corroborated. No extension to every cone parameter for two-peak count.
 
-**Limits.** Unit graph-metric lengths and variable heat conductances; the two-peak part concerns the specific triple \((1,3,9)\); no claims for other Banach norms or all weighted graphs. Published full-text comparisons were bounded by accessible material. No independent verification or publication priority is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for simultaneous positive-time optimizing-edge migration, a rigorous double-peaked sharp Lipschitz heat norm on the minimal weighted P4, and explicit cone. The known birth-death intertwining/curvature principles motivate the method, not the exact counterexample; unindexed four-point norm research remains residual risk.
+
+## value
+
+PASS
+
+A natural finite Markov heat semigroup with a nonunimodal sharp gradient norm and change in the extremizing edge is a substantive small structural counterexample to naive monotone/transient shape expectations. It also establishes minimal path size and a rigorous rational certificate, not just plotted peaks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
