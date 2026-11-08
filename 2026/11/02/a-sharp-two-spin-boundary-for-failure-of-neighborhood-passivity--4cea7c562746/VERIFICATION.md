@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify.py` from this directory with Python 3; only standard-library modules are used. The script independently constructs the \(4\times4\) Glauber transition matrix using exact rational acceptance probabilities, propagates the specified Gibbs distribution, and checks the normalized populations, their difference, the strict negative neighborhood-passivity fraction, and the next-step activity. The analytic scalar threshold is numerically bracketed over 1,000 deterministic random parameter triples with 5,000 assertions, but the proof of the parameter-uniform theorem is the derivative calculation in `RESULT.md`, not the finite sampling.
+## correctness
 
-Observed standard-library output:
+PASS
 
-```
-exact stationary and transition identities: PASS
-P_(--): -293719/163334085 approximately -0.001798271316118739
-next-step activity: 2139045589/5553358890 approximately 0.38518050631516093
-parameter diagnostics: 5000 PASS
-nominal example B_star: 5.039024061640582
-```
+At a Gibbs start at beta0, a single beta1 Glauber step on energies (0,A,A,B) gives p1(--)-p1(+-)=H(B)/(2Z), H=(3g-1)(y+z)-f(1+y), with y=exp(-beta0 A), z=exp(-beta0 B), f=(1+exp(beta1 A))^-1, g=(1+exp(beta1(B-A)))^-1. Next-temperature local passivity is -tanh(beta2(B-A)/2)H/Z. H(A)>0, H(A+log(2)/beta1)<0 and H strictly decreases while 3g-1>0; afterwards H<0. Thus unique B* and the strictly nonempty ferromagnetic interval A<B<min(B*,2A), even for arbitrarily small positive cooling. Independent four-state rational calculation reproduced H(5)=293719/16000000, P(--)= -293719/163334085 and normalized populations for A=4, B=5, beta0=log(20/19), beta1=log(3/2), beta2=log2; one spin reaches beta1 Gibbs in one update. The analytic derivative, not the finite witness, proves the full parameter theorem.
 
-The scope of the check is restricted to the stated two-spin Glauber model. The rational negative certificate is exact; the decimal threshold and sampled parameter tests are diagnostic. No separate validation by an independent party has been performed.
+## originality
+
+PASS
+
+A general failure of Luo et al. neighborhood passivity was already demonstrated on a 10-state Petersen graph by the trureturing formal refutation; that broad counterexample is NOT original. The surviving precise claim is the two-spin minimality, a ferromagnetic heat-bath example for every arbitrarily small cooling increment, and exact one-parameter threshold. The inspected prior refutation and Luo paper do not state the two-spin boundary; this is a best-of-knowledge original refinement, not an original general disproof.
+
+## value
+
+PASS
+
+It identifies the smallest physically natural Ising spin count and a sharp nonasymptotic model-parameter region where an annealing activity bound’s sufficient local sign condition fails. It prevents incorrect interpretation of local passivity as universally preserved without claiming failure of the global activity bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

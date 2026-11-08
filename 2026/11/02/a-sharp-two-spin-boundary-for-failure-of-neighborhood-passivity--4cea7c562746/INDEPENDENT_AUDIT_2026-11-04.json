@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T00:04:26.094534Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a Gibbs start at beta0, a single beta1 Glauber step on energies (0,A,A,B) gives p1(--)-p1(+-)=H(B)/(2Z), H=(3g-1)(y+z)-f(1+y), with y=exp(-beta0 A), z=exp(-beta0 B), f=(1+exp(beta1 A))^-1, g=(1+exp(beta1(B-A)))^-1. Next-temperature local passivity is -tanh(beta2(B-A)/2)H/Z. H(A)>0, H(A+log(2)/beta1)<0 and H strictly decreases while 3g-1>0; afterwards H<0. Thus unique B* and the strictly nonempty ferromagnetic interval A<B<min(B*,2A), even for arbitrarily small positive cooling. Independent four-state rational calculation reproduced H(5)=293719/16000000, P(--)= -293719/163334085 and normalized populations for A=4, B=5, beta0=log(20/19), beta1=log(3/2), beta2=log2; one spin reaches beta1 Gibbs in one update. The analytic derivative, not the finite witness, proves the full parameter theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "trureturing prior result establishes nonpreservation of neighborhood passivity on a connected 3-regular ten-state graph, so the broad nonpreservation conclusion is already covered.",
+          "Luo et al. Eq. (41) is sufficient for Eq. (40), not equivalent to the separate Eq. (39) activity bound."
+        ],
+        "reasoning": "The earlier general counterexample dominates the bare claim that the condition can fail. It does not logically give a 4-state Ising realization, minimality or exact sign-transition formula. The accepted claim is expressly the latter sharpened content.",
+        "searches": [
+          "Resultary: Glauber annealing neighborhood passivity two spin failure counterexample cooling Ising",
+          "web: Luo neighborhood passivity conjecture counterexample two spin Glauber cooling annealing",
+          "arXiv:2311.10424v1 equations 30-41",
+          "trureturing: Glauber annealing from a thermal state need not preserve neighbourhood passivity"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen blob b2f14dd289f97edbb35cf7c437ea658b243b949b",
+        "verify.py frozen blob e88f9b3f1e0fbbb8f9491168b2365f0bbb8dcc2f",
+        "https://arxiv.org/html/2311.10424v1",
+        "https://www.trureturing.org/research/luo-zhen-liu-ebler-dahlsten-2023-neighbourhood-passivity-refutation/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Eq. (41) does not state sign preservation as a theorem; it motivates a route to an Eq. (39) bound.",
+          "A counterexample on a non-Hamming Petersen graph does not imply a two-spin hypercube/ferromagnetic counterexample or monotone threshold."
+        ],
+        "reasoning": "General nonpreservation is covered; the new two-spin threshold and arbitrary-small-cooling witness do not follow from the cited Petersen example. The activity inequality itself remains undecided.",
+        "searches": [
+          "Resultary: Glauber annealing neighborhood passivity two spin failure counterexample cooling Ising",
+          "web: Luo neighborhood passivity conjecture counterexample two spin Glauber cooling annealing",
+          "arXiv:2311.10424v1 equations 30-41",
+          "trureturing: Glauber annealing from a thermal state need not preserve neighbourhood passivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Luo et al. define P_i in Eq. (41) as the sum of local beta2 Gibbs-ratio weighted population differences.",
+          "Earlier trureturing result proves a negative P_i on a Petersen graph with ten vertices, strictly cooling and Gibbs start."
+        ],
+        "reasoning": "The local sign condition and counterexample formulation are identical to the earlier general refutation. The new final statement is more specific: exact minimal two-spin ferromagnetic family and unique boundary B*(A,beta0,beta1); the Petersen witness supplies neither.",
+        "searches": [
+          "Resultary: Glauber annealing neighborhood passivity two spin failure counterexample cooling Ising",
+          "web: Luo neighborhood passivity conjecture counterexample two spin Glauber cooling annealing",
+          "arXiv:2311.10424v1 equations 30-41",
+          "trureturing: Glauber annealing from a thermal state need not preserve neighbourhood passivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact rational four-state witness 293719/16000000 (H) and -293719/163334085 (passivity), independently recalculated.",
+          "Resultary nearest hits concern thermal entanglement and unrelated passivity settings, not a two-spin Glauber boundary table."
+        ],
+        "reasoning": "A previously published Petersen counterexample is not an exact table for the two-spin Ising family. No exact matching two-spin threshold table found in inspected relevant records; that alone does not prove novelty.",
+        "searches": [
+          "Resultary: Glauber annealing neighborhood passivity two spin failure counterexample cooling Ising",
+          "web: Luo neighborhood passivity conjecture counterexample two spin Glauber cooling annealing",
+          "arXiv:2311.10424v1 equations 30-41",
+          "trureturing: Glauber annealing from a thermal state need not preserve neighbourhood passivity"
+        ]
+      },
+      "rationale": "A general failure of Luo et al. neighborhood passivity was already demonstrated on a 10-state Petersen graph by the trureturing formal refutation; that broad counterexample is NOT original. The surviving precise claim is the two-spin minimality, a ferromagnetic heat-bath example for every arbitrarily small cooling increment, and exact one-parameter threshold. The inspected prior refutation and Luo paper do not state the two-spin boundary; this is a best-of-knowledge original refinement, not an original general disproof.",
+      "residual_risks": [
+        "Broader negative implication already prior; only the sharp minimal two-spin refinement is assessed original.",
+        "Finite-state stochastic order-inversion literature may contain an earlier two-spin or threshold treatment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes definitions and activity conjecture, not the exact two-spin threshold",
+          "evidence": "Eq. (41) vs Eqs. (39)-(40), and strict-cooling Glauber setting",
+          "identifier_or_url": "https://arxiv.org/html/2311.10424v1",
+          "material_read": "HTML Eqs. (30)-(41) and explanation of neighborhood passivity as a sufficient condition for activity bound",
+          "method": "Primary arXiv full article relevant sections",
+          "title": "Bound on annealing performance from stochastic thermodynamics, with application to simulated annealing",
+          "trigger": "Same Glauber kernel and exactly the Eq. (41) neighborhood-passivity condition"
+        },
+        {
+          "assessment": "Covers general local-passivity counterexample; does not supply two-spin Ising threshold",
+          "evidence": "Exact Petersen graph negative fraction and four-state distinction",
+          "identifier_or_url": "https://www.trureturing.org/research/luo-zhen-liu-ebler-dahlsten-2023-neighbourhood-passivity-refutation/",
+          "material_read": "Full accessible online claim, 10-state witness data, proof-scope and limitation sections",
+          "method": "Primary published result webpage text inspection",
+          "title": "Glauber annealing from a thermal state need not preserve neighbourhood passivity",
+          "trigger": "Direct earlier formal counterexample to broad nonpreservation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It identifies the smallest physically natural Ising spin count and a sharp nonasymptotic model-parameter region where an annealing activity bound’s sufficient local sign condition fails. It prevents incorrect interpretation of local passivity as universally preserved without claiming failure of the global activity bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen blob b2f14dd289f97edbb35cf7c437ea658b243b949b",
+    "verify.py frozen blob e88f9b3f1e0fbbb8f9491168b2365f0bbb8dcc2f",
+    "https://arxiv.org/html/2311.10424v1",
+    "https://www.trureturing.org/research/luo-zhen-liu-ebler-dahlsten-2023-neighbourhood-passivity-refutation/"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only one first update, 2 ferromagnetically interacting spins, strictly cooling schedule and stated local condition.",
+    "Not a counterexample to global annealing-activity bound.",
+    "Broader negative implication already prior; only the sharp minimal two-spin refinement is assessed original.",
+    "Finite-state stochastic order-inversion literature may contain an earlier two-spin or threshold treatment."
+  ],
+  "schema_version": 1
+}
