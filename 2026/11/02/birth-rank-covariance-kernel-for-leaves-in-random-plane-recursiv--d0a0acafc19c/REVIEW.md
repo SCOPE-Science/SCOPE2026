@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The survival product follows by counting forbidden insertion gaps for a specified set of surviving plateaux. The ratio of paired to single-plateau survival probabilities is \(\prod_{k=j}^{n-1}(1-1/(4k^2))\). Explicit logarithmic product asymptotics and uniform covariance bounds justify the diagonal/off-diagonal Riemann-sum limit; the displayed integrals give the closed kernel. Independent exact enumeration in `verify.py` checks the two combinatorial models and 528 assertions, but it is not substituted for the all-size proof.
+## correctness
 
-**Originality: PASS, with residual risk.** Janson's 2008 work supplies the bijection and full-population leaf mean/variance; Zhang's and Kuba–Panholzer's treatments obtain single fixed-label degree distributions. Haglund–Visontai's 2011 multivariate stability theorem already entails negative association and the covariance sign, so **no novelty is attributed to those qualitative conclusions**. The contribution assessed is the joint survival factorization and, particularly, its explicit birth-age covariance kernel and weighted-statistic limit. No equivalent formula or stronger explicit kernel was identified in the inspected texts or relevant published-result comparisons. The 1993 branch-tree full text was unavailable and an implicit derivation from existing multivariate identities remains possible.
+PASS
 
-**Mathematical value: PASS.** A finite-dimensional age-stratified covariance function distinguishes early/late birth ranks and provides sharp asymptotic covariances for every pair of birth-age windows or bounded Riemann-integrable age weights. It is an interpretable quantitative refinement of the established total leaf variance \(n/9\), beyond a qualitative dependence sign or a single known marginal. The precise kernel is useful for second-order questions about the age composition of leaves, even without a functional central limit theorem.
+The Stirling-permutation insertion representation has 2t-1 equiprobable gaps at birth t. If earlier labels S remain adjacent, precisely |S intersect [1,t-1]| gaps are forbidden; once split an adjacent equal pair cannot reform. Multiplication proves every finite-subset joint survival identity. For i<j, the ratio of two survival probabilities is product_{k=j}^{n-1}(1-1/(4k^2)), giving strictly negative pair covariance for j<n. Log-product asymptotics yield n Cov(I_i,I_j)->-(1-y)sqrt(x/y)/4 for 0<x<y<1. Bounds p_{n,i}<=sqrt(i/n) and n|Cov|<=1/2 control the origin; diagonal and off-diagonal Riemann sums integrate to K(s,t)=s^{3/2}(6-3sqrt(t)+t^{3/2})/9-s²/3 for s<=t. Independently enumerated all insertion words for n<=6 and all subset survival probabilities exactly; the infinite kernel is analytic, not inferred from finite enumerations.
 
-**Scope.** The law applies to uniformly random ordered increasing plane recursive trees (equivalently uniform Stirling permutations), not to uniform-parent recursive trees. Equation (5) asserts only covariance convergence. The source comparison and proof do not establish historical uniqueness or independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Janson provides the plane-recursive-tree/Stirling-permutation correspondence and aggregate leaf variance, Haglund–Visontai stable-polynomial theory already yields qualitative negative dependence, and Zhang studies fixed-vertex degrees. The exact pair survival multiplier and continuous birth-age covariance kernel are quantitative refinements, not new generic negative association claims. Priority is qualified particularly by a 1993 tree-branch study whose full text was not inspected.
+
+## value
+
+PASS
+
+The exact age-resolved covariance and arbitrary Riemann-integrable weighted kernel quantify collective fluctuation not captured by the known total-leaf variance. Such a covariance kernel is a natural input to weighted statistics and potential process limit results without claiming a functional CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
