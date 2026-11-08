@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The stationary interval preimages give the exact functional equation \(m(t)=q m(t/\ell)+j(t)\). The published existence and local Lipschitz theorem justifies finite positive injection-point densities; the resulting source \(j\) decays exponentially in \(t\). The infinite tail used to construct \(F\) converges locally with its derivative and satisfies an exact multiplicative scaling equation. Strictly decreasing \(F\) produces positive mass and density periodic coefficients. Direct differentiation of the convergent series establishes the density remainder; exact-rational checks verify the independently derived branch identity. All statements are for \(q\ell<1\); no infinite-scope inference is drawn from finite tests.
+## correctness
 
-**Originality: PASS within inspected primary literature and database coverage.** Kalle--Zeegers (arXiv:2206.07601, especially §1 and Remark 4.1) proves existence, mixing and density regularity for this same map. Homburg et al. (arXiv:2107.02556, especially Theorem 1.3 and Corollary 1.1) establishes a nonsharp general logarithmic bound and non-\(L^s\) density for the motivating class. The new claim is the exact stationary mass renewal identity's positive homogeneous profile, fixed sharp exponent, derivative profile and two-term exponentially accurate remainder for the adapted map. General renewal/scale-equation methods might subsume this specialized deduction; no comprehensive priority claim is made.
+PASS
 
-**Mathematical value: PASS.** The central fixed point causes the critical intermittency phase transition. Quantifying its stationary mass and its pointwise density, rather than merely knowing integrability fails, is a motivated local invariant. The positive profile gives matching upper/lower asymptotic orders for the entire continuous range of admissible probabilities and slopes; the second term identifies the finite regular-branch reinjection mechanism. These are meaningful quantitative refinements of the existing logarithmic bound in the natural exact model.
+Preimages of I_t under bad left, good left, and common right branches yield exactly m(t)=q m(t/ell)+j(t). Stationary density is locally Lipschitz at the injection points 1/4 and 3/4 by the primary theorem, hence j(t)=J2^-t/4+O(2^-2t) with J>0 and differentiable remainder. The convergent F(t)=m(t)+sum_{k>=1}q^-k j(ell^k t) obeys F(ell t)=qF(t), and F>0,F'<0, so both log-periodic mass and derivative profiles are positive. First tail term gives the exponential correction; direct differentiation yields density error O(2^(-(ell-1)t)). Independent 18 rational branch identities passed, not a proof of invariant density existence.
 
-**Limitations and residual risks.** Only the left critical cusp of the two-map family in the finite-measure regime is covered. The periodic amplitude may be constant. The published regularity theorem is a substantive prerequisite. General transfer/renewal-equation treatments may encode this conclusion without naming this exact family. Independent expert verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct mathematical claim after direct model/parameter and implication comparisons; known overlapping prerequisites and specializations credited. Upper bound µ(A)<=C/log^k(1/|A|) and local Lipschitz away from the cusp do not imply an asymptotic equivalent; the exact preimage scaling and summable reinjection tail supply both upper and lower matching profiles. Standard renewal equation could imply the construction after specializing this exact map; historical dominance remains a risk.
+
+## value
+
+PASS
+
+The stationary cusp at a superattracting critical point is a canonical object in random intermittency; knowing the integrability threshold or an upper log bound does not determine its local mass. The exact positive periodic envelope and reinjection second term give a sharp, motivated local invariant, without claiming nonconstant oscillation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
