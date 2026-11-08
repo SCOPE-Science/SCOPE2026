@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The graph is explicitly the cube vertex–face incidence graph. The intrinsic closed-ball definition agrees with the even/odd generating-face formula of Adams–Shukla–Singh. At scale three, all 1,279 faces are reconstructed, and the independent collapse certificate verifies 626 free codimension-one pairs, leaving exactly the 27-face octahedral boundary. This is an explicit integral simple-homotopy proof, not a Betti-number guess. At scale two, two complete acyclic Morse matchings have one critical vertex and thirteen critical two-cells. Independent binary boundary ranks verify the same dimensions. The elementary inclusion argument gives the integral split-surjective map and its rank-twelve kernel. The full symmetry action is verified both structurally and on the signed fundamental cycle.
+
+## Originality — PASS against the checked sources
+The primary source arXiv:2212.05871 establishes the generating-face rule and studies hypercube graphs; the named rhombic-dodecahedral graph is a different, biregular graph. Previte's 2014 dissertation treats the even-scale construction but not the present graph or odd-scale collapse. Matsushita's 2025 general closed-neighborhood equivalences do not classify this instance or the odd-scale map. Full result texts from the closest published cuboctahedral Čech classification and the vertex-truncation theorem were inspected; the former uses the different twelve-vertex line graph of the cube, and the latter excludes the bipartite degree-four incidence graph by its graph-construction hypotheses. Targeted searches for graph aliases, equivalent formulations, tables and stronger general theorems identified no implication of the exact collapse or integral persistence. Search completeness is not guaranteed, including for unindexed alternate terminology.
+
+## Value — PASS
+This is a canonical polyhedral example with a geometrically meaningful and symmetry-invariant octahedral spine, not an arbitrary sampled graph. The verified elementary collapse is stronger than a homology calculation and explains the primitive integral persistence map between consecutive Čech scales: twelve independent degree-two classes die while the octahedral fundamental class survives. The determinant orientation representation gives an additional natural structural invariant without asserting an equivariant collapse. A finite exact classification is useful here because it isolates the effect of enlarging intrinsic metric balls beyond the graph-recovery range.
+
+## Literature and boundaries
+The closest literature is Adams–Shukla–Singh (arXiv:2212.05871), Previte (2014), Matsushita (arXiv:2511.12608), and the published cuboctahedral and vertex-truncation Čech classifications cited in RESULT.md. Only scales two and three and the degree-two homology representation are classified. No higher-dimensional radial-graph generalization is inferred. An independently conducted audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
