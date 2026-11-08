@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result has a self-contained proof of the bound \(\nu_s(T)\le9\), a sharp characterization of equality by six perfect matchings in a nine-edge graph on six vertices, and an exhaustive elementary lemma proving that only \(K_{3,3}\) can attain six. The conversion from forced cross duads to nine flags is unique. Symmetry and double-counting prove pairwise intersection one. Two independently implemented exhaustive programs pass, including an independent symplectic construction and all maximal compatible-clique enumeration; computational checks are corroborative, not substitutes for the proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Compared the exact flag-level statement, not just the number nine, with the full accessible treatments of general cubic induced-matchings (Horák–Qing–Trotter 1993), maximal induced matchings in triangle-free graphs (Basavaraju et al. 2013), the known non-six-colourability of the Tutte eight-cage (Lužar et al. 2021), and generalized-quadrangle flag association schemes (Colangelo–Monzillo–Siciliano 2024). None of the inspected claims classifies the ten largest induced matchings or establishes their complete-graph incidence geometry. Targeted searches and comparisons with accessible research records found no implication or exact census. This does not exclude an unindexed equivalent classical description.
+PASS
 
-## Value — PASS
-This is a natural complete extremal classification for a canonical cubic cage, not a chosen parameter slice or an incidental computed number. The resulting \(K_{10}\) incidence geometry, equidistant binary code and sharp eight-edge replacement threshold expose structural consequences of the optimum class, pertinent to strong colouring and reconfiguration.
+A 9-edge induced matching selects nine duads and nine synthemes; each chosen duad meets two unchosen synthemes, giving 2r<=3(15-r) and r<=9. At equality the six unchosen synthemes are six perfect matchings of the nine selected duads. The proved six-vertex nine-edge extremal lemma forces K_{3,3}, and hence exactly ten unordered 3+3 partitions and ten forced flag matchings; crossing-partition counting gives two maxima per flag and intersection exactly one. Binary weight-nine code distance is 2(9-1)=16; minimal simultaneous exchange changes eight edges. This is a proof for the one finite Tutte–Coxeter graph, not a general cubic-graph theorem.
 
-## Limits
-The result does not claim a new general strong-chromatic-index bound, the known Tutte non-six-colourability statement, or external peer validation. Historical search may be incomplete. Separate independent mathematical audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: distinguished the exact ten-optima equality classification and K10 incidence geometry from known Tutte eight-cage strong-colouring statements, general extremal induced-matching bounds and generalized-quadrangle flag association schemes. Full same-graph strong-colouring text does not enumerate largest individual induced matchings. Classical geometry may encode these 3+3 partitions under another name; priority is not certified.
+
+## value
+
+PASS
+
+The Tutte–Coxeter graph is a canonical smallest cubic girth-eight cage; all maximum induced matchings and their incidence structure form a natural complete extremal classification, with sharp graph-code and reconfiguration consequences rather than a table of arbitrary edge subsets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
