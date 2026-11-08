@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete polynomial follows from an exact bijection between independent zero sets and rook matchings, the precise size \(s(m+n-s-1)\) of a union of defense neighborhoods, and inclusion-exclusion. The positive-neighbor condition is automatic for \(m+n\ge5\), while the \(2\times2\) exception is accounted for explicitly. The optimizer classification follows from the capacity-two constraint on defenders: even zero support gives paired components; odd support gives exactly a three-zero path plus pairs, or pairs plus a single-cover defender. The standalone verifier checks the defining conditions directly, all polynomial coefficients on eight finite boards, and every predicted optimal count.
+PASS
 
-## Originality — PASS with residual publication-priority uncertainty
+The outer-independent zero set is exactly a nonattacking rook placement: matching of k row/column pairs, in A_mn(k)=C(m,k)C(n,k)k! ways. Once zeros fixed, the number of nonzero cells in the union of the defense neighborhoods of s selected zeros is s(m+n−s−1); including/excluding their failure to have any 2-labeled neighbor yields the stated alternating polynomial with factor z^{mn−k}(1+z)^{mn−k−s(m+n−s−1)}. Every positive cell has ≥m+n−4 positive neighbors for m+n≥5; for 2x2 a full two-zero matching leaves isolated positive vertices, and the exact correction is −4z³−2z⁴. For k zeros, t labels 2 cover at most 2 zeros each: t≥ceil(k/2), yielding min bound mn−floor(k/2) and exact constructed attainment. Equality cases split into pairs of zero squares served at one cross-intersection, an odd path triple plus pairs, and an odd single-cover extension to unused row/column; the resulting optimizer counts match formulas. Independently brute-force original three label constraints for 2x2,2x3,2x4,3x3 and compared entire weight-polynomial coefficient arrays and optimal labels, including 2x2 min4 / count9; infinite formula justified combinatorially not by these tests.
 
-Cabrera Martínez, Kuziak, and Yero (2019, DOI 10.1016/j.dam.2018.12.018) introduced the invariant, and their 2021 preprint (arXiv:2112.05476v1, Theorem 3.4) treats exactly these Cartesian products but determines only a scalar minimum. The complete all-weight polynomial and the number and shapes of every optimizer do not follow from the minimum-value identity alone; neither inspected paper states them. Searches for alternative name variants, exact coefficient databases and potential stronger covering results revealed no equivalent indexed claim. The closely related complete-multipartite Roman weight enumerators concern different graph families; the ordinary outer-independent Roman version omits a totality condition. An unindexed equivalent formula remains possible. The scalar minimum for nonexceptional boards is expressly credited as prior work.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This determines the full weighted distribution of a natural, previously studied domination invariant on an infinite two-parameter graph family, not merely a rephrased optimum. The zero-matching/defender-cover structure yields an exhaustive optimal classification and exact counts, and resolves the sole low-degree boundary where the additional totality condition is not automatic. These counts enable exact comparisons of all redundancy levels and sampling probabilities for randomly assigned labels; no application beyond that enumerative interpretation is asserted.
+Best-of-knowledge PASS for the two-parameter full weight polynomial and complete minimum-function counts/shapes. The scalar minimum in nonexceptional cases is already Theorem 3.4 of Cabrera Martínez–Kuziak–Yero 2022, and is acknowledged; the exact 2x2 totality exception corrects a boundary overlooked by the published all-(r,s≥2) scalar formula.
 
-## Boundaries
+## value
 
-The proof applies to all integers \(m,n\ge2\) and to the standard three-label definition. The finite verifier does not establish the infinite result; the explicit matching and inclusion-exclusion proof does. Full publication priority remains subject to external checking.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determining all coefficients of a natural domination weight polynomial and all optimizing labeled functions strengthens a known scalar invariant across an infinite two-parameter family. The 2x2 totality anomaly matters substantively, and complete matching/defender classification is useful for exact combinatorial enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

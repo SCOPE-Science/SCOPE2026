@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T02:49:09.937442Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The outer-independent zero set is exactly a nonattacking rook placement: matching of k row/column pairs, in A_mn(k)=C(m,k)C(n,k)k! ways. Once zeros fixed, the number of nonzero cells in the union of the defense neighborhoods of s selected zeros is s(m+n−s−1); including/excluding their failure to have any 2-labeled neighbor yields the stated alternating polynomial with factor z^{mn−k}(1+z)^{mn−k−s(m+n−s−1)}. Every positive cell has ≥m+n−4 positive neighbors for m+n≥5; for 2x2 a full two-zero matching leaves isolated positive vertices, and the exact correction is −4z³−2z⁴. For k zeros, t labels 2 cover at most 2 zeros each: t≥ceil(k/2), yielding min bound mn−floor(k/2) and exact constructed attainment. Equality cases split into pairs of zero squares served at one cross-intersection, an odd path triple plus pairs, and an odd single-cover extension to unused row/column; the resulting optimizer counts match formulas. Independently brute-force original three label constraints for 2x2,2x3,2x4,3x3 and compared entire weight-polynomial coefficient arrays and optimal labels, including 2x2 min4 / count9; infinite formula justified combinatorially not by these tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 theorem asserts scalar gamma_oitR(K_r square K_s)=rs−floor(r/2); it does not enumerate functions and its proof asserts an incorrect 2x2 totality construction."
+        ],
+        "reasoning": "The prior scalar formula for m+n≥5 supplies a consequence but cannot recover all polynomial coefficients or optimizer counts; complete multipartite polynomial results have different edge neighborhoods.",
+        "searches": [
+          "Cabrera Martínez Kuziak Yero arXiv:2112.05476v1 Theorem 3.4",
+          "2022 Springer Mediterranean Journal Mathematics Theorem 3.4",
+          "Resultary complete multipartite Roman enumerators"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 29f3832eaf8c7a62198a20b33033bb599bad5b02",
+        "Frozen verify_oit_rook.py SHA 870e67184eb0777ea9aea8318f386e316eeaf00c",
+        "Independent checks CASE4_OK",
+        "Springer 2022 doi:10.1007/s00009-022-02061-y Theorem 3.4",
+        "Cabrera et al 2019 doi:10.1016/j.dam.2018.12.018",
+        "Resultary related multipartite enumerator results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum weight does not determine count of optimizers or all weight classes; 2x2 test of published theorem gives contradiction (published value 3, actual valid functions min4) because totality fails."
+        ],
+        "reasoning": "Claims of full weight polynomial, optimizer counts, and boundary correction survive the prior coverage; the general scalar formula is covered except boundary and is not accepted as novel.",
+        "searches": [
+          "2022 DOI:10.1007/s00009-022-02061-y Section 3.3 and Theorem 3.4",
+          "2019 foundational OITR definition DOI:10.1016/j.dam.2018.12.018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook graph equals line graph of complete bipartite K_m,n; independent zero vertices are bipartite matchings, not the vertex-part independence of complete multipartite graphs."
+        ],
+        "reasoning": "Equivalent terms include OITR, rook graph, line graph of K_m,n, total Roman independent-zero label weight generating function; compared with alternate Roman variants omitting totality.",
+        "searches": [
+          "Resultary: outer independent total Roman domination rook graph Cartesian complete graph weight polynomial enumeration",
+          "line graph of K_m,n Roman labelings",
+          "arXiv:2112.05476v1 Theorem 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only optimal weights, not full distribution or labeled optimizer table, were found in the most directly relevant 2022 article; Resultary polynomial entries apply to complete multipartite vertices, not rook graphs."
+        ],
+        "reasoning": "The exact polynomial is not simply a known scalar table recomputation; each coefficient is derived from the zero-matching defense neighborhood inclusion-exclusion.",
+        "searches": [
+          "Resultary: outer independent total Roman domination rook graph Cartesian complete graph weight polynomial enumeration",
+          "published 2022 Cartesian products K_r square K_s scalar theorem",
+          "related complete multipartite OIR polynomial records"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the two-parameter full weight polynomial and complete minimum-function counts/shapes. The scalar minimum in nonexceptional cases is already Theorem 3.4 of Cabrera Martínez–Kuziak–Yero 2022, and is acknowledged; the exact 2x2 totality exception corrects a boundary overlooked by the published all-(r,s≥2) scalar formula.",
+      "residual_risks": [
+        "Some unindexed rook graph OITR full enumerator may exist.",
+        "The 2022 scalar theorem states r=s=2 but has an invalid boundary construction; current result explicitly treats that case.",
+        "No extension to Hamming graphs with more factors or direct graph products."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Publishes scalar formula but neither polynomial nor optimal-label multiplicities; their r=s=2 upper-bound witness violates total positive-neighbor condition.",
+          "evidence": [
+            "Theorem 3.4, Section 3.3; published 10 May 2022"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00009-022-02061-y",
+          "material_read": "Full open-access article including Section 3.3, Theorem 3.4, and its constructive proof",
+          "method": "Springer full-text HTML",
+          "title": "Relating the Outer-Independent Total Roman Domination Number with Some Classical Parameters of Graphs",
+          "trigger": "Exact same Cartesian product and domination definition"
+        },
+        {
+          "assessment": "Definition and general invariant covered, exact rook polynomial not established in inspected material.",
+          "evidence": [
+            "Cabrera Martínez–Kuziak–Yero (2019)"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2018.12.018",
+          "material_read": "Accessible abstract/definition and cited scope; complete issue was not independently read",
+          "method": "abstract and bibliographic text",
+          "title": "Outer-independent total Roman domination in graphs",
+          "trigger": "Foundational definition and totality condition"
+        },
+        {
+          "assessment": "Different graph class and outer-independent Roman (without totality) label constraints; not covering.",
+          "evidence": [
+            "Resultary record 2026/10/4/...--be8dafdf937d"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-weight-enumerator-of-outer-independent-roman-functions-on-comple--be8dafdf937d",
+          "material_read": "Published mathematical summary and theorem scope returned by Resultary search",
+          "method": "Resultary published-result summary",
+          "title": "Weight enumerator of outer-independent Roman functions on complete multipartite graphs",
+          "trigger": "Related all-weight enumerator with potentially similar title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining all coefficients of a natural domination weight polynomial and all optimizing labeled functions strengthens a known scalar invariant across an infinite two-parameter family. The 2x2 totality anomaly matters substantively, and complete matching/defender classification is useful for exact combinatorial enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md SHA 29f3832eaf8c7a62198a20b33033bb599bad5b02",
+    "Frozen verify_oit_rook.py SHA 870e67184eb0777ea9aea8318f386e316eeaf00c",
+    "Independent checks CASE4_OK",
+    "Springer 2022 doi:10.1007/s00009-022-02061-y Theorem 3.4",
+    "Cabrera et al 2019 doi:10.1016/j.dam.2018.12.018",
+    "Resultary related multipartite enumerator results"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Some unindexed rook graph OITR full enumerator may exist.",
+    "The 2022 scalar theorem states r=s=2 but has an invalid boundary construction; current result explicitly treats that case.",
+    "No extension to Hamming graphs with more factors or direct graph products."
+  ],
+  "schema_version": 1
+}
