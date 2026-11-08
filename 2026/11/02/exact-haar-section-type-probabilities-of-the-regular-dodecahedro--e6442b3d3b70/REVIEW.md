@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Generic central-plane vertices correspond bijectively to crossed dodecahedron edges. A complete finite arrangement classification over the exact ordered field \(\mathbb Q(\sqrt5)\) establishes the \(20,60,12\) chamber counts, section types and spherical-angle multisets; Girard's area identity converts them into the three probabilities. The actual standalone `check.py` was executed and its assertions all passed. Strictly zero-measure boundary normals are explicitly excluded. Computed decimals are not used to prove the exact expressions.
+## correctness
 
-**Originality — PASS (bounded search, residual historical priority risk).** The inspected full text of Brandenburg–De Loera–Meroni (2023) supplies general slicing-chamber structure and extremal dodecahedron volume sections, but does not evaluate the direction-weighted exact section-type law. MathWorld records symmetry-axis hexagonal and decagonal central sections, which do not determine positive-measure frequencies. The nearest indexed result concerns *central icosahedron* sections; polar duality associates this dodecahedron result instead with *orthogonal icosahedron projections*, not those central icosahedron sections. Several synonym, polar, spherical-arrangement and exact-coefficient searches found no stronger direct coverage. Specialized older stereological/projective tables remain a historical-priority risk.
+PASS
 
-**Value — PASS.** A complete, exact Haar side-count distribution for one of the five Platonic solids is a canonical integral-geometric invariant. The result simultaneously identifies the three possible generic section types, determines their spherical measure and exposes the underlying icosahedral great-circle combinatorics. The middle-probability octagonal regime has positive measure despite being invisible from special-axis descriptions. This is a motivated complete geometric classification rather than an arbitrary numerical slice.
+All twenty standard golden-ratio vertex coordinates are antipodally paired. Central-section vertices correspond exactly to edges with opposite normal signs. In actual check.py, exact ordered Q(sqrt5) arithmetic classifies feasible sign chambers of ten vertex-pair great circles; no three intersect concurrently, yielding exactly 92 cells: twenty spherical hexagons with six crossed edges, sixty triangles with eight, twelve pentagons with ten. Each class has respectively spherical excess 2pi-3a-3b, 2a+b-pi, 2pi-5a (a=acos(1/3), b=acos(sqrt5/3)). Weighted by 20,60,12 and divided by 4pi, give all probabilities .638408811559..., .238989468900..., .122601719541..., summing to one. Independently counted crossed edges for 250000 sampled normal vectors: fractions 0.636852,0.240176,0.122972. Sampling checks only, exact finite chamber classification is the exhaustive certificate. Boundary great circles measure zero.
 
-The result concerns only regular dodecahedra under central Haar-plane sampling, not affine-offset models. Exact enumeration is a finite certificate with mathematical completeness justified in RESULT.md; numerical experiments alone would not establish the result. Priority beyond the inspected material is unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brandenburg–De Loera–Meroni gives the general slicing-chamber and maximum-volume section framework, not Haar measures of dodecahedral section side-count chambers. Known central icosahedron section probabilities concern sections of polar rather than projections. No directly dominating evaluated probability found; qualified by older stereological or projection tables.
+
+## value
+
+PASS
+
+The full exact type law of a central section of a Platonic solid is a canonical integral-geometric invariant. It exhibits a positive-measure octagon regime missed by special symmetry-axis discussions and resolves every generic central section type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

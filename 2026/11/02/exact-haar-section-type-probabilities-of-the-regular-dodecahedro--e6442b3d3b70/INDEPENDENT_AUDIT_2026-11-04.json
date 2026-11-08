@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T12:59:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All twenty standard golden-ratio vertex coordinates are antipodally paired. Central-section vertices correspond exactly to edges with opposite normal signs. In actual check.py, exact ordered Q(sqrt5) arithmetic classifies feasible sign chambers of ten vertex-pair great circles; no three intersect concurrently, yielding exactly 92 cells: twenty spherical hexagons with six crossed edges, sixty triangles with eight, twelve pentagons with ten. Each class has respectively spherical excess 2pi-3a-3b, 2a+b-pi, 2pi-5a (a=acos(1/3), b=acos(sqrt5/3)). Weighted by 20,60,12 and divided by 4pi, give all probabilities .638408811559..., .238989468900..., .122601719541..., summing to one. Independently counted crossed edges for 250000 sampled normal vectors: fractions 0.636852,0.240176,0.122972. Sampling checks only, exact finite chamber classification is the exhaustive certificate. Boundary great circles measure zero.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Best Ways to Slice a Polytope Theorem 1.1 and §5/Table 3 study slicing chambers and maximum dodecahedral section volume, not spherical area of all section-type regions"
+        ],
+        "reasoning": "Existence of a chamber decomposition and extremum of section volume do not compute 20+60+12 chamber area classes or their probabilities.",
+        "searches": [
+          "arxiv 2304.14239 dodecahedron slices The Best Ways to Slice a Polytope",
+          "Haar central plane section number sides regular dodecahedron spherical chambers probability hexagon octagon decagon"
+        ]
+      },
+      "checked_sources": [
+        "Actual RESULT.md and check.py exact 20-vertex/Q(sqrt5) certificate; seven source blobs/tree",
+        "Brandenburg–De Loera–Meroni full pertinent text; MathWorld dodecahedron",
+        "Resultary: Haar central plane section number sides regular dodecahedron spherical chambers probability hexagon octagon decagon and published central icosahedron section entry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known maximum-area dodecahedron slice ≠ distribution of section side counts; dual icosahedron section theorem is not the needed icosahedron projection theorem"
+        ],
+        "reasoning": "No inspected result logically implies this exact 3-outcome probability law without the finite spherical-arrangement integration; older specialized tables may yet overlap.",
+        "searches": [
+          "The Best Ways to Slice a Polytope arxiv:2304.14239",
+          "Resultary icosahedron central section 65970a533c4f",
+          "regular dodecahedron stereology random plane central hexagon octagon decagon"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary result 2026/10/11/SCOPE-exact-haar-polygon-type-law-for-central-icosahedron-sections--65970a533c4f counts icosahedral central sections with 10/12 vertices, while current result dodecahedral central sections with 6/8/10"
+        ],
+        "reasoning": "Polar duality maps dodecahedral central sections to orthogonal projections of the icosahedron, not to central sections of the icosahedron, so those probabilities do not imply this law.",
+        "searches": [
+          "Haar central plane section number sides regular dodecahedron spherical chambers probability hexagon octagon decagon",
+          "regular icosahedron central section decagon dodecagon dual polar projection Resultary 65970a533c4f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld tabulates coordinates and special-axis sections; those directions have spherical measure zero",
+          "Exact exhaustive 92-cell certificate and per-chamber angular multisets in actual check.py"
+        ],
+        "reasoning": "Existing special-axis geometry and the dual solid central-section table do not give all three Haar probabilities of the current central dodecahedron section.",
+        "searches": [
+          "Haar central plane section number sides regular dodecahedron spherical chambers probability hexagon octagon decagon",
+          "MathWorld Regular Dodecahedron central section hexagon decagon",
+          "Resultary 2026/10/11/SCOPE-exact-haar-polygon-type-law-for-central-icosahedron-sections--65970a533c4f"
+        ]
+      },
+      "rationale": "Brandenburg–De Loera–Meroni gives the general slicing-chamber and maximum-volume section framework, not Haar measures of dodecahedral section side-count chambers. Known central icosahedron section probabilities concern sections of polar rather than projections. No directly dominating evaluated probability found; qualified by older stereological or projection tables.",
+      "residual_risks": [
+        "Older stereology or icosahedron projection tables may already encode the same probability law.",
+        "The numeric Monte Carlo is not proof of exact chamber completeness; this relies on the inspected field-arithmetic certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General slicing chambers and maximum-area section rather than exact Haar law",
+          "evidence": [
+            "Theorem 1.1/§5 vs RESULT.md §§2–3"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.14239",
+          "material_read": "Full lawful arXiv text, Theorem 1.1, §5 and Platonic table",
+          "method": "Full-text comparison",
+          "title": "The Best Ways to Slice a Polytope",
+          "trigger": "Sections of the exact same dodecahedron"
+        },
+        {
+          "assessment": "Does not itself give complete random-normal section-type weights",
+          "evidence": [
+            "Special axis section types vs 92-cell Haar integration"
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/RegularDodecahedron.html",
+          "material_read": "Coordinate and special section information accessible",
+          "method": "Reference reading",
+          "title": "Regular Dodecahedron",
+          "trigger": "Coordinates and possible classic exact tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full exact type law of a central section of a Platonic solid is a canonical integral-geometric invariant. It exhibits a positive-measure octagon regime missed by special symmetry-axis discussions and resolves every generic central section type.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual RESULT.md and check.py exact 20-vertex/Q(sqrt5) certificate; seven source blobs/tree",
+    "Brandenburg–De Loera–Meroni full pertinent text; MathWorld dodecahedron",
+    "Resultary: Haar central plane section number sides regular dodecahedron spherical chambers probability hexagon octagon decagon and published central icosahedron section entry"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the mathematical claim and normalization specified in the actual frozen RESULT.md were assessed; no generalization is asserted beyond its explicit domain.",
+    "Independent spot calculations are bounded; analytic or complete finite certificate arguments, not finite sampling, bear the universal claim.",
+    "Priority is best-of-knowledge and does not certify exhaustive historical absence."
+  ],
+  "residual_risks": [
+    "Older stereology or icosahedron projection tables may already encode the same probability law.",
+    "The numeric Monte Carlo is not proof of exact chamber completeness; this relies on the inspected field-arithmetic certificate."
+  ],
+  "schema_version": 1
+}

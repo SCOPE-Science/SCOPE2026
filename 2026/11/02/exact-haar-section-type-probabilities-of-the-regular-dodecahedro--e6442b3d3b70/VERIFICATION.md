@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Extract `check.py` from the same package and run `python3 check.py` with Python 3; it has no third-party dependencies. The expected final output is `EXACT_ALGEBRAIC_ARRANGEMENT_CERTIFICATE_PASSED`, after listing the \(6\)-, \(8\)- and \(10\)-vertex probabilities.
+## correctness
 
-The checker works in exact coordinates \((a,b)\leftrightarrow a+b\varphi\) with \(\varphi^2=\varphi+1\) and \(\varphi=(1+\sqrt5)/2\). It proves the strict rational bounds on \(\varphi\) by squaring \(2\varphi-1=\sqrt5\). Every sign predicate either follows from those certified bounds or halts without a PASS. Exhaustively it builds 20 vertices, 30 edges, 10 antipodal normal representatives, 45 pairwise great-circle intersections with two antipodal rays each, and 1024 candidate sign patterns. The absence of triple intersections is checked exactly. The program uses those exact predicates to certify 20 spherical hexagons with six-sided sections, 60 spherical triangles with eight-sided sections, and 12 spherical pentagons with ten-sided sections. The verified interior-angle dot products give the exact spherical areas via Girard's theorem. Floating-point evaluation appears only after this exact classification, for user-facing decimal values.
+PASS
 
-The proof that all spherical chamber vertices appear among pairwise great-circle intersections, and that the sign-discordant edges bijectively give polygon vertices, is provided in RESULT.md. The generic ten-circle region-count check independently gives 92. The output does **not** assert machine-checked mathematical formalization, independent validation, historical uniqueness, or the analogous result for noncentral planes.
+All twenty standard golden-ratio vertex coordinates are antipodally paired. Central-section vertices correspond exactly to edges with opposite normal signs. In actual check.py, exact ordered Q(sqrt5) arithmetic classifies feasible sign chambers of ten vertex-pair great circles; no three intersect concurrently, yielding exactly 92 cells: twenty spherical hexagons with six crossed edges, sixty triangles with eight, twelve pentagons with ten. Each class has respectively spherical excess 2pi-3a-3b, 2a+b-pi, 2pi-5a (a=acos(1/3), b=acos(sqrt5/3)). Weighted by 20,60,12 and divided by 4pi, give all probabilities .638408811559..., .238989468900..., .122601719541..., summing to one. Independently counted crossed edges for 250000 sampled normal vectors: fractions 0.636852,0.240176,0.122972. Sampling checks only, exact finite chamber classification is the exhaustive certificate. Boundary great circles measure zero.
+
+## originality
+
+PASS
+
+Brandenburg–De Loera–Meroni gives the general slicing-chamber and maximum-volume section framework, not Haar measures of dodecahedral section side-count chambers. Known central icosahedron section probabilities concern sections of polar rather than projections. No directly dominating evaluated probability found; qualified by older stereological or projection tables.
+
+## value
+
+PASS
+
+The full exact type law of a central section of a Platonic solid is a canonical integral-geometric invariant. It exhibits a positive-measure octagon regime missed by special symmetry-axis discussions and resolves every generic central section type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
