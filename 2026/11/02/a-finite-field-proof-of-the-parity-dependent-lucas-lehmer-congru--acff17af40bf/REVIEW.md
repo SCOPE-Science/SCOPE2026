@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The recurrence is exactly the trace of powers of \(2+\sqrt3\). For the specified prime modulus, \(2\) is a quadratic nonresidue; \(3\) changes quadratic character between the two parity cases. Frobenius acting on \((1+\sqrt3)/\sqrt2\) yields the stated trace, with the exceptional small prime \(7\) checked separately. The proof is valid for every integer \(n\ge3\) under its explicit primality hypothesis.
+## correctness
 
-## Originality
-PASS, with priority uncertainty. The exact question appears as an unproved conjecture in the 2026 Rotondo announcement. Searches for the same modulus, accelerated recurrence, equivalent trace \(V_{(P-3)/2}(4,1)\), and the parity residues did not find the explicit implication. General Lucas-sequence and Lucas–Lehmer–Riesel material establishes the underlying technique but addresses different exponents and modulus families. A prior implicit consequence of classical Lucas theory remains possible; an unsuccessful search alone does not establish priority.
+PASS
 
-## Mathematical value
-PASS. This proves the affirmative direction of a specifically published 2026 question about a possible primality test. The key structural explanation is the change in the quadratic character of \(3\) as the exponent parity changes; the argument turns finite empirical data into a theorem for infinitely many possible indices subject to the prime hypothesis. It does not prove that such primes occur infinitely often, nor any converse.
+For every n>=3 with prime P=2^(n-1)+3, s_j=(2+√3)^(2^j)+(2-√3)^(2^j). Put E=2^(n-2)=(P-3)/2, take u²=3,v²=2 in F_(P²), y=(1+u)/v so y²=2+u. For odd n>=5, Legendre(2/P)=Legendre(3/P)=-1 and y^P=y^-1; hence α^E=α^-2 giving s_(n-2)=14 mod P. For even n>=4, (2/P)=-1,(3/P)=1 and y^P=-y; thus α^E=-α^-1 giving s_(n-2)=-4. Handle n=3,P=7 directly. Dividing by 2 proves residues 7 and -2. Independent 14 prime-modulus exact recurrence checks support, not establish, the all-n theorem. The result has NO converse and is not a primality test.
 
-## Literature and limitations
-Davide Rotondo, Conjecture 112, July 23, 2026, https://www.primepuzzles.net/conjectures/conj_112.htm ; standard trace and Lucas–Lehmer–Riesel background https://en.wikipedia.org/wiki/Lucas%E2%80%93Lehmer%E2%80%93Riesel_test and https://en.wikipedia.org/wiki/Lucas_sequence . The proof's elementary finite-field ingredients are classical, and unlocated classical coverage is a residual priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The specific prime-case parity congruence was posed openly as Conjecture 112 on 2026-07-23; its truth is proved here by a classical finite-field trace argument. The technique is not new, and an earlier implicit generalized Lucas theorem could supersede priority; not identified in inspected sources.
+
+## value
+
+PASS
+
+Proving a publicly stated exact prime-case congruence resolves the necessary direction of a named arithmetic conjecture, replacing an experimental pattern with an all-n theorem; it does not establish a new practical primality test or composite obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
