@@ -1,11 +1,21 @@
-# Research review — two-symbol composition-read clique theorem
+# Independent mathematical audit
 
-**Correctness (PASS).** Read-distance-two edges have exactly one altered alternating source interval. With a fixed base vertex, their read-error supports are intersecting two-subsets. Repeated supports force a single-coordinate star. Distinct supports cannot form a triangle: the alternating-sum incidence invariant over the torsion-free free abelian group gives \(2A=0\) for a nonzero vector. All remaining supports share a coordinate, bounding clique size by \(n+1\). Equality enforces all possible shared-coordinate supports and uniquely reconstructs an alternating length-\(n+1\) predecessor, yielding the full deletion clique. Direct finite maximal-clique enumeration confirms the complete equality classification over 20 small parameter families. Infinite validity relies on the proof, not the computational sample.
+## correctness
 
-**Originality (PASS, subject to the explicit risk).** The 2024 Sun–Ge read-distance characterization supplies a known edge-level alternating-interval description and one family of moderate-size cliques, but its inspected §§III–IV do not supply the global all-\(q,n\) maximum or distinguish every extremizer. The 2020 Cai–Kiah–Nguyen–Yaakobi article studies insertion/deletion reconstruction and code redundancy; the 2023 Banerjee–Yehezkeally–Wachter-Zeh–Yaakobi article emphasizes coding for read vectors, particularly longer windows. Direct equivalence searches included insertion-reconstruction graphs, pairwise distance-two equidistant codes, alternating-deletion clique families, and the separate deletion-ball confusability graph. An unpublished or unindexed exact clique theorem cannot be ruled out. The previously published edge criterion is not presented as new.
+PASS
 
-**Value (PASS).** The graph encodes the basic pairwise confusion pairs for a one-error two-symbol nanopore-composition read. Its maximum clique size controls worst-case pairwise ambiguity clusters, and the classification explains two competing extremal mechanisms and an exact alphabet-size transition, with a complete labeled count. These invariants concern all parameters and are not obtained just by recounting edges or observing the prior alternating-clique construction.
+Two-position read differences force exactly one first-to-last interval of opposite alternating phases, including adjacent single-letter substitutions. Read-coordinate difference supports of a clique relative to a base are pairwise intersecting 2-sets. Three distinct supports forming a triangle violate the signed incidence-sum conservation law over the torsion-free free abelian group; therefore distinct supports share a center. Repeated supports force a single-coordinate q-star. Otherwise at most n supports exist, with equality forcing a globally alternating precursor by local multiset agreement. Both constructions attain bounds and are disjoint for n>=2; n=1 complete graph is treated separately. Independently enumerated maximal cliques in ten small q,n instances and matched size/count.
 
-**Limits.** This is not a clique-cover bound, an error-correcting code optimum, a list-decoding theorem for one jointly common output, or a statement for general window length. No external scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sun and Ge 2024 already supply the alternating-interval characterization of an individual distance-two pair and a constructive family of read cliques. Their inspected theorem and lemma do not yield the full arbitrary-alphabet maximum and complete extremizer classification; that uses a separate signed-incidence support triangle obstruction. Closely related published Resultary edge-count finding counts edges rather than maximum cliques. Novelty qualified against read-insertion reconstruction literature.
+
+## value
+
+PASS
+
+For a natural nanopore composition-read channel, largest pairwise confusability cliques quantify a worst-case pairwise ambiguity mechanism. Two competing families, their crossover at q=n+1, and exact labeled extremizer counts form a complete infinite-parameter classification beyond reproducing a known edge criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

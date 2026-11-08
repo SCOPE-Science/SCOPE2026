@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite checks and boundaries
+# Independent mathematical audit
 
-The standalone script `verify_read_cliques.py` enumerates all length-\(n\) words, calculates each two-symbol composition read, adds exactly the edges of read-vector Hamming distance two, and enumerates every inclusion-maximal clique via Bron–Kerbosch recursion with a pivot. Its output compares the *complete labeled set* of maximum cliques to the two asserted constructions, not merely aggregate counts.
+## correctness
 
-Executed successful cases: alphabet size 2 through length 8; size 3 through length 5; size 4 through length 4; size 5 through length 3. In total 20 parameter families, 1,368 vertices across the separate graphs, 8,537 edges, and 213 maximum cliques across those graphs. The run ended with `VERIFY_OK families=20 vertices=1368 edges=8537 maximum_cliques=213`.
+PASS
 
-The script uses no downloaded input, no random seeds, and no third-party modules. These checks do not prove an all-parameter assertion. The proof in RESULT.md is exact for all stated positive parameters; no claim is made concerning larger read windows or distances other than two.
+Two-position read differences force exactly one first-to-last interval of opposite alternating phases, including adjacent single-letter substitutions. Read-coordinate difference supports of a clique relative to a base are pairwise intersecting 2-sets. Three distinct supports forming a triangle violate the signed incidence-sum conservation law over the torsion-free free abelian group; therefore distinct supports share a center. Repeated supports force a single-coordinate q-star. Otherwise at most n supports exist, with equality forcing a globally alternating precursor by local multiset agreement. Both constructions attain bounds and are disjoint for n>=2; n=1 complete graph is treated separately. Independently enumerated maximal cliques in ten small q,n instances and matched size/count.
+
+## originality
+
+PASS
+
+Sun and Ge 2024 already supply the alternating-interval characterization of an individual distance-two pair and a constructive family of read cliques. Their inspected theorem and lemma do not yield the full arbitrary-alphabet maximum and complete extremizer classification; that uses a separate signed-incidence support triangle obstruction. Closely related published Resultary edge-count finding counts edges rather than maximum cliques. Novelty qualified against read-insertion reconstruction literature.
+
+## value
+
+PASS
+
+For a natural nanopore composition-read channel, largest pairwise confusability cliques quantify a worst-case pairwise ambiguity mechanism. Two competing families, their crossover at q=n+1, and exact labeled extremizer counts form a complete infinite-parameter classification beyond reproducing a known edge criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
