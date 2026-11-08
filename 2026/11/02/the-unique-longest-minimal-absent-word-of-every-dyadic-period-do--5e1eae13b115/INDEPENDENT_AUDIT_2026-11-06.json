@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T10:49:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The period-doubling substitution μ(0)=01, μ(1)=00 produces two halves of P_j agreeing except for their last letter. Every one occurs at an odd position and there is no 11 or 0000, so two identical length≥4 factors start with the same parity. Induction on the substitution level shows all length-h factors of P_k are distinct and the unique repeated length-(h−1) factor is Q_k at starts 0,h. A minimal absent word of length ℓ≥3 has both length-(ℓ−1) borders present but its interior must repeat at different starts, forcing ℓ≤h+1. The left/right contexts of Q_k permit only c_k Q_k c_k absent with both borders present. For all k≥3, c_k=(k−1) mod2; no circular or arbitrary-prefix claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banbara Theorem 30 characterizes two minimum-attractor position pairs, Observations 31–33 the parity and half-block properties; no minimal-absent-word theorem in the accessible full proceedings text.",
+          "General minimal-absent-word algorithms do not specify all-level extremal MAWs of this substitution."
+        ],
+        "reasoning": "An attractor characterization is a covering property of existing factors, not a maximal forbidden-factor classification, and does not imply the uniqueness claim by direct substitution.",
+        "searches": [
+          "Banbara et al. The Smallest String Attractors period-doubling 2026 full HTML Section 4",
+          "Schaeffer–Shallit arXiv:1508.02074 automatic sequence factor properties",
+          "Crochemore et al arXiv:1506.04917 minimal absent words"
+        ]
+      },
+      "checked_sources": [
+        "Banbara et al. CPM2026 complete accessible HTML Section 4",
+        "https://arxiv.org/abs/2602.16152 extended version metadata",
+        "https://oeis.org/A367184",
+        "https://arxiv.org/abs/1406.6341 algorithm abstract",
+        "Resultary matching period-doubling queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier lower-bound construction includes c_k Q_k c_k as an absent witness; it does not rule out longer or other equally long words.",
+          "The new proof uses an all-level repeated-(h−1)-factor uniqueness induction and context analysis."
+        ],
+        "reasoning": "The finding is narrowly the sharp extremal and uniqueness assertion, not discovery of the example witness or string attractor facts. Neither general string-indexing algorithms nor attractor characterizations imply the exact maximum without that induction.",
+        "searches": [
+          "The Smallest String Attractors of Fibonacci and Period-Doubling Words Theorem 30 Observations 31–33",
+          "OEIS A367184 maximum unique-factor windows",
+          "minimal absent words standard border characterization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Banbara et al. Sec.4 uses the same substitution and two halves differing in final symbol; their classification concerns smallest string attractors, not minimal absent words.",
+          "The 2023 OEIS A367184 concerns windows with unique length-n factors in the infinite period-doubling sequence, not exactly extremal minimal absent strings of P_k."
+        ],
+        "reasoning": "Compared aliases minimal absent/forbidden factors, unique repeated long interior, attractor covering and unique-window tables; the previously exhibited word is credited, but neither the known half-block identity nor attractor positions give both maximum length and uniqueness without extra argument.",
+        "searches": [
+          "Resultary: period doubling finite prefix unique longest minimal absent word 2^k",
+          "period doubling longest minimal forbidden word unique h+1",
+          "arXiv:2602.16152 period doubling halves and occurrence parity",
+          "OEIS A367184 period doubling unique factor window"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A367184 concerns starting indices of maximum-length words with distinct length-n factors, not exact MAW sets of dyadic prefixes.",
+          "Direct independently generated P3–P8 had repeated factor Q at exactly starts 0 and h, and cQc absent for every tested k."
+        ],
+        "reasoning": "No checked table directly gives the unique MAW c_kQ_kc_k for every k≥3; a broader automatic-sequence theorem could potentially imply it and absence of search matches is not a priority certificate.",
+        "searches": [
+          "OEIS A367184 period doubling sequence longest unique subfactors",
+          "Resultary: period doubling unique maximal minimal absent word",
+          "period-doubling word maximal minimal absent factors length power two"
+        ]
+      },
+      "rationale": "Qualified PASS: exact witness word existed in earlier lower-bound work and is not claimed new; the assessed theorem adds sharp upper bound and uniqueness at every dyadic length. The same-period-doubling attractor paper establishes two-half and parity structural identities, but the inspected complete section does not claim the maximal minimal-absent-word classification. Automatic-sequence factor and MAW algorithm papers cover different implications.",
+      "residual_risks": [
+        "A 2026 updated extended version or earlier automatic-sequence forbidden-factor paper may encode the full extremal classification.",
+        "The particular candidate c_kQ_kc_k was previously constructed and is explicitly excluded from novelty.",
+        "The theorem is for dyadic finite linear prefixes k≥3, not arbitrary prefix lengths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers parity and attractors, not the maximum-length minimal-absent class in the inspected full proceedings version",
+          "evidence": "Theorem 30 smallest attractors; keyword search for 'minimal absent' returns no match.",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.33/LIPIcs.CPM.2026.33.html",
+          "material_read": "Complete accessible conference primary HTML; abstract, Section 4 including Theorem 30 and Observations 31–33, searched whole page for minimal absent",
+          "method": "Primary full-text relevant section and keyword search",
+          "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+          "trigger": "Same period-doubling sequence and nearly identical halves might dominate MAW claim"
+        },
+        {
+          "assessment": "Exact unique-window statistic is related but not identical to all k maximal absent-factor uniqueness",
+          "evidence": "The table indexes maximum windows with unique length-n subfactors, not all maximal minimal absent words.",
+          "identifier_or_url": "https://oeis.org/A367184",
+          "material_read": "OEIS entry description, samples and comments including a(2^m)=0, not a journal theorem",
+          "method": "Read published database entry",
+          "title": "A367184: starting index of the first maximum length word with distinct length-n subwords",
+          "trigger": "Exact existing table of repeated factors might imply longest absent word"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimal absent words are canonical string reconstruction and combinatorial fingerprints; an all-level exact extremal length and unique witness for a natural automatic sequence gives a nontrivial boundary classification, not an arbitrary finite sequence of computed numbers. Repeated-factor induction is independently mathematically useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A 2026 updated extended version or earlier automatic-sequence forbidden-factor paper may encode the full extremal classification.",
+    "The particular candidate c_kQ_kc_k was previously constructed and is explicitly excluded from novelty.",
+    "The theorem is for dyadic finite linear prefixes k≥3, not arbitrary prefix lengths.",
+    "Best-of-knowledge priority, not external certification; no repository write or independent certificate issuance.",
+    "No general assertion outside the stated exact parameters; finite computations corroborate only tested instances."
+  ],
+  "schema_version": 1
+}

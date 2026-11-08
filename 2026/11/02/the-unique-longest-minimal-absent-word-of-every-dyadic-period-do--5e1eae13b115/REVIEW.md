@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The length-\((2^{k-1}-1)\) repeat classification is established by induction on substitution level. The base case \(P_3\) lists all possible windows, parity rules out cross-parity collisions, and the substitution recovers preceding-level factors from odd positions. The double-occurrence context lemma proves that every minimal absent word longer than \(2^{k-1}+1\) is impossible and exactly one exists at that length. The standalone checker verifies all levels \(3\) through \(9\) independently of the proof, without treating enumeration as infinite evidence.
+PASS
 
-## Originality — PASS, qualified
+The period-doubling substitution μ(0)=01, μ(1)=00 produces two halves of P_j agreeing except for their last letter. Every one occurs at an odd position and there is no 11 or 0000, so two identical length≥4 factors start with the same parity. Induction on the substitution level shows all length-h factors of P_k are distinct and the unique repeated length-(h−1) factor is Q_k at starts 0,h. A minimal absent word of length ℓ≥3 has both length-(ℓ−1) borders present but its interior must repeat at different starts, forcing ℓ≤h+1. The left/right contexts of Q_k permit only c_k Q_k c_k absent with both borders present. For all k≥3, c_k=(k−1) mod2; no circular or arbitrary-prefix claim.
 
-Barton et al. (2014) and Crochemore et al. (2015) supply general minimal-absent-word results; Schaeffer and Shallit (2015) investigate automatic-word properties. Banbara et al. (2026) explicitly give period-doubling parity and half-block structure while studying a different attractor invariant. Earlier work already exhibited the exact extremal *word* as a lower-bound witness, so mere discovery of that absent word is **not original**. The assessed additional result is its sharp *maximum length*, uniqueness, and the underlying complete longest-repeat classification. Searches and examined papers did not reveal those stronger statements. Possible alternate formulations remain a historical-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-A complete description of the deepest element of the anti-dictionary is a natural structural invariant: it settles sharp boundary depth and multiplicity at every dyadic level. The prior lower-bound example by itself neither proves a maximum nor rules out ties. The proof relates extremal forbidden patterns to exact repetition structure rather than reporting only a finite census.
+Qualified PASS: exact witness word existed in earlier lower-bound work and is not claimed new; the assessed theorem adds sharp upper bound and uniqueness at every dyadic length. The same-period-doubling attractor paper establishes two-half and parity structural identities, but the inspected complete section does not claim the maximal minimal-absent-word classification. Automatic-sequence factor and MAW algorithm papers cover different implications.
 
-## Limitations
+## value
 
-Only finite linear dyadic period-doubling words, levels \(k\ge3\). The total minimal-absent-word count and arbitrary lengths are not claimed. Priority beyond the inspected primary sources is not guaranteed. A separate independent scientific audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Minimal absent words are canonical string reconstruction and combinatorial fingerprints; an all-level exact extremal length and unique witness for a natural automatic sequence gives a nontrivial boundary classification, not an arbitrary finite sequence of computed numbers. Repeated-factor induction is independently mathematically useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
