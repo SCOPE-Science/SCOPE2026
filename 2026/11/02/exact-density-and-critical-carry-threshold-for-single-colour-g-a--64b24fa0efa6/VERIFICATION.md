@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 artifacts/verify.py` with a standard Python 3 interpreter. The script enumerates allowed-digit integers for seven finite digit-position sets in bases two, three, and four. For each case it forms exactly \(g\) positive summands, separately enumerates all independent carry-block coordinates, and verifies their equality after deleting the precisely classified configurations having fewer than \(g\) total block-coordinate units. It also checks the exact number of carry-block words by multiplication of their interval sizes. Finally it directly verifies the prohibited-digit restriction at each smaller summand count.
+## correctness
 
-The observed successful final line was:
+PASS
 
-`VERIFY_OK finite_cases=7 independent_forms=3 exact_integer_arithmetic=yes`
+For each maximal allowed run of length L, g summands fill every block integer 0..g(g^L−1), i.e. length L+1 positions with exactly g−1 forbidden highest block values. Enlarged consecutive runs are digit-disjoint because between original runs at least one missing position. Finite prefix density is the product of independent block fractions and mandatory zero digits. If product zero, periodic-superset bounds yield density zero; if positive, all but finitely many gaps are length one and the forbidden future blocks have summable densities, so a tail union bound proves genuine natural density for arbitrary x. Removing zero summands excludes only O((log x)^{g−1}) low-block-sum values. For h<g, carries <=h−1 at every excluded input digit give arbitrarily many independent forbidden digit restrictions of density (h/g)^m. Explicit L_j=N+j² achieves positive density arbitrarily near 1. Independent exact tests checked 36 finite base/run examples, not a proof of infinite-density convergence.
 
-All operations are exact integer arithmetic; there is no randomized sampling or floating-point tolerance. The proof of the theorem itself rests on the infinite-block decomposition, periodic finite-prefix densities, a uniform tail union bound, and a polynomial-logarithmic bound for zero-summand exceptions. These infinite steps are explained in `RESULT.md` and cannot be inferred from finite enumeration. Historical originality comparisons are literature-based and not independently certified. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Same-claim comparison: Multi-class minimality and one-colour natural density are logically different; the standard carry bound for h<g is prior and is not independent novelty. The possibly stronger iterated-sumset results have different invariants or hypotheses; they do not imply this exact arbitrary-run density law. Prior carry inequalities do not imply critical h=g positivity, and multicolour basis theorems have distinct quantifiers/objects. Full Sun–Tao is an explicit unresolved historical priority risk. Historical-priority risks are retained.
+
+## value
+
+PASS
+
+A precise necessary-and-sufficient positive-density threshold with explicit arbitrary-run product at the critical number of summands is a natural additive-number-theory invariant, exceeding existing multi-class minimal-basis and dimension results. The standard low-h carry bound alone is not a separate novelty claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
