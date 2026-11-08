@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is supported by an exact Fourier reduction, an independent geometric four-root minimum argument, an invertible pair of six-by-six contact systems for odd orders, and a complete affine characterization of zero-sum contacts for even orders. The symmetrization step applies to all complex positive-definite functions, not only to real invariant candidates. The odd contact determinants are nonzero throughout the specified parameter range. The even-order optimizer face has precisely three free real edge-sum directions and three independent imaginary gradient directions. At the invariant optimizer every other Fourier inequality is strict, so this is the relative affine dimension. The quartic constant follows by Taylor expansion from the exact formula. Exact symbolic determinants and finite Fourier tests from `check_a3.py` were replayed; finite tests are not used to establish infinite claims.
+## correctness
 
-## Originality — PASS, with residual historical risk
-The known small-sum theorem for four roots of unity, the Fourier identity for type-\(A_n\) root systems, and general finite-group Turán techniques are explicitly credited. The contribution assessed here is the complete **complex** optimizer classification at every modulus \(N\ge5\), especially its six-dimensional even-order face versus odd-order uniqueness, together with the quartic finite-grid defect. The closest inspected primary sources do not contain this equality-face classification. Historical overlap with a specialized finite-quotient Cayley-graph theta/association-scheme treatment is possible; no source examined establishes it. No claim is made that a search proves absolute novelty.
+PASS
 
-## Mathematical value — PASS
-The rank-three root lattice is a canonical transitive 12-neighbor Fourier aperture, not an arbitrarily selected sparse support. The result separates the behavior of equality classes from the behavior of extremal values: parity produces complete rigidity on odd quotients but a six-real-dimensional family on even quotients, and the finite-grid mass defect is of order \(N^{-4}\), stronger than the usual quadratic discretization scale. These exact statements are useful for finite positive-definite support and semidefinite optimizer geometry, even without a higher-rank generalization.
+Using character dual grid z_i^N=1, the Fourier polynomial for a symmetrized optimizer is F_t(z)=1+t(|sum_i z_i|²-4). Exact minimal root-sum radius is r=0 for even N, 2(1-cos(π/N)) for odd N, yielding masses 4 or 1+3/(c(2-c)). The odd equality contacts are twelve permutations of (1,1,-c+is,-c-is); independent symbolic six-by-six real/imaginary contact determinants reproduced -64 c³(c-2)(c-1)³(c+1)^5 and -64(c-1)³(c+1)³, nonzero for odd N>=5. At even N zero-sum character contacts enforce three complementary real-edge-sum equations and imaginary gradient potentials modulo constants; nonzero Fourier slack gives full six-real-dimensional relative face. Independent direct four-root enumeration N5..12 reproduced the sharp minimum; the package checker was inspected for separate Fourier-contact tests. The quartic expansion is 3π^4/(4N^4)+O(N^-6) along odd N. Enumeration does not prove all N; the 4-root geometry and contact-rank argument do.
 
-## Closest mathematical literature and limits
-Kolountzakis–Révész (arXiv:math/0312218) give general positive-definite finite-group Turán techniques and a type-\(A_2\)-like seven-point difference-set example; they do not classify this rank-three complex equality face. Barber (arXiv:2104.15057, Proposition 3(c)), following Myerson (1986), supplies the pre-existing four-root minimum, so the mass formula has a short derivation from known components. Dutour Sikirić (DOI:10.1112/jlms.12456, Section 5.2.1) gives the general continuous \(A_n\) root Fourier identity, but not the parity-dependent finite-quotient equality class. The theorem excludes orders below five, higher ranks, and an extreme-point census of the even optimizer face. The historical Myerson article itself was not available for full-text inspection; its known four-root result is not claimed as new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Finite A3 entire complex optimal-equality class, even six-dimensional face and odd unique optimizer are distinguished from the known four-root minimum and generic finite-group Turán framework. No identified source covers those equality classes; priority assessed best-of-knowledge.
+
+## value
+
+PASS
+
+Determines not merely a scalar Turán bound but the geometry of its entire optimal face: even-order six-dimensional complex optimizer degeneracy, odd-order strict uniqueness, and quartic parity defect. These are natural sharp extremal questions for the A3 root neighborhood under finite Fourier positivity, and potentially useful for extremal positive-definite design and equality rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
