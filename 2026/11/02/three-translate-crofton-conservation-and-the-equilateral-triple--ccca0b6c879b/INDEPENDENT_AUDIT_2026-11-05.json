@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T07:53:48.732384Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Full RESULT.md frozen blob 6c4790872d4e7137e860b2ae39828d66976d37f1 §§fixed-direction intervals, Cauchy integration, disks, threshold",
+        "Frozen checker.py blob aad578cb83e8b81afb1289d8e28cf3ed2988522b",
+        "Private independent_checks.py check 4 endpoint occupancy independent quadrature"
+      ],
+      "rationale": "For any planar convex body K and pairwise-intersecting noncollinear translates K+p_i, each normal direction gives three congruent projection intervals of length w_K(u), shifted by projections x1<=x2<=x3. Pairwise planar intersection forces range R=x3-x1<=w. Exactly one- and two-hit offset measures both equal R=w_T(u), and triple-hit equals w_K(u)-R. Integrating 0<=theta<pi via Cauchy perimeter identity gives m1=m2=P(T), m3=P(K)-P(T), total P(K)+P(T), without central symmetry or physical triple intersection. For equilateral centers and equal disks, inclusion–exclusion gives pair overlap B(q)=2(q arcsin(q)+sqrt(1-q²)-1) for q<=1 else pi q-2; triple overlap H(q)=0 for q<=sqrt3/2, 6(q(pi/6-arccos q)+sqrt(1-q²)-1/2) through q=1, else pi q-3. Exact class measures 3pi q-6B+3H, 3B-3H, H and D=3pi q-3B+H establish all q>0; H(h)=H'(h)=0,H''(h)=12 gives onset constant 6/(3+pi sqrt3/2). Independently sorted projection interval endpoints and integrated eight q values over 5000 normals each; finite quadrature checks support, not replace, the exact proof.",
+      "residual_risks": [
+        "Three translates of one compact planar convex body, pairwise physically intersecting, noncollinear translation centers, Euclidean invariant unoriented lines.",
+        "Equilateral equal-radius disk phase law holds all q>0 and is separate from pairwise-intersection restriction.",
+        "Existence threshold classical; no arbitrary 3-disk placement classification or probability over uniform all affine lines."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heppes treats superdisjoint T(3) convex translates and when every triple meeting condition ensures a global transversal, not invariant-line incidence probabilities.",
+          "Hug–Schneider study pairs of lines relative to a convex set, a different integral-geometric event configuration."
+        ],
+        "reasoning": "Neither inspected primary theorem implies m1=m2=P(T) or the disk onset coefficient; a broader kinematic identity could still exist outside these sources.",
+        "searches": [
+          "Resultary query: Crofton line transversals three translates convex body line incidence measures one two hit equality perimeter triangle equilateral disks",
+          "https://doi.org/10.1007/s00454-010-9292-x",
+          "https://doi.org/10.1007/s00013-020-01465-0"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s00454-010-9292-x",
+        "https://doi.org/10.1007/s00454-002-2821-5",
+        "https://doi.org/10.1007/s00013-020-01465-0",
+        "Resultary 2026/10/11/SCOPE-exact-one-line-downward-robustness-of-the-equilateral-triangle--19e2f7aa1081 (different invariant)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cauchy formula provides integrated one-body projection width only.",
+          "Heppes and Kaiser study Helly-like existence of simultaneous line transversals for sets of translates under disjointness assumptions."
+        ],
+        "reasoning": "To recover the claimed three-body occupancy conservation one needs to partition overlapping projection intervals and use pairwise intersection; none of the inspected existence theorems performs or states that computation.",
+        "searches": [
+          "Resultary query: Crofton line transversals three translates convex body line incidence measures one two hit equality perimeter triangle equilateral disks",
+          "https://doi.org/10.1007/s00454-010-9292-x",
+          "https://doi.org/10.1007/s00013-020-01465-0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent fixed-normal interval statement: for three translates with projected range R<=w, one-hit and two-hit offsets each have measure R.",
+          "The integrated measure uses Cauchy width-perimeter formula; a standard formula plus the interval occupancy identity yields the new joint statement."
+        ],
+        "reasoning": "The fixed-direction equality is not merely existence of a transversal; none of the inspected classical existence statements asserts a measure conservation for j=1,2.",
+        "searches": [
+          "Resultary query: Crofton line transversals three translates convex body line incidence measures one two hit equality perimeter triangle equilateral disks",
+          "https://doi.org/10.1007/s00454-010-9292-x",
+          "https://doi.org/10.1007/s00013-020-01465-0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The classical threshold q=sqrt3/2 for existence of triple-hitting lines is acknowledged.",
+          "The new phase law gives exact probabilities on the entire q continuum, not just existence and tangency thresholds."
+        ],
+        "reasoning": "A classical existence threshold alone is not a numerical/functional database of all hit multiplicities or the quadratic coefficient; no exact prior full law was located.",
+        "searches": [
+          "Resultary query: Crofton line transversals three translates convex body line incidence measures one two hit equality perimeter triangle equilateral disks",
+          "https://doi.org/10.1007/s00454-010-9292-x",
+          "https://doi.org/10.1007/s00013-020-01465-0"
+        ]
+      },
+      "rationale": "Cauchy perimeter and existence of transversals are classical and explicitly excluded as novelty. The claim fixes line measure and determines exact occupancy classes for three translates (including nonsymmetric K), plus full equilateral disk phase laws and onset coefficient. Heppes and Kaiser concern existence of a common stabbing line or separation thresholds, not the measures of lines hitting exactly j bodies. The formulas could be an implicit corollary of an older integral-geometric kinematic identity, which is an acknowledged residual risk.",
+      "residual_risks": [
+        "Specialized older integral-geometry work might derive the same multiple-translate hit-measure identity.",
+        "Heppes PDF could not be completely read beyond accessible original OCR excerpt; do not infer whole-document absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING in inspected theorems: line existence/Helly disjointness, not probability measures",
+          "evidence": "Theorems 2.1-2.4 concern critical superdisjointness factors phi3(K), with no occupancy measure or Cauchy P(T) statement in inspected text.",
+          "identifier_or_url": "https://doi.org/10.1007/s00454-010-9292-x",
+          "material_read": "Public OCR excerpt of original article pp321-323, Introduction, Definitions, complete statements Theorems 2.1-2.4 and opening proof of Theorem 2.2, not all proof pages",
+          "method": "Paperity full-PDF text excerpt (visible first 3 pages)",
+          "title": "Transversals in Superdisjoint T(3)-families of Translates",
+          "trigger": "Very similar same translated convex body and line-transversal concept"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE; residual old kinematic literature",
+          "evidence": "The object is a pair of random lines related to one convex set rather than one line and three translations.",
+          "identifier_or_url": "https://doi.org/10.1007/s00013-020-01465-0",
+          "material_read": "Open primary HTML abstract, introduction and theorem topic on pairs of lines; not exhaustive all derivations",
+          "method": "Springer OA HTML",
+          "title": "Integral geometry of pairs of hyperplanes or lines",
+          "trigger": "Possible dominating Crofton-type integral formula"
+        },
+        {
+          "assessment": "CLASSICAL_EXISTENCE; not evidence of exact incidence probabilities",
+          "evidence": "It addresses line-transversal existence configurations, not intensity of lines hitting exactly j disks.",
+          "identifier_or_url": "https://doi.org/10.1007/s00454-002-2821-5",
+          "material_read": "Bibliographic abstract and theorem topic; no complete paper read this run",
+          "method": "Publisher and indexed reference material",
+          "title": "Line Transversals to Unit Disks",
+          "trigger": "Same disks and existence of a common transversal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Heppes 2011 line-transversal geometry",
+        "Cauchy perimeter formula and full RESULT.md exact continuous line measure",
+        "Independent endpoint-integral quadrature across phases"
+      ],
+      "rationale": "The fixed-direction equality m1=m2 and its global shape independence for arbitrary noncentrally symmetric convex K provide a natural integral-geometric conservation law for random stabbing lines. The all-ratio disk distribution quantifies a classical existence threshold and its sharp quadratic activation, giving precise line-incidence probabilities. These are coherent useful quantities, not merely re-computation of the threshold or Cauchy formula.",
+      "residual_risks": [
+        "Specialized older integral-geometry work might derive the same multiple-translate hit-measure identity.",
+        "Heppes PDF could not be completely read beyond accessible original OCR excerpt; do not infer whole-document absence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Three translates of one compact planar convex body, pairwise physically intersecting, noncollinear translation centers, Euclidean invariant unoriented lines.",
+    "Equilateral equal-radius disk phase law holds all q>0 and is separate from pairwise-intersection restriction.",
+    "Existence threshold classical; no arbitrary 3-disk placement classification or probability over uniform all affine lines."
+  ]
+}

@@ -1,19 +1,21 @@
-# Scientific review: Three-translate Crofton conservation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The line normalization is explicit. Intersections of each translated convex body with a fixed-normal line family correspond to three equal-length offset intervals. Pairwise intersection of the original translates forces the interval ranges to have a common intersection for every normal. Sorting their translations decomposes the covered offsets into five consecutive occupancy blocks, proving the exact \(1,2,3\) lengths \(w_T,w_T,w_K-w_T\) pointwise; Cauchy's perimeter formula then gives the invariant-line result. Independently, three equilateral disk projections lead to exact one-, two- and three-fold intersection measures and complete inclusion–exclusion. The second derivative of the triple-overlap formula at the critical ratio gives the claimed quadratic coefficient. Embedded independent numeric interval enumeration passes across three convex-body shapes and eight disk aspect ratios. It is not relied on as a proof for infinitely many directions.
+PASS
 
-## Originality — PASS, with residual priority risk
+For any planar convex body K and pairwise-intersecting noncollinear translates K+p_i, each normal direction gives three congruent projection intervals of length w_K(u), shifted by projections x1<=x2<=x3. Pairwise planar intersection forces range R=x3-x1<=w. Exactly one- and two-hit offset measures both equal R=w_T(u), and triple-hit equals w_K(u)-R. Integrating 0<=theta<pi via Cauchy perimeter identity gives m1=m2=P(T), m3=P(K)-P(T), total P(K)+P(T), without central symmetry or physical triple intersection. For equilateral centers and equal disks, inclusion–exclusion gives pair overlap B(q)=2(q arcsin(q)+sqrt(1-q²)-1) for q<=1 else pi q-2; triple overlap H(q)=0 for q<=sqrt3/2, 6(q(pi/6-arccos q)+sqrt(1-q²)-1/2) through q=1, else pi q-3. Exact class measures 3pi q-6B+3H, 3B-3H, H and D=3pi q-3B+H establish all q>0; H(h)=H'(h)=0,H''(h)=12 gives onset constant 6/(3+pi sqrt3/2). Independently sorted projection interval endpoints and integrated eight q values over 5000 normals each; finite quadrature checks support, not replace, the exact proof.
 
-The closest full-text literature directly inspected is Kaiser's 2002 *Line Transversals to Unit Disks* (DOI 10.1007/s00454-002-2821-5) and Heppes' *Transversals in Superdisjoint T(3)-families of Translates* (DOI 10.1007/s00454-010-9292-x, available online 14 September 2010). Their relevant definitions, results and arguments address existence of transversals and combinatorial Helly-type thresholds, not invariant line-measure histograms or fixed-direction equality of exactly-one and exactly-two events. The classical existence boundary for equilateral disks is independently described by Cut-the-Knot and is **not** assigned new priority. Searches on incidence conservation, multi-translate Crofton formulas, and triple-disk random line hit counts found no directly matching prior law. The mechanism uses classical interval inclusion–exclusion and Cauchy's theorem, and an older integral-geometric treatment might contain a logically equivalent formulation; this uncertainty remains explicit.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The equality of *two distinct line-incidence classes* for **all** triples of pairwise intersecting translates of **every** planar convex body is a natural, geometric, shape-independent conservation law, holding separately at each direction. It extracts a measurable translation-triangle invariant from a random-line experiment without requiring common intersection or symmetry. In the complementary disjoint-disk regime, the complete exact distribution resolves the quantitative phase transition from zero to positive triple-hit probability, including its non-smooth second-order onset and exact coefficient. The complete theorem is more than a name change or an arbitrary numerical instance.
+Cauchy perimeter and existence of transversals are classical and explicitly excluded as novelty. The claim fixes line measure and determines exact occupancy classes for three translates (including nonsymmetric K), plus full equilateral disk phase laws and onset coefficient. Heppes and Kaiser concern existence of a common stabbing line or separation thresholds, not the measures of lines hitting exactly j bodies. The formulas could be an implicit corollary of an older integral-geometric kinematic identity, which is an acknowledged residual risk.
 
-## Scope, risks and audit status
+## value
 
-The random-line measure is restricted and normalized by conditioning on hitting the union. The general conservation identity does not assert the same behavior for unequal shapes, arbitrary rotations, or four translates. The equilateral formulas apply to all positive ratios but do not classify general center configurations. Historical priority for a potentially equivalent classical Crofton computation is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed-direction equality m1=m2 and its global shape independence for arbitrary noncentrally symmetric convex K provide a natural integral-geometric conservation law for random stabbing lines. The all-ratio disk distribution quantifies a classical existence threshold and its sharp quadratic activation, giving precise line-incidence probabilities. These are coherent useful quantities, not merely re-computation of the threshold or Cauchy formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
