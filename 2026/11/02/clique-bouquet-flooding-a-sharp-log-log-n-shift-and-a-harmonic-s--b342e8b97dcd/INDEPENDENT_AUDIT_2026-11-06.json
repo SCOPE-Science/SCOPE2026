@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T23:05:39.251873Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exponential edge-weight exploration in a complete (m+1)-vertex petal is an SI pure-birth chain with rates r_k=k(m+1-k), independent waiting times Exp(r_k), and random hub infection rank J uniform 1..m independent of waiting times. Distinct petals share only the already infected hub, giving independent hub-source completion Y_m, M_n=max_i Y_m, and exact leaf-source H+max(R,M_(n-1)). For fixed m>=2 rates at k=1,m both equal m; convolution of these two exponentials with faster internal stages gives tail m(m-1)^2 t exp(-mt)+O_m(exp(-mt)) using telescope E exp(mZ)=(m-1)^2. n-times tail at b=(log n+loglog n+2log(m-1))/m gives Gumbel, with centered maximum UI from exponential bounds; independent H leads to convolution limit and E H=H_m/m. m=1 has single slow pole, no loglog and penalty 1-1/n. Independently checked telescope and harmonic means for m=2,3,4,8,12; the source program separately contains exact full-graph CTMC and Dijkstra simulations. Finite checks do not prove the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The random configuration-model papers impose bounded-degree/finite degree moment regimes; bouquet hub has degree nm diverging with n."
+        ],
+        "reasoning": "Existing theorems do not directly specialize to this deterministic high-degree articulation hub, and leading-order flooding results do not determine loglog centering plus leaf-source convolution.",
+        "searches": [
+          "arXiv:1806.09568",
+          "arXiv:1909.04563"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1806.09568",
+        "arXiv:1909.04563"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General Gumbel maximum principle and K_(m+1) SI rates are prior; deriving double slow pole, exact source decomposition and its independent H correction requires additional work."
+        ],
+        "reasoning": "No direct prior implication under the indicated bounded-degree hypotheses and exact finite-source law not stated in inspected abstracts.",
+        "searches": [
+          "arXiv:1909.04563",
+          "arXiv:1806.09568"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "First-passage percolation with independent exponential edges equals one-time susceptible-infected exploration, and completion within one petal is a sum of pure-birth exponential stages."
+        ],
+        "reasoning": "Uses standard exponential race equivalence; new content is exact all-petal source coupling and fixed-m extreme law, not the Markov/exponential equivalence.",
+        "searches": [
+          "Resultary: first passage percolation flooding windmill clique bouquet exponentially weighted hub Gumbel log log petal harmonic delay",
+          "arXiv:1806.09568"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact formula for deterministic K_1 join nK_m, nor its leaf-source expectation shift, located in surveyed results."
+        ],
+        "reasoning": "Failure of targeted search is not proof of historical priority; retain possible classical windmill SI computation risk.",
+        "searches": [
+          "Resultary: first passage percolation flooding windmill clique bouquet exponentially weighted hub Gumbel log log petal harmonic delay",
+          "Web: clique bouquet windmill first passage percolation flooding loglog"
+        ]
+      },
+      "rationale": "Known complete-graph epidemic pure-birth rates and Gumbel maxima are standard. The exact coupling of hub/petal sources, repeated-minimal-eigenvalue loglog correction, explicit centering and harmonic additional source delay for deterministic clique bouquets are additional joint statements. Existing bounded-moment configuration-model flooding papers do not apply to degree nm hub. No exact deterministic clique bouquet result detected in Resultary or targeted searches.",
+      "residual_risks": [
+        "Potential classical epidemic/flooding work on windmill or friendship graphs could already contain exact source-dependent formulas.",
+        "Primary random-graph comparisons were limited to accessible abstract/theorem scope, not entire papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Configuration-model bounded-degree moment assumptions exclude a deterministic hub of degree nm growing linearly with n",
+          "evidence": "Proposed graph K1 join nK_m has hub degree nm, violating bounded degree moment assumptions.",
+          "identifier_or_url": "arXiv:1806.09568",
+          "material_read": "Abstract and theorem hypothesis summary addressing configuration-model degrees",
+          "method": "ArXiv/search primary page plus source bibliography; full paper not asserted read",
+          "title": "First passage percolation in sparse random graphs with boundary weights",
+          "trigger": "Potential theorem for flooding/Gumbel graph families"
+        },
+        {
+          "assessment": "Random configuration-model leading-order laws do not directly imply finite deterministic bouquet distribution or source-dependent O(1) shift",
+          "evidence": "Model and scaling hypotheses differ; priority risk remains for an exact deterministic windmill analysis.",
+          "identifier_or_url": "arXiv:1909.04563",
+          "material_read": "Abstract and model-scope text, not a full-document comparison",
+          "method": "ArXiv primary search and result discussion",
+          "title": "Flooding and Diameter in General Weighted Random Graphs",
+          "trigger": "Potential general FPP flooding limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Flooding completion time is a natural FPP statistic on windmill/community bouquets. Identifies the double-pole logarithmic correction absent from stars and an explicit source-location penalty with nontrivial convolution law; such sharp source-sensitive constants matter for network spread beyond leading log growth.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1806.09568",
+    "arXiv:1909.04563"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Potential classical epidemic/flooding work on windmill or friendship graphs could already contain exact source-dependent formulas.",
+    "Primary random-graph comparisons were limited to accessible abstract/theorem scope, not entire papers.",
+    "Results hold only under exact hypotheses in the frozen RESULT.md; independent finite checks are corroboration, not infinite proof.",
+    "Publication transport is not_ready pending verified confidentiality sanitization."
+  ],
+  "schema_version": 1
+}

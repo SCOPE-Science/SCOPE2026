@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each petal of \(m\) vertices and the common hub, exponential first-passage exploration is a pure-birth chain with exact rates \(k(m+1-k)\), \(k=1,\ldots,m\). Independent petals give the hub-source maximum. From a peripheral source, the uniform rank of the hub and the independent exponential holding times give the finite decomposition. The two slow terminal stages both have rate \(m\); the internal exponential moment telescopes to \((m-1)^2\), fixing the \(t e^{-mt}\) tail and hence the \(\log\log n\) correction. Tail integration establishes convergence of the centered maximum's mean. The exceptional petal's remaining completion time is negligible compared with the other petals' maximum, and its mean entry delay is exactly \(H_m/m\). The proof covers all finite \(n,m\) and the fixed-\(m\) limit. The independent checker passed 187 exact and numerical tests, including direct full-graph rational recurrences, but those tests are not used as a proof of the limit.
+PASS
 
-## Originality — PASS, qualified
+Exponential edge-weight exploration in a complete (m+1)-vertex petal is an SI pure-birth chain with rates r_k=k(m+1-k), independent waiting times Exp(r_k), and random hub infection rank J uniform 1..m independent of waiting times. Distinct petals share only the already infected hub, giving independent hub-source completion Y_m, M_n=max_i Y_m, and exact leaf-source H+max(R,M_(n-1)). For fixed m>=2 rates at k=1,m both equal m; convolution of these two exponentials with faster internal stages gives tail m(m-1)^2 t exp(-mt)+O_m(exp(-mt)) using telescope E exp(mZ)=(m-1)^2. n-times tail at b=(log n+loglog n+2log(m-1))/m gives Gumbel, with centered maximum UI from exponential bounds; independent H leads to convolution limit and E H=H_m/m. m=1 has single slow pole, no loglog and penalty 1-1/n. Independently checked telescope and harmonic means for m=2,3,4,8,12; the source program separately contains exact full-graph CTMC and Dijkstra simulations. Finite checks do not prove the asymptotics.
 
-The closest source is Leskelä and Ngo, arXiv:1806.09568 (first posted 2018-06-25), whose configuration-model assumptions require bounded \((2+\epsilon)\)-degree moments and thus exclude the hub's diverging degree. Mountford and Saliba, arXiv:1909.04563, study flooding in random configuration-model graphs, not this deterministic clique bouquet with exact finite laws. Van der Hofstad and Lodewijks, arXiv:2311.16088, study torus-embedded complete graphs. Public mathematical-record comparisons found related windmill graph structure and epidemic or FPP work, but no implication-equivalent finite classification, precise double-minimum-rate extreme-value center, and peripheral-source harmonic penalty. A failed search cannot prove absence from all literature, and historical priority remains uncertain. Standard pure-birth calculations and classical Gumbel max theory are acknowledged prior ingredients.
+## originality
 
-## Value — PASS
+PASS
 
-The generalized friendship/windmill graph models many small dense communities joined at a single articulation hub. Its flooding completion time has a \(\log\log n\) correction not predicted by a lone exponential tail and source placement changes the limiting distribution by a genuinely random additive delay, despite leaving its diverging leading term unchanged. The exact finite law and the \(H_m/m\) source penalty give an interpretable quantitative benchmark for rare slow communities and articulation-point influence. The comparison is structural and exceeds a routine finite-value computation.
+Known complete-graph epidemic pure-birth rates and Gumbel maxima are standard. The exact coupling of hub/petal sources, repeated-minimal-eigenvalue loglog correction, explicit centering and harmonic additional source delay for deterministic clique bouquets are additional joint statements. Existing bounded-moment configuration-model flooding papers do not apply to degree nm hub. No exact deterministic clique bouquet result detected in Resultary or targeted searches.
 
-## Scientific limits and risks
+## value
 
-The asymptotic fixed-petal-size condition cannot be dropped without new arguments; nonexponential edge distributions and growing petal sizes are not classified. Novelty is a best-knowledge literature comparison, not a proof of worldwide uniqueness. No independent mathematical audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Flooding completion time is a natural FPP statistic on windmill/community bouquets. Identifies the double-pole logarithmic correction absent from stars and an explicit source-location penalty with nontrivial convolution law; such sharp source-sensitive constants matter for network spread beyond leading log growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
