@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The block-cut incidence graph of a finite metric cactus is a tree. The proof exhausts all ordered pairs through same-cycle, same-bridge, and distinct-block contributions. Weighted circular autocorrelation gives the exact positive half-cycle jump; bridge self-pairs are continuous and distinct-block convolutions are continuous. There is no possibility of opposite-sign cancellation. Translation continuity for \(L^1\) functions and the almost-everywhere boundedness of the sampling density justify every limit and density statement. The standalone checker includes a weighted barbell and a smoothly nonuniform weighted circle. No finite numerical check substitutes for the proof.
+PASS
 
-## Originality — PASS, provisional historical priority
+For finite metric cactus graphs, each pair of sample points lies in the same cycle, the same bridge, or distinct blocks; the block-cut incidence tree fixes distances between distinct blocks as a sum of two distances to articulation points and a constant, so their density is a convolution of bounded compactly supported L1 functions and is continuous. Same-bridge distances have continuous compactly supported autocorrelation vanishing at their endpoint. On a cycle C of circumference c, the shorter circular separation has density 2 int_0^c w_C(s)w_C(s+r) ds for 0<r<c/2, zero for r>c/2, and therefore exactly a downward discontinuity of size 2 int_0^c w_C(s)w_C(s+c/2) ds at r=c/2. Translation continuity of L1 and boundedness of w justify the continuous representative without assuming w smooth. Every possible positive-radius jump comes from such a self-cycle pair and no cancellation is possible. Under ess inf w>0, each cycle contributes strictly positive jump, recovering distinct cycle circumferences, and tree iff no jumps. At r=0, only same-block autocorrelations contribute, yielding 2 int_G w² dℓ. Repeated equal circumferences merge; locations alone cannot recover multiplicity.
 
-The closest primary source is Mémoli and Needham, arXiv:1810.09646, which already relates *uniform* distance-histogram jumps on metric graphs to geodesic loops, including homotopy implications under cycle-basis hypotheses. That uniform observation is not original and is not credited to this theorem. The claim instead establishes a **complete jump classification for any unknown, nonnegative, essentially bounded arclength density**, with an exact antipodal weighted-autocorrelation formula and sharp visibility condition; under a strictly positive lower density bound, topology remains visible independent of sampling bias. The closest graph-distance/moment work arXiv:2008.09155 concerns a different setup. No inspected source implies the stated weighted theorem. Historical priority remains provisional, especially because a broader stereological treatment might contain a related weighted identity.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem precisely answers a bias-robust inverse question in metric geometry: what topological cycle data can be deduced from a global histogram with arbitrary unknown sampling intensity? It delivers exact jump locations, sizes, and possible invisibility under poor sampling; it also distinguishes identifiable cycle lengths from nonidentifiable multiplicities and attachment trees. The result is not offered as general graph reconstruction or as a finite-sample estimation guarantee.
+Best-of-knowledge conclusion from actual source-tree proof reconstruction, current Resultary published-finding search and material inspected from primary literature: The weighted theorem is a genuinely stronger statement than the known unweighted example, with added analytic handling of arbitrary essentially bounded weights. Remaining priority risk is a different previously known weighted formula. Source access and possible historical equivalents remain listed as residual risks.
 
-## Scope of assessment
+## value
 
-Independent mathematical validation has not been carried out. The reported statuses follow same mathematical model proof reconstruction, literature comparison, and actual standalone finite-example numerical/rational checks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines exactly which topological cycle features survive arbitrary unknown bounded nonuniform sampling bias from a two-point metric observable. Complete jump-support and visibility classification, including sharp counterexamples when antipodal supports do not overlap, is a useful inverse problem beyond the known uniform-density observation. Meaningful scope excludes cycle multiplicity and attachment reconstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The attached standalone `checker.py` was executed with Python, NumPy and SciPy. Its exact rational identities validate a weighted two-cycle barbell with cycle circumferences \(2,3\) and bridge length \(1\), unequal arclength densities \(1/10,1/5,1/5\), and predicted jumps \(1/25,6/25\). Numerical integration verifies total probability one and the origin density \(9/25\). Independent direct simulation of 500000 geodesic distances checks nine theoretical cumulative-probability values. A second test verifies the nonconstant weighted circle autocorrelation formula and its jump \(7/8\). The checker prints the following on success:
+# Independent mathematical audit
 
-```
-EXACT_WEIGHTED_BARBELL_NORMALIZATION_AND_JUMPS_PASSED
-INDEPENDENT_NONUNIFORM_CIRCLE_AUTOCORRELATION_PASSED
-INDEPENDENT_RANDOM_METRIC_DISTANCE_CDF_PASSED
-ALL_CHECKS_PASSED
-```
+## correctness
 
-The proof, not these finite checks, justifies the universal statement about all finite metric cacti and arbitrary essentially bounded nonnegative sampling densities. This review does not constitute independent validation. A density with a very small essential lower bound produces weak but nonzero cycle jumps, so no sampling-error guarantee follows.
+PASS
+
+For finite metric cactus graphs, each pair of sample points lies in the same cycle, the same bridge, or distinct blocks; the block-cut incidence tree fixes distances between distinct blocks as a sum of two distances to articulation points and a constant, so their density is a convolution of bounded compactly supported L1 functions and is continuous. Same-bridge distances have continuous compactly supported autocorrelation vanishing at their endpoint. On a cycle C of circumference c, the shorter circular separation has density 2 int_0^c w_C(s)w_C(s+r) ds for 0<r<c/2, zero for r>c/2, and therefore exactly a downward discontinuity of size 2 int_0^c w_C(s)w_C(s+c/2) ds at r=c/2. Translation continuity of L1 and boundedness of w justify the continuous representative without assuming w smooth. Every possible positive-radius jump comes from such a self-cycle pair and no cancellation is possible. Under ess inf w>0, each cycle contributes strictly positive jump, recovering distinct cycle circumferences, and tree iff no jumps. At r=0, only same-block autocorrelations contribute, yielding 2 int_G w² dℓ. Repeated equal circumferences merge; locations alone cannot recover multiplicity.
+
+## originality
+
+PASS
+
+Best-of-knowledge conclusion from actual source-tree proof reconstruction, current Resultary published-finding search and material inspected from primary literature: The weighted theorem is a genuinely stronger statement than the known unweighted example, with added analytic handling of arbitrary essentially bounded weights. Remaining priority risk is a different previously known weighted formula. Source access and possible historical equivalents remain listed as residual risks.
+
+## value
+
+PASS
+
+Determines exactly which topological cycle features survive arbitrary unknown bounded nonuniform sampling bias from a two-point metric observable. Complete jump-support and visibility classification, including sharp counterexamples when antipodal supports do not overlap, is a useful inverse problem beyond the known uniform-density observation. Meaningful scope excludes cycle multiplicity and attachment reconstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
