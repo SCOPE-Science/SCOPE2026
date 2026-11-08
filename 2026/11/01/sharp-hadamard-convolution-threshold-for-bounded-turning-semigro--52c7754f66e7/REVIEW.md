@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof expands normalized positive-real-part derivatives through Herglotz probability measures, identifies the exact product measure for Hadamard coefficients, and reduces the pointwise minimax to a strictly monotone scalar angular kernel. Strict radial monotonicity and two exact elementary boundary integrals prove the unique phase transition. The constructed logarithmic pair attains the minimax and refutes larger subcritical radii. The exact computation has no finite-to-infinite inference; `checker.py` provides only independent finite consistency checks.
+## correctness
 
-**Originality: PASS under inspected evidence.** The closest primary 2022 convolution theorem treats the case with a convex factor or Re(g/z)>1/2. Neither is automatic here, and both fail for the extremal factor. The 2026 filtration source concentrates on sharp coefficient functionals. Direct implication comparisons, alias searches, and published-record comparisons did not locate the exact two-input phase transition. A possible implicit classical convolution multiplier theorem remains a priority risk.
+PASS
 
-**Value: PASS.** Convolution closure is structurally natural for analytic positive-real-part classes. The result pinpoints the exact parameter where two unrestricted bounded-turning factors become stable in the semigroup-generator filtration, supplies the entire sharp subcritical radius curve, and identifies a universal saturating pair. This sharp cutoff is not supplied by the earlier single-convex-factor theorem.
+Herglotz positive-real derivative functions yield probability measures μ,ν and coefficient product λ=μ⋆ν. Thus the A_beta expression averages q_beta(ξz)=1+4∫_0^1(1-beta-beta log t) tξz/(1-tξz)dt. Its real angular kernel strictly increases in cos(theta) since derivative s(1-s²)/(1-2s cosθ+s²)²>0, giving sharp minimum at -r attained by both atomic extremizers f*=g*=-z-2log(1-z). Q_beta decreases with r and Q_beta(1)=4log2-3+beta(pi²/3-4log2); boundary gives beta*=(3/4-log2)/(pi²/12-log2), strict positivity on interior even at beta*. Anti-monotone covariance makes sharp radius increase in beta, R0 from log(1+R)=3R/4. Independently checked integral/series at multiple beta,r and exact extremal endpoint; not a finite proof.
 
-**Closest literature and limits.** Mandal–Ahamed, arXiv:2604.24776 (2026); Giri–Kumar, arXiv:2205.10777 (2022), especially Theorems 2.5–2.6. Only twofold products of normalized bounded-turning functions and parameters in the unit interval are addressed. Historical priority outside inspected sources is not confirmed. Finite computational checks cannot replace the global proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of exact final claim against primary mathematical statements and published semantic records; no inspected result covers it. Source access and residual uncertainty are documented, not construed as certainty of novelty.
+
+## value
+
+PASS
+
+Exact uniform Hadamard closure/radius phase diagram for a natural bounded-turning class and holomorphic-generator filtration, with a fixed extremizing pair at every radius; fills a meaningful gap beyond known sufficient convex-factor conditions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
