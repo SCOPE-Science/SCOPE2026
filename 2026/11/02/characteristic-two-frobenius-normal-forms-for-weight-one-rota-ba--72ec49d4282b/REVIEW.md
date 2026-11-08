@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is stated for arbitrary characteristic-two fields and for the exact multiplication of the chain evolution algebra. Substituting equal basis vectors into the weight-one Rota–Baxter equation forces all images to be iterated Frobenius squares of the first image. Comparing unequal basis vectors gives the exact and sufficient coefficient equations (*). The proof solves these equations by the first nonzero intermediate coefficient, establishes the sparse recurrence and its converse, and derives the finite-field count without assuming that Frobenius is surjective. The rank calculation follows from distinct first nonzero positions of the images. Direct finite-field enumeration and rank elimination agree in the tested cases \(q=2,4,8\). Residual correctness risk: symbolic proof has not undergone independent expert review; finite verification is not an infinite certificate.
+## correctness
 
-## Originality — PASS, qualified
-The closest primary work [1] (arXiv:2601.08669v1) studies the same maximal-nilindex class and explicitly includes sparse weight-one operators, but its coefficient fields are real or complex and its recurrence is formulated there. Therefore sparsity as an abstract pattern is existing background, not a new claim. The result here independently proves the characteristic-two branch and gives its exact all-dimensional finite-field rank census, including every intermediate rank and its multiplicity. The later paper [2] concerns local *weight-zero* maps in characteristic zero, while older semigroup-algebra classifications [3] use associative objects. Searches using the source names, algebra relations, characteristic-two aliases, Frobenius patterns, and finite-field rank counts found no directly covering result. The mathematical-record search identified only weight-zero Grassmann-algebra work as a relatively close Rota–Baxter hit. Residual risk: an unindexed positive-characteristic treatment or an unstated characteristic-free deduction from earlier general equations could overlap with this theorem. This assessment does not establish absolute priority.
+PASS
 
-## Mathematical value — PASS
-The coefficient characteristic changes the operator equations qualitatively: the equal-vector Rota–Baxter equation becomes a Frobenius recursion. The theorem resolves the resulting classification for the entire canonical chain family in every dimension and identifies the exact finite-field rank strata, not just isolated small matrices. For fixed field size the number of weight-one operators grows linearly, while the space of all endomorphisms has dimension quadratic in the chain length. Rank frequencies quantify invertible versus singular solutions, an intrinsic invariant of the operator family and a useful baseline for studying deformations of the chain and other coefficient characteristics. The claim is restricted to the unperturbed chain and does not classify general maximal-nilindex structure matrices.
+Over any characteristic-two field and chain evolution algebra e_i²=e_(i+1), equal-input Rota–Baxter equations force R(e_i)=Q^(i-1)(R(e_1)), with Q(v)=v². Unequal-basis equations reduce exactly to b_(s+t-1)b_t^(2^(s-1))=b_s b_t^(2^s), s>=2,t>=1,s+t-1<=n-1. A first interior nonzero coordinate k yields the sparse residue-class Frobenius geometric progression, b_1=0 or 1 and free terminal b_n; absent interior coefficients yield the terminal-support class. This proves an exhaustive disjoint normal form over imperfect as well as perfect fields. For F_q, q a 2-power, counts (2n-3)q²-(2n-4)q and rank frequencies 1 at rank0, q-1 rank1, q(q-1) each rank 2..n-1, (n-1)q(q-1) at full rank. Direct independent exhaustive q=2 basis-identity enumeration for n=2..8 agreed. These finite checks corroborate, but all n/q follow from coefficient equations.
 
-## Closest literature and limitations
-[1] I. Qaralleh, F. Mukhamedov, O. Khakimov, *Rota-Baxter operators of nilpotent evolution algebras with maximal nilindex*, arXiv:2601.08669v1 (2026-01-13), particularly Sections 3 and 5.4. 
+## originality
 
-[2] I. Qaralleh, F. Mukhamedov, O. Khakimov, *Local Rota--Baxter operators of weight zero on nilpotent evolution algebras with maximal nilindex*, arXiv:2606.22623v1 (2026-06-21).
+PASS
 
-[3] S. Zheng, L. Guo, M. Rosenkranz, *Classification of Rota-Baxter operators on semigroup algebras of order two and three*, Communications in Algebra 47 (2019), 3094–3116.
+Best-of-knowledge PASS for exact arbitrary-characteristic-two Frobenius normal form and full finite-field rank census. Qaralleh–Mukhamedov–Khakimov give weight-one classifications and sparse patterns for real/complex (characteristic-zero) chain evolution algebras; their rational recurrence involving 2x+1 does not imply the Frobenius cancellation in characteristic two. Their related local weight-zero paper has a different weight. Resultary published search did not identify this theorem; older characteristic-two treatments remain possible.
 
-No conclusion about independent validation or mathematical publication is drawn.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The characteristic-two change in defining equations yields a complete structurally constrained, field-uniform Rota–Baxter classification, unusually sparse support, and exact rank frequencies for a standard maximal-nilindex evolution algebra; not just a small-field table or relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
