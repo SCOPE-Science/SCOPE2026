@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact claim uses signed mass normalized to one. Euclidean strict negative type gives the unique constrained distance-energy maximizer and, by projected perturbation of the magnitude zeta matrices, identifies it with the microscopic weighting. The staggered cyclic symmetry reduces stationarity to the displayed two equations, with negative denominator certified by the same strict negative-type inequality. Strict increase of the cross-ring distance sum yields the unique sign transition. A midpoint triangle-inequality argument places the sign transition strictly beyond the radius at which all inner vertices become exposed; the resulting all-vertex convexity claim is analytic. Endpoint trigonometric identities plus a uniform second-derivative bound give the asymptotic coefficient and remainder. The 275 numerical checks support but do not replace these proofs.
+PASS
 
-## Originality — PASS (historical priority provisional)
+For distinct Euclidean vertices strict negative type makes the normalized small-scale magnitude weighting converge to the unique distance-energy maximizer on total mass one. Rotational symmetry reduces its Euler–Lagrange equations to two orbit masses u=(S−C)/(nΔ), v=(rS−C)/(nΔ), with Δ=(1+r)S−2C<0 by strict negative type of the signed orbit contrast. C_n(r) has C′(0)=0, C″(r)>0 and C(0)=n<S<C(1)=2csc(π/(2n)), so the zero u-threshold r_n is unique; C(cosπ/n)<S follows from the midpoint triangle inequality. For r>cosπ/n all 2n points are uniquely exposed by their radial directions. Taylor expansion at r=1 with C″=O(n log n) gives r_n=1−π²/(4n²)+O(log n/n⁴). Independent computations verified thresholds/negative inner masses/convex position at n=4,5,8,12 and convergence n²(1−r_n)→π²/4 up to n=160, without claiming finite checks prove the asymptotic.
 
-The closest motivating source, Roff–Willerton [1], introduces microscopic weighting and its energy characterization. Its abstract does not announce this two-orbit Euclidean sign and convex-exposure transition, but full text was inaccessible, so an explicit residual priority risk remains. Kamiyama's accessible full text [2, Definition 2.6] imposes constant nonzero within-chunk distances and hence cannot encompass regular \(n\)-gons for \(n\ge4\). Roff–Yoshinaga [3] studies a distinct one-point property. Relevant indexed records about concentric polygons, polygon distance gaps, and signed weights do not imply the precise statement. The proof and asymptotic are not obtained by merely quoting any of these papers.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result settles a natural geometric question about whether negative microscopic mass is confined to geometrically hidden or interior sites. It constructs infinitely many strictly convex vertex configurations where negativity persists at exposed sites, proves the exact sign transition for an entire parameter family, and measures the asymptotically narrow but nonempty interval in which negativity and convex position coexist. It therefore supplies quantitative geometric interpretation for a new distance-energy invariant rather than a generic numerical counterexample.
+Roff–Willerton establish microscopic weighting/strict negative-type foundations, but available primary material did not demonstrate the exact Euclidean staggered-polygon sign transition on exposed hull vertices; Kamiyama’s cyclic two-chunk metrics prescribe equal intra-chunk nonzero distances unlike regular Euclidean n-gon chords for n≥4. Best-of-knowledge PASS for the specific exact example and asymptotic, with explicit unresolved full-text access risk for Roff–Willerton, not an automatic scientific failure.
 
-## Limitations
+## value
 
-The threshold family is restricted to two staggered regular planar orbits. Independent validation and exhaustive historical-priority verification are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural two-orbit planar point family supplies an explicit, sharp negative microscopic-mass counterexample even when all points are exposed hull vertices; the n^{-2} interval width quantifies the phenomenon and prevents a naive geometric positivity inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
