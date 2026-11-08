@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Exact finite law follows from exhaustive two-round conditioning and symmetric gambler’s ruin on the two surviving players. The transform satisfies the classical difference boundary problem and mean follows from a(N-a); every boundary k=0,1,m is treated. Dense limit uses a scaled hyperbolic-cosine transform. Sparse limit uses the full killed-chain sine expansion, with uniform Gaussian domination and negative-mode estimates, plus a reflection-principle concentration bound. The included independent original-chain rational checker passed 2,205 assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1] Theorem 2.7/Corollary 2.4 require n/m larger than a sufficiently large constant to conclude Theta(n²).",
+        "[1] Remark 3.4 discusses k=o(m) heuristically but gives neither limiting distribution nor exact formula.",
+        "[2] gives the two-player gambler’s ruin equivalence."
+      ],
+      "reasoning": "General order bounds in [1] do not determine a sharp distribution or theta-tail scale; [2] supplies only a classical two-player component. No inspected stronger result implies the full theorem.",
+      "searches": [
+        "Multiplayer Games of War Corollary 2.4 Theorem 2.7 §3",
+        "When Will (Game) Wars End arxiv:2302.03535",
+        "sticky random walk gambler ruin near-critical k=o(m) Brownian rare long absorption survival theta sum"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2409.05201 (first public 2024-09-08, current v4 full text read)",
+      "https://arxiv.org/pdf/2409.05201v4 (source pp. 3–5, 13–15, 23–24)",
+      "https://arxiv.org/abs/2302.03535 (related two-player stochastic model)",
+      "published-finding corpus mathematical records: targeted queries in equivalent_formulations, broader_coverage and claim_vs_prior_implication",
+      "Accessible previous same-subject research-ledger claims for deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] identifies the k=o(m) family and estimates the expected duration at the scale m o(m).",
+        "[1] only establishes Theta(n²) in its stated large-occupancy theorem, not this exact law.",
+        "The present proof uses the full killed-chain eigenvalues to retain a rare-event survival tail, including parity oscillations."
+      ],
+      "reasoning": "The exact mean is a refinement of the prior heuristic, not a new general theory of gambler’s ruin. The claimed original result is the joint finite law and sharp asymptotic phase, especially the explicit rare theta profile and normalized time collapse. Neither is a stated corollary of the previous rough estimates.",
+      "searches": [
+        "https://arxiv.org/pdf/2409.05201v4 §§2–5, Remark 3.4, Further Directions",
+        "https://arxiv.org/abs/2302.03535",
+        "Adjei Mossel multiplayer games of war sticky random walk near n=m+k exact absorption-time generating function tail",
+        "simple sticky random walk simplex with n=m+k initial singleton doubleton coordinates finite exact distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "[1] Remark 3.4 describes an approximate two-turn collapse for one/two-card starts and a gambler’s ruin endgame, not an exact law for the clock.",
+        "[1] Definition 2.1 specifies uniform choice of one active winner.",
+        "Exact derived PGF predicts a two-point mixture of the ruin transforms with k-dependent weights and exceptional k=1 time-one absorption."
+      ],
+      "reasoning": "The prior reduction is qualitatively the same mechanism, but it does not assert the present exact unconditional weights and all-horizon law; the new rare-tail and Brownian convergence statements are not equivalent to the rough scale of the mean.",
+      "searches": [
+        "Adjei Mossel multiplayer games of war sticky random walk near n=m+k exact absorption-time generating function tail",
+        "simple sticky random walk simplex with n=m+k initial singleton doubleton coordinates finite exact distribution",
+        "sticky random walk gambler ruin near-critical k=o(m) Brownian rare long absorption survival theta sum",
+        "near-critical multicard war expected duration when initially one or two cards",
+        "https://arxiv.org/pdf/2409.05201v4 §3 Remark 3.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "[1] Table 1 reports numerical simulation averages only for selected n,m, with a different average starting occupancy.",
+        "A separate full-chain exact-rational checker agrees with the formulas for m≤10 survival and m≤8 resolvents and expectations."
+      ],
+      "reasoning": "Numerical tables neither enumerate the complete finite distribution for all m,k nor imply the proven asymptotic theta profile. No matching exact database/table was identified in the actual queries.",
+      "searches": [
+        "Exact finite generating function one two cards simple sticky walk gambler ruin m players",
+        "Brownian absorption crossover rare theta-series survival tails multiplayer war initial m+k near-critical",
+        "simple sticky walk first two rounds two-player ruin law and expected time",
+        "multiplayer games of war n=m+k finite distribution phase transition",
+        "https://arxiv.org/pdf/2409.05201v4 §4 Table 1, §5"
+      ]
+    },
+    "rationale": "The original paper defines the precise model and in Remark 3.4 qualitatively reduces its one/two-card initial states to two-player ruin and predicts mk-order expected time. Those are credited prior ingredients. The proposed exact full finite distribution and PGF, all-positive-density diffusion law, and rare m²-time theta profile are not stated in the inspected relevant complete paper, nor obtained from its published bounds without the present conditional probabilities and spectral asymptotics. The two-player paper only covers the already known ruin ingredient. Targeted published-finding corpus searches returned no equivalent or stronger absorption result. Residual historical-priority risk persists.",
+    "residual_risks": [
+      "No exhaustive historical-priority guarantee; general gambler’s-ruin entrance-law literature may give equivalent specializations under different terminology.",
+      "Original Remark 3.4 gives the core two-step reduction and approximate mk mean, so that qualitative mechanism alone is not novel.",
+      "Brownian exit-time and killed-chain spectral methods are classical; claimed contribution is their exact identification and rare asymptotic in this specific model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST: same object and a qualitative two-round ruin reduction already known, but no exact unconditional PGF, positive-density Brownian limit, or rare theta-tail theorem claimed there",
+        "evidence": [
+          "Remark 3.4 (pp. 13–14) describes the first two rounds and mk-scale transition.",
+          "Theorem 2.7 gives quadratic-order estimates under sufficiently large n/m.",
+          "§4 Table 1 is simulation, not the present finite exact law."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2409.05201v4",
+        "material_read": "Full paper accessible; relevant Definition 2.1, Corollary 2.4, Theorem 2.7, §3 Remark 3.4, simulations/table §4 and approximate formula §5 and further directions; inspected displayed text and PDF pages",
+        "method": "Open full lawful arXiv PDF, inspect relevant full sections and mathematical statements, compare exact hypotheses, time conventions, implied bounds and phase regimes",
+        "title": "Multiplayer Games of War",
+        "trigger": "Identical stochastic walk, initial state and near-critical qualitative discussion"
+      },
+      {
+        "assessment": "Covers the classical two-player endpoint process but not how initial m-player paths enter its pair states and how rare mass scales",
+        "evidence": [
+          "Published two-player reduction is already credited."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.03535",
+        "material_read": "Accessible description of two-player model and the gambler’s ruin equivalence; not a corresponding many-player near-critical law",
+        "method": "Inspect source description and relevant stochastic-model implication, compare number of players and known exit-time results",
+        "title": "When Will (Game) Wars End?",
+        "trigger": "Original two-player game of War and gambler’s ruin relationship used as an ingredient"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "58cdc0bc-3c4a-4b25-ba95-edc0e34890f9",
+  "value": {
+    "rationale": "Remark 3.4 of the motivating paper singles out exactly this one/two-card near-critical regime and only describes a rough duration transition. The complete law quantifies every m and k, and the sparse regime proves a surprising discrepancy between typical time and its mean with a sharp theta-series probability profile. These precise quantities are natural observables of a well-motivated stochastic model and enable further finite and asymptotic analysis.",
+    "status": "PASS"
+  }
+}
