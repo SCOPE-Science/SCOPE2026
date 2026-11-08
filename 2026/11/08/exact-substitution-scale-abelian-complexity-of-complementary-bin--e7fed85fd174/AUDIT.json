@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Complementary level-k blocks have signed total (b-2)^k. Exact prefix-extrema recurrences prove H_k=sum_{j=0}^k (b-2)^j and the required minimum. Both opposite parent bigrams occur, so the extremal signed factors +/- (2H_k-D_k) occur. Sliding-window changes of one-count by at most one fill the entire interval. The case k=0 is checked separately. Direct independent finite verification covers 42 base-level pairs with complete two-block windows.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rigo–Stipulanti–Whiteland, arxiv:2405.18032v1, Section 1 and Theorem 3: theorem assumes Parikh-collinearity (rank-one incidence matrix). The present matrix has eigenvalues b and b-2 and is rank two.",
+        "Blanchet-Sadri–Seita–Wise (2016), DOI 10.1016/j.tcs.2016.05.046, accessible abstract states a general algorithm for finite prefixes of Abelian complexity.",
+        "Whiteland (2019), DOI 10.25596/jalc-2019-089, accessible abstract concerns asymptotic upper Abelian complexities."
+      ],
+      "reasoning": "The rank-one result is inapplicable, and generic computability of each fixed instance does not state the uniform closed form or its sharp growth transition. The 2016 and 2019 full texts were unavailable for exhaustive comparison, leaving an explicit bibliographic risk.",
+      "searches": [
+        "\"Computing abelian complexity of binary uniform morphic words\"",
+        "\"Asymptotic Abelian Complexities of Certain Morphic Binary Words\"",
+        "arxiv:2405.18032v1",
+        "\"abelian complexity\" \"0 001 1 110\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2410.02409v1",
+      "https://arxiv.org/html/2405.18032v1",
+      "https://arxiv.org/html/1809.06554v2",
+      "https://doi.org/10.1016/j.tcs.2016.05.046",
+      "https://doi.org/10.25596/jalc-2019-089"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Popoli–Shallit–Stipulanti (2024) discuss unbounded additive complexity in other substitution families, without an all-b binary complementing morphism formula in the inspected material.",
+        "Rigo–Stipulanti–Whiteland (2024) has rank-one hypothesis contradicted by eigenvalue b-2 > 0 for b >= 3.",
+        "Chen–Wen (2018) exact complexity for an alphabet-b cyclic morphism is ultimately periodic, whereas here complexity at b^k grows without bound."
+      ],
+      "reasoning": "The identified exact published statements concern other objects or insufficient hypotheses, so none logically yields the new parameter-uniform formula. The broad 2016 algorithm could calculate isolated values but the abstract does not show the exact expression. Full-text risk is retained rather than claiming a negative whole-document finding.",
+      "searches": [
+        "arxiv:2410.02409v1 Section 3",
+        "arxiv:2405.18032v1 Theorem 3",
+        "arxiv:1809.06554v2 Theorem 1",
+        "DOI 10.1016/j.tcs.2016.05.046 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen and Wen, arxiv:1809.06554v2, Section 1 and Theorem 1: their morphism permutes an alphabet of b letters and counts digit sum modulo b; the present word has two letters and counts digit (b-1) modulo 2.",
+        "Popoli, Shallit and Stipulanti, arxiv:2410.02409v1, Section 3: their explicit examples use other substitutions, including the three-letter Thue-Morse word."
+      ],
+      "reasoning": "Checking the digit-automatic formulation, binary complementary substitution, and Abelian/additive equivalence shows that the identified exact formulas for alphabet-b digit sums are not equivalent to the binary parity-of-one-digit formula here. No matching statement was encountered.",
+      "searches": [
+        "\"Mephisto Waltz\" \"abelian complexity\"",
+        "\"001\" \"110\" \"Abelian complexity\" word",
+        "\"digit b-1\" \"abelian complexity\" automatic sequence",
+        "arxiv:1809.06554v2",
+        "arxiv:2410.02409v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Chen–Wen generalized Thue–Morse theorem tabulates a different larger-alphabet cyclic word, not the binary complementary family.",
+        "No identified primary-source table directly states the all-base substitution-scale one-count intervals or growth formula."
+      ],
+      "reasoning": "No table or database result was found containing the two-parameter closed expression or the sharp one-count endpoints. The absence of a hit is evidence of search coverage only, not a proof of uniqueness.",
+      "searches": [
+        "\"Mephisto Waltz\" \"abelian complexity\"",
+        "\"0 -> 001\" \"1 -> 110\" \"abelian\"",
+        "\"0 -> 0001\" \"1 -> 1110\" \"abelian complexity\"",
+        "\"generalized Mephisto\" \"complexity\" abelian"
+      ]
+    },
+    "rationale": "No inspected primary statement implies the exact all-base, all-substitution-scale one-count interval and closed complexity formula. Identified stronger-looking results either concern other words or require rank-one incidence. A generic algorithm and asymptotic classification are not logically identical to the explicit family theorem; their unavailable full texts remain named risks.",
+    "residual_risks": [
+      "The full text of Blanchet-Sadri–Seita–Wise (2016) was not materially read; an explicit example might overlap.",
+      "The final draft of Whiteland (2019) could not be downloaded from its lawful repository; asymptotic comparison remains incomplete.",
+      "An unindexed equivalent theorem using digit-parity prefix discrepancies or substitution balance could exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different examples and no identified covering all-b complementary binary formula in materially read portions",
+        "evidence": [
+          "Sections 1 and 3.1-3.3: explicit substitution examples include 0->01,1->12,2->20 and a ternary morphism, not 0->0^(b-1)1 / 1->1^(b-1)0."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2410.02409v1",
+        "material_read": "Full accessible HTML Introduction and Sections 3.1, 3.2, 3.3; explicit examples, morphisms, theorem statements, and find checks for Mephisto and 001",
+        "method": "Primary arXiv full-text HTML reading and targeted textual checks",
+        "title": "Additive word complexity and Walnut",
+        "trigger": "Closest first-public middle-cohort 68R15 paper on additive and Abelian complexities of automatic words"
+      },
+      {
+        "assessment": "Rank-one incidence requirement is violated for all b>=3",
+        "evidence": [
+          "Theorem 3 assumes a Parikh-collinear morphism; the present matrix determinant equals b(b-2), nonzero for all b>=3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2405.18032v1",
+        "material_read": "Accessible full HTML abstract, Section 1 including theorem and proof setup, Section 2 hypotheses",
+        "method": "Primary arXiv HTML theorem/hypothesis inspection",
+        "title": "Automatic Abelian Complexities of Parikh-Collinear Fixed Points",
+        "trigger": "Potential broad automatic-complexity theorem subsuming rank-two complementary morphisms"
+      },
+      {
+        "assessment": "Different alphabet and morphism, with a bounded ultimately periodic complexity",
+        "evidence": [
+          "Section 1 defines b-letter cyclic substitution 0->01...(b-1), unlike the binary complementing substitution."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1809.06554v2",
+        "material_read": "Full HTML introduction, morphism definition, Theorem 1, periodicity corollary, and relevant proof overview",
+        "method": "Primary arXiv HTML definition and theorem comparison",
+        "title": "On the abelian complexity of generalized Thue-Morse sequences",
+        "trigger": "Exact formula for generalized digit-automatic Thue-Morse words may cover the same sequence under an alias"
+      },
+      {
+        "assessment": "General algorithm does not visibly assert this specific closed expression; unresolved possibility of an example",
+        "evidence": [
+          "Public abstract says it provides an algorithm for computing complexity values of binary uniform morphic words."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2016.05.046",
+        "material_read": "Bibliographic records and substantive public abstract only; complete primary text not obtained",
+        "method": "Title/abstract search and metadata comparison, not a full-text negative determination",
+        "title": "Computing abelian complexity of binary uniform morphic words",
+        "trigger": "General algorithm could include a parameter-uniform result or explicit examples of the same morphism"
+      },
+      {
+        "assessment": "General asymptotic classification, with unknown applicability to exact substitution-scale constants; residual risk",
+        "evidence": [
+          "Abstract states a classification of asymptotic upper Abelian complexities, not a specific exact dyadic or b-adic expression."
+        ],
+        "identifier_or_url": "https://doi.org/10.25596/jalc-2019-089",
+        "material_read": "Accessible repository metadata and abstract only; final draft download was denied",
+        "method": "Repository landing-page abstract reading with attempted lawful full-text access",
+        "title": "Asymptotic Abelian Complexities of Certain Morphic Binary Words",
+        "trigger": "Potential dominating asymptotic classification of binary morphic words"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e7fed85f-d174-4d76-be4d-8f23b391f968",
+  "value": {
+    "rationale": "The b-adic lengths are intrinsic to the substitution, and the result determines the complete realizable Parikh interval and sharp balance difference at every scale. The growth has a genuine critical base: 2k+2 at b=3 versus a power law in factor length for all b>=4. The explicit extremal locations are constructive, not a table recomputation.",
+    "status": "PASS"
+  }
+}
