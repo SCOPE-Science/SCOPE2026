@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T00:18:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a classically 123-avoiding permutation with linear jump bound m, the first entry a≥n−m: the first later value greater than a must be n, with predecessor ≤a, forcing n−m≤a. Reverse-complement gives last value ≤m+1, and wrap-edge bound forces n≤3m+1. For each 3≤n≤3m+1, m≥2, the explicit word beginning a=n−m and ending b=max(1,n−2m), with remaining labels in two descending runs, is 123-avoiding and has all cyclic jumps ≤m, including low-width/empty-run edges. m=1 cannot host a cyclic Hamiltonian tour. At n=3m+1 equalities force π1=2m+1, πn=m+1, π2=n and π{n−1}=1. Independently enumerated all 123-avoiding permutations through n=8 for the extremal bandwidth.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2106.02534; Vella 2003; arxiv:1312.2051"
+        ],
+        "reasoning": "Cyclic-pattern literature treats all rotations or cyclic consecutive windows and so does not dominate a fixed-reading classical pattern with a wrap-edge bound. Nadler reverse-diagonal localization is more general in one direction but not the constructive closed-loop converse.",
+        "searches": [
+          "123 avoiding permutations cyclic jump bottleneck bandwidth path power Hamiltonian cycle",
+          "arxiv:2106.02534"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob 8f6c6bf31a3ecaef2fd864c6da7fec1912ce9b54",
+        "verify_cyclic_jump.py blob ff90e67a98603b495921c73c8170cb26f5cd6aab",
+        "arxiv:2610.02526 (abstract only)",
+        "arxiv:2106.02534 (full accessible PDF)",
+        "Vella 2003 (publisher abstract)",
+        "arxiv:1312.2051"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arxiv:2610.02526 linear adjacency and reverse-diagonal localization"
+        ],
+        "reasoning": "The first/last endpoint inequality and n≤3m+1 necessary direction are already consequences of the established linear theory. The sharp converse for each allowable n and forced π2/π{n−1} boundary steps require extra arguments.",
+        "searches": [
+          "123 avoiding permutations cyclic jump bottleneck bandwidth path power Hamiltonian cycle",
+          "arxiv:2610.02526 linear adjacency and reverse-diagonal localization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:2610.02526; path powers P_n^m and constrained Hamiltonian paths"
+        ],
+        "reasoning": "The same numerical jump condition defines edges of P_n^m; requiring the final-to-initial return edge makes a Hamiltonian cycle rather than the earlier Hamiltonian path. Classical 123 avoidance is based on the distinguished reading, not rotational equivalence.",
+        "searches": [
+          "123 avoiding permutations cyclic jump bottleneck bandwidth path power Hamiltonian cycle",
+          "arxiv:2610.02526"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query: 123 avoiding permutations cyclic jump bottleneck bandwidth path power Hamiltonian cycle; OEIS A232864"
+        ],
+        "reasoning": "Indexed cycle-power results concerned unrelated graph homology and OEIS concerns consecutive cyclic 123 avoidance; no equal exact tour bandwidth table found, which does not establish novelty.",
+        "searches": [
+          "123 avoiding permutations cyclic jump bottleneck bandwidth path power Hamiltonian cycle",
+          "Resultary query: 123 avoiding permutations cyclic jump bottleneck bandwidth path power Hamiltonian cycle"
+        ]
+      },
+      "rationale": "Nadler proves reverse-diagonal constraints and linear bounded adjacency via Hamiltonian paths; this gives the necessary endpoint obstruction but not by itself an all-n closed cyclic tour existence converse and forced four boundary labels. Other cyclic pattern papers use rotation-invariant or consecutive occurrence instead of classical avoidance in a fixed reading.",
+      "residual_risks": [
+        "Nadler 2026 full primary text inaccessible; an implicit corollary or appendix about closed tours may preempt the exact converse.",
+        "A different fixed-reading cycle alias might be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses rotation classes; not a fixed-reading closed-edge numerical bandwidth theorem",
+          "evidence": [
+            "Definition allows a rotation to exhibit a pattern; no weighted path-power tour result in checked main statements."
+          ],
+          "identifier_or_url": "arxiv:2106.02534",
+          "material_read": "introduction, definition of cyclic containment, main cyclic theorem",
+          "method": "lawful arXiv full PDF, opening page images",
+          "title": "Cyclic Pattern Containment and Avoidance",
+          "trigger": "same words cyclic 123 avoidance"
+        },
+        {
+          "assessment": "Very high-priority plausible source; do not claim unseen text lacks the cyclic converse",
+          "evidence": [
+            "Accessible public abstract states linear adjacency and Hamiltonian paths; full-paper priority risk retained."
+          ],
+          "identifier_or_url": "arxiv:2610.02526",
+          "material_read": "searchable public abstract and metadata; full text was unavailable",
+          "method": "arXiv HTML/PDF and OA routes attempted; authorized institutional retrieval returned vpn_disconnected",
+          "title": "123-Avoiding Permutations with an Adjacency Constraint",
+          "trigger": "direct prior linear version of same constrained permutations"
+        },
+        {
+          "assessment": "Rotational pattern convention differs from one fixed linear reading",
+          "evidence": [
+            "Abstract discusses permutation orders, not an explicit numeric jump-bounded cycle threshold."
+          ],
+          "identifier_or_url": "Vella 2003, Electronic Journal of Combinatorics 10 R18",
+          "material_read": "publisher abstract and available introductory page",
+          "method": "publisher browser/HTML, not full paper",
+          "title": "Pattern Avoidance in Permutations: Linear and Cyclic Orders",
+          "trigger": "possible stronger cycle analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp all-parameter Hamiltonian-cycle feasibility threshold for the natural power-of-path family with an additional global forbidden-pattern constraint; constructive converse and endpoint rigidity are mathematically useful exact extremal statements.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Nadler 2026 full primary text inaccessible; an implicit corollary or appendix about closed tours may preempt the exact converse.",
+    "A different fixed-reading cycle alias might be unindexed.",
+    "No external expert attestation, Lean proof, repository write or public publication was performed."
+  ],
+  "schema_version": 1
+}

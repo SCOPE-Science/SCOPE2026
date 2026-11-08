@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof is self-contained and depends only on the elementary endpoint observation for classically \(123\)-avoiding permutations and the explicit construction. The endpoint observation, interior avoidance argument, cyclic jump bounds, and saturation rigidity were checked algebraically, including \(m=1\), \(n=3\), the transition \(n=m+2\), and the transition \(n=2m+2\).
+# Independent mathematical audit
 
-The file `verify_cyclic_jump.py`, included alongside this text, was run with Python 3 and completed with the exact terminal marker `VERIFY_OK sharp bandwidth, constructive witnesses, and rigid boundary`. It checked all \(2418\) supplied construction parameter pairs, exhaustive classical pattern-avoidance minimization for \(3\le n\le9\), and complete boundary-case enumeration for \(m=2,3,4\), giving \(1,4,35\) labelled admissible permutations, respectively. Finite computations corroborate, but do not replace, the infinite proof. The boundary enumeration counts are checks only, not part of the mathematical claim.
+## correctness
 
-Prior-work searches covered the original linear-adjacency paper, cyclic-order avoidance, cyclic consecutive avoidance, searchable indexed mathematical claims, and a relevant sequence database. The original paper's reverse-diagonal theorem already implies the *necessary* upper length bound; it does not establish the all-parameter constructive sufficiency and rigidity reported here. Comprehensive historical-priority verification and independent validation have not occurred.
+PASS
+
+In a classically 123-avoiding permutation with linear jump bound m, the first entry a≥n−m: the first later value greater than a must be n, with predecessor ≤a, forcing n−m≤a. Reverse-complement gives last value ≤m+1, and wrap-edge bound forces n≤3m+1. For each 3≤n≤3m+1, m≥2, the explicit word beginning a=n−m and ending b=max(1,n−2m), with remaining labels in two descending runs, is 123-avoiding and has all cyclic jumps ≤m, including low-width/empty-run edges. m=1 cannot host a cyclic Hamiltonian tour. At n=3m+1 equalities force π1=2m+1, πn=m+1, π2=n and π{n−1}=1. Independently enumerated all 123-avoiding permutations through n=8 for the extremal bandwidth.
+
+## originality
+
+PASS
+
+Nadler proves reverse-diagonal constraints and linear bounded adjacency via Hamiltonian paths; this gives the necessary endpoint obstruction but not by itself an all-n closed cyclic tour existence converse and forced four boundary labels. Other cyclic pattern papers use rotation-invariant or consecutive occurrence instead of classical avoidance in a fixed reading.
+
+## value
+
+PASS
+
+A sharp all-parameter Hamiltonian-cycle feasibility threshold for the natural power-of-path family with an additional global forbidden-pattern constraint; constructive converse and endpoint rigidity are mathematically useful exact extremal statements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
