@@ -1,19 +1,21 @@
-# Review of the complete-graph corona heat-Lipschitz theorem
+# Independent mathematical audit
 
-## Correctness
-The claim is quantified over every integer \(n\ge2\) and all \(t\ge0\), with exact formulas for the unnormalized symmetric combinatorial heat semigroup in the unit graph metric. Equation (1) in `RESULT.md` follows from forced pendant-edge flows and optimal complete-core transport. The two permutation-isotypic heat blocks have spectra \(\{0,-2\}\) and \(\{-\alpha_n,-\beta_n\}\), respectively; substitution produces both edge-type transport costs. Strict positivity of \(q_n(t)\), the identity \(r_n-p_n=nq_n\), and \(r_n-q_n>e^{-2t}\) justify every absolute-value sign choice. The strict sign of the edge-type difference proves which edges attain the norm. All used flow edges form a spanning tree, forcing the claimed unique dual potentials up to constants and nonzero rescaling. At time zero, the document separately identifies all nonconstant extremizers.
+## correctness
 
-The derivative sign for \(n\ge3\) reduces to the strictly decreasing function in (9), with its initial value exactly \(n-3\). The strict all-size bound \(\Lambda_n(t)<2\) uses explicit rational inequalities for the spectral coefficients and the asymptotic lower witness \(t=(\log n)/n\). The standard-library verifier independently reconstructed full heat kernels at 55 parameter/time points and checked 1,815 individual edge costs; 68 smaller instances were also cross-checked by a separate exhaustive integral Kantorovich-dual optimization. These tests corroborate, rather than replace, the complete analytic proof.
+PASS
 
-## Originality
-The most directly relevant source is Barik--Pati--Sarma, *The Spectrum of the Corona of Two Graphs* (2007), DOI: 10.1137/050624029, Theorem 3.2. That result determines the Laplacian spectrum of graph coronas, and therefore encompasses the two eigenvalue pairs used here. The present claim **does not** present those spectral pairs as new. Its additional conclusions are a sharp all-edge transport norm, the strict switch between core- and pendant-edge maximizers, a complete positive-time equality classification, the onset threshold \(n=4\), and the sharp but unattained envelope \(2\). A spectrum without graph-metric transport geometry does not logically imply these assertions.
+For G=K_n∘K_1, signed graph-distance KR norm equals sum |leaf masses| + 1/2 sum |collapsed core masses|, by forced pendant flows and complete-core direct transport. Edge-difference heat vectors decompose into trivial and index-mean-zero two-by-two blocks, leading to exact two edge-type transport costs E_n=r_n+(3-n)q_n and P_n=(n-1)/n(2r_n+(n-2)q_n)-(n-2)/n e^-2t. For t>0 E_2>P_2; n>=3 P_n>E_n from explicit positive difference. Equality along nonzero spanning-tree flow edges determines extremal 1-Lipschitz potentials (ramp when n=2, n rays otherwise). A strictly decreasing derivative sign bracket has initial n-3, so n=3 decreases, n>=4 unique positive peak. Exact coefficient inequalities give strictly Λ<2 for every finite n,t while at t=log(n)/n, P_n→2. Time t=0 every nonconstant f extremizes. Boundary parameters and normalization stated.
 
-Ollivier's transport-curvature framework (arXiv:math/0701886), Chafaï--Joulin's birth-death intertwinings (arXiv:1011.2331), and Münch--Wojciechowski's graph heat-gradient characterization (arXiv:1712.00875) supply nearby methods and general inequalities. The directly inspected sections do not state the complete-graph corona sharp profile. An earlier calculation of heat transport on a clique with just two separately attached leaves concerns a different graph family and a single transport pair, not the maximal edge ratio of this family. Queries for the corona, whiskered clique, Kantorovich norms, semigroup amplification, and spectral aliases revealed no equivalent indexed result. Absence of a database hit is not proof of publication priority, and a relevant unindexed exact calculation remains a risk.
+## originality
 
-## Mathematical value
-The object \(K_n\circ K_1\) is a standard, fully symmetric corona family with an explicit known spectral theory, making it a natural test case for whether spectral information determines sharp nonlinear metric behavior. The finding goes beyond recomputing eigenvalues: it identifies a discrete onset transition (\(n=3\) versus \(n=4\)), strict edge-type selection, rigid extremizing potentials, and the sharp all-size amplification factor \(2\). The latter is approached on a vanishing time scale despite unit conductances. These statements are structural and useful as exact comparison examples for heat-gradient and transport estimates.
+PASS
 
-## Scope and risks
-The theorem does not address arbitrary corona bases, positive conductance perturbations, normalized Laplacians, resistance metrics, or other function-space norms. The provenance of the underlying spectral modes is credited explicitly. The originality assessment is conditional on the inspected primary sources and indexed comparisons and does not assert absolute historical priority. The independent scientific audit has not been performed.
+Best-of-knowledge PASS for exact all-time Lipschitz heat norm and extremizers on complete-graph coronas, phase at n=4 and limiting sharp factor 2. Barik–Pati–Sarma Theorem 3.2 already supplies general corona Laplacian spectral decomposition, but not KR transport dual norm, edge-type max, extremal profiles, or amplification envelope. General heat-gradient/curvature methods describe other settings without this computed exact norm. Related Resultary complete-graph corona entry gives general-position polynomial, mathematically distinct.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Graph heat flow need not contract edge-Lipschitz seminorm on these natural nonregular coronas. Exact all-time value, threshold for transient amplification at four core vertices, uniqueness of extremizing configurations and unattained sharp family norm 2 form a useful structural counterexample and envelope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

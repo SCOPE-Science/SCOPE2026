@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The derivation and proof are contained in `RESULT.md`. In `verify.py`, the full \(2n\)-vertex heat kernel is independently evaluated by stochastic uniformization of the exact finite graph generator. The resulting signed rows are converted to transportation costs via the pendant/complete-core flow formula and compared to each of the two analytic spectral expressions. For \(n=2,\ldots,12\) and five strictly positive time values, every one of the graph's 1,815 edge instances is included. A second calculation enumerates all integral one-Lipschitz potentials (with one core value fixed to zero) on \(n=2,3,4,5\), at two positive times, and verifies the dual transport values for 68 edge cases. The integrality follows from total unimodularity of directed incidence difference constraints.
+## correctness
 
-Execution command: `python3 verify.py` (Python 3 standard library only).
+PASS
 
-Expected success lines:
+For G=K_n∘K_1, signed graph-distance KR norm equals sum |leaf masses| + 1/2 sum |collapsed core masses|, by forced pendant flows and complete-core direct transport. Edge-difference heat vectors decompose into trivial and index-mean-zero two-by-two blocks, leading to exact two edge-type transport costs E_n=r_n+(3-n)q_n and P_n=(n-1)/n(2r_n+(n-2)q_n)-(n-2)/n e^-2t. For t>0 E_2>P_2; n>=3 P_n>E_n from explicit positive difference. Equality along nonzero spanning-tree flow edges determines extremal 1-Lipschitz potentials (ramp when n=2, n rays otherwise). A strictly decreasing derivative sign bracket has initial n-3, so n=3 decreases, n>=4 unique positive peak. Exact coefficient inequalities give strictly Λ<2 for every finite n,t while at t=log(n)/n, P_n→2. Time t=0 every nonconstant f extremizes. Boundary parameters and normalization stated.
 
-```
-CHECK_OK complete_corona_n=2..12 time_cases=55 edge_transport_checks=1815
-CHECK_OK independent_integer_KR_dual_cases=68
-CHECK_OK onset_derivative=n_minus_3 limiting_envelope=2
-```
+## originality
 
-The finite floating-point evaluations are checks of implementation and formulas, not a substitute for the universal analytic proof. The strict signs, all-time maxima, complete extremizers, and sharp family envelope are established by exact algebraic inequalities in `RESULT.md`. No independently performed audit or external proof certification is asserted.
+PASS
+
+Best-of-knowledge PASS for exact all-time Lipschitz heat norm and extremizers on complete-graph coronas, phase at n=4 and limiting sharp factor 2. Barik–Pati–Sarma Theorem 3.2 already supplies general corona Laplacian spectral decomposition, but not KR transport dual norm, edge-type max, extremal profiles, or amplification envelope. General heat-gradient/curvature methods describe other settings without this computed exact norm. Related Resultary complete-graph corona entry gives general-position polynomial, mathematically distinct.
+
+## value
+
+PASS
+
+Graph heat flow need not contract edge-Lipschitz seminorm on these natural nonregular coronas. Exact all-time value, threshold for transient amplification at four core vertices, uniqueness of extremizing configurations and unattained sharp family norm 2 form a useful structural counterexample and envelope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
