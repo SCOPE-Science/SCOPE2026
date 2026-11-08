@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The initial-move equivalence is proved by propagating an entire blue interval to both endpoints after a single legal force; it covers all integers \(n\ge2\) and \(1\le k<n\), including truncated endpoint neighborhoods. For squares, minimality reduces to inclusion-minimal ordered-edge triggers. The proof classifies boundary triggers of sizes two and three, then applies a four-pattern interior classification to identify all and only the surviving four-sets; small orders \(n=3,4,5,6,7\) are explicit. This gives the polynomial without inference from experiments. An independent finite implementation enumerated \(163716\) general-power masks and \(524280\) square masks, agreeing with the structural claims.
+
+## Originality — PASS, provisional
+Nazari and Karimi Radpoor (2012, Theorem 3.5) already determine the *minimum* zero forcing number of a path power, so the scalar minimum is not new. Brimkov and Carlson (arXiv:2204.01810; full text, Sections 1–4) investigate minimal zero forcing sets but do not present this path-power equivalence or the exact square census. Boyer et al. (arXiv:1801.08910; full text) treat the zero forcing polynomial of ordinary paths and other families, not the indicated path powers. Johnson et al. (2025) study *skew* zero forcing of path powers, governed by a different color-change rule; the full open-access text was inspected, including its path-power theorems, and none gives the ordinary minimal-set spectrum. Scholarly-record searches for the source objects, alternative terminology, first-move criterion, square powers, and minimal-cardinality polynomial identified no direct covering record. The residual risk is an unindexed equivalent classification or a general theorem that implies it; search silence is not proof of publication novelty.
+
+## Mathematical value — PASS
+The general theorem removes the apparently sequential nature of zero forcing for a natural infinite family: a single local first move characterizes every forcing configuration, implying a bounded local trigger set for each power. For the second power it determines every labelled *inclusion-minimal* configuration, not just an extremal invariant, identifies the precise appearance of three- and four-vertex minimal sets, and proves linear rather than exponential growth of their number. The known scalar bound alone does not supply these conclusions.
+
+## Limits and primary comparisons
+The explicit polynomial is restricted to path squares; higher powers are classified by triggers but not simplified. The 2012 path-power theorem is broader on the scalar minimum only. The accessible primary papers on general minimal sets and zero-forcing polynomials do not cover the two concrete claims. The primary PDF of the 2025 skew-rule source was inspected; its results concern a different color-change rule. Independently verifying priority and the proof remains necessary before journal claims.
+
+Self-review: passed. Independent audit: not yet performed.
