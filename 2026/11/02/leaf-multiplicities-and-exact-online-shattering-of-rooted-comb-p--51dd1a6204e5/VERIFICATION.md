@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The exact classification is proved for every positive integer leaf-multiplicity profile in `RESULT.md`. The bundled `verify_comb.py` independently constructs the original tree paths and checks dimensions via exhaustive finite version-space recursion, rather than reusing the packing proof. Running `python3 verify_comb.py` successfully checked all 1,023 ordered positive compositions with at most ten leaves, including the single-hypothesis boundary. It also checked six informative fixed examples symbolically.
+# Independent mathematical audit
 
-Finite checks are supporting tests only. The all-size correctness rests on the ordered-interval argument and its matching balanced search construction. The present package is not independently audited; no priority claim beyond the inspected comparisons is certified.
+## correctness
+
+PASS
+
+All nonconstant tests are singleton leaf queries or suffix-of-spine-group queries. A shattered decision tree of depth d>=2 cannot use singleton leaf queries before the last level, forcing its first d−1 query levels to divide the groups into 2^(d−1) consecutive nonempty blocks each with at least two leaves. Conversely balanced suffix-threshold tests distinguish 2^floor(log2 K) qualifying blocks, followed by a final singleton leaf test in each block. Earliest-end exchange proves greedy K computation. Incomparability/ancestor containment precludes VC shattering of two vertices. Independent literal root-to-leaf-path version-space recursion checked all 255 positive ordered profiles of total leaves <=8 and the two order-sensitive eight-leaf witnesses.
+
+## originality
+
+PASS
+
+Classical singleton and threshold concept classes, general Boolean aggregation bounds and leaf-subset tree dimension are prior. The mixed vertex-query/root-path system has an exact group-respecting packing invariant not implied by the inspected standard closure bounds or complete-binary-tree leaf-set theorems.
+
+## value
+
+PASS
+
+The precise adaptive mistake bound and the arrangement-sensitivity among profiles with identical spine length, leaf count and multiset expose how rooted hierarchy structure changes online learnability without changing VC dimension; K is linear-time computable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

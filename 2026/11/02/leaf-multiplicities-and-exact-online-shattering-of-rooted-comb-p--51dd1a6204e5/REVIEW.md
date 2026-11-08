@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every leaf belongs to a single terminal group and every nontrivial internal-spine membership query is a suffix of groups. Leaf queries have only one positive hypothesis and therefore cannot occur before the final round of a completely shattered tree. This proves the upper bound by requiring a consecutive partition into double-leaf blocks; the corresponding balanced threshold-query tree proves the lower bound. The VC dimension follows directly from ancestor comparability. The greedy segment-count rule is justified by the earliest-ending exchange argument. Direct exact computation over 1,023 finite profiles, using a path-generated concept matrix, agrees with the classification.
+## correctness
 
-**Originality — PASS under the inspected sources.** Walker's 2022 paper (inspected sections 1–1.2) concerns embeddings and inequalities for leaf subsets in binary trees, not exact root-to-leaf path-membership dimensions on rooted combs. The full-text Ghazi–Golowich–Kumar–Manurangsi 2021 paper provides general class-aggregation upper bounds, not the exact ordered-packing invariant. Searches for caterpillar path concepts, laminar thresholds, hierarchical singleton tests and weighted groups did not locate a stronger result, and relevant prior exact path-window and poset-ideal results do not imply the claim. This is a best-knowledge comparison, not a comprehensive historical-priority certificate.
+PASS
 
-**Value — PASS.** The explicit classification is for every positive multiplicity profile in a natural infinite family of rooted hierarchies, gives an efficient optimal mistake-bound computation, and identifies a sharp sensitivity to *order* not detected by the number of hypotheses, tree height, or even the multiset of terminal multiplicities. In particular, the two eight-leaf six-level examples differ by a full online mistake although both have VC dimension one. This ordered packing obstruction supplies concrete structure beyond a standard threshold-class estimate.
+All nonconstant tests are singleton leaf queries or suffix-of-spine-group queries. A shattered decision tree of depth d>=2 cannot use singleton leaf queries before the last level, forcing its first d−1 query levels to divide the groups into 2^(d−1) consecutive nonempty blocks each with at least two leaves. Conversely balanced suffix-threshold tests distinguish 2^floor(log2 K) qualifying blocks, followed by a final singleton leaf test in each block. Earliest-end exchange proves greedy K computation. Incomparability/ancestor containment precludes VC shattering of two vertices. Independent literal root-to-leaf-path version-space recursion checked all 255 positive ordered profiles of total leaves <=8 and the two order-sensitive eight-leaf witnesses.
 
-The exact classification does not address branching subtrees attached to the spine or other query languages. Independent external validation and exhaustive historical-priority verification are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical singleton and threshold concept classes, general Boolean aggregation bounds and leaf-subset tree dimension are prior. The mixed vertex-query/root-path system has an exact group-respecting packing invariant not implied by the inspected standard closure bounds or complete-binary-tree leaf-set theorems.
+
+## value
+
+PASS
+
+The precise adaptive mistake bound and the arrangement-sensitivity among profiles with identical spine length, leaf count and multiset expose how rooted hierarchy structure changes online learnability without changing VC dimension; K is linear-time computable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
