@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The zero-mean stationary switched diffusion has a well-defined causal stochastic-integral construction and moments of every fixed even order. Its joint-state second-moment equations give \(C(0)=D(2/k+1/q)\) and \(C'(0+)=-D\). The conditional propagator is a two-by-two matrix with characteristic polynomial \(z^2+(k+2q)z+kq\), proving exact covariance invariance under \((q,k,D)\mapsto(k/2,2q,D)\). Third and fourth right derivatives recover \(P=kq\) and \(L=k+2q\), so the unordered pair \(\{k,2q\}\) and **exactly** its two possible assignments are determined. Fourth-moment generator identities give \(\kappa_4=D^2(9/q^2+6/(qk))\), strictly separating twins off the fixed line. This derivation supplies the infinite-parameter-range proof; the independent matrix-exponential and symbolic program checks are corroboration, not proof of completeness.
+PASS
 
-## Originality — PASS (qualified)
+For the stationary Markov-modulated OU with on-state drift -kX and symmetric jump rate q, stationary second-moment generator equations give m_(2,1)=D/k, m_(2,0)=D/k+D/q. The covariance C(t)=m_2^T exp((Q-K)t)1 satisfies the second-order ODE C-double-prime + (k+2q) C-prime + (kq) C = 0 with C(0)=D(k+2q)/(kq) and C-prime(0+)=-D. In particular, right derivatives give C"(0+)=0, C-third=DP, C-fourth=-DPL. Hence the full covariance determines D,P=kq,L=k+2q, and k,2q are the two positive roots of z²−L z+2P. They produce exactly original rates and their involution (q,k,D)↦(k/2,2q,D), equal only on k=2q. Stationary fourth-moment equations give kappa4=D²(9/q²+6/(qk)); the involutive difference 9D²(1/q²−4/k²) is nonzero off the fixed line and q=3D/sqrt(kappa4−6D²/P). Independently verified generator moment solutions, derivative invariants and twin difference symbolically; an exact stationary covariance does not imply practical finite-noise estimability.
 
-The originating physical model, stationary second moment and relaxation of one-time variance are established in Santra--Das--Nath (2021). The stationary fourth-moment identity is already present in the moment recurrence of Frydel (2024) and is explicitly **not** claimed as a new stand-alone result. The broad Markov-modulated OU framework of Huang and colleagues (2014) contains a matrix-exponential formula for forward covariance and could produce the specialized covariance upon calculation. The assessed new statement is not the forward formula: it is the exact two-to-one *inverse map*, its complete positive-parameter fiber classification, the nontrivial stiffness/switching involution, and the consequent non-Gaussian disambiguation. Searches did not locate this inverse theorem in the inspected sources or indexed related findings. The strongest novelty risk is that a broader system-identification theorem or an unrecognized statement in the general Markov-modulated theory may already imply the same inverse classification; independent priority review is not performed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The inverse ambiguity answers a natural experimental calibration question for switching optical traps: even an ideal all-frequency position power spectrum cannot distinguish two physically different trap kinetics. The theorem both proves that the ambiguity has exactly two members (rather than just exhibiting an accidental equality) and gives a single higher-order observable that removes it, with an explicit reconstruction formula. This is a structural identifiability limit, not merely a small numerical improvement or a restatement of a previously tabulated fourth moment. It makes no finite-data statistical claim, and the extra use of a known moment identity does not itself establish originality.
+PASS, qualified: Santra–Das–Nath give the intermittent-trap model, Frydel 2024 gives stationary variance and fourth moment, and Huang et al. give general Markov-OU forward covariance machinery. These are known and credited. The assessed final result is complete inverse fiber (exactly the two possible rate triples, including fixed line) and fourth-cumulant resolution, not the already-published moment formulas. An implicit inverse-system-identifiability theorem could still cover the restricted result.
 
-## Closest literature and limitations
+## value
 
-The strongest relevant forward-coverage comparator is the general covariance machinery of *Markov-modulated Ornstein-Uhlenbeck processes* (arXiv:1412.7952), §3.3. The model-specific sources are *Brownian motion under intermittent harmonic potentials* (arXiv:2104.00609), especially §§2–3, and *Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap* (arXiv:2407.12213), especially §II, the moment recurrence and Appendix B. The semi-Markovian extension arXiv:2607.05173 discusses spatial moments but was not found to give this inverse covariance theorem. Novelty against all possible published inference work remains a residual risk. The proof applies only to symmetric on/off Markov switching, an exactly zero off stiffness and ideal stationary covariance; it does not compare complete joint two-time probability laws.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact two-to-one nonidentifiability of a physically meaningful hidden-switching model from full power spectrum, and a minimal non-Gaussian statistic restoring unique parameter recovery, is a meaningful structural inverse-problem finding. Distinguishing covariance twins has practical modeling implications even though noisy estimation is not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

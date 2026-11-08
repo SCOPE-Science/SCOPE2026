@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-07",
+  "audited_at_utc": "2026-11-07T04:42:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stationary Markov-modulated OU with on-state drift -kX and symmetric jump rate q, stationary second-moment generator equations give m_(2,1)=D/k, m_(2,0)=D/k+D/q. The covariance C(t)=m_2^T exp((Q-K)t)1 satisfies the second-order ODE C-double-prime + (k+2q) C-prime + (kq) C = 0 with C(0)=D(k+2q)/(kq) and C-prime(0+)=-D. In particular, right derivatives give C\"(0+)=0, C-third=DP, C-fourth=-DPL. Hence the full covariance determines D,P=kq,L=k+2q, and k,2q are the two positive roots of z²−L z+2P. They produce exactly original rates and their involution (q,k,D)↦(k/2,2q,D), equal only on k=2q. Stationary fourth-moment equations give kappa4=D²(9/q²+6/(qk)); the involutive difference 9D²(1/q²−4/k²) is nonzero off the fixed line and q=3D/sqrt(kappa4−6D²/P). Independently verified generator moment solutions, derivative invariants and twin difference symbolically; an exact stationary covariance does not imply practical finite-noise estimability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang et al. develop broad forward moment/covariance equations; Frydel provides same-model stationary second and fourth moments; Santra et al. study same intermittent trap."
+        ],
+        "reasoning": "Forward frameworks and moment evaluations are not logically equivalent to a global inverse-fiber classification. A general inverse identifiability theorem might supply more, but no cited result was found to impose this specific two-rate involution.",
+        "searches": [
+          "Huang et al Markov-modulated Ornstein-Uhlenbeck processes arXiv:1412.7952",
+          "Frydel fluctuating harmonic trap 2024 arXiv:2407.12213",
+          "Santra Das Nath 2021 arXiv:2104.00609"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md cb2588ce0b96faad671e0e12e871943bd34b935b and verify_dual.py 211de93f870b25e075163de588b5acb57b878672",
+        "Santra–Das–Nath arXiv:2104.00609 PDF",
+        "Frydel Phys Rev E 110 024613 (2024) PDF",
+        "Huang et al. arXiv:1412.7952 PDF",
+        "Frydel 2026 arXiv:2607.05173 abstract",
+        "Resultary intermittent harmonic trap covariance inverse search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stationary moments and forward matrix exponential can be combined to derive the observed invariants but the uniqueness proof requires inverting coefficients and excluding spurious spectral poles."
+        ],
+        "reasoning": "A reader could calculate the involution from prior tools, making novelty modest/qualified, but not merely a restatement or substitution of a published inverse theorem based on inspected text.",
+        "searches": [
+          "Frydel 2024 doi:10.1103/PhysRevE.110.024613",
+          "Huang Jansen Mandjes Spreij De Turck 2014 arXiv:1412.7952",
+          "Frydel 2026 arXiv:2607.05173"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The covariance is a rational two-pole spectrum with invariants (D,L,P); the unordered pair {k,2q} has permutation ambiguity."
+        ],
+        "reasoning": "Classical spectral factorization may express the same inverse ambiguity in other variables. Resultary hits on harmonic covariance concern different integrators and oscillator models, not this exact generator.",
+        "searches": [
+          "Resultary randomly switched harmonic trap Brownian position covariance inverse parameter identifiability fourth cumulant",
+          "Markov modulated OU identifiability two-state switching covariance duality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing same-model stationary-moment expressions imply the kurtosis formula, which is explicitly prior knowledge."
+        ],
+        "reasoning": "The exact inverse ambiguity is continuous in (q,k,D); a stationary-moment table does not by itself state the exhaustive covariance-equivalence classes. The fourth moment itself is not claimed original.",
+        "searches": [
+          "Resultary intermittently trapped Ornstein Uhlenbeck covariance twin spectral rates",
+          "fluctuating harmonic trap variance fourth cumulant table Frydel"
+        ]
+      },
+      "rationale": "PASS, qualified: Santra–Das–Nath give the intermittent-trap model, Frydel 2024 gives stationary variance and fourth moment, and Huang et al. give general Markov-OU forward covariance machinery. These are known and credited. The assessed final result is complete inverse fiber (exactly the two possible rate triples, including fixed line) and fourth-cumulant resolution, not the already-published moment formulas. An implicit inverse-system-identifiability theorem could still cover the restricted result.",
+      "residual_risks": [
+        "General Markov-modulated OU system-identification literature might contain an equivalent state-swapping inverse-fiber theorem.",
+        "The stationary moment result is established literature, so originality rests on exhaustive inversion and the fourth-cumulant separation.",
+        "Ideal infinite-data covariance is assumed; high-order derivative inversion could be ill-conditioned empirically."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_PRIOR",
+          "evidence": [
+            "Establishes the underlying stochastic dynamics; does not present complete covariance inverse map in the inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.00609",
+          "material_read": "Primary complete PDF and sections treating switching variance and stationary distribution",
+          "method": "Open primary PDF inspected, including definitions and model calculations",
+          "title": "Brownian motion under intermittent harmonic potentials",
+          "trigger": "Same exact switching harmonic model"
+        },
+        {
+          "assessment": "MOMENT_PREMISES_KNOWN",
+          "evidence": [
+            "Stationary moments already determine displayed kappa4; novelty confined to covariance twins and identification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.12213",
+          "material_read": "Primary complete PDF; stationary moment recurrence and second/fourth-moment material, including relevant page 1",
+          "method": "Open arXiv PDF inspected with visual page review",
+          "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+          "trigger": "Same-model variance, fourth moment and stationary distribution"
+        },
+        {
+          "assessment": "FORWARD_THEORY_PRIOR",
+          "evidence": [
+            "Provides general forward covariance machinery but not the two-state inverse fiber classification in inspected arguments."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.7952",
+          "material_read": "Primary complete PDF, sections introducing matrix exponential moment and covariance equations",
+          "method": "Open primary PDF inspected with visual first page and relevant formulas",
+          "title": "Markov-modulated Ornstein-Uhlenbeck processes",
+          "trigger": "Potential broader forward covariance theorem that may imply inversion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact two-to-one nonidentifiability of a physically meaningful hidden-switching model from full power spectrum, and a minimal non-Gaussian statistic restoring unique parameter recovery, is a meaningful structural inverse-problem finding. Distinguishing covariance twins has practical modeling implications even though noisy estimation is not claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General Markov-modulated OU system-identification literature might contain an equivalent state-swapping inverse-fiber theorem.",
+    "The stationary moment result is established literature, so originality rests on exhaustive inversion and the fourth-cumulant separation.",
+    "Ideal infinite-data covariance is assumed; high-order derivative inversion could be ill-conditioned empirically."
+  ],
+  "schema_version": 1
+}
