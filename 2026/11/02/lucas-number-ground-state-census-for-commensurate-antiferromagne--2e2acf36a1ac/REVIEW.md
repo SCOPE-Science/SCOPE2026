@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The odd five-cycle incidence bound forces at least \(n/2\) frustrated edges and, at equality, forces all inner edges to be satisfied. A separate exact minimization over every odd outer spin gives a unique completion of each pair of inner-sign choices and each independent set of the \(n/2\)-cycle. The calculation yields \(-2nJ\) for all admissible dimensions, the full Lucas count, refined frustrated-spoke counts and zero total and sublattice magnetization. Integer transfer and exhaustive checks support the proof, without being used as an infinite argument.
+## correctness
 
-**Originality — PASS on inspected evidence, provisional.** The known maximum-bipartite-subgraph problem on generalized Petersen graphs can cover the optimal *energy*. The asserted new content is the explicit classification of *all maximizing spin configurations*, their entire sector polynomial and exact magnetization. Full primary texts inspected include Mostovoy et al. (triangular lattice spin-kink system) and Besharati et al. (independence-number results for generalized Petersen graphs), neither of which states these claims. An especially relevant Ewell thesis on bipartite density was accessible only by abstract, despite bounded full-text attempts; exact stronger coverage remains a material residual risk. Historical owner claims and published research searches found no direct equivalent; this is not a mathematical uniqueness proof.
+PASS
 
-**Mathematical value — PASS.** A highly structured infinite family of nonbipartite cubic spin networks has exponentially many zero-field ground states whose full counting polynomial can be explained by a natural hard-core exclusion model. The circumference condition is dictated by saturation of an odd-cycle lower bound, rather than an arbitrary numerical slice. The refined census provides a nontrivial microcanonical benchmark beyond a single max-cut value or a few small enumerations.
+The five-cycle frustration sum forces at least n/2 unsatisfied antiferromagnetic edges, and equality forces every inner edge satisfied. The exact odd-outer-spin minimization reduces ground states for n=4r>=8 to 2 independent Ising signs and an independent set of C_(n/2). This proves E_min=-2nJ, 4 Lucas_(n/2) configurations, refined q-count 4m/(m-q) binom(m-q,q), zero inner/outer magnetizations, entropy log(phi)/4 per physical spin. Reconstructed the combinatorial proof and independently exhaustively checked all 2^16 n=8 configurations: energy -16 and 28 minimizers.
 
-**Limits.** Only labelled, homogeneous, zero-field \(GP(4r,2)\) configurations are classified. Finite checks do not prove the infinite statement, and independent historical/technical assessment has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp energy can already follow from maximum-cut work on GP(n,2), and cycle independent-set Lucas counts are classical. The potentially new assertion is a bijection classifying ALL maximizing spin configurations and their refined sector and magnetization data, rather than the energy or Lucas identity in isolation.
+
+## value
+
+PASS
+
+Ground-state multiplicity and sector statistics of an infinite natural frustrated cubic-graph Ising family are fundamental microcanonical quantities; the explicit independent-set bijection explains why exponential degeneracy survives.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

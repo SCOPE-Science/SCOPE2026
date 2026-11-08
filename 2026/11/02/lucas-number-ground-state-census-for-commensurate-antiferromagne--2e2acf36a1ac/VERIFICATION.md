@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 artifacts/verify_gp.py` from the extracted package root. Only the Python standard library is required. Its saved stdout is in `artifacts/verification_output.txt`.
+## correctness
 
-The exact cyclic width-two min-plus dynamic program checks all fifteen values `n=8,12,...,64` against the proposed energy and multiplicity, without relying on the independent-set construction. The constructive test enumerates the independent sets and both inner-spin signs for seven sizes through `n=32`, tests exact energy, zero total magnetization, uniqueness of every reconstructed spin configuration and the complete count by number of frustrated even spokes. The `n=8` test exhaustively enumerates all `2^16=65536` labelled configurations.
+PASS
 
-The proof's five-cycle bound, exact odd-spin minimizer, cyclic run counting and magnetization identities are analytic and universally quantified. The computations are finite cross-checks and do not certify priority or all infinite cases. No separate independent audit has been performed.
+The five-cycle frustration sum forces at least n/2 unsatisfied antiferromagnetic edges, and equality forces every inner edge satisfied. The exact odd-outer-spin minimization reduces ground states for n=4r>=8 to 2 independent Ising signs and an independent set of C_(n/2). This proves E_min=-2nJ, 4 Lucas_(n/2) configurations, refined q-count 4m/(m-q) binom(m-q,q), zero inner/outer magnetizations, entropy log(phi)/4 per physical spin. Reconstructed the combinatorial proof and independently exhaustively checked all 2^16 n=8 configurations: energy -16 and 28 minimizers.
+
+## originality
+
+PASS
+
+The sharp energy can already follow from maximum-cut work on GP(n,2), and cycle independent-set Lucas counts are classical. The potentially new assertion is a bijection classifying ALL maximizing spin configurations and their refined sector and magnetization data, rather than the energy or Lucas identity in isolation.
+
+## value
+
+PASS
+
+Ground-state multiplicity and sector statistics of an infinite natural frustrated cubic-graph Ising family are fundamental microcanonical quantities; the explicit independent-set bijection explains why exponential degeneracy survives.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
