@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The signed Haar kernel is explicitly reconstructed with the correct normalization: node depth \(j\) contributes a factor \(8^j\), and the child-zero conditional expectation gives the exact rescaled Bellman recursion. The exhaustive ten-profile table follows from the finite Walsh transform of all 128 sign vectors. Each local envelope inequality is a bilinear nonnegativity check on a rectangle, settled at forty exact corners, and a profile attaining equality exists for every state. The affine induction thus proves the infinite-depth assertion. The binary comparison is derived independently from its two-action recurrence; the alternating parity factor is kept throughout. The standalone standard-library checker actually ran and verified the local census, the forty corners, exact Bellman values, and all stated witness norms through depth six. The calculations are supplementary to the symbolic induction.
+
+## Originality — PASS with bibliographic qualification
+The closest previously recorded mathematical results address finite dyadic and four-child Haar systems, ternary contrasts and binary node-dependent biases; neither covers eight-child Hadamard signs or the contrast with three dyadic generations. The four-child equality cannot imply the present distinction: here the ten local Walsh profiles generate a different affine envelope, and equality with three dyadic levels fails at depth three. Searches of published-finding corpus for octonary, eight-child, Walsh--Hadamard, finite-depth multiplier norms and the exact rational expression returned no claim implying this formula. The relevant accessible published sources were inspected at their substantive mathematical sections: Kazarian et al. treat finite-\(p\) higher-rank Haar unconditionality, and Osękowski treats restricted weak-type classical Haar inequalities. Neither inspected material gives the new sharp endpoint expression. This is not proof of exhaustive worldwide priority; an unindexed equivalent remains a residual risk.
+
+## Mathematical value — PASS
+The identity-and-separation pattern solves an exact natural operator-norm problem for every depth and detects a genuine breakdown of invariance under three-level binary grouping. The identical depth-one and depth-two norms conceal distinct linear growth rates \(15/7\) versus \(2\) per octonary generation, and the proof explains the change through noncharacter seven-sign local actions. This is an analytic structural distinction, not an arbitrary small finite numerical example. It does not claim broader \(L^p\) consequences.
+
+## Closest sources and limitations
+Kazarian–Kazaryan–San-Antolín (2014), arXiv:1410.4888, Sections 3.2 and 4; Osękowski (2013), DOI:10.1155/2013/646012, introduction and sharp weak-type theorems. The result only concerns uniform finite real eight-ary trees with the specified Walsh contrasts. Equivalent unpublished or unindexed literature cannot be ruled out.
+
+Self-review: passed. Independent audit: not yet performed.
