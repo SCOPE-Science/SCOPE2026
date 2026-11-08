@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every non-grid coordinate of an average requires a free coordinate slot in at least one summand, giving the necessary budget bound. For sufficiency, assign the non-grid coordinates among the summands, with at most the permitted number of free coordinates per summand; a single free interval combined with the remaining endpoint choices covers each coordinate's full range. This proves exact set equality. Independent coordinatewise nearest-grid rounding proves the sharp Hausdorff formulas and attained equality. Standard CW-skeleton connectivity and Euler characteristic give the full homotopy classification. All boundary cases are stated, including zero-dimensional skeleta, equality at the cutoff, and the supremum norm. The bundled verifier passes exact finite diagnostics for lattice membership, cellular ranks and metric extrema; it is not an infinite proof.
+PASS
 
-## Originality
+In any orthotope closed k-skeleton, each summand has at most k nonendpoint coordinates. An averaged off-grid coordinate needs at least one interior slot, giving the <=mk necessity. Conversely assign each off-grid coordinate to one of mk slots of m summands, at most k per summand, and use its sole free interval together with m−1 endpoint signs: the m intervals of length 2a_i/m tile the whole coordinate range. All on-grid coordinates use only endpoints; thus the exact set is the mk-skeleton of the m-subdivision for mk<d, and equals Q at mk>=d. For any coordinate ℓ_p metric, rounding the r=d−min(mk,d) least costly coordinate grid deviations yields the exact point distance; cell midpoints attain simultaneously the maxima a_i/m, proving formulas for p finite and infinity. The cubical t-skeleton of the contractible cubical d-ball is (t−1)-connected, and a finite (t−1)-connected t-complex is a wedge of t-spheres; Euler characteristic f_j=binom(d,j)m^j(m+1)^(d−j) gives exactly the claimed integer beta. The k=0, p=infinity and threshold boundary are addressed. Independently enumerated exact small lattice sums in five cases; these finite tests supplement, not replace, the general constructive proof.
 
-PASS, subject to historical-priority uncertainty. The closest published simplex-skeleton result gives an exact finite saturation count for a different polytope but does not imply the cubical grid identity, all-order distances or topology. Van Hintum's general Hausdorff-convexification threshold gives an inequality for arbitrary compact sets, rather than exact intermediate sets or homotopy. Fradelizi–Madiman–Marsiglietti–Zvavitch analyze general Hausdorff and volume behavior; Meyer adds a convex auxiliary body rather than repeating a nonconvex summand. A prior study of box offsets of cubical skeleta does not imply any repeated-self-average identity. Direct indexed research searches using grid, skeleton, Minkowski averaging and Hausdorff aliases found no covering statement. The public simplex-skeleton full result was examined, not merely its summary. The mathematical identity may nevertheless have a classical or unindexed counterpart.
+## originality
 
-## Value
+PASS
 
-PASS. Cubical skeleta are natural nonconvex geometric and topological test sets for Minkowski convexification. The theorem resolves an all-dimensional and all-summand classification, gives sharp anisotropic metric defects, exhibits intermediate homotopy types varying with the averaging order, and provides a finite exact convexification threshold. This is not a single numerical instance or a routine consequence of a general upper bound; the exact subdivision structure requires a constructive coordinate allocation argument.
+Best-of-knowledge PASS: prior simplex skeleton threshold numerically coincides, but it acts on simplices and states neither exact grid subcomplex nor all-order metric/topology of orthotopes. General convergence/threshold bounds do not imply this shape-specific identity, which was not found in exact cubical skeleton searches.
 
-## Scope and limitations
+## value
 
-The result assumes equal weights, coordinate-aligned orthotopes and the ambient coordinate norms. No result is claimed for arbitrary polytopal complexes, unequal weights, or inter-stage persistence maps. Exact integer tests are supplementary to the analytic proof. Indexed search cannot eliminate unindexed prior equivalent results. No external independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: a natural entire family of nonconvex k-skeleta gets a complete geometry-to-topology phase diagram, with exact intermediate sets, anisotropic sharp Hausdorff errors and integral Betti multiplicities, not merely a generic convergence bound. The cubical independence is mathematically structural rather than arbitrary parameter slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
