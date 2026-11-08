@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-03",
+  "audited_at_utc": "2026-11-03T02:16:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e6631984c4c88c758388f6d844952479275aa138/2026/11/01/parity-induced-oscillation-collapse-on-whiskered-cliques--600d81924671/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e6631984c4c88c758388f6d844952479275aa138/2026/11/01/parity-induced-oscillation-collapse-on-whiskered-cliques--600d81924671/verify_corona.cpp",
+        "Independent Python direct-neighborhood census n=2..6, exact depth histograms"
+      ],
+      "rationale": "Derived the actual core update from n neighbors: for n=2m the next core is 0, old leaf vector, or 1 according as core weight is <m, =m, or >m; for n=2m+1 the two intermediate cases are complement(c)∩leaf and complement(c)∪(c∩leaf). Swapping core and leaf on the weight-m layer gives B=binom(n,m) even fixed-points B+2 and two-cycles B(B-1)/2; odd support-disjoint/covering cases give exactly B(m+2) two-cycle orbits, each basin 2^(m+1). Other states reach a homogeneous fixed point by <=3 updates; n=2,3 by <=2. Thus F^5=F^3 and exact entry-time formulas and Stirling asymptotics follow. Independent from-scratch adjacency-list majority transition enumerator n=2..6 checked every labelled initial state (sum 4^n=5456), orbit counts, all four depth bins, maximal entrance time and F^5=F^3. Source C++ and compressed Python verifiers were inspected, not treated as infinite proofs.",
+      "residual_risks": [
+        "Finite enumeration ends at n=6; all n use the exact core-weight case analysis.",
+        "Different tie handling or spatial-automorphism quotient is outside domain."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goles–Olivos (1980) bounds recurrent periods on finite symmetric threshold networks by two.",
+          "Benjamini et al, arXiv:1405.2486, theorem-level discussion concerns convergence/disagreement on unimodular and random graphs, not finite whiskered clique orbit counts."
+        ],
+        "reasoning": "General eventual-period bounds are strictly weaker than first entry time, exact basins and parity-dependent asymptotic probabilities.",
+        "searches": [
+          "whiskered complete graph corona synchronous binary majority dynamics exact fixed points 2 cycles basins parity",
+          "Benjamini Chan O Donnell Tamuz Tan 1405.2486 majority dynamics unimodular graphs",
+          "Goles Olivos 1980 threshold periodicity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1405.2486",
+        "arXiv:2202.01580",
+        "doi:10.1016/0012-365X(80)90121-1",
+        "Resultary semantic query: whiskered complete graph corona synchronous binary majority dynamics exact fixed points 2 cycles basins parity",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e6631984c4c88c758388f6d844952479275aa138/2026/11/01/parity-induced-oscillation-collapse-on-whiskered-cliques--600d81924671/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The period<=2 conclusion is covered by general theory and not claimed as the sole contribution.",
+          "Turau arXiv:2202.01580 gives trees; K_n corona is not a tree for n>=3 (contains triangles).",
+          "Exact even/odd two-cycle basin probabilities tend respectively to 2/(πn) and sqrt(n/π)2^(-n/2)."
+        ],
+        "reasoning": "Neither general period bound nor the tree theorem implies explicit labelled basins or this parity-distinguished probability law.",
+        "searches": [
+          "arXiv:1405.2486",
+          "arXiv:2202.01580",
+          "whiskered complete graph corona synchronous binary majority dynamics exact fixed points 2 cycles basins parity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph K_n∘K_1 is also a fully whiskered complete graph; the dynamics is synchronous open-neighborhood majority with tie retention, not XOR parity automata.",
+          "Direct state formula h(c,ℓ) and exact B=binom(n,floor(n/2)) formula identify the same invariant under either name."
+        ],
+        "reasoning": "Search matched general majority systems and parity automata but no equal fixed/two-cycle orbit and basin classification for this same graph and update. XOR automata are not equivalent to majority threshold.",
+        "searches": [
+          "whiskered complete graph corona synchronous binary majority dynamics exact fixed points 2 cycles basins parity",
+          "Goles Olivos generalized threshold functions periodic behaviour 1980",
+          "corona whiskered clique majority cellular automata basins cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11 sharp period-four census is a complete multipartite GF(2) parity rule, not a clique with private leaves and majority-with-ties.",
+          "Direct even/odd orbit census is analytic for all n; isolated finite-state counts would not imply it."
+        ],
+        "reasoning": "Resultary search returned related but nonmatching graph-rule families, no covering table for the exact graph and dynamics.",
+        "searches": [
+          "whiskered complete graph corona synchronous binary majority dynamics exact fixed points 2 cycles basins parity",
+          "Resultary sharp period four census complete multipartite parity automata",
+          "majority dynamics K_n corona exact two cycles table"
+        ]
+      },
+      "rationale": "Established general symmetric-threshold period<=2 does not include this corona graph’s exact labelled orbit and basin counts or parity-asymptotic rarity; tree-dynamics fixed-point classifications do not cover K_n corona for arbitrary n. No stronger exact whiskered-clique census was identified by Resultary search or primary-source comparison. This is a best-of-knowledge priority conclusion with a named inaccessible 1980 original, not proof of global novelty.",
+      "residual_risks": [
+        "Goles–Olivos 1980 full text inaccessible; an equivalent old graph-specific reduction is possible.",
+        "No global search proves nonexistence of unindexed corona majority results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not give graph-specific corona orbit and basin enumeration",
+          "evidence": "General majority dynamics convergence/periodic structure vs explicit finite core-leaf map.",
+          "identifier_or_url": "arXiv:1405.2486",
+          "material_read": "Abstract, introduction and theorem statements about majority dynamics and eventual agreement/periodicity",
+          "method": "Primary arXiv PDF text and relevant page images",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Direct majority dynamics/period restriction antecedent"
+        },
+        {
+          "assessment": "Tree classification not applicable to K_n corona for n>=3",
+          "evidence": "Contains no triangles; K_n corona contains triangle as soon as n>=3.",
+          "identifier_or_url": "arXiv:2202.01580",
+          "material_read": "Introduction and tree fixed/2-cycle theorem material",
+          "method": "Primary arXiv PDF relevant sections/page images",
+          "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
+          "trigger": "Potential stronger graph recurrence classification"
+        },
+        {
+          "assessment": "General period<=2 antecedent accepted; exact corona coverage not established from inaccessible full text",
+          "evidence": "Residual priority risk retained; no whole-paper exclusion from abstract.",
+          "identifier_or_url": "doi:10.1016/0012-365X(80)90121-1",
+          "material_read": "Bibliographic record and available abstract; full text could not be obtained",
+          "method": "DOI/index metadata and authorized full-text access attempt",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "Original finite symmetric-threshold theorem; possible broad coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/e6631984c4c88c758388f6d844952479275aa138/2026/11/01/parity-induced-oscillation-collapse-on-whiskered-cliques--600d81924671/RESULT.md",
+        "Goles–Olivos 1980 classical period-two theorem",
+        "Independent full-state checks n2..6"
+      ],
+      "rationale": "Natural fully-whiskered clique is the smallest rich corona family with a global majority-coupled core and private feedback leaves. Full labelled recurrence and first-entry classification explains a nontrivial oscillation-mass transition: polynomial 2/(πn) on even n versus exponentially suppressed sqrt(n/π)2^(-n/2) on odd n. A generic eventual-two-cycle theorem has neither the basin law nor sharp transient index.",
+      "residual_risks": [
+        "Specific to synchronous binary majority and one leaf per core vertex."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite enumeration ends at n=6; all n use the exact core-weight case analysis.",
+    "Different tie handling or spatial-automorphism quotient is outside domain.",
+    "Goles–Olivos 1980 full text inaccessible; an equivalent old graph-specific reduction is possible.",
+    "No global search proves nonexistence of unindexed corona majority results.",
+    "Specific to synchronous binary majority and one leaf per core vertex."
+  ],
+  "schema_version": 1
+}

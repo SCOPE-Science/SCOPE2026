@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each labelled state \((c,\ell)\), the center update reduces exactly to the three-case map for even \(n\) and four-case map for odd \(n\), with the leaf update always copying \(c\). The proof analyzes every intermediate-weight boundary, identifies every periodic state, counts all periodic ordered pairs before dividing by temporal orbit size, counts direct preimages of oscillators, and assigns the complement-paired homogeneous basins by conservation of the full \(4^n\)-state space. Sharp three-step witnesses exist at every \(n\ge4\), with separate checks for \(n=2,3\). The analytic proof does not rely on finite extrapolation. The complete-state C++ recurrence check through \(n=10\) and independent Python recurrence check through \(n=8\) agree with every claimed count and first-entry distribution. Residual correctness risk: as with any unformalized handwritten proof, an unnoticed case or transcription error remains possible; the finite checks cannot settle that risk in all orders.
+PASS
 
-## Originality — PASS, qualified
+Derived the actual core update from n neighbors: for n=2m the next core is 0, old leaf vector, or 1 according as core weight is <m, =m, or >m; for n=2m+1 the two intermediate cases are complement(c)∩leaf and complement(c)∪(c∩leaf). Swapping core and leaf on the weight-m layer gives B=binom(n,m) even fixed-points B+2 and two-cycles B(B-1)/2; odd support-disjoint/covering cases give exactly B(m+2) two-cycle orbits, each basin 2^(m+1). Other states reach a homogeneous fixed point by <=3 updates; n=2,3 by <=2. Thus F^5=F^3 and exact entry-time formulas and Stirling asymptotics follow. Independent from-scratch adjacency-list majority transition enumerator n=2..6 checked every labelled initial state (sum 4^n=5456), orbit counts, all four depth bins, maximal entrance time and F^5=F^3. Source C++ and compressed Python verifiers were inspected, not treated as infinite proofs.
 
-The classical symmetric-threshold theorem of Goles and Olivos (1980) covers the assertion that eventual periods divide two, not the exact recurrence, basins or uniform entrance cutoff on this graph family. The inspected first-version arXiv full text of Benjamini et al. (2014) studies unimodular and random graphs and does not state the explicit whiskered-clique parity law. Turau (2022) studies trees, covering the four-vertex special member but not the complete-corona family. The nearest published graph-corona research record found was about general-position polynomials, rather than dynamical systems. A previously published parity oscillation law under the aliases whiskered clique, hairy complete graph, or complete-graph corona was not identified by statement-level searches. Unindexed older publications remain a material residual novelty risk, especially since the original 1980 article was available only at the abstract level through the authorized access used.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The family is a natural regular-attachment modification of the complete graph, and oscillatory-basin probability is a natural measure of the prevalence of nonconvergence in finite opinion dynamics. This exact full-orbit classification gives two qualitatively different asymptotic universality classes on consecutive parity subsequences: polynomial \(\sim2/(\pi n)\) oscillation probability at even order versus exponential \(\sim\sqrt{n/\pi}\,2^{-n/2}\) at odd order. It also supplies every individual attractor-basin size and a sharp uniform three-step stabilization-to-periodicity bound. These are structural, nontrivial information beyond the textbook period-at-most-two theorem, rather than isolated small-graph counts.
+Established general symmetric-threshold period<=2 does not include this corona graph’s exact labelled orbit and basin counts or parity-asymptotic rarity; tree-dynamics fixed-point classifications do not cover K_n corona for arbitrary n. No stronger exact whiskered-clique census was identified by Resultary search or primary-source comparison. This is a best-of-knowledge priority conclusion with a named inaccessible 1980 original, not proof of global novelty.
 
-## Prior literature and limitations
+## value
 
-Closest primary works: Goles–Olivos (1980), DOI `10.1016/0012-365X(80)90121-1`; Benjamini et al. (2014), arXiv:1405.2486v1; Turau (2022), arXiv:2202.01580v1. The original 1980 full text was inaccessible, and historical alias coverage may be incomplete. Exact theorem only for one leaf at each complete-graph vertex, binary synchronous neighbor-majority with inertial tie resolution; no conclusion for other graphs or update rules.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural fully-whiskered clique is the smallest rich corona family with a global majority-coupled core and private feedback leaves. Full labelled recurrence and first-entry classification explains a nontrivial oscillation-mass transition: polynomial 2/(πn) on even n versus exponentially suppressed sqrt(n/π)2^(-n/2) on odd n. A generic eventual-two-cycle theorem has neither the basin law nor sharp transient index.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
