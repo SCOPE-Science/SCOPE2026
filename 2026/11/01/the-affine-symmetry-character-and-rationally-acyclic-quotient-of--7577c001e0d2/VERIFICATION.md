@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `verify_hesse.py` ran successfully with Python 3 and only the standard library. It verified the 171 nonempty simplices, 79 acyclic Morse pairs, 13 critical simplices, 504 covering incidences, integer cycle–cocycle unit pairing, all 432 affine permutations and the ten exact character profiles. The output in `verification_output.txt` terminates with `VERIFY_OK`.
+# Independent mathematical audit
 
-The finite exhaustive certificate covers the specified nine vertices and 432-element affine group. It does not compute integral homology of the quotient, irreducible decomposition or publication priority; no independent audit was performed.
+## correctness
+
+PASS
+
+Independently enumerated 12 lines, all 171 nonempty allowed faces with f=(9,36,72,54), all 432 affine maps, and all ten signed fixed-simplex trace profiles. The supplied 79-pair discrete-Morse matching/acyclic Hasse graph and integral z,c with pairing -1 establish K homotopy S2 vee11 S3 and primitive H2; the H2 action sign was independently recomputed. Lefschetz identity yields the H3 character, with exact group sum zero. Rational finite-group coinvariants of barycentric quotient justify rational acyclicity; neither integral quotient acyclicity nor contractibility is asserted.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for affine characters and quotient rational homology; older homotopy type, spectral-gap properties and representability questions are not newly claimed.
+
+## value
+
+PASS
+
+A canonical finite affine Steiner triple system complex with a known mixed-dimensional wedge has an unknown nontrivial action of all 432 symmetries. Exact integral orientation sign, rational character and quotient acyclicity add substantial equivariant topological structure, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
