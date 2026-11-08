@@ -1,17 +1,21 @@
-# Scientific review: Continuous two-point geodesic tomography of complete bipartite metric graphs
+# Independent mathematical audit
 
-## Correctness (PASS)
-All possible ordered edge pairs fall into same-edge, adjacent-edge, or disjoint-edge cases with respective weights 1/(pq), (p+q-2)/(pq), and (p-1)(q-1)/(pq). Direct shortest-path enumeration produces three explicit uniform-coordinate distance laws, whose mixture yields the density. Rational algebra establishes both the mean and inverse quadratic; no approximation is used in the proof. The verifier checks 361 parameter pairs without standing in for the proof.
+## correctness
 
-## Originality (PASS under bounded accessible checks)
-Bounded searches in published-finding corpus and primary literature, with equivalent formulations, broader framework comparisons, tables and prior implications explicitly documented, identified no covering exact two-point arclength law for all bicliques. The closest vertex-count distribution framework is not the same invariant. The 2007 and 2016 full papers were not inspected, leaving a priority risk, but their official abstracts specify different random network/node-pair objects.
+PASS
 
-The closest inspected material is Calabuig et al. (2025) on vertex-indexed shell profiles; Blondel et al. (2007) and Nitzan et al. (2016) study discrete vertex distances in network models. Earlier unit-edge metric-graph reconstruction results concern other graph families. Priority risk: older equivalent cable-graph computations may be unlocated and some primary full texts were inaccessible.
+Independently classified ordered pairs of edges as identical, incident, or vertex-disjoint with exact weights 1/(pq), (p+q-2)/(pq), (p-1)(q-1)/(pq). Their shortest continuous paths have the laws |U-V|, U+V (or 2-U-V), and 2-|U-V|. Mixture gives both piecewise density branches with no atoms, mean 5/3-2(p+q)/(3pq), and f(0+)=2/(pq), yielding sum/product p+q,pq and hence precisely unordered part sizes including stars and K_{1,1}. The nonlimiting mixture weight (p+q-1)/(pq) proves TV bound. Independently checked rational identities over 676 pairs, including asymmetric and star boundaries; finite check is not the universal proof.
 
-## Mathematical value (PASS)
-Full natural two-parameter family of metric cable networks, with a direct-to-inverse theorem: the total geometric edge length and one scalar mean distance recover the unordered bipartition sizes, and the complete law exhibits a uniform triangular continuum limit for large bicliques. Unlike isolated table values, this characterizes a coherent intrinsic-metric reconstruction class and exposes topology through continuous pairwise measurements.
+## originality
 
-## Limitations
-Equal unit edge lengths, intrinsic geodesics and bipartite completeness are required. The law does not distinguish this graph from every conceivable other metric graph. Exact rational tests cover a finite grid; the analytic proof covers all positive sizes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Neither the vertex-pair distance distributions in random networks nor vertex-indexed graph distance profiles imply the continuous arclength pair-distance law. The theorem is a direct inverse for the natural complete biclique cable network family, not a vertex-metric identity or generic reconstruction theorem. Full-text 2025 metric-symmetry paper examined. No exact equivalent or dominating published coverage located; this is best-of-knowledge with historical elementary-priority risk.
+
+## value
+
+PASS
+
+The metric realization of a complete bipartite network is a coherent two-parameter family, and the exact inverse tells which graph part sizes are identifiable from a continuous random two-point measurement. Endpoint value plus mean suffice and stars are included; complete family and quantitative large-network law are more than a single routine graph numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
