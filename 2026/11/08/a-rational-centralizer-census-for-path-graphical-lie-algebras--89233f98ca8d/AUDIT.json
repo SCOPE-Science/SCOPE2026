@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Every edge imposes an independent 2-by-2 determinant condition. Nontrivial runs are projective one-dimensional blocks, adjacent zeros forced, singleton supports not retained. Zero projections, joint rank-one projections and line ratios prove injectivity of canonical data. Determinization of the three-bit coding yields a seven-state weighted automaton whose resolvent gives the rational function. A standalone checker compares actual finite-field rowspaces and independent support-word enumeration, including nonprime q=4; finite tests are not the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rossmann arXiv:2107.05564 full article Section 2.4 and 3: adjacency modules, centralizer sizes, conjugacy-class counts.",
+        "Published all-graph adjoint-rank and commuting-pair results count dimensions and numbers of elements; their claims do not count equality classes of kernels."
+      ],
+      "reasoning": "A stronger-looking general graph theorem supplies per-element rank but not the equivalence relation of centralizer subspaces. We explicitly remove the covered rank-count special case from the claimed contribution.",
+      "searches": [
+        "\"graph Lie algebra\" centralizer lattice enumeration",
+        "\"centralizer equivalence\" graph Lie algebra",
+        "published-finding corpus: exact rank distribution for ad_x in class two nilpotent graph Lie algebras of paths, centralizer dimension and commuting probability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2107.05564v1",
+      "arXiv:2308.00272v1",
+      "arXiv:2406.10064v1",
+      "published-finding corpus:2026/10/4/SCOPE-tree-graphical-groups-have-matching-support-character-polynomial--fb80c871ed65",
+      "published-finding corpus:2026/10/4/SCOPE-commutator-fibers-and-commuting-probabilities-of-finite-kronecke--75cb49b6c27d",
+      "published-finding corpus:2026/10/4/SCOPE-adjoint-rank-spectra-of-two-maximal-class-filiform-lie-algebras--48cdbeaf7d86"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rossmann states the dimension of an adjacency-module specialization in terms of connected support and closed neighborhood, and never asserts the number of distinct specializations.",
+        "The 7-state construction here first quotients binary support strings by equality of kernels, then counts independent projective ratios."
+      ],
+      "reasoning": "A rank polynomial is a histogram of kernel dimensions, not a census of different kernels. Multiple distinct kernels can have the same dimension and multiple coefficient tuples can share one kernel. Our canonical-word proof supplies the additional data.",
+      "searches": [
+        "Rossmann 2022 Lemma 3.2 adjoint centralizer size versus number of different kernel subspaces",
+        "Godoy Molina Lagos 2023 graph Lie algebra ideals derivations",
+        "published-finding corpus: adjoint-rank spectra of two maximal-class filiform Lie algebras"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rossmann 2022, Section 2.4 identifies group and Lie centralizers as sets, Lemma 3.2 counts their dimension but not distinct kernels.",
+        "Godoy Molina–Lagos 2023, Sections 2–5 focus on labeled graphs, ideals and graded derivations."
+      ],
+      "reasoning": "Alternate terminology centralizer lattice, centralizer equivalence, n-centralizer Lie algebra and graphical groups was searched; no exact rational census was found. The intrinsic kernel-equality relation differs from element centralizer-size enumerations.",
+      "searches": [
+        "\"distinct centralizers\" \"graphical Lie algebra\" \"path\"",
+        "\"number of centralizers\" \"graph Lie algebra\"",
+        "published-finding corpus: number of distinct centralizers in graph Lie algebras of finite paths over finite fields",
+        "published-finding corpus: graphical class-two Lie algebra n-centralizer number centralizer subalgebra count path"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-commutator-fibers-and-commuting-probabilities-of-finite-kronecke--75cb49b6c27d counts centralizers of an associative Kronecker path algebra.",
+        "Direct small-field counts are 1,4,6,12,24,45,88 for q=2 and n=1..7; matching tables were not located."
+      ],
+      "reasoning": "Numerical agreement in a table or data source would require direct comparison; none of the inspected records provides an exact table for this same Lie-algebra family.",
+      "searches": [
+        "published-finding corpus: number of distinct centralizers in graph Lie algebras of finite paths over finite fields",
+        "\"path graphical Lie algebra\" \"centralizer count\"",
+        "\"graph Lie algebra\" \"distinct centralizers\""
+      ]
+    },
+    "rationale": "The evaluated claim counts distinct embedded centralizer subalgebras, not the number of elements of a given centralizer rank or size. Primary full-text inspection finds known adjacency module and graph-Lie algebra structural results but not the 7-state quotient or the displayed rational centralizer census. Accessible historical graph-Lie rank results do not assert or imply this kernel-equality census by their numerical statements; it requires a further canonical quotient construction. Published priority remains provisional.",
+    "residual_risks": [
+      "A published general centralizer-lattice enumeration could implicitly contain the rational path specialization.",
+      "No independent literature priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the stated distinct-kernel census",
+        "evidence": "Theorem enumerates conjugacy classes by sizes; Proposition 2.3 gives equivalence of group and Lie centralizers, Lemma 3.2 only dimension.",
+        "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/blms.12665",
+        "material_read": "Full accessible HTML, especially sections 1–4, Proposition 2.3, Lemma 3.2, enumerative discussion",
+        "method": "Compared centralizer equality and number of distinct subspaces with dimension, conjugacy-class sizes, and adjacency module formula",
+        "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+        "trigger": "Same graphical Lie algebra and centralizer methods"
+      },
+      {
+        "assessment": "Not covering the new census",
+        "evidence": "Sections 2–5 treat construction, graph-ideals, low-dimensional examples and derivations of complete bipartite graphs.",
+        "identifier_or_url": "https://arxiv.org/html/2308.00272v2",
+        "material_read": "Full HTML, sections 1–5 and bracket construction",
+        "method": "Compared centralizer census with graded derivations, structural graph ideals, small algebra examples",
+        "title": "Lie algebras associated with labeled directed graphs",
+        "trigger": "Identical graph-Lie construction; cohort source"
+      },
+      {
+        "assessment": "Different dual/character invariant",
+        "evidence": "Counts coadjoint character-degree polynomial by edge matching numbers, not distinct element centralizers.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-tree-graphical-groups-have-matching-support-character-polynomial--fb80c871ed65/RESULT.md",
+        "material_read": "Complete RESULT.md, including finding, proof, references",
+        "method": "Compared alternating edge-weight matrix character-rank counts with element-centralizer equivalence classes",
+        "title": "Tree graphical groups have matching-support character polynomials",
+        "trigger": "Same graphical family, finite-field character ranks"
+      },
+      {
+        "assessment": "Different Lie families and invariant",
+        "evidence": "Filiform nilpotency class n-1 with few rank strata, not class-two path Lie centralizer census.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-adjoint-rank-spectra-of-two-maximal-class-filiform-lie-algebras--48cdbeaf7d86/RESULT.md",
+        "material_read": "Complete RESULT.md including proof and literature comparisons",
+        "method": "Compared algebra type and equal-kernel count against rank histograms",
+        "title": "Adjoint-rank spectra of two maximal-class filiform Lie algebras",
+        "trigger": "Adjoint-rank spectra and centralizers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "89233f98-ca8d-4a49-a920-10dc64753f07",
+  "value": {
+    "rationale": "The number of distinct embedded element-centralizer subalgebras is a natural invariant of a finite Lie algebra, not determined by centralizer size distribution. The complete exact polynomial sequence and compact rational generating function over every finite field reflect nontrivial equality-of-kernel identifications. This provides a useful structural companion to existing graph Lie class-count formulas.",
+    "status": "PASS"
+  }
+}
