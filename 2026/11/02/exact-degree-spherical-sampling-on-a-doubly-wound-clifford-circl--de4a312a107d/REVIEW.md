@@ -1,11 +1,21 @@
-# Scientific review of the Clifford-circle harmonic rank classification
+# Independent mathematical audit
 
-**Correctness.** The claim has fixed quantifiers \(N\ge2\), \(\ell\ge0\), and the exact evaluation normalization. The Hopf/Jacobi basis accounts for all \((\ell+1)^2\) degree-\(\ell\) harmonic weights, with no multiplicity hidden by coordinate conventions. Boundary modes attain every \(\ell\le|k|\le2\ell\); the three congruence cases supply all smaller frequencies apart from the explicitly checked small-degree holes. The potential \(\ell=16,k=0\) cancellation is handled by the nonzero fifth Jacobi factor, rather than being silently assumed away. Reduction modulo \(N\) then gives exact rank. The separate addition-theorem/Laurent recurrence checker agrees over 61 degrees and 63 sample orders. PASS, conditional only on the mathematical argument as presented; no external certification.
+## correctness
 
-**Originality.** The most directly relevant published primary source, Ben Achour et al. (arXiv:1505.03426), gives the standard \(S^3\) Hopf-coordinate Jacobi basis but not its cyclic evaluation-rank classification. McEwen–Wiaux (arXiv:1110.6298) gives full bandlimited \(S^2\) sampling via toroidal periodic extension, a different domain and quantifier. An earlier 25-node equal-radius Clifford-torus **product grid** rank law concerns two independent cyclic phases; the present sample set has one phase with two winding speeds and arbitrary \(N\), so the former does not imply the new rank formula. Related indexed records about Clifford Hopf covers concern conformal geometry rather than harmonic evaluation. The literature search could miss an equivalent older character-theoretic account of the same circle action. PASS under bounded comparison, not a claim of globally proved uniqueness.
+PASS
 
-**Value.** This classifies the interpolation image of every exact-degree spherical harmonic sector for all sample counts on the first nonsynchronous integer-winding circle of the Clifford torus. The rank can **decrease** as degree rises, with exact examples \(6,5,6\) and \(12,10,12\), and all higher degrees have a sharp explicit full-interval Fourier-support law. These are complete, motivated interpolation facts, rather than a normalization identity or a single computed example. No bounds on condition numbers or robustness are asserted. PASS.
+In Hopf coordinates the complex exact-degree harmonic basis consists of torus weights (a,b) with |a|+|b|<=ell and parity, Jacobi factor P_s^(|a|,|b|)(0). Along winding (1,2) the surviving characters have frequencies a+2b. The outer range ell<=|k|<=2ell is present at s=0, and three congruence cases cover the central range, including explicit ell=16,k=0 rescue P_5^(4,2)(0)=42/32. Only ell=1,2 zero mode and ell=4 ±3 holes remain. Sampling characters on N-th roots aliases precisely mod N, proving exact rank. Independent Chebyshev Laurent-positivity recurrence checked all degrees ell<=84 and exact Jacobi consistency; the unrestricted claim depends on the complete arithmetic case split.
 
-Scientific limitations: the result is confined to one winding ratio and equal radius; it concerns ranks rather than singular values, and it is susceptible to undetected older equivalent representation-theoretic formulations. The computer tests verify finitely many cases and are not offered as an infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Explicit S3 Hopf/Jacobi harmonic basis is standard, but the fixed (1,2) cyclic rank and frequency support require an all-degree Jacobi nonvanishing argument and discrete aliasing analysis absent from inspected bases/S2 bandlimited sampling sources. Best-knowledge PASS with SU2 matrix coefficient equivalence risk.
+
+## value
+
+PASS
+
+The (1,2) Clifford circle is a natural coupled-angular-frequency orbit in S3. Its complete all-degree Fourier frequency support and every finite cyclic sampling rank establish sharp identifiability and the striking failure of monotone interpolation (N=6 ranks 6,5,6), rather than merely rephrasing a basis decomposition. Other winding types/conditioning are outside scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

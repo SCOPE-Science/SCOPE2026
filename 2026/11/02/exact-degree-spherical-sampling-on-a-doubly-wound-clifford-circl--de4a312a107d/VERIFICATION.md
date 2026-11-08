@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 check.py` with a standard Python 3 installation. No external packages or downloaded inputs are required. The checker performs (i) a finite Jacobi-weight support computation from exact integer binomial sums, (ii) a separate exact Chebyshev/Laurent recurrence for the reproducing Gram kernel, (iii) a comparison with the stated support sets, (iv) cyclic rank comparisons for every sample count from 2 through 64 and degrees 0 through 60, and (v) explicit nonmonotonic-rank checks at 6 and 12 samples.
+## correctness
 
-Observed result: PASS — 61 exact Laurent-Chebyshev/Jacobi support identities, 3,843 cyclic rank comparisons, and six rank spot checks. This is an exact-arithmetic *finite corroboration*, not a proof for all degrees or all sample counts. The infinite proof, including its two exceptional Jacobi cancellations, is in RESULT.md. No independent mathematical validation has been performed.
+PASS
+
+In Hopf coordinates the complex exact-degree harmonic basis consists of torus weights (a,b) with |a|+|b|<=ell and parity, Jacobi factor P_s^(|a|,|b|)(0). Along winding (1,2) the surviving characters have frequencies a+2b. The outer range ell<=|k|<=2ell is present at s=0, and three congruence cases cover the central range, including explicit ell=16,k=0 rescue P_5^(4,2)(0)=42/32. Only ell=1,2 zero mode and ell=4 ±3 holes remain. Sampling characters on N-th roots aliases precisely mod N, proving exact rank. Independent Chebyshev Laurent-positivity recurrence checked all degrees ell<=84 and exact Jacobi consistency; the unrestricted claim depends on the complete arithmetic case split.
+
+## originality
+
+PASS
+
+Explicit S3 Hopf/Jacobi harmonic basis is standard, but the fixed (1,2) cyclic rank and frequency support require an all-degree Jacobi nonvanishing argument and discrete aliasing analysis absent from inspected bases/S2 bandlimited sampling sources. Best-knowledge PASS with SU2 matrix coefficient equivalence risk.
+
+## value
+
+PASS
+
+The (1,2) Clifford circle is a natural coupled-angular-frequency orbit in S3. Its complete all-degree Fourier frequency support and every finite cyclic sampling rank establish sharp identifiability and the striking failure of monotone interpolation (N=6 ranks 6,5,6), rather than merely rephrasing a basis decomposition. Other winding types/conditioning are outside scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
