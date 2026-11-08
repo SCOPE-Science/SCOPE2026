@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. A complete orthogonal decomposition of the mean-zero coefficient space is displayed in RESULT.md. On the sharp boundary, the row/column-standard blocks have negative trace and positive determinant; the mixed midpoint eigenvalue is negative for orders at least three; and the remaining constant direction has a rigorously negative quadratic form by a quantified Taylor estimate. The old-part contrast is zero at the claimed boundary and positive for any larger exponent. The order-two exception has three, not one, mean-zero null directions. The dimension formula follows from the exact nullities and classical squared-distance centering. The finite checker is supplemental.
+PASS
 
-## Originality
+Once-subdivided K_{n,n} has 2n+n² vertices with old-old distances 2 or 4, incident old-midpoint distance 1 otherwise 3, and midpoint pairs distance 2 if sharing an endpoint else 4. Mean-zero space decomposes into (n-1)² doubly-centered midpoint modes eigenvalue c-2a, two (n-1)-multiplicity paired standard 2×2 blocks M, and two constant-family contrasts, with a=2^p,b=3^p,c=4^p. At p=beta_n=log2(n/(n-1)), Q_-=0 and all other modes are strictly negative for n>=3; at n=2 there are three zero-mass nulls. The mixed-block determinant bound 2a³>n(b-1)² and strict positivity of b-(1+3h/2+h²/2), h=1/(n-1), certify the critical signs for n>=3; above beta_n the A-vs-B old-vertex contrast gives a positive witness. Schoenberg interval and centered rank yield n²+2n-2 at n>=3 and 4 at n=2. Independently constructed graph shortest paths and computed centered spectra for n=2..7 at, below and above beta_n; these finite probes are not the uniform proof.
 
-PASS under bounded literature and database comparison. Sánchez (2011, arXiv:1108.0451, inspected full mathematical text) proves the exponent for the unsplit base graph; the upper bound transfers but not the necessary midpoint-sector inequalities or endpoint rank. Murugan (2011, arXiv:1112.5657, inspected full mathematical text) covers vertex-transitive finite metrics, a hypothesis absent when \(n\ge3\) in the subdivided family. Campbell et al. (2025, arXiv:2501.07098, inspected full HTML) distinguish continuous metric graphs and discuss much longer discrete subdivisions, without settling the first subdivision's sharp exponent. Database and earlier-file searches did not return an equivalent claim. The absence of a hit is not a proof of novelty; specialized earlier literature on subdivision metrics is residual risk.
+## originality
 
-## Value
+PASS
 
-PASS. The statement identifies exactly when the midpoint operation does and does not change a natural kernel-positivity and Hilbert-embedding invariant. Inserting quadratically many vertices could introduce new obstructions, so invariance is not an immediate corollary of the known base-graph threshold. The endpoint embedding dimension tracks the spectral cost of the added sample locations, providing further intrinsic information beyond the unchanged exponent.
+Bounded original statement-to-statement/implication comparisons found no prior result explicitly establishing the full final claim including its nontrivial exact invariant or sharp all-parameter classification. Does not treat unsuccessful search as priority proof; stated source risks remain, especially the diameter-two QEC general method for record 4.
 
-## Scientific limits
+## value
 
-This classification is not extended to unequal part sizes, multiple subdivisions, or metric realizations containing all interior points of edges. Finite computational tests cannot independently establish the all-order theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Subdividing every edge of a balanced biclique changes both metric scale and vertex population drastically; the exact survival of the original exponent despite n² midpoint constraints, together with sharp exceptional n=2 nullity and expanded Hilbert embedding rank, is a motivated structural graph-metric finding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
