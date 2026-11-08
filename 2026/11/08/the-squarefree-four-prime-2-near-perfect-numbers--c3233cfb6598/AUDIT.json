@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Odd squarefree four-prime integers are deficient since sigma(n)/n <= 2304/1155 <2. Thus all candidate inputs are n=2pqr, for which D=(3p+3q+3-pq)r+3(p+1)(q+1). Monotonic abundancy bounds leave p in {3,5,7}; partition by r-divisibility of omitted divisors proves q<=23 when p=3 and r<=167 in all cases. The actual standalone checker enumerates all 399 remaining triples and each of their 15 proper divisors, finding exactly fifteen solutions with unique omitted pairs. The global result relies on proved reductions, not a numerical extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aryan et al., arXiv:2310.01305, abstract and theorem statements restrict to two distinct prime factors.",
+        "Fearon et al., arXiv:2508.06651, abstract specifically restricts to exactly two distinct prime factors.",
+        "A published squarefree three-prime classification concerns n=2pq only (source title: Squarefree 2-near-perfect numbers with three prime factors)."
+      ],
+      "reasoning": "Theorems for omega(n)=2 cannot imply a classification at omega(n)=4. The squarefree three-prime case n=2pq has only three distinct primes. The stronger 2025 complete two-factor classification is not broader in the relevant parameter. No applicable four-factor general theorem was found.",
+      "searches": [
+        "squarefree 2-near-perfect with exactly four distinct prime factors n=2pqr complete classification 3 5 19 3 5 23 5 11 41",
+        "2 near perfect integers 2pqr distinct odd primes two redundant divisors classification",
+        "\"2-near-perfect\" \"four prime factors\" 2pqr",
+        "Complete characterization of 2-near perfect numbers with exactly 2 prime factors arxiv:2508.06651"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.01305 (first public 2023-10-02)",
+      "INTEGERS 24 (2024) A61 (published 2024-06-19)",
+      "OEIS A341475",
+      "arXiv:2508.06651 abstract (2025)",
+      "Relevant published mathematical findings concerning squarefree three-prime and nonsquarefree four-prime cases",
+      "Accessible earlier scientific claims on 2-near-perfect prime-factor patterns"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aryan et al., Theorems 1-2, classify n=2^k p^i, with i=1,2.",
+        "A published squarefree three-prime theorem classifies n=2pq; its prime-factor hypothesis is strictly different.",
+        "Accessible earlier private claims include classification for omega(n)=3 Omega(n)=4, i.e. nonsquarefree 2p^2q, but do not characterize squarefree omega(n)=4."
+      ],
+      "reasoning": "No earlier statement imposes the fifteen-value classification for squarefree omega(n)=4. The 2023 source definition and divisor-sum identities supply basic tools, not the odd-case obstruction and exhaustive even-case inequality. Comparisons used prime-factor count, exact hypotheses and logical implication, not titles.",
+      "searches": [
+        "squarefree 2-near-perfect with exactly four distinct prime factors n=2pqr complete classification 3 5 19 3 5 23 5 11 41",
+        "2 near perfect integers 2pqr distinct odd primes two redundant divisors classification",
+        "On 2-Near Perfect Numbers full text theorem 1 theorem 2 open problems",
+        "published-finding corpus published near-perfect squarefree three prime factors and omega 3 Omega 4 mathematical claims"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2310.01305 Theorems 1 and 2 cover n=2^k p and n=2^k p^2, not n=2pqr.",
+        "INTEGERS 24 (2024), A61, sections 2-5, same two-prime-factor and strongly 2-near-perfect cases; full-text searches for 2pqr and squarefree yielded no matching discussion."
+      ],
+      "reasoning": "An equivalent statement would classify all squarefree four-distinct-prime integers with sigma(n)-2n equal to the sum of two distinct proper divisors, equivalently exclude the odd case and give the exact even prime triples or the fifteen integers. Neither inspected primary theorem has four distinct prime factors, and no equivalent source was found.",
+      "searches": [
+        "squarefree 2-near-perfect with exactly four distinct prime factors n=2pqr complete classification 3 5 19 3 5 23 5 11 41",
+        "2 near perfect integers 2pqr distinct odd primes two redundant divisors classification",
+        "\"2-near-perfect\" \"2pqr\" \"squarefree\" 19 23",
+        "On 2-Near Perfect Numbers arxiv:2310.01305, source text 2pqr and squarefree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A341475 lists initial 2-near-perfect integers including some members n=570,690,910,1722, but gives a finite sequence table, not a classification of all n=2pqr.",
+        "CHECKER_OUTPUT.txt enumerates all reduced prime triples and confirms exactly 15 cases."
+      ],
+      "reasoning": "An existing sequence containing small examples does not imply a proven global cutoff or completeness. The new result explicitly proves all prime triples lie in a small finite range and exhausts it; no exact database/table establishes this universal claim in the inspected records.",
+      "searches": [
+        "OEIS A341475 2-near-perfect numbers",
+        "site:oeis.org/A341475 2-near-perfect",
+        "\"2-near-perfect\" \"2pqr\" \"four distinct\" primes"
+      ]
+    },
+    "rationale": "The 2023/2024 primary source treats omega=2, prior published squarefree classifications treat omega=3, and previous omega=3 Omega=4 claims are nonsquarefree. No identified source states or implies the complete all-squarefree omega=4 classification. Known sequence catalogues include examples but no global bound.",
+    "residual_risks": [
+      "Unindexed or otherwise inaccessible literature might contain an equivalent exact four-prime squarefree classification.",
+      "The 2025 two-prime-factor preprint was compared using its abstract, not a complete full-text inspection; its stated hypothesis excludes the present class.",
+      "The finite checker is part of the same submission, not independent certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING four-prime squarefree 2pqr; paper treats 2^k p and 2^k p^2",
+        "evidence": "arXiv:2310.01305 PDF pages 1-4, Theorems 1 and 2",
+        "identifier_or_url": "https://arxiv.org/pdf/2310.01305",
+        "material_read": "Title, abstract, introduction, Theorems 1-2, proof setup, and divisor-type cases on pp. 1-4",
+        "method": "Opened open-access arXiv PDF, read page text and screenshots of pages 1-2",
+        "title": "On 2-Near Perfect Numbers",
+        "trigger": "Primary motivating 2023 paper on exact 2-near-perfect classifications"
+      },
+      {
+        "assessment": "NOT_COVERING: the paper is entirely organized around 2^k p^i (i=1,2) and associated strongly 2-near-perfect cases",
+        "evidence": "INTEGERS 24 (2024) A61 pp. 1-17, Theorems 1-2, Sections 2-5",
+        "identifier_or_url": "https://math.colgate.edu/~integers/y61/y61.pdf",
+        "material_read": "Abstract, Theorems 1-2, pages 1-3, middle case analyses and tables, concluding open problems in section 5, plus full-document text searches for 2pqr/squarefree",
+        "method": "Opened full publicly accessible PDF, inspected screenshots, section text at pages 6-7, 11-13, 16-17 and searched document text",
+        "title": "On 2-Near Perfect Numbers (final published version)",
+        "trigger": "Full original result and possible additional discussion/appendix"
+      },
+      {
+        "assessment": "PARTIAL_DATA only; no all-triples result or proof of upper bound",
+        "evidence": "OEIS A341475 lists examples under 2000 but has no omega=4 squarefree classification theorem",
+        "identifier_or_url": "https://oeis.org/A341475",
+        "material_read": "Sequence title, initial terms, links, comments and references",
+        "method": "Read accessible public sequence page/search result",
+        "title": "2-near-perfect numbers (OEIS A341475)",
+        "trigger": "Search for numerical table dominating finite output"
+      },
+      {
+        "assessment": "NOT_COVERING by omega(n)=2 hypothesis, compared directly against omega(n)=4",
+        "evidence": "arXiv:2508.06651 abstract",
+        "identifier_or_url": "https://arxiv.org/abs/2508.06651",
+        "material_read": "Abstract and mathematical claim scope",
+        "method": "Read arXiv indexed abstract and independent publisher/preprint summary",
+        "title": "Complete characterization of 2-near perfect numbers with exactly 2 prime factors",
+        "trigger": "Plausible stronger newer result using the same term complete characterization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c3233cfb-6598-4d6f-9b07-101d81e7fbf5",
+  "value": {
+    "rationale": "A complete classification of the natural squarefree four-distinct-prime family (both parity cases), extending the 2023 source motivation and distinct from prior two- and three-prime results. An odd-case abundancy obstruction plus universal explicit even-case cutoff and unique omitted pairs establish all cases without arbitrary numerical thresholds.",
+    "status": "PASS"
+  }
+}
