@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cell coding includes singleton endpoints and uses the partition-image property to realize every graph edge by a unique predecessor. Every infinite backward path eventually remains in a cyclic SCC; inverse contraction proves the upper bound by periodic-word closures and the lower bound by repeating a chosen cycle. Nonempty compact components and finiteness are proved. Hausdorff-Minkowski interpolation supplies continuous approximations and yields Baire class one. In the four-branch exact example the backward-attractor jump is explicit and is checked by the standalone exact-rational checker. The general analytic proof, rather than finitely many samples, supplies the all-points/all-maps quantifiers.
+PASS
 
-## Originality — PASS within inspected evidence
+A Markov interval partition with open atoms and endpoint singleton states gives exact preimage edges U->V when V is contained in f(U). Every infinite backward orbit lifts a left-infinite graph walk, whose far past eventually lies in one cyclic SCC; inverse-branch contraction produces the upper bound by the closure K_C of periodic code orbits, and paths from C to V(x) give the opposite inclusion. The finite list of cyclic components makes beta constant on open atoms; a finite-step Hausdorff-hyperspace map is Baire one by continuous Minkowski arcs near each partition point. In the four-branch slope-two example the two distinct open SCCs and the endpoint-preimage bridges give beta=[0,1/2], [0,1], [1/2,1] on left, midpoint and right, hence non-continuity. Independently reconstructed the 9-node preimage graph and verified all open atoms reach P2 while left atoms do not reach right open atoms. This finite check does not establish the general SCC argument.
 
-The closest motivating source, Hantáková–Roth (arXiv:2007.10883v1, 2020), states the Baire-class question for surjective interval maps as Problem 49. Its inspected definition and question do not state this special-class solution. Foryś-Krawiec–Hantáková–Oprocha (arXiv:2106.05539v1, 2021) studies individual backward-orbit alpha-limit sets on graphs rather than the finite-valued hyperspace map. Focused searches for aliases, symbolic SCC reductions and published Baire-class assertions did not identify equivalent coverage. This establishes best-knowledge originality, not publication-priority certification; symbolic coding literature may subsume some ingredients.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A published general regularity question acquires a uniform sharp answer on a structurally natural, nontrivial class (including nontransitive maps and the partition boundaries). The SCC formula determines every backward attractor from finite combinatorial data, and the discontinuous full-branch example proves optimality. This is more than a finite numerical instance or a mere restatement of classical coding.
+PASS qualified: the beta definition and Baire-class problem were explicitly published by Hantáková–Roth; exact SCC formula and a sharp Baire-one result in the specified expanding finite affine Markov subfamily are not supplied by their Problem 49 or the inspected graph-map alpha-limit work.
 
-## Scientific limitations
+## value
 
-The theorem makes no assertion for arbitrary surjective interval maps, nonexpanding maps, or non-Markov partitions. Periodic-component attractors may be infinite compact sets. The inspected primary literature and semantic searches do not replace an exhaustive priority review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides a constructive finite graph algorithm and sharp answer to a natural published backward-attractor regularity question for a mathematically important uniformly expanding Markov class; finite state does not trivialize the endpoint/nontrivial Baire jump.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
