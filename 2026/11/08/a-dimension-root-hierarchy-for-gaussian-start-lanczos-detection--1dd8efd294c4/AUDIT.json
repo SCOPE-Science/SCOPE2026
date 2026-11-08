@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For a Gaussian start, independent chi-square weights of spectral subspaces give the exact polynomial Rayleigh form. The positive spectral moment Gram is positive definite up to q basis vectors by Vandermonde full rank; the single negative eigenvalue contributes a rank-one downdate. Congruence and inertia prove the exact criterion, not just a sufficient bound. Chi-square concentration, matrix inversion continuity, and dominance of the highest monomial establish all critical regimes including zero and infinity; a degree-q positive-band annihilator proves detection at q+1. The strict boundary has zero probability since the isolated Gaussian squared weight is continuous. Direct Krylov tests and the symbolic two-band identity were replayed; the proof, not tests, supports universality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Van Dorsselaer–Hochstenbach–van der Vorst 1999 obtains probabilistic bounds for spectrum via Chebyshev/Lanczos/Ritz polynomials, rather than an exact sign-detection law for single negative outlier. https://ir.cwi.nl/pub/4505/04505D.pdf",
+        "Kuczyński–Woźniakowski 1992 addresses random-start estimates of the largest eigenvalue with general bounds, not a stated law of negative-spike detection. https://doi.org/10.1137/0613066"
+      ],
+      "reasoning": "The nearby general Lanczos literature provides probability-of-approximation guarantees that may bound the miss probability, but the primary texts inspected do not entail the exact chi-square finite-size event and regime constants without new specialized calculation. A general probabilistic bound is not equivalent to a sharp distributional phase transition.",
+      "searches": [
+        "Random Gaussian start Lanczos Krylov two iteration negative curvature detection of rank-one negative spike with two positive eigenvalue clusters; cube root dimension scaling threshold",
+        "Lanczos Hessian 1 step versus 2 step versus 3 step negative curvature detection phase transition dimension spiked indefinite",
+        "Dimension power 1 over 2k minus 1 threshold for finite Lanczos steps detecting a negative spectral spike in multiband positive spectrum",
+        "Lanczos probabilistic eigenvalue bounds Kuczynski Wozniakowski 1992 1994 random starting vector",
+        "random Lanczos negative curvature detection spiked indefinite matrix two iterations probability three eigenvalues"
+      ]
+    },
+    "checked_sources": [
+      "https://optimization-online.org/wp-content/uploads/2026/10/lanczosNash-1.pdf",
+      "https://arxiv.org/abs/2610.31110",
+      "https://ir.cwi.nl/pub/4505/04505D.pdf",
+      "https://doi.org/10.1137/0613066",
+      "https://doi.org/10.1137/S0895479892230456"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ansari-Önnestam–Forsgren–Gill 2026, sections 3–6, modifies indefinite Newton–Lanczos tridiagonal matrices and analyzes convergence and stopping rules; the exact unmodified Gaussian-start sign-detection law is not developed. https://optimization-online.org/wp-content/uploads/2026/10/lanczosNash-1.pdf",
+        "Van Dorsselaer–Hochstenbach–van der Vorst 1999, sections 2–6, uses Ritz/Lanczos/Chebyshev polynomials to construct bounds with a desired probability, rather than evaluate the exact law of a single negative-mode missed by a fixed-dimensional Krylov probe. https://ir.cwi.nl/pub/4505/04505D.pdf"
+      ],
+      "reasoning": "The source modification/early-stopping theorem and historical probabilistic bounds are neither the same statement nor obviously stronger coverage. Neither provides the closed form finite sign criterion or the specific hierarchy of random-start spike magnitudes. The direct analytic argument supplies additional information beyond classical generic bounds; unresolved external priority risk is recorded.",
+      "searches": [
+        "Random Gaussian start Lanczos Krylov two iteration negative curvature detection of rank-one negative spike with two positive eigenvalue clusters; cube root dimension scaling threshold",
+        "Three eigenvalue symmetric matrix random Krylov plane two-step Ritz negative eigenvalue probability chi-square spectral weights",
+        "Lanczos Hessian 1 step versus 2 step versus 3 step negative curvature detection phase transition dimension spiked indefinite",
+        "randomly initialized two-step Lanczos three point spectrum negative eigenvalue exact probability Dirichlet",
+        "random Lanczos negative curvature detection spiked indefinite matrix two iterations probability three eigenvalues",
+        "arxiv:2610.31110",
+        "CWI MAS-R9934 probabilistic bounds for extreme eigenvalues Lanczos full paper"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The fixed-step event is equivalent by polynomial Rayleigh quotient to a rank-one downdate of the positive-band moment matrix; this identity is proved directly in RESULT.md.",
+        "The 1999 CWI paper, Section 2, discusses the Ritz polynomial and Krylov representation but derives probabilistic enclosure bounds rather than this exact indefinite-sign event. https://ir.cwi.nl/pub/4505/04505D.pdf"
+      ],
+      "reasoning": "Looked for formulations using Christoffel kernels, moment Gram inverses, random Ritz signs and isolated negative spectral modes, not only matching the title. The rank-one Schur threshold is classical, but the explicit chi-square distribution for a multiband sign test and associated critical n-power transition are not stated in the examined materials.",
+      "searches": [
+        "Three eigenvalue symmetric matrix random Krylov plane two-step Ritz negative eigenvalue probability chi-square spectral weights",
+        "Fixed-degree Krylov or Lanczos random start rank-one indefinite negative eigenvalue detection; Christoffel polynomial Gram inverse and exact chi-square phase transition",
+        "randomly initialized two-step Lanczos three point spectrum negative eigenvalue exact probability Dirichlet",
+        "randomized Lanczos rank one outlier negative eigenvalue Krylov dimension Christoffel finite spectral bands asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Research-record comparison: An independently published mathematical research record about a finite Ritz estimate failing to certify convexity does not state the random negative-spike sign-detection law.",
+        "Research-record comparison: A separately published finding on positivity of a two-step Lanczos matrix-exponential approximation concerns componentwise positivity, not the sign of a Ritz eigenvalue."
+      ],
+      "reasoning": "The exact finite random event and chi-square transition do not appear in the retrieved historical mathematical-record summaries or comparison sources; searches are not proof of universal uniqueness. The method gives exact formula for all positive band weights and q, not an arbitrary numerical table entry.",
+      "searches": [
+        "Random Gaussian start Lanczos Krylov two iteration negative curvature detection of rank-one negative spike with two positive eigenvalue clusters; cube root dimension scaling threshold",
+        "Three eigenvalue symmetric matrix random Krylov plane two-step Ritz negative eigenvalue probability chi-square spectral weights",
+        "Fixed-degree Krylov or Lanczos random start rank-one indefinite negative eigenvalue detection; Christoffel polynomial Gram inverse and exact chi-square phase transition",
+        "Dimension power 1 over 2k minus 1 threshold for finite Lanczos steps detecting a negative spectral spike in multiband positive spectrum"
+      ]
+    },
+    "rationale": "The precise claim is the exact random-start sign-detection event for a single negative eigenvalue against finitely many positive bands and its n^{1/(2ell-1)} chi-square transition hierarchy. Read the source modified Newton–Lanczos full text and the historical 1999 randomized Lanczos probabilistic-bounds full text; both address nearby but non-covering statements. Reviewed accessible abstracts of the 1992 and 1994 randomized-Lanczos extremal-eigenvalue papers. Five targeted research-record searches and three targeted literature searches found no implication to the exact specialized probability law. Classical polynomial moment and rank-one inertia facts are not claimed novel. One older full text could not be accessed and remains an explicit priority risk.",
+    "residual_risks": [
+      "The full 1992 SIAM Lanczos probability paper could not be inspected: the accessible source exposed only the abstract and the authorized publisher full-text attempt was blocked by VPN disconnected. A specific historical lemma could still imply part of the law.",
+      "Unindexed work on orthogonal polynomials, Christoffel functions, or random Lanczos may contain an equivalent multiband negative-spike detection law.",
+      "The assumptions deliberately exclude continuous positive spectra, growing q and numerical rounding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related problem motivation and early-termination relevance, but no randomized-start exact Ritz negative-curvature probability or dimension-root phase hierarchy.",
+        "evidence": [
+          "Sections 3–4 define and modify T_j; Section 6 studies early termination on benchmark problems.",
+          "https://arxiv.org/abs/2610.31110",
+          "https://optimization-online.org/wp-content/uploads/2026/10/lanczosNash-1.pdf"
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/10/lanczosNash-1.pdf",
+        "material_read": "Primary 23-page PDF, abstract, introduction, Lanczos preliminaries, modified Newton curvature rules and early-stopping/conclusions (pp. 1–6 and 18–21).",
+        "method": "Full-text page inspection and selected PDF page rendering",
+        "title": "On Modified Newton Methods for Unconstrained Optimization Based on Lanczos Tridiagonalization",
+        "trigger": "2026 new source studying Hessian negative curvature with early-terminated Lanczos inner iterations"
+      },
+      {
+        "assessment": "Derives a posteriori and a priori probabilistic bounds on eigenvalue approximation; not an exact isolated-negative-mode sign-detection distribution with critical spike scaling.",
+        "evidence": [
+          "CWI 1999 MAS-R9934 introduction and sections 2–6.",
+          "https://ir.cwi.nl/pub/4505/04505D.pdf"
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/4505/04505D.pdf",
+        "material_read": "Full text including abstract, introduction, polynomial setup and main probabilistic-bounds sections 3–6.",
+        "method": "Full-text PDF reading and selected page rendering",
+        "title": "Computing probabilistic bounds for extreme eigenvalues of symmetric matrices with the Lanczos method",
+        "trigger": "Most relevant older randomized Lanczos spectral probability work"
+      },
+      {
+        "assessment": "Publisher abstract concerns random approximation of the largest eigenvalue of positive-definite matrices; cannot conclusively exclude specialized coverage in full text.",
+        "evidence": [
+          "https://doi.org/10.1137/0613066",
+          "Publisher abstract: random start and largest eigenvalue of a positive definite matrix"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0613066",
+        "material_read": "Publisher title, abstract, metadata; full text unavailable via accessible lawful channels.",
+        "method": "Publisher abstract and bibliographic analysis; authorized institutional full-text attempt returned VPN disconnected",
+        "title": "Estimating the Largest Eigenvalue by the Power and Lanczos Algorithms with a Random Start",
+        "trigger": "Foundational random-start spectral approximation result that might dominate a special case"
+      },
+      {
+        "assessment": "Abstract addresses probability bounds for extremal eigenvalue approximations on SPD matrices; no exact negative-spike model or dimension-root hierarchy is stated in accessible material.",
+        "evidence": [
+          "https://doi.org/10.1137/S0895479892230456",
+          "1994 SIAM Journal on Matrix Analysis and Applications abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0895479892230456",
+        "material_read": "Publisher abstract and metadata; full text not obtained.",
+        "method": "Publisher abstract and related citation comparison",
+        "title": "Probabilistic Bounds on the Extremal Eigenvalues and Condition Number by the Lanczos Algorithm",
+        "trigger": "Foundational random-start smallest and largest eigenvalue literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1dd8efd2-94c4-43bd-a959-4e7ba739cc25",
+  "value": {
+    "rationale": "A natural optimization question is the number of Hessian-vector products needed by an unmodified early-terminated Lanczos probe to reveal a narrow negative-curvature direction. The result supplies a family-wide exact probability, sharp dimension-dependent thresholds for each fixed iteration depth, a striking n to n^(1/3) to n^(1/5) hierarchy, and a finite q+1 deterministic completion. These are motivated accuracy-versus-work tradeoffs, not a one-off arbitrary finite calculation; no guarantee is asserted for modified algorithms.",
+    "status": "PASS"
+  }
+}
