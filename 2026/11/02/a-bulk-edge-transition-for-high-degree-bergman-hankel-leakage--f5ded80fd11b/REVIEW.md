@@ -1,19 +1,21 @@
-# Scientific assessment: A bulk–edge transition for high-degree Bergman Hankel leakage
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The exact singular spectrum is obtained from beta moments and pairwise orthogonality of angular Fourier modes. Gamma ratios prove the local k-scaled profile, the explicit derivative of a finite product bounds the far tail, and the profile derivative gives the one-peak weight classification. These estimates justify the limiting norm, every positive spectral-threshold counting law, and the all-q Schatten-mass formula. The finite checker executes exact rational and sampled numerical identities; only the analytical argument proves the infinite conclusions.
+PASS
 
-## Originality
+Orthogonal monomial basis e_n makes H_ke_n pairwise orthogonal by distinct angular frequencies, and the analytic projection coefficient gives the exact d_{n,k}. The Gamma product r_k(n) increases and d_{n,k}>0. Uniform Gamma-ratio convergence holds on scaled compact intervals, while d_{n,k}<=2pk^2/n^2 for n>=2k; this gives norm tightness, threshold counting and Schatten q>1 dominated Riemann sums. The derivative sign of F_p for x>1 reduces to the one-zero function g_p(y)=(p-1)log(1-y)+(p+1)log(1+y), with g_p^\prime(y)=2(1-py)/(1-y^2); this proves the p<=1 edge/p>1 interior split. Telescoping yields exact Hilbert–Schmidt trace k, a known fact not novelty. Independent rational beta moments checked p=1..4 and k=1..9, exact finite trace and p=1 maximizer.
 
-**PASS (provisional historical priority).** The 2021 Bourass–El-Fallah–Marrhich–Naqos singular-value theorems treat a fixed analytic symbol as the singular index grows. The 2018 Peláez–Perälä–Rättyä work gives boundedness characterizations and the 2022 Peláez–Rättyä work develops Bergman-projection mapping theory. None of the inspected statements gives the joint large-monomial-degree profile, weight-dependent maximizer, or its exact threshold law. The exact Hilbert–Schmidt trace and fixed-degree Schatten class are deliberately credited as background. Broader unpublished or differently titled uniform monomial results remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** High-degree anti-analytic symbols expose frequency-localization behavior invisible to fixed-symbol singular tails. The complete normalized spectral distribution and the sharp transition in the degree at which projection leakage is largest answer a natural analytic Bergman filtering question. The transition is not determined by boundedness, compactness, or the known total Hilbert–Schmidt mass.
+One-monomial diagonalization and the HS trace are known fixed-symbol identities. The k→infinity regime with spectral index n≈kx and moving maximizing n is not equivalent to taking singular index n→infinity for a fixed symbol. Bourass et al. study traces, singular indices and fixed analytic symbols under radial weights; their general asymptotic technology is related, but the accessible abstract does not establish the symbol-degree-growth profile or the sharp alpha=0 maximizer transition. The statements concern all alpha>-1 and growing k, not a finite tabulated singular spectrum. Resultary related Bergman/Hankel entries concern Hilbert norms, other symbols or fixed spectral indices, rather than this exact F_p profile. This theorem contains fixed-k compactness and the established HS trace k; prior fixed-symbol asymptotics do not formally imply a uniform two-parameter k,n→infinity profile without new uniform estimates and the maximizer analysis.
 
-## Literature, limitations and verification
+## value
 
-Scientific primary sources: Peláez–Rättyä (arXiv:2207.01086, primary MSC 30H20); Bourass–El-Fallah–Marrhich–Naqos (arXiv:2102.01743); Peláez–Perälä–Rättyä (arXiv:1806.09854). Their distinct quantifiers and conclusions are compared in AUDIT.json. The results are leading-order for fixed weight; no uniform varying-weight statement or second-order error estimate is claimed. Historical priority and the proof have not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp macroscopic high-symbol-degree spectrum of a canonical anti-analytic Hankel family, with an actual parameter threshold in maximizing degree and explicit leading Schatten mass. Different from the classical fixed-symbol high-singular-index asymptotics; the golden-ratio ratio for alpha=2 is a natural exact benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
