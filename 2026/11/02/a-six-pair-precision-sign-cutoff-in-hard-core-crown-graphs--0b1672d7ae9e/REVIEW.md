@@ -1,11 +1,21 @@
-# Review: Crown-graph occupation precision
+# Independent mathematical audit
 
-**Correctness (PASS).** The partition function, three classes of joint moments, positive-definite covariance block, and orthogonal two-mode inversion are derived from the independent-set law. Their algebraic combination yields the scalar positive-denominator expression for every matched-pair precision entry. Exact integer polynomial expansion at orders two through six, Descartes' rule, and positivity of all coefficients in the sixth-order case establish the complete asserted sign diagram. The checker independently enumerates admissible configurations and verifies matrix inverses in rational arithmetic. Boundary \(n=2\), strict nonzero cases, and uniqueness of both thresholds are accounted for.
+## correctness
 
-**Originality (PASS on examined evidence, with residual risk).** Efthymiou (2022) studies hard-core spectral independence and mixing bounds through influence matrices, not the inverse of ordinary occupancy covariance. Marsman et al. (2022) study canonical Ising interactions and edge-screening, again not this inverse covariance. Published mathematical results on crown-graph maximal independent sets/metrics and on monomer-dimer matching precision do not imply this crown-vertex-occupation cutoff on the record examined. The strongest unresolved risk is an implicit instance of general inverse-Hessian or independence-polynomial calculations, not a known explicitly matching theorem. A database search cannot establish worldwide priority.
+PASS
 
-**Value (PASS).** In the smallest crown orders, the precision of two vertices that are nonadjacent and conditionally independent nevertheless undergoes two natural fugacity transitions, and the sixth order is the first to enforce a positive precision sign for every fugacity. This is a finite, exact, motivated boundary for the interpretation of concentration matrices under non-Gaussian graphical-model constraints, distinguished from marginal negative covariance.
+The independent-set support consists of all A-only subsets, all B-only subsets and n extra matched pairs; this gives Z=2(1+lambda)^n-1+n lambda^2. Empty and singleton configurations imply covariance positive definiteness. Symmetric/antisymmetric block decomposition into aI+bJ reduces the matched inverse-covariance sign to E_n with strictly positive denominator. Independently recomputed symbolic expansions confirm E2=0, E3=-2 lambda^5(1+3lambda), E4=2lambda^5 P4, E5=2lambda^6 P5, E6=2lambda^5 P6 with every listed coefficient correct. P4/P5 each have one positive root by Descartes and IVT; all P6 coefficients positive. Marginal matched covariance strictly negative for n>=3 by Bernoulli inequality, despite nonadjacent conditional independence. No claim n>=7. The package standard-library finite exhaustive tests were inspected but not used to infer all fugacities.
 
-The exact proof is restricted to \(2\le n\le6\), uniform positive fugacity, and ordinary inverse covariance. Independent replication of the mathematical proof, and a comprehensive priority search through all independence-polynomial literature, are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge claim concerns the full inverse ordinary covariance sign diagram, not the crown independence polynomial nor Markov conditional independence. Existing inference/precision literature applies to other probability laws; no examined primary result entails the n=4/5 critical roots or all-fugacity n=6 threshold.
+
+## value
+
+PASS
+
+Crown graphs are canonical matching-deleted complete bipartite graphs; their hard-core occupation process supplies a natural example where conditional independence, marginal covariance and full-order linear partial correlation are different notions. The first always-positive inverse-covariance order and two sign transitions form a motivated exact finite classification, not an arbitrary graph invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
