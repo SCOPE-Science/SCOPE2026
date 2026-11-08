@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python3 verify_pascal_second_min.py` using Python 3's standard library; no external packages are required. The verifier separately counts nonzero binomial coefficients using digitwise borrow-state transitions and exact integer binomial arithmetic. It checks 84 complete row intervals containing 138920 row indices and 3680 direct binomial evaluations, including exact second-minimum and complete equality sets for every tested parameter tuple.
+## correctness
 
-Expected final line:
+PASS
 
-`CHECK_OK full_intervals=84 counted_rows=138920 direct_binomial_checks=3680`
+Kummer borrow counts permit a digit-by-digit T_d(z) transition for the valuation distribution of binomial coefficients. Strict digitwise monotonicity of A_{p,alpha}(n) reduces a second minimum on [N,pN) to elementary rows N+p^j or 2N (for p>=3). The displayed transition product yields closed borrow polynomials for N, N+1, 2N and N+p^j. Exact truncation to valuations below alpha and exhaustive comparisons across h<alpha, h=alpha and h>alpha prove the nine-row table including all binary exceptions and odd-prime ties. Independent direct integer-binomial checks were run for small p,alpha,h and reproduced all minimum positions; this does not replace symbolic all-parameter comparisons.
 
-Finite experiments do not establish the infinite universal theorem; the all-parameter proof is in RESULT.md. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge: critical exact claim compared by mathematical implication with prior work, with recognized prior components and explicit access/unlocated-priority risks; no novelty is inferred solely from failed search.
+
+## value
+
+PASS
+
+After classical per-row binomial valuation formulas, identifying the uniformly second-smallest nonzero count and full equality set across all primes, all alpha>=2 and all digit heights is a new natural extremal classification rather than an arbitrary row calculation. The h=alpha transition and exact exceptional ties are mathematically interpretable and reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
