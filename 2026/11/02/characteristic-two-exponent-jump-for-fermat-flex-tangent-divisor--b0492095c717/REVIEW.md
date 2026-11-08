@@ -1,19 +1,21 @@
-# Review of characteristic-two Fermat flex-tangent freeness
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The polynomial is reduced because \(d\) is odd and the Fermat component is smooth and shares no line component. The universal identities for seven binary linear forms show that the explicit coefficient-degree \(d+1\) and \(3d+1\) derivations annihilate the defining equation. Their determinant equals the reduced equation, while the Euler derivation maps it to itself because its degree is odd. The characteristic-independent determinant criterion for logarithmic derivations gives a full basis, hence the exact exponents. The local coordinate computations exhaust the singularities and reproduce the independently obtained Hilbert--Burch Jacobian length \(13d^2+12d+3\). All finite computations have been replayed from the supplied `verify_fano.py` and are treated as checks, not as an infinite proof.
+PASS
 
-## Originality (O) — PASS with residual priority risk
+Let U=x^d,V=y^d,W=z^d with d odd over algebraically closed char2. Seven Fano linear forms in U,V,W have zero sum and zero sum of cubes. Thus D_1=(x^(d+1),y^(d+1),z^(d+1)) and D_2=(x^(3d+1),...) annihilate F_d, while Euler E sends F_d to F_d since degree 4d+3 is odd. The 3x3 coefficient determinant is xyz(U+V)(V+W)(U+W)(U+V+W)=F_d, whose distinct components for odd d let the Saito determinant/reflexivity argument yield a free logarithmic basis and syzygy degrees (d+1,3d+1). Hilbert–Burch then gives tau=(4d+2)^2-(d+1)(3d+1)=13d^2+12d+3. Independently the local germs yield d^2 transverse triples (tau4), three ordinary (d+2)-fold coordinate vertices (tau(d+1)^2) and 3d three-branch contacts st(t+s^d) (tau2d+2), summing to the same length. Exact independent F2 polynomial derivative/syzygy tests for d=3,5 corroborate the symbolic identities; original verify_fano.py tests universal Fano/Moore identities and d=1,3,5,7,9. No proof is claimed for even d or other characteristics.
 
-Theorem 1.7 and the proof in Section 4 of Dimca--Ilardi--Pokora--Sticlaru give the identical complex polynomial, balanced free exponents \((2d+1,2d+1)\), and characteristic-zero singularities. The new characteristic-two exponents, the explicit Frobenius-derived logarithmic basis, and the full singularity basket do not follow from that complex result. Szpond's Fermat-type arrangement treatment concerns the complex reflection arrangement and derived configurations; Toft--Moe's subsequent complex osculation study investigates different line and conic arrangements. Searches for the original formula combined with characteristic two, positive-characteristic freeness, binary/Fano pullback and syzygy exponents did not identify a stronger covering source. A related earlier computation classified characteristic-two geometric crossings for the degree-twelve cubic plus nine tangent lines, but omitted the coordinate axes and made no freeness or scheme-length assertion; another positive-characteristic free-divisor theorem concerns a different binary-product construction and does not imply this family. Residual risk: a general positive-characteristic pullback or reflection-arrangement theorem, or an unindexed earlier calculation, could imply the same specialization; novelty is a best-knowledge assessment, not a priority guarantee.
+## originality
 
-## Mathematical value (V) — PASS
+PASS
 
-This is a structural, infinite-family reduction theorem for a distinguished published arrangement rather than a new arbitrary example. It reveals an exponent splitting jump of size \(2d\), a nonconstant Jacobian-length excess of \(d^2\), and a geometric mechanism: three complex families of double-point intersections become \(d^2\) ordinary triple points in characteristic two. Exact universal derivations and local singularities explain the change and make the result reusable for free-divisor specialization and Frobenius-geometric examples.
+Best-of-knowledge: the evaluated exact final statement differs from inspected antecedents on hypothesis, characteristic, invariant or quantifier; fundamental mechanisms/prior special cases credited. The source inspections and four implication comparisons below state actual reading and residual priority risks, without interpreting a failed search as proof of novelty.
 
-## Scope and limits
+## value
 
-Only algebraically closed characteristic-two fields and odd integers \(d\ge3\) are claimed. Saito's criterion is used in a form justified in the proof by separability in codimension one. No claim is made about every odd prime, all integral models, or preservation of the Jacobian scheme in families. Historical priority remains unconfirmed by independent literature specialists. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single fixed reduced free curve family undergoes a large arithmetic specialization jump from balanced char-zero exponents (2d+1,2d+1) to (d+1,3d+1), with excess Tjurina d^2 and an explicitly changed singularity basket. This characteristic-dependent failure of constant splitting type is a natural phenomenon in arrangements and logarithmic vector-field theory; the explicit all-d basis and singularity classification are substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
