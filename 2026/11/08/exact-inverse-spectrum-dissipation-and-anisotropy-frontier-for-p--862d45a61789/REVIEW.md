@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The proof treats every real two-dimensional drift with the prescribed eigenvalue pair. Uniqueness of the matching noise follows from the Lyapunov equation with identity covariance. The symmetric/skew decomposition and anticommutation give the exact constraint \(c^2-v^2=b^2\); positive noise requires \(b\le c<a\). Integrating the stationary current against the Gaussian yields the entropy-production formula. The condition-number map is a bijection from that interval onto \([K_0,\infty)\), proving an attainable sharp frontier. Matrix-exponential algebra yields the finite-lag bound. Independent numerical Lyapunov, spectral, current, condition-number and finite-lag checks passed 328 assertions. The algebraic limit at singular noise is not asserted to define a diffusion there.
+
+## Originality — PASS (qualified)
+
+The inspected primary full text of Troude and Sornette (arXiv:2603.07206v1, particularly sections II and VI.2–VI.5) already contains the nonnormal reduced drift, general correlated noise, lead-lag antisymmetry and a closed entropy-production formula. These are all credited. Godrèche and Luck (arXiv:1807.00694, section 2.10, equation 2.71) already establish general planar Gaussian EPR and section 3 exhibits stationary laws independent of asymmetry. The new assertion is the **complete inverse classification under simultaneously fixed stationary covariance and real drift eigenvalues**, including the unique forced-noise family, exact EPR–noise-anisotropy rigidity over all orientations, sharp realizability under any condition-number cap and bounded-lag/divergent-EPR separation. None of the inspected sections states that joint classification or optimum. published-finding corpus searches using model/source aliases and inverse-parameter variants returned no equivalent finding; the nearest records address observation thresholds, sign correlations or noise normalization rather than this condition-number frontier. Generic prior planar formulas provide ingredients and may permit an independent derivation; originality is therefore a best-knowledge assessment, not priority certification. The June 2026 nonnormal dissipation-decomposition preprint was inspected to the extent publicly accessible, not in complete full text, and remains a stronger-coverage risk.
+
+## Value — PASS
+
+The precise inverse question—how much dissipation can hide in planar dynamics when the entire stationary Gaussian and the decay spectrum are held fixed—is motivated by the observability limitations emphasized in recent nonnormal-noise theory. The result completely classifies a natural nontrivial continuous family rather than adding one parameter example, yields a sharp design/identifiability bound from the condition number of the forcing covariance, and proves an informative divergence even though each fixed-lag antisymmetric covariance saturates. This distinguishes thermodynamic irreversibility from both one-time statistics and bounded lag diagnostics. The result is deliberately restricted to the smallest fully classifiable nonnormal system.
+
+## Closest sources and limitations
+
+Relevant antecedents: Troude–Sornette (2026) arXiv:2603.07206v1, Godrèche–Luck (2018) arXiv:1807.00694, Nagayama–Kolchinsky–Ito (2026) arXiv:2606.07263, and Strang (2024), DOI 10.3390/axioms13120820. The first two sources provide general formulas on which the present inverse specialization builds. Remaining risks include an unlocated equivalent constrained classification, an inaccessible passage in the June 2026 manuscript, and the fact that simple algebra from generic formulas may be judged a corollary by a future specialist. The physical diffusion tensor is \(B/2\); substituting \(B\) without this normalization would alter the entropy-production prefactor.
+
+Self-review: passed. Independent audit: not yet performed.
