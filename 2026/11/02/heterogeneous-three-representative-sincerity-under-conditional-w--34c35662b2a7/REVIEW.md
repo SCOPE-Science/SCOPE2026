@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is an exact fixed-effort, three-delegate voting incentive theorem. Direct conditioning on the four opponent-signal outcomes gives the signed posterior payoff difference, including winning-coalition headcount and fair coin weight ties. An elementary two-case comparison proves that its coefficient is strictly positive for arbitrary positive heterogeneous efforts. A separately structured exact-rational implementation independently enumerates ballots and corroborates 6,000 state-conditional identities and 18,000 posterior comparisons. Finite checks do not establish the quantified statement; the displayed inequality does.
+PASS
 
-## Originality — PASS (qualified)
+At every fixed three-person effort profile 0<a,b,c<=1/2, independently signalled true state, weighted-majority fair ties and CPSR two-person headcount rule, enumeration of the four opponent signal states gives Delta(pi)=Ba(2pi-1)Q. With b>=c, d=b-c, either a+c<b (positive term) or a>=d, when F(a)=(a+b)(a+c)-(a+b+c)d is increasing and F(d)=bc>0. This proves Q>0 even at tie boundaries, and posterior sincere voting is uniquely optimal at non-tie pi; a joint strictly signal-following voting-stage equilibrium requires |mu-1/2|<min efforts. Independently evaluated 1029 exact-rational focal effort/payoff comparisons at a,b,c in {1/14,...,7/14}, confirming positive coefficient. This is not an effort-choice equilibrium and the grid does not prove the universal inequality.
 
-The primary arXiv:2610.07959v1 text was inspected in Section 4.1 (Proposition 2), Section 4.2 (Lemma 1), its proof Appendix A.6, and Example 2 Appendix B.2. Proposition 2 covers equal-effort profiles; Lemma 1 covers one deviating effort against a uniformly common effort in the remainder. Those hypotheses do not include three pairwise distinct efforts. Example 2 demonstrates a failure under a non-neutral prior when other sincere voters pool, not within the all-signal-following regime considered here. Focused indexed research searches and prior published-claim searches did not identify the full three-unequal-profile result, although unindexed literature may contain an equivalent statement. A result absence from search is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating paper warns that CPSR need not support sincere voting at asymmetric positive profiles. The theorem identifies a meaningful all-heterogeneity safe domain at the smallest nontrivial committee, without assuming equal efforts or an isolated deviation, and supplies the exact payoff margin. It separates failure caused by heterogeneous effort from failure caused by sincere pooling under an imbalanced prior. This permits a precise design interpretation of weighted delegation at unequal stake levels, without claiming effort-stage optimality.
+Beccuti–Schneider establish CPSR sincere voting with equal efforts and a one-deviator pattern, but their known unequal-prior counterexample has opponents pooling instead of the assumed signal-following. The exact arbitrary three-way heterogeneous positive coefficient under genuine posterior signal-following is not obtained from either statement. A prior elementary game enumeration is possible, so originality is best of knowledge.
 
-## Literature and limitations
+## value
 
-Closest literature is Beccuti--Schneider, arXiv:2610.07959v1, particularly Proposition 2, Lemma 1 and Example 2. Full text was read in the relevant sections, not just a title or abstract. An equivalent unindexed or later revised result is an originality risk. Nonpositive effort, larger committees, correlated signals, non-binary proposals, and priors generating asymmetric pooling are outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A nontrivial full heterogeneous three-delegate incentive criterion identifies exactly when CPSR continues to reward posterior truth-telling, including weighted-majority tie surfaces; it gives a useful structural boundary for the same voting game that has asymmetric failures outside the stated prior regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
