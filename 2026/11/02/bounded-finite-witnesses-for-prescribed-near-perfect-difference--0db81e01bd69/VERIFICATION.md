@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,11 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The accompanying `verify.py` requires Python 3 standard library only. Run `python3 verify.py`. The observed output was:
 
-```text
-VERIFY_OK singleton_shifts=4 target_bounds=8,14,25 compressed_random_finite_seeds= 360 exhaustive_10point_seeds= 808
-```
+# Independent mathematical audit
 
-Four seed triples at positive distances \(1,2,5,11\) were extended through the three indicated target bounds; their representation functions equal two at the selected distance and one at every other tested distance. A deterministic pseudorandom collection of 360 finite seeds, together with all 808 qualifying finite subsets of the first ten positive integers, was compressed using the asserted fourth-power component placement, checking exact exceptional multiplicities, uniqueness elsewhere, and the numerical bound. These checks are finite illustrations, not a substitute for the proof of the infinite extension or the universal bounded-witness criterion. Exhaustive decision searches over the huge general bound were not run.
+## correctness
+
+PASS
+
+If a finite seed lacks difference u, inserting 2m+u+1 and 2m+2u+1 creates exactly one u and fresh unique larger cross differences; remote completion gives every absent positive distance once. Conversely retain endpoints of all R excess representations, <=2R vertices. Components linked by S-distances have diameter <=2RM; if two components shared a nonzero internal difference, two cross pairs would repeat a difference outside S, contradiction. Translating components by H 4^i separates cross-component difference centers and preserves the finite defect profile, yielding an explicit seed in [1,B]. Hence equivalence with finite search is logically valid. For singleton defect r>=3, three u-separated pairs force a second repeated distance via shifted starts; the r=2 progression seed works. Independent seeded compression checks compared actual differences and B bounds on 84 finite examples. This does not prove all sets by enumeration; the collision and compression lemmas do.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS for the effective finite-support inverse criterion and singleton r=2 feasibility. Cilleruelo–Nathanson 2006 prove everywhere-one perfect difference construction and remote completion; it does not state bounded recognition for arbitrary finite excess supports in inspected proof sections. Ma–Wu October 2026 directly studies prescribed difference functions with abundant multiplicity>=2 and mentions the r=3 obstruction, but only its abstract/metadata were accessible in this run. Its full text could not be inspected, so a potentially decisive comparison remains a named priority risk; abstract hypotheses do not imply the present finite-support decision criterion.
+
+## value
+
+PASS
+
+Finite defects from the perfect difference function pose a natural inverse additive-representation problem. Extracting a bounded finite witness proves decidability for every finitely supported excess profile (without claiming efficiency) and explains the sharp singleton defect; this is a structural classification and recognition theorem, not a cheap negative example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

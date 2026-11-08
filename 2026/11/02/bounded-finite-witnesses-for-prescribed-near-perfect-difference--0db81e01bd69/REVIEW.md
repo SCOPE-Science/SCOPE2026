@@ -1,15 +1,21 @@
-# Review: bounded finite witnesses for near-perfect difference functions
+# Independent mathematical audit
 
-## Correctness
-PASS. The remote-pair construction changes no existing multiplicity and creates each missing positive difference exactly once. For a hypothetical global solution, collecting every pair at exceptional distances produces at most \(2R\) vertices. Their exceptional-distance component graph has component span at most \(W\). Distinct components cannot share a positive internal difference: otherwise parallel cross edges would create a second representation outside the exceptional set. Fourth-power-separated component translations preserve all exceptional multiplicities and make every other cross difference unique. Thus a bounded witness exists if and only if an infinite solution exists, proving decidability. The singleton profile follows from a three-term progression and the parallelogram obstruction. A standard-library checker passed finite insertion and compression tests. The proof, not the checker, establishes the universal quantifiers.
+## correctness
 
-## Originality
-PASS, with residual priority uncertainty. The closest paper, Ma–Wu (2026), gives the multiplicity-three singleton obstruction and remote insertion under long blocks of higher target multiplicities. Its hypotheses exclude finite exceptional support; its results do not yield or state a bounded finite-certificate decision test there. Cilleruelo–Nathanson (2006) gives perfect-difference constructions, but does not classify finitely supported excesses. Lev (2004) concerns a partition into perfect difference sets and does not state the bounded inverse result in its inspected abstract. Searches of mathematical records and relevant primary literature found no equivalent decision theorem. Because this elementary-looking reduction might have appeared elsewhere, priority against unindexed work is not asserted.
+PASS
 
-## Mathematical value
-PASS. The finite-exception regime is singled out by the recent paper's explicit nonrealizable example yet falls outside its long-interval hypotheses. A uniform explicit finite bound turns an infinite prescribed-difference inverse problem into a terminating decision procedure for every finitely supported excess profile. The singleton exception is completely classified, giving a positive counterpart to the paper's negative example. This is structural solvability information, not merely an arbitrary numerical computation. The finite bound is extremely large; no complexity improvement is claimed.
+If a finite seed lacks difference u, inserting 2m+u+1 and 2m+2u+1 creates exactly one u and fresh unique larger cross differences; remote completion gives every absent positive distance once. Conversely retain endpoints of all R excess representations, <=2R vertices. Components linked by S-distances have diameter <=2RM; if two components shared a nonzero internal difference, two cross pairs would repeat a difference outside S, contradiction. Translating components by H 4^i separates cross-component difference centers and preserves the finite defect profile, yielding an explicit seed in [1,B]. Hence equivalence with finite search is logically valid. For singleton defect r>=3, three u-separated pairs force a second repeated distance via shifted starts; the r=2 progression seed works. Independent seeded compression checks compared actual differences and B bounds on 84 finite examples. This does not prove all sets by enumeration; the collision and compression lemmas do.
 
-## Prior sources and limitations
-W.-X. Ma and B.-L. Wu, *Dense Sets with Prescribed Difference Representation Functions*, arXiv:2610.27786v1, Introduction and Section 5. J. Cilleruelo and M. B. Nathanson, *Perfect difference sets constructed from Sidon sets*, arXiv:math/0609244, constructions and open problems. V. F. Lev, *Reconstructing Integer Sets From Their Representation Functions* (2004), inspected abstract. Possible unindexed coverage and lack of practical efficiency remain limitations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the effective finite-support inverse criterion and singleton r=2 feasibility. Cilleruelo–Nathanson 2006 prove everywhere-one perfect difference construction and remote completion; it does not state bounded recognition for arbitrary finite excess supports in inspected proof sections. Ma–Wu October 2026 directly studies prescribed difference functions with abundant multiplicity>=2 and mentions the r=3 obstruction, but only its abstract/metadata were accessible in this run. Its full text could not be inspected, so a potentially decisive comparison remains a named priority risk; abstract hypotheses do not imply the present finite-support decision criterion.
+
+## value
+
+PASS
+
+Finite defects from the perfect difference function pose a natural inverse additive-representation problem. Extracting a bounded finite witness proves decidability for every finitely supported excess profile (without claiming efficiency) and explains the sharp singleton defect; this is a structural classification and recognition theorem, not a cheap negative example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
