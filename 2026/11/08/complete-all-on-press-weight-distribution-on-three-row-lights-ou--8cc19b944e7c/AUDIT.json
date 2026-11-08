@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "The eight-seed recurrence is necessary/sufficient for every all-on press set, the complete 12-column seed table proves period dividing 12 and all boundary residues, the exact column Hamming weights give six coefficient formulas with proper n≥1 and q≥0 boundaries. Standalone Python width3 chase n≤300 and independent full GF(2) Gaussian-elimination C++ n≤80 both passed. No finite-to-infinite inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Caro–Klostermeyer (2003), full Section 3 and pp. 73–74: minimum cardinalities for every three-row grid and exactly the initial-column recurrence.",
+        "Caro–Goldwasser–Klostermeyer (2001), Section 4.1, says known exact minima for widths at most four.",
+        "Minevich (2012), Theorem: for symmetric binary A, the diagonal vector lies in its column space, proving all-on solvability."
+      ],
+      "reasoning": "The minima and general solvability are covered; they do not state the full distribution. The exact weight polynomial implies the older minima, not conversely. A recurrence algorithm calculates coefficients for fixed n but does not state or classify coefficient behaviour uniformly for all n.",
+      "searches": [
+        "Lights Out three row rectangular board minimum press counts periodic 6",
+        "The Odd Domination Number of a Graph 3 x n grid Caro Klostermeyer",
+        "Caro Klostermeyer odd domination 1998 three row grid formula n mod6",
+        "Goldwasser Klostermeyer Ware parity domination Fibonacci grid nullity"
+      ]
+    },
+    "checked_sources": [
+      "https://combinatorialpress.com/article/jcmcc/Volume%20044/vol-044-paper%206.pdf",
+      "https://www.dmgt.uz.zgora.pl/publish/pdf.php?doi=1137",
+      "https://arxiv.org/html/1206.2973v1",
+      "https://studyres.com/doc/8796378/full-text",
+      "https://doi.org/10.1007/s003730200020",
+      "https://mathworld.wolfram.com/LightsOutPuzzle.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known min for 3×(6q+5) is 6q+6; our polynomial additionally gives exactly six attaining sets and two heavier solutions of weight 10q+10.",
+        "The known 3×(6q+2) minimum is 6q+2; our polynomial distinguishes precisely two minima and two heavier patterns.",
+        "The source recurrence generates eight seeds but does not state all seed weight strata in a uniform closed formula."
+      ],
+      "reasoning": "Both historical minima are corollaries of our stronger coefficientwise statement, so they are excluded as new. Solvability and nullity alone cannot determine coefficients (weight distribution is not a function of nullity). The earlier explicit recurrence plus a new eight-seed, period-twelve weight audit yields the formula. This is a concrete all-length enumeration refinement, not a renaming of the already known scalar minimum.",
+      "searches": [
+        "Caro–Klostermeyer (2003), Section 3, full text p.73–74",
+        "Caro–Goldwasser–Klostermeyer (2001), §4.1",
+        "Minevich arXiv:1206.2973v1, §§2–3",
+        "Goldwasser–Klostermeyer, Nullspace-Primes and Fibonacci Polynomials (2002), complete text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Caro and Klostermeyer (2003), Section 3: the game is called odd domination of rectangular grid graphs.",
+        "Minevich arXiv:1206.2973v1, Sections 2-3: all-on Lights Out equals solving (I+A)x=1 over GF(2).",
+        "Goldwasser and Klostermeyer, Nullspace-Primes and Fibonacci Polynomials (2002), section 2: equivalent closed-neighborhood parity recurrence for homogeneous nullspaces."
+      ],
+      "reasoning": "Odd domination of the grid, binary closed-neighborhood Lights Out, all-ones linear syndrome, and coefficientwise cardinality distribution refer to the same press sets. These aliases were included in searches; the full weight polynomial was not identified.",
+      "searches": [
+        "3-by-n rectangular Lights Out all-on press-pattern weight enumerator every solution 6 periodic coefficients six and two",
+        "odd dominating sets of P3 Cartesian Pn weight distribution Hamming weight enumeration mod 6 exactly eight or four configurations",
+        "three-row grid all-on Lights Out solution count exact minimum multiplicity six optimal configurations when n mod 6 equals five",
+        "odd dominating sets Lights Out on ladder graph P_n Cartesian K_2 complete weight enumerator over GF(2) formula",
+        "Lights Out on 2 by n grid all winning switching sets weight distribution odd domination"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Lights Out Puzzle: 3×2 all-on has four solutions, consistent with the n=2 specialization.",
+        "Caro–Klostermeyer (2003) Table on p.73: six-class minimum values only, no counts of minimizers or full solution polynomial.",
+        "Actual mathematical research-record searches returned unrelated three-row results, not this all-on complete weight distribution."
+      ],
+      "reasoning": "Known individual sizes and minimum-only tables do not cover arbitrary n coefficientwise. Searches of exact counts and six-period aliases found no matching table; missing results are not proof of uniqueness.",
+      "searches": [
+        "3-by-n rectangular Lights Out all-on press-pattern weight enumerator every solution 6 periodic coefficients six and two",
+        "odd dominating sets of P3 Cartesian Pn weight distribution Hamming weight enumeration mod 6 exactly eight or four configurations",
+        "three-row grid all-on Lights Out solution count exact minimum multiplicity six optimal configurations when n mod 6 equals five",
+        "Lights Out 3xn boards minimum moves weight generating function 3x5 eight solutions"
+      ]
+    },
+    "rationale": "The full six-residue coefficient polynomial, all eight seed families, and optimal-multiplicity census are not stated by inspected primary sources. Prior three-row odd-domination minima and the seed recurrence are excluded, as are general graph Lights Out solvability and fixed-length algorithmic computability. Inaccessible and unindexed equivalent enumerations are substantive residual risks.",
+    "residual_risks": [
+      "Prior source Caro–Klostermeyer (2003) already gives the exact six minimum values and recurrence; novelty is only the *complete* coefficientwise distribution and counts of attaining sets.",
+      "The full text of Goldwasser–Klostermeyer–Ware (2002) was inaccessible; abstract is not adequate to exclude an unindexed six-class weight table.",
+      "The coefficient formula can be derived by an eight-seed table from a published recurrence, so it is an incremental complete classification rather than a new general method.",
+      "Unindexed or later mathematical notes or solver databases may give equivalent coefficients."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS all six minimum values and seed recurrence, not published coefficientwise all-solutions weight polynomial; these covered facts excluded",
+        "evidence": [
+          "PDF page 73 table: 3×n odd-domination minima by n mod 6",
+          "PDF page 74: eight first-column starts, recurrence, example n≡5"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20044/vol-044-paper%206.pdf",
+        "material_read": "Complete PDF; especially Section 3 pp.73–74 with the six-class grid table and recurrence",
+        "method": "Primary open PDF inspected at pages 7–10, table and proof comparison",
+        "title": "The Odd Domination Number of a Graph",
+        "trigger": "Direct same-object 3×n odd domination minima and algorithm"
+      },
+      {
+        "assessment": "Documents previous width≤4 minima and general optimization algorithm; no complete 3×n weight polynomial",
+        "evidence": [
+          "Section 4.1 lines 389–410 acknowledges previous exact width≤4 minima",
+          "Section 5.1 gives k-exclusive finite-search method"
+        ],
+        "identifier_or_url": "https://www.dmgt.uz.zgora.pl/publish/pdf.php?doi=1137",
+        "material_read": "Full extracted PDF text; Introduction, Section 4.1, references and algorithms",
+        "method": "Read primary PDF extracted text with cross-comparison of exact 3×n statements",
+        "title": "Odd and Residue Domination Numbers of a Graph",
+        "trigger": "Explicit report of prior grid results and potential broader odd-domination coverage"
+      },
+      {
+        "assessment": "Proves general solvability, not full weight or optimal multiplicities on 3-row grids",
+        "evidence": [
+          "Theorem: diagonal vector of symmetric binary matrix lies in its range",
+          "Grid example in Section 3 discusses existence only"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1206.2973v1",
+        "material_read": "Complete HTML text, Sections 1–3 and references",
+        "method": "Read arXiv primary HTML and checked public v1 submission 2012-06-14 UTC",
+        "title": "Symmetric Matrices over F_2 and the Lights Out Problem",
+        "trigger": "Archive-dated foundational all-on linear-algebra theorem"
+      },
+      {
+        "assessment": "Provides homogeneous quiet-pattern structure and recurrence; no stated affine all-on 3×n full coefficient formula",
+        "evidence": [
+          "Section 2 defines the homogeneous recurrence r_i=B r_{i-1}+r_{i-2}",
+          "Section 3 treats nullspace dimensions and prime patterns"
+        ],
+        "identifier_or_url": "https://studyres.com/doc/8796378/full-text",
+        "material_read": "Complete accessible text, §§1–4 and references",
+        "method": "Compared explicit homogeneous nullspace recurrence and existence/gcd statements to all-on coefficient theorem",
+        "title": "Nullspace-Primes and Fibonacci Polynomials",
+        "trigger": "Potentially stronger Fibonacci recurrence and exact parity-classification"
+      },
+      {
+        "assessment": "Decisive all-on coefficient comparison unresolved; retains historical-priority risk, while abstract describes nullspace existence/divisibility rather than cardinality-resolved affine enumeration",
+        "evidence": [
+          "Abstract states divisibility and existence of even dominating grid sets, not all-on weight enumerators"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s003730200020",
+        "material_read": "Bibliographic abstract and public article metadata only; full text not available",
+        "method": "Abstract and bibliography-level comparison, not represented as full reading",
+        "title": "Fibonacci Polynomials and Parity Domination in Grid Graphs",
+        "trigger": "Most plausible uninspected grid parity theory source"
+      },
+      {
+        "assessment": "Overlaps the n=2 four-solution count; no arbitrary 3×n coefficient theorem",
+        "evidence": [
+          "MathWorld reports four possible 3×2 all-on solutions"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/LightsOutPuzzle.html",
+        "material_read": "Web article main mathematical sections and referenced small-board examples",
+        "method": "Checked reported four solutions for 3×2 and square grid references",
+        "title": "Lights Out Puzzle",
+        "trigger": "Independent known exact 3×2 sample and generic minimum press problem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8cc19b94-4e7c-4771-931e-d90b93c21b17",
+  "value": {
+    "rationale": "The weight generating polynomial of *all* solutions is a motivated natural invariant of the classical Lights Out optimization puzzle. Published prior work provides only the scalar minimum for each width3 strip; the complete classification distinguishes precisely six optimal strategies and two heavier in one residue class, two minima and two heavier in another, and unique solutions elsewhere. It supplies exact multiplicities for arbitrary lengths and a concrete periodic solution description without asserting a general theorem.",
+    "status": "PASS"
+  }
+}
