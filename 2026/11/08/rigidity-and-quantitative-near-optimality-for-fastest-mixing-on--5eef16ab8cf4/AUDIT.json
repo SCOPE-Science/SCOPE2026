@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Part-sign and (n-1)-dimensional opposite-sign trace inequalities give the exact universal SLEM bound. Equality forces zero trace of a positive semidefinite operator, hence every opposite-sign transverse vector is a top eigenvector. Two row/column identities then force a single edge weight via connectedness of the permissible-pair incidence graph. The stability inequality uses K^2<=2mu K, a three-step incidence diameter bound, and exact control of the total edge weight. Exact rational identities and 2577 direct numerical matrix cases were executed from the extracted package verifier; finite tests are not substituted for the general argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1] Sections 1, 2 and 3 formulate the full SDP and explicitly exhibit a nonunique optimum on a different graph (p. 674–675).",
+        "[2] Sections 2 and 3.1 provide an invariant optimizer for all edge-transitive graphs, without showing the full optimizer set or quantitative stability.",
+        "[3] Introduction and primal program (equation (1)) minimize weighted-Laplacian spectral width subject to fixed total weight, with different feasibility and normalization.",
+        "[4] Introduction/section 2 cover clique lifts and prescribed stationary distributions; crown graphs and this rigidity inequality are not established in the material read."
+      ],
+      "reasoning": "The broadest relevant previous general theorem supplies the rate but not the uniqueness/stability conclusion, and its symmetry reduction alone cannot certify an entire optimizer set. The related eigenvalue-width literature optimizes a different feasible set. A broad future/uninspected theorem may imply the claim and is retained as residual risk.",
+      "searches": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "https://www.tu-chemnitz.de/mathematik/preprint/2011/PREPRINT_04.pdf",
+        "https://arxiv.org/abs/2501.02421",
+        "web: unique fastest mixing markov chain optimum edge transitive graph uniqueness theorem"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "https://www.tu-chemnitz.de/mathematik/preprint/2011/PREPRINT_04.pdf",
+      "https://arxiv.org/abs/2501.02421",
+      "https://arxiv.org/abs/0709.0955",
+      "2026/10/11/SCOPE-sharp-quadratic-spectral-stability-for-tetrahedral-orbit-polytop--74134514ccfe",
+      "2026/10/4/SCOPE-two-point-sequence-b-spectrum-of-crown-graphs--30764919deff"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[2, Theorem 3.1] ensures there exists a uniformly weighted optimum; it is silent on whether different non-invariant optima also exist.",
+        "[1, p. 674–675] provides an explicit nonunique FMMC example, confirming the general problem is not strictly convex by default.",
+        "The new proof forces an active eigenspace to be an eigenspace for every optimum and then uses crown-edge row/column connectivity to force all transition weights identical.",
+        "For near-optimal matrices the positive-semidefinite trace deficit controls row and column contrasts and hence individual entries."
+      ],
+      "reasoning": "The prior general result plus the crown adjacency spectrum implies the optimal *value and an invariant witness*, but not the universal uniqueness or the explicit square-root stability inequality as a stated consequence. The added equality and perturbation arguments establish this distinction. Unseen general strict-complementarity/stability results might imply the new claims and warrant external checking.",
+      "searches": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "web: \"crown graph\" \"Markov\" \"optimal\" \"spectral\" transition",
+        "crown graph K n n minus perfect matching fastest mixing Markov chain unique optimizer uniform transition probability 2/(3n-4)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Crown graph is the bipartite complement of a perfect matching; the optimal invariant kernel follows from the edge-transitive theorem in [2, Theorem 3.1], pages 799–800.",
+        "The theorem [2] proves existence after automorphism averaging, whereas the new statement quantifies every optimal and near-optimal full matrix.",
+        "No query listed returned an exact result establishing uniqueness of every feasible optimum or the displayed all-feasible-matrix entrywise bound."
+      ],
+      "reasoning": "A symmetric representative and its numerical eigenvalue optimum are prior results and are not counted as novel. All-feasible-set global rigidity does not follow from existence of a symmetrized minimizer; averaging is many-to-one for a non-strictly convex spectral norm. The proof derives equality restrictions on every optimal matrix instead.",
+      "searches": [
+        "fastest mixing Markov chain crown graph complete bipartite minus matching exact optimum SLEM all sizes",
+        "crown graph K n n minus perfect matching fastest mixing Markov chain unique optimizer uniform transition probability 2/(3n-4)",
+        "crown graph fastest mixing unique stochastic matrix symmetry breaking optimizer SLEM",
+        "web: \"crown graph\" \"fastest mixing\" eigenvalues optimal weights",
+        "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed mathematical record 2026/10/11/SCOPE-sharp-quadratic-spectral-stability-for-tetrahedral-orbit-polytop--74134514ccfe concerns spectral stability of tetrahedral orbit-polytopes, not crossing-edge weights of a crown graph.",
+        "Other highly ranked indexed results concern crown-graph coloring, domination, and matching polytopes; their objects and objective functions differ.",
+        "Accessible historic mixing results explicitly reviewed include the single-missing-edge biclique and the complement-matching SLEM equality condition, not the removed-perfect-matching optimizer rigidity statement."
+      ],
+      "reasoning": "No indexed table of full-optimal kernel entries or quantitative stability on this graph was located. The numerical rate could be computed from known edge-transitive formulas and is deliberately not represented as new; the exact optimizer-set and stability classifications are the new assertions.",
+      "searches": [
+        "Rigidity: every optimal symmetric stochastic fastest mixing transition kernel on crown graph K_{n,n} minus perfect matching is uniform over allowed edges; near-optimal kernels entrywise close to optimum",
+        "quantitative stability of fastest mixing Markov chain spectral norm and transition probabilities crown graph",
+        "web: \"crown graph\" \"second largest eigenvalue modulus\" optimal",
+        "web: \"complete bipartite minus perfect matching\" \"fastest mixing\""
+      ]
+    },
+    "rationale": "Prior work [2, Theorem 3.1] already establishes the invariant optimum and rate, and these are fully credited. The claimed advance classifies all globally optimal kernels without symmetry restrictions and supplies an entrywise global near-optimality guarantee. Inspected primary text and actual indexed searches did not imply this extension; equivalences and remaining priority risks are separately documented.",
+    "residual_risks": [
+      "Possible independently published unindexed rigidity/stability theorem on edge-transitive bipartite graphs.",
+      "Original 2007 theorem could admit a stronger unstated implication through further convex-duality analysis, although its explicit statements do not assert it.",
+      "2025 clique-lift study was not exhaustively inspected beyond the most plausible front matter and model sections.",
+      "A sharp stability constant is not asserted or established.",
+      "A February 2003 technical-report listing predates the day-resolved October 29, 2004 source; no exact initial public day was established for the earlier report."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers problem formulation and nonuniqueness in other graphs; does not assert crown-specific optimizer rigidity in read sections.",
+        "evidence": [
+          "PDF pp. 668–669 gives FMMC constraints and SLEM.",
+          "PDF p. 675 states the optimum need not be unique and gives a different example."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "PDF pages 667–671 and 674–675, including problem (3) and the explicit nonunique example; page 667 publication note.",
+        "method": "Primary PDF text and rendered first page, relevant section and example reading",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational FMMC SDP and possible nonuniqueness of optimizers"
+      },
+      {
+        "assessment": "Theorem supplies invariant edge probability and optimal rate; does not characterize all global kernels or establish the stated stability inequality in inspected sections.",
+        "evidence": [
+          "Section 2 concludes that an invariant optimal kernel exists.",
+          "Theorem 3.1 computes edge-transitive invariant optimal weight from Laplacian eigenvalues."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "PDF pages 792–801, especially symmetry reduction pp. 794–798 and Theorem 3.1 pp. 799–800.",
+        "method": "Primary full-text PDF inspection of direct theorem and dependencies with rendered first page",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Directly strongest prior result on any edge-transitive graph"
+      },
+      {
+        "assessment": "Its primal objective and feasible set differ: normalized total edge weight and spectral width rather than stochastic self-holding constraints and SLEM. No specific crown optimizer-set result appears in read sections.",
+        "evidence": [
+          "Equation (1) minimizes largest minus second-smallest normalized Laplacian eigenvalues with a fixed edge budget."
+        ],
+        "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2011/PREPRINT_04.pdf",
+        "material_read": "Original preprint pages 1–5 including abstract, introduction, equation (1), and comparison with eigenvalue optimization of fixed-total-weight Laplacians.",
+        "method": "Lawfully accessible institutional preprint PDF text and rendered title/abstract page",
+        "title": "On Minimizing the Spectral Width of Graph Laplacians and Associated Graph Realizations",
+        "trigger": "Potential broader extremal eigenvalue/duality implication"
+      },
+      {
+        "assessment": "Those sections concern clique-lift reductions, stars and related tree topologies; no crown rigidity statement located there. Later sections were not exhaustively checked and are a residual literature risk.",
+        "evidence": [
+          "arXiv:2501.02421, contribution summary in introductory paragraphs and Section 2 definition."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2501.02421",
+        "material_read": "arXiv HTML full introduction, list of topology contributions, and the opening model in Section 2.",
+        "method": "Primary arXiv HTML text inspection (not merely bibliographic snippet)",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+        "trigger": "Newer, potentially broader reversible-chain treatment"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5eef16ab-8cf4-48dd-90f9-2d9ec3b7b02d",
+  "value": {
+    "rationale": "The full optimizer-set classification is nontrivial because convex spectral optimization permits non-invariant and nonunique optima. The stability bound provides an explicit, all-feasible-kernel identifiability guarantee for numerical near-optimal SDP outputs; this is a structural infinite-family result rather than a new number from an existing formula. Uniqueness and quantitative control are useful even though the basic optimal value has long been known.",
+    "status": "PASS"
+  }
+}
