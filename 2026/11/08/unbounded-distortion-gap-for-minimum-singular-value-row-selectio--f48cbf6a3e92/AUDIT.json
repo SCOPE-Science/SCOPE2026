@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For all integers N>=2 the explicit two vectors have disjoint support and squared norms 1, and the explicit symmetric parent has eigenvalues 1, 2 and 3. Arnoldi from u gives v exactly. All full-rank two-row selections lie in four exhaustive classes; beta>gamma>epsilon gives exactly the N E-optimal row pairs at condition sqrt(N), while {2,3} alone has condition 1. Both DEIM and pivoted-QR Q-DEIM choose row1 and then a j>=4. Orthogonality of V and the QR factor imply kappa(V R^-1)=kappa(SV). The finite checker tested 95,274 cases plus numerical pivots but the algebraic proof establishes the all-N claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ipsen–Saibaba 2511.02740v2 analyzes multiple selection criteria and their complexity, not the explicit fixed-condition SPD Krylov family.",
+        "Drmač–Gugercin 1505.00370v1 proves interpolation inverse-norm bounds for Q-DEIM, not this global selector comparison."
+      ],
+      "reasoning": "Classical subset and interpolation theorems apply as background, but the inspected ones do not imply the exact all-E-optima and actual pivot-rule separation in this defined family. Any historical generic lower bound specialized to this construction remains an originality risk.",
+      "searches": [
+        "E-optimal sensor selection condition number optimal discrepancy counterexample singular minimum condition number",
+        "row subset selection maximizing sigma_min not minimize condition number counterexample unbounded",
+        "arXiv:2511.02740v2 row column subset criteria"
+      ]
+    },
+    "checked_sources": [
+      "K. Bergermann (2026), arXiv:2604.07158v1, whole accessible open manuscript, especially Sections 3–5.",
+      "Z. Drmač and S. Gugercin (2015), arXiv:1505.00370v1, full open PDF.",
+      "I. C. F. Ipsen and A. K. Saibaba (2026 revision), arXiv:2511.02740v2, full open PDF."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bergermann 2604.07158v1 motivates a selection heuristic and gives its whitening metric, but does not derive a uniform ratio between its two objective functions.",
+        "Drmač–Gugercin 1505.00370v1 analyzes Q-DEIM pivoting and inverse norms, but not the optimal E-condition gap.",
+        "Ipsen–Saibaba 2511.02740v2 treats complexity of different objectives without this explicit SPD Arnoldi realization."
+      ],
+      "reasoning": "The proposed statement is not merely that DEIM may be suboptimal: even the ideal sigma_min optimizer is worse by sqrt(N), both named algorithms attain those optima, and the parent SPD matrix has fixed condition 3. None of the inspected primary claims entails this conjunction. Historical priority is not certified.",
+      "searches": [
+        "Deterministic sketching for Krylov subspace methods maximum smallest singular value whitening distortion DEIM",
+        "Q-DEIM minimum inverse submatrix norm row selection condition number",
+        "Many most column subset selection criteria NP hard for a few columns condition number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bergermann 2604.07158v1 frames two distinct criteria: maximal smallest singular value and conditioning of the QR-whitened basis.",
+        "For orthonormal V, the exact metric is kappa(SV), as shown algebraically in the new proof."
+      ],
+      "reasoning": "Replacing the condition metric by a reciprocal inverse norm is not an equivalence: kappa(SV) also depends on sigma_max(SV). The candidate explicitly optimizes both targets over all two-row subsets and exhibits ratio sqrt(N).",
+      "searches": [
+        "DEIM maximizing minimum singular value subset does not minimize condition number row sampling",
+        "Q-DEIM condition number row subset selection badly conditioned optimal",
+        "arXiv:2604.07158v1 equations (3.5) and (3.6)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bergermann supplies no table covering all N for this explicit SPD Krylov family.",
+        "The inspected Q-DEIM interpolation paper and subset-complexity paper have no exact selection table matching the candidate four row classes."
+      ],
+      "reasoning": "The candidate is not a numerical table lookup: its four-type classification is proved for all N and identifies every optimizing selector. No matching exact prior table was found among inspected directly relevant primary literature.",
+      "searches": [
+        "arXiv:2604.07158v1 full text DEIM Q-DEIM maximum minimum singular value",
+        "arXiv:1505.00370v1 Q-DEIM full text interpolation selected rows",
+        "arXiv:2511.02740v2 subset criteria table"
+      ]
+    },
+    "rationale": "A full-text comparison with the motivating paper and two directly relevant primary predecessors revealed the source ingredients but not the same sharp all-optimizer separation on uniformly conditioned SPD Krylov bases; semantic search of published finding summaries returned no dominating implication. Historical broader subset-selection literature still leaves nonzero priority risk.",
+    "residual_risks": [
+      "An older general design-of-experiments or column-subset theorem could give a corresponding objective-separation result; historical exhaustiveness cannot be established.",
+      "The candidate uses an exact-arithmetic scale-invariant condition metric, not a noisy or stable embedding guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The proposed E-optimal selection, DEIM/Q-DEIM, and whitening metric are prior. No all-selector fixed-SPD-Krylov exact separation was found in the inspected material.",
+        "evidence": "Equation (3.5) uses condition number of V R^-1; (3.6) proposes maximizing minimum singular value of sampled basis; Algorithms 4.1–4.2 use DEIM/Q-DEIM.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.07158",
+        "material_read": "The arXiv full manuscript, including Section 3 and equations (3.5), (3.6), Sections 4–5 and Algorithms 4.1–4.2",
+        "method": "Read open full text and inspected corresponding PDF pages, including the selection and whitening formulas",
+        "title": "Deterministic sketching for Krylov subspace methods",
+        "trigger": "Direct proposal of maximum smallest singular value row selection and condition-number whitening distortion"
+      },
+      {
+        "assessment": "Existing pivot algorithm and inverse-submatrix bounds are acknowledged. They do not compare ideal E-optimal row selection with condition-optimal row selection on the explicit SPD Krylov frame.",
+        "evidence": "Q-DEIM selects rows via pivoted QR on the transpose of a basis; bounds concern inverse norms/interpolation stability.",
+        "identifier_or_url": "https://arxiv.org/abs/1505.00370",
+        "material_read": "Open-access full PDF, including Q-DEIM construction, theorems about selected inverse norm, and numerical experiments",
+        "method": "Opened full paper and inspected algorithm and guarantee pages in PDF",
+        "title": "A new selection operator for the discrete empirical interpolation method — improved a priori error bound and extensions",
+        "trigger": "Original Q-DEIM interpolation and pivoted QR selection, potentially dominating the row-selection claim"
+      },
+      {
+        "assessment": "Provides formal distinctions and computational complexity of different selection objectives, not this exact unbounded ratio for the specific real SPD Krylov family with both pivot rules.",
+        "evidence": "The paper explicitly separates subset optimization criteria; no fixed-condition SPD Krylov construction with forced DEIM/Q-DEIM choices appears in the inspected arguments.",
+        "identifier_or_url": "https://arxiv.org/abs/2511.02740",
+        "material_read": "Open full PDF, especially criterion comparison table and sections on minimum singular value, pseudoinverse norms, and condition objectives",
+        "method": "Read extracted paper text and relevant PDF screenshots",
+        "title": "Many (most?) column subset selection criteria are NP hard for a few columns",
+        "trigger": "Broad analysis of distinct subset spectral criteria potentially implying the separation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f48cbf6a-3e92-4eb9-9fa6-095d56a080f0",
+  "value": {
+    "rationale": "The 2026 Krylov sketch method explicitly uses maximum minimum singular value to control a whitening condition metric, so a sharp unlimited gap between the criteria is a motivated methodological boundary rather than an arbitrary invariant. The result persists with SPD A condition number 3, is attained by both named pivot algorithms, and covers every ideal criterion maximizer. It prevents interpreting E-optimality as a constant-factor guarantee for the actual metric, without claiming the tiny-amplitude alternative is numerically superior.",
+    "status": "PASS"
+  }
+}
