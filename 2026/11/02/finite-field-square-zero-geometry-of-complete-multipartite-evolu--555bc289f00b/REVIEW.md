@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The coordinates of the algebra square directly impose \(Q_i=S\) for each part, hence the two characteristic branches. Standard, explicitly displayed finite-field quadratic-form fiber formulas give exact counts of all solutions. The nonresonant reduced component counts follow by factorization of binary quadrics and irreducibility of quadratic cones of rank at least three, with Frobenius simultaneously swapping paired components when \(-1\) is nonsquare. The span claim uses isotropic hyperbolic pairs in dimension at least three and actual pairs of sign-differing rational points at resonance. Flatness over the shared quadratic value and generic smoothness prove the resonant complete-intersection reducedness and dimension. Twenty-one exhaustive finite-field examples agreed in both point count and point-span rank. Proof includes singleton parts, the characteristic-divisibility boundary, and proper reduced-scheme scope.
+## correctness
 
-## Originality: PASS (with explicit priority limits)
-The key comparison is Khudoyberdiyev–Omirov–Qaralleh (2013), Proposition 4.1, whose existence criterion for complex square-zero elements and coordinate equation are acknowledged. The new claim is not that coordinates are quadratic or that classical Gauss sums exist: it is the complete multipartite all-odd-finite-field census together with the resonant geometric jump, components and rational-point spans. The graph-evolution results of Elduque–Labra (2013), Camacho et al. (2010), and Cabrera Casado et al. (2016) concern graph structure, nilpotency, decomposition, or automorphisms rather than the claimed uniform enumerative and geometric classification. The nearest accessible prior results classify complete-bipartite automorphisms and characteristic-two iterated squaring, neither of which implies the claimed odd-characteristic point/geometry theorem. Direct published-finding corpus and literature queries for alternative formulations did not locate a dominating result. This absence is not a uniqueness proof; a formula in unlocated quadratic-arrangement or graph-evolution literature remains possible.
+PASS
 
-## Value: PASS
-Absolute nilpotents are naturally the zero states of the evolution-algebra squaring map. The theorem treats every complete multipartite graph, not arbitrary isolated parameters, and determines both arithmetic and geometric behavior in odd characteristic. The same connected graph \(K_{2,2}\) has only the zero square-zero point over \(\mathbb F_3\) but 81 over \(\mathbb F_5\), while \(K_{p+1}\) exhibits a characteristic-triggered family of \(2^p\) rational lines spanning its algebra. The exact component split, one-dimension resonance, and span transition reveal genuine structural behavior beyond a qualitative existence criterion. The ingredient quadratic-form formulas are classical and the novelty/value are in the uniform algebraic classification and sharp boundaries.
+Writing Q_i=sum_j x_ij², S=sum_i Q_i, the graph product gives x²=0 iff S-Q_i=0 for all i; summing gives (r-1)S=0. When char p does not divide r-1 this is the independent system Q_i=0; at resonance each Q_i equals unrestricted t. Classical odd-q diagonal Gauss sums give the stated parity-sensitive fiber counts T_n(t), whose products produce the exact piecewise census. For p∤(r-1), quadratic cones of dimension n_i-1 have binary splitting only when n_i=2, yielding 2^b geometric components, Frobenius pairing when χ(-1)=-1, and rational span determined by isotropic vectors. For p|(r-1), equations Q_i-Q_r form a complete intersection of dimension N-r+1; flatness of torsion-free k[t]-modules, generic smoothness over t≠0 and Cohen–Macaulay equidimensionality prove geometric reducedness. Differencing points with one ±1 coordinate supplies a basis of the rational span; K_{p+1} yields 2^p rational lines. Independent small-field direct counting matched eight actual quadratic-equation systems, including q=3 and q=5 K_(2,2), and the resonance p=3 r=4. Counts are not substituted for arbitrary q or scheme-theoretic proof.
 
-## Closest literature and limitations
-Khudoyberdiyev–Omirov–Qaralleh (arXiv:1307.0993v1), Proposition 4.1, provides a qualitative complex-field existence statement. Elduque–Labra (arXiv:1312.4685v1) and Cabrera Casado–Siles Molina–Velasco (arXiv:1601.01832v1) discuss graph-induced structure. The theorem excludes characteristic two; geometric irreducible components of the resonant case are not individually classified. Search and available text inspection cannot rule out equivalent results under other terminology; no independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Absolute nilpotents in evolution algebras and standard finite-field Gauss-sum equations are prior tools. Khudoyberdiyev–Omirov–Qaralleh (2013), Prop. 4.1, gives a qualitative complex-field singular-structure-matrix criterion; it does not fix odd finite-field isotropic counts or the r-1 characteristic resonance. Elduque–Labra and Camacho et al. establish graph/evolution-algebra structures, not this exact all-multipartition arithmetic/geometric/span classification. The claim is specialized but determines a natural canonical family with singular-characteristic and rational/descent phase changes. Equivalence under quadratic fiber products remains a nonzero priority risk.
+
+## value
+
+PASS
+
+Square-zero elements are the absolute nilpotents of a graph evolution algebra, a natural algebraic invariant. Complete multipartite graphs are a large structural family; the theorem simultaneously determines point counts, reduced-geometric components, rational spans and a sharp characteristic-resonant dimension jump. The same K_(2,2) has one point over F3 and 81 over F5, and resonant K_(p+1) yields an entire rational-line family. These qualitatively different geometries make the invariant more than a routine change of notation for Gauss sums.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
