@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T08:43:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 65252e23ce697c29bdf144ff1177b969458df166, conditional normalization and odd/even matrices",
+        "verify.py Git blob 9af2763005710803e7649e75d7a2cdc32a53dcd3 inspected; independent_checks.py independent full n≤9 enumeration and formula checks",
+        "Exact negative n=10 conditional determinant −1/2268 from 3×3 integer count det −12"
+      ],
+      "rationale": "Conditional max part distribution for uniform ordered compositions n has counts A_n(r,m)=B_n(r,m)−B_n(r,m−1), B_n(r,m)=[z^{n−r}](1+…+z^{m−1})^r; dividing each row by C(n−1,r−1)>0 does not affect determinant signs. For n≤9 independently reconstructed every row by cut-subset enumeration and exhaustively checked all C(n,k)^2 minors for 1≤k≤3, 15,111 exact minors in total, none negative. For n≥10 the three rows r=2,3,4 and decreasing maximum labels floor(n/2)+2,+1,+0 have count matrices shown in proof by unique-max configurations plus extra two-max odd case; direct determinant expansion gives −6(q²−5q+2)<0 at n=2q and −12(q−4)(q−1)<0 at n=2q+1, q≥5. Symbolic family proof covers ALL n≥10, supplementary exact calculations n=10..79 only test arithmetic.",
+      "residual_risks": [
+        "Exhaustive positive statement finite n≤9 only; result explicitly does not assert global TN2 or all minor orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Philippou–Makri exact conditional longest run formulas can compute K_n, but no examined general 3×3 sign theorem.",
+          "Malandro bounded compositions permits enumerating entries but not directly the sharp TN3 classification.",
+          "Resultary lower-order stochastic order (increasing cuts shrinks maximum) does not imply TN3."
+        ],
+        "reasoning": "These are broader formula and weaker stochastic-order coverage; exact order-three determinant sign boundary is not a corollary without an additional sign argument.",
+        "searches": [
+          "Philippou Makri DOI:10.1016/0167-7152(86)90069-6",
+          "Malandro arXiv:1108.0337",
+          "Resultary published 2026/10/4 decorrelation"
+        ]
+      },
+      "checked_sources": [
+        "Philippou and Makri 1986 conditional longest run",
+        "Malandro arXiv:1108.0337",
+        "Finch arXiv:2010.06643",
+        "Resultary full published 2026/10/4 decorrelation record",
+        "Resultary query integer composition maximum part conditional number of parts total nonnegative order three minors longest runs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stochastic order of max conditional on count controls sums across m, not products/determinants of three pointwise mass values.",
+          "The exact run conditional recurrence reconstructs rows, not the sign of all order-three determinants."
+        ],
+        "reasoning": "No direct implication found from these earlier statements to the stated iff n≤9 and universal n≥10 negative family.",
+        "searches": [
+          "Resultary rigorous decorrelation full RESULT.md",
+          "Philippou–Makri 1986 Theorem 3.2",
+          "Malandro arXiv:1108.0337"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cut-position/composition equivalence to Bernoulli longest run and conditional-on-count probabilities is exact prior object equivalence.",
+          "Published Resultary stochastic monotonicity is a comparison of conditional cumulative distributions, not 3×3 minors of conditional point-mass probabilities."
+        ],
+        "reasoning": "Conditioning equivalence does not establish TN3; the exact cutoff needs all 3-minor signs and a universal counter-minor.",
+        "searches": [
+          "integer composition maximum part conditional number of parts total nonnegative order three minors longest runs",
+          "Philippou Makri 1986 successes runs longest runs",
+          "Resultary rigorous decorrelation of part count and maximum in uniform compositions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full Resultary result reads Cov(f(K),g(M))≤0 and variance/correlation bounds, no TN3 n≤9 cutoff.",
+          "Exact conditional distributions are known and could be tabulated, but no published n=9/10 3-minor threshold identified."
+        ],
+        "reasoning": "Known distribution tables do not constitute the claimed comprehensive minor property; potential future discovery of a structural total-positivity theorem remains a risk.",
+        "searches": [
+          "integer composition maximum part conditional number of parts total nonnegative order three minors longest runs",
+          "Resultary published 2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31",
+          "Philippou Makri conditional run table"
+        ]
+      },
+      "rationale": "Exact conditional run/maximum distribution and first-order stochastic monotonicity are known. Their statements do not logically imply TN3 sign regularity of point masses. The complete sharp threshold n=9/10 and two persistent parity-dependent 3×3 obstructions are not contained in the inspected underlying distributions or published covariance-coupling result.",
+      "residual_risks": [
+        "Classical total-positivity/consecutive-run theory could imply the sharp threshold without matching terminology; searched but no decisive dominating theorem identified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves stochastic conditional order and covariance decay, not the signed TN3 point-mass minor classification",
+          "evidence": "Its uniform subset coupling implies first-order tail order; no third-order determinant monotonicity is claimed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31",
+          "material_read": "Full published RESULT.md, proof and references, Git blob 57e471985aa1360f732df13ca4e34fba61dac110",
+          "method": "Read primary Resultary GitHub mathematical text",
+          "title": "Rigorous decorrelation of part count and maximum in uniform compositions",
+          "trigger": "Same exact conditional variables and finite composition model"
+        },
+        {
+          "assessment": "Exact conditional-distribution predecessor; no identified TN3 threshold",
+          "evidence": "Provides probabilities used to build rows, not a nonnegative 3×3 minor classification.",
+          "identifier_or_url": "DOI:10.1016/0167-7152(86)90069-6",
+          "material_read": "Accessible article text including conditional formulas/Theorem 3.2",
+          "method": "Public research author text/open page",
+          "title": "Successes, runs and longest runs",
+          "trigger": "Exact distribution of longest runs conditional on number of successes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md natural TN3 kernel and all-minor proof",
+        "Resultary published conditional stochastic-order theorem for comparison"
+      ],
+      "rationale": "Third-order total nonnegativity is a natural strong shape/dependence property of a conditional longest-run kernel; its exact finite cutoff is a nontrivial complete classification. Finite exhaustive lower-side certificate plus explicit forever-negative parity-dependent minors resolve a precise mathematical structural gap. First-order stochastic monotonicity alone does not settle these third-order signs, so it is not a known-table reprint.",
+      "residual_risks": [
+        "Finite n≤9 proof is exact exhaustive arithmetic; does not claim TN2 for all n."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exhaustive positive statement finite n≤9 only; result explicitly does not assert global TN2 or all minor orders.",
+    "Classical total-positivity/consecutive-run theory could imply the sharp threshold without matching terminology; searched but no decisive dominating theorem identified.",
+    "Finite n≤9 proof is exact exhaustive arithmetic; does not claim TN2 for all n."
+  ],
+  "schema_version": 1
+}

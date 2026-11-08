@@ -1,19 +1,21 @@
-# Review of sharp third-order positivity boundary for random compositions
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite random model, conditional normalization, and decreasing maximum-size column order are explicit. Bounded-composition recurrence and independent cut-subset enumeration agree for every entry through total size nine, and every one-, two-, and three-row/column minor is exhaustively evaluated using exact integers. For all larger sizes the marked minor is enumerated by a unique-maximum argument (with one double-maximum correction for odd totals) and has a strictly negative closed determinant. The included verifier completed successfully. The checks for totals ten through three hundred are supplemental and not substituted for the infinite algebraic proof.
+PASS
 
-## Originality — PASS, with priority uncertainty
+Conditional max part distribution for uniform ordered compositions n has counts A_n(r,m)=B_n(r,m)−B_n(r,m−1), B_n(r,m)=[z^{n−r}](1+…+z^{m−1})^r; dividing each row by C(n−1,r−1)>0 does not affect determinant signs. For n≤9 independently reconstructed every row by cut-subset enumeration and exhaustively checked all C(n,k)^2 minors for 1≤k≤3, 15,111 exact minors in total, none negative. For n≥10 the three rows r=2,3,4 and decreasing maximum labels floor(n/2)+2,+1,+0 have count matrices shown in proof by unique-max configurations plus extra two-max odd case; direct determinant expansion gives −6(q²−5q+2)<0 at n=2q and −12(q−4)(q−1)<0 at n=2q+1, q≥5. Symbolic family proof covers ALL n≥10, supplementary exact calculations n=10..79 only test arithmetic.
 
-Philippou–Makri provide the exact conditional longest-run law; Malandro gives bounded-composition enumeration; Finch studies the same two variables through their covariance. The closest published conditional-order result proves monotone stochastic shifts and covariance decay, not third-order minor nonnegativity or its sharp failure threshold. The new theorem is a structural all-size sign classification rather than a restatement of a joint mass formula. Priority remains uncertain because general runs and composition formulas could yield an implicit corollary; no claim of complete historical uniqueness is made.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete cutoff for a strong order-three positivity property of the entire conditional run-maximum kernel, not an arbitrary collection of cells. First-order stochastic monotonicity alone cannot establish this property. The two explicit parity-dependent infinite families show a persistent obstruction, and the exhaustive lower-size certificate makes the threshold sharp. Such minors govern higher-order variation-diminishing and dependence questions beyond means or ordinary stochastic order.
+Exact conditional run/maximum distribution and first-order stochastic monotonicity are known. Their statements do not logically imply TN3 sign regularity of point masses. The complete sharp threshold n=9/10 and two persistent parity-dependent 3×3 obstructions are not contained in the inspected underlying distributions or published covariance-coupling result.
 
-## Closest literature and limitations
+## value
 
-The specific comparisons are to Malandro (arXiv:1108.0337), Philippou–Makri (1986), Finch (arXiv:2010.06643), and the public result *Rigorous decorrelation of part count and maximum in uniform compositions*. The result establishes neither global order-two total positivity nor historical priority by fiat; the small-size portion relies on a fully reproducible finite exact census.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Third-order total nonnegativity is a natural strong shape/dependence property of a conditional longest-run kernel; its exact finite cutoff is a nontrivial complete classification. Finite exhaustive lower-side certificate plus explicit forever-negative parity-dependent minors resolve a precise mathematical structural gap. First-order stochastic monotonicity alone does not settle these third-order signs, so it is not a known-table reprint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
