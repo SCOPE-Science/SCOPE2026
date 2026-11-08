@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T19:07:09.120595Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent driftless Brownian particles with diffusion D>0 reset together at the first +L hit, the reflection kernel gives excursion survival erf(L/sqrt(4Ds))²~(L²/(πD))/s, an infinite-mean renewal law. Erickson's cited index-one renewal theorem supplies the logarithmic age U~Unif[0,1]; conditioning on the last renewal yields independent killed-Brownian coordinates with exact density q_epsilon(y)=(exp(-(y-epsilon)²)-exp(-(y+epsilon)²))/(sqrt(pi) erf(epsilon)), which converges in total variation to 2yexp(-y²). Together they yield joint age–Rayleigh independence, both log-distance exponents U/2, and ratio density 2r/(1+r²)². Positive age moments E[A_t^v]~t^v/(v log(t/t0)) for fixed v>0 via index-one strong renewal yield the claimed joint moments and Pearson π/4; centering is lower order. Independently checked conditioned density normalization numerically at eps=0.5,0.1,0.02 and the Gamma coefficient identity. Finite quadrature is not an asymptotic proof; renewal theorem assumptions include smooth nonarithmetic first-hit distribution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biroli et al's gas formalism gives stationary laws for N>2 and absence at N=2, not this joint nonstationary limit; De Mauro et al study external finite-mean resetting."
+        ],
+        "reasoning": "Erickson's infinite-mean renewal theorems dominate the marginal log-age assertion but do not specify joint positions governed by the first-passage killed kernel.",
+        "searches": [
+          "Resultary semantic query: first passage resetting gas two Brownian particles logarithmic age critical renewal Rayleigh ratio Pearson correlation",
+          "https://arxiv.org/pdf/2512.00440",
+          "https://doi.org/10.1090/S0002-9947-1970-0268976-9",
+          "https://arxiv.org/abs/2509.06658"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob defc0b0e3b19785bf1ec636f7b98d4462afc5e13b and verify.py SHA 6c1fbc29d786d5ec10220ec6781744627d943b52",
+        "Biroli Majumdar Schehr arxiv:2512.00440 full OA PDF main text",
+        "Erickson 1970 DOI:10.1090/S0002-9947-1970-0268976-9 theorem citation",
+        "De Mauro et al arxiv:2509.06658 listing and comparison",
+        "Resultary query critical two-particle resetting and renewal age"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The novel proof connects the exact excursion kernel and critical renewal age and isolates the known renewal theorem as input."
+        ],
+        "reasoning": "Substituting the N=2 tail into Erickson alone recovers U but cannot imply independence of the two rescaled gaps or Pearson π/4 without the killed Brownian conditional distribution and positive moments.",
+        "searches": [
+          "Resultary semantic query: first passage resetting gas two Brownian particles logarithmic age critical renewal Rayleigh ratio Pearson correlation",
+          "https://arxiv.org/pdf/2512.00440",
+          "https://doi.org/10.1090/S0002-9947-1970-0268976-9",
+          "https://arxiv.org/abs/2509.06658"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conditioned gap is Rayleigh in the critical long-age limit; the ratio of two independent Rayleigh variables gives the scale-free law."
+        ],
+        "reasoning": "The collective first-hit process is a regenerative renewal process with survival tail c/t, but current positions are conditionally killed Brownian gaps rather than generic iid renewal marks.",
+        "searches": [
+          "Resultary semantic query: first passage resetting gas two Brownian particles logarithmic age critical renewal Rayleigh ratio Pearson correlation",
+          "https://arxiv.org/pdf/2512.00440",
+          "https://doi.org/10.1090/S0002-9947-1970-0268976-9",
+          "https://arxiv.org/abs/2509.06658"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerical quadrature of finite-age conditioned gaps provides diagnostics, not prior formula coverage or the limit proof."
+        ],
+        "reasoning": "The nonstationary limit and asymptotic moment coefficient are continuum asymptotic theorems, not exact finite enumeration or a named database table.",
+        "searches": [
+          "Resultary semantic query: first passage resetting gas two Brownian particles logarithmic age critical renewal Rayleigh ratio Pearson correlation",
+          "https://arxiv.org/pdf/2512.00440",
+          "https://doi.org/10.1090/S0002-9947-1970-0268976-9",
+          "https://arxiv.org/abs/2509.06658"
+        ]
+      },
+      "rationale": "Biroli–Majumdar–Schehr's First Passage Resetting Gas establishes the model and N=2 absence of stationary density but not the critical joint nonstationary age/position/Rayleigh-ratio/moment limit. Erickson 1970 already proves the logarithmic renewal age; it is explicitly credited and excluded from novelty. De Mauro et al finite-mean sampled resetting intervals have a different renewal protocol. The new statement is the combined conditional spatial and exact moment/ratio consequences at the specifically first-hit-coupled N=2 threshold.",
+      "residual_risks": [
+        "An uninspected specialized index-one renewal-reward paper or fuller 2025 gas appendix could contain an equivalent joint marked-renewal result.",
+        "Moment statement assumes fixed a,b>=0 with a+b>0; not a stationary position law or higher-particle result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR model and stationary boundary, not the evaluated critical nonstationary joint law",
+          "evidence": "The source establishes survival and stationarity threshold, not Rayleigh ratio and Pearson constants.",
+          "identifier_or_url": "https://arxiv.org/pdf/2512.00440",
+          "material_read": "OA seven-page arXiv paper: model definitions, renewal representation, killed propagator, stationary threshold N>2 and N=2 boundary; pages 2 and 5 checked by image",
+          "method": "arXiv full PDF text and page screenshots",
+          "title": "First-Passage Resetting Gas",
+          "trigger": "same reset-on-first-hitting interacting Brownian gas"
+        },
+        {
+          "assessment": "COVERING the renewal-age component only; not a novelty claim",
+          "evidence": "Erickson Theorems 1 and 6 are cited for the renewal age and local renewal asymptotics.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1970-0268976-9",
+          "material_read": "Theorem numbering and renewal-age implications reviewed via original theorem citation and assessed proof; full primary article not independently inspected in this run",
+          "method": "published theorem reference and source proof, limited material",
+          "title": "Strong renewal theorems with infinite mean",
+          "trigger": "critical 1/t survival and logarithmic age input"
+        },
+        {
+          "assessment": "DIFFERENT RESET CLOCK, no whole-text noncoverage claim",
+          "evidence": "Exogenous finite-mean intervals differ from endogenous first-hitting infinite-mean excursions.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.06658",
+          "material_read": "abstract and source comparison for Pareto finite-mean external reset regime",
+          "method": "arXiv listing and source proof comparison",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "related simultaneous Brownian reset law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact critical nonstationary scaling and universal ratio and Pearson constants resolve an observable gap precisely at the natural two-particle stationarity boundary of an established interacting resetting model; the joint distribution is more informative than the already-known marginal renewal age.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md blob defc0b0e3b19785bf1ec636f7b98d4462afc5e13b and verify.py SHA 6c1fbc29d786d5ec10220ec6781744627d943b52",
+    "Biroli Majumdar Schehr arxiv:2512.00440 full OA PDF main text",
+    "Erickson 1970 DOI:10.1090/S0002-9947-1970-0268976-9 theorem citation",
+    "De Mauro et al arxiv:2509.06658 listing and comparison",
+    "Resultary query critical two-particle resetting and renewal age"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two independent 1D driftless Brownian particles with same D,L>0, instantaneous collective first-hit reset. Infinite-time distributional and positive fixed-moment limits only; no unequal diffusivity or negative moments.",
+    "An uninspected specialized index-one renewal-reward paper or fuller 2025 gas appendix could contain an equivalent joint marked-renewal result.",
+    "Moment statement assumes fixed a,b>=0 with a+b>0; not a stationary position law or higher-particle result."
+  ],
+  "schema_version": 1
+}

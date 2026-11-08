@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the two-particle threshold-reset limit theorem
+# Independent mathematical audit
 
-Run `python verify.py` from the extracted folder. Only the Python standard library is required. The script checks the exact survival and derivative, the conditioned Brownian spatial density at finite ages, the Rayleigh limiting density and its moments, the distance-ratio law, the Pearson coefficient algebra, and logarithmic truncated-mean growth using Simpson quadrature. The finite assertions are consistency evidence, not a computer proof of the renewal or asymptotic theorem.
+## correctness
 
-The analytic proof relies on the source's exact killed-Brownian kernel and on the already established index-one renewal theorems of Erickson (1970). The logarithmic-age law is explicitly prior mathematics. The new combined conditional spatial conclusions follow by total-variation convergence, the continuous mapping theorem, and positive-moment asymptotics; all limiting normalizations are stated in RESULT.md. Exactness of the coefficient \(\pi/4\) follows from \(\Gamma(3/2)^2/\Gamma(2)=\pi/4\). Independent verification and a literature-wide priority assessment have not been performed.
+PASS
+
+For independent driftless Brownian particles with diffusion D>0 reset together at the first +L hit, the reflection kernel gives excursion survival erf(L/sqrt(4Ds))²~(L²/(πD))/s, an infinite-mean renewal law. Erickson's cited index-one renewal theorem supplies the logarithmic age U~Unif[0,1]; conditioning on the last renewal yields independent killed-Brownian coordinates with exact density q_epsilon(y)=(exp(-(y-epsilon)²)-exp(-(y+epsilon)²))/(sqrt(pi) erf(epsilon)), which converges in total variation to 2yexp(-y²). Together they yield joint age–Rayleigh independence, both log-distance exponents U/2, and ratio density 2r/(1+r²)². Positive age moments E[A_t^v]~t^v/(v log(t/t0)) for fixed v>0 via index-one strong renewal yield the claimed joint moments and Pearson π/4; centering is lower order. Independently checked conditioned density normalization numerically at eps=0.5,0.1,0.02 and the Gamma coefficient identity. Finite quadrature is not an asymptotic proof; renewal theorem assumptions include smooth nonarithmetic first-hit distribution.
+
+## originality
+
+PASS
+
+Biroli–Majumdar–Schehr's First Passage Resetting Gas establishes the model and N=2 absence of stationary density but not the critical joint nonstationary age/position/Rayleigh-ratio/moment limit. Erickson 1970 already proves the logarithmic renewal age; it is explicitly credited and excluded from novelty. De Mauro et al finite-mean sampled resetting intervals have a different renewal protocol. The new statement is the combined conditional spatial and exact moment/ratio consequences at the specifically first-hit-coupled N=2 threshold.
+
+## value
+
+PASS
+
+The exact critical nonstationary scaling and universal ratio and Pearson constants resolve an observable gap precisely at the natural two-particle stationarity boundary of an established interacting resetting model; the joint distribution is more informative than the already-known marginal renewal age.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
