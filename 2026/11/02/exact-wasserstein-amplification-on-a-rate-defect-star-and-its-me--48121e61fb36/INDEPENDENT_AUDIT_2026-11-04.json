@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:53:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With fixed unit-edge metric, Kantorovich-Rubinstein duality identifies the global W1 operator norm with the maximum absolute row sum of the edge-gradient semigroup. Direct generator substitution gives h_dot=-2eps h-sum g_j and g_dot_i=-eps h-g_i-sum g_j. Ordinary contrasts decay e^-t, and (h,avg g) follows a 2x2 matrix with eigenvalues lambda_plus/minus as defined; its explicit exponential yields exceptional row sum A exp(-lambda_- t)-(A-1)exp(-lambda_+ t). Sign inequalities using lambda_-<=1 and Delta<=r+1 prove this row dominates all ordinary gradient rows for all t>=0; the deficit pair w/o attains it via the dual gradient potential. Its derivative has at most one sign change and is positive at zero except r=2,eps=1, proving unique peak including boundary; direct Taylor expansion with fixed r gives eps log eps corrections. I independently reconstructed full Markov Q and scipy matrix exponentials and computed the star tree W1 edge costs in 96 parameter/time cases; defect dominance and exact formula matched. The analytic proof covers all r,eps,t, beyond the finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Münch–Wojciechowski proves equivalences for curvature and heat semigroup Lipschitz bounds.",
+          "Bai et al. evolves geometry by a Ricci flow, whereas here edge geometry is fixed and only one generator rate differs."
+        ],
+        "reasoning": "Neither theorem yields this sharp slow-edge-dominance claim or the exact finite-eps peak. Equal-rate stars form only a boundary special case.",
+        "searches": [
+          "Münch Wojciechowski arxiv:1712.00875 Theorem 3.8",
+          "Bai Lin Lu Wang Yau arxiv:2010.01802 weighted star flow",
+          "Veysseire arxiv:1202.0420"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source RESULT.md and CHECKER.py",
+        "Münch and Wojciechowski arxiv:1712.00875 theorem 3.8",
+        "Bai et al. arxiv:2010.01802 abstract and model",
+        "Veysseire arxiv:1202.0420 background",
+        "Resultary Q4 and exact W1 star semantic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The eps=1 boundary of the formula is the equal-rate star C_{r,1}(t) = 2(r-1)/r exp(-t) -(r-2)/r exp(-(r+1)t).",
+          "The derivative at zero alone does not determine the full time profile or its unique global maximum."
+        ],
+        "reasoning": "Known boundary and curvature equivalence underdetermine the nontrivial epsilon dependence, exceptional-edge maximizing argument and logarithmic peak-time asymptotics.",
+        "searches": [
+          "arxiv:1712.00875 Theorem 3.8",
+          "arxiv:2010.01802 star graph Ricci flow",
+          "equal-rate windmill m=1 star"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kantorovich duality makes this the Lipschitz seminorm norm of e^{tQ}; on a tree it is equivalently max of edge Dirac transport ratios.",
+          "Graph curvature bounds are infinitesimal derivatives or bounds, not the whole exact semigroup norm."
+        ],
+        "reasoning": "The equivalent dual formulations reduce the problem to row sums but do not by themselves prove which edge is maximizing and its exact two-exponential profile.",
+        "searches": [
+          "Wasserstein heat semigroup unit edge star defective jump rate amplification Lipschitz",
+          "Kantorovich heat contraction curvature inhomogeneous star continuous time",
+          "Resultary exact W1 Lipschitz heat semigroup contraction on star graph and windmill"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic hits concern unrelated star noise/quantum graphs and generic heat phenomena.",
+          "Independent numeric matrix-exponential grid produced corroborating values but is not a prior published dataset."
+        ],
+        "reasoning": "No preexisting exact defect-star W1 time table found; potential alternative transport terminology is explicitly a priority risk.",
+        "searches": [
+          "Wasserstein heat semigroup unit edge star defective jump rate amplification Lipschitz",
+          "Resultary Wasserstein heat semigroup unit edge star defective jump rate amplification Lipschitz",
+          "\"slow bond star\" Wasserstein transport exact all times"
+        ]
+      },
+      "rationale": "Münch–Wojciechowski links Ollivier curvature and semigroup Lipschitz/Wasserstein contraction but does not yield this inhomogeneous 2-eigenvalue star profile. Bai et al. concerns weighted-star Ricci flow with evolving edge-length geometry, not the fixed-metric frozen generator. The equal-rate boundary is recoverable from the windmill/star profile; the entire eps<1, all-time sharp peak and weak-rate logarithmic correction are not implied by that boundary.",
+      "residual_risks": [
+        "A specialized earlier coupling-rate theorem for inhomogeneous star chains may encode the same formula despite a differently stated curvature parameter.",
+        "Small-epsilon expansion derived algebraically and compared with source checking code; finite numeric grid is not an exhaustive real-parameter proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_PROFILE",
+          "evidence": "Provides heat-flow contraction equivalence, not sharp all-time amplification with one rate defect or metastable peak.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.00875",
+          "material_read": "Theorem 3.8 and interpretation of Lipschitz heat bounds, plus main setup for graph generators",
+          "method": "Complete publicly accessible manuscript in ResearchGate text; theorem and formulation inspected",
+          "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+          "trigger": "Direct stronger general curvature/heat-Wasserstein equivalence"
+        },
+        {
+          "assessment": "DIFFERENT_EVOLVING_METRIC",
+          "evidence": "Metric evolves via Ricci flow rather than being fixed graph lengths under a fixed asymmetric-rate generator.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.01802",
+          "material_read": "Abstract and statement about evolving edge lengths and weighted stars",
+          "method": "arXiv publicly accessible abstract only",
+          "title": "Ollivier Ricci-flow on weighted graphs",
+          "trigger": "Weighted stars are an adjacent natural family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single slow edge turns a reversible unit-geometry star into an exact transient W1 amplifier with computable metastable peak. The all-time norm, optimizer, phase boundary and weak-bond scaling are a motivated sharp test for curvature/transport bounds.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen source RESULT.md and CHECKER.py",
+    "Münch and Wojciechowski arxiv:1712.00875 theorem 3.8",
+    "Bai et al. arxiv:2010.01802 abstract and model",
+    "Veysseire arxiv:1202.0420 background",
+    "Resultary Q4 and exact W1 star semantic searches"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A specialized earlier coupling-rate theorem for inhomogeneous star chains may encode the same formula despite a differently stated curvature parameter.",
+    "Small-epsilon expansion derived algebraically and compared with source checking code; finite numeric grid is not an exhaustive real-parameter proof."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": "Finite symmetric unit-length stars, one rate defect 0<eps<=1, unnormalized generator, W1 only; fixed r before epsilon limit."
+}

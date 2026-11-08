@@ -1,19 +1,21 @@
-# Review of the rate-defect star transport theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact unit-edge Kantorovich--Rubinstein dual problem is the induced edge-gradient \(\ell_\infty\)-operator norm. The generator reduces to a two-dimensional mean block plus fast-leaf contrasts, with distinct positive eigenvalues. The proof displays both classes of row sums and compares them pointwise in the two possible sign regimes; the key inequality uses \(\lambda_-\le1\) and \(\Delta\le r+1\). This prevents a hidden assumption that off-diagonal entries have one fixed sign. Exact differentiation then gives the unique peak; Taylor expansion provides the uniform-in-time weak-rate peak asymptotic at fixed degree. The independent direct heat-kernel checker passed 693 supplementary assertions. No finite computation substitutes for the global comparison proof.
+PASS
 
-## Originality
+With fixed unit-edge metric, Kantorovich-Rubinstein duality identifies the global W1 operator norm with the maximum absolute row sum of the edge-gradient semigroup. Direct generator substitution gives h_dot=-2eps h-sum g_j and g_dot_i=-eps h-g_i-sum g_j. Ordinary contrasts decay e^-t, and (h,avg g) follows a 2x2 matrix with eigenvalues lambda_plus/minus as defined; its explicit exponential yields exceptional row sum A exp(-lambda_- t)-(A-1)exp(-lambda_+ t). Sign inequalities using lambda_-<=1 and Delta<=r+1 prove this row dominates all ordinary gradient rows for all t>=0; the deficit pair w/o attains it via the dual gradient potential. Its derivative has at most one sign change and is positive at zero except r=2,eps=1, proving unique peak including boundary; direct Taylor expansion with fixed r gives eps log eps corrections. I independently reconstructed full Markov Q and scipy matrix exponentials and computed the star tree W1 edge costs in 96 parameter/time cases; defect dominance and exact formula matched. The analytic proof covers all r,eps,t, beyond the finite check.
 
-PASS with historical-priority limitations. [MW] Theorem 3.8 provides the general Lipschitz/Wasserstein semigroup correspondence, not this exact star calculation. [BLLWY] Theorem 5 concerns a nonlinear Ricci flow evolving metric edge lengths rather than the fixed metric and constant jump rates here. Published and locally accessible earlier equal-rate star and slow-bond path claims were compared by implication: the former covers only the boundary \(\varepsilon=1\), while the latter has a different path topology and does not determine all-time star amplification. Searches for weighted-star heat-semigroup norms, exceptional edge rates, and logarithmic peak laws did not reveal a dominating formula. An unindexed equivalent calculation remains possible and no independent priority certification is claimed.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The exact all-time profile, exceptional-edge attainment at every time, all-rate maximizing-time formula and sharp metastable expansion give a complete quantitative response to a natural conductance defect on a branching metric graph. The fast-edge row changes sign structure with time, so sharpness cannot be inferred solely from instantaneous curvature or the equal-rate star. The result separates fixed transport geometry from heterogeneous jump kinetics and supplies a useful finite test model.
+Münch–Wojciechowski links Ollivier curvature and semigroup Lipschitz/Wasserstein contraction but does not yield this inhomogeneous 2-eigenvalue star profile. Bai et al. concerns weighted-star Ricci flow with evolving edge-length geometry, not the fixed-metric frozen generator. The equal-rate boundary is recoverable from the windmill/star profile; the entire eps<1, all-time sharp peak and weak-rate logarithmic correction are not implied by that boundary.
 
-## Scope and limitations
+## value
 
-Finite symmetric generators only; one defect rate in \((0,1]\); unit geometric edge lengths; fixed degree in the small-rate expansion. Existing general curvature estimates and related graph families are not treated as proof of novelty. The analytic derivation is the evidence for infinite parameter ranges; finite checks provide only diagnostics.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A single slow edge turns a reversible unit-geometry star into an exact transient W1 amplifier with computable metastable peak. The all-time norm, optimizer, phase boundary and weak-bond scaling are a motivated sharp test for curvature/transport bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
