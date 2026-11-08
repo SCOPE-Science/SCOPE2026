@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the precise domain of 272 perfect matchings of \(Q_4\), elementary recursive enumeration exhausts every state and cycle flip. All 36,856 distinct unordered pairs receive exact shortest-path distances from all-source BFS, independently recomputed from a different bipartite enumeration and pairwise symmetric differences. Exactly 1,984/10,784/19,568/4,520 pairs occur at distances 1/2/3/4 and every source has eccentricity four. All exact checkers and the complete certificate are included.
+## correctness
 
-## Originality — PASS, with residual risk
-Klivans and Saldanha already counted 272 configurations and the 264+eight isolated square-flip components. A prior unpublished exact square-only metric is likewise not claimed here. Hartarsky, Lichev and Toninelli provide general short-cycle ergodicity and degree results, which may already imply 4+6 connectivity but not this exact distance metric; Bonamy and collaborators study the different square-only reconfiguration problem. The precise square-plus-hexagon diameter and pair-distance distribution were not identified in the inspected accessible sources or matching research records. Exhaustive historical priority is not guaranteed; equivalent unindexed computations remain a risk.
+PASS
 
-## Mathematical value — PASS
-The four-cube is the first natural hypercube with square-flip-frozen perfect matchings. The sharp four-move universal transformation bound, self-centeredness and complete geodesic histogram reveal how the smallest six-cycle enlargement changes optimal dimer transport in this canonical finite example. This is a complete exact finite metric classification, not an all-dimension claim.
+All perfect matchings of Q4 are captured exactly once by assigning each of eight even vertices a distinct odd neighbour. Two perfect matchings are adjacent precisely when their symmetric difference is one connected alternating 4- or 6-cycle: the component is 2-regular on 4 or 6 vertices. A separately written all-pairs test enumerated 272 matchings, 768 square and 1216 six-cycle edges. All-source BFS reached all 272 vertices and independently recovered unordered pair histogram {1:1984,2:10784,3:19568,4:4520}, sum 36856, and eccentricity 4 at all 272 sources. Exhaustion is rigorous because every perfect matching is a unique even-to-odd bijection and every move is characterized by the symmetric difference. The result is exactly for labelled Q4, not higher-dimensional dimer dynamics.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge new sharp full Q4 4-or-6-cycle move metric and self-centered eccentricity, distinctly not the known 272-state total or square-only graph components; exact finite data could have unindexed historical duplication.
+
+## value
+
+PASS
+
+The first genuinely four-dimensional hypercube exhibits eight square-flip frozen states, so the complete metric after adding the smallest useful non-square alternating switches is a motivated local-move invariant. Exact radius, diameter, edge types and all-pairs distances determine optimal reconfiguration costs rather than a trivial isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

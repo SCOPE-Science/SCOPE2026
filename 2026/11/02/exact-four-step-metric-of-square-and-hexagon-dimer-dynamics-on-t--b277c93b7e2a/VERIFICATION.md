@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-From the same directory as the three complete supplied files, run:
+## correctness
 
-```
-python3 verify_cycle.py certificate.json
-python3 verify_bipartite.py certificate.json
-```
+PASS
 
-Both programs use only the Python standard library. The first recomputes every perfect matching, all simple 4- and 6-cycles, legal flips and all-source BFS distances from first principles, then reconstructs `certificate.json` byte-for-byte. The second independently generates perfect matchings through even-to-odd bipartite assignments, computes legality from all matching-pair symmetric differences, and conducts independent all-source BFSs. The tests check full adjacency equality, 272 states, 768 four-cycle edges, 1,216 six-cycle edges, connectedness, eccentricity four at every state, and unordered pair distances 1,984/10,784/19,568/4,520.
+All perfect matchings of Q4 are captured exactly once by assigning each of eight even vertices a distinct odd neighbour. Two perfect matchings are adjacent precisely when their symmetric difference is one connected alternating 4- or 6-cycle: the component is 2-regular on 4 or 6 vertices. A separately written all-pairs test enumerated 272 matchings, 768 square and 1216 six-cycle edges. All-source BFS reached all 272 vertices and independently recovered unordered pair histogram {1:1984,2:10784,3:19568,4:4520}, sum 36856, and eccentricity 4 at all 272 sources. Exhaustion is rigorous because every perfect matching is a unique even-to-odd bijection and every move is characterized by the symmetric difference. The result is exactly for labelled Q4, not higher-dimensional dimer dynamics.
 
-These are finite exhaustive computer-assisted mathematical checks. They establish no general formula for larger hypercubes. Literature searches and these two implementations are not an independent scholarly audit.
+## originality
+
+PASS
+
+Best-of-knowledge new sharp full Q4 4-or-6-cycle move metric and self-centered eccentricity, distinctly not the known 272-state total or square-only graph components; exact finite data could have unindexed historical duplication.
+
+## value
+
+PASS
+
+The first genuinely four-dimensional hypercube exhibits eight square-flip frozen states, so the complete metric after adding the smallest useful non-square alternating switches is a motivated local-move invariant. Exact radius, diameter, edge types and all-pairs distances determine optimal reconfiguration costs rather than a trivial isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
