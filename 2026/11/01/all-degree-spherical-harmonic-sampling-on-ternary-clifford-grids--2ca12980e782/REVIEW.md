@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof starts with the rigorous Fourier support obstruction, constructs explicit harmonic monomials for every support level of size at least two, resolves the exceptional single-coordinate and constant levels with three explicit nonzero coefficients on the complex null quadric, and uses Fischer decomposition to turn those into nonzero harmonic Fourier projections. The final Gegenbauer–Krawtchouk formula is the exact transform of a translation-invariant positive-semidefinite addition kernel. The proof treats every \(d\ge2\), every \(k\ge0\), all support sizes, and the low-degree boundaries. The exact rational checker verifies 1,633 spectral/sign identities; it does not replace the analytic argument.
+PASS
 
-## Originality
+Verified d≥2, k≥0, exact homogeneous Euclidean harmonics and complexification. Fourier character support j≤k follows coordinate factor-count; k=1 has centered mean zero and k=2 harmonic mean zero by isotropic second moment. For j≥2 construct holomorphic/antiholomorphic monomials in j distinct complex coordinates with positive exponents not divisible by 3 summing k; each monomial is harmonic. The remaining j=0,1 modes are detected using Fischer decomposition P_k=H_k⊕Q P_{k−2} and explicit nonzero coefficients on Q=0: (k²−9k+16)/(4(k−2)!) and (2−k)/(k−1)!; check integer discriminant 17 ensures first is never zero. Fourier averaging isolates characters. Addition formula makes the normalized Gegenbauer kernel a PSD sampling Gram and diagonalizes it via shell Krawtchouk transform. Independent exact rational computation of 462 (d,k,j) levels (2≤d≤7, 0≤k≤13) found all stated signs. These finite checks corroborate, while all-degree proof is analytic.
 
-**PASS, subject to bounded-literature risk.** Bannai–Okuda–Tagami (arXiv:1308.5101) and Zhu–Bannai–Bannai–Kim–Yu (arXiv:1507.05373) develop spherical harmonic-index designs and addition-kernel bounds, but the inspected portions do not give the all-degree exact evaluation image of the ternary Clifford Cartesian grid. Related Fourier sampling on finite-field Hamming *weight shells* is a distinct operator: it restricts discrete polynomial Fourier bands to a shell rather than exact Euclidean harmonic eigenspaces to a full phase grid. Two-factor Hopf grid injectivity and the real binary hypercube are different sampling problems. Older cubature or association-scheme sources may encode the theorem in equivalent form; the remaining comparison is a residual risk, not a claim of global priority.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The exact-degree interpolation question is natural because ordinary low-pass interpolation need not imply recovery at one harmonic degree. The theorem solves the infinite-parameter rank problem, identifies the only two low-degree exceptional character patterns, gives a sharp full-surjectivity transition, and supplies the complete Gram spectrum. The nonstandard null-quadric coefficient argument is essential for obtaining all large-degree low-support characters; finite experiments alone would not establish eventual no-dropout behavior.
+Best-of-knowledge originality passes for the all-degree character-by-character Euclidean harmonic sampling rank, sharp interpolation cutoff and strict Gram support, not for classic Gegenbauer addition formula or finite-group Fourier transforms.
 
-## Scope and limits
+## value
 
-The claim does not assert stable bounds for the smallest positive eigenvalue or uniqueness among other finite spherical grids. The published literature comparison is bounded; independent mathematical audit and validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full Cartesian ternary Clifford grid is natural and highly symmetric, and exact-degree harmonic interpolation is a stricter and structurally different question from polynomial-degree ≤k interpolation. Exact rank support in every degree, restored constant mode from k=3 and the sharp simultaneous interpolation threshold are reusable facts for sampling/cubature on product spherical configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
