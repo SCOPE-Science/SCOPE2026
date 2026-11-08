@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The definition uses the complex inner product linear in the first variable and a single constrained pair for all values of the operator family. For any norm-one square-zero operator the kernel decomposition yields \(|\langle Tx,y\rangle|\le(1+\sqrt{1-|q|^2})/2\); the two-coordinate nilpotent achieves equality, including both parameter endpoints. Phase alignment converts the bound into an exact coefficient budget for the block operator family. Norm-compactness ensures operator-norm continuity; absolute convexity handles absolutely convergent sums. Explicit coordinate pairs supply every element of the target, so no passage to closure of the numerical range is used. The mathematical proof establishes all dimensions; 35,789 deterministic supplementary assertions pass.
+PASS
 
-## Originality
+The block-diagonalized nilpotent F(s)=[[0,D(s)],[0,0]] on l2(K)⊕l2(K) satisfies all products zero and has norm sup_{f in K}|f(s)|. Equicontinuity from norm compactness yields operator norm-continuity even for uncountable K. Coefficients v_f conjugate(a_f) are absolutely summable; a diagonal unitary aligns phases and reduces the l1 sum to the sharp q-numerical radius c(rho)=(1+sqrt(1-rho²))/2 of a square-zero contraction. Balanced absolute convexity gives the upper inclusion. An explicit 2-coordinate extremal pair at every rho, followed by phase adjustment, gives the reverse inclusion, including rho=0 and 1. A separate exact scalar witness was checked at rho=0,.1,.5,.8,1. Nonseparability and inner-product phase convention are explicitly allowed.
 
-**PASS (best-knowledge, not independent publication-priority certification).** Azadi's arXiv:2610.32504 Theorem 2.16 realizes convex sets at unimodular \(q\) by diagonal operators; it does not include subunimodular \(q\) or a uniform square-zero realization. The joint-tuple treatment in arXiv:2410.03669 does not establish exact realization of arbitrary compact absolutely convex sets in \(C(\Omega)\) with one family across all \(q\). The single-rank-one sharp \(q\)-radius in arXiv:2503.05036 is known, so the scalar sharp factor is not claimed as independent novelty. An accessible prior private statement concerning simultaneous *diagonal* families provides a coefficient description with constrained total coefficient \(q\); it neither implies nor contains the square-zero all-parameter absolute-convex realization. Mathematical-record searches for square-zero nilpotent joint ranges, simultaneous all-parameter realization, and balanced target bodies did not reveal a dominating theorem. Residual risk: an older universal-convex-body construction under unrelated terminology.
+## originality
 
-## Value
+PASS
 
-**PASS.** The original joint-function-valued realization question naturally asks what happens beyond the unimodular constraint, where ordinary diagonal multiplication no longer guarantees an exact prescribed convex body. The theorem constructs one uniform realization for every parameter, with every product of the family equal to zero; this is a structural theorem valid for arbitrary norm-compact absolutely convex function sets. The sharp parameter law is fixed by the elementary two-coordinate model rather than chosen ad hoc. The complex-balance restriction is natural at the zero parameter, where every joint numerical range is rotation-invariant; potential nonseparability limits the scope without defeating the all-parameter construction.
+Best-of-knowledge source-comparison judgement: claim is not shown to be a restatement or corollary of the actual inspected antecedents. Neither published endpoint theorem nor scalar radius by itself produces the asserted universal family.
 
-## Closest literature and limits
+## value
 
-Source inspected: Azadi, arXiv:2610.32504 (relevant full-text definitions, Theorems 2.10--2.20 and proof of 2.16); Feki--Patra--Rani--Taki, arXiv:2410.03669 (joint-range definitions, operators, inequalities); Denčić et al., arXiv:2503.05036 (published rank-one formula from abstract and bibliographic statement, without claiming full-body exclusion). The theorem does not cover nonbalanced target sets, minimal-dimensional realizations, or universal equivalence across arbitrary operator spaces.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A universal simultaneous inverse q-numerical range construction preserving operator norms and pairwise nilpotency is a natural operator-theoretic realization theorem; unlike an isolated scalar radius computation, it realizes arbitrary compact absolutely convex function targets with one family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

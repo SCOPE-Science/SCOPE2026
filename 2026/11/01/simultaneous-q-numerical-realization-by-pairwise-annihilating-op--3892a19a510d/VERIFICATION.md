@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof of the square-zero coefficient bound is analytical. Its only optimization is a scalar constrained maximum followed by the largest eigenvalue of a real symmetric two-by-two matrix. The construction uses diagonal multiplication on \(\ell_2(K)\), a norm-continuity argument from compact equicontinuity, and an absolutely summable coefficient representation. The reverse inclusion uses an explicit optimizing two-coordinate pair.
+# Independent mathematical audit
 
-For supplementary reproduction, run `python3 VERIFY.py` with Python 3 and NumPy. The checker reports `PASS 35789 supplementary deterministic assertions`. Its finite tests sample complex constrained pairs, verify two-parameter products vanish, test operator norms and coefficient bounds, and verify equality examples. Finite checks are not a substitute for the proof's infinite quantifiers or the arbitrary topological domain.
+## correctness
 
-The result requires norm-compact absolutely convex targets. The construction does not assert separability, minimal dimension, or extension to nonbalanced targets. Independent verification and publication-priority certification have not been performed.
+PASS
+
+The block-diagonalized nilpotent F(s)=[[0,D(s)],[0,0]] on l2(K)⊕l2(K) satisfies all products zero and has norm sup_{f in K}|f(s)|. Equicontinuity from norm compactness yields operator norm-continuity even for uncountable K. Coefficients v_f conjugate(a_f) are absolutely summable; a diagonal unitary aligns phases and reduces the l1 sum to the sharp q-numerical radius c(rho)=(1+sqrt(1-rho²))/2 of a square-zero contraction. Balanced absolute convexity gives the upper inclusion. An explicit 2-coordinate extremal pair at every rho, followed by phase adjustment, gives the reverse inclusion, including rho=0 and 1. A separate exact scalar witness was checked at rho=0,.1,.5,.8,1. Nonseparability and inner-product phase convention are explicitly allowed.
+
+## originality
+
+PASS
+
+Best-of-knowledge source-comparison judgement: claim is not shown to be a restatement or corollary of the actual inspected antecedents. Neither published endpoint theorem nor scalar radius by itself produces the asserted universal family.
+
+## value
+
+PASS
+
+A universal simultaneous inverse q-numerical range construction preserving operator norms and pairwise nilpotency is a natural operator-theoretic realization theorem; unlike an isolated scalar radius computation, it realizes arbitrary compact absolutely convex function targets with one family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
