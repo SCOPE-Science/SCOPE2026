@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "PASS. The coefficient-extraction bilinear pairing has determinant ±1, proving equivalence of recurrence period with order of x in the rank-k quotient ring. Modulo 2 the order is exactly k+1; the identity (x−1)P=x^(k+1)−2x^k+1 gives x^(k+1)=1+2u. Since u and u(u+1) are nonzero modulo 2, exact coefficientwise valuations of successive squares imply order 2^(r−1) at every r. These steps prove the result for all k≥2 and r≥1; 232 independent finite state tests and ring computations corroborate but do not establish the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tongron–Kerdmongkon (2022), abstract and Section 4, explicitly limit their explicit formulas to k=2,3,4 under selected conditions: https://sjst.psu.ac.th/article/2785/PaperPDF/download",
+        "Lü–Wang (2006) abstract describes a general Wall-number property and two conjectures, without a stated exact all-k binary-power theorem: https://utilitasmathematica.com/index.php/Index/article/view/410",
+        "Taşcı–Özkan Kızılırmak (2018) Section 1 definition is F_(k,n+1)=kF_(k,n)+F_(k,n−1), not the k-step recurrence: https://dergipark.org.tr/en/download/article-file/433129."
+      ],
+      "reasoning": "Theorems on period existence and lcm behavior do not determine the exact 2-power lift. Low-order period formulas cannot imply unbounded order k without a general argument. The 2018 paper has similar keywords but a two-dimensional recurrence with varying coefficient, and therefore no implication to a k-dimensional impulse recurrence. The 2006 full text was not accessible, so stronger coverage there remains explicitly unresolved but was not indicated by its abstract or subsequent OEIS conjecture.",
+      "searches": [
+        "multinacci Pisano period powers of two universal n+1 doubling modulo 2^r exact primitive period",
+        "Wall number k-step Fibonacci binary prime-power periods companion polynomial all k",
+        "n-bonacci higher-order Fibonacci exact order modulo powers of 2",
+        "\"k-step Fibonacci\" \"2^n\" primitive period general arbitrary k"
+      ]
+    },
+    "checked_sources": [
+      {
+        "coverage": "The exact statement is recorded but designated conjectural; the new contribution is a proof, not a new conjectural formula",
+        "identifier_or_url": "https://oeis.org/A351889",
+        "title": "OEIS A351889: Table of periods of n-step Fibonacci numbers"
+      },
+      {
+        "coverage": "General existence, bounds and lcm law, plus explicit periods only for k=2,3,4 with additional hypotheses; no all-k binary-power theorem identified",
+        "identifier_or_url": "https://sjst.psu.ac.th/article/2785/PaperPDF/download",
+        "title": "Periods of k-step Fibonacci functions modulo m"
+      },
+      {
+        "coverage": "Different order-two weighted recurrence F_(k,n+1)=kF_(k,n)+F_(k,n−1), so cannot imply all order-k impulse recurrence periods",
+        "identifier_or_url": "https://dergipark.org.tr/en/download/article-file/433129",
+        "title": "Pisano Periods for the k-Fibonacci and k-Lucas Sequences mod 2^n"
+      },
+      {
+        "coverage": "Potential strong prior coverage unresolved; abstract says general property and two conjectures, but full statement comparisons cannot be made",
+        "identifier_or_url": "https://utilitasmathematica.com/index.php/Index/article/view/410",
+        "title": "K-step Fibonacci sequence modulo m"
+      },
+      {
+        "coverage": "Studies generalized Lucas sequences and certain finite groups, not the binary-power order-k impulse period; cites earlier Wall-number theory",
+        "identifier_or_url": "https://doi.org/10.1155/2012/464580",
+        "title": "The Generalized Order-k Lucas Sequences in Finite Groups"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "OEIS A351889 source separates exact known low-order cases and Conjecture 1 for all n.",
+        "Tongron–Kerdmongkon 2022 conclusion proposes finding explicit primitive periods for other k-step Fibonacci functions.",
+        "The nearest published Lucas-period equality compares order-two Lucas pairs and does not concern the all-order recurrence here.",
+        "Recoverable previous mathematical claims concern Fibonacci representations, Lucas pairs, and Tribonacci sum gcds, not the binary-power Pisano period for all k."
+      ],
+      "reasoning": "The new assertion entails every earlier stated low-order formula at 2-powers but is not implied by the cited results; it also quantifies over arbitrary k and every exponent r. The named 2018 weighted recurrence and a published-finding corpus Lucas pair concern distinct order-two systems. Only a source containing the exact all-k order result, or a theorem whose hypotheses directly force it, would subsume this proof; such a decisive source was not identified in inspected accessible material.",
+      "searches": [
+        "Conjecture 1 OEIS A351889 exact period n-step Fibonacci numbers modulo 2^m (n+1)2^(m-1) for all n m",
+        "OEIS A351889 Conjecture 1 period n-step Fibonacci mod 2^m (n+1) times 2^(m-1) proven",
+        "Wall number k-step Fibonacci binary prime-power periods companion polynomial all k",
+        "\"k-step Fibonacci sequence modulo m\" Lü Wang 2006 proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A351889 https://oeis.org/A351889 names the formula Conjecture 1",
+        "The unit x mod 2^r in Z[X]/(X^k-X^(k-1)-...-1) has order identical to the impulse recurrence period by a unimodular coefficient pairing.",
+        "General Wall-number notation h_k(m) for k-step Fibonacci is used by Deveci–Karaduman 2012 https://doi.org/10.1155/2012/464580."
+      ],
+      "reasoning": "Compared the exact minimal period to generalized Wall numbers, companion-matrix multiplicative order, k-nacci/Multinacci and n-step Pisano terminology. The OEIS explicitly identifies the same formula as conjectural. The primary same-recursion work supplies general existence and selected low-order instances, not this uniform exact law; no equivalent indexed proof was located.",
+      "searches": [
+        "Conjecture 1 OEIS A351889 exact period n-step Fibonacci numbers modulo 2^m (n+1)2^(m-1) for all n m",
+        "multinacci Pisano period powers of two universal n+1 doubling modulo 2^r exact primitive period",
+        "2-adic order of companion matrix x^k-x^(k-1)-...-1 mod 2^m n-step Fibonacci",
+        "\"Wall number\" \"k-step\" Fibonacci \"2^n\" explicit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A351889 Formula section states T(n,2^m)=(n+1)*2^(m−1) as Conjecture 1, not a cited theorem, as of the inspected 2026-11-04 page: https://oeis.org/A351889",
+        "OEIS A351889 lists numeric table values and known special cases T(2,m), T(3,m), T(4,m), T(5,m)."
+      ],
+      "reasoning": "A database does explicitly contain the numerical formula, so the *formula* is not claimed as first discovered. The finding is the uniform proof of its exact minimality, which the database records as a conjecture. Finite tabulation, including OEIS tables, cannot imply the universal quantifiers.",
+      "searches": [
+        "OEIS A351889 Conjecture 1 period n-step Fibonacci mod powers two",
+        "Conjecture 1 OEIS A351889 exact period n-step Fibonacci numbers modulo 2^m (n+1)2^(m-1) for all n m",
+        "\"A351889\" \"Conjecture 1\" period proof"
+      ]
+    },
+    "rationale": "PASS within inspected literature. OEIS A351889 explicitly labels the asserted all-order, all-power formula Conjecture 1; the 2022 same-recursion primary paper gives selected explicit periods for k=2,3,4 only. The 2018 near-title match uses a different second-order weighted recurrence. published-finding corpus searches and recoverable earlier mathematical claims did not identify an equal or dominating theorem. Lü–Wang (2006) is an unresolved full-text coverage risk; no uniqueness is claimed.",
+    "residual_risks": [
+      "Lü–Wang (2006) full text could contain a stronger or equivalent 2-adic order theorem; only the abstract was accessible.",
+      "Searches cannot exclude unindexed or unpublished independent proofs; OEIS itself continues to mark the exact formula as a conjecture in its inspected record.",
+      "Results about special initial states may differ: scope is limited to the standard impulse state."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The exact statement is recorded but designated conjectural; the new contribution is a proof, not a new conjectural formula",
+        "evidence": "Formula lines explicitly state T(n,2^m)=(n+1)2^(m−1) for n>1 as Conjecture 1; OEIS author date Feb 24, 2022.",
+        "identifier_or_url": "https://oeis.org/A351889",
+        "material_read": "Formula, named conjectures, source references, author date, recurrence code and table",
+        "method": "Direct HTML record inspection",
+        "title": "OEIS A351889: Table of periods of n-step Fibonacci numbers",
+        "trigger": "Exact formula found as Conjecture 1"
+      },
+      {
+        "assessment": "General existence, bounds and lcm law, plus explicit periods only for k=2,3,4 with additional hypotheses; no all-k binary-power theorem identified",
+        "evidence": "Abstract and section 4 state explicit cases k=2,3,4; conclusion describes future explicit periods for other functions.",
+        "identifier_or_url": "https://sjst.psu.ac.th/article/2785/PaperPDF/download",
+        "material_read": "PDF text: abstract, definitions, period equivalences, Section 4 explicit results, conclusion; figures and malformed tables are not evidence",
+        "method": "Publisher OA PDF extracted text inspected across beginning, sections 3–5; attempted graphical PDF screenshot timed out",
+        "title": "Periods of k-step Fibonacci functions modulo m",
+        "trigger": "Same k-step recurrence and primitive period terminology"
+      },
+      {
+        "assessment": "Different order-two weighted recurrence F_(k,n+1)=kF_(k,n)+F_(k,n−1), so cannot imply all order-k impulse recurrence periods",
+        "evidence": "The paper explicitly defines the varying k as the coefficient of the second-order recurrence, not the number of past summands.",
+        "identifier_or_url": "https://dergipark.org.tr/en/download/article-file/433129",
+        "material_read": "Publisher OA PDF first page screenshot, introduction and definition (1), subsequent period theorem statements",
+        "method": "PDF screenshot and parsed-text examination of recurrence and scope",
+        "title": "Pisano Periods for the k-Fibonacci and k-Lucas Sequences mod 2^n",
+        "trigger": "Misleading near-identical title with binary-power period conclusion"
+      },
+      {
+        "assessment": "Potential strong prior coverage unresolved; abstract says general property and two conjectures, but full statement comparisons cannot be made",
+        "evidence": "Utilitas Mathematica 71 (2006) 169–177; abstract mentions one general property and two conjectures, no explicit general 2-power period formula.",
+        "identifier_or_url": "https://utilitasmathematica.com/index.php/Index/article/view/410",
+        "material_read": "Abstract and bibliographic metadata only; full paper not publicly available from the inspected journal page or indexed OA search",
+        "method": "Journal entry, secondary bibliographic references and OA/preprint searches",
+        "title": "K-step Fibonacci sequence modulo m",
+        "trigger": "2006 primary reference concerning the exact same recurrence and Wall numbers"
+      },
+      {
+        "assessment": "Studies generalized Lucas sequences and certain finite groups, not the binary-power order-k impulse period; cites earlier Wall-number theory",
+        "evidence": "Period h_k(m) is introduced as terminology, but stated contributions are generalized Lucas orbit periods in finite groups.",
+        "identifier_or_url": "https://doi.org/10.1155/2012/464580",
+        "material_read": "Open access HTML abstract, introduction definitions, period terminology and cited references",
+        "method": "Primary journal HTML inspection",
+        "title": "The Generalized Order-k Lucas Sequences in Finite Groups",
+        "trigger": "Cites k-step Wall number and could contain stronger general period formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4eeed3c3-b3c2-4f15-9a3e-397101c9d3c8",
+  "value": {
+    "rationale": "PASS. The result settles the specific published OEIS Conjecture 1 across an infinite two-parameter family. Its exact 2-adic order mechanism is structural and improves known low-order cases and general periodicity theorems, rather than being an arbitrary computed table or exercise. Exact minimality (not merely a bound) matters for Pisano-period classification.",
+    "status": "PASS"
+  }
+}
