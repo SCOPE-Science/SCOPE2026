@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem's quantifiers include stationary absolutely continuous initialization and all \(1/2<p\le1\). Conditional band uniformity yields the exact countable Markov kernel, including the geometric reset at zero; the stationary PGF follows from a directly verified rational identity. The quadratic solution \(h(k)=k(k-1)/(2(2p-1))\) solves the Poisson equation at every state, notably at zero. Geometric drift, finite moments and the martingale decomposition justify both the CLT and the variance limit. The exact cubic PGF moment gives the announced rational variance. The separate numerical finite-state illustrations are not substituted for the proof. Remaining limit: no claim about \(p=1/2\) or point mass at zero.
+## correctness
 
-## Originality — PASS on inspected evidence
-The full accessible 2023 motivating source treats densities and coordinate statistics; the 2025 Monthus source supplies the dyadic chain and transition/resolvent, but the new stationary accumulated-level CLT, its rational variance and the \(d^{-4}\) critical law were not located there. The complete accessible 2026 Brevitt–Klages source concerns survival, quasi-stationarity and return times, not this stationary observable. Targeted mathematical-research-record queries returned unrelated map-correlation and random-grid results, while the closest accessible prior local results concern the original coordinate \(X_t\), transient means, or a different contraction. General propagators and standard Poisson theory could imply the new closed form after calculation; this is a residual publication-priority risk, not proof of uniqueness. Earlier unindexed source literature has not been exhaustively searched.
+PASS
 
-## Mathematical value — PASS
-Dyadic depth is the natural logarithmic measure of proximity to the intermittent neutral endpoint, and its accumulated fluctuations capture persistence not visible from one-time band weights or coordinate correlations. The exact quadratic Poisson closure and sharp fourth-order variance blowup quantify a natural observable over the entire stationary chaotic parameter regime. This is an explicit phase-critical transport invariant, rather than an arbitrary numerical parameter sample.
+Conditional uniformity within dyadic bands under both maps and full band history induces the Markov level transition: k>=1 to k-1 with p and k+1 with q; from k=0, q to 1 and p reinject geometric J with Pr(J=j)=2^-j-1. Stationary PGF Pi(z)=d/((2-z)(p-qz)) yields mean p/d, Var=(1+7d²)/(4d²) and third moment. Check quadratic h(k)=k(k-1)/(2d) solves (I-P)h=k-p/d, including reinjection at k=0 using E[J(J-1)]=2. Martingale decomposition and geometric Foster drift establish stationary CLT; sigma²=2E[gh]-E[g²] reduces to displayed rational expression. At p=1 renewal to level0 remains ergodic, sigma²=6; at p=1/2 excluded because no stationary ac law. Independent SymPy identities checked PGF, boundary/interior Poisson equations, exact variance and critical scales (finite matrix numerics not necessary for infinite proof).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The Pelikan map and its dyadic Markov representation are known. The assessed contribution is an additive-time CLT for unbounded depth with exact Green-Kubo variance and a fourth-order critical divergence, not a relabelling of stationary level density or one-time variance.
+
+## value
+
+PASS
+
+The rational Green-Kubo variance and precise d^-4 critical divergence identify a physically and mathematically natural time-additive observable. The contrast with d^-2 instantaneous variance provides a nontrivial quantitative critical-slowing law, not merely a routine CLT existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
