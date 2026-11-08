@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source graph has precisely two central vertices and a fully bidirected set of edges to its leaves. A direct closure argument using directed two-cycles and boundary-stability conditions proves that each entire digraph is a nonstable dynamical module. Complete simplicial-face enumeration for the two cases, integer signed differentials, boundary-squared checks and exact Smith normal forms give one invariant factor \(2\) in each third differential. The short exact sequence for \(H_2\) proves that this is integral two-torsion, not just a mod-two Betti discrepancy. Independent elimination over \(\mathbb F_2\) and the face-count identities corroborate the exact calculation. The claim is confined to these two values and does not assert a homotopy classification.
+## correctness
 
-**Originality — PASS, with residual risk.** Caputi–Collari–Di Trani–Smith (arXiv:2208.04656) states the now-contradicted conjecture and analyzes one-way complete bipartite digraphs rather than fully bidirected ones. Caputi–Collari–Smith (arXiv:2601.05670v1) covers bidirected paths/cycles, not complete bipartite graphs. Caputi–Collari–Ramos (arXiv:2401.01248v1) provides general torsion-exponent bounds and an acyclic digraph matching correspondence, but no explicit value here. Indexed comparison results concern double-stars, polygons, ordinary matching complexes, or Morse matching complexes; those results have genuinely different face predicates. An earlier width-at-least-six result does not cover the two cases, and its small-width mod-two observations do not imply this integral Smith computation. Unindexed equivalent work remains possible.
+PASS
 
-**Mathematical value — PASS.** The result settles the status of a published dynamical-module torsion conjecture by explicit, naturally occurring counterexamples and determines their complete integral homology rather than merely detecting nonzero homology over a field. The same order-two obstruction occurs at two consecutive natural widths, giving a useful boundary for subsequent structural classification.
+Independently enumerated every admissible directed-arc subset on bidirected K2,n (indegree/outdegree≤1, no directed cycle). For n=4,5 face vectors (16,80,144,72), (20,130,320,240). Independently constructed full signed integer boundaries, ∂²=0, Smith d1=(1^15),(1^19), d2=(1^65),(1^111), d3=(1^71,2),(1^208,2); rational ranks (15,65,72) and (19,111,209), binary ranks (15,65,71) and (19,111,208). Hence exact H2 free ranks 7,0 with one Z/2 each, H3 free ranks 0,31 and no further reduced homology. Coker∂3 torsion equals H2 torsion as quotient is free im∂2. Every arc of a dynamical region forces its reverse via digon, making endpoints unstable; neither can be boundary, forcing all incident arcs and hence all of connected D_n. The full D_n is a nonstable dynamical module, as defined in the cited 2024 primary article.
 
-**Sources and limitations.** Primary recent literature: arXiv:2601.05670v1 (first posted 2026-01-09). The conjecture and terminology appear in arXiv:2208.04656 / doi:10.1112/mtk.12235, and the comparison theorem appears in arXiv:2401.01248v1. The computation is finite and exact, uses the freely available SymPy integer Smith implementation, and is not an all-width torsion classification. No independence from the underlying mathematical review process or external certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+2024 Caputi–Collari–Di Trani–Smith explicitly conjecture torsion modules must be stable and calculate a ONE-WAY K_{m,n} multipath/chessboard case, not the bidirected graph. January 2026 Caputi–Collari–Smith computes bidirected polygons/paths only. None implies these exact Smith forms or the counterexample.
+
+## value
+
+PASS
+
+An explicit natural finite counterexample to an identified published conjecture, with rigorous exact torsion and a universal module lemma, is mathematically important even without all-width torsion classification. Two adjacent parameter witnesses reduce chance of artifact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

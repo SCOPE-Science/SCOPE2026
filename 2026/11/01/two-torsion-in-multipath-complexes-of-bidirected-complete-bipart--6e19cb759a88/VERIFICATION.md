@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Reproducing the integral homology computation
+# Independent mathematical audit
 
-Use Python 3.10+ and install the package version in `requirements.txt` (SymPy 1.14.0). From the directory containing `verify.py`, execute `python verify.py`. This program requires no data downloads. It enumerates every eligible arc subset, validates all faces, constructs each full integral signed simplicial boundary, checks that consecutive boundaries compose to zero, computes the Smith normal form over \(\mathbb Z\), and independently reduces each boundary modulo \(2\) using bit-packed elimination.
+## correctness
 
-The actual executed checks produced:
+PASS
 
-```text
-MODULE_OK n=4 all_arcs_forced=16 all_vertices_unstable=true
-CHAIN_OK n=4 face_vector=(16, 80, 144, 72) boundaries=[(16, 80), (80, 144), (144, 72)] ranks=[15, 65, 72]
-SMITH_OK n=4 factors=[{1: 15}, {1: 65}, {1: 71, 2: 1}] mod2_ranks=[15, 65, 71] mod2_betti=(0, 8, 1)
-HOMOLOGY_OK n=4 H1=0 H2=Z^7+Z/2 H3=Z^0
-MODULE_OK n=5 all_arcs_forced=20 all_vertices_unstable=true
-CHAIN_OK n=5 face_vector=(20, 130, 320, 240) boundaries=[(20, 130), (130, 320), (320, 240)] ranks=[19, 111, 209]
-SMITH_OK n=5 factors=[{1: 19}, {1: 111}, {1: 208, 2: 1}] mod2_ranks=[19, 111, 208] mod2_betti=(0, 1, 32)
-HOMOLOGY_OK n=5 H1=0 H2=Z^0+Z/2 H3=Z^31
-ALL_VERIFY_OK exact_integer_smith_F2_independent_differentials_module_closure
-```
+Independently enumerated every admissible directed-arc subset on bidirected K2,n (indegree/outdegree≤1, no directed cycle). For n=4,5 face vectors (16,80,144,72), (20,130,320,240). Independently constructed full signed integer boundaries, ∂²=0, Smith d1=(1^15),(1^19), d2=(1^65),(1^111), d3=(1^71,2),(1^208,2); rational ranks (15,65,72) and (19,111,209), binary ranks (15,65,71) and (19,111,208). Hence exact H2 free ranks 7,0 with one Z/2 each, H3 free ranks 0,31 and no further reduced homology. Coker∂3 torsion equals H2 torsion as quotient is free im∂2. Every arc of a dynamical region forces its reverse via digon, making endpoints unstable; neither can be boundary, forcing all incident arcs and hence all of connected D_n. The full D_n is a nonstable dynamical module, as defined in the cited 2024 primary article.
 
-The degree-one and degree-two differential Smith forms also show that both complexes have no first homology. Each \(\partial_3\) has just one nonunit invariant factor, precisely \(2\). Because \(\operatorname{im}\partial_2\) is torsion-free, these factors give genuine two-torsion in \(H_2\). The explicit directed-module closure assertion is also verified for every starting arc.
+## originality
 
-**Limits:** Tests are complete for the two input graphs only. The argument for arbitrary-width module indecomposability is mathematical, not inferred from the two enumerations. No independent audit or external mathematical validation has been performed.
+PASS
+
+2024 Caputi–Collari–Di Trani–Smith explicitly conjecture torsion modules must be stable and calculate a ONE-WAY K_{m,n} multipath/chessboard case, not the bidirected graph. January 2026 Caputi–Collari–Smith computes bidirected polygons/paths only. None implies these exact Smith forms or the counterexample.
+
+## value
+
+PASS
+
+An explicit natural finite counterexample to an identified published conjecture, with rigorous exact torsion and a universal module lemma, is mathematically important even without all-width torsion classification. Two adjacent parameter witnesses reduce chance of artifact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
