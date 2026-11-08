@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T17:53:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Laplacian decomposes into constants, block-average contrasts with eigenvalue 1, within-block contrasts with eigenvalue m+1, and a radial hub eigenvalue rm+1, accounting for all 1+rm dimensions including m=1. The evolved signed hub-minus-leaf distribution is explicit; for any other leaf in the chosen blade its signed mass is nonpositive because rz-(r-1)-z^r<=0 for z=e^-mt in [0,1]. All positive mass lies at hub and other blades, and all negative mass in chosen blade, producing a transport of cost C(t) using distances 1 and 2. A 1-Lipschitz potential 0/1/2 for chosen blade/hub/other blades attains the exact dual lower bound. Every graph edge is either hub-leaf or within-blade; a within-blade difference decays e^{-(m+1)t}, no larger than C(t). Thus exact global W1 norm follows for arbitrary input measures. Derivative of two-exponential expression proves unique maximum if m(r-2)>1 and strict contraction otherwise; graph spectral gap 1. Independent graph-built Q, scipy expm and LP W1 for r=2..5,m=1..3 and four times yielded 48 independent correct hub-edge and within-blade comparisons. This is a general all-integer/time proof plus finite corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kooij 2019 Theorem 8 calculates eigenvalues 0,1,m+1,rm+1 for l=1,eta=r,k=m.",
+          "General curvature and coupling theorems bound transport, but do not compute the sharp time function on this graph."
+        ],
+        "reasoning": "The eigenvalues alone do not identify the W1-maximizing hub-edge transport coupling or prove the phase diagram. No inspected stronger theorem establishes exact coefficient for all r,m,t.",
+        "searches": [
+          "Kooij On generalized windmill graphs Theorem 8",
+          "Münch Wojciechowski arxiv:1712.00875",
+          "Pedrotti arxiv:2308.00516 continuous-time coupling"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and CHECK.py",
+        "Kooij full Green OA paper Theorem 8 and scope",
+        "Münch and Wojciechowski arxiv:1712.00875 main semigroup theorem",
+        "Pedrotti arxiv:2308.00516 abstract",
+        "Lin and You arxiv:2410.21887 normalized friendship curvature background",
+        "Resultary Q5 and secondary semantic comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kooij spectral formula supplies eigenvalues but not the signs of the evolved hub-leaf signed measure, required for exact W1.",
+          "Münch–Wojciechowski relates initial curvature to exponential bounds, not the nonmonotone sharp C(t) under negative curvature."
+        ],
+        "reasoning": "Neither eigenvalues nor infinitesimal curvature entail the 0/1/2 transport plan, unique global peak, and nonexpansive parameter classification.",
+        "searches": [
+          "Kooij Theorem 8 eigenvalue list",
+          "Münch Wojciechowski Theorem 3.8",
+          "Lin You arxiv:2410.21887 friendship curvature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Global W1 contraction equals the operator Lipschitz seminorm of e^{-tL}, and for shortest-path graphs it is the maximum edge-Dirac W1 amplification.",
+          "Friendship graphs correspond to m=2, whereas normalized Ricci curvature is a different generator."
+        ],
+        "reasoning": "The dual equivalence is general; the equal-blade spectral/transport calculation is the new exact part. Normalized friendship curvature does not transfer to unnormalized all-time norm.",
+        "searches": [
+          "windmill friendship graph Wasserstein one heat flow Lipschitz amplification unnormalized Laplacian",
+          "\"windmill\" \"Wasserstein\" heat semigroup Laplacian",
+          "\"friendship graph\" Ollivier curvature unnormalized generator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kooij table reports spectral and structural graph invariants, not W1 transport norm.",
+          "Resultary related records concern numerical indices and separate Lipschitz-free space invariants, not a heat-semigroup norm."
+        ],
+        "reasoning": "No matching time-profile table was found; the absence of an indexed match is not a novelty guarantee.",
+        "searches": [
+          "windmill friendship graph Wasserstein one heat flow Lipschitz amplification unnormalized Laplacian",
+          "Resultary windmill friendship graph Wasserstein one heat flow Lipschitz amplification unnormalized Laplacian",
+          "Kooij 2019 generalized windmill spectrum table",
+          "Resultary Lipschitz-free operator semigroup on friendship graphs curvature"
+        ]
+      },
+      "rationale": "Kooij 2019 Theorem 8 gives Laplacian eigenvalues on generalized windmills, explicitly credited; it does not study W1 heat transport operator norms. Münch–Wojciechowski provides the general equivalence between curvature and heat Lipschitz behavior, but no exact windmill all-time formula or phase transition. Degree-normalized Lin–Lu–Yau curvature on friendship graphs uses a different operator. The exact full semigroup norm and sharp threshold survive comparison.",
+      "residual_risks": [
+        "A historical exact heat W1 norm for friendship/windmill graphs could appear under Ollivier or Lipschitz-operator terminology in literature not inspected.",
+        "Kooij PDF page visual inspection timed out; selected theorem text was readable and consistent with independently reconstructed eigenvectors.",
+        "Pedrotti full paper was not inspected; abstract-level noncoverage is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_SPECTRUM_ONLY",
+          "evidence": "Theorem 8 gives spectrum {0^1,1^(r-1),(m+1)^(r(m-1)),(rm+1)^1}; no Wasserstein or semigroup operator-norm theorem in this inspected primary text.",
+          "identifier_or_url": "https://pure.tudelft.nl/ws/portalfiles/portal/102441316/1_s2.0_S0024379518305482_main.pdf",
+          "material_read": "Full-text Introduction, Section 2.3 Theorem 8 (Laplacian spectrum) and associated proof, document scope for other graph metrics",
+          "method": "Lawful TU Delft Green OA full PDF extracted scientific text; page-image rendering attempted but timed out",
+          "title": "On generalized windmill graphs",
+          "trigger": "Same graph family and potentially dominating invariant"
+        },
+        {
+          "assessment": "GENERAL_NOT_EXACT_WINDMILL",
+          "evidence": "No all-time explicit W1 profile or windmill case is stated.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.00875",
+          "material_read": "Theorem 3.8 semigroup-Lipschitz equivalence and curvature formulations",
+          "method": "Accessible primary text via ResearchGate manuscript",
+          "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+          "trigger": "General heat contraction/coupling could imply local bounds"
+        },
+        {
+          "assessment": "INCOMPLETE_FULL_TEXT_CHECK",
+          "evidence": "Full text not inspected; residual risk for a general coupling formula that implies this case.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.00516",
+          "material_read": "Abstract and theorem-scope overview on continuous-time coupling",
+          "method": "arXiv abstract and metadata only",
+          "title": "Contractive coupling rates and curvature lower bounds for Markov chains",
+          "trigger": "Potential broader exact coupling theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This exact graph-family W1 norm has transient >1 amplification in finite, reversible, spectrally-gapped networks; the sharp r,m phase classification and explicit peak provide a natural transport counterexample/benchmark for curvature and mixing theory.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and CHECK.py",
+    "Kooij full Green OA paper Theorem 8 and scope",
+    "Münch and Wojciechowski arxiv:1712.00875 main semigroup theorem",
+    "Pedrotti arxiv:2308.00516 abstract",
+    "Lin and You arxiv:2410.21887 normalized friendship curvature background",
+    "Resultary Q5 and secondary semantic comparisons"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A historical exact heat W1 norm for friendship/windmill graphs could appear under Ollivier or Lipschitz-operator terminology in literature not inspected.",
+    "Kooij PDF page visual inspection timed out; selected theorem text was readable and consistent with independently reconstructed eigenvectors.",
+    "Pedrotti full paper was not inspected; abstract-level noncoverage is not claimed."
+  ],
+  "schema_version": 1,
+  "scientific_limitations": "Equal blade sizes m>=1 and count r>=2, unit edge lengths/rates, unnormalized heat flow, graph shortest-path W1, finite networks."
+}

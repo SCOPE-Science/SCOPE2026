@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement concerns every integer \(r\geq2\), \(m\geq1\), every real \(t\geq0\), the unit-edge unnormalized combinatorial Laplacian and graph-distance Wasserstein-one for arbitrary probability laws. The proof verifies the four invariant spectral subspaces and the exact hub-minus-leaf heat vector. Its crucial sign inequality \(rz-(r-1)-z^r\leq0\) on \(0\leq z\leq1\) is elementary and covers the boundary case \(m=1\); a matching explicit transportation plan and Lipschitz witness give equality. The Dirac-edge reduction proves the global probability-pair norm. Differentiation gives the full contractivity classification and unique amplified peak, without extrapolating finite computations to all graph sizes. The included checker independently compares matrix exponentials against transport linear programs on a finite test grid.
+PASS
 
-## Originality — PASS, with historical-priority limitation
+The Laplacian decomposes into constants, block-average contrasts with eigenvalue 1, within-block contrasts with eigenvalue m+1, and a radial hub eigenvalue rm+1, accounting for all 1+rm dimensions including m=1. The evolved signed hub-minus-leaf distribution is explicit; for any other leaf in the chosen blade its signed mass is nonpositive because rz-(r-1)-z^r<=0 for z=e^-mt in [0,1]. All positive mass lies at hub and other blades, and all negative mass in chosen blade, producing a transport of cost C(t) using distances 1 and 2. A 1-Lipschitz potential 0/1/2 for chosen blade/hub/other blades attains the exact dual lower bound. Every graph edge is either hub-leaf or within-blade; a within-blade difference decays e^{-(m+1)t}, no larger than C(t). Thus exact global W1 norm follows for arbitrary input measures. Derivative of two-exponential expression proves unique maximum if m(r-2)>1 and strict contraction otherwise; graph spectral gap 1. Independent graph-built Q, scipy expm and LP W1 for r=2..5,m=1..3 and four times yielded 48 independent correct hub-edge and within-blade comparisons. This is a general all-integer/time proof plus finite corroboration.
 
-The all-time \(W_1\) norm is not a windmill Laplacian spectrum calculation, a curvature lower bound or a previously established all-time expression in the inspected sources. Kooij (2018 online, Theorem 8) computes a known Laplacian spectrum for generalized windmills, but does not compute this induced transport norm. Münch–Wojciechowski (2017, Theorems 3.8 and 5.8) characterize graph coarse curvature by infinitesimal heat transport and provide gradient implications, not exact finite-time windmill coefficients. Pedrotti (2023, Section 5) gives general continuous-time curvature/coupling tools and other chain applications rather than the displayed windmill family formula. Lin–You (2024) analyze degree-normalized Lin–Lu–Yau curvature, a distinct operator and invariant. Literature searches and comparisons do not logically prove world-wide priority: equivalent older formulas using aliases such as friendship graphs, bouquets of cliques, or coupling rates remain a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The all-parameter identity is a sharp induced transport norm on a natural infinite family of finite reversible, spectrally gapped semigroups. It completely classifies when graph-distance \(W_1\) temporarily amplifies, identifies the unique worst time and exact peak, and shows a nontrivial cancellation of the within-clique spectral mode. The critical phase line and the size limits are motivated as quantitative limits of coarse curvature bounds rather than arbitrary numerical slices.
+Kooij 2019 Theorem 8 gives Laplacian eigenvalues on generalized windmills, explicitly credited; it does not study W1 heat transport operator norms. Münch–Wojciechowski provides the general equivalence between curvature and heat Lipschitz behavior, but no exact windmill all-time formula or phase transition. Degree-normalized Lin–Lu–Yau curvature on friendship graphs uses a different operator. The exact full semigroup norm and sharp threshold survive comparison.
 
-## Limitations
+## value
 
-The result does not cover nonuniform blade sizes, weighted edges, degree-normalized Laplacians, \(W_p\) with \(p\ne1\), or infinite graphs. There has been no independent proof audit or comprehensive historical-priority certification. The numerical checker is supplementary, not a replacement for an infinite-family argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This exact graph-family W1 norm has transient >1 amplification in finite, reversible, spectrally-gapped networks; the sharp r,m phase classification and explicit peak provide a natural transport counterexample/benchmark for curvature and mixing theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
