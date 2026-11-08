@@ -1,11 +1,21 @@
-# Review: exact dyadic additive energy of evil numbers
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof is an exact four-carry-state finite automaton enumeration of ordinary integer equalities; the six mask-orbit resolvents imply the infinite rational generating function. The proof, not the finite test counts, supplies the unbounded quantifier. The included executable directly checks the rational generating functions against exact matrix coefficients and uses a structurally independent integer-convolution count.
+## correctness
 
-**Originality — PASS within identified evidence.** The 2021 Shparlinski–Thuswaldner work defines the target digit-restricted set and studies Weyl estimates. Aistleitner–Larcher 2016 gives maximal-order additive energy for evil numbers, without the exact dyadic generating function. The Mauduit–Montgomery–Rivat signed fourth moment is known and **explicitly not claimed new**; the present classification requires all mixed-mask correlations. The closest published mathematical claims concern different finite groups or signed coefficients, not this integer-sum invariant. The 2018 full publisher text could not be inspected and implicit previous coverage is a genuine risk. Different wording alone is not evidence of novelty.
+PASS
 
-**Value — PASS.** The integer additive energy is mathematically motivated by Fourier fourth moments and additive combinatorics. The exact every-scale formula and nontrivial secondary spectral coefficient substantially refine the previously cited cubic-order statement; this is not a narrow unmotivated census or simple parameter substitution.
+Expand four characteristic functions as 16 products of 0/1 Thue-Morse signs and keep two binary-addition carry states on each side. Equality of ordinary integer sums requires final carries equal, producing e_00^T M_mask^r (e_00+e_11) with four-state signed matrices. Permutations of inputs/sides reduce 16 masks to orbits of sizes 1,4,2,4,4,1; exact matrix resolvents yield denominators (1-2z)(1-8z), 1, 1+2z, 1-2z, 1-8z² and 1-2z-16z². Combining weights gives the stated GF, coefficient formula and dominant secondary root 1+sqrt17; sqrt17-1 > sqrt8 bounds other terms. Independently reconstructed all six matrix resolvents symbolically, six orbit sizes and direct integer-sum additive energies for r=0..10. r=0,1,2 treated separately; full integer, not modulo, sums.
 
-**Limits:** Dyadic prefixes and parity-two classes only. No new assertion about arbitrary prefixes, higher moments, or discrepancy rates. Independent validation is absent. The 2018 full-text gap remains unresolved and merits outside bibliographic review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact signed fourth moment is prior work, but evil-set indicator energy includes constant, one-, two-, three-sign correlation sectors. The precise six-orbit mixture and secondary coefficient are distinct from the available signed-only formula and previous maximal-order estimate. The directly relevant 2018 journal article was not fully inspected because institutional VPN access failed; residual coverage risk is genuine and not automatic failure.
+
+## value
+
+PASS
+
+The explicit all-r additive-energy law for a central automatic number set resolves the exact count and nontrivial sharp secondary spectral growth, strengthening known order-of-magnitude information; it is a motivated exact arithmetic invariant rather than a numeric experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
