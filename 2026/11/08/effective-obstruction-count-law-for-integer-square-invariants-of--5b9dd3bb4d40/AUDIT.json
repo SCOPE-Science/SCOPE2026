@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Explicit local Haar computations yield q2=1/48 and q_p=1/[2p(p+1)]; CRT gives exact independence on finite modulus. Uniform residue error M/X, high-prime square-divisor error O(1/Y), and high-valuation error O(2^-2L) prove total-variation discrepancy O(loglog X/log X). The claimed equivalence with the recurrence invariant uses cited published Theorem C. Exact Python checks support the algebra without replacing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Micheli–Schraven–Tinani–Weger (2023), Theorem 2.2, reproduces the Poonen–Stoll general product law under a large-prime tail condition.",
+        "Theorem 2.2 is qualitative; no rate in the modulus cutoff is stated there."
+      ],
+      "reasoning": "The general theorem dominates the qualitative Bernoulli-independence portion, and the current work makes no novelty claim for that abstract principle. Exact evaluated special-purpose factors and the explicit O(loglog X/log X) total-variation estimate do not follow as an explicit statement or quantitative bound from the inspected theorem.",
+      "searches": [
+        "geometric sieve over number fields for higher moments",
+        "limiting number of prime-local inertness obstructions in quadratic squares of rational recurrences natural density generating function",
+        "doi:10.1007/s40993-023-00466-6"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.00765v1",
+      "doi:10.1007/s40993-023-00466-6",
+      "Published scientific finding search (query variants summarized in exact-comparison checks)",
+      "Earlier scientific claim (opaque ID 86147800-c0ff-4276-a9de-111e25fa04e0)",
+      "Previous mathematical claims compared by title and proposition only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier claim 86147800-c0ff-4276-a9de-111e25fa04e0 fixes h and studies the count of failed indices in b_n+(2/h)a_n as starting values vary.",
+        "This theorem instead varies k and counts obstructing primes to integrality of b_n^2-4a_n^2/k across all starts."
+      ],
+      "reasoning": "Neither random variable nor sample space is the same: the earlier theorem provides no exact frequency of k and no effective total variation for prime obstruction counts. The source local criterion plus the generic sieve qualitatively imply independence; the new content is evaluated factors and the quantitative rate.",
+      "searches": [
+        "arxiv:2610.00765v1",
+        "doi:10.1007/s40993-023-00466-6",
+        "86147800-c0ff-4276-a9de-111e25fa04e0",
+        "Natural density Euler product of integer parameters k where b_n squared minus four a_n squared divided by k is integer perfect square in reciprocal-sum sequences with x_(n+1)=k/sum x_i"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source Theorem C provides the same all-start integral-square invariant but only a parameterwise inertness criterion.",
+        "Source examples report 98 non-universal parameters through 1000; no distribution of k by obstruction count or effective total variation given."
+      ],
+      "reasoning": "The integer-square predicate is exactly the zero-obstruction event under the published criterion, but its parameterwise characterization does not contain the evaluated Bernoulli factors, an entire distribution, or a quantitative global frequency error.",
+      "searches": [
+        "reciprocal-sum sequences x_{n+1}=k/(x_0+...+x_n) integral square invariant b_n^2-4a_n^2/k distribution natural density admissible parameters Legendre symbol Euler product",
+        "Natural density Euler product of integer parameters k where b_n squared minus four a_n squared divided by k is integer perfect square in reciprocal-sum sequences with x_(n+1)=k/sum x_i",
+        "Matijasevick Rodriguez Salazar recurrence square-invariant local failure count distribution Poisson binomial prime p 1/(2p(p+1)) 2 prime 1/48",
+        "arxiv:2610.00765v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest identified Euler-factor result concerns a multivariable gcd-map unrelated to reciprocal sums.",
+        "A probabilistic Bernoulli classification is about rare pairwise-independent arrays, not integer-square recurrence criteria."
+      ],
+      "reasoning": "No exact specialized factors q_2=1/48, q_p=1/[2p(p+1)], or global defect distribution were seen in these nearest records or indexed sources. Search absence alone is not proof of novelty.",
+      "searches": [
+        "density of integers k with for each odd prime p v_p(k) even positive and -k/p^{v_p(k)} quadratic nonresidue; 2-adic constraint; Euler product",
+        "Matijasevick Rodriguez Salazar recurrence square-invariant local failure count distribution Poisson binomial prime p 1/(2p(p+1)) 2 prime 1/48",
+        "published finding record fe7d873016df",
+        "published finding record 81d03613e25b"
+      ]
+    },
+    "rationale": "The exact specialized factors and absolute effective rate were not found in source, closest original records, or inspected general sieve theorem. The qualitative independent product law is a known consequence of Poonen–Stoll and is expressly not claimed new. Priority risk remains from possible equivalent effective specializations; search nonhits are not novelty certificates.",
+    "residual_risks": [
+      "An earlier specialization of an effective p-adic sieve could imply the total-variation estimate.",
+      "The result is contingent on the published Theorem C criterion; that earlier science was not independently audited here.",
+      "The stated rate is not asserted sharp."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers local criterion but not the parameter distribution or effective bound",
+        "evidence": [
+          "Theorem C: inertness characterization of invariant b_n²-4a_n²/k; 98 exceptions in k≤1000."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.00765",
+        "material_read": "v1 full HTML source, theorem and relevant proof discussion and examples",
+        "method": "Full-text theorem/criterion and sample comparison",
+        "title": "Perfect squares in reciprocal-sum sequences and primes that are inert in quadratic fields",
+        "trigger": "Identical recurrence and integer-square criterion"
+      },
+      {
+        "assessment": "General theorem already supplies the qualitative product measure given conditions; this candidate adds evaluated recurrence-specific local factors and effective total-variation rate",
+        "evidence": [
+          "Theorem 2.2 yields product probabilities for finite prime-sets under upper-density tail; no quantitative TV estimate in stated theorem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40993-023-00466-6",
+        "material_read": "Open-access HTML Introduction, Theorem 2.2 and Sections 2–3 outlining higher moments",
+        "method": "Compare exact quantifiers, qualitative product law and need for effective finite-sample estimates",
+        "title": "Geometric sieve over number fields for higher moments",
+        "trigger": "Potential general domination of independent-prime density law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5b9dd3bb-4d40-4416-9184-3b0a364c15d9",
+  "value": {
+    "rationale": "The published parameter criterion invites a natural prevalence question. Here the complete frequency law and exact obstruction-count probabilities for a full unrestricted integer parameter family are obtained with an explicit absolute effective total-variation rate. The result quantifies the source’s illustrative finite census and exposes its prime-wise arithmetic structure; not a microscopic parameter slice.",
+    "status": "PASS"
+  }
+}
