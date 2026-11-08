@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3. The script uses only the standard library, constructs each weight-one strand as a literal binary word, and pools the actual prefix and suffix of length one less than the word. It groups source multisets by the exact sorted multiset of read strings and verifies the full predicted fiber histogram and maximum fiber size.
+## correctness
 
-Executed result:
+PASS
 
-```
-VERIFY_OK parameter_pairs=63 source_multisets=19440 distinct_profiles_accumulated=19209 method=literal_nminus1_factor_multisets
-```
+Each weight-one strand with its 1 at i emits prefix/suffix length n-1 reads, so pooled labelled read-word multiplicities satisfy y_j=x_j+x_(j+1), with all-zero count fixed by k. The integer kernel is z_i=(-1)^(i-1)t. For odd n, fixed sum k forces t=0; for even n=2m fibers are integer translates with a unique representative of min odd coordinate zero. For size>=s, subtract s-1 from all m even coordinates and require at least one odd coordinate zero: T_s=B_n(k-m(s-1))-B_n(k-ms). Thus H(s)=T_s-T_(s+1), total R=B_n(k)-B_n(k-m), largest fiber 1+floor(k/m), first ambiguity at k=m one double fiber. For k growing, finite binomial difference gives R~m*k^(n-2)/(n-2)!. Independent literal-read multisets checked 42 n,k pairs (n=2..8,k=0..5) and n=4,k=4 histogram 16 singletons,8 doubles,1 triple.
 
-The exhaustive finite ranges are \(2\le n\le10\) and \(0\le k\le6\), covering 63 choices of parameters. They cannot establish infinite validity. The proof in `RESULT.md` supplies the all-parameter argument through exact read counts, integer-kernel classification, canonical representatives and binomial counting. No independent scientific audit has been performed.
+## originality
+
+PASS
+
+Yehezkeally–Marcovich–Yaakobi study general pooled multi-strand substring read models and code-rate constructions but the inspected finite-parameter theorems do not give the weight-one n-1 read entire fiber distribution. Single-strand two-read or shorter adjacent-pair spectrum classes and prefix/suffix composition models are distinct. Exact alternating incidence-kernel rank is elementary, yet full finite fiber histogram, sharp parity threshold and code capacity are specific new observations; qualified priority.
+
+## value
+
+PASS
+
+Precisely identifies when pooled longest reads lose reconstructibility and how many source multisets are confusable at every finite size, delivering exact zero-error code size and a natural parity obstruction for a standard sparse DNA-storage channel. A complete distribution, not an arbitrary small-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

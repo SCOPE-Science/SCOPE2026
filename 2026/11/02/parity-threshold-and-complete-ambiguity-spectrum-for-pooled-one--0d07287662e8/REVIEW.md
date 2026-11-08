@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-weight-one pool is bijective with weak compositions of the pool size into \(n\) marker positions. Literal reads yield precisely the adjacent sums \(y_j=x_j+x_{j+1}\), with the all-zero-read multiplicity determined by total pool size. The alternating kernel is exhaustive. Its sum vanishes exactly at even strand lengths, yielding the parity distinction. Canonical representatives of even-length fibers have minimum odd coordinate zero, and a shifted stars-and-bars count gives every exact fiber multiplicity. The constructive maximum and threshold are sharp, including the boundaries \(k=0\) and \(n=2\). The standalone literal-read enumeration checks all 63 prescribed finite cases, but only the proof establishes the infinite statements.
+PASS
 
-## Originality — PASS (qualified)
+Each weight-one strand with its 1 at i emits prefix/suffix length n-1 reads, so pooled labelled read-word multiplicities satisfy y_j=x_j+x_(j+1), with all-zero count fixed by k. The integer kernel is z_i=(-1)^(i-1)t. For odd n, fixed sum k forces t=0; for even n=2m fibers are integer translates with a unique representative of min odd coordinate zero. For size>=s, subtract s-1 from all m even coordinates and require at least one odd coordinate zero: T_s=B_n(k-m(s-1))-B_n(k-ms). Thus H(s)=T_s-T_(s+1), total R=B_n(k)-B_n(k-m), largest fiber 1+floor(k/m), first ambiguity at k=m one double fiber. For k growing, finite binomial difference gives R~m*k^(n-2)/(n-2)!. Independent literal-read multisets checked 42 n,k pairs (n=2..8,k=0..5) and n=4,k=4 histogram 16 singletons,8 doubles,1 triple.
 
-The nearest direct model is Yehezkeally–Marcovich–Yaakobi's 2021 multi-strand substring-profile work (arXiv:2108.11725), whose accessible definitions, bounds and constructions were examined. It does not state a one-marker, longest-proper-read exact fiber spectrum or finite-parameter optimal codebook count. The 2022 generalized study (arXiv:2210.04471) likewise treats rate and repeat-free families. The 2023 random-source threshold paper (arXiv:2305.05820) uses a Bernoulli sequence ensemble and logarithmic read lengths. The 2024 constant-weight multi-strand result (arXiv:2411.03776) studies compositions of prefixes and suffixes of all lengths and uniqueness modulo reversal, a different channel. A further single-string multispectrum paper (arXiv:1804.04548) and pooled prefix/suffix composition paper (arXiv:2110.02352) do not imply these counts as stated. Search comparisons of statement, alias, stronger coverage and table quantities found no controlling exact theorem. Residual risk: an equivalent path-incidence fiber enumeration may be hidden in earlier mathematical literature; novelty is not established by search absence alone.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The longest proper read is the maximal informative but nontrivial read length, and the one-marker restriction is a natural sparse-source benchmark for joint decoding. Unlike an isolated small calculation, the result gives a sharp complete parity transition, all fiber-size multiplicities, a maximal inverse-list bound and the exact maximum zero-error code size for every positive strand length and pool size. It quantifies how information is lost through pooling despite nearly full-length observations; for even length the number of distinguishable pools is asymptotically one polynomial degree below the number of possible pools. These are natural finite-parameter invariants of the specified observation channel, not arbitrarily selected data points.
+Yehezkeally–Marcovich–Yaakobi study general pooled multi-strand substring read models and code-rate constructions but the inspected finite-parameter theorems do not give the weight-one n-1 read entire fiber distribution. Single-strand two-read or shorter adjacent-pair spectrum classes and prefix/suffix composition models are distinct. Exact alternating incidence-kernel rank is elementary, yet full finite fiber histogram, sharp parity threshold and code capacity are specific new observations; qualified priority.
 
-## Scope and limitations
+## value
 
-Noiseless oriented string reads with multiplicities; strand weight one; no claims about shorter reads, errors, different alphabets, or unlabeled read orientation. Prior-work matching is qualified by the possibility of an unindexed equivalent graph-incidence statement. The verification program is exhaustive only in its finite parameter range, and mathematical proof is required for all lengths.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Precisely identifies when pooled longest reads lose reconstructibility and how many source multisets are confusable at every finite size, delivering exact zero-error code size and a natural parity obstruction for a standard sparse DNA-storage channel. A complete distribution, not an arbitrary small-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

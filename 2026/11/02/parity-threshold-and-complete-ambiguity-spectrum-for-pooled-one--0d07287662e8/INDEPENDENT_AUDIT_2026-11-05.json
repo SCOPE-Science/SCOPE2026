@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T20:13:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each weight-one strand with its 1 at i emits prefix/suffix length n-1 reads, so pooled labelled read-word multiplicities satisfy y_j=x_j+x_(j+1), with all-zero count fixed by k. The integer kernel is z_i=(-1)^(i-1)t. For odd n, fixed sum k forces t=0; for even n=2m fibers are integer translates with a unique representative of min odd coordinate zero. For size>=s, subtract s-1 from all m even coordinates and require at least one odd coordinate zero: T_s=B_n(k-m(s-1))-B_n(k-ms). Thus H(s)=T_s-T_(s+1), total R=B_n(k)-B_n(k-m), largest fiber 1+floor(k/m), first ambiguity at k=m one double fiber. For k growing, finite binomial difference gives R~m*k^(n-2)/(n-2)!. Independent literal-read multisets checked 42 n,k pairs (n=2..8,k=0..5) and n=4,k=4 histogram 16 singletons,8 doubles,1 triple.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2108.11725 Section III rate bounds and Section IV code construction; arXiv:2110.02352 concerns composition multisets, not literal ordered length-(n-1) reads."
+        ],
+        "reasoning": "General models contain a special input class, but conclusions shown are not dominating exact finite multiset fiber distributions.",
+        "searches": [
+          "Resultary semantic search: multistrand pooled n-1 substring spectrum one marker weight one exact reconstruction ambiguity parity",
+          "multi-strand reconstruction substring full profile rate bound trace reconstruction; fixed-weight prefix suffix composition"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2108.11725",
+        "https://arxiv.org/abs/2210.04471",
+        "https://arxiv.org/abs/2305.05820",
+        "https://arxiv.org/abs/2110.02352",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing general code rates or unique reconstruction existence does not determine R=B_n(k)-B_n(k-m) or H(s). A separate alternating nonnegative integer-kernel enumeration is needed."
+        ],
+        "reasoning": "The zero-error capacity here follows from the new exact collision partition, not directly from a published asymptotic lower bound.",
+        "searches": [
+          "Resultary semantic search: multistrand pooled n-1 substring spectrum one marker weight one exact reconstruction ambiguity parity",
+          "general multistrand unique reconstruction code capacity asymptotic bound imply sharp exact n-1 one marker count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General multistrand spectrum model in Yehezkeally et al. contains these sparse inputs, but published theorem statements give rates rather than exact fiber sizes."
+        ],
+        "reasoning": "The alternating nullspace is a familiar linear-algebra kernel; its nonnegative lattice-orbit histogram is the added conclusion.",
+        "searches": [
+          "Resultary semantic search: multistrand pooled n-1 substring spectrum one marker weight one exact reconstruction ambiguity parity",
+          "multistrand constant weight one last substring length n-1 integer incidence path nullspace"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary binary adjacent-pair multispectrum paper computes k=2 read-length two spectra of a single strand, not pooled longest proper reads of k weight-one strands."
+        ],
+        "reasoning": "No prior exact all-n all-k fiber table established by inspected sources; direct finite tests are original checks, not novelty evidence.",
+        "searches": [
+          "Resultary semantic search: multistrand pooled n-1 substring spectrum one marker weight one exact reconstruction ambiguity parity",
+          "one marker n-1 pooled read ambiguity table source multisets odd even"
+        ]
+      },
+      "rationale": "Yehezkeally–Marcovich–Yaakobi study general pooled multi-strand substring read models and code-rate constructions but the inspected finite-parameter theorems do not give the weight-one n-1 read entire fiber distribution. Single-strand two-read or shorter adjacent-pair spectrum classes and prefix/suffix composition models are distinct. Exact alternating incidence-kernel rank is elementary, yet full finite fiber histogram, sharp parity threshold and code capacity are specific new observations; qualified priority.",
+      "residual_risks": [
+        "Alternate integer transportation/adjacent-sum fiber enumeration may already yield the complete formula.",
+        "No noisy, missing read, nonbinary, other strand weights, orientation-erased or shorter-read claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The framework and asymptotic construction are prior; inspected results do not give this exact constant-weight-one finite-fiber census.",
+          "evidence": "Section III general rate bound and Section IV construction operate beyond n-1 sparse fiber counting.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.11725",
+          "material_read": "Read full six-page primary PDF, especially Section III bounds and Section IV code constructions; inspected PDF page image",
+          "method": "Primary full PDF and relevant page image",
+          "title": "Multi-strand Reconstruction from Substrings",
+          "trigger": "Introduces the same pooled multispectrum framework"
+        },
+        {
+          "assessment": "Uses symbol compositions with different read equivalence, so cannot assert direct coverage; full work priority risk remains",
+          "evidence": "Composition observations discard literal positions, whereas current observation records each word in order.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.02352",
+          "material_read": "Read abstract and indexed problem specification, full text not verified",
+          "method": "Abstract/index only",
+          "title": "Reconstruction of Sets of Strings from Prefix/Suffix Compositions",
+          "trigger": "Potential identical-looking prefix/suffix input terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Precisely identifies when pooled longest reads lose reconstructibility and how many source multisets are confusable at every finite size, delivering exact zero-error code size and a natural parity obstruction for a standard sparse DNA-storage channel. A complete distribution, not an arbitrary small-instance computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2108.11725",
+    "https://arxiv.org/abs/2210.04471",
+    "https://arxiv.org/abs/2305.05820",
+    "https://arxiv.org/abs/2110.02352",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+  ],
+  "disposition": "passed",
+  "limitations": "Noiseless exact literal ordered word reads of length n-1 with known k; strands themselves an unlabeled multiset; n>=2 k>=0.",
+  "residual_risks": [
+    "Alternate integer transportation/adjacent-sum fiber enumeration may already yield the complete formula.",
+    "No noisy, missing read, nonbinary, other strand weights, orientation-erased or shorter-read claims."
+  ],
+  "schema_version": 1
+}
