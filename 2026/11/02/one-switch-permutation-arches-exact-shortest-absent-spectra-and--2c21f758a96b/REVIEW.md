@@ -1,19 +1,21 @@
-# Review of the one-switch permutation-arch theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof establishes the exact shortest-absent length by one-permutation-block embedding and the constant-letter obstruction. An explicit greedy block lemma handles strict rank ascent versus weak descent and gives both directions of the pivot characterization. Independent stars-and-bars counts yield the rank-pair sum; the strict rearrangement inequality identifies unique phase-order extrema; a factorwise strict ratio establishes the balanced split. A unique highest-degree summand proves the asymptotics. `verify.py` independently checks 768 parameter combinations and 1,245,538 candidate subsequences, constructs subsequence sets separately for 56 examples, and checks 12 extrema and 441 balancing examples. These finite checks corroborate the infinite proof, but do not replace it.
+PASS
 
-## Originality — PASS, subject to disclosed risk
+Each of k=a+b complete permutation blocks contains all q symbols, so every target length k embeds (one per block), whereas c^(k+1) is absent. In an infinite repeated permutation, leftmost greedy matching advances blocks at each weak rank descent. The two overlapping length-a+1 and length-b+1 rank-monotone conditions are necessary/sufficient for no embedding across the P^a|Q^b switch. Counting weakly decreasing choices before/after pivot c gives Σ_c binom(a+q-p(c),a)binom(b+s(c)-1,b). Strict rearrangement for decreasing A_j and increasing B_j uniquely minimizes at Q=P and maximizes at reversed order. Vandermonde gives minimum binom(a+b+q,q-1). The H_t ratio (a+t)b/((a+1)(b+t-1))>1 for b>=a+2,t>=2 proves balancing, and leading t=q summand gives k^(2q-2)/(4^(q-1)((q-1)!)²). Independent exhaustive leftmost-subsequence matching vs pivot formula for all 36 P,Q pairs with q=3,a=2,b=1 passed; these finite tests corroborate only checked parameters.
 
-The most relevant primary papers are *Absent Subsequences in Words* (arXiv:2108.13968), *Tight Bounds for the Number of Absent Subsequences* (arXiv:2407.18599) and *Efficiently Finding All Minimal and Shortest Absent Subsequences in a String* (arXiv:2504.21471). Their inspected results supply the general framework, global extremal values or enumerators for a specified input word. They do not state the complete one-switch rank-pivot classification, its arbitrary-second-order sum, strict unique conditional order extrema or the balanced degree-doubling result. Semantic research-record and literature queries identified neighboring subsequence-universality and binary extremal results but no equivalent complete statement. This is best-knowledge originality rather than a formal guarantee; the remaining risk is a hidden exact specialization in broader absent-subsequence literature.
+## originality
 
-## Value — PASS
+PASS
 
-The simplest possible nonperiodic change to fully universal permutation arches, one switch of the repeating order, has a completely classifiable forbidden shortest language. The all-parameter result exposes sharp mathematical structure: unique optimizers, a balanced phase optimum, and a change from polynomial degree \(q-1\) to degree \(2q-2\). This directly measures sensitivity of shortest missing-pattern complexity to a single ordering transition, rather than recomputing already tabulated values.
+The Kosche–Koß–Manea–Siemer full primary paper already proves general arch and concatenation characterizations for SAS, including a pivot glueing Lemma 3.17 and global alternation-based extremality. The assessed contribution is an explicitly evaluated all-parameter P^aQ^b count, strict unique conditional Q extrema and balanced fixed-total phases; those precise identities do not occur in inspected §§3–4, although several proof ingredients specialize their general lemma.
 
-## Scientific boundaries
+## value
 
-No conclusion extends to incomplete blocks, arbitrary source words, multiple switches, or independently audited priority. The counting and optimization tools used in the proof are classical.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact spectrum and optimizer among a natural low-complexity word family quantify how one order switch changes absent-sequence complexity. The sharp conditional-order and balanced-phase extrema are potentially reusable benchmarks for universality/string indexing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

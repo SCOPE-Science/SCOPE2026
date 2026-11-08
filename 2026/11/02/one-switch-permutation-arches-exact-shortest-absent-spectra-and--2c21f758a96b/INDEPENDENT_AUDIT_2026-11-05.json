@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T03:53:41.371534Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each of k=a+b complete permutation blocks contains all q symbols, so every target length k embeds (one per block), whereas c^(k+1) is absent. In an infinite repeated permutation, leftmost greedy matching advances blocks at each weak rank descent. The two overlapping length-a+1 and length-b+1 rank-monotone conditions are necessary/sufficient for no embedding across the P^a|Q^b switch. Counting weakly decreasing choices before/after pivot c gives Σ_c binom(a+q-p(c),a)binom(b+s(c)-1,b). Strict rearrangement for decreasing A_j and increasing B_j uniquely minimizes at Q=P and maximizes at reversed order. Vandermonde gives minimum binom(a+b+q,q-1). The H_t ratio (a+t)b/((a+1)(b+t-1))>1 for b>=a+2,t>=2 proves balancing, and leading t=q summand gives k^(2q-2)/(4^(q-1)((q-1)!)²). Independent exhaustive leftmost-subsequence matching vs pivot formula for all 36 P,Q pairs with q=3,a=2,b=1 passed; these finite tests corroborate only checked parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kosche Proposition 3.21 and Lemma 3.19 give global upper extremum for general fixed universality index by alternating permutations.",
+          "Their global alternating-word extremum does not imply that under the restricted family P^aQ^b the unique maximizing second order is reversed and a,b are balanced."
+        ],
+        "reasoning": "A stronger theorem in a larger admissible class does not determine a constrained-class optimal count; no direct implication was identified.",
+        "searches": [
+          "https://arxiv.org/html/2108.13968v6",
+          "shortest absent subsequence permutation arches P power Q power monotone central pivot count"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2108.13968v6",
+        "https://arxiv.org/abs/2407.18599",
+        "https://arxiv.org/abs/2504.21471"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Lemma 3.17 gives the abstract glueing identity and substantially covers the central combinatorial idea.",
+          "Strict rearrangement plus repeated-arch prefix/suffix counts and balanced-split optimization add explicit results for the one-switch family."
+        ],
+        "reasoning": "The evaluated specialized theorem is not merely a renamed global SAS maximum because the one-switch constraint excludes alternating many-block global extremizers; originality is narrow and rests on the precise sharp formulas.",
+        "searches": [
+          "https://arxiv.org/html/2108.13968v6",
+          "shortest absent subsequence permutation arches P power Q power monotone central pivot count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kosche Lemma 3.17 decomposes SAS of concatenated arch-complete words using a shared pivot.",
+          "The submitted pivot criterion is a concrete rank form for a single change of order, and the binomial count is a specialization after evaluating monotonically constrained prefixes/suffixes."
+        ],
+        "reasoning": "This is mathematical overlap, not a claim of an entirely new SAS characterization; novelty is the exact evaluated class and its order extremality.",
+        "searches": [
+          "shortest absent subsequence permutation arches P power Q power monotone central pivot count",
+          "https://arxiv.org/html/2108.13968v6",
+          "Resultary shortest absent permutation arch pivot formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "General SAS algorithms can calculate instances and Kosche gives lower bounds for alternating arches.",
+          "No explicit table of all q,a,b and P,Q order pairs or the closed minimum/maximum polynomial was found in inspected primary text."
+        ],
+        "reasoning": "An exact general algorithm is not the evaluated all-parameter extremal formula, but missing tables alone are not originality proof.",
+        "searches": [
+          "shortest absent subsequence permutation arches P power Q power monotone central pivot count",
+          "https://arxiv.org/abs/2407.18599",
+          "https://arxiv.org/html/2108.13968v6"
+        ]
+      },
+      "rationale": "The Kosche–Koß–Manea–Siemer full primary paper already proves general arch and concatenation characterizations for SAS, including a pivot glueing Lemma 3.17 and global alternation-based extremality. The assessed contribution is an explicitly evaluated all-parameter P^aQ^b count, strict unique conditional Q extrema and balanced fixed-total phases; those precise identities do not occur in inspected §§3–4, although several proof ingredients specialize their general lemma.",
+      "residual_risks": [
+        "General SAS pivot lemma gives much of the mechanism; an implicit corollary might be considered covered by a highly specialized direct substitution, priority risk.",
+        "One-switch only; not arbitrary concatenations or multi-switch block sequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General central-pivot gluing and global extremum are prior work. No inspected evaluated single-switch binomial formula or unique restricted order/split extremum.",
+          "evidence": "Lemma 3.17 iff pivot decomposition; §3 proof f_i(w_1)g_i(w_2), alternating A_k global extremality",
+          "identifier_or_url": "https://arxiv.org/html/2108.13968v6",
+          "material_read": "Full arXiv HTML article inspected, especially Definitions §2, Theorem 3.1, Lemma 3.17, Lemma 3.19, Proposition 3.21 and proofs in §3, and algorithmic §4 overview",
+          "method": "Lawful arXiv full HTML",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Very close full arch/SAS classification and concatenation lemma"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact spectrum and optimizer among a natural low-complexity word family quantify how one order switch changes absent-sequence complexity. The sharp conditional-order and balanced-phase extrema are potentially reusable benchmarks for universality/string indexing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only one transition between powers of complete permutations, q>=2 and a,b>=1.",
+    "Known general SAS gluing lemma is an important prerequisite, not claimed new.",
+    "An exact one-switch corollary could already have been recorded in broader SAS literature."
+  ],
+  "schema_version": 1
+}
