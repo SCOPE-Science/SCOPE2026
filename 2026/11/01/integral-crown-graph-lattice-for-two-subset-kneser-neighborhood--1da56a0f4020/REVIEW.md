@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The support-union adjunction is a genuine equivariant order-homotopy equivalence. The Boolean-rank complex is induced in the barycentric boundary sphere; its complement retracts equivariantly to the crown graph by a continuous positive-weight renormalization. Equivariant Alexander duality contributes the sphere's permutation-sign orientation character. The oriented graph-coboundary image is exactly the row-and-column lattice; connectedness and the unimodular spanning-tree incidence prove the rank and lack of torsion. The universal coefficient and trace arguments are exact and agree with direct and independent finite calculations.
+## correctness
 
-## Originality — PASS on the integral claim, with acknowledged risk
-The family wedge count (Nilakantan–Singh, 2018), the Kneser-to-Boolean crosscut reduction (Björner, 1995), and the characteristic-zero rank-selected Boolean representation (Hersh–Sundaram, 2026, reviewing earlier Stanley results) are already known. The published six-point rational Kneser calculation is explicitly subsumed and excluded from novelty. The distinct new claim is the *specific integral symmetric-group lattice* as a sign-twisted crown first-cohomology quotient with all row/column relations and modular reductions. Neither the general complex representation nor the isolated rational calculation determines an integral lattice. Residual risk: an equivalent integral calculation may be derivable or already recorded outside the inspected material.
+PASS
 
-## Value — PASS
-The graph-combinatorial row/column quotient is an explicit integral model for the entire natural group action for all ground-set sizes, rather than an abstract rational character. It supplies modular actions in characteristics where Specht semisimplicity fails, and it connects chromatic-topology neighborhood complexes to a concrete graph cohomology lattice. This structural equivariant statement is more informative than recomputation of the known sphere count.
+PASS: A neighborhood face is exactly a family of 2-subsets supported on ≤n-2 ground letters. The equivariant support-union and all-pairs closure maps give a homotopy equivalence to the Boolean rank-selected poset of subsets of sizes 2..n-2. This is the full induced subcomplex of the barycentric boundary of the (n-1)-simplex after deleting singleton and co-singleton vertices. The complementary induced 1-complex is precisely the crown graph and the barycentric positive-weight deformation retract is equivariant. Integral Alexander duality (ambient sphere orientation sign=sgn) gives the asserted degree shift and sign twist. The crown graph oriented incidence coboundary has image all row/column sums, one relation, primitive image and rank n²-3n+1. The standard universal coefficient theorem yields all prime reductions, and elementary cochain traces yield sgn(f²-3f+1). The n=4 discrete boundary is included.
 
-## Verification and limits
-The embedded standard-library script enumerates both original graph faces and Boolean-poset fixed chains. For all permutations on four, five, and six letters and four on seven letters, its signed trace calculations agree, and it verifies the crown connectivity and ranks. It does not certify arbitrary sizes by enumeration; the written general proof does. The complete 2018 relevant proof and key 1995 and 2026 source sections were inspected, but unindexed equivalents remain possible. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS narrowly as an explicit integral crown-cochain lattice model, not as a novel abstract S_n character or an unqualified first representation determination. Nilakantan–Singh already gives the wedge rank, and the full primary Hersh–Sundaram Proposition 4.1 identifies rank-selected Boolean homology as a ribbon Specht module (general representation result, including integral basis perspective). These prior theorems dominate rank and broad representation-theoretic descriptions but did not identify the particular sign-twisted crown graph row-column presentation or its geometric Alexander-dual map in inspected material. That distinction is narrow and a real residual near-coverage risk.
+
+## value
+
+PASS
+
+PASS with bounded scope: The explicit crown-graph cochain lattice and primitive row/column relations give a natural uniform combinatorial integer presentation of a classical rank-selected Boolean homology module, useful especially for modular actions and explicit calculations. Its contribution is a concrete equivariant Alexander-dual model, not the previously established rank, rational Specht decomposition, or abstract ribbon Specht module. This is more than merely retyping a known Betti number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
