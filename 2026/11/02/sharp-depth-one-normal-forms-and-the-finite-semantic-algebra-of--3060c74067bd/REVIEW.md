@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The propositional value tests are explicit term identities; the three modalities in the nonclassical flag are evaluated in all possible \(\{b,f\}\)-support cases. Induction shows every formula depends on a pointed atomic support, and classical-only supports force classical outputs. Complete characteristic guards and nonclassical flags construct every function meeting that restriction. Thus the counted upper bound is attained, while the conjunction of all type-existence tests forces the sharp \(4^k\)-world minimum. `checker.py` replays 1090 finite semantic checks. The infinite parameter claim rests on the symbolic proof, not the checks.
+PASS
 
-## Originality
+For k>=1 with q=4^k complete atomic four-value assignments and c=2^k classical assignments, an S5 pointed world is semantically determined by (a,S) with nonempty S subset Q and a in S. Structural induction uses subformula value at a and the set of subformula values on S, which the 24 published modal clauses alone inspect. A classical-only S forces classical outputs by induction. Complete finite-table crisp tests delta_t,delta_b,delta_n,delta_f identify local atom vectors; the one-layer formula E_a=L_a or tilde-bullet_t(L_a) detects global occurrence of a; their conjunctions distinguish every (a,S). When any nonclassical atomic value appears, G(Z)=(circ_b Z and Z) or bullet_b Z or tilde-bullet_b Z applied to b/f local flags supplies uniform b and then n. Disjoining characteristic tests realizes every permitted function, not just each Boolean designatedness pattern. Counting N=q*2^(q-1) and Nc=c*2^(c-1) gives 2^(2N-Nc), e.g. k=1 exponent60 and k=2 exponent1048544. One world per support type gives sharp <=q small models, and requiring every type attains q. The script has all k=1 pointed supports and sample k=2 supports, not an infinite proof.
 
-**PASS within examined evidence.** The 2026 Petrukhin paper defines the twenty-four modalities and establishes embeddings and decidability; its inspected full text does not state the complete depth-one finite term-function classification or the sharp count. The 2019 Odintsov–Skurt–Wansing article provides relevant expressibility machinery for other FDE-based modal systems and constitutes the closest conceptual overlap, but its accessible inspected material does not identify the particular finite support-profile quotient or the exact exponent. Searches of related mathematical records and cited primary literature did not disclose a dominating theorem. A semantically equivalent theorem in the older theory of finite free algebras or regular modal connectives remains a residual priority risk; absence of search hits is not proof of uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The central object is the full finite-vocabulary semantic algebra of an independently motivated nonclassical modal language. Its exact size is neither an arbitrary slice nor a mere finite table: the classification determines every representable pointed truth function, exposes precisely the obstruction from the embedded classical sublanguage, gives constructive modal-depth collapse, and identifies the sharp smallest-model ceiling. These are directly relevant to semantic normalization, expressivity and decision procedures. The result does not address proper modal sublanguages or a lower formula-length bound.
+Best-of-knowledge PASS: exact result and mathematical object are not established by accessible identified prior statements; reviewed aliases, reductions, stronger coverage and checked data. Distinct original ingredient: complete pointed-support characteristic formulas and nonclassical modal flags. Residual priority and access risks retained.
 
-## Closest sources and limits
+## value
 
-Petrukhin, *Essence and Accident Modalities Meet Belnapian Truth Values* (2026; DOI 10.1007/s11225-026-10250-z), full arXiv text inspected with particular attention to Definitions 2.5–2.8, Proposition 3, and embedding and decidability theorems. Odintsov, Skurt and Wansing, *On Definability of Connectives and Modal Logics over FDE* (2019; DOI 10.12775/LLP.2019.010), accessible introduction, stated theorems and discussion inspected; a complete section-by-section comparison remains a residual risk. No claims about minimum modal signature or independent certification are made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural full semantic term-function algebra for an explicitly defined finite modal signature is quantified exactly, with uniform modal-depth collapse and a sharp finite model bound. This refines the previously proved decidability/completeness in a useful model-theoretic and algebraic way; not a routine syntactic variable renaming. The restriction to all 24 modalities is essential and prevents extending this to a proper sublanguage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
