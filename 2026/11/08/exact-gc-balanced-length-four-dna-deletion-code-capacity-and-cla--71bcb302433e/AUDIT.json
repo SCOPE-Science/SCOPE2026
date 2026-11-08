@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Every feasible code is a union of two-word reverse-complement orbits among 96 GC-balanced words. The 44 candidate vertices and all 344 shadow conflicts are rebuilt directly. Fourteen explicitly listed conflict cliques cover each vertex at least twice, yielding |I|<=7; a seven-orbit witness attains 14 codewords. An exhaustive increasing-index recursion and an independent C++ bitmask enumerator both give precisely 20 seven-orbit selections, zero eight-orbit selections, and the 4,4,4,8 symmetry split. Complete checker source and data are embedded; finite completeness follows from enumeration of all 4^4 input words and proof of increasing-index traversal.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "D’yachkov et al. 2005, Example 4 gives an unrestricted quaternary length-four deletion-code example of size 20, not the optimal GC-restricted size",
+        "King 2003 bounds a different Hamming-distance code family",
+        "2025 single-edit multi-constraint paper abstract describes constructions, not a confirmed complete finite extremizer theorem"
+      ],
+      "reasoning": "Neither an unrestricted code lower bound nor a Hamming-distance optimum implies the exact maximum under simultaneous GC balance and deletion-shadow disjointness. No read stronger theorem settles the exact finite intersection. The 2025 full text was not inspected and leaves a bounded priority risk.",
+      "searches": [
+        "constant GC-content insertion deletion correction short DNA code reverse-complement pair orbit",
+        "GC content two reverse complement closed length four one deletion correcting DNA code maximum exact optimum",
+        "web: DNA codes constant GC content reversal complement Levenshtein distance single deletion King 2003",
+        "web: On DNA Codes D'yachkov 2005 arxiv pdf full"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0306197",
+      "https://www.renyi.hu/~elp/Evol/DNATut-JCombOpt03.pdf",
+      "https://www.researchgate.net/publication/225807128_On_DNA_codes",
+      "https://doi.org/10.1109/ISIT63088.2025.11195495",
+      "https://doi.org/10.1016/j.tcs.2004.11.004"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An unrestricted length-four deletion-code maximum or construction does not determine a GC-weight-two subcode optimum",
+        "The Hamming-distance constraint and deletion-shadow condition are distinct; neither corresponding codebook classification is a direct restatement of the other",
+        "The current proof uses a fourteen-clique half-cover specific to the joint shadow-conflict graph"
+      ],
+      "reasoning": "The final claim introduces a new feasible set and calculates both its exact optimum and full extremizer census. It is not a numerical special case of the inspected unrestricted or Hamming-distance theorems; those results lack an implication yielding the exact intersection. A future full-text check of the related 2025 paper could change priority.",
+      "searches": [
+        "exact size fourteen optimal length four DNA deletion correcting codes GC content two reverse complement closure with twenty codebooks",
+        "maximum strand closed deletion correcting codes of DNA length four constant GC weight",
+        "web: Single Edit Error-Correcting DNA Codes with Multiple Biological and Combinatorial Constraints: An Algebraic Approach pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "One-deletion correction is equivalently disjoint length-three deletion shadows for every two codewords",
+        "D’yachkov et al. 2003 introduces the LCS/deletion-similarity formulation, which specializes to the same disjoint-shadow condition at length four"
+      ],
+      "reasoning": "Explicitly compared the deletion-shadow packing statement with maximum LCS two, reverse-complement strand-pair selection and GC-weight-two constraints. Retrieved publications define the ingredients but do not state the joint 14-word value and twenty extremizers.",
+      "searches": [
+        "exact size fourteen optimal length four DNA deletion correcting codes GC content two reverse complement closure with twenty codebooks",
+        "single deletion shadow packing reverse complement GC balanced 4-mer 14 words 20 extremizers",
+        "web: \"length four\" \"GC\" \"deletion\" \"reverse-complement\" codes optimum",
+        "web: \"GC-content two\" \"deletion\" DNA codes 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed research-record hits concerned ternary length-four deletion codes, quinary deletion codes, and other channels",
+        "King 2003 Table 1 is for GC-balanced Hamming codes, not deletion codes",
+        "D’yachkov et al. 2005 length-four table is an unrestricted deletion-code construction"
+      ],
+      "reasoning": "No exact table with the matching four constraints, 14-word value or 20 labeled optima was located. This is evidence of non-coverage in inspected tables, not a general novelty guarantee.",
+      "searches": [
+        "single deletion shadow packing reverse complement GC balanced 4-mer 14 words 20 extremizers",
+        "web: \"14\" \"single deletion\" \"reverse complement\" \"GC\" DNA codewords",
+        "web: DNA single deletion GC-balanced 4-mer code distance Levenshtein reverse complement"
+      ]
+    },
+    "rationale": "The examined 2003 King paper concerns GC-balanced Hamming codes; the 2003 and 2005 D’yachkov papers concern reverse-complement deletion similarity but no exact GC-content-two four-mer capacity or full extremizer list. Relevant prior research-record searches and targeted literature searches did not identify a stronger theorem that implies the joint 14-word optimum and twenty-code census. This same-model conclusion carries priority uncertainty for uninspected later full text.",
+    "residual_risks": [
+      "The full text of the 2025 ISIT single-edit multi-constraint paper was not inspected; it might contain an overlooked short-word result.",
+      "Historical priority outside the searched indexed literature and available research records is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Hamming-distance bounds and constructions, not deletion-shadow-correcting codebook size or its extremizer census",
+        "evidence": [
+          "King 2003, introduction defines GC and Hamming-distance conditions (PDF pp. 1–2)",
+          "King 2003, Table 1 reports GC-balanced Hamming parameters, not single-deletion shadows"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0306197",
+        "material_read": "Author-posted PDF: introduction, GC and reverse-complement definitions, upper/halving bound, and length-four rows of the construction tables",
+        "method": "Opened author-posted full text and inspected pages and relevant table lines",
+        "title": "Bounds for DNA codes with constant GC-content",
+        "trigger": "Same exact GC count, reverse-complement DNA constraints, short-word bounds"
+      },
+      {
+        "assessment": "Defines strand-pair codes and general deletion similarity, but does not count GC-content-two length-four optima",
+        "evidence": [
+          "D’yachkov et al. 2003, Definition 1 (PDF p. 5): strand closure, no self-reverse-complement strands, maximum deletion similarity",
+          "D’yachkov et al. 2003, abstract defers combinatorial construction optimization"
+        ],
+        "identifier_or_url": "https://www.renyi.hu/~elp/Evol/DNATut-JCombOpt03.pdf",
+        "material_read": "Author-posted PDF: abstract, coding-theoretic background, deletion similarity, formal DNA-code definition, selected preliminary-results and concluding passages",
+        "method": "Read author-posted PDF text and page images",
+        "title": "Exordium for DNA Codes",
+        "trigger": "Original reverse-complement double-strand deletion-similarity model"
+      },
+      {
+        "assessment": "Example 4 constructs an unrestricted quaternary length-four deletion code of size 20; the text does not impose GC-content two or give the 14-word optimum and twenty-code census",
+        "evidence": [
+          "D’yachkov et al. 2005, Example 4 identifies ten reverse-complement pairs with deletion similarity at most two",
+          "Its count is a lower bound for unrestricted quaternary words, not a bound for GC-content-two words"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11122-006-0004-3",
+        "material_read": "Author-uploaded article text: abstract, statements of selected theorems, and the full length-four Example 4 table and its explanation",
+        "method": "Read author-uploaded manuscript on ResearchGate, including the stated deletion-code lower-bound example",
+        "title": "On DNA Codes",
+        "trigger": "Published deletion-similarity construction including a quaternary length-four example"
+      },
+      {
+        "assessment": "Advertises algebraic families with additional constraints, no exact four-mer optimum in inspected abstract; uninspected full text is a residual risk, not asserted not to cover",
+        "evidence": [
+          "2025 ISIT abstract describes construction families correcting one edit with several biological constraints",
+          "No exact length-four extremizer table was visible in inspected abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ISIT63088.2025.11195495",
+        "material_read": "Published abstract only; full paper not accessible during this comparison",
+        "method": "Searched arXiv and lawful open-access versions, inspected bibliographic abstract; full text was not available for substantive inspection",
+        "title": "Single Edit Error-Correcting DNA Codes with Multiple Biological and Combinatorial Constraints: An Algebraic Approach",
+        "trigger": "Modern closest title explicitly combining GC-content, reverse complementation and edit correction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "71bcb302-433e-4568-af7a-8687cfaf8daa",
+  "value": {
+    "rationale": "GC balance, double-strand closure and correction of a deletion model independent concrete DNA-code constraints motivated in the primary literature. Their simultaneous exact four-base capacity is not implied by any one marginal constraint, and the twenty-extremizer/four-symmetry-class classification describes the complete optimal short-code design space; the 14-clique cover explains a sharp capacity obstruction. The claim makes no downstream biological efficacy assertion.",
+    "status": "PASS"
+  }
+}
