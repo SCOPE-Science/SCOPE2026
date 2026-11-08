@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Shared edge-clock survival and inclusion–exclusion give exact mixed falling-factorial moments and the finite joint completion law. Conditioning on the unique edge which completes its row and column yields an exact synchronized-arrival subprobability density and, after finite integration, a rational formula for every pair of part sizes at least two. At finite critical imbalance, the mixed factorial moments yield independent Poisson and Gumbel limits. Explicit domination of the rescaled tie density, obtained from independent disjoint-edge rows or columns in the residual graph, allows dominated convergence and gives the inverse-linear coincidence probability with a sharp hyperbolic-cosine coefficient. A change of variables proves a conditional gamma distribution with shape two. Exact finite independent checks covered all edge rankings through three-by-three, two-time edge-history counts, and a complete two-row special-family identity; 51 assertions passed. Infinite limits are proved mathematically, not claimed from enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blasiak and Durrett, Random Oxford Graphs, inspected pp. 1–9: classical bipartite coverage and row/column independence in repeated-draw model.",
+        "Penrose, arXiv:1507.07132, inspected Theorems 2.1–2.3: aggregate isolated-vertex Poisson approximation.",
+        "Berikkyzy et al., arXiv:1608.00335, Theorem 2 and p. 3 recurrence, inspected: exact distribution of the total number of double-new-endpoint arrivals in the same edge-ordering process; it does not specify the terminal arrival category."
+      ],
+      "reasoning": "First-order isolated-vertex Poisson convergence at fixed scaled times does not supply the approximation precision required to determine an event of inverse-linear probability. The present exact synchronized-arrival density and conditional law require additional finite-system information. Fixed-draw repeated sampling is a different arrival law. The exact forest-component distribution tracks the total number of two-new-endpoint edges, not the additional temporal marker of the final coverage edge; it therefore does not determine the synchronized *terminal* event or its conditional timing.",
+      "searches": [
+        "Bipartite random graph process last isolated vertex side, independent Gumbel extremes and logistic critical imbalance window",
+        "Sparse bipartite random graph disappearance of isolated vertices in two color classes, competing maxima, Poisson independent limits",
+        "https://arxiv.org/abs/1507.07132",
+        "https://sites.math.duke.edu/~rtd/RG/rndgr0604.pdf",
+        "https://arxiv.org/abs/1608.00335"
+      ]
+    },
+    "checked_sources": [
+      "https://sites.math.duke.edu/~rtd/RG/rndgr0604.pdf",
+      "https://arxiv.org/abs/1507.07132",
+      "https://www.mathnet.ru/eng/dm609",
+      "https://arxiv.org/abs/1608.00335"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blasiak and Durrett [1] state independence of two coverage events under independent repeated edge draws at fixed draw number; that is distinct from synchronized completion in a one-clock-per-distinct-edge process.",
+        "Penrose [2], Theorems 2.1–2.3 address first-order isolated counts rather than rare synchronized completion with a calibrated coefficient.",
+        "Saltykov [3] abstract concerns random bipartite graphs with repeated trials; full text not available.",
+        "Berikkyzy et al. [4] Theorem 2 counts the total number of forest components, while the new tie indicator asks if the last edge needed to eliminate isolates simultaneously covers one previously unseen vertex of each part. A total count distribution cannot determine that order marker."
+      ],
+      "reasoning": "None of the prior theorem statements inspected directly determines the sharp inverse-linear coincidence coefficient or the conditional shape-two gamma law. A historical generating-function formula in an uninspected source could nonetheless imply them; this is recorded as a residual risk.",
+      "searches": [
+        "Sparse bipartite random graph disappearance of isolated vertices in two color classes, competing maxima, Poisson independent limits",
+        "Random bipartite graph process critical n/log n population imbalance last-isolation location and Gumbel extremal competition",
+        "https://www.mathnet.ru/eng/dm609",
+        "https://arxiv.org/abs/1608.00335"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The time at which the last isolated row disappears is the maximum of row-minima of edge clocks; similarly for columns. Synchronized last arrival equals a single edge being simultaneously last essential row and column edge."
+      ],
+      "reasoning": "Checked the coupon-collector, row/column coverage, stochastic bipartite graph, and rare simultaneous extinction phrasings. Ordinary independent coupon collectors do not supply a tie event because two independently completed sides have zero continuous-time tie probability; our sharing of one edge clock yields a positive finite tie probability.",
+      "searches": [
+        "Two-color coupon collector coupled row column coupon collection simultaneous completion probability of same final edge, asymptotic 1/(4n)",
+        "Independent exponential clocks on edges of complete bipartite graphs, last isolated vertex simultaneous extinction probability rare ties logistic asymmetry"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An independently enumerated 3-by-3 edge-ordering calculation produces the exact synchronized tie probability 11/70.",
+        "The exact all-a,b rational alternating-sum law is not supplied by the examined first-order Poisson results."
+      ],
+      "reasoning": "The exact rational formula for 3-by-3 is a verification target, not a claim that a numerical table cannot exist elsewhere. No matching exact all-parameter table or formula was found in checked materials; absence of search hits is not a uniqueness proof.",
+      "searches": [
+        "Two-color coupon collector coupled row column coupon collection simultaneous completion probability of same final edge, asymptotic 1/(4n)",
+        "Independent exponential clocks on edges of complete bipartite graphs, last isolated vertex simultaneous extinction probability rare ties logistic asymmetry",
+        "Random bipartite graph process critical n/log n population imbalance last-isolation location and Gumbel extremal competition"
+      ]
+    },
+    "rationale": "The claim concerns a synchronized last isolated-row/column disappearance in a distinct-edge bipartite graph process, including an exact finite probability, its leading critical-imbalance rare-event coefficient, and a conditional shape-two gamma law. Published first-order isolated-count results, repeated-draw coverage work and same-edge-order forest component counts examined do not state or directly imply these finer probability-level claims. Historical coupon-collection generating-function coverage remains a priority risk, and the comparison is not a universal novelty certificate.",
+    "residual_risks": [
+      "The full Saltykov 1995 paper was not inspected; a general joint-distribution identity could cover the new rare tie event implicitly.",
+      "Historical two-type coupon collection or random-matrix occupancy literature may contain an equivalent coefficient or conditional timing law without matching contemporary terminology.",
+      "No independent expert audit or certification of originality has been performed.",
+      "The same-process Markov recurrence in Berikkyzy et al. may permit elementary extraction of the finite synchronized finish probability; the claimed contribution includes the sharp imbalance scaling and conditional time law beyond that recurrence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_MODEL_AND_COARSER_RESULT",
+        "evidence": "The source uses repeated random edge draws; it establishes fixed-draw row/column coverage independence and discusses aggregate isolated counts, but the inspected material does not furnish rare simultaneous completion probability for independent distinct-edge clocks.",
+        "identifier_or_url": "https://sites.math.duke.edu/~rtd/RG/rndgr0604.pdf",
+        "material_read": "Opening discussion, coverage remarks, theorem sections, and passages on isolated vertices through p. 9",
+        "method": "Read lawful preprint PDF and page images, including coverage-independence statement and comparison to Saltykov",
+        "title": "Random Oxford Graphs",
+        "trigger": "Direct study of bipartite random graph coverage and its two-side dependence"
+      },
+      {
+        "assessment": "FIRST_ORDER_POISSON_NOT_RARE_TIE",
+        "evidence": "The examined results concern isolated-count Poisson convergence; their statements do not give the extra 1/n-scale precision or tie-conditioned hitting-time distribution.",
+        "identifier_or_url": "https://arxiv.org/abs/1507.07132",
+        "material_read": "Abstract, introduction and statements of Theorems 2.1–2.3 in arXiv PDF",
+        "method": "Read public full-text PDF with page inspection and targeted phrase search",
+        "title": "Inhomogeneous random graphs, isolated vertices, and Poisson approximation",
+        "trigger": "Potential general Poisson approximation superseding the joint isolated vertex limit"
+      },
+      {
+        "assessment": "UNRESOLVED_HISTORICAL_COVERAGE",
+        "evidence": "The abstract discusses isolated vertices and components in a random bipartite graph. Insufficient full-text evidence for a whole-paper exclusion or complete priority assessment.",
+        "identifier_or_url": "https://www.mathnet.ru/eng/dm609",
+        "material_read": "English bibliographic record and abstract only; original full text not available",
+        "method": "Read bibliographic abstract and attempted lawful full-text access",
+        "title": "The number of components in a random bipartite graph",
+        "trigger": "Older foundational coverage and isolated-vertex result possibly implying the claim"
+      },
+      {
+        "assessment": "SAME_PROCESS_COARSER_UNMARKED_TOTAL_COUNT",
+        "evidence": "Their forest component count equals the total count of arrivals exposing two new endpoints; their theorems and probability generating function do not track whether the *last* coverage arrival is of that type, nor a conditioned terminal-clock distribution.",
+        "identifier_or_url": "https://arxiv.org/abs/1608.00335",
+        "material_read": "Introduction and Theorems 1–3, complete-bipartite proof and three-transition recurrence on pp. 1–4; generic graph recurrence on pp. 7–8",
+        "method": "Read publicly accessible full paper and page images; compared observable to final-event indicator and relative times",
+        "title": "A forest building process on simple graphs",
+        "trigger": "Same uniform edge-order process on complete bipartite graphs, potential dominating count distribution"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3bf12c66-5424-46a5-b7b7-8a8bd13dc8a9",
+  "value": {
+    "rationale": "The synchronized last-isolation event is a natural obstruction-clearing event in the same random bipartite growth model for which isolated vertices govern sparse thresholds. It is invisible to first-order independent Poisson and Gumbel approximations because its probability vanishes at the inverse-linear scale. The exact all-parameter finite formula, calibrated coefficient, and conditional hitting-time law reveal genuinely finer structure. The critical logarithmic part-size imbalance describes a natural competition window and shows how rare coincidence depends on the probabilities of winning on either side. This is not an arbitrary parameter slice or a numerically isolated calculation.",
+    "status": "PASS"
+  }
+}
