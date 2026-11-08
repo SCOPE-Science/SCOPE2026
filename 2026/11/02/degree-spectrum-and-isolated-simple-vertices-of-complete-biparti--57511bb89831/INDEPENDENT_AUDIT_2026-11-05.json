@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T16:11:31.310979Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Every acyclic K_{a,b} orientation has a unique alternating ordered block description, with flippable edges precisely between adjacent blocks, giving degree sum s_i s_{i+1} and the complete multinomial degree polynomial. The identity degree-(a+b-1)=sum interior(s_i-1)+sum consecutive(s_i-1)(s_{i+1}-1) shows simple iff all interior blocks have size 1. Counting even and odd block lengths yields the stated S(a,b); legal flips of simple orientations create a non-singleton interior block or collapse to two blocks. Maximum degree ab is attained only in 2- or 3-block sequences, giving 2^a+2^b-2 orientations; the poly-Bernoulli denominator gives O(n^-2) balanced sparsity. The manuscript says a nonconsecutive reversed edge has a length-two alternative path, but in a bipartite graph the requisite intermediate path has length THREE through the two intervening alternating blocks; this minor proof-path error does not change the criterion. Independent graph-mask enumeration for (a,b)=(2,2),(2,3),(3,3),(3,4),(4,4) reproduced complete degree histograms and simple-set independence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grujić arXiv:1604.06931 Theorem 1.1: f-polynomial from q-chromatic symmetric function; Resultary Löwner-ellipsoid record counts 2^a+2^b-2 contact vertices."
+        ],
+        "reasoning": "The general f-polynomial aggregates global face numbers; its 1-face coefficient is only the sum of local degrees, not their distribution or simple independent set. The Löwner contact count overlaps a numerical extremal count but not vertex degree.",
+        "searches": [
+          "https://arxiv.org/pdf/1604.06931",
+          "Resultary: complete bipartite graphical zonotope exact Löwner ellipsoid contact vertices"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1412.3685",
+        "https://arxiv.org/pdf/1604.06931",
+        "Resultary: complete bipartite graphical zonotope exact Löwner ellipsoid contact vertices"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Local flip test plus labeled block count implies the displayed polynomial after a new summation; neither cited theorem states the simple-vertex formula, isolation, or balanced sparse proportion."
+        ],
+        "reasoning": "The candidate is a concrete derivation from known machinery but not an immediate numerical specialization of a prior theorem with the same conclusion.",
+        "searches": [
+          "https://arxiv.org/pdf/1412.3685",
+          "https://arxiv.org/pdf/1604.06931"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cameron et al. arXiv:1412.3685 Sec.4.2 pp.14-15: edge is flippable exactly when monochromatic ordered blocks are consecutive."
+        ],
+        "reasoning": "Known flip criterion is equivalent to the local input, not to the closed all-degree coefficient census and independence of simple vertices.",
+        "searches": [
+          "acyclic orientations complete bipartite graph graphical zonotope degree polynomial simple vertices simplicial chambers pairwise nonadjacent alternating blocks lonesum matrices",
+          "https://arxiv.org/pdf/1412.3685"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cameron et al. enumerate all acyclic orientations by negative-index poly-Bernoulli number. Independent K_{2,2},K_{3,3},K_{4,4} histograms 14/230/6902 orientations and 8/90/1472 simple vertices."
+        ],
+        "reasoning": "The orientation totals are old; the new distribution refines them. No checked published table gave the full degree spectrum or simple-set adjacency pattern.",
+        "searches": [
+          "acyclic orientations complete bipartite graph graphical zonotope degree polynomial simple vertices simplicial chambers pairwise nonadjacent alternating blocks lonesum matrices",
+          "Cameron Glass Rekvényi Schumacher poly Bernoulli orientations table"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for the full local degree distribution and independent simple-vertex census, not for the prior alternating-block model or single-edge flip test. Cameron et al. Theorem 4.6 already derives the fixed-edge flip criterion; Grujić Theorem 1.1 gives aggregate face counts but not a local degree distribution.",
+      "residual_risks": [
+        "An unindexed older formula for simplicial chambers may express the same simple-count result. The local flip proof in the frozen RESULT.md misstated length two; the corrected path length is three and should be edited before public release."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers building blocks and one-edge flip criterion; does not visibly provide complete vertex-degree polynomial or simple-vertex independence",
+          "evidence": "Theorem 4.6 discussion of consecutive monochromatic blocks",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.3685",
+          "material_read": "Full 23-page searchable PDF, abstract, orientation enumerations and Sec.4.2 fixed-edge test/Theorem 4.6 on pp.14-15",
+          "method": "opened primary PDF and inspected page screenshot",
+          "title": "Acyclic orientations and poly-Bernoulli numbers",
+          "trigger": "exact same acyclic orientations and edge-reversal criterion"
+        },
+        {
+          "assessment": "Gives global f-vector, not local degree multiplicities",
+          "evidence": "Theorem 1.1",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.06931",
+          "material_read": "Nine-page PDF, theorem 1.1, zonotope/chromatic symmetric construction",
+          "method": "read primary PDF and inspected theorem screenshot",
+          "title": "Counting faces of graphical zonotopes",
+          "trigger": "broader face enumerator could dominate local degree data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Vertex valence distribution and the combinatorial count/isolation of simplicial vertices are natural, independent refinements of the polytope f-vector; the exact balanced sparsity bound quantifies their rarity without requiring a broader conjecture. Values are not merely renamed known totals.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "a,b>=2, labeled unoriented zonotope 1-skeleton; no unlabeled quotient.",
+    "Local proof-path typo needs editorial correction, without changing final scientific statements.",
+    "O incomplete priority census of old simplicial arrangement literature."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The reversible-edge criterion is proved directly by directed-path exclusion, and the block formula counts every labeled acyclic orientation. A nonnegative decomposition of the degree excess gives the exact simple-vertex criterion. Enumeration by parity yields the simple count; local block analysis proves the independent-set property; explicit extremal blocks count maximum-degree vertices. Balanced sparsity follows from the established negative-index poly-Bernoulli formula. Direct DAG and separately programmed lonesum-matrix enumerations corroborate all finite claims.
+## correctness
 
-**Originality — PASS, with risk.** Cameron et al. already supply both the alternating-block encoding and the criterion for a particular edge to be flippable; the present degree formula is an explicit enumeration of their underlying structure, not a new orientation representation. Grujić provides the aggregate graphical-zonotope face polynomial, so total edges are not claimed. Chapoton and Pilaud offer a general ordered-partition face model, a mathematically stronger substrate but not an explicit simplicial-chamber count or independence classification in the inspected full text. The distinct proposed contribution is a closed all-parameter simple-vertex enumeration, pairwise nonadjacency, full degree refinement, and balanced vanishing fraction. Equivalent simplicial-region results in unindexed literature remain a real risk.
+PASS
 
-**Value — PASS.** Simplicial vertices are the locally minimum-degree (geometrically simple) chambers of a canonical arrangement. Knowing their exact count and the fact that none are neighboring determines a structural constraint on the zonotope one-skeleton; the complete degree polynomial situates them in the global incidence profile. Their asymptotic scarcity in the balanced family is a meaningful geometric contrast, not an arbitrary finite parameter table.
+PASS. Every acyclic K_{a,b} orientation has a unique alternating ordered block description, with flippable edges precisely between adjacent blocks, giving degree sum s_i s_{i+1} and the complete multinomial degree polynomial. The identity degree-(a+b-1)=sum interior(s_i-1)+sum consecutive(s_i-1)(s_{i+1}-1) shows simple iff all interior blocks have size 1. Counting even and odd block lengths yields the stated S(a,b); legal flips of simple orientations create a non-singleton interior block or collapse to two blocks. Maximum degree ab is attained only in 2- or 3-block sequences, giving 2^a+2^b-2 orientations; the poly-Bernoulli denominator gives O(n^-2) balanced sparsity. The manuscript says a nonconsecutive reversed edge has a length-two alternative path, but in a bipartite graph the requisite intermediate path has length THREE through the two intervening alternating blocks; this minor proof-path error does not change the criterion. Independent graph-mask enumeration for (a,b)=(2,2),(2,3),(3,3),(3,4),(4,4) reproduced complete degree histograms and simple-set independence.
 
-**Scope limits.** No stronger connectivity, precise all-pairs distances, or generalization to three or more parts is asserted. The exact simple count is combinatorial, and this review is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for the full local degree distribution and independent simple-vertex census, not for the prior alternating-block model or single-edge flip test. Cameron et al. Theorem 4.6 already derives the fixed-edge flip criterion; Grujić Theorem 1.1 gives aggregate face counts but not a local degree distribution.
+
+## value
+
+PASS
+
+PASS. Vertex valence distribution and the combinatorial count/isolation of simplicial vertices are natural, independent refinements of the polytope f-vector; the exact balanced sparsity bound quantifies their rarity without requiring a broader conjecture. Values are not merely renamed known totals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
