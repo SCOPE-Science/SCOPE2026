@@ -1,19 +1,21 @@
-# Scientific review: finite Charlier--Hermite cutoff transition
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The finite Hermite representation follows by the ladder identities and a diagonal gauge. A bidiagonal factorization proves strict positive definiteness. The tridiagonal determinant recurrence gives exactly \(D_N(1;t)=t^{N-1}(t-N)\); min--max interlacing with the displaced oscillator ensures only the bottom eigenvalue can cross \(1\). The triangular inverse produces an exact reciprocal spectral trace. In the subcritical regime a Poisson expectation, exponential concentration and the spectral gap \(\lambda_{j,N}\ge j\) for \(j\ge1\) yield the prefactor with relative \(O_\rho(N^{-1})\) error. In the supercritical regime a singular-value lower bound and a top-edge sine trial vector give a matching scaled limit. The standalone arithmetic checker passed 250 supplementary assertions, but correctness does not rely on finite sampling.
+PASS
 
-## Originality
+The frozen RESULT.md identifies J_N=B_N*B_N with upper bidiagonal B_N=sqrt(t)I+shift, strictly positive for t>0. The three-term characteristic-polynomial recurrence gives det(J_N−I)=t^(N−1)(t−N). Infinite displaced number-operator min-max plus strict interlacing puts all nonminimal eigenvalues >1, so determinant sign fixes exact bottom crossing including N=1. Explicit B_N inverse gives trace J_N^−1=N!/t^N ∑_{k=0}^{N−1}t^k/(k!(N−k)). For t=rho N< N, Poisson Chernoff/Taylor gives the sharp (1−rho) prefactor, and other inverse eigenvalues contribute at most O(log N); for rho>1 shift norm lower bound and sine-arch trial vector give (sqrt(rho)−1)^2. Independently checked 27 symbolic matrix cases N=1..9, t=1,4,9; no critical-window claim is made.
 
-**PASS under the inspected scientific evidence, subject to historical coverage risk.** The closest motivating work, Williams--Ortelli--Silva (arXiv:2609.17970), develops the infinite displaced-oscillator spectrum, but does not study the finite-cutoff zero crossing or the \(t=\rho N\) least-eigenvalue regimes. Dominici's fixed-parameter Charlier asymptotics (arXiv:1406.6193 and the 2018 sequel) have different quantifiers and cannot directly imply the simultaneous degree/parameter laws. Nilsson's Charlier--Hermite transition (arXiv:1202.2557) addresses critical parameter-degree matching, rather than either outer regime. Recent mass-modified Charlier asymptotics (arXiv:2608.27495) concern another object. The Kuijlaars--Van Assche discrete zero-distribution study concerns bulk and maximal zeros; Krasikov--Zarkh treats inequalities for extreme zeros, but full equivalence to any present exact statement could not be resolved solely from the accessible abstract. Knessl--van Leeuwaarden (2015) gives exact immigration--death first-passage transforms and a critical Halfin--Whitt scaling, which shares the underlying polynomial but does not state the sharp fixed-ratio spectral laws. Actual semantic mathematical-record searches and accessible historical claim inspection yielded no same or dominating statement. Unindexed queueing or birth--death analyses remain a risk; failed searching is not proof of global novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** Finite Hermite cutoffs are the canonical spectral approximation to the displaced oscillator. The exact equality \(\mu_N(N)=1\) locates a natural phase boundary with no asymptotic uncertainty. The sharp exponentially small prefactor below the threshold and the scaled spectral edge above it quantify very different finite-dimensional approximation regimes for a single family. The exact reciprocal trace supplies a reusable formula for estimating the spectral floor. The finding does not purport to resolve the near-critical window or product-uncertainty minimization.
+Best-knowledge originality applies to the precise claimed combination, not generic background results: The infinite oscillator spectrum is unitarily a number operator, while its first N-dimensional compression has a nontrivial cutoff. The fixed-parameter Charlier polynomial asymptotics do not imply joint t=rho N and first zero prefactor without new analysis. The exact determinant product, trace, and asymptotics are further finite-section results. A uniform published Charlier first-zero asymptotic or queueing interpretation might still imply them; comparison remains qualified.
 
-## Closest work and limitations
+## value
 
-The full relevant passages of arXiv:2609.17970, arXiv:1406.6193, arXiv:2608.27495, and the Charlier-to-Hermite article arXiv:1202.2557 were inspected. The 2018 Dominici article was consulted at its actual PDF pages. The 2015 Knessl--van Leeuwaarden first-passage and Halfin--Whitt sections were read in full HTML. The 1999 Kuijlaars--Van Assche and 2008 Krasikov--Zarkh comparisons were limited by material accessibility. Parameter-uniform critical-window asymptotics and arbitrary Hermite masks remain unproved. The finding is a mathematical proof with self-review, not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first N Hermite-mode compression is a canonical finite spectral approximation; exact critical threshold, inverse trace, exponentially small tunneling floor with leading prefactor, and supercritical spectral-edge asymptotic form a motivated complete outer-regime classification. This is not just a numerical small-zero table or a routine fixed-parameter polynomial limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

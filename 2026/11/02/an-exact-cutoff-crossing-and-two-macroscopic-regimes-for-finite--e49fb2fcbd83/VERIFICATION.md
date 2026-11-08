@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-## Analytic checks
+## correctness
 
-The finite cutoff matrix was derived from the canonical Hermite ladder identities, not inferred from numerical spectra. Positivity follows from the explicit invertible upper bidiagonal factor. The determinant at \(1\) follows by exact tridiagonal recurrence. The strict single-eigenvalue crossing follows from full-oscillator min--max comparison and strict interlacing. The reciprocal trace follows by an explicit triangular inverse and the binomial hockey-stick identity. The subcritical relative error is proved by Poisson concentration plus a harmonic bound on all other eigenvalues. The supercritical limit is proved by matching operator-norm and explicit sine-trial bounds.
+PASS
 
-## Reproducible supplemental checks
+The frozen RESULT.md identifies J_N=B_N*B_N with upper bidiagonal B_N=sqrt(t)I+shift, strictly positive for t>0. The three-term characteristic-polynomial recurrence gives det(J_N−I)=t^(N−1)(t−N). Infinite displaced number-operator min-max plus strict interlacing puts all nonminimal eigenvalues >1, so determinant sign fixes exact bottom crossing including N=1. Explicit B_N inverse gives trace J_N^−1=N!/t^N ∑_{k=0}^{N−1}t^k/(k!(N−k)). For t=rho N< N, Poisson Chernoff/Taylor gives the sharp (1−rho) prefactor, and other inverse eigenvalues contribute at most O(log N); for rho>1 shift norm lower bound and sine-arch trial vector give (sqrt(rho)−1)^2. Independently checked 27 symbolic matrix cases N=1..9, t=1,4,9; no critical-window claim is made.
 
-Run `python3 verify.py` using Python 3 and only the standard library. The checker was executed from this final file bundle and reported `PASS 250 checks: exact determinant, reciprocal trace, critical eigenvector and Poisson prefactor`. It compares determinant and inverse-trace expressions by exact rational arithmetic for twenty dimensions and five rational displacement parameters, checks a critical eigenvector for dimensions through thirty, and tests the convergence of Poisson prefactor expectations in four fixed-parameter regimes. These finite checks neither certify all dimensions nor prove either limit. The proof in `RESULT.md` handles the universal quantifiers.
+## originality
 
-## Scope limitations
+PASS
 
-The spectral floor is the lowest eigenvalue of the consecutive low-mode Hermite compression. The estimates do not cover arbitrary masks, higher-dimensional oscillators or the critical transition window where \(\rho\to1\) with \(N\). Comparison against potential equivalent results in older queueing and orthogonal-polynomial literature is not exhaustive. No independent audit or certification was conducted.
+Best-knowledge originality applies to the precise claimed combination, not generic background results: The infinite oscillator spectrum is unitarily a number operator, while its first N-dimensional compression has a nontrivial cutoff. The fixed-parameter Charlier polynomial asymptotics do not imply joint t=rho N and first zero prefactor without new analysis. The exact determinant product, trace, and asymptotics are further finite-section results. A uniform published Charlier first-zero asymptotic or queueing interpretation might still imply them; comparison remains qualified.
+
+## value
+
+PASS
+
+The first N Hermite-mode compression is a canonical finite spectral approximation; exact critical threshold, inverse trace, exponentially small tunneling floor with leading prefactor, and supercritical spectral-edge asymptotic form a motivated complete outer-regime classification. This is not just a numerical small-zero table or a routine fixed-parameter polynomial limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T04:06:40.161724Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen RESULT.md identifies J_N=B_N*B_N with upper bidiagonal B_N=sqrt(t)I+shift, strictly positive for t>0. The three-term characteristic-polynomial recurrence gives det(J_N−I)=t^(N−1)(t−N). Infinite displaced number-operator min-max plus strict interlacing puts all nonminimal eigenvalues >1, so determinant sign fixes exact bottom crossing including N=1. Explicit B_N inverse gives trace J_N^−1=N!/t^N ∑_{k=0}^{N−1}t^k/(k!(N−k)). For t=rho N< N, Poisson Chernoff/Taylor gives the sharp (1−rho) prefactor, and other inverse eigenvalues contribute at most O(log N); for rho>1 shift norm lower bound and sine-arch trial vector give (sqrt(rho)−1)^2. Independently checked 27 symbolic matrix cases N=1..9, t=1,4,9; no critical-window claim is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuijlaars–Van Assche (1999) provide global contracted zero distributions/largest-zero asymptotics of discrete polynomials; Krasikov–Zarkh (2009) provide extreme-zero inequalities; Knessl–van Leeuwaarden (2015) analyze Erlang A first-passage transforms and critical queueing scaling."
+        ],
+        "reasoning": "Global zero distribution can explain positive-order spectral edges and extreme-zero inequalities can bound them, but these do not by themselves provide exact unit crossing at all finite N and a sharp exponentially small first zero with prefactor at rho<1. A hidden birth–death equivalent remains possible.",
+        "searches": [
+          "Charlier polynomials smallest zero parameter proportional degree rho N Poisson immigration death exact cutoff",
+          "DOI:10.1112/S0024611599011867",
+          "DOI:10.1016/j.jat.2008.04.015",
+          "DOI:10.1007/s00186-015-0498-9"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2609.17970 abstract",
+        "arxiv:1406.6193 fixed-parameter Charlier",
+        "DOI:10.1112/S0024611599011867",
+        "DOI:10.1016/j.jat.2008.04.015",
+        "DOI:10.1007/s00186-015-0498-9",
+        "Resultary semantic q3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source infinite-tridiagonal oscillator theorem establishes the number-operator spectrum, which supplies the min–max ingredient, but finite-section eigenvalues are not identical to the infinite spectrum. Classical Charlier recurrence supplies a computational starting point."
+        ],
+        "reasoning": "The exact determinant product, trace, and asymptotics are further finite-section results. A uniform published Charlier first-zero asymptotic or queueing interpretation might still imply them; comparison remains qualified.",
+        "searches": [
+          "Charlier polynomials smallest zero parameter proportional degree rho N Poisson immigration death exact cutoff"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finite Charlier Jacobi polynomials correspond also to immigration–death birth–death spectral matrices; displaced oscillator infinite tridiagonal representation is explicit in Williams–Ortelli–Silva arxiv:2609.17970."
+        ],
+        "reasoning": "The infinite oscillator spectrum is unitarily a number operator, while its first N-dimensional compression has a nontrivial cutoff. The fixed-parameter Charlier polynomial asymptotics do not imply joint t=rho N and first zero prefactor without new analysis.",
+        "searches": [
+          "Charlier polynomials smallest zero parameter proportional degree rho N Poisson immigration death exact cutoff",
+          "arxiv:2609.17970",
+          "arxiv:1406.6193"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned a degree-two Hamming Poisson–Charlier projection and unrelated orthogonal polynomial bounds, not this finite-section minimal-eigenvalue crossing or inverse trace."
+        ],
+        "reasoning": "This is an all-N threshold and outer asymptotic theorem; no exact table was identified. Missing search results do not certify priority.",
+        "searches": [
+          "Charlier polynomials smallest zero parameter proportional degree rho N Poisson immigration death exact cutoff"
+        ]
+      },
+      "rationale": "Best-knowledge originality applies to the precise claimed combination, not generic background results: The infinite oscillator spectrum is unitarily a number operator, while its first N-dimensional compression has a nontrivial cutoff. The fixed-parameter Charlier polynomial asymptotics do not imply joint t=rho N and first zero prefactor without new analysis. The exact determinant product, trace, and asymptotics are further finite-section results. A uniform published Charlier first-zero asymptotic or queueing interpretation might still imply them; comparison remains qualified.",
+      "residual_risks": [
+        "The most directly relevant September 2026 displaced-oscillator primary preprint was only accessible by abstract; an unnoticed finite-section appendix could alter priority.",
+        "Birth–death/queueing first-zero asymptotics may be equivalent under a spectral duality and are not exhaustively indexed.",
+        "No rho→1 uniform critical-window law or higher-eigenvalue asymptotic is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected abstract states infinite shifted oscillator exact spectrum; finite cutoff results not demonstrable from abstract alone",
+          "evidence": [
+            "Three methods for infinite tridiagonal spectrum and unitary equivalence, no explicit finite N asymptotic in abstract."
+          ],
+          "identifier_or_url": "arxiv:2609.17970",
+          "material_read": "Accessible title/abstract and method outline; complete 2026 paper PDF/HTML unavailable through attempted public arXiv retrieval",
+          "method": "Primary arXiv abstract; full text retrieval unsuccessful",
+          "title": "The Fourier Uncertainty Principle Through the Lens of Infinite Banded Matrices",
+          "trigger": "Same displaced harmonic oscillator tridiagonal matrix and uncertainty interpretation"
+        },
+        {
+          "assessment": "Asymptotic zero distributions and largest zeros, not established exact bottom spectral crossing",
+          "evidence": [
+            "Global zero distribution and largest-zero asymptotics explicitly described in abstract."
+          ],
+          "identifier_or_url": "DOI:10.1112/S0024611599011867",
+          "material_read": "Published abstract, theorem scope and publication information",
+          "method": "Publisher article page; full work not successfully retrieved",
+          "title": "Extremal Polynomials on Discrete Sets",
+          "trigger": "Charlier zeros under large degree"
+        },
+        {
+          "assessment": "Model overlaps finite birth–death spectra but inspected focus is first-passage transforms and diffusion/critical queueing; no proven same sharp outer laws found",
+          "evidence": [
+            "Explicit Laplace transforms and first-passage distribution through Green functions; queueing model differs in state truncation."
+          ],
+          "identifier_or_url": "DOI:10.1007/s00186-015-0498-9",
+          "material_read": "Open-access Springer abstract and model description with arrival and abandonment parameterizations",
+          "method": "Publisher open HTML",
+          "title": "Transient analysis of the Erlang A model",
+          "trigger": "Birth-death Charlier-related resolvent/first-passage analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first N Hermite-mode compression is a canonical finite spectral approximation; exact critical threshold, inverse trace, exponentially small tunneling floor with leading prefactor, and supercritical spectral-edge asymptotic form a motivated complete outer-regime classification. This is not just a numerical small-zero table or a routine fixed-parameter polynomial limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The most directly relevant September 2026 displaced-oscillator primary preprint was only accessible by abstract; an unnoticed finite-section appendix could alter priority.",
+    "Birth–death/queueing first-zero asymptotics may be equivalent under a spectral duality and are not exhaustively indexed.",
+    "No rho→1 uniform critical-window law or higher-eigenvalue asymptotic is established."
+  ],
+  "schema_version": 1
+}
