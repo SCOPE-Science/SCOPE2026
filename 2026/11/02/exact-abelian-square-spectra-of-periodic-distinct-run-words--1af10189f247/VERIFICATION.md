@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run with Python 3 standard library from the same extracted directory:
+## correctness
 
-`python3 verify.py`
+PASS
 
-Output observed during this review:
+For q>=3 distinct letter-runs per period and all positive run lengths and k>=1, adjacent half-windows with equal Parikh vectors reduce after deleting full periods to two disjoint circular arcs. The q>=3 unique-run circular-support lemma makes such adjacent arcs monochromatic; for length residue above p/2 the same follows from complement arcs. Long factors encode their starting phase uniquely since the cyclic period is primitive. Counting run placements gives F_h=sum_i max(0,r_i-2h+1), initial T(1)=d and T(2)=d+e, and T(k+2)-T(k)=B=p+2 sum_i floor(r_i^2/4). Thus T(k)=d+(k-1)B/2 for odd k, d+(k/2-1)B+e for even k. Independently enumerated literal distinct contiguous factors for 215 selected run-vector/power cases (1902 half-length profiles), all agreeing with the symbolic total/spectrum. The finite checks corroborate, not prove, the arbitrary-parameter theorem.
 
-`VERIFY_OK literal_cases=997 half_length_profiles=14021 distinct_abelian_squares=24087 circular_arc_tests=4340 all_equal=TRUE`
+## originality
 
-The verifier enumerates distinct factor strings literally and compares every half-length profile against the proposed circular criterion. It checks the parity-split total independently using integer arithmetic, and separately exhausts adjacent circular windows over additional run vectors. Parameter families are \(q=3\) with lengths \(1\)–\(4\) and powers \(1\)–\(6\); \(q=4\) with lengths \(1\)–\(3\) and powers \(1\)–\(5\); \(q=5\) with lengths \(1\)–\(2\) and powers \(1\)–\(4\); plus 80 deterministic pseudorandom parameter cases of \(3\le q\le6\), runs at most \(7\), and powers at most \(6\). The circular arc lemma is separately checked over all run vectors of lengths at most \(4\) for \(q=3\) and at most \(3\) for \(q=4\).
+PASS
 
-Checks do not establish the theorem for infinitely many run lengths and powers; the complete proof in `RESULT.md` supplies that implication. They do not certify literature originality, independent audit status, or cases with repeated letter-runs.
+The all-power explicit distinct-factor Abelian-square count and length-specific phase profile are not entailed by earlier general Abelian-square occurrence algorithms, bounds, or the same-family single-factor Parikh-complexity invariant. In particular runs (4,1,2) and (1,4,2) have identical single-window Abelian factor-complexity but distinct k=2 square counts 7 and 5. The claim retains q>=3, not binary two-run periods, and prior-art risk remains from specialized periodic-word enumeration.
+
+## value
+
+PASS
+
+A natural complete coefficientwise invariant for finite powers of cyclic run-encoded words: exact length spectrum, phase-sensitive boundary term and constant two-power increment are useful for reporting/deduplicating Abelian squares in compressed periodic strings, beyond routine occurrence detection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

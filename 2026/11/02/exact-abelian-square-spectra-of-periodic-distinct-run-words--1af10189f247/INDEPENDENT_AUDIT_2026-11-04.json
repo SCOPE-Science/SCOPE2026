@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-04",
+  "audited_at_utc": "2026-11-04T08:09:45.373086Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q>=3 distinct letter-runs per period and all positive run lengths and k>=1, adjacent half-windows with equal Parikh vectors reduce after deleting full periods to two disjoint circular arcs. The q>=3 unique-run circular-support lemma makes such adjacent arcs monochromatic; for length residue above p/2 the same follows from complement arcs. Long factors encode their starting phase uniquely since the cyclic period is primitive. Counting run placements gives F_h=sum_i max(0,r_i-2h+1), initial T(1)=d and T(2)=d+e, and T(k+2)-T(k)=B=p+2 sum_i floor(r_i^2/4). Thus T(k)=d+(k-1)B/2 for odd k, d+(k/2-1)B+e for even k. Independently enumerated literal distinct contiguous factors for 215 selected run-vector/power cases (1902 half-length profiles), all agreeing with the symbolic total/spectrum. The finite checks corroborate, not prove, the arbitrary-parameter theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sugimoto et al. offer a generic RLE reporting algorithm; known general power bounds are nonsharp and do not give the exact B or e coefficients."
+        ],
+        "reasoning": "An algorithm for outputting occurrence positions on any one input is not already an evaluated symbolic spectrum with all run lengths/k; the source results do not logically imply the displayed formula without the present circular-arc argument.",
+        "searches": [
+          "Sugimoto et al. arXiv:1701.02836 computing Abelian regularities on run-length encoded strings",
+          "distinct abelian squares periodic cyclic word distinct letter runs all k formula abelian square spectrum two period increment"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md blob 56f9fc3e98ba115fc3a799c3fb792cd6dcc636bc",
+        "arXiv:1701.00948",
+        "arXiv:1701.02836",
+        "arXiv:1802.04481",
+        "Resultary semantic query: distinct abelian squares periodic cyclic word distinct letter runs all k formula abelian square spectrum two period increment"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Computed same multiset run vectors (4,1,2) and (1,4,2) give k=2 totals 7 versus 5 even though single-window Parikh complexity is symmetric in the runs."
+        ],
+        "reasoning": "Single-window Parikh spectra cannot imply joint adjacent-block square spectra; a generic RLE square finder does not itself supply the exact period-two increment.",
+        "searches": [
+          "single-window Parikh factor spectrum periodic distinct runs; arXiv:1701.02836 Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fici–Mignosi–Shallit study distinct Abelian-square factors and richness, but the inspected theorem statements are general bounds or aperiodic family counts.",
+          "The direct q>=3 phase rule detects adjacent equal Parikh blocks rather than ordinary single-factor Parikh counts."
+        ],
+        "reasoning": "No matching all-run vector parity-split exact formula was established in the reviewed accessible relevant statements; aliases periodic Abelian squares, circular windows and compressed words were searched. Search silence alone is not proof of novelty.",
+        "searches": [
+          "distinct abelian squares periodic cyclic word distinct letter runs all k formula abelian square spectrum two period increment",
+          "arXiv:1701.00948 Abelian-square-rich words; arXiv:1802.04481 circular/linear Abelian squares"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Simpson survey enumerates binary/extremal tables, not all q>=3 run-length vectors and period powers."
+        ],
+        "reasoning": "No equivalent exact table with this parameterization was located; the difference in binary versus q>=3 and extremal versus all-vector parameters is substantive.",
+        "searches": [
+          "distinct abelian squares periodic cyclic word distinct letter runs all k formula abelian square spectrum two period increment",
+          "Abelian squares distinct factor counts circular word extremal tables Simpson arXiv:1802.04481"
+        ]
+      },
+      "rationale": "The all-power explicit distinct-factor Abelian-square count and length-specific phase profile are not entailed by earlier general Abelian-square occurrence algorithms, bounds, or the same-family single-factor Parikh-complexity invariant. In particular runs (4,1,2) and (1,4,2) have identical single-window Abelian factor-complexity but distinct k=2 square counts 7 and 5. The claim retains q>=3, not binary two-run periods, and prior-art risk remains from specialized periodic-word enumeration.",
+      "residual_risks": [
+        "The relevant Fici and Sugimoto papers were not reread cover-to-cover in this run; any uninspected more specialized theorem may affect priority.",
+        "A specialized periodic-run Abelian-square table under a different terminology could be overlooked.",
+        "The q>=3 circular lemma is a logical proof step; independent finite tests do not establish every infinite instance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bounds and examples; not decisive full-text exclusion of specialized exact formula",
+          "evidence": "Proposition 6 bounds distinct Abelian squares in powers; relevant but not the q>=3 phase-dependent formula.",
+          "identifier_or_url": "arXiv:1701.00948",
+          "material_read": "Available primary online search-rendered article extract, including definitions and Proposition 6 context, and abstract; not a certified complete-paper reading",
+          "method": "public open-access search text and returned article excerpts",
+          "title": "Abelian-Square-Rich Words",
+          "trigger": "same exact distinct Abelian-square count invariant"
+        },
+        {
+          "assessment": "generic RLE enumeration method, not an evaluated q>=3 all-parameter formula",
+          "evidence": "Section 4 Theorem 2 is an RLE reporting algorithm, not the symbolic all-k totals.",
+          "identifier_or_url": "arXiv:1701.02836",
+          "material_read": "Primary abstract and accessible theorem description; complete original PDF not inspected in this execution",
+          "method": "primary abstract/theorem-summary inspection",
+          "title": "Computing Abelian regularities on RLE strings",
+          "trigger": "same run-encoded representation and Abelian squares"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural complete coefficientwise invariant for finite powers of cyclic run-encoded words: exact length spectrum, phase-sensitive boundary term and constant two-power increment are useful for reporting/deduplicating Abelian squares in compressed periodic strings, beyond routine occurrence detection.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen RESULT.md blob 56f9fc3e98ba115fc3a799c3fb792cd6dcc636bc",
+    "arXiv:1701.00948",
+    "arXiv:1701.02836",
+    "arXiv:1802.04481",
+    "Resultary semantic query: distinct abelian squares periodic cyclic word distinct letter runs all k formula abelian square spectrum two period increment"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The relevant Fici and Sugimoto papers were not reread cover-to-cover in this run; any uninspected more specialized theorem may affect priority.",
+    "A specialized periodic-run Abelian-square table under a different terminology could be overlooked.",
+    "The q>=3 circular lemma is a logical proof step; independent finite tests do not establish every infinite instance.",
+    "Publication withheld: public metadata has operational provenance; minimal plan status not_ready; no GitHub writes."
+  ],
+  "schema_version": 1
+}
