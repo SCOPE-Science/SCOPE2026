@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-07.md",
+      "INDEPENDENT_AUDIT_2026-11-07.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-The standalone `verify.py` uses only the Python standard library. Run `python3 verify.py` with these files placed together.
+# Independent mathematical audit
 
-The recorded replay produced:
+## correctness
 
-```text
-EXHAUSTIVE_64_INITIAL_COLUMNS_OK
-INDEPENDENT_GF2_MATRIX_ELIMINATION_OK 54
-COLUMN_RECURRENCE_AND_DIRECT_PARITY_OK 144
-VERIFY_OK
-```
+PASS
 
-The verifier checks all \(64\) first-column vectors in the \(6\times8\) base board. It then builds the original closed-neighborhood matrix independently, row-reduces it over \(\mathbb F_2\), enumerates every resulting nullspace vector, and compares the exact Hamming spectrum for lengths \(1\) through \(54\). A separate recurrence method checks lengths \(1\) through \(144\) and validates the original parity equations for every generated word.
+The exact closed-neighborhood system over F2 is c_(j-1)+Bc_j+c_(j+1)=0, B=I+A(P6). Its characteristic polynomial is (x^3+x+1)^2; the Fibonacci-polynomial recurrence has f9(B)=0 and coprime residues for f1 through f8, hence exactly the n+1 divisible by 9 kernels are six-dimensional. T^9=diag(B^7,B^7) and boundary reflections replicate eight-column weights q times when n+1=9q. The complete independently checked 64-first-column table gives coefficients 1,4,12,12,3,12,15,4,1 at weights 0,18,20,22,24,26,28,30,36. New independent GF2 elimination reconstructed the whole kernels for n=1..27, including n=8,17,26. The finite table is exhaustively 64 cases; all-n statement follows from symbolic recurrence, not finite extrapolation.
 
-These are finite verification ranges, not a substitute for the infinite proof. The all-length result is deduced from the explicitly displayed characteristic polynomial, invertible residue classes, matrix recurrence, and exhaustive 64-entry base classification in `RESULT.md`. No external certification or independent mathematical audit is claimed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality after claim-level comparisons with actual literature; no identified decisive prior theorem entailed the precise asserted value-bearing formula. Full-text limitations and possible indirect dominance are explicitly recorded.
+
+## value
+
+PASS
+
+The six-row grid is a canonical resonant Lights Out/closed-neighborhood code family: the exact Hamming enumerator and minimum silent-press weight 18q are natural coding/parity invariants not determined by the previously known nullity or existence periodicity. Full spectra determine probabilities under independent biased button selection and quantify pattern sparsity; this is more than a routine restatement of the recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

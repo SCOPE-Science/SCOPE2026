@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The recurrence \(c_{j+1}=Bc_j+c_{j-1}\) is exactly equivalent to each closed-neighborhood equation. The characteristic identity \(\chi_B=(x^3+x+1)^2\), vanishing \(f_9(B)=0\), and eight nonzero polynomial residues ensure that the first-column space is either zero or exactly six-dimensional, with the only nonzero lengths congruent to eight modulo nine. The zero-column reflection repeats the full eight-column support weight exactly \(q\) times. The proof provides an exhaustive, disjoint first-column table for all \(64\) cases, not a probabilistic sample. Two differently constructed algorithms independently check the matrix equation, spectra, and boundary cases on finite parameter ranges; the general theorem follows from the polynomial and recurrence arguments.
+## correctness
 
-## Originality
-**PASS (best-knowledge, not a priority certificate).** Goldwasser–Klostermeyer (2002) establishes the column/row recurrence and even explicitly mentions a \(6\times8\) quiet pattern; these premises are credited. Klostermeyer (2026) studies nullspace existence and primality; Scherphuis tabulates dimensions; Francis (2026) supplies a weighted \(4\times4\) base spectrum and square-grid extensions. These results do not state or imply by a generic dimension theorem the eight-class weight distribution of *all* six-row patterns or the exact count of minimum-support patterns. The 2009 orbit-weight paper studies a different minimization statistic. Targeted searches of research records and primary sources identified no identical or stronger weight enumerator for this family. Residual risk: an unlocated equivalent finite table might exist, particularly in the older parity-domination literature.
+PASS
 
-## Value
-**PASS.** The exact spectrum is a natural invariant of the six-row grid's zero-effect binary code, as opposed to an arbitrary enumeration slice. The width-six family is specifically motivated in the established nullspace-prime literature by the \(6\times8\) primitive; extending that instance gives an infinite, sharply periodic family. The eight distinct nonzero weight levels, the exact minimum \(18q\), and the multiplicity four answer quantitative questions not settled by existence and dimension data, and determine the noise-weight distribution of silent moves for any independent press probability. The result is self-contained and has a clear interpretation in parity domination and Lights Out; it does not depend on claiming a broader coding-theory breakthrough.
+The exact closed-neighborhood system over F2 is c_(j-1)+Bc_j+c_(j+1)=0, B=I+A(P6). Its characteristic polynomial is (x^3+x+1)^2; the Fibonacci-polynomial recurrence has f9(B)=0 and coprime residues for f1 through f8, hence exactly the n+1 divisible by 9 kernels are six-dimensional. T^9=diag(B^7,B^7) and boundary reflections replicate eight-column weights q times when n+1=9q. The complete independently checked 64-first-column table gives coefficients 1,4,12,12,3,12,15,4,1 at weights 0,18,20,22,24,26,28,30,36. New independent GF2 elimination reconstructed the whole kernels for n=1..27, including n=8,17,26. The finite table is exhaustively 64 cases; all-n statement follows from symbolic recurrence, not finite extrapolation.
 
-## Relationship and limitations
-Primary comparators: Klostermeyer and Goldwasser (2002); Klostermeyer (2026), arXiv:2610.31475v1; Francis (2026), especially its square-grid extension; Scherphuis's dimension table; and the distinct orbit-weight statistic of Goldwasser–Klostermeyer (2009). No general width or symmetry-classification claim is made. An independent literature-priority review and independent proof audit remain to be performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality after claim-level comparisons with actual literature; no identified decisive prior theorem entailed the precise asserted value-bearing formula. Full-text limitations and possible indirect dominance are explicitly recorded.
+
+## value
+
+PASS
+
+The six-row grid is a canonical resonant Lights Out/closed-neighborhood code family: the exact Hamming enumerator and minimum silent-press weight 18q are natural coding/parity invariants not determined by the previously known nullity or existence periodicity. Full spectra determine probabilities under independent biased button selection and quantify pattern sparsity; this is more than a routine restatement of the recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
