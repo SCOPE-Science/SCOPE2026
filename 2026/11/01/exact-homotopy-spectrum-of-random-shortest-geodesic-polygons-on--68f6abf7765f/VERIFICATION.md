@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Run `python3 check.py` with Python's standard library. The checked standalone source is supplied in the same package. It recomputes the first eight odd Legendre integrals numerically without using the Catalan recurrence for integration, confirms the exact \(n=3,4\) integral benchmarks against separately summed spectral traces, tests 13 consecutive finite-length values and their explicit two-mode inequalities, and simulates independent spherical lifts for five loop lengths (25,000 trials each). It prints `ALL_CHECKS_PASSED` on success.
+## correctness
 
-The universal correctness claims require the analytic steps in RESULT.md: antipodal geodesic lift parity, trace representation, Legendre eigenvalue computation, and Hilbert–Schmidt tail estimates. Neither Monte Carlo sampling nor finitely many trace sums prove an infinite-length statement. The supplied checker is corroborating evidence only.
+PASS
 
-No independent audit has been performed.
+Lift a polygon to S^2: the terminal sheet is the product of signs of consecutive inner products, independent of individual lift signs. The sign-kernel operator on normalized S^2 has odd harmonic eigenvalues (-1)^k Catalan_k/2^(2k+1), multiplicity 4k+3 and Hilbert-Schmidt square sum one. Cyclic trace equals 1-2q_n for n>=3; use spectral tail c_k<=1/8 for k>=1 and parity to prove strict monotonicity; c_k<=1/16 for k>=2 gives |q_n-(1/2-3/2^(n+1)-7/2*(-1/8)^n)|<=18/16^n. Hemisphere-disagreement conditioning yields q3 and q4. Numerically recomputed 10,000-term traces for lengths 3,4,5,6,7,12: q3=0.31830988618379086, q4=0.4052847345693511; analytic convergence and all lengths are established by the harmonic proof, not finite sums.
+
+## originality
+
+PASS
+
+Best-of-knowledge: identified and materially compared directly relevant primary theorems, distinguished prerequisite frameworks from implication of the final exact claim, recorded access and priority risks.
+
+## value
+
+PASS
+
+Natural random geodesic homotopy probability on a foundational compact non-simply-connected curved surface; the all-length trace law, strict ordering, explicit low-n values and uniform spectral remainder give a reusable distributional invariant beyond the standard hemisphere correlation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
