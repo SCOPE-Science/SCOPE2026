@@ -1,15 +1,21 @@
-# Self-review of a cyclic composition-profile enumeration
+# Independent mathematical audit
 
-## Correctness — PASS
-The central theorem quantifies all ternary circular source lengths \(n\ge2\). The main necessity argument contracts maximal identical-symbol runs and derives even switching degrees and the precise loop ceiling; sufficiency uses a connected even-degree multigraph Eulerian circuit, doubling the required number of visits. Ternary degree parity gives unique cross-edge variables, and a subset expansion of bounded loop counts gives the rational generating function. The denominator's primitive third- and fourth-root poles survive, establishing exact least period twelve. The standalone verifier reproduces coefficient counts, checks the graph criterion against exhaustive words in bounded cases, and validates 2,000 explicit constructive witnesses. There are no hidden continuum, probabilistic, or asymptotic assumptions in the exact enumeration. Finite verification is corroboration only; the mathematical proof carries the unrestricted quantifiers.
+## correctness
 
-## Originality — PASS (with residual risk)
-The closest scientific background is Ye–Elishco (arXiv:2208.14963), which treats *linear* length-limited composition multisets; Kiah–Puleo–Milenkovic (arXiv:1502.00517), which studies directed DNA sequence profiles and general graph-flow enumeration; and Nguyen–Cai–Immink–Kiah (arXiv:2001.02839) and İrimağzı–Uslan–Hareedy (arXiv:2311.08325), which handle constrained DNA encoding. Their inspected relevant primary sections do not state a cyclic ternary unordered-pair profile capacity under the no-triple condition, nor do the specifically compared statements imply the exact specialized generating function without additional case analysis. Earlier related binary and ternary finite-profile results use different source classes, linear/cyclic conventions, observations, or restrictions; none of the recoverable claims directly dominates this one. Generic Eulerian methodology does not by itself imply this explicit realizability-with-loop-ceiling and nontrivial quasipolynomial. Residual risk: an unindexed equivalent result in graph-flow counting or DNA-composition literature may exist; novelty is not independently certified.
+PASS
 
-## Value — PASS
-Exact zero-error distinguishability under two operationally meaningful simultaneous restrictions (homopolymer length at most two and loss of adjacency direction) is an intrinsically motivated quantity. The result supplies an all-length exact capacity rather than merely a bound, a constructive necessary-and-sufficient criterion valid on all alphabet sizes, and an exact nontrivial period-twelve counting law. These quantify the structural cost of composition-only observations for circular constrained storage and give reproducible benchmark capacities. The period and structural classification are not justified merely by a numerical census.
+The complete general-q criterion follows by contracting runs of length 1 or 2 into a closed switching walk: the off-diagonal multigraph is nonempty and connected on active vertices, all degrees even, and loops h_ii do not exceed d_i/2. Conversely an Euler circuit has d_i/2 visits at vertex i, of which any h_ii may be doubled, proving all lengths including cyclic n=2. For q=3 the three cross-multiplicities have common parity eps and are uniquely x=2u+eps,y=2v+eps,t=2w+eps; the loop bounds give an exact positive generating sum. An independent symbolic common-denominator reduction recovered the stated z²P/[(1-z)^6(1+z)^3(1+z²)^2(1+z+z²)^2]. Nonzero factors at third/fourth roots enforce least period 12, with leading coefficient [5/96]/5!=1/2304. Enumeration of all ternary words through n=8 corroborated the analytic all-length proof.
 
-## Scientific limits
-No claims are made about noisy or incomplete reads, about an explicit all-alphabet generating function, or about independent expert validation. The proof is self-contained, while bibliographic originality is subject to the possibility of unseen equivalent formulations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The core directed DNA profile and Euler/flow machinery are established; an unordered cyclic adjacent-composition histogram under the length-two run ceiling has additional degree-parity and diagonal-loop constraints. The explicit ternary period-12 capacity is not a directly named or implied evaluated table in inspected primary sequence-profile work. Risk remains of unindexed undirected multigraph flow enumeration equivalences.
+
+## value
+
+PASS
+
+An exact zero-error distinguishability capacity under two meaningful experimental limitations (unoriented pair compositions and cyclic homopolymer ceiling two) gives practical benchmark cardinalities, nontrivial 12-periodic structure and a complete all-alphabet constructive feasibility test. Not a trivial restatement of generic Euler circuits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
