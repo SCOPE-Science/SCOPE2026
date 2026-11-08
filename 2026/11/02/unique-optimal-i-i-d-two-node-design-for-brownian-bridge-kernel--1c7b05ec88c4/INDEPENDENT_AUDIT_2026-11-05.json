@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T14:22:05.979309Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k(s,t)=min(s,t)-st and noiseless two draws, integrated conditional Brownian-bridge variance is sum of three cubed gaps divided by 12, including ties. The exact quadratic functional S=6∫_{0<u<v<1}(v-u)(1-mu((u,v)))^2 du dv is convex; equality for zero-total signed perturbations fixes interior law. Proposed density 2(1+r²)/[1+(2x-1)²]^2 on central support, r+(1+r²)atan r=1, has constant potential on support and U=c+(3/2)dist² outside. This global Euler obstacle and convexity show unique minimizer among all Borel measures, excluding endpoint redistribution. Independent scipy quadrature verified normalization, potential at nine interior/exterior points, exact optimum 0.0160494871749149 versus uniform 0.025; these tests do not prove all-measure uniqueness. Supremum is inside expectation; no correlated-design conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deterministic optimality of Santin Theorem 5 is not an upper/lower bound identifying the iid probability optimizer; generic KQ bounds in Briol et al. do not specify r≈0.4673388 or truncated p_*."
+        ],
+        "reasoning": "Stronger or more general statements were checked for actual logical implication, including different quantifier/objective regimes.",
+        "searches": [
+          "Resultary:Brownian bridge H0^1 iid two samples minimize expected kernel quadrature posterior variance optimal density support",
+          "web:Brownian bridge kernel quadrature optimal iid sampling distribution two points expected posterior variance Pronzato Zhigljavsky",
+          "Santin arXiv:2210.15959 Theorem 5; Briol arXiv:1706.03369"
+        ]
+      },
+      "checked_sources": [
+        "Santin arXiv:2210.15959 full 7-page primary PDF §§2,4,5",
+        "Briol et al. arXiv:1706.03369 primary PDF §§1–3 and Appendix A",
+        "Resultary semantic search for Brownian bridge optimal iid design"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Changing the order of sup and expectation changes the risk; a deterministic equal-spacing optimum does not imply the unique minimizer over independent random node distributions."
+        ],
+        "reasoning": "Separate the credited input from the mathematical statement needed for the reviewed theorem.",
+        "searches": [
+          "Resultary:Brownian bridge H0^1 iid two samples minimize expected kernel quadrature posterior variance optimal density support",
+          "web:Brownian bridge kernel quadrature optimal iid sampling distribution two points expected posterior variance Pronzato Zhigljavsky",
+          "Santin arXiv:2210.15959 Theorem 5; Briol arXiv:1706.03369"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Santin works with the same Brownian bridge Green kernel, while Briol et al. consider iid random knot sets; neither uses E_Z ||I-Q_Z||_{H*}² for exactly two draws."
+        ],
+        "reasoning": "Compare exact observable/object, not matching title; Unique optimal i.i.d. two-node design for Brownian-bridge kernel quadrature",
+        "searches": [
+          "Resultary:Brownian bridge H0^1 iid two samples minimize expected kernel quadrature posterior variance optimal density support",
+          "web:Brownian bridge kernel quadrature optimal iid sampling distribution two points expected posterior variance Pronzato Zhigljavsky",
+          "Santin arXiv:2210.15959 Theorem 5; Briol arXiv:1706.03369"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published source PDFs and Resultary search provide no exact two-iid-knot optimum table; an unindexed spacing-design table remains a risk."
+        ],
+        "reasoning": "No exact table found among inspected results; absence alone is not a novelty proof.",
+        "searches": [
+          "Resultary:Brownian bridge H0^1 iid two samples minimize expected kernel quadrature posterior variance optimal density support",
+          "web:Brownian bridge kernel quadrature optimal iid sampling distribution two points expected posterior variance Pronzato Zhigljavsky",
+          "Santin arXiv:2210.15959 Theorem 5; Briol arXiv:1706.03369"
+        ]
+      },
+      "rationale": "PASS qualified: Santin 2022 Theorem 5 proves optimal deterministic equally spaced nodes for sup pointwise power, not the iid sampling-law functional. Briol et al. study sampling distributions and supremum-before-expectation error rather than E of squared fixed-node worst-case error. Explicit compact support density and all-measure uniqueness not found in these inspected theorems.",
+      "residual_risks": [
+        "Specialized prior work on stochastic cubic spacing design could have an equivalent optimizer",
+        "Only two iid draws and integrated posterior squared worst-case error; correlated/deterministic draws or alternate risk not covered"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NONCOVERING for iid expected integrated quadrature risk; covers deterministic sup power",
+          "evidence": "Theorem 5 uniquely minimizes ||P_{1,epsilon,X}||_infinity over deterministic X by equally spaced nodes, a different objective",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.15959",
+          "material_read": "Full 7-page PDF, including §4.2 and Theorem 5 on page 5, conclusion",
+          "method": "read web-extracted PDF text and screenshot page 1",
+          "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+          "trigger": "same Brownian bridge kernel and optimal design"
+        },
+        {
+          "assessment": "related sampling-law design but no two-draw Brownian-bridge exact minimizer",
+          "evidence": "Paper focuses asymptotic KQ RMSE constant and selects sampling distributions; Appendix A uses supremum over f before expectation, not E sup of squared fixed-node error",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.03369",
+          "material_read": "20-page PDF introduction, equations (1)-(3), early §2, Appendix A sup-over-f bound",
+          "method": "read PDF text and screenshot page 1",
+          "title": "On the Sampling Problem for Kernel Quadrature",
+          "trigger": "iid sampling-law optimization of kernel quadrature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Selecting random-node distributions is a natural kernel-quadrature design problem. For the smallest genuinely random two-node case a unique support-truncated design attains a 35.8% risk reduction relative to uniform sampling; exact obstacle and all-Borel uniqueness provide a mathematically useful benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specialized prior work on stochastic cubic spacing design could have an equivalent optimizer",
+    "Only two iid draws and integrated posterior squared worst-case error; correlated/deterministic draws or alternate risk not covered"
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is not an inference from numerical optimization. The Brownian-bridge conditional covariance integrates to one twelfth of the cubed local gap; two iid knots give a strictly convex quadratic functional modulo invisible endpoint mass. The proposed compactly supported probability density is normalized by a unique scalar root, and its cost potential is rigorously constant on its support and quadratically higher outside. The signed-measure expansion proves global minimality and uniqueness for **all** Borel competitors, including atoms and endpoint mass. The constant is obtained from the potential and the second moment. `verify.py` verifies analytic identities symbolically, exact Gram formulas, and high-precision boundary behavior. Remaining mathematical scope is explicitly restricted to two iid noiseless knots and this particular kernel/error criterion.
+## correctness
 
-## Originality — PASS (best-knowledge, with residual priority risk)
-Actual searches compared exact cubic-spacing optimization, the compactly supported density, Brownian-bridge Bayesian posterior variance, optimal iid landmark laws, and broader deterministic design results. Santin's Theorem 5 covers optimal **deterministic** equally spaced knots under the **uniform pointwise interpolation power function**; it neither implies this iid law nor its expected integrated variance. Briol et al. study selection of a proposal distribution but optimize a different order of supremum and expectation; their general sampling discussion does not imply this explicit density. Hayakawa et al. give Nyström/kernel-quadrature bounds and construction methods, not a two-draw exact sampling-law classification. A complete search of specialized spacing-design results cannot be guaranteed, so independent publication-priority verification remains desirable. No prior reviewed statement was found that directly covers or dominates the precise result.
+PASS
 
-## Value — PASS
-The sampling-distribution choice in kernel quadrature is a motivated problem, not an arbitrary parameter puzzle. The smallest nontrivial iid sample count already has a unique, nonuniform, **support-truncated** optimum over the entire class of Borel laws, with an exact 35.8% improvement over the default uniform proposal in a meaningful Bayesian posterior-variance criterion. The density, threshold, and all-measure uniqueness supply a reproducible test case for proposal-design algorithms. A paper-sized general theorem is not claimed; extending to more knots or different kernels is open within this analysis.
+For k(s,t)=min(s,t)-st and noiseless two draws, integrated conditional Brownian-bridge variance is sum of three cubed gaps divided by 12, including ties. The exact quadratic functional S=6∫_{0<u<v<1}(v-u)(1-mu((u,v)))^2 du dv is convex; equality for zero-total signed perturbations fixes interior law. Proposed density 2(1+r²)/[1+(2x-1)²]^2 on central support, r+(1+r²)atan r=1, has constant potential on support and U=c+(3/2)dist² outside. This global Euler obstacle and convexity show unique minimizer among all Borel measures, excluding endpoint redistribution. Independent scipy quadrature verified normalization, potential at nine interior/exterior points, exact optimum 0.0160494871749149 versus uniform 0.025; these tests do not prove all-measure uniqueness. Supremum is inside expectation; no correlated-design conclusion.
 
-## Limits and closest published sources
-The independent-node restriction matters: equally spaced deterministic nodes have lower variance. The expected fixed-node worst-case squared error is not equal in general to the worst-over-functions expected squared error. Most relevant sources: Santin (arXiv:2210.15959v1, Sections 2, 4 and 5), Briol et al. (arXiv:1706.03369v1, Sections 1–3), Hayakawa et al. (arXiv:2301.09517, Sections 2–5), and contextual deterministic energy-design work by Pronzato–Zhigljavsky (DOI 10.1137/18M1210332). No independent validation is implied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Santin 2022 Theorem 5 proves optimal deterministic equally spaced nodes for sup pointwise power, not the iid sampling-law functional. Briol et al. study sampling distributions and supremum-before-expectation error rather than E of squared fixed-node worst-case error. Explicit compact support density and all-measure uniqueness not found in these inspected theorems.
+
+## value
+
+PASS
+
+Selecting random-node distributions is a natural kernel-quadrature design problem. For the smallest genuinely random two-node case a unique support-truncated design attains a 35.8% risk reduction relative to uniform sampling; exact obstacle and all-Borel uniqueness provide a mathematically useful benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
