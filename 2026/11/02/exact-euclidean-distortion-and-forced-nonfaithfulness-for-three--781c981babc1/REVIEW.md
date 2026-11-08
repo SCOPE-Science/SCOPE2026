@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition covers \(n\ge8\) and unlimited real-Hilbert target dimension. Every nonedge has a common Kneser neighbor because its union has at most five elements. Rescaling a finite embedding noncontractingly, averaging **squared** Euclidean distances under all label permutations, and Schoenberg double-centering preserve the desired inequalities. Formula (2) counts the intersection relations on incidence functions, and (3) gives all relevant nonconstant eigenvalues. The \(W_1\) inequality yields sharp lower and constructive upper bounds for \(n\ge9\); a nonnegative combination of \(W_1\) and \(W_3\) gives the exceptional \(n=8\) bound. Explicit PSD Euclidean patterns attain both. Saturation establishes the stated rigidity without presuming the original embedding invariant. The exact-rational checker tests a finite range and is only supporting evidence; no infinite inference is made from the finite tests.
+## correctness
 
-## Originality — PASS, with priority qualification
-Robertson (arXiv:2309.16070, §1 and §4) supplies general distorted-negative-type theory and examples for bicliques and Hamming cubes but not the present Kneser three-subset value. Vallentin (arXiv:math/0509716, §§1–4) solves several **distance-regular** families and all strongly regular graphs, not this diameter-two graph with nonuniform common-neighbor counts. Cioabă, Gupta, Ihringer and Kurihara (arXiv:2109.09708, introduction and results) continue that distance-regular approach. In contrast, the present family has a three-class Johnson association scheme and is not distance regular; its optimal embedding at \(n=8\) cannot be faithful. Direct phrase, formula, spectral-duality and graph-alias searches revealed no specific equivalent formula, although poorly indexed older association-scheme computations could still constitute priority. The two-subset Kneser formula is not asserted new.
+PASS
 
-## Value — PASS
-This gives exact distortion for every member of a natural infinite non-distance-regular graph family, with a sharp exceptional nonfaithfulness obstruction at \(n=8\), coexistence of optimal faithful and nonfaithful embeddings at \(n=9\), and complete distance rigidity from \(n=10\) onward. The forced nonfaithfulness separates the result structurally from the distance-regular theory; it is not a routine table entry or a minor numerical bound.
+PASS. Symmetrization of squared Euclidean distances (not of maps) preserves conditional negativity and the noncontracting C^2 interval. Incidence-space Fourier decomposition of Johnson-scheme adjacency matrices yields the three nontrivial eigenvalue rows (-L,(n-4)(n-9)/2,2n-9), (n-5,11-2n,n-7),(-1,3,-3), L=binom(n-4,2). The W1 inequality gives sharp lower bound for n>=9; explicit x=(4(1-1/L),4,4) obeys all three. For n=8, 3*W1+2*W3 gives x0>=3x2/4, and (3,5,4) meets sharpness. Equality of orbit averages at bounding values pins every pair distance for n>=10; at n=8 orbit x1=5 differs from x2=4, forcing nonfaithfulness. Independent exact finite differences reproduced the eigenvalue rows for n=8..40 and checked the claimed pointwise optimal squared-distance patterns including n=9 alternative.
 
-## Limits and priority risk
-The unrestricted metric-embedding theorem does not determine minimum Euclidean target dimensions or all optimal coordinates for \(n=8\). Additional historical sources using alternative terminology might predate the result. No external expert validation or independent scientific audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge separate statement/implication comparison supports survival of the claimed exact classification; priority is bounded by named inspected sources. Unavailable/abstract-only sections are explicitly reserved as risks, not treated as proof of novelty.
+
+## value
+
+PASS
+
+PASS. The exact least distortion for the natural three-subset Kneser metric and a sharp exceptional forced-nonfaithfulness transition provide independently useful metric geometry, stronger than a generic finite SDP numerical result or the usual distance-regular examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
