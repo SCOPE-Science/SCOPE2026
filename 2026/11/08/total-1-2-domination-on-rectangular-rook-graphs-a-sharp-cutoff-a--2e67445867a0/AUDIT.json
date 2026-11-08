@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The row-column identity |N(i,j) intersect S|=r_i+c_j-2x_ij is exact. When both dimensions are at least three, the two-small-degrees obstruction proves that all feasible sets must be single full rows or columns of length three. For two rows, column types are exhaustively divided into only doubles, a double-plus-singleton, or a full row of length two or three, giving the stated polynomial with correct boundary indicators. All constructed types directly satisfy the defining constraints. Two distinct executable procedures checked 13 and 19 finite boards; they corroborate, not replace, the all-order proof. Risks: no formal proof assistant or independent mathematical referee has verified the text.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lv and Wu (arxiv:1503.04939v1), Lemma 2.1 and Theorem 3.1: general bounds and sufficient nonexistence conditions, not a rook polynomial.",
+        "Carballosa and Wisby (arxiv:2001.07850v4): total k-domination is lower-bound-only, not an interval constraint.",
+        "Zhang et al. (2017), Theorems 3 and 4: cycle products, not arbitrary complete-graph products."
+      ],
+      "reasoning": "The older general bound and later total k-domination theorems do not imply the enumerator or the if-and-only-if existence threshold. The cycle-product theorem overlaps only the 3-by-3 minimum and is expressly excluded from the novelty claim.",
+      "searches": [
+        "total [1,2]-domination total (1,2)-sets rook graphs Cartesian products complete graphs",
+        "on rook graph K_m square K_n no total [1,2]-dominating set when m,n >=4 exact polynomial for 2 and 3 rows",
+        "arxiv 1503.04939 total [1,2]-domination in graphs",
+        "Total k-domination in Cartesian product of complete graphs"
+      ]
+    },
+    "checked_sources": [
+      "Chellali et al., doi:10.1016/j.dam.2013.06.012 (relevant accessible article text, partial full-text access)",
+      "Lv and Wu, arxiv:1503.04939v1 (PDF, sections 1--4 and proof material)",
+      "Zhang, Shao and Yang, doi:10.5539/jmr.v9n3p38 (PDF text, abstract and Section 3)",
+      "Carballosa and Wisby, arxiv:2001.07850v4 (abstract only)",
+      "Public mathematical-record search by object, interval constraint, graph-product alias, exact polynomial and line-graph alias"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chellali et al. (2013): Question 15 on ordinary [1,2]-sets in K_p Cartesian K_2; Question 14 introduces the total condition.",
+        "Lv and Wu (2015): Section 3 sufficient absence conditions do not specialize to an exact rook classification.",
+        "Zhang et al. (2017): numeric minimum 3 on the small special case K_3 Cartesian K_3."
+      ],
+      "reasoning": "The theorem is about all subsets satisfying constraints at both selected and unselected squares. It entails a sharp existence cutoff and the full polynomial. Neither the weaker non-total case, the global existence bounds, nor the shared small numeric minimum determines those counts or the no-set conclusion for all m,n>=4.",
+      "searches": [
+        "total limited domination graph no such sets Kneser 2 subsets",
+        "total [1,2] domination of line graph of complete bipartite graph",
+        "locally bounded total domination edge set of complete bipartite rook graph row column pattern",
+        "\"[1,2]-sets in graphs\" Chellali Question 14 Question 15 K_p Cartesian K_2",
+        "\"The [a,b]-domination and [a,b]-total Domination of Graphs\" toroidal T_3,3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rook graph is the line graph of K_{m,n} and the product K_m Cartesian K_n; both formulations were considered.",
+        "The selected-neighborhood count on an edge (i,j) of K_{m,n} is r_i+c_j-2 x_{ij}; the proposed enumeration constrains all edges, not just unselected ones.",
+        "Chellali et al. (2013), Question 15, treats the same Cartesian graph for non-total [1,2]-sets."
+      ],
+      "reasoning": "The equivalent line-graph/rook-array descriptions lead to the same row-column feasibility condition. Existing ordinary [1,2]-set statements are weaker and do not force selected vertices to see one or two selected neighbors. No equivalent complete interval-restricted enumerator was identified.",
+      "searches": [
+        "total [1,2] domination of line graph of complete bipartite graph",
+        "neighborhood occupancy exactly one or two selected neighbors in lattice graphs complete graph Cartesian products",
+        "total [1,2] sets in complete Cartesian graph products K_m box K_n exact enumeration",
+        "\"total [1,2]\" \"line graphs\" complete bipartite",
+        "\"total [1,2]\" \"lattice graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned foundational total-[1,2] papers, graph-product work on different invariants and rook-graph work on unrelated parameters, but no table of coefficients for the present condition.",
+        "The full inspected 2015 paper has no Cartesian-product treatment.",
+        "Prior published-record comparisons concerned total-domination, paired-domination and rook complexes but not the interval restriction."
+      ],
+      "reasoning": "No exact coefficient table, isomorphic configuration census, or dominating stronger formula was found. Search failure alone is not treated as proof of novelty, and unindexed tables remain possible.",
+      "searches": [
+        "\"total [1,2]\" \"rook graph\"",
+        "\"total [1,2]\" \"K_m\" \"K_n\" Cartesian",
+        "on rook graph K_m square K_n no total [1,2]-dominating set when m,n >=4 exact polynomial for 2 and 3 rows",
+        "[1,2]-total domination rook graphs two dimensional Hamming lattice"
+      ]
+    },
+    "rationale": "The statement is a complete labelled all-set polynomial and a sharp iff existence threshold for two-factor rook graphs. The 2013 founding article studies non-total [1,2]-sets on K_p Cartesian K_2 and poses the total variant; the 2015 foundational total paper provides broad bounds and sufficient absence conditions; 2017 toroidal-cycle work entails only the numeric 3-by-3 minimum special case; a later total-k product paper has no two-neighbor ceiling. Actual scientific record searches in multiple equivalent formulations found no stronger formula implying the present classification. The 2013 publisher full text was not completely accessible and priority is not independently settled.",
+    "residual_risks": [
+      "The full 2013 publisher version could not be retrieved; only indexed relevant article material was available.",
+      "The 2017 PDF screenshot service failed although its text was indexed; its cycle-product theorem was compared.",
+      "Unindexed or unpublished historical calculations on rook graphs may exist.",
+      "The later 2020/2023 total-k product paper was evaluated from its abstract only; it studies lower bounds, not the interval condition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The reported K_p Cartesian K_2 result addresses [1,2]-sets satisfying only outside-S constraints. It does not give the total-[1,2] feasibility threshold or all-set polynomial. Since the complete publisher text was not inspected, a residual full-text comparison risk is acknowledged.",
+        "evidence": [
+          "Question 14 defines total [1,2]-sets and poses what can be said about their number.",
+          "Question 15 explicitly discusses minimal ordinary [1,2]-sets on K_p Cartesian K_2; their count and hypotheses differ from the total condition."
+        ],
+        "identifier_or_url": "doi:10.1016/j.dam.2013.06.012",
+        "material_read": "Accessible publisher-indexed article text: definitions, discussion of Question 14 (total [1,2]) and Question 15 (K_p Cartesian K_2 ordinary [1,2]-sets), plus relevant theorem descriptions; not an uninterrupted full publisher PDF.",
+        "method": "Readable article text and targeted article searches. Complete publisher PDF was not accessible for a page-by-page review.",
+        "title": "[1, 2]-sets in graphs",
+        "trigger": "The original paper introduces total [1,2] questions and names the same K_p Cartesian K_2 family in an example."
+      },
+      {
+        "assessment": "The source proves global upper bounds and sufficient absence conditions and studies trees, paths, cycles, complete graphs and coronas, not exact all-total-[1,2]-set profiles of K_m Cartesian K_n. Its Theorem 3.1 does not imply this two-parameter polynomial.",
+        "evidence": [
+          "arXiv v1 page 1 definition and public date.",
+          "Lemma 2.1: complete graphs, complete bipartite graphs, paths and cycles.",
+          "Theorem 3.1: sufficient nonexistence based on ordinary [1,2]-domination number; Section 4: corona conditions.",
+          "Text search of PDF for Cartesian product yielded no occurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1503.04939",
+        "material_read": "Seventeen-page arXiv PDF text, including introduction, statements and proofs from Sections 2--4; page images inspected for front page and Section 2 material.",
+        "method": "Direct public arXiv PDF, full text browsing by section and PDF screenshots.",
+        "title": "Total [1,2]-domination in graphs",
+        "trigger": "Foundational same-invariant work, first posted 2015-03-17, with bounds and nonexistence criteria."
+      },
+      {
+        "assessment": "It gives the numeric minimum for C_3 Cartesian C_3 (hence K_3 Cartesian K_3) as 3; that single number is prior art. The cited theorems for cycle grids do not give the general rook family or count all subsets, so the new statement strictly refines the overlap.",
+        "evidence": [
+          "Theorem 3: gamma_t[1,2](T_{3,n})=ceil(4n/5).",
+          "Theorem 4: formula for T_{4,n}, both toroidal cycle products.",
+          "Published online 2017-05-18, after the archive source date but relevant to priority."
+        ],
+        "identifier_or_url": "https://ccsenet.org/journal/index.php/jmr/article/download/66426/37061",
+        "material_read": "Indexed PDF text: abstract, Cartesian-product definition, Section 3 statement of Theorems 3 and 4, which cover C_3 Cartesian C_n and C_4 Cartesian C_n; direct PDF screenshot unavailable due content-type error.",
+        "method": "Publisher full-text PDF index and article abstract, plus attempted PDF screenshot.",
+        "title": "The [a,b]-domination and [a,b]-total Domination of Graphs",
+        "trigger": "Studies total [1,2]-domination on Cartesian products; one small cycle product equals K_3 Cartesian K_3."
+      },
+      {
+        "assessment": "Its selected-neighborhood condition is at least k, not between one and two. These lower-bound results cannot enumerate sets also obeying a uniform upper bound. A full-text historical coverage check for this later paper remains a residual risk.",
+        "evidence": [
+          "The abstract defines total k-domination as every vertex adjacent to at least k selected vertices, and studies the Cartesian product of complete graphs."
+        ],
+        "identifier_or_url": "arxiv:2001.07850v4",
+        "material_read": "Public abstract stating lower-bound-only k-tuple total domination and specific total-2 bounds; full article not read.",
+        "method": "ArXiv-index abstract and bibliographic record.",
+        "title": "Total k-domination in Cartesian product of complete graphs",
+        "trigger": "Same product family; check for a stronger theorem that could imply an upper-bounded variant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2e674458-67a0-4e2e-a317-ff40d9dc8384",
+  "value": {
+    "rationale": "The founding total-[1,2] question explicitly motivates which graphs support locally one-or-two coverage. The exact two-parameter cutoff at min(m,n)=3 exhibits an obstruction for every larger rook grid despite the existence of ordinary total dominating sets; the complete polynomial counts all feasible configurations and explains the exceptional small boards rather than merely furnishing a minimum number. This is a natural complete family classification, not a preselected arbitrary instance; the limits are stated.",
+    "status": "PASS"
+  }
+}
