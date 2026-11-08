@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Vertex-facet incidence is reconstructed by the explicit inequality for all 32 cube edges; the two signed-coordinate-sum boundaries partition the ordered positive cone into exactly three chambers. Rational incidence enumeration establishes their distinct inventories. The known marginal distribution is also derived from an independent Gaussian/Cauchy crossing calculation; the new equality follows from an orthogonal involution preserving both the nondominant cone and the radial density. The supporting standalone checker replays the chamber, reflection and finite incidence calculations. Exceptional normals have Haar measure zero. The 75,000 random trials are corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS (historical priority provisional).** Egan's generic profile list and Brandenburg–Meroni's certified type count are already known and explicitly excluded from the novelty claim. Ambrus's 2021 cube-section work treats volume-critical normals. The published two-point face-vector law gives only a \(1/3\) versus \(2/3\) marginal and does not imply the conditional distribution between the two twelve-vertex types; the present exact \(1/2\) split, hence three equal \(1/3\) probabilities, is the claim assessed. Direct record and primary-source comparisons found no statement determining this conditional Haar law. Residual risk: earlier unindexed section stereology or later literature may already contain it.
+PASS
 
-**Mathematical value — PASS.** The theorem completes the natural random combinatorial-type law for the smallest hypercube dimension where a face vector fails to determine section type. The exact reflection is a structural geometric reason for a surprising probability equality and upgrades a strictly weaker previously evaluated face-vector marginal. This is a complete classification of a natural invariant, not a small numerical improvement or an arbitrary parameter slice.
+PASS: A generic central section vertex corresponds one-to-one to a crossed 4-cube edge, with crossing criterion abs(sum remaining signed coordinates)<u_i. After sorting four positive normal coordinates a<b<c<d, the two possible signed-sum changes X=d-a-b-c and Y=d+a-b-c partition the parameter cone into three types with facet inventories 4^6, 3^2 5^6, 4^6 6^2. Independently re-enumerated exact cube-edge crossings at (1,2,3,7),(1,2,3,5),(6,8,10,11), giving 8,12,12 vertices and the stated facets. A prescribed edge has crossing probability P(|N(0,1)|>sqrt3 |N(0,1)|)=1/3, so expected count 32/3 and dominant type probability 1/3. Reflection T(u)=u-(Y/2)(1,-1,-1,1) is orthogonal, involutive, and preserves the ordered non-dominant cone while swapping the remaining two types; Gaussian radial density is invariant, forcing their conditional 1:1 split. Boundary hyperplanes have Haar probability zero. Exact geometry, not simulation, proves the masses.
 
-**Limits.** The result is specific to generic Haar central sections of the symmetric four-cube. It does not assert uniformity under non-Haar sampling or for affine sections or orthotopes. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: Best-of-knowledge supported by direct statement/implication comparisons, not claimed absolute priority. The exact 1/3 conditional split refines, rather than repeats, classifications and the coarser face-vector distribution. Expectation plus support {3 types} is insufficient for all three probabilities because two share vertex count 12; the orthogonal involution supplies a distinct extra equation. Neither result implies equality of the two nondominant chamber masses. The explicit measure-preserving cone reflection supplies the missing implication.
+
+## value
+
+PASS
+
+PASS: Equal Haar probabilities for three different natural face-incidence types refine an already known two-valued face-vector law. The explicit cone reflection is a structural explanation, and the conditional split provides an exact distribution for a canonical random polytope, not a mere recount of a known type list.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
