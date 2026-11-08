@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Facet-pair integration exactly yields \(I=\sum_i(T+2F_i)a_i^2/6\), where the physical face areas satisfy three independent upper bounds. A convex polynomial in the face areas reduces the universal inequality to eight vertices of the enclosing parameter box. The six nonzero one- or two-face cases are strictly positive; the all-three case has an explicit three-term sum of squares with equality only at equal edge lengths. Maximal face areas enforce pairwise perpendicularity. Independent exact-rational polynomial tests and direct Gaussian facet quadrature are provided in `verify.py`.
+PASS
 
-## Originality — PASS, provisional historical priority
+Represent a parallelepiped by centered edge vectors u,v,w with lengths a,b,d and facet areas F_1=|v×w|,F_2=|u×w|,F_3=|u×v|. Direct integration of six affine facets gives I=(1/6)Σ_i(T+2F_i)a_i² with T=ΣF_i, S=2T. The desired ratio is Σ_i(T+2F_i)a_i² >=(5/3)T². On the relaxed box 0≤F_1≤bd, 0≤F_2≤ad, 0≤F_3≤ab, the negative deficit H=(5/3)T²-Σ_i F_i(a²+b²+d²+2a_i²) is convex, so its maximum is attained at a vertex. At zero H=0; the six one/two-positive vertices have strictly negative H; the all-positive vertex has 3(-H)=1/2Σ_cyclic (a-b)²[5ab+d(a+b)]≥0, with equality only a=b=d. Independently expanded this exact polynomial identity symbolically, and confirmed the two-face vertex expression exactly. Equality at a physically nondegenerate point F_i>0 forces all F_i maximum and equal lengths; cross-product equality then forces pairwise orthogonal equal edges, exactly a cube. No sampling is used to prove all real triples.
 
-Freitas–Laugesen–Liddell (2007) Theorem 5 explicitly addresses **cuboids**, imposing orthogonal edges. Its complete Section 5.4 proves the familiar numerical constant for three orthogonal side lengths; that statement cannot imply the bound for all oblique parallelepipeds. Csató–Giovagnoli–Roy (2026) establish general existence and mainly planar shape statements, and explicitly leave unrestricted three-dimensional shape classification open. Their introductory reference to cuboids does not provide a full-affine result. Semantic searches across the mathematical record produced nearby random-shadow/moment results for orthotopes but none controlling the centered quadratic **boundary integral** of arbitrary sheared boxes. An equivalent classical affine-geometry theorem could have escaped retrieval; this is a disclosed residual risk, not definitive priority verification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the complete sharp value and equality classification for the full affine family of three-dimensional parallelepipeds under a natural surface-energy functional, a strictly larger family than the known rectangular-box class. The proof isolates the geometric effect of shear through a convex relaxation and sum-of-squares obstruction, making the result useful as a rigorous benchmark in the still-unresolved universal convex-surface minimization problem. It is not a merely numerical reevaluation of the cube.
+Freitas–Laugesen–Liddell prove the same sharp 5/72 ratio and cube equality for orthogonal rectangular cuboids only. The audited convex-relaxation proof establishes the bound for every oblique Euclidean parallelepiped. The equal constant is a known calibration; the extension across skew parallelepipeds is the claim.
 
-## Scientific limits
+## value
 
-The general convex-body problem is not resolved. Historic equivalents in older special-shape inequality literature may exist. Finite tests corroborate the symbolic and geometric identities; they do not prove the infinite result, which rests on the displayed analytic argument. No independent assessment is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Extends a famous sharp cube inequality from rectangular cuboids to all skew parallelepipeds, a natural geometric class with three extra angle degrees of freedom. The proof supplies a transparent convex relaxation and exact rigidity. The same coefficient is a calibration, not a tiny numerical gain; adding all shears is a qualitative extension. Not an unmotivated slice, because the unrestricted convex-surface optimum is different and the parallelepiped class is canonical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

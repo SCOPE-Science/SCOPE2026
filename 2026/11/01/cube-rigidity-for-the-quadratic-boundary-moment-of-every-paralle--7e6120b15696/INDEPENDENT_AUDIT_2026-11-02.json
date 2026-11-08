@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-02",
+  "audited_at_utc": "2026-11-02T04:47:08.381913Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/3216b56cf13f3458b5353d1e118761f975adbcd9/2026/11/01/cube-rigidity-for-the-quadratic-boundary-moment-of-every-paralle--7e6120b15696/RESULT.md",
+        "https://www.researchgate.net/publication/228883213_On_convex_surfaces_with_minimal_moment_of_inertia"
+      ],
+      "rationale": "Represent a parallelepiped by centered edge vectors u,v,w with lengths a,b,d and facet areas F_1=|v×w|,F_2=|u×w|,F_3=|u×v|. Direct integration of six affine facets gives I=(1/6)Σ_i(T+2F_i)a_i² with T=ΣF_i, S=2T. The desired ratio is Σ_i(T+2F_i)a_i² >=(5/3)T². On the relaxed box 0≤F_1≤bd, 0≤F_2≤ad, 0≤F_3≤ab, the negative deficit H=(5/3)T²-Σ_i F_i(a²+b²+d²+2a_i²) is convex, so its maximum is attained at a vertex. At zero H=0; the six one/two-positive vertices have strictly negative H; the all-positive vertex has 3(-H)=1/2Σ_cyclic (a-b)²[5ab+d(a+b)]≥0, with equality only a=b=d. Independently expanded this exact polynomial identity symbolically, and confirmed the two-face vertex expression exactly. Equality at a physically nondegenerate point F_i>0 forces all F_i maximum and equal lengths; cross-product equality then forces pairwise orthogonal equal edges, exactly a cube. No sampling is used to prove all real triples.",
+      "residual_risks": [
+        "The convex relaxation is larger than geometrically realizable facet triples, but this is legitimate for a universal upper bound on convex H; no assertion about all box triples being realizable."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 covers only [-a,a]×[-b,b]×[-c,c]; Csató et al. consider general weighted perimeter existence/planar optimizers but do not state this sharp 3D parallelepiped inequality in accessible abstract."
+        ],
+        "reasoning": "No checked stronger theorem entails the oblique case. The broader unrestricted convex-body minimization is known not to have cube as global winner (truncated tetrahedron is below 5/72), so scope restriction is essential.",
+        "searches": [
+          "Freitas et al. Theorems 3–6 and §5.4",
+          "Csató–Giovagnoli–Roy arXiv:2608.19851 metadata and abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/228883213_On_convex_surfaces_with_minimal_moment_of_inertia",
+        "https://arxiv.org/abs/2608.19851",
+        "Resultary semantic cube-parallelepiped inertia query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Orthogonal edges imply F_i=a_j a_k; oblique F_i are smaller, and their triple depends on Gram constraints. The cited theorem makes no conclusion about such faces."
+        ],
+        "reasoning": "The new convex-box relaxation proves the inequality uniformly for all physically feasible oblique facet-area triples, strictly extending the old theorem.",
+        "searches": [
+          "Freitas et al. Theorem 5 proof and assumptions",
+          "Current theorem independent-area box convexity proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "I/S^2=J/A^2 is the scale-free quadratic surface moment with surface-area centroid at the central-symmetry center."
+        ],
+        "reasoning": "Common notation and rigid-motion normalizations are equivalent. The difference is orthogonality: cuboids are a proper subclass of full parallelepipeds.",
+        "searches": [
+          "Freitas–Laugesen–Liddell full manuscript Theorem 5 and §5.4",
+          "Resultary query: cube quadratic boundary surface moment oblique parallelepiped"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The value 5/72 occurs for the known cube and rectangular boxes, but a table of cube/orthotope values does not imply the inequality for all oblique parallelepipeds."
+        ],
+        "reasoning": "Known numerical constant is not claimed new; general sheared-family rigidity is not a table lookup.",
+        "searches": [
+          "Freitas et al. Table 1 and Section 5.4",
+          "Resultary parallelepiped surface moment semantic search"
+        ]
+      },
+      "rationale": "Freitas–Laugesen–Liddell prove the same sharp 5/72 ratio and cube equality for orthogonal rectangular cuboids only. The audited convex-relaxation proof establishes the bound for every oblique Euclidean parallelepiped. The equal constant is a known calibration; the extension across skew parallelepipeds is the claim.",
+      "residual_risks": [
+        "A plausible stronger statement might exist in geometric-inertia literature not indexed or not accessible; the complete Csató et al. paper was not materially read, so absence of coverage is not asserted about its full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 5 exactly covers orthogonal cuboids and cube equality, but does not include sheared parallelepipeds",
+          "evidence": [
+            "Theorem 5 assumes C=∂([-a,a]×[-b,b]×[-c,c]); §5.4 opens with rectangular boxes; Table 1 notes smaller truncated tetrahedron."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/228883213_On_convex_surfaces_with_minimal_moment_of_inertia",
+          "material_read": "Full author-uploaded primary manuscript text: introduction, Table 1, Theorem 5 and §5.4 proof for cuboids",
+          "method": "Public lawful full-text HTML extraction from author upload",
+          "title": "On convex surfaces with minimal moment of inertia",
+          "trigger": "Exact coefficient 5/72 and potential domination by older theorem"
+        },
+        {
+          "assessment": "Broadly related optimization; no specific contrary theorem in material read; residual risk retained",
+          "evidence": [
+            "Abstract states general existence and dimension-two symmetry-constrained optimizers, not a 3D parallelepiped bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.19851",
+          "material_read": "Abstract and metadata; PDF full text not reviewed in this execution",
+          "method": "Public abstract/source metadata only, NOT full-paper exclusion",
+          "title": "Weighted Perimeters and pth Moments of Inertia of Convex Curves and Surfaces",
+          "trigger": "2026 broader weighted-perimeter literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.researchgate.net/publication/228883213_On_convex_surfaces_with_minimal_moment_of_inertia",
+        "https://arxiv.org/abs/2608.19851"
+      ],
+      "rationale": "Extends a famous sharp cube inequality from rectangular cuboids to all skew parallelepipeds, a natural geometric class with three extra angle degrees of freedom. The proof supplies a transparent convex relaxation and exact rigidity. The same coefficient is a calibration, not a tiny numerical gain; adding all shears is a qualitative extension. Not an unmotivated slice, because the unrestricted convex-surface optimum is different and the parallelepiped class is canonical.",
+      "residual_risks": [
+        "Nothing claimed for general convex surfaces or arbitrary prisms; known truncated tetrahedra have smaller normalized inertia."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A plausible stronger statement might exist in geometric-inertia literature not indexed or not accessible; the complete Csató et al. paper was not materially read, so absence of coverage is not asserted about its full text.",
+    "The convex relaxation is larger than geometrically realizable facet triples, but this is legitimate for a universal upper bound on convex H; no assertion about all box triples being realizable.",
+    "Nothing claimed for general convex surfaces or arbitrary prisms; known truncated tetrahedra have smaller normalized inertia."
+  ],
+  "schema_version": 1
+}
