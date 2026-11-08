@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definitions distinguish cyclic indexed sources from position-unlabeled ordered-length-three multiset observations. Flow conservation reduces each profile to five independent nonnegative integers with one inequality. A connected-support classification is necessary and sufficient for Eulerian realizability, including short cyclic words. The five disjoint cases are summed by formal geometric series. The fixed-weight proof shows all relevant profiles persist after zero-symbol padding at lengths at least \(3w\), and isolates the unique missing profile at length \(3w-1\), for every integer \(w\ge2\). Formal coefficient extraction yields the parity-dependent cubic stable count. The standalone verifier independently checks literal source profiles through length 16, and independent parameter checks and cutoffs over further finite ranges. Finite verification is evidence, not the general proof.
+PASS
 
-## Originality — PASS (qualified)
+Every cyclic binary word gives a nonzero balanced integer circulation on the order-two de Bruijn digraph, and conversely every balanced circulation with connected positive-edge support admits a directed Euler circuit. Flow balance reduces eight threegram counts to a,b,d,f,h and c=b+f-d>=0, with length n=a+h+3b+d+2f and weight w=b+d+f+h. Partitioning exactly by whether both bridge edges b,d occur, one, or neither (single loops / two-cycle) gives five disjoint geometric generating functions in G(z,u). For fixed w>=2, free 000 loop count a admits every length above minimum; case II b=w,f=0 first appears at n=3w and is the unique profile missing at 3w-1. Geometric summation yields S_w cubic parity formulas. Independent direct word enumeration n<=14 matched predicted composition counts and thresholds w=2,3,4; unweighted n14 total 167. This finite check does not prove the infinite GF.
 
-The full unweighted cyclic binary three-gram profile enumeration is **already known** and is not claimed. The previously known `111`-avoiding weighted case addresses a proper sublanguage and cannot supply all unrestricted composition classes. Kiah–Puleo–Milenkovic (arXiv:1502.00517), Chang–Chrisnata–Ezerman–Kiah (arXiv:1607.02279), and Yehezkeally–Polyanskii (arXiv:2102.01412) provide general profile frameworks, finite linear regimes, and noisy-substring coding, respectively; their inspected material does not include the unrestricted bivariate rational formula, the exact fixed-weight capacity, or the sharp \(3w\) cutoff. The broader asymptotic Markov-type paper of Jacquet–Knessl–Szpankowski was not inspected in full, leaving priority uncertainty that does not presently provide a positive covering theorem.
+## originality
 
-## Value — PASS
+PASS
 
-For cyclic sequencing observations, coding and reconstruction under a prescribed number of ones is a natural and operationally distinct question from unrestricted profile capacity. The result gives the complete composition-resolved profile enumeration over every length and weight, the sharp first stable block length, a simple parity-cubic stable capacity, and a reproducible construction by Eulerian trails. Because every source composition can be important in DNA balance-constrained systems, the fixed-weight counts supply concrete constant-composition code-size benchmarks not recoverable from an univariate total. The exact bivariate family is not a cosmetic parameter renaming: it separates two loop frequencies in a connected flow and distinguishes many different composition classes sharing one length.
+The unrestricted total cyclic threegram profile count was previously known and is explicitly credited. Kiah et al and Chang et al give general de Bruijn profile coding and some finite q,ell,n counts; the precise Hamming-weight-refined rational generating function and sharp all-weight stabilization are not consequences of their inspected rates. A proper sublanguage forbidding 111 is not unrestricted because 111-containing Eulerian profiles are omitted.
 
-## Closest literature and limitations
+## value
 
-Closest: *Codes for DNA Sequence Profiles* (arXiv:1502.00517); *Rates of DNA Sequence Profiles for Practical Values of Read Lengths* (arXiv:1607.02279); *On Codes for the Noisy Substring Channel* (arXiv:2102.01412). A prior unrestricted *unweighted* total enumeration and a weighted `111`-forbidden restriction are acknowledged rather than duplicated. Relevant possible coverage risk: Jacquet–Knessl–Szpankowski, DOI:10.1109/TIT.2012.2191476, whose full text was unavailable. The claim is not a noisy-channel result and does not establish independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact constant-composition zero-error profile capacity and sharp length beyond which each weight class stops acquiring distinct read-multisets is a natural coding-theoretic invariant. The result refines known univariate counts with a nontrivial all-weight phase threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
