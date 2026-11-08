@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Left-zero elements are intrinsically exactly the constant maps. Their faithful left action makes every abstract monoid automorphism a unique conjugation by a point permutation. Normality of the translation Sylow subgroup forces additivity; normalizing scalar multiplications forces a field automorphism and thus an affine semilinear normalizer. The converse, group order, parameter recovery, and rank-zero boundary are fully established. Independent finite checks reproduce the normalizer and direct multiplication-table enumerations. There are no unproved infinite extrapolations.
+## correctness
 
-**Originality (PASS, with priority risk).** The motivating Arzhantsev–Avdeev–Zaitseva work classifies geometric monoid *structures* over algebraically closed characteristic-zero fields, not finite-point abstract automorphism groups. Shafarevich's automorphism classification concerns reductive and active root monoids in characteristic zero, and our unipotent radical of dimension at least two is not active. Shahzamanian–Steinberg and Cleary investigate affine-monoid quivers rather than this full automorphism normalizer. Earlier group pseudo-algebra and congruence studies of the same scalar-affine monoid do not imply its exact abstract automorphism group: they concern different invariants and do not identify all point conjugators. Relevant literature/database searches did not identify the stated theorem. The calculation uses classical normalizer methods, so an older general transformation-semigroup automorphism theorem might imply it; full priority is not independently certified. The Cleary dissertation PDF was inaccessible, and its abstract alone does not establish whole-document noncoverage.
+PASS
 
-**Mathematical value (PASS).** The exact classification of all abstract symmetries of a natural noncommutative algebraic monoid on finite affine spaces, for every field and dimension, is a complete and intrinsically motivated invariant. The result exposes semilinear rigidity without assuming continuity or linearity, recovers field size and dimension from pure multiplication, and identifies a sharp one-dimensional boundary. It goes beyond merely counting transformations or restating an existing algebraic-variety classification.
+For d>=1 constants (0,v) are exactly the intrinsic left-zero elements; they form a faithful S_{q,d}-set. Thus any abstract monoid automorphism induces a unique point permutation normalizing S. Its unit group T⋊F_q^× has T the unique Sylow p-subgroup, because |T|=q^d and p does not divide q−1. After an origin translation the normalizer preserves T and so is additive. Preserving the origin stabilizer of scalar multiplications yields a bijection σ of F_q with σ(ab)=σ(a)σ(b), and additivity of the point map gives σ(a+b)=σ(a)+σ(b); hence σ is Frobenius and L is invertible σ-semilinear. Conversely every affine σ-semilinear point map conjugates S into itself. The order q^d f |GL_d(q)| and intrinsic parameter recovery via |S|/|left zeros|=q, |left zeros|=q^d follow. For d=0 it is the multiplicative field monoid, with automorphism group (Z/(q−1)Z)^×. Independent enumerations of small point-permutation normalizers (q,d)=(2,1),(2,2),(3,1) yielded origin-fixing sizes 1,6,2 respectively and total sizes 2,24,6, agreeing exactly. These checks supplement the all-q proof.
 
-**Limits.** The result does not treat the full affine monoid with arbitrary endomorphism linear parts, other base rings, or infinite fields; its finite verifications are corroborative rather than infinite proofs. Earlier implicit coverage remains possible and independent expert audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The combination of abstract finite-monoid automorphisms, all finite fields/all d, and parameter recovery is distinct from the algebraic monoid-structure classification and the affine-monoid quiver results. The normalizer argument is classical in parts and a general finite-semigroup normalizer theorem could imply the entire classification; best-of-knowledge pass is qualified by that specific priority risk.
+
+## value
+
+PASS
+
+Scalar-affine maps with constants form a natural finite transformation monoid; recovering every abstract symmetry and the field/dimension without assuming coordinates is a natural complete classification. The semilinear normalizer rather than arbitrary permutations is mathematically informative, with a nontrivial rank-zero boundary; this is more than a bare tiny numerical computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
