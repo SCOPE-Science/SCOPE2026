@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Conditional implicit midpoint is exactly a Gaussian AR(1) kernel with coefficient \\(r(u)=(1-u)/(1+u)\\) and innovation standard deviation \\(\\sqrt{1-r(u)^2}\\). Every conditional kernel preserves \\(N(0,1)\\); synchronous coupling contracts by \\(q_2<1\\). The first two Hermite polynomial regression identities give exact stationary lag powers and integrated autocorrelations. Strict convexity of \\(r\\) proves the linear penalty. For quadratic mode \\(f=r^2\\), the explicit contact identity \\(f(u)-\\ell_B(u)=(B-u)(Bu-B-2)^2/((B+1)^3(1+u)^2)\\) and \\(f(u)=8(2-u)/(1+u)^4\\) yield the full lower convex envelope; Jensen plus equality conditions prove the exact phase boundary and uniqueness. Symbolic identities and 9,952 exact rational two-atom cases passed in the attached verifier; finite checks are not the all-laws proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General random-step convergence theorems in arXiv:1801.01340 and arXiv:2103.16506 give no exact optimization of this second-Hermite OU kernel.",
+        "The related scalar log-symmetric two-step midpoint damping result optimizes a prescribed distribution’s scale, not distributions of arbitrary support under bounded arithmetic mean."
+      ],
+      "reasoning": "Generic Jensen/convex-envelope principles are mathematical tools, not an evaluated domain-specific statement with the cap-dependent contact \\(1+2/B\\). Neither the nearby scalar damping law nor the general time-discretization results dominate the fixed-mean/cap optimal-distribution theorem or its linear/quadratic asymptotic-variance reversal.",
+      "searches": [
+        "random step sizes implicit midpoint Ornstein Uhlenbeck invariant measure mixing quadratic observable step randomization",
+        "randomized timestep trapezoidal Ornstein Uhlenbeck mean-cost optimal spectral gap",
+        "random time steps Langevin Monte Carlo exact stationary Gaussian target implicit midpoint study"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1801.01340",
+      "https://arxiv.org/pdf/2011.03176",
+      "https://link.springer.com/article/10.1007/s10092-022-00457-6",
+      "published-finding corpus searchable summary only: https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285",
+      "published-finding corpus searchable summary only: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-two-autocorrelations-give-the-sharp-reversible-chain-variance-fl--91597e4391a6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier scalar damping analysis fixes equiprobable log-symmetric steps \\(H=h\\exp(\\pm a)\\) and varies \\(h\\), obtaining a scale bifurcation; it neither imposes a fixed arithmetic mean and cap nor proves optimality over all laws.",
+        "The 2020 randomized-midpoint Langevin algorithm samples an intermediate evaluation time and exhibits bias, whereas the present midpoint Gaussian AR(1) kernel preserves its target exactly.",
+        "Abdulle–Garegnani fix \\(\\mathbb E H=h\\) in a deterministic ODE probabilistic solver, without stationarity or quadratic mixing tradeoffs."
+      ],
+      "reasoning": "Reusing the classical squared midpoint multiplier does not transfer an optimization result between distribution families. The related prescribed binary-law scale optimum does not imply the explicit lower convex envelope over all bounded laws; conversely the new OU result does not claim a stronger result about its separate scale bifurcation. The stationary Hermite eigenmode comparison is additional distinct content.",
+      "searches": [
+        "sharp two-scale bifurcation random-step implicit-midpoint damping log two-point distribution optimization",
+        "optimal random time step distribution at fixed mean and upper bound for implicit midpoint scalar linear damping",
+        "On the Ergodicity Bias and Asymptotic Normality of Randomized Midpoint Sampling Method arxiv 2011.03176"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abdulle–Garegnani arXiv:1801.01340 studies random time steps with deterministic ODE flows, not this noisy invariant Markov kernel.",
+        "He–Balasubramanian–Erdogdu arXiv:2011.03176 employs a random intermediate force point, not a random physical implicit-midpoint step."
+      ],
+      "reasoning": "Equivalent wording would involve stochastic Crank–Nicolson OU, Gaussian AR(1) mixtures or second Hermite autocorrelation. The actual transitions and constraints were compared; relevant named schemes use different transition laws or objectives, while the explicit unique cap/mean law is not implied by their stated results.",
+      "searches": [
+        "implicit midpoint Ornstein Uhlenbeck random timestep invariant Gaussian distribution optimal step size mean constraint autocorrelation convex envelope quadratic observable",
+        "\"implicit midpoint\" \"random time steps\" \"Ornstein Uhlenbeck\" sampler correlation",
+        "random timestep Ornstein Uhlenbeck implicit midpoint exact Gibbs quadratic autocorrelation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching numeric table or exact bound appeared in the queried indexed primary-literature/results databases.",
+        "The values \\(B=10,m=5\\), \\(t_B=6/5\\), \\(q_2^*=391/1331\\) follow independently from exact algebra."
+      ],
+      "reasoning": "The search found no table providing the full contact curve, optimal support and all-law uniqueness. Absence of a database hit is not proof of novelty; narrow historical exact calculations remain possible.",
+      "searches": [
+        "bounded random step sizes implicit midpoint Ornstein Uhlenbeck exact mixing autocorrelation two point optimal",
+        "\"random time step\" \"convex envelope\" Ornstein Uhlenbeck",
+        "\"optimal distribution\" \"midpoint\" \"autocorrelation\" random step"
+      ]
+    },
+    "rationale": "The new statement is the sharp bounded-arithmetic-mean optimization over all step distributions for quadratic autocorrelation, together with the strict opposite behavior of linear autocorrelation in an exactly invariant Gaussian sampler. Primary method sources and semantically nearby records were compared by implication, not wording. No inspected result supplied the specialized envelope/contact law; generic convex-envelope methods are acknowledged as established.",
+    "residual_risks": [
+      "A specialist prior calculation of the convex envelope for this specific stability function under step-budget constraints may exist outside the inspected sources.",
+      "Classical convex-analysis machinery is acknowledged; novelty is conditional on the explicit OU-specific design law and tradeoff, not the abstract Jensen principle.",
+      "The benchmark concerns per-update asymptotic variance, not time-corrected trajectory accuracy or multiple-rate Gaussian sampling."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes random step integration for deterministic ODEs and preservation; inspected material does not give stationary OU Hermite autocorrelations or the fixed-mean/cap optimal distribution",
+        "evidence": [
+          "The numerical step is \\(Y_{k+1}=\\Psi_{H_k}(Y_k)\\) with iid positive steps of fixed mean (p.5).",
+          "The core results address weak/mean-square path accuracy, Monte Carlo estimates and geometric invariants; implicit midpoint appears for Hamiltonian preservation (pp.13,27)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1801.01340",
+        "material_read": "First public date independently verified from original arXiv abstract listing (2018-01-04); inspected later-revision 38-page PDF, especially pp.1, 5, 13 and 27, including method definition, assumptions and implicit-midpoint examples; indexed-text term searches for Ornstein, autocorrelation and stationarity",
+        "method": "Inspected original primary-paper PDF text and page images, including its concrete random-step law and geometric examples",
+        "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+        "trigger": "Earliest verified motivating random-time-step method with fixed mean and geometric preservation"
+      },
+      {
+        "assessment": "The algorithm randomizes the intermediate force-evaluation time rather than the physical midpoint step and generally has a biased invariant law. Its analyzed statements do not imply the exact bounded-step optimum for the invariant OU midpoint kernel.",
+        "evidence": [
+          "RLMC uses \\(\\alpha_{n+1}\\sim\\mathrm{Unif}[0,1]\\) inside a predictor-corrector force evaluation (p.4).",
+          "The introduction describes nonzero invariant bias for fixed-step RLMC (pp.1–2)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2011.03176",
+        "material_read": "PDF pp.1–4 including contribution summary, definition of randomized midpoint Langevin transition, and stationary bias conclusions",
+        "method": "Inspected primary full-text sections and algorithm definitions with page images",
+        "title": "On the Ergodicity, Bias and Asymptotic Normality of Randomized Midpoint Sampling Method",
+        "trigger": "Plausible same-term Langevin randomized midpoint and asymptotic variance study"
+      },
+      {
+        "assessment": "Its randomization is additive noise attached to deterministic operator time integration, with strong error bounds rather than stationary OU step-law optimization.",
+        "evidence": [
+          "The stated update is \\(U_{k+1}=\\psi(h,U_k)+\\xi_k(h)\\) (section 1).",
+          "Section 1.3 explicitly distinguishes deterministic operator equations from numerical SDE schemes."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10092-022-00457-6",
+        "material_read": "Open-access full-text HTML introduction and sections 1.1–1.4, including definitions, claims and related-work scope",
+        "method": "Read original publisher-hosted full-text HTML in the relevant theorem-summary and methods sections",
+        "title": "Randomised one-step time integration methods for deterministic operator differential equations",
+        "trigger": "Randomised one-step techniques, potential broader time-grid comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9e7410d1-8068-48c5-9c2f-44f34c5616a7",
+  "value": {
+    "rationale": "Random-time-step schemes naturally impose an arithmetic mean and bounded step range. The first two Hermite modes are canonical scalar Gaussian sampling observables. Their exact opposite variance responses give a meaningful constraint on sampler design: linear variance is always harmed by randomization, while a sharp cap-dependent region permits a unique two-point law that improves quadratic variance. The closed-form cap threshold and rational example provide a reproducible benchmark, even though this scalar harmonic model does not estimate an unknown Gaussian moment.",
+    "status": "PASS"
+  }
+}
