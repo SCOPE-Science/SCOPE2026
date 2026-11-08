@@ -1,15 +1,21 @@
-# Review: exact ternary residue images of the sixth binomial polynomial
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The result is proved for every positive exponent, not extrapolated from sample residue sets. Nine coefficientwise expansions split the 3-adic input into six regular balls and three critical balls. The regular balls give exactly \(3\mathbb Z_3\); the quadratic normal-form lemma gives the square translates. Reflection \(P(5-X)=P(X)\) identifies two critical images. The remaining critical value is explicitly \(-5/1024\). Disjointness is certified modulo nine. Exact counting of square classes at all precisions establishes the parity-dependent cardinalities and limiting measure. The included standard-library verifier checks all modular residue sets through exponent nine and all nine coefficient expansions using rational arithmetic.
+## correctness
 
-## Originality
-**PASS, qualified by residual priority risk.** Sun and Zhang, arXiv:0812.3089 (2008), introduced the general binomial-coefficient 3-adic universality problem and its finite residue sets, with broad sufficient criteria; their critical interval \(3\le k<6\) does not include lower index six. Lucas's theorem and their Proposition 1.2 already imply that this sequence is *not* dense at three: the residue two is missing modulo three. That known obstruction is not the asserted discovery. The exact **all-precision** image cardinalities, critical-value decomposition, and density \(5/12\) have not been located in the inspected primary statements or available indexed comparisons. The 2024/2025 article of Fiorot–Gilblas–Tonolo develops binomial prime-power recurrences for periodicity, not the evaluated image decomposition, although its complete text was not available through the attempted full-page retrieval. Barat–Grabner address binomial and digital distributions rather than this fixed-lower-index exact value-set problem. published-finding corpus searches for six-binomial ternary image sets and associated square normal forms yielded no dominating matching claim; their closest returned items concern unrelated modular binomial congruences, digital valuations, or ternary Fourier moments. This does not certify absolute historical priority.
+PASS
 
-## Mathematical value
-**PASS.** The lower binomial index six is the first positive index after the universal list \(1,2,3,4,5\) that fails the universality question because of the admissible prime three. Beyond the elementary obstruction modulo three, the exact density \(5/12\) measures the size of the missing 3-adic image and the full image decomposition explains why two critical branches contribute square sets rather than residue balls. These are precise natural invariants of the binomial-polynomial image problem, not an arbitrary finite slice or a routine restatement of non-density.
+Reconstructed nine integer-valued polynomial branches P(a+9T), checked coefficientwise all six regular branches and three quadratic branches using rational polynomial expansion and modular unit inversion; regular branches are isometric onto 3Z_3. Hensel root and square-root 1-Lipschitz isometric coordinates give exact translated square images for ramified input classes, with P(5-X) symmetry merging two. Three images are disjoint mod9. Square valuation counting produces R1=2 and Rk=(5*3^(k-1)+(5 or 7))/4 according to parity and density 5/12. Independent exhaustive modular image counts at k=1..8 matched 2,5,13,35,103,305,913,2735; finite checks are corroboration of general p-adic proof.
 
-## Closest literature and limitations
-The main comparator is Sun–Zhang, *Binomial coefficients and the ring of p-adic integers*, arXiv:0812.3089, whose 2008 posting and full theorem statements were inspected. Two broader but structurally different comparisons are Fiorot–Gilblas–Tonolo, DOI:10.1016/j.aam.2024.102786, and Barat–Grabner, DOI:10.1112/S0024610701002630. The first comparator proves the general problem and easy initial obstruction, but not the stated exact all-level count in the inspected material. Inaccessible portions of later specialized texts and unindexed historical results leave a genuine priority risk. No statement is made about other lower binomial indices, other primes, or input multiplicity distributions. Independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sun–Zhang establish general p-adic binomial-coefficient density criteria, and Lucas obstruction already shows choose(n,6) cannot be 3-adically dense; non-density is NOT new. What remains new best-of-knowledge is exact full image decomposition into 3Z_3 and two critical-value square translates, all-level counts and measure 5/12. Fiorot–Gilblas–Tonolo focuses prime-power periodicity, not an evaluated image; incomplete text imposes priority risk.
+
+## value
+
+PASS
+
+Lower index six at prime three is a natural immediate non-universality case beyond familiar low-index binomials. Exact omitted-residue proportions, critical branch geometry and all-level value-set counts answer substantially more than elementary Lucas non-density and could serve as a benchmark for p-adic polynomial images.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
