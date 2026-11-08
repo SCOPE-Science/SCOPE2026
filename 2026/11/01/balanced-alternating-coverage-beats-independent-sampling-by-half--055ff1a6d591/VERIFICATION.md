@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-03.md",
+      "INDEPENDENT_AUDIT_2026-11-03.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The accompanying `check.py` uses Python standard-library `Fraction` arithmetic and deterministic finite sums. It proves nothing beyond the tested instances. Running `python3 check.py` returned `PASS: 228 exact rational assertions`: six expected-gap identities and 222 fixed-horizon stochastic-order comparisons. The infinite stochastic order is established by a log-concavity argument in the result text, and the logarithmic asymptotic by Poisson-clock comparison plus localized Gamma central limits and inclusion--exclusion.
+## correctness
 
-Exact expectation differences checked for \(n=2,3,4\) are \(4/3\), \(52/35\), and \(724/455\), respectively. The last four exact rational values and their decimal approximations appear in checker output. The proof's stochastic comparison assumes the same fixed initial vertex in both processes. Quantitative uniform error bounds in the asymptotic and a constant-order correction are not claimed. Independent audit and historical priority certification have not been performed.
+PASS
+
+Actual seven-file Git tree, RESULT.md proof, check.py and verification record inspected. Starting-side observations at t have floor(t/2)+1 counts and other side ceil(t/2), independent uniform coupon collectors; iid counts yield a binomial mixture. The discrete coupon-completion CDF is log-concave, so its product at fixed total counts is maximized at the balanced split, proving all-horizon stochastic order. Exact gamma/Poissonization identity Delta=nH_(2n)-E max(T,Tprime)=1/2 sum_{k,l} p(k)p(l)(E|S_k-S_lprime|-|k-l|); local Gumbel coupon-completion mass, gamma-difference normal limit, and Bernstein off-diagonal/tail localization give Delta/log n->(int g^2)(int m)=1/4. The tie contribution is O(1/n), establishing the half-log gap. Boundary n=2 and fixed first vertex correctly handled. Independently recomputed 134 exact fixed-horizon stochastic-order checks; they corroborate but do not prove the infinite claim.
+
+## originality
+
+PASS
+
+Best-of-knowledge: prior group-mixture coupon collector and simultaneous two-collector results overlap the mechanism but do not give this deterministic balanced group schedule versus iid stochastic order AND its exact half-log mean gap. Primary full-text access to Doumas was unavailable, so no whole-document noncoverage is asserted; the precise result remains a bounded priority risk.
+
+## value
+
+PASS
+
+The temporal stratification of the same uniform marginal samples presents a natural optimization question; the result gives a uniform distributional improvement and an exact divergent second-order mean benefit beyond the classical O(n log n) cover-time scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

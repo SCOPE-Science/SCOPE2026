@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The two processes are compared after the same fixed observed initial vertex. Their complete-cover CDFs reduce respectively to a balanced product of two uniform coupon-collector CDFs and a binomial mixture of unbalanced products. The exact distributional reduction, log-concavity argument, and Gamma-clock identity establish the finite stochastic order and positivity of the mean discrepancy. The local limit of coupon-completion masses, Gamma difference CLT, Bernstein localization envelope, and explicit Gumbel integrals establish the coefficient \(1/2\). Exact rational tests verify 228 small-instance assertions, while the proof rather than the tests carries the infinite statement.
+PASS
 
-## Originality (PASS, qualified)
+Actual seven-file Git tree, RESULT.md proof, check.py and verification record inspected. Starting-side observations at t have floor(t/2)+1 counts and other side ceil(t/2), independent uniform coupon collectors; iid counts yield a binomial mixture. The discrete coupon-completion CDF is log-concave, so its product at fixed total counts is maximized at the balanced split, proving all-horizon stochastic order. Exact gamma/Poissonization identity Delta=nH_(2n)-E max(T,Tprime)=1/2 sum_{k,l} p(k)p(l)(E|S_k-S_lprime|-|k-l|); local Gumbel coupon-completion mass, gamma-difference normal limit, and Bernstein off-diagonal/tail localization give Delta/log n->(int g^2)(int m)=1/4. The tie contribution is O(1/n), establishing the half-log gap. Boundary n=2 and fixed first vertex correctly handled. Independently recomputed 134 exact fixed-horizon stochastic-order checks; they corroborate but do not prove the infinite claim.
 
-The 2017 full-text group-mixture analysis treats iid sampling and focuses its two-group asymptotics on unequal coupon probabilities. The 2003 full-text two-collector competition analysis includes simultaneous tie probabilities, which are acknowledged in our exact identity, but not periodic versus iid covering or the mean-gap coefficient. The 2020 multiple-random-walk primary paper works at broader order-of-magnitude scales. Comparisons with published work on reset coupon collectors and bipartite discounted hitting did not yield the same implication. Historical de-Poissonization literature may still contain an equivalent expansion; originality is provisional pending independent literature review.
+## originality
 
-## Value (PASS)
+PASS
 
-The natural issue is whether mandatory bipartite alternation helps or hinders full coverage relative to memoryless vertex sampling at the same stationary uniform proportions. The all-horizon stochastic inequality identifies the sign, while the exact \(\frac12\log n\) mean penalty quantifies a previously unresolved second-order effect invisible at the classical \(n\log n\) scale. The result supplies an interpretable example of second-order improvement caused solely by temporal stratification, not different marginal sampling probabilities.
+Best-of-knowledge: prior group-mixture coupon collector and simultaneous two-collector results overlap the mechanism but do not give this deterministic balanced group schedule versus iid stochastic order AND its exact half-log mean gap. Primary full-text access to Doumas was unavailable, so no whole-document noncoverage is asserted; the precise result remains a bounded priority risk.
 
-## Limits and closest sources
+## value
 
-The equal-part, nonlazy and fixed-start assumptions matter. No claim is made for arbitrary bipartite graphs or unequal parts. Closest source material: Doumas--Papanicolaou (2017, arXiv:1709.04500), Myers--Wilf (2003, arXiv:math/0304229), Rivera--Sauerwald--Sylvester (2020, arXiv:2011.07893). Other Poissonization corrections may warrant historical comparison.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The temporal stratification of the same uniform marginal samples presents a natural optimization question; the result gives a uniform distributional improvement and an exact divergent second-order mean benefit beyond the classical O(n log n) cover-time scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
