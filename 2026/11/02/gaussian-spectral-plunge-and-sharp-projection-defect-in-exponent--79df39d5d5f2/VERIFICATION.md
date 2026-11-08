@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-04.md",
+      "INDEPENDENT_AUDIT_2026-11-04.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The package contains a self-contained mathematical argument in `RESULT.md` and a separate numerical checker, `verify.py`. The checker depends on `requirements.txt` and was run against the embedded source files. It checks monotonicity of the exact integral eigenvalue formula, six normalized defect comparisons in dimensions one and two, 18 Gaussian-profile samples, six normalized traces, three quantile crossings in each dimension, six numerical curvature identities, and the normal-pair integral value \(1/\sqrt\pi\). These finite checks are supplementary only. The all-degree trace limit is justified analytically by the exponential-tilting tail inequalities in the proof, not by finite sampling. Independent proof review, independent computational validation and a definitive historical-priority audit have not been performed.
+## correctness
+
+PASS
+
+Radial monomial orthogonality yields lambda_k as the ratio of t^(k+d-1) exp[-c/(1-t)^gamma] integrals with multiplicity binom(k+d-1,d-1). Strict likelihood-ratio ordering gives lambda_(k+1)<lambda_k and trace class follows exponential damping at fixed epsilon. Set y=-log(t): U(y)=c(1-e^-y)^-gamma is strictly convex; -U'(y_epsilon) and U''(y_epsilon) are precisely L+d and Q². Laplace expansion in units 1/Q converges to N(-u,1), while exponential tilting outside the O(Q) window controls the infinite degree tails. Multiplicity-weighted Riemann sum of Phi(u)Phi(-u) integrates to 1/sqrt(pi). Independently checked nine local Gaussian window values with separate log-coordinate quadrature. No finite test establishes global tail summability.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for this fixed singular weight, shrinking-radius spectral law, weighted multiplicities and exact projection-defect coefficient. Closest general Bergman interface and concentration papers concern varying tensor powers, different potentials or nonsharp deviation bounds.
+
+## value
+
+PASS
+
+A natural sharply vanishing weighted Bergman space and concentric concentration operator yield a sharp Gaussian spectral transition and exact trace/projection-defect boundary coefficient for all complex dimensions; a substantial full-rank asymptotic, not a one-eigenvalue exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
