@@ -1,0 +1,15 @@
+# Review of the exact uniform matching threshold
+
+## Correctness — PASS
+The lower bound \(F(n)\ge2n-2\) follows from the two-modulus obstruction at \(m=(n-1)^2\). For the upper bounds, modular translation reduces infinitely many starts to exactly \(L_n\) residue classes, and Hall matching is equivalent to distinct-multiple assignment. The complete C++17 verifier checks every one of the finite cases, including both lengths 32 and 33 at \(n=17\). It records 32 failed length-32 starts and none at length 33; its alternate BFS matcher checks a broad independent collection of cases, and direct Hall-subset search validates all failures. The explicit six-to-five Hall witness independently proves the key failure at \(m=485749\). The source code operates only on exact integers and bit masks of at most 33 right vertices. Remaining risk: the exhaustive positive conclusion relies on successful execution of the provided code, not a short pure-symbolic upper-bound proof.
+
+## Originality — PASS, qualified
+Erdős–Pomerance (1980) supplies the invariant, periodicity observation, and Hall framework; Kominers (arXiv:2607.10431, July 11, 2026) and Chen (arXiv:2607.26450, July 29, 2026) prove asymptotic bounds, not the exact values \(F(2),\ldots,F(17)\) or the 32-residue exceptional census. The explicit distinguishing claim is the first finite threshold and its exact period census, not the general matching theorem or its known lower-bound philosophy. Actual searches for the formula, numerical value, Hall-set aliases, and first-departure terminology in mathematical literature and mathematical records found no covering result. Unlike an asymptotic theorem, the exact initial values cannot be inferred from an unspecified sufficiently-large threshold. Residual risk: earlier numerical tables and differently indexed computational records might cover the exact values, and search noncoverage is not uniqueness proof.
+
+## Mathematical value — PASS
+The invariant \(F(n)\) is a central natural quantity in a classical number-theory matching problem, with renewed asymptotic interest in 2026. The exact first failure of a sharp elementary threshold is a motivated boundary, rather than an arbitrary cutoff. Finding the smallest obstruction and its full-period count distinguishes the local Hall mechanism from the universal upper bound and gives a benchmark for higher-\(n\) methods. The classification does not claim an asymptotic improvement or settle general \(F(n)\).
+
+## Prior literature and remaining limitations
+The available full-text editions of the 1980 original article, the 2026 Kominers preprint, and the 2026 Chen preprint were inspected in relevant sections. The relevant portions include the invariant definitions, Hall reductions, main theorems, and comparisons; they do not state the asserted exact finite threshold. Historical coverage beyond indexed and accessible records remains uncertain. The finite verification is reproducible from standard C++17 source but has not been independently audited.
+
+Self-review: passed. Independent audit: not yet performed.
