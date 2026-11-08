@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-05.md",
+      "INDEPENDENT_AUDIT_2026-11-05.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational and symbolic reproducibility
+# Independent mathematical audit
 
-The independent standard-library script `verify_minus_one.py` enumerates all vertices, outgoing edges, cycles and exact depth counts for every \(2\le n\le16\). It independently checks the piecewise cumulative formulas and the sharp maximum.
+## correctness
 
-The actual completed replay produced: `VERIFY_OK n_levels=15 total_graph_vertices=131068 sharp_tail_formulas=15`.
+PASS
 
-The infinite proof instead uses the identity \(f^2(x)=x^2(x^2-2)\), elementary induction on the valuation, and the four solutions of \(z^2\equiv1\pmod{2^k}\) for \(k\ge3\). No finite enumeration proves the all-\(n\) theorem. No independent external audit is claimed.
+For every n≥2, parity alternation and F=f²=x²(x²−2) prove ν₂(F(x))=2ν₂(x)+1 for even x and the exact iterated recurrences for the odd stage with b=ν₂(x²−1)≥3. The four square roots of 1 modulo 2^k for k≥3 produce exact even/odd valuation populations E_n,O_n. The four phase-specific thresholds yield the displayed C_n(t) and maximal depth, with power-of-two jump. Verified directly by independent exhaustive functional graphs and depth histograms for n=2,…,12 (all 8188 residue vertices in total). The unique cycle follows since valuations strictly rise after two steps. The supplied verifier source was inspected rather than trusted as proof.
+
+## originality
+
+PASS
+
+Covers exactly the quantitative finite quotient histogram and sharp preperiod; Fan–Liao previously establishes the attracting two-cycle. Best-of-knowledge no dominating quantitative prior identified; older functional-graph literature remains a risk.
+
+## value
+
+PASS
+
+The first-arrival histogram and maximal preperiod for every residue modulo all dyadic powers provide a complete, exact invariant for an important arithmetic dynamical map. Sharp logarithmic discontinuities refine qualitative p-adic attraction and can support future orbit statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

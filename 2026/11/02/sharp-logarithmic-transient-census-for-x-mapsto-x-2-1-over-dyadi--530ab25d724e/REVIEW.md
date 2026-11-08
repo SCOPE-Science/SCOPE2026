@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The identity \(f^2(x)=x^2(x^2-2)\) gives an exact valuation recurrence on even inputs. Every odd input maps to an even input and has \(\nu_2(x^2-1)\ge3\). This proves unique attraction, all four phase-specific valuation identities, root-count histograms, and the sharp maximum. The standalone verifier exhaustively corroborates each finite graph through modulus \(2^{16}\).
+## correctness
 
-**Originality — PASS, with risk.** Fan–Liao (arXiv:1010.5583, Section 6, especially Theorem 6.1(2)) covers qualitative global attraction for \(x^2-1\), but the inspected theorem and proof do not enumerate first-arrival levels or the exact maximal transient across all dyadic quotients. Relevant published-result searches found different quadratic or rational dynamics, not the same explicit histogram. The possibility of a separate older enumeration remains unresolved.
+PASS
 
-**Mathematical value — PASS.** The theorem determines a natural whole-graph invariant exactly for every dyadic modulus, sharply separates logarithmic critical-cycle attraction from ordinary valuation-linear attraction, and gives every vertex-depth multiplicity rather than a small numerical improvement. It has plausible use in functional-graph enumerations of modular polynomial systems.
+For every n≥2, parity alternation and F=f²=x²(x²−2) prove ν₂(F(x))=2ν₂(x)+1 for even x and the exact iterated recurrences for the odd stage with b=ν₂(x²−1)≥3. The four square roots of 1 modulo 2^k for k≥3 produce exact even/odd valuation populations E_n,O_n. The four phase-specific thresholds yield the displayed C_n(t) and maximal depth, with power-of-two jump. Verified directly by independent exhaustive functional graphs and depth histograms for n=2,…,12 (all 8188 residue vertices in total). The unique cycle follows since valuations strictly rise after two steps. The supplied verifier source was inspected rather than trusted as proof.
 
-**Scientific limits.** Finite checks are not an infinite proof; equivalent quantitative results in unlocated literature are the principal residual risk. The categorical attraction theorem is acknowledged as prior art.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Covers exactly the quantitative finite quotient histogram and sharp preperiod; Fan–Liao previously establishes the attracting two-cycle. Best-of-knowledge no dominating quantitative prior identified; older functional-graph literature remains a risk.
+
+## value
+
+PASS
+
+The first-arrival histogram and maximal preperiod for every residue modulo all dyadic powers provide a complete, exact invariant for an important arithmetic dynamical map. Sharp logarithmic discontinuities refine qualitative p-adic attraction and can support future orbit statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
