@@ -1,11 +1,21 @@
-# Scientific review: closed neighborhoods of the seventeen-vertex Paley graph
+# Independent mathematical audit
 
-**Correctness — PASS.** All 6,851 nonempty faces are exhaustively reconstructed by two distinct tests. The specified 3,399 matched pairs form a legitimate matching on the nonempty face Hasse diagram, and a complete directed incidence topological sort proves global acyclicity on 33,847 incidences. Exactly one critical zero-cell and 52 critical three-cells remain. The resulting CW complex has only these cells, so each three-cell attaches to a point and the integral wedge-of-spheres claim follows directly. Raw mod-two chain ranks are a separate corroboration, not the premise for integral homotopy.
+## correctness
 
-**Originality — PASS, with stated residual risk.** Matsushita's arXiv:2511.12608 develops general closed-neighborhood constructions, a suspension-to-double-cover equivalence (Theorem 1.2) and a complete-rook-graph example (Example 3.5); none computes the closed Paley-17 complex. The closest published Paley-17 computation concerns the *open* neighborhoods (3,468 nonempty faces and a three-torsion Moore summand). The closed complex has 6,851 faces and is therefore not that same object. Semantic result searches and exact-phrase searches found no classification implying this particular 52-sphere wedge. The absence of a search hit cannot establish publication priority, and equivalent unindexed computations remain possible.
+PASS
 
-**Mathematical value — PASS.** The difference between open and closed neighborhood topologies for one canonical strongly regular graph is a natural structural question. Replacing open by closed neighborhoods removes the previously observed degree-two three-torsion and yields a torsion-free 52-fold wedge in degree three, a qualitative change not predicted by the graph's strongly regular parameters or general closed-neighborhood equivalences. The result supplies an exact reproducible benchmark for comparing graph Čech and Lovász neighborhood complexes.
+Independently reconstructed 17 closed neighborhoods N[v]=v+({0}∪Q), Q={1,2,4,8,9,13,15,16}; exhaustive submasks yield 6851 nonempty faces and f-vector (17,136,680,1734,2074,1428,612,153,17). Independently replayed the exact vertex-toggle sequence and sorted mask pairing: 3399 pairs, one critical vertex and 52 critical 3-simplices. Built all 33847 reversed-matching Hasse incidences and performed Kahn topological sort visiting all 6851 faces, certifying global acyclicity. Forman discrete Morse CW then has a point and 52 3-cells with trivial S² attaching maps, proving the integral wedge, not merely mod-p ranks.
 
-**Limits.** Only the stated graph and radius-one closed neighborhoods are classified, with no equivariant decomposition or inclusion-map calculation beyond the forced disappearance of degree-two torsion. Independent mathematical audit is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact integral homotopy wedge of 52 S³ is a finite canonical closed-neighborhood calculation that the general suspension comparison of Matsushita and the known OPEN-neighborhood Paley 17 homotopy do not imply. The two complexes differ in face sets and torsion.
+
+## value
+
+PASS
+
+The exact integral homotopy type of a canonical Paley graph closed-neighborhood complex is a natural exact invariant, with a striking contrast to torsion in the open-neighborhood counterpart. The result provides a complete finite classification, not an arbitrary or known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

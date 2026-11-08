@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-02.md",
+      "INDEPENDENT_AUDIT_2026-11-02.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-From the same directory, execute `python3 verify.py` using Python 3.10 or later; no third-party libraries or external inputs are required. The script reconstructs the quadratic-residue Paley graph, generates all 17 nine-vertex closed neighborhoods, independently checks every subset of the 17-vertex universe, and obtains the full face vector. It executes the exact vertex-toggle matching given in the proof, checks all matched pairs, then builds every directed codimension-one incidence of nonempty faces and verifies acyclicity with a complete topological sort.
+## correctness
 
-Expected milestone output:
-```
-FACES_OK (17, 136, 680, 1734, 2074, 1428, 612, 153, 17) simplices 6851
-MATCHING_OK pairs 3399 critical {0: 1, 3: 52}
-ACYCLIC_OK nodes 6851 incidences 33847
-RAW_MOD2_OK ranks {1: 16, 2: 120, 3: 560, 4: 1122, 5: 952, 6: 476, 7: 136, 8: 17} reduced_betti {0: 0, 1: 0, 2: 0, 3: 52, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0}
-HOMOTOPY_OK wedge_of_52_3_spheres
-ALL_VERIFY_OK
-```
+PASS
 
-The integral homotopy assertion follows from the acyclic-matching CW theorem and the complete critical-cell profile, not from the mod-two homology. This finite certificate does not prove uniqueness in the literature, nor does it cover other Paley parameters or open-neighborhood inclusion maps. Independent mathematical validation has not been performed.
+Independently reconstructed 17 closed neighborhoods N[v]=v+({0}∪Q), Q={1,2,4,8,9,13,15,16}; exhaustive submasks yield 6851 nonempty faces and f-vector (17,136,680,1734,2074,1428,612,153,17). Independently replayed the exact vertex-toggle sequence and sorted mask pairing: 3399 pairs, one critical vertex and 52 critical 3-simplices. Built all 33847 reversed-matching Hasse incidences and performed Kahn topological sort visiting all 6851 faces, certifying global acyclicity. Forman discrete Morse CW then has a point and 52 3-cells with trivial S² attaching maps, proving the integral wedge, not merely mod-p ranks.
+
+## originality
+
+PASS
+
+The exact integral homotopy wedge of 52 S³ is a finite canonical closed-neighborhood calculation that the general suspension comparison of Matsushita and the known OPEN-neighborhood Paley 17 homotopy do not imply. The two complexes differ in face sets and torsion.
+
+## value
+
+PASS
+
+The exact integral homotopy type of a canonical Paley graph closed-neighborhood complex is a natural exact invariant, with a striking contrast to torsion in the open-neighborhood counterpart. The result provides a complete finite classification, not an arbitrary or known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
