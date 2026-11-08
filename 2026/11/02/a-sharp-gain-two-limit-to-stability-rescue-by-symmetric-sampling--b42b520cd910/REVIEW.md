@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The sample-to-sample multiplier follows by integrating the scalar held-input ODE. Independence yields \(\mathbb E X_j^2=X_0^2V^j\) exactly; exponential moments produce the displayed quadratic. Periodic stability follows from both strict Schur inequalities. At the periodic frontier the jitter improvement factorizes into \(2(k-1)(c-1)((k-1)c-1)\). For gains \(k\ge2\), mean-square contraction implies a geometric disk bound on two shifted multipliers, which strictly forces their positive product above \((k-1)^2\), contradicting the product fixed by any mean \(h\) at or above the periodic boundary. An exact rational witness certifies strict rescue below gain two. The symbolic and rational verifier passed when run locally.
+## correctness
 
-## Originality — PASS, qualified
-The inspected full HTML articles by Li et al. (2013) and Mustafa and Chen (2013) give Markov-jump or robust LMI stability and controller synthesis, rather than the explicit sharp existence-versus-impossibility gain-two criterion at *fixed equal mean* and *iid symmetric two-point jitter*. The closely motivated Jin et al. (first online May 3, 2022) mixes stable and unstable intervals to enhance average spacing, but only the abstract was accessible; its stated sufficient conditions do not themselves establish the present sharp necessary-and-sufficient gain boundary. The 2023 stochastic-sampling optimization article by Wang and Zhu has Poisson-counter timing, also inspected at abstract level. Semantic searches of published research records for fixed-gain two-point sampling jitter, same-mean instability reversal, and exact mean-square stability returned different control and sampling findings, not a covering claim. The 2022 and 2023 full-text access limitation and specialized older binary-switching literature remain genuine priority risks; originality is best-knowledge, not a uniqueness certificate.
+PASS
 
-## Value — PASS
-This is a motivated feedback-stability design question: does timing randomization *at fixed mean sample spacing* sometimes repair a periodic controller that is unstable, and when is that impossible? The proved gain-two cutoff is a sharp universal obstruction within a natural random timing model, not just an isolated numerical counterexample. The closed-form region and strict rational witness provide a controlled benchmark for stochastic versus periodic sampling. The scope is confined to scalar fixed-gain zero-order-hold feedback, symmetric equiprobable timing and sample-indexed mean-square stability; it does not claim general optimal scheduling or physical-time exponent bounds.
+For dx/dt=-x+u with sample/hold u=-k x(t_j), k>1, exact sample multiplier M_k(s)=(k+1)e^-s-k. For iid equal-probability positive H=h±d with h>d>0, conditional variance factor V=E M_k(H)²=k²-2k(k+1)e^-h cosh d+(k+1)² e^-2h(2cosh²d-1), so E X_j²=X_0²V^j exactly. Periodic boundary h_per=log((k+1)/(k-1)); factorization at h_per V-1=2(k-1)(c-1)((k-1)c-1), c=cosh d, produces rescue locally for 1<k<2 by continuity. For k>=2 and h>=h_per, contradiction using u=A-k,v=B-k with A,B positive and u²+v²<2: setting s=u+v in (-2,2) yields AB>(k-1)²+((s+2)(2k+s-2))/2>(k-1)², but AB=(k+1)²e^-2h<=(k-1)². Thus no rescue for any legal d and sharp gain-two iff. Independent rational witness k=3/2, e^-h=19/100, cosh d=6/5 gives V=38567/40000<1 versus periodic 1681/1600>1; symbolic identities in verify.py inspected. All assertions are sample-count mean-square, not physical-time Lyapunov exponents.
 
-## Closest literature and limitations
-Jin, Wang and Wang (2022 online, DOI 10.1080/00207179.2022.2069051) provide the closest *average-interval enhancement* motivation, but their complete article was not obtainable from arXiv/open-access routes or institutional full-text access in this review. Li et al. (2013, DOI 10.1155/2013/252679) and Mustafa–Chen (2013, DOI 10.1049/iet-cta.2012.0355) were materially inspected in open full HTML. Wang–Zhu (2023, DOI 10.1002/rnc.6609) was accessible at abstract level; Tang et al. (2012, DOI 10.1007/s11633-012-0672-y) at abstract level. None of the accessible inspected statements implies the sharp gain-two cutoff without additional derivation. Independent expert/publication-priority review is still required.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published 2022 Jin–Wang–Wang study mixes long and short sampling intervals to enhance average allowed interval and gives sufficient stability conditions, while this result addresses iid, equiprobable symmetric perturbations about a *fixed mean* and identifies a sharp universal gain-two criterion and exact no-go. Li et al (2013) considers random sampling through Markovian period switching and LMI tests, not the same scalar quantified if-and-only-if. Relevant 2022 full text inaccessible; best-of-knowledge priority risk explicitly retained.
+
+## value
+
+PASS
+
+This exact bifurcation between achievable mean-square stochastic stabilization and impossible rescue supplies a design boundary for scalar sampled control; distinguishes average performance from robust worst-case conditions and includes an explicit exact viable witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

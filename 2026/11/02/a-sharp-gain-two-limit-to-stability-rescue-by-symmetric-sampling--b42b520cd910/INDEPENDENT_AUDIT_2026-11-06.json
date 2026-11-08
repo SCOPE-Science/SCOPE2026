@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-06",
+  "audited_at_utc": "2026-11-06T17:07:37.874412Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For dx/dt=-x+u with sample/hold u=-k x(t_j), k>1, exact sample multiplier M_k(s)=(k+1)e^-s-k. For iid equal-probability positive H=h±d with h>d>0, conditional variance factor V=E M_k(H)²=k²-2k(k+1)e^-h cosh d+(k+1)² e^-2h(2cosh²d-1), so E X_j²=X_0²V^j exactly. Periodic boundary h_per=log((k+1)/(k-1)); factorization at h_per V-1=2(k-1)(c-1)((k-1)c-1), c=cosh d, produces rescue locally for 1<k<2 by continuity. For k>=2 and h>=h_per, contradiction using u=A-k,v=B-k with A,B positive and u²+v²<2: setting s=u+v in (-2,2) yields AB>(k-1)²+((s+2)(2k+s-2))/2>(k-1)², but AB=(k+1)²e^-2h<=(k-1)². Thus no rescue for any legal d and sharp gain-two iff. Independent rational witness k=3/2, e^-h=19/100, cosh d=6/5 gives V=38567/40000<1 versus periodic 1681/1600>1; symbolic identities in verify.py inspected. All assertions are sample-count mean-square, not physical-time Lyapunov exponents.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li et al. 2013 studies random period matrices/Lyapunov conditions; Mustafa–Chen 2013 worst-case robust interval criteria differ from averaged stochastic objective."
+        ],
+        "reasoning": "A general stochastic-LMI condition might specialize numerically but no exact gain-2 frontier identified in accessible sources; robust feasibility is a stronger/different quantifier than mean-square i.i.d. sampling.",
+        "searches": [
+          "Stabilization for Networked Control Systems with Random Sampling Periods 2013 Theorems 6 8",
+          "random stabilization of sampled data with nonuniform sampling robust stability vs mean square"
+        ]
+      },
+      "checked_sources": [
+        "Exponential stability of sampled-data control systems with enhanced average sampling interval (https://doi.org/10.1080/00207179.2022.2069051)",
+        "Stabilization for Networked Control Systems with Random Sampling Periods (https://doi.org/10.1155/2013/252679)",
+        "Stabilisation of non-uniformly sampled systems via dynamic output-feedback control (https://doi.org/10.1049/iet-cta.2012.0355)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jin et al. implies that certain nonconstant schedules can improve a sampling objective, not existence iff 1<k<2 for independent symmetric equal-mean noise in this scalar plant."
+        ],
+        "reasoning": "The broad motivation is covered; the exact theorem is not a logical corollary of stated sufficient conditions.",
+        "searches": [
+          "Jin Wang Wang 2022 mixed sampling stable unstable alternating exponential stability",
+          "Li Zhang Zhang Cai 2013 random sampling periods LMI"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jin et al. DOI 10.1080/00207179.2022.2069051 abstract: mixture of stable short and unstable long sequences with sufficient exponential stability, not the fixed-mean equiprobable iid mean-square necessity/sufficiency theorem."
+        ],
+        "reasoning": "Two-period mixing and randomized iid jitter are related but distinct probability/quantifier settings; no implication from a sufficient deterministic schedule to sharp iff gain-two.",
+        "searches": [
+          "random symmetric two point sampling interval scalar feedback mean square stability gain two rescue [Resultary]",
+          "Jin Wang Wang 2022 enhanced average sampling interval"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching formula V or exact rational witness found in target source abstract and relevant research-record search."
+        ],
+        "reasoning": "The exact quadratic criterion is a direct calculation; possible tabulated scalar reduction elsewhere remains a risk. No pre-existing exact table demonstrated by inspected primary source.",
+        "searches": [
+          "gain k=2 Bernoulli symmetric iid sampled data stability exact threshold h±d",
+          "sampled feedback gamma log((k+1)/(k-1)) gain two table"
+        ]
+      },
+      "rationale": "The published 2022 Jin–Wang–Wang study mixes long and short sampling intervals to enhance average allowed interval and gives sufficient stability conditions, while this result addresses iid, equiprobable symmetric perturbations about a *fixed mean* and identifies a sharp universal gain-two criterion and exact no-go. Li et al (2013) considers random sampling through Markovian period switching and LMI tests, not the same scalar quantified if-and-only-if. Relevant 2022 full text inaccessible; best-of-knowledge priority risk explicitly retained.",
+      "residual_risks": [
+        "Most relevant Jin–Wang–Wang full text was inaccessible; authorized Oxford retrieval returned disconnected VPN; it may contain a specialized theorem not visible in abstract.",
+        "At k=2 fixed-gain nonrescue proof restricted to equiprobable positive h±d, not general distributions or physical-time stability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior achieves mixtures of periods in sampled-data systems but no claimed all-parameter nonrescue cutoff in accessible material",
+          "evidence": [
+            "Abstract: stable and unstable intervals combined to enhance average sampling interval; sufficient condition only."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00207179.2022.2069051",
+          "material_read": "Publisher abstract, figures/metadata links where available; full 2022 paper not accessible; OA/arXiv search did not supply full text",
+          "method": "Compared title/abstract quantified model and stabilization criterion; institutional authorized retrieval unavailable",
+          "title": "Exponential stability of sampled-data control systems with enhanced average sampling interval",
+          "trigger": "Very close two-interval mixture and stabilizing unstable periodic sampling"
+        },
+        {
+          "assessment": "Implicit matrix criteria rather than exact scalar iid equiprobable gain-two iff",
+          "evidence": [
+            "Random Markovian period switching and Lyapunov matrix tests."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2013/252679",
+          "material_read": "Full open-access Wiley-hosted article: abstract, §§1–3 finite-state Markovian random-period/feedback model and Theorems 6/8, §§4–6 and illustrative example; equations transcribed with some omissions in HTML rendering",
+          "method": "Read source primary HTML and compared the three-period Markov switching and delay-dependent controller to iid fixed-feedback scalar equal-mean jitter",
+          "title": "Stabilization for Networked Control Systems with Random Sampling Periods",
+          "trigger": "Random periods potentially stronger coverage"
+        },
+        {
+          "assessment": "Different robustness objective, does not itself settle statistical rescue",
+          "evidence": [
+            "Robust stability over every admissible interval differs from expected squared factor."
+          ],
+          "identifier_or_url": "https://doi.org/10.1049/iet-cta.2012.0355",
+          "material_read": "Abstract/method summary of robust intervals, not full text",
+          "method": "Compared adversarial/robust against iid mean-square logical quantifiers",
+          "title": "Stabilisation of non-uniformly sampled systems via dynamic output-feedback control",
+          "trigger": "Worst-case nonuniform timing could include symmetric intervals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This exact bifurcation between achievable mean-square stochastic stabilization and impossible rescue supplies a design boundary for scalar sampled control; distinguishes average performance from robust worst-case conditions and includes an explicit exact viable witness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Exponential stability of sampled-data control systems with enhanced average sampling interval (https://doi.org/10.1080/00207179.2022.2069051)",
+    "Stabilization for Networked Control Systems with Random Sampling Periods (https://doi.org/10.1155/2013/252679)",
+    "Stabilisation of non-uniformly sampled systems via dynamic output-feedback control (https://doi.org/10.1049/iet-cta.2012.0355)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Primary 2022 paper only abstract available; Oxford job f85f95ea9f910b0ea0cc31362dd97833 blocked by disconnected VPN; no access bypass"
+  ],
+  "schema_version": 1
+}
