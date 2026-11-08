@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For any n,d, a one-part collector visits new labels with probability 1-(j/n)^d at count j, giving independent positive geometric waiting stages. Greedy offered-unseen choice stochastically maximizes each part count on K_{a,b} by monotone one-step coupling. Deterministic alternation gives exact parity formulas. Log-concavity and TP2 convolution prove U_a >=_lr U_b, and the support difference makes even-time inequalities strict for k>=a-1. The exact mean identity follows by comparing maxima of independent stage totals. Exact checker passed 704 independent labeled-walk CDF equalities, 160 odd parity identities, 2564 strict even tests and 513 LR minors. The analytic steps, not finite experiments, prove the infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Georgakopoulos et al., Theorem 1.1–1.7 and Section 7, give general hitting/cover bounds and hardness, not a closed-form start-side order; their complete-graph bound is asymptotic.",
+        "O’Neill’s 2023 model includes parameter inequalities for a different chain but not a controller choosing among d offered neighbors."
+      ],
+      "reasoning": "General cover-time computability or asymptotic bounds do not dominate the exact distributional theorem. A potentially covering unpublished specialized d-offer coupon result remains a residual risk, not affirmative evidence of coverage.",
+      "searches": [
+        "\"two-choice random walk\" \"complete bipartite\" cover time",
+        "Georgakopoulos Haslegrave Sauerwald Sylvester 2022 complete bipartite two choice walk cover time",
+        "Power of two choices random walk optimal cover time K_{a,b} exact law start side stochastic dominance"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1911.05170",
+      "https://arxiv.org/pdf/1911.05170",
+      "https://doi.org/10.1007/s11009-023-10053-y",
+      "https://doi.org/10.1016/0304-4149(86)90039-6",
+      "https://doi.org/10.1017/S0963548313000552"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shanthikumar–Yao (1986) supplies the log-concave LR convolution principle used in proof, but neither the birth-rate ordering nor graph cover law.",
+        "O’Neill (2023) deals with single-draw negative occupancy and first-order order, not a nonlinear d-offer process.",
+        "Georgakopoulos et al. (2019) prove bounds and computational complexity, not the alternating complete-bipartite exact-law identity."
+      ],
+      "reasoning": "The key premise absent from the compared sources is the array ordering G_{n,r} >=_lr G_{n-1,r} for d simultaneous random offers and its transfer to an optimal controlled-walk start-side law. This is not a parameter substitution in the linear-rate negative occupancy formula. The d=1 specialization is intentionally excluded.",
+      "searches": [
+        "arxiv:1911.05170 sections 1, 2, 7 and summary; full-text term searches",
+        "doi:10.1007/s11009-023-10053-y Sections 2–4 and Theorem 9",
+        "doi:10.1016/0304-4149(86)90039-6 abstract and bibliographic record",
+        "Exact optimal choice random walk K_{a,b} cover time CDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "O’Neill (2023), Theorem 9, concerns single-draw extended occupancy where fixed fall-through leads to linear birth probabilities; in this theorem the visited-state hold rate is (j/n)^d and two alternating coupon processes interact through parity.",
+        "Georgakopoulos et al. (2019), main results and Table 1 treat the complete graph, trees, grids, expanders and general hardness; no complete-bipartite two-collector formula is stated."
+      ],
+      "reasoning": "Reinterpreting the statement as a d-offer coupon collector yields the strict likelihood-ratio comparison U_a >=_lr U_b and parity CDF determinant. Neither a standard single-draw coupon collector with a fixed success probability nor the full-graph CRW bounds imply this nonlinear all-size pairwise comparison. Earlier single-offer versions are not claimed as new.",
+      "searches": [
+        "Likelihood-ratio order of coupon collector completion times when the number of coupons increases, multiple-choice sampling with replacement",
+        "\"coupon collector\" \"likelihood ratio order\" number coupons",
+        "\"multiple-choice coupon collector\" \"stochastic order\" likelihood",
+        "arxiv:1911.05170 full-text searches \"complete bipartite\" and \"coupon\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A checked discounted-hitting-domination result on complete bipartite graphs concerns a different optimization problem, and a checked reset-coupon asymptotic result does not address this limited-offer cover-walk law.",
+        "Georgakopoulos et al., Table 1, lists a complete-graph expected-cover-time asymptotic but not complete-bipartite optimal cover-time distributions."
+      ],
+      "reasoning": "No checked exact database or named table supplied the all-parameter parity CDFs, the likelihood-ratio collector order or the sharp one-step mean boundary. This search absence is not asserted to prove novelty.",
+      "searches": [
+        "Complete bipartite graph two-choice random walk cover time optimal policy alternating urn coupon collector",
+        "\"power of two choices\" \"coupon collector\" complete graph",
+        "\"complete bipartite\" \"choice random walk\" coupon collector"
+      ]
+    },
+    "rationale": "The closest choice-random-walk primary source studies general hitting and cover bounds, not exact K_{a,b} all-deadline order; the closest 2023 occupancy paper proves stochastic order for a different linear birth-rate model, rather than the nonlinear d-offer discovery probabilities. Classical likelihood-ratio convolution is acknowledged and not claimed as novel. Searches found no exact stronger prior theorem, subject to historical-priority risk.",
+    "residual_risks": [
+      "A prior specialized multiple-choice coupon-collector theorem outside indexed results could imply the likelihood-ratio component.",
+      "The 1986 and 2014 full texts were not read; only their accessible abstracts were used for limited applicability comparisons.",
+      "No independent historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected relevant model and theorem statements do not include exact all-size K_{a,b} cover-time parity or likelihood-ratio orders",
+        "evidence": [
+          "Initial submission 2019-11-12; MSC 60J10; Table 1 includes complete graph asymptotics and other graph classes, not K_{a,b}.",
+          "Section 7 studies algorithmic optimal-policy complexity, not the exact bipartite policy and CDF law."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.05170",
+        "material_read": "Open full-text article, initial submission metadata, introductory statements, Table 1, model definition, Sections 7 and 8; full-text searched for complete bipartite and coupon; PDF pages 4 and 5 visually checked",
+        "method": "Accessible arXiv HTML and PDF text plus visual page checks",
+        "title": "The Power of Two Choices for Random Walks",
+        "trigger": "Same controlled random-walk model, potentially dominating theorem"
+      },
+      {
+        "assessment": "Different fixed-fall-through single-selection occupancy model with linear rather than d-th power holding probabilities",
+        "evidence": [
+          "Theorem 9 orders negative occupancy with fixed parameters m,k,theta.",
+          "The model allocates one ball per trial with constant fall-through probability theta."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11009-023-10053-y",
+        "material_read": "Open-access full HTML, introduction, birth-process definition, Theorems 5, 6 and 9 and Appendix proof excerpts",
+        "method": "Direct full-text HTML inspection of model and main comparison statements",
+        "title": "Three Distributions in the Extended Occupancy Problem",
+        "trigger": "Strong stochastic-order and likelihood-ratio formulas in coupon-collector occupancy"
+      },
+      {
+        "assessment": "Supplies the classical LR-convolution closure technique used as a lemma, but not the graph-specific birth chain or parity identity",
+        "evidence": [
+          "The abstract explicitly identifies log-concave likelihood-ratio convolution preservation as known."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0304-4149(86)90039-6",
+        "material_read": "Published abstract and bibliographic details; full text not accessible in this inspection",
+        "method": "Abstract-level implication comparison",
+        "title": "The preservation of likelihood ratio ordering under convolution",
+        "trigger": "Possible stronger general abstract stochastic order"
+      },
+      {
+        "assessment": "The earlier process chooses from untraversed edges and concerns edge-cover behavior, not d random sampled neighbors for vertex cover",
+        "evidence": [
+          "The source model maintains the set of adjacent edges not yet traversed and prioritizes them."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548313000552",
+        "material_read": "Institutional repository abstract, publisher abstract, bibliographic details; full text not inspected",
+        "method": "Model-definition comparison",
+        "title": "Greedy random walk",
+        "trigger": "Potentially equivalent visited-first walking strategy"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "49171f94-e5b9-4124-a4ef-5de3c446f9f3",
+  "value": {
+    "rationale": "The limited-offer controlled-walk cover-time problem is generally difficult, but on all K_{a,b} a single feedback rule optimizes the entire deadline law. The parity-resolved strict stochastic start-side comparison and <=1-step expectation bound sharpen crude cover-time estimates. The independent all-size likelihood-ratio ordering of nonlinear coupon-collection sums is a structural comparison, not a routine one-point numerical evaluation.",
+    "status": "PASS"
+  }
+}
