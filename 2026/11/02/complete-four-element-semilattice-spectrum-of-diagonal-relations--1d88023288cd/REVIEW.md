@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every four-element meet-semilattice has a least element; its remaining three-element poset is one of five types and all five give valid meets. The checker considers all \(64\) directed nonzero-comparability patterns, applies antisymmetry, transitivity, and unique-meet tests, and reduces by all permutations of labels. For each of the five classes it enumerates all \(4096\) reflexive relations, tests closure directly, verifies congruence equivalence conditions and the cardinality profile, and independently reconstructs the same set by iterated meet closure. There is no extrapolation to larger semilattices. Each of the five rational invariants is computed from its verified exact counts.
+## correctness
 
-**Originality — PASS, qualified.** The February 2026 primary paper explicitly raises semilattice coefficient values as a further question and does not tabulate these five shapes. Earlier results for chains and flat semilattices already imply two rows, which are included solely for exhaustive classification; the Boolean diamond and the two additional branching shapes are not their special cases. Targeted mathematical-record and published-source searches for exact \(306\), \(400\), \(625\) compatible-relation counts and the five-type spectrum did not find equivalent tables. An older semilattice-relation enumeration could imply some counts, so absolute priority remains unconfirmed.
+PASS
 
-**Mathematical value — PASS.** The smallest semilattice size exhibiting five distinct nonisomorphic order structures yields a complete DSC coefficient spectrum, exact graded relation distributions, and the noteworthy fact that the single rational coefficient distinguishes every type. The Boolean diamond is the canonical first nonchain Boolean algebra in meet-only signature and has a different congruence count than the other types. This gives concrete calibrated values for an expressly identified semilattice-coefficient problem; it does not pretend to solve that general problem. The known flat/chain numbers are not individually claimed as novel.
+The only nonzero posets on three elements extending a least element yield exactly five four-element meet-semilattice isomorphism types. Independently enumerated all 2^6 labeled directed orders, filtered partial orders with meets and isomorphisms, then all 2^12 reflexive relations for each type, checking coordinatewise meet closure and congruence equivalence. Exact (D,C) values in flat-star, one-comparability, common-lower, Boolean diamond, chain order: (322,8),(400,8),(625,8),(306,7),(576,8). Reproduced all five full size-polynomial coefficient vectors and pairwise distinct chi values. Both the theorem and verification concern precisely four-element meet-semilattices, not asymptotics or all orders.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Classical semilattice classification supplies chains and flat-star entries; the remaining exact diagonal-relation counts and their aggregate distinguishing property were compared to Barber and Ruškuc's original coefficient framework. The inspected 2026 primary paper explicitly asks which chi values occur for semilattices and supplies no five-type table. Search did not find an identical published small-order census; this is qualified best-of-knowledge, not priority certification.
+
+## value
+
+PASS
+
+The possible chi values for semilattices are posed as a natural problem by Barber–Ruškuc. An exhaustive first genuinely nontrivial five-isomorphism-type spectrum, the exceptional seven-congruence diamond, full relation-size polynomials and separation of every type by chi are useful small-order benchmark facts, not an arbitrary slice of an unmotivated statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
