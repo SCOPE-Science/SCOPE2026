@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Complete trace comparison proves that all core vertices and at least one private path vertex per core are mandatory. Non-core traces have at most one core vertex, while every base trace has at least two, using H connected and h>=2. The only remaining collisions are between closed-twin base vertices both taking a leaf-only private state. The at-most-one-per-class criterion is necessary and sufficient; independent multiplication of the disjoint state contributions establishes the exact polynomial and its boundaries. Independent direct code testing verified 583744 subsets in 49 connected-core cases; finite evidence supplements, not replaces, the uniform proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Foucaud and Lehtilä (2022), arXiv:2204.05250, Proposition 9 and Theorem 10; https://arxiv.org/pdf/2204.05250",
+        "Canoy and Malacas (2015), Tamkang J. Math. 46(1), 51-60, Theorem 4.14, DOI 10.5556/j.tkjm.46.2015.1553",
+        "Foucaud and Lehtilä, Bounds and extremal graphs for total dominating identifying codes, arXiv:2206.09481"
+      ],
+      "reasoning": "The 2015 corona classification has broader base/factor scope only for a different graph operation; it cannot be specialized to the private path construction without changing edges. The 2022 extremal bipartite classification is about the minimum code size. The total dominating identifying-code framework imposes an extra condition and does not imply the ordinary identifying-code polynomial.",
+      "searches": [
+        "\"identifying codes\" \"corona\" \"number\" identifying polynomial",
+        "\"identifying code\" \"pendant path\" polynomial",
+        "2-corona graph identifying codes exact number of minimum code sets closed twins of base graph product class sizes"
+      ]
+    },
+    "checked_sources": [
+      "Foucaud and Lehtilä (2022), arXiv:2204.05250, Proposition 9 and Theorem 10; https://arxiv.org/pdf/2204.05250",
+      "Canoy and Malacas (2015), Tamkang J. Math. 46(1), 51-60, Theorem 4.14, DOI 10.5556/j.tkjm.46.2015.1553",
+      "Foucaud and Lehtilä, Bounds and extremal graphs for total dominating identifying codes, arXiv:2206.09481",
+      "Graph-class comparisons: connected threshold graphs, thick chain graphs, and open identifying-code constructions concern different base graph families or different trace requirements."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Foucaud and Lehtilä (2022), arXiv:2204.05250, Proposition 9 and Theorem 10; https://arxiv.org/pdf/2204.05250",
+        "Proposition 9 proof explicitly forces each core vertex and at least one support/leaf, and exhibits two examples. Theorem 10 characterizes extremal bipartite graphs."
+      ],
+      "reasoning": "The prior force-and-dominate conditions are necessary but not sufficient when two base vertices are closed twins and both private support vertices are omitted. Indeed the core K2 has 3 minimum codes rather than the naive 4, whereas the twin-free core P3 has 8. The new exact if-and-only-if condition identifies and counts the missing obstruction uniformly, giving a non-implied polynomial.",
+      "searches": [
+        "\"Revisiting and improving upper bounds for identifying codes\" \"2-corona\"",
+        "Identifying code enumerator graph attaching a pendant path of length two to every original vertex true-twin quotient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Foucaud and Lehtilä (2022), arXiv:2204.05250, Proposition 9 and Theorem 10; https://arxiv.org/pdf/2204.05250",
+        "Canoy and Malacas (2015), Tamkang J. Math. 46(1), 51-60, Theorem 4.14, DOI 10.5556/j.tkjm.46.2015.1553"
+      ],
+      "reasoning": "Closed-neighborhood identifying codes are also called differentiating-dominating sets. The ordinary corona joins each base vertex to every vertex of an attached factor; a two-corona attaches a pendant two-edge path, producing different closed-neighborhood traces. The 2022 paper uses the correct two-corona but asserts only the identification number and selected constructions, not the all-cardinality twin-class enumerator.",
+      "searches": [
+        "\"identifying code polynomial\" \"2-corona\"",
+        "\"identifying codes\" \"2-corona\" \"count\" \"optimal\"",
+        "\"differentiating-dominating\" \"corona\" polynomial",
+        "\"number of identifying codes\" \"2-corona\"",
+        "\"identifying codes\" \"closed twins\" \"2-corona\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Foucaud and Lehtilä (2022), arXiv:2204.05250, Proposition 9 and Theorem 10; https://arxiv.org/pdf/2204.05250",
+        "No coefficient table, root-profile factorization, or matching enumerator appeared in the exact-title/parameter searches."
+      ],
+      "reasoning": "The verified scalar minimum γ_ID=2h does not determine coefficients of the polynomial, nor the number of minimizing sets; graphs with equal h but different closed-twin partitions yield different coefficients. An unsuccessful database search is not itself proof of priority.",
+      "searches": [
+        "\"identifying code polynomial\" \"2-corona\"",
+        "\"identifying codes\" \"2-corona\" counting number",
+        "Root real spectrum identifying code polynomials of two-coronas"
+      ]
+    },
+    "rationale": "The exact identification number 2h, mandatory core vertices, and two explicit code constructions were already established for H◦2 by Foucaud–Lehtilä. The new claim is not that scalar result. Their inspected Proposition 9/Theorem 10 do not establish the complete three-state classification with one leaf-only choice per closed-twin class, an all-cardinality polynomial for arbitrary cores, its minimum-code multiplicity, or the determination of the twin-profile by roots. Canoy–Malacas address a distinct ordinary corona product. Targeted queries found no equivalent count; absolute priority remains provisional.",
+    "residual_risks": [
+      "Bibliographic and research-record searches are necessarily incomplete; unindexed or uninspected equivalent formulas may exist.",
+      "The 2022 source already implies minimum cardinality 2h and necessary selected vertices; the new claim is confined to exact sufficiency, counts, and twin-profile consequences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior identification number 2h and necessary local lower bound and explicit constructions covered; exact complete distribution and dependence on core closed twins not stated or proved.",
+        "evidence": "Proposition 9 on page 7: every base v forced and one of v1,v2 forced; two exhibited codes. Theorem 10 classifies bipartite extremal graph structures rather than code distributions.",
+        "identifier_or_url": "arXiv:2204.05250; https://arxiv.org/pdf/2204.05250",
+        "material_read": "Full 13-page open-access arXiv text searched; introduction/definitions, section 3 including full Proposition 9 and Theorem 10 proof, and remaining section claims/references checked, with full-page visual inspection of Proposition 9/Theorem 10.",
+        "method": "Open-access full-text reading, section/text searches and page-image verification",
+        "title": "Revisiting and improving upper bounds for identifying codes",
+        "trigger": "Most directly relevant full paper: 2-corona graph and identifying-code extremal result"
+      },
+      {
+        "assessment": "The operation is G◦F with each core vertex adjacent to all vertices of the attached copy of F. This is different from the pendant path two-corona; its theorem does not count the claimed codes.",
+        "evidence": "Page 6 definition joins core vertex to every factor vertex; Theorem 4.14 classifies differentiating-dominating sets in this ordinary corona.",
+        "identifier_or_url": "DOI:10.5556/j.tkjm.46.2015.1553; https://pdfs.semanticscholar.org/df42/141bcd8c51dbc977ec62443bfefdb80da10f.pdf",
+        "material_read": "Full ten-page open-access paper examined, with emphasis on section 4 pages 6-7, its formal corona definition, Theorem 4.14, and neighboring corollary.",
+        "method": "Open-access full-text reading and page-image inspection",
+        "title": "Differentiating-Dominating Sets in Graphs Under Binary Operations",
+        "trigger": "Equivalent naming and possible stronger corona characterization"
+      },
+      {
+        "assessment": "Studies identifying codes additionally constrained to be total dominating; not an equivalent full polynomial for ordinary identifying codes of two-coronas.",
+        "evidence": "The source explicitly has the additional total domination requirement and does not supply a two-corona code-count formula.",
+        "identifier_or_url": "arXiv:2206.09481; https://arxiv.org/pdf/2206.09481",
+        "material_read": "Open-access abstract, definitions and main theorem structure; searched the PDF text for the 2-corona term.",
+        "method": "Open-access full-text search and focused inspection",
+        "title": "Bounds and extremal graphs for total dominating identifying codes",
+        "trigger": "Potential generalization of identifying-code results using related terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d04d1140-4442-4ef4-b7d4-250993d2a5de",
+  "value": {
+    "rationale": "The two-corona is a natural established extremal identifying-code family. Exact counts of every sensor-code size and every minimum code refine the previously known minimum without being implied by it. The normalized polynomial encodes the entire closed-twin partition of the core by its nonzero negative roots, with exact size support, minimum-code multiplicity and optional independent-sensor reliability. These are natural structural invariants and provide a complete labeled census for all connected core graphs, not arbitrary parameter slices.",
+    "status": "PASS"
+  }
+}
