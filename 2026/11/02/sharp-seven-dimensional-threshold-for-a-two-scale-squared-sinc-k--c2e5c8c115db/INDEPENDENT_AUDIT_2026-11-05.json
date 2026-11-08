@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-05",
+  "audited_at_utc": "2026-11-05T01:58:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 8968504f50828fcfd3259600965554795543b938",
+        "check.py frozen blob 8a7152a828caa48a8035ad3188219ad78e78bda8",
+        "Independent exact symbolic B-spline density checks at rational ratios, independent_checks.py"
+      ],
+      "rationale": "For positive scales a,b, after scaling t=max/min>=1, the one-coordinate law of four sphere-coordinate uniforms gives exact cubic spline q_t. The 3->5->7 radial dimension walks generate unique signed p5,p7. Symbolic chamber integration and independent exact checks confirm normalization, second moment, and p7>=0 exactly through inclusive t=1+sqrt(3), with negative open interval beyond. At knot r=2t a positive upward p7 jump (2t/15 for t>1, 4/15 at t=1) violates the nonincreasing Abel-squared tail required of any nonnegative eight-dimensional spectral measure, excluding Phi8 and higher. p5 is nonnegative for every t via known Omega3² in Phi5 and Schur product; nonempty open spectral support gives strict PD on distinct configurations. This is an infinite proof by explicit radial density/Abel necessity, not finite tests.",
+      "residual_risks": [
+        "Abel projection kernel and support argument require sphere-coordinate normalization; checked against actual theorem, but no proof assistant formalization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.3 shows Omega_n² belongs Phi_(2n−1), excluding Phi_2n, but multiplying two Phi5 kernels need not retain a known exact dimension.",
+          "General dimension walks are a technique; they do not by themselves evaluate sign of this explicit four-coordinate p7 or sharp ratio."
+        ],
+        "reasoning": "A broader product theorem would dominate this only if it provided the four-factor positivity boundary. Examined the key special-case and general-walk statements, found no such implication.",
+        "searches": [
+          "Golinskii Malamud Oridoroga Radial positive definite functions Schoenberg matrices Theorems 3.1 4.1 4.3 Remark 4.4",
+          "Daley Porcu Dimension walks and Schoenberg spectral measures"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1502.07179 primary paper key results including Remark 4.4",
+        "Resultary semantic search: radial positive definite sinc squared product dimensions 7 threshold scale ratios",
+        "Daley–Porcu 2014 dimension walks",
+        "Porcu–Zastavnyi 2014 Askey dimension walks",
+        "Current Git result and independent symbolic checker"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior squared sinc dimension five is used directly as Phi5 lower-bound; it cannot establish exact Phi7 cutoff for the product.",
+          "Remark 4.4 is conjectural, not proof of higher-dimensional coverage, and in fact predicts an outcome refuted by the checked equal-scale p7 jump obstruction."
+        ],
+        "reasoning": "Current claim is neither the known factor result nor a corollary of the conjecture; it supplies an explicit threshold and a negative dimension-eight witness.",
+        "searches": [
+          "arxiv:1502.07179 Theorems 4.1 4.3 Remark 4.4",
+          "dimension walk positive definite Euclidean radial function squared sinc product"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sinc z/z is Omega3(z); product squared is characteristic function of four independent uniformly oriented 3-sphere coordinates.",
+          "Golinskii et al, arXiv:1502.07179, Section 4 establishes two-factor related results, not explicit t cutoff; Remark 4.4 conjectures higher powers."
+        ],
+        "reasoning": "Compared via Schoenberg classes Phi_d and four-fold sphere convolution, not only titles. If t=1 the present exclusion of Phi8 is stronger than a conflict with the older conjectural Phi9 prediction; conjecture is not accepted prior coverage.",
+        "searches": [
+          "radial positive definite sinc squared product dimensions 7 threshold scale ratios",
+          "Omega_3(ar)^2 Omega_3(br)^2 Schoenberg dimension dimension walk Fourier B-spline",
+          "arxiv:1502.07179 Remark 4.4 sinc fourth powers conjecture"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned unrelated Fourier-frame/spectral entries, not four-sinc radial PD tables.",
+          "Explicit p7 piecewise polynomials and boundary 1+sqrt(3) absent from found comparisons."
+        ],
+        "reasoning": "Known one-parameter sinc power entries and general Schoenberg moments are not an all-real scale-ratio phase table.",
+        "searches": [
+          "radial positive definite sinc squared product dimensions 7 threshold scale ratios",
+          "sinc^4 radial positive definite dimension 7 8 9 polynomial scale ratio"
+        ]
+      },
+      "rationale": "Golinskii–Malamud–Oridoroga prove the two-factor sphere and squared sinc five-dimensional thresholds, not this four-factor unequal-scale seven-dimensional classification. Their Remark 4.4 contains a general-power conjecture whose n=3,k=4 special case expects dimension 9, whereas this result already excludes 8 even for equal scales. This is a concrete stronger relationship, not merely a missing keyword. No prior explicit closed scale-ratio transition found; bounded search and priority risk recorded.",
+      "residual_risks": [
+        "Unindexed Bessel-product threshold result might already classify t; novelty remains best-of-knowledge.",
+        "A prior conjecture is not a theorem; exact phrasing and assumptions of Remark 4.4 must be kept distinct."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No general-power affirmative theorem covering claim; explicit conjecture about Omega_n powers could be contradicted here",
+          "evidence": [
+            "Theorem 4.3 squared sinc dimension 2n-1; Remark 4.4 conjectural n,k power dimension kn-k+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.07179",
+          "material_read": "Primary PDF including Theorems 3.1, 4.1, 4.3 and Remark 4.4 (relevant sections and original statements)",
+          "method": "Opened PDF, inspected text and page screenshots",
+          "title": "Radial positive definite functions and Schoenberg matrices with negative eigenvalues",
+          "trigger": "Same kernel Omega_n and possible general theorem"
+        },
+        {
+          "assessment": "Exact spectral density proof and verification logic checked",
+          "evidence": [
+            "p7 four pieces, boundary numerator -t²+2t+2, jump and Abel step."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/2c8d98134d9930cd11887f086cc209007a54248d/2026/11/02/sharp-seven-dimensional-threshold-for-a-two-scale-squared-sinc-k--c2e5c8c115db",
+          "material_read": "Entire frozen RESULT.md and check.py source",
+          "method": "Git blobs by SHA",
+          "title": "Sharp seven-dimensional threshold for a two-scale squared-sinc kernel",
+          "trigger": "Actual final proof"
+        },
+        {
+          "assessment": "General tool, no identified scale-specific four-factor sign classification",
+          "evidence": [
+            "General dimension walk alone does not compute the current p7."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-2014-11894-6",
+          "material_read": "Abstract and source-cited structural dimension-walk statement; not claimed full PDF",
+          "method": "Targeted bibliographic/published primary description",
+          "title": "Dimension walks and Schoenberg spectral measures",
+          "trigger": "General dimension walk potentially dominating"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual p7 density and Abel obstruction",
+        "Golinskii et al arXiv:1502.07179 Theorems 4.3 and Remark 4.4"
+      ],
+      "rationale": "A precise dimension jump and sharp ratio cutoff for a canonical product of radial positive-definite kernels are intrinsically motivated by Schoenberg classes and product closure. The inclusive 1+sqrt3 boundary and an explicit failure of dimension eight cannot be read off individual factors. The equal-scale case additionally provides a concrete challenge to a published higher-power conjecture, materially strengthening relevance.",
+      "residual_risks": [
+        "No statement about arbitrary four different scales or conditioning of finite configurations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Abel projection kernel and support argument require sphere-coordinate normalization; checked against actual theorem, but no proof assistant formalization.",
+    "Unindexed Bessel-product threshold result might already classify t; novelty remains best-of-knowledge.",
+    "A prior conjecture is not a theorem; exact phrasing and assumptions of Remark 4.4 must be kept distinct.",
+    "No statement about arbitrary four different scales or conditioning of finite configurations."
+  ],
+  "schema_version": 1
+}

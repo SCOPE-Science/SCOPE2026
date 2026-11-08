@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-uniform cubic B-spline is normalized explicitly. Its radial dimension walks follow from spherical-Bessel moment identities and compact-support moment determinacy. Exact differentiation gives both chamber formulas for the seven-dimensional signed density; the only possible negative branch is controlled by \(-t^2+2t+2\), giving the inclusive threshold \(1+\sqrt3\). The universal five-dimensional lower bound follows from squared Schoenberg kernels. At every ratio, a strictly upward jump in the seven-dimensional density contradicts Abel double-inversion positivity for any eight-dimensional lift. The included symbolic checker passed chamber identity, normalization, second-moment, endpoint, jump and rational-sign tests. **Limit:** finite tests support the algebra and are not the universal proof; the Abel inversion step is essential.
+## correctness
 
-**Originality — PASS under bounded comparison.** The closest primary source, Golinskii–Malamud–Oridoroga, arXiv:1502.07179v1, Theorems 3.1, 4.1 and 4.3, supplies the general dimension transition and proves that individual \(\Omega_3^2\) factors are five-dimensional, but it does not establish the sharp dimension of the two-scale product. The accessible equal-four-sinc result applies only to \(a=b\), while the three-frequency sinc classification concerns three rather than four paired factors. Searches against published mathematical research records for exact expressions, aliases, Schoenberg lifting and the ratio threshold returned no matching implication; related dimension-walk literature supplies methods rather than the stated classification. **Risk:** an equivalent result may occur in less readily indexed Bessel-product or radial-convolution literature. Search absence is not proof of global novelty.
+PASS
 
-**Value — PASS.** This is a complete two-parameter isotropy-index classification for a natural product of Fourier transforms of spherical surface measures. The sharp algebraic scale-separation boundary explains why two five-dimensional positive-definite factors can form a seven-dimensional kernel for some ratios but not others; the included endpoint and no-eight-dimensional statements make the boundary exact, rather than a numerical observation. It gives a usable family of strictly positive-definite radial covariance kernels.
+For positive scales a,b, after scaling t=max/min>=1, the one-coordinate law of four sphere-coordinate uniforms gives exact cubic spline q_t. The 3->5->7 radial dimension walks generate unique signed p5,p7. Symbolic chamber integration and independent exact checks confirm normalization, second moment, and p7>=0 exactly through inclusive t=1+sqrt(3), with negative open interval beyond. At knot r=2t a positive upward p7 jump (2t/15 for t>1, 4/15 at t=1) violates the nonincreasing Abel-squared tail required of any nonnegative eight-dimensional spectral measure, excluding Phi8 and higher. p5 is nonnegative for every t via known Omega3² in Phi5 and Schur product; nonempty open spectral support gives strict PD on distinct configurations. This is an infinite proof by explicit radial density/Abel necessity, not finite tests.
 
-Scientific limitations: only paired frequencies are treated; no unpaired four-radius classification or conditioning theorem is asserted. Originality review is bounded, and mathematical validation by an independent party is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Golinskii–Malamud–Oridoroga prove the two-factor sphere and squared sinc five-dimensional thresholds, not this four-factor unequal-scale seven-dimensional classification. Their Remark 4.4 contains a general-power conjecture whose n=3,k=4 special case expects dimension 9, whereas this result already excludes 8 even for equal scales. This is a concrete stronger relationship, not merely a missing keyword. No prior explicit closed scale-ratio transition found; bounded search and priority risk recorded.
+
+## value
+
+PASS
+
+A precise dimension jump and sharp ratio cutoff for a canonical product of radial positive-definite kernels are intrinsically motivated by Schoenberg classes and product closure. The inclusive 1+sqrt3 boundary and an explicit failure of dimension eight cannot be read off individual factors. The equal-scale case additionally provides a concrete challenge to a published higher-power conjecture, materially strengthening relevance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
